@@ -12,24 +12,123 @@
     ]
   },
   "monsters": [
-    "deep-earth",
-    "ghost-wolf",
-    "giant-viper-angry-face-solo",
-    "high-flame",
+    "earth-demon",
+    "flame-demon",
+    "giant-viper",
+    "hound",
     "spitting-drake"
   ],
   "rules": [
     {
       "round": "true",
-      "start": true,
+      "always": true,
+      "once": true,
       "figures": [
         {
           "identifier": {
             "type": "monster",
+            "name": "hound"
+          },
+          "type": "permanentCondition",
+          "value": "invisible"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "hound"
+          },
+          "statEffect": {
             "name": "ghost-wolf"
           },
-          "type": "gainCondition",
-          "value": "invisible"
+          "note": "%data.scenario.rules.solo.14.1%"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "requiredRooms": [
+        2
+      ],
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "earth-demon"
+          },
+          "statEffect": {
+            "name": "deep-earth",
+            "health": "[Hx2]",
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.solo.14.2%"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "requiredRooms": [
+        3
+      ],
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "flame-demon"
+          },
+          "statEffect": {
+            "name": "high-flame",
+            "actions": [
+              {
+                "type": "shield",
+                "value": 2,
+                "valueType": "add"
+              },
+              {
+                "type": "retaliate",
+                "value": 2,
+                "valueType": "add",
+                "subActions": [
+                  {
+                    "type": "range",
+                    "value": 2,
+                    "valueType": "add"
+                  }
+                ]
+              }
+            ]
+          },
+          "note": "%data.scenario.rules.solo.14.3%"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "requiredRooms": [
+        4
+      ],
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "giant-viper"
+          },
+          "statEffect": {
+            "attack": "1"
+          },
+          "note": "%data.scenario.rules.solo.14.4%"
         }
       ]
     }
@@ -44,8 +143,8 @@
       ],
       "monster": [
         {
-          "name": "ghost-wolf",
-          "type": "boss"
+          "name": "hound",
+          "type": "elite"
         }
       ]
     },
@@ -54,8 +153,8 @@
       "marker": "1",
       "monster": [
         {
-          "name": "deep-earth",
-          "type": "boss"
+          "name": "earth-demon",
+          "type": "elite"
         }
       ]
     },
@@ -68,8 +167,8 @@
       ],
       "monster": [
         {
-          "name": "high-flame",
-          "type": "boss"
+          "name": "flame-demon",
+          "type": "elite"
         }
       ]
     },
@@ -78,19 +177,19 @@
       "marker": "3",
       "monster": [
         {
-          "name": "giant-viper-angry-face-solo",
+          "name": "giant-viper",
           "type": "normal"
         },
         {
-          "name": "giant-viper-angry-face-solo",
+          "name": "giant-viper",
           "type": "normal"
         },
         {
-          "name": "giant-viper-angry-face-solo",
+          "name": "giant-viper",
           "type": "elite"
         },
         {
-          "name": "giant-viper-angry-face-solo",
+          "name": "giant-viper",
           "type": "elite"
         }
       ]

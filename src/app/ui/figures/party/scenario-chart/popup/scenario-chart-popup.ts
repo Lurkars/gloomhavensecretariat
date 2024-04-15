@@ -123,7 +123,7 @@ export class ScenarioChartPopupDialog {
         const conclusions = gameManager.sectionData(this.scenario.edition).filter((sectionData) =>
             sectionData.edition == this.scenario.edition && sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.conclusion);
         if (conclusions.length == 0) {
-            this.addSuccessIntern(this.scenario);
+            this.addSuccessIntern();
         } else {
             this.dialog.open(ScenarioConclusionComponent, {
                 panelClass: ['dialog'],

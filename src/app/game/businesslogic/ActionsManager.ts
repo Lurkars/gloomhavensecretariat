@@ -61,7 +61,7 @@ export class ActionsManager {
         actions.forEach((action, i) => {
             const index = (parentIndex ? parentIndex + '-' : '') + i;
             if (action.type == type && action.value != 'X') {
-                let actionHint: ActionHint = { type: type, value: EntityValueFunction(action.value), range: 0 };
+                let actionHint: ActionHint = new ActionHint(type, EntityValueFunction(action.value));
                 if (action.subActions && action.subActions.length > 0) {
                     let rangeSubAction = action.subActions.find((subAction) => subAction.type == ActionType.range);
                     if (rangeSubAction) {
@@ -73,14 +73,24 @@ export class ActionsManager {
                                 actionHint.range = EntityValueFunction(stats.range) + EntityValueFunction(rangeSubAction.value);
                             } else if (stats && rangeSubAction.valueType == ActionValueType.minus) {
                                 actionHint.range = EntityValueFunction(stats.range) - EntityValueFunction(rangeSubAction.value);
+                            } else if (rangeSubAction.valueType == ActionValueType.add || rangeSubAction.valueType == ActionValueType.subtract) {
+                                actionHint.additionalRange = rangeSubAction.valueType == ActionValueType.add ? "add" : "substract";
+                                actionHint.range = EntityValueFunction(rangeSubAction.value);
                             }
                         }
                     }
                 }
 
-                let existingActionHint = actionHints.find((existing) => existing.type == actionHint.type && existing.range == actionHint.range);
+                let existingActionHint = actionHints.find((existing) => existing.type == actionHint.type && (!actionHint.additionalRange && existing.range == actionHint.range || existing.range && actionHint.additionalRange));
 
                 if (existingActionHint) {
+                    if (existingActionHint.range && actionHint.additionalRange) {
+                        if (actionHint.additionalRange == "add") {
+                            existingActionHint.range += actionHint.range;
+                        } else {
+                            existingActionHint.range -= actionHint.range;
+                        }
+                    }
                     existingActionHint.value += actionHint.value;
                 } else {
                     actionHints.push(actionHint)
