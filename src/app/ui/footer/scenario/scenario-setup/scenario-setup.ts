@@ -51,7 +51,7 @@ export class ScenarioSetupComponent implements OnInit {
         this.monsters = [];
         this.hasSpoiler = false;
         gameManager.scenarioManager.getMonsters(this.scenario, this.scenario.custom).forEach((monsterData) => {
-            let monster: Monster = new Monster(monsterData);
+            let monster: Monster = new Monster(monsterData, gameManager.game.level);
             if (this.spoiler || !monster.standeeShare || gameManager.scenarioManager.openRooms().find((room) => room.initial && room.monster.find((standee) => standee.name.split(':')[0] == monster.name)) || gameManager.game.figures.some((figure) => figure instanceof Monster && figure.name == monster.name && figure.edition == monster.edition)) {
                 if (!this.monsters.find((m) => m.edition == monster.edition && m.name == monster.name)) {
                     monster.tags = [];
