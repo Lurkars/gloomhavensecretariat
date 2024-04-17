@@ -5,12 +5,12 @@
     "eclipse": "어둠장막",
     "lightning": {
       ".": "광전사",
-      "immune": "%game.characterIconColored.lightning% 모든 부정적 상태에 면역",
-      "overheal": "%game.characterIconColored.lightning% 최대 26까지 Hp 회복 가능"
+      "immune": "모든 부정적 상태에 면역",
+      "overheal": "최대 26까지 Hp 회복 가능"
     },
     "music-note": {
       ".": "위무음악가",
-      "song_active": "%game.characterIconColored.music-note% 노래 활성화"
+      "song_active": "노래 활성화"
     },
     "saw": "의무관",
     "squidface": "역병전령",
