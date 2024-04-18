@@ -49,6 +49,10 @@ export class GameManager {
 
   game: Game = new Game();
   editionData: EditionData[] = [];
+  editionMapping: Record<string, string[]> = {};
+  editionMappingAll: Record<string, string[]> = {};
+  editionScenarioMapping: Record<string, string[]> = {};
+  editionScenarioMappingAll: Record<string, string[]> = {};
   stateManager: StateManager;
   entityManager: EntityManager;
   characterManager: CharacterManager;
@@ -144,6 +148,13 @@ export class GameManager {
   }
 
   editionExtensions(edition: string, all: boolean = false): string[] {
+
+    if (all && this.editionMappingAll[edition]) {
+      return this.editionMappingAll[edition];
+    } else if (!all && this.editionMapping[edition]) {
+      return this.editionMapping[edition];
+    }
+
     const editionData = this.editionData.find((editionData) => editionData.edition == edition);
     let extensions: string[] = [];
     if (editionData && editionData.extensions) {
@@ -159,11 +170,39 @@ export class GameManager {
       })
     }
 
+    if (all) {
+      this.editionMappingAll[edition] = extensions;
+    } else {
+      this.editionMapping[edition] = extensions;
+    }
+
     return extensions;
   }
 
   editionScenarioExtensions(edition: string, all: boolean = false): string[] {
-    return this.editionData.filter((additional) => (all || settingsManager.settings.editions.indexOf(additional.edition) != -1) && additional.additional && additional.scenarios && additional.scenarios.length && additional.scenarios.some((scenarioData) => scenarioData.edition == additional.edition) && additional.extensions.indexOf(edition) != -1).map((additional) => additional.edition);
+
+    if (all && this.editionScenarioMappingAll[edition]) {
+      return this.editionScenarioMappingAll[edition];
+    } else if (!all && this.editionScenarioMapping[edition]) {
+      return this.editionScenarioMapping[edition];
+    }
+
+    const extensions = this.editionData.filter((additional) => (all || settingsManager.settings.editions.indexOf(additional.edition) != -1) && additional.additional && additional.scenarios && additional.scenarios.length && additional.scenarios.some((scenarioData) => scenarioData.edition == additional.edition) && additional.extensions.indexOf(edition) != -1).map((additional) => additional.edition);
+
+    if (all) {
+      this.editionScenarioMappingAll[edition] = extensions;
+    } else {
+      this.editionScenarioMapping[edition] = extensions;
+    }
+
+    return extensions;
+  }
+
+  resetEditionMapping() {
+    this.editionMapping = {};
+    this.editionMappingAll = {};
+    this.editionScenarioMapping = {};
+    this.editionScenarioMappingAll = {};
   }
 
   newAmStyle(edition: string): boolean {

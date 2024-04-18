@@ -300,12 +300,14 @@ export class SettingsManager {
   addEdition(edition: string) {
     if (this.settings.editions.indexOf(edition) == -1) {
       this.settings.editions.push(edition);
+      gameManager.resetEditionMapping();
       this.storeSettings();
     }
   }
 
   removeEdition(edition: string) {
     this.settings.editions.splice(this.settings.editions.indexOf(edition), 1);
+    gameManager.resetEditionMapping();
     this.storeSettings();
   }
 
