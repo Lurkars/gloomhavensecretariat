@@ -122,11 +122,11 @@
       ".": "속도의 장화"
     },
     "gh-16": {
-      "1": "%game.items.slots.small% items 아이템 2개 추가 장착 가능.",
+      "1": "%game.items.slots.small% 아이템 2개 추가 장착 가능.",
       ".": "주머니 망토"
     },
     "gh-17": {
-      "1": "차례 중, 장착자 본인의 고갈된 %game.items.slots.small% items 아이템 1개 %game.card.refresh%.",
+      "1": "차례 중, 장착자 본인의 고갈된 %game.items.slots.small% 아이템 1개 %game.card.refresh%.",
       ".": "권능의 부적"
     },
     "gh-18": {

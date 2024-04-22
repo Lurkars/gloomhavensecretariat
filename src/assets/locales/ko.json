@@ -1,11 +1,11 @@
 {
   "about": {
     ".": "소개",
-    "forceUpdate": "강제 갱신하기",
+    "forceUpdate": "강제 갱신",
     "ip": "글룸헤이븐 및 모든 관련 속성, 이미지 및 텍스트는 {0}의 소유입니다.",
-    "license": "{0} 라이센스를 따릅니다.",
+    "license": "{0} 라이센스",
     "sourceCode": "소스 코드",
-    "support": "개발 지원하기"
+    "support": "개발 지원"
   },
   "and": "및",
   "app": {
