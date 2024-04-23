@@ -263,10 +263,16 @@ export class ActionComponent implements OnInit, OnDestroy {
       let statValue: number = 0;
       if (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) {
         if (!this.action.subActions || !this.action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !(shieldSubAction.value + '').startsWith('self'))) {
-          const statAction = stat.actions && stat.actions.find((statAction) => this.action && statAction.type == this.action.type);
-          if (statAction && statAction != this.action) {
-            statValue = EntityValueFunction(statAction.value, this.level);
-          }
+          const rangeSubAction: Action | undefined = this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.range);
+          const statActions = stat.actions && stat.actions.filter((statAction) => this.action && statAction.type == this.action.type) || [];
+          statActions.forEach((statAction) => {
+            if (this.action && statAction != this.action) {
+              const statRangeSubAction: Action | undefined = statAction.subActions && statAction.subActions.find((subAction) => subAction.type == ActionType.range);
+              if (!rangeSubAction && !statRangeSubAction || rangeSubAction && statRangeSubAction && EntityValueFunction(rangeSubAction.value, this.level) == EntityValueFunction(statRangeSubAction.value, this.level)) {
+                statValue = EntityValueFunction(statAction.value, this.level);
+              }
+            }
+          })
         }
 
         if (statValue > 0) {

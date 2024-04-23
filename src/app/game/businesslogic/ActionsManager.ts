@@ -29,19 +29,19 @@ export class ActionsManager {
     calcActionHints(monster: Monster, entity: MonsterEntity): ActionHint[] {
         let actionHints: ActionHint[] = [];
         const stat = gameManager.monsterManager.getStat(monster, entity.type);
-        this.calcActionHint(monster, entity, ActionType.shield, stat.actions, actionHints);
-        this.calcActionHint(monster, entity, ActionType.retaliate, stat.actions, actionHints);
+        this.calcActionHint(monster, entity.type, ActionType.shield, stat.actions, actionHints);
+        this.calcActionHint(monster, entity.type, ActionType.retaliate, stat.actions, actionHints);
         if (gameManager.entityManager.isAlive(entity, true) && (!entity.active || monster.active)) {
             const activeFigure = gameManager.game.figures.find((figure) => figure.active);
             if (monster.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster))) {
                 let ability = gameManager.monsterManager.getAbility(monster);
                 if (ability) {
-                    this.calcActionHint(monster, entity, ActionType.shield, ability.actions, actionHints);
-                    this.calcActionHint(monster, entity, ActionType.retaliate, ability.actions, actionHints);
+                    this.calcActionHint(monster, entity.type, ActionType.shield, ability.actions, actionHints);
+                    this.calcActionHint(monster, entity.type, ActionType.retaliate, ability.actions, actionHints);
 
                     if (ability.bottomActions) {
-                        this.calcActionHint(monster, entity, ActionType.shield, ability.bottomActions, actionHints, 'bottom');
-                        this.calcActionHint(monster, entity, ActionType.retaliate, ability.bottomActions, actionHints, 'bottom');
+                        this.calcActionHint(monster, entity.type, ActionType.shield, ability.bottomActions, actionHints, 'bottom');
+                        this.calcActionHint(monster, entity.type, ActionType.retaliate, ability.bottomActions, actionHints, 'bottom');
                     }
                 }
             }
@@ -57,7 +57,7 @@ export class ActionsManager {
         });
     }
 
-    calcActionHint(monster: Monster, entity: MonsterEntity, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: string = "") {
+    calcActionHint(monster: Monster, monsterType: MonsterType, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: string = "") {
         actions.forEach((action, i) => {
             const index = (parentIndex ? parentIndex + '-' : '') + i;
             if (action.type == type && action.value != 'X') {
@@ -68,7 +68,7 @@ export class ActionsManager {
                         if (!rangeSubAction.valueType || rangeSubAction.valueType == ActionValueType.fixed) {
                             actionHint.range = EntityValueFunction(rangeSubAction.value);
                         } else {
-                            const stats = gameManager.monsterManager.getStat(monster, entity.type);
+                            const stats = gameManager.monsterManager.getStat(monster, monsterType);
                             if (stats && rangeSubAction.valueType == ActionValueType.plus) {
                                 actionHint.range = EntityValueFunction(stats.range) + EntityValueFunction(rangeSubAction.value);
                             } else if (stats && rangeSubAction.valueType == ActionValueType.minus) {
@@ -95,14 +95,14 @@ export class ActionsManager {
                 } else {
                     actionHints.push(actionHint)
                 }
-            } else if (action.type == ActionType.monsterType && action.value == entity.type || action.type == ActionType.concatenation || action.type == ActionType.grid) {
-                this.calcActionHint(monster, entity, type, action.subActions, actionHints, index);
+            } else if (action.type == ActionType.monsterType && action.value == monsterType || action.type == ActionType.concatenation || action.type == ActionType.grid) {
+                this.calcActionHint(monster, monsterType, type, action.subActions, actionHints, index);
             } else if (action.type == ActionType.element && action.valueType == ActionValueType.minus && monster.entities.find((monsterEntity) => monsterEntity.tags.find((tag) => tag == this.roundTag(action, index)))) {
-                this.calcActionHint(monster, entity, type, action.subActions, actionHints, index);
+                this.calcActionHint(monster, monsterType, type, action.subActions, actionHints, index);
             } else if (action.type == ActionType.special) {
-                const stats = monster.stats.find((stat) => stat.level == monster.level && stat.type == entity.type);
+                const stats = monster.stats.find((stat) => stat.level == monster.level && stat.type == monsterType);
                 if (stats) {
-                    this.calcActionHint(monster, entity, type, stats.special[EntityValueFunction(action.value) - 1], actionHints, index);
+                    this.calcActionHint(monster, monsterType, type, stats.special[EntityValueFunction(action.value) - 1], actionHints, index);
                 }
             }
         })
