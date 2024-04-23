@@ -1,44 +1,1195 @@
 {
+    "character": {
+      "astral": "Infuser",
+      "coral": "Crashing Tide",
+      "drill": {
+        ".": "Metal Mosaic",
+        "high": "High",
+        "low": "Low",
+        "regular": "Regular",
+        "over": "Over"
+      },
+      "fist": {
+        ".": "Frozen Fist",
+        "gift-of-the-mountain": "At end of turn, %game.action.heal% 2, self",
+        "one-with-the-mountain": "Permanent %game.condition.regenerate%"
+      },
+      "kelp": {
+        ".": "Deepwraith",
+        "trophy_tokens": "%data.characterToken.kelp.trophy% Trophy Tokens"
+      },
+      "meteor": "Pyroclast",
+      "prism": {
+        ".": "HIVE",
+        "prism_mode": "%data.characterToken.prism.mode% Mode Token"
+      },
+      "shackles": "Pain Conduit",
+      "shards": "Shattersong",
+      "snowflake": "Snowdancer",
+      "trap": "Trapper"
+    },
     "summon": {
-        "animated-claymore": "Animated Claymore",
-        "arcing-generator": "Arcing Generator",
-        "armored-tank": "Armored Tank",
-        "banner-of-courage": "Banner of Courage",
-        "banner-of-doom": "Banner of Doom",
-        "banner-of-hope": "Banner of Hope",
-        "banner-of-strength": "Banner of Strength",
-        "banner-of-valor": "Banner of Valor",
-        "bombardier": "Bombardier",
-        "bone-horde": "Bone Horde",
-        "dampening-unit": "Dampening Unit",
-        "defense-grid": "Defense Grid",
-        "flesh-bomb": "Flesh Bomb",
-        "flesh-fiend": "Flesh Fiend",
-        "jackal-mech": "Jackal Mech",
-        "leaper": "Leaper",
-        "longbowman": "Longbowman",
-        "machine-bolter": "Machine Bolter",
-        "polar-cat": "Polar Cat",
-        "raging-corpse": "Raging Corpse",
-        "reinforcements": "Reinforcements",
-        "repair-drone": "Repair Drone",
-        "shadow-beast": "Shadow Beast",
-        "shadow-horror": "Shadow Horror",
-        "shaggy-lure": "Shaggy Lure",
-        "shambling-skeleton": "Shambling Skeleton",
-        "shield-spider": "Shield Spider",
-        "skeleton-sorcerer": "Skeleton Sorcerer",
-        "sledge-driver": "Sledge Driver",
-        "sniper-turret": "Sniper Turret",
-        "snow-fox": "Snow Fox",
-        "spiritbound-falchion": "Spiritbound Falchion",
-        "stitched-atrocity": "Stitched Atrocity",
-        "sword-propeller": "Sword Propeller",
-        "torch-bearer": "Torch Bearer",
-        "toxin-distributor": "Toxin Distributor",
-        "trained-falcon": "Trained Falcon",
-        "trapping-unit": "Trapping Unit",
-        "white-owl": "White Owl",
-        "wraith": "Wraith"
+      "animated-claymore": "Animated Claymore",
+      "arcing-generator": "Arcing Generator",
+      "armored-tank": "Armored Tank",
+      "banner-of-courage": "Banner of Courage",
+      "banner-of-doom": "Banner of Doom",
+      "banner-of-hope": "Banner of Hope",
+      "banner-of-strength": "Banner of Strength",
+      "banner-of-valor": "Banner of Valor",
+      "bombardier": "Bombardier",
+      "bone-horde": "Bone Horde",
+      "dampening-unit": "Dampening Unit",
+      "defense-grid": "Defense Grid",
+      "flesh-bomb": "Flesh Bomb",
+      "flesh-fiend": "Flesh Fiend",
+      "jackal-mech": "Jackal Mech",
+      "leaper": "Leaper",
+      "longbowman": "Longbowman",
+      "machine-bolter": "Machine Bolter",
+      "polar-cat": "Polar Cat",
+      "raging-corpse": "Raging Corpse",
+      "reinforcements": "Reinforcements",
+      "repair-drone": "Repair Drone",
+      "shadow-beast": "Shadow Beast",
+      "shadow-horror": "Shadow Horror",
+      "shaggy-lure": "Shaggy Lure",
+      "shambling-skeleton": "Shambling Skeleton",
+      "shield-spider": "Shield Spider",
+      "skeleton-sorcerer": "Skeleton Sorcerer",
+      "sledge-driver": "Sledge Driver",
+      "sniper-turret": "Sniper Turret",
+      "snow-fox": "Snow Fox",
+      "spiritbound-falchion": "Spiritbound Falchion",
+      "stitched-atrocity": "Stitched Atrocity",
+      "sword-propeller": "Sword Propeller",
+      "torch-bearer": "Torch Bearer",
+      "toxin-distributor": "Toxin Distributor",
+      "trained-falcon": "Trained Falcon",
+      "trapping-unit": "Trapping Unit",
+      "white-owl": "White Owl",
+      "wraith": "Wraith"
+    },
+    "campaignSticker": {
+      "42-temple": "Temple"
+    },
+    "items": {
+      "fh-1": {
+        "1": "During your attack ability, gain advantage on one attack.",
+        ".": "Spyglass"
+      },
+      "fh-2": {
+        "1": "When you are attacked, treat any %game.attackmodifier.double% attack modifier card the enemy draws as a %game.attackmodifier.plus1% instead.",
+        ".": "Crude Helmet"
+      },
+      "fh-3": {
+        "1": "At the start of the scenario increase your maximum hit point value by 1.",
+        ".": "Traveling Cloak"
+      },
+      "fh-4": {
+        "1": "On the next two attacks targeting you, the attacker gains disadvantage.",
+        ".": "Crude Hide Armor"
+      },
+      "fh-5": {
+        "1": "During your move ability, add +1 %game.action.move%",
+        ".": "Crude Boots"
+      },
+      "fh-6": {
+        "1": "During your end-of-turn looting, loot an adjacent hex instead of the hex you occupy.",
+        ".": "Flexible Slippers"
+      },
+      "fh-7": {
+        "1": "During your turn, add +1 %game.action.range% to one of your ranged attacks.",
+        ".": "Crude Bow"
+      },
+      "fh-8": {
+        "1": "During your turn, one of your single-target melee attack abilities may target an enemy two hexes away.",
+        ".": "Crude Spear"
+      },
+      "fh-9": {
+        "1": "During you turn, grant one ally within %game.action.range:2%:",
+        ".": "Protective Scepter"
+      },
+      "fh-10": {
+        "1": "When an enemy would apply a negative condition to you, prevent the condition",
+        ".": "Crude Shield"
+      },
+      "fh-11": {
+        "1": "At the start of the scenario remove one %game.attackmodifier.minus1% modifier card from your attack modifier deck.",
+        ".": "Simple Charm"
+      },
+      "fh-12": {
+        "1": "When you suffer %game.damage% from an attack, gain %game.action.shield:2% for the attack.",
+        ".": "Crude Chain Armor"
+      },
+      "fh-13": {
+        "1": "After you suffer %game.damage% from an attack, perform:",
+        ".": "Dancing Slippers"
+      },
+      "fh-14": {
+        "1": "During your melee attack ability, add +1 %game.action.attack% to one attack.",
+        ".": "Heavy Sword"
+      },
+      "fh-15": {
+        "1": "When an enemy would apply a negative condition to you, prevent the condition.",
+        ".": "Reinforced Shield"
+      },
+      "fh-16": {
+        "1": "During your turn, grant all adjacent allies: %game.action.move% 2",
+        ".": "Inspiring Helmet"
+      },
+      "fh-17": {
+        "1": "On the next two attacks targeting you, the attacker gains disadvantage.",
+        ".": "Cured Leather Armor"
+      },
+      "fh-18": {
+        "1": "During your turn add +1 %game.action.move% to all your move abilities.",
+        ".": "Rough Boots"
+      },
+      "fh-19": {
+        "1": "During your attack ability add %game.condition.muddle% all your attacks.",
+        ".": "Ringing Hammer"
+      },
+      "fh-20": {
+        "1": "During your turn, add +1 %game.action.range% to all your ranged attacks.",
+        ".": "Well Strung Bow"
+      },
+      "fh-21": {
+        "1": "While you are adjacent to three or more enemies, gain %game.action.shield:1%.",
+        ".": "Chain Hood"
+      },
+      "fh-22": {
+        "1": "When you suffer %game.damage% from an attack, gain %game.action.shield:3% for the attack.",
+        ".": "Heavy Chain Armor"
+      },
+      "fh-23": {
+        "1": "At the start of your turn, add -2 %game.action.move% to all your move abilities to gain %game.action.shield% this round. ",
+        ".": "Sturdy Greaves"
+      },
+      "fh-24": {
+        "1": "During your melee attack ability, add %game.condition.wound%, %game.condition.poison%, and %game.condition.muddle% to one attack.",
+        ".": "Corrupted Blade"
+      },
+      "fh-25": {
+        "1": "During your turn, perform %game.condition.regenerate% %game.action.target% 1 ally, %game.action.range:2%",
+        ".": "Soothing Scepter"
+      },
+      "fh-26": {
+        "1": "During your attack ability, treat all negative and %game.attackmodifier.null% modifier cards as %game.attackmodifier.plus0% instead.",
+        ".": "Truesight Lenses"
+      },
+      "fh-27": {
+        "1": "Immediately after an enemy ends its move ability adjacent to you, perform %game.action.push% %game.action.target% the enemy",
+        ".": "Cloak of Warding"
+      },
+      "fh-28": {
+        "1": "During your turn add +1 %game.action.move% to all your move abilities and ignore difficult terrain.",
+        ".": "Sturdy Boots"
+      },
+      "fh-29": {
+        "1": "After your melee attack, one enemy adjacent to the target suffers %game.damage% 2.",
+        ".": "Cleaving Axe"
+      },
+      "fh-30": {
+        "1": "Immediately after an enemy ends its move ability adjacent to you, perform %game.action.attack% 3 %game.action.target% the enemy",
+        ".": "Parrying Gauntlet"
+      },
+      "fh-31": {
+        "1": "When you suffer %game.damage% from any source, negate the %game.damage%.",
+        ".": "Deathproof Charm"
+      },
+      "fh-32": {
+        "1": "During yur turn, perform %game.condition.ward% self",
+        ".": "Shell Armor"
+      },
+      "fh-33": {
+        "1": "Up to once each turn during your move ability, add +1 %game.action.move%, then flip this card over at the end of your turn.",
+        "2": "Up to once each turn during your move ability, suffer %game.damage:1%, then flip this card over at the end of your turn.",
+        ".": "Volatile Boots"
+      },
+      "fh-34": {
+        "1": "After your ranged attack, all enemies adjacent to the target suffer %game.damage% 2.",
+        ".": "Shrapnel Bomb"
+      },
+      "fh-35": {
+        "1": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack and prevent any negative conditions from the attack.",
+        ".": "Kite Shield"
+      },
+      "fh-36": {
+        "1": "When you are attacked by an attack with disadvantage, treat all %game.attackmodifier.plus0% and %game.attackmodifier.plus1% attack modifier cards as %game.attackmodifier.minus1%.",
+        ".": "Plumed Helmet"
+      },
+      "fh-37": {
+        "1": "During your turn suffer %game.damage% 3 to perform $invisible$ self",
+        ".": "Ghost Cloak"
+      },
+      "fh-38": {
+        "1": "During your turn, perform: %game.action.move% 2 This movement must end adjacent to an enemy.",
+        ".": "Duelists Shoes"
+      },
+      "fh-39": {
+        "1": "During your attack ability, add +3 %game.action.attack% and %game.action.pierce% to one attack targeting a Frozen Corpse, Ice Wraith, or Living Doom.",
+        ".": "Abyss Axe"
+      },
+      "fh-40": {
+        "1": "During your turn, add +1 %game.action.attack% and +2 %game.action.range% to one of your ranged attacks.",
+        ".": "Heartstrike Bow"
+      },
+      "fh-41": {
+        "1": "At the start of the scenario remove one %game.attackmodifier.plus0% and one %game.attackmodifier.minus1% modifier card from your attack modifier deck.",
+        ".": "Intricate Charm"
+      },
+      "fh-42": {
+        "1": "On the next two sources of %game.damage% from attacks targeting you gain %game.action.shield:2% for the attacks.",
+        ".": "Ornate Armor"
+      },
+      "fh-43": {
+        "1": "During your melee attack ability, add %game.action.push% to one attack.",
+        ".": "Kicking Boots"
+      },
+      "fh-44": {
+        "1": "When you would gain %game.condition.poison% %game.condition.curse%, gain %game.condition.bless%.",
+        ".": "Sword of Absolution"
+      },
+      "fh-45": {
+        "1": "During your turn, perform:",
+        ".": "Master Scepter"
+      },
+      "fh-46": {
+        "1": "During your attack ability, gain advantage on all attacks and treat all %game.attackmodifier.plus0% and %game.attackmodifier.minus1% modifier cards as %game.attackmodifier.plus1% instead.",
+        ".": "Double-Lens Goggles"
+      },
+      "fh-47": {
+        "1": "On the next two sources of %game.damage% from attacks targeting you, suffer %game.damage% 3 to give the attacker %game.condition.brittle%.",
+        ".": "Robes of Doom"
+      },
+      "fh-48": {
+        "1": "After an ally's heal ability targeting you, perform:",
+        ".": "Living Shoes"
+      },
+      "fh-49": {
+        "1": "During your melee attack ability, add +1 %game.action.attack% and %game.condition.wound% one attack.",
+        ".": "Cruel Dagger"
+      },
+      "fh-50": {
+        "1": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack and flip this card over.",
+        "2": "During your melee attack ability, add %game.action.pierce% 1 to one attack and flip this card over.",
+        ".": "Shield of Reciprocity"
+      },
+      "fh-51": {
+        "1": "During your turn perform %game.condition.wound% self",
+        ".": "Spiked Collar"
+      },
+      "fh-52": {
+        "1": "During your turn, %game.element.consume.fire% to cause up to two enemies within %game.action.range:4% to suffer %game.damage% 1.",
+        ".": "Laser Lens"
+      },
+      "fh-53": {
+        "1": "After you move 4 or more hexes during your turn, gain %game.action,retaliate% 1 for the round.",
+        ".": "Hobnail Boots"
+      },
+      "fh-54": {
+        "1": "During your short rest, instead of randomly losing one card from your discard pile, randomly draw three cards from your discard pile and choose one to lose.",
+        ".": "Restful Slippers"
+      },
+      "fh-55": {
+        "1": "When you are attacked by an adjacent enemy, gain %game.action,retaliate% 2 for the attack.",
+        ".": "Biting Gauntlet"
+      },
+      "fh-56": {
+        "1": "During your turn, %game.element.consume.earth% to loot one adjacent loot token.",
+        ".": "Scavenger's Magnet"
+      },
+      "fh-57": {
+        "1": "During your turn, destroy one adjacent obstacle, hazardous terrain, difficult terrain, icy terrain, or trap tile.",
+        ".": "Shovel"
+      },
+      "fh-58": {
+        "1": "During your melee attack ability, add +2 %game.action.attack% to one attack. After the ability, gain %game.condition.disarm%.",
+        ".": "Slippery Sword"
+      },
+      "fh-59": {
+        "1": "At the start of the scenario, for the scenario, gain one 1-mark perk from your character sheet which you have not yet gained.",
+        ".": "Charm of Expertise"
+      },
+      "fh-60": {
+        "1": "At the start of the scenario, bring up to two additional %game.items.slots.small% items.",
+        ".": "Cloak of Many Pockets"
+      },
+      "fh-61": {
+        "1": "Immediately after you are attacked by an adjacent enemy, that enemy suffers %game.damage% X, where is X is your %game.action.shield% value for the attack.",
+        ".": "Spiked Shell"
+      },
+      "fh-62": {
+        "1": "During your move ability, add +1 %game.action.move% and gain %game.condition.regenerate%",
+        ".": "Everlasting Boots"
+      },
+      "fh-63": {
+        "1": "During your move ability, %game.element.consume.dark% add +2 %game.action.move%",
+        ".": "Shadow Stompers"
+      },
+      "fh-64": {
+        "1": "When one of your summons is killed, all enemies adjacent to it suffer %game.damage% 2 and gain %game.condition.wound%.",
+        ".": "Detonator"
+      },
+      "fh-65": {
+        "1": "During your turn, place a character token on one normal or elite enemy within %game.action.range:3%.  That enemy gains -1 %game.action.shield% for the scenario.",
+        ".": "Rust Powder"
+      },
+      "fh-66": {
+        "1": "At the start of your rest, perform:",
+        ".": "Amulet of Eternal Life"
+      },
+      "fh-67": {
+        "1": "When you are attacked, add +1 %game.action.attack% to attack to instead of drawing an attack modifier card and flip this card over.",
+        "2": "During you attack ability add +1 %game.action.attack% to one attack instead of drawing an attack modifier card and flip this card over.",
+        ".": "Converging Lenses"
+      },
+      "fh-68": {
+        "1": "On the next three sources of 2 or fewer %game.damage% you would suffer, negate the %game.damage%.",
+        ".": "Scaled Armor"
+      },
+      "fh-69": {
+        "1": "When you suffer %game.damage% from an attack, %game.element.consume.air% to gain %game.action.shield:3% for the attack.",
+        ".": "Feathered Cloak"
+      },
+      "fh-70": {
+        "1": "When you suffer %game.damage% from %game.action.retaliate%, reduce the %game.damage% to 1. If it already 1, reduce it to 0 instead.",
+        ".": "Aesther Robe"
+      },
+      "fh-71": {
+        "1": "After your ability where you kill an enemy, perform:",
+        ".": "Bone Boots"
+      },
+      "fh-72": {
+        "1": "During you turn, %game.element.consume.light% to perform:",
+        ".": "Oak Staff"
+      },
+      "fh-73": {
+        "1": "When you apply a positive condition to an ally, a different ally within %game.action.range:3% gains the same condition.",
+        ".": "Energizing Baton"
+      },
+      "fh-74": {
+        "1": "During your turn, perform:",
+        ".": "Shock Grenades"
+      },
+      "fh-75": {
+        "1": "After any ally within %game.action.range:2% suffers %game.damage% from an attack, remove all negative conditions from the ally then perform:",
+        ".": "Rose Gauntlet"
+      },
+      "fh-76": {
+        "1": "During one of your summons' turns, decide how it performs it's abilities.",
+        ".": "Horn of Command"
+      },
+      "fh-77": {
+        "1": "During you turn, replace one 1-hex obstacle, hazardous terrain, difficult terrain, or icy terrain tile in an unoccupied hex withing %game.action.range:2% with a different type of tile listed above.",
+        ".": "Chaos Cannon"
+      },
+      "fh-78": {
+        "1": "Once each turn, during your attack ability, gain advantage on one attack, then flip this card over at the end of your turn.",
+        "2": "Once each turn, during your attack ability, gain disadvantage on one attack, then flip this card over at the end of your turn.",
+        ".": "Balanced Scales"
+      },
+      "fh-79": {
+        "1": "During you turn, add +1 %game.action.attack% to all your attacks and perform:",
+        ".": "Roasted Fowl"
+      },
+      "fh-80": {
+        "1": "When you would suffer 4 or fewer %game.damage% from attack, negate the %game.damage% and perform %game.action.heal% X self where x is the amount of damage you would have suffered.",
+        ".": "Living Stone"
+      },
+      "fh-81": {
+        "1": "When you suffer 5 or fewer %game.damage% from an attack, one enemy within %game.action.range:2% also suffers the same amount of %game.damage%.",
+        ".": "Pain Simulacrum"
+      },
+      "fh-82": {
+        "1": "During your move ability, after you enter any one hex, give %game.condition.immobilize% all adjacent enemies.",
+        ".": "Mechanical Cube"
+      },
+      "fh-83": {
+        "1": "During your turn, perform %game.action.heal% 3 self",
+        ".": "Healing Potion"
+      },
+      "fh-84": {
+        "1": "During your turn, %game.card.recover% one level 1 card from your discard pile.",
+        ".": "Stamina Potion"
+      },
+      "fh-85": {
+        "1": "During your turn, add +1 %game.action.attack% to all your attacks.",
+        ".": "Power Potion"
+      },
+      "fh-86": {
+        "1": "During your turn, %game.element.wild%",
+        ".": "Element Potion"
+      },
+      "fh-87": {
+        "1": "During your turn, remove one negative condition you have.  This item can be used while you have %game.condition.impair% %game.condition.stun%.",
+        ".": "Cure Potion"
+      },
+      "fh-88": {
+        "1": "During your turn perform %game.action,retaliate% 1 %game.action.range:3% ",
+        ".": "Fireshield Potion"
+      },
+      "fh-89": {
+        "1": "During your turn, perform %game.condition.ward% self",
+        ".": "Stoneskin Potion"
+      },
+      "fh-90": {
+        "1": "During your turn, perform %game.condition.strengthen% self",
+        ".": "Muscle Potion"
+      },
+      "fh-91": {
+        "1": "During your turn, perform %game.condition.bless% self",
+        ".": "Holy Water"
+      },
+      "fh-92": {
+        "1": "During your turn, %game.card.recover% up to two of your spent items.",
+        ".": "Renewing Potion"
+      },
+      "fh-93": {
+        "1": "When you reveal a %game.attackmodifier.null% attack modifier card from your attack modifier deck, treat it as a %game.attackmodifier.plus0% instead.",
+        ".": "Glancing Potion"
+      },
+      "fh-94": {
+        "1": "During your turn, perform:",
+        ".": "Frenzy Potion"
+      },
+      "fh-95": {
+        "1": "During your turn, perform %game.condition.poison% %game.action.range:1%",
+        ".": "Poison Vial"
+      },
+      "fh-96": {
+        "1": "During your turn, perform %game.condition.wound% %game.action.range:1%",
+        ".": "Flame Vial"
+      },
+      "fh-97": {
+        "1": "During your turn, one enemy withing %game.action.range:2% suffers %game.damage% 2.",
+        ".": "Explosive Vial"
+      },
+      "fh-98": {
+        "1": "During your turn, perform %game.condition.wound%, %game.condition.poison% self",
+        ".": "Unhealthy Mixture"
+      },
+      "fh-99": {
+        "1": "During your turn, perform %game.action.heal% 6 self",
+        ".": "Major Healing Potion"
+      },
+      "fh-100": {
+        "1": "During your turn, %game.card.recover% one card from your discard pile.",
+        ".": "Major Stamina Potion"
+      },
+      "fh-101": {
+        "1": "During your turn, add +2 %game.action.attack% to all your attacks.",
+        ".": "Major Power Potion"
+      },
+      "fh-102": {
+        "1": "During your turn, %game.element.wild% %game.element.wild%",
+        ".": "Major Element Potion"
+      },
+      "fh-103": {
+        "1": "During your turn, remove all negative conditions you have.  This item can be used while you have %game.condition.impair% %game.condition.stun%.",
+        ".": "Major Cure Potion"
+      },
+      "fh-104": {
+        "1": "During your move ability, add +3 %game.action.move% and %game.action.jump%.",
+        ".": "Swiftness Potion"
+      },
+      "fh-105": {
+        "1": "During your turn, perform, %game.action,retaliate% 2 %game.action.range:3% ",
+        ".": "Major Fireshield Potion"
+      },
+      "fh-106": {
+        "1": "During your turn, perform %game.condition.ward% %game.action.target% 2 adjacent allies and self",
+        ".": "Stonewall Potion"
+      },
+      "fh-107": {
+        "1": "During your turn, perform %game.condition.strengthen% %game.action.target% 2 adjacent allies and self",
+        ".": "Vigor Potion"
+      },
+      "fh-108": {
+        "1": "During your turn, perform %game.condition.bless% %game.action.target% 2 adjacent allies and self",
+        ".": "Holy Rain"
+      },
+      "fh-109": {
+        "1": "During your turn, %game.card.recover% up to one of your lost 2-herb potions.",
+        ".": "Major Renewing Potion"
+      },
+      "fh-110": {
+        "1": "When you reveal a %game.attackmodifier.null% attack modifier card from your attack modifier deck, treat it as a %game.attackmodifier.plus2% instead.",
+        ".": "Precision Potion"
+      },
+      "fh-111": {
+        "1": "During your turn, perform:",
+        ".": "Major Frenzy Potion"
+      },
+      "fh-112": {
+        "1": "During your turn suffer %game.damage% 10.",
+        ".": "Hammer Potion"
+      },
+      "fh-113": {
+        "1": "At the start of your turn, discard one of your played cards to perform both the top and bottom actions of your other played card. At most one action can trigger a %game.card.lost% icon.",
+        ".": "Expertise Potion"
+      },
+      "fh-114": {
+        "1": "During your turn, reveal the top card of one monster ability deck. You may place the card on the bottom of the deck.",
+        ".": "Foresight Potion"
+      },
+      "fh-115": {
+        "1": "During your turn, ignore one elemental consumption symbol on an action you played and gain its effect.",
+        ".": "Infusion Potion"
+      },
+      "fh-116": {
+        "1": "During your turn perform:",
+        ".": "Plague Flask"
+      },
+      "fh-117": {
+        "1": "During your turn perform:",
+        ".": "Inferno Flask"
+      },
+      "fh-118": {
+        "1": "During your turn, one enemy within %game.action.range:2% suffers %game.damage% 4.",
+        ".": "Fulminant Flask"
+      },
+      "fh-119": {
+        "1": "During your turn, perform:",
+        ".": "Deadly Mixture"
+      },
+      "fh-120": {
+        "1": "During your turn, perform:",
+        ".": "Amulet of Life"
+      },
+      "fh-121": {
+        "1": "During your turn, perform:",
+        ".": "Circlet of Elements"
+      },
+      "fh-122": {
+        "1": "When one of your summons suffers %game.damage% from an attack, that summons gains %game.action.shield:2% for the attack.",
+        ".": "Warden's Robes"
+      },
+      "fh-123": {
+        "1": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack.",
+        ".": "Leather Armor"
+      },
+      "fh-124": {
+        "1": "During your turn, add %game.action.jump% to all your move abilities.",
+        ".": "Winged Shoes"
+      },
+      "fh-125": {
+        "1": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 10.",
+        ".": "Boots of Speed"
+      },
+      "fh-126": {
+        "1": "During your ranged attack ability, add %game.condition.immobilize% one attack.",
+        ".": "Weighted Net"
+      },
+      "fh-127": {
+        "1": "During your melee attack ability, add %game.condition.poison% one attack.",
+        ".": "Poison Dagger"
+      },
+      "fh-128": {
+        "1": "When you suffer %game.damage% from an attack, gain %game.action.shield:1% for the attack.",
+        ".": "Heater Shield"
+      },
+      "fh-129": {
+        "1": "During your attack ability, gain advantage on all attacks.",
+        ".": "Eagle-Eye Goggles"
+      },
+      "fh-130": {
+        "1": "When you are attacked, treat any %game.attackmodifier.double% attack modifier card the enemy draws as a %game.attackmodifier.plus0% instead.",
+        ".": "Iron Helmet"
+      },
+      "fh-131": {
+        "1": "On the next three sources of %game.damage% from attacks targeting you, you gain %game.action.shield:1% for the attacks.",
+        ".": "Chainmail"
+      },
+      "fh-132": {
+        "1": "At the start of the scenario, bring one additional %game.items.slots.small% items.",
+        ".": "Cloak of Pockets"
+      },
+      "fh-133": {
+        "1": "When an adjacent ally would be targeted by an attack, you are targeted instead, regardless of range and line-of-sight.",
+        ".": "Nimble Legguards"
+      },
+      "fh-134": {
+        "1": "When you use the basic bottom action of an ability card, perform %game.action.move% 3 instead of %game.action.move% 2.",
+        ".": "Comfortable Shoes"
+      },
+      "fh-135": {
+        "1": "During your attack, add %game.action.pierce% to all your ranged attacks.",
+        ".": "Armorbane Bow"
+      },
+      "fh-136": {
+        "1": "During your single-target melee attack ability, change the targeting of the ability to:",
+        ".": "Battle Axe"
+      },
+      "fh-137": {
+        "1": "When you suffer %game.damage% from an attack, gain %game.action.shield:2% for the attack.",
+        ".": "Tower Shield"
+      },
+      "fh-138": {
+        "1": "When an enemy would give you %game.condition.disarm%, %game.condition.stun%, or %game.condition.muddle%, prevent the condition.",
+        ".": "Heavy Basinet"
+      },
+      "fh-139": {
+        "1": "After your move 4 or more hexes on your turn, add +1 %game.action.attack% to your next melee attack this turn.",
+        ".": "Horned Helm"
+      },
+      "fh-140": {
+        "1": "During your turn, grant one of your summons: %game.action.shield:2%. ",
+        ".": "Mantle of Summoning"
+      },
+      "fh-141": {
+        "1": "When you are attacked, before drawing an attack modifier card, the attacker gains disadvantage on the attack and you gain %game.action.shield:1% for the attack.",
+        ".": "Studded Leather"
+      },
+      "fh-142": {
+        "1": "During ordering of initiative after all ability card have been revealed, increase or decrease your initiative by 20.",
+        ".": "Boots of Quickness"
+      },
+      "fh-143": {
+        "1": "After you move 4 or more hexes during your turn, after the move ability perform:",
+        ".": "Endurance Footwraps"
+      },
+      "fh-144": {
+        "1": "During your turn, %game.element.consume.wild% to add +1 %game.action.attack% to all your attacks.",
+        ".": "Staff of Eminence"
+      },
+      "fh-145": {
+        "1": "When you use the basic top action of an ability card, perform %game.action.attack% 3 instead of %game.action.attack% 2.",
+        ".": "Versatile Dagger"
+      },
+      "fh-146": {
+        "1": "During your attack, add %game.action.pull% to all your ranged attacks.",
+        ".": "Hooked Chain"
+      },
+      "fh-147": {
+        "1": "During your melee attack, add %game.action.push%.",
+        ".": "Mask of Terror"
+      },
+      "fh-148": {
+        "1": "After the next three attacks targeting an ally within %game.action.range:2%, flip this card over.",
+        "2": "During your turn, perform:",
+        "4": "then flip this card over.",
+        ".": "Circlet of Sanctity"
+      },
+      "fh-149": {
+        "1": "On the next five sources of %game.damage% from attacks targeting you, you gain %game.action.shield:1% for the attacks.",
+        ".": "Platemail"
+      },
+      "fh-150": {
+        "1": "During your turn, perform:",
+        ".": "Robes of the Oak"
+      },
+      "fh-151": {
+        "1": "When you use the basic bottom action of an ability card, perform %game.action.move% 4 instead of %game.action.move% 2.",
+        ".": "Serene Sandals"
+      },
+      "fh-152": {
+        "1": "At the end of your turn, if you have moved 1 or fewer hexes during your turn, gain %game.action.shield:1% for the round.",
+        ".": "Steel Sabatons"
+      },
+      "fh-153": {
+        "1": "During your single-target melee attack ability, change the targeting of the ability to:",
+        ".": "Long Spear"
+      },
+      "fh-154": {
+        "1": "During your single-target ranged attack ability, change the targeting of the ability to:",
+        ".": "volatile Bomb"
+      },
+      "fh-155": {
+        "1": "When you suffer %game.damage% from an attack, gain %game.action.shield:4% for the attack.",
+        ".": "Wall Shield"
+      },
+      "fh-156": {
+        "1": "When you short rest, %game.card.recover% up to three of your spent items.",
+        ".": "Moon Earring"
+      },
+      "fh-157": {
+        "1": "When you suffer %game.damage% from an attack, gain %game.action.shield:4% for the attack.",
+        ".": "Steel Ring"
+      },
+      "fh-158": {
+        "1": "During your turn, perform:",
+        ".": "Deep Earth Brooch"
+      },
+      "fh-159": {
+        "1": "After your attack ability during which one enemy suffered at least %game.damage% 6, perform:",
+        ".": "Glorious Bracelet"
+      },
+      "fh-160": {
+        "1": "When you short rest, %game.card.recover% up to three of your spent items, and perform:",
+        ".": "Sun Earring"
+      },
+      "fh-161": {
+        "1": "At the end of your turn, play one card from your hand and perform all persistent and mandatory abilities on either the top or bottom action of the card.",
+        ".": "Strategists Ring"
+      },
+      "fh-162": {
+        "1": "During your turn, perform:",
+        ".": "Howling Ice Brooch"
+      },
+      "fh-163": {
+        "1": "During your turn, give %game.condition.stun% to half (rounded up) the enemies adjacent to you.",
+        ".": "Stunning Bracelet"
+      },
+      "fh-164": {
+        "1": "When you short rest, %game.card.recover% up to three of your spent items, choose which card to lose during the rest, and perform:",
+        ".": "Star Earring"
+      },
+      "fh-165": {
+        "1": "At the end of you turn, play one card from your hand and perform the bottom action of the card.",
+        ".": "Ring of Haste"
+      },
+      "fh-166": {
+        "1": "During your turn, perform:",
+        ".": "Blazing Sun Brooch"
+      },
+      "fh-167": {
+        "1": "At the start of the enemy's turn, before it determines its focus, perform:",
+        ".": "Attractive Bracelet"
+      },
+      "fh-168": {
+        "1": "During your ranged attack ability, add +1 %game.action.target%.",
+        ".": "Circlet of Eyes"
+      },
+      "fh-169": {
+        "1": "During your turn, reveal the top card of your attack modifier deck. You may place the card on the bottom of the deck.",
+        ".": "Fateful Charm"
+      },
+      "fh-170": {
+        "1": "During your turn, reveal the top card of each monster ability deck.",
+        ".": "Eye of Truth"
+      },
+      "fh-171": {
+        "1": "Whenever you lose a card to negate %game.damage%, %game.card.recover% up to one card from your discard pile and gain %game.condition.regenerate%.",
+        ".": "Rejuvenating Charm"
+      },
+      "fh-172": {
+        "1": "During your turn, look at the top four cards of your attack modifier deck and put them back in any order.",
+        ".": "Cap of Premonition"
+      },
+      "fh-173": {
+        "1": "When attacked: %game.element.wild%.",
+        ".": "Multi Colored Cloak"
+      },
+      "fh-174": {
+        "1": "During your turn, perform: %game.action.teleport% 20 This teleport must end in a hex adjacent to one of your allies.",
+        ".": "Magnetic Cape"
+      },
+      "fh-175": {
+        "1": "When you suffer %game.damage% from an attack, the attacker suffers and equal amount of %game.damage%.",
+        ".": "Mirrored Armor"
+      },
+      "fh-176": {
+        "1": "During your turn, perform: %game.action.teleport% 4 This teleport must end in a hex adjacent to one of your enemies.",
+        ".": "Blinking Cape"
+      },
+      "fh-177": {
+        "1": "When you spring a trap by entering its hex, you may apply its effects to a figure withing %game.action.range:3% instead of yourself.",
+        ".": "Boots of Transference"
+      },
+      "fh-178": {
+        "1": "At the start of your turn in which your initiative is 60 or higher and you are not performing a long rest, perform %game.action.heal% 1 self.",
+        ".": "Tranquil Shoes"
+      },
+      "fh-179": {
+        "1": "During your move ability, add +4 %game.action.move%.  After the move ability gain %game.condition.immobilize%.",
+        ".": "Burst Boots"
+      },
+      "fh-180": {
+        "1": "When you loot two or more tokens at once, perform: %game.condition.bless% self.",
+        ".": "Boots of Greed"
+      },
+      "fh-181": {
+        "1": "During your turn, designate two allies or any two normal or elite monsters. Each designated figure simultaneously %game.action.teleport% to the hex occupied by the other designated figure.",
+        ".": "Translocation Rod"
+      },
+      "fh-182": {
+        "1": "After your melee attack , place a character token on the target. The target loses %game.action.fly%.",
+        ".": "Wing Clippers"
+      },
+      "fh-183": {
+        "1": "During your turn, all figures gain disadvantage on and add 1 %game.action.range% to all ranged attacks this round. ",
+        ".": "Decanter of Mists"
+      },
+      "fh-184": {
+        "1": "During your multi-target melee attack ability, add +1 %game.action.target%.",
+        ".": "Flashing Axe"
+      },
+      "fh-185": {
+        "1": "During your melee attack ability, add all negative conditions you have except %game.condition.brittle%, %game.condition.bane% %game.condition.stun% one attack.",
+        ".": "Mirrored Knife"
+      },
+      "fh-186": {
+        "1": "During your turn, create one 1-hex obstacle in an adjacent empty hex.",
+        ".": "Wild Growth Seeds"
+      },
+      "fh-187": {
+        "1": "During your turn, create one %game.damage% 3 trap in an adjacent empty hex.",
+        ".": "Dangerous Gear"
+      },
+      "fh-188": {
+        "1": "During your turn, create one 1-hex hazardous terrain, icy terrain, or water tile in an adjacent featureless hex.",
+        ".": "Freezing Crystal"
+      },
+      "fh-189": {
+        "1": "During your, perform",
+        ".": "Ring of the Night"
+      },
+      "fh-190": {
+        "1": "During your turn, place a character token on one normal or elite enemy withing %game.action.range:3%. This enemy adds -1 %game.action.attack% to all its attacks.",
+        ".": "White Card"
+      },
+      "fh-191": {
+        "1": "During your, perform:",
+        ".": "Corrupted Scroll"
+      },
+      "fh-192": {
+        "1": "At the end of your turn, designate one enemy withing %game.action.range:3%. You are its primary focus and it does not avoid negative hexes when determining movement this round. ",
+        ".": "Enticing Bell"
+      },
+      "fh-193": {
+        "1": "During your turn, control one enemy withing %game.action.range:3%:",
+        ".": "Mind Thieving Helmet"
+      },
+      "fh-194": {
+        "1": "During ordering of initiative after all ability card have been revealed, increase or decrease a monster set's initiative by 30.",
+        ".": "Temporal Amulet"
+      },
+      "fh-195": {
+        "1": "During your turn add +1 %game.action.range% and %game.action.pierce% to one of your ranged attacks.",
+        ".": "Tri-Corner Hat"
+      },
+      "fh-196": {
+        "1": "During your turn, discard one loot card except Random Item to perform:",
+        ".": "Choker of Sacrifice"
+      },
+      "fh-197": {
+        "1": "After ordering of initiative, exchange a card in your hand for one which you have played. Your initiative is unaffected.",
+        ".": "Aesther Diadem"
+      },
+      "fh-198": {
+        "1": "During your turn, perform:",
+        ".": "Hunter's Necklace"
+      },
+      "fh-199": {
+        "1": "At the start of the scenario, consider yourself to be your summons in initiative order when determining monster focus for the remainder of the scenario.",
+        ".": "Opulent Shoes"
+      },
+      "fh-200": {
+        "1": "During your heal ability targeting an ally, %game.element.consume.light% to add %game.condition.regenerate% one heal and flip this card over.",
+        "2": "During your attack ability, %game.element.consume.dark% to add %game.condition.curse% to one attack and flip this card over.",
+        ".": "Eventide Scepter"
+      },
+      "fh-201": {
+        "1": "During your attack ability performed while occupying or ad adjacent to a hex with a water tile, add %game.action.push% and %game.condition.immobilize% one attack.",
+        ".": "Wave Blade"
+      },
+      "fh-202": {
+        "1": "During your melee attack ability, add %game.action.pierce% and %game.condition.wound% one attack.",
+        ".": "Giant Piranha Pig Spine"
+      },
+      "fh-203": {
+        "1": "After your ability control one target:",
+        ".": "Scepter of Control"
+      },
+      "fh-204": {
+        "1": "During your turn, one adjacent normal or elite enemy suffers %game.damage% equal to their %game.action.shield% value.",
+        ".": "Severed Claw"
+      },
+      "fh-205": {
+        "1": "During your, perform:",
+        ".": "Harpoon"
+      },
+      "fh-206": {
+        "1": "During your melee attack ability, if you have not move this round, add +2 %game.action.attack% to one attack, and you may perform no move abilities this turn.",
+        ".": "Giant Sword"
+      },
+      "fh-207": {
+        "1": "After your attack, if the target's current hit point is 3 or less, give the target %game.condition.bane%",
+        ".": "Fishhook"
+      },
+      "fh-208": {
+        "1": "During your attack ability add %game.action.pierce% to one attack targeting an enemy whose current hit point value is 4 or less.",
+        ".": "Titan Nail"
+      },
+      "fh-209": {
+        "1": "During your melee attack ability, give advantage on one attack.  For each master you have completed also add one following to the attack: +1 %game.action.attack%, %game.condition.wound%, or %game.condition.poison%. ",
+        ".": "Sword of Mastery"
+      },
+      "fh-210": {
+        "1": "During your turn, add +3 %game.action.attack% to all your attacks performed by Lurkers targeting you this round. ",
+        ".": "Tanjo"
+      },
+      "fh-211": {
+        "1": "During your turn, designate one adjacent hex.  At the end of your turn, all figures withing %game.action.range:2% of the designated hex suffer %game.damage% 1.",
+        ".": "Boom Barrel"
+      },
+      "fh-212": {
+        "1": "After ordering of initiative, choose one element. This element cannot be infused or consume by any monster this round. ",
+        ".": "Elemental Stone"
+      },
+      "fh-213": {
+        "1": "During your attack ability %game.element.consume.ice% to add %game.condition.immobilize% one attack, then flip this card over at the end of your turn.",
+        "2": "During your attack ability, %game.element.consume.fire% to add %game.condition.wound% to one attack and flip this card over.",
+        ".": "Key of Seasons"
+      },
+      "fh-214": {
+        "1": "During your heal ability add one positive condition you have to one heal.",
+        ".": "Cup of Ventillion"
+      },
+      "fh-215": {
+        "1": "During your, add +1 %game.action.attack% and %game.condition.muddle% to all your attacks. At the end of your turn, perform:",
+        ".": "Befuddling Mug"
+      },
+      "fh-216": {
+        "1": "During your turn,",
+        "3": "Elements do not move from strong to waning at the end of this round. ",
+        ".": "Tome of Elements"
+      },
+      "fh-217": {
+        "1": "During ordering of initiative after all ability card have been revealed, shuffle all monster ability decks and draw a new card for each active monster set.",
+        ".": "Tome of Time"
+      },
+      "fh-218": {
+        "1": "During your turn, remove all conditions from all figures then grant all figures:",
+        ".": "Tome of Life"
+      },
+      "fh-219": {
+        "1": "During your turn all figures gain %game.condition.strengthen%. Until any monster is killed, the first attack modifier card drawn for every attack is treated as rolling.",
+        ".": "Tome of Conflict"
+      },
+      "fh-220": {
+        "1": "During your turn, %game.card.recover% up to one Tome item.",
+        ".": "Belaras Quill"
+      },
+      "fh-221": {
+        "1": "During your melee attack ability, %game.element.consume.ice% to add %game.action.pierce% to one attack.",
+        ".": "Ice Shiv"
+      },
+      "fh-222": {
+        "1": "During yor turn, discard two cards from your hand to perform:",
+        ".": "Black Box"
+      },
+      "fh-223": {
+        "1": "After ordering of initiative, all monsters consider you to be first in initiative order when determining focus this round. ",
+        ".": "Lightning Rod"
+      },
+      "fh-224": {
+        "1": "After the next three attacks targeting you, flip this card over.",
+        "2": "During your turn, perform:",
+        "4": "then flip this card over.",
+        ".": "Armor of Empathy"
+      },
+      "fh-225": {
+        "1": "During your melee attack ability, %game.element.consume.earth% to add +1 %game.action.attack% to one attack and flip this card over.",
+        "2": "During your ranged attack ability, %game.element.consume.air% to add %game.action.push% 2 to one attack and flip this card over.",
+        ".": "Algox Carving"
+      },
+      "fh-226": {
+        "1": "During your attack ability, double the numerical value of the next attack modifier card you draw. %game.attackmodifier.double% and %game.attackmodifier.null% modifier cards are unaffected.",
+        ".": "Unfettered Arm"
+      },
+      "fh-227": {
+        "1": "When you short rest, place half (rounded down) of your discard pile on this item, lose of the remaining cards randomly as normal, then draw the cards on this item.",
+        ".": "Data Drive"
+      },
+      "fh-228": {
+        "1": "During your turn, open one unlocked door while withing %game.action.range:2%.",
+        ".": "Extendable Pole"
+      },
+      "fh-229": {
+        "1": "During your turn grant one ally withing %game.action.range:3%:",
+        ".": "Exquisite Map"
+      },
+      "fh-230": {
+        "1": "After you draw one loot card, draw one additional card, keep one, and place the other on either the top or bottom of the loot deck.",
+        ".": "Examination Glass"
+      },
+      "fh-231": {
+        "1": "When you gain a loot token, gain 3 `hide` instead of drawing a loot card.",
+        ".": "Skinning Knife"
+      },
+      "fh-232": {
+        "1": "During your turn lose 1 morale to perform:",
+        ".": "Orchid Wand"
+      },
+      "fh-233": {
+        "1": "During an ally's ranged attack ability, add %game.condition.muddle% and %game.condition.curse% one attack.",
+        ".": "Dead Raven"
+      },
+      "fh-234": {
+        "1": "During your turn, create one %game.condition.poison%, %game.condition.immobilize% in an empty hex within %game.action.range:2%.",
+        ".": "Ooze Vial"
+      },
+      "fh-235": {
+        "1": "During your turn, loot one loot token within %game.action.range:2%.",
+        ".": "Small Rat"
+      },
+      "fh-236": {
+        "1": "During your turn, lose one card from your hand to %game.card.recover% one card from your loot pile of equal of lower level.",
+        ".": "Cracked Mirror"
+      },
+      "fh-237": {
+        "1": "During your turn, choose one of six directions. You and all figures withing %game.action.range:2% are forced to simultaneously move 2 hexes in the chosen direction.",
+        ".": "Mesmerizing Seashell"
+      },
+      "fh-238": {
+        "1": "When you would become exhausted from suffering %game.damage%, set your hit point value to 1 instead.",
+        ".": "Cracked Idol"
+      },
+      "fh-239": {
+        "1": "During your turn, all allies and enemies within %game.action.range:2% suffer %game.damage% 1.",
+        ".": "Eye of the Storm"
+      },
+      "fh-240": {
+        "1": "When you fail a scenario, still earn all %game.checkmark% from your battle goal if it was completed.",
+        ".": "Demons Gem"
+      },
+      "fh-241": {
+        "1": "After you draw one loot card, draw one additional loot card.",
+        ".": "Shimmering Powder"
+      },
+      "fh-242": {
+        "1": "During your attack ability, treat the next three attack modifier cards you draw as rolling",
+        ".": "Lucky Dice"
+      },
+      "fh-243": {
+        "1": "This item cannot be sold and must be brought into and used every scenario.",
+        "2": "At the start of the scenario perform:",
+        ".": "Cursed Rock"
+      },
+      "fh-244": {
+        "1": "During your turn, increase the printed %game.action.attack%, %game.action.move%, %game.action.target%, or %game.action.range% numerical value on one of your abilities by 1.",
+        ".": "Ember Energy Source"
+      },
+      "fh-245": {
+        ".": "Ancient Coin"
+      },
+      "fh-246": {
+        ".": "Key Card"
+      },
+      "fh-247": {
+        "1": "During your turn, capture an adjacent enemy whose hit point value is 1 or 2.",
+        ".": "Trainers Net"
+      }
+    },
+    "treasures": {
+      "fh": {
+        "12": "You find the remains of Camilla and her paintings of a majestic horned creature.",
+        "51": "Read %data.section:78.1%",
+        "54": "Treasure chest? There was no treasure chest there Maybe you should slow down on the drink",
+        "57": "What's this? An empty chest with a lead trapdoor at the bottom You make note of the location so you can return with Gem's help later.",
+        "62": "gain Mechanical Cube blueprint %game.itemFh.82% when you find the other half of this blueprint."
+      }
+    },
+    "custom": {
+      "fh": {
+        "astral": {
+          "1": "Move one waning element to strong",
+          "2": "+1 %game.action.attack% for each pair of active %game.action.custom.fh-infusion%",
+          "3": "Whenever you become exhausted, keep all your active bonuses in play, with your summons acting on initiative 99 each round",
+          "4": "Whenever you short rest, you may %game.element.consume.wild% to %game.card.recover% on spent %game.items.slots.onehand% or %game.items.slots.twohand% item",
+          "5": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, %game.element.wild%",
+          "6": "Have five active %game.action.custom.fh-infusion% bonuses",
+          "7": "Kill at least four enemies, but never attack"
+        },
+        "coral": {
+          "1": "If you performed a %data.action.custom.fh-tides% action this round, %game.attackmodifier.plus2% instead",
+          "2": "%game.custom.perks.ignoreNegativeItemFh% and, whenever you would gain %game.condition.impair%, prevent the condition",
+          "3": "Whenever you declare a long rest during card selection, gain %game.action.shield:1% for the round",
+          "4": "Gain advantage on all your attacks performed while occupying or targeting enemies occupying water hexes",
+          "5": "Never suffer damage from attacks, and be targeted by at least five attacks",
+          "6": "At the start of each of your rests, have more active %game.action.custom.fh-tides% than cards in your discard pile"
+        },
+        "drill": {
+          "1": "%game.action.custom.fh-pressure-up% or %game.action.custom.fh-pressure-down%",
+          "2": "The target and all enemies adjacent to it suffer %game.damage:1%",
+          "3": "Whenever you long rest, you may %game.action.custom.fh-pressure-up% or %game.action.custom.fh-pressure-down%",
+          "4": "Whenever you would gain %game.condition.poison%, you may suffer %game.damage:1% to prevent the condition",
+          "5": "Once each scenario, when you would become exhausted, instead gain %game.condition.stun% and %game.condition.invisible%, lose all your cards, %game.card.recover% four lost cards, and then discard the recovered cards",
+          "6": "Never attack",
+          "7": "For four consecutive rounds, move the pressure gauge up or down three levels from where is started the round (%game.action.custom.fh-pressure-low% to %game.action.custom.fh-pressure-over%, or vice versa)"
+        },
+        "fist": {
+          "1": "Create one 1-hex icy terrain tile in a featureless hex adjacent to the target",
+          "2": "%game.custom.perks.ignoreNegativeItemFh%, and whenever you enter icy terrain with a move ability, you may ignore the effect to add +1 %game.action.move%",
+          "3": "Whenever you heal from a long rest, you may %game.elementHalf.consume:ice|earth% to add +2 %game.action.heal%",
+          "4": "Once each scenario, when you would suffer %game.damage%, you may negate the %game.damage%",
+          "5": "%game.card.recover% at least one card from your discard pile each round",
+          "6": "Enter at least ten different hexes with one move ability, then cause one enemy to suffer at least %game.damage:10% with one attack ability in the same turn"
+        },
+        "kelp": {
+          "1": "Gain 1 %game.characterToken.kelp.trophy%",
+          "2": "Gain 1 %game.action.custom.fh-trophy%",
+          "3": "Whenever you long rest, you may %game.action.loot% one adjacent hex. If you gain any loot tokens, gain 1 %game.action.custom.fh-trophy%",
+          "4": "At the start of each scenario gain 2 %game.action.custom.fh-trophy%",
+          "5": "While you have %game.condition.invisible%, gain advantage on all your attacks",
+          "6": "Perform all your attacks with advantage",
+          "7": "Infuse %game.element.dark% each round"
+        },
+        "meteor": {
+          "1": "Create one 1-hex hazardous terrain tile in a featureless hex adjacent to the target",
+          "2": "Whenever you long rest, you may destroy one adjacent obstacle to gain %game.condition.ward%",
+          "3": "Whenever you short rest, you may %game.element.consume.fire% to perform %game.condition.wound%, %game.action.target:1% enemy occupying or adjacent to hazardous terrain",
+          "4": "You and all allies are unaffected by hazardous terrain you create",
+          "5": "Create or destroy at least one obstacle or hazardous terrain tile each round",
+          "6": "Move enemies through six different hexes of hazardous terrain you created in one turn"
+        },
+        "prism": {
+          "1": "At the end of turn perform:",
+          "2": "Focus on the enemy farthest from HIVE.",
+          "3": "All adjacent allies gain %game.action.shield% 1.",
+          "4": "When attacked reduece %game.damage% by 1 for each negative condition the attacker has.",
+          "5": "Give %game.condition.wound% to all adjacent figures and self at the end of turn.",
+          "6": "After this attack ability, grant one of your summons %game.action.move:2% card",
+          "7": "After this attack ability, %game.action.custom.fh-mode%",
+          "8": "Whenever you long rest, you may do so on any initiative value, choosing your initiative after all ability cards have been revealed, and you decide how your summons perform their abilities for the round",
+          "9": "At the end of each of your short rests, you may %game.action.custom.fh-mode%",
+          "10": "Whenever you would gain %game.condition.wound%, prevent the condition",
+          "11": "%game.action.custom.fh-mode% each round",
+          "12": "%game.action.custom.fh-mode% into four different summons in one round"
+        },
+        "shackles": {
+          "1": "When attacking, ignore %game.action.retaliate%",
+          "2": "all enemeis within 2 hexes",
+          "3": "Add +1 %game.action.attack% for each negative condition you have",
+          "4": "Each round in which you long rest, you may ignore all negative conditions you have.<br>If you do, they cannot be removed that round",
+          "5": "Whenever you become exhausted, first perform %game.condition.curse%, %game.action.target% all, %game.action.range:3%",
+          "6": "Increase your maximum hit point value by 5",
+          "7": "Cause other figures to suffer a total of at least %game.damage:40% in one round",
+          "8": "Start a turn with %game.condition.wound%,%game.condition.brittle%,%game.condition.bane%,%game.condition.poison%,%game.condition.immobilize%,%game.condition.disarm%,%game.condition.stun% and %game.condition.muddle%"
+        },
+        "shards": {
+          "1": "Reveal the top card of the target's monster ability deck",
+          "2": "Gain 1 %game.characterToken.shards.resonance%",
+          "3": "Gain 1 %game.action.custom.fh-resonance%",
+          "4": "Whenever you short rest, you may %game.element.consume.air% to perform %game.condition.strengthen%, %game.action.range:3% and %game.element.consume.light% to perform %game.condition.bless%, %game.action.range:3%",
+          "5": "At the start of each scenario you may gain %game.condition.brittle% to gain 2 %game.action.custom.fh-resonance%",
+          "6": "Whenever a new room is revealed, you may reveal the top card of both the monster attack modifier deck and all allies' attack modifier decks",
+          "7": "Always have 0 %game.action.custom.fh-resonance% directly before you gain %game.action.custom.fh-resonance% at the end of each of your turns",
+          "8": "Spend 5 %game.action.custom.fh-resonance% on each of five different Wave abilities"
+        },
+        "snowflake": {
+          "1": "If this action forces the target to move, it suffers %game.damage:1%",
+          "2": "Whenever you long rest, you may %game.elementHalf:ice|air%",
+          "3": "Whenever you short rest, you may %game.element.consume.ice% to perform %game.condition.regenerate%, %game.action.range:3% and %game.element.consume.air% to perform %game.condition.ward%, %game.action.range:3%",
+          "4": "At the start of each scenario, all enemies gain %game.condition.muddle%. Whenever a new room is revealed, all enemies in the newly revealed room gain %game.condition.muddle%",
+          "5": "Cause at least one ally or enemy to move each round",
+          "6": "Ensure the first ally to suffer %game.damage% each round, directly before suffering the %game.damage%, has at least one condition you applied"
+        },
+        "trap": {
+          "1": "Create one %game.damage:2% trap in an adjacent empty hex at end of turn.",
+          "2": "Create one %game.action.heal% 2 trap in an empty hex adjacent to the target",
+          "3": "Create one %game.damage:1% trap in an empty hex adjacent to the target",
+          "4": "Add %game.damage:2% or %game.action.heal% 2 to a trap within %game.action.range:2% of you",
+          "5": "Add %game.action.push% 2 or %game.action.pull% 2",
+          "6": "Whenever you long rest, you may create one %game.damage:1% trap in an adjacent empty hex",
+          "7": "Whenever you enter a hex with a trap, you may choose to not spring the trap",
+          "8": "At the start of each scenario, you may create one %game.damage:2% trap in an adjacent empty hex",
+          "9": "Have one %game.action.heal% trap on the map with a value of at least 20",
+          "10": "Move enemies through seven or more traps with one ability"
+        }
+      }
     }
-}
+  }

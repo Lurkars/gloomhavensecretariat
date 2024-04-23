@@ -285,8 +285,8 @@
         "1": "인접한 모든 적이 피해 %game.damage:1%점을 입음."
       },
       "flowChartGroup": {
-        "intro": "Intro",
-        "main": "Main",
+        "intro": "서막",
+        "main": "주 무대",
         "city-events": "도시 이벤트",
         "characters": "캐릭터"
       }

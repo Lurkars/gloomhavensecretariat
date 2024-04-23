@@ -203,12 +203,12 @@
         "2": "All adjacent allies add +2 %game.action.attack% to all attacks"
       },
       "flowChartGroup": {
-        "diviner": "Diviner",
-        "orchid-society": "Orchid society",
-        "citizens": "Citizens of Gloomhaven",
-        "the-rift": "The rift device",
-        "tainted-crypt": "Tainted crypt",
-        "corruption": "Corruption"
+        "diviner": "점술가",
+        "orchid-society": "오키드 사회",
+        "citizens": "글룸헤이븐 시민",
+        "the-rift": "균열 장치",
+        "tainted-crypt": "오염된 묘지",
+        "corruption": "부패"
       }
     }
   }
