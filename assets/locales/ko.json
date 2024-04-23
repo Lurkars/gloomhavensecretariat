@@ -1,11 +1,11 @@
 {
   "about": {
     ".": "소개",
-    "forceUpdate": "강제 갱신하기",
-    "ip": "글룸헤이븐 및 모든 관련 속성, 이미지 및 텍스트는 {0}의 소유입니다.",
-    "license": "{0} 라이센스를 따릅니다.",
+    "forceUpdate": "강제 갱신",
+    "ip": "글룸헤이븐과 관련된 모든 속성, 이미지, 텍스트는 {0}의 소유입니다.",
+    "license": "{0} 라이센스",
     "sourceCode": "소스 코드",
-    "support": "개발 지원하기"
+    "support": "개발 지원"
   },
   "and": "및",
   "app": {
@@ -118,7 +118,7 @@
         "openEnvelope": {
           ".": "봉투 %game.fhIcon:envelope% {0} 열기",
           "alt": "봉투 %game.fhIcon:envelope% {0} 열기<br>(또는: %game.fhIcon:envelope% {1})",
-          "building": "Unlocks building '%data.buildings.{1}%' ({0})"
+          "building": "'%data.buildings.{1}%' ({0}) 건물 해금"
         },
         "unlockCharacter": "%game.characterIcon.{0}% 상자 열기"
       },
@@ -153,7 +153,7 @@
       "level": "(레벨 {0})"
     },
     "token": "캐릭터 토큰",
-    "traits": "Traits",
+    "traits": "특성",
     "unlock": {
       ".": "해금합니까?",
       "confirm": "해금됨!"
@@ -247,23 +247,23 @@
     "unlocks": "해금 항목 관리"
   },
   "duration": {
-    "days": "{3} days, {2} hours, {1} minutes and {0} seconds",
+    "days": "{3}일 {2}시간 {1}분 {0}초",
     "gameClock": {
-      ".": "Game Clock",
-      "clockIn": "Clock in to the Game Clock",
-      "clockOut": "Clock out from the Game Clock",
-      "current": "Current: {0}",
-      "off": "Game Clock paused! Doubleclick to clock in.",
-      "paused": "Game Clock paused! Doubleclick to clock in.<br>Total: {0}",
-      "running": "Game Clock running! Doubleclick to clock out.<br>Current: {1}",
-      "runningTotal": "Game Clock running! Doubleclick to clock out.<br>Current: {1}<br>Total: {0}",
-      "timestamp": "Run from {0} for {1}",
-      "total": "Total: {0}"
+      ".": "게임 시간",
+      "clockIn": "게임 시간 켜기",
+      "clockOut": "게임 시간 끄기",
+      "current": "현재: {0}",
+      "off": "게임 시간 일시정지! 두 번 클릭하여 게임 시간 켜기.",
+      "paused": "게임 시간 일시정지! 두 번 클릭하여 게임 시간 켜기.<br>총합: {0}",
+      "running": "게임 시간 작동 중! 두 번 클릭하여 게임 시간 끄기.<br>현재: {1}",
+      "runningTotal": "게임 시간 작동 중! 두 번 클릭하여 게임 시간 끄기.<br>현재: {1}<br>총합: {0}",
+      "timestamp": "{0}에서 {1}에 대해 실행",
+      "total": "총합: {0}"
     },
-    "hours": "{2} hours, {1} minutes and {0} seconds",
-    "minutes": "{1} minutes and {0} seconds",
-    "seconds": "{0} seconds",
-    "totalHours": "{0}, approx {1} hours"
+    "hours": "{2}시간 {1}분 {0}초",
+    "minutes": "{1}분 {0}초",
+    "seconds": "{0}초",
+    "totalHours": "{0}, 약 {1}시간"
   },
   "edition": {
     ".": "에디션 설정",
@@ -1746,7 +1746,7 @@
       "hint": "성능 향상을 위해 모든 애니메이션 효과 비활성화"
     },
     "applyBuildingRewards": {
-      ".": "건축 보너스 적용",
+      ".": "건설 보너스 적용",
       "hint": "건물을 건설하거나 향상할 때, 해당 보너스를 적용하고 섹션 대화 상자가 있으면 엽니다."
     },
     "applyConditions": {
@@ -2094,7 +2094,7 @@
       ".": "노획 덱",
       "hint": "노획 덱 활성화"
     },
-    "lurkarsDefaults": "Apply Lurkars' personal settings",
+    "lurkarsDefaults": "추천 설정 적용하기",
     "maxUndo": {
       ".": "실행 취소를 할 수 있는 최대 값",
       "hint": {
@@ -2151,8 +2151,8 @@
       "hint": "보물을 통해 획득한 보상을 자동으로 적용합니다: 금화, 경험치, 등"
     },
     "scenarioRewardsItems": {
-      ".": "Draw Random Item Scenario Rewards",
-      "hint": "Automatically draw a Random Item card."
+      ".": "시나리오 보상으로 무작위 아이템 뽑기",
+      "hint": "자동으로 무작위 아이템 카드 뽑기."
     },
     "scenarioRooms": {
       ".": "방 별 잠금 해제",
@@ -2227,8 +2227,8 @@
       "hint": "모든 피규어의 차례가 끝나기 전, \"%round.next%\" 버튼을 클릭하는 경우에 알림을 표시합니다. 이 설정이 비활성화되어 있고 %settings.expireConditions% 또는 %settings.applyConditions% 항목이 활성화되어 있다면 모든 피규어가 자동으로 적용됩니다."
     },
     "unlockEnvelopeBuildings": {
-      ".": "Unlock buildings from envelopes",
-      "hint": "Automatically unlock buildings by opening envelopes (from personal quest)."
+      ".": "봉투를 통한 건물 해금",
+      "hint": "개인 퀘스트 등으로 봉투를 열 때, 자동으로 건물을 해금합니다."
     },
     "wakeLock": {
       ".": "화면 자동 꺼짐 방지",
@@ -2802,13 +2802,13 @@
   },
   "update": "갱신하고 다시 불러오기",
   "welcome": {
-    ".": "글룸헤이븐 사무국에 오신 것을 환영합니다.",
+    ".": "《글룸헤이븐 사무국: GHS》에 오신 것을 환영합니다.",
     "chooseCharacters": "캐릭터를 선택하십시오",
-    "chooseEdition": "보유한 에디션 중 하나를 골라 새로운 캠페인을 시작하십시오:",
-    "orChooseCharacters": "또는 직접 캐릭터를 추가하여 캐주얼 게임을 시작하십시오",
+    "chooseEdition": "보유한 에디션 중 하나를 골라 새로운 캠페인을 시작하세요:",
+    "orChooseCharacters": "또는 직접 캐릭터를 추가하여 캐주얼 게임을 시작하세요.",
     "settings": {
       ".": "환경 설정",
-      "text": "다양한 설정을 사용하여 모든 항목을 적절히 설정하세요:"
+      "text": "여러분의 여정에 맞도록 모든 설정 항목을 살펴 보세요:"
     }
   },
   "wip": "진행 중인 작업"
