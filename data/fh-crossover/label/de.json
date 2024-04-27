@@ -4,7 +4,7 @@
     "cragheart": "Felsenherz",
     "demolitionist": {
       ".": "Sprengmeisterin",
-      "mech": "%game.characterIconColored.demolitionist% Mech Suit"
+      "mech": "Mech Suit"
     },
     "diviner": "Prophetin",
     "hatchet": "Axtwerfer",

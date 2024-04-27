@@ -29,19 +29,19 @@ export class ActionsManager {
     calcActionHints(monster: Monster, entity: MonsterEntity): ActionHint[] {
         let actionHints: ActionHint[] = [];
         const stat = gameManager.monsterManager.getStat(monster, entity.type);
-        this.calcActionHint(monster, entity, ActionType.shield, stat.actions, actionHints);
-        this.calcActionHint(monster, entity, ActionType.retaliate, stat.actions, actionHints);
+        this.calcActionHint(monster, entity.type, ActionType.shield, stat.actions, actionHints);
+        this.calcActionHint(monster, entity.type, ActionType.retaliate, stat.actions, actionHints);
         if (gameManager.entityManager.isAlive(entity, true) && (!entity.active || monster.active)) {
             const activeFigure = gameManager.game.figures.find((figure) => figure.active);
             if (monster.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster))) {
                 let ability = gameManager.monsterManager.getAbility(monster);
                 if (ability) {
-                    this.calcActionHint(monster, entity, ActionType.shield, ability.actions, actionHints);
-                    this.calcActionHint(monster, entity, ActionType.retaliate, ability.actions, actionHints);
+                    this.calcActionHint(monster, entity.type, ActionType.shield, ability.actions, actionHints);
+                    this.calcActionHint(monster, entity.type, ActionType.retaliate, ability.actions, actionHints);
 
                     if (ability.bottomActions) {
-                        this.calcActionHint(monster, entity, ActionType.shield, ability.bottomActions, actionHints, 'bottom');
-                        this.calcActionHint(monster, entity, ActionType.retaliate, ability.bottomActions, actionHints, 'bottom');
+                        this.calcActionHint(monster, entity.type, ActionType.shield, ability.bottomActions, actionHints, 'bottom');
+                        this.calcActionHint(monster, entity.type, ActionType.retaliate, ability.bottomActions, actionHints, 'bottom');
                     }
                 }
             }
@@ -57,42 +57,52 @@ export class ActionsManager {
         });
     }
 
-    calcActionHint(monster: Monster, entity: MonsterEntity, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: string = "") {
+    calcActionHint(monster: Monster, monsterType: MonsterType, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: string = "") {
         actions.forEach((action, i) => {
             const index = (parentIndex ? parentIndex + '-' : '') + i;
             if (action.type == type && action.value != 'X') {
-                let actionHint: ActionHint = { type: type, value: EntityValueFunction(action.value), range: 0 };
+                let actionHint: ActionHint = new ActionHint(type, EntityValueFunction(action.value));
                 if (action.subActions && action.subActions.length > 0) {
                     let rangeSubAction = action.subActions.find((subAction) => subAction.type == ActionType.range);
                     if (rangeSubAction) {
                         if (!rangeSubAction.valueType || rangeSubAction.valueType == ActionValueType.fixed) {
                             actionHint.range = EntityValueFunction(rangeSubAction.value);
                         } else {
-                            const stats = gameManager.monsterManager.getStat(monster, entity.type);
+                            const stats = gameManager.monsterManager.getStat(monster, monsterType);
                             if (stats && rangeSubAction.valueType == ActionValueType.plus) {
                                 actionHint.range = EntityValueFunction(stats.range) + EntityValueFunction(rangeSubAction.value);
                             } else if (stats && rangeSubAction.valueType == ActionValueType.minus) {
                                 actionHint.range = EntityValueFunction(stats.range) - EntityValueFunction(rangeSubAction.value);
+                            } else if (rangeSubAction.valueType == ActionValueType.add || rangeSubAction.valueType == ActionValueType.subtract) {
+                                actionHint.additionalRange = rangeSubAction.valueType == ActionValueType.add ? "add" : "substract";
+                                actionHint.range = EntityValueFunction(rangeSubAction.value);
                             }
                         }
                     }
                 }
 
-                let existingActionHint = actionHints.find((existing) => existing.type == actionHint.type && existing.range == actionHint.range);
+                let existingActionHint = actionHints.find((existing) => existing.type == actionHint.type && (!actionHint.additionalRange && existing.range == actionHint.range || existing.range && actionHint.additionalRange));
 
                 if (existingActionHint) {
+                    if (existingActionHint.range && actionHint.additionalRange) {
+                        if (actionHint.additionalRange == "add") {
+                            existingActionHint.range += actionHint.range;
+                        } else {
+                            existingActionHint.range -= actionHint.range;
+                        }
+                    }
                     existingActionHint.value += actionHint.value;
                 } else {
                     actionHints.push(actionHint)
                 }
-            } else if (action.type == ActionType.monsterType && action.value == entity.type || action.type == ActionType.concatenation || action.type == ActionType.grid) {
-                this.calcActionHint(monster, entity, type, action.subActions, actionHints, index);
+            } else if (action.type == ActionType.monsterType && action.value == monsterType || action.type == ActionType.concatenation || action.type == ActionType.grid) {
+                this.calcActionHint(monster, monsterType, type, action.subActions, actionHints, index);
             } else if (action.type == ActionType.element && action.valueType == ActionValueType.minus && monster.entities.find((monsterEntity) => monsterEntity.tags.find((tag) => tag == this.roundTag(action, index)))) {
-                this.calcActionHint(monster, entity, type, action.subActions, actionHints, index);
+                this.calcActionHint(monster, monsterType, type, action.subActions, actionHints, index);
             } else if (action.type == ActionType.special) {
-                const stats = monster.stats.find((stat) => stat.level == monster.level && stat.type == entity.type);
+                const stats = monster.stats.find((stat) => stat.level == monster.level && stat.type == monsterType);
                 if (stats) {
-                    this.calcActionHint(monster, entity, type, stats.special[EntityValueFunction(action.value) - 1], actionHints, index);
+                    this.calcActionHint(monster, monsterType, type, stats.special[EntityValueFunction(action.value) - 1], actionHints, index);
                 }
             }
         })
@@ -309,7 +319,8 @@ export class ActionsManager {
                 const monsterSpawns = this.getMonsterSpawnData(action);
                 for (let spawn of monsterSpawns) {
                     if (spawn.monster && spawn.monster.type) {
-                        const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, figure.edition || gameManager.currentEdition());
+                        const edition = figure instanceof Monster ? figure.edition : (gameManager.game.scenario ? gameManager.game.scenario.edition : gameManager.currentEdition());
+                        const monster = gameManager.monsterManager.addMonsterByName(spawn.monster.name, edition);
                         if (monster) {
                             const spawnCount: number = typeof spawn.count == 'string' ? EntityValueFunction(spawn.count.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)), entity.level) : spawn.count || 1;
                             const count = Math.min(gameManager.monsterManager.monsterStandeeMax(monster) - gameManager.monsterManager.monsterStandeeCount(monster), spawnCount);

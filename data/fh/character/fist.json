@@ -10,6 +10,17 @@
   ],
   "color": "#88abc6",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "one-with-the-mountain",
+      "expire": true
+    },
+    {
+      "name": "gift-of-the-mountain",
+      "expire": true,
+      "level": 7
+    }
+  ],
   "stats": [
     {
       "level": 1,

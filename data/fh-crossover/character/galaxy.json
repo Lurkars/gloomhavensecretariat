@@ -1,0 +1,51 @@
+{
+  "name": "galaxy",
+  "characterClass": "aesther",
+  "icon": "cs-galaxy",
+  "thumbnail": "cs-galaxy",
+  "edition": "fh-crossover",
+  "handSize": 10,
+  "color": "#6d6fb3",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 6
+    },
+    {
+      "level": 2,
+      "health": 7
+    },
+    {
+      "level": 3,
+      "health": 8
+    },
+    {
+      "level": 4,
+      "health": 9
+    },
+    {
+      "level": 5,
+      "health": 10
+    },
+    {
+      "level": 6,
+      "health": 11
+    },
+    {
+      "level": 7,
+      "health": 12
+    },
+    {
+      "level": 8,
+      "health": 13
+    },
+    {
+      "level": 9,
+      "health": 14
+    }
+  ],
+  "perkWarning": true,
+  "perks": [],
+  "masteries": []
+}

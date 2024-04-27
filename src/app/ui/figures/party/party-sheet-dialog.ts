@@ -21,7 +21,7 @@ import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario
 import { ghsDialogClosingHelper, ghsInputFullScreenCheck } from "../../helper/Static";
 import { AutocompleteItem } from "../../helper/autocomplete";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
-import { ScenarioRequirementsComponent } from "./requirements/requirements";
+import { ScenarioRequirementsDialogComponent } from "./requirements/requirements";
 import { PartyResourcesDialogComponent } from "./resources/resources";
 import { ScenarioChartDialogComponent } from "./scenario-chart/scenario-chart";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
@@ -147,13 +147,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
-      next: () => {
+      next: (server: boolean) => {
         if (this.party != gameManager.game.party) {
           this.party = gameManager.game.party;
           this.update();
         }
 
-        if (this.townGuardDeck && this.party.townGuardDeck) {
+        if (server && this.townGuardDeck && this.party.townGuardDeck) {
           gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
         }
       }
@@ -171,7 +171,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keydown', ['$event'])
   keyboardShortcuts(event: KeyboardEvent) {
-    if (!this.disableShortcuts) {
+    if (!this.disableShortcuts && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
       if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && this.worldMap) {
         this.openMap();
         event.stopPropagation();
@@ -587,7 +587,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   scenarioRequirements(scenarioData: ScenarioData) {
     if (gameManager.scenarioManager.isLocked(scenarioData)) {
-      this.dialog.open(ScenarioRequirementsComponent, {
+      this.dialog.open(ScenarioRequirementsDialogComponent, {
         panelClass: ['dialog'],
         data: { scenarioData: scenarioData, hideMenu: true }
       })
@@ -634,7 +634,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         this.scenarioEditions.push(edition);
       }
 
-      this.conclusions[edition] = this.party.conclusions.filter((value) => value.edition == edition).map((value) => gameManager.sectionData(edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).filter((conclusionData) => !this.party.scenarios.find((scenarioModel) => scenarioModel.edition == conclusionData.edition && scenarioModel.group == conclusionData.group && scenarioModel.index == conclusionData.parent));
+      this.conclusions[edition] = this.party.conclusions.filter((value) => value.edition == edition).map((value) => gameManager.sectionData(edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).filter((conclusionData) => conclusionData && !this.party.scenarios.find((scenarioModel) => scenarioModel.edition == conclusionData.edition && scenarioModel.group == conclusionData.group && scenarioModel.index == conclusionData.parent));
     });
 
     if (this.party.reputation >= 0) {

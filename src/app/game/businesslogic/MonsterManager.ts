@@ -268,6 +268,7 @@ export class MonsterManager {
       figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition) as Monster;
     if (!monster) {
       monster = new Monster(monsterData);
+      this.applySameDeck(monster);
       this.setLevel(monster, level);
       monster.off = true;
       this.resetMonsterAbilities(monster);
@@ -363,7 +364,7 @@ export class MonsterManager {
 
   monsterStandeeMax(monster: Monster): number {
     let max = EntityValueFunction(monster.standeeCount || monster.count || 0, monster.level);
-    if (!max && monster.standeeShare) {
+    if ((!max || !monster.standeeCount) && monster.standeeShare) {
       const share = gameManager.monstersData(monster.standeeShareEdition || monster.edition).find((value) => value.name == monster.standeeShare);
       if (share) {
         max = EntityValueFunction(share.standeeCount || share.count, monster.level);

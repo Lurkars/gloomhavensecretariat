@@ -9,7 +9,11 @@
       "regular": "Regular",
       "over": "Over"
     },
-    "fist": "Frozen Fist",
+    "fist": {
+      ".": "Frozen Fist",
+      "gift-of-the-mountain": "At end of turn, %game.action.heal% 2, self",
+      "one-with-the-mountain": "Permanent %game.condition.regenerate%"
+    },
     "kelp": {
       ".": "Deepwraith",
       "trophy_tokens": "%data.characterToken.kelp.trophy% Trophy Tokens"
@@ -890,7 +894,7 @@
       ".": "Scepter of Control"
     },
     "fh-204": {
-      "1": "During your turn, one adjacent normal or elite enemy suffers %game.damage% to their %game.action.shield% value.",
+      "1": "During your turn, one adjacent normal or elite enemy suffers %game.damage% equal to their %game.action.shield% value.",
       ".": "Severed Claw"
     },
     "fh-205": {

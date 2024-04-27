@@ -77,10 +77,9 @@
     align-items: center;
     flex-wrap: wrap;
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-barsize) * var(--ghs-text-factor));
-    line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-barsize) * var(--ghs-text-factor));
     color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline-thin);
-    max-height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize) * var(--ghs-text-factor));
+    max-height: calc(var(--ghs-unit) * 3.5 * var(--ghs-barsize) * var(--ghs-text-factor));
     overflow: auto;
 
     .section {

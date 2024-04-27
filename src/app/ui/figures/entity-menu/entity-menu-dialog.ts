@@ -927,6 +927,11 @@ export class EntityMenuDialogComponent {
         if (this.data.entity.name == 'lightning' && specialTagsToTemove.indexOf('immune') != -1) {
           this.data.entity.immunities = [];
         }
+
+        if (this.data.entity.name == 'fist' && specialTagsToTemove.indexOf('one-with-the-mountain') != -1) {
+          this.data.entity.entityConditions = this.data.entity.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.regenerate || !entityCondition.permanent);
+        }
+
         if (this.data.entity.name == 'demolitionist' && specialTagsToTemove.indexOf('mech') != -1) {
           this.data.entity.maxHealth -= 5;
           gameManager.entityManager.checkHealth(this.data.entity, this.data.entity);
@@ -948,6 +953,18 @@ export class EntityMenuDialogComponent {
             this.data.entity.immunities.push(ConditionName.enfeeble);
           }
         }
+
+        if (this.data.entity.name == 'fist' && specialTagsToAdd.indexOf('one-with-the-mountain') != -1) {
+          let regenerate = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.regenerate);
+          if (regenerate) {
+            regenerate.permanent = true;
+          } else {
+            regenerate = new EntityCondition(ConditionName.regenerate);
+            regenerate.permanent = true;
+            this.data.entity.entityConditions.push(regenerate);
+          }
+        }
+
         if (this.data.entity.name == 'demolitionist' && specialTagsToAdd.indexOf('mech') != -1) {
           this.data.entity.maxHealth += 5;
           this.data.entity.health += 10;
@@ -1151,6 +1168,11 @@ export class EntityMenuDialogComponent {
 
         if (specialTagsToTemove.length) {
           gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
+
+          if (specialTagsToTemove.indexOf('bone-dagger') != -1) {
+            this.data.entity.attack = EntityValueFunction(this.data.entity.attack) - 1;
+          }
+
           this.data.entity.tags = this.data.entity.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
           gameManager.stateManager.after();
         }
@@ -1159,6 +1181,11 @@ export class EntityMenuDialogComponent {
 
         if (specialTagsToAdd.length) {
           gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
+
+          if (specialTagsToAdd.indexOf('bone-dagger') != -1) {
+            this.data.entity.attack = EntityValueFunction(this.data.entity.attack) + 1;
+          }
+
           this.data.entity.tags.push(...specialTagsToAdd);
           gameManager.stateManager.after();
         }

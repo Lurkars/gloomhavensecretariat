@@ -344,5 +344,17 @@
         "solo-128": {
             "1": "During your turn, perform \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\"."
         }
+    },
+    "scenario": {
+        "rules": {
+            "solo": {
+                "14": {
+                    "1": "The Hound is the Ghost Wolf.",
+                    "2": "The Earth Demon is the Deep Earth. It has Hx2 hit points, where H is an elite Earth Demon's regular hit point value.",
+                    "3": "The Flame Demon is the High Flame. Add +2 to its Retaliate, the Range of its Retaliate, and its Shield.",
+                    "4": "All Giant Vipers add +1 Attack to all their Attacks."
+                }
+            }
+        }
     }
 }

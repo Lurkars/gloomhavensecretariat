@@ -220,6 +220,5 @@
       "count": 1,
       "custom": "Each time you long rest, perform \"%game.condition.regenerate%, Self\""
     }
-  ],
-  "additionalModifier": []
+  ]
 }

@@ -65,7 +65,7 @@
           <ng-container *ngFor="let figureRule of figureRules(ruleModel.rule);">
             <span class="figure">
               <span class="text-white" [ghs-label]="'scenario.rules.figures.' + figureRule.type"
-                [ghs-label-args]="[figureNames(figureRule,ruleModel.rule), figureRule.value || '', (settingsManager.settings.calculate && (figureRule.type == 'damage' && figureRule.value && figureRule.value.indexOf('H') == -1 || (figureRule.type == 'setHp' || figureRule.type == 'heal') && figureRule.value && figureRule.value.indexOf('H') == -1)) ? '' + EntityValueFunction(figureRule.value || '') : (figureRule.value || ''), (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[0] : '', (figureRule.type == 'amAdd' || figureRule.type == 'amRemove' || figureRule.type == 'transfer' && figureRule.value && figureRule.value.split(':').length > 1) ? figureRule.value.split(':')[1] : '']"></span>
+                [ghs-label-args]="[figureNames(figureRule,ruleModel.rule), figureRule.value || '', (settingsManager.settings.calculate && (figureRule.type == 'damage' && figureRule.value && figureRule.value.indexOf('H') == -1 || (figureRule.type == 'setHp' || figureRule.type == 'heal') && figureRule.value && figureRule.value.indexOf('H') == -1)) ? '' + EntityValueFunction(figureRule.value || '') : (figureRule.value || ''), (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[0] : '', (figureRule.type == 'amAdd' || figureRule.type == 'amRemove' || figureRule.type == 'transfer' && figureRule.value && figureRule.value.split(':').length > 1) ? figureRule.value.split(':')[1] : '', figureRule.type == 'transferEntities' && figureRule.identifier && figureRule.identifier.number ? figureRule.identifier.number : '']"></span>
               <span *ngIf="figureRule.scenarioEffect" class="text-white">
                 <span [ghs-label]="'scenario.rules.figures.scenarioEffect'"></span>
               </span>
@@ -92,7 +92,8 @@
         <p *ngIf="ruleModel.rule.note" class="text-white" [ghs-label]="ruleModel.rule.note"></p>
         <div class="menu" *ngIf="apply(ruleModel.rule)">
           <a class="apply" (click)="applyRule(ruleElement, index)">
-            <span [ghs-label]="ruleModel.rule.alwaysApply ? 'scenario.rules.alwaysApply' : 'scenario.rules.apply'"></span>
+            <span
+              [ghs-label]="ruleModel.rule.alwaysApply ? 'scenario.rules.alwaysApply' : 'scenario.rules.apply'"></span>
             <img src="./assets/images/check.svg">
           </a>
         </div>

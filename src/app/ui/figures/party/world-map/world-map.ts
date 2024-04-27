@@ -1,5 +1,4 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Overlay } from "@angular/cdk/overlay";
 import { AfterViewInit, Component, HostListener, Inject, ViewEncapsulation } from "@angular/core";
 import L, { ImageOverlay, LatLngBounds, LatLngBoundsLiteral } from 'leaflet';
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
@@ -9,8 +8,9 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { WorldMapCoordinates } from "src/app/game/model/data/WorldMap";
 import { ScenarioChartPopupDialog } from "src/app/ui/figures/party/scenario-chart/popup/scenario-chart-popup";
 import { ScenarioChartDialogComponent } from "src/app/ui/figures/party/scenario-chart/scenario-chart";
-import { ghsDefaultDialogPositions, ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { PartySheetDialogComponent } from "../party-sheet-dialog";
+import { Subscription } from "rxjs";
 
 @Component({
     selector: 'ghs-world-map',
@@ -40,10 +40,29 @@ export class WorldMapComponent implements AfterViewInit {
     showExtended: boolean = false;
     campaignSheet: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
+    constructor(@Inject(DIALOG_DATA) public edition: string, public dialogRef: DialogRef, private dialog: Dialog) {
         const pinchZoom = settingsManager.settings.pinchZoom;
         settingsManager.settings.pinchZoom = false;
         this.mapEdition = this.edition;
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.updateMap() });
+        this.update();
+
+        this.dialogRef.closed.subscribe({
+            next: () => {
+                settingsManager.settings.pinchZoom = pinchZoom;
+            }
+        })
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
+    }
+
+    update() {
         let editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
         if (editionData && !editionData.worldMap && editionData.extendWorldMap) {
             editionData = gameManager.editionData.find((other) => editionData && other.edition == editionData.extendWorldMap && other.worldMap);
@@ -84,12 +103,12 @@ export class WorldMapComponent implements AfterViewInit {
                 }
             }
         }
+    }
 
-        this.dialogRef.closed.subscribe({
-            next: () => {
-                settingsManager.settings.pinchZoom = pinchZoom;
-            }
-        })
+    updateMap() {
+        this.update();
+        this.map.remove();
+        this.ngAfterViewInit();
     }
 
     ngAfterViewInit(): void {
@@ -158,14 +177,12 @@ export class WorldMapComponent implements AfterViewInit {
                         event.target.setZIndex(i + 2);
                     });
 
-                    overlay.on('click', (event) => {
+                    overlay.on('click', () => {
                         if (!settingsManager.settings.debugEditWorldMap && (!gameManager.stateManager.permissions || gameManager.stateManager.permissions.scenario)) {
                             const scenarioData = this.scenarios[i];
-                            const element = event.target.getElement();
                             this.dialog.open(ScenarioChartPopupDialog, {
                                 panelClass: ['dialog'],
-                                data: scenarioData,
-                                positionStrategy: this.overlay.position().flexibleConnectedTo(element).withPositions(ghsDefaultDialogPositions())
+                                data: scenarioData
                             }).closed.subscribe({
                                 next: (result) => {
                                     if (result) {

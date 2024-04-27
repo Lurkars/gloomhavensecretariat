@@ -10,6 +10,7 @@ import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
+import { Subscription } from "rxjs";
 
 @Component({
     selector: 'ghs-scenario-chart',
@@ -19,21 +20,13 @@ import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
 })
 export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
-    flow: string[] = [
-        "flowchart LR",
-        "classDef default stroke-width:4;",
-        "classDef success stroke:#7da82a;",
-        "classDef unplayed stroke:#56c8ef;",
-        "classDef blocked stroke:#e2421f;",
-        "classDef locked stroke:#eca610;",
-        "classDef success-blocked fill:#7da82a,stroke:#e2421f;",
-        "classDef success-locked fill:#7da82a,stroke:#eca610;",
-        "linkStyle default stroke-width:5"];
+    flow: string[] = [];
     flowString: string = "";
     edition: string;
     group: string | undefined;
     worldMap: boolean = false;
     campaignSheet: boolean = false;
+    chart!: L.Map;
 
     constructor(@Inject(DIALOG_DATA) public data: { edition: string, group: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
         this.edition = data.edition;
@@ -59,6 +52,29 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 tertiaryTextColor: "#eeeeee"
             }
         });
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.updateMap() });
+        this.update();
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
+    }
+
+    update() {
+        this.flow = [
+            "flowchart LR",
+            "classDef default stroke-width:4;",
+            "classDef success stroke:#7da82a;",
+            "classDef unplayed stroke:#56c8ef;",
+            "classDef blocked stroke:#e2421f;",
+            "classDef locked stroke:#eca610;",
+            "classDef success-blocked fill:#7da82a,stroke:#e2421f;",
+            "classDef success-locked fill:#7da82a,stroke:#eca610;",
+            "linkStyle default stroke-width:5"];
 
         let pad = "000";
         let subgraph: string | undefined = undefined;
@@ -247,6 +263,12 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         this.flowString = this.flow.join("\n");
     }
 
+    updateMap() {
+        this.update();
+        this.chart.remove();
+        this.ngAfterViewInit();
+    }
+
     async ngAfterViewInit() {
 
         const { svg, bindFunctions } = await mermaid.render('graphDiv', this.flowString);
@@ -268,7 +290,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         const boundHeight = Math.max(height, 600);
         const offsetX = boundWidth > width ? (boundWidth - width) / 2 : 0;
         const offsetY = boundHeight > height ? (boundHeight - height) : 0;
-        var chart = L.map('chart', {
+        this.chart = L.map('chart', {
             crs: L.CRS.Simple,
             maxBounds: [[boundHeight * -0.5, boundWidth * -0.5], [boundHeight * 1.5, boundWidth * 1.5]],
             minZoom: -4,
@@ -278,8 +300,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             attributionControl: false
         });
         var bounds: LatLngBoundsLiteral = [[0, 0], [boundHeight * 1.5, boundWidth * 1.5]];
-        chart.fitBounds(bounds);
-        chart.zoomIn();
+        this.chart.fitBounds(bounds);
+        this.chart.zoomIn();
 
         const overlay = L.svgOverlay(svgElement, [[height + offsetY, offsetX], [offsetY, width + offsetX]], { interactive: true });
 
@@ -309,9 +331,9 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             }
         });
 
-        overlay.addTo(chart);
+        overlay.addTo(this.chart);
 
-        const container = chart.getContainer();
+        const container = this.chart.getContainer();
         if (bindFunctions) {
             bindFunctions(container);
         }

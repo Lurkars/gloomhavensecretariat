@@ -27,6 +27,23 @@
         "2": "Never perform a Doom action that you have already performed in the scenario",
         "3": "Kill three Doomed enemies during one of your turn"
       },
+      "beetle": {
+        "1": "<b>Heart of Swarm:</b> Once per scenario on your turn, play a card from your discard pile to perform Cultivate %data.action.custom.cs-cultivate% action of that card. You and all allies adjacent to you are considered to be adjecent to every colony type this round",
+        "2": "For an entire scenario, have the persistent effect of a Cultivate %data.action.custom.cs-cultivate% ability trigger each round (only count gaining %game.action.shield% or %game.action.retaliate% if attacked)",
+        "3": "In a single round, cause 15 or more damage with retaliate (including retailiate you grant)"
+      },
+      "bleeding-claw": {
+        "1": "<b>Lull in Hunger:</b> Once each scenario, become %game.action.custom.cs-sated% after collecting your fifth loot token",
+        "2": "<b>Andrenaline Rush:</b> Become %game.action.custom.cs-sated% each time you lose a card to negate suffering %game.action.damage%",
+        "3": "<b>Follow the Scent:</b> Whenever one of your abilities causes at least one enemy to gain %game.condition.rupture%, immiditiately after the ability, perform %game.action.move%",
+        "4": "For an entire scenario, be %game.action.custom.cs-sated% at the start or end of each of your turns",
+        "5": "%game.action.push% one enemy 7 or more hexes with a single attack"
+      },
+      "chain-helmet": {
+        "1": "<b>Unyielding Jailer:</b> You may have an additional enemy Shackled %data.characterIcon.chain-helmet% at any time",
+        "2": "Shackle %data.characterIcon.chain-helmet% 30 different enemies accross any number of scenarios",
+        "3": "Deal %game.damage:20% to Shackled %data.characterIcon.chain-helmet% enemies in a single round"
+      },
       "circles": {
         "1": "when %game.action.attack% performed",
         "2": "Performs",
@@ -78,10 +95,20 @@
         "2": "Reduce attacks targeting you by a total of 20 or more through Shield effects in a single round",
         "3": "%game.element.light% or %game.element.consume.light% during each of your turns"
       },
+      "target": {
+        "1": "<b>Emergency Emplacement:</b> Whenever you short rest, you may gain Immobilize to immiditially resolve any of your active Projectile abilities.",
+        "2": "In a single scenario, successfully resolve 4 different Projectile abilities twice each",
+        "3": "For an entire scenario, deal more damage with retaliate than you suffer whenever you are attacked, and be targeted by at least 5 attacks"
+      },
       "three-spears": {
         "1": "<b>Well Supplied:</b> Once each scenario, during your turn, if you have a persistend Quartermaster ability card in your active area, you may recover up to four cards from your discard pile",
         "2": "Spend, lose, or refresh one or more items on each of your turns without ever performing the top action of <i>Reinforced Steel</i>",
         "3": "Loot six or more loot tokens in a single turn"
+      },
+      "tools": {
+        "1": "<b>Spare Parts:</b> At the start of each scenario, you may lose one %game.itemSlot:head%, %game.itemSlot:legs%, %game.itemSlot:onehand%, or %game.itemSlot:twohand% item for no effect to gain 2 %data.action.custom.cs-tool%",
+        "2": "In a single scenario, gain or spend at least 1 %data.action.custom.cs-tool% each round",
+        "3": "In a signle scenario, lose 12 %game.itemSlot:head%, %game.itemSlot:legs%, %game.itemSlot:onehand%, and %game.itemSlot:twohand% items"
       },
       "triangles": {
         "1": "You may perform Attack actions as if you occupy the summon's hex.",

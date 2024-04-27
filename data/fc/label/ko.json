@@ -24,6 +24,7 @@
     "valrath-commander": "Valrath Commander",
     "valrath-savage": "Valrath Savage",
     "valrath-tracker": "Valrath Tracker",
+    "warden": "Warden",
     "wolf-viper-abomination": "Wolf-Viper Abomination"
   },
   "deck": {
@@ -43,11 +44,29 @@
         },
         "104": {
           "1": "towards portal %game.mapMarker.1%",
-          "2": "towards portal %game.mapMarker.2%"
+          "2": "towards portal %game.mapMarker.2%",
+          "3": "towards portal %game.mapMarker.3%",
+          "4": "towards portal %game.mapMarker.4%"
         },
         "105": {
-          "1": "Apply if Dimensional Equilibrium Party) is incomplete"
+          "1": "Only apply if Dimensional Equilibrium (Party) is incomplete:"
         },
+        "106": {
+          "1": "All characters must discard one card from their hand or lose one at random from their discard pile."
+        },
+        "110": {
+          "1": "The Valrath Tracker is Selah Naberis and has hit points equal to an elite Valrath Tracker'sr egular hit point value. He adds \"%game.target% C\" and \"%game.action.pierce% 10\" to all his attacks.",
+          "2": "The Vermling Shaman is Sraka the Wise and has CxH/2 (rounded up) hit points, where H is an elite Vermling Shaman's regular hit point value. The value of all her heals are doubled, and all %game.condition.curse% and %game.condition.bless% conditions she applies are applied twice. Any time she performs a Heal action, if the City Guard is within range and is damaged, she will prioritize healing him.",
+          "3": "The City Guard is The Steel Lion and has CxH/2 (rounded up) hit points, where H is an elite City Guard's regular hit point value. He adds +1 to all his Move actions. As long as he is alive, all his allies gain \"%game.action.shield% X\", where X is the shield value printed on his stat card. The first C times he suffers 6 or more damage from a single source, he suffers no damage instead. All attacks targeting his allies when they are adjacent to him, target him instead, regardless of range.",
+          "4": "The Savvas Lavaflow is Uyart Ikkuma and has CxH/2 (rounded up) hit points, where H is an elite Savvas Lavaflow's regular hit point value. All its summons are elite for three or four characters. Any consume element effects on its ability cards are applied if the element's corresponding demon is present on the map."
+        },
+        "111": {
+          "1": "The elite Aesther Ashblade is the Husk. It has HxC hit points, where H is an elite Aesther Ashblade's regular hit point value, and is immune to %game.condition.stun%, %game.condition.disarm%, %game.condition.immobilize%, and all forced movement",
+          "2": "Immune to forced movement",
+          "3": "The Husk is now considered to have %game.action.shield% 1 and adds +1 %game.action.attack% to all its attacks.",
+          "4": "The Husk is now considered to have %game.action.shield% 2 and adds +3 %game.action.attack% to all its attacks."
+        },
+        "113": "The Stone Golem is the Warden. It cannot be damaged in any way.",
         "115": {
           "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
           "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
@@ -64,18 +83,22 @@
           "1": "Flip over the numbered tokens on doors %game.mapMarker.3%, %game.mapMarker.5%, %game.mapMarker.8% and %game.mapMarker.11%",
           "2": "Move the six iron walls to positions: %game.mapMarker.p%, %game.mapMarker.t%, %game.mapMarker.s%, %game.mapMarker.a1%, %game.mapMarker.a5% and %game.mapMarker.a6%"
         },
+        "6": "All Hounds are Wolf-Viper Abominations. They have H+3 hit points, where H is a Hound's regular hit point value.<br><br>Instead of using all the Hound ability cards, use only those with initiative values of 06, 72, and both 19s. Shuffle these together with the Giant Viper ability cards with initiative values of 23, both 43s, and the one 58 with \"Move+1, Jump\". All references to Hounds or Giant Vipers apply to Wolf-Viper Abominations.",
         "10": {
           "1": "Flip over the numbered tokens on doors %game.mapMarker.3%, %game.mapMarker.8%, %game.mapMarker.9% and %game.mapMarker.10%",
           "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.n%, %game.mapMarker.r%, %game.mapMarker.t%, %game.mapMarker.a4% and %game.mapMarker.a6%"
         },
+        "13": "The Savvas Lavaflow is the Avatar of Ashtar.",
         "19": {
           "1": "Flip over the numbered tokens on doors %game.mapMarker.1%, %game.mapMarker.6%, %game.mapMarker.7% and %game.mapMarker.10%",
           "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.p%, %game.mapMarker.t%, %game.mapMarker.a1%, %game.mapMarker.a2% and %game.mapMarker.a6%"
         },
+        "28": "The elite Cave Bear is the Bear-Drake Abomination. It has (HxC)/2 hit points (rounded up), where H is an elite Cave Bear's regular hit point value, and it is immune to %game.condition.immobilize%, %game.condition.disarm% and %game.condition.stun%. Additionally, it is considered to have %game.action.fly%.<br><br>Instead of using all the Cave Bear ability cards, use only those with initiative values of 03, 14, 61, and 80. Shuffle these together with the Rending Drake ability cards with initiative values of 12, 13, 25, and 59.",
         "31": {
           "1": "Flip over the numbered tokens on doors %game.mapMarker.2%, %game.mapMarker.3%, %game.mapMarker.4% and %game.mapMarker.9%",
           "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.o%, %game.mapMarker.r%, %game.mapMarker.t%, %game.mapMarker.a4% and %game.mapMarker.a6%"
         },
+        "35": "The Savvas Icestorm is the Avatar of Thelija.",
         "43": {
           "1": "Flip over the numbered tokens on doors %game.mapMarker.4%, %game.mapMarker.6%, %game.mapMarker.8% and %game.mapMarker.9%",
           "2": "Move the six iron walls to positions: %game.mapMarker.m%, %game.mapMarker.s%, %game.mapMarker.p%, %game.mapMarker.a2%, %game.mapMarker.a4% and %game.mapMarker.a6%"
@@ -97,10 +120,39 @@
           "1": "adjacent and to the right of any door %game.mapMarker.4%"
         },
         "128": {
-          "1": "%game.action.teleport% %data.monster.the-husk-section-66% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
+          "1": "%game.action.teleport% %data.monster.the-husk% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
+        },
+        "132": {
+          "1": "Immediately resolve it!",
+          "2": "After ability is resolved:"
+        },
+        "133": {
+          "1": "The Ancient Artillery has %game.action.shield% 2 and is immune to all forced movement.",
+          "2": "Immune to all forced movement"
         }
       }
     }
+  },
+  "partyAchievements": {
+    "A Strongbox": "A Strongbox",
+    "Angels of Death": "Angels of Death",
+    "Beauty in Freedom": "Beauty in Freedom",
+    "Custodians": "Custodians",
+    "Diamara's Aid": "Diamara's Aid",
+    "Dimensional Equilibrium": "Dimensional Equilibrium",
+    "Guard Detail": "Guard Detail",
+    "Hunted Prey": "Hunted Prey",
+    "Hunting the Hunter": "Hunting the Hunter",
+    "Opportunists": "Opportunists",
+    "Xangroth's Aid": "Xangroth's Aid"
+  },
+  "globalAchievements": {
+    "A Peril Averted": "A Peril Averted",
+    "Knowledge is Power": "Knowledge is Power",
+    "Mechanical Splendor": "Mechanical Splendor",
+    "Pieces of an Artifact": "Pieces of an Artifact",
+    "Severed Ties": "Severed Ties",
+    "Through the Portal": "Through the Portal"
   },
   "custom": {
     "fc": {
@@ -149,6 +201,14 @@
       "valrath-savage": {
         "1": "All adjacent allies add +1 %game.action.attack% to all attacks",
         "2": "All adjacent allies add +2 %game.action.attack% to all attacks"
+      },
+      "flowChartGroup": {
+        "diviner": "점술가",
+        "orchid-society": "오키드 사회",
+        "citizens": "글룸헤이븐 시민",
+        "the-rift": "균열 장치",
+        "tainted-crypt": "오염된 묘지",
+        "corruption": "부패"
       }
     }
   }

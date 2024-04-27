@@ -166,7 +166,7 @@
           <div class="masteries-list">
             <div class="mastery" *ngFor="let mastery of character.masteries; let i = index">
               <span class="checkmark">
-                <img src="./assets/images/check.svg">:</span>
+                <img src="./assets/images/close.svg">:</span>
               <span class="mastery-check checkbox"
                 [ngClass]="{'checked' : character.progress.masteries.indexOf(i) != -1}"
                 (click)="toggleMastery(i)"></span>
@@ -199,7 +199,7 @@
             <img class="ghs-svg" src="./assets/images/warning.svg">
             <span [ghs-label]="'game.attackModifiers.perks.warning'"></span>
           </div>
-          <div *ngIf="perksWip" class="wip" [ghs-label]="'wip'" [ghs-label-attribute]="'title'">
+          <div *ngIf="character.perkWarning" class="wip" [ghs-label]="'wip'" [ghs-label-attribute]="'title'">
             <img class="ghs-svg" src="./assets/images/warning.svg"> <span
               [ghs-label]="'game.attackModifiers.perks.wip'"></span>
           </div>

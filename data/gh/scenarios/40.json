@@ -13,12 +13,6 @@
   "unlocks": [
     "41"
   ],
-  "requires": [
-    [
-      "24",
-      "33"
-    ]
-  ],
   "requirements": [
     {
       "party": [

@@ -57,6 +57,10 @@ export class FeedbackDialogComponent {
     issueMail(type: string, text: string): string {
         let mailto = 'mailto:issue@gloomhaven-secretariat.de';
 
+        if (type == 'feedback') {
+            mailto = 'mailto:feedback@gloomhaven-secretariat.de';
+        }
+
         mailto += '?subject=[GHS v' + packageJson.version + '] ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.subject');
 
         mailto += '&body=' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.hint') + '%0D%0A%0D%0A' + text;

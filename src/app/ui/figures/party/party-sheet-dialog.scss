@@ -1265,7 +1265,7 @@
 
           .town-guard-deck {
             position: absolute;
-            right: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+            right: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
             top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 37.5 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 10 * var(--ghs-dialog-factor));
@@ -1294,7 +1294,7 @@
             }
 
             &.collapsed {
-              transform: translateX(123%);
+              transform: translateX(calc(var(--ghs-unit) * 41.5 * var(--ghs-dialog-factor)));
             }
 
             .active-toggle {
@@ -2185,7 +2185,7 @@
             align-items: center;
             height: 100%;
             overflow: auto;
-            
+
             .donation {
               position: relative;
               display: flex;

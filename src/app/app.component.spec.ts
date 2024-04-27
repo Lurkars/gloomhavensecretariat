@@ -81,7 +81,7 @@ import { ObjectiveContainerComponent } from './ui/figures/objective-container/ob
 import { PartyBuildingsComponent } from './ui/figures/party/buildings/buildings';
 import { BuildingUpgradeDialog } from './ui/figures/party/buildings/upgrade-dialog/upgrade-dialog';
 import { PartySheetDialogComponent } from './ui/figures/party/party-sheet-dialog';
-import { ScenarioRequirementsComponent } from './ui/figures/party/requirements/requirements';
+import { ScenarioRequirementsComponent, ScenarioRequirementsDialogComponent } from './ui/figures/party/requirements/requirements';
 import { PartyResourcesDialogComponent } from './ui/figures/party/resources/resources';
 import { ScenarioChartPopupDialog } from './ui/figures/party/scenario-chart/popup/scenario-chart-popup';
 import { ScenarioChartDialogComponent } from './ui/figures/party/scenario-chart/scenario-chart';
@@ -158,7 +158,7 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
-        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, BuildingUpgradeDialog, ScenarioRequirementsComponent, TreasuresDialogComponent, PartyResourcesDialogComponent,
+        PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, BuildingUpgradeDialog, ScenarioRequirementsComponent, ScenarioRequirementsDialogComponent, TreasuresDialogComponent, PartyResourcesDialogComponent,
         MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, SettingMenuComponent, SettingMenuTitleComponent, DatamanagementMenuComponent, ScenarioMenuComponent, ScenarioChartDialogComponent, ScenarioChartPopupDialog, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootRandomItemDialogComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

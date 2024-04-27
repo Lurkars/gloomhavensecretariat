@@ -2,7 +2,7 @@
   "character": {
     "demolitionist": {
       ".": "Sprengmeisterin",
-      "mech": "%game.characterIconColored.demolitionist%  Mech Suit"
+      "mech": "Mech Suit"
     },
     "hatchet": "Axtwerfer",
     "red-guard": "Rotgardist",

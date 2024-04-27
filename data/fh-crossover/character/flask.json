@@ -1,0 +1,126 @@
+{
+  "name": "flask",
+  "characterClass": "human",
+  "icon": "cs-flask",
+  "thumbnail": "cs-flask",
+  "edition": "fh-crossover",
+  "handSize": 11,
+  "traits": [
+    "chaotic",
+    "educated",
+    "resourceful"
+  ],
+  "color": "#caad2e",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "metal-detector",
+      "cardId": "046",
+      "level": 3,
+      "health": 6,
+      "movement": 1
+    },
+    {
+      "name": "black-hole",
+      "cardId": "053",
+      "level": 7,
+      "health": 4,
+      "range": 4
+    }
+  ],
+  "perkWarning": true,
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2",
+            "effects": [
+              {
+                "type": "recoverRandomDiscard"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "elementConsume",
+                "value": "wild",
+                "effects": [
+                  {
+                    "type": "attack",
+                    "value": "+2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "masteries": []
+}

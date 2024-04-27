@@ -1353,7 +1353,8 @@
         "setHp": "{0} PV to {2}",
         "toggleOff": "{0} à inactif",
         "toggleOn": "{0} à actif",
-        "transfer": "{0} devient %data.monster.{1}% {4}"
+        "transfer": "{0} devient %data.monster.{1}% {4}",
+        "transferEntities": "{0} devient %data.monster.{1}% {4}"
       },
       "finish": {
         "lost": "Scénario perdu !",
