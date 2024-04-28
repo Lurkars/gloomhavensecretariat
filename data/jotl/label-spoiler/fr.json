@@ -4,6 +4,38 @@
         "1": "Pendant votre attaque, gagnez Avantage pour la totalité de l'action d'Attaque.",
         ".": "Jumelles Oeil-de-faucon"
       },
+      "jotl-2": {
+        "1": "Lorsque vous êtes attaqué, traitez toute carte Modificateur d'Attaque %game.attackmodifier.double% pioché par l'adversaire comme une carte %game.attackmodifier.plus0% à la place.",
+        ".": "Casque de fer"
+      },
+      "jotl-3": {
+        "1": "Pendant votre tour, gagnez %game.action.shield% 1 pour le reste du round.",
+        ".": "Armure de Mailles"
+      },
+      "jotl-4": {
+        "1": "Lorsque vous êtes attaqué, avant de pioché une carte Modificateur d'Attaque, pour cette attaque l'attaquant gagne Désavantage et vous gagnez %game.action.shield% 1.",
+        ".": "Cuir Clouté"
+      },
+      "jotl-5": {
+        "1": "Pendant votre déplacement, ajoutez +1 %game.action.move% à un seul déplacement.",
+        ".": "Bottes Patinées"
+      },
+      "jotl-6": {
+        "1": "Pendant votre déplacement, ajoutez %game.action.jump% à la totalité de l'action de Déplacement.",
+        ".": "Bottines Ailées"
+      },
+      "jotl-7": {
+        "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield% 1 pour cette attaque.",
+        ".": "Écu"
+      },
+      "jotl-8": {
+        "1": "Pendant votre attaque à distance, ajoutez %game.condition.stun% à une seule attaque.",
+        ".": "Marteau de lancer"
+      },
+      "jotl-9": {
+        "1": "Pendant votre attaque de mélée, ajoutez %game.condition.poison%à une seule attaque.",
+        ".": "Dague Empoisonnée"
+      },
       "jotl-10": {
         "1": "Pendant votre capacité d'Attaque de mélée sur une seule cible, attaquez un adversaire situé à 2 hexagones ou moins.",
         ".": "Lance ferrée"
@@ -43,10 +75,6 @@
       "jotl-19": {
         "1": "Pendant votre attaque à distance, ajoutez %game.condition.curse% à une seule attaque.",
         ".": "Chandelle Noire"
-      },
-      "jotl-2": {
-        "1": "Lorsque vous êtes attaqué, traitez toute carte Modificateur d'Attaque %game.attackmodifier.double% pioché par l'adversaire comme une carte %game.attackmodifier.plus0% à la place.",
-        ".": "Casque de fer"
       },
       "jotl-20": {
         "1": "Pendant votre attaque, ajoutez %game.condition.stun% à une seul attaque.",
@@ -88,10 +116,6 @@
         "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield% 2 pour cette attaque.",
         ".": "Pavois"
       },
-      "jotl-3": {
-        "1": "Pendant votre tour, gagnez %game.action.shield% 1 pour le reste du round.",
-        ".": "Armure de Mailles"
-      },
       "jotl-30": {
         "1": "À la fin de votre tour, jouez une carte de votre main et effectuez immédiatement l'action inférieure de cette carte.",
         ".": "Anneau de Hâte"
@@ -119,30 +143,6 @@
       "jotl-36": {
         "1": "Pendant votre déplacement, ajoutez +1 %game.action.move% et %game.action.jump% à un seul déplacement.",
         ".": "Bottes à Propulsion"
-      },
-      "jotl-4": {
-        "1": "Lorsque vous êtes attaqué, avant de pioché une carte Modificateur d'Attaque, pour cette attaque l'attaquant gagne Désavantage et vous gagnez %game.action.shield% 1.",
-        ".": "Cuir Clouté"
-      },
-      "jotl-5": {
-        "1": "Pendant votre déplacement, ajoutez +1 %game.action.move% à un seul déplacement.",
-        ".": "Bottes Patinées"
-      },
-      "jotl-6": {
-        "1": "Pendant votre déplacement, ajoutez %game.action.jump% à la totalité de l'action de Déplacement.",
-        ".": "Bottines Ailées"
-      },
-      "jotl-7": {
-        "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield% 1 pour cette attaque.",
-        ".": "Écu"
-      },
-      "jotl-8": {
-        "1": "Pendant votre attaque à distance, ajoutez %game.condition.stun% à une seule attaque.",
-        ".": "Marteau de lancer"
-      },
-      "jotl-9": {
-        "1": "Pendant votre attaque de mélée, ajoutez %game.condition.poison%à une seule attaque.",
-        ".": "Dague Empoisonnée"
       }
     }
   }
