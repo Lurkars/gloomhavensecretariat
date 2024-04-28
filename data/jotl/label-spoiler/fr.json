@@ -41,7 +41,7 @@
         ".": "Lance ferrée"
       },
       "jotl-11": {
-        "1": "Pendant votre tour, effectuez une action \"%game.action.heal% 3, Sur vous-même\".",
+        "1": "Pendant votre tour, effectuez une action \"%game.action.heal% 3, sur vous-même\".",
         ".": "Potion de Soin"
       },
       "jotl-12": {
