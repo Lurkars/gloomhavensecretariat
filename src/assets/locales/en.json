@@ -1940,6 +1940,10 @@
       "hint": "Perform Interactive Abilities for all standees at once."
     },
     "conditions": "Conditions/Elements",
+    "damageHP": {
+      ".": "Damage instead of HP",
+      "hint": "Show damage dealed instead of hitpoints left"
+    },
     "debug": {
       ".": "Debug Settings/Tools",
       "rightClick": "Always enable Right-Click",
@@ -2789,6 +2793,7 @@
       "space": "SPACE",
       "tab": "↹",
       "toggleAbsent": "Toggle <i>Hide absent figures</i>",
+      "toggleDamageHP": "Toggle <i>%settings.damageHP%</i>",
       "toggleElements": "Toggle through element state",
       "toggleHandSize": "Toggle <i>Display hand size and level</i>",
       "toggelTab": "Toggle active figure when drawn / Toggle initiative input when focused input",

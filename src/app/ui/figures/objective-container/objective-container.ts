@@ -204,6 +204,10 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
     });
   }
 
+  toggleDamageHP() {
+    settingsManager.toggle('damageHP');
+  }
+
   openEntitiesMenu(event: any) {
     this.dialog.open(EntitiesMenuDialogComponent, {
       panelClass: ['dialog'],

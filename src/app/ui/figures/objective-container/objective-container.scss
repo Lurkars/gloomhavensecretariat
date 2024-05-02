@@ -141,6 +141,10 @@
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         width: auto;
+
+        &.damage {
+          filter: var(--ghs-filter-red) brightness(0.7) var(--ghs-filter-outline-thin-black);
+        }
       }
 
       .value-overlay {

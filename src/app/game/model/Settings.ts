@@ -80,6 +80,7 @@ export class Settings {
   columnsForce: boolean = false;
   combineInteractiveAbilities: boolean = true;
   combineSummonAction: boolean = true;
+  damageHP: boolean = false;
   debugEditWorldMap: boolean = false;
   debugRightClick: boolean = false;
   disableAnimations: boolean = false;

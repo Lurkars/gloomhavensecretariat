@@ -25,6 +25,7 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>c</kbd>: open scenario chart
 - <kbd>SHIFT</kbd> + <kbd>H</kbd>: toggle *Display hand size and level*
 - <kbd>t</kbd>: toggle *Display traits*
+- <kbd>i</kbd>: toggle *Damage instead of HP*
 - <kbd>?</kbd>: show keyboard shortcuts
 
 On any open figure/standee menu, those shortcuts are disabled, currently shortcuts available in figure/standee:

@@ -128,10 +128,17 @@
             <div class="health" *ngIf="!settingsManager.settings.hideCharacterHP" [ghs-label]="'game.health'"
               [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragHpMove($event)"
               (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
-              (singleClick)="openEntityMenu($event)" (doubleClick)="compact && openCharacterSheet()">
-              <img src="./assets/images/status/health.svg" />
-              {{(character.health + health) | ghsMinZero}}/{{character.maxHealth}}
-              <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
+              (singleClick)="openEntityMenu($event)" (doubleClick)="toggleDamageHP()">
+              <img [ngClass]="{'damage' : settingsManager.settings.damageHP}"
+                [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
+              <span *ngIf="!settingsManager.settings.damageHP">
+                {{(character.health + health) | ghsMinZero}}/{{character.maxHealth}}
+              </span>
+              <span *ngIf="settingsManager.settings.damageHP">
+                {{character.maxHealth}}/{{character.maxHealth - (character.health + health) | ghsMinZero}}
+              </span>
+              <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
+                [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
             </div>
             <div class="markers">
               <span class="marker" *ngFor="let marker of character.markers;">

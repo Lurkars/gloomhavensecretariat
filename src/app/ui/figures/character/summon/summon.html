@@ -23,9 +23,15 @@
       </span>
 
       <span class="health"
-        [ngClass]="{'thumbnail': settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">{{(summon.health
-        + health) | ghsMinZero}}
-        <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
+        [ngClass]="{'thumbnail': settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl), 'damage' : settingsManager.settings.damageHP}">
+        <span *ngIf="!settingsManager.settings.damageHP">
+          {{((summon.health + health) | ghsMinZero)}}
+        </span>
+        <span class="small" *ngIf="settingsManager.settings.damageHP">
+          {{maxHp}}/{{((maxHp - summon.health + health) | ghsMinZero)}}
+        </span>
+        <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
+          [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
       </span>
     </div>
 

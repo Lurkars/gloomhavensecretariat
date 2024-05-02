@@ -73,12 +73,14 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
         }
       }
     })
+
+    this.maxHp = EntityValueFunction(this.summon.maxHealth);
   }
 
   dragHpMove(value: number) {
     this.health = value;
-    if (this.summon.health + this.health > this.summon.maxHealth) {
-      this.health = EntityValueFunction(this.summon.maxHealth) - this.summon.health;
+    if (this.summon.health + this.health > this.maxHp) {
+      this.health = this.maxHp - this.summon.health;
     }
   }
 

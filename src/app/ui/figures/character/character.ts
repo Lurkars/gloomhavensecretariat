@@ -327,6 +327,14 @@ export class CharacterComponent implements OnInit, OnDestroy {
     });
   }
 
+  toggleDamageHP() {
+    if (this.compact) {
+      this.openCharacterSheet();
+    } else {
+      settingsManager.toggle('damageHP');
+    }
+  }
+
   openEntitiesMenu(event: any) {
     this.dialog.open(EntitiesMenuDialogComponent, {
       panelClass: ['dialog'],

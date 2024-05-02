@@ -95,6 +95,8 @@ export class StandeeComponent implements OnInit, OnDestroy {
     if (this.figure instanceof ObjectiveContainer && this.figure.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)) {
       this.marker = "";
     }
+
+    this.maxHp = EntityValueFunction(this.entity.maxHealth);
   }
 
   dragHpMove(value: number) {

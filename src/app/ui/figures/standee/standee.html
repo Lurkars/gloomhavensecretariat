@@ -26,10 +26,17 @@
         </span>
 
 
-        <span class="health" [ghs-label]="'game.health'"
-          [ghs-label-attribute]="'title'">{{EntityValueFunction(entity.maxHealth) > 0 ? ((entity.health + health) |
-          ghsMinZero) : '-'}}
-          <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
+        <span class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'"
+          [ngClass]="{'damage' : settingsManager.settings.damageHP}">
+          <span *ngIf="maxHp && !settingsManager.settings.damageHP">
+            {{((entity.health + health) | ghsMinZero)}}
+          </span>
+          <span *ngIf="maxHp && settingsManager.settings.damageHP">
+            {{maxHp}}/{{((maxHp - entity.health + health) | ghsMinZero)}}
+          </span>
+          <span *ngIf="!maxHp">-</span>
+          <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
+            [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
         </span>
     </div>
 

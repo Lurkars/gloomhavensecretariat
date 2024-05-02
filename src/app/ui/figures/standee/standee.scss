@@ -273,6 +273,16 @@
           height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
           z-index: 1000;
         }
+
+        &.damage {
+          font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+
+          &::before {
+            background-image: url('~src/assets/images/action/damage.svg');
+            width: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+            filter: var(--ghs-filter-red) brightness(0.7) var(--ghs-filter-outline-thin-black);
+          }
+        }
       }
 
 

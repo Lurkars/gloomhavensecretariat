@@ -17,7 +17,7 @@ import { HeaderComponent } from '../header/header';
 import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP";
 
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
@@ -248,6 +248,9 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('traits') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 't') {
                     settingsManager.toggle('characterTraits');
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('damageHP') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 'i') {
+                    settingsManager.toggle('damageHP');
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 's') {
                     gameManager.stateManager.keyboardSelecting = true;
