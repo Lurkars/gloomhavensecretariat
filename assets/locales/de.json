@@ -1791,6 +1791,10 @@
       "hint": "Führe die interaktiven Fertigkeiten für alle Aufsteller gleichzeitig aus."
     },
     "conditions": "Zustände/Elemente",
+    "damageHP": {
+      ".": "Schaden statt TP",
+      "hint": "Zeige den erleideten Schaden statt der verbleibenden Trefferpunkte an."
+    },
     "debug": {
       ".": "Debug Einstellung/Werkzeuge",
       "hint": "",
@@ -2621,6 +2625,7 @@
       "space": "Leertaste",
       "tab": "↹",
       "toggleAbsent": "<i>Abwesende Figuren ausblenden<i> umschalten",
+      "toggleDamageHP": "<i>%settings.damageHP%</i> umschalten",
       "toggleElements": "Elementen Status durchschalten",
       "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen<i> umschalten",
       "toggelTab": "Aktive Figure umschalten währende der Runde / Fokus für Eingabefeld der Initivative umschalten",
