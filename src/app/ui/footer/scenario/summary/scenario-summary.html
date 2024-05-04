@@ -69,8 +69,8 @@
               [ghs-label-args]="[value.type]"></span></span>
           <span class="calc-col" *ngFor="let character of characters; let index = index;">
             <input type="number" min="0"
-              [max]="(collectiveResources[index][value.type] || 0) + availableCollectiveResource(value.type)"
-              [value]="(collectiveResources[index][value.type] || 0)"
+              [max]="(collectiveResources[index] && collectiveResources[index][value.type] || 0) + availableCollectiveResource(value.type)"
+              [value]="(collectiveResources[index] && collectiveResources[index][value.type] || 0)"
               (change)="changeCollectiveResource($event, index, value.type)">
           </span>
 

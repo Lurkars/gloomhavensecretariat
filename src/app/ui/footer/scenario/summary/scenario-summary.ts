@@ -594,6 +594,9 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     changeCollectiveResource(event: any, index: number, type: LootType) {
         let value = +event.target.value;
+        if (!this.collectiveResources[index]) {
+            this.collectiveResources[index] = {};
+        }
         const old = this.collectiveResources[index][type] || 0;
         this.collectiveResources[index][type] = 0;
         if (value < 0) {
