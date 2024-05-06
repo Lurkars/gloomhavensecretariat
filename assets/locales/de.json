@@ -2018,6 +2018,10 @@
       ".": "Szenario Regeln",
       "hint": "Zeigt Popup-Fenster mit speziellen Szenario Regeln an und wendet diese optional an"
     },
+    "scenarioRulesAutoapply": {
+      ".": "Automatische Szenario Regeln sofort anwenden",
+      "hint": "Automatische Szenario Regeln werden automatisch ohne Bestätigung angewendet"
+    },
     "showExpandedAbilityCard": {
       ".": "Alle Fertigkeiten auf Fertigkeitskarten anzeigen",
       "hint": "Zeigt die alle Fertigkeiten einer Fertigkeitskarten auf einmal (inklusive Titel) an."
