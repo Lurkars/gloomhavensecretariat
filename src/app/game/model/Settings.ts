@@ -134,6 +134,7 @@ export class Settings {
   scenarioRewardsItems: boolean = true;
   scenarioRooms: boolean = true;
   scenarioRules: boolean = true;
+  scenarioRulesAutoapply: boolean = false;
   serverAutoconnect: boolean = true;
   serverCode: string | undefined;
   serverPassword: string | undefined;

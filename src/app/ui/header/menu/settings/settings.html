@@ -247,10 +247,10 @@
   <div class="column">
     <div class="line" ghs-setting-menu="turnConfirmation"
       [disabled]="!settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions"></div>
+    <div class="line" [disabled]="!settingsManager.settings.scenarioRules" ghs-setting-menu="scenarioRulesAutoapply"></div>
     <div class="line" ghs-setting-menu="automaticUnlocking"></div>
     <div class="line" ghs-setting-menu="summons"></div>
     <div class="line" ghs-setting-menu="lootDeck"></div>
-    <div class="line" ghs-setting-menu="damageHP"></div>
   </div>
 
   <div class="column">
@@ -258,6 +258,7 @@
     <div class="line" ghs-setting-menu="monsters"></div>
     <div class="line" ghs-setting-menu="monsterAttackModifierDeck"></div>
     <div class="line" ghs-setting-menu="amAdvantage"></div>
+    <div class="line" ghs-setting-menu="damageHP"></div>
   </div>
 
   <!-- INTERFACE -->

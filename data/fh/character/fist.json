@@ -233,7 +233,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.fh.fist.2%"
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%, %data.custom.fh.fist.2%"
     },
     {
       "type": "custom",

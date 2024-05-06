@@ -33,7 +33,9 @@ export class ScenarioRulesManager {
     const scenario = this.game.scenario;
     if (scenario && scenario.rules) {
       scenario.rules.forEach((rule, index) => {
-        this.addScenarioRule(scenario, rule, index, false, initial);
+        if (!rule.alwaysApply || !settingsManager.settings.scenarioRulesAutoapply) {
+          this.addScenarioRule(scenario, rule, index, false, initial);
+        }
       })
     }
 
@@ -41,7 +43,9 @@ export class ScenarioRulesManager {
       this.game.sections.forEach((section) => {
         if (section.rules) {
           section.rules.forEach((rule, index) => {
-            this.addScenarioRule(section, rule, index, true, initial);
+            if (!rule.alwaysApply || !settingsManager.settings.scenarioRulesAutoapply) {
+              this.addScenarioRule(section, rule, index, true, initial);
+            }
           })
         }
       })
@@ -55,7 +59,11 @@ export class ScenarioRulesManager {
     const scenario = this.game.scenario;
     if (scenario && scenario.rules) {
       scenario.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply).forEach((rule) => {
-        this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
+        if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply) {
+          this.applyRule(rule, { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "index": scenario.rules.indexOf(rule), "section": false });
+        } else {
+          this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
+        }
       })
     }
 
@@ -63,7 +71,12 @@ export class ScenarioRulesManager {
       this.game.sections.forEach((section) => {
         if (section.rules) {
           section.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply).forEach((rule) => {
-            this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
+            if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply) {
+              this.applyRule(rule, { "edition": section.edition, "scenario": section.index, "group": section.group, "index": section.rules.indexOf(rule), "section": true });
+              gameManager.game.scenarioRules.splice(gameManager.game.scenarioRules.length - 1, 1);
+            } else {
+              this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
+            }
           })
         }
       })

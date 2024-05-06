@@ -1096,7 +1096,7 @@
       },
       "coral": {
         "1": "If you performed a %data.action.custom.fh-tides% action this round, %game.attackmodifier.plus2% instead",
-        "2": "%game.custom.perks.ignoreNegativeItemFh% and, whenever you would gain %game.condition.impair%, prevent the condition",
+        "2": "and whenever you would gain %game.condition.impair%, prevent the condition",
         "3": "Whenever you declare a long rest during card selection, gain %game.action.shield:1% for the round",
         "4": "Gain advantage on all your attacks performed while occupying or targeting enemies occupying water hexes",
         "5": "Never suffer damage from attacks, and be targeted by at least five attacks",
@@ -1113,7 +1113,7 @@
       },
       "fist": {
         "1": "Create one 1-hex icy terrain tile in a featureless hex adjacent to the target",
-        "2": "%game.custom.perks.ignoreNegativeItemFh%, and whenever you enter icy terrain with a move ability, you may ignore the effect to add +1 %game.action.move%",
+        "2": "and whenever you enter icy terrain with a move ability, you may ignore the effect to add +1 %game.action.move%",
         "3": "Whenever you heal from a long rest, you may %game.elementHalf.consume:ice|earth% to add +2 %game.action.heal%",
         "4": "Once each scenario, when you would suffer %game.damage%, you may negate the %game.damage%",
         "5": "%game.card.recover% at least one card from your discard pile each round",

@@ -2166,6 +2166,10 @@
       ".": "Scenario Rules",
       "hint": "Show popup windows about special scenario rules and optional apply them"
     },
+    "scenarioRulesAutoapply": {
+      ".": "Apply automatic Scenario Rules",
+      "hint": "Directly apply automatic Scenario Rules without confirmation"
+    },
     "showExpandedAbilityCard": {
       ".": "Show expanded ability cards",
       "hint": "Show all abilities on ability cards at once (automatically also show card title)."

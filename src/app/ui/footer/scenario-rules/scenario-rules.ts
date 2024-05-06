@@ -272,7 +272,7 @@ export class ScenarioRulesComponent {
                     if (rule.once || rule.alwaysApply) {
                         gameManager.game.appliedScenarioRules.push(identifier);
                     }
-                    gameManager.game.scenarioRules.splice(index, 1)[0];
+                    gameManager.game.scenarioRules.splice(index, 1);
 
                     if (rule.finish == "round") {
                         gameManager.roundManager.nextGameState();
