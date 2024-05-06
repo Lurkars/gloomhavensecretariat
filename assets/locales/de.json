@@ -2534,6 +2534,7 @@
       "reportIssue": {
         ".": "Ein Problem melden",
         "download": "Daten herunterladen",
+        "mail": "Bitte beachte, dass Microsoft ihre Marktmacht ausspielen möchte und deswegen kleine, private E-Mail Server blockiert. Dementsprechend kann ich zwar E-Mails von outlook.com, hotmail.com oder anderen Microsoft Diensten empfangen, aber nicht darauf antworten!",
         "send": "Problem senden",
         "specify": "Bitte Details im Text angeben.<br>Ist die Ursache unklar, bitte die Daten herunterladen und als Anhang hinzufügen!",
         "text": "Text",
