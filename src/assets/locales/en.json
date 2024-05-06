@@ -2702,6 +2702,7 @@
       "reportIssue": {
         ".": "Report an Issue",
         "download": "Download data dump",
+        "mail": "Please note that Microsoft wants to use its market power to block small, private e-mail servers. As a result, I can receive e-mails from outlook.com, hotmail.com or other Microsoft services, but I am not able reply to them!",
         "send": "Send Issue (Email)",
         "specify": "Please specify details in text.<br>If you are unsure what's exactly the issue, please download and attach the data dump below!",
         "text": "Text",

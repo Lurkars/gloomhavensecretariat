@@ -40,6 +40,16 @@
             opacity: 0.9;
         }
 
+        .warning {
+            grid-column: 2;
+            padding: 0;
+            margin: 0;
+            font-family: var(--ghs-font-text);
+            font-size: 0.9em;
+            color: var(--ghs-color-yellow);
+            width: calc(var(--ghs-unit) * 65 * var(--ghs-dialog-factor));
+        }
+
         textarea {
             width: calc(var(--ghs-unit) * 65 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
