@@ -2268,7 +2268,6 @@
         "summon": "Remove {3}x %game.condition.{2}% de '{1}' a {0}",
         "summons": "Remove {2}x %game.condition.{1}% de tous {0} convocation"
       },
-      "removeEntityMarker": "Retrait {2} marqueur de {0} figurine {1}",
       "removeGameCondition": "Retrait %game.condition.{0}% de la partie en cours",
       "removeGlobalAchievement": "Supprimer Haut Fait Global '{0}'",
       "removeItem": "Retrait de l'objet {1} (%data.edition.{2}%) sur {0}",
