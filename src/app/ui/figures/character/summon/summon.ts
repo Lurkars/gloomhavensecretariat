@@ -181,4 +181,13 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
     gameManager.entityManager.removeCondition(this.summon, entityCondition, entityCondition.permanent);
     gameManager.stateManager.after();
   }
+
+  removeMarker(marker: string) {
+    const markerChar = new Character(gameManager.getCharacterData(marker), 1);
+    const markerName = gameManager.characterManager.characterName(markerChar);
+    const characterIcon = markerChar.name;
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.summon, this.character, "removeMarker"), markerName, characterIcon);
+    this.summon.markers = this.summon.markers.filter((value) => value != marker);
+    gameManager.stateManager.after();
+  }
 }

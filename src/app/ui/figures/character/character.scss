@@ -386,6 +386,13 @@
             border-radius: calc(var(--ghs-unit) * 1);
           }
         }
+
+        .action-overlay {
+          position: absolute;
+          z-index: 1;
+          top: calc(var(--ghs-unit) * 1);
+          left: calc(var(--ghs-unit) * -0.5);
+        } 
       }
     }
 

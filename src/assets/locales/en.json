@@ -2286,7 +2286,6 @@
         "summon": "{3}x %game.condition.{2}% '{1}' of {0}",
         "summons": "{2}x %game.condition.{1}% all {0} summons"
       },
-      "addEntityMarker": "{2} marker to {0} standee {1}",
       "addGameCondition": "Add %game.condition.{0}% to current game",
       "addGlobalAchievement": "Add global achievement '{0}'",
       "addImmunity": {
@@ -2301,6 +2300,16 @@
       },
       "addItem": "Add Item {1} (%data.edition.{2}%) to {0}",
       "addManualScenario": "Unlock scenario #{0} {1} ({2})",
+      "addMarker": {
+        "char": "%data.characterIconColored.{2}% {1} marker to {0}",
+        "monsterEntities": "%data.characterIconColored.{2}% {1} marker to all {2}{0}",
+        "monster": "%data.characterIconColored.{3}% {2} marker to '{1}' of {0}",
+        "objective": "%data.characterIconColored.{2}% {1} marker to {0}",
+        "objectiveContainer": "%data.characterIconColored.{3}% {2} marker to %game.objectiveMarker.{1}% of {0}",
+        "objectives": "%data.characterIconColored.{2}% {1} marker to all {0}",
+        "summon": "%data.characterIconColored.{3}% {2} marker to '{1}' of {0}",
+        "summons": "%data.characterIconColored.{2}% {1} marker to all {0} summons"
+      },
       "addMastery": "Check mastery {1} for {0}",
       "addMonster": "Add monster {0}",
       "addNextStandee": "Add {1} {0} standee",
@@ -2317,6 +2326,7 @@
       "addResource": "Add +{2} {1} for {0}",
       "addSection": "Add section #{0} {1} ({2})",
       "addSpecialTags": "Add special actions {1} for {0}",
+      "addSpecialTags": "Add special actions {1} for {2} of {0}",
       "addStandee": "Add {1} {0} standee {2}",
       "addSummon": "Add summon '{1}' for {0}",
       "addTreasure": "Add treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
@@ -2511,7 +2521,7 @@
       "removeCharTreasure": "Remove treasure {1} for {2}",
       "removeCondition": {
         "char": "Remove %game.condition.{1}% from {0}",
-        "monsterEntities": "Remove %game.condition.{1}% fromm all {2}{0}",
+        "monsterEntities": "Remove %game.condition.{1}% from all {2}{0}",
         "monster": "Remove %game.condition.{2}% from '{1}' of {0}",
         "objective": "Remove %game.condition.{1}% from {0}",
         "objectiveContainer": "Remove %game.condition.{2}% from %game.objectiveMarker.{1}% of {0}",
@@ -2529,12 +2539,11 @@
         "summon": "Remove {3}x %game.condition.{2}% from '{1}' of {0}",
         "summons": "Remove {2}x %game.condition.{1}% from all {0} summons"
       },
-      "removeEntityMarker": "Remove {2} marker from {0} standee {1}",
       "removeGameCondition": "Remove %game.condition.{0}% to current game",
       "removeGlobalAchievement": "Remove global achievement '{0}'",
       "removeImmunity": {
         "char": "Remove %game.immunity.{1}% immunity from {0}",
-        "monsterEntities": "Remove %game.immunity.{1}% immunity fromm all {2}{0}",
+        "monsterEntities": "Remove %game.immunity.{1}% immunity from all {2}{0}",
         "monster": "Remove %game.immunity.{2}% immunity from '{1}' of {0}",
         "objective": "Remove %game.immunity.{1}% immunity from {0}",
         "objectiveContainer": "Remove %game.immunity.{2}% immunity from %game.objectiveMarker.{1}% of {0}",
@@ -2544,6 +2553,16 @@
       },
       "removeItem": "Remove Item {1} (%data.edition.{2}%) from {0}",
       "removeManualScenario": "Remove scenario #{0} {1} ({2}) from unlocked",
+      "removeMarker": {
+        "char": "Remove marker %data.characterIconColored.{2}% {1} from {0}",
+        "monsterEntities": "Remove marker %data.characterIconColored.{2}% {1} from all {2}{0}",
+        "monster": "Remove marker %data.characterIconColored.{3}% {2} from '{1}' of {0}",
+        "objective": "Remove marker %data.characterIconColored.{2}% {1} from {0}",
+        "objectiveContainer": "Remove marker %data.characterIconColored.{3}% {2} from %game.objectiveMarker.{1}% of {0}",
+        "objectives": "Remove marker %data.characterIconColored.{2}% {1} from all {0}",
+        "summon": "Remove marker %data.characterIconColored.{3}% {2} from '{1}' of {0}",
+        "summons": "Remove marker %data.characterIconColored.{2}% {1} from all {0} summons"
+      },
       "removeMastery": "Uncheck mastery {1} for {0}",
       "removeMonster": "Remove monster {0}",
       "removeObjective": "Remove objective {0}",
@@ -2555,6 +2574,7 @@
       "removeResource": "-{2} {1} of {0}",
       "removeScenarioRule": "Remove scenario rule",
       "removeSpecialTags": "Remove special actions {1} from {0}",
+      "removeSpecialTagsSummon": "Remove special actions {1} from {2} of {0}",
       "removeTreasure": "Remove treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "removeTreasures": "Remove treasures {1} (%data.edition.{0}%)",
       "reorder": "Reorder figures",

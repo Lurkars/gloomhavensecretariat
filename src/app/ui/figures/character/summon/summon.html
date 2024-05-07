@@ -36,8 +36,9 @@
     </div>
 
     <div class="markers">
-      <span class="marker" *ngFor="let marker of summon.markers;">
-        <img [src]="'./assets/images/character/icons/' + marker + '.svg'" />
+      <span class="marker" *ngFor="let marker of summon.markers;" ghs-pointer-input
+        (doubleClick)="removeMarker(marker)">
+        <img [src]="gameManager.characterManager.characterIcon(marker)" />
       </span>
       <span class="marker special-tag" *ngFor="let token of specialActionsMarker;">
         <span class="token" [ghs-label]="'%data.characterToken.' + character.name + '.' + token + '%'"></span>

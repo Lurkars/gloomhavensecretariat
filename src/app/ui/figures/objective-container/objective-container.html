@@ -62,6 +62,12 @@
             </ng-container>
             <span *ngIf="entity.maxHealth == 0">-</span>
           </div>
+          <div class="markers">
+            <span class="marker" *ngFor="let marker of entity.markers;" ghs-pointer-input
+              (doubleClick)="removeMarker(marker)">
+              <img [src]="gameManager.characterManager.characterIcon(marker)" />
+            </span>
+          </div>
           <div class="conditions">
             <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;">
               <img

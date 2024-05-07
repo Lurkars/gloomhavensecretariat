@@ -370,6 +370,15 @@ export class CharacterComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
+  removeMarker(marker: string) {
+    const markerChar = new Character(gameManager.getCharacterData(marker), 1);
+    const markerName = gameManager.characterManager.characterName(markerChar);
+    const characterIcon = markerChar.name;
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "removeMarker"), markerName, characterIcon);
+    this.character.markers = this.character.markers.filter((value) => value != marker);
+    gameManager.stateManager.after();
+  }
+
   openBattleGoals(): void {
     this.dialog.open(CharacterBattleGoalsDialog, {
       panelClass: ['dialog'],

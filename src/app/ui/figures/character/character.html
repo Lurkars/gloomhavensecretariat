@@ -92,14 +92,14 @@
 
             <span class="action" *ngIf="character.shieldPersistent" ghs-pointer-input
               (singleClick)="openEntityMenu($event)" (doubleClick)="removeShieldPersistent()">
-              <span class="shield-overlay">
+              <span class="action-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
               </span>
               <ghs-action [action]="character.shieldPersistent" [style]="'fh'"></ghs-action>
             </span>
             <span class="action" *ngFor="let retaliatePersistent of character.retaliatePersistent; let i = index;"
               ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliatePersistent(i)">
-              <span class="shield-overlay">
+              <span class="action-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
               </span>
               <ghs-action [action]="retaliatePersistent" [style]="'fh'"></ghs-action>
@@ -141,8 +141,9 @@
                 [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
             </div>
             <div class="markers">
-              <span class="marker" *ngFor="let marker of character.markers;">
-                <img [src]="'./assets/images/character/icons/' + marker + '.svg'" />
+              <span class="marker" *ngFor="let marker of character.markers;" ghs-pointer-input
+                (doubleClick)="removeMarker(marker)">
+                <img [src]="gameManager.characterManager.characterIcon(marker)" />
               </span>
             </div>
 

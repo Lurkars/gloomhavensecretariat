@@ -43,10 +43,10 @@
     <div class="conditions actions">
       <span *ngFor="let actionHint of actionHints; let i = index;" class="condition-container"
         [ngClass]="{'center' : (actionHints.length % 2) == 1 && i == actionHints.length - 1}">
-        <span class="condition">
+        <span class="condition action-hint">
           <img
-            [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/' + actionHint.type +'.svg'" />
-          <span class="value">{{actionHint.value}}</span>
+            [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/hint/' + actionHint.type + '.svg'" />
+          <span class="value" [ngClass]="{'retaliate' : actionHint.type == 'retaliate'}">{{actionHint.value}}</span>
           <span class="range" *ngIf="actionHint.range">
             <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/range.svg'" />
             <span class="value">{{actionHint.range}}</span>
@@ -59,8 +59,9 @@
     <div class="markers">
       <span *ngIf="marker" class="placeholder placeholder-marker"
         [ghs-label]="'%game.mapMarker.' + marker + '%'"></span>
-      <span class="marker" *ngFor="let marker of entity.markers;">
-        <img [src]="'./assets/images/character/icons/' + marker + '.svg'" />
+      <span class="marker" *ngFor="let marker of entity.markers;" ghs-pointer-input
+        (doubleClick)="removeMarker(marker)">
+        <img [src]="gameManager.characterManager.characterIcon(marker)" />
       </span>
     </div>
 

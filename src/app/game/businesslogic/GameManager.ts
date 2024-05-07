@@ -479,6 +479,18 @@ export class GameManager {
     let characterData = this.charactersData().find((value) => value.name == name && (!edition || value.edition == edition));
     if (!characterData) {
       characterData = this.charactersData().find((value) => value.name == name);
+
+      if (!characterData && !edition) {
+        edition = name.split('-')[0];
+        name = name.split('-').slice(1).join('-');
+        characterData = this.charactersData().find((value) => value.name == name && value.edition == edition);
+        while (name && !characterData) {
+          edition = edition + '-' + name.split('-')[0];
+          name = name.split('-').slice(1).join('-');
+          characterData = this.charactersData().find((value) => value.name == name && value.edition == edition);
+        }
+      }
+
       if (!characterData) {
         characterData = new CharacterData();
         characterData.name = name;

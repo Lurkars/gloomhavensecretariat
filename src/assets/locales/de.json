@@ -2153,6 +2153,16 @@
       },
       "addItem": "Gegenstand {1} (%data.edition.{2}%) für {0}",
       "addManualScenario": "Szenario #{0} {1} ({2}) freischalten",
+      "addMarker": {
+        "char": "%data.characterIconColored.{2}% {1} Markierung von {0}",
+        "monsterEntities": "%data.characterIconColored.{2}% {1} Markierung von allen {2}{0}",
+        "monster": "%data.characterIconColored.{3}% {2} Markierung von {1} von {0}",
+        "objective": "%data.characterIconColored.{2}% {1} Markierung von {0}",
+        "objectiveContainer": "%data.characterIconColored.{3}% {2} Markierung %game.objectiveMarker.{1}% von {0}",
+        "objectives": "%data.characterIconColored.{2}% {1} Markierung von allen {0}",
+        "summon": "%data.characterIconColored.{3}% {2} Markierung von {1} von {0}",
+        "summons": "%data.characterIconColored.{2}% {1} Markierung von allen {0} Beschwörungen"
+      },
       "addMastery": "Errungenschaft {1} für {0}",
       "addMonster": "Monster {0} hinzufügen",
       "addNextStandee": "Aufsteller {1} {0} hinzufügen",
@@ -2169,6 +2179,7 @@
       "addResource": "+{2} {1} für {0}",
       "addSection": "Abschnitt #{0} {1} ({2}) hinzufügen",
       "addSpecialTags": "Setze Spezialactionen {1} für {0}",
+      "addSpecialTagsSummon": "Setze Spezialactionen {1} für {2} von {0}",
       "addStandee": "Aufsteller {1} {0} {2} hinzufügen",
       "addSummon": "Beschwöre '{1}' von {0}",
       "addTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) hinzufügen",
@@ -2362,7 +2373,6 @@
         "summon": "{3}x %game.condition.{2}% von '{1}' von {0} entfernen",
         "summons": "{2}x %game.condition.{1}% von allen {0} Beschwörungen entfernen"
       },
-      "removeEntityMarker": "Markierung {2} von {0} Aufsteller {1} entfernen",
       "removeGameCondition": "%game.condition.{0}% vom aktuellen Spiel entfernen",
       "removeGlobalAchievement": "Entferne globalen Erfolg '{0}'",
       "removeImmunity": {
@@ -2377,6 +2387,16 @@
       },
       "removeItem": "Gegenstand {1} (%data.edition.{2}%) von {0} entfernen",
       "removeManualScenario": "Szenario #{0} {1} ({2}) von Freigeschaltenen entfernen",
+      "removeMarker": {
+        "char": "Markierung %data.characterIconColored.{2}% {1} von {0} entfernen",
+        "monsterEntities": "Markierung %data.characterIconColored.{2}% {1} von allen {2}{0} entfernen",
+        "monster": "Markierung %data.characterIconColored.{3}% {2} von {1} von {0} entfernen",
+        "objective": "Markierung %data.characterIconColored.{2}% {1} von {0} entfernen",
+        "objectiveContainer": "Markierung %data.characterIconColored.{3}% {2} %game.objectiveMarker.{1}% von {0} entfernen",
+        "objectives": "Markierung %data.characterIconColored.{2}% {1} von allen {0} entfernen",
+        "summon": "Markierung %data.characterIconColored.{3}% {2} von {1} von {0} entfernen",
+        "summons": "Markierung %data.characterIconColored.{2}% {1} von allen {0} Beschwörungen entfernen"
+      },
       "removeMastery": "Entferne Errungenschaft {1} von {0}",
       "removeMonster": "Monster {0} entfernen",
       "removeObjective": "Ziel {0} entfernen",
@@ -2388,6 +2408,7 @@
       "removeResource": "-{2} {1} von {0}",
       "removeScenarioRule": "Szenario Regel ausblenden",
       "removeSpecialTags": "Entferne Spezialactionen {1} von {0}",
+      "removeSpecialTagsSummon": "Entferne Spezialactionen {1} von {2} von {0}",
       "removeTreasure": "Schatz {1} (%data.edition.{0}%) entfernen",
       "reorder": "Figuren neu anordnen",
       "reorderAbilities": "Fertigkeitskarten von {0} neu anordnen",

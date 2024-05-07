@@ -17,6 +17,7 @@ import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dial
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 import { Monster } from 'src/app/game/model/Monster';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
+import { Character } from 'src/app/game/model/Character';
 
 @Component({
   selector: 'ghs-objective-container',
@@ -247,6 +248,17 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
     if (this.entity) {
       gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeCondition"), entityCondition.name);
       gameManager.entityManager.removeCondition(this.entity, entityCondition, entityCondition.permanent);
+      gameManager.stateManager.after();
+    }
+  }
+
+  removeMarker(marker: string) {
+    if (this.entity) {
+      const markerChar = new Character(gameManager.getCharacterData(marker), 1);
+      const markerName = gameManager.characterManager.characterName(markerChar);
+      const characterIcon = markerChar.name;
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeMarker"), markerName, characterIcon);
+      this.entity.markers = this.entity.markers.filter((value) => value != marker);
       gameManager.stateManager.after();
     }
   }

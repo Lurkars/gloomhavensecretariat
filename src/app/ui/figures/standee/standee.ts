@@ -141,6 +141,15 @@ export class StandeeComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
+  removeMarker(marker: string) {
+    const markerChar = new Character(gameManager.getCharacterData(marker), 1);
+    const markerName = gameManager.characterManager.characterName(markerChar);
+    const characterIcon = markerChar.name;
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "removeMarker"), markerName, characterIcon);
+    this.entity.markers = this.entity.markers.filter((value) => value != marker);
+    gameManager.stateManager.after();
+  }
+
   doubleClick(event: any): void {
     if (this.entity.revealed) {
       this.entity.revealed = false;

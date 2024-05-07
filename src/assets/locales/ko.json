@@ -1674,16 +1674,16 @@
       ".": "적용할 수 있는 상태 확인하기",
       "auto": {
         ".": "자동 확인",
+        "hint": {
+          ".": "특정 상태를 적용하려면 확인이 필요합니다. 예를 들어, 중독 상태에서 체력을 감소시키면 추가로 체력 1을 잃습니다.",
+          "brittle": "On suffering damage, automatic apply %game.condition.brittle% and increase damage.<br><br>Does not work automatically on %game.condition.poison%!",
+          "heal": "When increasing hitpoints automatic apply %game.action.heal% and remove corresponding conditions.",
+          "shield": "On suffering damage, automatic apply %game.action.shield% and lower damage.",
+          "ward": "On suffering damage, automatic apply %game.condition.ward% and lower damage.<br><br>Does not work automatically on %game.condition.poison%!"
+        }
+      },
       "hint": {
-        ".": "특정 상태를 적용하려면 확인이 필요합니다. 예를 들어, 중독 상태에서 체력을 감소시키면 추가로 체력 1을 잃습니다.",
-        "brittle": "On suffering damage, automatic apply %game.condition.brittle% and increase damage.<br><br>Does not work automatically on %game.condition.poison%!",
-        "heal": "When increasing hitpoints automatic apply %game.action.heal% and remove corresponding conditions.",
-        "shield": "On suffering damage, automatic apply %game.action.shield% and lower damage.",
-        "ward": "On suffering damage, automatic apply %game.condition.ward% and lower damage.<br><br>Does not work automatically on %game.condition.poison%!"
-      }
-    },
-    "hint": {
-      ".": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to lose 1 extra HP ",
+        ".": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to lose 1 extra HP ",
         "brittle": "On suffering damage, ask to apply %game.condition.brittle% and increase damage.",
         "heal": "No condition, but helper if %game.action.heal% should be applied when increasing hitpoints.",
         "poison": "On suffering damage, ask to apply %game.action.attack% +1 from %game.condition.poison% (including %game.attackmodifier.double%).",
@@ -2529,7 +2529,6 @@
         "summon": "Remove {3}x %game.condition.{2}% from '{1}' of {0}",
         "summons": "Remove {2}x %game.condition.{1}% from all {0} summons"
       },
-      "removeEntityMarker": "{0} 몬스터 말 {1}번에게 {2} 표시 제거",
       "removeGameCondition": "Remove %game.condition.{0}% to current game",
       "removeGlobalAchievements": "전역 업적 {0} 제거",
       "removeImmunity": {
@@ -2774,40 +2773,40 @@
         "toggleCondition": "Toggle Condition/Condition modifier",
         "xpDec": "Dec. XP",
         "xpInc": "Inc. XP"
+      },
+      "esc": "ESC",
+      "events": "이벤트 효과 메뉴",
+      "finish": "(종료) 시나리오 메뉴",
+      "global": "현재 다음과 같은 키보드 단축키가 구현되어 있습니다:",
+      "globalMap": "세계 지도 열기",
+      "keyboard": "키보드 단축키 보기",
+      "loot": "Draw from Loot Deck",
+      "mainMenu": {
+        ".": "메인 메뉴 열기",
+        "confirm": "행동 확인 / 보조 메뉴 열기",
+        "decline": "행동 취소 / 메뉴 닫기",
+        "open": "열린 메뉴에서",
+        "select": "행동 선택"
+      },
+      "party": "파티 기록지 열기",
+      "redo": "다시 실행",
+      "round": "다음 라운드 / 뽑기",
+      "scenarioChart": "시나리오 흐름도 보기",
+      "select": "select figure/standee for opening menu with number key",
+      "shift": "SHIFT",
+      "space": "SPACE",
+      "tab": "↹",
+      "toggleAbsent": "Toggle <i>Hide absent figures</i>",
+      "toggleDamageHP": "Toggle <i>%settings.damageHP%</i>",
+      "toggleElements": "Toggle through element state",
+      "toggleHandSize": "Toggle <i>Display hand size and level</i>",
+      "toggelTab": "Toggle active figure when drawn / Toggle initiative input when focused input",
+      "toggleTraits": "Toggle <i>Display traits</i>",
+      "undo": "되돌리기",
+      "zoomIn": "확대",
+      "zoomOut": "축소",
+      "zoomReset": "확대/축소 초기화"
     },
-    "esc": "ESC",
-    "events": "이벤트 효과 메뉴",
-    "finish": "(종료) 시나리오 메뉴",
-    "global": "현재 다음과 같은 키보드 단축키가 구현되어 있습니다:",
-    "globalMap": "세계 지도 열기",
-    "keyboard": "키보드 단축키 보기",
-    "loot": "Draw from Loot Deck",
-    "mainMenu": {
-      ".": "메인 메뉴 열기",
-      "confirm": "행동 확인 / 보조 메뉴 열기",
-      "decline": "행동 취소 / 메뉴 닫기",
-      "open": "열린 메뉴에서",
-      "select": "행동 선택"
-    },
-    "party": "파티 기록지 열기",
-    "redo": "다시 실행",
-    "round": "다음 라운드 / 뽑기",
-    "scenarioChart": "시나리오 흐름도 보기",
-    "select": "select figure/standee for opening menu with number key",
-    "shift": "SHIFT",
-    "space": "SPACE",
-    "tab": "↹",
-    "toggleAbsent": "Toggle <i>Hide absent figures</i>",
-    "toggleDamageHP": "Toggle <i>%settings.damageHP%</i>",
-    "toggleElements": "Toggle through element state",
-    "toggleHandSize": "Toggle <i>Display hand size and level</i>",
-    "toggelTab": "Toggle active figure when drawn / Toggle initiative input when focused input",
-    "toggleTraits": "Toggle <i>Display traits</i>",
-    "undo": "되돌리기",
-    "zoomIn": "확대",
-    "zoomOut": "축소",
-    "zoomReset": "확대/축소 초기화"
-  },
     "validateEditionData": "에디션 데이터 유효성 검증"
   },
   "update": "갱신하고 다시 불러오기",

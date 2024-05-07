@@ -245,6 +245,33 @@
     }
   }
 
+  .markers {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
+    padding: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+
+    .marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+      background-color: var(--ghs-color-darkgray);
+      border-radius: 100%;
+      height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+      margin-right: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
+      border-width: calc(var(--ghs-unit) * 0.4);
+      border-style: solid;
+      border-color: var(--ghs-color-gray);
+
+      img {
+        width: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
+      }
+    }
+  }
+
   .conditions {
     position: relative;
     display: flex;

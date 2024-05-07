@@ -558,16 +558,10 @@ export class EntityMenuDialogComponent {
 
   toggleMarker(marker: string) {
     if (this.data.entity) {
-      if (this.data.entity instanceof MonsterEntity) {
-        gameManager.stateManager.before(this.hasMarker(marker) ? "removeEntityMarker" : "addEntityMarker", "data.monster." + this.data.figure.name, "" + this.data.entity.number, "data.character." + marker.split('-')[1]);
-      } else if (this.data.entity instanceof Character) {
-        gameManager.stateManager.before(this.hasMarker(marker) ? "removeMarker" : "addMarker", gameManager.characterManager.characterName(this.data.entity), "data.character." + marker.split('-')[1]);
-      } else if (this.data.entity instanceof Summon) {
-        gameManager.stateManager.before(this.hasMarker(marker) ? "removeSummonMarker" : "addSummonMarker", gameManager.characterManager.characterName(this.data.figure as Character), "data.summon." + this.data.entity.name, "data.character." + marker.split('-')[1]);
-      } else if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
-        gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveEntityMarker" : "addObjectiveEntityMarker", this.data.figure.title || this.data.figure.name, "" + this.data.entity.number, "data.character." + marker.split('-')[1]);
-      }
-
+      const markerChar = new Character(gameManager.getCharacterData(marker), 1);
+      const markerName = gameManager.characterManager.characterName(markerChar);
+      const characterIcon = markerChar.name;
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.hasMarker(marker) ? "removeMarker" : "addMarker"), markerName, characterIcon);
       gameManager.entityManager.toggleMarker(this.data.entity, marker);
       gameManager.stateManager.after();
     }
@@ -1167,7 +1161,7 @@ export class EntityMenuDialogComponent {
         const specialTagsToTemove = this.data.entity.tags.filter((specialTag) => this.data.figure instanceof Character && this.data.figure.specialActions && this.data.figure.specialActions.find((specialAction) => specialAction.name == specialTag) != undefined && this.specialTags.indexOf(specialTag) == -1);
 
         if (specialTagsToTemove.length) {
-          gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
+          gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);
 
           if (specialTagsToTemove.indexOf('bone-dagger') != -1) {
             this.data.entity.attack = EntityValueFunction(this.data.entity.attack) - 1;
@@ -1180,7 +1174,7 @@ export class EntityMenuDialogComponent {
         const specialTagsToAdd = this.specialTags.filter((specialTag) => this.data.entity && this.data.entity.tags.indexOf(specialTag) == -1);
 
         if (specialTagsToAdd.length) {
-          gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
+          gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);
 
           if (specialTagsToAdd.indexOf('bone-dagger') != -1) {
             this.data.entity.attack = EntityValueFunction(this.data.entity.attack) + 1;
