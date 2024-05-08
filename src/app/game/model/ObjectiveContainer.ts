@@ -46,6 +46,7 @@ export class ObjectiveContainer implements Figure {
     this.title = model.title;
     this.name = model.name;
     this.escort = model.escort;
+    this.edition = model.escort ? 'escort' : 'objective';
     this.entities = this.entities.filter((entity) => model.entities.some((value) => value.uuid == entity.uuid));
 
     model.entities.forEach((value, index) => {

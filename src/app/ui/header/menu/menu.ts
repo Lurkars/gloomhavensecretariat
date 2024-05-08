@@ -170,7 +170,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
     return gameManager.game.figures.filter((figure) => {
       return figure instanceof ObjectiveContainer;
     }).map((figure) => {
-        return figure as ObjectiveContainer;
+      return figure as ObjectiveContainer;
     }).sort((a, b) => {
       const aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective'))).toLowerCase();
       const bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective'))).toLowerCase();
@@ -222,7 +222,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   addObjectiveContainer(escort: boolean = false) {
     gameManager.stateManager.before("addObjective" + (escort ? '.escort' : ''));
-    const objectiveContainer = gameManager.objectiveManager.addObjective(new ObjectiveData("", escort ? 3 : 7, escort));
+    const objectiveContainer = gameManager.objectiveManager.addObjective(new ObjectiveData("", escort ? 3 : 7, escort), escort ? '%escort%' : '%objective%');
     gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);
     this.close();
     gameManager.stateManager.after();
