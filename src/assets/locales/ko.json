@@ -249,14 +249,14 @@
   "duration": {
     "days": "{3}일 {2}시간 {1}분 {0}초",
     "gameClock": {
-      ".": "게임 시간",
-      "clockIn": "게임 시간 켜기",
-      "clockOut": "게임 시간 끄기",
+      ".": "게임 시간 기록",
+      "clockIn": "게임 시간 기록 켜기",
+      "clockOut": "게임 시간 기록 끄기",
       "current": "현재: {0}",
-      "off": "게임 시간 일시정지! 두 번 클릭하여 게임 시간 켜기.",
-      "paused": "게임 시간 일시정지! 두 번 클릭하여 게임 시간 켜기.<br>총합: {0}",
-      "running": "게임 시간 작동 중! 두 번 클릭하여 게임 시간 끄기.<br>현재: {1}",
-      "runningTotal": "게임 시간 작동 중! 두 번 클릭하여 게임 시간 끄기.<br>현재: {1}<br>총합: {0}",
+      "off": "게임 시간 기록 일시정지! 두 번 클릭하여 게임 시간 기록 켜기.",
+      "paused": "게임 시간 기록 일시정지! 두 번 클릭하여 게임 시간 기록 켜기.<br>총합: {0}",
+      "running": "게임 시간 기록 작동 중! 두 번 클릭하여 게임 시간 기록 끄기.<br>현재: {1}",
+      "runningTotal": "게임 시간 기록 작동 중! 두 번 클릭하여 게임 시간 기록 끄기.<br>현재: {1}<br>총합: {0}",
       "timestamp": "{0}에서 {1}에 대해 실행",
       "total": "총합: {0}"
     },
@@ -553,7 +553,7 @@
       },
       "dodge": {
         ".": "Dodge",
-        "hint": "%game.conditionIcon.dodge% Dodge: Discard or lose a card to prevent an attack, then remove."
+        "hint": "%game.conditionIcon.dodge% Dodge: Discard or lose a card to prevent an attack. 그런 다음, 제거."
       },
       "empower": {
         ".": "Empower",
@@ -796,7 +796,7 @@
       "shop": {
         ".": "아이템 카드",
         "buyingDisabled": "Cannot buy items, rebuild '%data.buildings.trading-post%' (37) first",
-        "character": "아이템 상점 for %game.characterIconColored.{0}% {1}",
+        "character": "%game.characterIconColored.{0}% {1}의 아이템 상점",
         "craftingDisabled": "Cannot craft items, rebuild '%data.buildings.craftsman%' (34) first"
       },
       "unlock": "해금 아이템",
@@ -1014,8 +1014,8 @@
     "showHidden": "숨겨진 몬스터 보기",
     "skipInteractiveActions": "Skip interactive abilities for",
     "statEffect": {
-      ".": "Special Rules apply following changes:",
-      "deck": "Use modified abilities:<br>\"{0}\""
+      ".": "다음 변경점에 대한 특별 규칙 적용:",
+      "deck": "수정된 능력 사용:<br>\"{0}\""
     },
     "toggleAction": "Toggle applicable ability",
     "toggleAllied": {
@@ -1194,14 +1194,14 @@
         },
         "winter": "겨울"
       },
-      "totalTime": "Played in scenarios for {0}",
+      "totalTime": "{0}동안 시나리오 진행 중",
       "townGuard": "마을 경비병",
       "townGuardDeck": "마을 경비병 덱",
       "treasures": {
         ".": "보물",
         "applySelect": "선택 적용",
         "batchSelect": "여러 개 선택",
-        "loot": "Loot Treasure"
+        "loot": "보물 노획"
       }
     },
     "campaignMode": "캠페인 모드",
@@ -1660,7 +1660,7 @@
     ".": "설정",
     "abilities": {
       ".": "능력 카드",
-      "hint": "몬스터의 능력 카드를 뽑습니다. 이 옵션을 선택하지 않으면 드래그 앤 드롭으로 몬스터의 순서를 수동으로 설정해야 합니다."
+      "hint": "몬스터의 능력 카드를 뽑습니다. 이 옵션을 선택하지 않으면 끌어다 놓기로 몬스터의 순서를 수동으로 설정해야 합니다."
     },
     "abilityNumbers": {
       ".": "능력 카드 번호 보기",
@@ -1734,12 +1734,12 @@
       "hint": "모든 시나리오에서 노획 덱을 사용합니다."
     },
     "amAdvantage": {
-      ".": "Attack Modifier Deck with Advantage/Disadvantage",
-      "hint": "Add Advantage and Disadvantage buttons and keyboard shortcuts to Attack Modifier Decks."
+      ".": "이익/불이익을 공격 보정 덱에 추가",
+      "hint": "이익/불이익 버튼과 키보드 단축키를 추가합니다."
     },
     "amAdvantageHouseRule": {
-      ".": "Advantage/Disadvantage Rolling House Rule",
-      "hint": "Instead of ignore rolling on second draw, also draw additional modifiers until non-rolling drawn."
+      ".": "이익/불이익 굴림 보정 하우스룰",
+      "hint": "두 번째 뽑기에서 굴림 보정을 무시하는 대신에, 굴림 보정이 나오지 않을 때까지 추가 보정 카드를 뽑습니다."
     },
     "animations": {
       ".": "애니메이션 효과",
@@ -1788,12 +1788,12 @@
       "hint": "작은 장치에서 공격 보정 덱과 노획 덱을 전체 화면으로 자동 전환됩니다."
     },
     "automaticGameClock": {
-      ".": "Automatic game clock",
-      "hint": "Automatically start and stop game clock when window openes or closes."
+      ".": "자동 게임 시간 기록 적용",
+      "hint": "게임 시간 기록을 창이 열릴 때는 자동으로 시작하고, 닫힐 때는 자동으로 중지합니다."
     },
     "automaticGameClockFocus": {
-      ".": "Automatic game clock on focus",
-      "hint": "Also start and stop game clock automatically when window gain focus or loses focus."
+      ".": "포커스 중 자동 게임 시간 적용",
+      "hint": "또한 게임 시간 기록을 창에 포커스 상태일 때만 자동으로 시작하고, 포커스를 잃을 때는 자동으로 중지합니다."
     },
     "automaticPassTime": {
       ".": "달력 시간을 자동 넘김",
@@ -1872,7 +1872,7 @@
       "hint": "캐릭터의 비공개 공격 보정 덱에서 공격 보정 카드를 뽑으면 뽑기 애니메이션을 표시합니다."
     },
     "characterAttackModifierDeckPermanent": {
-      ".": "영구 캐릭터 공격 보정 덱",
+      ".": "캐릭터 영속 공격 보정 덱",
       "hint": "캐릭터 아래에 영속 공격 보정 덱을 표시합니다."
     },
     "characterAttackModifierDeckPermanentActive": {
@@ -1904,12 +1904,12 @@
       "hint": "아이템을 사용할 때, %game.action.heal%, 상태, 소환 등과 같은 자신에게 영향을 미치는 모든 행동 적용"
     },
     "characterItemsPermanent": {
-      ".": "영속 캐릭터 아이템",
+      ".": "캐릭터 영속 아이템",
       "hint": "캐릭터의 영속 아이템 표시합니다."
     },
     "characterItemsPermanentActive": {
-      ".": "Auto. active Items",
-      "hint": "Automatically toggle permanent Items for active Character."
+      ".": "자동으로 아이템 활성화",
+      "hint": "활성 캐릭터의 영속 아이템을 자동 전환합니다."
     },
     "characterSheet": {
       ".": "캐릭터 시트",
@@ -1962,8 +1962,8 @@
       "hint": "확대/축소 및 남은 공간에 관계없이 가로 2열로의 확장식 배치를 완전히 비활성화합니다."
     },
     "disableDragFigures": {
-      ".": "피규어 드래그 앤 드롭 비활성화",
-      "hint": "피규어 목록에서 드래그 앤 드롭을 비활성화합니다. 주도권이 필요하지 않은 경우에만 주의하여 사용하십시오. 순서를 수동으로 다시 조정할 수 있는 방법이 없습니다."
+      ".": "피규어 끌어다 놓기 비활성화",
+      "hint": "피규어 목록에서 끌어다 놓기를 비활성화합니다. 주도권이 필요하지 않은 경우에만 주의하여 사용하십시오. 순서를 수동으로 다시 조정할 수 있는 방법이 없습니다."
     },
     "disablePinchZoom": {
       ".": "제스처로 크기 조절 비활성화",
@@ -1971,7 +1971,7 @@
     },
     "disableSortFigures": {
       ".": "피규어 정렬 비활성화",
-      "hint": "피규어의 자동 정렬을 비활성화합니다. 순서는 드래그 앤 드롭을 통해 수동으로 설정해야 합니다."
+      "hint": "피규어의 자동 정렬을 비활성화합니다. 순서는 끌어다 놓기를 통해 수동으로 설정해야 합니다."
     },
     "disableStandees": {
       ".": "몬스터 말 비활성화",
@@ -1986,8 +1986,8 @@
       "hint": "지원되는 장치에서 기기를 켜진 상태로 유지합니다. 기기를 켜진 상태로 유지 기능을 사용하면 화면이 계속 켜져 있습니다. 모바일에서 배터리를 더 빨리 소모할 수 있습니다."
     },
     "dragFigures": {
-      ".": "각 말에 대한 끌어놓기",
-      "hint": "캐릭터/몬스터 말 목록에서 끌어놓기 사용. 비활성화된 상태에서 우선권이 필요하지 않는 경우, 각 말에 대한 순서를 임의로 변경할 방법이 없으므로 주의하시기 바랍니다."
+      ".": "각 말에 대한 끌어다 놓기",
+      "hint": "캐릭터/몬스터 말 목록에서 끌어다 놓기 사용. 비활성화된 상태에서 우선권이 필요하지 않는 경우, 각 말에 대한 순서를 임의로 변경할 방법이 없으므로 주의하시기 바랍니다."
     },
     "dragValues": {
       ".": "주도권/체력/경험치/노획 드래그",
@@ -2030,12 +2030,12 @@
       "hint": "전체 화면으로 전환"
     },
     "gameClock": {
-      ".": "게임 시간",
-      "hint": "Enable a game clock to track the time the app is running."
+      ".": "게임 시간 기록",
+      "hint": "게임 시간 기록을 활성화하여 앱 실행 시간을 추적하세요."
     },
     "gameClockMerge": {
-      ".": "게임 시간 병합",
-      "hint": "Merge game clocks from server game with local game clock to get overall game time."
+      ".": "게임 시간 기록 병합",
+      "hint": "서버의 게임 시간 기록을 로컬의 게임 시간 기록과 병합하여 전체 게임 시간 기록을 얻습니다."
     },
     "gameplay": "게임 플레이",
     "ge5Player": {
@@ -2180,7 +2180,7 @@
     },
     "sortFigures": {
       ".": "피규어 정렬",
-      "hint": "피규어를 자동으로 정렬합니다. 비활성화 시, 끌어놓기와 같은 방법으로 수동으로 순서를 설정하여야 합니다."
+      "hint": "피규어를 자동으로 정렬합니다. 비활성화 시, 끌어다 놓기와 같은 방법으로 수동으로 순서를 설정하여야 합니다."
     },
     "standees": {
       ".": "몬스터 말",
@@ -2286,7 +2286,6 @@
         "summon": "{3}x %game.condition.{2}% '{1}' of {0}",
         "summons": "{2}x %game.condition.{1}% all {0} summons"
       },
-      "addEntityMarker": "{0} 몬스터 말 {1}번에게 {2} 표시 추가",
       "addGameCondition": "Add %game.condition.{0}% to current game",
       "addGlobalAchievement": "Add global achievement '{0}'",
       "addImmunity": {
@@ -2301,6 +2300,16 @@
       },
       "addItem": "{0}에게 {1} (%data.edition.{2}%) 아이템 추가",
       "addManualScenario": "시나리오 해금 #{0} {1} ({2})",
+      "addMarker": {
+        "char": "%data.characterIconColored.{2}% {1} marker to {0}",
+        "monsterEntities": "%data.characterIconColored.{2}% {1} marker to all {2}{0}",
+        "monster": "%data.characterIconColored.{3}% {2} marker to '{1}' of {0}",
+        "objective": "%data.characterIconColored.{2}% {1} marker to {0}",
+        "objectiveContainer": "%data.characterIconColored.{3}% {2} marker to %game.objectiveMarker.{1}% of {0}",
+        "objectives": "%data.characterIconColored.{2}% {1} marker to all {0}",
+        "summon": "%data.characterIconColored.{3}% {2} marker to '{1}' of {0}",
+        "summons": "%data.characterIconColored.{2}% {1} marker to all {0} summons"
+      },
       "addMastery": "{0}에게 숙련 {1} 체크",
       "addMonster": "{0} 몬스터 추가",
       "addNextStandee": "{1} {0} 몬스터 말 추가",
@@ -2316,7 +2325,8 @@
       "addRandomStandee": "무작위 {1} {0} 몬스터 말 {2}번 추가",
       "addResource": "{0}의 {1} +{2} 추가",
       "addSection": "섹션 추가 #{0} {1} ({2})",
-      "addSpecialTags": "Add special actions {1} for {0}",
+      "addSpecialTag": "Add special actions {1} for {0}",
+      "addSpecialTags": "Add special actions {1} for {2} of {0}",
       "addStandee": "{1} {0} 몬스터 말 {2}번 추가",
       "addSummon": "{0}의 '{1}' 소환수 추가",
       "addTreasure": "{1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) 보물 추가",
@@ -2462,10 +2472,10 @@
         "success": "시나리오 #{0} {1} ({2}) 성공"
       },
       "gameClock": {
-        "automaticGameClockOut": "Automatic clock out",
-        "clockIn": "Clock In",
-        "clockOut": "Clock out",
-        "merge": "Merge Game Clock"
+        "automaticGameClockOut": "자동으로 시간 기록 종료",
+        "clockIn": "시간 기록 시작",
+        "clockOut": "시간 기록 종료",
+        "merge": "게임 시간 기록 병합"
       },
       "hideScenarioRule": "시나리오 규칙을 다시 표시하지 않음",
       "importCharacter": "파일에서 캐릭터 {0} 가져오기",
