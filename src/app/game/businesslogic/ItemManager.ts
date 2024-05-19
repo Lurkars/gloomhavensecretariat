@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
 import { Character } from "../model/Character";
 import { EntityValueFunction } from "../model/Entity";
 import { Game } from "../model/Game";
 import { Summon, SummonColor } from "../model/Summon";
+import { AttackModifier, AttackModifierType } from '../model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
 import { Element, ElementState } from "../model/data/Element";
 import { AdditionalIdentifier, CountIdentifier, Identifier } from "../model/data/Identifier";
@@ -9,7 +11,6 @@ import { ItemData, ItemEffect, ItemEffectType, ItemFlags, ItemSlot } from "../mo
 import { LootClass, LootType, getLootClass } from "../model/data/Loot";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { v4 as uuidv4 } from 'uuid';
 
 export class ItemManager {
 
@@ -426,6 +427,13 @@ export class ItemManager {
             let summon = new Summon(uuidv4(), item.summon.name, item.summon.cardId, character.level, 1, SummonColor.blue, item.summon);
             summon.init = false;
             gameManager.characterManager.addSummon(character, summon);
+        }
+
+        if (settingsManager.settings.characterItemsApply) {
+            if (item.edition == 'fh' && item.id == 258 && character.health < character.maxHealth / 2) {
+                character.health += 7;
+                gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.curse));
+            }
         }
     }
 
