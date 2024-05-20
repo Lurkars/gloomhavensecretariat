@@ -3,7 +3,7 @@
         "brute": "Barbar",
         "cragheart": "Felsenherz",
         "mindthief": "Gedankendiebin",
-        "scoundrel": "Schürkin",
+        "scoundrel": "Schurkin",
         "spellweaver": "Spruchweberin",
         "tinkerer": "Tüftler"
     },
@@ -163,7 +163,46 @@
         "Back Alley Brawl": "Gassenschlägerei",
         "Sunken Vessel": "Versunkenes Schiff",
         "Vermling Nest": "Ratzenbau",
-        "Payment Due": "Zahltag"
+        "Payment Due": "Zahltag",
+        "group": {
+            "randomMonsterCard": "Zufällige Monsterkarten"
+        },
+        "rules": {
+            "gh": {
+                "19": {
+                    "1": "in Richtung des Altars %game.mapMarker.b%"
+                },
+                "38": {
+                    "1": "in Richtung des Schamanen auf dem D-Kartenelement"
+                },
+                "42": {
+                    "1": "Alle Monster fügen ihren Angriffen +1 %game.action.attack% Angriff hinzu",
+                    "2": "Alle Monster erhalten einen Vorteil bei ihren Angriffen",
+                    "3": "Alle Monster heilen zu Beginn ihres jeweiligen Zugs 1 Trefferpunkt",
+                    "4": "Alle Charaktere und Charakter-Beschworenen erleiden zu Beginn ihres Zuges 1 Schaden.",
+                    "5": "Alle Charaktere und Charakter-Beschworenen erhalten Nachteil bei ihren Angriffen.",
+                    "6": "Alle Charaktere und Charakter-Beschworenen erhalten -1 Angriff auf ihre Angriffe."
+                },
+                "71": {
+                    "1": "Bewegung Links",
+                    "2": "Bewegung Hoch",
+                    "3": "Bewegung Rechts",
+                    "4": "Bewegung Runter"
+                },
+                "73": {
+                    "1": "Rollt die Steine runter."
+                },
+                "74": {
+                    "1": "Fügt Wasseraufleger hinzu."
+                },
+                "79": {
+                    "1": "Zurück zur Startposition, falls er davon wegbewegt wurde. Angriff 3, Angrenzende"
+                },
+                "86": {
+                    "1": "in Richtung zum Ende der Kais %game.mapMarker.b%"
+                }
+            }
+        }
     },
     "partyAchievements": {
         "A Demon's Errand": "Dämonischer Auftrag",
@@ -314,6 +353,27 @@
             ".": "Ruhelos",
             "text": "Mach während des Szenarios nur kurze Rasten."
         }
+    },
+    "personalQuest": {
+        "510": "Suche nach Xorn",
+        "511": "Kaufmannsgilde",
+        "513": "Suche nach Heilung",
+        "514": "Anatomische Studien",
+        "516": "Wehrhaftes Fleisch",
+        "518": "Ewige Wanderschaft",
+        "519": "Kampflegende",
+        "520": "Werkzeug des Lichts",
+        "521": "Rückeroberung des Waldes",
+        "522": "Hauchdünn",
+        "523": "Tilgung des Unnatürlichen",
+        "524": "Unerschrocken",
+        "525": "Voller Frömmigkeit",
+        "526": "Rachefeldzug",
+        "527": "Für den Blutgott",
+        "528": "Sturz der Giganten",
+        "529": "Vergangene Zivilisation",
+        "530": "Verbesserte Fähigkeiten",
+        "533": "Das perfekte Gift"
     },
     "custom": {
         "gh": {

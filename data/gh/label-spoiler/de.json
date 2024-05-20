@@ -3,8 +3,14 @@
     "angry-face": "Schicksalsläufer",
     "circles": "Ruferin",
     "eclipse": "Nachtschleier",
-    "lightning": "Berserkerin",
-    "music-note": "Wahrsängerin",
+    "lightning": {
+      ".": "Berserkerin",
+      "overheal": "%game.characterIconColored.lightning% Heile bis zu 26 HP"
+    },
+    "music-note": {
+      ".": "Wahrsängerin",
+      "song_active": "%game.characterIconColored.music-note% Lied aktiv"
+    },
     "saw": "Knochenflicker",
     "squidface": "Seuchenbringer",
     "sun": "Sonnenhüterin",
@@ -586,5 +592,24 @@
       ".": "Resonanzkristall"
     }
   },
-
+  "treasures": {
+    "gh": {
+      "75": "Kryptogramm gefunden (Siehe Szenariobuch Seite 121)"
+    }
+  },
+  "custom": {
+    "gh": {
+      "circles": {
+        "1": "wenn %game.action.attack% durchgeführt",
+        "2": "am Ende der Runde"
+      },
+      "triangles": {
+        "1": "Du kannst Angriffsaktionen ausführen, als ob du das Hexfeld der Beschwörung besetzen würdest.",
+        "2": "wenn %game.action.attack% durchgeführt"
+      },
+      "two-mini": {
+        "1": "Alle benachbarten Verbündeten fügen +2 %game.action.attack% zu ihren Angriffen hinzu."
+      }
+    }
+  }
 }
