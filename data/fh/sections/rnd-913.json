@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Scorching",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "flame-demon",
+    "flaming-bladespinner"
+  ],
   "rules": [
     {
       "round": "true",

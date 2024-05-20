@@ -52,6 +52,24 @@ export function ghsValueSign(value: number, empty: boolean = false): string {
   }
 }
 
+export function ghsDurationLabel(value: number, totalHours: boolean = false): string {
+  let seconds = Math.floor(value);
+  const days = Math.floor(seconds / 86400);
+  seconds -= days * 86400;
+  const hours = Math.floor(seconds / 3600);
+  seconds -= hours * 3600;
+  const minutes = Math.floor(seconds / 60);
+  seconds -= minutes * 60;
+
+  let label = settingsManager.getLabel('duration.' + (days && 'days' || hours && 'hours' || minutes && 'minutes' || 'seconds'), [seconds, minutes, hours, days].map((value) => '' + value), false);
+
+  if (totalHours) {
+    label = settingsManager.getLabel('duration.totalHours', [label, (value / 3600).toFixed(1)]);
+  }
+
+  return label;
+}
+
 export function ghsInputFullScreenCheck(): void {
   if (settingsManager.settings.fullscreen && !!document.fullscreenElement) {
     document.exitFullscreen();
@@ -77,9 +95,9 @@ export function ghsModulo(n: number, m: number): number {
 }
 
 export function ghsDialogClosingHelper(dialogRef: DialogRef, result: any = undefined) {
-  if (settingsManager.settings.animations) {
+  if (settingsManager.settings.animations && dialogRef.overlayRef.overlayElement) {
     dialogRef.overlayRef.overlayElement.classList.add('dialog-closing');
-    if (dialogRef.overlayRef.hostElement.getElementsByClassName('dialog-close-button')[0]) {
+    if (dialogRef.overlayRef.hostElement && dialogRef.overlayRef.hostElement.getElementsByClassName('dialog-close-button')[0]) {
       dialogRef.overlayRef.hostElement.getElementsByClassName('dialog-close-button')[0].classList.add('closing');
     }
     if (dialogRef.overlayRef.backdropElement) {

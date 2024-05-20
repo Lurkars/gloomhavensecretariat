@@ -1,11 +1,13 @@
 {
   "index": "8",
   "name": "Gloomhaven Warehouse",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
-    "x": 2610.699951171875,
+    "x": 2610.75,
     "y": 394,
     "width": 160,
-    "height": 137
+    "height": 137,
+    "gridLocation": "C-18"
   },
   "edition": "gh",
   "unlocks": [

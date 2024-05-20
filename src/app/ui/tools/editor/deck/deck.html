@@ -25,9 +25,9 @@
 
                 <div class="abilities-container" *ngFor="let ability of deckData.abilities">
                     <div class="ability-input">
-                        <div class="ability" #card [style.fontSize]=" card.offsetWidth * 0.04 + 'px'"
+                        <div class="ability-edit" #card [style.fontSize]=" card.offsetWidth * 0.04 + 'px'"
                             [style.--ghs-ability-color]="getCharacter() && getCharacter()?.color"
-                            [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0, 'character-actions' : deckData.character}">
+                            [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0, 'character-actions' : deckData.character, 'fh': settingsManager.settings.fhStyle}">
                             <input class="name" [(ngModel)]="ability.name" (change)="deckDataToJson()"
                                 [ghs-label]="ability.name || 'editor.deck.abilityName'"
                                 [ghs-label-attribute]="'placeholder'" (keyup)="deckDataToJson()">
@@ -42,7 +42,8 @@
                                 [value]="ability.initiative && (ability.initiative < 10 ? '0' : '') + ability.initiative"
                                 (change)="changeInitiative($event, ability)">
 
-                            <a class="shuffle" (click)="ability.shuffle=!ability.shuffle;deckDataToJson();"
+                            <a class="shuffle" *ngIf="!deckData.character"
+                                (click)="ability.shuffle=!ability.shuffle;deckDataToJson();"
                                 [ngClass]="{'enabled' : ability.shuffle }">
                                 <img src="./assets/images/shuffle.svg">
                             </a>
@@ -70,6 +71,46 @@
                                     <img src="./assets/images/action/card/lost.svg">
                                     <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
                                 </a>
+                            </ng-container>
+
+                            <ng-container *ngIf="deckData.character">
+                                <a class="round" (click)="ability.round=!ability.round;deckDataToJson();"
+                                    [ngClass]="{'enabled' : ability.round}">
+                                    <img src="./assets/images/action/card/round.svg">
+                                    <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
+                                </a>
+
+                                <a class="round bottom"
+                                    (click)="ability.bottomRound=!ability.bottomRound;deckDataToJson();"
+                                    [ngClass]="{'enabled' : ability.bottomRound}">
+                                    <img src="./assets/images/action/card/round.svg">
+                                    <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
+                                </a>
+
+
+
+                                <a class="loss" (click)="ability.loss=!ability.loss;deckDataToJson();"
+                                    [ngClass]="{'enabled' : ability.loss}">
+                                    <img src="./assets/images/action/card/loss.svg">
+                                    <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
+                                </a>
+
+                                <a class="loss bottom"
+                                    (click)="ability.bottomLoss=!ability.bottomLoss;deckDataToJson();"
+                                    [ngClass]="{'enabled' : ability.bottomLoss}">
+                                    <img src="./assets/images/action/card/loss.svg">
+                                    <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
+                                </a>
+
+                                <div class="xp">
+                                    <input type="number" [ngModel]="ability.xp" min="0"
+                                        (ngModelChange)="ability.xp=+$event" (change)="deckDataToJson()">
+                                </div>
+
+                                <div class="xp bottom">
+                                    <input type="number" [ngModel]="ability.bottomXp" min="0"
+                                        (ngModelChange)="ability.bottomXp=+$event" (change)="deckDataToJson()">
+                                </div>
                             </ng-container>
 
                             <div class="actions-container">

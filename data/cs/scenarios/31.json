@@ -1,6 +1,7 @@
 {
   "index": "31",
   "name": "Eternal Portals",
+  "flowChartGroup": "wonderous",
   "edition": "cs",
   "rewards": {
     "battleGoals": 1

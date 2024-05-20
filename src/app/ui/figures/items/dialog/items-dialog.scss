@@ -48,6 +48,51 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
             }
+
+            .brewing {
+                cursor: pointer;
+                color: var(--ghs-color-gray);
+                display: flex;
+                align-items: center;
+                font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+                img {
+                    filter: var(--ghs-filter-gray);
+                    height: 1em;
+                    width: auto;
+                    margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+                }
+
+                &:hover {
+                    opacity: 0.7;
+                }
+
+                &.disabled {
+                    cursor: initial;
+                    opacity: 0.8;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+
+        .shop-disabled {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-white);
+            margin: 0.5em;
+
+            img {
+                margin: 0 0.2em;
+                height: 1em;
+                width: auto;
+                filter: var(--ghs-filter-red);
+            }
         }
 
         .filter {
@@ -132,7 +177,7 @@
 
     .menu {
         position: sticky;
-        top: 0;
+        top: -1px;
         left: 0;
         height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
         max-width: 100%;

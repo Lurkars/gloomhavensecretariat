@@ -1,11 +1,13 @@
 {
   "index": "41",
   "name": "Timeworn Tomb",
+  "flowChartGroup": "voice",
   "coordinates": {
-    "x": 1880.2000122070312,
+    "x": 1880.25,
     "y": 813,
     "width": 191,
-    "height": 137
+    "height": 137,
+    "gridLocation": "F-13"
   },
   "edition": "gh",
   "requires": [

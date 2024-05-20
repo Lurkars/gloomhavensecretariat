@@ -1,6 +1,14 @@
 {
   "index": "114",
   "name": "Ink Not Yet Dry",
+  "flowChartGroup": "corruption",
+  "coordinates": {
+    "x": 2026.5,
+    "y": 672,
+    "width": 166,
+    "height": 154,
+    "gridLocation": "E-14"
+  },
   "edition": "fc",
   "unlocks": [
     "115"

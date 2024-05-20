@@ -5,11 +5,12 @@
     "eclipse": "Nightshroud",
     "lightning": {
       ".": "Berserker",
-      "overheal": "%game.characterIconColored.lightning% Heal up to 26 HP"
+      "immune": "Immune to all negative conditions",
+      "overheal": "Heal up to 26 HP"
     },
     "music-note": {
       ".": "Soothsinger",
-      "song_active": "%game.characterIconColored.music-note% Song Active"
+      "song_active": "Song Active"
     },
     "saw": "Sawbones",
     "squidface": "Plagueherald",

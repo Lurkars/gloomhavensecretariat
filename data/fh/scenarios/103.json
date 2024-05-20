@@ -1,6 +1,14 @@
 {
   "index": "103",
   "name": "The Lead Door",
+  "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 370.75,
+    "y": 1091.25,
+    "width": 104,
+    "height": 96,
+    "gridLocation": "R8"
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

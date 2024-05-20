@@ -137,12 +137,4 @@ export class ScenarioTreasuresDialogComponent implements OnInit, OnDestroy {
             }
         }
     }
-
-    rewardsFromString(treasure: string): string[][] {
-        if (treasure.split(':').length < 2) {
-            return [];
-        } else {
-            return treasure.split(':').slice(1).join(':').split('|').map((value) => value.split('+'));
-        }
-    }
 }

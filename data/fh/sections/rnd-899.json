@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Sapping",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "frost-demon",
+    "ice-wraith",
+    "snow-imp"
+  ],
   "rules": [
     {
       "round": "true",

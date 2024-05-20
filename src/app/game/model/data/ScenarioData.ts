@@ -1,18 +1,19 @@
+import { GameScenarioModel } from "../Scenario";
 import { Editional } from "./Editional";
+import { Identifier } from "./Identifier";
 import { LootDeckConfig, LootType } from "./Loot";
-import { Spoilable } from "./Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
 import { ScenarioRule } from "./ScenarioRule";
-import { GameScenarioModel } from "../Scenario";
-import { Identifier } from "./Identifier";
+import { Spoilable } from "./Spoilable";
+import { WorldMapCoordinates, WorldMapOverlay } from "./WorldMap";
 
 export class ScenarioData implements Editional, Spoilable {
 
   name: string = "";
   index: string = "";
-  gridLocation: string | undefined = "";
-  coordinates: { x: number, y: number, width: number, height: number } | undefined;
+  errata: string = "";
+  coordinates: WorldMapCoordinates | undefined;
   unlocks: string[] = [];
   blocks: string[] = [];
   requires: string[][] = [];
@@ -20,6 +21,7 @@ export class ScenarioData implements Editional, Spoilable {
   links: string[] = [];
   forcedLinks: string[] = [];
   group: string | undefined;
+  flowChartGroup: string | undefined;
   monsters: string[] = [];
   allies: string[] = [];
   allied: string[] = [];
@@ -53,8 +55,8 @@ export class ScenarioData implements Editional, Spoilable {
   constructor(scenarioData: ScenarioData | undefined = undefined) {
     if (scenarioData) {
       this.name = scenarioData.name;
+      this.errata = scenarioData.errata;
       this.index = scenarioData.index;
-      this.gridLocation = scenarioData.gridLocation;
       this.unlocks = scenarioData.unlocks;
       this.blocks = scenarioData.blocks;
       this.requires = scenarioData.requires;
@@ -62,6 +64,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.links = scenarioData.links;
       this.forcedLinks = scenarioData.forcedLinks;
       this.group = scenarioData.group;
+      this.flowChartGroup = scenarioData.flowChartGroup;
       this.monsters = scenarioData.monsters;
       this.allies = scenarioData.allies;
       this.allied = scenarioData.allied;
@@ -143,6 +146,8 @@ export class ScenarioRewards {
   lootingGold: number | string | undefined = undefined;
   custom: string = "";
   ignoredBonus: string[] = [];
+  overlaySticker: WorldMapOverlay | undefined = undefined;
+  overlayCampaignSticker: WorldMapOverlay | undefined = undefined;
   hints: ScenarioRewardHints | undefined = undefined;
 
 }
@@ -182,6 +187,8 @@ export class ScenarioRewardHints {
   townGuardAm: string[] = [];
   unlockCharacter: string = "";
   chooseUnlockCharacter: string[] = [];
+  overlaySticker: string = "";
+  overlayCampaignSticker: string = "";
 }
 
 export class ScenarioFinish {

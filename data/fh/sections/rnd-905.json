@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Reinforced",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "robotic-boltshooter",
+    "steel-automaton"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

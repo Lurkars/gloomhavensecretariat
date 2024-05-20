@@ -1,0 +1,53 @@
+<div class="hint-container" *ngIf="type == 'checkbox'">
+    <label [ngClass]="{'disabled': disabled}">
+        <input tabclick type="checkbox" [checked]="!disabled && settingsManager.settings[setting] || checked"
+            (change)="settingsManager.toggle(setting)">
+        <span [ghs-label]="'settings.' + setting"></span>
+    </label>
+    <img *ngIf="hint" src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+    <span class="hint">
+        <span class="text" [ghs-label]="'settings.' + setting + '.hint'"></span>
+        <br>
+        <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
+    </span>
+</div>
+<ng-container *ngIf="type == 'radio'">
+    <div class="line" *ngFor="let value of values">
+        <label [ngClass]="{'disabled' : settingsManager.settings[setting] == value || disabled}">
+            <input tabclick type="checkbox" [checked]="settingsManager.settings[setting] == value"
+                (change)="settingsManager.set(setting, value)">
+            <span [ghs-label]="'settings.' + setting + '.' + value"></span>
+        </label>
+    </div>
+</ng-container>
+
+<div class="hint-container" *ngIf="type == 'number'">
+    <label class="label"><span [ghs-label]="'settings.' + setting"></span>
+        <input tabclick type="number" #numberInput [value]="settingsManager.get(setting)" [min]="min" [max]="max"
+            (keyup)="0" (change)="settingsManager.set(setting, +numberInput.value)" [size]="numberInput.value.length"
+            [ghs-label]="'settings.' + setting" [ghs-label-attribute]="'placeholder'"></label>
+    <img *ngIf="hint" src="./assets/images/warning.svg" class="hint-trigger ghs-svg">
+    <div class="hint">
+        <div class="text">
+            <span class="text" [ghs-label]="'settings.' + setting + '.hint'"></span>
+            <br>
+            <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hint-container" *ngIf="type == 'range'">
+    <label>
+        <span ghs-pointer-input (doubleClick)="settingsManager.set(setting, default)"
+            [ghs-label]="'settings.' + setting"></span>
+        <input tabclick #rangeInput type="range" [min]="min" [step]="step" [max]="max"
+            [value]="settingsManager.get(setting)" (change)="settingsManager.set(setting, +rangeInput.value)"
+            (input)="settingsManager.apply(setting, +rangeInput.value)" />
+    </label>
+    <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+    <span class="hint">
+        <span class="text" [ghs-label]="'settings.' + setting + '.hint'"></span>
+        <br>
+        <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
+    </span>
+</div>

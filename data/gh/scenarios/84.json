@@ -1,11 +1,13 @@
 {
   "index": "84",
   "name": "Crystalline Cave",
+  "flowChartGroup": "sealed",
   "coordinates": {
-    "x": 1807.0999755859375,
+    "x": 1807,
     "y": 580,
     "width": 186,
-    "height": 132
+    "height": 132,
+    "gridLocation": "D-12"
   },
   "edition": "gh",
   "requirements": [

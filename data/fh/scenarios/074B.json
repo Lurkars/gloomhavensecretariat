@@ -1,6 +1,14 @@
 {
   "index": "74B",
   "name": "Gaps in the Road B",
+  "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 1533.5,
+    "y": 921.75,
+    "width": 86,
+    "height": 57,
+    "gridLocation": "G6"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

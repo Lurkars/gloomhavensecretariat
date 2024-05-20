@@ -1,11 +1,13 @@
 {
   "index": "21",
   "name": "Infernal Throne",
+  "flowChartGroup": "demon-and-rift",
   "coordinates": {
-    "x": 1046.6000061035156,
+    "x": 1046.5,
     "y": 436,
     "width": 191,
-    "height": 153
+    "height": 153,
+    "gridLocation": "C-7"
   },
   "edition": "gh",
   "requirements": [

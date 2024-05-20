@@ -15,11 +15,11 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}"
     [style.z-index]="deck.cards.length + 1" [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
     <div class="am" (click)="draw($event)"
-      [ghs-label]="deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw'"
+      [ghs-label]="compact && fullscreen  ? 'game.cards.fullscreen' : (deck.current >= deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw')"
       [ghs-label-attribute]="'title'" [ngClass]="{'town-guard' : townGuard, 'disabled' : disabled }">
-      <span class="number" [ngClass]="{'has-shuffle' : deck.current == deck.cards.length -1}"> {{ deck.current <
+      <span class="number" [ngClass]="{'has-shuffle' : deck.current >= deck.cards.length -1}"> {{ deck.current <
           deck.cards.length - 1 ? (deck.cards.length - deck.current - 1) + '/' + deck.cards.length : '' }} </span>
-          <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" [ghs-label]="'game.cards.openDialog'"
+          <img *ngIf="deck.current >= deck.cards.length -1" class="shuffle" [ghs-label]="'game.cards.shuffle'"
             [ghs-label-attribute]="'title'" src="./assets/images/shuffle.svg">
 
           <span *ngIf="!characterIcon && !townGuard && !bottom" class="numeration">{{numeration}}</span>
@@ -31,7 +31,7 @@
     <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
       *ngIf="fullscreen && !compact" [ngClass]="{'vertical' : vertical, 'minimize' : !deck.active}"
       (click)="openFullscreen($event)">
-      <img src="./assets/images/fullscreen.svg">
+      <img class="ghs-svg" src="./assets/images/fullscreen.svg">
     </span>
 
     <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'" (click)="open($event)"
@@ -39,14 +39,25 @@
       [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active}">
       <img class="ghs-svg" src="./assets/images/settings.svg">
     </span>
+
+    <span class="advantage" [ghs-label]="'game.cards.drawAdvantage'" [ghs-label-attribute]="'title'"
+      (click)="draw($event, 'advantage')" *ngIf="settingsManager.settings.amAdvantage && (!compact || vertical)"
+      [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active, 'has-shuffle' : deck.current >= deck.cards.length -1}">
+      <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' :'') +  'condition/strengthen.svg'">
+    </span>
+
+    <span class="disadvantage" [ghs-label]="'game.cards.drawDisadvantage'" [ghs-label-attribute]="'title'"
+      (click)="draw($event, 'disadvantage')" *ngIf="settingsManager.settings.amAdvantage && (!compact || vertical)"
+      [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active, 'has-shuffle' : deck.current >= deck.cards.length -1}">
+      <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' :'') +  'condition/muddle.svg'">
+    </span>
   </div>
   <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">
-    <div class="am-container"
-      *ngIf="index <= current + 1 && (rollingIndex[index] > 0 || index > current - 3 || index >= current && attackModifier.active && deck.disgarded.indexOf(index) == -1)"
+    <div class="am-container" *ngIf="index <= current + 1 && index >= lastVisible"
       [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
-      [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom, 'rolling' : (attackModifier.rolling || rollingIndex[index]) && index <= current, 'active' : attackModifier.active && index <= current && deck.disgarded.indexOf(index) == -1, 'disgard-active': deck.disgarded.indexOf(index) != -1, 'animate' : index < current - 1 && rollingIndex[index] > rollingIndexPrev[index], 'animate-reverse' : index < current - 1 && rollingIndex[index] < rollingIndexPrev[index], 'disabled' : disabled}"
-      [style.left]="!vertical && rollingIndex[index] ?  'calc(75% + ' + (rollingIndex[index] - 1) + ' * 25%)' : ''"
-      [style.top]="vertical && rollingIndex[index] ?  'calc(' + (rollingIndex[index] - 1) * (drawCard.offsetHeight / 1.3) + 'px)' : ''"
+      [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling  && index <= current, 'active' : attackModifier.active && index <= current && deck.disgarded.indexOf(index) == -1, 'disgard-active': deck.disgarded.indexOf(index) != -1, 'animate' : index < current - 1 && index >= lastVisible, 'animate-reverse' : false, 'disabled' : disabled, 'highlight': !drawing && deck.state && index == current, 'ignored': !drawing && deck.state == 'disadvantage' && (index < current || !gameManager.fhRules() && !settingsManager.settings.alwaysFhAdvantage) && attackModifier.rolling}"
+      [style.left]="!vertical && index < current && index >= lastVisible ?  'calc(75% + ' + (current - index -1) + ' * 25%)' : ''"
+      [style.top]="vertical && index < current && index >= lastVisible ?  'calc(' + (current - index - 1) * (drawCard.offsetHeight / 1.3) + 'px)' : ''"
       [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'" (click)="clickCard(index, $event)">
       <ghs-attackmodifier class="am" [attackModifier]="attackModifier" [numeration]="numeration"
         [characterIcon]="characterIcon" [ally]="ally" [flipped]="index <= current"

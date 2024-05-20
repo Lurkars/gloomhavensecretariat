@@ -184,7 +184,7 @@
             "1": "During your action where an obstacle is created, create one additional obstacle and apply all effects of the action to it."
         },
         "solo-139": {
-            "1": "Any time you perform an %Augment% action, add +1 %game.action.attack% to the entire action."
+            "1": "Any time you perform an %data.characterColored.mindthief:Augment% action, add +1 %game.action.attack% to the entire action."
         },
         "solo-140": {
             "1": "When damaged by an attack, you may %game.element.consume.light% to gain %game.action.shield% 3 for the attack."
@@ -196,7 +196,7 @@
             "1": "When a summon you own is damaged by an attack, it suffers no damage instead."
         },
         "solo-143": {
-            "1": "During your turn, gain %game.condition.invisible% and create dark."
+            "1": "During your turn, gain %game.condition.invisible% and create<br>%game.element.dark%"
         },
         "solo-144": {
             "1": "During your turn, %game.condition.poison% and %game.condition.curse% one enemy within %game.action.range:3%."
@@ -205,10 +205,10 @@
             "1": "Any time you perform a melee attack and you have exactly 1 hit point, add +2 %game.action.attack% to the Attack."
         },
         "solo-146": {
-            "1": "After performing any %song% action, immediately perform an %game.action.attack% 2 or %game.action.move% 2 action."
+            "1": "After performing any %data.characterColored.music-note:Song% action, immediately perform an %game.action.attack% 2 or %game.action.move% 2 action."
         },
         "solo-147": {
-            "1": "Any time you perform a %Doom% action, %game.condition.muddle% the target of the %Doom%."
+            "1": "Any time you perform a %data.characterColored.angry-face:Doom% action, %game.condition.muddle% the target of the %data.characterColored.angry-face:Doom%."
         },
         "solo-148": {
             "1": "Any time an ally performs a Medical Pack or Large Medical Pack action, they add +1 %game.action.heal% to their Heal."
@@ -217,7 +217,7 @@
             "1": "If you move 5 or more hexes on your turn, create any element."
         },
         "solo-150": {
-            "1": "After performing a %Command% action, play one card from your hand and immediately perform the same side of the card (top or bottom) as the %Command% action."
+            "1": "After performing a %data.characterColored.two-mini:Command% action, play one card from your hand and immediately perform the same side of the card (top or bottom) as the %data.characterColored.two-mini:Command% action."
         },
         "solo-151": {
             "1": "During your melee attack, add %game.condition.poison% and %game.condition.wound% to the entire action."
@@ -232,16 +232,16 @@
             "1": "Add +1 %game.action.move% to all your movement while you are at full health."
         },
         "solo-41": {
-            "1": "During your turn remove one damage token from one %Spirit% {cs-spirit-caller-token}. This %Spirit% may immediately take a turn without receiving a damage token."
+            "1": "During your turn remove one damage token from one %data.characterColored.skull:Spirit% %data.characterIconColoredBg.skull%. This %data.characterColored.skull:Spirit% may immediately take a turn without receiving a damage token."
         },
         "solo-42": {
-            "1": "Whenever you given an ally a %Prayer% ability card, that ally may perform \"%game.action.heal% 2, Self\"."
+            "1": "Whenever you given an ally a %data.characterColored.leaf:Prayer% ability card, that ally may perform \"%game.action.heal% 2, Self\"."
         },
         "solo-45": {
             "1": "During your turn, perform \"%game.action.pull% 2, Self toward one enemy within %game.action.range:3%\"."
         },
         "solo-47": {
-            "1": "While %Mounted% on a summon, you can apply your %game.items.slots.small% items item effects to the summon instead."
+            "1": "While %data.characterColored.tusks:Mounted% on a summon, you can apply your %game.items.slots.small% items item effects to the summon instead."
         },
         "solo-48": {
             "1": "During your turn, %game.element.consume.wild% to perform one of the following: %game.action.move% 2, %game.action.jump%, %game.element.air% | %game.action.heal% 3, Self, %game.element.light% | %game.action.attack% 2, %game.element.fire%."
@@ -336,13 +336,25 @@
             "2": "During your melee Attack ability, if you do not have %game.condition.wound%, gain %game.condition.wound% to add %game.condition.wound% to the attack. After the attack flip, this card."
         },
         "solo-121": {
-            "1": "During your turn, play one level 5 or lower card from your hand or discard pile and immediately perform a %Crystalize% ^Crystalize^ action from that card."
+            "1": "During your turn, play one level 5 or lower card from your hand or discard pile and immediately perform a %data.characterColored.gemstone:Crystalize% %data.characterIconColoredBg.gemstone% action from that card."
         },
         "solo-123": {
             "1": "Whenever you %game.condition.dodge% an attack, you may spend this item instead of discarding a card from your hand."
         },
         "solo-128": {
             "1": "During your turn, perform \"%game.action.pull% 1, %game.condition.muddle%, %game.action.range:3%\"."
+        }
+    },
+    "scenario": {
+        "rules": {
+            "solo": {
+                "14": {
+                    "1": "The Hound is the Ghost Wolf.",
+                    "2": "The Earth Demon is the Deep Earth. It has Hx2 hit points, where H is an elite Earth Demon's regular hit point value.",
+                    "3": "The Flame Demon is the High Flame. Add +2 to its Retaliate, the Range of its Retaliate, and its Shield.",
+                    "4": "All Giant Vipers add +1 Attack to all their Attacks."
+                }
+            }
         }
     }
 }

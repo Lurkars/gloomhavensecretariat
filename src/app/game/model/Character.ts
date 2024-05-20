@@ -227,6 +227,17 @@ export class Character extends CharacterData implements Entity, Figure {
       this.attackModifierDeck.current = attackModifierDeck.current;
       changed = true;
     }
+
+    if (this.attackModifierDeck.lastVisible != attackModifierDeck.lastVisible) {
+      this.attackModifierDeck.lastVisible = attackModifierDeck.lastVisible;
+      changed = true;
+    }
+
+    if (this.attackModifierDeck.state != attackModifierDeck.state) {
+      this.attackModifierDeck.state = attackModifierDeck.state;
+      changed = true;
+    }
+
     if (this.attackModifierDeck.attackModifiers.length != attackModifierDeck.attackModifiers.length || !this.attackModifierDeck.attackModifiers.map((card) => card.id).every((cardId, index) => attackModifierDeck.attackModifiers[index].id == cardId)) {
       this.attackModifierDeck.attackModifiers = attackModifierDeck.attackModifiers;
       changed = true;

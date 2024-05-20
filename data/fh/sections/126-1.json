@@ -1,0 +1,12 @@
+{
+  "index": "126.1",
+  "name": "Low Morale",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "prosperity": -1,
+    "custom": "<b>%wip%!</b> manually apply:<br>Collectively gain any 6 material resources.",
+    "morale": 5
+  }
+}

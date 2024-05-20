@@ -2,7 +2,7 @@
   <span class="name"><span [ghs-label]="'data.monster.' + monster.name"></span>
     <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span></span>
     <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span></span>
-    <span class="edition" *ngIf="getEdition()">[<span [ghs-label]="'data.edition.' + getEdition()"></span>]</span>
+    <span class="edition" *ngIf="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
   </span>
 
   <div class="menu">
@@ -11,10 +11,82 @@
     <a class="toggle-allied" [ghs-label]="'monster.toggleAllied.' + (monster.isAllied ? 'off' : 'on')"
       (click)="toggleallied()"></a>
   </div>
+  
+  <div class="stat-effect" *ngIf="monster.statEffect"
+    [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+    <div class="title" [ghs-label]="'monster.statEffect'"></div>
+    <div class="stat-changes">
+      <ng-container *ngIf="!monster.statEffect.absolute">
+        <span class="stat" *ngIf="monster.statEffect.health">
+          <span class="type">
+            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" />
+          </span>
+          <span [value-sign]="EntityValueFunction(monster.statEffect.health)"></span>
+        </span>
+        <span class="stat" *ngIf="monster.statEffect.movement">
+          <span class="type">
+            <img
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (monster.flying ? 'fly' : 'move') + '.svg'" />
+          </span>
+          <span [value-sign]="EntityValueFunction(monster.statEffect.movement)"></span>
+        </span>
+        <span class="stat" *ngIf="monster.statEffect.attack">
+          <span class="type">
+            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'" />
+          </span>
+          <span [value-sign]="EntityValueFunction(monster.statEffect.attack)"></span>
+        </span>
+        <span class="stat" *ngIf="monster.statEffect.range">
+          <span class="type">
+            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
+          </span>
+          <span [value-sign]="EntityValueFunction(monster.statEffect.range)"></span>
+        </span>
+      </ng-container>
+      <ng-container *ngIf="monster.statEffect.absolute">
+        <span class="stat" *ngIf="monster.statEffect.health">
+          <span class="type">
+            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/hp.svg'" />
+          </span>
+          <span>= <span [ghs-label]="monster.statEffect.health"></span></span>
+        </span>
+        <span class="stat" *ngIf="monster.statEffect.movement">
+          <span class="type">
+            <img
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/' + (monster.flying ? 'fly' : 'move') + '.svg'" />
+          </span>
+          <span>= <span [ghs-label]="monster.statEffect.movement"></span></span>
+        </span>
+        <span class="stat" *ngIf="monster.statEffect.attack">
+          <span class="type">
+            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/attack.svg'" />
+          </span>
+          <span>= <span [ghs-label]="monster.statEffect.attack"></span></span>
+        </span>
+        <span class="stat" *ngIf="monster.statEffect.range">
+          <span class="type">
+            <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/stats/range.svg'" />
+          </span>
+          <span>= <span [ghs-label]="monster.statEffect.range"></span></span>
+        </span>
+      </ng-container>
+    </div>
+    <ghs-actions *ngIf="monster.statEffect.actions" [actions]="monster.statEffect.actions" [relative]="true"
+      [inline]="true" [statsCalculation]="false"></ghs-actions>
+    <div class="immunities" *ngIf="monster.statEffect.immunities">
+      <span class="condition immunity" *ngFor="let immunity of monster.statEffect.immunities">
+        <img class="icon"
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity+ '.svg'" />
+      </span>
+    </div>
+    <span class="deck text-white" (click)="openAbilities()" *ngIf="monster.statEffect.deck"
+      [ghs-label]="'monster.statEffect.deck'" [ghs-label-args]="[monster.statEffect.note]"></span>
+  </div>
 
   <div class="stats-container">
-    <div class="stats" *ngFor="let level of levels">
-      <ghs-monster-stats [monster]="getMonsterForLevel(level)" [forceStats]="true" [noClick]="true">
+
+    <div class="stats" *ngFor="let m of monsters">
+      <ghs-monster-stats [monster]="m" [forceStats]="true" [noClick]="true">
       </ghs-monster-stats>
     </div>
   </div>

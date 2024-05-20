@@ -1,6 +1,9 @@
 {
   "character": {
-    "demolitionist": "Artificier",
+    "demolitionist": {
+      ".": "Artificier",
+      "mech": "Mech Suit"
+    },
     "hatchet": "Lanceur de hache",
     "red-guard": "Garde Rouge",
     "voidwarden": "Gardienne du Néant"

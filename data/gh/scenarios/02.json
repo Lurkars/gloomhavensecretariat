@@ -1,11 +1,13 @@
 {
   "index": "2",
   "name": "Barrow Lair",
+  "flowChartGroup": "intro",
   "coordinates": {
-    "x": 1572,
-    "y": 965,
+    "x": 1572.25,
+    "y": 967.5,
     "width": 187,
-    "height": 131
+    "height": 131,
+    "gridLocation": "G-11"
   },
   "edition": "gh",
   "unlocks": [

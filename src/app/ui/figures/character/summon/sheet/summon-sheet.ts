@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Summon } from "src/app/game/model/Summon";
 
 @Component({
@@ -9,7 +9,7 @@ import { Summon } from "src/app/game/model/Summon";
     templateUrl: './summon-sheet.html',
     styleUrls: ['./summon-sheet.scss']
 })
-export class SummonSheetComponent implements OnInit {
+export class SummonSheetComponent implements OnInit, OnDestroy {
 
     @Input() summon!: Summon;
     @Input() action: boolean = false;

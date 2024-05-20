@@ -1,0 +1,63 @@
+{
+  "index": "1",
+  "name": "Roadside Ambush",
+  "flowChartGroup": "intro",
+  "coordinates": {
+    "x": 15,
+    "y": 372.75,
+    "width": 283,
+    "height": 192,
+    "gridLocation": "B1"
+  },
+  "edition": "jotl",
+  "initial": true,
+  "unlocks": [
+    "2"
+  ],
+  "rewards": {
+    "ignoredBonus": [
+      "gold",
+      "experience"
+    ]
+  },
+  "monsters": [
+    "common-vermling-raider"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl01-1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "common-vermling-raider",
+          "type": "normal"
+        },
+        {
+          "name": "common-vermling-raider",
+          "type": "normal"
+        },
+        {
+          "name": "common-vermling-raider",
+          "type": "elite"
+        },
+        {
+          "name": "common-vermling-raider",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "common-vermling-raider",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "common-vermling-raider",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

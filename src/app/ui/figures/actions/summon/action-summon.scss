@@ -26,8 +26,7 @@
 
     .spawn-highlight {
         display: inline-block;
-        cursor: pointer;
-        animation: spawn-pulse 2000ms ease-in-out infinite;
+        animation: spawn-pulse 1200ms ease-in-out infinite;
 
         &:hover {
             transform: scale(1);
@@ -36,9 +35,26 @@
         }
     }
 
+
+    .spawn.action-interactive {
+        display: inline-block;
+        cursor: zoom-in;
+
+        &.action-interactive-highlight {
+            cursor: zoom-out;
+            animation: spawn-pulse 1200ms ease-in-out infinite;
+
+            &:hover {
+                transform: scale(1);
+                opacity: 0.8;
+                animation: none;
+            }
+
+        }
+    }
+
     .spawn-objective-highlight {
         display: inline-block;
-        cursor: pointer;
         transform: scale(0.9);
         font-style: italic;
 

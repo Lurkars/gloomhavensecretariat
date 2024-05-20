@@ -3,35 +3,12 @@
   "name": "Training Maneuvers",
   "edition": "fc",
   "parent": "107",
-  "resetRound": "visible",
+  "resetRound": "hidden",
   "monsters": [
-    "vermling-scout",
-    "vermling-shaman"
+    "vermling-scout-107",
+    "vermling-shaman-107"
   ],
   "rules": [
-    {
-      "round": "R == 1",
-      "always": true,
-      "once": true,
-      "figures": [
-        {
-          "identifier": {
-            "type": "monster",
-            "name": "vermling-scout"
-          },
-          "type": "transfer",
-          "value": "vermling-scout-scenario-107"
-        },
-        {
-          "identifier": {
-            "type": "monster",
-            "name": "vermling-shaman"
-          },
-          "type": "transfer",
-          "value": "vermling-shaman-scenario-107"
-        }
-      ]
-    },
     {
       "round": "R == 2",
       "always": true,
@@ -63,25 +40,25 @@
       "initial": true,
       "monster": [
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-107",
           "type": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-107",
           "type": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-107",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-scout-scenario-107",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "vermling-shaman",
+          "name": "vermling-shaman-scenario-107",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"

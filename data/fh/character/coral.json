@@ -205,7 +205,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.fh.coral.2%"
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%, %data.custom.fh.coral.2%"
     },
     {
       "type": "custom",

@@ -22,7 +22,16 @@
         },
         {
           "type": "spawn",
-          "value": "blood-imp:normal:[C/2{math.ceil}]",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "blood-imp",
+                "type": "normal"
+              },
+              "count": "[C/2{math.ceil}]"
+            }
+          ],
           "small": true
         }
       ],

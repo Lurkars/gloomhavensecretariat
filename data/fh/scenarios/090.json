@@ -1,14 +1,16 @@
 {
   "index": "90",
   "name": "Frozen Treasure",
+  "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1272,
+    "y": 579.5,
+    "width": 86,
+    "height": 61,
+    "gridLocation": "I3"
+  },
   "edition": "fh",
   "complexity": 2,
-  "unlocks": [
-    "91"
-  ],
-  "forcedLinks": [
-    "91"
-  ],
   "monsters": [
     "frozen-corpse",
     "ice-wraith",

@@ -4,8 +4,8 @@
             <img class="icon" src="./assets/images/scenario/treasure.svg">
             <span [ghs-label]="'party.campaign.treasures'"></span>
         </div>
-        <label>
-            <input type="checkbox" [(ngModel)]="select" (change)="update()">
+        <label *ngIf="!data.scenario">
+            <input type="checkbox" [(ngModel)]="batchSelect" (change)="update()">
             <span [ghs-label]="'party.campaign.treasures.batchSelect'"></span>
         </label>
     </div>
@@ -36,7 +36,9 @@
 
     <div class="buttons">
         <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
-        <a class="apply" *ngIf="select" [ngClass]="{'disabled' : selected.length == 0}" (click)="apply()"><span
-                [ghs-label]="'party.campaign.treasures.applySelect'"></span></a>
+        <a class="loot" *ngIf="data.scenario" [ngClass]="{'disabled' : selected.length == 0}"
+            (click)="toggleTreasure(selected[0], true)"><span [ghs-label]="'party.campaign.treasures.loot'"></span></a>
+        <a class="apply" *ngIf="batchSelect || data.scenario" [ngClass]="{'disabled' : selected.length == 0}"
+            (click)="apply()"><span [ghs-label]="'party.campaign.treasures.applySelect'"></span></a>
     </div>
 </div>

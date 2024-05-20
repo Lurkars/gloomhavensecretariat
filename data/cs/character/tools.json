@@ -320,7 +320,7 @@
           "count": 2,
           "attackModifier": {
             "type": "plus1",
-            "rolling": "true",
+            "rolling": true,
             "effects": [
               {
                 "type": "condition",
@@ -345,7 +345,7 @@
           "count": 2,
           "attackModifier": {
             "type": "plus1",
-            "rolling": "true",
+            "rolling": true,
             "effects": [
               {
                 "type": "condition",

@@ -3,7 +3,9 @@
     [ngClass]="{'denied' : monster && gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
     <a (click)="reveal = (reveal + 1) % 3"><span [ghs-label]="(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
       'game.cards.revealAll' : 'game.cards.revealAllConfirm'))"></span></a>
-    <a (click)="shuffle()"><span [ghs-label]="'game.cards.shuffle'"></span></a>
+    <a ghs-pointer-input (singleClick)="shuffle()" (doubleClick)="shuffle(true)"
+      [ghs-tooltip]="'game.cards.shuffle.upcomingHint'" [overlayX]="'center'"><span
+        [ghs-label]="'game.cards.shuffle'"></span></a>
     <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
         [ghs-label]="'game.cards.edit'"></span></label>
     <div class="insert-menu">
@@ -17,35 +19,50 @@
     </div>
   </div>
   <div class="scroll-container">
-    <div class="abilities-container" [style.maxHeight]="maxHeight">
+    <div class="abilities-container" [style.maxHeight]="maxHeight"
+      [ngClass]="{'has-deleted' : edit && deletedCards.length}">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
         [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
         [cdkDropListAutoScrollStep]="20">
-        <div class="empty" *ngIf="upcomingCards().length == 0"></div>
-        <ng-container *ngFor="let ability of upcomingCards();let index = index;">
+        <div class="empty" *ngIf="upcomingCards.length == 0"></div>
+        <ng-container *ngFor="let ability of upcomingCards;let index = index;">
           <div class="container drag-hidden" cdkDrag
-            [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard && (reveal == 2 || ability.revealed),   'bottom-actions' : gameManager.hasBottomAbility(ability)}">
-            <ghs-ability [ability]="ability" [monster]="monster" [flipped]="reveal == 2" [reveal]="true">
+            [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard && (reveal == 2 || ability.revealed), 'bottom-actions' : gameManager.hasBottomAbility(ability), 'drawn' : index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1}">
+            <ghs-ability [ability]="ability" [monster]="monster"
+              [flipped]="reveal == 2 || index < gameManager.monsterManager.drawnAbilities(monster) - monster.ability - 1"
+              [reveal]="true">
             </ghs-ability>
             <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
-            <a class="button-remove" *ngIf="edit" (click)="remove(index)">
+            <a class="button-remove" *ngIf="edit" (click)="remove(index + monster.ability + 1)">
               <img class="ghs-svg" src="./assets/images/minus.svg"></a>
           </div>
         </ng-container>
       </div>
 
-      <div class="disgarded  drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
+      <div class="disgarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
         [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
-        <ng-container *ngFor="let ability of disgardedCards(); let index = index;">
+        <ng-container *ngFor="let ability of disgardedCards; let index = index;">
           <div class="container drag-hidden" cdkDrag
             [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard, 'bottom-actions' : gameManager.hasBottomAbility(ability)}">
             <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true">
             </ghs-ability>
             <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
-            <a class="button-remove" *ngIf="edit" (click)="remove(index)">
+            <a class="button-remove" *ngIf="edit" (click)="remove(disgardedCards.length - index - 1)">
               <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+          </div>
+        </ng-container>
+      </div>
+
+      <div *ngIf="edit && deletedCards.length" class="deleted drop-list">
+        <ng-container *ngFor="let ability of deletedCards; let index = index;">
+          <div class="container"
+            [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard, 'bottom-actions' : gameManager.hasBottomAbility(ability)}">
+            <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true">
+            </ghs-ability>
+            <a class="button-restore" *ngIf="edit" (click)="restore(ability)">
+              <img class="ghs-svg" src="./assets/images/plus.svg"></a>
           </div>
         </ng-container>
       </div>

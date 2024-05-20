@@ -1,10 +1,11 @@
 <div class="monster"
-  [ngClass]="{'off' : monster.off || nonDead == 0, 'full-ability'  : settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'modern': settingsManager.settings.theme == 'modern'}">
+  [ngClass]="{'off' : monster.off || nonDead == 0, 'full-ability'  : settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'modern': settingsManager.settings.theme == 'modern', 'short': !settingsManager.settings.abilities || !settingsManager.settings.stats, 'short-abilities': !settingsManager.settings.stats, 'short-stats': !settingsManager.settings.abilities}">
   <ghs-monster-image [monster]="monster"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
   </ghs-monster-image>
-  <ghs-monster-ability-card [monster]="monster"></ghs-monster-ability-card>
-  <ghs-monster-stats [monster]="monster"
+  <ghs-monster-ability-card *ngIf="settingsManager.settings.abilities"
+    [monster]="monster"></ghs-monster-ability-card>
+  <ghs-monster-stats *ngIf="settingsManager.settings.stats" [monster]="monster"
     [ngClass]="{'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard}"></ghs-monster-stats>
 
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="normal" [monster]="monster" [type]="MonsterType.normal"

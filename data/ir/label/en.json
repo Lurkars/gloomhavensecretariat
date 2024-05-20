@@ -5,7 +5,8 @@
   "monster": {
     "beast-rider": "Beast Rider",
     "frost-wurm": "Frost Wurm",
-    "savvas-bookkeeper": "Savvas Bookkeeper"
+    "savvas-bookkeeper": "Savvas Bookkeeper",
+    "thrax": "Thrax"
   },
   "personalQuest": {
     "A1": "Addictive Intoxication",
@@ -16,5 +17,12 @@
     "D2": "The cog and the wheel",
     "LF1": "Now you see me...",
     "LF2": "Chroma flux"
+  },
+  "custom": {
+    "ir": {
+      "thrax": {
+        "1": "Performs no actions"
+      }
+    }
   }
 }

@@ -1,6 +1,14 @@
 {
   "index": "14",
   "name": "Jagged Shoals",
+  "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 1006.5,
+    "y": 455.5,
+    "width": 120,
+    "height": 71,
+    "gridLocation": "L2"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [
@@ -18,8 +26,8 @@
       "winter-outpost:WO-81"
     ],
     "campaignSticker": [
-      "Coral Shard",
-      "Shard Seeker"
+      "coral-shard",
+      "shard-seeker"
     ],
     "chooseUnlockCharacter": [
       "coral",

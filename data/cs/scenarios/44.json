@@ -1,6 +1,7 @@
 {
   "index": "44",
   "name": "Haunted Manor",
+  "flowChartGroup": "city-events",
   "edition": "cs",
   "rewards": {
     "gold": 20,

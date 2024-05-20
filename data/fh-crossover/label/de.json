@@ -2,7 +2,10 @@
   "character": {
     "brute": "Barbar",
     "cragheart": "Felsenherz",
-    "demolitionist": "Sprengmeisterin",
+    "demolitionist": {
+      ".": "Sprengmeisterin",
+      "mech": "Mech Suit"
+    },
     "diviner": "Prophetin",
     "hatchet": "Axtwerfer",
     "mindthief": "Gedankendiebin",

@@ -1,6 +1,14 @@
 {
   "index": "100",
   "name": "Inside the Swarm",
+  "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 2140.25,
+    "y": 606,
+    "width": 89,
+    "height": 82,
+    "gridLocation": "A3"
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

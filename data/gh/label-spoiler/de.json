@@ -61,71 +61,71 @@
   },
   "items": {
     "gh-1": {
-      "1": "During your movement, add +2 %game.action.move% to the movement.",
+      "1": "Füge einer deiner Einzelbewegungen +2 Bewegung %game.action.move% hinzu.",
       ".": "Wanderstiefel"
     },
     "gh-2": {
-      "1": "During your movement, add %game.action.jump% to the movement.",
+      "1": "Füge während deiner Bewegung %game.action.jump% hinzu.",
       ".": "Flügelschuhe"
     },
     "gh-3": {
-      "1": "On the next two sources of damage from attacks targeting you, gain %game.action.shield% 1.",
+      "1": "Erhalte gegen die nächsten 2 Schadensquellen bei Angriffen, die dich anvisieren, Schild %game.action.shield% 1.",
       ".": "Fellrüstung"
     },
     "gh-4": {
-      "1": "When attacked, the attacker gains Disadvantage on the attack.",
+      "1": "Wenn du angegriffen wirst, erhält der Angreifer Nachteil für diesen Angriff.",
       ".": "Lederrüstung"
     },
     "gh-5": {
-      "1": "During your turn, gain %game.condition.invisible%.",
+      "1": "Erhalte während deines Zugs %game.condition.invisible%.",
       ".": "Mantel der Unsichtbarkeit"
     },
     "gh-6": {
-      "1": "During your attack, gain Advantage on the entire Attack action.",
+      "1": "Erhalte während deiner gesamten Angriffsaktion Vorteil.",
       ".": "Adleraugenbrille"
     },
     "gh-7": {
-      "1": "When attacked, consider any %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead.",
+      "1": "Wenn du angegriffen wirst, gilt jeder gezogene %game.attackmodifier.double% Angriffsmodifikator des Gegners stattdessen als %game.attackmodifier.plus0%.",
       ".": "Eisenhelm"
     },
     "gh-8": {
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhälst du Schild %game.action.shield% 1 für den Angriff.",
-      ".": "Dreicksschild"
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 1 für den Angriff.",
+      ".": "Dreieckschild"
     },
     "gh-9": {
-      "1": "During your ranged attack, ignore all Shield values for the entire Attack action.",
+      "1": "Ignoriere bei deinem Fernangriff während der gesamten Aktion alle Schildwerte.",
       ".": "Starkbogen"
     },
     "gh-10": {
-      "1": "During your melee attack, add %game.condition.stun% to the entire Attack action.",
+      "1": "Füge bei deinem Nahkampfangriff der gesamten Aktion %game.condition.stun% hinzu.",
       ".": "Kriegshammer"
     },
     "gh-11": {
-      "1": "Füge bei deinem Nahkampfangriff einen Einzelangriff GIFT %game.condition.poison% hinzu.",
+      "1": "Füge bei deinem Nahkampfangriff einem Einzelangriff %game.condition.poison% hinzu.",
       ".": "Giftdolch"
     },
     "gh-12": {
-      "1": "During your turn, perform a \"%game.action.heal% 3, self\" action.",
+      "1": "Wende während deines Zugs \"%game.action.heal% 3\" bei dir an.",
       ".": "Kleiner Heiltrank"
     },
     "gh-13": {
-      "1": "During your turn, Recover %game.card.recover% up to two of your discarded cards.",
+      "1": "Bekomme während deines Zugs bis zu 2 deiner abgeworfenen Karten zurück %game.card.recover%.",
       ".": "Kleiner Ausdauertrank"
     },
     "gh-14": {
-      "1": "During your attack, add +1 %game.action.attack% to your entire Attack action.",
+      "1": "Füge deiner gesamten Angriffsaktion +1 %game.action.attack% hinzu.",
       ".": "Kleiner Krafttrank"
     },
     "gh-15": {
-      "1": "At the beginning of a round, after all ability cards have been revealed, increase or decrease your leading initiative value by 10.",
+      "1": "Nachdem die Hauptkarten bei Rundenbeginn aufgedeckt wurden, erhöhe/verringere deinen Initiative-Wert um 10.",
       ".": "Schnellläufer"
     },
     "gh-16": {
-      "1": "You can carry two additional %game.items.slots.small% items.",
+      "1": "Du kannst 2 zusätzliche %game.items.slots.small% Gegenstände tragen.",
       ".": "Taschenmantel"
     },
     "gh-17": {
-      "1": "During your turn, Refresh %game.card.refresh% one of your consumed %game.items.slots.small% items.",
+      "1": "Erneuere %game.card.refresh% während deines Zugs einen deiner verbrauchten %game.items.slots.small% Gegenstände.",
       ".": "Ermächtigungstalisman"
     },
     "gh-18": {
@@ -133,462 +133,462 @@
       ".": "Streitaxt"
     },
     "gh-19": {
-      "1": "During your ranged attack, add %game.condition.immobilize% to a single attack.",
+      "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.condition.immobilize% hinzu.",
       ".": "Wurfnetz"
     },
     "gh-20": {
-      "1": "During your turn, create any element.",
+      "1": "Erzeuge während deines Zugs ein beliebiges Element.",
       ".": "Kleiner Manatrank"
     },
     "gh-21": {
-      "1": "During your attack, add %game.condition.stun% to a single attack.",
+      "1": "Füge einem Einzelangriff %game.condition.stun% hinzu.",
       ".": "Betäubungspulver"
     },
     "gh-22": {
-      "1": "You are immune to all forced movement caused by enemies or scenario effects.",
+      "1": "Du bist immun gegen erzwungene Bewegungen durch Gegner und Spielmechanik.",
       ".": "Schwere Beinpanzer"
     },
     "gh-23": {
-      "1": "On the next three sources of damage to you from attacks, gain %game.action.shield% 1.",
+      "1": "Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1.",
       ".": "Kettenhemd"
     },
     "gh-24": {
-      "1": "During your turn, perform a \"%game.action.heal% 1, Self\" action.",
+      "1": "Wende während deines Zugs \"%game.action.heal% 1\" bei dir an.",
       ".": "Amulett des Lebens"
     },
     "gh-25": {
-      "1": "During your melee attack, add %game.condition.wound% to a single attack.",
+      "1": "Füge bei deinem Nahkampfangriff einem Einzelangriff %game.condition.wound% hinzu.",
       ".": "Zackenschwert"
     },
     "gh-26": {
-      "1": "Turn a single-target melee attack into the following:",
+      "1": "Verwandle deine nächste Einzelziel-Nahkampfangriffsaktion in Folgendes:",
       ".": "Langspeer"
     },
     "gh-27": {
-      "1": "During your turn, perform a \"%game.action.heal% 5, self\" action.",
+      "1": "Wende während deines Zugs \"%game.action.heal% 5\" bei dir an.",
       ".": "Großer Heiltrank"
     },
     "gh-28": {
-      "1": "During your turn, Refresh %game.card.refresh% all of your spent items.",
+      "1": "Erneuere %game.card.refresh% während deines Zugs alle deine abgenutzten Gegenstände.",
       ".": "Mond-Ohrring"
     },
     "gh-29": {
-      "1": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action.",
+      "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move% 3\" statt \"%game.action.move% 2\".",
       ".": "Bequeme Schuhe"
     },
     "gh-30": {
-      "1": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack.",
+      "1": "Wenn du angegriffen wirst, erhält für diesen Angriff der Angreifer Nachteil und du %game.action.shield% 1.",
       ".": "Nietenrüstung"
     },
     "gh-31": {
-      "1": "During your ranged attack, add +1 %game.action.range% to your entire Attack action.",
+      "1": "Füge bei deinem Fernangriff der gesamten Aktion +1 %game.action.range% hinzu.",
       ".": "Falkenhelm"
     },
     "gh-32": {
-      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du Schild %game.action.shield% 2 für den Angriff.",
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 2 für den Angriff.",
       ".": "Turmschild"
     },
     "gh-33": {
-      "1": "During your single-target ranged attack action, turn the attack into the following:",
+      "1": "Verwandle deine nächste Einzelziel-Fernangriffsaktion in Folgendes:",
       ".": "Wurfbombe"
     },
     "gh-34": {
-      "1": "During your turn, Recover %game.card.recover% up to three of your discarded cards.",
+      "1": "Bekomme während deines Zugs bis zu 3 deiner abgeworfenen Karten zurück %game.card.recover%.",
       ".": "Großer Ausdauertrank"
     },
     "gh-35": {
       ".": "Falkenfigur"
     },
     "gh-36": {
-      "1": "During your movement, add +3 %game.action.move% to the movement.",
+      "1": "Füge einer deiner Einzelbewegungen +3 %game.action.move% hinzu.",
       ".": "Laufstiefel"
     },
     "gh-37": {
-      "1": "During your attack, %game.element.consume.wild%  to add +1 %game.action.attack% to the entire Attack action.",
+      "1": "%game.element.consume.wild% bei deinem Angriff, um der gesamten Aktion +1 %game.action.attack% hinzuzufügen.",
       ".": "Robe der Anrufung"
     },
     "gh-38": {
-      "1": "You are immune to %game.condition.stun% and %game.condition.muddle%.",
+      "1": "Du bist immun gegen %game.condition.stun% und %game.condition.muddle%.",
       ".": "Beckenhaube"
     },
     "gh-39": {
-      "1": "During your ranged attack, add %game.action.pull% 2 to the entire Attack action.",
+      "1": "Füge bei deinem Fernangriff der gesamten Aktion %game.action.pull% 2 hinzu.",
       ".": "Kettenhaken"
     },
     "gh-40": {
-      "1": "Whenever you use the default top of an ability card, perform an \"%game.action.attack% 3\" action instead of an \"%game.action.attack% 2\" action.",
+      "1": "Die obere Standardaktion gilt als \"%game.action.attack% 3\" anstatt \"%game.action.attack% 2\".",
       ".": "Mehrzweckdolch"
     },
     "gh-41": {
-      "1": "During your attack, add +2 %game.action.attack% to your entire Attack action.",
+      "1": "Füge deiner gesamten Angriffsaktion +2 %game.action.attack% hinzu.",
       ".": "Großer Krafttrank"
     },
     "gh-42": {
-      "1": "At the end of your turn, play one card from your hand and immediately perform the bottom action of the card.",
+      "1": "Spiele am Ende dienes Zugs eine Handkarte aus und wende die untere Aktion sofort an.",
       ".": "Ring der Eile"
     },
     "gh-43": {
-      "1": "At the beginning of a round, after all ability cards have been revealed, increase or decrease your leading initiative value by 20.",
+      "1": "Nachdem deine Hauptkarte bei Rundenbeginn aufgedeckt wurde, erhöhe/verringere ihren Initiative-Wert um 20.",
       ".": "Flinkstiefel"
     },
     "gh-44": {
-      "1": "On the next four sources of damage to you from attacks, gain %game.action.shield% 1.",
+      "1": "Erhalte gegen die nächsten 4 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1.",
       ".": "Spangenpanzer"
     },
     "gh-45": {
-      "1": "During your turn, Refresh %game.card.refresh% two of your consumed %game.items.slots.small% items. Gain %game.condition.curse%.",
+      "1": "Erneuere %game.card.refresh% während deines Zugs 2 deiner verbrauchten %game.items.slots.small% Gegenstände. Erhalte %game.condition.curse%.",
       ".": "Kette des Dunkelpaktes"
     },
     "gh-46": {
-      "1": "When damaged by an attack, gain %game.action.shield% 1 and %game.action.retaliate% 2 for the attack.",
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 1 und %game.action.retaliate% 2 für den Angriff.",
       ".": "Stachelschild"
     },
     "gh-47": {
-      "1": "During your single-target melee attack action, turn the attack into the following:",
+      "1": "Verwandle deine nächste Einzelziel-Nahkampfangriffsaktion in Folgendes:",
       ".": "Kriegssense"
     },
     "gh-48": {
-      "1": "During your turn, create any two elements.",
+      "1": "Erzeuge während deines Zugs 2 beliebige Elemente.",
       ".": "Großer Manatrank"
     },
     "gh-49": {
-      "1": "During your turn, Refresh %game.card.refresh% all of your spent items and \"%game.action.heal% 3, Self\" action.",
+      "1": "Erneuere %game.card.refresh% während deines Zugs alle deine abgenutzten Gegenstände und wende \"%game.action.heal% 3\" bei dir an.",
       ".": "Sonnen-Ohrring"
     },
     "gh-50": {
-      "1": "If you move 1 or fewer hexes on your turn, gain %game.action.shield% 1 for the round.",
+      "1": "Wenn du dich in deinem Zug 1 oder weniger Felder weit bewegst, erhältst du %game.action.shield% 1 für die Runde.",
       ".": "Panzerschuhe"
     },
     "gh-51": {
-      "1": "When you are damaged by an attack, suffer no damage instead.",
+      "1": "Wenn du durch einen Angriff, der dich anvisiert, Schaden erleiden würdest, erleidest du keinen Schaden.",
       ".": "Schattenrüstung"
     },
     "gh-52": {
-      "1": "You are immune to %game.condition.poison% and %game.condition.wound%.",
+      "1": "Du bist immun gegen %game.condition.poison% und %game.condition.wound%.",
       ".": "Schutzamulett"
     },
     "gh-53": {
-      "1": "During your melee attack, add %game.condition.curse% to a single attack.",
+      "1": "Füge bei deinem Nahkampfangriff einem Einzelangiff %game.condition.curse% hinzu.",
       ".": "Schwarzdolch"
     },
     "gh-54": {
-      "1": "During your ranged attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action.",
+      "1": "%game.element.consume.wild% bei deinem Fernangriff, um der gesamten Aktion +1 %game.action.attack% hinzuzufügen.",
       ".": "Stab des Ansehens"
     },
     "gh-55": {
-      "1": "During your turn, perform a \"%game.action.heal% 7, self\" action.",
+      "1": "Wende während deines Zugs \"%game.action.heal% 7\" bei dir an.",
       ".": "Überragender Heiltrank"
     },
     "gh-56": {
-      "1": "At the end of your turn, play one card from your hand and immediately perform the top action of the card.",
+      "1": "Spiele am Ende deines Zugs eine Handkarte aus und wende die obere Aktion sofort an.",
       ".": "Ring der Brutalität"
     },
     "gh-57": {
-      "1": "Whenever you use the default bottom of an ability card perform a \"%game.action.move% 4\" action instead of a \"%game.action.move% 2\" action.",
+      "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move% 4\" statt \"%game.action.move% 2\".",
       ".": "Sorglose Sandalen"
     },
     "gh-58": {
-      "1": "Gain %game.action.fly%.",
-      "2": "While occupying an obstacle hex, you are considered %game.condition.invisible% and cannot attack.",
+      "1": "Erhalte %game.action.fly%.",
+      "2": "Auf einem Hindernisfeld bist du %game.condition.invisible% und kannst nicht angreifen.",
       ".": "Phasenmantel"
     },
     "gh-59": {
-      "1": "During your ranged attack, add +2 %game.action.range% to your entire Attack action",
+      "1": "Füge bei deinem Fernangriff deiner gesamten Aktion +2 %game.action.range% hinzu.",
       ".": "Teleskoplinse"
     },
     "gh-60": {
-      "1": "Turn a single target ranged attack into the following:",
-      "3": "All allies in the attack area suffer 3 damage.",
+      "1": "Verwandle deine nächste Einzelziel-Fernangriffsaktion in folgendes:",
+      "3": "Alle Verbündeten im Angriffsbereich erleiden 3 Schaden.",
       ".": "Instabiler Sprengsatz"
     },
     "gh-61": {
-      "1": "When damaged by an attack, gain %game.action.shield% 4 for the attack.",
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 4 für den Angriff.",
       ".": "Setzschild"
     },
     "gh-62": {
-      "1": "During your attack, add %game.condition.stun%, %game.condition.poison%, and %game.condition.curse% to a single attack.",
+      "1": "Füge einem Einzelangriff %game.condition.stun%, %game.condition.poison%, und %game.condition.curse% hinzu.",
       ".": "Schicksalspulver"
     },
     "gh-63": {
-      "1": "During your turn, %game.condition.strengthen% yourself and all adjacent allies.",
+      "1": "Gewährt während deines Zugs %game.condition.strengthen% für dich selbst und alle angrenzenden Verbündeten.",
       ".": "Glücksauge"
     },
     "gh-64": {
-      "1": "During your movement, add +4 %game.action.move% to the movement.",
+      "1": "Füge einer deiner Einzelbewegungen +4 %game.action.move% hinzu.",
       ".": "Sprintstiefel"
     },
     "gh-65": {
-      "1": "On the next five sources of damage to you from attacks, gain %game.action.shield% 1.",
+      "1": "Erhalte gegen die nächsten 5 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1.",
       ".": "Plattenpanzer"
     },
     "gh-66": {
-      "1": "During your melee attack, add %game.action.push% 1.",
+      "1": "Füge bei deinem Nahkampfangriff %game.action.push% 1 hinzu.",
       ".": "Schreckensmaske"
     },
     "gh-67": {
-      "1": "Whenever you use the default top of an ability card, perform an \"%game.action.attack% 4\" instead of an \"%game.action.attack% 2\" action.",
+      "1": "Die obere Standardaktion gilt als \"%game.action.attack% 4\" anstatt\"%game.action.attack% 2\".",
       ".": "Ausbalancierte Klinge"
     },
     "gh-68": {
-      "1": "During your single target melee attack, you can attack any single enemy within 2 hexes.",
+      "1": "Du kannst während deiner Einzelziel-Nahkampfangriffsaktion einen beliebigen Gegner im Umkreis von 2 Feldern angreifen.",
       ".": "Hellebarde"
     },
     "gh-69": {
-      "1": "During your turn, Refresh %game.card.refresh% all of your spent items, \"%game.action.heal% 3, Self\" action, and Recover %game.card.recover% up to two of your discarded cards.",
+      "1": "Erneuere %game.card.refresh% während deines Zugs alle deine abgenutzten Gegenstände, wende \"%game.action.heal% 3\" auf dich an und bekomme bis zu 2 deiner abgeworfenen Karten zurück %game.card.recover%.",
       ".": "Stern-Ohrring"
     },
     "gh-70": {
-      "1": "At the end of your turn, play two cards from your hand and perform an additional turn this round based on your new leading initiative (which must be later than your previous initiative).",
+      "1": "Spiele am Ende deines Zugs 2 Handkarten aus und führe in dieser Runde, basierend auf deiner neuen Hauptinitiative (die später als deine aktuelle Initiative sein muss), einen zusätzlichen Zug aus.",
       ".": "Ring der Chancen"
     },
     "gh-71": {
-      "1": "Gain %game.action.fly%",
+      "1": "Erhalte %game.action.fly%",
       ".": "Levitationsstiefel"
     },
     "gh-72": {
-      "1": "If you move 6 or more hexes on your turn, gain %game.card.experience:1%.",
+      "1": "Wenn du dich in deinem Zug 6 oder mehr Felder weit bewegst, erhalte %game.card.experience:1%.",
       ".": "Schuhe der Heiterkeit"
     },
     "gh-73": {
-      "1": "During your turn, perform a \"%game.action.move% 4, %game.action.jump%\" action",
+      "1": "Wende während deines Zugs \"%game.action.move% 4, %game.action.jump%\" an.",
       ".": "Flirrender Umhang"
     },
     "gh-74": {
-      "1": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 1, %game.action.retaliate% 1",
+      "1": "Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1, %game.action.retaliate% 1.",
       ".": "Klingenrüstung"
     },
     "gh-75": {
-      "1": "During your turn, %game.element.consume.wild% to create any element. ",
+      "1": "%game.element.consume.wild% während deines Zugs, um ein beliebiges Element zu erzeugen.",
       ".": "Reif der Elemente"
     },
     "gh-76": {
-      "1": "While you are adjacent to three or more monsters, gain %game.action.shield% 1",
+      "1": "Solange du an 3 oder mehr Monster angrenzt, erhalte %game.action.shield% 1.",
       ".": "Kettenhaube"
     },
     "gh-77": {
-      "1": "During your melee attack, %game.element.consume.ice% to add +2 %game.action.attack% to a single attack.",
+      "1": "%game.element.consume.ice% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff.",
       ".": "Frostklinge"
     },
     "gh-78": {
-      "1": "During your melee attack, %game.element.consume.air% to add +2 %game.action.attack% to a single attack.",
+      "1": "%game.element.consume.air% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff.",
       ".": "Sturmklinge"
     },
     "gh-79": {
-      "1": "During your melee attack, %game.element.consume.fire% to add +2 %game.action.attack% to a single attack.",
+      "1": "%game.element.consume.fire% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff.",
       ".": "Infernoklinge"
     },
     "gh-80": {
-      "1": "During your melee attack, %game.element.consume.earth% to add +2 %game.action.attack% to a single attack.",
+      "1": "%game.element.consume.earth% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff.",
       ".": "Bebenklinge"
     },
     "gh-81": {
-      "1": "During your melee attack, %game.element.consume.light% to add +2 %game.action.attack% to a single attack.",
+      "1": "%game.element.consume.light% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff.",
       ".": "Glanzklinge"
     },
     "gh-82": {
-      "1": "During your melee attack, %game.element.consume.dark% to add +2 %game.action.attack% to a single attack.",
+      "1": "%game.element.consume.dark% während deines Nahkampfangriffs für +2 %game.action.attack% bei einem Einzelangriff.",
       ".": "Nachtklinge"
     },
     "gh-83": {
-      "1": "During your turn, create Ice.",
+      "1": "Erzeuge während deines Zugs einmal Eis.",
       ".": "Stab der Kälte"
     },
     "gh-84": {
-      "1": "During your turn, create Air.",
+      "1": "Erzeuge während deines Zugs einmal Luft.",
       ".": "Stab des Sturms"
     },
     "gh-85": {
-      "1": "During your turn, create Fire.",
+      "1": "Erzeuge während deines Zugs einmal Feuer.",
       ".": "Stab des Infernos"
     },
     "gh-86": {
-      "1": "During your turn, create Earth.",
+      "1": "Erzeuge während deines Zugs einmal Erde.",
       ".": "Stab des Bebens"
     },
     "gh-87": {
-      "1": "During your turn, create Light.",
+      "1": "Erzeuge während deines Zugs einmal Licht.",
       ".": "Stab des Glanzes"
     },
     "gh-88": {
-      "1": "During your turn, create Dark.",
+      "1": "Erzeuge während deines Zugs einmal Dunkel.",
       ".": "Stab der Nacht"
     },
     "gh-89": {
-      "1": "During your turn, remove one negative condition on yourself. This can be used while you have %game.condition.stun%.",
-      ".": "Großer Arzneitrank"
+      "1": "Entferne während deines Zugs einen negativen Zustand bei dir selbst. Kann trotz %game.condition.stun% verwendet werden.",
+      ".": "Kleiner Arzneitrank"
     },
     "gh-90": {
-      "1": "During your turn, remove all negative conditions on yourself. This can be used while you have %game.condition.stun%.",
+      "1": "Entferne während deines Zugs alle negativen Zustände bei dir selbst. Kann trotz %game.condition.stun% verwendet werden.",
       ".": "Großer Arzneitrank"
     },
     "gh-91": {
-      "1": "When damaged by an attack targeting you, gain %game.action.shield% 4 for the attack.",
+      "1": "Wenn du durch einen Angriff, der dich anvisiert, Schaden erleidest, erhältst du %game.action.shield% 4 für den Angriff.",
       ".": "Stahlring"
     },
     "gh-92": {
-      "1": "Before an enemy would consume an element, consume that element instead for no effect",
+      "1": "Wenn ein Gegner ein Element verbrauchen will, verbrauche es stattdessen selbst ohne Auswirkungen.",
       ".": "Dämpfungsring"
     },
     "gh-93": {
-      "1": "During an ally's attack, add +1 %game.action.attack% to their entire attack action",
+      "1": "Füge beim Angriff eines Verbündeten seiner gesamten Aktion +1 %game.action.attack% hinzu.",
       ".": "Schrift der Kraft"
     },
     "gh-94": {
-      "1": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action",
+      "1": "Wende während deines Zugs \"%game.action.heal% 3, %game.action.range:5%\" an.",
       ".": "Schrift der Heilung"
     },
     "gh-95": {
-      "1": "During your turn, an ally within %game.action.range:5% may Recover %game.card.recover% up to two of their discarded cards",
+      "1": "Während deines Zugs kann ein Verbündeter in %game.action.range:5% bis zu 2 seiner abgeworfenen Karten zurückbekommen %game.card.recover%.",
       ".": "Schrift der Ausdauer"
     },
     "gh-96": {
-      "1": "During your movement, add +3 %game.action.move% and %game.action.jump% to a single movement",
+      "1": "Füge einer deiner Einzelbewegungen +3 %game.action.move% und %game.action.jump% hinzu.",
       ".": "Raketenstiefel"
     },
     "gh-97": {
-      "1": "If you move 4 or more hexes on your turn, perform a \"\"%game.action.heal% 1, Self\"\" action.",
+      "1": "Wenn du dich in deinem Zug 4 oder mehr Felder weit bewegst, wende \"%game.action.heal% 1\" bei dir an.",
       ".": "Sandalen der Ausdauer"
     },
     "gh-98": {
-      "1": "You are unaffected by difficult and hazardous terrain.",
-      ".": "Drakescale Boots"
+      "1": "Schwieriges und gefährliches Gelände hat keinen Einfluss auf dich.",
+      ".": "Drakenstiefel"
     },
     "gh-99": {
-      "1": "Ignore the damaging effects of hazardous terrain and perform a \"%game.action.heal% 2, Self\" action on any turn in which you have entered a hazardous terrain hex.",
+      "1": "Ignoriere Schadenseffekte von gefährlichem Gelände und wende in jedem Zug, in dem du ein gefährliches Geländefeld betrittst, \"%game.action.heal% 2\" bei dir an.",
       ".": "Lavalatschen"
     },
     "gh-100": {
-      "1": "During your turn, perform a \"%game.action.heal% 2, target any summoned ally\" action.",
+      "1": "Wende während deines Zugs \"%game.action.heal% 2\" bei einem beliebigen beschworenen Verbündeten an.",
       ".": "Beschwörungsrobe"
     },
     "gh-101": {
-      "1": "Remove two %game.attackmodifier.minus1% from your attack modifier deck.",
+      "1": "Entferne 2 %game.attackmodifier.minus1% aus deinem Angriffsmodifikator-Deck.",
       ".": "Zweite Haut"
     },
     "gh-102": {
-      "1": "During your ranged attack, suffer 3 damage to add +1 %game.action.attack% to the entire Attack action.",
+      "1": "Erleide bei deinem Fernangriff 3 Schaden, um der gesamten Angriffsaktion +1 %game.action.attack% hinzuzufügen.",
       ".": "Opferrobe"
     },
     "gh-103": {
-      "1": "You are immune to %game.condition.poison% and %game.condition.wound%.",
+      "1": "Du bist immun gegen %game.condition.poison% und %game.condition.wound%.",
       ".": "Drakenrüstung"
     },
     "gh-104": {
-      "1": "On the next five sources of damage from attacks targeting you, gain %game.action.shield% 1.",
+      "1": "Erhalte gegen die nächsten 5 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1.",
       ".": "Dampfrüstung"
     },
     "gh-105": {
-      "1": "You are considered to have an initiative of 99 for the purpose of enemy focusing.",
+      "1": "Für die Berechnung des Gegnerfokus ist dein Initiative-Wert 99.",
       ".": "Schäbiges Schultertuch"
     },
     "gh-106": {
-      "1": "Any time you kill an enemy during your turn, perform a \"%game.action.heal% 1, Self\" action.",
+      "1": "Wann immer du während deines Zugs einen Gegner tötest, wende \"%game.action.heal% 1\" bei dir an.",
       ".": "Zahnkette"
     },
     "gh-107": {
-      "1": "After moving 4 or more hexes on your turn, add +1 %game.action.attack% to your next melee attack this turn.",
+      "1": "Nachdem du dich in deinem Zug 4 oder mehr Felder weit bewegt hast, füge deinem nächsten Nahkampfangriff in diesem Zug +1 %game.action.attack% hinzu.",
       ".": "Hornhelm"
     },
     "gh-108": {
-      "1": "Whenever you gain %game.condition.muddle%, gain %game.condition.strengthen% instead.",
+      "1": "Wenn du eigentlich %game.condition.muddle% erhalten würdest, erhalte stattdessen %game.condition.strengthen%.",
       ".": "Drakenhelm"
     },
     "gh-109": {
-      "1": "During your \"%game.action.loot% 1\" ability, perform a \"%game.action.loot% 2\" ability instead.",
+      "1": "Wende bei deiner Fertigkeit \"%game.action.loot% 1\" stattdessen \"%game.action.loot% 2\" an.",
       ".": "Diebesgugel"
     },
     "gh-110": {
-      "1": "When attacked, if %game.element.earth% is Strong, %game.condition.immobilize% the attacker.",
+      "1": "Wenn du angegriffen wirst, während %game.element.earth% stark ist, erhält der Angreifer %game.condition.immobilize%.",
       ".": "Helm der Berge"
     },
     "gh-111": {
-      "1": "When attacked, if %game.element.ice% is Strong, perform a \"%game.action.push% 2\" action targeting the attacker.",
-      ".": "Gischkrone"
+      "1": "Wenn du angegriffen wirst, während %game.element.ice% stark ist, wende \"%game.action.push% 2\" gegen den Angreifer an.",
+      ".": "Gischtkrone"
     },
     "gh-112": {
-      "1": "During your melee attack, add +2 %game.action.attack% and %game.action.pierce% 2 to the entire Attack action",
+      "1": "Füge bei deinem Nahkampfangriff der gesamten Aktion +2 %game.action.attack% und %game.action.pierce% 2 hinzu.",
       ".": "Alter Bohrer"
     },
     "gh-113": {
-      "1": "During your melee attack targeting a Living Corpse, Living Spirit, or Living Bones, add +5 %game.action.attack% to a single attack.",
+      "1": "Füge bei deinem Nahkampfangriff, der Wandelnde Leiche/Seele/Skelett anvisiert, einem Einzelangriff +5 %game.action.attack% hinzu.",
       ".": "Schädelfluch"
     },
     "gh-114": {
-      "1": "During your ranged attack, add %game.condition.poison% and %game.condition.muddle% to the entire Attack action",
+      "1": "Füge bei deinem Fernangriff der gesamten Aktion %game.condition.poison% und %game.condition.muddle% hinzu.",
       ".": "Stab des Xorn"
     },
     "gh-115": {
       ".": "Gebirgshammer"
     },
     "gh-116": {
-      "1": "During your single-target melee attack, the target and all enemies adjacent to the target suffer 1 damage",
+      "1": "Bei deinem Einzelziel-Nahkampfangriff erleiden das Ziel und alle angrenzenden Gegner 1 Schaden.",
       ".": "Flammenfalchion"
     },
     "gh-117": {
-      "1": "During your melee attack, suffer 2 damage to add +1 %game.action.attack% to the entire Attack action.",
+      "1": "Erleide bei deinem Nahkampfangriff 2 Schaden, um der gesamten Aktion +1 %game.action.attack% hinzuzufügen.",
       ".": "Blutaxt"
     },
     "gh-118": {
-      "1": "During your turn, create any element.",
+      "1": "Erzeuge während deines Zugs ein beliebiges Element.",
       ".": "Stab der Elemente"
     },
     "gh-119": {
-      "1": "During your turn, %game.condition.curse% all adjacent enemies.",
+      "1": "Füge während deines Zugs %game.condition.curse% bei allen angrenzenden Gegnern hinzu.",
       ".": "Schädel des Hasses"
     },
     "gh-120": {
-      "1": "During your turn, a summoned ally within %game.action.range:3% performs a \"%game.action.move% 3\" action with you controlling the action.",
+      "1": "Während deines Zugs kann ein beschworener Verbündeter in %game.action.range:3% nach deinem Wunsch \"%game.action.move% 3\" anwenden.",
       ".": "Beschwörungsstab"
     },
     "gh-121": {
-      "1": "During your turn, %game.element.consume.dark% to create Light.",
+      "1": "%game.element.consume.dark% während deines Zugs um einmal Licht zu erzeugen.",
       ".": "Kugel des Morgens"
     },
     "gh-122": {
-      "1": "During your turn, %game.element.consume.light% to create Dark.",
+      "1": "%game.element.consume.light% wärend deines Zugs, um einmal Dunkel zu erzeugen.",
       ".": "Kugel des Zwielichts"
     },
     "gh-123": {
       ".": "Schädelring"
     },
     "gh-124": {
-      "1": "During your turn, force an enemy within %game.action.range:5% to perform a \"%game.action.move% 2\" action with you controlling the action.",
+      "1": "Zwinge während deines Zugs einen Gegner in %game.action.range:5%, nach deinem Wunsch \"%game.action.move% 2\" anzuwenden.",
       ".": "Schicksalskompass"
     },
     "gh-125": {
-      "1": "During your turn, disarm all traps within %game.action.range:2%.",
+      "1": "Entschärfe während deines Zugs alle Fallen in %game.action.range:2%.",
       ".": "Zahnrad"
     },
     "gh-126": {
-      "1": "During your turn, %game.condition.poison% all adjacent enemies.",
+      "1": "Füge während deines Zugs %game.condition.poison% bei allen angrenzenden Gegnern hinzu.",
       ".": "Mechanische Spinne"
     },
     "gh-127": {
-      "1": "During your turn, perform a \"%game.action.loot% 1\" action.",
+      "1": "Wende während deines Zugs \"%game.action.loot% 1\" an.",
       ".": "Mechanische Riesenspinne"
     },
     "gh-128": {
-      "1": "During your turn, %game.condition.muddle% all enemies with %game.action.range:2%.",
+      "1": "Füge während deines Zugs %game.condition.muddle% bei allen Gegnern in %game.action.range:2% hinzu.",
       ".": "Schwarzes Rauchfass"
     },
     "gh-129": {
-      "1": "During your turn, place a character token on an adjacent normal or elite enemy. You add +1 %game.action.attack% to all your attacks targeting this enemy.",
+      "1": "Lege während deines Zugs einen Charaktermarker auf einen angrenzenden normalen oder Elite-Gegner. Erhalte +1 %game.action.attack% für deine Angriffe, die diesen Gegner anvisieren.",
       ".": "Schwarzkarte"
     },
     "gh-130": {
-      "1": "During your turn,",
-      "3": "to perform a \"%game.action.heal% 25, Self\" action",
+      "1": " ",
+      "3": "während deines Zugs, um \"%game.action.heal% 25\" bei dir anzuwenden.",
       ".": "Spiralring"
     },
     "gh-131": {
-      "1": "When attacked by an adjacent normal enemy, force the enemy to attack one of its allies within its range instead.",
+      "1": "Wenn du von einem angrenzenden normalen Gegner angegriffen wirst, zwinge ihn stattdessen, einen seiner Verbündeten in Reichweite anzugreifen.",
       ".": "Herz des Abtrünnigen"
     },
     "gh-132": {
       ".": "Energiekern"
     },
     "gh-133": {
-      "1": "During your turn, destroy an adjacent obstacle.",
+      "1": "Zerstöre während deines Zugs ein angrenzendes Hindernis.",
       ".": "Resonanzkristall"
     }
   },

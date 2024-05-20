@@ -1,6 +1,14 @@
 {
   "index": "102",
   "name": "Bazaar of Knowledge",
+  "flowChartGroup": "orchid-society",
+  "coordinates": {
+    "x": 2784.25,
+    "y": 1878,
+    "width": 192,
+    "height": 168,
+    "gridLocation": "M-19"
+  },
   "edition": "fc",
   "unlocks": [
     "110"

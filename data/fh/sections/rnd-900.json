@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Decayed",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "frozen-corpse",
+    "living-bones"
+  ],
   "rules": [
     {
       "round": "true",

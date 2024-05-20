@@ -1,6 +1,14 @@
 {
   "index": "40",
   "name": "Relief Effort",
+  "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 1378,
+    "y": 1228.75,
+    "width": 106,
+    "height": 82,
+    "gridLocation": "H9"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

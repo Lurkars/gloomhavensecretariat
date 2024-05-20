@@ -1,0 +1,226 @@
+.scenario-chart-popup {
+    color: var(--ghs-color-white);
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: var(--ghs-font-normal);
+        color: var(--ghs-color-white);
+        font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+
+        .title {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .number {
+                font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+            }
+        }
+
+        .subtitle {
+            font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+        }
+    }
+
+    .spoiler-block {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        padding: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+
+        ghs-scenario-setup {
+            visibility: hidden;
+            z-index: 2;
+        }
+
+        .treasures {
+            visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            z-index: 2;
+            min-height: calc(var(--ghs-unit) * 10 * var(--ghs-dialog-factor));
+
+            .treasure {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                background-image: url('~src/assets/images/scenario/treasure.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                color: var(--ghs-color-black);
+                width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+                transition: translate 500ms ease-in-out;
+
+                .overlay {
+                    display: none;
+                    position: absolute;
+                    top: 30%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 50%;
+                    width: auto;
+
+                    &.check {
+                        filter: var(--ghs-filter-green);
+                    }
+                }
+
+                &+.hint {
+                    display: none;
+                }
+
+                &.looted {
+                    cursor: pointer;
+
+                    .check {
+                        display: block;
+                    }
+
+                    &:hover {
+                        opacity: 0.8;
+                        transform: scale(1.1);
+                    }
+
+                    &+.hint {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .background {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+
+
+            label {
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+                color: var(--ghs-color-white);
+                z-index: 2;
+            }
+
+            &::before {
+                content: ' ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: var(--ghs-color-darkgray);
+                border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+                opacity: 0.3;
+                z-index: 0;
+            }
+
+            &:hover {
+                label {
+                    opacity: 0.7;
+                }
+
+                &::before {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        &.visible {
+
+            ghs-scenario-setup,
+            .treasures {
+                visibility: visible;
+            }
+
+            .background {
+                pointer-events: none;
+            }
+        }
+    }
+
+    .buttons {
+        display: flex;
+        margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        justify-content: space-evenly;
+        align-items: center;
+
+        a {
+            cursor: pointer;
+            min-width: 33%;
+            display: flex;
+            justify-content: center;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+
+        .play {
+            color: var(--ghs-color-green);
+
+
+            &.casual {
+                color: var(--ghs-color-gray);
+            }
+
+            &:not(.casual) {
+
+                &.success {
+                    cursor: initial;
+                    color: var(--ghs-color-darkgray);
+                }
+
+                &.locked:not(.blocked) {
+                    cursor: initial;
+                    color: var(--ghs-color-yellow);
+                }
+
+                &.blocked {
+                    cursor: initial;
+                    color: var(--ghs-color-red);
+                }
+            }
+        }
+    }
+
+    .predecessors {
+        display: flex;
+        align-items: center;
+        margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+        .ghs-svg {
+            filter: var(--ghs-filter-white);
+            transform: rotate(90deg);
+            height: 1em;
+            width: auto;
+            margin: 0 0.1em;
+        }
+    }
+}

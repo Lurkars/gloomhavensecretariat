@@ -61,6 +61,11 @@
             <span class="text-white section" *ngIf="rewards.section" (click)="sectionRewards(rewards.section)"
                 [ngClass]="{'active' : rewardsOnly}" [ghs-label]="'party.campaign.sheet.buildings.rewards.section'"
                 [ghs-label-args]="[rewards.section]"></span>
+
+            <span class="text-white errata" *ngIf="rewards.errata">
+                <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
+                    [ghs-label]="'data.custom.' +building.data.edition + '.errata.' + rewards.errata"></span>
+            </span>
         </div>
     </label>
 

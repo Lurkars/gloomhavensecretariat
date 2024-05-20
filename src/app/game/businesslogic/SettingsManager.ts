@@ -1,11 +1,14 @@
-import { EditionData } from "../model/data/EditionData";
+import { registerLocaleData } from "@angular/common";
+import localeDe from '@angular/common/locales/de';
+import localeFr from '@angular/common/locales/fr';
+import localeKo from '@angular/common/locales/ko';
 import { Settings } from "../model/Settings";
+import { BuildingData } from "../model/data/BuildingData";
+import { EditionData } from "../model/data/EditionData";
 import { Spoilable } from "../model/data/Spoilable";
+import { debugManager } from "./DebugManager";
 import { gameManager } from "./GameManager";
 import { storageManager } from "./StorageManager";
-import { BuildingData } from "../model/data/BuildingData";
-import { ConditionName } from "../model/data/Condition";
-import { debugManager } from "./DebugManager";
 
 declare global {
   interface Window { settingsManager: SettingsManager }
@@ -15,7 +18,7 @@ export class SettingsManager {
 
   defaultLocale: string = 'en';
   defaultEditions: string[] = ["gh", "fh", "jotl", "fc", "cs", "toa", "solo"];
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/sox.json", "./assets/data/ir.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/r100kc.json"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/gh-solo-items.json", "./assets/data/sox.json", "./assets/data/ir.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/r100kc.json"];
 
   settings: Settings = new Settings();
   label: any = {};
@@ -132,6 +135,16 @@ export class SettingsManager {
       settings.disableWakeLock = false;
     }
 
+    if (settings.serverPassword) {
+      settings.serverCode = settings.serverPassword;
+      settings.serverPassword = undefined;
+    }
+
+    if (!settings.combineSummonAction) {
+      settings.combineInteractiveAbilities = false;
+      settings.combineSummonAction = true;
+    }
+
     this.sortSpoilers();
   }
 
@@ -148,114 +161,48 @@ export class SettingsManager {
     this.loadSettings();
   }
 
-  setAbilities(abilities: boolean) {
-    this.settings.abilities = abilities;
+  async set(setting: string, value: any) {
+    this.settings[setting] = value;
+    await this.apply(setting, value);
     this.storeSettings();
   }
 
-  setAbilityNumbers(abilityNumbers: boolean) {
-    this.settings.abilityNumbers = abilityNumbers;
-    this.storeSettings();
+  async toggle(setting: string) {
+    await this.set(setting, !this.settings[setting]);
   }
 
-  setAbilityReveal(abilityReveal: boolean) {
-    this.settings.abilityReveal = abilityReveal;
-    this.storeSettings();
+  async apply(setting: string, value: any) {
+    if (setting === 'fullscreen') {
+      if (value) {
+        document.body.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    } else if (setting === 'locale') {
+      await this.updateLocale(value as string);
+    } else if (setting === 'fontsize') {
+      document.body.style.setProperty('--ghs-fontsize', value + '');
+    } else if (setting === 'barsize') {
+      document.body.style.setProperty('--ghs-barsize', value + '');
+    } else if (setting === 'globalFontsize') {
+      document.body.style.setProperty('--ghs-global-fontsize', value + '');
+    } else if (setting === 'portraitMode') {
+      if (value) {
+        document.body.classList.add('portrait-mode');
+      } else {
+        document.body.classList.remove('portrait-mode');
+      }
+    } else if (setting === 'fhStyle' && this.settings.automaticTheme) {
+      if (value && this.settings.theme == 'default') {
+        this.settings.theme = 'fh';
+      } else if (!value && this.settings.theme == 'fh') {
+        this.settings.theme = 'default';
+      }
+    }
   }
 
-  setActiveApplyConditions(activeApplyConditions: boolean) {
-    this.settings.activeApplyConditions = activeApplyConditions;
-    this.storeSettings();
-  }
-
-  setActiveApplyConditionsExcludes(activeApplyConditionsExcludes: ConditionName[]) {
-    this.settings.activeApplyConditionsExcludes = activeApplyConditionsExcludes;
-    this.storeSettings();
-  }
-
-  setActiveStandees(activeStandees: boolean) {
-    this.settings.activeStandees = activeStandees;
-    this.storeSettings();
-  }
-
-  setActiveSummons(activeSummons: boolean) {
-    this.settings.activeSummons = activeSummons;
-    this.storeSettings();
-  }
-
-  setAddAllMonsters(addAllMonsters: boolean) {
-    this.settings.addAllMonsters = addAllMonsters;
-    this.storeSettings();
-  }
-
-  setAllyAttackModifierDeck(allyAttackModifierDeck: boolean) {
-    this.settings.allyAttackModifierDeck = allyAttackModifierDeck;
-    this.storeSettings();
-  }
-
-  setAlwaysAllyAttackModifierDeck(alwaysAllyAttackModifierDeck: boolean) {
-    this.settings.alwaysAllyAttackModifierDeck = alwaysAllyAttackModifierDeck;
-    this.storeSettings();
-  }
-
-  setAlwaysFhSolo(alwaysFhSolo: boolean) {
-    this.settings.alwaysFhSolo = alwaysFhSolo;
-    this.storeSettings();
-  }
-
-  setAlwaysHazardousTerrain(alwaysHazardousTerrain: boolean) {
-    this.settings.alwaysHazardousTerrain = alwaysHazardousTerrain;
-    this.storeSettings();
-  }
-
-  setAlwaysLootApplyDialog(alwaysLootApplyDialog: boolean) {
-    this.settings.alwaysLootApplyDialog = alwaysLootApplyDialog;
-    this.storeSettings();
-  }
-
-  setAlwaysLootDeck(alwaysLootDeck: boolean) {
-    this.settings.alwaysLootDeck = alwaysLootDeck;
-    this.storeSettings();
-  }
-
-  setApplyBuildingRewards(applyBuildingRewards: boolean) {
-    this.settings.applyBuildingRewards = applyBuildingRewards;
-    this.storeSettings();
-  }
-
-  setApplyConditions(applyConditions: boolean) {
-    this.settings.applyConditions = applyConditions;
-    this.storeSettings();
-  }
-
-  setApplyConditionsExcludes(applyConditionsExcludes: ConditionName[]) {
-    this.settings.applyConditionsExcludes = applyConditionsExcludes;
-    this.storeSettings();
-  }
-
-  setApplyLongRest(applyLongRest: boolean) {
-    this.settings.applyLongRest = applyLongRest;
-    this.storeSettings();
-  }
-
-  setApplyLoot(applyLoot: boolean) {
-    this.settings.applyLoot = applyLoot;
-    this.storeSettings();
-  }
-
-  setApplyLootRandomItem(applyLootRandomItem: boolean) {
-    this.settings.applyLootRandomItem = applyLootRandomItem;
-    this.storeSettings();
-  }
-
-  setApplyRetirement(applyRetirement: boolean) {
-    this.settings.applyRetirement = applyRetirement;
-    this.storeSettings();
-  }
-
-  setAutoBackup(autoBackup: number) {
-    this.settings.autoBackup = autoBackup;
-    this.storeSettings();
+  get(setting: string): any {
+    return this.settings[setting];
   }
 
   setAutoBackupFinish(autoBackupFinish: boolean) {
@@ -273,282 +220,6 @@ export class SettingsManager {
     if (this.settings.autoBackupUrl && !this.settings.autoBackupUrl.method) {
       this.settings.autoBackupUrl.method = "POST";
     }
-    this.storeSettings();
-  }
-
-  setAutomaticAttackModifierFullscreen(automaticAttackModifierFullscreen: boolean) {
-    this.settings.automaticAttackModifierFullscreen = automaticAttackModifierFullscreen;
-    this.storeSettings();
-  }
-
-  setAutomaticPassTime(automaticPassTime: boolean) {
-    this.settings.automaticPassTime = automaticPassTime;
-    this.storeSettings();
-  }
-
-  setAutomaticStandees(automaticStandees: boolean) {
-    this.settings.automaticStandees = automaticStandees;
-    this.storeSettings();
-  }
-
-  setAutomaticStandeesDialog(automaticStandeesDialog: boolean) {
-    this.settings.automaticStandeesDialog = automaticStandeesDialog;
-    this.storeSettings();
-  }
-
-  setAutomaticTheme(automaticTheme: boolean) {
-    this.settings.automaticTheme = automaticTheme;
-    this.storeSettings();
-  }
-
-  setAutomaticUnlocking(automaticUnlocking: boolean) {
-    this.settings.automaticUnlocking = automaticUnlocking;
-    this.storeSettings();
-  }
-
-  setAutoscroll(autoscroll: boolean) {
-    this.settings.autoscroll = autoscroll;
-    this.storeSettings();
-  }
-
-  setBarsize(barsize: number) {
-    this.settings.barsize = barsize;
-    this.storeSettings();
-  }
-
-  setBackupHint(backupHint: boolean) {
-    this.settings.backupHint = backupHint;
-    this.storeSettings();
-  }
-
-  setBattleGoals(battleGoals: boolean) {
-    this.settings.battleGoals = battleGoals;
-    this.storeSettings();
-  }
-
-  setBattleGoalsCharacter(battleGoalsCharacter: boolean) {
-    this.settings.battleGoalsCharacter = battleGoalsCharacter;
-    this.storeSettings();
-  }
-
-  setBattleGoalsFh(battleGoalsFh: boolean) {
-    this.settings.battleGoalsFh = battleGoalsFh;
-    this.storeSettings();
-  }
-
-  setBattleGoalsReminder(battleGoalsReminder: boolean) {
-    this.settings.battleGoalsReminder = battleGoalsReminder;
-    this.storeSettings();
-  }
-
-  setBrowserNavigation(browserNavigation: boolean) {
-    this.settings.browserNavigation = browserNavigation;
-    this.storeSettings();
-  }
-
-  setCalculate(calculate: boolean) {
-    this.settings.calculate = calculate;
-    this.storeSettings();
-  }
-
-  setCalculateStats(calculateStats: boolean) {
-    this.settings.calculateStats = calculateStats;
-    this.storeSettings();
-  }
-
-  setCalculateShieldStats(calculateShieldStats: boolean) {
-    this.settings.calculateShieldStats = calculateShieldStats;
-    this.storeSettings();
-  }
-
-  setCalendarLocked(calendarLocked: boolean) {
-    this.settings.calendarLocked = calendarLocked;
-    this.storeSettings();
-  }
-
-  setCharacterAttackModifierDeck(characterAttackModifierDeck: boolean) {
-    this.settings.characterAttackModifierDeck = characterAttackModifierDeck;
-    this.storeSettings();
-  }
-
-  setCharacterAttackModifierAnimate(characterAttackModifierAnimate: boolean) {
-    this.settings.characterAttackModifierAnimate = characterAttackModifierAnimate;
-    this.storeSettings();
-  }
-
-  setCharacterAttackModifierDeckPermanent(characterAttackModifierDeckPermanent: boolean) {
-    this.settings.characterAttackModifierDeckPermanent = characterAttackModifierDeckPermanent;
-    this.storeSettings();
-  }
-
-  setCharacterAttackModifierDeckPermanentActive(characterAttackModifierDeckPermanentActive: boolean) {
-    this.settings.characterAttackModifierDeckPermanentActive = characterAttackModifierDeckPermanentActive;
-    this.storeSettings();
-  }
-
-  setCharacterCompact(characterCompact: boolean) {
-    this.settings.characterCompact = characterCompact;
-    this.storeSettings();
-  }
-
-  setCharacterHandSize(characterHandSize: boolean) {
-    this.settings.characterHandSize = characterHandSize;
-    this.storeSettings();
-  }
-
-  setCharacterIdentities(characterIdentities: boolean) {
-    this.settings.characterIdentities = characterIdentities;
-    this.storeSettings();
-  }
-
-  setCharacterIdentityHint(characterIdentityHint: boolean) {
-    this.settings.characterIdentityHint = characterIdentityHint;
-    this.storeSettings();
-  }
-
-  setCharacterItems(characterItems: boolean) {
-    this.settings.characterItems = characterItems;
-    this.storeSettings();
-  }
-
-  setCharacterItemsApply(characterItemsApply: boolean) {
-    this.settings.characterItemsApply = characterItemsApply;
-    this.storeSettings();
-  }
-
-  setCharacterItemsPermanent(characterItemsPermanent: boolean) {
-    this.settings.characterItemsPermanent = characterItemsPermanent;
-    this.storeSettings();
-  }
-
-  setCharacterItemsPermanentActive(characterItemsPermanentActive: boolean) {
-    this.settings.characterItemsPermanentActive = characterItemsPermanentActive;
-    this.storeSettings();
-  }
-
-  setCharacterSheet(characterSheet: boolean) {
-    this.settings.characterSheet = characterSheet;
-    this.storeSettings();
-  }
-
-  setCharacterSheetCompact(characterSheetCompact: boolean) {
-    this.settings.characterSheetCompact = characterSheetCompact;
-    this.storeSettings();
-  }
-
-  setCharacterShieldRetaliate(characterShieldRetaliate: boolean) {
-    this.settings.characterShieldRetaliate = characterShieldRetaliate;
-    this.storeSettings();
-  }
-
-  setCharacterTraits(characterTraits: boolean) {
-    this.settings.characterTraits = characterTraits;
-    this.storeSettings();
-  }
-
-  setCombineSummonAction(combineSummonAction: boolean) {
-    this.settings.combineSummonAction = combineSummonAction;
-    this.storeSettings();
-  }
-
-  setDebugRightClick(debugRightClick: boolean) {
-    this.settings.debugRightClick = debugRightClick;
-    this.storeSettings();
-  }
-
-  setDisableAnimations(disableAnimations: boolean) {
-    this.settings.disableAnimations = disableAnimations;
-    this.storeSettings();
-  }
-
-  setDisableArtwork(disableArtwork: boolean) {
-    this.settings.disableArtwork = disableArtwork;
-    this.storeSettings();
-  }
-
-  setDisableColumns(disableColumns: boolean) {
-    this.settings.disableColumns = disableColumns;
-    this.storeSettings();
-  }
-
-  setDisableDragFigures(disableDragFigures: boolean) {
-    this.settings.disableDragFigures = disableDragFigures;
-    this.storeSettings();
-  }
-
-  setDisablePinchZoom(disablePinchZoom: boolean) {
-    this.settings.disablePinchZoom = disablePinchZoom;
-    this.storeSettings();
-  }
-
-  setDisabledTurnConfirmation(disabledTurnConfirmation: boolean) {
-    this.settings.disabledTurnConfirmation = disabledTurnConfirmation;
-    this.storeSettings();
-  }
-
-  setDisableSortFigures(disableSortFigures: boolean) {
-    this.settings.disableSortFigures = disableSortFigures;
-    if (!disableSortFigures) {
-      gameManager.sortFigures();
-    }
-    this.storeSettings();
-  }
-
-  setDisableStandees(disableStandees: boolean) {
-    this.settings.disableStandees = disableStandees;
-    this.storeSettings();
-  }
-
-  setStandeeStats(standeeStats: boolean) {
-    this.settings.standeeStats = standeeStats;
-    this.storeSettings();
-  }
-
-  setAnimations(animations: boolean) {
-    this.settings.animations = animations;
-    this.storeSettings();
-  }
-
-  setArtwork(artwork: boolean) {
-    this.settings.artwork = artwork;
-    this.storeSettings();
-  }
-
-  setColumns(columns: boolean) {
-    this.settings.columns = columns;
-    this.storeSettings();
-  }
-
-  setDragFigures(dragFigures: boolean) {
-    this.settings.dragFigures = dragFigures;
-    this.storeSettings();
-  }
-
-  setPinchZoom(pinchZoom: boolean) {
-    this.settings.pinchZoom = pinchZoom;
-    this.storeSettings();
-  }
-
-  setTurnConfirmation(turnConfirmation: boolean) {
-    this.settings.turnConfirmation = turnConfirmation;
-    this.storeSettings();
-  }
-
-  setSortFigures(sortFigures: boolean) {
-    this.settings.sortFigures = sortFigures;
-    if (sortFigures) {
-      gameManager.sortFigures();
-    }
-    this.storeSettings();
-  }
-
-  setStandees(standees: boolean) {
-    this.settings.standees = standees;
-    this.storeSettings();
-  }
-
-  setStatAnimations(statAnimations: boolean) {
-    this.settings.statAnimations = statAnimations;
     this.storeSettings();
   }
 
@@ -576,189 +247,10 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setDragValues(dragValues: boolean) {
-    this.settings.dragValues = dragValues;
-    this.storeSettings();
-  }
-
-  setEliteFirst(eliteFirst: boolean) {
-    this.settings.eliteFirst = eliteFirst;
-    this.storeSettings();
-  }
-
-  setExpireConditions(expireConditions: boolean) {
-    this.settings.expireConditions = expireConditions;
-    this.storeSettings();
-  }
-
-  setFhGhItems(fhGhItems: boolean) {
-    this.settings.fhGhItems = fhGhItems;
-    this.storeSettings();
-  }
-
-  setFhStyle(fhStyle: boolean) {
-    this.settings.fhStyle = fhStyle;
-    if (this.settings.automaticTheme) {
-      if (this.settings.fhStyle && this.settings.theme == 'default') {
-        this.settings.theme = 'fh';
-      } else if (!this.settings.fhStyle && this.settings.theme == 'fh') {
-        this.settings.theme = 'default';
-      }
-    }
-    this.storeSettings();
-  }
-
-  setFontsize(fontsize: number) {
-    this.settings.fontsize = fontsize;
-    this.storeSettings();
-  }
-
-  setFullscreen(fullscreen: boolean) {
-    this.settings.fullscreen = fullscreen;
-    this.storeSettings();
-  }
-
-  setGlobalFontsize(globalFontsize: number) {
-    this.settings.globalFontsize = globalFontsize;
-    this.storeSettings();
-  }
-
-  setHideAbsent(hideAbsent: boolean) {
-    this.settings.hideAbsent = hideAbsent;
-    this.storeSettings();
-  }
-
-  setHideCharacterHP(hideCharacterHP: boolean) {
-    this.settings.hideCharacterHP = hideCharacterHP;
-    this.storeSettings();
-  }
-
-  setHideCharacterLoot(hideCharacterLoot: boolean) {
-    this.settings.hideCharacterLoot = hideCharacterLoot;
-    this.storeSettings();
-  }
-
-  setHideCharacterXP(hideCharacterXP: boolean) {
-    this.settings.hideCharacterXP = hideCharacterXP;
-    this.storeSettings();
-  }
-
-  setHideStats(hideStats: boolean) {
-    this.settings.hideStats = hideStats;
-    this.storeSettings();
-  }
-
-  setHints(hints: boolean) {
-    this.settings.hints = hints;
-    this.storeSettings();
-  }
-
-  setInitiativeRequired(initiativeRequired: boolean) {
-    this.settings.initiativeRequired = initiativeRequired;
-    this.storeSettings();
-  }
-
-  setInteractiveAbilities(interactiveAbilities: boolean) {
-    this.settings.interactiveAbilities = interactiveAbilities;
-    this.storeSettings();
-  }
-
-  async setLocale(locale: string) {
-    this.settings.locale = locale;
-    await this.updateLocale(locale);
-    this.storeSettings();
-  }
-
-  setLogServerMessages(logServerMessages: boolean) {
-    this.settings.logServerMessages = logServerMessages;
-    this.storeSettings();
-  }
-
-  setLootDeck(lootDeck: boolean) {
-    this.settings.lootDeck = lootDeck;
-    this.storeSettings();
-  }
-
-  setMaxUndo(maxUndo: number) {
-    this.settings.maxUndo = maxUndo;
-    this.storeSettings();
-  }
-
-  setMonsters(monsters: boolean) {
-    this.settings.monsters = monsters;
-    this.storeSettings();
-  }
-
-  setMonsterAttackModifierDeck(monsterAttackModifierDeck: boolean) {
-    this.settings.monsterAttackModifierDeck = monsterAttackModifierDeck;
-    this.storeSettings();
-  }
-
-  setMoveElements(moveElements: boolean) {
-    this.settings.moveElements = moveElements;
-    this.storeSettings();
-  }
-
-  setPartySheet(partySheet: boolean) {
-    this.settings.partySheet = partySheet;
-    this.storeSettings();
-  }
-
-  setPortraitMode(portraitMode: boolean) {
-    this.settings.portraitMode = portraitMode;
-    this.storeSettings();
-  }
-
-  setPressDoubleClick(pressDoubleClick: boolean) {
-    this.settings.pressDoubleClick = pressDoubleClick;
-    this.storeSettings();
-  }
-
-  setRandomStandees(randomStandees: boolean) {
-    this.settings.randomStandees = randomStandees;
-    this.storeSettings();
-  }
-
-  setRemoveUnusedMonster(removeUnusedMonster: boolean) {
-    this.settings.removeUnusedMonster = removeUnusedMonster;
-    this.storeSettings();
-  }
-
-  setScenarioNumberInput(scenarioNumberInput: boolean) {
-    this.settings.scenarioNumberInput = scenarioNumberInput;
-    this.storeSettings();
-  }
-
-  setScenarioRewards(scenarioRewards: boolean) {
-    this.settings.scenarioRewards = scenarioRewards;
-    this.storeSettings();
-  }
-
-  setScenarioRewardsItems(scenarioRewardsItems: boolean) {
-    this.settings.scenarioRewardsItems = scenarioRewardsItems;
-    this.storeSettings();
-  }
-
-  setScenarioRooms(scenarioRooms: boolean) {
-    this.settings.scenarioRooms = scenarioRooms;
-    this.storeSettings();
-  }
-
-  setScenarioRules(scenarioRules: boolean) {
-    this.settings.scenarioRules = scenarioRules;
-    this.storeSettings();
-  }
-
-  setServerAutoconnect(autoconnect: boolean) {
-    this.settings.serverAutoconnect = autoconnect;
-    this.storeSettings();
-  }
-
-
-  setServer(url: string, port: number, password: string): void {
+  setServer(url: string, port: number, code: string): void {
     this.settings.serverUrl = url;
     this.settings.serverPort = port;
-    this.settings.serverPassword = password;
+    this.settings.serverCode = code;
     this.storeSettings();
   }
 
@@ -769,76 +261,6 @@ export class SettingsManager {
     } else {
       this.storeSettings();
     }
-  }
-
-  setServerWss(wss: boolean) {
-    this.settings.serverWss = wss;
-    this.storeSettings();
-  }
-
-  setShowAllSections(showAllSections: boolean) {
-    this.settings.showAllSections = showAllSections;
-    this.storeSettings();
-  }
-
-  setShowBossMonster(showBossMonster: boolean) {
-    this.settings.showBossMonster = showBossMonster;
-    this.storeSettings();
-  }
-
-  setShowExpandedAbilityCard(showExpandedAbilityCard: boolean) {
-    this.settings.showExpandedAbilityCard = showExpandedAbilityCard;
-    this.storeSettings();
-  }
-
-  setShowFullAbilityCard(showFullAbilityCard: boolean) {
-    this.settings.showFullAbilityCard = showFullAbilityCard;
-    this.storeSettings();
-  }
-
-  setShowHiddenMonster(showHiddenMonster: boolean) {
-    this.settings.showHiddenMonster = showHiddenMonster;
-    this.storeSettings();
-  }
-
-  setShowOnlyUnfinishedScenarios(showOnlyUnfinishedScenarios: boolean) {
-    this.settings.showOnlyUnfinishedScenarios = showOnlyUnfinishedScenarios;
-    this.storeSettings();
-  }
-
-  setSummons(summons: boolean) {
-    this.settings.summons = summons;
-    this.storeSettings();
-  }
-
-  setTheme(theme: string) {
-    this.settings.theme = theme;
-    this.storeSettings();
-  }
-
-  setTooltips(tooltips: boolean) {
-    this.settings.tooltips = tooltips;
-    this.storeSettings();
-  }
-
-  setTreasuresLoot(treasuresLoot: boolean) {
-    this.settings.treasuresLoot = treasuresLoot;
-    this.storeSettings();
-  }
-
-  setTreasuresLootItem(treasuresLootItem: boolean) {
-    this.settings.treasuresLootItem = treasuresLootItem;
-    this.storeSettings();
-  }
-
-  setTreasuresLootScenario(treasuresLootScenario: boolean) {
-    this.settings.treasuresLootScenario = treasuresLootScenario;
-    this.storeSettings();
-  }
-
-  setTreasures(treasures: boolean) {
-    this.settings.treasures = treasures;
-    this.storeSettings();
   }
 
   setZoom(zoom: number) {
@@ -878,12 +300,14 @@ export class SettingsManager {
   addEdition(edition: string) {
     if (this.settings.editions.indexOf(edition) == -1) {
       this.settings.editions.push(edition);
+      gameManager.resetEditionMapping();
       this.storeSettings();
     }
   }
 
   removeEdition(edition: string) {
     this.settings.editions.splice(this.settings.editions.indexOf(edition), 1);
+    gameManager.resetEditionMapping();
     this.storeSettings();
   }
 
@@ -976,6 +400,14 @@ export class SettingsManager {
             }
             return personalQuest;
           })
+
+          if (value.campaign && value.campaign.buildings) {
+            value.campaign.buildings.forEach((buildingData) => {
+              if (!buildingData.edition) {
+                buildingData.edition = value.edition;
+              }
+            })
+          }
 
           gameManager.editionData.push(value);
           gameManager.editionData.sort((a, b) => {
@@ -1236,6 +668,22 @@ export class SettingsManager {
     for (let editionData of gameManager.editionData) {
       this.loadDataLabel(editionData);
     }
+
+    switch (locale) {
+      case 'de': {
+        registerLocaleData(localeDe);
+        break;
+      }
+      case 'fr': {
+        registerLocaleData(localeFr);
+        break;
+      }
+      case 'ko': {
+        registerLocaleData(localeKo);
+        break;
+      }
+    }
+
     gameManager.uiChange.emit();
   }
 

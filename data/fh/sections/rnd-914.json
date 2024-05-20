@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Swift",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "algox-scout",
+    "wind-demon"
+  ],
   "rules": [
     {
       "round": "true",

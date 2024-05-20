@@ -1,6 +1,14 @@
 {
   "index": "80",
   "name": "Relic Renewed",
+  "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 493.5,
+    "y": 1869.5,
+    "width": 132,
+    "height": 71,
+    "gridLocation": "FR"
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

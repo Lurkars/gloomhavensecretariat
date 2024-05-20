@@ -3,10 +3,15 @@
   "name": "A Tall Drunken Tale",
   "edition": "fh",
   "parent": "128",
+  "parentSections": [
+    [
+      "124.3"
+    ]
+  ],
   "monsters": [
     "abael-scout",
-    "lurker-wavethrower-scenario-128",
-    "steel-automaton-scenario-128"
+    "lurker-wavethrower",
+    "steel-automaton"
   ],
   "rooms": [
     {
@@ -53,36 +58,36 @@
           "player4": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "type": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "type": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "type": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "player4": "normal"
         },
         {
-          "name": "lurker-wavethrower-scenario-128",
+          "name": "lurker-wavethrower",
           "player4": "normal"
         },
         {
-          "name": "steel-automaton-scenario-128",
+          "name": "steel-automaton",
           "type": "normal"
         },
         {
-          "name": "steel-automaton-scenario-128",
+          "name": "steel-automaton",
           "player4": "normal"
         }
       ]

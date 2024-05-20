@@ -138,7 +138,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "living-corpse:normal"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "living-corpse",
+                "type": "normal"
+              }
+            }
+          ]
         },
         {
           "type": "sufferDamage",
@@ -154,7 +162,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "living-corpse:normal"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "living-corpse",
+                "type": "normal"
+              }
+            }
+          ]
         },
         {
           "type": "sufferDamage",

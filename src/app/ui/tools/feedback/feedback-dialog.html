@@ -5,8 +5,10 @@
     <div class="form issue-form" *ngIf="form == 'issue'">
         <label><span [ghs-label]="'tools.feedback.reportIssue.type'"></span></label>
         <select #issueType>
-            <option value="abilityCard"><span [ghs-label]="'tools.feedback.reportIssue.type.abilityCard'"></span></option>
-            <option value="monsterStat"><span [ghs-label]="'tools.feedback.reportIssue.type.monsterStat'"></span></option>
+            <option value="abilityCard"><span [ghs-label]="'tools.feedback.reportIssue.type.abilityCard'"></span>
+            </option>
+            <option value="monsterStat"><span [ghs-label]="'tools.feedback.reportIssue.type.monsterStat'"></span>
+            </option>
             <option value="characterStat"><span [ghs-label]="'tools.feedback.reportIssue.type.characterStat'"></span>
             </option>
             <option value="artwork"><span [ghs-label]="'tools.feedback.reportIssue.type.artwork'"></span></option>
@@ -30,6 +32,8 @@
                 <span [ghs-label]="'tools.feedback.reportIssue.send'"></span>
             </a>
         </div>
+
+        <p class="warning" [ghs-label]="'tools.feedback.reportIssue.mail'"></p>
     </div>
 
     <!--

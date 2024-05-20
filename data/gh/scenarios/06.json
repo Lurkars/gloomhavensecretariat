@@ -1,11 +1,13 @@
 {
   "index": "6",
   "name": "Decaying Crypt",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
-    "x": 1331.8999938964844,
-    "y": 879,
+    "x": 1332.25,
+    "y": 880.5,
     "width": 194,
-    "height": 139
+    "height": 139,
+    "gridLocation": "F-10"
   },
   "edition": "gh",
   "unlocks": [

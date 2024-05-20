@@ -33,7 +33,7 @@
             background-position: center;
             background-size: 100% auto;
             background-repeat: no-repeat;
-            background-image: url('~/src/assets/images/fh/loot/loot-back.png');
+            background-image: url('~src/assets/images/fh/loot/loot-back.png');
             border-radius: 5%;
             transition: filter 1000ms ease-in-out;
 
@@ -71,7 +71,7 @@
             background-position: center;
             background-size: 100% auto;
             background-repeat: no-repeat;
-            background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+            background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
             transition: transform 500ms ease-in-out;
             transform: scale(1.1);
 

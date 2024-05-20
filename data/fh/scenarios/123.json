@@ -1,6 +1,14 @@
 {
   "index": "123",
   "name": "The Titan",
+  "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1116.25,
+    "y": 791,
+    "width": 76,
+    "height": 88,
+    "gridLocation": "K5"
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {

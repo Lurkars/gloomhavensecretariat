@@ -23,12 +23,12 @@
       </span>
     </div>
     <div class="scroll-container summons">
-      <span *ngFor="let summonData of summonData()" class="summon" (click)="addSummon(summonData)"
+      <span *ngFor="let summonData of summonData" class="summon" (click)="addSummon(summonData)"
         [ngClass]="{'disabled' : !available(summonData)}">
         <span class="summon-button">
-          <span class="image">
-            <img *ngIf="summonData.special" src="./assets/images/summons/custom.png">
-            <img *ngIf="!summonData.special" src="./assets/images/summons/{{summonColor}}.png">
+          <span class="image" [ngClass]="{'fh': fhSummon}">
+            <img *ngIf="!fhSummon && summonData.special" src="./assets/images/summons/custom.png">
+            <img *ngIf="!fhSummon && !summonData.special" src="./assets/images/summons/{{summonColor}}.png">
             <span class="summon-number">{{summonNumber}}</span>
           </span>
         </span>
@@ -47,9 +47,12 @@
       </span>
       <span class="summon" *ngIf="!summonFilter">
         <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">
-          <span class="image">
+          <span class="image" *ngIf="!fhSummon">
             <img src="./assets/images/summons/{{summonColor}}.png">
             <span class="summon-number">{{summonNumber}}</span>
+          </span>
+          <span class="fh-number" *ngIf="fhSummon">
+            {{summonNumber}}
           </span>
         </span>
         <input type="text" [value]="summonName" (change)="setSummonName($event)" (keyup)="setSummonName($event)"

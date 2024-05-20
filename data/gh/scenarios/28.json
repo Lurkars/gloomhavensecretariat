@@ -1,11 +1,13 @@
 {
   "index": "28",
   "name": "Outer Ritual Chamber",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
-    "x": 532.2999877929688,
+    "x": 532.25,
     "y": 670,
     "width": 206,
-    "height": 150
+    "height": 150,
+    "gridLocation": "E-4"
   },
   "edition": "gh",
   "unlocks": [

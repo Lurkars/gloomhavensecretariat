@@ -1,6 +1,7 @@
 {
   "index": "39",
   "name": "Festering Mire",
+  "flowChartGroup": "personal-quests",
   "edition": "cs",
   "rewards": {
     "experience": 10,

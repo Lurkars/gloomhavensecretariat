@@ -1,0 +1,18 @@
+{
+  "index": "9-8",
+  "name": "Hidden Tumor",
+  "coordinates": {
+    "x": 941.75,
+    "y": 800,
+    "width": 303,
+    "height": 218,
+    "gridLocation": "C4",
+    "image": "jotl-009-8"
+  },
+  "edition": "jotl",
+  "parent": "8",
+  "conclusion": true,
+  "unlocks": [
+    "9"
+  ]
+}

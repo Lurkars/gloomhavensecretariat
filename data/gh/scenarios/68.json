@@ -1,11 +1,13 @@
 {
   "index": "68",
   "name": "Toxic Moor",
+  "flowChartGroup": "random-scenarios",
   "coordinates": {
-    "x": 1182.6999969482422,
+    "x": 1184.5,
     "y": 2006,
     "width": 178,
-    "height": 212
+    "height": 212,
+    "gridLocation": "N-8"
   },
   "edition": "gh",
   "random": true,

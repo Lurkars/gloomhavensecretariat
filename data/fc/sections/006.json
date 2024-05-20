@@ -1,0 +1,107 @@
+{
+  "index": "6",
+  "name": "Kennel of Things",
+  "edition": "fc",
+  "parent": "105",
+  "marker": "1",
+  "monsters": [
+    "bandit-guard",
+    "hound",
+    "valrath-tracker"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "hound"
+          },
+          "statEffect": {
+            "name": "wolf-viper-abomination",
+            "health": "[H+3]",
+            "deck": "wolf-viper-abomination",
+            "absolute": true
+          },
+          "note": "%data.section.rules.fc.6%"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "I2b",
+      "initial": true,
+      "treasures": [
+        88
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

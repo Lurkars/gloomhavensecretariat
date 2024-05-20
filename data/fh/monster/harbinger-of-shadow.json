@@ -30,12 +30,20 @@
         },
         {
           "type": "summon",
-          "value": "black-imp",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "black-imp",
+                "type": "normal"
+              }
+            }
+          ],
           "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fh.harbinger-of-shadow.1%",
+          "value": "%data.custom.fh.harbinger-of-shadow.2%",
           "small": true
         }
       ],
@@ -59,7 +67,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.fh.harbinger-of-shadow.2%",
+          "value": "%data.custom.fh.harbinger-of-shadow.1%",
           "small": true
         }
       ]

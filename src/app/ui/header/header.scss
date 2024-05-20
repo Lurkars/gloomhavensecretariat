@@ -11,7 +11,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('~/src/assets/images/bar.jpg');
+    background-image: url('~src/assets/images/bar.jpg');
     background-size: 100% 105%;
     background-position: bottom left;
     background-repeat: no-repeat;
@@ -19,11 +19,11 @@ header {
   }
 
   &.fh::before {
-    background-image: url('~/src/assets/images/fh/bar.jpg');
+    background-image: url('~src/assets/images/fh/bar.jpg');
   }
 
   &.modern::before {
-    background-image: url('~/src/assets/images/modern/dialog_background_modern.png');
+    background-image: url('~src/assets/images/modern/dialog_background_modern.png');
   }
 
   &.modern::after {
@@ -163,21 +163,36 @@ header {
     }
   }
 
+  .game-clock {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+
+    img {
+      filter: var(--ghs-filter-gray);
+      height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      width: auto;
+    }
+
+    &:hover {
+      img {
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
+    }
+  }
+
   .elements {
     display: flex;
     height: 100%;
     align-items: center;
 
-    .element {
-      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-      width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
-      height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
-      cursor: pointer;
-
-      span {
-        height: 100%;
-        width: 100%;
-      }
+    ghs-element {
+      margin: 0 calc(var(--ghs-unit) * 0.25 * var(--ghs-barsize));
+      width: calc(var(--ghs-unit) * 7.4 * var(--ghs-barsize));
+      height: calc(var(--ghs-unit) * 7.4 * var(--ghs-barsize));
     }
   }
 }

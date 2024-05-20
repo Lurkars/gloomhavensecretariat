@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Frigid",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

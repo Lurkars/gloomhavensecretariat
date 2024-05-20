@@ -1,11 +1,13 @@
 {
   "index": "76",
   "name": "Harrower Hive",
+  "flowChartGroup": "sealed",
   "coordinates": {
-    "x": 464.20001220703125,
+    "x": 464.25,
     "y": 1744,
     "width": 211,
-    "height": 160
+    "height": 160,
+    "gridLocation": "L-3"
   },
   "edition": "gh",
   "monsters": [

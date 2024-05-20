@@ -1,6 +1,14 @@
 {
   "index": "75",
   "name": "Infiltrating the Lair",
+  "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 1937,
+    "y": 436.5,
+    "width": 101,
+    "height": 88,
+    "gridLocation": "C2"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

@@ -9,7 +9,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "flame-demon:normal"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "flame-demon",
+                "type": "normal"
+              }
+            }
+          ]
         },
         {
           "type": "element",
@@ -24,7 +32,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "earth-demon:normal"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "earth-demon",
+                "type": "normal"
+              }
+            }
+          ]
         },
         {
           "type": "element",

@@ -183,28 +183,49 @@ main {
 
   h2 {
     color: var(--ghs-color-darkgray);
-    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
     font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
     text-align: center;
+    margin-top: calc(var(--ghs-unit) * -7 * var(--ghs-text-factor));
+    margin-bottom: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+    text-shadow: var(--ghs-outline-white-thin);
   }
 
   p {
     color: var(--ghs-color-darkgray);
     font-family: var(--ghs-font-text);
-    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-    font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+    margin: calc(var(--ghs-unit) * 0.2 * var(--ghs-text-factor));
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
     text-align: center;
+  }
+
+  .container-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+    margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 70 * var(--ghs-text-factor));
+
+    &.bordered {
+      border-bottom: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor)) solid var(--ghs-color-darkgray);
+    }
   }
 
   .editions {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    max-width: calc(var(--ghs-unit) * 70 * var(--ghs-text-factor));
 
     .edition {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
-      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      min-width: calc(var(--ghs-unit) * 30 * var(--ghs-text-factor));
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
 
       .text {
         font-family: var(--ghs-font-title);
@@ -220,10 +241,31 @@ main {
           color: var(--ghs-color-white);
         }
       }
+
+      &.add-additional-content {
+        color: var(--ghs-color-darkgray);
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+
+        .ghs-svg {
+          height: 1.2em;
+          width: auto;
+          margin: 0 0.2em;
+          filter: var(--ghs-filter-darkgray);
+        }
+
+        &:hover {
+          color: var(--ghs-color-white);
+
+          .ghs-svg {
+            filter: var(--ghs-filter-white);
+          }
+        }
+      }
     }
   }
 
-
+  .settings-menu,
   .add-characters {
     color: var(--ghs-color-darkgray);
     cursor: pointer;
@@ -233,6 +275,13 @@ main {
 
     &:hover {
       opacity: 0.6;
+    }
+  }
+
+  .settings {
+    .settings-menu {
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+      margin: calc(var(--ghs-unit) * 0.2 * var(--ghs-text-factor));
     }
   }
 
@@ -315,21 +364,16 @@ main {
 
   .figure {
     position: absolute;
-    width: 100%;
     top: 0;
     left: 50%;
     transition: transform 250ms ease-in-out, width 100ms ease-in-out, height 250ms ease-in-out;
     transform: scale(0);
     overflow: unset;
 
-    &.column {
-      width: calc(50% - calc(var(--ghs-unit) * 2));
-    }
-
     .cdk-drag {
       position: relative;
       width: calc(var(--ghs-unit) * 98);
-      margin: calc(var(--ghs-unit) * 0.8) auto;
+      margin: calc(var(--ghs-unit) * 0.8) calc(var(--ghs-unit) * 1);
 
       :nth-child(2) {
         position: relative;
@@ -353,30 +397,22 @@ main {
       }
     }
 
-    &.column-left {
+    &.short {
       .cdk-drag {
-        margin-left: auto;
-        margin-right: calc(var(--ghs-unit) * 2);
-      }
-    }
-
-    &.column-right {
-      .cdk-drag {
-        margin-right: auto;
-        margin-left: calc(var(--ghs-unit) * 2);
+        width: calc(var(--ghs-unit) * 57);
       }
     }
   }
 
   &.ally-deck {
     .figure.last {
-      padding-bottom: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      padding-bottom: calc(var(--ghs-unit) * 14.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
   }
 
   &.loot-deck {
     .figure.last {
-      padding-bottom: calc(var(--ghs-unit) * 24.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      padding-bottom: calc(var(--ghs-unit) * 25.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
   }
 
@@ -443,7 +479,6 @@ main {
   }
 
   &.character,
-  &.objective,
   &.objective-container {
     height: calc(var(--ghs-unit) * 14);
 

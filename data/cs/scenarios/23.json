@@ -1,6 +1,7 @@
 {
   "index": "23",
   "name": "Icicle Chambers",
+  "flowChartGroup": "chilly",
   "edition": "cs",
   "unlocks": [
     "26"

@@ -1,6 +1,14 @@
 {
   "index": "42",
   "name": "Sunless Trench",
+  "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 1211.75,
+    "y": 373,
+    "width": 207,
+    "height": 78,
+    "gridLocation": "J1"
+  },
   "edition": "fh",
   "complexity": 1,
   "requirements": [
@@ -16,7 +24,7 @@
       "boat:B-16"
     ],
     "campaignSticker": [
-      "Coral Shard"
+      "coral-shard"
     ],
     "calendarSection": [
       "114.2-3"

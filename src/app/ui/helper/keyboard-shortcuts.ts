@@ -5,16 +5,19 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { Objective } from 'src/app/game/model/Objective';
-import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
-import { FooterComponent } from '../footer/footer';
-import { SummonState } from 'src/app/game/model/Summon';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
+import { SummonState } from 'src/app/game/model/Summon';
+import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
 import { EntityMenuDialogComponent } from '../figures/entity-menu/entity-menu-dialog';
+import { PartySheetDialogComponent } from '../figures/party/party-sheet-dialog';
+import { ScenarioChartDialogComponent } from '../figures/party/scenario-chart/scenario-chart';
+import { WorldMapComponent } from '../figures/party/world-map/world-map';
+import { FooterComponent } from '../footer/footer';
 import { HeaderComponent } from '../header/header';
+import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP";
 
 @Directive({
     selector: '[ghs-keyboard-shortcuts]'
@@ -28,13 +31,14 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     zoomInterval: any = null;
     currentZoom: number = 0;
     dialogOpen: boolean = false;
+    dialogClosing: boolean = false;
     keydown: any;
     keyup: any;
     timeout: any;
 
     constructor(private dialog: Dialog) {
-        this.dialog.afterOpened.subscribe({ next: (dialog) => { this.dialogOpen = true; } });
-        this.dialog.afterAllClosed.subscribe({ next: () => setTimeout(() => { this.dialogOpen = false; }, 250) });
+        this.dialog.afterOpened.subscribe({ next: () => { this.dialogOpen = true; this.dialogClosing = false; } });
+        this.dialog.afterAllClosed.subscribe({ next: () => { this.dialogClosing = true; setTimeout(() => { if (this.dialogClosing) { this.dialogOpen = false; } }, 250) } });
     }
 
     applySelect() {
@@ -115,32 +119,34 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     if (!this.footer.disabled()) {
                         this.footer.next();
                     }
-                } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && gameManager.game.state == GameState.next && event.key.toLowerCase() === 'm') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && gameManager.game.state == GameState.next && (event.key.toLowerCase() === 'm' || settingsManager.settings.amAdvantage && (event.key.toLowerCase() === 'a' || event.key.toLowerCase() === 'd'))) {
                     const activeFigure = gameManager.game.figures.find((figure) => figure.active);
                     let deck: AttackModifierDeck | undefined = undefined;
+                    const state: 'advantage' | 'disadvantage' | undefined = settingsManager.settings.amAdvantage && event.key.toLowerCase() === 'a' ? 'advantage' : (settingsManager.settings.amAdvantage && event.key.toLowerCase() === 'd' ? 'disadvantage' : undefined);
+
                     if (!activeFigure || activeFigure instanceof Monster && (!activeFigure.isAlly && !activeFigure.isAllied || !gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {
-                        gameManager.stateManager.before("updateAttackModifierDeck.draw", "monster");
+                        gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "monster");
                         deck = gameManager.game.monsterAttackModifierDeck;
                     } else if (activeFigure instanceof Monster) {
-                        gameManager.stateManager.before("updateAttackModifierDeck.draw", "ally");
+                        gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "ally");
                         deck = gameManager.game.allyAttackModifierDeck;
                     } else if (activeFigure instanceof Character) {
                         if (settingsManager.settings.characterAttackModifierDeck) {
                             if (activeFigure.attackModifierDeckVisible) {
-                                gameManager.stateManager.before("updateAttackModifierDeck.draw", gameManager.characterManager.characterName(activeFigure));
+                                gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(activeFigure));
                                 deck = activeFigure.attackModifierDeck;
                             } else {
                                 activeFigure.attackModifierDeckVisible = true;
                             }
                         } else {
-                            gameManager.stateManager.before("updateAttackModifierDeck.draw", "monster");
+                            gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "monster");
                             deck = gameManager.game.monsterAttackModifierDeck;
                         }
                     }
 
                     if (deck) {
                         deck.active = true;
-                        gameManager.attackModifierManager.drawModifier(deck);
+                        gameManager.attackModifierManager.drawModifier(deck, state);
                         gameManager.stateManager.after();
                     }
                     event.preventDefault();
@@ -176,7 +182,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                         event.stopPropagation();
                     }
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'd' && this.footer.ghsLevel) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'x' && this.footer.ghsLevel) {
                     this.footer.ghsLevel.open();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'e') {
                     if (gameManager.game.scenario && this.header) {
@@ -186,8 +192,42 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     }
                 } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'f' && this.footer.ghsScenario && gameManager.game.scenario) {
                     this.footer.ghsScenario.open(event);
-                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.header && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'p' && this.header.partySheet) {
-                    this.header.partySheet.open();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('party') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'p' && settingsManager.settings.partySheet) {
+                    this.dialog.open(PartySheetDialogComponent, {
+                        panelClass: ['dialog-invert'],
+                        data: { partySheet: true }
+                    });
+                    event.stopPropagation();
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('map') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && gameManager.game.edition) {
+                    const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
+                    if (editionData) {
+                        if (editionData.worldMap || editionData.extendWorldMap) {
+                            if (this.dialogOpen) {
+                                this.dialog.closeAll();
+                            }
+                            this.dialog.open(WorldMapComponent, {
+                                panelClass: ['fullscreen-panel'],
+                                backdropClass: ['fullscreen-backdrop'],
+                                data: gameManager.game.edition
+                            })
+                            event.stopPropagation();
+                            event.preventDefault();
+                        }
+                    }
+                } else if ((!this.dialogOpen || this.allowed.indexOf('chart') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'c' && gameManager.game.edition) {
+                    if (this.dialogOpen) {
+                        this.dialog.closeAll();
+                    }
+                    this.dialog.open(ScenarioChartDialogComponent, {
+                        panelClass: ['fullscreen-panel'],
+                        backdropClass: ['fullscreen-backdrop'],
+                        data: {
+                            edition: gameManager.game.edition
+                        }
+                    })
+                    event.stopPropagation();
+                    event.preventDefault();
                 } else if (!this.dialogOpen && !event.ctrlKey && this.header && event.key === 'Escape') {
                     this.header.openMenu();
                     event.stopPropagation();
@@ -201,10 +241,24 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.stateManager.after();
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('absent') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 'h') {
-                    settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent);
+                    settingsManager.toggle('hideAbsent');
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('handSize') != -1) && !event.ctrlKey && event.shiftKey && event.key === 'H') {
+                    settingsManager.toggle('characterHandSize');
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('traits') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 't') {
+                    settingsManager.toggle('characterTraits');
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('damageHP') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 'i') {
+                    settingsManager.toggle('damageHP');
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 's') {
                     gameManager.stateManager.keyboardSelecting = true;
+                } else if (!this.dialogOpen && !event.ctrlKey && event.key === '?') {
+                    this.dialog.open(KeyboardShortcutsComponent, {
+                        panelClass: ['dialog'],
+                    });
+                    event.preventDefault();
                 }
             }
         })
@@ -300,7 +354,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     gameManager.roundManager.toggleFigure(activeFigure);
                     gameManager.stateManager.after();
                 }
-            } else if (activeFigure instanceof Objective || activeFigure instanceof ObjectiveContainer) {
+            } else if (activeFigure instanceof ObjectiveContainer) {
                 gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", activeFigure.title || activeFigure.name);
                 gameManager.roundManager.toggleFigure(activeFigure);
                 gameManager.stateManager.after();

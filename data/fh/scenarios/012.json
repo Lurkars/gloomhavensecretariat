@@ -1,6 +1,14 @@
 {
   "index": "12",
   "name": "Temple Entrance",
+  "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 1105.5,
+    "y": 1157.5,
+    "width": 104,
+    "height": 103,
+    "gridLocation": "K8"
+  },
   "edition": "fh",
   "complexity": 1,
   "unlocks": [

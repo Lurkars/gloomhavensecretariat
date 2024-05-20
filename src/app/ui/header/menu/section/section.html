@@ -1,6 +1,6 @@
 <div class="menu-container scenario">
   <div class="line editions">
-    <label *ngFor="let e of (gameManager.game.edition ? [gameManager.game.edition] : editions());">
+    <label *ngFor="let e of editions">
       <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
       <span [ghs-label]="'data.edition.' + e"></span>
     </label>
@@ -9,7 +9,7 @@
   <div class="line">
     <label>
       <input tabclick type="checkbox" [checked]="settingsManager.settings.showAllSections"
-        (change)="settingsManager.setShowAllSections(!settingsManager.settings.showAllSections)">
+        (change)="settingsManager.toggle('showAllSections')">
       <span [ghs-label]="'scenario.showAllSections'"></span>
     </label>
   </div>

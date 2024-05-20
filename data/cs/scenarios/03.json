@@ -1,6 +1,7 @@
 {
   "index": "3",
   "name": "Flooded Cavern",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "4",

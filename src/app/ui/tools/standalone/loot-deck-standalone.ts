@@ -4,6 +4,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
 import { environment } from "src/environments/environment";
 import { LootDeckChange } from "../../figures/loot/loot-deck";
+import { storageManager } from "src/app/game/businesslogic/StorageManager";
 
 @Component({
     selector: 'ghs-loot-deck-standalone',
@@ -17,8 +18,13 @@ export class LootDeckStandaloneComponent implements OnInit {
 
 
     async ngOnInit() {
+        try {
+            await storageManager.init();
+        } catch {
+            // continue
+        }
         await settingsManager.init(!environment.production);
-        gameManager.stateManager.init(true);
+        await gameManager.stateManager.init(true);
         gameManager.uiChange.emit();
         if (gameManager.game.state != GameState.next) {
             gameManager.roundManager.nextGameState(true);

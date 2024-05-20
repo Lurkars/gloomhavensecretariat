@@ -32,6 +32,10 @@ export function EntityValueFunction(value: string | number, L: number | undefine
     return value;
   }
 
+  if (value == '-') {
+    return 0;
+  }
+
   let expression = value;
   let func = undefined;
 
@@ -60,17 +64,40 @@ export function EntityValueFunction(value: string | number, L: number | undefine
     return 0;
   }
 
+  let funcValue: number | undefined;
   if (func && func.startsWith('$')) {
     func = func.replace('$', '');
+    if (func.indexOf(':') != -1) {
+      funcValue = +func.split(':')[1];
+      func = func.split(':')[0];
+    }
   }
 
   if (func) {
-    switch (func) {
-      case 'math.ceil':
+    switch (true) {
+      case func == 'math.ceil':
         result = Math.ceil(result);
         break;
-      case 'math.floor':
+      case func == 'math.floor':
         result = Math.floor(result);
+        break;
+      case func == 'math.max' && funcValue != undefined:
+        result = Math.min(result, funcValue);
+        break;
+      case func == 'math.maxCeil' && funcValue != undefined:
+        result = Math.ceil(Math.min(result, funcValue));
+        break;
+      case func == 'math.maxFloor' && funcValue != undefined:
+        result = Math.floor(Math.min(result, funcValue));
+        break;
+      case func == 'math.min' && funcValue != undefined:
+        result = Math.max(result, funcValue);
+        break;
+      case func == 'math.minCeil' && funcValue != undefined:
+        result = Math.ceil(Math.max(result, funcValue));
+        break;
+      case func == 'math.minFloor' && funcValue != undefined:
+        result = Math.floor(Math.max(result, funcValue));
         break;
       default:
         console.error("Unknown expression: " + func + "(" + match + ")");

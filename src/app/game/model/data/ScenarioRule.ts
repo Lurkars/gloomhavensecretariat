@@ -1,11 +1,14 @@
 import { ElementModel } from "./Element";
 import { AdditionalIdentifier } from "./Identifier";
+import { MonsterStatEffect } from "./MonsterStat";
+import { ObjectiveData } from "./ObjectiveData";
 import { MonsterStandeeData } from "./RoomData";
 
 export class ScenarioRule {
   round: string;
   start: boolean = false;
   always: boolean = false;
+  alwaysApply: boolean = false;
   once: boolean = false;
   requiredRooms: number[] = [];
   requiredRules: ScenarioRuleIdentifier[] = [];
@@ -20,7 +23,9 @@ export class ScenarioRule {
   elements: ElementModel[] = [];
   disableRules: ScenarioRuleIdentifier[] = [];
   treasures: number | string | ('G' | number)[] = [];
-  finish: "won" | "lost" | undefined = undefined;
+  randomDungeon: RandomDungeonRule | undefined;
+  statEffects: StatEffectRule[] = [];
+  finish: "won" | "lost" | "round" | undefined = undefined;
 
   constructor(round: string) {
     this.round = round;
@@ -30,43 +35,43 @@ export class ScenarioRule {
 export class MonsterSpawnData {
 
   monster: MonsterStandeeData;
-  count: string | number = "";
-  marker: string = "";
-  summon: boolean = false;
-  manual: boolean = false;
-  manualMin: number = 0;
-  manualMax: number = 0;
+  count: string | number;
+  marker: string;
+  summon: boolean;
+  manual: boolean;
+  manualMin: number;
+  manualMax: number;
 
-  constructor(monster: MonsterStandeeData) {
-    this.monster = monster;
+  constructor(monsterSpawnData: MonsterSpawnData) {
+    this.monster = monsterSpawnData.monster as MonsterStandeeData;
+    this.count = monsterSpawnData.count || 1;
+    this.marker = monsterSpawnData.marker || "";
+    this.summon = monsterSpawnData.summon || false;
+    this.manual = monsterSpawnData.manual || false;
+    this.manualMin = monsterSpawnData.manualMin || 0;
+    this.manualMax = monsterSpawnData.manualMax || 0;
   }
 
 }
 
 export class ObjectiveSpawnData {
 
-  objective: {
-    index: number,
-    name: string | undefined,
-    escort: boolean,
-    marker: string | undefined,
-    tags: string[] | undefined
-  };
-  count: string | number = "";
-  marker: string = "";
-  summon: boolean = false;
-  manual: boolean = false;
-  manualMin: number = 0;
-  manualMax: number = 0;
+  objective: ObjectiveData;
+  count: string | number;
+  marker: string;
+  summon: boolean;
+  manual: boolean;
+  manualMin: number;
+  manualMax: number;
 
-  constructor(objective: {
-    index: number,
-    name: string | undefined,
-    escort: boolean,
-    marker: string | undefined,
-    tags: string[] | undefined
-  }) {
-    this.objective = objective;
+  constructor(objectiveSpawnData: ObjectiveSpawnData) {
+    this.objective = objectiveSpawnData.objective;
+    this.count = objectiveSpawnData.count || "";
+    this.marker = objectiveSpawnData.marker || "";
+    this.summon = objectiveSpawnData.summon || false;
+    this.manual = objectiveSpawnData.manual || false;
+    this.manualMin = objectiveSpawnData.manualMin || 0;
+    this.manualMax = objectiveSpawnData.manualMax || 0;
   }
 
 }
@@ -75,18 +80,47 @@ export class ScenarioFigureRule {
 
   identifier: ScenarioFigureRuleIdentifier | undefined = undefined;
   identifierRef: number | undefined = undefined;
-  type: "present" | "dead" | "killed" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate" = "present";
+  type: ScenarioFigureRuleTypes = "present";
   value: string = "";
   scenarioEffect: boolean = false;
 
 }
+
+export type ScenarioFigureRuleTypes = "present" | "dead" | "killed" | "initiative" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "transferEntities" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate";
+
+export const HiddenScenarioFigureRuleTypes: ScenarioFigureRuleTypes[] = ["present", "dead", "killed", "initiative"];
 
 export class ScenarioFigureRuleIdentifier extends AdditionalIdentifier {
 
   hp: string | undefined;
   health: string | undefined;
   conditions: string[] | undefined;
+  number: string | undefined;
 
+}
+
+export class RandomDungeonRule {
+  monsterCount: number = 3;
+  monsterCards: string[] | undefined;
+  dungeonCount: number = 3;
+  dungeonCards: string[] | undefined;
+  initial: boolean = true;
+}
+
+export class StatEffectRule {
+  identifier: ScenarioFigureRuleIdentifier;
+  reference: ScenarioFigureRule | undefined = undefined;
+  statEffect: MonsterStatEffect;
+  note: string;
+
+  constructor(identifier: ScenarioFigureRuleIdentifier,
+    reference: ScenarioFigureRule | undefined,
+    statEffect: MonsterStatEffect, note: string) {
+    this.identifier = identifier;
+    this.reference = reference;
+    this.statEffect = statEffect;
+    this.note = note;
+  }
 }
 
 export class ScenarioRuleIdentifier {

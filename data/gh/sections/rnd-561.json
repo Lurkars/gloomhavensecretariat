@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Rotting",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "living-bones",
+    "living-corpse",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

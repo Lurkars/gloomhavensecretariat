@@ -1,21 +1,17 @@
 {
   "index": "40",
   "name": "Ancient Defense Network",
+  "flowChartGroup": "voice",
   "coordinates": {
-    "x": 1745.0999755859375,
-    "y": 812,
+    "x": 1745.5,
+    "y": 814,
     "width": 193,
-    "height": 151
+    "height": 151,
+    "gridLocation": "F-12"
   },
   "edition": "gh",
   "unlocks": [
     "41"
-  ],
-  "requires": [
-    [
-      "24",
-      "33"
-    ]
   ],
   "requirements": [
     {

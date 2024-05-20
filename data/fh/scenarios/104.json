@@ -1,6 +1,15 @@
 {
   "index": "104",
   "name": "Ruins of the Solstice",
+  "flowChartGroup": "random-scenarios",
+  "errata": "scenario104",
+  "coordinates": {
+    "x": 1789.5,
+    "y": 774.25,
+    "width": 115,
+    "height": 83,
+    "gridLocation": "E5"
+  },
   "edition": "fh",
   "complexity": 2,
   "random": true,

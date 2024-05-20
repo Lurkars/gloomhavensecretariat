@@ -11,11 +11,9 @@
     ]
   },
   "monsters": [
-    "bandit-archer",
     "forest-imp",
     "smoke-spirit",
-    "vermling-scavenger",
-    "water-spirit"
+    "vermling-scavenger"
   ],
   "rules": [
     {

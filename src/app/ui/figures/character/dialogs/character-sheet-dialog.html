@@ -1,5 +1,14 @@
 <div class="light character-sheet-dialog">
   <div class="scroll-container">
-    <ghs-character-sheet #characterSheet [character]="data.character" [editable]="!data.viewOnly"></ghs-character-sheet>
+
+    <div class="lock-toggle" [ghs-tooltip]="'character.progress.lock'" [ngClass]="{'denied': data.viewOnly && !data.forceEdit}">
+      <a ghs-pointer-input (singleClick)="settingsManager.toggle('characterSheetLocked')">
+        <img
+          [src]="'./assets/images/lock' + (settingsManager.settings.characterSheetLocked || data.viewOnly && !data.forceEdit ? '' : '-open') + '.svg'">
+      </a>
+    </div>
+
+    <ghs-character-sheet #characterSheet [character]="data.character" [editable]="!data.viewOnly"
+      [forceEdit]="data.forceEdit" [dialogRef]="dialogRef"></ghs-character-sheet>
   </div>
 </div>

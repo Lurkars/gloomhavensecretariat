@@ -1,21 +1,19 @@
 import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from "src/app/game/model/data//AttackModifier";
-import { Character } from "../model/Character";
-import { CharacterStat } from "../model/data/CharacterStat";
-import { Condition, ConditionName } from "../model/data/Condition";
-import { CharacterData } from "../model/data/CharacterData";
-import { ItemData } from "../model/data/ItemData";
-import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
-import { SummonData } from "../model/data/SummonData";
-import { EntityValueFunction } from "../model/Entity";
 import { FigureError, FigureErrorType } from "src/app/game/model/data//FigureError";
+import { v4 as uuidv4 } from 'uuid';
+import { Character } from "../model/Character";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
-import { Objective } from "../model/Objective";
+import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { Summon, SummonColor, SummonState } from "../model/Summon";
+import { CharacterData } from "../model/data/CharacterData";
+import { CharacterStat } from "../model/data/CharacterStat";
+import { Condition, ConditionName } from "../model/data/Condition";
+import { ItemData } from "../model/data/ItemData";
+import { PersonalQuest } from "../model/data/PersonalQuest";
+import { SummonData } from "../model/data/SummonData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { v4 as uuidv4 } from 'uuid';
-import { PersonalQuest } from "../model/data/PersonalQuest";
 
 export class CharacterManager {
 
@@ -48,10 +46,10 @@ export class CharacterManager {
     return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '-' + characterData.identities[index] + '.svg';
   }
 
-  characterName(character: Character, full: boolean = false, icon: boolean = false): string {
+  characterName(character: Character, full: boolean = false, icon: boolean = false, identity: boolean = true): string {
     let name = settingsManager.getLabel('data.character.' + character.name);
     let hasTitle = false;
-    if (character.identities.length > 0 && settingsManager.settings.characterIdentities) {
+    if (identity && character.identities.length > 0 && settingsManager.settings.characterIdentities) {
       if (character.title && character.title.split('|')[character.identity] && character.title.split('|')[character.identity]) {
         name = character.title.split('|')[character.identity];
         hasTitle = true;
@@ -68,6 +66,10 @@ export class CharacterManager {
 
     if (icon) {
       name = '%game.characterIconColored.' + character.name + '%' + name;
+    }
+
+    if (this.game.figures.find((figure) => figure instanceof Character && figure.name == character.name && figure.edition != character.edition)) {
+      name += " [" + settingsManager.getLabel('data.edition.' + character.edition) + "]";
     }
 
     return name;
@@ -165,9 +167,7 @@ export class CharacterManager {
               summon.markers.splice(summon.markers.indexOf(marker), 1);
             })
           }
-        } else if (figure instanceof Objective) {
-          figure.markers.splice(figure.markers.indexOf(marker), 1);
-        } else if (figure instanceof Monster) {
+        } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           figure.entities.forEach((entity) => {
             entity.markers.splice(entity.markers.indexOf(marker), 1);
           })
@@ -186,46 +186,6 @@ export class CharacterManager {
 
   removeSummon(character: Character, summon: Summon) {
     character.summons.splice(character.summons.indexOf(summon), 1);
-  }
-
-
-  addObjective(objectiveData: ObjectiveData | undefined = undefined, name: string | undefined = undefined, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined): Objective {
-    const objectiveCount = gameManager.game.figures.filter((figure) => figure instanceof Objective).length;
-    let id = objectiveCount % 12;
-    if (objectiveCount < 12) {
-      while (this.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
-        id++;
-      }
-    }
-
-    let objective = new Objective(uuidv4(), id, objectiveId);
-
-    if (objectiveData) {
-      if (objectiveData.id && objectiveData.id != -1) {
-        objective.id = objectiveData.id;
-      }
-      objective.marker = objectiveData.marker;
-      objective.tags = objectiveData.tags;
-      objective.name = objectiveData.name;
-      if (name) {
-        objective.name = name;
-      }
-      objective.maxHealth = objectiveData.health;
-      objective.health = EntityValueFunction("" + objectiveData.health);
-      objective.escort = objectiveData.escort;
-      if (objectiveData.initiative) {
-        objective.initiative = objectiveData.initiative;
-      }
-    }
-
-    this.game.figures.push(objective);
-    gameManager.addEntityCount(objective);
-    gameManager.sortFigures(objective);
-    return objective;
-  }
-
-  removeObjective(objective: Objective) {
-    this.game.figures.splice(this.game.figures.indexOf(objective), 1);
   }
 
   addXP(character: Character, value: number, levelUp: boolean = true) {

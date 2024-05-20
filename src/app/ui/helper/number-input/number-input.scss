@@ -1,0 +1,31 @@
+.number-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+
+    .value-container {
+        display: flex;
+
+        .value {
+            cursor: pointer;
+            font-size: 1em;
+            margin: 0.2em;
+            filter: brightness(0.8);
+
+            &:hover {
+                filter: brightness(1.5);
+            }
+
+            &.disabled {
+                pointer-events: none;
+                visibility: hidden;
+            }
+        }
+    }
+
+    .current {
+        font-size: 1.5em;
+        margin: 0.2em;
+    }
+}

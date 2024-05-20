@@ -3,7 +3,7 @@
   "edition": "fh",
   "deck": "polar-bear",
   "hidden": true,
-  "count": 5,
+  "standeeCount": 5,
   "standeeShare": "polar-bear",
   "baseStat": {
     "type": "normal",

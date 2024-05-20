@@ -53,6 +53,7 @@ export enum ActionType {
   switchType = "switchType",
   target = "target",
   teleport = "teleport",
+  nonCalc = "nonCalc",
   trigger = "trigger",
   concatenation = "concatenation",
   grid = "grid",
@@ -118,4 +119,17 @@ export enum ActionCardType {
 
 }
 
-export type ActionHint = { type: ActionType, value: number, range: number };
+export class ActionHint {
+  type: ActionType;
+  value: number;
+  range: number;
+  additionalRange: "add" | "substract" | false = false;
+
+  constructor(type: ActionType,
+    value: number,
+    range: number = 0) {
+    this.type = type;
+    this.value = value;
+    this.range = range;
+  }
+};

@@ -29,7 +29,7 @@
                         <ghs-treasure-label class="text placeholder text-white"
                             *ngIf="!('' + treasure).startsWith('G-')" [edition]="edition" [index]="+(''
                     +treasure).split(':')[0] -1"
-                            [rewardResults]="rewardsFromString('' + treasure)"></ghs-treasure-label></span>
+                            [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"></ghs-treasure-label></span>
                 </div>
             </div>
         </div>

@@ -1,11 +1,13 @@
 {
   "index": "49",
   "name": "Rebel's Stand",
+  "flowChartGroup": "rebellion-rises",
   "coordinates": {
-    "x": 984.6000061035156,
-    "y": 2012,
+    "x": 984.5,
+    "y": 2011.5,
     "width": 194,
-    "height": 164
+    "height": 164,
+    "gridLocation": "N-7"
   },
   "edition": "gh",
   "requires": [

@@ -37,7 +37,7 @@
         <a tabclick (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
     </div>
 
-    <div class="line" *ngIf="worldMap">
+    <div class="line span" *ngIf="worldMap">
         <a tabclick (click)="openMap()" [ghs-label]="'campaign.map'"></a>
     </div>
 
@@ -48,6 +48,10 @@
     <div class="line" *ngIf="settingsManager.settings.battleGoals"
         [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
         <a tabclick (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
+    </div>
+
+    <div class="line span">
+        <a tabclick (click)="openFlowChart()" [ghs-label]="'scenario.chart'"></a>
     </div>
 
     <div class="line title span" *ngIf="characters.length > 0 && settingsManager.settings.characterSheet">

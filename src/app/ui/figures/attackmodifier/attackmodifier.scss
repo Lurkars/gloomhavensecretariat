@@ -8,7 +8,7 @@
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url('~/src/assets/images/attackmodifier/am-back.png');
+    background-image: url('~src/assets/images/attackmodifier/am-back.png');
     border-radius: 5%;
   }
 
@@ -191,8 +191,12 @@
         filter: hue-rotate(168deg) saturate(150%);
       }
 
-      &.wound {
+      &.wound:not(.heal) {
         filter: hue-rotate(355deg) saturate(250%);
+      }
+
+      &.chill {
+        filter: hue-rotate(165deg) saturate(90%) brightness(120%);
       }
 
       &.push {
@@ -295,7 +299,7 @@
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+    background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
 
     img {
       filter: grayscale(100%) brightness(100) contrast(100%);
@@ -317,7 +321,7 @@
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url('~/src/assets/images/attackmodifier/am-town-guard-icon.png');
+    background-image: url('~src/assets/images/attackmodifier/am-town-guard-icon.png');
 
     img {
       filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
@@ -379,7 +383,7 @@
 
   &.town-guard {
     .back {
-      background-image: url('~/src/assets/images/attackmodifier/town-guard/back.png');
+      background-image: url('~src/assets/images/attackmodifier/town-guard/back.png');
     }
 
     .front .am-value.effects {

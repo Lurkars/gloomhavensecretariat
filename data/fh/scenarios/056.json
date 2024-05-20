@@ -1,6 +1,14 @@
 {
   "index": "56",
   "name": "Call of the Harbinger",
+  "flowChartGroup": "algox-1",
+  "coordinates": {
+    "x": 321.25,
+    "y": 639.75,
+    "width": 125,
+    "height": 67,
+    "gridLocation": "R4"
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {
@@ -10,7 +18,7 @@
     "morale": 1,
     "inspiration": 1,
     "campaignSticker": [
-      "Friend of the Icespeakers"
+      "friend-of-the-icespeakers"
     ],
     "unlockCharacter": "fist",
     "townGuardAm": [
@@ -19,7 +27,7 @@
   },
   "monsters": [
     "black-imp",
-    "harbinger-of-shadow",
+    "harbinger-of-shadow-2",
     "harrower-infester"
   ],
   "objectives": [
@@ -74,7 +82,7 @@
           "player4": "elite"
         },
         {
-          "name": "harbinger-of-shadow",
+          "name": "harbinger-of-shadow-2",
           "type": "boss",
           "marker": "2"
         },

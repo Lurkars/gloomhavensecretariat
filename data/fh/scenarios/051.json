@@ -1,6 +1,14 @@
 {
   "index": "51",
   "name": "Orphan's Halls",
+  "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 2056.5,
+    "y": 1223,
+    "width": 112,
+    "height": 79,
+    "gridLocation": "B9"
+  },
   "edition": "fh",
   "complexity": 3,
   "forcedLinks": [

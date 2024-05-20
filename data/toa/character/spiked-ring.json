@@ -152,7 +152,7 @@
               {
                 "type": "element",
                 "value": "earth",
-                "effectcs": [
+                "effects": [
                   {
                     "type": "custom",
                     "value": "if %game.element.light% is Strong or Waning"
@@ -254,6 +254,5 @@
       "combined": true,
       "custom": "Gain %game.action.shield% 1 while you occupy hazardous terrain"
     }
-  ],
-  "additionalModifier": []
+  ]
 }

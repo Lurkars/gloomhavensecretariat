@@ -1,21 +1,20 @@
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { Character } from "../model/Character";
-import { ElementState } from "../model/data/Element";
-import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
-import { LootDeck } from "../model/data/Loot";
 import { Monster } from "../model/Monster";
-import { Objective } from "../model/Objective";
+import { MonsterEntity } from "../model/MonsterEntity";
+import { ObjectiveContainer } from "../model/ObjectiveContainer";
+import { Scenario } from "../model/Scenario";
 import { Summon, SummonState } from "../model/Summon";
+import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/data/Condition";
+import { ElementState } from "../model/data/Element";
+import { ItemFlags } from "../model/data/ItemData";
+import { LootDeck } from "../model/data/Loot";
+import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
-import { MonsterEntity } from "../model/MonsterEntity";
-import { Scenario } from "../model/Scenario";
-import { ScenarioData } from "../model/data/ScenarioData";
-import { ItemFlags } from "../model/data/ItemData";
-import { ObjectiveContainer } from "../model/ObjectiveContainer";
+import { EntityValueFunction } from "../model/Entity";
 
 export class RoundManager {
 
@@ -28,7 +27,7 @@ export class RoundManager {
   }
 
   drawAvailable(): boolean {
-    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof Objective && (figure.getInitiative() > 0 || figure.exhausted || !settingsManager.settings.initiativeRequired) || figure instanceof ObjectiveContainer && (figure.getInitiative() > 0 || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
+    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof ObjectiveContainer && (figure.getInitiative() > 0 || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
     ));
   }
 
@@ -72,7 +71,7 @@ export class RoundManager {
         gameManager.attackModifierManager.draw();
         gameManager.lootManager.draw();
         if (!this.game.scenario) {
-          this.game.scenario = new Scenario(new ScenarioData(), [], true);
+          this.game.scenario = new Scenario(new ScenarioData(), [], [], true);
         }
       }
       this.game.state = GameState.next;
@@ -267,7 +266,7 @@ export class RoundManager {
 
     if (!skipSummons && figure instanceof Character && settingsManager.settings.activeSummons && gameManager.entityManager.isAlive(figure)) {
       const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
-      const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true));
+      const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1);
 
       figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
         prevSummon.active = false;
@@ -338,7 +337,7 @@ export class RoundManager {
       }
     }
 
-    if ((figure instanceof Character || figure instanceof Objective) && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure instanceof ObjectiveContainer && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
+    if (figure instanceof Character && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure instanceof ObjectiveContainer && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
       gameManager.roundManager.toggleFigure(figure);
     }
   }
@@ -360,6 +359,18 @@ export class RoundManager {
         }
       }
 
+      if (figure instanceof Character && figure.name == 'fist' && figure.tags.indexOf('gift-of-the-mountain') != -1 && (figure.health < EntityValueFunction(figure.maxHealth, figure.level) || figure.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired))) {
+        let heal = figure.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.heal);
+        if (!heal) {
+          heal = new EntityCondition(ConditionName.heal, 2);
+          figure.entityConditions.push(heal);
+        }
+        heal.value = 2;
+        heal.expired = false;
+        heal.state = EntityConditionState.normal;
+        figure.health += 2;
+        gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
+      }
 
       gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
         if (settingsManager.settings.expireConditions) {
@@ -376,7 +387,7 @@ export class RoundManager {
       if (element.state == ElementState.new) {
         element.state = ElementState.strong;
       }
-      if (element.state == ElementState.consumed) {
+      if (element.state == ElementState.consumed || element.state == ElementState.partlyConsumed) {
         element.state = ElementState.inert;
       }
     })
@@ -390,8 +401,10 @@ export class RoundManager {
     this.game.sections = [];
     if (this.game.scenario) {
       this.game.scenario.revealedRooms = [];
+      this.game.scenario.additionalSections = [];
     }
     this.game.scenarioRules = [];
+    this.game.appliedScenarioRules = [];
     this.game.disgardedScenarioRules = [];
     this.game.round = 0;
     this.game.roundResets = [];
@@ -408,12 +421,18 @@ export class RoundManager {
       figure.active = false;
       figure.off = false;
       if (figure instanceof Character) {
+        if (figure.name == 'demolitionist' && figure.tags.find((tag) => tag === 'mech')) {
+          figure.maxHealth -= 5;
+          gameManager.entityManager.checkHealth(figure, figure);
+        }
+
         figure.health = figure.maxHealth;
         figure.loot = 0;
         figure.lootCards = [];
         figure.treasures = [];
         figure.experience = 0;
         figure.entityConditions = [];
+        figure.immunities = [];
         figure.summons = [];
         figure.initiative = 0;
         figure.exhausted = false;
@@ -436,6 +455,10 @@ export class RoundManager {
           figure.tokenValues[0] = 1;
         }
 
+        if (figure.tags.find((tag) => tag === 'trophy_tokens') && figure.primaryToken == 0 && figure.progress.perks[10] == 1) {
+          figure.tokenValues[0] = 2;
+        }
+
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 
         figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);
@@ -450,9 +473,6 @@ export class RoundManager {
         figure.ability = -1;
         figure.abilities = [];
         gameManager.monsterManager.resetMonsterAbilities(figure);
-      } else if (figure instanceof Objective) {
-        figure.health = EntityValueFunction(figure.maxHealth);
-        figure.entityConditions = [];
       } else if (figure instanceof ObjectiveContainer) {
         figure.entities = [];
       }
@@ -466,7 +486,6 @@ export class RoundManager {
     }
 
     gameManager.stateManager.standeeDialogCanceled = false;
-
     gameManager.uiChange.emit();
   }
 }

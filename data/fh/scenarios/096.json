@@ -1,6 +1,14 @@
 {
   "index": "96",
   "name": "Underground Station",
+  "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1792.5,
+    "y": 1446,
+    "width": 116,
+    "height": 89,
+    "gridLocation": "E11"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [

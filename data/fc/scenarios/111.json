@@ -1,15 +1,23 @@
 {
   "index": "111",
   "name": "The Shackles Loosen",
+  "flowChartGroup": "citizens",
+  "coordinates": {
+    "x": 2642.25,
+    "y": 174.75,
+    "width": 172,
+    "height": 154,
+    "gridLocation": "B-18"
+  },
   "edition": "fc",
   "unlocks": [
     "114"
   ],
   "monsters": [
+    "aesther-ashblade",
     "aesther-scout",
     "black-imp",
-    "night-demon",
-    "the-husk"
+    "night-demon"
   ],
   "rules": [
     {
@@ -19,10 +27,43 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk.*"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "gainCondition",
           "value": "invisible"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
+          },
+          "statEffect": {
+            "name": "the-husk",
+            "health": "[HxC]",
+            "actions": [
+              {
+                "type": "custom",
+                "value": "%data.scenario.rules.fc.111.2%"
+              }
+            ],
+            "immunities": [
+              "stun",
+              "disarm",
+              "immobilize"
+            ],
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fc.111.1%"
         }
       ]
     }
@@ -34,16 +75,19 @@
       "initial": true,
       "monster": [
         {
-          "name": "black-imp",
-          "type": "normal"
+          "name": "aesther-ashblade",
+          "type": "elite",
+          "tags": [
+            "the-husk"
+          ]
         },
         {
           "name": "black-imp",
           "type": "normal"
         },
         {
-          "name": "the-husk",
-          "type": "boss"
+          "name": "black-imp",
+          "type": "normal"
         }
       ]
     },

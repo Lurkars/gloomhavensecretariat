@@ -57,11 +57,11 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively buy up to 1 %game.resource.metal% for 2 gold",
-            "Collectively buy up to 2 %game.resource.metal% for 2 gold",
-            "Collectively buy up to 3 %game.resource.metal% for 2 gold",
-            "Collectively buy up to 4 %game.resource.metal% for 2 gold"
+        "effectNormal": [
+            "%data.buildings.mining-camp.1%",
+            "%data.buildings.mining-camp.2%",
+            "%data.buildings.mining-camp.3%",
+            "%data.buildings.mining-camp.4%"
         ],
         "rewards": [
             {
@@ -78,7 +78,34 @@
                 "prosperity": 1
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 380.5,
+                "y": 1994,
+                "width": 224,
+                "height": 274
+            },
+            {
+                "x": 377.5,
+                "y": 1991,
+                "width": 237,
+                "height": 281
+            },
+            {
+                "x": 376,
+                "y": 1987,
+                "width": 243,
+                "height": 286
+            },
+            {
+                "x": 372,
+                "y": 1983.5,
+                "width": 251,
+                "height": 293
+            }
+        ]
     },
     {
         "id": "12",
@@ -138,11 +165,11 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "Collectively buy up to 1 %game.resource.hide% for 2 gold",
-            "Collectively buy up to 2 %game.resource.hide% for 2 gold",
-            "Collectively buy up to 3 %game.resource.hide% for 2 gold",
-            "Collectively buy up to 4 %game.resource.hide% for 2 gold"
+        "effectNormal": [
+            "%data.buildings.hunting-lodge.1%",
+            "%data.buildings.hunting-lodge.2%",
+            "%data.buildings.hunting-lodge.3%",
+            "%data.buildings.hunting-lodge.4%"
         ],
         "rewards": [
             {
@@ -160,7 +187,34 @@
                 "loseMorale": 1
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 873.75,
+                "y": 2597,
+                "width": 296,
+                "height": 158
+            },
+            {
+                "x": 865.75,
+                "y": 2593.75,
+                "width": 314,
+                "height": 169
+            },
+            {
+                "x": 858,
+                "y": 2590,
+                "width": 326,
+                "height": 176
+            },
+            {
+                "x": 853.5,
+                "y": 2585.5,
+                "width": 337,
+                "height": 182
+            }
+        ]
     },
     {
         "id": "17",
@@ -220,11 +274,11 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively buy up to 1 %game.resource.lumber% for 2 gold",
-            "Collectively buy up to 2 %game.resource.lumber% for 2 gold",
-            "Collectively buy up to 3 %game.resource.lumber% for 2 gold",
-            "Collectively buy up to 4 %game.resource.lumber% for 2 gold"
+        "effectNormal": [
+            "%data.buildings.logging-camp.1%",
+            "%data.buildings.logging-camp.2%",
+            "%data.buildings.logging-camp.3%",
+            "%data.buildings.logging-camp.4%"
         ],
         "rewards": [
             {
@@ -241,7 +295,34 @@
                 "loseMorale": 1
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 1530.75,
+                "y": 2044.5,
+                "width": 279,
+                "height": 178
+            },
+            {
+                "x": 1526.875,
+                "y": 2041,
+                "width": 290,
+                "height": 235
+            },
+            {
+                "x": 1523.25,
+                "y": 2040.25,
+                "width": 298,
+                "height": 242
+            },
+            {
+                "x": 1520.25,
+                "y": 2036,
+                "width": 305,
+                "height": 251
+            }
+        ]
     },
     {
         "id": "21",
@@ -289,10 +370,10 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "Collectively buy up to 1 material resource for 2 gold",
-            "Collectively buy up to 2 different material resource for 2 gold each",
-            "Collectively buy up to 3 different material resource for 2 gold each"
+        "effectNormal": [
+            "%data.buildings.inn.1%",
+            "%data.buildings.inn.2%",
+            "%data.buildings.inn.3%"
         ],
         "rewards": [
             {
@@ -304,6 +385,32 @@
             },
             {
                 "prosperity": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 907,
+                "y": 2189.25,
+                "width": 129,
+                "height": 86
+            },
+            {
+                "x": 877,
+                "y": 2142.25,
+                "width": 188,
+                "height": 188
+            },
+            {
+                "x": 873,
+                "y": 2137.75,
+                "width": 209,
+                "height": 203
+            },
+            {
+                "x": 864.75,
+                "y": 2124.375,
+                "width": 225,
+                "height": 224
             }
         ]
     },
@@ -365,11 +472,11 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
-            "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
-            "Gain 1 collective herb from each planted plot, then plant herbs",
-            "Gain 1 collective herb from each planted plot, then plant herbs"
+        "effectNormal": [
+            "%data.buildings.garden.1%",
+            "%data.buildings.garden.1%",
+            "%data.buildings.garden.2%",
+            "%data.buildings.garden.2%"
         ],
         "rewards": [
             {
@@ -387,6 +494,38 @@
                 "prosperity": 1,
                 "loseMorale": 1,
                 "plots": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 536.5,
+                "y": 2447.5,
+                "width": 127,
+                "height": 82
+            },
+            {
+                "x": 495,
+                "y": 2397,
+                "width": 217,
+                "height": 190
+            },
+            {
+                "x": 495,
+                "y": 2397,
+                "width": 217,
+                "height": 190
+            },
+            {
+                "x": 495,
+                "y": 2397,
+                "width": 217,
+                "height": 190
+            },
+            {
+                "x": 495,
+                "y": 2397,
+                "width": 217,
+                "height": 190
             }
         ]
     },
@@ -509,37 +648,37 @@
             }
         ],
         "effectWrecked": [
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items"
+            "%data.buildings.craftsman.1%",
+            "%data.buildings.craftsman.1%",
+            "%data.buildings.craftsman.1%",
+            "%data.buildings.craftsman.2%",
+            "%data.buildings.craftsman.2%",
+            "%data.buildings.craftsman.2%",
+            "%data.buildings.craftsman.3%",
+            "%data.buildings.craftsman.3%",
+            "%data.buildings.craftsman.3%"
         ],
         "interactionsAvailable": [
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items",
-            "Craft items"
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%"
         ],
         "interactionsUnavailable": [
-            "Lose 1 collective %game.resource.hide%",
-            "Lose 1 collective %game.resource.hide%",
-            "Lose 1 collective %game.resource.hide%",
-            "Lose 2 collective %game.resource.hide%",
-            "Lose 2 collective %game.resource.hide%",
-            "Lose 2 collective %game.resource.hide%",
-            "Lose 3 collective %game.resource.hide%",
-            "Lose 3 collective %game.resource.hide%",
-            "Lose 3 collective %game.resource.hide%"
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%",
+            "%data.buildings.craftsman.4%"
         ],
         "rewards": [
             {
@@ -578,6 +717,58 @@
                 "prosperity": 1,
                 "items": "46-50",
                 "loseMorale": 1
+            }
+        ],
+        "coordinates": [
+            false,
+            false,
+            {
+                "x": 702,
+                "y": 2560,
+                "width": 181,
+                "height": 159
+            },
+            {
+                "x": 697,
+                "y": 2555.5,
+                "width": 188,
+                "height": 168
+            },
+            {
+                "x": 692.5,
+                "y": 2551.5,
+                "width": 197,
+                "height": 174
+            },
+            {
+                "x": 687.5,
+                "y": 2549.75,
+                "width": 207,
+                "height": 181
+            },
+            {
+                "x": 646.75,
+                "y": 2542.75,
+                "width": 250,
+                "height": 193
+            },
+            {
+                "x": 641.5,
+                "y": 2539.5,
+                "width": 256,
+                "height": 199
+            },
+            {
+                "x": 641.5,
+                "y": 2532,
+                "width": 258,
+                "height": 210
+            },
+            {
+                "x": 641.75,
+                "y": 2531.75,
+                "width": 259,
+                "height": 210
             }
         ]
     },
@@ -628,19 +819,19 @@
             }
         ],
         "effectWrecked": [
-            "Characters cannot use potions",
-            "Characters cannot use potions",
-            "Characters cannot use potions"
+            "%data.buildings.alchemist.1%",
+            "%data.buildings.alchemist.1%",
+            "%data.buildings.alchemist.1%"
         ],
         "interactionsAvailable": [
-            "Brew 2-herb potions",
-            "Brew and distill 2-herb potions",
-            "Brew and distill 2- and 3-herb potions"
+            "%data.buildings.alchemist.2%",
+            "%data.buildings.alchemist.3%",
+            "%data.buildings.alchemist.4%"
         ],
         "interactionsUnavailable": [
-            "Brew potions",
-            "Brew and distill potions",
-            "Brew and distill potions"
+            "%data.buildings.alchemist.5%",
+            "%data.buildings.alchemist.6%",
+            "%data.buildings.alchemist.7%"
         ],
         "rewards": [
             {},
@@ -650,6 +841,22 @@
             {
                 "prosperity": 1,
                 "section": "183.5"
+            }
+        ],
+        "coordinates": [
+            false,
+            false,
+            {
+                "x": 1057.75,
+                "y": 2124.75,
+                "width": 150,
+                "height": 148
+            },
+            {
+                "x": 1035.5,
+                "y": 2078.75,
+                "width": 176,
+                "height": 197
             }
         ]
     },
@@ -712,22 +919,22 @@
             }
         ],
         "effectWrecked": [
-            "Lose 5 collective gold",
-            "Lose 10 collective gold",
-            "Lose 15 collective gold",
-            "Lose 20 collective gold"
+            "%data.buildings.trading-post.1%",
+            "%data.buildings.trading-post.2%",
+            "%data.buildings.trading-post.3%",
+            "%data.buildings.trading-post.4%"
         ],
         "interactionsAvailable": [
-            "Buy up to one item",
-            "Buy up to two items",
-            "Buy up to three items",
-            "Buy up to four items"
+            "%data.buildings.trading-post.5%",
+            "%data.buildings.trading-post.6%",
+            "%data.buildings.trading-post.7%",
+            "%data.buildings.trading-post.8%"
         ],
         "interactionsUnavailable": [
-            "Buy items",
-            "Buy items",
-            "Buy items",
-            "Buy items"
+            "%data.buildings.trading-post.9%",
+            "%data.buildings.trading-post.9%",
+            "%data.buildings.trading-post.9%",
+            "%data.buildings.trading-post.9%"
         ],
         "rewards": [
             {
@@ -746,6 +953,38 @@
                 "prosperity": 1,
                 "section": "196.2",
                 "loseMorale": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 1000.5,
+                "y": 2020,
+                "width": 125,
+                "height": 71
+            },
+            {
+                "x": 990.5,
+                "y": 2000,
+                "width": 147,
+                "height": 112
+            },
+            {
+                "x": 987.75,
+                "y": 1997.5,
+                "width": 153,
+                "height": 117
+            },
+            {
+                "x": 985,
+                "y": 1986,
+                "width": 158,
+                "height": 131
+            },
+            {
+                "x": 977,
+                "y": 1980,
+                "width": 169,
+                "height": 141
             }
         ]
     },
@@ -796,9 +1035,9 @@
             }
         ],
         "effectWrecked": [
-            "Damage any one building",
-            "Damage any one building",
-            "Damage any one building"
+            "%data.buildings.jeweler.1%",
+            "%data.buildings.jeweler.1%",
+            "%data.buildings.jeweler.1%"
         ],
         "rewards": [
             {
@@ -813,6 +1052,32 @@
                 "prosperity": 1,
                 "items": "164-167",
                 "loseMorale": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 791,
+                "y": 2052.5,
+                "width": 127,
+                "height": 77
+            },
+            {
+                "x": 755.75,
+                "y": 2042.25,
+                "width": 175,
+                "height": 105
+            },
+            {
+                "x": 753.25,
+                "y": 2030.75,
+                "width": 180,
+                "height": 121
+            },
+            {
+                "x": 752.75,
+                "y": 2012.25,
+                "width": 228,
+                "height": 141
             }
         ]
     },
@@ -862,15 +1127,15 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2",
-            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2",
-            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2"
+        "effectNormal": [
+            "%data.buildings.temple.1%",
+            "%data.buildings.temple.1%",
+            "%data.buildings.temple.1%"
         ],
         "effectWrecked": [
-            "Each character starts the next scenario with %game.condition.curse%",
-            "Each character starts the next scenario with %game.condition.curse%",
-            "Each character starts the next scenario with %game.condition.curse%"
+            "%data.buildings.temple.2%",
+            "%data.buildings.temple.2%",
+            "%data.buildings.temple.2%"
         ],
         "rewards": [
             {
@@ -883,6 +1148,32 @@
             {
                 "prosperity": 5,
                 "loseMorale": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 902,
+                "y": 2416.25,
+                "width": 141,
+                "height": 87
+            },
+            {
+                "x": 886.75,
+                "y": 2370,
+                "width": 172,
+                "height": 157
+            },
+            {
+                "x": 875.25,
+                "y": 2357,
+                "width": 190,
+                "height": 182
+            },
+            {
+                "x": 871.25,
+                "y": 2352.75,
+                "width": 203,
+                "height": 193
             }
         ]
     },
@@ -944,28 +1235,29 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
+        "effectNormal": [
             "",
-            "Reduce all enhancement costs by 10 gold",
-            "Reduce all enhancement costs by 10 gold and level penalties by 10 gold per level",
-            "Reduce all enhancement costs by 10 gold, level penalties by 10 gold per level, and repeat penalties by 25 gold per enhancement"
+            "%data.buildings.enhancer.1%",
+            "%data.buildings.enhancer.2%",
+            "%data.buildings.enhancer.3%"
         ],
         "effectWrecked": [
-            "Each character starts the next scenario with %game.condition.disarm%",
-            "Each character starts the next scenario with %game.condition.disarm%",
-            "Each character starts the next scenario with %game.condition.disarm%"
+            "%data.buildings.enhancer.4%",
+            "%data.buildings.enhancer.4%",
+            "%data.buildings.enhancer.4%",
+            "%data.buildings.enhancer.4%"
         ],
         "interactionsAvailable": [
-            "Buy enhancements",
-            "Buy enhancements",
-            "Buy enhancements",
-            "Buy enhancements"
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%"
         ],
         "interactionsUnavailable": [
-            "Buy enhancements",
-            "Buy enhancements",
-            "Buy enhancements",
-            "Buy enhancements"
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%",
+            "%data.buildings.enhancer.5%"
         ],
         "rewards": [
             {
@@ -983,6 +1275,38 @@
                 "loseMorale": 1,
                 "prosperity": 1,
                 "section": "56.3"
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 694.75,
+                "y": 2432.5,
+                "width": 140,
+                "height": 78
+            },
+            {
+                "x": 690.25,
+                "y": 2426.25,
+                "width": 146,
+                "height": 102
+            },
+            {
+                "x": 685.5,
+                "y": 2406,
+                "width": 155,
+                "height": 123
+            },
+            {
+                "x": 673.25,
+                "y": 2397.25,
+                "width": 170,
+                "height": 131
+            },
+            {
+                "x": 628.75,
+                "y": 2361,
+                "width": 220,
+                "height": 174
             }
         ]
     },
@@ -1020,13 +1344,13 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively sell up to 1 %game.resource.metal% for 5 gold",
-            "Collectively sell up to 2 %game.resource.metal% for 5 gold each"
+        "effectNormal": [
+            "%data.buildings.metal-depot.1%",
+            "%data.buildings.metal-depot.2%"
         ],
         "effectWrecked": [
-            "Lose 2 collective %game.resource.metal%",
-            "Lose 2 collective %game.resource.metal%"
+            "%data.buildings.metal-depot.3%",
+            "%data.buildings.metal-depot.3%"
         ],
         "rewards": [
             {
@@ -1035,6 +1359,26 @@
             },
             {
                 "prosperity": 2
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 665,
+                "y": 2121.25,
+                "width": 139,
+                "height": 75
+            },
+            {
+                "x": 631.25,
+                "y": 2095.5,
+                "width": 187,
+                "height": 139
+            },
+            {
+                "x": 628.25,
+                "y": 2093.25,
+                "width": 195,
+                "height": 144
             }
         ]
     },
@@ -1072,13 +1416,13 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively sell up to 1 %game.resource.lumber% for 5 gold",
-            "Collectively sell up to 2 %game.resource.lumber% for 5 gold each"
+        "effectNormal": [
+            "%data.buildings.lumber-depot.1%",
+            "%data.buildings.lumber-depot.2%"
         ],
         "effectWrecked": [
-            "Lose 2 collective %game.resource.lumber%",
-            "Lose 2 collective %game.resource.lumber%"
+            "%data.buildings.lumber-depot.3%",
+            "%data.buildings.lumber-depot.3%"
         ],
         "rewards": [
             {
@@ -1087,6 +1431,26 @@
             },
             {
                 "prosperity": 2
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 1363.5,
+                "y": 2164.25,
+                "width": 144,
+                "height": 77
+            },
+            {
+                "x": 1341.75,
+                "y": 2140.5,
+                "width": 167,
+                "height": 131
+            },
+            {
+                "x": 1338.75,
+                "y": 2119.5,
+                "width": 204,
+                "height": 155
             }
         ]
     },
@@ -1124,13 +1488,13 @@
                 "hide": 3
             }
         ],
-        "effectsNormal": [
-            "Collectively sell up to 1 %game.resource.hide% for 5 gold",
-            "Collectively sell up to 2 %game.resource.hide% for 5 gold each"
+        "effectNormal": [
+            "%data.buildings.hide-depot.1%",
+            "%data.buildings.hide-depot.2%"
         ],
         "effectWrecked": [
-            "Lose 2 collective %game.resource.hide%",
-            "Lose 2 collective %game.resource.hide%"
+            "%data.buildings.hide-depot.3%",
+            "%data.buildings.hide-depot.3%"
         ],
         "rewards": [
             {
@@ -1139,6 +1503,26 @@
             },
             {
                 "prosperity": 2
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 1079.5,
+                "y": 2469.75,
+                "width": 120,
+                "height": 78
+            },
+            {
+                "x": 1076,
+                "y": 2416.75,
+                "width": 137,
+                "height": 174
+            },
+            {
+                "x": 1075,
+                "y": 2406.25,
+                "width": 146,
+                "height": 195
             }
         ]
     },
@@ -1189,9 +1573,9 @@
             }
         ],
         "effectWrecked": [
-            "Lose 1 morale",
-            "Lose 1 morale",
-            "Lose 1 morale"
+            "%data.buildings.tavern.1%",
+            "%data.buildings.tavern.1%",
+            "%data.buildings.tavern.1%"
         ],
         "rewards": [
             {
@@ -1204,7 +1588,34 @@
             },
             {
                 "prosperity": 1,
-                "section": "113.1"
+                "section": "113.1",
+                "errata": "tavern3"
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 1323.25,
+                "y": 2535.25,
+                "width": 130,
+                "height": 79
+            },
+            {
+                "x": 1307.5,
+                "y": 2497,
+                "width": 172,
+                "height": 142
+            },
+            {
+                "x": 1205.5,
+                "y": 2476,
+                "width": 278,
+                "height": 165
+            },
+            {
+                "x": 1200.25,
+                "y": 2469.25,
+                "width": 286,
+                "height": 178
             }
         ]
     },
@@ -1236,13 +1647,13 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "When the trials deck is complete, read %data.section:187.1",
-            "Access to Tholos' Favors"
+        "effectNormal": [
+            "%data.buildings.hall-of-revelry.1%",
+            "%data.buildings.hall-of-revelry.2%"
         ],
         "effectWrecked": [
-            "Lose 1 morale",
-            "Lose 1 morale"
+            "%data.buildings.hall-of-revelry.3%",
+            "%data.buildings.hall-of-revelry.3%"
         ],
         "rewards": [
             {
@@ -1251,6 +1662,26 @@
             },
             {
                 "prosperity": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 505.25,
+                "y": 2254.5,
+                "width": 141,
+                "height": 78
+            },
+            {
+                "x": 452,
+                "y": 2198.5,
+                "width": 232,
+                "height": 176
+            },
+            {
+                "x": 448.5,
+                "y": 2179.5,
+                "width": 239,
+                "height": 199
             }
         ]
     },
@@ -1301,9 +1732,9 @@
             }
         ],
         "effectWrecked": [
-            "Lose 1 inspiration",
-            "Lose 1 inspiration",
-            "Lose 1 inspiration"
+            "%data.buildings.library.1%",
+            "%data.buildings.library.1%",
+            "%data.buildings.library.1%"
         ],
         "rewards": [
             {
@@ -1317,6 +1748,32 @@
             {
                 "prosperity": 1,
                 "section": "89.2"
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 703.5,
+                "y": 2263.25,
+                "width": 138,
+                "height": 76
+            },
+            {
+                "x": 697.75,
+                "y": 2242.75,
+                "width": 145,
+                "height": 109
+            },
+            {
+                "x": 696.75,
+                "y": 2215.25,
+                "width": 170,
+                "height": 145
+            },
+            {
+                "x": 693.75,
+                "y": 2199.25,
+                "width": 200,
+                "height": 164
             }
         ]
     },
@@ -1335,7 +1792,7 @@
             2
         ],
         "effectWrecked": [
-            "Lose 1 collective %game.resource.lumber%"
+            "%data.buildings.workshop.1%"
         ],
         "rebuild": [
             {
@@ -1430,13 +1887,13 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "Reduce all construction costs by 1 material resource",
-            "Reduce all construction costs by 1 material resource and the extra construction cost by 1 morale"
+        "effectNormal": [
+            "%data.buildings.carpenter.1%",
+            "%data.buildings.carpenter.2%"
         ],
         "effectWrecked": [
-            "Lose any 1 collective resource",
-            "Lose any 1 collective resource"
+            "%data.buildings.carpenter.3%",
+            "%data.buildings.carpenter.3%"
         ],
         "rewards": [
             {
@@ -1445,6 +1902,26 @@
             },
             {
                 "prosperity": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 1312.5,
+                "y": 2051,
+                "width": 146,
+                "height": 78
+            },
+            {
+                "x": 1302.5,
+                "y": 2039.5,
+                "width": 169,
+                "height": 106
+            },
+            {
+                "x": 1278,
+                "y": 2017,
+                "width": 201,
+                "height": 135
             }
         ]
     },
@@ -1506,17 +1983,17 @@
                 "hide": 3
             }
         ],
-        "effectsNormal": [
-            "Bring one pet into each scenario.<br><i>Capacity:</i> 4",
-            "Bring one pet into each scenario.<br><i>Capacity:</i> 8",
-            "Bring two pets into each scenario.<br><i>Capacity:</i> 8",
-            "Bring two pets into each scenario.<br><i>Capacity:</i> 12"
+        "effectNormal": [
+            "%data.buildings.stables.1%",
+            "%data.buildings.stables.2%",
+            "%data.buildings.stables.3%",
+            "%data.buildings.stables.4%"
         ],
         "effectWrecked": [
-            "Characters cannot use pets",
-            "Characters cannot use pets",
-            "Characters cannot use pets",
-            "Characters cannot use pets"
+            "%data.buildings.stables.5%",
+            "%data.buildings.stables.5%",
+            "%data.buildings.stables.5%",
+            "%data.buildings.stables.5%"
         ],
         "rewards": [
             {
@@ -1532,6 +2009,38 @@
             {
                 "prosperity": 1,
                 "loseMorale": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 1764,
+                "y": 2415,
+                "width": 151,
+                "height": 78
+            },
+            {
+                "x": 1756.5,
+                "y": 2395.75,
+                "width": 171,
+                "height": 113
+            },
+            {
+                "x": 1750.75,
+                "y": 2385.75,
+                "width": 186,
+                "height": 130
+            },
+            {
+                "x": 1741.75,
+                "y": 2381,
+                "width": 205,
+                "height": 142
+            },
+            {
+                "x": 1738.75,
+                "y": 2369.25,
+                "width": 216,
+                "height": 155
             }
         ]
     },
@@ -1581,15 +2090,15 @@
                 "hide": 2
             }
         ],
-        "effectsNormal": [
-            "Draw one challenge and keep up to one. When the challenge deck is complete, read %data.section:190.1%",
-            "Draw two challenges and keep up to one. When the challenge deck is complete, read %data.section:190.1%",
-            "Draw three challenges and keep up to two. When the challenge deck is complete, read %data.section:190.1%"
+        "effectNormal": [
+            "%data.buildings.town-hall.1%",
+            "%data.buildings.town-hall.2%",
+            "%data.buildings.town-hall.3%"
         ],
         "effectWrecked": [
-            "Cannot complete challenges",
-            "Cannot complete challenges",
-            "Cannot complete challenges"
+            "%data.buildings.town-hall.4%",
+            "%data.buildings.town-hall.4%",
+            "%data.buildings.town-hall.4%"
         ],
         "rewards": [
             {
@@ -1601,6 +2110,32 @@
             },
             {
                 "prosperity": 1
+            }
+        ],
+        "coordinates": [
+            {
+                "x": 1209.5,
+                "y": 2233.75,
+                "width": 139,
+                "height": 79
+            },
+            {
+                "x": 1196.5,
+                "y": 2202.25,
+                "width": 164,
+                "height": 145
+            },
+            {
+                "x": 1140.75,
+                "y": 2194.25,
+                "width": 228,
+                "height": 190
+            },
+            {
+                "x": 1126,
+                "y": 2190.5,
+                "width": 291,
+                "height": 249
             }
         ]
     },
@@ -1644,17 +2179,17 @@
                 "hide": 1
             }
         ],
-        "effectsNormal": [
-            "Collectively train up to 1 soldier for 3 gold and 1 material resource<br><br><i>Capacity:</i> 4<br><i>Effect:</i> advantage and -5 %game.action.attack%",
-            "Collectively train up to 1 soldier for 3 gold and 1 material resource<br><br><i>Capacity:</i> 6<br><i>Effect:</i> advantage and -15 %game.action.attack%",
-            "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 8<br><i>Effect:</i> advantage and -25 %game.action.attack%",
-            "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 10<br><i>Effect:</i> advantage and -35 %game.action.attack%"
+        "effectNormal": [
+            "%data.buildings.barracks.1%",
+            "%data.buildings.barracks.2%",
+            "%data.buildings.barracks.3%",
+            "%data.buildings.barracks.4%"
         ],
         "effectWrecked": [
-            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
-            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
-            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
-            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers."
+            "%data.buildings.barracks.5%",
+            "%data.buildings.barracks.5%",
+            "%data.buildings.barracks.5%",
+            "%data.buildings.barracks.5%"
         ],
         "rewards": [
             {
@@ -1672,6 +2207,28 @@
                 "prosperity": 1,
                 "soldiers": 2
             }
+        ],
+        "coordinates": [
+            false,
+            false,
+            {
+                "x": 1847,
+                "y": 2161,
+                "width": 222,
+                "height": 216
+            },
+            {
+                "x": 1846,
+                "y": 2154,
+                "width": 279,
+                "height": 225
+            },
+            {
+                "x": 1845,
+                "y": 2096.25,
+                "width": 288,
+                "height": 287
+            }
         ]
     },
     {
@@ -1681,12 +2238,24 @@
             "lumber": 4,
             "gold": 10
         },
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
         "rewards": [
             {
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 748.25,
+                "y": 1933.75,
+                "width": 212,
+                "height": 111
+            }
+        ]
     },
     {
         "name": "wall-k",
@@ -1702,7 +2271,19 @@
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 944.75,
+                "y": 2737.25,
+                "width": 304,
+                "height": 119
+            }
+        ]
     },
     {
         "name": "wall-l",
@@ -1713,12 +2294,24 @@
             "hide": 1,
             "gold": 10
         },
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
         "rewards": [
             {
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 329.75,
+                "y": 2352.5,
+                "width": 185,
+                "height": 217
+            }
+        ]
     },
     {
         "name": "wall-m",
@@ -1729,12 +2322,24 @@
             "hide": 3,
             "gold": 10
         },
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
         "rewards": [
             {
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 532.25,
+                "y": 2553,
+                "width": 246,
+                "height": 266
+            }
+        ]
     },
     {
         "name": "wall-n",
@@ -1750,6 +2355,18 @@
                 "defense": 5
             }
         ],
-        "prosperityUnlock": true
+        "effectNormal": [
+            "%data.buildings.wall-effect%"
+        ],
+        "prosperityUnlock": true,
+        "coordinates": [
+            false,
+            {
+                "x": 1379,
+                "y": 1929.5,
+                "width": 353,
+                "height": 172
+            }
+        ]
     }
 ]

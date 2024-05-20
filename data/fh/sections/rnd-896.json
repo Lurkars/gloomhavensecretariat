@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Swarming",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "forest-imp",
+    "harrower-infester",
+    "shrike-fiend"
+  ],
   "rules": [
     {
       "round": "true",

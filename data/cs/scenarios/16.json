@@ -1,6 +1,7 @@
 {
   "index": "16",
   "name": "Preto Krisanta",
+  "flowChartGroup": "sail",
   "edition": "cs",
   "rewards": {
     "gold": 10,

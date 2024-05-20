@@ -2,6 +2,7 @@ import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, Inject, ViewChild } from "@angular/core";
 import { Character } from "src/app/game/model/Character";
 import { CharacterSheetComponent } from "../sheet/character-sheet";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 
 @Component({
@@ -13,7 +14,9 @@ export class CharacterSheetDialog {
 
   @ViewChild('characterSheet') characterSheet!: CharacterSheetComponent;
 
-  constructor(@Inject(DIALOG_DATA) public data: { character: Character, viewOnly: boolean }, private dialogRef: DialogRef) {
+  settingsManager: SettingsManager = settingsManager;
+
+  constructor(@Inject(DIALOG_DATA) public data: { character: Character, viewOnly: boolean, forceEdit: boolean }, public dialogRef: DialogRef) {
 
     this.dialogRef.closed.subscribe({
       next: () => {

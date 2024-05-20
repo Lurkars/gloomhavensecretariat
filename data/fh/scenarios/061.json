@@ -1,6 +1,14 @@
 {
   "index": "61",
   "name": "Life and Death",
+  "flowChartGroup": "puzzle-book",
+  "coordinates": {
+    "x": 1363,
+    "y": 1451.25,
+    "width": 107,
+    "height": 78,
+    "gridLocation": "I11"
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

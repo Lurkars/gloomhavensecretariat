@@ -1,6 +1,14 @@
 {
   "index": "93B",
   "name": "Midwinter Brawl B",
+  "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1415.75,
+    "y": 1039.5,
+    "width": 79,
+    "height": 49,
+    "gridLocation": "H7"
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

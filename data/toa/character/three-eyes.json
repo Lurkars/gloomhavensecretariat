@@ -285,12 +285,12 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "You may ring one additional %game.items.slots.onehand% item into each scenario"
+      "custom": "You may bring one additional %game.items.slots.onehand% item into each scenario"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Each time you short rest, Refresh %game.card.recover% one spent %game.items.slots.onehand% item into each scenario"
+      "custom": "Each time you short rest, Refresh %game.card.recover% one spent %game.items.slots.onehand%"
     },
     {
       "type": "remove",

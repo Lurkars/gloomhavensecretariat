@@ -1,6 +1,7 @@
 {
   "index": "20",
   "name": "Midnight Ritual",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "22"

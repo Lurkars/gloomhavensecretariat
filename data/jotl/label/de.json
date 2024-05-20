@@ -1,6 +1,9 @@
 {
   "character": {
-    "demolitionist": "Sprengmeisterin",
+    "demolitionist": {
+      ".": "Sprengmeisterin",
+      "mech": "Mech Suit"
+    },
     "hatchet": "Axtwerfer",
     "red-guard": "Rotgardist",
     "voidwarden": "Leerehüterin"
@@ -35,7 +38,7 @@
     "boss": "Boss",
     "monstrosity": "Monstrosität",
     "imp": "Wicht"
-  },  
+  },
   "ability": {
     "Accelerated Power": "Beschleunigte Kraft",
     "Angry Howl": "Wütendes Heulen",
@@ -132,6 +135,136 @@
     "Warding the Void": "Hüter der Leere",
     "The Greatest Job in the World": "Der beste Beruf der Welt"
   },
+  "battleGoals": {
+    "286": {
+      ".": "Akrobatisch",
+      "text": "Verliere eine Karte um 5 oder mehr Schaden zu negieren."
+    },
+    "287": {
+      ".": "Platzangst",
+      "text": "Beende deine Züge immer angrenzend an eine Wand oder ein Hindernis."
+    },
+    "288": {
+      ".": "Wohltätig",
+      "text": "Sammle weniger Münzmarker als jeder andere Charakter."
+    },
+    "289": {
+      ".": "Hilfsbereit",
+      "text": "Töte ein Monster das in derselben Runde bereits von einem Verbündeten angegriffen wurde."
+    },
+    "290": {
+      ".": "Provokant",
+      "text": "Verlasse nie ein an ein Monster angrenzendes Feld."
+    },
+    "291": {
+      ".": "Aufräumen",
+      "text": "Töte das letzte Monster während des Szenarios."
+    },
+    "292": {
+      ".": "Genügsam",
+      "text": "Verliere nie eine Karte, um Schaden zu negieren."
+    },
+    "293": {
+      ".": "Zäher Hund",
+      "text": "Lass nicht zu, dass dein TP-Wert unter die Hälfte deines maximalen TP-Wertes (aufgerundet) sinkt."
+    },
+    "294": {
+      ".": "Egoistisch",
+      "text": "Sammle mehr Münzmarker als jeder andere Charakter."
+    },
+    "295": {
+      ".": "Heilfleisch",
+      "text": "Beende das Szenario mit deinem maximalen TP-Wert."
+    },
+    "296": {
+      ".": "Volles Risiko",
+      "text": "Töte ein Monster durch einen Angriff, während du Nachteil hast."
+    },
+    "297": {
+      ".": "Heißsporn",
+      "text": "Führe vor deiner ersten Rast 2 Aktionen mit Verloren-Symbol aus."
+    },
+    "298": {
+      ".": "Schlaflos",
+      "text": "Erleide in einer Runde, in der du eine lange Rase machst, Schaden durch einen Angriff."
+    },
+    "299": {
+      ".": "Masochistisch",
+      "text": "Beende das Szenario mit 3 oder weniger TP."
+    },
+    "300": {
+      ".": "Ausgenommen",
+      "text": "Töte ein Monster und erbeute in demselben Zug den fallengelassenen Münzmarker."
+    },
+    "301": {
+      ".": "Erstschlag",
+      "text": "Töte das erste Monster während des Szenarios."
+    },
+    "302": {
+      ".": "Pazifistisch",
+      "text": "Töte 3 oder weniger Monster."
+    },
+    "303": {
+      ".": "Profitorientiert",
+      "text": "Erbeute 1 oder mehr Münzmarker mir einer Beute-Aktion während du an 2 oder mehr Monster angrenzt."
+    },
+    "304": {
+      ".": "Nadelkissen",
+      "text": "Werde in einer Runde zum Angriffsziel von 3 oder mehr Monstern."
+    },
+    "305": {
+      ".": "Fußvolk",
+      "text": "Töte niemals ein Elite-Monster oder einen Boss."
+    },
+    "306": {
+      ".": "Trocken",
+      "text": "Benutze niemals Tränke."
+    },
+    "307": {
+      ".": "Verwüstung",
+      "text": "Führe 2 Aktionen mit Verlorenen-Symbol in demselben Zug aus."
+    },
+    "308": {
+      ".": "Unabhängig",
+      "text": "Beende deinen Zug niemals angrenzend an einen Verbündeten."
+    },
+    "309": {
+      ".": "Sadistisch",
+      "text": "Töte 5 oder mehr Monster."
+    },
+    "310": {
+      ".": "Ruhelos",
+      "text": "Mache keine lange Rast."
+    },
+    "311": {
+      ".": "Schatten",
+      "text": "Beende deinen Zug immer angrenzend an einen Verbündeten."
+    },
+    "312": {
+      ".": "Um die Ecke",
+      "text": "Töte, während du an ein Monster angrenzt, ein anderes Monster, das nicht an dich angrenzt."
+    },
+    "313": {
+      ".": "Spezialisiert",
+      "text": "Führe keine Standardaktion aus."
+    },
+    "314": {
+      ".": "Schlusslicht",
+      "text": "Mache keine kurze Rast."
+    },
+    "315": {
+      ".": "Hereingeplatzt",
+      "text": "Öffne eine Tür und beende denselben Zug in dem so aufgedeckten Raum."
+    },
+    "316": {
+      ".": "Ansteckend",
+      "text": "Wende einen negativen Zustand auf ein Monster an, während du unter einem negativen Zustand leidest."
+    },
+    "317": {
+      ".": "Ausgebrannt",
+      "text": "Werde als erster Charakter erschöpft."
+    }
+  },
   "custom": {
     "jotl": {
       "giant-viper": {
@@ -139,10 +272,10 @@
         "2": "Füge +2 %game.action.attack% wenn das Ziel an einer %data.monster.giant-viper%'s Verbündeten angrenzt."
       },
       "black-sludge": {
-        "1": "Der nächste Gegner in Sichtline, ungachtet der Reichweite, erleidet %game.damage:[1+L/2{$math.ceil}]%."
+        "1": "Der nächste Gegner in Sichtlinie erleidet unabhängig der Reichweite %game.damage:[1+L/2{$math.ceil}]%."
       },
       "chaos-demon": {
-        "1": "Jedesmal wenn eine Figur den %data.monster.chaos-demon% in dieser Runde angreift, erleidet die Figur %game.damage:2%.",
+        "1": "Wann immer der %data.monster.chaos-demon% in dieser Runde angegriffen wird, erleidet der Angreifer %game.damage:2%.",
         "2": "Alle an das Ziel angrenzenden Gegner erleiden %game.damage:1%."
       },
       "living-corpse": {
@@ -158,7 +291,7 @@
       },
       "stone-golem": {
         "1": "Jede Figur die den %data.monster.stone-golem% diese Runde angreift erleidet %game.damage:3%.",
-        "2": "Falls diese Beweung ausgeführt wird erleidet der %data.monster.stone-golem% %game.damage:1%.",
+        "2": "Falls diese Bewegung ausgeführt wird erleidet der %data.monster.stone-golem% %game.damage:1%.",
         "3": "Falls dieser Angriff ausgeführt wird erleidet der %data.monster.stone-golem% %game.damage:2%."
       },
       "vermling-raider": {
@@ -190,6 +323,9 @@
         "2": "Werden sich bewegen um zu vermeiden an ihren Fokus anzugrenzen.",
         "3": "Bewegen sich diese Runde nicht.",
         "4": "Dies ist dasselbe Verhalten wie im vorherigen Szenario."
+      },
+      "demolitionist": {
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%"
       }
     },
     "perks": {

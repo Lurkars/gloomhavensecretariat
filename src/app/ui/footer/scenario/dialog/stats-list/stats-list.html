@@ -2,27 +2,30 @@
   <div class="scroll-container">
     <div class="header"
       [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-      <div class="image">
-        <div class="outer-border">
-          <div class="inner-border">
-            <div class="image-container">
-              <img *ngIf="!monster.noThumbnail && settingsManager.settings.artwork"
-                [src]="gameManager.monsterManager.monsterThumbnail(monster)">
-              <span *ngIf="monster.noThumbnail || !settingsManager.settings.artwork" class="letter">
-                <span
-                  *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' '))">{{namePart[0]}}</span>
-              </span>
+      <div class="title">
+        <div class="image">
+          <div class="outer-border">
+            <div class="inner-border">
+              <div class="image-container">
+                <img *ngIf="!monster.noThumbnail && settingsManager.settings.artwork"
+                  [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+                <span *ngIf="monster.noThumbnail || !settingsManager.settings.artwork" class="letter">
+                  <span
+                    *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' '))">{{namePart[0]}}</span>
+                </span>
+              </div>
             </div>
           </div>
+          <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img
+              src="./assets/images/monster/enemy.png" /></span>
+          <span class="custom" *ngIf="monster.standeeShare || monster.statEffect || statEffectNote">*</span>
         </div>
-        <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img
-            src="./assets/images/monster/enemy.png" /></span>
-        <span class="custom" *ngIf="monster.standeeShare">*</span>
+        <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>
       </div>
-      <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>
+      <p class="stat-effect text-white" *ngIf="statEffectNote" [ghs-label]="statEffectNote"></p>
     </div>
     <div class="container">
-      <div class="stats">
+      <div class="stats" *ngIf="!hideStats">
         <ghs-monster-stats [monster]="monster" [forceStats]="true"> </ghs-monster-stats>
       </div>
       <ng-container *ngFor="let ability of gameManager.abilities(monster);let index = index;">

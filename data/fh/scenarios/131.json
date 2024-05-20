@@ -1,6 +1,14 @@
 {
   "index": "131",
   "name": "The Dancing Iceberg",
+  "flowChartGroup": "other",
+  "coordinates": {
+    "x": 1138.5,
+    "y": 453.5,
+    "width": 98,
+    "height": 53,
+    "gridLocation": "K2"
+  },
   "edition": "fh",
   "complexity": 3,
   "rewards": {
@@ -40,6 +48,25 @@
       "start": true,
       "sections": [
         "194.2"
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "lurker-wavethrower"
+          },
+          "statEffect": {
+            "attack": 1,
+            "deck": "lurker-wavethrower-scenario-131"
+          },
+          "note": "%data.scenario.rules.fh.131%"
+        }
       ]
     }
   ],

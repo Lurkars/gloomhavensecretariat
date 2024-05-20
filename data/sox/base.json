@@ -2,6 +2,7 @@
   "edition": "sox",
   "additional": true,
   "extensions": [
-    "gh"
+    "gh",
+    "fc"
   ]
 }

@@ -1,11 +1,13 @@
 {
   "index": "48",
   "name": "Shadow Weald",
+  "flowChartGroup": "through-jungles",
   "coordinates": {
     "x": 143,
     "y": 669,
     "width": 199,
-    "height": 177
+    "height": 177,
+    "gridLocation": "E-1"
   },
   "edition": "gh",
   "unlocks": [

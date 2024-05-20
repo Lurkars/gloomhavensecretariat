@@ -1,7 +1,8 @@
-<div class="entity-menu-dialog">
+<div class="entity-menu-dialog scroll-container">
 
   <div class="name" *ngIf="monster">
-    <img *ngIf="!monster.noThumbnail && settingsManager.settings.artwork" class="standee" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
+    <img *ngIf="!monster.noThumbnail && settingsManager.settings.artwork" class="standee"
+      [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
     <span [ghs-label]="'data.monster.' + monster.name"></span>&nbsp;
     <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span>&nbsp;</span>
     <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span>&nbsp;</span>
@@ -27,6 +28,12 @@
             <span *ngIf="gameManager.toSummon(entity).number > 0">{{gameManager.toSummon(entity).number}}</span></span>
         </span>
       </div>
+      <div class="entity" *ngIf="objective" (click)="toggleEntity(entity)"
+        [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
+        <span class="objective-marker">
+          {{gameManager.toObjectiveEntity(entity).number}}
+        </span>
+      </div>
     </ng-container>
   </div>
 
@@ -48,14 +55,15 @@
     </span>
   </div>
 
-  <ghs-conditions *ngIf="monster" [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities" [figure]="monster"
-    [type]="'monster'" [columns]="4"></ghs-conditions>
+  <ghs-conditions *ngIf="monster" [entityConditions]="entityConditions" [immunities]="entityImmunities"
+    [entities]="entities" [figure]="monster" [type]="'monster'" [columns]="4"></ghs-conditions>
 
-  <ghs-conditions *ngIf="character" [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities" [figure]="character"
-    [type]="'monster'" [columns]="4"></ghs-conditions>
+  <ghs-conditions *ngIf="character" [entityConditions]="entityConditions" [immunities]="entityImmunities"
+    [entities]="entities" [figure]="character" [type]="'monster'" [columns]="4"></ghs-conditions>
 
-    <ghs-conditions *ngIf="objective && objective.escort" [entityConditions]="entityConditions" [immunities]="entityImmunities" [entities]="entities" [figure]="objective"
-      [type]="'character'" [columns]="4"></ghs-conditions>
+  <ghs-conditions *ngIf="objective && objective.escort" [entityConditions]="entityConditions"
+    [immunities]="entityImmunities" [entities]="entities" [figure]="objective" [type]="'character'"
+    [columns]="4"></ghs-conditions>
 
   <div class="entity-container">
     <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
@@ -69,7 +77,8 @@
       </ghs-pointer-input>
       <img src="./assets/images/status/health.svg" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'" />
       <span class="badge health-count"
-        [ngClass]="{'negative-value' : maxHealth < 0, 'positive-value' : maxHealth > 0}">{{maxHealth | ghsValueSign}}</span>
+        [ngClass]="{'negative-value' : maxHealth < 0, 'positive-value' : maxHealth > 0}">{{maxHealth |
+        ghsValueSign}}</span>
       <ghs-pointer-input class="button" (singleClick)="changeMaxHealth(1)" [repeat]="true">
         <img class="ghs-svg" src="./assets/images/plus.svg">
       </ghs-pointer-input>

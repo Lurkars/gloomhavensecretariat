@@ -2,6 +2,7 @@
   "name": "vermling-scout-scenario-107",
   "edition": "fc",
   "deck": "scout",
+  "hidden": true,
   "count": 10,
   "standeeShare": "vermling-scout",
   "standeeShareEdition": "gh",

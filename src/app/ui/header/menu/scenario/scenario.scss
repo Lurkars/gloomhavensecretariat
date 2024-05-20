@@ -19,6 +19,23 @@
   }
 }
 
+.line.search, .line.title.group {
+  justify-content: space-between !important;
+
+  a {
+
+    img.ghs-svg {
+      filter: var(--ghs-filter-gray);
+    }
+
+    &:hover {
+      img.ghs-svg {
+        filter: var(--ghs-filter-white);
+      }
+    }
+  }
+}
+
 .scenarios {
   display: grid !important;
   grid-template-columns: repeat(6, 1fr);

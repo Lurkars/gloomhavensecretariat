@@ -1,0 +1,71 @@
+{
+  "index": "13",
+  "name": "Shrine of Ashtar",
+  "edition": "fc",
+  "parent": "106",
+  "marker": "1",
+  "monsters": [
+    "ancient-artillery",
+    "earth-demon",
+    "flame-demon",
+    "savvas-lavaflow"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "savvas-lavaflow"
+          },
+          "statEffect": {
+            "name": "avatar-of-ashtar",
+            "count": 1
+          },
+          "note": "%data.section.rules.fc.13%"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "D1a",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

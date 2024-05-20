@@ -1,6 +1,14 @@
 {
   "index": "68",
   "name": "The Face of Torment",
+  "flowChartGroup": "personal-quests",
+  "coordinates": {
+    "x": 1042,
+    "y": 538,
+    "width": 106,
+    "height": 124,
+    "gridLocation": "L3"
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {
@@ -47,6 +55,76 @@
           "type": "gainCondition",
           "value": "muddle",
           "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "C < 3 && R > 2 && R % 6 == 3",
+      "start": true,
+      "note": "Spawn one normal demon at %game.mapMarker.a%"
+    },
+    {
+      "round": "C > 2 && R > 2 && R % 6 == 3",
+      "start": true,
+      "note": "Spawn one elite demon at %game.mapMarker.a%"
+    },
+    {
+      "round": "C < 4 && R > 2 && R % 6 == 4",
+      "start": true,
+      "note": "Spawn one normal demon at %game.mapMarker.b%"
+    },
+    {
+      "round": "C > 3 && R > 2 && R % 6 == 4",
+      "start": true,
+      "note": "Spawn one elite demon at %game.mapMarker.b%"
+    },
+    {
+      "round": "R > 2 && R % 6 == 5",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "C < 4 && R > 2 && R % 6 == 0",
+      "start": true,
+      "note": "Spawn one normal demon at %game.mapMarker.a%"
+    },
+    {
+      "round": "C > 3 && R > 2 && R % 6 == 0",
+      "start": true,
+      "note": "Spawn one elite demon at %game.mapMarker.a%"
+    },
+    {
+      "round": "C < 3 && R > 2 && R % 6 == 1",
+      "start": true,
+      "note": "Spawn one normal demon at %game.mapMarker.b%"
+    },
+    {
+      "round": "C > 2 && R > 2 && R % 6 == 1",
+      "start": true,
+      "note": "Spawn one elite demon at %game.mapMarker.b%"
+    },
+    {
+      "round": "R > 2 && R % 6 == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
         }
       ]
     }

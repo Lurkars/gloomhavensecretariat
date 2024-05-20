@@ -1,6 +1,14 @@
 {
   "index": "110",
   "name": "A Circular Solution",
+  "flowChartGroup": "orchid-society",
+  "coordinates": {
+    "x": 2785.5,
+    "y": 1707.5,
+    "width": 216,
+    "height": 192,
+    "gridLocation": "L-19"
+  },
   "edition": "fc",
   "unlocks": [
     "114"
@@ -19,12 +27,10 @@
     }
   },
   "monsters": [
-    "earth-demon",
-    "flame-demon",
-    "selah-naberis",
-    "sraka-the-wise",
-    "the-steel-lion",
-    "uyart-ikkuma"
+    "city-guard",
+    "savvas-lavaflow",
+    "valrath-tracker",
+    "vermling-shaman"
   ],
   "rules": [
     {
@@ -38,6 +44,130 @@
       "sections": [
         "134"
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "valrath-tracker"
+          },
+          "statEffect": {
+            "name": "selah-naberis",
+            "actions": [
+              {
+                "type": "pierce",
+                "value": 10
+              },
+              {
+                "type": "target",
+                "value": "C"
+              }
+            ],
+            "count": 1
+          },
+          "note": "%data.scenario.rules.fc.110.1%"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "vermling-shaman"
+          },
+          "statEffect": {
+            "name": "sraka-the-wise",
+            "health": "[CxH/2{$math.ceil}]",
+            "actions": [
+              {
+                "type": "custom",
+                "value": "%data.custom.fc.sraka-the-wise.1%",
+                "small": true
+              },
+              {
+                "type": "custom",
+                "value": "%data.custom.fc.sraka-the-wise.2%",
+                "small": true
+              },
+              {
+                "type": "shield",
+                "value": "[(L/3)+2{$math.ceil}]"
+              }
+            ],
+            "count": 1,
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fc.110.2%"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "city-guard"
+          },
+          "statEffect": {
+            "name": "the-steel-lion",
+            "health": "[CxH/2{$math.ceil}]",
+            "move": "M+1",
+            "actions": [
+              {
+                "type": "custom",
+                "value": "%data.custom.fc.the-steel-lion.1%"
+              },
+              {
+                "type": "custom",
+                "value": "%data.custom.fc.the-steel-lion.2%"
+              },
+              {
+                "type": "shield",
+                "value": "[(L/4)+1{$math.ceil}]",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "selfAllies",
+                    "small": true
+                  }
+                ]
+              }
+            ],
+            "count": 1,
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fc.110.3%"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "savvas-lavaflow"
+          },
+          "statEffect": {
+            "name": "uyart-ikkuma",
+            "health": "[CxH/2{$math.ceil}]",
+            "deck": "uyart-ikkuma",
+            "actions": [
+              {
+                "type": "custom",
+                "value": "%data.custom.fc.uyart-ikkuma.1%"
+              },
+              {
+                "type": "condition",
+                "value": "poison"
+              },
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ],
+            "count": 1,
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fc.110.4%"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -50,20 +180,20 @@
       ],
       "monster": [
         {
-          "name": "selah-naberis",
-          "type": "boss"
+          "name": "city-guard",
+          "type": "elite"
         },
         {
-          "name": "sraka-the-wise",
-          "type": "boss"
+          "name": "savvas-lavaflow",
+          "type": "elite"
         },
         {
-          "name": "the-steel-lion",
-          "type": "boss"
+          "name": "valrath-tracker",
+          "type": "elite"
         },
         {
-          "name": "uyart-ikkuma",
-          "type": "boss"
+          "name": "vermling-shaman",
+          "type": "elite"
         }
       ]
     }

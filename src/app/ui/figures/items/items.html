@@ -11,7 +11,7 @@
                 [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
                 ghs-pointer-input (singleClick)="toggleEquippedItem(item)"
                 (doubleClick)="toggleEquippedItem(item,true)">
-                <span>{{item.name}}</span>
+                <span [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
                 <span *ngIf="item.edition != itemEdition">&nbsp;(<span [ghs-label]="'data.edition.' +
                     item.edition"></span>)</span>
             </span>
@@ -38,7 +38,8 @@
         <a class="shop" (click)="itemDialog()"><img src="./assets/images/items/item.svg"><span
                 [ghs-label]="'game.items.character.shop'"></span></a>
 
-        <a *ngIf="brewing" (click)="brewDialog()"><img src="./assets/images/fh/brewing.svg"><span
-                [ghs-label]="'game.items.brewing'"></span></a>
+        <a *ngIf="brewing" ghs-pointer-input (singleClick)="brewDialog()" (doubleClick)="brewDialog(true)"
+            [ngClass]="{'disabled': gameManager.itemManager.brewingDisabled()}"><img
+                src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
     </div>
 </div>

@@ -55,9 +55,15 @@ export class LootManager {
     return result;
   }
 
-  shuffleDeck(deck: LootDeck) {
+  shuffleDeck(deck: LootDeck, onlyUpcoming: boolean = false) {
+    const current = deck.current;
+    let restoreCards: Loot[] = onlyUpcoming && current > -1 ? deck.cards.splice(0, current + 1) : [];
     deck.current = -1;
     ghsShuffleArray(deck.cards);
+    if (onlyUpcoming) {
+      deck.current = current;
+      deck.cards.unshift(...restoreCards);
+    }
   }
 
   getTotal(deck: LootDeck, type: LootType): number {
@@ -185,7 +191,7 @@ export class LootManager {
             if (item) {
               const identifier = new CountIdentifier('' + item.id, item.edition);
               if (reward.type == TreasureRewardType.item || reward.type == TreasureRewardType.itemFh) {
-                if (settingsManager.settings.characterItems) {
+                if (settingsManager.settings.characterItems || settingsManager.settings.characterSheet) {
                   if (character.progress.items.find((existing) => existing.name == identifier.name && existing.edition == identifier.edition)) {
                     character.progress.gold += gameManager.itemManager.itemSellValue(item);
                   } else {

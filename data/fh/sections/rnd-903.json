@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Daunting",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "lurker-clawcrusher",
+    "lurker-mindsnipper",
+    "lurker-wavethrower"
+  ],
   "rules": [
     {
       "round": "true",

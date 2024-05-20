@@ -1,6 +1,14 @@
 {
   "index": "106",
   "name": "Intricate Work",
+  "flowChartGroup": "the-rift",
+  "coordinates": {
+    "x": 1751.75,
+    "y": 1314.75,
+    "width": 153,
+    "height": 160,
+    "gridLocation": "I-12"
+  },
   "edition": "fc",
   "requirements": [
     {
@@ -8,6 +16,9 @@
         "Knowledge is Power:2"
       ]
     }
+  ],
+  "links": [
+    "112"
   ],
   "monsters": [
     "aesther-scout"

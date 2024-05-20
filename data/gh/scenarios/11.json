@@ -1,11 +1,13 @@
 {
   "index": "11",
   "name": "Gloomhaven Square A",
+  "flowChartGroup": "the-merchant",
   "coordinates": {
     "x": 2380.5,
     "y": 288,
     "width": 182,
-    "height": 159
+    "height": 159,
+    "gridLocation": "B-16"
   },
   "edition": "gh",
   "unlocks": [

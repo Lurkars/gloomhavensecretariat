@@ -6,7 +6,6 @@ import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
-import { Objective } from "../model/Objective";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { ObjectiveEntity } from "../model/ObjectiveEntity";
 import { Summon, SummonState } from "../model/Summon";
@@ -23,7 +22,7 @@ export class EntityManager {
 
   entities(figure: Figure, acting: boolean = false): Entity[] {
     let entities: Entity[] = [];
-    if (figure instanceof Character || figure instanceof Objective) {
+    if (figure instanceof Character) {
       if (this.isAlive(figure, acting)) {
         entities.push(figure);
       }
@@ -40,8 +39,6 @@ export class EntityManager {
     if (figure instanceof Character && (!alive || this.isAlive(figure, acting))) {
       entities.push(figure);
       entities.push(...figure.summons.filter((summon) => !alive || this.isAlive(summon, acting)));
-    } else if (figure instanceof Objective && (!alive || this.isAlive(figure, acting))) {
-      entities.push(figure);
     } else if (figure instanceof Monster) {
       entities.push(...figure.entities.filter((entity) => !alive || this.isAlive(entity, acting)));
     } else if (figure instanceof ObjectiveContainer) {
@@ -92,9 +89,6 @@ export class EntityManager {
     if (entity instanceof Character) {
       return !entity.exhausted && !entity.absent;
     }
-    if (entity instanceof Objective) {
-      return !entity.exhausted;
-    }
 
     if (entity instanceof MonsterEntity) {
       return !entity.dead && !entity.dormant && (!acting || entity.summon != SummonState.new);
@@ -127,7 +121,7 @@ export class EntityManager {
     }
 
     if (entity.health == 0 && !entity.entityConditions.find((condition) => settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && condition.highlight && condition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1)) {
-      if ((entity instanceof Character || entity instanceof Objective) && (!entity.off || !entity.exhausted)) {
+      if ((entity instanceof Character) && (!entity.off || !entity.exhausted)) {
         entity.off = true;
         entity.exhausted = true;
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && !entity.dead) {
@@ -139,7 +133,7 @@ export class EntityManager {
     }
 
     if (entity.health > 0) {
-      if ((entity instanceof Character || entity instanceof Objective) && entity.exhausted) {
+      if (entity instanceof Character && entity.exhausted) {
         entity.off = false;
         entity.exhausted = false;
       } else if ((entity instanceof MonsterEntity || entity instanceof Summon || entity instanceof ObjectiveEntity) && entity.dead) {
@@ -177,7 +171,7 @@ export class EntityManager {
       }
 
       if (entity.health + value > entity.health) {
-        const clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.expired && !this.isImmune(entity, figure, condition.name));
+        const clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.expired && !this.isImmune(entity, figure, condition.name));
         let heal = entity.entityConditions.find((condition) => condition.name == ConditionName.heal);
         if ((clearHeal) && (!heal || heal.expired || !heal.highlight)) {
           if (!heal) {
@@ -187,6 +181,10 @@ export class EntityManager {
           heal.expired = false;
           heal.highlight = true;
           heal.value = value;
+
+          if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsAuto.indexOf(ConditionName.heal) != -1) {
+            this.applyCondition(entity, figure, ConditionName.heal, true);
+          }
         }
       }
     }
@@ -197,9 +195,16 @@ export class EntityManager {
       const ward = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.ward && !this.isImmune(entity, figure, entityCondition.name));
       const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.brittle && !this.isImmune(entity, figure, entityCondition.name));
 
+      let ignorePoison = (!entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.poison && !this.isImmune(entity, figure, entityCondition.name)) || settingsManager.settings.applyConditionsExcludes.indexOf(ConditionName.poison) != -1) && (!entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.poison_x && !this.isImmune(entity, figure, entityCondition.name)) || settingsManager.settings.applyConditionsExcludes.indexOf(ConditionName.poison_x) != -1);
+
       if (value < 0 && ward && !brittle && (entity.health + value - Math.floor(value / 2)) > 0) {
         ward.value = value * -1;
         ward.highlight = true;
+
+        if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsAuto.indexOf(ConditionName.ward) != -1 && ignorePoison) {
+          this.applyCondition(entity, figure, ConditionName.ward, true, true);
+        }
+
       } else if (ward) {
         ward.highlight = false;
       }
@@ -207,6 +212,11 @@ export class EntityManager {
       if (brittle && !ward && value < 0 && (entity.health + value > 0)) {
         brittle.value = value * -1;
         brittle.highlight = true;
+
+        if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsAuto.indexOf(ConditionName.brittle) != -1 && ignorePoison) {
+          this.applyCondition(entity, figure, ConditionName.brittle, true, true);
+        }
+
       } else if (brittle) {
         brittle.highlight = false;
       }
@@ -231,7 +241,7 @@ export class EntityManager {
           shield.value = 0;
 
           if (entity instanceof MonsterEntity && figure instanceof Monster) {
-            let actionHints = gameManager.monsterManager.calcActionHints(figure, entity);
+            let actionHints = gameManager.actionsManager.calcActionHints(figure, entity);
             actionHints.forEach((actionHint) => {
               if (shield && actionHint.type == ActionType.shield) {
                 shield.value += actionHint.value;
@@ -243,9 +253,12 @@ export class EntityManager {
             }
           }
 
-          if (shield.value && (entity.health + value + shield.value) > 0) {
+          if (shield.value && (entity.health + value + shield.value) >= 0) {
             shield.expired = false;
             shield.highlight = true;
+            if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsAuto.indexOf(ConditionName.shield) != -1) {
+              this.applyCondition(entity, figure, ConditionName.shield, true, true);
+            }
           }
         }
       }
@@ -268,33 +281,37 @@ export class EntityManager {
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       const stat = figure.stats.find((monsterStat) => monsterStat.level == entity.level && monsterStat.type == entity.type);
       immune = stat != undefined && stat.immunities != undefined && stat.immunities.indexOf(conditionName) != -1;
-    } else if (figure instanceof Character) {
+    } else if (entity instanceof Character) {
       let immunities: ConditionName[] = [];
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '38')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '38')) {
         immunities.push(ConditionName.stun, ConditionName.muddle);
       }
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '52')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '52')) {
         immunities.push(ConditionName.poison, ConditionName.wound);
       }
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '103')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'gh' && identifier.name == '103')) {
         immunities.push(ConditionName.poison, ConditionName.wound);
       }
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57')) {
         immunities.push(ConditionName.muddle);
       }
-      if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '138')) {
+      if (entity.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '138')) {
         immunities.push(ConditionName.disarm, ConditionName.stun, ConditionName.muddle);
       }
 
-      if (figure.name == 'blinkblade' && figure.edition == 'fh' && figure.progress.perks[10]) {
+      if (entity.name == 'blinkblade' && entity.edition == 'fh' && entity.progress.perks[10]) {
         immunities.push(ConditionName.immobilize);
-      } else if (figure.name == 'coral' && figure.edition == 'fh' && figure.progress.perks[7]) {
+      } else if (entity.name == 'coral' && entity.edition == 'fh' && entity.progress.perks[7]) {
         immunities.push(ConditionName.impair);
-      } else if (figure.name == 'prism' && figure.edition == 'fh' && figure.progress.perks[9]) {
+      } else if (entity.name == 'prism' && entity.edition == 'fh' && entity.progress.perks[9]) {
         immunities.push(ConditionName.wound);
       }
 
       immune = immunities.indexOf(conditionName) != -1;
+    } else if (entity instanceof Summon) {
+      if (entity.tags.indexOf('prism_mode') != -1) {
+        return true;
+      }
     }
 
     if (!immune) {
@@ -345,52 +362,73 @@ export class EntityManager {
     }
 
     entityCondition.permanent = permanent;
+    entityCondition.highlight = false;
   }
 
   removeCondition(entity: Entity, condition: Condition, permanent: boolean = false) {
     entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != condition.name || entityCondition.permanent != permanent);
   }
 
-  applyCondition(entity: Entity, figure: Figure, name: ConditionName, highlight: boolean = false) {
+  applyCondition(entity: Entity, figure: Figure, name: ConditionName, highlight: boolean = false, autoApply: boolean = false) {
     const condition = entity.entityConditions.find((entityCondition) => entityCondition.name == name && !entityCondition.expired && entityCondition.types.indexOf(ConditionType.apply) != -1);
 
     if (condition && !this.isImmune(entity, figure, condition.name)) {
       if (condition.name == ConditionName.poison || condition.name == ConditionName.poison_x) {
         entity.health -= condition.value;
-        condition.highlight = false;
+
+        const ward = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.ward && !this.isImmune(entity, figure, entityCondition.name));
+        const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.brittle && !this.isImmune(entity, figure, entityCondition.name));
+
+        if (ward && !brittle) {
+          ward.value += condition.value;
+        }
+
+        if (brittle && !ward) {
+          brittle.value += condition.value;
+        }
+
         this.checkHealth(entity, figure);
       }
 
       if (condition.name == ConditionName.ward) {
-        entity.health += condition.value;
-        this.checkHealth(entity, figure);
         const value = Math.floor(condition.value / 2);
-        entity.health -= value;
-        const regenerate = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && !entityCondition.permanent && entityCondition.name == ConditionName.regenerate && !this.isImmune(entity, figure, entityCondition.name) && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1);
-        if (regenerate && value > 0) {
-          regenerate.expired = true;
+        if (autoApply) {
+          entity.health += condition.value - value;
+        } else {
+          entity.health += condition.value;
+          if (!autoApply) {
+            this.checkHealth(entity, figure);
+            entity.health -= value;
+            const regenerate = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && !entityCondition.permanent && entityCondition.name == ConditionName.regenerate && !this.isImmune(entity, figure, entityCondition.name) && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1);
+            if (regenerate && value > 0) {
+              regenerate.expired = true;
+            }
+            this.checkHealth(entity, figure);
+          }
         }
         condition.value = 1;
         condition.expired = true;
-        condition.highlight = false;
-        this.checkHealth(entity, figure);
       }
 
       if (condition.name == ConditionName.brittle) {
-        entity.health += condition.value;
-        this.checkHealth(entity, figure);
-        entity.health -= condition.value * 2;
+        if (autoApply) {
+          entity.health -= condition.value;
+        } else {
+          entity.health += condition.value;
+          this.checkHealth(entity, figure);
+          entity.health -= condition.value * 2;
+          this.checkHealth(entity, figure);
+        }
         condition.value = 1;
         condition.expired = true;
-        condition.highlight = false;
-        this.checkHealth(entity, figure);
       }
 
       if (condition.name == ConditionName.shield) {
         entity.health += condition.value;
+        if (!autoApply) {
+          this.checkHealth(entity, figure);
+        }
         condition.expired = true;
-        condition.highlight = false;
-        this.checkHealth(entity, figure);
       }
 
       if (condition.name == ConditionName.heal) {
@@ -399,26 +437,28 @@ export class EntityManager {
           entity.health -= condition.value;
         }
 
-        let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
+        let clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired);
         while (clearHeal) {
           clearHeal.lastState = clearHeal.state;
           clearHeal.state = EntityConditionState.expire;
           clearHeal.expired = true;
-          clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.permanent && !condition.expired);
-        }
-        if (highlight) {
-          condition.highlight = true;
+          clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired);
         }
 
         if (!preventHeal && entity.health - condition.value >= EntityValueFunction(entity.maxHealth)) {
           condition.highlight = false;
         }
-
         this.checkHealth(entity, figure);
+        condition.expired = true;
+      }
+
+      if (highlight && settingsManager.settings.animations) {
+        condition.highlight = true;
         setTimeout(() => {
-          condition.expired = !condition.permanent;
           condition.highlight = false;
-        }, highlight ? 1000 : 0);
+        }, 1000);
+      } else {
+        condition.highlight = false;
       }
 
       if (condition.permanent) {
@@ -437,18 +477,6 @@ export class EntityManager {
           condition.expired = true;
         }
         if (condition.name == ConditionName.shield) {
-          condition.expired = true;
-        }
-
-        if (condition.name == ConditionName.ward) {
-          const regenerate = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && !entityCondition.permanent && entityCondition.name == ConditionName.regenerate && !this.isImmune(entity, figure, entityCondition.name));
-          if (regenerate && condition.value > 0) {
-            regenerate.expired = true;
-          }
-        }
-
-        if (condition.name == ConditionName.ward || condition.name == ConditionName.brittle) {
-          condition.value = 1;
           condition.expired = true;
         }
       }
@@ -710,8 +738,6 @@ export class EntityManager {
       infos.push(prefix + ".char", gameManager.characterManager.characterName(entity))
     } else if (entity instanceof Summon && figure instanceof Character) {
       infos.push(prefix + ".summon", gameManager.characterManager.characterName(figure), "data.summon." + entity.name)
-    } else if (entity instanceof Objective) {
-      infos.push(prefix + ".objective", entity.title || entity.name)
     } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity) {
       infos.push(prefix + ".objectiveContainer", figure.title || figure.name && 'data.objective.' + figure.name || figure.escort ? 'escort' : 'objective', "" + entity.number)
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {

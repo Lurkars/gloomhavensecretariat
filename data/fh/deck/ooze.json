@@ -176,7 +176,16 @@
         },
         {
           "type": "summon",
-          "value": "ooze:normal:1:H",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "ooze",
+                "type": "normal",
+                "health": "H"
+              }
+            }
+          ],
           "small": true,
           "subActions": [
             {
@@ -189,6 +198,7 @@
       ]
     },
     {
+      "name": "Split",
       "cardId": 872,
       "initiative": 94,
       "shuffle": true,
@@ -199,7 +209,16 @@
         },
         {
           "type": "summon",
-          "value": "ooze:normal:1:H",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "ooze",
+                "type": "normal",
+                "health": "H"
+              }
+            }
+          ],
           "small": true,
           "subActions": [
             {

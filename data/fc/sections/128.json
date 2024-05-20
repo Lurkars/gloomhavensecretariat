@@ -8,9 +8,6 @@
       "66"
     ]
   ],
-  "monsters": [
-    "the-husk-section-128"
-  ],
   "rules": [
     {
       "round": "true",
@@ -25,7 +22,8 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "loseCondition",
           "value": "wound"
@@ -34,7 +32,8 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "loseCondition",
           "value": "muddle"
@@ -43,7 +42,8 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "loseCondition",
           "value": "poison"
@@ -52,19 +52,62 @@
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
           "type": "setHp",
           "value": "HP/4"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fc",
+          "scenario": "111",
+          "index": 2,
+          "section": false
         },
+        {
+          "edition": "fc",
+          "scenario": "66",
+          "index": 2,
+          "section": true
+        }
+      ],
+      "alwaysApply": true,
+      "statEffects": [
         {
           "identifier": {
             "type": "monster",
             "edition": "fc",
-            "name": "the-husk-section-66"
+            "name": "aesther-ashblade",
+            "tag": "the-husk"
           },
-          "type": "transfer",
-          "value": "the-husk-section-128"
+          "statEffect": {
+            "name": "the-husk",
+            "health": "[HxC]",
+            "attack": "[A+3]",
+            "actions": [
+              {
+                "type": "shield",
+                "value": 2
+              },
+              {
+                "type": "custom",
+                "value": "%data.scenario.rules.fc.111.2%"
+              }
+            ],
+            "immunities": [
+              "stun",
+              "disarm",
+              "immobilize"
+            ],
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fc.111.4%"
         }
       ]
     }

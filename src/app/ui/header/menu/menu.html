@@ -77,11 +77,9 @@
     <div class="line">
       <a tabclick (click)="setActive(SubMenu.settings)"><span [ghs-label]="'settings'"></span></a>
     </div>
-    <ng-container *ngIf="!standalone">
-      <div class="line">
-        <a tabclick (click)="setActive(SubMenu.datamanagement)"><span [ghs-label]="'datamanagement'"></span></a>
-      </div>
-    </ng-container>
+    <div class="line">
+      <a tabclick (click)="setActive(SubMenu.datamanagement)"><span [ghs-label]="'datamanagement'"></span></a>
+    </div>
 
     <div class="separator"></div>
     <div class="line">
@@ -102,13 +100,6 @@
 
     <div class="separator"></div>
 
-    <div class="line" *ngIf="standalone">
-
-      <a tabclick [routerLink]="'/'" (click)="close()"><img class="ghs-svg" src="./assets/images/left.svg">&nbsp;
-        <span [ghs-label]="'tools.backToGhs'"></span>
-      </a>
-    </div>
-
     <div class="line" *ngIf="gameManager.stateManager.installPrompt">
       <a class="install" (click)="gameManager.stateManager.install()"> <img class="ghs-svg"
           src="./assets/images/install.svg"> <span [ghs-label]="'app.install'"></span></a>
@@ -121,7 +112,14 @@
     </div>
 
     <div class="line">
-      <a tabclick (click)="keyboardShourtcutsDialog()" [ghs-tooltip]="'tools.keyboard'"><img class="ghs-svg" src="./assets/images/keyboard.svg">
+      <a tabclick (click)="keyboardShourtcutsDialog()" [ghs-tooltip]="'tools.keyboard'"><img class="ghs-svg"
+          src="./assets/images/keyboard.svg">
+      </a>
+    </div>
+
+    <div class="line" *ngIf="standalone">
+      <a tabclick [routerLink]="'/'" (click)="close()"><img class="ghs-svg" src="./assets/images/left.svg">&nbsp;
+        <span [ghs-label]="'tools.backToGhs'"></span>
       </a>
     </div>
 
@@ -188,9 +186,6 @@
         <span *ngIf="objective.title || objective.name">(</span>
         <span [ghs-label]="(objective.escort ? 'escort' : 'objective')"></span>
         <span *ngIf="objective.name">)</span>
-        <span class="spacer"></span>
-        <span class="objective-marker"
-          *ngIf="gameManager.isObjective(objective)">{{gameManager.toObjective(objective).id + 1}}</span>
       </a>
     </div>
   </div>
@@ -211,6 +206,11 @@
           gameManager.getEdition(monster)"></span>]</span>
       </a>
     </div>
+    <div class="line" *ngIf="hasUnusedMonster()">
+      <a (click)="removeAllMonsters(true)">
+        &lt;<span [ghs-label]="'monster.removeUnused'"></span>&gt;
+      </a>
+    </div>
   </div>
 
   <ghs-settings-menu *ngSwitchCase="SubMenu.settings" (setMenu)="setActive($event)"></ghs-settings-menu>
@@ -220,6 +220,8 @@
   <ghs-server-menu *ngSwitchCase="SubMenu.server"></ghs-server-menu>
 
   <ghs-datamanagement-menu *ngSwitchCase="SubMenu.datamanagement"></ghs-datamanagement-menu>
+
+  <ghs-datamanagement-menu *ngSwitchCase="SubMenu.editions" [editionsOnly]="true"></ghs-datamanagement-menu>
 
   <div *ngSwitchCase="SubMenu.about" class="menu-container about">
     <div class="line">
@@ -265,7 +267,7 @@
   </div>
 </div>
 
-<div class="back" *ngIf="active != SubMenu.main" tabclick (click)="setActive(SubMenu.main)" [ghs-label]="'menu.backToMain'"
-  [ghs-label-attribute]="'title'">
+<div class="back" *ngIf="active != SubMenu.main" tabclick (click)="setActive(SubMenu.main)"
+  [ghs-label]="'menu.backToMain'" [ghs-label-attribute]="'title'">
   <img class="ghs-svg" src="./assets/images/left.svg">
 </div>

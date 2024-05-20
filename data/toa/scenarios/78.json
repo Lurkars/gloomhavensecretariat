@@ -3,10 +3,8 @@
   "name": "Ternion Tomb",
   "edition": "toa",
   "monsters": [
-    "ancient-artillery",
     "cultist",
-    "living-bones",
-    "stone-golem"
+    "living-bones"
   ],
   "rooms": [
     {

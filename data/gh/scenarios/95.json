@@ -1,11 +1,13 @@
 {
   "index": "95",
   "name": "Payment Due",
+  "flowChartGroup": "city-events",
   "coordinates": {
-    "x": 1800.0999755859375,
+    "x": 1800,
     "y": 915,
     "width": 166,
-    "height": 148
+    "height": 148,
+    "gridLocation": "G-12"
   },
   "edition": "gh",
   "requires": [

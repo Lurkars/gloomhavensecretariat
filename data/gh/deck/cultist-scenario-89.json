@@ -138,7 +138,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "giant-viper:elite"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "giant-viper",
+                "type": "elite"
+              }
+            }
+          ]
         },
         {
           "type": "sufferDamage",
@@ -154,7 +162,15 @@
       "actions": [
         {
           "type": "summon",
-          "value": "giant-viper:elite"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "giant-viper",
+                "type": "elite"
+              }
+            }
+          ]
         },
         {
           "type": "sufferDamage",

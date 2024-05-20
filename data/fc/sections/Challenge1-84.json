@@ -11,54 +11,106 @@
   ],
   "marker": "2",
   "monsters": [
-    "earth-demon",
-    "elham",
-    "flame-demon",
-    "frost-demon",
-    "icestorm-guardian-of-the-firmament",
-    "lavaflow-guardian-of-the-firmament",
-    "wind-demon"
+    "aesther-ashblade",
+    "savvas-icestorm",
+    "savvas-lavaflow"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "aesther-ashblade"
+          },
+          "statEffect": {
+            "name": "elham",
+            "actions": [
+              {
+                "type": "custom",
+                "value": "%game.custom.advantage%"
+              }
+            ],
+            "immunities": [
+              "stun"
+            ]
+          },
+          "note": "%data.section.rules.fc.84.1%"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "savvas-.*"
+          },
+          "statEffect": {
+            "name": "guardian-of-the-firmament",
+            "actions": [
+              {
+                "type": "custom",
+                "value": "%game.custom.advantage%"
+              }
+            ],
+            "immunities": [
+              "stun"
+            ]
+          },
+          "note": "%data.section.rules.fc.84.2%"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": []
+    }
   ],
   "rooms": [
     {
       "roomNumber": 4,
       "ref": "-3",
+      "initial": true,
       "treasures": [
         89
       ],
       "monster": [
         {
-          "name": "elham",
+          "name": "aesther-ashblade",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "icestorm-guardian-of-the-firmament",
+          "name": "savvas-icestorm",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "icestorm-guardian-of-the-firmament",
+          "name": "savvas-icestorm",
           "player3": "normal"
         },
         {
-          "name": "icestorm-guardian-of-the-firmament",
+          "name": "savvas-icestorm",
           "player4": "normal"
         },
         {
-          "name": "lavaflow-guardian-of-the-firmament",
+          "name": "savvas-lavaflow",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "lavaflow-guardian-of-the-firmament",
+          "name": "savvas-lavaflow",
           "player3": "normal"
         },
         {
-          "name": "lavaflow-guardian-of-the-firmament",
+          "name": "savvas-lavaflow",
           "player4": "normal"
         }
       ]

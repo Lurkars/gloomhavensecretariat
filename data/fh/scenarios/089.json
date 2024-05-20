@@ -1,6 +1,14 @@
 {
   "index": "89",
   "name": "A Contained Fire",
+  "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1568.5,
+    "y": 1260,
+    "width": 79,
+    "height": 106,
+    "gridLocation": "G10"
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {

@@ -1,6 +1,7 @@
 {
   "index": "17",
   "name": "Orb Extraction",
+  "flowChartGroup": "intro",
   "edition": "cs",
   "unlocks": [
     "18"

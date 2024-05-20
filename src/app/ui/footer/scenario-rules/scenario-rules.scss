@@ -6,6 +6,7 @@
   text-align: center;
 
   .hide {
+    position: relative;
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
     color: var(--ghs-color-darkgray);
     cursor: pointer;
@@ -135,10 +136,20 @@
       }
     }
 
+    .stat-effects {
+      .text {
+        margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) 0;
+      }
+    }
+
     p {
       margin: 0;
       padding: 0;
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+    }
+
+    .dialog-container {
+      padding-bottom: 0;
     }
 
     .menu {
@@ -155,6 +166,7 @@
         align-items: center;
         z-index: 1;
         flex-grow: 1;
+        padding-bottom: calc(var(--ghs-unit) * 2);
 
         &:hover {
           opacity: 0.7;
@@ -178,10 +190,10 @@
 
     .close {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: calc(var(--ghs-unit) * 2);
+      left: calc(var(--ghs-unit) * 2);
+      right: calc(var(--ghs-unit) * 2);
+      bottom: calc(var(--ghs-unit) * 2);
       z-index: 0;
       cursor: zoom-out;
     }

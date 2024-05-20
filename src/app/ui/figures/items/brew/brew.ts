@@ -34,7 +34,7 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
     constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
         this.brewing = 0;
         if (gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings) {
-            const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist' && buildingModel.state != 'wrecked');
+            const alchemist = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist');
             if (alchemist && alchemist.level) {
                 this.brewing = alchemist.level < 3 ? 2 : 3;
             }
@@ -117,22 +117,24 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
         target[type] = (target[type] || 0) + 1;
     }
 
-    brew() {
-        this.brewed = this.getItem();
-        if (this.brewed) {
-            if (this.otherCharacter) {
-                this.brewInternal(this.otherCharacter, this.brewed);
-            } else if (this.character.progress.items.find((identifier) => this.brewed && identifier.name == '' + this.brewed.id && identifier.edition == this.brewed.edition)) {
-                this.otherCharacters = gameManager.game.figures.filter((figure) => figure instanceof Character && figure != this.character && !figure.progress.items.find((identifier) => this.brewed && identifier.name == '' + this.brewed.id && identifier.edition == this.brewed.edition)).map((figure) => figure as Character);
-                this.noChar = this.otherCharacters.length == 0;
-                if (this.otherCharacters.length == 1) {
-                    this.otherCharacter = this.otherCharacters[0];
+    brew(force: boolean = false) {
+        if (!gameManager.itemManager.brewingDisabled() || force) {
+            this.brewed = this.getItem();
+            if (this.brewed) {
+                if (this.otherCharacter) {
+                    this.brewInternal(this.otherCharacter, this.brewed);
+                } else if (this.character.progress.items.find((identifier) => this.brewed && identifier.name == '' + this.brewed.id && identifier.edition == this.brewed.edition)) {
+                    this.otherCharacters = gameManager.game.figures.filter((figure) => figure instanceof Character && figure != this.character && !figure.progress.items.find((identifier) => this.brewed && identifier.name == '' + this.brewed.id && identifier.edition == this.brewed.edition)).map((figure) => figure as Character);
+                    this.noChar = this.otherCharacters.length == 0;
+                    if (this.otherCharacters.length == 1) {
+                        this.otherCharacter = this.otherCharacters[0];
+                    }
+                } else {
+                    this.brewInternal(this.character, this.brewed);
+                    this.otherCharacters = [];
+                    this.otherCharacter = undefined;
+                    this.noChar = false;
                 }
-            } else {
-                this.brewInternal(this.character, this.brewed);
-                this.otherCharacters = [];
-                this.otherCharacter = undefined;
-                this.noChar = false;
             }
         }
     }

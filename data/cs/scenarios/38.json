@@ -1,6 +1,7 @@
 {
   "index": "38",
   "name": "Altars of Confusion",
+  "flowChartGroup": "personal-quests",
   "edition": "cs",
   "rewards": {
     "envelopes": [

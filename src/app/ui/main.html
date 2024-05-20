@@ -2,7 +2,7 @@
 <main [ngClass]="{'compact' : footer.compact, 'modern' : settingsManager.settings.theme == 'modern'}"
   ghs-keyboard-shortcuts [header]="header" [footer]="footer">
   <div
-    *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword"
+    *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode"
     class="dialog blocked">
     <div class="dialog-container">
       <span [ghs-label]="'server.blocked'"></span>
@@ -33,8 +33,9 @@
       <img class="ghs-svg" src="./assets/images/install.svg"> <span [ghs-label]="'app.install'"></span></a>
 
     <h2><span [ghs-label]="'welcome'"></span></h2>
-    <div class="choose-edition" *ngIf="!gameManager.game.edition">
-      <p><span [ghs-label]="'welcome.chooseEdition'"></span></p>
+
+    <div class="container-row bordered" *ngIf="!gameManager.game.edition">
+      <p [ghs-label]="'welcome.chooseEdition'"></p>
       <div class="editions">
         <a tabclick class="edition" *ngFor="let editionData of gameManager.editionsData()"
           (click)="startCampaign(editionData.edition)">
@@ -43,13 +44,39 @@
           <span class="text" *ngIf="!editionData.logoUrl"><span
               [ghs-label]="'data.edition.' + editionData.edition"></span></span>
         </a>
+
+        <a *ngIf="!gameManager.game.edition && this.welcomeOtherEditions" tabclick
+          class="edition add-additional-content" (click)="header.openMenu(SubMenu.editions)">
+          <img class="ghs-svg" src="./assets/images/plus.svg"> <span [ghs-label]="'hints.addAdditionalContent'"></span>
+        </a>
       </div>
     </div>
-    <p *ngIf="!gameManager.game.edition"><span [ghs-label]="'welcome.orChooseCharacters'"></span></p>
-    <p *ngIf="gameManager.game.edition"><span [ghs-label]="'welcome.chooseCharacters'"></span></p>
-    <div tabclick class="add-characters" (click)="header.openMenu(SubMenu.character_add)">
-      <span [ghs-label]="'hints.addCharacters'"></span>
+
+    <div class="container-row bordered"
+      *ngIf="gameManager.game.edition && gameManager.editionLogo(gameManager.game.edition)">
+      <div class="editions">
+        <a tabclick class="edition" (click)="cancelCampaign(gameManager.game.edition)">
+          <img [src]="gameManager.editionLogo(gameManager.game.edition)"
+            [ghs-label]="'data.edition.' + gameManager.game.edition" [ghs-label-attribute]="'title'">
+        </a>
+      </div>
     </div>
+
+    <div class="container-row bordered">
+      <p *ngIf="!gameManager.game.edition" [ghs-label]="'welcome.orChooseCharacters'"></p>
+      <p *ngIf="gameManager.game.edition" [ghs-label]="'welcome.chooseCharacters'"></p>
+      <a tabclick class="add-characters" (click)="header.openMenu(SubMenu.character_add)">
+        <span [ghs-label]="'hints.addCharacters'"></span>
+      </a>
+    </div>
+
+    <div class="container-row settings">
+      <p [ghs-label]="'welcome.settings.text'"></p>
+      <a tabclick class="settings-menu" (click)="header.openMenu(SubMenu.settings)">
+        <span [ghs-label]="'welcome.settings'"></span>
+      </a>
+    </div>
+
 
     <ng-container *ngIf="loading">
       <span><span [ghs-label]="'app.loading'"></span></span>
@@ -70,13 +97,13 @@
       (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20" (cdkDropListEntered)="entered($event)"
       (cdkDropListExited)="exited($event)"
       [cdkDropListDisabled]="!settingsManager.settings.dragFigures || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
-      [ngClass]="{'column' : columns > 1, 'column-left' : columns > 1 && i < columnSize, 'column-right' : columns > 1 && i >= columnSize, 'last' : i == columnSize - 1 || i == figures.length - 1}">
+      [ngClass]="{'last' : grid.indexOf(i+1) != -1 && grid.indexOf(i+1) != grid.length -1 || i == figures.length - 1, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'}">
 
       <div cdkDrag #figureDrag [cdkDragStartDelay]="isTouch ? 450 : 0" [ngClass]="{'enabled' : draggingEnabled}"
         (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
 
         <div cdkDragHandle class="handle"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'objective-container' : gameManager.isObjectiveContainer(figure),'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent, 'compact' : gameManager.isCharacter(figure) && settingsManager.settings.characterCompact}"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective-container' : gameManager.isObjectiveContainer(figure),'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent, 'compact' : gameManager.isCharacter(figure) && settingsManager.settings.characterCompact}"
           *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters"
           ghs-pointer-input [clickBehind]="true">
         </div>
@@ -85,14 +112,12 @@
         </ghs-character>
         <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)">
         </ghs-monster>
-        <ghs-objective [objective]="gameManager.toObjective(figure)" *ngIf="gameManager.isObjective(figure)">
-        </ghs-objective>
         <ghs-objective-container [objective]="gameManager.toObjectiveContainer(figure)"
           *ngIf="gameManager.isObjectiveContainer(figure)">
         </ghs-objective-container>
 
         <div cdkDragHandle class="handle right"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent, 'compact' : gameManager.isCharacter(figure) && settingsManager.settings.characterCompact}"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective-container' : gameManager.isObjectiveContainer(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard, 'permanent-am' : gameManager.isCharacter(figure) && gameManager.toCharacter(figure).attackModifierDeckVisible && settingsManager.settings.characterAttackModifierDeckPermanent, 'compact' : gameManager.isCharacter(figure) && settingsManager.settings.characterCompact}"
           *ngIf=" !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
           gameManager.stateManager.permissions.monsters" ghs-pointer-input [clickBehind]="true">
         </div>
@@ -112,7 +137,8 @@
   </div>
   <div class="dialog backup-hint" *ngIf="showBackupHint">
     <div class="dialog-container">
-      <div class="hide" (click)="settingsManager.setBackupHint(false)"><span [ghs-label]="'datamanagement.backup.download.hint.hide'"></span>
+      <div class="hide" (click)="settingsManager.set('backupHint', false)"><span
+          [ghs-label]="'datamanagement.backup.download.hint.hide'"></span>
         <img src="./assets/images/close.svg">
       </div>
       <h2 [ghs-label]="'datamanagement.backup'"></h2>

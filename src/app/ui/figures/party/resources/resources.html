@@ -1,32 +1,35 @@
 <div class="resources-dialog">
-    <div class="table" [style.--ghs-resource-columns]="3 + characters.length">
-        <span class="head-col first"></span>
-        <span class="first">
-            <span [ghs-label]="'party.campaign.sheet.supply'"></span>
-        </span>
-        <span class="first" *ngFor="let character of characters; let index = index;">
-            <img class="icon character-icon" [src]="character.iconUrl" />
-            <span class="name">
-                {{gameManager.characterManager.characterName(character,true)}}
-            </span>
-        </span>
-        <span class="first">
-            <span [ghs-label]="'party.campaign.sheet.supply.total'"></span>
-        </span>
-
-        <ng-container *ngFor="let lootType of lootColumns; let i = index">
-            <span class="head-col">
-                <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'">
-            </span>
-            <span>
-                <span class="loot">{{(gameManager.game.party.loot[lootType] || '-')}}</span>
-            </span>
-            <span *ngFor="let character of characters; let index = index;">
-                <span class="loot">{{(character.progress.loot[lootType] || '-')}}</span>
-            </span>
-            <span>
-                <span class="loot" [ngClass]="{'total' : total[lootType]}">{{(total[lootType] || '-')}}</span>
-            </span>
-        </ng-container>
+    <div class="scroll-container">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><span [ghs-label]="'party.campaign.sheet.supply'"></span></th>
+                    <th *ngFor="let character of characters">
+                        <span class="character">
+                            <img class="icon character-icon" [src]="character.iconUrl" />
+                            <span class="name">
+                                {{gameManager.characterManager.characterName(character,true)}}
+                            </span>
+                        </span>
+                    </th>
+                    <th>
+                        <span [ghs-label]="'party.campaign.sheet.supply.total'"></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let lootType of lootColumns; let i = index">
+                    <th><img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'"></th>
+                    <td><span class="loot">{{(gameManager.game.party.loot[lootType] || '-')}}</span></td>
+                    <td *ngFor="let character of characters">
+                        <span class="loot">{{(character.progress.loot[lootType] || '-')}}</span>
+                    </td>
+                    <td>
+                        <span class="loot" [ngClass]="{'total' : total[lootType]}">{{(total[lootType] || '-')}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

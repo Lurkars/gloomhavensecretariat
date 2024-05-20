@@ -18,6 +18,22 @@
         color: var(--ghs-color-white);
         text-shadow: var(--ghs-outline);
         margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+        .brewing-disabled {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-white);
+            margin: 0.5em;
+
+            img {
+                margin: 0 0.2em;
+                height: 1em;
+                width: auto;
+                filter: var(--ghs-filter-red);
+            }
+        }
     }
 
     .table {
@@ -263,6 +279,15 @@
 
             &.disabled {
                 pointer-events: none;
+                color: var(--ghs-color-gray);
+
+                .ghs-svg {
+                    filter: var(--ghs-filter-gray) !important;
+                }
+            }
+
+            &.unavailable {
+                cursor: initial;
                 color: var(--ghs-color-gray);
 
                 .ghs-svg {

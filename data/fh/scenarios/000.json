@@ -1,6 +1,15 @@
 {
   "index": "0",
   "name": "Howling in the Snow",
+  "flowChartGroup": "intro",
+  "errata": "section197-1",
+  "coordinates": {
+    "x": 803.5,
+    "y": 878,
+    "width": 143,
+    "height": 117,
+    "gridLocation": "N6"
+  },
   "edition": "fh",
   "complexity": 1,
   "initial": true,
@@ -8,7 +17,7 @@
     "1"
   ],
   "monsters": [
-    "hound-scenario-0"
+    "hound"
   ],
   "lootDeckConfig": {
     "money": 8,
@@ -16,6 +25,26 @@
     "metal": 2,
     "hide": 2
   },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "hound"
+          },
+          "statEffect": {
+            "deck": "hound-scenario-0"
+          },
+          "note": "%data.scenario.rules.fh.0%"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -23,22 +52,22 @@
       "initial": true,
       "monster": [
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "type": "normal"
         },
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "player2": "normal",
           "player3": "elite",
           "player4": "normal"
         },
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "player3": "elite",
           "player4": "normal"
         },
         {
-          "name": "hound-scenario-0",
+          "name": "hound",
           "player4": "normal"
         }
       ]

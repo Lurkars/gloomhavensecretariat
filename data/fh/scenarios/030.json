@@ -1,6 +1,14 @@
 {
   "index": "30",
   "name": "War of the Spire B",
+  "flowChartGroup": "algox-2",
+  "coordinates": {
+    "x": 1801,
+    "y": 1067.75,
+    "width": 101,
+    "height": 86,
+    "gridLocation": "E8"
+  },
   "edition": "fh",
   "complexity": 2,
   "blocks": [
@@ -13,7 +21,7 @@
     "custom": "Remove all %game.action.custom.fh-algox% events from all outpost event decks",
     "morale": 3,
     "campaignSticker": [
-      "Destroyer of the Snowspeakers"
+      "destroyer-of-the-snowspeakers"
     ],
     "calendarSection": [
       "34.2-5"

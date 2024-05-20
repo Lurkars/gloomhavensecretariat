@@ -90,7 +90,13 @@
             "effects": [
               {
                 "type": "heal",
-                "value": 3
+                "value": 3,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
               },
               {
                 "type": "condition",
@@ -314,6 +320,5 @@
         }
       ]
     }
-  ],
-  "additionalModifier": []
+  ]
 }

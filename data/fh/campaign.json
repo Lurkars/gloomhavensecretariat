@@ -19,8 +19,8 @@
         "unfettered-allies",
         "unfettered-deactivated"
     ],
-    "highMorale": "161.3",
-    "lowMorale": "126.1",
+    "highMorale": ["161.3"],
+    "lowMorale": ["126.1", "155.3", "175.2"],
     "lootSpecial1Sections": [
         "43.3",
         "133.4",

@@ -1,11 +1,13 @@
 {
   "index": "69",
   "name": "Well of the Unfortunate",
+  "flowChartGroup": "random-scenarios",
   "coordinates": {
-    "x": 1154.6999969482422,
+    "x": 1154.75,
     "y": 777,
     "width": 226,
-    "height": 183
+    "height": 183,
+    "gridLocation": "F-8"
   },
   "edition": "gh",
   "random": true,

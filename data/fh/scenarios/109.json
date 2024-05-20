@@ -1,6 +1,14 @@
 {
   "index": "109",
   "name": "Furious Factory",
+  "flowChartGroup": "random-scenarios",
+  "coordinates": {
+    "x": 1837,
+    "y": 1153.25,
+    "width": 155,
+    "height": 88,
+    "gridLocation": "C8"
+  },
   "edition": "fh",
   "complexity": 3,
   "random": true,
@@ -22,6 +30,13 @@
   "monsters": [
     "ancient-artillery"
   ],
+  "objectives": [
+    {
+      "name": "Metal Cabinet",
+      "health": "(2+L)xC/2",
+      "marker": "b"
+    }
+  ],
   "lootDeckConfig": {
     "money": 11,
     "lumber": 2,
@@ -42,7 +57,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Metal Cabinet"
+            "name": "Metal Cabinet",
+            "marker": "b"
           },
           "type": "killed",
           "value": "4"

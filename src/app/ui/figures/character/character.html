@@ -13,7 +13,7 @@
 </div>
 
 <div class="character" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'compact': compact, 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && (settingsManager.settings.theme == 'modern' || compact) }">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : settingsManager.settings.characterSheet &&settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'compact': compact, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern', 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && (settingsManager.settings.theme == 'modern' || compact) }">
 
   <ghs-entity-index-key [entity]="character"></ghs-entity-index-key>
 
@@ -34,7 +34,7 @@
     <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
 
     <div
-      *ngIf="settingsManager.settings.characterAttackModifierDeck && !settingsManager.settings.characterAttackModifierDeckPermanent"
+      *ngIf="settingsManager.settings.characterSheet && settingsManager.settings.characterAttackModifierDeck && !settingsManager.settings.characterAttackModifierDeckPermanent"
       class="attack-modifierdeck-container" [ngClass]="{'active' : character.attackModifierDeckVisible}">
       <div class="scroll-container">
         <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
@@ -81,34 +81,25 @@
           </span>
 
           <span class="actions" *ngIf="settingsManager.settings.characterShieldRetaliate">
-            <span class="action" *ngIf="character.shield" ghs-pointer-input (doubleClick)="removeShield()">
-              <!--
-              <span class="shield-overlay">
-                <span class="text-white" [ghs-label]="'%game.card.round%'"></span>
-              </span>
-              -->
+            <span class="action" *ngIf="character.shield" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+              (doubleClick)="removeShield()">
               <ghs-action [action]="character.shield" [style]="'fh'"></ghs-action>
             </span>
             <span class="action" *ngFor="let retaliate of character.retaliate; let i = index;" ghs-pointer-input
-              (doubleClick)="removeRetaliate(i)">
-              <!--
-              <span class="shield-overlay">
-                <span class="text-white" [ghs-label]="'%game.card.round%'"></span>
-              </span>
-              -->
+              (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliate(i)">
               <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
             </span>
 
             <span class="action" *ngIf="character.shieldPersistent" ghs-pointer-input
-              (doubleClick)="removeShieldPersistent()">
-              <span class="shield-overlay">
+              (singleClick)="openEntityMenu($event)" (doubleClick)="removeShieldPersistent()">
+              <span class="action-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
               </span>
               <ghs-action [action]="character.shieldPersistent" [style]="'fh'"></ghs-action>
             </span>
             <span class="action" *ngFor="let retaliatePersistent of character.retaliatePersistent; let i = index;"
-              ghs-pointer-input (doubleClick)="removeRetaliatePersistent(i)">
-              <span class="shield-overlay">
+              ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliatePersistent(i)">
+              <span class="action-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
               </span>
               <ghs-action [action]="retaliatePersistent" [style]="'fh'"></ghs-action>
@@ -137,14 +128,22 @@
             <div class="health" *ngIf="!settingsManager.settings.hideCharacterHP" [ghs-label]="'game.health'"
               [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragHpMove($event)"
               (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
-              (singleClick)="openEntityMenu($event)" (doubleClick)="compact && openCharacterSheet()">
-              <img src="./assets/images/status/health.svg" />
-              {{(character.health + health) | ghsMinZero}}/{{character.maxHealth}}
-              <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
+              (singleClick)="openEntityMenu($event)" (doubleClick)="toggleDamageHP()">
+              <img [ngClass]="{'damage' : settingsManager.settings.damageHP}"
+                [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
+              <span *ngIf="!settingsManager.settings.damageHP">
+                {{(character.health + health) | ghsMinZero}}/{{character.maxHealth}}
+              </span>
+              <span *ngIf="settingsManager.settings.damageHP">
+                {{character.maxHealth}}/{{character.maxHealth - (character.health + health) | ghsMinZero}}
+              </span>
+              <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
+                [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
             </div>
             <div class="markers">
-              <span class="marker" *ngFor="let marker of character.markers;">
-                <img src="./assets/images/character/icons/{{marker}}.svg" />
+              <span class="marker" *ngFor="let marker of character.markers;" ghs-pointer-input
+                (doubleClick)="removeMarker(marker)">
+                <img [src]="gameManager.characterManager.characterIcon(marker)" />
               </span>
             </div>
 
@@ -197,20 +196,20 @@
         <span class="badge">{{character.lootCards.length}}</span>
       </div>
 
-      <span *ngIf="settingsManager.settings.characterAttackModifierDeck" class="attack-modifier-button"
-        ghs-pointer-input (singleClick)="toggleAttackModifierDeckVisible()" [ghs-label]="'game.attackModifiers'"
-        [ghs-label-attribute]="'title'">
+      <span *ngIf="settingsManager.settings.characterSheet && settingsManager.settings.characterAttackModifierDeck"
+        class="attack-modifier-button" ghs-pointer-input (singleClick)="toggleAttackModifierDeckVisible()"
+        [ghs-label]="'game.attackModifiers'" [ghs-label-attribute]="'title'">
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
 
       <span class="attack-modifier-draw" [ngClass]="{'drawing': amAnimationDrawing}"
-        *ngIf="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate && !character.attackModifierDeckVisible && (!settingsManager.settings.characterAttackModifierDeckPermanentActive || !character.active)">
+        *ngIf="settingsManager.settings.characterSheet && settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate && !character.attackModifierDeckVisible && (!settingsManager.settings.characterAttackModifierDeckPermanentActive || !character.active)">
         <ghs-attackmodifier-draw [character]="character"
           (drawing)="amAnimationDrawing = $event"></ghs-attackmodifier-draw>
       </span>
 
       <div
-        *ngIf="gameManager.game.scenario && settingsManager.settings.battleGoals && (gameManager.roundManager.firstRound || settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterAttackModifierDeck)"
+        *ngIf="gameManager.game.scenario && settingsManager.settings.battleGoals && (gameManager.roundManager.firstRound || settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck)"
         class="battlegoals-button" ghs-pointer-input (singleClick)="openBattleGoals()" [ghs-label]="'game.battleGoals'"
         [ghs-label-attribute]="'title'">
         <img
@@ -287,8 +286,9 @@
 
     <div class="special-actions" *ngIf="character.specialActions">
       <ng-container *ngFor="let specialAction of character.specialActions">
-        <span *ngIf="character.tags.indexOf(specialAction.name) != -1" class="special-tag"
-          [ghs-label]="'data.character.' + character.name + '.' + specialAction.name"></span>
+        <span *ngIf="character.tags.indexOf(specialAction.name) != -1" class="special-tag text-white"
+          [ghs-label]="'data.character.' + character.name + '.' + specialAction.name" ghs-pointer-input
+          (singleClick)="openEntityMenu($event)" (doubleClick)="removeSpecialAction(specialAction.name)"></span>
       </ng-container>
     </div>
   </div>
@@ -303,7 +303,7 @@
 </div>
 
 <div
-  *ngIf="settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent"
+  *ngIf="settingsManager.settings.characterSheet && settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierDeckPermanent"
   class="attack-modifierdeck-container permanent"
   [ngClass]="{'active' : character.attackModifierDeckVisible || settingsManager.settings.characterAttackModifierDeckPermanentActive && character.active }">
   <div class="scroll-container">

@@ -41,18 +41,32 @@
               {{objective.title}}</span>
             <span *ngIf="!objective.title" [ghs-label]="objective.name ? ('data.objective.' + objective.name) :
           (objective.escort ? 'escort' : 'objective')"></span>
-          <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
+            <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
           </div>
         </div>
         <div class="status-bar">
-          <div class="health" ghs-pointer-input (singleClick)="openEntityMenu($event)" (dragMove)="dragHpMove($event)"
-            (dragEnd)="dragHpEnd($event)" (dragCancel)="dragHpCancel($event)" [relative]="true" [screenWidth]="true">
-            <img src="./assets/images/status/health.svg" />
+          <div class="health" ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="toggleDamageHP()"
+            (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragHpCancel($event)"
+            [relative]="true" [screenWidth]="true">
+            <img [ngClass]="{'damage' : settingsManager.settings.damageHP}"
+              [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
             <ng-container *ngIf="entity.maxHealth > 0">
-              {{(entity.health + health) | ghsMinZero}}/{{entity.maxHealth}}
-              <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
+              <span *ngIf="!settingsManager.settings.damageHP">
+                {{(entity.health + health) | ghsMinZero}}/{{entity.maxHealth}}
+              </span>
+              <span *ngIf="settingsManager.settings.damageHP">
+                {{entity.maxHealth}}/{{entity.maxHealth - (entity.health + health) | ghsMinZero}}
+              </span>
+              <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
+                [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
             </ng-container>
             <span *ngIf="entity.maxHealth == 0">-</span>
+          </div>
+          <div class="markers">
+            <span class="marker" *ngFor="let marker of entity.markers;" ghs-pointer-input
+              (doubleClick)="removeMarker(marker)">
+              <img [src]="gameManager.characterManager.characterIcon(marker)" />
+            </span>
           </div>
           <div class="conditions">
             <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;">
@@ -78,6 +92,7 @@
     </ng-container>
 
     <ng-container *ngIf="!entity">
+      <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
       <div class="column col-1">
         <div class="title-container">
           <div class="title" #objectiveName>
@@ -92,10 +107,18 @@
       </div>
 
     </ng-container>
-
-    <div class="actions" *ngIf="objectiveData && objectiveData.actions" (click)="openEntityMenu($event)">
-      <ghs-actions [actions]="objectiveData.actions"></ghs-actions>
+    <div class="actions-container">
+      <div class="actions" *ngIf="objectiveData && objectiveData.actions" ghs-pointer-input
+        (singleClick)="openEntityMenu($event)">
+        <ghs-actions [objective]="objective" [actions]="objectiveData.actions" [interactiveActions]="interactiveActions"
+          (interactiveActionsChange)="onInteractiveActionsChange($event)"></ghs-actions>
+      </div>
+      <div class="bottom-spacer" *ngIf="interactiveActions.length">
+      </div>
     </div>
+
+    <ghs-interactive-actions *ngIf="objectiveData && objectiveData.actions" [figure]="objective"
+      [actions]="objectiveData.actions" [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
 
     <span class="spacer" (click)="openEntityMenu($event)"></span>
 

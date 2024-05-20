@@ -1,11 +1,13 @@
 {
   "index": "94",
   "name": "Vermling Nest",
+  "flowChartGroup": "city-events",
   "coordinates": {
-    "x": 1703,
-    "y": 912,
+    "x": 1702.25,
+    "y": 912.5,
     "width": 171,
-    "height": 132
+    "height": 132,
+    "gridLocation": "F-12"
   },
   "edition": "gh",
   "unlocks": [

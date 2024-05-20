@@ -1,6 +1,14 @@
 {
   "index": "13",
   "name": "Vile Harvest",
+  "flowChartGroup": "main",
+  "coordinates": {
+    "x": 660.25,
+    "y": 901.5,
+    "width": 248,
+    "height": 179,
+    "gridLocation": "D3"
+  },
   "edition": "jotl",
   "unlocks": [
     "15"

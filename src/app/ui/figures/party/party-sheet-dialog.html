@@ -20,8 +20,10 @@
                 </option>
               </select>
               <span class="spacer"></span>
-              <span class="map ignore-denied" *ngIf="worldMap" (click)="openMap()">
-                <img src="./assets/images/fullscreen.svg"><span [ghs-label]="'party.campaign.map'"></span>
+              <span class="map ignore-denied" *ngIf="!disableShortcuts">
+                <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'">
+                <img *ngIf="worldMap" (click)="openMap()" src="./assets/images/map.svg"
+                  [ghs-tooltip]="'party.campaign.map'">
               </span>
             </div>
             <div class="row name">
@@ -140,17 +142,24 @@
               [ghs-label]="'party.campaign.sheet.winter'"></span><img src="./assets/images/fh/party/winter.svg"></label>
         </div>
 
-        <div class="calendar-lock-toggle">
-          <a (click)="settingsManager.setCalendarLocked(!settingsManager.settings.calendarLocked)">
+        <div class="calendar-lock-toggle" [ghs-tooltip]="'party.campaign.sheet.weekSections.lock'"
+          [ngClass]="{'permissive': settingsManager.settings.calendarLocked == 'permissive'}">
+          <a ghs-pointer-input (singleClick)="settingsManager.toggle('calendarLocked')"
+            (doubleClick)="settingsManager.set('calendarLocked', settingsManager.settings.calendarLocked != 'permissive' ? 'permissive': true)">
             <img [src]="'./assets/images/lock' + (settingsManager.settings.calendarLocked ? '' : '-open') + '.svg'">
           </a>
         </div>
+
+        <span class="map ignore-denied" *ngIf="!disableShortcuts">
+          <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'">
+          <img *ngIf="worldMap" (click)="openMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'">
+        </span>
 
         <div class="weeks">
           <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
             [ghs-tooltip]="'party.campaign.sheet.weekSections.hint'" (singleClick)="setWeek(index+1 + 80*calendarSheet)"
             (doubleClick)="setWeekSection(index+1+ 80*calendarSheet)"
-            [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0, 'locked': settingsManager.settings.calendarLocked}">
+            [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0, 'locked': settingsManager.settings.calendarLocked && (settingsManager.settings.calendarLocked != 'permissive' || party.weeks != index + 80*calendarSheet && party.weeks != index + 80*calendarSheet + 1)}">
             <div class="section" *ngFor="let section of sectionsForWeekFixed(week+ 80*calendarSheet)">
               <img
                 [src]="'./assets/images/' + (hasConclusions(section) ? 'hint.svg' : (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg'))">
@@ -198,7 +207,8 @@
 
         <div class="resources">
           <div class="header">
-            <label (click)="openResources()"><span [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
+            <label class="supply" (click)="openResources()"><span
+                [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
             <span class="spacer"></span>
             <div class="move-resources" *ngIf="characters.length > 0">
               <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>
@@ -309,10 +319,13 @@
         <div class="defense">
           <label><span [ghs-label]="'party.campaign.sheet.defense'"></span></label>
           <div class="grid defense-grid">
-            <span class="section" [ngClass]="{'highlight' : party.morale > 19}">
-              <img src="./assets/images/fh/party/section.svg">
-              {{gameManager.campaignData().highMorale || ''}}
-              <img *ngIf="party.morale > 19" src="./assets/images/checkmark.svg">
+            <span class="sections" [ngClass]="{'highlight' : party.morale > 19}">
+              <span class="section"
+                *ngFor="let conclusion of ((gameManager.campaignData().highMorale || []) | slice:0:highMoraleSolved+1); let i = index"
+                [ngClass]="{'conclusion': isConclusion(gameManager.campaignData().highMorale[i])}">
+                <img src="./assets/images/fh/party/section.svg">
+                {{gameManager.campaignData().highMorale[i] || ''}}
+              </span>
             </span>
             <span class="value" [ngClass]="{'highlight' : moraleDefense == 15}">+15</span>
             <span class="value" [ngClass]="{'highlight' : moraleDefense == 10}">+10</span>
@@ -320,10 +333,13 @@
             <span class="value" [ngClass]="{'highlight' : moraleDefense == 0}">0</span>
             <span class="value" [ngClass]="{'highlight' : moraleDefense == -5}">-5</span>
             <span class="value" [ngClass]="{'highlight' : moraleDefense == -10}">-10</span>
-            <span class="section" [ngClass]="{'highlight' : party.morale < 1}"><img
-                src="./assets/images/fh/party/section.svg">
-              {{gameManager.campaignData().lowMorale || ''}}
-              <img *ngIf="party.morale < 1" src="./assets/images/checkmark.svg">
+            <span class="sections" [ngClass]="{'highlight' : party.morale < 1}">
+              <span class="section"
+                *ngFor="let conclusion of ((gameManager.campaignData().lowMorale || []) | slice:0:lowMoraleSolved+1); let i = index"
+                [ngClass]="{'conclusion': isConclusion(gameManager.campaignData().lowMorale[i])}">
+                <img src="./assets/images/fh/party/section.svg">
+                {{gameManager.campaignData().lowMorale[i] || ''}}
+              </span>
             </span>
           </div>
         </div>
@@ -410,6 +426,11 @@
           <span class="campaign-mode" (click)="toggleCampaignMode()">
             <span class="checkbox" [ngClass]="{'checked' : party.campaignMode}"></span>
             <span [ghs-label]="'party.campaignMode'"></span>
+          </span>
+          <span class="map ignore-denied" *ngIf="!disableShortcuts">
+            <img (click)="openFlowChart()" src="./assets/images/chart.svg" [ghs-tooltip]="'scenario.chart'">
+            <img *ngIf="worldMap" (click)="openMap()" src="./assets/images/map.svg"
+              [ghs-tooltip]="'party.campaign.map'">
           </span>
         </div>
 
@@ -562,7 +583,8 @@
           </div>
         </div>
 
-        <div class="prosperity" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+        <div class="prosperity" *ngIf="gameManager.fhRules() || gameManager.editionRules('gh')"
+          [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
           <div class="legend" (click)="setProsperity(0)">
             <div class="level"><span [ghs-label]="'party.prosperity'"></span> <img
                 *ngIf="settingsManager.settings.fhStyle" src="./assets/images/fh/prosperity.svg">:</div>
@@ -573,24 +595,24 @@
           <div class="checklist">
             <div class="tick"
               *ngFor="let check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); let index = index;"
-              [autoscroll]="party.prosperity == index +1 || party.prosperity == 0 && index == 0"
+              [autoscroll]="gameManager.prosperityTicks() == index +1 || gameManager.prosperityTicks() == 0 && index == 0"
               [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1}">
               <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1" (click)="setProsperity(index+1)">
                 {{prosperitySteps.indexOf(index) + 2}}
               </div>
               <div class="checkbox" (click)="setProsperity(index+1)"
-                [ngClass]="{'checked': party.prosperity > index, 'highlight' : prosperityHighlightSteps.indexOf(index) != -1}">
+                [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : prosperityHighlightSteps.indexOf(index) != -1}">
               </div>
             </div>
           </div>
         </div>
 
-        <div class="row donations" *ngIf="!fhSheet">
+        <div class="row donations" *ngIf="!fhSheet && gameManager.editionRules('gh')">
           <label><span [ghs-label]="'party.campaign.donations'"></span>:</label>
           <div class="checklist">
-            <div class="tick" *ngFor="let check of []|ghsRange:10; let index = index;">
+            <div class="tick" *ngFor="let check of []|ghsRange:10;">
               <div class="donation">
-                <div class="checkbox" (click)="setDonations(index+1)" [ngClass]="{'checked': party.donations > index}">
+                <div class="checkbox" (click)="setDonations(check+1)" [ngClass]="{'checked': party.donations > check}">
                 </div>
                 <img src="./assets/images/coin.png" />
                 <span class="value">+10g</span>
@@ -599,8 +621,25 @@
           </div>
         </div>
 
+        <div class="row envelope-b" *ngIf="!fhSheet && party.donations > 9 && gameManager.editionRules('gh')">
+          <label (click)="toggleEnvelopeB()">
+            <div class="checkbox" [ngClass]="{'checked': party.envelopeB}"></div>
+            <span [ghs-label]="'party.campaign.envelopeB'"></span>
+          </label>
+
+          <div class="lines" *ngIf="party.envelopeB">
+            <div class="line" *ngFor="let line of []|ghsRange:5;">
+              <div class="item" *ngFor="let item of []|ghsRange:18;">
+                <span class="checkpoint" (click)="setDonations(10 + item + line * 18 + 1)"
+                  [ngClass]="{'checked' : party.donations > (10 + item + line * 18), 'prosperity' : (10 + item + line * 18) < 40 ? (10 + item + line * 18) % 5 == 4 : (10 + item + line * 18) % 10 == 9}"></span>
+                <span class="value">{{(11 + item + line * 18) * 10}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
-          <div class="achievements" *ngIf="!fhSheet">
+          <div class="achievements" *ngIf="gameManager.editionRules('gh')">
             <label><span [ghs-label]="'party.campaign.achievements'"></span>:</label>
             <div class="achievements-container">
               <div class="list">
@@ -717,9 +756,17 @@
             </div>
 
             <div class="row players">
-              <div class="player" *ngFor="let player of party.players; let index = index;">
+              <div class="player" *ngFor="let index of [] | ghsRange:party.players.length">
                 <span class="index">#{{index + 1}}</span>
-                <input type="text" [value]="player" (change)="changePlayer($event, index)">
+                <input type="text" [value]="party.players[index]" (change)="changePlayer($event, index)">
+                <div class="available-characters" *ngIf="availableCharacters[index]">
+                  <a class="available-character" *ngFor="let characterModel of availableCharacters[index]"
+                    ghs-pointer-input (singleClick)="openCharacterSheet(characterModel)"
+                    (doubleClick)="replayCharacter(characterModel)" [ghs-tooltip]="'character.replay'">
+                    <img
+                      [src]="'./assets/images/character/icons/' + characterModel.edition + '-' + characterModel.name + '.svg'" />
+                  </a>
+                </div>
                 <a class="remove" (click)="removePlayer(index)"><img src="./assets/images/close.svg"></a>
               </div>
               <a class="add" (click)="party.players[party.players.length] = ''">
@@ -776,6 +823,11 @@
               </span>
             </div>
           </div>
+        </div>
+
+        <div class="row time">
+          <span [ghs-label]="'party.campaign.totalTime'"
+            [ghs-label-args]="[(gameManager.game.totalSeconds| ghsDurationLabel:true)]"></span>
         </div>
       </div>
     </div>

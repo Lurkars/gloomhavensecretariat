@@ -5,9 +5,8 @@ import { storageManager } from "src/app/game/businesslogic/StorageManager";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Monster } from "src/app/game/model/Monster";
-import { Objective } from "src/app/game/model/Objective";
-import packageJson from '../../../../../package.json';
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import packageJson from '../../../../../package.json';
 
 @Component({
     selector: 'ghs-feedback-dialog',
@@ -30,21 +29,16 @@ export class FeedbackDialogComponent {
         scenario.allies = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isAlly).map((figure) => (figure as Monster).name);
         scenario.allied = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isAllied).map((figure) => (figure as Monster).name);
         scenario.drawExtra = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.drawExtra).map((figure) => (figure as Monster).name);
-        scenario.objectives = gameManager.game.figures.filter((figure) => figure instanceof Objective || figure instanceof ObjectiveContainer).map((figure) => {
-            if (figure instanceof Objective || figure instanceof ObjectiveContainer) {
+        scenario.objectives = gameManager.game.figures.filter((figure) => figure instanceof ObjectiveContainer).map((figure) => {
+            if (figure instanceof ObjectiveContainer) {
                 if (figure.objectiveId) {
-                    const objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId);
+                    const objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId);
                     if (objectiveData) {
                         return objectiveData;
                     }
                 }
-                if (figure instanceof Objective) {
-                    const objective = figure as Objective;
-                    return new ObjectiveData(objective.name, objective.maxHealth, objective.escort, objective.id, objective.marker, objective.tags, objective.initiative);
-                } else if (figure instanceof ObjectiveContainer) {
-                    const objective = figure as ObjectiveContainer;
-                    return new ObjectiveData(objective.name, objective.health, objective.escort, -1, objective.marker, [], objective.initiative);
-                }
+                const objective = figure as ObjectiveContainer;
+                return new ObjectiveData(objective.name, objective.health, objective.escort, -1, objective.marker, [], objective.initiative);
             }
             return new ObjectiveData(figure.name, 0, false);
         });
@@ -62,6 +56,10 @@ export class FeedbackDialogComponent {
 
     issueMail(type: string, text: string): string {
         let mailto = 'mailto:issue@gloomhaven-secretariat.de';
+
+        if (type == 'feedback') {
+            mailto = 'mailto:feedback@gloomhaven-secretariat.de';
+        }
 
         mailto += '?subject=[GHS v' + packageJson.version + '] ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type + '.subject');
 

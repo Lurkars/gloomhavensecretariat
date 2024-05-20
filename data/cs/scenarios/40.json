@@ -1,6 +1,7 @@
 {
   "index": "40",
   "name": "Smugglers Hideout",
+  "flowChartGroup": "city-events",
   "edition": "cs",
   "rewards": {
     "collectiveGold": 50

@@ -1,0 +1,27 @@
+{
+  "index": "94.4",
+  "name": "Sneak Past the Lurkers",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "114.2"
+    ]
+  ],
+  "conclusion": true,
+  "unlocks": [
+    "49"
+  ],
+  "rewards": {
+    "overlaySticker": {
+      "name": "Z",
+      "location": "F2",
+      "coordinates": {
+        "x": 1444,
+        "y": 350,
+        "width": 366,
+        "height": 288
+      }
+    },
+    "custom": "Do not resolve an outpost event this week."
+  }
+}

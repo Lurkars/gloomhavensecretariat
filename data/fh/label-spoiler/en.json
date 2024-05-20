@@ -9,10 +9,20 @@
       "regular": "Regular",
       "over": "Over"
     },
-    "fist": "Frozen Fist",
-    "kelp": "Deepwraith",
+    "fist": {
+      ".": "Frozen Fist",
+      "gift-of-the-mountain": "At end of turn, %game.action.heal% 2, self",
+      "one-with-the-mountain": "Permanent %game.condition.regenerate%"
+    },
+    "kelp": {
+      ".": "Deepwraith",
+      "trophy_tokens": "%data.characterToken.kelp.trophy% Trophy Tokens"
+    },
     "meteor": "Pyroclast",
-    "prism": "HIVE",
+    "prism": {
+      ".": "HIVE",
+      "prism_mode": "%data.characterToken.prism.mode% Mode Token"
+    },
     "shackles": "Pain Conduit",
     "shards": "Shattersong",
     "snowflake": "Snowdancer",
@@ -59,6 +69,9 @@
     "trapping-unit": "Trapping Unit",
     "white-owl": "White Owl",
     "wraith": "Wraith"
+  },
+  "campaignSticker": {
+    "42-temple": "Temple"
   },
   "items": {
     "fh-1": {
@@ -626,7 +639,7 @@
       ".": "Mantle of Summoning"
     },
     "fh-141": {
-      "1": "When you are attacked, before drawing an attack modifier car, the attacker gains disadvantage on the attack and you gain %game.action.shield:1% for the attack.",
+      "1": "When you are attacked, before drawing an attack modifier card, the attacker gains disadvantage on the attack and you gain %game.action.shield:1% for the attack.",
       ".": "Studded Leather"
     },
     "fh-142": {
@@ -881,7 +894,7 @@
       ".": "Scepter of Control"
     },
     "fh-204": {
-      "1": "During your turn, one adjacent normal or elite enemy suffers %game.damage% to their %game.action.shield% value.",
+      "1": "During your turn, one adjacent normal or elite enemy suffers %game.damage% equal to their %game.action.shield% value.",
       ".": "Severed Claw"
     },
     "fh-205": {
@@ -970,7 +983,7 @@
     },
     "fh-225": {
       "1": "During your melee attack ability, %game.element.consume.earth% to add +1 %game.action.attack% to one attack and flip this card over.",
-      "2": "During your melee attack ability, %game.element.consume.air% to add %game.action.push% 2 to one attack and flip this card over.",
+      "2": "During your ranged attack ability, %game.element.consume.air% to add %game.action.push% 2 to one attack and flip this card over.",
       ".": "Algox Carving"
     },
     "fh-226": {
@@ -1002,7 +1015,7 @@
       ".": "Orchid Wand"
     },
     "fh-233": {
-      "1": "During you ally's ranged attack ability, add %game.condition.muddle% %game.condition.curse% one attack.",
+      "1": "During an ally's ranged attack ability, add %game.condition.muddle% and %game.condition.curse% one attack.",
       ".": "Dead Raven"
     },
     "fh-234": {
@@ -1066,7 +1079,7 @@
       "12": "You find the remains of Camilla and her paintings of a majestic horned creature.",
       "51": "Read %data.section:78.1%",
       "54": "Treasure chest? There was no treasure chest there Maybe you should slow down on the drink",
-      "57": "What’s this? An empty chest with a lead trapdoor at the bottom You make note of the location so you can return with Gem’s help later.",
+      "57": "What's this? An empty chest with a lead trapdoor at the bottom You make note of the location so you can return with Gem's help later.",
       "62": "gain Mechanical Cube blueprint %game.itemFh.82% when you find the other half of this blueprint."
     }
   },
@@ -1083,7 +1096,7 @@
       },
       "coral": {
         "1": "If you performed a %data.action.custom.fh-tides% action this round, %game.attackmodifier.plus2% instead",
-        "2": "%game.custom.perks.ignoreNegativeItemFh% and, whenever you would gain %game.condition.impair%, prevent the condition",
+        "2": "and whenever you would gain %game.condition.impair%, prevent the condition",
         "3": "Whenever you declare a long rest during card selection, gain %game.action.shield:1% for the round",
         "4": "Gain advantage on all your attacks performed while occupying or targeting enemies occupying water hexes",
         "5": "Never suffer damage from attacks, and be targeted by at least five attacks",
@@ -1100,7 +1113,7 @@
       },
       "fist": {
         "1": "Create one 1-hex icy terrain tile in a featureless hex adjacent to the target",
-        "2": "%game.custom.perks.ignoreNegativeItemFh%, and whenever you enter icy terrain with a move ability, you may ignore the effect to add +1 %game.action.move%",
+        "2": "and whenever you enter icy terrain with a move ability, you may ignore the effect to add +1 %game.action.move%",
         "3": "Whenever you heal from a long rest, you may %game.elementHalf.consume:ice|earth% to add +2 %game.action.heal%",
         "4": "Once each scenario, when you would suffer %game.damage%, you may negate the %game.damage%",
         "5": "%game.card.recover% at least one card from your discard pile each round",

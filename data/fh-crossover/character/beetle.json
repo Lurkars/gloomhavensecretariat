@@ -1,0 +1,365 @@
+{
+  "name": "beetle",
+  "characterClass": "harrower",
+  "icon": "cs-beetle",
+  "thumbnail": "cs-beetle",
+  "edition": "fh-crossover",
+  "handSize": 11,
+  "traits": [
+    "intimidating",
+    "outcast",
+    "strong"
+  ],
+  "color": "#f89521",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 12
+    },
+    {
+      "level": 2,
+      "health": 14
+    },
+    {
+      "level": 3,
+      "health": 17
+    },
+    {
+      "level": 4,
+      "health": 19
+    },
+    {
+      "level": 5,
+      "health": 22
+    },
+    {
+      "level": 6,
+      "health": 24
+    },
+    {
+      "level": 7,
+      "health": 27
+    },
+    {
+      "level": 8,
+      "health": 29
+    },
+    {
+      "level": 9,
+      "health": 32
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "venator-tarantula",
+      "cardId": "027",
+      "level": 7,
+      "health": 2,
+      "attack": 1,
+      "movement": 3,
+      "range": 3,
+      "count": 2
+    },
+    {
+      "name": "beta-aegis",
+      "cardId": "031",
+      "level": 9,
+      "movement": 3
+    }
+  ],
+  "perkWarning": true,
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "cs-colony",
+                "icon": true,
+                "hint": "%data.custom.perks.beetle.1%",
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 2
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "shield",
+                "value": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "muddle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "fire|earth"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plusX",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "cs-colony",
+                "icon": true,
+                "hint": "%data.custom.perks.beetle.2%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "retaliate",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 3
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "retaliate",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 3
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.fh.beetle.1%",
+      "count": 2,
+      "combined": true
+    }
+  ],
+  "masteries": [
+    "%data.custom.fh.beetle.2%",
+    "%data.custom.fh.beetle.3%"
+  ]
+}

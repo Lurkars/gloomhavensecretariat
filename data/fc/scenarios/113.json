@@ -1,6 +1,14 @@
 {
   "index": "113",
   "name": "The Lost Thread",
+  "flowChartGroup": "tainted-crypt",
+  "coordinates": {
+    "x": 2481,
+    "y": 1143.75,
+    "width": 176,
+    "height": 139,
+    "gridLocation": "H-16"
+  },
   "edition": "fc",
   "unlocks": [
     "114"
@@ -19,7 +27,7 @@
     }
   },
   "monsters": [
-    "warden"
+    "stone-golem"
   ],
   "objectives": [
     {
@@ -28,6 +36,33 @@
       "health": "4+(2xL)",
       "initiative": 50,
       "marker": "b"
+    },
+    {
+      "name": "Seal",
+      "health": "5xC",
+      "marker": "a"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "stone-golem"
+          },
+          "statEffect": {
+            "name": "warden",
+            "health": "-",
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fc.113%"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -37,7 +72,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "warden",
+          "name": "stone-golem",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"

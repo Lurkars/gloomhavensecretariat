@@ -47,6 +47,21 @@
                         {{character.progress.loot.snowthistle}}
                     </span>
                 </div>
+
+                <a *ngIf="brewing" class="brewing" ghs-pointer-input (singleClick)="brewDialog()" (doubleClick)="brewDialog(true)"
+                [ngClass]="{'disabled': gameManager.itemManager.brewingDisabled()}"><img
+                    src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
+            </div>
+            <div *ngIf="gameManager.itemManager.buyingDisabled() && character && character.tags.indexOf('new-character') == -1 || gameManager.itemManager.craftingDisabled()"
+                class="shop-disabled">
+                <ng-container
+                    *ngIf="gameManager.itemManager.buyingDisabled() && character && character.tags.indexOf('new-character') == -1"
+                    class="shop-disabled">
+                    <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.buyingDisabled'"></span>
+                </ng-container>
+                <ng-container *ngIf="gameManager.itemManager.craftingDisabled()" class="shop-disabled">
+                    <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.craftingDisabled'"></span>
+                </ng-container>
             </div>
             <div class="filter">
                 <div class="slots">
@@ -88,18 +103,18 @@
             <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
             <a class="secondary" *ngIf="selected && !gameManager.itemManager.owned(selected, character)"
                 (click)="addItem(selected, true)" [ghs-label]="'game.items.add'"
-                [ghs-label-args]="selected ? [selected.name] : []"></a>
+                [ghs-label-args]="selected ? ['%data.items.' + selected.edition + '-' + selected.id + '%'] : []"></a>
             <a class="primary" *ngIf="!selected || !gameManager.itemManager.owned(selected, character)"
                 [ngClass]="{'disabled' : !selected || !gameManager.itemManager.canBuy(selected, character) && !gameManager.itemManager.canCraft(selected, character)}"
                 (click)="selected ? (selected.cost ? buyItem(selected): craftItem(selected)) : false"
                 [ghs-label]="'game.items.' + (selected ? (selected.cost ? 'buy' : 'craft') : 'choose')"
-                [ghs-label-args]="selected ? [selected.name, '' + (selected.cost + gameManager.itemManager.pricerModifier())] : []"></a>
+                [ghs-label-args]="selected ? ['%data.items.' + selected.edition + '-' + selected.id + '%', '' + (selected.cost + gameManager.itemManager.pricerModifier())] : []"></a>
 
             <a class="secondary" *ngIf="selected && gameManager.itemManager.owned(selected, character)"
-                (click)="removeItem(selected)" [ghs-label]="'game.items.remove'" [ghs-label-args]="[selected.name]"></a>
+                (click)="removeItem(selected)" [ghs-label]="'game.items.remove'" [ghs-label-args]="['%data.items.' + selected.edition + '-' + selected.id + '%']"></a>
             <a class="primary" *ngIf="selected && gameManager.itemManager.owned(selected, character)"
                 (click)="sellItem(selected)" [ghs-label]="'game.items.sell'"
-                [ghs-label-args]="[selected.name, '' + gameManager.itemManager.itemSellValue(selected)]"></a>
+                [ghs-label-args]="['%data.items.' + selected.edition + '-' + selected.id + '%', '' + gameManager.itemManager.itemSellValue(selected)]"></a>
         </div>
 
         <div class="item-list" *ngIf="items.length == 0 && unlocks.length == 0">

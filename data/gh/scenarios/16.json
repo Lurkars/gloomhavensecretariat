@@ -2,10 +2,11 @@
   "index": "16",
   "name": "Mountain Pass",
   "coordinates": {
-    "x": 865.5,
-    "y": 329,
+    "x": 866.75,
+    "y": 328,
     "width": 170,
-    "height": 153
+    "height": 153,
+    "gridLocation": "B-6"
   },
   "edition": "gh",
   "unlocks": [

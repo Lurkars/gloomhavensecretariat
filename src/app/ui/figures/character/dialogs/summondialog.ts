@@ -1,6 +1,7 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 import { Character } from "src/app/game/model/Character";
 import { SummonData } from "src/app/game/model/data/SummonData";
@@ -22,16 +23,17 @@ export class CharacterSummonDialog {
   summonName: string = "";
   summonFilter: string;
   fhSummon: boolean = false;
+  summonData: SummonData[] = [];
 
   constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
     this.summonFilter = "";
+    this.updateSummonData();
     for (let i = 2; i < 9; i++) {
-      if (this.summonData().filter((summonData) => this.available(summonData, i)) > this.summonData().filter((summonData) => this.available(summonData, i - 1))) {
+      if (this.summonData.filter((summonData) => this.available(summonData, i)) > this.summonData.filter((summonData) => this.available(summonData, i - 1))) {
         this.summonNumber = i;
       }
     }
     this.fhSummon = this.character.edition === 'fh' || gameManager.editionExtensions(this.character.edition).indexOf('fh') != -1;
-    this.fhSummon = false; // TODO: improve FH summons marker
     if (this.fhSummon) {
       this.summonColor = SummonColor.fh;
     }
@@ -54,29 +56,40 @@ export class CharacterSummonDialog {
   }
 
   showLevel(summonData: SummonData): boolean {
-    return this.summonData().some((other) => other.name == summonData.name && other.cardId != summonData.cardId && summonData.level != other.level);
+    return this.summonData.some((other) => other.name == summonData.name && other.cardId != summonData.cardId && summonData.level != other.level);
   }
 
-  summonData(): SummonData[] {
+  updateSummonData() {
     let summons: SummonData[] = [];
     summons.push(...this.character.availableSummons.filter((summonData) => !summonData.level || summonData.level <= this.character.level));
 
-    if (this.character.progress && this.character.progress.items) {
-      for (let itemIdentifier of this.character.progress.items) {
-        const item = gameManager.itemManager.getItem(+itemIdentifier.name, itemIdentifier.edition, true);
-        if (item && item.summon) {
-          if (!item.summon.name) {
-            item.summon.name = item.name;
+    if (settingsManager.settings.characterItems) {
+      if (this.character.progress && this.character.progress.items) {
+        for (let itemIdentifier of this.character.progress.items) {
+          const item = gameManager.itemManager.getItem(+itemIdentifier.name, itemIdentifier.edition, true);
+          if (item && item.summon) {
+            if (!item.summon.name) {
+              item.summon.name = item.name;
+            }
+            if (!item.summon.count) {
+              item.summon.count = 1;
+            }
+            summons.push(item.summon);
           }
-          if (!item.summon.count) {
-            item.summon.count = 1;
-          }
-          summons.push(item.summon);
         }
+      }
+    } else {
+      const editions = gameManager.game.edition ? [gameManager.game.edition, ...gameManager.editionExtensions(gameManager.game.edition)] : gameManager.editions(false, true);
+      for (let edition of editions) {
+        gameManager.itemManager.getItems(edition, true).filter((itemData) => itemData.summon).forEach((itemData) => {
+          if (itemData.summon) {
+            summons.push(itemData.summon);
+          }
+        })
       }
     }
 
-    return summons.filter((summonData) => !this.summonFilter || summonData.cardId == this.summonFilter);
+    this.summonData = summons.filter((summonData) => !this.summonFilter || summonData.cardId == this.summonFilter);
   }
 
   setSummonName(event: any) {
@@ -90,10 +103,11 @@ export class CharacterSummonDialog {
     gameManager.characterManager.addSummon(this.character, summon);
     ghsDialogClosingHelper(this.dialogRef);
     gameManager.stateManager.after();
+    this.updateSummonData();
   }
 
   addSummon(summonData: SummonData) {
-    if (this.summonData().indexOf(summonData) != -1) {
+    if (this.summonData.indexOf(summonData) != -1) {
       gameManager.stateManager.before("addSummon", gameManager.characterManager.characterName(this.character), "data.summon." + summonData.name);
       let summon: Summon = new Summon(uuidv4(), summonData.name, summonData.cardId, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor, summonData);
       if (summonData.special) {
@@ -113,6 +127,7 @@ export class CharacterSummonDialog {
         }
       }
       gameManager.stateManager.after();
+      this.updateSummonData();
     }
   }
 

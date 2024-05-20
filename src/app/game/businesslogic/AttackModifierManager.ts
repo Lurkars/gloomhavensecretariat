@@ -156,14 +156,81 @@ export class AttackModifierManager {
     attackModifierDeck.cards.splice(index, 0, attackModifier);
   }
 
-  drawModifier(attackModifierDeck: AttackModifierDeck) {
-    attackModifierDeck.current = attackModifierDeck.current + 1;
-    if (attackModifierDeck.current == attackModifierDeck.cards.length) {
+  drawModifier(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage' | undefined) {
+    attackModifierDeck.state = state;
+    if (attackModifierDeck.current >= attackModifierDeck.cards.length - 1) {
       this.shuffleModifiers(attackModifierDeck);
+    } else if (!attackModifierDeck.state) {
+      if (attackModifierDeck.current > 1 && attackModifierDeck.current > attackModifierDeck.lastVisible) {
+        let currentCard = attackModifierDeck.cards[attackModifierDeck.current];
+        let prevCard = attackModifierDeck.cards[attackModifierDeck.current - 1];
+        let lastCard = attackModifierDeck.cards[attackModifierDeck.lastVisible];
+
+        if (!currentCard.rolling && !prevCard.rolling) {
+          attackModifierDeck.lastVisible = attackModifierDeck.current;
+        } else if (lastCard.rolling && !prevCard.rolling) {
+          attackModifierDeck.lastVisible = attackModifierDeck.current - 1;
+        } else if (!currentCard.rolling && !lastCard.rolling) {
+          attackModifierDeck.lastVisible += 1;
+        }
+      }
+      attackModifierDeck.current = attackModifierDeck.current + 1;
+    } else {
+      this.drawAdvantage(attackModifierDeck);
     }
   }
 
-  shuffleModifiers(attackModifierDeck: AttackModifierDeck) {
+  drawAdvantage(attackModifierDeck: AttackModifierDeck) {
+    let additionalDraw = false;
+    const fhRules = gameManager.fhRules() || settingsManager.settings.alwaysFhAdvantage;
+    attackModifierDeck.current = attackModifierDeck.current + 1;
+    attackModifierDeck.lastVisible = attackModifierDeck.current;
+    if (attackModifierDeck.current == attackModifierDeck.cards.length) {
+      return;
+    }
+    gameManager.uiChange.emit();
+    let card = attackModifierDeck.cards[attackModifierDeck.current];
+
+    if (card && card.rolling) {
+      additionalDraw = fhRules;
+      while (card.rolling) {
+        if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
+          return;
+        }
+        attackModifierDeck.current = attackModifierDeck.current + 1;
+        card = attackModifierDeck.cards[attackModifierDeck.current];
+        gameManager.uiChange.emit();
+      }
+    } else {
+      attackModifierDeck.current = attackModifierDeck.current + 1;
+      card = attackModifierDeck.cards[attackModifierDeck.current];
+      gameManager.uiChange.emit();
+
+      if (fhRules && settingsManager.settings.amAdvantageHouseRule && card && card.rolling) {
+        while (card.rolling) {
+          if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
+            return;
+          }
+          attackModifierDeck.current = attackModifierDeck.current + 1;
+          card = attackModifierDeck.cards[attackModifierDeck.current];
+          gameManager.uiChange.emit();
+        }
+      }
+    }
+
+    if (additionalDraw) {
+      if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
+        return;
+      }
+      attackModifierDeck.current = attackModifierDeck.current + 1;
+      gameManager.uiChange.emit();
+    }
+  }
+
+  shuffleModifiers(attackModifierDeck: AttackModifierDeck, onlyUpcoming: boolean = false) {
+    const current = attackModifierDeck.current;
+    const lastVisible = attackModifierDeck.lastVisible;
+    let restoreCards: AttackModifier[] = onlyUpcoming && current > -1 ? attackModifierDeck.cards.splice(0, current + 1) : [];
     attackModifierDeck.cards = attackModifierDeck.cards.filter(
       (attackModifier, index) =>
         index > attackModifierDeck.current ||
@@ -172,7 +239,13 @@ export class AttackModifierManager {
     );
 
     attackModifierDeck.current = -1;
+    attackModifierDeck.lastVisible = 0;
     ghsShuffleArray(attackModifierDeck.cards);
+    if (onlyUpcoming) {
+      attackModifierDeck.current = current;
+      attackModifierDeck.lastVisible = lastVisible;
+      attackModifierDeck.cards.unshift(...restoreCards);
+    }
   }
 
   removeDrawnDiscards(attackModifierDeck: AttackModifierDeck) {
@@ -504,9 +577,9 @@ export class AttackModifierManager {
   }
 
   fromModel(attackModifierDeck: AttackModifierDeck, model: GameAttackModifierDeckModel) {
-    if (model.current != attackModifierDeck.current) {
-      attackModifierDeck.current = model.current;
-    }
+
+    attackModifierDeck.current = model.current;
+    attackModifierDeck.lastVisible = model.lastVisible;
 
     // migration
     model.cards = model.cards.map((id) => {
@@ -532,6 +605,7 @@ export class AttackModifierManager {
     attackModifierDeck.cards = model.cards.map((id) => this.cardById(attackModifierDeck, id) || new AttackModifier(AttackModifierType.invalid, 0, AttackModifierValueType.default, id));
     attackModifierDeck.disgarded = model.disgarded || [];
     attackModifierDeck.active = model.active;
+    attackModifierDeck.state = model.state;
   }
 
 }

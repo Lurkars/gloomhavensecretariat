@@ -1,8 +1,23 @@
 {
   "index": "134",
   "name": "Tower of Knowledge",
+  "flowChartGroup": "other",
+  "coordinates": {
+    "x": 333.5,
+    "y": 368,
+    "width": 97,
+    "height": 92,
+    "gridLocation": "R1"
+  },
   "edition": "fh",
   "complexity": 3,
+  "requirements": [
+    {
+      "campaignSticker": [
+        "into-the-forest"
+      ]
+    }
+  ],
   "rewards": {
     "items": [
       "219"

@@ -7,11 +7,8 @@
     "reputation": 2
   },
   "monsters": [
-    "flame-demon",
     "gnashing-drake",
-    "hound",
-    "spitting-drake",
-    "sun-demon"
+    "spitting-drake"
   ],
   "rooms": [
     {

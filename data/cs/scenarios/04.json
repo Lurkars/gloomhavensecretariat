@@ -1,6 +1,7 @@
 {
   "index": "4",
   "name": "Infected Warriors",
+  "flowChartGroup": "infectious",
   "edition": "cs",
   "unlocks": [
     "5",

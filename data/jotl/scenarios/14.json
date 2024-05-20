@@ -1,6 +1,14 @@
 {
   "index": "14",
   "name": "Toxic Harvest",
+  "flowChartGroup": "main",
+  "coordinates": {
+    "x": 937,
+    "y": 593.25,
+    "width": 230,
+    "height": 187,
+    "gridLocation": "B4"
+  },
   "edition": "jotl",
   "unlocks": [
     "15"

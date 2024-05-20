@@ -1,6 +1,14 @@
 {
   "index": "96",
   "name": "Unexpected Visitors",
+  "flowChartGroup": "diviner",
+  "coordinates": {
+    "x": 1936.5,
+    "y": 307,
+    "width": 164,
+    "height": 155,
+    "gridLocation": "B-13"
+  },
   "edition": "fc",
   "initial": true,
   "unlocks": [

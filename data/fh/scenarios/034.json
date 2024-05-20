@@ -1,11 +1,19 @@
 {
   "index": "34",
   "name": "Top of the Spire",
+  "flowChartGroup": "unfettered",
+  "coordinates": {
+    "x": 1918,
+    "y": 913.25,
+    "width": 98,
+    "height": 62,
+    "gridLocation": "C6"
+  },
   "edition": "fh",
   "complexity": 2,
   "rewards": {
     "campaignSticker": [
-      "Coral Shard"
+      "coral-shard"
     ]
   },
   "monsters": [

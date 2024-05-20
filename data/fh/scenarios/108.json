@@ -1,6 +1,14 @@
 {
   "index": "108",
   "name": "Lustrous Pit",
+  "flowChartGroup": "random-scenarios",
+  "coordinates": {
+    "x": 1931.5,
+    "y": 1549.75,
+    "width": 90,
+    "height": 68,
+    "gridLocation": "C12"
+  },
   "edition": "fh",
   "complexity": 2,
   "random": true,

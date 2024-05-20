@@ -1,6 +1,14 @@
 {
   "index": "63",
   "name": "The Savvas Seal",
+  "flowChartGroup": "puzzle-book",
+  "coordinates": {
+    "x": 1496.5,
+    "y": 1536,
+    "width": 112,
+    "height": 81,
+    "gridLocation": "G12"
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

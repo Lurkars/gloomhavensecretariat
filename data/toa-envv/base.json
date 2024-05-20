@@ -1,6 +1,7 @@
 {
   "edition": "toa-envv",
   "additional": true,
+  "newAmStyle": true,
   "extensions": [
     "toa"
   ]

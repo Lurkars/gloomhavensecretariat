@@ -1,11 +1,13 @@
 {
   "index": "73",
   "name": "Rockslide Ridge",
+  "flowChartGroup": "sealed",
   "coordinates": {
-    "x": 745.3999938964844,
+    "x": 745.5,
     "y": 1988,
     "width": 206,
-    "height": 198
+    "height": 198,
+    "gridLocation": "N-5"
   },
   "edition": "gh",
   "rewards": {

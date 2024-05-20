@@ -10,7 +10,7 @@
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
     height: 100%;
-    background-image: url('~/src/assets/images/character/character-sheet.svg');
+    background-image: url('~src/assets/images/character/character-sheet.svg');
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -145,7 +145,7 @@
             top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-            background-image: url('~/src/assets/images/initiative.svg');
+            background-image: url('~src/assets/images/initiative.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
@@ -341,6 +341,7 @@
     }
 
     .personal-quest {
+      flex-direction: column;
 
       .personal-quest-card {
         display: flex;
@@ -423,7 +424,8 @@
       .personal-quest,
       .extra-perks,
       .retirements,
-      .player-number {
+      .player-number,
+      .set-aside {
         margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-bottom: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
@@ -445,6 +447,20 @@
           flex-shrink: 0;
           margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         }
+
+        &.set-aside label {
+          cursor: pointer;
+          font-family: var(--ghs-font-normal);
+          font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
+        &.personal-quest {
+          align-items: flex-start;
+        }
       }
     }
 
@@ -462,6 +478,10 @@
           margin: 0;
           padding: 0;
           visibility: hidden;
+        }
+
+        &:hover {
+          opacity: 0.7;
         }
       }
     }
@@ -601,7 +621,7 @@
 
   &.cs-sheet {
     .container {
-      background-image: url('~/src/assets/images/cs/character/character-sheet.svg');
+      background-image: url('~src/assets/images/cs/character/character-sheet.svg');
     }
 
     .columns .column.column-right {
@@ -627,7 +647,7 @@
 
   &.fh-sheet {
     .container {
-      background-image: url('~/src/assets/images/fh/character/character-sheet.svg');
+      background-image: url('~src/assets/images/fh/character/character-sheet.svg');
     }
 
     .xp-gold-container {
@@ -749,7 +769,6 @@
 
       .mastery {
         display: flex;
-        align-items: center;
 
         .mastery-check {
           flex-shrink: 0;
@@ -835,6 +854,10 @@
       input[type="number"],
       input[type="text"] {
         font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+      }
+
+      .notes {
+        height: initial;
       }
 
       .columns {
@@ -990,7 +1013,7 @@
       bottom: 0;
       right: 0;
       background-color: var(--ghs-character-color);
-      mask-image: url('~/src/assets/images/character/hand-size.svg');
+      mask-image: url('~src/assets/images/character/hand-size.svg');
       mask-size: 100%;
       mask-repeat: no-repeat;
       z-index: -1;

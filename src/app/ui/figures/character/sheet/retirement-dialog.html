@@ -26,9 +26,19 @@
             [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
             [ghs-label-args]="[personalQuest.unlockCharacter]">
         </div>
-        <div class="text-white" *ngIf="personalQuest.openEnvelope"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope'"
-            [ghs-label-args]="[personalQuest.openEnvelope]">
+        <div class="envelope" *ngIf="personalQuest.openEnvelope">
+            <span class="text-white"
+                [ghs-label]="'character.progress.personalQuest.openEnvelope' + (personalQuest.openEnvelope.split(':').length > 1 ? '.alt' : '')"
+                [ghs-label-args]="personalQuest.openEnvelope.split(':')"></span>
+
+            <span class="building" *ngIf="personalQuestBuilding"
+                [ghs-label]="'character.progress.personalQuest.openEnvelope.building'"
+                [ghs-label-args]="[personalQuestBuilding.id, personalQuestBuilding.name]"></span>
+        </div>
+
+        <div class="errata text-white" *ngIf="settingsManager.settings.errata && personalQuest.errata">
+            <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
+                [ghs-label]="'data.custom.' + personalQuest.edition + '.errata.' + personalQuest.errata"></span>
         </div>
     </div>
 
@@ -42,8 +52,6 @@
     </div>
 
     <div class="personal-quest" *ngIf="additional">
-
-
         <div class="personal-quest-card">
             <input class="card-id" *ngIf="additional" [value]="additionalPQ && additionalPQ.cardId || ''" type="text"
                 (change)="changeAdditionalPQ($event)">
@@ -61,9 +69,19 @@
             [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
             [ghs-label-args]="[additionalPQ.unlockCharacter]">
         </div>
-        <div class="text-white" *ngIf="additionalPQ && additionalPQ.openEnvelope"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope'"
-            [ghs-label-args]="[additionalPQ.openEnvelope]">
+        <div class="envelope" *ngIf="additionalPQ && additionalPQ.openEnvelope">
+            <span class="text-white"
+                [ghs-label]="'character.progress.personalQuest.openEnvelope' + (additionalPQ.openEnvelope.split(':').length > 1 ? '.alt' : '')"
+                [ghs-label-args]="additionalPQ.openEnvelope.split(':')"></span>
+
+            <span class="building" *ngIf="additionalPQBuilding"
+                [ghs-label]="'character.progress.personalQuest.openEnvelope.building'"
+                [ghs-label-args]="[additionalPQBuilding.id, additionalPQBuilding.name]"></span>
+        </div>
+
+        <div class="errata text-white" *ngIf="settingsManager.settings.errata && additionalPQ && additionalPQ.errata">
+            <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
+                [ghs-label]="'data.custom.' + additionalPQ.edition + '.errata.' + additionalPQ.errata"></span>
         </div>
     </div>
 

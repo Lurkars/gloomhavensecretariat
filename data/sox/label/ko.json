@@ -1,6 +1,6 @@
 {
   "edition": {
-    "sox": "소른의 탐구자"
+    "sox": "조른의 탐구자"
   },
   "monster": {
     "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",

@@ -42,23 +42,33 @@
       z-index: -1;
     }
 
-    .ability-actions {
+    .ability-actions-container {
       position: relative;
-      margin-top: 2em;
-      padding-bottom: 0.4em;
-      width: 100%;
-      min-height: 7.4em;
-      font-size: calc(1.7em);
-      z-index: 1;
-      display: flex;
-      align-items: center;
       overflow: auto;
 
-      ghs-actions {
-        font-size: calc(1em * var(--ghs-fontsize));
+      .ability-actions {
         position: relative;
+        margin-top: 2em;
+        padding-bottom: 0.4em;
         width: 100%;
-        height: 100%;
+        min-height: 5.4em;
+        font-size: 1.7em;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+
+        ghs-actions {
+          font-size: calc(1em * var(--ghs-fontsize));
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .bottom-spacer {
+        display: block;
+        position: relative;
+        margin-top: 2em;
       }
     }
 
@@ -197,8 +207,8 @@
         justify-content: center;
         align-items: center;
         background-color: var(--ghs-ability-color);
-        mask-image: url('~/src/assets/images/level.svg');
-        -webkit-mask-image: url('~/src/assets/images/level.svg');
+        mask-image: url('~src/assets/images/level.svg');
+        -webkit-mask-image: url('~src/assets/images/level.svg');
         mask-size: 115% 170%;
         -webkit-mask-size: 115% 170%;
         mask-repeat: no-repeat;
@@ -234,23 +244,46 @@
       overflow-x: unset;
       overflow-y: auto;
 
-      .ability-actions {
-        left: 1.6em;
-        width: 11.5em;
-        min-height: 6.4em;
-        max-height: 6.4em;
-        margin-top: 1.8em;
+      .ability-actions-container {
+        .ability-actions {
+          left: 1.6em;
+          width: 11.5em;
+          min-height: 6.4em;
+          max-height: 6.4em;
+          margin-top: 1.8em;
 
-        &.ability-bottom-actions {
-          top: 1.5em;
-          margin-top: 0;
-          margin-bottom: 2.2em;
-          padding-top: 0.2em;
-          padding-bottom: 0;
+          &.ability-bottom-actions {
+            top: 1.5em;
+            margin-top: 0;
+            margin-bottom: 2.2em;
+            padding-top: 0.2em;
+            padding-bottom: 0;
+          }
+        }
+
+        .bottom-spacer {
+          display: none;
         }
       }
     }
 
+    ghs-interactive-actions {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      bottom: 0;
+      z-index: 999;
+
+      &.interactive-actions-top {
+        position: absolute;
+        bottom: 16em;
+      }
+
+      &.interactive-actions-bottom {
+        position: absolute;
+        bottom: 2.5em;
+      }
+    }
   }
 
   .ability-back {

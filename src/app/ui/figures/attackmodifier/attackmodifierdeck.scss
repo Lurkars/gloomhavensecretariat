@@ -33,12 +33,12 @@
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('~/src/assets/images/attackmodifier/am-back.png');
+      background-image: url('~src/assets/images/attackmodifier/am-back.png');
       border-radius: 5%;
       transition: filter 2s ease-in-out;
 
       &.town-guard {
-        background-image: url('~/src/assets/images/attackmodifier/town-guard/back.png');
+        background-image: url('~src/assets/images/attackmodifier/town-guard/back.png');
       }
 
       &.disabled {
@@ -55,9 +55,10 @@
         position: absolute;
         font-size: 2em;
         line-height: 1em;
-        right: 6%;
+        left: 50%;
         bottom: 0%;
         z-index: 500;
+        transform: translateX(-50%);
 
         &.has-shuffle {
           top: 0;
@@ -91,7 +92,7 @@
         background-position: center;
         background-size: 100% auto;
         background-repeat: no-repeat;
-        background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+        background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
 
         &.character-icon {
           align-items: center;
@@ -111,7 +112,9 @@
     }
 
     .settings,
-    .fullscreen {
+    .fullscreen,
+    .advantage,
+    .disadvantage {
       cursor: pointer;
       position: absolute;
       left: -14%;
@@ -125,7 +128,7 @@
       background-position: center;
       background-size: 100% auto;
       background-repeat: no-repeat;
-      background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+      background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
       transition: transform 500ms ease-in-out;
       transform: scale(1.2);
 
@@ -154,15 +157,53 @@
         }
       }
 
+      &.advantage,
+      &.disadvantage {
+        left: initial;
+        right: 0;
+        transition: transform 100ms ease-in-out;
+        z-index: 499;
+
+        &.without-fullscreen:not(.vertical) {
+          left: -14%;
+          right: initial;
+        }
+
+        &:hover {
+          transform: scale(1.4);
+        }
+      }
+
+      &.advantage {
+        top: -9%;
+
+        &.has-shuffle {
+          transform: scale(0.7) translate(50%, -25%);
+          filter: grayscale(0.8);
+        }
+      }
+
+      &.disadvantage {
+        bottom: -9%;
+
+        &.has-shuffle {
+          transform: scale(0.7) translate(50%, 25%);
+          filter: grayscale(0.8);
+        }
+      }
+
       img {
         height: 60%;
         width: auto;
         align-self: center;
-        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+
+        &.ghs-svg {
+          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        }
       }
 
       &:hover {
-        img {
+        img.ghs-svg {
           filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
       }
@@ -317,8 +358,7 @@
     transform: rotate(25deg);
     z-index: 0;
 
-    &.last:hover,
-    &.rolling:hover {
+    &.disgarded:hover {
       z-index: 100 !important;
     }
 
@@ -329,6 +369,18 @@
 
   .disgard-active {
     filter: grayscale(0.3);
+  }
+
+  .highlight {
+    filter: brightness(1);
+  }
+
+  .ignored {
+    filter: grayscale(0.8) opacity(0.8);
+
+    &:hover {
+      filter: none;
+    }
   }
 
   &.open-dialog {
@@ -402,7 +454,7 @@
   .current {
     top: 0;
     position: absolute;
-    transform: translateY(110%);
+    transform: translateY(120%);
     z-index: 1;
   }
 
@@ -411,7 +463,7 @@
     position: absolute;
     top: 0;
     left: 45%;
-    transform: translateY(130%) rotate(25deg);
+    transform: translateY(140%) rotate(25deg);
     z-index: 0;
   }
 
@@ -432,24 +484,24 @@
     }
 
     100% {
-      transform: scale(1) translateY(110%);
+      transform: scale(1) translateY(120%);
     }
   }
 
   @keyframes attackmodifier-last-vertical {
     0% {
       left: 0;
-      transform: translateY(110%) rotate(0);
+      transform: translateY(120%) rotate(0);
     }
 
     70% {
       left: 0;
-      transform: translateY(110%) rotate(0);
+      transform: translateY(120%) rotate(0);
     }
 
     100% {
       left: 45%;
-      transform: translateY(130%) rotate(25deg);
+      transform: translateY(140%) rotate(25deg);
     }
   }
 

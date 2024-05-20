@@ -9,5 +9,14 @@ li {
 
     kbd {
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+        .placeholder {
+            display: flex;
+            align-items: center;
+    
+            * {
+                margin: 0 0.1em;
+            }
+        }
     }
 }

@@ -1,11 +1,13 @@
 {
   "index": "60",
   "name": "Alchemy Lab",
+  "flowChartGroup": "personal-quests",
   "coordinates": {
-    "x": 2247.4000244140625,
+    "x": 2247.5,
     "y": 247,
     "width": 164,
-    "height": 139
+    "height": 139,
+    "gridLocation": "B-15"
   },
   "edition": "gh",
   "rewards": {

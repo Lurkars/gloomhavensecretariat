@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Foggy",
   "edition": "gh",
+  "named": true,
+  "monsters": [
+    "flame-demon",
+    "frost-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

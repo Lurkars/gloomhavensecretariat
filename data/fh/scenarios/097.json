@@ -1,6 +1,14 @@
 {
   "index": "97",
   "name": "Program Control Nexus",
+  "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 1811.75,
+    "y": 1545.25,
+    "width": 110,
+    "height": 83,
+    "gridLocation": "D12"
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [
@@ -31,6 +39,13 @@
     "metal": 4,
     "random_item": 1
   },
+  "rules": [
+    {
+      "round": "1",
+      "start": true,
+      "note": "%data.scenario.rules.fh.97%"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -39,17 +54,20 @@
         {
           "name": "flaming-bladespinner",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "d"
         },
         {
           "name": "flaming-bladespinner",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "d"
         },
         {
           "name": "flaming-bladespinner",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "d"
         },
         {
           "name": "program-director",
@@ -57,41 +75,50 @@
         },
         {
           "name": "robotic-boltshooter",
-          "type": "normal"
+          "type": "normal",
+          "marker": "a"
         },
         {
           "name": "robotic-boltshooter",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "a"
         },
         {
           "name": "ruined-machine",
-          "type": "normal"
+          "type": "normal",
+          "marker": "c"
         },
         {
           "name": "ruined-machine",
-          "type": "elite"
+          "type": "elite",
+          "marker": "c"
         },
         {
           "name": "ruined-machine",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "c"
         },
         {
           "name": "ruined-machine",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "c"
         },
         {
           "name": "ruined-machine",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "c"
         },
         {
           "name": "steel-automaton",
-          "type": "normal"
+          "type": "normal",
+          "marker": "b"
         },
         {
           "name": "steel-automaton",
-          "type": "elite"
+          "type": "elite",
+          "marker": "b"
         }
       ]
     }

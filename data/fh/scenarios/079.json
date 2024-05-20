@@ -1,6 +1,14 @@
 {
   "index": "79",
   "name": "Relic",
+  "flowChartGroup": "job-postings",
+  "coordinates": {
+    "x": 2036.5,
+    "y": 835.5,
+    "width": 99,
+    "height": 60,
+    "gridLocation": "B5"
+  },
   "edition": "fh",
   "complexity": 3,
   "requirements": [

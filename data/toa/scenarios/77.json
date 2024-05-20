@@ -3,10 +3,8 @@
   "name": "Rat Traps",
   "edition": "toa",
   "monsters": [
-    "bandit-archer",
     "living-bones",
-    "living-corpse",
-    "living-spirit"
+    "living-corpse"
   ],
   "rooms": [
     {

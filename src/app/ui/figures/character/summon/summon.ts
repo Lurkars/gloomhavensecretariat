@@ -7,7 +7,7 @@ import { Character } from 'src/app/game/model/Character';
 import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
-import { Summon, SummonState } from 'src/app/game/model/Summon';
+import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions, ghsValueSign } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog';
 import { Subscription } from 'rxjs';
@@ -24,6 +24,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
   @Input() character!: Character;
   @Input() summon!: Summon;
   SummonState = SummonState;
+  SummonColor = SummonColor;
   ConditionType = ConditionType;
   health: number = 0;
   maxHp: number = 0;
@@ -34,6 +35,7 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   activeConditions: EntityCondition[] = [];
+  specialActionsMarker: string[] = [];
 
   constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
 
@@ -62,12 +64,23 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
         this.activeConditions.push(new EntityCondition(immunity));
       }
     })
+
+    this.specialActionsMarker = [];
+    this.summon.tags.forEach((tag) => {
+      if (this.character.specialActions.find((specialAction) => specialAction.name == tag && specialAction.summon)) {
+        if (tag == 'prism_mode') {
+          this.specialActionsMarker.push('mode');
+        }
+      }
+    })
+
+    this.maxHp = EntityValueFunction(this.summon.maxHealth);
   }
 
   dragHpMove(value: number) {
     this.health = value;
-    if (this.summon.health + this.health > this.summon.maxHealth) {
-      this.health = EntityValueFunction(this.summon.maxHealth) - this.summon.health;
+    if (this.summon.health + this.health > this.maxHp) {
+      this.health = this.maxHp - this.summon.health;
     }
   }
 
@@ -166,6 +179,15 @@ export class SummonEntityComponent implements OnInit, OnDestroy {
   removeCondition(entityCondition: EntityCondition) {
     gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.summon, this.character, "removeCondition"), entityCondition.name);
     gameManager.entityManager.removeCondition(this.summon, entityCondition, entityCondition.permanent);
+    gameManager.stateManager.after();
+  }
+
+  removeMarker(marker: string) {
+    const markerChar = new Character(gameManager.getCharacterData(marker), 1);
+    const markerName = gameManager.characterManager.characterName(markerChar);
+    const characterIcon = markerChar.name;
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.summon, this.character, "removeMarker"), markerName, characterIcon);
+    this.summon.markers = this.summon.markers.filter((value) => value != marker);
     gameManager.stateManager.after();
   }
 }

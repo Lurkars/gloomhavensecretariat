@@ -1,0 +1,29 @@
+{
+  "index": "186.4",
+  "name": "A Tall Drunken Tale",
+  "edition": "fh",
+  "parent": "128",
+  "parentSections": [
+    [
+      "132.4"
+    ]
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "note": "Place three snow rocks in any empty hexes on tile 15-A (if able).",
+      "figures": [
+        {
+          "identifier": {
+            "type": "all",
+            "name": ".*"
+          },
+          "type": "setHp",
+          "value": "1"
+        }
+      ]
+    }
+  ]
+}

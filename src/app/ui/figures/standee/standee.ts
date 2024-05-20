@@ -76,7 +76,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
     this.actionHints = [];
 
     if (settingsManager.settings.standeeStats && this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
-      this.actionHints = gameManager.monsterManager.calcActionHints(this.figure, this.entity);
+      this.actionHints = gameManager.actionsManager.calcActionHints(this.figure, this.entity);
     }
     if (this.entity.revealed) {
       const activeFigure = gameManager.game.figures.find((figure) => figure.active);
@@ -95,6 +95,8 @@ export class StandeeComponent implements OnInit, OnDestroy {
     if (this.figure instanceof ObjectiveContainer && this.figure.entities.flatMap((entity) => entity.marker).every((marker, index, self) => self.indexOf(marker) == 0)) {
       this.marker = "";
     }
+
+    this.maxHp = EntityValueFunction(this.entity.maxHealth);
   }
 
   dragHpMove(value: number) {
@@ -136,6 +138,15 @@ export class StandeeComponent implements OnInit, OnDestroy {
   removeCondition(entityCondition: EntityCondition) {
     gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "removeCondition"), entityCondition.name, this.entity instanceof MonsterEntity ? 'monster.' + this.entity.type + ' ' : '');
     gameManager.entityManager.removeCondition(this.entity, entityCondition, entityCondition.permanent);
+    gameManager.stateManager.after();
+  }
+
+  removeMarker(marker: string) {
+    const markerChar = new Character(gameManager.getCharacterData(marker), 1);
+    const markerName = gameManager.characterManager.characterName(markerChar);
+    const characterIcon = markerChar.name;
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "removeMarker"), markerName, characterIcon);
+    this.entity.markers = this.entity.markers.filter((value) => value != marker);
     gameManager.stateManager.after();
   }
 

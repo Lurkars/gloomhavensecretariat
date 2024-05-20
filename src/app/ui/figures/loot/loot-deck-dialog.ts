@@ -39,6 +39,8 @@ export class LootDeckDialogComponent implements OnInit {
   enhancements: boolean = false;
   characters: boolean = true;
 
+  upcomingCards: Loot[] = [];
+  disgardedCards: Loot[] = [];
   enhancementDeck: Loot[] = [];
 
   constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange>, apply: boolean }, public dialogRef: DialogRef) {
@@ -75,6 +77,13 @@ export class LootDeckDialogComponent implements OnInit {
     })
 
     this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.indexOf(loot.type) != -1).sort((a, b) => a.cardId - b.cardId);
+    this.update();
+    gameManager.uiChange.subscribe({ next: () => this.update() });
+  }
+
+  update() {
+    this.upcomingCards = this.deck.cards.filter((loot, index) => index > this.deck.current);
+    this.disgardedCards = this.deck.cards.filter((loot, index) => index <= this.deck.current).reverse();
   }
 
   enhanceCard(loot: Loot) {
@@ -82,6 +91,7 @@ export class LootDeckDialogComponent implements OnInit {
     loot.enhancements++;
     gameManager.game.lootDeckEnhancements = this.enhancementDeck.filter((loot) => loot.enhancements > 0);
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckAddEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
+    this.update();
   }
 
   unenhanceCard(loot: Loot) {
@@ -91,6 +101,7 @@ export class LootDeckDialogComponent implements OnInit {
       gameManager.game.lootDeckEnhancements = this.enhancementDeck.filter((loot) => loot.enhancements > 0);
       this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
     }
+    this.update();
   }
 
   toggleEdit() {
@@ -130,6 +141,7 @@ export class LootDeckDialogComponent implements OnInit {
       }
     }
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckChangeConfig'));
+    this.update();
   }
 
 
@@ -170,6 +182,7 @@ export class LootDeckDialogComponent implements OnInit {
         }
       }
     }
+    this.update();
   }
 
   changeType(type: LootType, value: number) {
@@ -177,25 +190,19 @@ export class LootDeckDialogComponent implements OnInit {
     if (this.lootDeckConfig[type] == 0) {
       this.lootDeckConfig[type] = undefined;
     }
+    this.update();
   }
 
-  upcomingCards(): Loot[] {
-    return this.deck.cards.filter((loot, index) => index > this.deck.current);
-  }
-
-  disgardedCards(): Loot[] {
-    return this.deck.cards.filter((loot, index) => index <= this.deck.current).reverse();
-  }
-
-  shuffle(): void {
-    this.before.emit(new LootDeckChange(this.deck, 'lootDeckShuffle'));
-    gameManager.lootManager.shuffleDeck(this.deck);
+  shuffle(upcoming: boolean = false): void {
+    this.before.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? "Upcoming" : "")));
+    gameManager.lootManager.shuffleDeck(this.deck, upcoming);
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
-        figure.lootCards = [];
+        figure.lootCards = figure.lootCards.filter((number) => number <= this.deck.current);
       }
     })
-    this.after.emit(new LootDeckChange(this.deck, 'lootDeckShuffle'));
+    this.after.emit(new LootDeckChange(this.deck, 'lootDeckShuffle' + (upcoming ? "Upcoming" : "")));
+    this.update();
   }
 
 
@@ -239,6 +246,7 @@ export class LootDeckDialogComponent implements OnInit {
     })
 
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
+    this.update();
   }
 
   dropDisgarded(event: CdkDragDrop<Loot[]>) {
@@ -274,6 +282,7 @@ export class LootDeckDialogComponent implements OnInit {
       }
     })
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
+    this.update();
   }
 
   remove(index: number) {
@@ -284,6 +293,7 @@ export class LootDeckDialogComponent implements OnInit {
     }
     this.deck.cards.splice(index, 1);
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', "" + index));
+    this.update();
   }
 
   countLoot(type: LootType): number {

@@ -1,6 +1,14 @@
 {
   "index": "27",
   "name": "Depths of Delirium",
+  "flowChartGroup": "algox-1",
+  "coordinates": {
+    "x": 1416.75,
+    "y": 866.75,
+    "width": 109,
+    "height": 71,
+    "gridLocation": "H6"
+  },
   "edition": "fh",
   "complexity": 2,
   "requirements": [
@@ -14,7 +22,7 @@
     "experience": 10,
     "battleGoals": 1,
     "campaignSticker": [
-      "Coral Shard"
+      "coral-shard"
     ]
   },
   "monsters": [

@@ -1,11 +1,13 @@
 {
   "index": "62",
   "name": "Pit of Souls",
+  "flowChartGroup": "personal-quests",
   "coordinates": {
     "x": 1678,
     "y": 2137,
     "width": 172,
-    "height": 155
+    "height": 155,
+    "gridLocation": "O-11"
   },
   "edition": "gh",
   "rewards": {

@@ -3,6 +3,12 @@
   "group": "randomMonsterCard",
   "name": "Trashing",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "lurker-soldier",
+    "lurker-wavethrower",
+    "piranha-pig"
+  ],
   "rules": [
     {
       "round": "true",

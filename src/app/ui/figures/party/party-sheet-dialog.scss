@@ -16,15 +16,11 @@
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
       img {
-        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-      }
+        height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
-      &:hover {
-        color: var(--ghs-color-gray);
-
-        img {
-          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        &:hover {
+          filter: var(--ghs-filter-gray);
         }
       }
     }
@@ -90,7 +86,7 @@
       appearance: none;
       color: transparent;
       border: none;
-      background: transparent url('~/src/assets/images/select-arrow.svg') no-repeat right center;
+      background: transparent url('~src/assets/images/select-arrow.svg') no-repeat right center;
     }
 
     .checkbox {
@@ -153,6 +149,15 @@
 
       &.disabled {
         pointer-events: none;
+      }
+
+      &.checked:hover::before {
+        opacity: 0.6;
+      }
+
+      &:not(.checked):hover::before {
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 0.6;
       }
     }
 
@@ -287,7 +292,7 @@
       position: relative;
       width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
       height: calc(var(--ghs-unit) * 76 * var(--ghs-dialog-factor));
-      background-image: url('~/src/assets/images/party/party-sheet.svg');
+      background-image: url('~src/assets/images/party/party-sheet.svg');
       background-position: top center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -365,7 +370,8 @@
             .value {
               cursor: pointer;
 
-              &.checked::before {
+              &.checked::before,
+              &:hover::before {
                 content: ' ';
                 position: absolute;
                 top: 0;
@@ -378,6 +384,10 @@
                 background-position: center;
                 filter: var(--ghs-filter-red);
                 z-index: 1;
+              }
+
+              &:hover::before {
+                opacity: 0.5;
               }
             }
           }
@@ -469,7 +479,7 @@
       &.fh-sheet {
         width: calc(var(--ghs-unit) * 120.5 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 98.5 * var(--ghs-dialog-factor));
-        background-image: url('~/src/assets/images/fh/party/party-sheet.svg');
+        background-image: url('~src/assets/images/fh/party/party-sheet.svg');
 
         .checkbox.checked::before {
           clip-path: none;
@@ -577,7 +587,17 @@
             }
           }
 
+          &.permissive {
+            opacity: 0.6;
+          }
+
           z-index: 2;
+        }
+
+        .map {
+          position: absolute;
+          top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+          right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
         }
 
         .weeks {
@@ -738,6 +758,10 @@
             display: flex;
             align-items: center;
 
+            .supply {
+              cursor: help;
+            }
+
             .move-resources {
               display: flex;
 
@@ -753,8 +777,8 @@
                 cursor: pointer;
 
                 img {
-                  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-                  height: auto;
+                  width: auto;
+                  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
                 }
               }
             }
@@ -944,34 +968,52 @@
                 width: 100%;
                 height: calc(var(--ghs-unit) * 1.92 * var(--ghs-dialog-factor));
 
-                &.checked::before {
+                &.checked::before,
+                &:hover::before {
                   content: ' ';
                   position: absolute;
-                  top: calc(var(--ghs-unit) * -0.2 * var(--ghs-dialog-factor));
+                  top: 0;
                   left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                   background-image: url('~src/assets/images/checkmark.svg');
+                  background-position: center center;
+                  background-repeat: no-repeat;
                   z-index: 1;
                   filter: var(--ghs-filter-red);
                 }
+
+                &:hover::before {
+                  opacity: 0.5;
+                }
+
               }
             }
 
             &.defense-grid {
-              .section {
+              .sections {
                 position: relative;
                 display: flex;
                 align-items: center;
+                flex-wrap: wrap;
                 width: 100%;
                 height: calc(var(--ghs-unit) * 1.92 * var(--ghs-dialog-factor));
                 font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
                 z-index: 2;
 
-                img {
-                  height: 1em;
-                  width: auto;
-                  margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+                .section {
+                  display: flex;
+                  align-items: center;
+                  margin-left: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+
+                  img {
+                    height: 1em;
+                    width: auto;
+                  }
+
+                  &.conclusion {
+                    text-decoration: line-through;
+                  }
                 }
               }
 
@@ -1223,7 +1265,7 @@
 
           .town-guard-deck {
             position: absolute;
-            right: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+            right: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
             top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 37.5 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 10 * var(--ghs-dialog-factor));
@@ -1252,7 +1294,7 @@
             }
 
             &.collapsed {
-              transform: translateX(123%);
+              transform: translateX(calc(var(--ghs-unit) * 41.5 * var(--ghs-dialog-factor)));
             }
 
             .active-toggle {
@@ -1287,7 +1329,7 @@
                 background-position: center;
                 background-size: 100% auto;
                 background-repeat: no-repeat;
-                background-image: url('~/src/assets/images/attackmodifier/town-guard/icon.png');
+                background-image: url('~src/assets/images/attackmodifier/town-guard/icon.png');
               }
             }
           }
@@ -1656,6 +1698,19 @@
               margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             }
 
+            .available-characters {
+              display: flex;
+
+              .available-character {
+                cursor: pointer;
+
+                img {
+                  width: auto;
+                  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                }
+              }
+            }
+
             .remove {
               cursor: pointer;
               display: flex;
@@ -1804,6 +1859,10 @@
               grid-template-columns: 1fr 2fr 1.8fr 1fr 1fr 1.4fr 0.5fr;
             }
           }
+        }
+
+        .time {
+          margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         }
 
 
@@ -2050,12 +2109,6 @@
             align-items: flex-end;
             height: 100%;
             overflow: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-
-            &::-webkit-scrollbar {
-              display: none;
-            }
 
             .tick {
               display: flex;
@@ -2132,12 +2185,6 @@
             align-items: center;
             height: 100%;
             overflow: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-
-            &::-webkit-scrollbar {
-              display: none;
-            }
 
             .donation {
               position: relative;
@@ -2166,6 +2213,89 @@
                 width: 100%;
                 height: 100%;
                 z-index: 1;
+              }
+            }
+          }
+        }
+
+        .envelope-b {
+          display: flex;
+          flex-direction: column;
+
+          label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .checkbox {
+              margin-right: calc(var(--ghs-unit) * 0.5);
+            }
+          }
+
+          .lines {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .line {
+            display: flex;
+
+            .item {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              margin: calc(var(--ghs-unit) * 0.5);
+              font-size: 0.8em;
+              font-family: ghs-title;
+
+              .checkpoint {
+                display: block;
+                position: relative;
+                border-radius: 100%;
+                width: calc(var(--ghs-unit) * 2.3);
+                height: calc(var(--ghs-unit) * 2.3);
+                cursor: pointer;
+
+                &::after {
+                  content: ' ';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  border-radius: 100%;
+                  background-color: var(--ghs-color-gray);
+                  mask-image: url('~src/assets/images/party/env-b.svg');
+                  mask-size: 100% 100%;
+                }
+
+                &.prosperity::after {
+                  background-color: var(--ghs-color-yellow);
+                  mask-image: url('~src/assets/images/party/env-b-prosp.svg');
+                }
+
+                &::before {
+                  content: ' ';
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  width: 110%;
+                  height: 110%;
+                  transform: scale(0);
+                  transform-origin: top left;
+                  transition: 120ms transform ease-in-out;
+                  z-index: 1;
+                  background-image: url('~src/assets/images/checkmark.svg');
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  filter: var(--ghs-filter-red);
+                }
+
+                &.checked::before {
+                  transform: scale(1) translate(-50%, -50%);
+                }
               }
             }
           }

@@ -86,7 +86,7 @@
           position: absolute;
           width: calc(var(--ghs-unit) * 4);
           height: calc(var(--ghs-unit) * 4);
-          background-image: url('~/src/assets/images/summons/minus.svg');
+          background-image: url('~src/assets/images/summons/minus.svg');
           background-size: cover;
           z-index: 2;
         }
@@ -118,6 +118,10 @@
           z-index: 3;
           opacity: 0.9;
         }
+      }
+
+      .objective-marker {
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       }
     }
   }

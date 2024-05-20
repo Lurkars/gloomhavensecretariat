@@ -1,6 +1,14 @@
 {
   "index": "54",
   "name": "Among the Wreckage",
+  "flowChartGroup": "lurker",
+  "coordinates": {
+    "x": 1666.5,
+    "y": 377.75,
+    "width": 132,
+    "height": 83,
+    "gridLocation": "F1"
+  },
   "edition": "fh",
   "complexity": 2,
   "unlocks": [
@@ -16,7 +24,7 @@
   "rewards": {
     "battleGoals": 2,
     "campaignSticker": [
-      "Coral Shard"
+      "coral-shard"
     ]
   },
   "monsters": [

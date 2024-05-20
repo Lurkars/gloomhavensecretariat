@@ -1,18 +1,18 @@
-import { Dialog } from "@angular/cdk/dialog";
+import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
+import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
 import { LootType } from "src/app/game/model/data/Loot";
 import { PerkType } from "src/app/game/model/data/Perks";
-import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
+import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
+import { ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
+import { AbilityCardsDialogComponent } from "./ability-cards-dialog";
 import { CharacterMoveResourcesDialog } from "./move-resources";
 import { CharacterRetirementDialog } from "./retirement-dialog";
-import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
-import { EntityValueFunction } from "src/app/game/model/Entity";
-import { AbilityCardsDialogComponent } from "./ability-cards-dialog";
 
 
 @Component({
@@ -25,7 +25,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   @Input() character!: Character;
   @Input() editable: boolean = true;
+  @Input() forceEdit: boolean = false;
   @Input() standalone: boolean = false;
+  @Input() dialogRef: DialogRef | undefined;
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
 
@@ -37,7 +39,6 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   PerkType = PerkType;
   LootType = LootType;
   availablePerks: number = 0;
-  perksWip: boolean = true;
   retired: boolean = false;
   personalQuest: PersonalQuest | undefined;
   hasAbilities: boolean = false;
@@ -103,8 +104,6 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     }
 
     this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
-
-    this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk) => perk.count).reduce((a, b) => a + b) != (this.character.edition == 'fh' ? 18 : 15);
 
     if (this.character.progress.personalQuest) {
       this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
@@ -408,9 +407,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   }
 
   addPerk(index: number, value: number, force: boolean = false) {
-    const disabled: boolean = gameManager.game.state != GameState.draw || gameManager.game.round > 0 || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
+    const disabled: boolean = !this.forceEdit && (gameManager.game.state != GameState.draw || gameManager.game.round > 0) || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
 
-    if (!disabled || force) {
+    if (!disabled || force && !settingsManager.settings.characterSheetLocked && this.editable) {
       gameManager.stateManager.before("setPerk", gameManager.characterManager.characterName(this.character), "" + index, "" + value);
       const lowerShacklesHP = this.character.name == 'shackles' && this.character.edition == 'fh' && index == 11 && this.character.progress.perks[index] == 2;
       if (this.character.progress.perks[index] && this.character.progress.perks[index] == value) {
@@ -470,6 +469,17 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     } catch (e: any) {
       console.warn(e);
       parent.classList.add("error");
+    }
+  }
+
+  setAside() {
+    gameManager.stateManager.before("characterSetAside", gameManager.characterManager.characterName(this.character, true, true), gameManager.game.party.players[this.character.number - 1] ? gameManager.game.party.players[this.character.number - 1] : '' + this.character.number);
+    gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters || [];
+    gameManager.game.party.availableCharacters.push(this.character.toModel());
+    gameManager.characterManager.removeCharacter(this.character);
+    gameManager.stateManager.after();
+    if (this.dialogRef) {
+      ghsDialogClosingHelper(this.dialogRef);
     }
   }
 

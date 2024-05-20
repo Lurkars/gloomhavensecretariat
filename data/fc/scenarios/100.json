@@ -1,6 +1,14 @@
 {
   "index": "100",
   "name": "Shifting Gears",
+  "flowChartGroup": "the-rift",
+  "coordinates": {
+    "x": 1318.25,
+    "y": 651.75,
+    "width": 181,
+    "height": 119,
+    "gridLocation": "E-9"
+  },
   "edition": "fc",
   "monsters": [
     "stone-golem"

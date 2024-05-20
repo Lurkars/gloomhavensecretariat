@@ -1,0 +1,265 @@
+[
+  {
+    "id": 1,
+    "name": "Liquid Courage",
+    "cost": 10,
+    "count": 1,
+    "edition": "ir",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "condition",
+        "value": "strengthen",
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "value": "self",
+            "small": true
+          }
+        ]
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "strengthen"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Coat of Arms",
+    "cost": 75,
+    "count": 1,
+    "edition": "ir",
+    "slot": "twohand",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-2.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Coat of Arms",
+    "cost": 60,
+    "count": 1,
+    "edition": "ir",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-3.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Lava Shield",
+    "cost": 60,
+    "count": 1,
+    "edition": "ir",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-4.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Robes of Inversion",
+    "cost": 50,
+    "count": 1,
+    "edition": "ir",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 3,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-5.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Spiked Boots",
+    "cost": 60,
+    "count": 1,
+    "edition": "ir",
+    "slot": "legs",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-6.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Orb of Visions",
+    "cost": 40,
+    "count": 1,
+    "edition": "ir",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-7.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Orb of Manipulation",
+    "cost": 40,
+    "count": 1,
+    "edition": "ir",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-8.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Lucky Charm",
+    "cost": 50,
+    "count": 1,
+    "edition": "ir",
+    "slot": "small",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-9.1%",
+        "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "bless"
+      },
+      {
+        "type": "condition",
+        "value": "bless"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Flaming Arrow",
+    "cost": 40,
+    "count": 1,
+    "edition": "ir",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-10.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Reverse Engineering Kit",
+    "cost": 50,
+    "count": 1,
+    "edition": "ir",
+    "slot": "onehand",
+    "consumed": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-11.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Chroma Parasite",
+    "cost": 50,
+    "count": 1,
+    "edition": "ir",
+    "slot": "small",
+    "consumed": true,
+    "summon": {
+      "name": "element-leech",
+      "health": 4,
+      "attack": 1,
+      "movement": 2,
+      "range": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.items.ir-12.1%",
+        "small": true,
+        "subActions": [
+          {
+            "type": "element",
+            "value": "wild",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "elementHalf",
+                "value": "light:dark"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 13,
+    "name": "Dazing Toxin",
+    "cost": 50,
+    "count": 1,
+    "edition": "ir",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-13.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Selective Boots",
+    "cost": 50,
+    "count": 1,
+    "edition": "ir",
+    "slot": "legs",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.ir-14.1%",
+        "small": true
+      }
+    ]
+  }
+]

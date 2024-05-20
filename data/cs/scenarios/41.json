@@ -1,6 +1,7 @@
 {
   "index": "41",
   "name": "Curse of the Void",
+  "flowChartGroup": "city-events",
   "edition": "cs",
   "rewards": {
     "collectiveGold": 50

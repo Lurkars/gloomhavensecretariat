@@ -91,7 +91,15 @@
               "subActions": [
                 {
                   "type": "summon",
-                  "value": "lightning-eel:normal"
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "lightning-eel",
+                        "type": "normal"
+                      }
+                    }
+                  ]
                 }
               ]
             },
@@ -101,7 +109,15 @@
               "subActions": [
                 {
                   "type": "summon",
-                  "value": "lightning-eel:elite"
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "lightning-eel",
+                        "type": "elite"
+                      }
+                    }
+                  ]
                 }
               ]
             },
@@ -134,7 +150,15 @@
               "subActions": [
                 {
                   "type": "summon",
-                  "value": "lightning-eel:normal"
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "lightning-eel",
+                        "type": "normal"
+                      }
+                    }
+                  ]
                 }
               ]
             },
@@ -144,7 +168,15 @@
               "subActions": [
                 {
                   "type": "summon",
-                  "value": "lightning-eel:elite"
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "lightning-eel",
+                        "type": "elite"
+                      }
+                    }
+                  ]
                 }
               ]
             },

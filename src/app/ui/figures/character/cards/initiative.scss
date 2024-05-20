@@ -35,6 +35,7 @@
     border: none;
     background: none;
     width: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor));
     margin-top: calc(var(--ghs-unit) * -0.7 * var(--ghs-text-factor));
     padding: 0;
     font-family: var(--ghs-font-title);
@@ -62,6 +63,13 @@
     }
   }
 
+  .hidden-initiative {
+    display: block;
+    text-align: center;
+    margin-top: calc(var(--ghs-unit) * -0.7 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor));
+  }
 
   &.empty {
     width: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));

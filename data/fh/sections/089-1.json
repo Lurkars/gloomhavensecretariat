@@ -1,0 +1,73 @@
+{
+  "index": "89.1",
+  "name": "A Strong Foundation",
+  "edition": "fh",
+  "parent": "65",
+  "parentSections": [
+    [
+      "142.2"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "frozen-corpse",
+    "living-bones",
+    "rimeheart",
+    "snow-imp"
+  ],
+  "objectives": [
+    {
+      "name": "Elemental Anchor",
+      "escort": true,
+      "health": "2xCx(L+1)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "treasures": [
+        39
+      ],
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "rimeheart",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

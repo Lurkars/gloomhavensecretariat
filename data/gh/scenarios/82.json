@@ -1,11 +1,13 @@
 {
   "index": "82",
   "name": "Burning Mountain",
+  "flowChartGroup": "road-events",
   "coordinates": {
     "x": 845.5,
     "y": 1905,
     "width": 201,
-    "height": 176
+    "height": 176,
+    "gridLocation": "M-6"
   },
   "edition": "gh",
   "monsters": [

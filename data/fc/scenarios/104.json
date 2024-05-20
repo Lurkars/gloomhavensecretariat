@@ -1,6 +1,14 @@
 {
   "index": "104",
   "name": "A Gaping Wound",
+  "flowChartGroup": "citizens",
+  "coordinates": {
+    "x": 376.5,
+    "y": 1457.25,
+    "width": 228,
+    "height": 149,
+    "gridLocation": "J-3"
+  },
   "edition": "fc",
   "unlocks": [
     "111"

@@ -42,6 +42,7 @@ export enum ConditionType {
   clearHeal = "clearHeal",
   preventHeal = "preventHeal",
   apply = "apply",
+  autoApply = "autoApply",
   positive = "positive",
   negative = "negative",
   double = "double",
@@ -121,6 +122,10 @@ export class Condition {
 
     if ([ConditionName.poison, ConditionName.poison_x, ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield].indexOf(this.name) != -1) {
       this.types.push(ConditionType.apply);
+    }
+
+    if ([ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.autoApply);
     }
 
     if ([ConditionName.poison, ConditionName.poison_x].indexOf(this.name) != -1) {

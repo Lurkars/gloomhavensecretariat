@@ -194,11 +194,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
         return;
       }
 
-      gameManager.stateManager.before("nextIdentity", gameManager.characterManager.characterName(this.character));
-      this.character.identity++;
-      if (this.character.identity >= this.character.identities.length) {
-        this.character.identity = 0;
+      let next = this.character.identity + 1;
+      if (next >= this.character.identities.length) {
+        next = 0;
       }
+
+      gameManager.stateManager.before("nextIdentity", gameManager.characterManager.characterName(this.character, false, false, false), this.character.name, this.character.identities[this.character.identity], this.character.identities[next]);
+      this.character.identity = next;
       gameManager.stateManager.after();
       event.preventDefault();
     } else {
@@ -278,7 +280,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
         this.token = 0;
         gameManager.stateManager.after();
       } else {
-        gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), this.character.tokens[this.character.primaryToken], '' + (this.character.token + this.token));
+        gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), '%data.characterToken.' + this.character.name + '.' + this.character.tokens[this.character.primaryToken] + '%', '' + (this.character.token + this.token));
         this.character.tokenValues[this.character.primaryToken] += this.token;
 
         if (this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0 && this.character.tokenValues[0] > 5) {
@@ -325,6 +327,14 @@ export class CharacterComponent implements OnInit, OnDestroy {
     });
   }
 
+  toggleDamageHP() {
+    if (this.compact) {
+      this.openCharacterSheet();
+    } else {
+      settingsManager.toggle('damageHP');
+    }
+  }
+
   openEntitiesMenu(event: any) {
     this.dialog.open(EntitiesMenuDialogComponent, {
       panelClass: ['dialog'],
@@ -352,7 +362,20 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   removeCondition(entityCondition: EntityCondition) {
     gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "removeCondition"), entityCondition.name);
+    const immunityIndex = this.character.immunities.indexOf(entityCondition.name);
+    if (immunityIndex != -1) {
+      this.character.immunities.splice(immunityIndex, 1);
+    }
     gameManager.entityManager.removeCondition(this.character, entityCondition, entityCondition.permanent);
+    gameManager.stateManager.after();
+  }
+
+  removeMarker(marker: string) {
+    const markerChar = new Character(gameManager.getCharacterData(marker), 1);
+    const markerName = gameManager.characterManager.characterName(markerChar);
+    const characterIcon = markerChar.name;
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "removeMarker"), markerName, characterIcon);
+    this.character.markers = this.character.markers.filter((value) => value != marker);
     gameManager.stateManager.after();
   }
 
@@ -496,4 +519,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
+  removeSpecialAction(specialAction: string) {
+    gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.name + '.' + specialAction + '%');
+    this.character.tags = this.character.tags.filter((specialTag) => specialTag != specialAction);
+
+    if (this.character.name == 'lightning' && this.character.edition == 'gh' && specialAction.indexOf('immune') != -1) {
+      this.character.immunities = [];
+    }
+    gameManager.stateManager.after();
+  }
 }

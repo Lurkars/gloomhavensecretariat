@@ -1,6 +1,14 @@
 {
   "index": "38",
   "name": "The Way Forward",
+  "flowChartGroup": "algox-3",
+  "coordinates": {
+    "x": 1510.25,
+    "y": 1075.25,
+    "width": 111,
+    "height": 69,
+    "gridLocation": "G8"
+  },
   "edition": "fh",
   "complexity": 3,
   "unlocks": [

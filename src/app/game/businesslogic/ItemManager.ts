@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
 import { Character } from "../model/Character";
 import { EntityValueFunction } from "../model/Entity";
 import { Game } from "../model/Game";
 import { Summon, SummonColor } from "../model/Summon";
+import { AttackModifier, AttackModifierType } from '../model/data/AttackModifier';
 import { Condition, ConditionName, ConditionType } from "../model/data/Condition";
 import { Element, ElementState } from "../model/data/Element";
 import { AdditionalIdentifier, CountIdentifier, Identifier } from "../model/data/Identifier";
@@ -9,7 +11,6 @@ import { ItemData, ItemEffect, ItemEffectType, ItemFlags, ItemSlot } from "../mo
 import { LootClass, LootType, getLootClass } from "../model/data/Loot";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { v4 as uuidv4 } from 'uuid';
 
 export class ItemManager {
 
@@ -79,7 +80,7 @@ export class ItemManager {
     }
 
     getItem(id: number, edition: string, all: boolean): ItemData | undefined {
-        return gameManager.itemData(undefined, true).find((itemData) => (itemData && itemData.id == id && itemData.edition == edition && (all || this.isItemAvailable(itemData, edition))));
+        return gameManager.itemData().find((itemData) => (itemData && itemData.id == id && itemData.edition == edition && (all || this.isItemAvailable(itemData, edition))));
     }
 
     maxItemIndex(edition: string): number {
@@ -110,14 +111,22 @@ export class ItemManager {
     }
 
     canBuy(item: ItemData, character: Character, cost: number = 0): boolean {
-        if (gameManager.game.party.campaignMode && gameManager.fhRules() && character.tags.indexOf('new-character') == -1 && (!this.game.party.buildings || !this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post" && buildingModel.level >= 1 && buildingModel.state != 'wrecked'))) {
+        if (character.tags.indexOf('new-character') == -1 && this.buyingDisabled()) {
             return false;
         }
 
         return item.cost && (item.cost + this.pricerModifier() + cost) <= character.progress.gold && this.canAdd(item, character) || false;
     }
 
+    buyingDisabled(): boolean {
+        return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'trading-post' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
+    }
+
     canCraft(item: ItemData, character: Character, resources: Partial<Record<LootType, number>> = {}): boolean {
+        if (this.craftingDisabled()) {
+            return false;
+        }
+
         let isCraftItem = false;
         let canCraft = true;
         if (item.resources) {
@@ -152,6 +161,14 @@ export class ItemManager {
         }
 
         return canCraft && isCraftItem;
+    }
+
+    craftingDisabled(): boolean {
+        return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'craftsman' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
+    }
+
+    brewingDisabled(): boolean {
+        return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
     }
 
     itemSellValue(itemData: ItemData): number {
@@ -272,11 +289,6 @@ export class ItemManager {
     }
 
     countAvailable(item: ItemData): number {
-        const existing = gameManager.itemManager.getItems(item.edition).find((available) => available.id == item.id && available.edition == item.edition);
-        if (!existing) {
-            return -1;
-        }
-
         const assigned = this.assigned(item);
         if (!this.isItemAvailable(item, item.edition, false)) {
             const unlocked = gameManager.game.party.unlockedItems.find((identifier) => +identifier.name == item.id && identifier.edition == item.edition);
@@ -285,6 +297,8 @@ export class ItemManager {
                     console.warn("More items assigend than available:", item);
                 }
                 return unlocked.count - assigned;
+            } else if (!unlocked) {
+                return -1;
             }
         }
 
@@ -366,7 +380,11 @@ export class ItemManager {
         }
 
         character.progress.equippedItems = equippedItems.map((itemData) => new AdditionalIdentifier(itemData.id + '', itemData.edition));
-        character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
+
+        if (item.minusOne && !gameManager.characterManager.ignoreNegativeItemEffects(character)) {
+            character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
+            gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
+        }
 
         if (item.id == 3 && item.edition == 'fh') {
             if (equipIndex == -1) {
@@ -409,6 +427,13 @@ export class ItemManager {
             let summon = new Summon(uuidv4(), item.summon.name, item.summon.cardId, character.level, 1, SummonColor.blue, item.summon);
             summon.init = false;
             gameManager.characterManager.addSummon(character, summon);
+        }
+
+        if (settingsManager.settings.characterItemsApply) {
+            if (item.edition == 'fh' && item.id == 258 && character.health < character.maxHealth / 2) {
+                character.health += 7;
+                gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.curse));
+            }
         }
     }
 

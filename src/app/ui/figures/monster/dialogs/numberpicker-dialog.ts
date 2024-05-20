@@ -95,7 +95,7 @@ export class MonsterNumberPickerDialog implements OnInit {
     }
 
     randomStandee() {
-        const count = EntityValueFunction(this.monster.standeeCount || this.monster.count, this.monster.level);
+        const count = gameManager.monsterManager.monsterStandeeMax(this.monster);
         let number = Math.floor(Math.random() * count) + 1;
         while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
             number = Math.floor(Math.random() * count) + 1;
@@ -149,13 +149,13 @@ export class MonsterNumberPickerDialog implements OnInit {
                 }
             }
             gameManager.stateManager.after();
-            if ((this.entities ? this.monster.entities.filter((entity) => entity.number > 0).length : gameManager.entityManager.entities(this.monster).length) == EntityValueFunction(this.monster.count, this.monster.level) || !this.entity && this.entities) {
+            if ((this.entities ? this.monster.entities.filter((entity) => entity.number > 0).length : gameManager.entityManager.entities(this.monster).length) == gameManager.monsterManager.monsterStandeeMax(this.monster) || !this.entity && this.entities) {
                 ghsDialogClosingHelper(this.dialogRef);
-            } else if (this.entity && this.entities && this.monster.entities.filter((entity) => entity.number > 0).length == EntityValueFunction(this.monster.count, this.monster.level) - 1) {
+            } else if (this.entity && this.entities && this.monster.entities.filter((entity) => entity.number > 0).length == gameManager.monsterManager.monsterStandeeMax(this.monster) - 1) {
                 this.nextStandee();
             }
         } else if (this.change && this.entity && this.entity.number != number) {
-            gameManager.stateManager.before("updateStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + number);
+            gameManager.stateManager.before("updateStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + number);
             let existing = gameManager.monsterManager.monsterStandeeUsed(this.monster, number);
             if (existing) {
                 let otherNumber = -1;

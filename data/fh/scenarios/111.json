@@ -1,6 +1,15 @@
 {
   "index": "111",
   "name": "Ice Cave",
+  "flowChartGroup": "random-scenarios",
+  "errata": "scenario111",
+  "coordinates": {
+    "x": 655,
+    "y": 384.5,
+    "width": 103,
+    "height": 70,
+    "gridLocation": "O1"
+  },
   "edition": "fh",
   "complexity": 3,
   "random": true,

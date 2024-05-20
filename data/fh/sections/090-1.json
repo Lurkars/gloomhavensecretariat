@@ -1,0 +1,26 @@
+{
+  "index": "90.1",
+  "name": "Agree with the Fish King",
+  "edition": "fh",
+  "parent": "73",
+  "parentSections": [
+    [
+      "41.4"
+    ]
+  ],
+  "conclusion": true,
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "lumber",
+        "value": 3
+      }
+    ],
+    "campaignSticker": [
+      "friend-of-the-fish-king"
+    ],
+    "calendarSection": [
+      "146.1A-5"
+    ]
+  }
+}

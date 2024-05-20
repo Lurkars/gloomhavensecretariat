@@ -13,6 +13,7 @@
       align-self: center;
       padding: 0;
       margin: 0;
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
     }
 
     p {
@@ -55,7 +56,7 @@
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
     }
 
-    .password-container {
+    .code-container {
       display: flex;
       width: 100%;
     }

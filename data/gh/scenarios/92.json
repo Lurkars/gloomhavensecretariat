@@ -1,11 +1,13 @@
 {
   "index": "92",
   "name": "Back Alley Brawl",
+  "flowChartGroup": "city-events",
   "coordinates": {
-    "x": 2074.2999877929688,
-    "y": 346,
+    "x": 2075.75,
+    "y": 347,
     "width": 179,
-    "height": 119
+    "height": 119,
+    "gridLocation": "C-14"
   },
   "edition": "gh",
   "requirements": [

@@ -1,11 +1,13 @@
 {
   "index": "80",
   "name": "Vigil Keep",
+  "flowChartGroup": "road-events",
   "coordinates": {
     "x": 85,
     "y": 1594,
     "width": 173,
-    "height": 170
+    "height": 170,
+    "gridLocation": "K-1"
   },
   "edition": "gh",
   "rewards": {

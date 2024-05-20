@@ -403,6 +403,7 @@
     "slot": "body",
     "spent": true,
     "minusOne": 3,
+    "slots": 3,
     "unlockProsperity": 3,
     "actions": [
       {
@@ -796,6 +797,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "body",
+    "spent": true,
     "minusOne": 4,
     "slots": 4,
     "unlockProsperity": 6,
@@ -1257,7 +1259,7 @@
   {
     "id": 68,
     "name": "Halberd",
-    "cost": 60,
+    "cost": 75,
     "count": 2,
     "edition": "gh",
     "slot": "twohand",

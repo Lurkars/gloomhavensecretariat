@@ -1,11 +1,13 @@
 {
   "index": "53",
   "name": "Crypt Basement",
+  "flowChartGroup": "personal-quests",
   "coordinates": {
     "x": 1584,
     "y": 778,
     "width": 182,
-    "height": 143
+    "height": 143,
+    "gridLocation": "F-11"
   },
   "edition": "gh",
   "unlocks": [

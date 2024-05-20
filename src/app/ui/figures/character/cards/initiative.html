@@ -1,13 +1,13 @@
 <div class="initiative"
-  [ngClass]="{'empty' : figure.initiative <= 0 && (!settingsManager.settings.initiativeRequired || character && character.exhausted || objective && objective.exhausted)}"
+  [ngClass]="{'empty' : figure.initiative <= 0 && (!settingsManager.settings.initiativeRequired || character && character.exhausted)}"
   [ghs-label]="'game.figure.setInitiative'" [ghs-label-attribute]="'title'">
   <img (click)="open($event)" class="ghs-svg" src="./assets/images/initiative.svg" />
-  <input [ngClass]="{'hidden' : figure.initiative > 0 && initiativeHidden()}" #initativeInput
+  <input [ngClass]="{'hidden' : figure.initiative > 0 && initiativeHidden() && !reveal}" #initiativeInput
     [value]="figure.initiative > 0 ? (figure.initiative < 10 && figure.initiative > 0 ? '0' + figure.initiative : figure.initiative) || '' : ''"
-    (change)="updateInitiative($event)" (focus)="initativeInput.select()" type="number"
+    (change)="updateInitiative($event)" (focus)="initiativeInput.select()" type="number" (blur)="disableReveal()"
     [min]="gameManager.game.state == GameState.draw ? 0 : 1" max="99" maxlength="2"
     [id]="'initiative-input-' + tabindex()">
-  <span *ngIf="figure.initiative > 0 && initiativeHidden()">??</span>
+  <span class="hidden-initiative" *ngIf="figure.initiative > 0 && initiativeHidden() && !reveal" (click)="enableReveal($event)">??</span>
   <img class="ghs-svg long-rest" [ghs-label]="'game.figure.longRestOff'" [ghs-label-attribute]="'title'"
     *ngIf="character && !initiativeHidden() && character.longRest" src="./assets/images/long-rest.svg"
     (click)="longRestOff($event)" />

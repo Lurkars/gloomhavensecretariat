@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Abandoned",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "ancient-artillery",
+    "ruined-machine"
+  ],
   "rooms": [
     {
       "roomNumber": 1,

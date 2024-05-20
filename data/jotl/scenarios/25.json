@@ -1,6 +1,14 @@
 {
   "index": "25",
   "name": "The Greatest Job in the World",
+  "flowChartGroup": "characters",
+  "coordinates": {
+    "x": 1643,
+    "y": 667,
+    "width": 392,
+    "height": 184,
+    "gridLocation": "C7"
+  },
   "edition": "jotl",
   "rewards": {
     "items": [

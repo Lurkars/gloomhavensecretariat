@@ -1,6 +1,7 @@
 {
   "index": "43",
   "name": "Mansion Maze",
+  "flowChartGroup": "city-events",
   "edition": "cs",
   "rewards": {
     "prosperity": 1,

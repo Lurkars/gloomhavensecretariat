@@ -50,6 +50,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
     @Input() offsetX: number = 0;
     @Input() offsetY: number = 0;
     @Input() delay: number = 0;
+    @Input() disabled: boolean = false;
     private overlayRef!: OverlayRef;
     private timeout: any;
 
@@ -77,7 +78,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
 
     @HostListener('mouseover')
     show() {
-        if ((settingsManager.settings.tooltips || !this.toggable) && this.value && !this.overlayRef.hasAttached() && !this.timeout) {
+        if (!this.disabled && (settingsManager.settings.tooltips || !this.toggable) && this.value && !this.overlayRef.hasAttached() && !this.timeout) {
             this.timeout = setTimeout(() => {
                 const tooltipRef: ComponentRef<GhsTooltipComponent>
                     = this.overlayRef.attach(new ComponentPortal(GhsTooltipComponent));

@@ -1,20 +1,27 @@
 import { ConditionName } from "./data/Condition";
 
 export class Settings {
+
+  [index: string]: any;
+
   abilities: boolean = true;
   abilityNumbers: boolean = true;
   abilityReveal: boolean = true;
   activeApplyConditions: boolean = true;
+  activeApplyConditionsAuto: ConditionName[] = [];
   activeApplyConditionsExcludes: ConditionName[] = [ConditionName.shield];
   activeStandees: boolean = true;
   activeSummons: boolean = true;
   addAllMonsters: boolean = false;
   allyAttackModifierDeck: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;
+  alwaysFhAdvantage: boolean = false;
   alwaysFhSolo: boolean = false;
   alwaysHazardousTerrain: boolean = false;
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;
+  amAdvantage: boolean = false;
+  amAdvantageHouseRule: boolean = false;
   animations: boolean = true;
   applyBuildingRewards: boolean = true;
   applyConditions: boolean = true;
@@ -28,6 +35,8 @@ export class Settings {
   autoBackupFinish: boolean = false;
   autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined, authorization: string | undefined } | undefined;
   automaticAttackModifierFullscreen: boolean = true;
+  automaticGameClock: boolean = true;
+  automaticGameClockFocus: boolean = false;
   automaticPassTime: boolean = true;
   automaticStandees: boolean = true;
   automaticStandeesDialog: boolean = false;
@@ -41,10 +50,12 @@ export class Settings {
   battleGoalsFh: boolean = false;
   battleGoalsReminder: boolean = true;
   browserNavigation: boolean = false;
+  buildingEffectsVisible: boolean = false;
+  buildingInteractionsVisible: boolean = false;
   calculate: boolean = true;
   calculateStats: boolean = true;
   calculateShieldStats: boolean = true;
-  calendarLocked: boolean = false;
+  calendarLocked: boolean | 'permissive' = false;
   characterAttackModifierAnimate: boolean = true;
   characterAttackModifierDeck: boolean = true;
   characterAttackModifierDeckPermanent: boolean = false;
@@ -54,7 +65,7 @@ export class Settings {
   characterIdentities: boolean = true;
   characterIdentityHint: boolean = true;
   characterItems: boolean = false;
-  characterItemsApply: boolean = false;
+  characterItemsApply: boolean = true;
   characterItemsPermanent: boolean = false;
   characterItemsPermanentActive: boolean = false;
   characterItemsPermanentEquipped: boolean = true;
@@ -62,10 +73,15 @@ export class Settings {
   characterItemsPermanentZoom: number = 1;
   characterSheet: boolean = true;
   characterSheetCompact: boolean = false;
+  characterSheetLocked: boolean = false;
   characterShieldRetaliate: boolean = false;
   characterTraits: boolean = false;
   columns: boolean = true;
+  columnsForce: boolean = false;
+  combineInteractiveAbilities: boolean = true;
   combineSummonAction: boolean = true;
+  damageHP: boolean = false;
+  debugEditWorldMap: boolean = false;
   debugRightClick: boolean = false;
   disableAnimations: boolean = false;
   disableArtwork: boolean = false;
@@ -81,12 +97,16 @@ export class Settings {
   editionDataUrls: string[] = [];
   editions: string[] = [];
   eliteFirst: boolean = true;
+  errata: boolean = false;
   excludeEditionDataUrls: string[] = [];
   expireConditions: boolean = true;
   fhGhItems: boolean = false;
   fhStyle: boolean = false;
   fontsize: number = 1;
+  gameClock: boolean = false;
+  gameClockMerge: boolean = true;
   globalFontsize: number = 1;
+  globalMapHighlighting: boolean = true;
   fullscreen: boolean = false;
   hideAbsent: boolean = false;
   hideCharacterHP: boolean = false;
@@ -102,7 +122,7 @@ export class Settings {
   maxUndo: number = 100;
   portraitMode: boolean = true;
   monsters: boolean = true;
-  monsterAttackModifierDeck : boolean = true;
+  monsterAttackModifierDeck: boolean = true;
   moveElements: boolean = true;
   partySheet: boolean = true;
   pinchZoom: boolean = true;
@@ -114,7 +134,9 @@ export class Settings {
   scenarioRewardsItems: boolean = true;
   scenarioRooms: boolean = true;
   scenarioRules: boolean = true;
+  scenarioRulesAutoapply: boolean = false;
   serverAutoconnect: boolean = true;
+  serverCode: string | undefined;
   serverPassword: string | undefined;
   serverPort: number | undefined;
   serverSettings: boolean = false;
@@ -131,6 +153,7 @@ export class Settings {
   standees: boolean = true;
   standeeStats: boolean = false;
   statAnimations: boolean = false;
+  stats: boolean = true;
   summons: boolean = true;
   theme: string = "";
   tooltips: boolean = true;
@@ -139,6 +162,11 @@ export class Settings {
   treasuresLootItem: boolean = true;
   treasuresLootScenario: boolean = true;
   turnConfirmation: boolean = true;
+  unlockEnvelopeBuildings: boolean = true;
   wakeLock: boolean = true;
   zoom: number = 100;
 }
+
+export const localSettings: string[] = [
+  "animations", "artwork", "automaticAttackModifierFullscreen", "autoBackup", "autoBackupFinish", "autoBackupUrl", "automaticGameClock", "automaticTheme", "autoscroll", "barsize", "backupHint", "browserNavigation", "buildingEffectsVisible", "buildingInteractionsVisible", "calendarLocked", "characterAttackModifierAnimate", "characterAttackModifierDeckPermanent", "characterAttackModifierDeckPermanentActive", "characterItemsPermanent", "characterItemsPermanentActive", "characterItemsPermanentEquipped", "characterItemsPermanentSorted", "characterItemsPermanentZoom", "characterCompact", "characterSheetCompact", "characterSheetLocked", "columns", "columnsForce", "debugEditWorldMap", "debugRightClick", "disableAnimations", "disableArtwork", "disableColumns", "disableDragFigures", "disablePinchZoom", "disableWakeLock", "dragFigures", "dragValues", "errata", "fhStyle", "fontsize", "gameClock", "globalFontsize", "globalMapHighlighting", "fullscreen", "hideCharacterHP", "hideCharacterLoot", "hideCharacterXP", "hints", "logServerMessages", "pinchZoom", "portraitMode", "pressDoubleClick", "serverAutoconnect", "serverCode", "serverPassword", "serverPort", "serverSettings", "serverUrl", "serverWss", "showAllSections", "showBossMonster", "showHiddenMonster", "showOnlyUnfinishedScenarios", "statAnimations", "theme", "tooltips", "wakeLock", "zoom"
+];

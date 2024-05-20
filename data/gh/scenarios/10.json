@@ -1,11 +1,13 @@
 {
   "index": "10",
   "name": "Plane of Elemental Power",
+  "flowChartGroup": "demon-and-rift",
   "coordinates": {
-    "x": 948.6000061035156,
+    "x": 948.5,
     "y": 462,
     "width": 189,
-    "height": 162
+    "height": 162,
+    "gridLocation": "C-7"
   },
   "edition": "gh",
   "unlocks": [

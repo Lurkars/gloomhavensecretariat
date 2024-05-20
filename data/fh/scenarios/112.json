@@ -1,6 +1,14 @@
 {
   "index": "112",
   "name": "Raised by Wolves",
+  "flowChartGroup": "random-scenarios",
+  "coordinates": {
+    "x": 1696,
+    "y": 1866.25,
+    "width": 144,
+    "height": 93,
+    "gridLocation": "FR"
+  },
   "edition": "fh",
   "complexity": 1,
   "random": true,
@@ -10,10 +18,10 @@
   "monsters": [
     "burrowing-blade",
     "earth-demon",
-    "hound-scenario-112"
+    "hound"
   ],
   "allies": [
-    "hound-scenario-112"
+    "hound"
   ],
   "lootDeckConfig": {
     "money": 8,
@@ -33,13 +41,32 @@
           "identifier": {
             "type": "monster",
             "edition": "fh",
-            "name": "hound-scenario-112"
+            "name": "hound"
           },
           "type": "killed",
           "value": "1"
         }
       ],
       "finish": "lost"
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "hound"
+          },
+          "statEffect": {
+            "health": "Hx2",
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.fh.112%"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -74,11 +101,11 @@
           "player4": "elite"
         },
         {
-          "name": "hound-scenario-112",
+          "name": "hound",
           "type": "normal"
         },
         {
-          "name": "hound-scenario-112",
+          "name": "hound",
           "type": "elite"
         }
       ]

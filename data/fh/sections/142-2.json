@@ -5,9 +5,9 @@
   "parent": "65",
   "marker": "1",
   "monsters": [
-    "frozen-corpse-scenario-65",
-    "living-bones-scenario-65",
-    "snow-imp-scenario-65"
+    "frozen-corpse",
+    "living-bones",
+    "snow-imp"
   ],
   "rooms": [
     {
@@ -15,34 +15,34 @@
       "initial": true,
       "monster": [
         {
-          "name": "frozen-corpse-scenario-65",
+          "name": "frozen-corpse",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "living-bones-scenario-65",
+          "name": "living-bones",
           "type": "elite"
         },
         {
-          "name": "living-bones-scenario-65",
+          "name": "living-bones",
           "player4": "normal"
         },
         {
-          "name": "snow-imp-scenario-65",
+          "name": "snow-imp",
           "type": "normal"
         },
         {
-          "name": "snow-imp-scenario-65",
+          "name": "snow-imp",
           "type": "elite"
         },
         {
-          "name": "snow-imp-scenario-65",
+          "name": "snow-imp",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "snow-imp-scenario-65",
+          "name": "snow-imp",
           "player3": "normal",
           "player4": "elite"
         }

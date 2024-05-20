@@ -1,6 +1,7 @@
 {
   "index": "29",
   "name": "Burial Chamber",
+  "flowChartGroup": "tainted",
   "edition": "cs",
   "unlocks": [
     "30"

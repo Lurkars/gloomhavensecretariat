@@ -3,6 +3,11 @@
   "group": "randomMonsterCard",
   "name": "Luminous",
   "edition": "fh",
+  "named": true,
+  "monsters": [
+    "lurker-wavethrower",
+    "sun-demo"
+  ],
   "rules": [
     {
       "round": "true",
