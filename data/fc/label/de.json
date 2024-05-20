@@ -74,7 +74,85 @@
     "The Bottom of It": "Auf den Grund",
     "The Lost Thread": "Verlorener Faden",
     "Ink Not Yet Dry": "In der Schwebe",
-    "Future Uncertain": "Ungewisse Zukunft"
+    "Future Uncertain": "Ungewisse Zukunft",
+    "Tower to the Stars": "Turm zu den Sternen",
+    "rules": {
+      "fc": {
+        "98": {
+          "1": "Platziere 1 Schadenstoken auf beiden Schiffen %game.mapMarker.a% and %game.mapMarker.b%."
+        },
+        "101": {
+          "1": "wenn der angrenzende Speidraken lebendig und nicht %game.condition.stun% ist."
+        },
+        "104": {
+          "1": "in Richtung des Portals %game.mapMarker.1%",
+          "2": "in Richtung des Portals %game.mapMarker.2%",
+          "3": "in Richtung des Portals %game.mapMarker.3%",
+          "4": "in Richtung des Portals %game.mapMarker.4%"
+        },
+        "105": {
+          "1": "Wenn der Gruppenerfolg 'Dimensionsgleichgewicht' noch offen ist:"
+        },
+        "106": {
+          "1": "Alle Charaktere müssen eine Handkarte abwerfen oder verlieren eine zufällige Karte vom Abwurfstapel."
+        },
+        "115": {
+          "1": "Entfernt einen Schadensmarker von jedem Altar %game.mapMarker.a% und %game.mapMarker.b%. Das leibhaftige Verderben wird für jeden entfernten Schadensmarker um [C/2{$math.floor}] Trefferpunkte geheilt.",
+          "2": "Entfernt zwei Schadensmarker von jedem Altar %game.mapMarker.a% und %game.mapMarker.b%. Das leibhaftige Verderben wird für jeden entfernten Schadensmarker um [C/2{$math.floor}] Trefferpunkte geheilt.",
+          "3": "bei %game.mapMarker.c% wenn Altar %game.mapMarker.a% noch keinen Schadensmarker hat.",
+          "4": "bei %game.mapMarker.d% wenn Altar %game.mapMarker.b% noch keinen Schadensmarker hat."
+        }
+      }
+    }
+  },
+  "section": {
+    "rules": {
+      "fc": {
+        "5": {
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.3%, %game.mapMarker.5%, %game.mapMarker.8% und %game.mapMarker.11% um.",
+          "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a2% auf %game.mapMarker.p%, %game.mapMarker.a3% auf %game.mapMarker.t%, %game.mapMarker.a4% auf %game.mapMarker.s%"
+        },
+        "10": {
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.3%, %game.mapMarker.8%, %game.mapMarker.9% und %game.mapMarker.10% um.",
+          "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.q%, %game.mapMarker.a2% auf %game.mapMarker.n%, %game.mapMarker.a3% auf %game.mapMarker.r%, %game.mapMarker.a5% auf %game.mapMarker.t%",
+        },
+        "19": {
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.1%, %game.mapMarker.6%, %game.mapMarker.7% und %game.mapMarker.10% um",
+          "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a3% auf %game.mapMarker.q%, %game.mapMarker.a4% auf %game.mapMarker.p%, %game.mapMarker.a5% auf %game.mapMarker.t%"
+        },
+        "31": {
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.2%, %game.mapMarker.3%, %game.mapMarker.4% und %game.mapMarker.9% um.",
+          "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.q%, %game.mapMarker.a2% auf %game.mapMarker.o%, %game.mapMarker.a3% auf %game.mapMarker.r%, %game.mapMarker.a5% auf %game.mapMarker.t%"
+        },
+        "43": {
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.4%, %game.mapMarker.6%, %game.mapMarker.8% und %game.mapMarker.9% um.",
+          "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.m%, %game.mapMarker.a3% auf %game.mapMarker.s%, %game.mapMarker.a5% auf %game.mapMarker.p%"
+        },
+        "56": {
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.1%, %game.mapMarker.2%, %game.mapMarker.5% und %game.mapMarker.7% um.",
+          "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.m%, %game.mapMarker.a3% auf %game.mapMarker.q%, %game.mapMarker.a6% auf %game.mapMarker.s%"
+        },
+        "64": {
+          "1": "Beide Fässer bewegen sich zwei Felder über die Wasseraufleger auf den Wasseraufleger %game.mapMarker.9% zu."
+        },
+        "66": {
+          "1": "%game.action.teleport% %data.monster.the-husk% auf %game.mapMarker.b%"
+        },
+        "72": {
+          "1": "auf einen rechts an den Türen %game.mapMarker.3% angrenzenden Feld"
+        },
+        "123": {
+          "1": "auf einem rechts an den Türen %game.mapMarker.4% angrenzenden Feld"
+        },
+        "128": {
+          "1": "%game.action.teleport% %data.monster.the-husk-section-66% auf %game.mapMarker.c% und entfernt den Mauerabschnitt %game.mapMarker.d%"
+        },
+        "132": {
+          "1": "Sofort ausführen!",
+          "2": "Nachdem die Fähigkeit abgehandelt wurde:"
+        }
+      }
+    }
   },
   "partyAchievements": {
     "A Strongbox": "Eine Schatulle",
