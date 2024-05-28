@@ -157,6 +157,20 @@
     }
   ],
   "perkWarning": true,
-  "perks": [],
-  "masteries": []
+  "perks": [
+    {
+      "type": "custom",
+      "custom": "%data.custom.fh.tusks.1%",
+      "count": 1
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.fh.tusks.2%",
+      "count": 1
+    }
+  ],
+  "masteries": [
+    "%data.custom.fh.tusks.3%",
+    "%data.custom.fh.tusks.4%"
+  ]
 }

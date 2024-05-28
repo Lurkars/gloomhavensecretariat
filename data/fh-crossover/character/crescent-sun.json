@@ -60,7 +60,6 @@
       "movement": 3
     }
   ],
-  "perkWarning": true,
   "perks": [
     {
       "type": "replace",
@@ -247,7 +246,79 @@
           }
         }
       ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": "1",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "elementConsume",
+                "value": "wild",
+                "effects": [
+                  {
+                    "type": "element",
+                    "value": "wild"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "remove",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.fh.crescent-sun.1%",
+      "count": 1
     }
   ],
-  "masteries": []
+  "masteries": [
+    "%data.custom.fh.crescent-sun.2%",
+    "%data.custom.fh.crescent-sun.3%"
+  ]
 }

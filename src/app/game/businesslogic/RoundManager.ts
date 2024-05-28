@@ -321,6 +321,12 @@ export class RoundManager {
       if (figure.tags.indexOf('song_active') != -1) {
         figure.experience += 1;
       }
+
+      if (figure.tags.indexOf('repair_mode') != -1) {
+        figure.health += 2;
+        gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, 2), figure.active || false, figure.off || false);
+        gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
+      }
     }
 
     if (figure instanceof Character && settingsManager.settings.applyLongRest && figure.longRest && (skipSummons || !figure.summons.some((summon) => summon.active))) {

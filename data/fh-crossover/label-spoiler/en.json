@@ -52,6 +52,11 @@
         "5": "Summon the Lava Golem on your first turn and keep it alive for the entire scenario",
         "6": "Perform the summon action of five different ability cards"
       },
+      "crescent-sun": {
+        "1": "<b>Ignited Power:</b> Whenever you perform an action with a %game.card.lost% icon, you may immiditately play a card from your hand to perform an action that has a Glow %data.characterIcon.crescent-sun% ability",
+        "2": "For an entire scenario, on each of your turns except the first, perform at least one Glow %data.characterIcon.crescent-sun% ability",
+        "3": "In a single scenario, generate 4 different elements in a single turn and consume 4 different elements in a single turn"
+      },
       "eclipse": {
         "1": "<b>Empowering Night</b> At the start of the scenario, you may discard two cards to add a card with an action containing a persistent symbol from your pool to your hand and immediately play it, performing that action",
         "2": "Have %game.condition.invisible% at the start or end of each of your turns",
@@ -69,6 +74,11 @@
         "9": "<b>Spinning Up:</b> At the start of your first turn each scenario, you may play one card from your hand to perform a persistent loss action of that card.",
         "10": "Perform two different summon actions on your first turn and keep all summons from those actions alive for the entire scenario.",
         "11": "Perform three different non-summon persistent loss actions before your first rest."
+      },
+      "flask": {
+        "1": "<b>Spark of Inspiration:</b> Whenever you long rest, after you revocer your cards from your discard pile, you may play one card from your hand to perform all persistent abilities on either the top or bottom action of the card",
+        "2": "For an entire scenario, generate or consume an element on each of your turns",
+        "3": "In a single scenario, move your character token off of the last slot of 6 different persistent abilities"
       },
       "lightning": {
         "1": "<b>Rapid Recovery:</b> Whenever you heal from a long rest, add +1 %game.action.heal%",

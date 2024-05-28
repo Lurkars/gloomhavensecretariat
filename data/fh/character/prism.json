@@ -17,6 +17,10 @@
     {
       "name": "prism_mode",
       "summon": true
+    },
+    {
+      "name": "repair_mode",
+      "expire": true
     }
   ],
   "stats": [

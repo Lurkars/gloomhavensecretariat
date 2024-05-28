@@ -66,7 +66,6 @@
       "range": 4
     }
   ],
-  "perkWarning": true,
   "perks": [
     {
       "type": "replace",
@@ -120,7 +119,277 @@
           }
         }
       ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "heal",
+                "value": "1",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "ally"
+                  },
+                  {
+                    "type": "range",
+                    "value": 2
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "shield",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "allyAffectRange:2"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 3,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "elementConsume",
+                "value": "wild",
+                "effects": [
+                  {
+                    "type": "element",
+                    "value": "wild"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "element",
+                "value": "wild"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "ally"
+                  },
+                  {
+                    "type": "range",
+                    "value": 2
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              },
+              {
+                "type": "element",
+                "value": "ice"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "or",
+                "effects": [
+                  {
+                    "type": "push",
+                    "value": 1
+                  },
+                  {
+                    "type": "pull",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "air"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "pierce",
+                "value": 2
+              },
+              {
+                "type": "element",
+                "value": "fire"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 3
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "air"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "remove",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.fh.flask.1%",
+      "count": 1
     }
   ],
-  "masteries": []
+  "masteries": [
+    "%data.custom.fh.flask.2%",
+    "%data.custom.fh.flask.3%"
+  ]
 }

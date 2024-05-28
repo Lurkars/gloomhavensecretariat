@@ -58,18 +58,23 @@ export class MonsterNumberPickerDialog implements OnInit {
 
                 const combined: number = +event.key + 10;
                 const thisKey: number = +event.key;
-                if (combined <= this.max) {
-                    this.pickNumber(combined);
-                } else {
-                    this.pickNumber(1);
-                    this.pickNumber(thisKey);
+                if (this.entity) {
+                    if (combined <= this.max) {
+                        this.pickNumber(combined);
+
+                    } else {
+                        this.pickNumber(1);
+                        this.pickNumber(thisKey);
+                    }
                 }
             } else if (event.key === '1' && this.range.filter((number) => number >= 10).some((number) => !this.hasNumber(number))) {
                 this.timeout = setTimeout(() => {
-                    this.pickNumber(1);
+                    if (this.entity) {
+                        this.pickNumber(+event.key);
+                    }
                     this.timeout = undefined;
                 }, 1000);
-            } else {
+            } else if (this.entity) {
                 this.pickNumber(+event.key);
             }
 
