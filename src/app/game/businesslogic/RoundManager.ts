@@ -317,7 +317,7 @@ export class RoundManager {
       }
     }
 
-    if (figure instanceof Character) {
+    if (figure instanceof Character && (skipSummons || !figure.summons.some((summon) => summon.active))) {
       if (figure.tags.indexOf('song_active') != -1) {
         figure.experience += 1;
       }
