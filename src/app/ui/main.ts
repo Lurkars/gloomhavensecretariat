@@ -55,6 +55,9 @@ export class MainComponent implements OnInit {
   standeeDialog: DialogRef<unknown, MonsterNumberPickerDialog> | undefined;
   standeeDialogSubscription: Subscription | undefined;
 
+  serverPing: number = 0;
+  serverPingInterval: any;
+
   @ViewChild('footer') footer!: FooterComponent;
 
   constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog, private pointerInputService: PointerInputService) {
@@ -92,6 +95,20 @@ export class MainComponent implements OnInit {
               }
             }
             this.showBackupHint = settingsManager.settings.backupHint && !this.loading && !gameManager.game.scenario && (gameManager.game.party.scenarios.length > 0 || gameManager.game.party.casualScenarios.length > 0 || gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
+          }
+        }
+
+        if (this.serverPing != settingsManager.settings.serverPing) {
+          if (this.serverPingInterval) {
+            clearInterval(this.serverPingInterval);
+            this.serverPingInterval = null;
+          }
+
+          this.serverPing = settingsManager.settings.serverPing;
+          if (this.serverPing > 0) {
+            this.serverPingInterval = setInterval(() => {
+              gameManager.stateManager.sendPing();
+            }, 1000 * this.serverPing);
           }
         }
       }

@@ -1,0 +1,47 @@
+<div class="menu-container about">
+    <div class="line">
+        <p [ghs-label]="'about.ip'"
+            [ghs-label-args]="['<a href=\'https:\/\/cephalofair.com\' target=\'_blank\'>Cephalofair Games</a>']">
+        </p>
+    </div>
+    <div class="line version">
+        <a target="_blank"
+            [href]="'https://github.com/Lurkars/gloomhavensecretariat/releases/tag/v' + version">Gloomhaven
+            Secretariat
+            v{{version}}</a>
+
+        <div class="version-info">
+            <span class="unknown" *ngIf="!updateVersion">
+                <span [ghs-label]="'about.version.unknown'"></span>
+            </span>
+            <span class="latest" *ngIf="updateVersion && updateVersion.latest">
+                <span [ghs-label]="'about.version.latest'"></span>
+            </span>
+            <span class="update" *ngIf="updateVersion && !updateVersion.latest">
+                <span [ghs-label]="'about.version.update'"
+                    [ghs-label-args]="[updateVersion.version, updateVersion.url]"></span>
+            </span>
+            <a class="force" *ngIf="!updateVersion || !updateVersion.latest" (click)="forceUpdate()"><span
+                    [ghs-label]="'about.forceUpdate'"></span></a>
+        </div>
+    </div>
+
+    <div class="line">
+        <div class="columns">
+            <div class="column">
+                <p>
+                    <a href="https://ko-fi.com/lurkars" target="_blank"><span [ghs-label]="'about.support'"></span></a>
+                </p>
+            </div>
+            <div class="column">
+                <p><a href="https://github.com/Lurkars/gloomhavensecretariat" target="_blank"><span
+                            [ghs-label]="'about.sourceCode'"></span></a></p>
+            </div>
+            <div class="column">
+                <p [ghs-label]="'about.license'"
+                    [ghs-label-args]="['<a href=\'https:\/\/\github.com\/Lurkars\/gloomhavensecretariat\/blob\/main\/LICENSE\'  target=\'_blank\'> AGPL3</a>']">
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

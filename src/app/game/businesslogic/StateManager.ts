@@ -340,7 +340,15 @@ export class StateManager {
           gameManager.stateManager.updatePermissions();
           gameManager.stateManager.serverError = "";
           break;
+        case "ping":
+          console.debug("Received ping answer...");
+          break;
         case "error":
+          // migration
+          if (message.message == "No enum constant de.champonthis.ghs.server.socket.model.MessageType.PING") {
+            console.debug("Received ping answer...");
+            break;
+          }
           console.warn("[GHS] Error: ", message);
           if (message.message.startsWith("Permission(s) missing") || message.message.startsWith("invalid revision")) {
             if (gameManager.stateManager.lastAction == "redo" || gameManager.stateManager.lastAction == "update") {
@@ -357,6 +365,8 @@ export class StateManager {
           window.document.body.classList.remove('working');
           window.document.body.classList.remove('server-sync');
           break;
+        default:
+          gameManager.uiChange.emit();
       }
     } catch (e) {
       gameManager.stateManager.errorLog.push(ev.data);
@@ -395,6 +405,7 @@ export class StateManager {
       }
 
       gameManager.stateManager.updatePermissions();
+      gameManager.uiChange.emit();
     }
   }
 
@@ -435,6 +446,21 @@ export class StateManager {
       }
       if (settingsManager.settings.logServerMessages) console.debug('WS sending request-settings');
       this.ws.send(JSON.stringify(message));
+    }
+  }
+
+  sendPing() {
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverCode) {
+      if (this.ws && this.ws.readyState == WebSocket.OPEN) {
+        let message = {
+          "code": settingsManager.settings.serverCode,
+          "type": "ping"
+        }
+        if (settingsManager.settings.logServerMessages) console.debug('WS sending ping');
+        this.ws.send(JSON.stringify(message));
+      } else {
+        this.connect();
+      }
     }
   }
 

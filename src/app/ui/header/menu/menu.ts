@@ -10,7 +10,6 @@ import { Monster } from "src/app/game/model/Monster";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
-import packageJson from '../../../../../package.json';
 import { ghsDialogClosingHelper, ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { FeedbackDialogComponent } from "../../tools/feedback/feedback-dialog";
 import { KeyboardShortcutsComponent } from "./keyboard-shortcuts/keyboard-shortcuts";
@@ -51,9 +50,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
   hasSpoilers = ghsHasSpoilers;
   isSpoiled = ghsIsSpoiled;
   notSpoiled = ghsNotSpoiled;
-  version = packageJson.version;
   WebSocket = WebSocket;
-
 
   undoInfo: string[] = [];
   undoOffset: number = 0;

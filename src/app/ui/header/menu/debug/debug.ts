@@ -8,4 +8,9 @@ import { settingsManager, SettingsManager } from "src/app/game/businesslogic/Set
 })
 export class SettingsDebugMenuComponent {
   settingsManager: SettingsManager = settingsManager;
+
+  setServerPing(event: any) {
+    settingsManager.settings.serverPing = event.target.value;
+    settingsManager.storeSettings();
+  }
 }

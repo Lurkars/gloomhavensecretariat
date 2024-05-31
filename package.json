@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.97.1",
+  "version": "0.98.0",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -76,7 +76,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.0.1",
-    "@angular/cdk": "^18.0.0",
+    "@angular/cdk": "^18.0.1",
     "@angular/common": "^18.0.1",
     "@angular/compiler": "^18.0.1",
     "@angular/core": "^18.0.1",
@@ -104,7 +104,7 @@
     "@types/jasmine": "~5.1.4",
     "@types/leaflet": "^1.9.12",
     "@types/uuid": "^9.0.8",
-    "electron": "^30.0.8",
+    "electron": "^30.0.9",
     "electron-builder": "^24.13.3",
     "http-server": "^14.1.1",
     "husky": "^9.0.11",

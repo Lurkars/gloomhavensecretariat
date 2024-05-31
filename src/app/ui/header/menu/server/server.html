@@ -65,7 +65,18 @@
         <ng-container
           *ngIf="gameManager.stateManager.serverVersion && gameManager.stateManager.wsState() == WebSocket.OPEN">
           <label><span [ghs-label]="'server.info.version'"></span></label>
-          <p>{{gameManager.stateManager.serverVersion}}</p>
+          <div class="server-version">
+            <span>{{gameManager.stateManager.serverVersion}}</span>
+            <span class="unknown" *ngIf="!serverUpdateVersion">
+              <span [ghs-label]="'server.info.version.unknown'"></span>
+            </span>
+            <span class="latest" *ngIf="serverUpdateVersion && serverUpdateVersion.latest">
+              <span [ghs-label]="'server.info.version.latest'"></span>
+            </span>
+            <span class="update" *ngIf="serverUpdateVersion && !serverUpdateVersion.latest">
+              <span [ghs-label]="'server.info.version.update'" [ghs-label-args]="[serverUpdateVersion.version, serverUpdateVersion.url]"></span>
+            </span>
+          </div>
         </ng-container>
       </div>
 
@@ -96,9 +107,9 @@
       </div>
       <div class="line">
         <div class="hint-container">
-          <input type="text" #serverCode [value]="settingsManager.settings.serverCode || ''"
-            (keyup)="0" (keydown.enter)="serverFrom.submit()" (change)="setServerCode($event)"
-            [ghs-label]="'server.code'" [ghs-label-attribute]="'placeholder'">
+          <input type="text" #serverCode [value]="settingsManager.settings.serverCode || ''" (keyup)="0"
+            (keydown.enter)="serverFrom.submit()" (change)="setServerCode($event)" [ghs-label]="'server.code'"
+            [ghs-label-attribute]="'placeholder'">
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">
             <span class="text" [ghs-label]="'server.code.hint'"></span>
@@ -130,7 +141,18 @@
       <div class="server-info"
         *ngIf="selectedServerIndex == -1 && gameManager.stateManager.serverVersion && gameManager.stateManager.wsState() == WebSocket.OPEN">
         <label><span [ghs-label]="'server.info.version'"></span></label>
-        <p>{{gameManager.stateManager.serverVersion}}</p>
+        <div class="server-version">
+          <span>{{gameManager.stateManager.serverVersion}}</span>
+          <span class="unknown" *ngIf="!serverUpdateVersion">
+            <span [ghs-label]="'server.info.version.unknown'"></span>
+          </span>
+          <span class="latest" *ngIf="serverUpdateVersion && serverUpdateVersion.latest">
+            <span [ghs-label]="'server.info.version.latest'"></span>
+          </span>
+          <span class="update" *ngIf="serverUpdateVersion && !serverUpdateVersion.latest">
+            <span [ghs-label]="'server.info.version.update'" [ghs-label-args]="[serverUpdateVersion.version, serverUpdateVersion.url]"></span>
+          </span>
+        </div>
       </div>
 
       <div class="columns">
@@ -356,8 +378,7 @@
       <div class="line">
         <label class="label"><span [ghs-label]="'permissions.code'"></span></label>
         <input tabclick type="text" [value]="code" (keyup)="setPermissionsCode($event)"
-          (change)="setPermissionsCode($event)" [ghs-label]="'permissions.code'"
-          [ghs-label-attribute]="'placeholder'">
+          (change)="setPermissionsCode($event)" [ghs-label]="'permissions.code'" [ghs-label-attribute]="'placeholder'">
       </div>
 
       <div class="line">

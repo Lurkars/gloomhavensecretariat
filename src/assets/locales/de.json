@@ -5,7 +5,12 @@
     "ip": "Gloomhaven und alle bezogenen Schutzrechte, Bilder und Texte gehören {0}.",
     "license": "Lizensiert unter {0}.",
     "sourceCode": "Quelltext",
-    "support": "Entwickler unterstützen"
+    "support": "Entwickler unterstützen",
+    "version": {
+      "latest": "Aktuell",
+      "unknown": "Konnte neuste Version nicht abfragen",
+      "update": "Aktuellste Version <a target=\"_blank\" href=\"{1}\">{0}</a>"
+    }
   },
   "and": "und",
   "app": {
@@ -1478,7 +1483,12 @@
       "location": "Standort",
       "status": "Statusseite",
       "privacy": "Datenschutzerklärung",
-      "version": "Serverversion",
+      "version": {
+        ".": "Serverversion",
+        "latest": "Aktuell",
+        "unknown": "Konnte neuste Version nicht abfragen",
+        "update": "Aktuellste Version <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      },
       "website": "Website"
     },
     "list": {

@@ -5,7 +5,12 @@
     "ip": "Gloomhaven and all related properties, images and text are owned by {0}.",
     "license": "Licensed under {0}.",
     "sourceCode": "Source Code",
-    "support": "Support the dev"
+    "support": "Support the dev",
+    "version": {
+      "latest": "Latest",
+      "unknown": "Could not fetch latest version",
+      "update": "Latest version <a target=\"_blank\" href=\"{1}\">{0}</a>"
+    }
   },
   "and": "and",
   "app": {
@@ -1609,6 +1614,11 @@
     "blocked": "Since you are not connected to your configured server, game updates are currently prevented.",
     "closed": "Closed",
     "closing": "Closing",
+    "code": {
+      ".": "Game Code",
+      "hint": "The Game Code identifies your game. For a new game just enter a new code of your choice or generate one. Everyone with the same Code connect to the same game.<br><br>This was previously called \"Password\", but to avoid confusion it is renamed now.",
+      "uuid": "Generate Code (UUID)"
+    },
     "connect": "Connect",
     "connected": "Connected",
     "connecting": "Connecting",
@@ -1627,7 +1637,12 @@
       "location": "Location",
       "privacy": "Privacy Policy",
       "status": "Status Page",
-      "version": "Server Version",
+      "version": {
+        ".": "Server Version",
+        "latest": "Latest",
+        "unknown": "Could not fetch latest version",
+        "update": "Latest version <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      },
       "website": "Website"
     },
     "list": {
@@ -1638,11 +1653,7 @@
       "connect": "Connect to Server",
       "connected": "Server Connection"
     },
-    "code": {
-      ".": "Game Code",
-      "hint": "The Game Code identifies your game. For a new game just enter a new code of your choice or generate one. Everyone with the same Code connect to the same game.<br><br>This was previously called \"Password\", but to avoid confusion it is renamed now.",
-      "uuid": "Generate Code (UUID)"
-    },
+    "ping": "Server Ping",
     "port": "Port",
     "reconnect": "Reconnect",
     "settings": {
