@@ -177,15 +177,6 @@ export class ScenarioManager {
               }
             }
 
-            if (rewards.reputation) {
-              this.game.party.reputation += rewards.reputation;
-              if (this.game.party.reputation > 20) {
-                this.game.party.reputation = 20;
-              } else if (this.game.party.reputation < -20) {
-                this.game.party.reputation = -20;
-              }
-            }
-
             if (rewards.itemDesigns) {
               rewards.itemDesigns.forEach((item) => {
                 if (item.indexOf('-') != -1) {
