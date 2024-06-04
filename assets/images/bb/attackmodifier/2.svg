@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20mm"
+   height="20mm"
+   viewBox="0 0 20 20"
+   version="1.1"
+   id="svg1281"
+   sodipodi:docname="positive.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1283"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.5731762"
+     inkscape:cx="67.196871"
+     inkscape:cy="57.417887"
+     inkscape:window-width="1850"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1278" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#000000;stroke-width:0.264583"
+       d="m 8.664474,16.5138 c -0.36119,-0.435198 -0.50172,-1.304146 -0.5274,-3.260981 l -0.0182,-1.389062 h -2.21657 c -2.56413,0 -2.78179,-0.147341 -2.84917,-1.9286764 -0.0671,-1.7740398 0.24016,-2.0061508 2.77447,-2.0959048 l 2.15898,-0.07646 0.0782,-2.104129 c 0.043,-1.1572718 0.20643,-2.2585998 0.36312,-2.4473958 0.16684,-0.20103 0.85685,-0.343266 1.66523,-0.343266 1.22241,0 1.41547,0.07711 1.68739,0.673907 0.16888,0.37065 0.30706,1.4422118 0.30706,2.3812498 v 1.707343 h 2.07566 c 2.44505,0 2.95142,0.346701 2.95142,2.0207838 0,1.6154034 -0.35574,1.8769774 -2.77812,2.0427584 -1.16417,0.07967 -2.14644,0.150468 -2.18282,0.157325 -0.0364,0.0069 -0.0661,1.000685 -0.0661,2.208507 0,1.355255 -0.12156,2.317602 -0.3175,2.513542 -0.44868,0.448681 -2.71998,0.405136 -3.10562,-0.05954 z"
+       id="path1453-3"
+       inkscape:transform-center-x="13625.669"
+       inkscape:transform-center-y="2.8054418" />
+  </g>
+</svg>

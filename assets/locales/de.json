@@ -418,7 +418,10 @@
       "drawAnother": "Weitere Aufdecken",
       "drawDisadvantage": "Mit Nachteil aufdecken",
       "drawExtra": "Zusätzlich Aufdecken",
-      "edit": "Editieren",
+      "edit": {
+        ".": "Editieren",
+        "toggleBB": "Zeige als BB Tabelle"
+      },
       "fullscreen": "Vollbildansicht",
       "openDialog": "Alle Karten anzeigen",
       "removeDrawnDiscards": "Entferne gezogene Abgeworfene",
@@ -1871,6 +1874,11 @@
       ".": "Feedback Button deaktivieren",
       "hint": ""
     },
+    "feedbackErrors": {
+      ".": "Automatisches Feedback",
+      "clear": "Lösche ignorierte Fehler beim Automatische Feedback",
+      "hint": "Software-Fehler automatisch über den Feedback Dialog melden"
+    },
     "fhGhItems": {
       ".": "Gegenstände aus Gloomhaven",
       "hint": "Fügt die Gegenstände aus Gloomhaven und Forgotten Circles zu den verfügbaren Gegenständen gemäß den Regeln hinzu. (Nur bei aktivierten Charakterbögen oder Charakter Gegenständen)"
@@ -2067,10 +2075,11 @@
     "synced": "Diese Einstellungen werden mit dem Server synchronisiert!",
     "theme": {
       ".": "Thema",
+      "bb": "Button & Bugs (%wip%)",
       "default": "Standard",
       "fh": "Frosthaven",
       "hint": "Wähle ein Thema für Hintergrund, Leisten und Schriftarten",
-      "modern": "Modern (%wip%)"
+      "modern": "Modern"
     },
     "tooltips": {
       ".": "Tooltips",
@@ -2564,10 +2573,14 @@
       "githubIssue": "Stattdessen GitHub Issue erstellen",
       "reportIssue": {
         ".": "Ein Problem melden",
-        "download": "Daten herunterladen",
+        "automaticText": "Auto-Text",
+        "download": "Datenauszug herunterladen",
+        "errorHint": "Es ist ein Software-Fehler aufgetreten.<br>Hilf mit die Software zu verbessern indem du diesen Fehler an den Entwicklet meldest.<br> Wenn möglich, hänge bitte den heruntergladenen Datenauszug an. Vielen Dank!",
+        "errorIgnore": "Diesen Fehler nicht mehr automatisch melden.",
+        "errorText": "ERROR Stack Trace:\n\n{0}\n\n{1}",
         "mail": "Bitte beachte, dass Microsoft ihre Marktmacht ausspielen möchte und deswegen kleine, private E-Mail Server blockiert. Dementsprechend kann ich zwar E-Mails von outlook.com, hotmail.com oder anderen Microsoft Diensten empfangen, aber nicht darauf antworten!",
         "send": "Problem senden",
-        "specify": "Bitte Details im Text angeben.<br>Ist die Ursache unklar, bitte die Daten herunterladen und als Anhang hinzufügen!",
+        "specify": "Bitte Details im Text angeben.<br>Ist die Ursache unklar, bitte den Datenauszug herunterladen und als Anhang hinzufügen!",
         "text": "Text",
         "type": {
           ".": "Typ des Problems",
@@ -2580,6 +2593,11 @@
             ".": "Artwork",
             "hint": "Fehlendes oder fehlerhaftes Artwork.",
             "subject": "Fehler beim Artwork"
+          },
+          "automatic": {
+            ".": "Automatisch",
+            "hint": "Ein Softwarefehler, automatisch gemeldet.",
+            "subject": "Automatischer Softwarefehler"
           },
           "characterStat": {
             ".": "Charakter Werte",
