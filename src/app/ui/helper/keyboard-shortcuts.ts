@@ -116,9 +116,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('round') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'n') {
-                    if (!this.footer.disabled()) {
-                        this.footer.next();
-                    }
+                    this.footer.next();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && gameManager.game.state == GameState.next && (event.key.toLowerCase() === 'm' || settingsManager.settings.amAdvantage && (event.key.toLowerCase() === 'a' || event.key.toLowerCase() === 'd'))) {
                     const activeFigure = gameManager.game.figures.find((figure) => figure.active);
                     let deck: AttackModifierDeck | undefined = undefined;

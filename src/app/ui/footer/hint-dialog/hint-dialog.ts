@@ -1,5 +1,5 @@
 import { Dialog, DialogRef } from "@angular/cdk/dialog";
-import { Component } from "@angular/core";
+import { Component, HostListener } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
@@ -95,7 +95,7 @@ export class HintDialogComponent {
     }
 
     battleGoals(): boolean {
-        return !this.missingInitiative() && settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsReminder && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent);
+        return !this.missingInitiative() && settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsReminder && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) && !gameManager.bbRules();
     }
 
     finish(): boolean {
@@ -106,4 +106,21 @@ export class HintDialogComponent {
         return !this.active() && !this.empty() && gameManager.game.figures.some((figure) => figure instanceof Character) && gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure instanceof Character && (!gameManager.entityManager.isAlive(figure) || figure.absent));
     }
 
+
+    @HostListener('document:keydown', ['$event'])
+    onKeyEnter(event: KeyboardEvent) {
+        if (event.key === 'Enter') {
+            if (this.active()) {
+                this.confirm();
+            } else if (this.finish()) {
+                this.finishScenario(true);
+            } else if (this.failed()) {
+                this.finishScenario(false);
+            } else if (this.battleGoals()) {
+                this.confirm();
+            }
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
 }
