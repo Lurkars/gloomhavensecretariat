@@ -1,0 +1,74 @@
+{
+  "name": "spitting-moth",
+  "edition": "bb",
+  "abilities": [
+    {
+      "initiative": 27,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "element",
+          "value": "air"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 52,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 87,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

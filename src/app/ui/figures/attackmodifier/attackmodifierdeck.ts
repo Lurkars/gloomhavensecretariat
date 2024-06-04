@@ -72,6 +72,9 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   compact: boolean = false;
   initServer: boolean = false;
 
+  bbCurrent: number = 0;
+  bbRows: number = 0;
+
   @ViewChild('drawCard') drawCard!: ElementRef;
 
   constructor(public element: ElementRef, private dialog: Dialog) {
@@ -96,6 +99,11 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
     this.current = this.deck.current;
     this.lastVisible = this.deck.lastVisible;
     this.compact = !this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
+
+    if (this.deck.bb) {
+      this.bbCurrent = Math.ceil((this.deck.current + 1) / 3);
+      this.bbRows = Math.ceil(this.deck.cards.length / 3);
+    }
 
     if (!this.init) {
       this.drawTimeout = setTimeout(() => {
@@ -177,10 +185,17 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
       if (this.current < this.deck.current) {
         this.queue = Math.max(0, this.deck.current - this.current);
         if (!this.queueTimeout) {
-          this.queue--;
-          this.current++;
-          this.lastVisible = this.deck.lastVisible;
-          this.drawQueue();
+          if (this.deck.bb) {
+            this.queue = 0;
+            this.current = this.deck.current;
+            this.lastVisible = this.deck.lastVisible;
+            this.drawQueue();
+          } else {
+            this.queue--;
+            this.current++;
+            this.lastVisible = this.deck.lastVisible;
+            this.drawQueue();
+          }
         }
       } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
         if (this.queueTimeout) {
@@ -202,6 +217,11 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
 
     if (settingsManager.settings.fhStyle) {
       this.newStyle = true;
+    }
+
+    if (this.deck.bb) {
+      this.bbCurrent = Math.ceil((this.current + 1) / 3);
+      this.bbRows = Math.ceil(this.deck.cards.length / 3);
     }
 
     this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);

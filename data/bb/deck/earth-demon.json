@@ -1,0 +1,81 @@
+{
+  "name": "earth-demon",
+  "edition": "bb",
+  "abilities": [
+    {
+      "initiative": 62,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "element",
+          "value": "earth"
+        },
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "initiative": 79,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "fire:air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "initiative": 93,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "ice:earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 1,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

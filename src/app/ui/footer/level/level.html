@@ -1,17 +1,26 @@
 <div #levelButton class="level-status">
-  <div class="values" (click)="open()">
-    <span class="level" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'"><img class="ghs-svg" src="./assets/images/level.svg">
+  <div class="values" (click)="open()" *ngIf="!gameManager.bbRules()">
+    <span class="level" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'"><img class="ghs-svg"
+        src="./assets/images/level.svg">
       {{gameManager.game.level}}</span>
     <span class="loot" [ghs-label]="'game.level.loot'" [ghs-label-attribute]="'title'"><img class="ghs-svg"
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">
       x{{loot}}</span>
-    <span class="trap" [ghs-label]="'game.level.trap'" [ghs-label-attribute]="'title'"><img class="ghs-svg" src="./assets/images/trap.svg">
+    <span class="trap" [ghs-label]="'game.level.trap'" [ghs-label-attribute]="'title'"><img class="ghs-svg"
+        src="./assets/images/trap.svg">
       {{trap}}</span>
     <span class="experience" [ghs-label]="'game.level.experience'" [ghs-label-attribute]="'title'"><img class="ghs-svg"
         src="./assets/images/experience.svg"> +{{experience}}</span>
-    <span class="terrain" [ghs-label]="'game.level.hazardousTerrain'" [ghs-label-attribute]="'title'"><img class="ghs-svg"
-        src="./assets/images/terrain.svg">
+    <span class="terrain" [ghs-label]="'game.level.hazardousTerrain'" [ghs-label-attribute]="'title'"><img
+        class="ghs-svg" src="./assets/images/terrain.svg">
       <span>{{hazardousTerrain}}</span>
+    </span>
+  </div>
+
+  <div class="values" (click)="open()" *ngIf="gameManager.bbRules()">
+    <span [ghs-label]="'game.level.bb.monsterDifficulty'" [ghs-label-attribute]="'title'"><img
+        class="ghs-svg" src="./assets/images/bb/monster.svg">
+      <span [ghs-label]="'game.level.bb.monsterDifficulty.' + monsterDifficulty"></span>
     </span>
   </div>
 </div>

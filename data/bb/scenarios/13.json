@@ -1,0 +1,85 @@
+{
+  "index": "13",
+  "name": "Zipping Accross",
+  "edition": "bb",
+  "level": 4,
+  "unlocks": [
+    "14"
+  ],
+  "monsters": [
+    "harrowing-infestation",
+    "spitting-moth"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "bb",
+            "name": "harrowing-infestation"
+          },
+          "type": "dead",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-moth",
+            "type": "normal"
+          },
+          "marker": "A"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "bb",
+            "name": "harrowing-infestation"
+          },
+          "type": "dead",
+          "value": "0"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-moth",
+            "type": "normal"
+          },
+          "marker": "B"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrowing-infestation",
+          "number": 1
+        },
+        {
+          "name": "harrowing-infestation",
+          "number": 2
+        },
+        {
+          "name": "spitting-moth",
+          "number": 3
+        }
+      ]
+    }
+  ]
+}

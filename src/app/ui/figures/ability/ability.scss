@@ -482,4 +482,22 @@
     }
   }
 
+  &.bb {
+    .ability-front {
+
+      &::before {
+        background-image: url('~src/assets/images/bb/monster/abilities/monster-ability-front.png');
+        background-position: 0em -0.6em;
+      }
+
+      &::after {
+        background-image: url('~src/assets/images/bb/monster/abilities/monster-ability-front-repeat.png');
+      }
+    }
+
+    .ability-back {
+      background-image: url('~src/assets/images/bb/monster/abilities/monster-ability-back.png');
+    }
+  }
+
 }

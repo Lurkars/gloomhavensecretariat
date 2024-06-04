@@ -1,0 +1,21 @@
+{
+  "name": "rending-beetle",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "bb",
+    "health": 12,
+    "actions": [
+      {
+        "type": "condition",
+        "value": "wound"
+      },
+      {
+        "type": "shield",
+        "value": 2
+      }
+    ]
+  }
+}

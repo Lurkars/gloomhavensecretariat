@@ -1,0 +1,106 @@
+{
+  "name": "goring-beetle",
+  "edition": "bb",
+  "abilities": [
+    {
+      "initiative": 11,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "elementHalf",
+          "value": "ice:earth"
+        },
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 33,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "fire:earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 61,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "elementHalf",
+              "value": "earth:dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

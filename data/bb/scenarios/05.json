@@ -1,0 +1,35 @@
+{
+  "index": "5",
+  "name": "Button's Arena",
+  "edition": "bb",
+  "level": 2,
+  "unlocks": [
+    "6",
+    "7"
+  ],
+  "monsters": [
+    "arena-sorcerer",
+    "king-button",
+    "rending-beetle"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "arena-sorcerer",
+          "number": 2
+        },
+        {
+          "name": "king-button",
+          "number": 1
+        },
+        {
+          "name": "rending-beetle",
+          "number": 3
+        }
+      ]
+    }
+  ]
+}

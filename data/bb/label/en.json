@@ -1,0 +1,42 @@
+{
+  "character": {
+    "bruiser": "Bruiser",
+    "cragheart": "Cragheart",
+    "mindthief": "Mindthief",
+    "silent-knife": "Silent Knife",
+    "spellweaver": "Spellweaver",
+    "tinkerer": "Tinkerer"
+  },
+  "edition": {
+    "bb": "Button & Bugs"
+  },
+  "monster": {
+    "arena-sorcerer": "Arena Sorcerer",
+    "bandit-archer": "Bandit Archer",
+    "bandit-guard": "Bandit Guard",
+    "demon-prince": "Demon Prince",
+    "earth-demon": "Earth Demon",
+    "flame-demon": "Flame Demon",
+    "frost-demon": "Frost Demon",
+    "gloomtoad": "Gloomtoad",
+    "goring-beetle": "Goring Beetle",
+    "harrowing-infestation": "Harrowing Infestation",
+    "king-button": "King Button",
+    "mounted-prince": "Mounted Prince",
+    "mouse": "Mouse",
+    "rending-beetle": "Rending Beetle",
+    "sewer-rat": "Sewer Rat",
+    "spitting-moth": "Spitting Moth",
+    "stuffed-construct": "Stuffed Construct",
+    "tattered-construct": "Tattered Construct",
+    "venomous-centipede": "Venomous Centipede",
+    "wind-demon": "Wind Demon"
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "15": "Flip all of your abilitiy cards to their B-Site."
+      }
+    }
+  }
+}

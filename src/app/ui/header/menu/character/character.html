@@ -1,5 +1,5 @@
 <div class="menu-container character-add">
-  <div class="level-container"
+  <div class="level-container" *ngIf="!gameManager.bbRules()"
     [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <span class="item"><img src="./assets/images/status/level.svg" /></span>
     <span class="item" *ngFor="let level of [] | ghsRange:9"><a tabclick class="level"

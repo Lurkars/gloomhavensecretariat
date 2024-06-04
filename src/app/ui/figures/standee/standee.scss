@@ -607,6 +607,35 @@
         }
       }
     }
+
+    .standee .number {
+
+      &.bb-1 {
+        background-color: var(--ghs-color-bb-1);
+      }
+
+      &.bb-2 {
+        background-color: var(--ghs-color-bb-2);
+      }
+
+      &.bb-3 {
+        background-color: var(--ghs-color-bb-3);
+      }
+
+      &.bb-4 {
+        background-color: var(--ghs-color-bb-4);
+      }
+
+      &.bb-1,
+      &.bb-2,
+      &.bb-3,
+      &.bb-4 {
+        .value {
+          color: var(--ghs-color-white);
+          filter: var(--ghs-filter-shadow);
+        }
+      }
+    }
   }
 
   &.dormant {

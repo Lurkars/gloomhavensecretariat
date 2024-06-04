@@ -1,0 +1,108 @@
+{
+  "name": "demon-prince",
+  "edition": "bb",
+  "abilities": [
+    {
+      "initiative": 1,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "elementHalf",
+          "value": "fire:dark"
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 22,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "elementHalf",
+              "value": "ice:air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 38,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "elementHalf",
+              "value": "air:earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}

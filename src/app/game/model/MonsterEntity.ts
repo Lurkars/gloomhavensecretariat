@@ -1,3 +1,4 @@
+import { gameManager } from "../businesslogic/GameManager";
 import { Entity, EntityValueFunction } from "./Entity";
 import { Monster } from "./Monster";
 import { SummonState } from "./Summon";
@@ -31,12 +32,10 @@ export class MonsterEntity implements Entity {
     this.number = number;
     this.type = type;
 
-    const stat = monster.stats.find((stat) => {
-      return stat.level == monster.level && stat.type == type;
-    });
+    const stat = gameManager.monsterManager.getStat(monster, type);
 
     if (!stat) {
-      this.stat = new MonsterStat(type, monster.level, 0, 0, 0, 0);
+      this.stat = new MonsterStat(type, monster.level);
       monster.errors = monster.errors || [];
       if (!monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
         console.error("Could not find '" + type + "' stats for monster: " + monster.name + " level: " + monster.level);

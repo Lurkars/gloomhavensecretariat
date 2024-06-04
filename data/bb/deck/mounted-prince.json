@@ -1,0 +1,101 @@
+{
+  "name": "mounted-prince",
+  "edition": "bb",
+  "abilities": [
+    {
+      "initiative": 3,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "pull",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 42,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "initiative": 80,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "elementHalf",
+          "value": "ice:air"
+        },
+        {
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 5,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "wild",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

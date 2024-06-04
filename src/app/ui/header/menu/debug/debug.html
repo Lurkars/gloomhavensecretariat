@@ -6,6 +6,23 @@
       <span [ghs-label]="'settings.debug.rightClick'"></span>
     </label>
   </div>
+  <div class="separator"></div>
+  <div class="line">
+    <label>
+      <input tabclick type="checkbox" [checked]="settingsManager.settings.logServerMessages"
+        (change)="settingsManager.toggle('logServerMessages')">
+      <span [ghs-label]="'settings.debug.logServerMessages'"></span>
+    </label>
+  </div>
+  <div class="line ping">
+    <label class="label"><span [ghs-label]="'server.ping'"></span></label>
+    <input type="number" #serverPing [value]="settingsManager.settings.serverPing || '0'" (keyup)="0"
+      (change)="setServerPing($event)" [ghs-label]="'server.ping'" [ghs-label-attribute]="'placeholder'">
+  </div>
+  <div class="separator"></div>
+  <div class="line">
+    <a tabclick (click)="clearFeedbackErrors()"><span [ghs-label]="'settings.feedbackErrors.clear'"></span></a>
+  </div>
   <div class="line title span">
     <label><span [ghs-label]="'editor'"></span></label>
   </div>
@@ -34,19 +51,6 @@
   <div class="line">
     <a tabclick (click)="settingsManager.validateEditionData()"><span
         [ghs-label]="'tools.validateEditionData'"></span></a>
-  </div>
-  <div class="separator"></div>
-  <div class="line">
-    <label>
-      <input tabclick type="checkbox" [checked]="settingsManager.settings.logServerMessages"
-        (change)="settingsManager.toggle('logServerMessages')">
-      <span [ghs-label]="'settings.debug.logServerMessages'"></span>
-    </label>
-  </div>
-  <div class="line ping">
-    <label class="label"><span [ghs-label]="'server.ping'"></span></label>
-    <input type="number" #serverPing [value]="settingsManager.settings.serverPing || '0'" (keyup)="0"
-      (change)="setServerPing($event)" [ghs-label]="'server.ping'" [ghs-label-attribute]="'placeholder'">
   </div>
   <div class="separator"></div>
   <div class="line">

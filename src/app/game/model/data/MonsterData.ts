@@ -11,10 +11,11 @@ export class MonsterData implements Editional, Spoilable {
   standeeCount: number | string | undefined;
   standeeShare: string | undefined;
   standeeShareEdition: string | undefined;
-  baseStat: MonsterStat = new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0);
+  baseStat: MonsterStat = new MonsterStat(MonsterType.normal);
   stats: MonsterStat[] = [];
   deck: string = "";
   boss: boolean = false;
+  bb: boolean = false;
   flying: boolean = false;
   immortal: boolean = false;
 
@@ -49,9 +50,10 @@ export class MonsterData implements Editional, Spoilable {
       this.standeeShare = monsterData.standeeShare;
       this.standeeShareEdition = monsterData.standeeShareEdition;
       this.baseStat = monsterData.baseStat;
-      this.stats = monsterData.stats;
+      this.stats = monsterData.stats || [];
       this.deck = monsterData.deck;
       this.boss = monsterData.boss;
+      this.bb = monsterData.bb;
       this.flying = monsterData.flying;
       this.immortal = monsterData.immortal;
       this.thumbnail = monsterData.thumbnail;

@@ -1,0 +1,34 @@
+{
+  "index": "7",
+  "name": "Mind Control",
+  "edition": "bb",
+  "level": 2,
+  "solo": "mindthief",
+  "unlocks": [
+    "8"
+  ],
+  "monsters": [
+    "arena-sorcerer",
+    "gloomtoad"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "arena-sorcerer",
+          "number": 1
+        },
+        {
+          "name": "arena-sorcerer",
+          "number": 2
+        },
+        {
+          "name": "gloomtoad",
+          "number": 3
+        }
+      ]
+    }
+  ]
+}

@@ -44,6 +44,7 @@ export class DatamanagementMenuComponent implements OnInit {
       if (success) {
         target.value = "";
         target.disabled = false;
+        this.settingsManager.addEdition(success.edition);
       } else {
         setTimeout(() => {
           target.classList.add("error");

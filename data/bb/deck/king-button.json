@@ -1,0 +1,85 @@
+{
+  "name": "king-button",
+  "edition": "bb",
+  "abilities": [
+    {
+      "initiative": 5,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "elementHalf",
+          "value": "ice:earth"
+        },
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 43,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "elementHalf",
+              "value": "earth:dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 76,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

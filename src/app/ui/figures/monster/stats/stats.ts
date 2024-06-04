@@ -29,9 +29,9 @@ export class MonsterStatsComponent implements OnInit {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  stats: MonsterStat = new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0);
+  stats: MonsterStat = new MonsterStat(MonsterType.normal);
   hideStats: boolean = false;
-  eliteStats: MonsterStat = new MonsterStat(MonsterType.elite, 0, 0, 0, 0, 0);
+  eliteStats: MonsterStat = new MonsterStat(MonsterType.elite);
   hideEliteStats: boolean = false;
   statOverview: boolean = false;
   highlightActions: ActionType[] = [ActionType.shield, ActionType.retaliate];
@@ -76,8 +76,10 @@ export class MonsterStatsComponent implements OnInit {
     } else {
       this.stats = gameManager.monsterManager.getStat(this.monster, MonsterType.normal);
       this.hideStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.normal);
-      this.eliteStats = gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
-      this.hideEliteStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.elite);
+      if (!this.monster.bb) {
+        this.eliteStats = gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
+        this.hideEliteStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.elite);
+      }
     }
   }
 
@@ -111,17 +113,13 @@ export class MonsterStatsComponent implements OnInit {
   }
 
   openStatsPopup() {
-    if (!this.noClick) {
+    if (!this.noClick && !this.monster.bb) {
       this.dialog.open(MonsterStatsDialogComponent, {
         panelClass: ['dialog'],
         data: this.monster
       });
     } else if (!this.disablePoup) {
-      this.dialog.open(MonsterStatDialogComponent, {
-        panelClass: ['fullscreen-panel'],
-        disableClose: true,
-        data: { monster: this.monster, forceStats: this.forceStats }
-      });
+      this.openStatPopup();
     }
   }
 

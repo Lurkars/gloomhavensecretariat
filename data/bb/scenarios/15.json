@@ -1,0 +1,42 @@
+{
+  "index": "15",
+  "name": "Ring the Bell",
+  "edition": "bb",
+  "level": 4,
+  "unlocks": [
+    "17",
+    "18"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.bb.15%"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "number": 1
+        },
+        {
+          "name": "flame-demon",
+          "number": 2
+        },
+        {
+          "name": "frost-demon",
+          "number": 3
+        }
+      ]
+    }
+  ]
+}

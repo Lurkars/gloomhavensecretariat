@@ -1,0 +1,71 @@
+{
+  "name": "venomous-centipede",
+  "edition": "bb",
+  "abilities": [
+    {
+      "initiative": 18,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 33,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "initiative": 58,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "mouse",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "bb",
+    "health": 9,
+    "actions": [
+      {
+        "type": "retaliate",
+        "value": 1
+      }
+    ]
+  }
+}

@@ -111,6 +111,24 @@
     &.disabled {
       pointer-events: none;
     }
+
+    &:not(.existing) .number {
+      &.bb-1 {
+        color: var(--ghs-color-bb-1);
+      }
+
+      &.bb-2 {
+        color: var(--ghs-color-bb-2);
+      }
+
+      &.bb-3 {
+        color: var(--ghs-color-bb-3);
+      }
+
+      &.bb-4 {
+        color: var(--ghs-color-bb-4);
+      }
+    }
   }
 
   .summon-button {

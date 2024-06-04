@@ -54,6 +54,10 @@ export class MonsterManager {
   }
 
   getStat(monster: Monster, type: MonsterType): MonsterStat {
+    if (monster.bb) {
+      return Object.assign(new MonsterStat(type), monster.baseStat);
+    }
+
     let stat = monster.stats.find((monsterStat) => {
       return monsterStat.level == monster.level && monsterStat.type == type;
     });
@@ -63,7 +67,7 @@ export class MonsterManager {
         console.error("Could not find '" + type + "' stats for monster: " + monster.name + " level: " + monster.level);
         monster.errors.push(new FigureError(FigureErrorType.stat, "monster", monster.name, monster.edition, type, "" + monster.level));
       }
-      return new MonsterStat(type, monster.level, 0, 0, 0, 0);
+      return new MonsterStat(type, monster.level);
     }
 
     stat = JSON.parse(JSON.stringify(stat)) as MonsterStat;
@@ -185,20 +189,22 @@ export class MonsterManager {
       })
     }
 
-    monster.stats.forEach((stat) => {
-      if (stat.special) {
-        stat.special.forEach((special) => {
-          special.forEach((action) => {
-            const summons = this.getActionSpawns(action, monster.edition);
-            summons.forEach((summon) => {
-              if (monsters.indexOf(summon) == -1) {
-                monsters.push(summon);
-              }
+    if (monster.stats) {
+      monster.stats.forEach((stat) => {
+        if (stat.special) {
+          stat.special.forEach((special) => {
+            special.forEach((action) => {
+              const summons = this.getActionSpawns(action, monster.edition);
+              summons.forEach((summon) => {
+                if (monsters.indexOf(summon) == -1) {
+                  monsters.push(summon);
+                }
+              })
             })
           })
-        })
-      }
-    })
+        }
+      })
+    }
     return monsters;
   }
 
@@ -327,6 +333,15 @@ export class MonsterManager {
 
   monsterStandeeShared(monster: Monster, list: Monster[]): Monster[] {
 
+    if (monster.bb) {
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Monster && figure.bb && list.indexOf(figure) == -1) {
+          list.push(figure);
+        }
+      })
+      return list;
+    }
+
     if (list.indexOf(monster) == -1) {
       list.push(monster);
     }
@@ -374,7 +389,7 @@ export class MonsterManager {
   }
 
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
-    if (!monster.stats.some((monsterStat) => {
+    if (monster.bb && !monster.baseStat || !monster.bb && !monster.stats.some((monsterStat) => {
       return monsterStat.type == type;
     })) {
       monster.errors = monster.errors || [];

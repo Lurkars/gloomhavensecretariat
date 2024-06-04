@@ -49,7 +49,7 @@
       <div class="separator"></div>
 
       <div class="line"
-        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
+        [ngClass]="{'disabled' : characters().length > 0 && gameManager.bbRules(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
         <a tabclick (click)="setActive(SubMenu.character_add)"><span [ghs-label]="'character.add'"></span></a>
       </div>
       <div class="line"
@@ -132,7 +132,7 @@
 
   <ghs-section-menu *ngSwitchCase="SubMenu.section"></ghs-section-menu>
 
-  <ghs-character-menu *ngSwitchCase="SubMenu.character_add">
+  <ghs-character-menu *ngSwitchCase="SubMenu.character_add" (close)="close()">
   </ghs-character-menu>
 
   <ghs-campaign-menu *ngSwitchCase="SubMenu.campaign" (close)="close()"></ghs-campaign-menu>
@@ -215,7 +215,7 @@
 
   <ghs-settings-menu *ngSwitchCase="SubMenu.settings" (setMenu)="setActive($event)"></ghs-settings-menu>
 
-  <ghs-debug-menu *ngSwitchCase="SubMenu.debug"></ghs-debug-menu>
+  <ghs-debug-menu *ngSwitchCase="SubMenu.debug" (close)="close()"></ghs-debug-menu>
 
   <ghs-server-menu *ngSwitchCase="SubMenu.server"></ghs-server-menu>
 

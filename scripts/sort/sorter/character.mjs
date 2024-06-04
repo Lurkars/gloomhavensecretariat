@@ -30,5 +30,5 @@ export const sortCharacter = function (character) {
 
     removeEmptyValues(character, 'primaryToken');
 
-    return sortObjectKeys(character, 'name', 'characterClass', 'gender', 'icon', 'iconUrl', 'thumbnail', 'thumbnailUrl', 'noThumbnail', 'edition', 'identities', 'tokens', 'primaryToken', 'handSize', 'unlockEvent', 'retireEvent', 'traits', 'color', 'spoiler', 'specialActions', 'locked', 'marker', 'deck', 'stats', 'summon', 'characterClass', 'availableSummons', 'perkWarning', 'perks', 'masteries', 'additionalModifier');
+    return sortObjectKeys(character, 'name', 'characterClass', 'gender', 'icon', 'iconUrl', 'thumbnail', 'thumbnailUrl', 'noThumbnail', 'edition', 'identities', 'tokens', 'primaryToken', 'handSize', 'unlockEvent', 'retireEvent', 'traits', 'color', 'spoiler', 'bb', 'specialActions', 'locked', 'marker', 'deck', 'stats', 'summon', 'characterClass', 'availableSummons', 'perkWarning', 'perks', 'masteries', 'additionalModifier', 'amTables');
 }

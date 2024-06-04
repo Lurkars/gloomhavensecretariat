@@ -63,7 +63,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
     this.additionalActions = [];
     if (this.monster && settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
-      let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
+      let eliteStat = this.monster.boss || this.monster.bb ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
 
       if (stat.actions) {
         stat.actions.filter((statAction) => this.additionActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
@@ -84,7 +84,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
       }
     }
 
-    if (!this.noDivider) {
+    if (!this.noDivider && this.actions) {
       this.actions.forEach((action, index) => {
         this.divider[index] = this.calcDivider(action, index);
       })

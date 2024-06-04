@@ -1,0 +1,21 @@
+{
+  "name": "tattered-construct",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "bb",
+    "health": 16,
+    "actions": [
+      {
+        "type": "shield",
+        "value": 1
+      }
+    ],
+    "immunities": [
+      "disarm",
+      "immobilize"
+    ]
+  }
+}

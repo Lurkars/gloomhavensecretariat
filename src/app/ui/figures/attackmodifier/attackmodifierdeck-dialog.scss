@@ -228,7 +228,6 @@
           width: 100%;
           height: 100%;
         }
-
       }
 
       .empty {
@@ -284,6 +283,48 @@
 
     &.has-deleted {
       width: calc(var(--ghs-unit) * 90 * var(--ghs-dialog-factor));
+    }
+  }
+
+  .bb-table {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: auto auto auto;
+
+    .header {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: none;
+      width: calc(var(--ghs-unit) * 18 * var(--ghs-dialog-factor));
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+      img {
+        height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+        width: auto;
+        filter: var(--ghs-filter-white);
+      }
+    }
+
+    .attack-modifier-container {
+      position: relative;
+      display: flex;
+      transition: none;
+      width: calc(var(--ghs-unit) * 18 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      flex-shrink: 0;
+      flex-grow: 0;
+
+      ghs-attackmodifier {
+        position: absolute;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }

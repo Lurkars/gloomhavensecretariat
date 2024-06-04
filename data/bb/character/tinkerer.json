@@ -1,0 +1,299 @@
+{
+  "name": "tinkerer",
+  "icon": "gh-tinkerer",
+  "edition": "bb",
+  "color": "#d1c3a2",
+  "bb": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 11
+    },
+    {
+      "level": 2,
+      "health": 12
+    },
+    {
+      "level": 3,
+      "health": 14
+    },
+    {
+      "level": 4,
+      "health": 15
+    },
+    {
+      "level": 5,
+      "health": 17
+    }
+  ],
+  "amTables": [
+    [
+      "minus1",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "plus2",
+      "null",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "double",
+      "minus2",
+      "plus0",
+      "plus1"
+    ],
+    [
+      "minus1",
+      "plus0",
+      "plus1",
+      "plus0",
+      "plus0",
+      "plus2",
+      "minus1",
+      "plus0",
+      "plus1",
+      "null",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "muddle"
+          }
+        ]
+      },
+      "plus1",
+      "minus1",
+      "plus0",
+      "double",
+      "minus1",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "heal",
+            "value": 2,
+            "effects": [
+              {
+                "type": "specialTarget",
+                "value": "self"
+              }
+            ]
+          }
+        ]
+      },
+      "plus1"
+    ],
+    [
+      "minus1",
+      "plus1",
+      "plus1",
+      "plus0",
+      "plus0",
+      "plus2",
+      "minus1",
+      "plus0",
+      "plus2",
+      "null",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "muddle"
+          }
+        ]
+      },
+      "plus1",
+      "plus0",
+      "plus0",
+      "double",
+      "minus1",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "heal",
+            "value": 2,
+            "effects": [
+              {
+                "type": "specialTarget",
+                "value": "self"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      }
+    ],
+    [
+      "minus1",
+      "plus1",
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "muddle"
+          }
+        ]
+      },
+      "plus0",
+      "plus0",
+      "plus3",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "target",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "target",
+            "value": 1
+          }
+        ]
+      },
+      "plus2",
+      "null",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "muddle"
+          }
+        ]
+      },
+      "plus1",
+      "plus0",
+      "plus0",
+      "double",
+      "minus1",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "heal",
+            "value": 2,
+            "effects": [
+              {
+                "type": "specialTarget",
+                "value": "self"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      }
+    ],
+    [
+      "minus1",
+      "plus1",
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "muddle"
+          }
+        ]
+      },
+      "plus0",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "immobilize"
+          }
+        ]
+      },
+      "plus3",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "target",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "target",
+            "value": 1
+          }
+        ]
+      },
+      "plus2",
+      "null",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "muddle"
+          }
+        ]
+      },
+      "plus1",
+      "plus0",
+      "plus1",
+      "double",
+      "plus0",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "heal",
+            "value": 2,
+            "effects": [
+              {
+                "type": "specialTarget",
+                "value": "self"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      }
+    ]
+  ]
+}

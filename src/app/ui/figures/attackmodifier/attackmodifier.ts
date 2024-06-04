@@ -20,6 +20,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   @Input() flipped: boolean = false;
   @Input() newStyle: boolean = false;
   @Input() townGuard: boolean = false;
+  @Input() bbIndex: number = -1;
   effectClasses: string = "";
   AttackModifierType = AttackModifierType;
   AttackModifierValueType = AttackModifierValueType;
@@ -42,7 +43,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
   init() {
     if (this.attackModifier) {
-      this.csOak = this.attackModifier.id.startsWith('cs-oak');
+      this.csOak = this.attackModifier.id && this.attackModifier.id.startsWith('cs-oak') || false;
       this.newStyle = this.newStyle || this.attackModifier.type == AttackModifierType.empower || this.attackModifier.type == AttackModifierType.enfeeble;
       this.multipe = false;
       this.wildElement = false;

@@ -1,0 +1,221 @@
+{
+  "name": "silent-knife",
+  "icon": "gh-scoundrel",
+  "edition": "bb",
+  "color": "#9ecf5f",
+  "bb": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 11
+    },
+    {
+      "level": 2,
+      "health": 12
+    },
+    {
+      "level": 3,
+      "health": 14
+    },
+    {
+      "level": 4,
+      "health": 15
+    },
+    {
+      "level": 5,
+      "health": 17
+    }
+  ],
+  "amTables": [
+    [
+      "minus1",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "plus2",
+      "null",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "double",
+      "minus2",
+      "plus0",
+      "plus1"
+    ],
+    [
+      "plus0",
+      "plus0",
+      "plus1",
+      "null",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "plus2",
+      "minus1",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      },
+      "plus1",
+      "minus1",
+      "plus0",
+      "double"
+    ],
+    [
+      "plus0",
+      "plus0",
+      "plus1",
+      "null",
+      "plus1",
+      "plus1",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "invisible",
+            "effects": [
+              {
+                "type": "specialTarget",
+                "value": "self"
+              }
+            ]
+          }
+        ]
+      },
+      "plus0",
+      "plus1",
+      "plus0",
+      "plus0",
+      "plus2",
+      "minus1",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      },
+      "plus1",
+      "minus1",
+      "plus0",
+      "double"
+    ],
+    [
+      "plus0",
+      "plus0",
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      },
+      "null",
+      "plus1",
+      "plus2",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "invisible",
+            "effects": [
+              {
+                "type": "specialTarget",
+                "value": "self"
+              }
+            ]
+          }
+        ]
+      },
+      "plus0",
+      "plus1",
+      "plus0",
+      "plus1",
+      "plus2",
+      "plus0",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      },
+      "plus1",
+      "minus1",
+      "plus0",
+      "double"
+    ],
+    [
+      "plus0",
+      "plus1",
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      },
+      "null",
+      "plus1",
+      "plus2",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "invisible",
+            "effects": [
+              {
+                "type": "specialTarget",
+                "value": "self"
+              }
+            ]
+          }
+        ]
+      },
+      "plus0",
+      "plus1",
+      "plus0",
+      "plus1",
+      "plus2",
+      "plus0",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      },
+      "plus1",
+      "plus0",
+      "plus1",
+      "double"
+    ]
+  ]
+}

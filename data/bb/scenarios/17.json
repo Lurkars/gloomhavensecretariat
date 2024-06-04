@@ -1,0 +1,34 @@
+{
+  "index": "17",
+  "name": "The Long Way Through",
+  "edition": "bb",
+  "level": 5,
+  "unlocks": [
+    "19"
+  ],
+  "monsters": [
+    "flame-demon",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "number": 1
+        },
+        {
+          "name": "frost-demon",
+          "number": 3
+        },
+        {
+          "name": "wind-demon",
+          "number": 2
+        }
+      ]
+    }
+  ]
+}

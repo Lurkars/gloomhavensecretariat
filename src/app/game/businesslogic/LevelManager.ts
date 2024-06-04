@@ -71,6 +71,16 @@ export class LevelManager {
     return Math.floor(this.trap(level) / 2);
   }
 
+  bbMonsterDifficutly(): number {
+    let monsterDifficulty = 2 + gameManager.game.levelAdjustment;
+    if (monsterDifficulty < 0) {
+      monsterDifficulty = 0;
+    } else if (monsterDifficulty > 4) {
+      monsterDifficulty = 4;
+    }
+    return monsterDifficulty;
+  }
+
   scenarioLevel(): number {
     const charCount = gameManager.characterManager.characterCount();
 

@@ -17,8 +17,8 @@ declare global {
 export class SettingsManager {
 
   defaultLocale: string = 'en';
-  defaultEditions: string[] = ["gh", "fh", "jotl", "fc", "cs", "toa", "solo"];
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/gh-solo-items.json", "./assets/data/sox.json", "./assets/data/ir.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/r100kc.json"];
+  defaultEditions: string[] = ["gh", "fh", "jotl", "fc", "cs", "toa", "bb", "solo"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/bb.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/gh-solo-items.json", "./assets/data/sox.json", "./assets/data/ir.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/r100kc.json"];
 
   settings: Settings = new Settings();
   label: any = {};
@@ -161,9 +161,11 @@ export class SettingsManager {
     this.loadSettings();
   }
 
-  async set(setting: string, value: any) {
+  async set(setting: string, value: any, apply: boolean = true) {
     this.settings[setting] = value;
-    await this.apply(setting, value);
+    if (apply) {
+      await this.apply(setting, value);
+    }
     this.storeSettings();
   }
 
@@ -192,11 +194,11 @@ export class SettingsManager {
       } else {
         document.body.classList.remove('portrait-mode');
       }
-    } else if (setting === 'fhStyle' && this.settings.automaticTheme) {
-      if (value && this.settings.theme == 'default') {
-        this.settings.theme = 'fh';
-      } else if (!value && this.settings.theme == 'fh') {
-        this.settings.theme = 'default';
+    } else if (setting === 'theme' && this.settings.automaticTheme) {
+      if (value == 'fh' || value == 'bb') {
+        this.settings.fhStyle = true;
+      } else {
+        this.settings.fhStyle = false;
       }
     }
   }
@@ -328,19 +330,19 @@ export class SettingsManager {
     gameManager.editionData = [];
   }
 
-  async loadEditionData(url: string, force: boolean = false): Promise<boolean> {
+  async loadEditionData(url: string, force: boolean = false): Promise<EditionData | undefined> {
     try {
       const success = await fetch(url)
         .then(response => {
           if (!response.ok) {
             console.warn("Invalid data url: " + url + " [" + response.statusText + "]");
-            return;
+            return undefined;
           }
           return response.json();
         }).then((value: EditionData) => {
           if (gameManager.editions(true).indexOf(value.edition) != -1 && !force) {
             console.warn("Edition already exists: " + value.edition);
-            return false;
+            return undefined;
           }
 
           if (force) {
@@ -419,12 +421,12 @@ export class SettingsManager {
           } else {
             this.loadEditionLabel(value);
           }
-          return true;
+          return value;
         });
       return success;
     } catch (error) {
       console.warn("Invalid data url: " + url + " [" + error + "]");
-      return false;
+      return undefined;
     }
   }
 
@@ -579,7 +581,7 @@ export class SettingsManager {
     return gameManager.editionData.find((editionData) => editionData.url == url)?.edition;
   }
 
-  async addEditionDataUrl(editionDataUrl: string): Promise<boolean> {
+  async addEditionDataUrl(editionDataUrl: string): Promise<EditionData | undefined> {
     if (this.settings.editionDataUrls.indexOf(editionDataUrl) == -1) {
       const success = await this.loadEditionData(editionDataUrl);
       if (success) {
@@ -591,11 +593,11 @@ export class SettingsManager {
           this.settings.excludeEditionDataUrls.splice(this.settings.excludeEditionDataUrls.indexOf(editionDataUrl), 1);
         }
         this.storeSettings();
-        return true;
+        return success;
       }
     }
 
-    return false;
+    return undefined;
   }
 
   async removeEditionDataUrl(editionDataUrl: string) {

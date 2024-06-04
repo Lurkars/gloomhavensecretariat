@@ -262,7 +262,11 @@ export class MainComponent implements OnInit {
     });
 
     if (settingsManager.settings.wakeLock && "wakeLock" in navigator) {
-      gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
+      try {
+        gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
+      } catch (e) {
+        console.error(e);
+      }
 
       document.addEventListener("visibilitychange", async () => {
         if (gameManager.stateManager.wakeLock !== null && document.visibilityState === "visible") {
@@ -328,11 +332,11 @@ export class MainComponent implements OnInit {
   startCampaign(edition: string) {
     gameManager.stateManager.before("startCampaign", 'data.edition.' + edition);
     gameManager.game.edition = edition;
-    if (settingsManager.settings.automaticTheme) {
-      if (edition == 'fh') {
-        settingsManager.set('fhStyle', true);
+    if (settingsManager.settings.automaticTheme && settingsManager.settings.theme != 'modern') {
+      if (edition == 'fh' || edition == 'bb') {
+        settingsManager.set('theme', edition);
       } else {
-        settingsManager.set('fhStyle', false);
+        settingsManager.set('theme', 'default');
       }
     }
     gameManager.game.party.campaignMode = true;
@@ -438,7 +442,7 @@ export class MainComponent implements OnInit {
   }
 
   lastActive(): number {
-    let lastActive = -1;
+    let lastActive = 0;
     this.figures.forEach((figure, index) => {
       if (index > lastActive && gameManager.gameplayFigure(figure)) {
         lastActive = index;

@@ -1,0 +1,21 @@
+{
+  "name": "stuffed-construct",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "bb",
+    "health": 12,
+    "actions": [
+      {
+        "type": "shield",
+        "value": 3
+      }
+    ],
+    "immunities": [
+      "disarm",
+      "immobilize"
+    ]
+  }
+}

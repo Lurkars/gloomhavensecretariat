@@ -21,6 +21,7 @@ export class LevelComponent implements OnInit, OnDestroy {
   experience: number = 0;
   loot: number = 0;
   hazardousTerrain: number = 0;
+  monsterDifficulty: number = 0;
 
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
@@ -63,6 +64,7 @@ export class LevelComponent implements OnInit, OnDestroy {
     this.experience = gameManager.levelManager.experience();
     this.loot = gameManager.levelManager.loot();
     this.hazardousTerrain = gameManager.levelManager.terrain();
+    this.monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
   }
 
 }

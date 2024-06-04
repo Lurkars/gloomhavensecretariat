@@ -21,7 +21,7 @@
   <div class="main"
     [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <div class="table" [style.--ghs-summary-columns]="1 + characters.length"
-      *ngIf="characters.length > 0 && (characterProgress || forceCampaign) && settingsManager.settings.characterSheet && !conclusionOnly && !rewardsOnly">
+      *ngIf="characters.length > 0 && (characterProgress || forceCampaign) && settingsManager.settings.characterSheet && !conclusionOnly && !rewardsOnly && !gameManager.bbRules()">
 
       <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
       <span class="first" *ngFor="let character of characters; let index = index;">

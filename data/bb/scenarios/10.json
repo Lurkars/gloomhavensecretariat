@@ -1,0 +1,50 @@
+{
+  "index": "10",
+  "name": "Into the Darkness",
+  "edition": "bb",
+  "level": 3,
+  "unlocks": [
+    "11",
+    "12"
+  ],
+  "monsters": [
+    "gloomtoad",
+    "rending-beetle"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "invisible"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "gloomtoad",
+          "number": 1
+        },
+        {
+          "name": "gloomtoad",
+          "number": 2
+        },
+        {
+          "name": "rending-beetle",
+          "number": 3
+        }
+      ]
+    }
+  ]
+}

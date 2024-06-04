@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ghsValueSign } from "../../helper/Static";
 import { Subscription } from "rxjs";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { AttackModifier, AttackModifierType } from "src/app/game/model/data/AttackModifier";
+import { ghsValueSign } from "../../helper/Static";
 
 
 @Component({
@@ -53,6 +54,18 @@ export class LevelDialogComponent implements OnInit, OnDestroy {
         if (gameManager.game.levelCalculation) {
             gameManager.levelManager.calculateScenarioLevel();
         }
+        gameManager.stateManager.after();
+    }
+
+    setBbMonsterDifficutly(level: number) {
+        gameManager.stateManager.before("updateLevelAdjustmentBb", '' + level);
+        gameManager.game.levelAdjustment = level - 2;
+        const editionData = gameManager.editionData.find((editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length);
+      if (editionData) {
+        const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
+        gameManager.game.monsterAttackModifierDeck.attackModifiers = editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType));
+        gameManager.game.monsterAttackModifierDeck.cards = editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType));
+      }
         gameManager.stateManager.after();
     }
 

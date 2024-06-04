@@ -1,0 +1,56 @@
+{
+  "name": "rending-beetle",
+  "edition": "bb",
+  "abilities": [
+    {
+      "initiative": 13,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1
+        },
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "initiative": 25,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "initiative": 59,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}

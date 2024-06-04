@@ -1,34 +1,39 @@
-<span class="feedback-dialog">
+<span class="feedback-dialog scroll-container">
     <a (click)="form = 'issue'" [ngClass]="{'active' : form == 'issue'}"><span
             [ghs-label]="'tools.feedback.reportIssue'"></span></a>
 
+    <div *ngIf="automaticText" class="hint">
+        <p [ghs-label]="'tools.feedback.reportIssue.errorHint'"></p>
+        <div class="settings">
+            <a (click)="ignoreError()"><span [ghs-label]="'tools.feedback.reportIssue.errorIgnore'"></span></a>
+            <div ghs-setting-menu="feedbackErrors"></div>
+        </div>
+    </div>
+
     <div class="form issue-form" *ngIf="form == 'issue'">
         <label><span [ghs-label]="'tools.feedback.reportIssue.type'"></span></label>
-        <select #issueType>
-            <option value="abilityCard"><span [ghs-label]="'tools.feedback.reportIssue.type.abilityCard'"></span>
+        <select [(ngModel)]="issueType">
+            <option *ngFor="let type of issueTypes" [value]="type"><span
+                    [ghs-label]="'tools.feedback.reportIssue.type.' + type"></span>
             </option>
-            <option value="monsterStat"><span [ghs-label]="'tools.feedback.reportIssue.type.monsterStat'"></span>
-            </option>
-            <option value="characterStat"><span [ghs-label]="'tools.feedback.reportIssue.type.characterStat'"></span>
-            </option>
-            <option value="artwork"><span [ghs-label]="'tools.feedback.reportIssue.type.artwork'"></span></option>
-            <option value="software"><span [ghs-label]="'tools.feedback.reportIssue.type.software'"></span></option>
-            <option value="feedback"><span [ghs-label]="'tools.feedback.reportIssue.type.feedback'"></span></option>
         </select>
 
-        <p class="hint" [ghs-label]="'tools.feedback.reportIssue.type.' + issueType.value + '.hint'"></p>
+        <p class="hint" [ghs-label]="'tools.feedback.reportIssue.type.' + issueType + '.hint'"></p>
         <p class="hint" [ghs-label]="'tools.feedback.reportIssue.specify'"></p>
 
         <label [ghs-label]="'tools.feedback.reportIssue.text'"></label>
-        <textarea #issuerText></textarea>
+        <textarea [(ngModel)]="issuerText"></textarea>
         <p class="hint">Please write in English or German / Bitte in Englisch oder Deutsch verfassen!</p>
+
+        <label [ghs-label]="'tools.feedback.reportIssue.automaticText'"></label>
+        <textarea *ngIf="automaticText" [disabled]="true" [(ngModel)]="automaticText"></textarea>
 
         <div class="buttons">
             <a class="button" (click)="downloadDataDump()"><span
                     [ghs-label]="'tools.feedback.reportIssue.download'"></span></a>
 
-            <a class="button" [ngClass]="{'disabled' : !issuerText.value}"
-                [href]="issueMail(issueType.value, issuerText.value)">
+            <a class="button" [ngClass]="{'disabled' : !issuerText && !automaticText}"
+                [href]="issueMail(issueType, issuerText)">
                 <span [ghs-label]="'tools.feedback.reportIssue.send'"></span>
             </a>
         </div>

@@ -43,7 +43,7 @@
       <span class="allied" *ngIf="gameManager.toMonster(data.figure).isAllied"><span
           [ghs-label]="'game.allied'"></span>&nbsp;</span>
       <span class="standee-number" *ngIf="data.entity && gameManager.isMonsterEntity(data.entity)"
-        [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</span>
+        [ngClass]="gameManager.toMonsterEntity(data.entity).type + (bb ? ' bb-' + gameManager.toMonsterEntity(data.entity).number : '') ">#{{gameManager.toMonsterEntity(data.entity).number}}</span>
     </div>
 
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.figure) && gameManager.isSummon(data.entity)">
@@ -98,7 +98,7 @@
           </ghs-pointer-input>
         </span>
 
-        <ng-container *ngIf="gameManager.isCharacter(data.entity)">
+        <ng-container *ngIf="gameManager.isCharacter(data.entity) && !bb">
           <span class="item">
             <ghs-pointer-input class="button"
               [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).experience + experience == 0}"
@@ -117,7 +117,8 @@
             </ghs-pointer-input>
           </span>
 
-          <ng-container *ngIf="(!settingsManager.settings.lootDeck || !settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()) && !settingsManager.settings.hideCharacterLoot">
+          <ng-container
+            *ngIf="(!settingsManager.settings.lootDeck || !settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()) && !settingsManager.settings.hideCharacterLoot">
             <span class="item">
               <ghs-pointer-input class="button"
                 [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).loot + loot == 0}"
@@ -181,7 +182,7 @@
       </ng-container>
 
       <ng-container
-        *ngIf="(gameManager.isCharacter(data.figure) && settingsManager.settings.characterSheet && settingsManager.settings.characterAttackModifierDeck || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal))">
+        *ngIf="(gameManager.isCharacter(data.figure) && settingsManager.settings.characterSheet && settingsManager.settings.characterAttackModifierDeck || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal) && !bb)">
 
         <span class="item">
           <ghs-pointer-input class="button"
@@ -382,7 +383,7 @@
         </div>
       </ng-container>
 
-      <div class="marker-container">
+      <div class="marker-container" *ngIf="!bb">
         <a class="summon"
           *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal) && gameManager.isMonsterEntity(data.entity)"
           [ngClass]="{'active' : gameManager.toMonsterEntity(data.entity).summon == SummonState.true, 'new' : gameManager.toMonsterEntity(data.entity).summon == SummonState.new }"
@@ -624,9 +625,9 @@
 
   <div *ngIf="levelDialog" class="level-dialog">
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.entity)">
-      <div class="level-container">
+      <div class="level-container" [ngClass]="{'bb' : bb}">
         <span class="item"><img src="./assets/images/status/level.svg" /></span>
-        <span class="item" *ngFor="let level of [] | ghsRange:9"><a class="level"
+        <span class="item" *ngFor="let level of [] | ghsRange:(bb ? 5 : 9)"><a class="level"
             [ngClass]="{'active' : level + 1 == data.entity.level}" (click)="setLevel(level + 1)">{{level
             +1}}</a></span>
       </div>

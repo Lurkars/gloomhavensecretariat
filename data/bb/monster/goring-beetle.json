@@ -1,0 +1,24 @@
+{
+  "name": "goring-beetle",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "bb",
+    "health": 10,
+    "actions": [
+      {
+        "type": "pierce",
+        "value": 2
+      },
+      {
+        "type": "shield",
+        "value": 3
+      }
+    ],
+    "immunities": [
+      "immobilize"
+    ]
+  }
+}

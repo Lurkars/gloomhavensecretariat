@@ -4,7 +4,7 @@ import { AfterViewInit, Component, HostListener, Inject, OnInit, ViewEncapsulati
 import { Overlay } from "@angular/cdk/overlay";
 import L, { LatLngBoundsLiteral } from 'leaflet';
 import mermaid from 'mermaid';
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
@@ -27,6 +27,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     worldMap: boolean = false;
     campaignSheet: boolean = false;
     chart!: L.Map;
+
+    gameManager: GameManager = gameManager;
 
     constructor(@Inject(DIALOG_DATA) public data: { edition: string, group: string | undefined }, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
         this.edition = data.edition;

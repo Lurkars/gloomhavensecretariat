@@ -1,4 +1,4 @@
-import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Character } from "../model/Character";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
@@ -51,10 +51,14 @@ export class RoundManager {
       if (settingsManager.settings.moveElements) {
         this.game.elementBoard.forEach((element) => {
           if (element.state != ElementState.always) {
-            if (element.state == ElementState.strong || element.state == ElementState.new) {
-              element.state = ElementState.waning;
-            } else if (element.state == ElementState.waning) {
+            if (gameManager.bbRules()) {
               element.state = ElementState.inert;
+            } else {
+              if (element.state == ElementState.strong || element.state == ElementState.new) {
+                element.state = ElementState.waning;
+              } else if (element.state == ElementState.waning) {
+                element.state = ElementState.inert;
+              }
             }
           }
         })
@@ -419,6 +423,15 @@ export class RoundManager {
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
     gameManager.attackModifierManager.fromModel(this.game.monsterAttackModifierDeck, new AttackModifierDeck().toModel());
     gameManager.attackModifierManager.fromModel(this.game.allyAttackModifierDeck, new AttackModifierDeck().toModel());
+
+    if (gameManager.bbRules()) {
+      const editionData = gameManager.editionData.find((editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length);
+      if (editionData) {
+        const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
+        this.game.monsterAttackModifierDeck = new AttackModifierDeck(editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType)), true);
+      }
+    }
+
     this.game.figures = this.game.figures.filter((figure) => figure instanceof Character || this.game.scenario && this.game.scenario.custom);
     this.game.entitiesCounter = [];
     this.game.lootDeck.fromModel(new LootDeck());

@@ -658,7 +658,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
             gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
         }
 
-        if (settingsManager.settings.scenarioRewards && this.success) {
+        if (settingsManager.settings.scenarioRewards && this.success && !gameManager.bbRules()) {
             this.characters.forEach((character, index) => {
                 if (!character.absent) {
                     if (this.battleGoals[index] > 0) {
@@ -749,7 +749,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
         if (this.conclusionOnly) {
             gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign, true);
         } else {
-            gameManager.scenarioManager.finishScenario(gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign);
+            gameManager.scenarioManager.finishScenario(gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, settingsManager.settings.scenarioRewards && !gameManager.bbRules() && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign);
         }
         await gameManager.stateManager.after(0, settingsManager.settings.autoBackup > -1 && settingsManager.settings.autoBackupFinish && (settingsManager.settings.autoBackup == 0 || (gameManager.game.revision + gameManager.game.revisionOffset) % settingsManager.settings.autoBackup != 0));
 

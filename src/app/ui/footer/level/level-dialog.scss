@@ -186,4 +186,56 @@
       }
     }
   }
+
+  .bb {
+    display: flex;
+    flex-direction: column;
+    color: var(--ghs-color-gray);
+    font-size: 1.6em;
+    font-family: var(--ghs-font-normal);
+
+    .title {
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-right: 0.5em;
+        width: 1.3em;
+        height: auto;
+        filter: var(--ghs-filter-gray);
+      }
+    }
+
+    .level {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.8em;
+      margin: 0.2em;
+
+      img {
+        float: left;
+        margin-left: 0.2em;
+        width: 1em;
+        height: auto;
+        filter: var(--ghs-filter-white);
+      }
+
+      .scenario-level {
+        width: 10em;
+        text-align: center;
+      }
+
+      &.current {
+        .scenario-level {
+          width: 8.8em;
+        }
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
 }

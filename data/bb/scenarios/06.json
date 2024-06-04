@@ -1,0 +1,35 @@
+{
+  "index": "6",
+  "name": "Pest Control",
+  "edition": "bb",
+  "level": 2,
+  "unlocks": [
+    "8",
+    "9"
+  ],
+  "monsters": [
+    "harrowing-infestation",
+    "sewer-rat",
+    "spitting-moth"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrowing-infestation",
+          "number": 1
+        },
+        {
+          "name": "sewer-rat",
+          "number": 3
+        },
+        {
+          "name": "spitting-moth",
+          "number": 2
+        }
+      ]
+    }
+  ]
+}

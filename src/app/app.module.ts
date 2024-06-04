@@ -1,6 +1,6 @@
 import { DEFAULT_DIALOG_CONFIG, DialogModule } from '@angular/cdk/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ErrorHandler, Injectable, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,7 +10,6 @@ import { InViewportModule } from 'ng-in-viewport';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { gameManager } from './game/businesslogic/GameManager';
 import { AbiltiesDialogComponent } from './ui/figures/ability/abilities-dialog';
 import { AbilityComponent } from './ui/figures/ability/ability';
 import { AbilityDialogComponent } from './ui/figures/ability/ability-dialog';
@@ -147,6 +146,7 @@ import { CharacterEditorComponent } from './ui/tools/editor/character/character'
 import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
 import { EditionEditorComponent } from './ui/tools/editor/edition';
 import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
+import { GhsErrorHandler } from './ui/tools/error-handler';
 import { EventCardsToolComponent } from './ui/tools/events/event-cards-tool';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
@@ -154,14 +154,7 @@ import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackm
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
 import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
 
-@Injectable()
-export class GhsErrorHandler extends ErrorHandler {
 
-  override handleError(error: any) {
-    gameManager.stateManager.errorLog.push(error);
-    super.handleError(error);
-  }
-}
 
 @NgModule({
   declarations: [

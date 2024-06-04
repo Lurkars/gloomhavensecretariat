@@ -1,0 +1,70 @@
+{
+  "name": "mouse",
+  "edition": "bb",
+  "abilities": [
+    {
+      "initiative": 6,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 19,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "initiative": 46,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1
+        },
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "index": "14",
+  "name": "The Bouncer",
+  "edition": "bb",
+  "level": 4,
+  "unlocks": [
+    "15",
+    "16"
+  ],
+  "monsters": [
+    "stuffed-construct",
+    "tattered-construct"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "bb",
+            "name": "stuffed-construct"
+          },
+          "type": "dead",
+          "value": "0"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "tattered-construct",
+            "type": "normal"
+          }
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stuffed-construct",
+          "number": 1
+        }
+      ]
+    }
+  ]
+}

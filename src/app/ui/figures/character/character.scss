@@ -529,6 +529,10 @@
         width: calc(var(--ghs-unit) * 18);
         height: calc(var(--ghs-unit) * 12);
       }
+
+      &.bb {
+        left: calc(var(--ghs-unit) * -9.5);
+      }
     }
 
     .battlegoals-button,
@@ -578,6 +582,14 @@
           transform: translate(-70%, -50%);
           width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
           filter: var(--ghs-filter-green) var(--ghs-filter-outline);
+        }
+      }
+
+      &.attack-modifier-button.bb {
+        img {
+          width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor) * var(--ghs-text-factor));
+          height: auto;
+          margin-right: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
         }
       }
     }

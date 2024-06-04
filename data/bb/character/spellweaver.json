@@ -1,0 +1,235 @@
+{
+  "name": "spellweaver",
+  "icon": "gh-spellweaver",
+  "edition": "bb",
+  "color": "#b28ac2",
+  "bb": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 10
+    },
+    {
+      "level": 2,
+      "health": 11
+    },
+    {
+      "level": 3,
+      "health": 13
+    },
+    {
+      "level": 4,
+      "health": 14
+    },
+    {
+      "level": 5,
+      "health": 16
+    }
+  ],
+  "amTables": [
+    [
+      "minus1",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "plus2",
+      "null",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "plus1",
+      "minus1",
+      "plus0",
+      "double",
+      "minus2",
+      "plus0",
+      "plus1"
+    ],
+    [
+      "minus1",
+      "plus1",
+      "plus1",
+      "minus2",
+      "plus0",
+      "double",
+      "minus1",
+      "plus0",
+      "plus2",
+      "null",
+      "plus0",
+      "plus1",
+      "minus1",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "immobilize"
+          }
+        ]
+      },
+      "plus2",
+      "minus1",
+      "plus0",
+      "plus1"
+    ],
+    [
+      "minus1",
+      "plus1",
+      "plus1",
+      "minus2",
+      "plus1",
+      "double",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "pierce",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "pierce",
+            "value": 2
+          }
+        ]
+      },
+      "plus2",
+      "null",
+      "plus1",
+      "plus1",
+      "plus0",
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "immobilize"
+          }
+        ]
+      },
+      "plus2",
+      "minus1",
+      "plus0",
+      "plus1"
+    ],
+    [
+      "minus1",
+      "plus1",
+      "plus1",
+      "minus2",
+      "plus1",
+      "double",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "pierce",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "pierce",
+            "value": 2
+          }
+        ]
+      },
+      "plus2",
+      "null",
+      "plus1",
+      "plus2",
+      "plus0",
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "immobilize"
+          }
+        ]
+      },
+      "plus2",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "disarm"
+          }
+        ]
+      },
+      "plus0",
+      "plus1"
+    ],
+    [
+      "plus0",
+      "plus1",
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      },
+      "minus2",
+      "plus1",
+      "double",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "pierce",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "type": "plus0",
+        "effects": [
+          {
+            "type": "pierce",
+            "value": 2
+          }
+        ]
+      },
+      "plus2",
+      "null",
+      "plus1",
+      "plus2",
+      "plus1",
+      {
+        "type": "plus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "immobilize"
+          }
+        ]
+      },
+      "plus2",
+      {
+        "type": "minus1",
+        "effects": [
+          {
+            "type": "condition",
+            "value": "disarm"
+          }
+        ]
+      },
+      "plus0",
+      "plus1"
+    ]
+  ]
+}

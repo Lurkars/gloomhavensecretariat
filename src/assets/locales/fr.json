@@ -1984,7 +1984,7 @@
       "default": "Défaut",
       "fh": "Frosthaven",
       "hint": "Choisissez un thème pour l'arrière-plan, les barres et les polices.",
-      "modern": "Moderne (%wip%)"
+      "modern": "Moderne"
     },
     "tooltips": {
       ".": "Info-bulles",

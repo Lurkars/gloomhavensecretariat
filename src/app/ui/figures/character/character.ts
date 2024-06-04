@@ -60,6 +60,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
   summonCount: number = 0;
   activeConditions: EntityCondition[] = [];
 
+  bb: boolean = false;
+
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
@@ -92,6 +94,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
 
     this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme != 'modern';
+    this.bb = gameManager.bbRules() || this.character.bb;
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {

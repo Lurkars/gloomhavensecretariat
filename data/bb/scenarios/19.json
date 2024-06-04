@@ -1,0 +1,39 @@
+{
+  "index": "19",
+  "name": "Hide and Seek",
+  "edition": "bb",
+  "level": 5,
+  "unlocks": [
+    "20"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "number": 1
+        },
+        {
+          "name": "flame-demon",
+          "number": 4
+        },
+        {
+          "name": "frost-demon",
+          "number": 3
+        },
+        {
+          "name": "wind-demon",
+          "number": 2
+        }
+      ]
+    }
+  ]
+}

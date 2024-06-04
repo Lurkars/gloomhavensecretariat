@@ -1,0 +1,30 @@
+{
+  "index": "1",
+  "name": "A Rude Welcome",
+  "flowChartGroup": "intro",
+  "edition": "bb",
+  "level": 1,
+  "initial": true,
+  "unlocks": [
+    "2"
+  ],
+  "monsters": [
+    "bandit-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "number": 1
+        },
+        {
+          "name": "bandit-guard",
+          "number": 2
+        }
+      ]
+    }
+  ]
+}

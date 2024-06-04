@@ -257,6 +257,28 @@
       right: 5%;
     }
 
+    .bb-index {
+      position: absolute;
+      z-index: 4;
+      width: 30%;
+      height: 15%;
+      top: 15%;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.character {
+        right: 0;
+        left: initial;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        filter: var(--ghs-filter-white) var(--ghs-filter-outline);
+      }
+    }
   }
 
   .front .numeration {

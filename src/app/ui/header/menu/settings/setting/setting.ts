@@ -4,7 +4,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 @Component({
     selector: '[ghs-setting-menu]',
     templateUrl: 'setting.html',
-    styleUrls: ['../../menu.scss', '../settings.scss'],
+    styleUrls: ['../../menu.scss', '../settings.scss', 'setting.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class SettingMenuComponent implements OnInit {

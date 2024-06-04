@@ -1,0 +1,38 @@
+{
+  "index": "4",
+  "name": "Bargin In",
+  "edition": "bb",
+  "level": 2,
+  "solo": "bruiser",
+  "unlocks": [
+    "5"
+  ],
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "number": 1
+        },
+        {
+          "name": "bandit-archer",
+          "number": 2
+        },
+        {
+          "name": "bandit-archer",
+          "number": 3
+        },
+        {
+          "name": "bandit-guard",
+          "number": 4
+        }
+      ]
+    }
+  ]
+}

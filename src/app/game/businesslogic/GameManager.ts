@@ -672,6 +672,10 @@ export class GameManager {
     return this.editionRules('fh');
   }
 
+  bbRules(): boolean {
+    return this.editionRules('bb');
+  }
+
   editionRules(edition: string, current: boolean = true): boolean {
     const currentEdition = current ? this.currentEdition() : this.game.edition;
     return currentEdition && (currentEdition == edition || this.editionExtensions(currentEdition).indexOf(edition) != -1) || false;
@@ -778,6 +782,14 @@ export class GameManager {
   }
 
   nextElementState(element: ElementModel, double: boolean = false, draw: boolean = false): ElementState {
+    if (gameManager.bbRules()) {
+      if (element.state != ElementState.strong) {
+        return ElementState.strong;
+      } else {
+        return ElementState.inert;
+      }
+    }
+
     if (gameManager.game.state == GameState.draw || draw) {
       if (element.state == ElementState.new) {
         if (!double) {

@@ -1,0 +1,11 @@
+{
+  "name": "bandit-archer",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "bb",
+    "health": 7
+  }
+}

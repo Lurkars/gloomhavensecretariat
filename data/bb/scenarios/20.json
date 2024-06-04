@@ -1,0 +1,57 @@
+{
+  "index": "20",
+  "name": "Showdown",
+  "edition": "bb",
+  "level": 5,
+  "monsters": [
+    "demon-prince",
+    "goring-beetle",
+    "mounted-prince"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "bb",
+            "name": "mounted-prince"
+          },
+          "type": "dead",
+          "value": "0"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "goring-beetle",
+            "type": "normal"
+          },
+          "marker": "A"
+        },
+        {
+          "monster": {
+            "name": "demon-prince",
+            "type": "normal"
+          },
+          "marker": "B"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "mounted-prince",
+          "number": 1
+        }
+      ]
+    }
+  ]
+}

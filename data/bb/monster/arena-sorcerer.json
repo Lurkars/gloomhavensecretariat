@@ -1,0 +1,23 @@
+{
+  "name": "arena-sorcerer",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "bb",
+    "health": 11,
+    "actions": [
+      {
+        "type": "retaliate",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "range",
+            "value": "3"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -66,11 +66,11 @@ export class CampaignMenuComponent implements OnInit {
 
     setEdition(edition: string | undefined = undefined) {
         gameManager.stateManager.before(edition ? "setEdition" : "setEditionAll", edition ? "data.edition." + edition : '');
-        if (settingsManager.settings.automaticTheme) {
-            if (edition == 'fh') {
-                settingsManager.set('fhStyle', true);
-            } else if (edition) {
-                settingsManager.set('fhStyle', false);
+        if (settingsManager.settings.automaticTheme && settingsManager.settings.theme != 'modern') {
+            if (edition == 'fh' || edition == 'bb') {
+                settingsManager.set('theme', edition);
+            } else {
+                settingsManager.set('theme', 'default');
             }
         }
         gameManager.game.edition = edition;

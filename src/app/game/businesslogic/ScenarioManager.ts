@@ -466,6 +466,14 @@ export class ScenarioManager {
       }
       this.game.round = (this.game.state == GameState.draw ? 0 : 1) + offset;
     }
+
+    if (gameManager.bbRules() && scenarioData.level) {
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character && scenarioData.level) {
+          gameManager.characterManager.setLevel(figure, scenarioData.level);
+        }
+      })
+    }
   }
 
   openRoom(roomData: RoomData, scenarioData: ScenarioData, section: boolean) {
@@ -491,6 +499,10 @@ export class ScenarioManager {
           }
         }
 
+        if (!type) {
+          type = MonsterType.normal;
+        }
+
         if (type == MonsterType.boss || type == MonsterType.elite) {
           entities.push(...this.applyRoomSpawn(scenarioData, monsterStandeeData, type, section));
         }
@@ -509,6 +521,10 @@ export class ScenarioManager {
           } else {
             type = monsterStandeeData.player4;
           }
+        }
+
+        if (!type) {
+          type = MonsterType.normal;
         }
 
         if (type == MonsterType.normal) {
@@ -578,6 +594,9 @@ export class ScenarioManager {
           }
           if (monsterStandeeData.health) {
             entity.health = EntityValueFunction(monsterStandeeData.health)
+          }
+          if (monsterStandeeData.number) {
+            entity.number = monsterStandeeData.number;
           }
           entities.push(entity);
           if (entity.marker || entity.tags.length > 0) {
@@ -740,7 +759,7 @@ export class ScenarioManager {
             return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.toLowerCase().trim() && buildingModel.level > 0)
           }
         })) ||
-      scenarioData.solo && !this.game.figures.find((figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.level >= 5) || false;
+      scenarioData.solo && !this.game.figures.find((figure) => figure instanceof Character && figure.name == scenarioData.solo && (gameManager.bbRules() || figure.level >= 5)) || false;
   }
 
   getRequirements(scenarioData: ScenarioData, all: boolean = false): ScenarioMissingRequirements[] {

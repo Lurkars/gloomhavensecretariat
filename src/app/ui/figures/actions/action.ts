@@ -153,7 +153,7 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (this.monster) {
       return gameManager.monsterManager.getStat(this.monster, type);
     }
-    return new MonsterStat(type, gameManager.game.level, 0, 0, 0, 0);
+    return new MonsterStat(type, gameManager.game.level);
   }
 
   getRange(type: MonsterType = MonsterType.normal): string | number {

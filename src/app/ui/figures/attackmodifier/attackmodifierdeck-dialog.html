@@ -12,10 +12,13 @@
       <a *ngIf="hasDrawnDiscards()" (click)="removeDrawnDiscards()"><span
           [ghs-label]="'game.cards.removeDrawnDiscards'"></span></a>
 
-      <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
+      <label *ngIf="!gameManager.bbRules()"><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
           [ghs-label]="'game.cards.edit'"></span></label>
 
-      <div class="curse-bless" *ngIf="!edit && !townGuard">
+      <label *ngIf="gameManager.bbRules()"><input type="checkbox" (click)="toggleBB()" [checked]="edit"><span
+          [ghs-label]="'game.cards.edit.toggleBB'"></span></label>
+
+      <div class="curse-bless" *ngIf="!gameManager.bbRules() && !edit && !townGuard">
         <span class="item">
           <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) == 0}"
             (click)="changeBless(-1)">
@@ -147,7 +150,7 @@
             src="./assets/images/shuffle.svg"></a>
       </div>
     </div>
-    <div class="attack-modifiers-container" [style.maxHeight]="maxHeight"
+    <div *ngIf="!bbTable" class="attack-modifiers-container" [style.maxHeight]="maxHeight"
       [ngClass]="{'has-deleted': edit && deletedCards.length}">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
         [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
@@ -157,7 +160,8 @@
         <div class="attack-modifier-container" *ngFor="let attackModifier of upcomingCards; let index = index" cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
             [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [newStyle]="newStyle"
-            [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard">
+            [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard"
+            [bbIndex]="deck.bb ? (index + deck.current + 1) % 3 : -1">
           </ghs-attackmodifier>
           <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
@@ -172,8 +176,8 @@
 
         <div class="attack-modifier-container" *ngFor="let attackModifier of disgardedCards; let index = index" cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"
-            [townGuard]="townGuard"></ghs-attackmodifier>
+            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard"
+            [bbIndex]="deck.bb ? ( deck.current -index) % 3 : -1"></ghs-attackmodifier>
           <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
           <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
@@ -189,6 +193,22 @@
             <img class="ghs-svg" src="./assets/images/plus.svg"></a>
           <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
         </div>
+      </div>
+    </div>
+    <div *ngIf="bbTable" class="bb-table">
+      <div class="header">
+        <img class="ghs-svg" src="./assets/images/bb/attackmodifier/0.svg">
+      </div>
+      <div class="header">
+        <img class="ghs-svg" src="./assets/images/bb/attackmodifier/1.svg">
+      </div>
+      <div class="header">
+        <img class="ghs-svg" src="./assets/images/bb/attackmodifier/2.svg">
+      </div>
+      <div class="attack-modifier-container" *ngFor="let attackModifier of deck.cards;">
+        <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
+          [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"
+          [townGuard]="townGuard"></ghs-attackmodifier>
       </div>
     </div>
   </div>

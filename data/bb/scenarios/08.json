@@ -1,0 +1,103 @@
+{
+  "index": "8",
+  "name": "Going Up",
+  "edition": "bb",
+  "level": 3,
+  "unlocks": [
+    "10"
+  ],
+  "monsters": [
+    "spitting-moth",
+    "venomous-centipede"
+  ],
+  "rules": [
+    {
+      "round": "R > 2 && R % 3 == 0",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "bb",
+            "name": "venomous-centipede"
+          },
+          "type": "dead",
+          "value": "2"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "venomous-centipede",
+            "type": "normal"
+          },
+          "marker": "A"
+        }
+      ]
+    },
+    {
+      "round": "R > 2 && R % 3 == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "bb",
+            "name": "venomous-centipede"
+          },
+          "type": "dead",
+          "value": "2"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "venomous-centipede",
+            "type": "normal"
+          },
+          "marker": "B"
+        }
+      ]
+    },
+    {
+      "round": "R > 2 && R % 3 == 2",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "bb",
+            "name": "venomous-centipede"
+          },
+          "type": "dead",
+          "value": "2"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "venomous-centipede",
+            "type": "normal"
+          },
+          "marker": "C"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "spitting-moth",
+          "number": 1
+        },
+        {
+          "name": "venomous-centipede",
+          "number": 2
+        }
+      ]
+    }
+  ]
+}

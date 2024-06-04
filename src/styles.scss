@@ -91,6 +91,10 @@ body {
   --ghs-color-red: #e2421f;
   --ghs-color-darkred: #4d0e00;
   --ghs-color-brown: #513821;
+  --ghs-color-bb-1: rgba(1, 177, 1, 0.7);
+  --ghs-color-bb-2: rgba(78, 133, 252, 0.7);
+  --ghs-color-bb-3: rgba(169, 0, 175, 0.7);
+  --ghs-color-bb-4: rgba(170, 0, 0, 0.7);
   --ghs-filter-white: invert(100%) sepia(100%) saturate(14%) hue-rotate(212deg) brightness(104%) contrast(104%);
   --ghs-filter-gray: invert(71%) sepia(17%) saturate(271%) hue-rotate(143deg) brightness(94%) contrast(88%);
   --ghs-filter-darkgray: invert(14%) sepia(14%) saturate(794%) hue-rotate(169deg) brightness(95%) contrast(97%);
@@ -123,7 +127,8 @@ body {
   }
 
   &.fh,
-  &.modern {
+  &.modern,
+  &.bb {
     --ghs-font-normal: 'ghs-normal-fh';
     --ghs-font-text: 'ghs-text-fh';
     --ghs-font-extra: 'ghs-extra';
@@ -1632,6 +1637,32 @@ input[type="radio"] {
     &>div.selected:not(.empty) {
       background: var(--ghs-color-darkgray);
     }
+  }
+}
+
+.scenario-level {
+  font-family: var(--ghs-font-title);
+  font-size: 1em;
+  border-radius: 0.9em;
+  padding: 0.1em 0.7em;
+  background-color: var(--ghs-color-black);
+  color: var(--ghs-color-white);
+  text-shadow: none;
+
+  &.level-1 {
+    background-color: var(--ghs-color-bb-1);
+  }
+
+  &.level-2 {
+    background-color: var(--ghs-color-bb-2);
+  }
+
+  &.level-3 {
+    background-color: var(--ghs-color-bb-3);
+  }
+
+  &.level-4 {
+    background-color: var(--ghs-color-bb-4);
   }
 }
 

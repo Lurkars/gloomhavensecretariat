@@ -1,0 +1,32 @@
+{
+  "index": "3",
+  "name": "In the Walls",
+  "edition": "bb",
+  "level": 2,
+  "unlocks": [
+    "5"
+  ],
+  "monsters": [
+    "mouse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "mouse",
+          "number": 1
+        },
+        {
+          "name": "mouse",
+          "number": 2
+        },
+        {
+          "name": "mouse",
+          "number": 3
+        }
+      ]
+    }
+  ]
+}

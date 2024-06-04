@@ -1,3 +1,4 @@
+import { AttackModifier } from "./AttackModifier";
 import { CharacterSpecialAction, CharacterStat } from "./CharacterStat";
 import { Editional } from "./Editional";
 import { FigureError } from "./FigureError";
@@ -63,6 +64,9 @@ export class CharacterData implements Editional, Spoilable {
 
   masteries: string[] = [];
 
+  bb: boolean = false;
+  amTables: (AttackModifier | String)[][] = [];
+
   // from Editional
   edition: string = "";
   // from Spoilable
@@ -108,6 +112,8 @@ export class CharacterData implements Editional, Spoilable {
       this.masteries = characterData.masteries || [];
       this.replace = characterData.replace || false;
       this.merge = characterData.merge || false;
+      this.bb = characterData.bb || false;
+      this.amTables = characterData.amTables || [];
     }
   }
 } 

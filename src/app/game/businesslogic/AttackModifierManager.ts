@@ -158,7 +158,26 @@ export class AttackModifierManager {
 
   drawModifier(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage' | undefined) {
     attackModifierDeck.state = state;
-    if (attackModifierDeck.current >= attackModifierDeck.cards.length - 1) {
+    if (attackModifierDeck.bb) {
+      let row = Math.floor(attackModifierDeck.current / 3) + 1;
+      if (row >= Math.floor(attackModifierDeck.cards.length / 3)) {
+        attackModifierDeck.current = -1;
+        attackModifierDeck.lastVisible = -1;
+      } else {
+        attackModifierDeck.current = row * 3 + Math.floor(Math.random() * 3);
+        if (state) {
+          const nextCard = row * 3 + Math.floor(Math.random() * 3);
+          if (nextCard < attackModifierDeck.current) {
+            attackModifierDeck.lastVisible = nextCard;
+          } else {
+            attackModifierDeck.lastVisible = attackModifierDeck.current;
+            attackModifierDeck.current = nextCard;
+          }
+        } else {
+          attackModifierDeck.lastVisible = attackModifierDeck.current;
+        }
+      }
+    } else if (attackModifierDeck.current >= attackModifierDeck.cards.length - 1) {
       this.shuffleModifiers(attackModifierDeck);
     } else if (!attackModifierDeck.state) {
       if (attackModifierDeck.current > 1 && attackModifierDeck.current > attackModifierDeck.lastVisible) {
@@ -228,6 +247,12 @@ export class AttackModifierManager {
   }
 
   shuffleModifiers(attackModifierDeck: AttackModifierDeck, onlyUpcoming: boolean = false) {
+    if (attackModifierDeck.bb) {
+      attackModifierDeck.current = -1;
+      attackModifierDeck.lastVisible = -1;
+      return;
+    }
+
     const current = attackModifierDeck.current;
     const lastVisible = attackModifierDeck.lastVisible;
     let restoreCards: AttackModifier[] = onlyUpcoming && current > -1 ? attackModifierDeck.cards.splice(0, current + 1) : [];
@@ -293,6 +318,21 @@ export class AttackModifierManager {
 
 
   buildCharacterAttackModifierDeck(character: Character): AttackModifierDeck {
+    if (character.bb && character.amTables && character.amTables.length >= character.level) {
+      return new AttackModifierDeck(character.amTables[character.level - 1].map((value) => {
+
+        if (typeof value === 'string') {
+          let am = new AttackModifier(value as AttackModifierType);
+          am.character = true;
+          return am;
+        } else {
+          let am : AttackModifier = value as AttackModifier;
+          am.character = true;
+          return am;
+        }
+      }), true);
+    }
+
     const attackModifierDeck = new AttackModifierDeck();
 
     let perkId = 0;
@@ -606,6 +646,7 @@ export class AttackModifierManager {
     attackModifierDeck.disgarded = model.disgarded || [];
     attackModifierDeck.active = model.active;
     attackModifierDeck.state = model.state;
+    attackModifierDeck.bb = model.bb;
   }
 
 }

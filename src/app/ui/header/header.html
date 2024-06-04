@@ -72,12 +72,12 @@
       </ng-container>
     </div>
     <span class="spacer"></span>
-    <div *ngIf="gameManager.game.scenario && gameManager.characterManager.characterCount() > 0" class="event-effects"
+    <div *ngIf="!gameManager.bbRules() && gameManager.game.scenario && gameManager.characterManager.characterCount() > 0" class="event-effects"
       (click)="openEventEffects()">
       <img class="ghs-svg"
         [src]="'./assets/images/event' + (gameManager.game.round > 0 || gameManager.game.state == GameState.next ? '-effects' : '') + '.svg'">
     </div>
-    <ghs-party-sheet #partySheet *ngIf="settingsManager.settings.partySheet"></ghs-party-sheet>
+    <ghs-party-sheet #partySheet *ngIf="!gameManager.bbRules() && settingsManager.settings.partySheet"></ghs-party-sheet>
     <div *ngIf="settingsManager.settings.gameClock" class="game-clock" ghs-pointer-input
       (singleClick)="openGameClockDialog()" (doubleClick)="toggleGameClock()"
       [ghs-tooltip]="'duration.gameClock.' + (lastGameClockTimestamp && !lastGameClockTimestamp.clockOut ? (currentGameClock == overallGameClock ?  'running' : 'runningTotal') : (overallGameClock ? 'paused': 'off'))"

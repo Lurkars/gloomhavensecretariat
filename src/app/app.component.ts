@@ -29,15 +29,23 @@ export class AppComponent implements OnInit {
     this.theme = settingsManager.settings.theme;
     if (this.theme == 'fh') {
       document.body.classList.remove('modern');
+      document.body.classList.remove('bb');
       document.body.classList.add('fh');
       this.meta.updateTag({ name: 'theme-color', content: '#a2bbd1' });
     } else if (this.theme == 'modern') {
       document.body.classList.remove('fh');
+      document.body.classList.remove('bb');
       document.body.classList.add('modern');
+      this.meta.updateTag({ name: 'theme-color', content: '#0e1f1f' });
+    } else if (this.theme == 'bb') {
+      document.body.classList.remove('modern');
+      document.body.classList.remove('fh');
+      document.body.classList.add('bb');
       this.meta.updateTag({ name: 'theme-color', content: '#0e1f1f' });
     } else {
       document.body.classList.remove('fh');
       document.body.classList.remove('modern');
+      document.body.classList.remove('bb');
       this.meta.updateTag({ name: 'theme-color', content: '#936658' });
     }
 

@@ -51,6 +51,12 @@
         }
       }
     }
+
+    .scenario-level-container {
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-barsize)* var(--ghs-text-factor));
+      margin-top: calc(var(--ghs-unit) * -0.2 * var(--ghs-barsize));
+      margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-barsize));
+    }
   }
 
   .event-effects {

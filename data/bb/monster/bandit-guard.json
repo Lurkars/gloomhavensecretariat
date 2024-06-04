@@ -1,0 +1,17 @@
+{
+  "name": "bandit-guard",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "normal",
+    "health": 8,
+    "actions": [
+      {
+        "type": "shield",
+        "value": 1
+      }
+    ]
+  }
+}

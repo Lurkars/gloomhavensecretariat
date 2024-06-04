@@ -1,0 +1,54 @@
+{
+  "index": "11",
+  "name": "Up in the Window",
+  "edition": "bb",
+  "level": 3,
+  "unlocks": [
+    "13"
+  ],
+  "monsters": [
+    "sewer-rat",
+    "venomous-centipede"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "sewer-rat",
+          "number": 4
+        },
+        {
+          "name": "venomous-centipede",
+          "number": 1
+        },
+        {
+          "name": "venomous-centipede",
+          "number": 2
+        },
+        {
+          "name": "venomous-centipede",
+          "number": 3
+        }
+      ]
+    }
+  ]
+}

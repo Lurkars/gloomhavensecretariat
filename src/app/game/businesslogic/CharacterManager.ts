@@ -246,6 +246,10 @@ export class CharacterManager {
     if (this.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();
     }
+
+    if (character.bb) {
+      character.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(character);
+    }
   }
 
   createSpecialSummon(character: Character, summonData: SummonData) {

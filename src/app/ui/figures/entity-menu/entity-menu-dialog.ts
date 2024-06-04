@@ -74,6 +74,8 @@ export class EntityMenuDialogComponent {
   enfeebleChar: Character | undefined;
   enfeebleChars: Character[] = [];
 
+  bb: boolean = false;
+
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
   SummonColor = SummonColor;
@@ -211,6 +213,8 @@ export class EntityMenuDialogComponent {
     if (!this.enfeebleChar && this.enfeebleChars.length == 1) {
       this.enfeebleChar = this.enfeebleChars[0];
     }
+
+    this.bb = this.data.entity instanceof Character && this.data.entity.bb || this.data.figure instanceof Monster && this.data.figure.bb;
   }
 
   @HostListener('document:keydown', ['$event'])

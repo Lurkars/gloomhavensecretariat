@@ -29,11 +29,11 @@
         <label><span [ghs-label]="'campaign'"></span></label>
     </div>
 
-    <div class="line span" *ngIf="settingsManager.settings.partySheet">
+    <div class="line span" *ngIf="settingsManager.settings.partySheet && !gameManager.bbRules()">
         <a tabclick (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
     </div>
 
-    <div class="line span" *ngIf="settingsManager.settings.partySheet">
+    <div class="line span" *ngIf="settingsManager.settings.partySheet && !gameManager.bbRules()">
         <a tabclick (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
     </div>
 
@@ -41,11 +41,12 @@
         <a tabclick (click)="openMap()" [ghs-label]="'campaign.map'"></a>
     </div>
 
-    <div class="line span" *ngIf="settingsManager.settings.characterSheet || settingsManager.settings.characterItems">
+    <div class="line span"
+        *ngIf="(settingsManager.settings.characterSheet || settingsManager.settings.characterItems) && !gameManager.bbRules()">
         <a tabclick (click)="openItems()" [ghs-label]="'campaign.items'"></a>
     </div>
 
-    <div class="line" *ngIf="settingsManager.settings.battleGoals"
+    <div class="line" *ngIf="settingsManager.settings.battleGoals && !gameManager.bbRules()"
         [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
         <a tabclick (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
     </div>
@@ -54,11 +55,11 @@
         <a tabclick (click)="openFlowChart()" [ghs-label]="'scenario.chart'"></a>
     </div>
 
-    <div class="line title span" *ngIf="characters.length > 0 && settingsManager.settings.characterSheet">
+    <div class="line title span" *ngIf="characters.length > 0 && settingsManager.settings.characterSheet && !gameManager.bbRules()">
         <label><span [ghs-label]="'campaign.character'"></span></label>
     </div>
 
-    <ng-container *ngIf="settingsManager.settings.characterSheet">
+    <ng-container *ngIf="settingsManager.settings.characterSheet && !gameManager.bbRules()">
         <div class="line" *ngFor="let character of characters">
             <a tabclick (click)="openCharacterSheet(character);">
                 <img class="icon" [src]="character.iconUrl" />

@@ -4,7 +4,7 @@
         <a *ngIf="worldMap" (click)="openWorldMap()" [ghs-tooltip]="'party.campaign.map'">
             <img src="./assets/images/map.svg">
         </a>
-        <a (click)="openCampaignSheet()" [ghs-tooltip]="'party.campaign.manage'">
+        <a *ngIf="!gameManager.bbRules()" (click)="openCampaignSheet()" [ghs-tooltip]="'party.campaign.manage'">
             <img src="./assets/images/sheet.svg">
         </a>
     </div>

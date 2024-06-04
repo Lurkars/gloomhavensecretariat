@@ -13,7 +13,8 @@
           [style.background-image]="figure.noThumbnail || !settingsManager.settings.artwork || !gameManager.isMonster(figure) ? '': 'url(' + gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(figure)) + ')'">
         </div>
       </div>
-      <span class="number" [ngClass]="{'highlight' : entity.number < 1 && settingsManager.settings.animations}">
+      <span class="number"
+        [ngClass]="(gameManager.isMonster(figure) && gameManager.toMonster(figure).bb ? 'bb-' + entity.number : '') + (entity.number < 1 && settingsManager.settings.animations ? ' highlight' : '')">
         <span class="value">{{entity.number < 0 ? '?' : entity.number}}</span>
         </span>
 

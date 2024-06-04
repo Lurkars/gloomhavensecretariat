@@ -1,4 +1,4 @@
-<div class="attack-modifier {{attackModifier.type}}" [ngClass]="{'town-guard' : townGuard }">
+<div *ngIf="attackModifier" class="attack-modifier {{attackModifier.type}}" [ngClass]="{'town-guard' : townGuard }">
   <div class="card" [ngClass]="{'flipped' : flipped || attackModifier.revealed, 'no-animations' : !animate}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'">
     <div class="card-back back">
@@ -99,6 +99,10 @@
         <div class="mixed-element" *ngIf="mixedElement">
           <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="[mixedElement]"
             [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
+        </div>
+
+        <div class="bb-index" *ngIf="bbIndex > -1 && bbIndex < 3" [ngClass]="{'character' : characterIcon}">
+          <img [src]="'./assets/images/bb/attackmodifier/' + bbIndex + '.svg'" />
         </div>
 
       </ng-container>

@@ -17,6 +17,20 @@
         }
     }
 
+    .hint {
+        font-family: var(--ghs-font-text);
+        font-size: 0.9em;
+        color: var(--ghs-color-yellow);
+    }
+
+    .settings {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9em;
+        color: var(--ghs-color-gray);
+    }
+
     .form {
         display: grid;
         grid-template-columns: auto auto;

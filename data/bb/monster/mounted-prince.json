@@ -1,0 +1,21 @@
+{
+  "name": "mounted-prince",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "bb",
+    "health": 18,
+    "actions": [
+      {
+        "type": "shield",
+        "value": 2
+      }
+    ],
+    "immunities": [
+      "disarm",
+      "immobilize"
+    ]
+  }
+}

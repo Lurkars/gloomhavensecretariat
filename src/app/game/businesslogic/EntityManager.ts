@@ -279,7 +279,7 @@ export class EntityManager {
     if (entity.immunities && entity.immunities.indexOf(conditionName) != -1 && !ignoreManual) {
       return true;
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
-      const stat = figure.stats.find((monsterStat) => monsterStat.level == entity.level && monsterStat.type == entity.type);
+      const stat = gameManager.monsterManager.getStat(figure, entity.type);
       immune = stat != undefined && stat.immunities != undefined && stat.immunities.indexOf(conditionName) != -1;
     } else if (entity instanceof Character) {
       let immunities: ConditionName[] = [];

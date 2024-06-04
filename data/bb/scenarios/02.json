@@ -1,0 +1,34 @@
+{
+  "index": "2",
+  "name": "Crossing the Road",
+  "edition": "bb",
+  "level": 1,
+  "unlocks": [
+    "3",
+    "4"
+  ],
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "number": 2
+        },
+        {
+          "name": "bandit-archer",
+          "number": 3
+        },
+        {
+          "name": "bandit-guard",
+          "number": 1
+        }
+      ]
+    }
+  ]
+}

@@ -237,7 +237,7 @@ export class MonsterEditorComponent implements OnInit {
         this.monsterData.errors.push(new FigureError(FigureErrorType.stat, "monster", this.monsterData.name, this.monsterData.edition, type, "" + level));
       }
 
-      stat = new MonsterStat(type, level, 0, 0, 0, 0);
+      stat = new MonsterStat(type, level);
       this.monsterData.stats.push(stat);
     }
     return stat;
@@ -282,18 +282,18 @@ export class MonsterEditorComponent implements OnInit {
 
         for (let level of this.levels) {
           if (!this.monsterData.stats.some((stat) => stat.level == level)) {
-            this.monsterData.stats.push(new MonsterStat(MonsterType.boss, level, 0, 0, 0, 0));
+            this.monsterData.stats.push(new MonsterStat(MonsterType.boss, level));
           }
         }
       } else {
         this.monsterData.stats = this.monsterData.stats.filter((stat) => stat.type != MonsterType.boss);
         for (let level of this.levels) {
           if (!this.monsterData.stats.some((stat) => stat.level == level && (!stat.type || stat.type == MonsterType.normal))) {
-            this.monsterData.stats.push(new MonsterStat(MonsterType.normal, level, 0, 0, 0, 0));
+            this.monsterData.stats.push(new MonsterStat(MonsterType.normal, level));
           }
 
           if (!this.monsterData.stats.some((stat) => stat.level == level && stat.type == MonsterType.elite)) {
-            this.monsterData.stats.push(new MonsterStat(MonsterType.elite, level, 0, 0, 0, 0));
+            this.monsterData.stats.push(new MonsterStat(MonsterType.elite, level));
           }
         }
       }

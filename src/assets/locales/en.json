@@ -519,7 +519,10 @@
       "drawAnother": "Draw Another",
       "drawDisadvantage": "Draw with Disadvantage",
       "drawExtra": "Draw Extra",
-      "edit": "Edit",
+      "edit": {
+        ".": "Edit",
+        "toggleBB": "Show as BB Table"
+      },
       "fullscreen": "Show Fullscreen",
       "openDialog": "Show all cards",
       "removeDrawnDiscards": "Remove Drawn Discards",
@@ -810,6 +813,16 @@
     },
     "level": {
       ".": "Level",
+      "bb": {
+        "monsterDifficulty": {
+          ".": "Monster Modifier Difficulty",
+          "0": "Very Easy",
+          "1": "Easy",
+          "2": "Standard",
+          "3": "Hard",
+          "4": "Very Hard"
+        }
+      },
       "experience": "Bonus experience",
       "hazardousTerrain": "Hazardous terrain damage",
       "loot": "Gold conversion",
@@ -1347,6 +1360,7 @@
       "reset": "Reset",
       "success": "Success"
     },
+    "level": "Lvl {0}",
     "locked": "Missing Requirements",
     "manual": {
       "add": "Unlock Scenarios",
@@ -2020,6 +2034,11 @@
       ".": "Disable Feedback Button",
       "hint": ""
     },
+    "feedbackErrors": {
+      ".": "Automatic Feedback",
+      "clear": "Clear ignored Automatic Feedback Errors",
+      "hint": "Automatically report errors via Feedback Dialog"
+    },
     "fhGhItems": {
       ".": "Add Gloomhaven Items",
       "hint": "Add Items from Gloomhaven and Forgotten Circles to available supply as stated out in the rules. (Only on enabled character sheets or character items)"
@@ -2216,10 +2235,11 @@
     "synced": "These settings are synchronised with the server!",
     "theme": {
       ".": "Theme",
+      "bb": "Button & Bugs (%wip%)",
       "default": "Default",
       "fh": "Frosthaven",
       "hint": "Choose a theme for background, bars and fonts.",
-      "modern": "Modern (%wip%)"
+      "modern": "Modern"
     },
     "tooltips": {
       ".": "Tooltips",
@@ -2700,6 +2720,7 @@
       "updateElement": "Element {0} {1}",
       "updateGlobalAchievements": "Global achievement to {0}",
       "updateLevelAdjustment": "Level adjustment {0}",
+      "updateLevelAdjustmentBb": "Set Monster Modifier Difficulty to %game.level.bb.monsterDifficulty.{0}%",
       "updateManualPlayerCount": "Set manual player count to {0}",
       "updatePartyAchievements": "Party achievement to {0}",
       "updateStandee": "Change {1} standee number {2} to {3} for {0}",
@@ -2732,7 +2753,11 @@
       "githubIssue": "File a GitHub Issue instead",
       "reportIssue": {
         ".": "Report an Issue",
+        "automaticText": "Automatic Text",
         "download": "Download data dump",
+        "errorHint": "A software issue occured.<br>You can help improving the software by reporting this error to the developer.<br>Please attach data dump if possible. Thank you!",
+        "errorIgnore": "Do not report this error automatically again.",
+        "errorText": "ERROR Stack Trace:\n\n{0}\n\n{1}",
         "mail": "Please note that Microsoft wants to use its market power to block small, private e-mail servers. As a result, I can receive e-mails from outlook.com, hotmail.com or other Microsoft services, but I am not able reply to them!",
         "send": "Send Issue (Email)",
         "specify": "Please specify details in text.<br>If you are unsure what's exactly the issue, please download and attach the data dump below!",
@@ -2748,6 +2773,11 @@
             ".": "Artwork",
             "hint": "Wrong or missing artwork.",
             "subject": "Found issue with Artwork"
+          },
+          "automatic": {
+            ".": "Automatic",
+            "hint": "A software bug, raised automatically",
+            "subject": "Automatic Software Issue"
           },
           "characterStat": {
             ".": "Character Stats",

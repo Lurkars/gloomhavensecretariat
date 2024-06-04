@@ -32,6 +32,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   ally: boolean = false;
   newStyle: boolean = false;
   townGuard: boolean = false;
+  bbTable: boolean = false;
 
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = AttackModifierType.minus1;
@@ -75,6 +76,13 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   toggleEdit() {
     this.edit = !this.edit;
+    setTimeout(() => {
+      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+    }, 0);
+  }
+
+  toggleBB() {
+    this.bbTable = !this.bbTable;
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
     }, 0);
@@ -135,8 +143,16 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     } else if (this.townGuard) {
       this.deck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(gameManager.game.party, gameManager.campaignData());
       gameManager.game.party.townGuardDeck = this.deck.toModel();
-    } else {
+    } else if (!gameManager.bbRules()) {
       this.deck = new AttackModifierDeck();
+    } else {
+      const editionData = gameManager.editionData.find((editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length);
+      if (editionData) {
+        const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
+        this.deck = new AttackModifierDeck(editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType)), true);
+      } else {
+        this.deck = new AttackModifierDeck();
+      }
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, "restoreDefault"));
     this.update();

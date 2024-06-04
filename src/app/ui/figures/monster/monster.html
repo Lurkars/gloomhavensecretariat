@@ -12,7 +12,7 @@
     [nonDead]="nonDead" [count]="count"
     [ngClass]="{'disabled' : settingsManager.settings.standees && nonDead >= count, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
   </ghs-monster-numberpicker>
-  <ghs-monster-numberpicker *ngIf="!monster.boss" class="elite" [monster]="monster" [type]="MonsterType.elite"
+  <ghs-monster-numberpicker *ngIf="!monster.boss && !monster.bb" class="elite" [monster]="monster" [type]="MonsterType.elite"
     [nonDead]="nonDead" [count]="count"
     [ngClass]="{'disabled' : settingsManager.settings.standees && nonDead >= count,'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
   </ghs-monster-numberpicker>

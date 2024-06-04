@@ -15,11 +15,11 @@ export class MonsterStat {
   note: string;
 
   constructor(type: MonsterType,
-    level: number,
-    health: number | string,
-    movement: number | string,
-    attack: number | string,
-    range: number | string,
+    level: number = 0,
+    health: number | string = 0,
+    movement: number | string = 0,
+    attack: number | string = 0,
+    range: number | string = 0,
     actions: Action[] = [],
     immunities: ConditionName[] = [],
     special: Action[][] = [],

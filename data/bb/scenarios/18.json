@@ -1,0 +1,51 @@
+{
+  "index": "18",
+  "name": "Crush the Clutter",
+  "edition": "bb",
+  "level": 5,
+  "solo": "cragheart",
+  "unlocks": [
+    "19"
+  ],
+  "monsters": [
+    "earth-demon",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "wind-demon"
+          },
+          "type": "gainCondition",
+          "value": "invisible"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "number": 1
+        },
+        {
+          "name": "frost-demon",
+          "number": 2
+        },
+        {
+          "name": "wind-demon",
+          "number": 2
+        }
+      ]
+    }
+  ]
+}

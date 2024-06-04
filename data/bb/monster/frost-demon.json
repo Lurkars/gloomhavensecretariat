@@ -1,0 +1,27 @@
+{
+  "name": "frost-demon",
+  "noArtwork": true,
+  "edition": "bb",
+  "bb": true,
+  "count": 4,
+  "baseStat": {
+    "type": "bb",
+    "health": 14,
+    "actions": [
+      {
+        "type": "shield",
+        "value": 2
+      },
+      {
+        "type": "retaliate",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "condition",
+            "value": "muddle"
+          }
+        ]
+      }
+    ]
+  }
+}

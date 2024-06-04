@@ -35,7 +35,7 @@ export class Monster extends MonsterData implements Figure {
     super(monsterData);
     this.errors = monsterData.errors;
     this.level = level;
-    if (monsterData.baseStat) {
+    if (monsterData.baseStat && monsterData.stats) {
       for (let stat of monsterData.stats) {
         if (!stat.health && stat.health != 0) {
           stat.health = monsterData.baseStat.health || 0;

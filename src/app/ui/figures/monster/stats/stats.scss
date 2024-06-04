@@ -137,7 +137,8 @@
     bottom: 0;
     z-index: 3;
 
-    &.boss {
+    &.boss,
+    &.bb {
       left: 25%;
       right: 55%;
     }
@@ -169,6 +170,16 @@
       right: 0.1em;
       background-color: var(--ghs-color-red);
       clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
+    }
+
+    &.bb {
+      top: 0.1em;
+      left: 1em;
+      right: initial;
+
+      img {
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow) brightness(0.8);
+      }
     }
   }
 
@@ -202,7 +213,8 @@
     z-index: 1;
     transform: translateX(-50%);
 
-    &.boss {
+    &.boss,
+    &.bb {
       top: 5.2em;
       left: 9.6em;
       grid-template-columns: 8em 0;
@@ -226,7 +238,8 @@
       }
 
       &.normal,
-      &.boss {
+      &.boss,
+      &.bb {
         justify-self: end;
         justify-content: flex-end;
         filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-white));
@@ -302,7 +315,8 @@
     &.range {
       grid-template-rows: repeat(4, 25%);
 
-      &.boss {
+      &.boss,
+      &.bb {
         top: 29%;
       }
 
@@ -310,7 +324,8 @@
         line-height: 1.3em;
 
         &.normal,
-        &.boss {
+        &.boss,
+        &.bb {
           padding-right: 0.7em;
         }
 
@@ -335,6 +350,10 @@
 
   &.boss::before {
     background-image: url('~src/assets/images/monster/stats/boss.png');
+  }
+
+  &.bb::before {
+    background-image: url('~src/assets/images/bb/monster/stats/bb-standard.png');
   }
 
   &.boss::after {
@@ -371,7 +390,8 @@
       color: var(--ghs-color-white);
     }
 
-    &.boss {
+    &.boss,
+    &.bb {
       width: 10.7em;
       height: auto;
       left: 10em;
@@ -629,7 +649,8 @@
       }
     }
 
-    &.boss {
+    &.boss,
+    &.bb {
       z-index: 1;
     }
   }

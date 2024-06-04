@@ -1,0 +1,37 @@
+{
+  "index": "9",
+  "name": "Back in the Walls",
+  "edition": "bb",
+  "level": 3,
+  "solo": "silent-knife",
+  "unlocks": [
+    "10"
+  ],
+  "monsters": [
+    "mouse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "mouse",
+          "number": 1
+        },
+        {
+          "name": "mouse",
+          "number": 2
+        },
+        {
+          "name": "mouse",
+          "number": 3
+        },
+        {
+          "name": "mouse",
+          "number": 4
+        }
+      ]
+    }
+  ]
+}

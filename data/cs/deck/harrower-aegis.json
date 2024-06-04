@@ -324,7 +324,7 @@
             },
             {
               "type": "elementHalf",
-              "value": "earth|fire",
+              "value": "earth:fire",
               "valueType": "minus",
               "subActions": [
                 {

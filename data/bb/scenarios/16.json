@@ -1,0 +1,35 @@
+{
+  "index": "16",
+  "name": "Signal Flare",
+  "edition": "bb",
+  "level": 4,
+  "solo": "spellweaver",
+  "unlocks": [
+    "17"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "number": 1
+        },
+        {
+          "name": "flame-demon",
+          "number": 3
+        },
+        {
+          "name": "wind-demon",
+          "number": 2
+        }
+      ]
+    }
+  ]
+}
