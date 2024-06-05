@@ -21,10 +21,10 @@
   ghs-attackmodifier-deck {
     position: absolute;
     display: flex;
-    top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor));
+    top: calc(var(--ghs-unit) * 1.5);
     left: calc(var(--ghs-unit) * 21.5);
-    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor));
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 37.5);
+    height: calc(var(--ghs-unit) * 10);
     z-index: 5;
   }
 
@@ -392,7 +392,7 @@
           z-index: 1;
           top: calc(var(--ghs-unit) * 1);
           left: calc(var(--ghs-unit) * -0.5);
-        } 
+        }
       }
     }
 
@@ -529,10 +529,6 @@
         width: calc(var(--ghs-unit) * 18);
         height: calc(var(--ghs-unit) * 12);
       }
-
-      &.bb {
-        left: calc(var(--ghs-unit) * -9.5);
-      }
     }
 
     .battlegoals-button,
@@ -589,9 +585,16 @@
         img {
           width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor) * var(--ghs-text-factor));
           height: auto;
-          margin-right: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
         }
       }
+
+      &.items-button.bb {
+        margin-left: calc(var(--ghs-unit) * 2);
+      }
+    }
+
+    .bb-spacer {
+      margin-right: calc(var(--ghs-unit) * 7 / var(--ghs-text-factor));
     }
 
     .experience,

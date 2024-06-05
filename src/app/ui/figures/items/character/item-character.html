@@ -1,7 +1,7 @@
 <div class="item" #container [style.fontSize]="container.offsetWidth * 0.1 + 'px'">
     <ghs-item *ngIf="setup" [item]="item" [flipped]="flipped" ghs-pointer-input
         [count]="gameManager.itemManager.assigned(item)" [editionLabel]="gameManager.currentEdition()"
-        [ngClass]="{'selected': equipped() && true || false}"></ghs-item>
+        [ngClass]="{'selected': equipped() && true || false, 'unavailable': bbBlocked()}"></ghs-item>
 
     <ghs-item *ngIf="!setup" [item]="item" [count]="gameManager.itemManager.assigned(item)"
         [flipped]="flipped && !countFlag(ItemFlags.flipped)" [slotsMarked]="slotsMarked(ItemFlags.slot)"
@@ -11,13 +11,13 @@
         (clickedPersistent)="toggleFlag($event,ItemFlags.persistend)"
         (clickedSlot)="toggleFlagCount($event,ItemFlags.slot)"
         (clickedSlotBack)="toggleFlagCount($event,ItemFlags.slotBack)" [ngClass]="{'filtered' : !equipped(), 
-    'unavailable': countFlag( ItemFlags.consumed) > 0, 'owned': countFlag( ItemFlags.persistend) > 0 }"></ghs-item>
+    'unavailable': countFlag( ItemFlags.consumed) > 0 || bbBlocked(), 'owned': countFlag( ItemFlags.persistend) > 0 }"></ghs-item>
 
     <span class="loot-random-item" *ngIf="isLootRandomItem()">
         <img src="./assets/images/fh/loot-token.png">
     </span>
 
-    <a class="button-equip" [ngClass]="{'equipped' : equipped(), 'disabled': !setup}" ghs-pointer-input
+    <a class="button-equip" [ngClass]="{'equipped' : equipped(), 'disabled': !setup || bbBlocked()}" ghs-pointer-input
         (singleClick)="toggleEquippedItem()" (doubleClick)="toggleEquippedItem(true)">
         <img class="ghs-svg" src="./assets/images/check.svg"></a>
 </div>

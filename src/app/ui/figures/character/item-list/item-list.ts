@@ -44,37 +44,39 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
 
     update() {
         this.setup = gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound;
-        this.items = this.character.progress.items.map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true)).filter((itemData) => itemData && (this.setup || !settingsManager.settings.characterItemsPermanentEquipped || this.equipped(itemData))).map((itemData) => itemData as ItemData).sort((a, b) => {
-            if (!settingsManager.settings.characterItemsPermanentSorted) {
-                return 0;
-            }
+        this.items = (gameManager.bbRules() ? gameManager.itemManager.getItems('bb') : this.character.progress.items.map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true))).filter((itemData) => itemData && (this.setup || !settingsManager.settings.characterItemsPermanentEquipped || this.equipped(itemData))).map((itemData) => itemData as ItemData).sort((a, b) => this.sortItems(a, b));
+    }
 
-            if (!this.setup) {
-                if (this.equipped(a) && !this.equipped(b)) {
-                    return -1;
-                } else if (this.equipped(b) && !this.equipped(a)) {
-                    return 1;
-                }
+    sortItems(a: ItemData, b: ItemData) {
+        if (!settingsManager.settings.characterItemsPermanentSorted) {
+            return 0;
+        }
 
-                if (this.countFlag(a, ItemFlags.consumed) && !this.countFlag(b, ItemFlags.consumed)) {
-                    return 1;
-                } else if (this.countFlag(b, ItemFlags.consumed) && !this.countFlag(a, ItemFlags.consumed)) {
-                    return -1;
-                }
-            }
-
-            if (a.slot && !b.slot) {
+        if (!this.setup) {
+            if (this.equipped(a) && !this.equipped(b)) {
                 return -1;
-            } else if (b.slot && !a.slot) {
+            } else if (this.equipped(b) && !this.equipped(a)) {
                 return 1;
             }
 
-            if (a.slot && b.slot) {
-                return Object.values(ItemSlot).indexOf(a.slot) - Object.values(ItemSlot).indexOf(b.slot);
+            if (this.countFlag(a, ItemFlags.consumed) && !this.countFlag(b, ItemFlags.consumed)) {
+                return 1;
+            } else if (this.countFlag(b, ItemFlags.consumed) && !this.countFlag(a, ItemFlags.consumed)) {
+                return -1;
             }
+        }
 
-            return 0;
-        });
+        if (a.slot && !b.slot) {
+            return -1;
+        } else if (b.slot && !a.slot) {
+            return 1;
+        }
+
+        if (a.slot && b.slot) {
+            return Object.values(ItemSlot).indexOf(a.slot) - Object.values(ItemSlot).indexOf(b.slot);
+        }
+
+        return 0;
     }
 
     equipped(itemData: ItemData): AdditionalIdentifier | undefined {

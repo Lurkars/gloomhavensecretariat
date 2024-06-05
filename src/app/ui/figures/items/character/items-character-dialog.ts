@@ -19,33 +19,45 @@ export class ItemsCharacterDialogComponent {
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
     setup: boolean = false;
-    items: ItemData[];
+    onlyEquipped: boolean = false;
+    items: ItemData[] = [];
     ItemFlags = ItemFlags;
     GameState = GameState;
 
     constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
         this.setup = gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound;
-        this.items = this.character.progress.items.map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true)).filter((itemData) => itemData).map((itemData) => itemData as ItemData).sort((a, b) => {
-            if (!this.setup) {
-                if (this.equipped(a) && !this.equipped(b)) {
-                    return -1;
-                } else if (this.equipped(b) && !this.equipped(a)) {
-                    return 1;
-                }
-            }
+        this.onlyEquipped = !this.setup;
+        this.update();
+    }
 
-            if (a.slot && !b.slot) {
+    sortItemData(a: ItemData, b: ItemData) {
+        if (!this.setup) {
+            if (this.equipped(a) && !this.equipped(b)) {
                 return -1;
-            } else if (b.slot && !a.slot) {
+            } else if (this.equipped(b) && !this.equipped(a)) {
                 return 1;
             }
+        }
 
-            if (a.slot && b.slot) {
-                return Object.values(ItemSlot).indexOf(a.slot) - Object.values(ItemSlot).indexOf(b.slot);
-            }
+        if (a.slot && !b.slot) {
+            return -1;
+        } else if (b.slot && !a.slot) {
+            return 1;
+        }
 
-            return 0;
-        });
+        if (a.slot && b.slot) {
+            return Object.values(ItemSlot).indexOf(a.slot) - Object.values(ItemSlot).indexOf(b.slot);
+        }
+
+        return 0;
+    }
+
+    update() {
+        this.items = gameManager.bbRules() ? gameManager.itemManager.getItems('bb') : this.character.progress.items.map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true)).filter((itemData) => itemData).map((itemData) => itemData as ItemData).sort((a, b) => this.sortItemData(a, b));
+
+        if (this.onlyEquipped) {
+            this.items = this.items.filter((itemData) => this.equipped(itemData));
+        }
     }
 
     equipped(itemData: ItemData): AdditionalIdentifier | undefined {

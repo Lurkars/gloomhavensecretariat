@@ -204,7 +204,8 @@
       </span>
 
       <span class="attack-modifier-draw" [ngClass]="{'drawing': amAnimationDrawing}"
-        *ngIf="(bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate && !character.attackModifierDeckVisible && (!settingsManager.settings.characterAttackModifierDeckPermanentActive || !character.active)"  [ngClass]="{'bb': bb}">
+        *ngIf="(bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck && settingsManager.settings.characterAttackModifierAnimate && !character.attackModifierDeckVisible && (!settingsManager.settings.characterAttackModifierDeckPermanentActive || !character.active)"
+        [ngClass]="{'bb': bb}">
         <ghs-attackmodifier-draw [character]="character"
           (drawing)="amAnimationDrawing = $event"></ghs-attackmodifier-draw>
       </span>
@@ -219,12 +220,14 @@
           src="./assets/images/check.svg" />
       </div>
 
-      <div *ngIf="!bb && settingsManager.settings.characterItems" class="items-button" ghs-pointer-input
+      <div *ngIf="settingsManager.settings.characterItems" class="items-button" ghs-pointer-input
         (singleClick)="openItems()" (doubleClick)="openItems(true)" [ghs-label]="'game.items'"
-        [ghs-label-attribute]="'title'">
+        [ghs-label-attribute]="'title'" [ngClass]="{'bb': bb}">
         <img
           [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'" />
       </div>
+
+      <div class="bb-spacer" *ngIf="bb"></div>
 
       <div class="summon-dialog" *ngIf="!bb && settingsManager.settings.summons">
         <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"

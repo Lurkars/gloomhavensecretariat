@@ -29,6 +29,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
     @Output() clickedSlotBack = new EventEmitter<number>();
     @Output() clickedPersistent = new EventEmitter<boolean>();
     fhStyle: boolean = false;
+    bb: boolean = false;
     craft: boolean = false;
     edition: string = "";
     slots: Action[] = [];
@@ -50,6 +51,10 @@ export class ItemComponent implements OnInit, AfterViewInit {
 
             if (this.item.edition == 'fh') {
                 this.fhStyle = true;
+            }
+
+            if (this.item.edition == 'bb') {
+                this.bb = true;
             }
 
             if (this.item.resources && Object.values(this.item.resources).some((value) => value) || this.item.requiredItems && this.item.requiredItems.length > 0 || this.item.resourcesAny && this.item.resourcesAny.length > 0) {

@@ -29,11 +29,11 @@ export class ItemManager {
     }
 
     isItemAvailable(itemData: ItemData, edition: string | undefined, withUnlocks: boolean = true): boolean {
-        if (!this.game.party.campaignMode || !edition) {
-            return true;
+        if (!this.game.party.campaignMode) {
+            return !edition || itemData.edition == edition || gameManager.editionExtensions(edition).indexOf(itemData.edition) != -1;
         }
 
-        if (itemData.edition == edition || gameManager.editionExtensions(edition).indexOf(itemData.edition) != -1) {
+        if (edition && (itemData.edition == edition || gameManager.editionExtensions(edition).indexOf(itemData.edition) != -1)) {
             if (withUnlocks && this.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)) {
                 return true;
             }

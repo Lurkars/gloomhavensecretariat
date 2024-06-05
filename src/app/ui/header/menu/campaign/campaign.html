@@ -42,7 +42,7 @@
     </div>
 
     <div class="line span"
-        *ngIf="(settingsManager.settings.characterSheet || settingsManager.settings.characterItems) && !gameManager.bbRules()">
+        *ngIf="(settingsManager.settings.characterSheet || settingsManager.settings.characterItems)">
         <a tabclick (click)="openItems()" [ghs-label]="'campaign.items'"></a>
     </div>
 

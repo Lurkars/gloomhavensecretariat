@@ -1,7 +1,7 @@
 <div class="item-container" #container>
     <ng-container *ngIf="item">
         <div class="card vertical reverse item"
-            [ngClass]="{'flipped': flipped, 'random': item.random, 'fh': fhStyle, 'craft' : craft}"
+            [ngClass]="{'flipped': flipped, 'random': item.random, 'fh': fhStyle, 'craft' : craft, 'bb': bb}"
             [style.fontSize]="fontsize" card-reveal
             [disabled]="!reveal || item.actionsBack && item.actionsBack.length > 0 || false"
             (change)="emitRevealed($event)">
@@ -18,14 +18,14 @@
                 <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
                 <div class="content">
                     <div class="actions">
-                        <ghs-actions [actions]="item.actionsBack" [style]="fhStyle ? 'fh' : 'gh'"
+                        <ghs-actions [actions]="item.actionsBack" [style]="fhStyle || bb ? 'fh' : 'gh'"
                             [noDivider]="true"></ghs-actions>
                     </div>
                     <div class="actions slot-actions" *ngIf="slotsBack.length > 0">
                         <span class="slot-action" *ngFor="let slot of slotsBack; let i = index;"
                             [ngClass]="{'interactive' : clickedSlotBack.observed}" ghs-pointer-input
                             (singleClick)="clickedSlotBack.emit(i)">
-                            <ghs-action [action]="slot" [style]="fhStyle ? 'fh' : 'gh'"></ghs-action>
+                            <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
                             <span class="marker" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
                                 *ngIf="slotsBackMarked.length >= i - 1 && slotsBackMarked[i]"
                                 [ghs-label]="'%game.characterToken.' + slotsBackMarked[i] + '%'"></span>
@@ -44,26 +44,26 @@
             </div>
 
             <div class="card-front front">
-                <img class="artwork"
+                <img class="artwork" *ngIf="!bb"
                     [src]="'./assets/artwork/items/' + item.edition + '-' + (item.id < 100 ? '0' : '') + (item.id < 10 ? '0' : '') + item.id + '.png'">
                 <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
                 <div class="content">
                     <div class="actions" *ngIf="item.actions && item.actions.length > 0">
-                        <ghs-actions [actions]="item.actions" [style]="fhStyle ? 'fh' : 'gh'"
+                        <ghs-actions [actions]="item.actions" [style]="fhStyle || bb ? 'fh' : 'gh'"
                             [noDivider]="true"></ghs-actions>
                     </div>
                     <div class="actions slot-actions" *ngIf="slots.length > 0">
                         <span class="slot-action" *ngFor="let slot of slots let i = index;"
                             [ngClass]="{'interactive' : clickedSlot.observed}" ghs-pointer-input
                             (singleClick)="clickedSlot.emit(i)">
-                            <ghs-action [action]="slot" [style]="fhStyle ? 'fh' : 'gh'"></ghs-action>
+                            <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
                             <span class="marker" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
                                 *ngIf="slotsMarked.length >= i - 1 && slotsMarked[i]"
                                 [ghs-label]="'%game.characterToken.' + slotsMarked[i] + '%'"></span>
                         </span>
                     </div>
                 </div>
-                <div class="count" *ngIf="item.count">{{count}}/{{item.count}}</div>
+                <div class="count" *ngIf="item.count && (!bb || item.count > 1)">{{count}}/{{item.count}}</div>
                 <div class="craft" *ngIf="craft">
                     <ng-container *ngIf="item.requiredItems">
                         <span class="required-item" [ghs-label]="'%game.itemFh.' + requiredItem + '%'"
@@ -111,7 +111,7 @@
                 <div class="minus-one" *ngIf="item.minusOne">
                     <span class="card-icon small">
                         <img class="icon"
-                            [src]="'./assets/images' + (fhStyle ? '/fh/attackmodifier/icons/minus1.png' : '/items/minus1.svg')">
+                            [src]="'./assets/images' + (fhStyle || bb ? '/fh/attackmodifier/icons/minus1.png' : '/items/minus1.svg')">
                     </span>
                     <span class="value">x{{item.minusOne}}</span>
                 </div>

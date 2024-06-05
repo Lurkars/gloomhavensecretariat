@@ -394,7 +394,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.character.itemsVisible = !this.character.itemsVisible;
       gameManager.stateManager.saveLocal();
       gameManager.uiChange.emit();
-    } else if (this.character.progress.items.length == 0) {
+    } else if (this.character.progress.items.length == 0 && (force || !this.bb)) {
       this.dialog.open(ItemsDialogComponent, {
         panelClass: ['dialog'],
         data: { edition: gameManager.game.edition, select: this.character, affordable: true }

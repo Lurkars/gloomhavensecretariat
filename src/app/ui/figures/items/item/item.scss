@@ -383,7 +383,7 @@
             filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
 
             .text {
-              text-align: center;
+                text-align: center;
             }
         }
     }
@@ -557,4 +557,50 @@
         }
     }
 
+    &.bb {
+
+        .front {
+            background-image: url('~src/assets/images/bb/items/item-front-bb.png');
+
+            .name {
+                font-family: ghs-title-fh !important;
+                top: 30%;
+                transform: translateX(-50%);
+                text-transform: uppercase;
+                font-size: 1.1em;
+                filter: none;
+                text-align: center;
+            }
+
+            .content {
+                font-family: ghs-text-fh !important;
+                top: 45%;
+                font-size: 1.7em;
+                line-height: 1.2em;
+            }
+
+            .spent,
+            .consumed {
+                top: 75%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .slot {
+                top: 20%;
+
+                .ghs-svg {
+                    filter: var(--ghs-filter-white);
+                }
+            }
+
+            .id {
+                top: initial;
+                bottom: 0%;
+                left: 0%;
+                align-items: flex-start;
+            }
+
+        }
+    }
 }

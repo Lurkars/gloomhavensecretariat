@@ -27,14 +27,26 @@ export class CharacterItemComponent {
         return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + this.item.id && identifier.edition == this.item.edition);
     }
 
+    bbBlocked(): boolean {
+        return gameManager.bbRules() && !this.equipped() && this.character.progress.equippedItems.find((identifier) => (+identifier.name) == (this.item.id % 2 == 0 ? this.item.id - 1 : this.item.id + 1) && identifier.edition == this.item.edition) != undefined;
+    }
+
     isLootRandomItem() {
         return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + this.item.id && identifier.edition == this.item.edition && identifier.marker == "loot-random-item");
     }
 
     toggleEquippedItem(force: boolean = false) {
-        if ((this.setup || force) && this.character.progress.items.find((identifier) => identifier.name == '' + this.item.id && identifier.edition == this.item.edition) != undefined) {
+        const owned = this.character.progress.items.find((identifier) => identifier.name == '' + this.item.id && identifier.edition == this.item.edition) != undefined;
+        if ((this.setup || force) && (owned || !this.bbBlocked() || force)) {
             gameManager.stateManager.before(this.equipped() ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character), '' + this.item.id, this.item.edition)
-            gameManager.itemManager.toggleEquippedItem(this.item, this.character, force)
+            gameManager.itemManager.toggleEquippedItem(this.item, this.character, force);
+            if (gameManager.bbRules()) {
+                if (!this.equipped() && owned) {
+                    gameManager.itemManager.removeItem(this.item, this.character);
+                } else if (this.equipped() && !owned) {
+                    gameManager.itemManager.addItem(this.item, this.character);
+                }
+            }
             gameManager.stateManager.after();
 
             if (settingsManager.settings.animations) {

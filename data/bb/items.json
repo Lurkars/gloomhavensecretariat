@@ -1,0 +1,782 @@
+[
+  {
+    "id": 1,
+    "name": "Rosethorn Knife",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "unlockScenario": {
+      "name": "1",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-1.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Venomous Fang",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "1",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-2.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Shrunken Weathered Boots",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "spent": true,
+    "unlockScenario": {
+      "name": "1",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-3.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Old Spring",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "spent": true,
+    "unlockScenario": {
+      "name": "1",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-4.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Drop of Power Potion",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "2",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-5.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Drop of Clear Water",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "unlockScenario": {
+      "name": "2",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-6.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Spring Hammer",
+    "count": 1,
+    "edition": "bb",
+    "slot": "twohand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "3",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-7.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Button Shield",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "3",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-8.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Iron Nail",
+    "count": 1,
+    "edition": "bb",
+    "slot": "twohand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "4",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-9.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Tanglevine Whip",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "unlockScenario": {
+      "name": "4",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-10.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Magnetic Needle",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "5",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-11.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Leftover Table Scraps",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "spent": true,
+    "unlockScenario": {
+      "name": "5",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-12.1%",
+        "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Robin's Feather Arrows",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "unlockScenario": {
+      "name": "6",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-13.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Nightshade Pollen",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "unlockScenario": {
+      "name": "6",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-14.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Drop of Healing Potion",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "7",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-15.1%",
+        "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Volatile Powder",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "7",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-16.1%",
+        "small": true
+      },
+      {
+        "type": "area",
+        "value": "(1,0,target)|(0,1,target)|(1,1,target)",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Fishing Hook and Line",
+    "count": 1,
+    "edition": "bb",
+    "slot": "twohand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "8",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-17.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Chestnut Shelll Shield",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "8",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-18.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Brass Cog",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "spent": true,
+    "unlockScenario": {
+      "name": "9",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-19.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Lubricating Oil",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "spent": true,
+    "unlockScenario": {
+      "name": "9",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-20.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Drop of Element Potion",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "10",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-21.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Drop of Stamina Potion",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "10",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-22.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Pinch of Doom Powder",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "11",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-23.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Sewing Needles",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "11",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-24.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Sharpened Pencil",
+    "count": 1,
+    "edition": "bb",
+    "slot": "twohand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "12",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-25.1%",
+        "small": true
+      },
+      {
+        "type": "area",
+        "value": "(0,0,active)|(0,1,target)|(0,2,target)(0,3,target)",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Coin Shield",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "12",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-26.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Shrunken Longbow",
+    "count": 1,
+    "edition": "bb",
+    "slot": "twohand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "13",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-27.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Coin Shield",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "13",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-28.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Embernettle",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "unlockScenario": {
+      "name": "14",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-29.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Lucky Cat's-Eye Marble",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "spent": true,
+    "unlockScenario": {
+      "name": "14",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-30.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Shard of Glass",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "15",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-31.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Lucky Cat's-Eye Marble",
+    "count": 1,
+    "edition": "bb",
+    "slot": "twohand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "15",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-31.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Drop of Haste Elixir",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "16",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-33.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Drop of Stamina Elixir",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "16",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-34.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Prismatic Gem",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "spent": true,
+    "unlockScenario": {
+      "name": "17",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-35.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Drop of Strengthen Potion",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "consumed": true,
+    "unlockScenario": {
+      "name": "17",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-36.1%",
+        "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "strengthen"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Duskhaze Gem",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "unlockScenario": {
+      "name": "18",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-37.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Brightlure Gem",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "unlockScenario": {
+      "name": "18",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-38.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Iridescent Shell Shield",
+    "count": 1,
+    "edition": "bb",
+    "slot": "onehand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "19",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-39.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Pocket Knife",
+    "count": 1,
+    "edition": "bb",
+    "slot": "twohand",
+    "spent": true,
+    "unlockScenario": {
+      "name": "19",
+      "edition": "bb"
+    },
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-40.1%",
+        "small": true
+      }
+    ]
+  }
+]

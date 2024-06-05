@@ -17,6 +17,25 @@
             font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
             color: var(--ghs-color-white);
         }
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: var(--ghs-color-white);
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
 
         .shop {
             cursor: pointer;

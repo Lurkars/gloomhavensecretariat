@@ -144,7 +144,8 @@ body {
   }
 }
 
-*::-webkit-scrollbar, *::-webkit-scrollbar:horizontal {
+*::-webkit-scrollbar,
+*::-webkit-scrollbar:horizontal {
   width: 5px;
   height: 8px;
   border-radius: 10px;
@@ -156,7 +157,8 @@ body {
   }
 }
 
-*::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb:horizontal {
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb:horizontal {
   background: var(--ghs-color-gray);
   border-radius: 10px;
   border: 5px solid transparent;
@@ -1100,7 +1102,8 @@ input[type="radio"] {
     &.above {
       top: initial;
       bottom: 100%;
-      height: auto;;
+      height: auto;
+      ;
     }
 
     &.center {
@@ -1377,9 +1380,10 @@ input[type="radio"] {
 
   .placeholder-element-half {
     display: inline-flex;
-    width: 1.5em;
-    height: 1.4em;
-    margin-top: -0.3em;
+    width: 2em;
+    height: auto;
+    position: relative;
+    top: 0.2em;
   }
 
   .placeholder-checkmark {
@@ -1675,6 +1679,7 @@ input[type="radio"] {
   .element {
     &.consume {
       margin-right: 0.2em;
+
       &::before {
         left: 45%;
         top: 45%;
@@ -1694,12 +1699,15 @@ input[type="radio"] {
 
     &.consume {
       margin-right: 0.2em;
+
       &::before {
         left: 75%;
         top: 45%;
         width: 40%;
         height: 65%;
         background-image: url('~src/assets/images/fh/element/consume.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
       }
     }
 
