@@ -490,7 +490,7 @@ export class ScenarioManager {
           }
         }
 
-        if (!type) {
+        if (!type && !monsterStandeeData.player2 && !monsterStandeeData.player3 && !monsterStandeeData.player4) {
           type = MonsterType.normal;
         }
 
@@ -514,7 +514,7 @@ export class ScenarioManager {
           }
         }
 
-        if (!type) {
+        if (!type && !monsterStandeeData.player2 && !monsterStandeeData.player3 && !monsterStandeeData.player4) {
           type = MonsterType.normal;
         }
 
