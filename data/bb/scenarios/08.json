@@ -6,6 +6,16 @@
   "unlocks": [
     "10"
   ],
+  "requirements": [
+    {
+      "characters": [
+        "!silent-knife"
+      ]
+    }
+  ],
+  "links": [
+    "10"
+  ],
   "monsters": [
     "spitting-moth",
     "venomous-centipede"

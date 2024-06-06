@@ -771,4 +771,12 @@ export class ScenarioSummaryComponent implements OnDestroy {
     unlocked(character: string) {
         return gameManager.game.unlockedCharacters.indexOf(character) != -1;
     }
+
+    scenarioLinkAvailable(index: string): boolean {
+        const linkScenarioData = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.index == index && scenarioData.group == this.scenario.group);
+        if (linkScenarioData) {
+            return !gameManager.scenarioManager.isBlocked(linkScenarioData) && !gameManager.scenarioManager.isLocked(linkScenarioData);
+        }
+        return true;
+    }
 }

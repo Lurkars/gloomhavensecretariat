@@ -108,6 +108,7 @@ import { ElementComponent } from './ui/header/element/element';
 import { ElementIconComponent } from './ui/header/element/element-icon';
 import { GameClockDialogComponent } from './ui/header/game-clock/game-clock';
 import { HeaderComponent } from './ui/header/header';
+import { AboutMenuComponent } from './ui/header/menu/about/about';
 import { CampaignMenuComponent } from './ui/header/menu/campaign/campaign';
 import { CharacterMenuComponent } from './ui/header/menu/character/character';
 import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/datamanagement';
@@ -159,7 +160,7 @@ describe('AppComponent', () => {
         MainComponent,
         HeaderComponent, ElementIconComponent, ElementComponent,
         PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent, WorldMapComponent, ScenarioConclusionComponent, BuildingUpgradeDialog, ScenarioRequirementsComponent, ScenarioRequirementsDialogComponent, TreasuresDialogComponent, PartyResourcesDialogComponent,
-        MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, SettingMenuComponent, SettingMenuTitleComponent, DatamanagementMenuComponent, ScenarioMenuComponent, ScenarioChartDialogComponent, ScenarioChartPopupDialog, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, CampaignMenuComponent,
+        MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, SettingMenuComponent, SettingMenuTitleComponent, DatamanagementMenuComponent, ScenarioMenuComponent, ScenarioChartDialogComponent, ScenarioChartPopupDialog, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, AboutMenuComponent, CampaignMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootRandomItemDialogComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
         HintDialogComponent, ScenarioRulesComponent,

@@ -896,6 +896,44 @@ export class GameManager {
     });
   }
 
+  resetCampaign() {
+    this.game.figures = [];
+    this.game.party.characters = [];
+    this.game.party.location = "";
+    this.game.party.achievements = "";
+    this.game.party.achievementsList = [];
+    this.game.party.reputation = 0;
+    this.game.party.prosperity = 0;
+    this.game.party.scenarios = [];
+    this.game.party.conclusions = [];
+    this.game.party.casualScenarios = [];
+    this.game.party.manualScenarios = [];
+    this.game.party.globalAchievements = "";
+    this.game.party.globalAchievementsList = [];
+    this.game.party.treasures = [];
+    this.game.party.donations = 0;
+    this.game.party.retirements = [];
+    this.game.party.unlockedItems = [];
+    this.game.party.unlockedCharacters = [];
+    this.game.party.envelopeB = false;
+    this.game.party.weeks = 0;
+    this.game.party.weekSections = [];
+    this.game.party.loot = {};
+    this.game.party.randomItemLooted = [];
+    this.game.party.inspiration = 0;
+    this.game.party.defense = 0;
+    this.game.party.soldiers = 0;
+    this.game.party.morale = 0;
+    this.game.party.townGuardPerks = 0;
+    this.game.party.townGuardPerkSections = [];
+    this.game.party.campaignStickers = [];
+    this.game.party.townGuardDeck = undefined;
+    this.game.party.buildings = [];
+    this.game.party.lootDeckEnhancements = [];
+    this.game.party.lootDeckFixed = [];
+    this.game.party.lootDeckSections = [];
+  }
+
   toggleGameClock() {
     this.game.gameClock = this.game.gameClock || [];
     let last: GameClockTimestamp | undefined = this.game.gameClock.length ? this.game.gameClock[0] : undefined;

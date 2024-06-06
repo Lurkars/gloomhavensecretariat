@@ -3,8 +3,17 @@
   "name": "Crush the Clutter",
   "edition": "bb",
   "level": 5,
-  "solo": "cragheart",
   "unlocks": [
+    "19"
+  ],
+  "requirements": [
+    {
+      "characters": [
+        "cragheart"
+      ]
+    }
+  ],
+  "links": [
     "19"
   ],
   "monsters": [

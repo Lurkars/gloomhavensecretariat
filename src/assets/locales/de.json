@@ -34,7 +34,8 @@
       ".": "Kampagnen verwalten",
       "add": "Neue Kampagne erstellen",
       "hint": "Während eines Szenarios ist das Ändern oder Erstellen einer neuen Kampagne deaktiviert. Beende oder breche das aktuelle Szenario ab um die akutelle Kampagne zu ändern oder eine neue Kampagne zu erstellen.",
-      "name": "Name für Kampagne {0}"
+      "name": "Name für Kampagne {0}",
+      "reset": "Kampagne zurücksetzen"
     },
     "sheet": "Globaler Kampagnenbogen"
   },
@@ -1223,6 +1224,8 @@
       "campaignStickers": "'{0}' (Kampagnenbogensticker) VOLLSTÄNDIG",
       "campaignStickersCount": "'{0}' (Kampagnenbogensticker) x{2} VOLLSTÄNDIG  (got {1})",
       "campaignStickersMissing": "'{0}' (Kampagnenbogensticker) NICHT VOLLSTÄNDIG",
+      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' anwesend",
+      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' abwesend",
       "global": "'{0}' (Global) VOLLSTÄNDIG",
       "globalCount": "'{0}' (Global) x{2} VOLLSTÄNDIG (got {1})",
       "globalMissing": "'{0}' (Global) NICHT VOLLSTÄNDIG",
@@ -2432,6 +2435,7 @@
       "reorder": "Figuren neu anordnen",
       "reorderAbilities": "Fertigkeitskarten von {0} neu anordnen",
       "repairBuilding": "'%data.buildings.{1}%' ({0}) repariert",
+      "resetCampaign": "Kampagne zurücksetzen",
       "resetScenario": "Szenario #{0} {1} ({2}) zurücksetzen",
       "restoreAbility": "Fertigkeit \"{1}\" für {0} wiederherstellen",
       "restoreDefaultAbilities": "Ursprüngliche Fertigkeitskarten für {0} wiederherstellen",

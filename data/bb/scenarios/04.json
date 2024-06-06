@@ -3,8 +3,17 @@
   "name": "Bargin In",
   "edition": "bb",
   "level": 2,
-  "solo": "bruiser",
   "unlocks": [
+    "5"
+  ],
+  "requirements": [
+    {
+      "characters": [
+        "bruiser"
+      ]
+    }
+  ],
+  "links": [
     "5"
   ],
   "monsters": [

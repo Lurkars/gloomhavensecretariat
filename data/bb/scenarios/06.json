@@ -7,6 +7,17 @@
     "8",
     "9"
   ],
+  "requirements": [
+    {
+      "characters": [
+        "!mindthief"
+      ]
+    }
+  ],
+  "links": [
+    "8",
+    "9"
+  ],
   "monsters": [
     "harrowing-infestation",
     "sewer-rat",

@@ -59,6 +59,14 @@
         <div class="achievement" *ngFor="let achievement of requirement.buildingsMissing"
           [ghs-label]="'scenario.requirements.buildingsMissing'" [ghs-label-args]="[achievement]"></div>
       </div>
+      <div class="characters">
+        <div class="characters" *ngFor="let character of requirement.characters"
+          [ghs-label]="'scenario.requirements.characters'" [ghs-label-args]="[character]"></div>
+      </div>
+      <div class="characters">
+        <div class="characters" *ngFor="let character of requirement.charactersMissing"
+          [ghs-label]="'scenario.requirements.charactersMissing'" [ghs-label-args]="[character]"></div>
+      </div>
     </div>
     <span *ngIf="i < requirements.length -1" class="separator"><span [ghs-label]="'or'"></span></span>
   </ng-container>

@@ -3,8 +3,17 @@
   "name": "Mind Control",
   "edition": "bb",
   "level": 2,
-  "solo": "mindthief",
   "unlocks": [
+    "8"
+  ],
+  "requirements": [
+    {
+      "characters": [
+        "mindthief"
+      ]
+    }
+  ],
+  "links": [
     "8"
   ],
   "monsters": [

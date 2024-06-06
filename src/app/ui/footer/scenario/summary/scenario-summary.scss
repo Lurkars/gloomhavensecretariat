@@ -417,7 +417,7 @@
 
   a {
     cursor: pointer;
-    min-width: 33%;
+    margin: 0 calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
     display: flex;
     justify-content: center;
 
@@ -443,6 +443,7 @@
       font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
+      white-space: nowrap;
     }
   }
 

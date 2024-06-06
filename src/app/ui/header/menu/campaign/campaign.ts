@@ -31,6 +31,7 @@ export class CampaignMenuComponent implements OnInit {
     editionConditions: ConditionName[] = [];
     characters: Character[] = [];
     confirmPartyDelete: number = -1;
+    confirmResetCampaign: boolean = false;
     worldMap: boolean = false;
 
     constructor(private dialog: Dialog) { }
@@ -207,5 +208,20 @@ export class CampaignMenuComponent implements OnInit {
             gameManager.game.party.name = event.target.value;
             gameManager.stateManager.after();
         }
+    }
+
+    resetCampaign() {
+        if (!this.confirmResetCampaign) {
+            this.confirmResetCampaign = true;
+        } else {
+            gameManager.stateManager.before("resetCampaign");
+            gameManager.resetCampaign();
+            gameManager.stateManager.after();
+            this.close.emit();
+        }
+    }
+
+    cancelResetCampaign() {
+        this.confirmResetCampaign = false;
     }
 }

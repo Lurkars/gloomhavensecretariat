@@ -3,8 +3,17 @@
   "name": "Back in the Walls",
   "edition": "bb",
   "level": 3,
-  "solo": "silent-knife",
   "unlocks": [
+    "10"
+  ],
+  "requirements": [
+    {
+      "characters": [
+        "silent-knife"
+      ]
+    }
+  ],
+  "links": [
     "10"
   ],
   "monsters": [

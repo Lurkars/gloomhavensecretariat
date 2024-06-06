@@ -6,6 +6,16 @@
   "unlocks": [
     "5"
   ],
+  "requirements": [
+    {
+      "characters": [
+        "!bruiser"
+      ]
+    }
+  ],
+  "links": [
+    "5"
+  ],
   "monsters": [
     "mouse"
   ],

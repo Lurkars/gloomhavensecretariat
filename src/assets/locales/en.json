@@ -34,7 +34,8 @@
       ".": "Manage Campaign",
       "add": "Add Campaign",
       "hint": "Changing current campaign or creation of new campaign is disabled during a scenario. Finish or cancel current scenario to change current campaign or create a new campaign.",
-      "name": "Name for Campaign {0}"
+      "name": "Name for Campaign {0}",
+      "reset": "Reset Campaign"
     },
     "sheet": "Global Campaign Management Sheet"
   },
@@ -1381,6 +1382,8 @@
       "campaignStickers": "'{0}' (Campaign Sticker) COMPLETE",
       "campaignStickersCount": "'{0}' (Campaign Sticker) x{2} COMPLETE  (got {1})",
       "campaignStickersMissing": "'{0}' (Campaign Sticker) INCOMPLETE",
+      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' present",
+      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' absent",
       "global": "'{0}' (Global) COMPLETE",
       "globalCount": "'{0}' (Global) x{2} COMPLETE (got {1})",
       "globalMissing": "'{0}' (Global) INCOMPLETE",
@@ -2357,7 +2360,7 @@
       "addResource": "Add +{2} {1} for {0}",
       "addSection": "Add section #{0} {1} ({2})",
       "addSpecialTags": "Add special actions {1} for {0}",
-      "addSpecialTags": "Add special actions {1} for {2} of {0}",
+      "addSpecialTagsSummon": "Add special actions {1} for {2} of {0}",
       "addStandee": "Add {1} {0} standee {2}",
       "addSummon": "Add summon '{1}' for {0}",
       "addTreasure": "Add treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
@@ -2611,6 +2614,7 @@
       "reorder": "Reorder figures",
       "reorderAbilities": "Reorder abilities of {0}",
       "repairBuilding": "Repair '%data.buildings.{1}%' ({0})",
+      "resetCampaign": "Reset campagin",
       "resetScenario": "Reset scenario #{0} {1} ({2})",
       "restoreAbility": "Restore ability \"{1}\" for {0}",
       "restoreDefaultAbilities": "Restore default abilities of {0}",

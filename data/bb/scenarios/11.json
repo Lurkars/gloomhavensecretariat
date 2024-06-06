@@ -6,6 +6,16 @@
   "unlocks": [
     "13"
   ],
+  "requirements": [
+    {
+      "characters": [
+        "!tinkerer"
+      ]
+    }
+  ],
+  "links": [
+    "13"
+  ],
   "monsters": [
     "sewer-rat",
     "venomous-centipede"

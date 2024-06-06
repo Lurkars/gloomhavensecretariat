@@ -173,9 +173,9 @@
 
         a {
             cursor: pointer;
-            min-width: 33%;
             display: flex;
             justify-content: center;
+            margin: 0 calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
 
             &:hover {
                 opacity: 0.6;

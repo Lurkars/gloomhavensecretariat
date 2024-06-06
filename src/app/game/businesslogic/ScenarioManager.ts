@@ -749,6 +749,12 @@ export class ScenarioManager {
           } else {
             return !this.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.toLowerCase().trim() && buildingModel.level > 0)
           }
+        }) || requirement.characters && requirement.characters.some((character) => {
+          if (character.startsWith('!')) {
+            return gameManager.game.figures.find((figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.substring(1, character.length).toLowerCase().trim());
+          } else {
+            return !gameManager.game.figures.find((figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.toLowerCase().trim());
+          }
         })) ||
       scenarioData.solo && !this.game.figures.find((figure) => figure instanceof Character && figure.name == scenarioData.solo && (gameManager.bbRules() || figure.level >= 5)) || false;
   }
@@ -849,6 +855,20 @@ export class ScenarioManager {
               }
             } else if (all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.toLowerCase().trim() && buildingModel.level > 0)) {
               missingRequirement.buildings.push(achievement);
+              add = true;
+            }
+          })
+        }
+
+        if (requirement.characters) {
+          requirement.characters.forEach((character) => {
+            if (character.startsWith('!')) {
+              if (all || gameManager.game.figures.find((figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.substring(1, character.length).toLowerCase().trim())) {
+                missingRequirement.charactersMissing.push(character.substring(1, character.length));
+                add = true;
+              }
+            } else if (all || !gameManager.game.figures.find((figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.toLowerCase().trim())) {
+              missingRequirement.characters.push(character);
               add = true;
             }
           })

@@ -6,6 +6,16 @@
   "unlocks": [
     "19"
   ],
+  "requirements": [
+    {
+      "characters": [
+        "!cragheart"
+      ]
+    }
+  ],
+  "links": [
+    "19"
+  ],
   "monsters": [
     "flame-demon",
     "frost-demon",

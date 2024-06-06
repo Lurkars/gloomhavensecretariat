@@ -7,6 +7,17 @@
     "17",
     "18"
   ],
+  "requirements": [
+    {
+      "characters": [
+        "!spellweaver"
+      ]
+    }
+  ],
+  "links": [
+    "17",
+    "18"
+  ],
   "monsters": [
     "earth-demon",
     "flame-demon",

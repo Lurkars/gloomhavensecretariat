@@ -103,7 +103,7 @@ export class ScenarioRequirement {
   buildings: string[] | undefined;
   campaignSticker: string[] | undefined;
   puzzle: string[] | undefined;
-  solo: string | undefined;
+  characters: string[] | undefined;
 
 }
 

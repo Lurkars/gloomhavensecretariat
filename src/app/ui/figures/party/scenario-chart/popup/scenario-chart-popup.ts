@@ -60,6 +60,8 @@ export class ScenarioChartPopupDialog {
 
         this.showTreasures = this.treasures.length > 0 && this.treasures.length == this.lootedTreasures.length || this.showSetup;
 
+        this.predecessors = [];
+
         let predecessor = gameManager.scenarioManager.scenarioData(this.scenario.edition).find((other) => other.group == this.scenario.group && other.unlocks && other.unlocks.indexOf(this.scenario.index) != -1 && (!gameManager.game.party.campaignMode || gameManager.scenarioManager.isSuccess(other)));
 
         if (!predecessor) {

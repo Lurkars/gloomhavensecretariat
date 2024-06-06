@@ -730,13 +730,17 @@
       <ng-container
         *ngIf="(!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0)">
         <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
-        <a class="link" (click)="finish(index)" *ngFor="let index of scenario.links">
-          <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
-        </a>
-        <ng-container *ngIf="conclusion && conclusion.links">
-          <a class="link" (click)="finish(index)" *ngFor="let index of conclusion.links">
+        <ng-container *ngFor="let index of scenario.links">
+          <a class="link" (click)="finish(index)" *ngIf="scenarioLinkAvailable(index)">
             <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
           </a>
+        </ng-container>
+        <ng-container *ngIf="conclusion && conclusion.links">
+          <ng-container *ngFor="let index of conclusion.links">
+            <a class="link" (click)="finish(index)" *ngIf="scenarioLinkAvailable(index)">
+              <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+            </a>
+          </ng-container>
         </ng-container>
       </ng-container>
     </span>

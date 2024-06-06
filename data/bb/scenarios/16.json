@@ -3,8 +3,17 @@
   "name": "Signal Flare",
   "edition": "bb",
   "level": 4,
-  "solo": "spellweaver",
   "unlocks": [
+    "17"
+  ],
+  "requirements": [
+    {
+      "characters": [
+        "spellweaver"
+      ]
+    }
+  ],
+  "links": [
     "17"
   ],
   "monsters": [
