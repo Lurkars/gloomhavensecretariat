@@ -21,6 +21,206 @@
   "lootDeckConfig": {
     "money": 15
   },
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "robotic-boltshooter|lightning-eel|lurker-wavethrower|flaming-bladespinner|lurker-soldier"
+          },
+          "type": "killed",
+          "value": "1"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "type": "normal"
+          },
+          "marker": "D"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "robotic-boltshooter|lightning-eel|lurker-wavethrower|flaming-bladespinner|lurker-soldier"
+          },
+          "type": "killed",
+          "value": "2"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "type": "normal"
+          },
+          "marker": "B"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "robotic-boltshooter|lightning-eel|lurker-wavethrower|flaming-bladespinner|lurker-soldier"
+          },
+          "type": "killed",
+          "value": "3"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-wavethrower",
+            "type": "normal"
+          },
+          "marker": "F"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "robotic-boltshooter|lightning-eel|lurker-wavethrower|flaming-bladespinner|lurker-soldier"
+          },
+          "type": "killed",
+          "value": "4"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "robotic-boltshooter",
+            "type": "normal"
+          },
+          "marker": "A"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "robotic-boltshooter|lightning-eel|lurker-wavethrower|flaming-bladespinner|lurker-soldier"
+          },
+          "type": "killed",
+          "value": "5"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "robotic-boltshooter",
+            "type": "normal"
+          },
+          "marker": "C"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "robotic-boltshooter|lightning-eel|lurker-wavethrower|flaming-bladespinner|lurker-soldier"
+          },
+          "type": "killed",
+          "value": "6"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker-soldier",
+            "type": "normal"
+          },
+          "marker": "E"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "robotic-boltshooter|lightning-eel|lurker-wavethrower|flaming-bladespinner|lurker-soldier"
+          },
+          "type": "killed",
+          "value": "7"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "type": "normal"
+          },
+          "marker": "F"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "once": true,
+      "note": "special rules of the Ice Wraiths are not implemented",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "robotic-boltshooter|lightning-eel|lurker-wavethrower|flaming-bladespinner|lurker-soldier"
+          },
+          "type": "killed",
+          "value": "8"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "type": "normal"
+          }
+        },
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "type": "elite"
+          }
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
