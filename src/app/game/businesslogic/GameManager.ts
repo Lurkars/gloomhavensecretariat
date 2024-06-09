@@ -99,6 +99,11 @@ export class GameManager {
           this.scenarioRulesManager.addScenarioRulesAlways();
           this.scenarioRulesManager.applyScenarioRulesAlways();
         }
+        if (settingsManager.settings.removeUnusedMonster) {
+          this.game.figures.filter((figure) => figure instanceof Monster && figure.off && figure.entities.length == 0).forEach((figure) => {
+            this.monsterManager.removeMonster(figure as Monster);
+          })
+        }
         this.roundManager.firstRound = this.game.round == 0 && this.game.roundResets.length == 0 && this.game.roundResetsHidden.length == 0;
       }
     })

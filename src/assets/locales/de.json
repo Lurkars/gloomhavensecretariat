@@ -2017,7 +2017,7 @@
     },
     "removeUnusedMonster": {
       ".": "Nicht genutze Monster entfernen",
-      "hint": "Entferne automatische alle nicht genutzen Monster am Ende der Runde"
+      "hint": "Entferne automatische alle nicht genutzen Monster"
     },
     "scenarioNumberInput": {
       ".": "Numerische Szenario Eingabe",

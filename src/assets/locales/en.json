@@ -2177,7 +2177,7 @@
     },
     "removeUnusedMonster": {
       ".": "Remove unused",
-      "hint": "Automatically remove all unused monsters at end of round."
+      "hint": "Automatically remove all unused monsters."
     },
     "scenarioNumberInput": {
       ".": "Scenario Number Input",

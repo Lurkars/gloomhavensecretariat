@@ -1,5 +1,5 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
+import { Component, HostListener, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
@@ -64,6 +64,33 @@ export class EntitiesMenuDialogComponent {
     this.entities = [];
     this.allEntities.forEach((entity) => this.entities.push(entity));
     this.update();
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  keyboardShortcuts(event: KeyboardEvent) {
+    if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
+      if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowRight') {
+        this.changeHealth(1);
+        event.preventDefault();
+        event.stopPropagation();
+      } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowLeft') {
+        this.changeHealth(-1);
+        event.preventDefault();
+        event.stopPropagation();
+      } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowUp') {
+        this.changeMaxHealth(1);
+        event.preventDefault();
+        event.stopPropagation();
+      } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowDown') {
+        this.changeMaxHealth(-1);
+        event.preventDefault();
+        event.stopPropagation();
+      } else if (!event.ctrlKey && !event.shiftKey && (event.key.toLowerCase() === 'k' || event.key.toLowerCase() === 'd')) {
+        this.toggleDead();
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }
   }
 
   update() {
