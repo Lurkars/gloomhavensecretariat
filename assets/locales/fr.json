@@ -1929,7 +1929,7 @@
     },
     "removeUnusedMonster": {
       ".": "Retirer les monstres inutilisés",
-      "hint": "Supprime automatiquement tous les monstres inutilisés à la fin du tour."
+      "hint": "Supprime automatiquement tous les monstres inutilisés."
     },
     "scenarioNumberInput": {
       ".": "Numéro de scénario Entrée"
