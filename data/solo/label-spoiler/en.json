@@ -288,8 +288,8 @@
             "1": "On the next three deaths of any of your summons, %game.elementHalf:earth|dark% and perform:"
         },
         "solo-253": {
-            "1": "During your ranged attack ability while in %game.characterIconIdentity.geminate.0%, gain advantage for one attack, then flip this card over.",
-            "2": "When an enemy performs an attack targeting you while you are in %game.characterIconIdentity.geminate.1%, the attacker gains disadvantage, then flip this card over."
+            "1": "During your ranged attack ability while in %game.characterIconIdentity.geminate.1%, gain advantage for one attack, then flip this card over.",
+            "2": "When an enemy performs an attack targeting you while you are in %game.characterIconIdentity.geminate.0%, the attacker gains disadvantage, then flip this card over."
         },
         "solo-254": {
             "1": "During your turn, activate all your %data.action.custom.fh-infusion% as if you just performed a %data.action.custom.fh-infusion% action."
