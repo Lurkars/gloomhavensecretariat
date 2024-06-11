@@ -1811,6 +1811,10 @@
       ".": "Schaden statt TP",
       "hint": "Zeige den erleideten Schaden statt der verbleibenden Trefferpunkte an."
     },
+    "damageHPToggle": {
+      ".": "Schaden statt TP auf Charakterboard umschalten",
+      "hint": "Schalte zwischen Schaden statt TP mit Doppelklick auf TP vom Charakterboard."
+    },
     "debug": {
       ".": "Debug Einstellung/Werkzeuge",
       "hint": "",

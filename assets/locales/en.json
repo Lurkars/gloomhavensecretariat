@@ -1972,6 +1972,10 @@
       ".": "Damage instead of HP",
       "hint": "Show damage dealed instead of hitpoints left"
     },
+    "damageHPToggle": {
+      ".": "Toggle Damage/HP on character board",
+      "hint": "Shortcut by double clicking the HP display on a character board to switch between Damage and HP."
+    },
     "debug": {
       ".": "Debug Settings/Tools",
       "rightClick": "Always enable Right-Click",
