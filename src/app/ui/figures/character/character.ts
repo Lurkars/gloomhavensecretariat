@@ -333,7 +333,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   toggleDamageHP() {
     if (this.compact) {
       this.openCharacterSheet();
-    } else {
+    } else if (settingsManager.settings.damageHPToggle) {
       settingsManager.toggle('damageHP');
     }
   }
