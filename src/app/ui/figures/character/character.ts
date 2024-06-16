@@ -264,6 +264,16 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
   }
 
+  addExperience(value: number) {
+    this.experience = value;
+    if (this.character.experience + this.experience >= 0) {
+      gameManager.stateManager.before("changeXP", gameManager.characterManager.characterName(this.character), ghsValueSign(this.experience));
+      this.character.experience += this.experience;
+      gameManager.stateManager.after();
+    }
+    this.experience = 0;
+  }
+
   dragTokenMove(value: number) {
     this.token = value;
     if (this.character.primaryToken < 0 && this.character.token + this.token < 0) {
@@ -310,6 +320,16 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.loot = 0;
       gameManager.stateManager.after();
     }
+  }
+
+  addLoot(value: number) {
+    this.loot = value;
+    if (this.character.loot + this.loot >= 0) {
+      gameManager.stateManager.before("changeLoot", gameManager.characterManager.characterName(this.character), ghsValueSign(this.loot));
+      this.character.loot += this.loot;
+      gameManager.stateManager.after();
+    }
+    this.loot = 0;
   }
 
   dragCancel(value: number) {

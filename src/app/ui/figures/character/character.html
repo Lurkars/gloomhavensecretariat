@@ -243,18 +243,17 @@
           (doubleClick)="compact && openCharacterSheet()"></div>
         <span class="experience" *ngIf="!bb && !settingsManager.settings.hideCharacterXP"
           [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'" ghs-pointer-input
-          (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" (dragCancel)="dragCancel($event)"
-          [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)"
-          (doubleClick)="compact && openCharacterSheet()">
+          (singleClick)="addExperience(1)" (doubleClick)="addExperience(-1)" (dragMove)="dragXpMove($event)"
+          (dragEnd)="dragXpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true">
           {{character.experience + experience}}
           <img src="./assets/images/status/experience.svg" />
           <span class="value-overlay" [value-sign]="experience" [hideEmpty]="true" [container]="true"></span>
         </span>
         <span class="loot"
           *ngIf="!bb && (!settingsManager.settings.lootDeck || !settingsManager.settings.alwaysLootDeck && !gameManager.fhRules()) && !settingsManager.settings.hideCharacterLoot"
-          [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragLootMove($event)"
-          (dragEnd)="dragLootEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
-          (singleClick)="openEntityMenu($event)" (doubleClick)="compact && openCharacterSheet()">
+          [ghs-label]="'game.loot'" [ghs-label-attribute]="'title'" ghs-pointer-input (singleClick)="addLoot(1)"
+          (doubleClick)="addLoot(-1)" (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)"
+          (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true">
           {{character.loot + loot}}
           <img src="./assets/images/status/loot.svg" />
           <span class="value-overlay" [value-sign]="loot" [hideEmpty]="true" [container]="true"></span>

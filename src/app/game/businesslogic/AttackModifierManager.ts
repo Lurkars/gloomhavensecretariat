@@ -294,7 +294,7 @@ export class AttackModifierManager {
     })
   }
 
-  draw() {
+  firstRound() {
     this.shuffleModifiers(this.game.monsterAttackModifierDeck);
     this.shuffleModifiers(this.game.allyAttackModifierDeck);
     this.game.figures.forEach((figure) => {
@@ -305,13 +305,7 @@ export class AttackModifierManager {
   }
 
   checkShuffle(attackModifierDeck: AttackModifierDeck) {
-    if (
-      attackModifierDeck.cards.some(
-        (attackModifier, index) => {
-          return index <= attackModifierDeck.current && attackModifier.shuffle;
-        }
-      )
-    ) {
+    if (!attackModifierDeck.bb && attackModifierDeck.cards.some((attackModifier, index) => index <= attackModifierDeck.current && attackModifier.shuffle)) {
       this.shuffleModifiers(attackModifierDeck);
     }
   }
@@ -326,7 +320,7 @@ export class AttackModifierManager {
           am.character = true;
           return am;
         } else {
-          let am : AttackModifier = value as AttackModifier;
+          let am: AttackModifier = value as AttackModifier;
           am.character = true;
           return am;
         }

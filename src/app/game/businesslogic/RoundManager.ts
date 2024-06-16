@@ -72,8 +72,8 @@ export class RoundManager {
 
     } else if (this.drawAvailable() || force) {
       if (this.firstRound) {
-        gameManager.attackModifierManager.draw();
-        gameManager.lootManager.draw();
+        gameManager.attackModifierManager.firstRound();
+        gameManager.lootManager.firstRound();
         if (!this.game.scenario) {
           this.game.scenario = new Scenario(new ScenarioData(), [], [], true);
         }

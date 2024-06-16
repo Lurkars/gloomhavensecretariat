@@ -307,7 +307,7 @@ export class LootManager {
     return value;
   }
 
-  draw(): void {
+  firstRound(): void {
     this.shuffleDeck(this.game.lootDeck);
   }
 
