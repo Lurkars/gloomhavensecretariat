@@ -60,9 +60,16 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     }
   }
 
-  update() {
-    this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
-    this.activeCharacters = this.characters.filter((character) => !character.absent && !character.exhausted);
+  update(toggle: boolean = false) {
+    if (!toggle) {
+      this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
+      this.activeCharacters = this.characters.filter((character) => !character.absent && !character.exhausted);
+      this.lootColumns = gameManager.fhRules() ? [LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle] : [];
+    }
+
+    this.entityConditions = [];
+    this.immunities = [];
+    this.newImmunities = [];
 
     this.activeCharacters.forEach((character, index, self) => {
       character.entityConditions.forEach((entityCondition) => {
@@ -78,8 +85,6 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         }
       })
     })
-
-    this.lootColumns = gameManager.fhRules() ? [LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle] : [];
   }
 
   toggleCharacter(character: Character) {
@@ -88,6 +93,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     } else {
       this.activeCharacters.splice(this.activeCharacters.indexOf(character), 1);
     }
+    this.update(true);
   }
 
   changeHealth(value: number) {

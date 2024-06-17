@@ -42,7 +42,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     }
 
     applySelect() {
-        const entities = gameManager.entityManager.getIndexedEntities();
+        const entities = gameManager.entityManager.getIndexedEntities(gameManager.stateManager.keyboardSelecting === 'w');
         if (gameManager.stateManager.keyboardSelect > 0 && gameManager.stateManager.keyboardSelect <= entities.length) {
             this.dialog.open(EntityMenuDialogComponent, {
                 panelClass: ['dialog'],
@@ -65,13 +65,13 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
             if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
                 if (gameManager.stateManager.keyboardSelecting) {
-                    if (event.key === 'Escape' || event.key === 's') {
+                    if (event.key === 'Escape' || event.key === 's' || event.key === 'w') {
                         gameManager.stateManager.keyboardSelect = -1;
                         gameManager.stateManager.keyboardSelecting = false;
                     } else if (event.key === 'Enter') {
                         this.applySelect();
                     } else if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
-                        const entities = gameManager.entityManager.getIndexedEntities();
+                        const entities = gameManager.entityManager.getIndexedEntities(gameManager.stateManager.keyboardSelecting === 'w');
                         const keyNumber = +event.key;
                         if (this.timeout) {
                             clearTimeout(this.timeout);
@@ -250,8 +250,9 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                 } else if ((!this.dialogOpen || this.allowed.indexOf('damageHP') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 'i') {
                     settingsManager.toggle('damageHP');
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 's') {
-                    gameManager.stateManager.keyboardSelecting = true;
+                } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.shiftKey && (event.key === 's' || event.key === 'w')) {
+                    gameManager.stateManager.keyboardSelecting = event.key;
+                    gameManager.uiChange.emit();
                 } else if (!this.dialogOpen && !event.ctrlKey && event.key === '?') {
                     this.dialog.open(KeyboardShortcutsComponent, {
                         panelClass: ['dialog'],

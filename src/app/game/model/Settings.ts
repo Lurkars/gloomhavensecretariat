@@ -75,6 +75,7 @@ export class Settings {
   characterSheetCompact: boolean = false;
   characterSheetLocked: boolean = false;
   characterShieldRetaliate: boolean = false;
+  characterSortIndex: boolean = false;
   characterTraits: boolean = false;
   columns: boolean = true;
   columnsForce: boolean = false;

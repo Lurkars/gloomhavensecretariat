@@ -17,6 +17,7 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>1-6</kbd>: toggle through element state
 - <kbd>h</kbd>: toggle *Hide absent figures*
 - <kbd>s</kbd>: select figure/standee for opening menu with number key (<kbd>0-9</kbd>)
+- <kbd>w</kbd>: select figure/standee for opening menu in fixed order with number key (<kbd>0-9</kbd>)
 - <kbd>x</kbd>: difficulty/level menu
 - <kbd>e</kbd>: scenario effects menu
 - <kbd>f</kbd>: (finish) scenario menu

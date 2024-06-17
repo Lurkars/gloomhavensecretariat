@@ -428,6 +428,10 @@ export class GameManager {
       }
     }
 
+    if (a instanceof Character && b instanceof Character && settingsManager.settings.characterSortIndex) {
+      return a.number - b.number;
+    }
+
     return aName < bName ? -1 : 1;
   }
 

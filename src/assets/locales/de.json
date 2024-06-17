@@ -1790,6 +1790,10 @@
       ".": "Schild und Vergeltung",
       "hint": "Verwalte %game.action.shield% und %game.action.retaliate% für Charaktere."
     },
+    "characterSortIndex": {
+      ".": "Sortiere nach Spieler #",
+      "hint": "Sortiere Charaktere zwischen den Runden nach Spiler # Numer."
+    },
     "characterTraits": {
       ".": "Eigenschaften anzeigen",
       "hint": "Zeige die Eigenschaften auf dem Charakterboard an."
@@ -2683,6 +2687,7 @@
       "round": "Nächste Runde / Ziehen",
       "scenarioChart": "Szenario Flussdiagramm anzeigen",
       "select": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
+      "selectNarual": "Figur/Aufsteller Menü in fester Reihenfolge öffnen durch Auswählen mit Nummertasten",
       "shift": "UMSCHALT",
       "space": "Leertaste",
       "tab": "↹",

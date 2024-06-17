@@ -20,9 +20,33 @@
     ]
   },
   "monsters": [
-    "arcane-golem:+1",
     "cave-bear",
-    "forest-imp"
+    "forest-imp",
+    "stone-golem:+1"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "requiredRooms": [
+        3
+      ],
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "stone-golem"
+          },
+          "statEffect": {
+            "name": "arcane-golem",
+            "health": "HxC"
+          },
+          "note": "%data.scenario.rules.gh.67.1%"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -99,10 +123,6 @@
       ],
       "monster": [
         {
-          "name": "arcane-golem:+1",
-          "type": "boss"
-        },
-        {
           "name": "forest-imp",
           "player3": "normal",
           "player4": "normal"
@@ -114,6 +134,10 @@
         {
           "name": "forest-imp",
           "player4": "normal"
+        },
+        {
+          "name": "stone-golem:+1",
+          "type": "elite"
         }
       ]
     }

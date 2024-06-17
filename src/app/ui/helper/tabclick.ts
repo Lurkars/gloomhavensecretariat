@@ -16,7 +16,9 @@ export class TabClickDirective {
             event.preventDefault();
             event.stopPropagation();
             if (!disabled) {
-                event.target.click();
+                event.target.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
+                event.target.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
+                event.target.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
             }
         }
     }

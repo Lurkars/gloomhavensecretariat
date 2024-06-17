@@ -16,9 +16,9 @@
 
   <div class="entities">
     <ng-container *ngFor="let entity of allEntities">
-      <div class="entity {{gameManager.toMonsterEntity(entity).type}}" *ngIf="monster" (click)="toggleEntity(entity)"
-        [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">{{entity.number}}</div>
-      <div class="entity" *ngIf="character" (click)="toggleEntity(entity)"
+      <div class="entity {{gameManager.toMonsterEntity(entity).type}}" *ngIf="monster" tabclick
+        (click)="toggleEntity(entity)" [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">{{entity.number}}</div>
+      <div class="entity" *ngIf="character" tabclick (click)="toggleEntity(entity)"
         [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
         <span class="summon-image"
           [ngClass]="{'active' : gameManager.toSummon(entity).state == SummonState.true, 'new' : gameManager.toSummon(entity).state == SummonState.new, 'center' : (gameManager.toSummon(entity).entityConditions.length % 2) == 0}">
@@ -28,7 +28,7 @@
             <span *ngIf="gameManager.toSummon(entity).number > 0">{{gameManager.toSummon(entity).number}}</span></span>
         </span>
       </div>
-      <div class="entity" *ngIf="objective" (click)="toggleEntity(entity)"
+      <div class="entity" *ngIf="objective" tabclick (click)="toggleEntity(entity)"
         [ngClass]="{'inactive' : entities.indexOf(entity) == -1}">
         <span class="objective-marker">
           {{gameManager.toObjectiveEntity(entity).number}}
@@ -39,7 +39,7 @@
 
   <div class="entity-container">
     <span class="item">
-      <ghs-pointer-input class="button" (singleClick)="changeHealth(-1)" [repeat]="true">
+      <ghs-pointer-input class="button" tabclick (singleClick)="changeHealth(-1)" [repeat]="true">
         <img class="ghs-svg" src="./assets/images/minus.svg">
       </ghs-pointer-input>
     </span>
@@ -49,7 +49,7 @@
         [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
     </span>
     <span class="item">
-      <ghs-pointer-input class="button" (singleClick)="changeHealth(1)" [repeat]="true">
+      <ghs-pointer-input class="button" tabclick (singleClick)="changeHealth(1)" [repeat]="true">
         <img class="ghs-svg" src="./assets/images/plus.svg">
       </ghs-pointer-input>
     </span>
@@ -67,25 +67,25 @@
 
   <div class="entity-container">
     <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
-      <a class="button" (click)="toggleDead()">
+      <a class="button" tabclick (click)="toggleDead()">
         <img src="./assets/images/status/dead.svg" />
       </a>
     </span>
     <span class="item max-health-container">
-      <ghs-pointer-input class="button" (singleClick)="changeMaxHealth(-1)" [repeat]="true">
+      <ghs-pointer-input class="button" tabclick (singleClick)="changeMaxHealth(-1)" [repeat]="true">
         <img class="ghs-svg" src="./assets/images/minus.svg">
       </ghs-pointer-input>
       <img src="./assets/images/status/health.svg" [ghs-label]="'game.maxHealth'" [ghs-label-attribute]="'title'" />
       <span class="badge health-count"
         [ngClass]="{'negative-value' : maxHealth < 0, 'positive-value' : maxHealth > 0}">{{maxHealth |
         ghsValueSign}}</span>
-      <ghs-pointer-input class="button" (singleClick)="changeMaxHealth(1)" [repeat]="true">
+      <ghs-pointer-input class="button" tabclick (singleClick)="changeMaxHealth(1)" [repeat]="true">
         <img class="ghs-svg" src="./assets/images/plus.svg">
       </ghs-pointer-input>
     </span>
   </div>
 
-  <span class="toggle-type" (click)="toggleType()" *ngIf="monster">
+  <span class="toggle-type" tabclick (click)="toggleType()" *ngIf="monster">
     <span [ghs-label]="'%game.monsterType.normal%'"></span>
     <img class="ghs-svg" src="./assets/images/switch.svg" />
     <span [ghs-label]="'%game.monsterType.elite%'"></span>

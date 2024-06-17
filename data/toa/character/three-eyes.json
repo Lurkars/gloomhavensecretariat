@@ -185,7 +185,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%game.coloredToken.c7386a.toa-ritualist%: %game.condition.enfeeble% / %game.coloredToken.336fa2.toa-conquerer%: %game.condition.empower%",
+                "value": "%game.coloredToken.c7386a.toa-ritualist%: %game.condition.enfeeble% / %game.coloredToken.336fa2.toa-conquerer%: %game.condition.enfeeble%",
                 "effects": [
                   {
                     "type": "specialTarget",

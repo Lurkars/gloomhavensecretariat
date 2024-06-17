@@ -47,9 +47,18 @@ export class EntityManager {
     return entities;
   }
 
-  getIndexedEntities(): { entity: Entity, figure: Figure }[] {
+  getIndexedEntities(sort: boolean = false): { entity: Entity, figure: Figure }[] {
     let result: { entity: Entity, figure: Figure }[] = [];
-    this.game.figures.forEach((figure) => {
+
+    const figures: Figure[] = Object.assign([], this.game.figures);
+
+    figures.sort((a, b) => {
+      if (sort) {
+        return gameManager.sortFiguresByTypeAndName(a, b);
+      } else {
+        return 0;
+      }
+    }).forEach((figure) => {
       if (figure instanceof Character) {
         result.push({ entity: figure, figure: figure });
         figure.summons.forEach((summon) => {
@@ -69,9 +78,9 @@ export class EntityManager {
     return result;
   }
 
-  getIndexForEntity(entity: Entity): number {
+  getIndexForEntity(entity: Entity, sort: boolean = false,): number {
     let index = -1;
-    this.getIndexedEntities().forEach((value, i) => {
+    this.getIndexedEntities(sort).forEach((value, i) => {
       if (value.entity == entity) {
         index = i;
         return;
