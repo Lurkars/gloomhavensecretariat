@@ -1951,6 +1951,10 @@
       ".": "Shield and Retaliate",
       "hint": "Track %game.action.shield% and %game.action.retaliate%  values for characters."
     },
+    "characterSortIndex": {
+      ".": "Sort by Player #",
+      "hint": "Sort Characters by Player # number between rounds."
+    },
     "characterTraits": {
       ".": "Display traits",
       "hint": "Display the traits the character's board."
@@ -2863,6 +2867,7 @@
       "round": "Next round / Draw",
       "scenarioChart": "Show Scenario Flow Chart",
       "select": "select figure/standee for opening menu with number key",
+      "selectNatural": "select figure/standee for opening menu in fixed order with number key",
       "shift": "SHIFT",
       "space": "SPACE",
       "tab": "↹",
