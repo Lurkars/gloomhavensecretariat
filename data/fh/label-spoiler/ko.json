@@ -21,7 +21,8 @@
       "meteor": "Pyroclast",
       "prism": {
         ".": "HIVE",
-        "prism_mode": "%data.characterToken.prism.mode% Mode Token"
+        "prism_mode": "%data.characterToken.prism.mode% Mode Token",
+        "repair_mode": "%data.characterToken.prism.mode% Repair Drone Mode: %game.action.heal% 2"
       },
       "shackles": "Pain Conduit",
       "shards": "Shattersong",

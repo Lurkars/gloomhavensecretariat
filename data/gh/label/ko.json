@@ -205,6 +205,9 @@
                 "54": {
                     "1": "All Cave Bears add %game.condition.poison% to all their attacks."
                 },
+                "67": {
+                    "1": "The elite Stone Golem is one level higher than the scenario level, up to a maximum of 7, and it has HxC hit points, where H is an elite Stone Golem's regular hit point value. This is the Arcane Golem. It cannot enter or pass through door %game.mapMarker.2%."
+                },
                 "71": {
                     "1": "Move left",
                     "2": "Move up",
