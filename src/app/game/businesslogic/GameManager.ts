@@ -370,13 +370,9 @@ export class GameManager {
           return this.sortFiguresByTypeAndName(a, b);
         }
         return a.getInitiative() - b.getInitiative();
-      } else if (a.getInitiative() > 0) {
-        return 1;
-      } else if (b.getInitiative() > 0) {
-        return -1;
       }
 
-      return this.sortFiguresByTypeAndName(a, b);
+      return 0;
     });
   }
 

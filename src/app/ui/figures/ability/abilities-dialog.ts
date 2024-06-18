@@ -66,6 +66,7 @@ export class AbiltiesDialogComponent implements OnInit {
   shuffle(upcoming: boolean = false) {
     gameManager.stateManager.before("shuffleAbilityDeck" + (upcoming ? "Upcoming" : ""), "data.monster." + this.monster.name);
     gameManager.monsterManager.shuffleAbilities(this.monster, upcoming);
+    gameManager.sortFigures();
     gameManager.stateManager.after();
     this.update();
   }
@@ -73,6 +74,7 @@ export class AbiltiesDialogComponent implements OnInit {
   draw() {
     gameManager.stateManager.before("drawAbility", "data.monster." + this.monster.name);
     gameManager.monsterManager.drawAbility(this.monster);
+    gameManager.sortFigures();
     gameManager.stateManager.after();
     this.update();
   }
@@ -89,6 +91,7 @@ export class AbiltiesDialogComponent implements OnInit {
       if (gameManager.game.state == GameState.next) {
         gameManager.monsterManager.drawExtra(this.monster);
       }
+      gameManager.sortFigures();
       gameManager.stateManager.after();
     }
     this.update();
@@ -125,6 +128,7 @@ export class AbiltiesDialogComponent implements OnInit {
     if (sameDeckMonster) {
       gameManager.monsterManager.applySameDeck(sameDeckMonster);
     }
+    gameManager.sortFigures();
     gameManager.stateManager.after();
     this.update();
   }

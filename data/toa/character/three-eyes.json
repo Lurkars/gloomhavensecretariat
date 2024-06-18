@@ -185,7 +185,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%game.coloredToken.c7386a.toa-ritualist%: %game.condition.enfeeble% / %game.coloredToken.336fa2.toa-conquerer%: %game.condition.enfeeble%",
+                "value": "%game.coloredToken.c7386a.toa-ritualist%: %game.condition.enfeeble% / %game.coloredToken.336fa2.toa-conquerer%: %game.condition.empower%",
                 "effects": [
                   {
                     "type": "specialTarget",
@@ -245,7 +245,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%game.coloredToken.5cac66.toa-reaver%: %game.condition.rupture% / %game.coloredToken.c7386a.toa-ritualist%: %game.condition.empower%",
+                "value": "%game.coloredToken.5cac66.toa-reaver%: %game.condition.rupture% / %game.coloredToken.c7386a.toa-ritualist%: %game.condition.enfeeble%",
                 "effects": [
                   {
                     "type": "specialTarget",
