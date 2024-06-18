@@ -5,7 +5,12 @@
     "ip": "글룸헤이븐과 관련된 모든 속성, 이미지, 텍스트는 {0}의 소유입니다.",
     "license": "{0} 라이센스",
     "sourceCode": "소스 코드",
-    "support": "개발 지원"
+    "support": "개발 지원",
+    "version": {
+      "latest": "최신",
+      "unknown": "최신 버전을 가져올 수 없습니다.",
+      "update": "최신 버전: <a target=\"_blank\" href=\"{1}\">{0}</a>"
+    }
   },
   "and": "및",
   "app": {
@@ -29,7 +34,8 @@
       ".": "캠페인 관리",
       "add": "캠페인 추가",
       "hint": "시나리오 도중에는 현재 캠페인 변경 또는 새 캠페인 생성이 비활성화됩니다. 현재 캠페인을 변경하거나 새 캠페인을 만들려면 현재 시나리오를 완료하거나 취소하십시오.",
-      "name": "캠페인 이름 {0}"
+      "name": "캠페인 이름 {0}",
+      "reset": "캠페인 초기화"
     },
     "sheet": "전역 캠페인 관리 기록지"
   },
@@ -114,7 +120,7 @@
       },
       "personalQuest": {
         ".": "개인 퀘스트",
-        "counter": "Counter",
+        "counter": "횟수",
         "openEnvelope": {
           ".": "봉투 %game.fhIcon:envelope% {0} 열기",
           "alt": "봉투 %game.fhIcon:envelope% {0} 열기<br>(또는: %game.fhIcon:envelope% {1})",
@@ -514,7 +520,10 @@
       "drawAnother": "하나 더 뽑기",
       "drawDisadvantage": "불이익 효과 적용하여 뽑기",
       "drawExtra": "추가로 뽑기",
-      "edit": "편집",
+      "edit": {
+        ".": "편집",
+        "toggleBB": "Show as BB Table"
+      },
       "fullscreen": "최대 창 화면으로 보기",
       "openDialog": "모든 카드 보기",
       "removeDrawnDiscards": "뽑은 버린 더미 제거",
@@ -687,9 +696,9 @@
       },
       "option": {
         ".": "선택지 {0}:",
-        "1": "A",
-        "2": "B",
-        "3": "C"
+        "1": "1번",
+        "2": "2번",
+        "3": "3번"
       },
       "rewards": {
         "additionalGold": "추가로 각자 금화 {0}개 획득.",
@@ -805,6 +814,16 @@
     },
     "level": {
       ".": "레벨",
+      "bb": {
+        "monsterDifficulty": {
+          ".": "몬스터 난이도 변경",
+          "0": "아주 쉬움",
+          "1": "쉬움",
+          "2": "보통",
+          "3": "어려움",
+          "4": "아주 어려움"
+        }
+      },
       "experience": "추가 경험치",
       "hazardousTerrain": "위험 지형 피해",
       "loot": "금화 가치",
@@ -1342,6 +1361,7 @@
       "reset": "초기화",
       "success": "성공"
     },
+    "level": "레벨 {0}",
     "locked": "조건 누락",
     "manual": {
       "add": "시나리오 해금하기",
@@ -1362,6 +1382,8 @@
       "campaignStickers": "'{0}' (캠페인 스티커) 달성할 것",
       "campaignStickersCount": "'{0}' (캠페인 스티커) {2}회 달성할 것 (현재 {1}회)",
       "campaignStickersMissing": "'{0}' (캠페인 스티커) 달성하지 않을 것",
+      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' present",
+      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' absent",
       "global": "'{0}' (전역) 달성할 것",
       "globalCount": "'{0}' (전역) {2}회 달성할 것 (현재 {1}회)",
       "globalMissing": "'{0}' (전역) 달성하지 않을 것",
@@ -1609,6 +1631,11 @@
     "blocked": "구성된 서버에 연결되어 있지 않으므로 현재 게임 갱신이 불가능합니다.",
     "closed": "닫힘",
     "closing": "닫는 중",
+    "code": {
+      ".": "게임 코드",
+      "hint": "게임 코드로 당신의 게임을 식별합니다. 새 게임의 경우 원하는 코드를 입력하거나 생성하기만 하면 됩니다. 같은 코드를 가진 사람은 모두 같은 게임에 접속할 수 있습니다. <br><br>이전에는 \"비밀번호\"라고 불렸지만 혼동을 피하기 위해 이제 이름이 변경되었습니다.",
+      "uuid": "UUID 생성하기"
+    },
     "connect": "연결하기",
     "connected": "연결됨",
     "connecting": "연결 중",
@@ -1627,7 +1654,12 @@
       "location": "장소",
       "privacy": "개인 정보 정책",
       "status": "상태 페이지",
-      "version": "서버 버전",
+      "version": {
+        ".": "서버 버전",
+        "latest": "최신",
+        "unknown": "최신 버전을 가져올 수 없습니다.",
+        "update": "최신 버전: <a target=\"_blank\" href=\"{1}\">{0}</a>"
+      },
       "website": "웹사이트"
     },
     "list": {
@@ -1638,11 +1670,7 @@
       "connect": "서버에 연결하기",
       "connected": "서버 연결"
     },
-    "code": {
-      ".": "게임 코드",
-      "hint": "게임 코드로 당신의 게임을 식별합니다. 새 게임의 경우 원하는 코드를 입력하거나 생성하기만 하면 됩니다. 같은 코드를 가진 사람은 모두 같은 게임에 접속할 수 있습니다. <br><br>이전에는 \"비밀번호\"라고 불렸지만 혼동을 피하기 위해 이제 이름이 변경되었습니다.",
-      "uuid": "UUID 생성하기"
-    },
+    "ping": "서버 핑",
     "port": "포트",
     "reconnect": "다시 연결하기",
     "settings": {
@@ -1923,6 +1951,10 @@
       ".": "방어와 반격",
       "hint": "캐릭터의 %game.action.shield% 및 %game.action.retaliate% 값을 추적합니다."
     },
+    "characterSortIndex": {
+      ".": "플레이어 번호로 정렬",
+      "hint": "플레이어 번호 순서로 각 라운드 사이에 캐릭터를 정렬합니다."
+    },
     "characterTraits": {
       ".": "특혜 표시",
       "hint": "캐릭터 보드의 특혜를 표시합니다."
@@ -1943,6 +1975,10 @@
     "damageHP": {
       ".": "체력 대신 피해로 표기",
       "hint": "남은 체력 대신 받은 피해로 표기"
+    },
+    "damageHPToggle": {
+      ".": "Toggle Damage/HP on character board",
+      "hint": "Shortcut by double clicking the HP display on a character board to switch between Damage and HP."
     },
     "debug": {
       ".": "디버그 설정/도구",
@@ -2008,6 +2044,11 @@
     "feedback": {
       ".": "피드백 버튼 비활성화",
       "hint": ""
+    },
+    "feedbackErrors": {
+      ".": "Automatic Feedback",
+      "clear": "Clear ignored Automatic Feedback Errors",
+      "hint": "Automatically report errors via Feedback Dialog"
     },
     "fhGhItems": {
       ".": "글룸헤이븐 아이템 추가",
@@ -2205,6 +2246,7 @@
     "synced": "이러한 설정은 서버와 동기화됩니다!",
     "theme": {
       ".": "테마",
+      "bb": "Button & Bugs (%wip%)",
       "default": "기본값",
       "fh": "프로스트헤이븐",
       "hint": "배경과 막대 및 글씨 유형을 선택합니다.",
@@ -2553,6 +2595,16 @@
       },
       "removeItem": "{0}에게서 {1} (%data.edition.{2}%) 아이템 제거",
       "removeManualScenario": "해금된 시나리오 #{0} {1} ({2}) 제거",
+      "removeMarker": {
+        "char": "Remove marker %data.characterIconColored.{2}% {1} from {0}",
+        "monsterEntities": "Remove marker %data.characterIconColored.{2}% {1} from all {2}{0}",
+        "monster": "Remove marker %data.characterIconColored.{3}% {2} from '{1}' of {0}",
+        "objective": "Remove marker %data.characterIconColored.{2}% {1} from {0}",
+        "objectiveContainer": "Remove marker %data.characterIconColored.{3}% {2} from %game.objectiveMarker.{1}% of {0}",
+        "objectives": "Remove marker %data.characterIconColored.{2}% {1} from all {0}",
+        "summon": "Remove marker %data.characterIconColored.{3}% {2} from '{1}' of {0}",
+        "summons": "Remove marker %data.characterIconColored.{2}% {1} from all {0} summons"
+      },
       "removeMastery": "{0}의 숙련 {1} 체크 해제",
       "removeMonster": "{0} 몬스터 제거",
       "removeObjective": "{0} 목표 대상 제거",
@@ -2564,11 +2616,13 @@
       "removeResource": "{0}의 {1}에서 -{2}",
       "removeScenarioRule": "시나리오 규칙 제거",
       "removeSpecialTags": "Remove special actions {1} from {0}",
+      "removeSpecialTagsSummon": "Remove special actions {1} from {2} of {0}",
       "removeTreasure": "{1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) 보물 제거",
       "removeTreasures": "Remove treasures {1} (%data.edition.{0}%)",
       "reorder": "재정렬",
       "reorderAbilities": "{0}의 능력 카드 재정렬",
       "repairBuilding": "Repair '%data.buildings.{1}%' ({0})",
+      "resetCampaign": "캠페인 초기화",
       "resetScenario": "시나리오 초기화 #{0} {1} ({2})",
       "restoreAbility": "Restore ability \"{1}\" for {0}",
       "restoreDefaultAbilities": "{0}의 능력을 기본값으로 복원",
@@ -2678,6 +2732,7 @@
       "updateElement": "{0} 원소 {1}",
       "updateGlobalAchievements": "전역 업적 {0} 달성",
       "updateLevelAdjustment": "{0} 레벨 조정",
+      "updateLevelAdjustmentBb": "Set Monster Modifier Difficulty to %game.level.bb.monsterDifficulty.{0}%",
       "updateManualPlayerCount": "수동 플레이어 수를 {0}명으로 조정",
       "updatePartyAchievements": "파티 업적 {0} 달성",
       "updateStandee": "Change {1} standee number {2} to {3} for {0}",
@@ -2710,9 +2765,13 @@
       "githubIssue": "깃허브 이슈 파일",
       "reportIssue": {
         ".": "이슈 제보하기",
+        "automaticText": "Automatic Text",
         "download": "모든 데이터 다운로드",
-        "send": "이슈 보내기",
+        "errorHint": "A software issue occured.<br>You can help improving the software by reporting this error to the developer.<br>Please attach data dump if possible. Thank you!",
+        "errorIgnore": "Do not report this error automatically again.",
+        "errorText": "ERROR Stack Trace:\n\n{0}\n\n{1}",
         "mail": "Microsoft는 시장 지배력을 이용하여 소규모 개인 이메일 서버를 차단하려고 합니다. 그 결과 outlook.com, hotmail.com 또는 기타 Microsoft 서비스에서 보낸 전자 메일은 받을 수 있지만 답장을 보낼 수 없습니다!",
+        "send": "이메일로 이슈 보내기",
         "specify": "텍스트로 세부 정보를 지정하십시오.<br>정확히 무엇이 문제인지 잘 모르겠다면 아래 데이터 덤프를 다운로드하여 첨부해 주세요!",
         "text": "텍스트",
         "type": {
@@ -2726,6 +2785,11 @@
             ".": "삽화",
             "hint": "잘못되거나 누락된 삽화.",
             "subject": "삽화에서 문제 발견"
+          },
+          "automatic": {
+            ".": "Automatic",
+            "hint": "A software bug, raised automatically",
+            "subject": "Automatic Software Issue"
           },
           "characterStat": {
             ".": "캐릭터 능력치",
@@ -2803,6 +2867,7 @@
       "round": "다음 라운드 / 뽑기",
       "scenarioChart": "시나리오 흐름도 보기",
       "select": "select figure/standee for opening menu with number key",
+      "selectNatural": "select figure/standee for opening menu in fixed order with number key",
       "shift": "SHIFT",
       "space": "SPACE",
       "tab": "↹",
