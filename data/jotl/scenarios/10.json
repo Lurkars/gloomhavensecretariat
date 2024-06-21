@@ -10,6 +10,9 @@
     "gridLocation": "E2"
   },
   "edition": "jotl",
+  "rewards": {
+    "experience": 15
+  },
   "unlocks": [
     "11",
     "12"
