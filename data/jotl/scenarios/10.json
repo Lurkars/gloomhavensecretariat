@@ -10,13 +10,13 @@
     "gridLocation": "E2"
   },
   "edition": "jotl",
-  "rewards": {
-    "experience": 15
-  },
   "unlocks": [
     "11",
     "12"
   ],
+  "rewards": {
+    "experience": 15
+  },
   "monsters": [
     "black-sludge",
     "chaos-demon",

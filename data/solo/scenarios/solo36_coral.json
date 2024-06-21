@@ -13,9 +13,7 @@
   },
   "monsters": [
     "lightning-eel",
-    "lost-in-seaweed",
-    "plea-for-help-without-answer",
-    "shape-blocks-out-the-sun"
+    "lost-in-seaweed"
   ],
   "lootDeckConfig": {
     "money": 15

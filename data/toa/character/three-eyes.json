@@ -245,13 +245,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%game.coloredToken.5cac66.toa-reaver%: %game.condition.rupture% / %game.coloredToken.c7386a.toa-ritualist%: %game.condition.enfeeble%",
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
+                "value": "%game.coloredToken.5cac66.toa-reaver%: %game.condition.rupture% / %game.coloredToken.c7386a.toa-ritualist%: %game.condition.enfeeble%"
               }
             ]
           }

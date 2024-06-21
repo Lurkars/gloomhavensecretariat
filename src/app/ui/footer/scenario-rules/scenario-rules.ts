@@ -71,7 +71,7 @@ export class ScenarioRulesComponent {
             if (scenario) {
                 const rule = gameManager.game.scenarioRules[index].rule;
                 if (rule && rule.sections) {
-                    return gameManager.sectionData(scenario.edition).filter((sectionData) => !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.group == sectionData.group && active.index == sectionData.index) && rule.sections.indexOf(sectionData.index) != -1);
+                    return gameManager.sectionData(scenario.edition).filter((sectionData) => !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.group == scenario.group && active.index == sectionData.index) && sectionData.group == scenario.group && rule.sections.indexOf(sectionData.index) != -1);
                 }
             }
         }
