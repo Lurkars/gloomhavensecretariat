@@ -35,6 +35,7 @@ export enum ConditionType {
   monster = "monster",
   upgrade = "upgrade",
   stack = "stack",
+  stackable = "stackable",
   turn = "turn",
   afterTurn = "afterTurn",
   expire = "expire",
@@ -106,6 +107,10 @@ export class Condition {
 
     if ([ConditionName.chill].indexOf(this.name) != -1) {
       this.types.push(ConditionType.stack);
+    }
+
+    if ([ConditionName.chill, ConditionName.bless, ConditionName.curse, ConditionName.enfeeble, ConditionName.empower].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.stackable);
     }
 
     if ([ConditionName.wound, ConditionName.wound_x, ConditionName.regenerate].indexOf(this.name) != -1) {

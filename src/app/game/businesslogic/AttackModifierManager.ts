@@ -313,7 +313,7 @@ export class AttackModifierManager {
 
   buildCharacterAttackModifierDeck(character: Character): AttackModifierDeck {
     if (character.bb && character.amTables && character.amTables.length >= character.level) {
-      return new AttackModifierDeck(character.amTables[character.level - 1].map((value) => {
+      return new AttackModifierDeck(character.amTables[character.level - 1].map((value, index) => {
 
         if (typeof value === 'string') {
           let am = new AttackModifier(value as AttackModifierType);
@@ -322,6 +322,7 @@ export class AttackModifierManager {
         } else {
           let am: AttackModifier = value as AttackModifier;
           am.character = true;
+          am.id = 'bb-' + character.level + '-' + index;
           return am;
         }
       }), true);

@@ -511,7 +511,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   }
 
   subActionExists(additionalSubActions: Action[], subAction: Action, stackableCondition: boolean = true): boolean {
-    if (stackableCondition && subAction.type == ActionType.condition && (new Condition(subAction.value + '').types.indexOf(ConditionType.stack) != -1)) {
+    if (stackableCondition && subAction.type == ActionType.condition && (new Condition(subAction.value + '').types.indexOf(ConditionType.stackable) != -1)) {
       return false;
     }
 

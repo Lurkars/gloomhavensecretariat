@@ -1084,6 +1084,194 @@
       "62": "gain Mechanical Cube blueprint %game.itemFh.82% when you find the other half of this blueprint."
     }
   },
+  "challenges": {
+    "fh": {
+      "1480": {
+        ".": "",
+        "text": ""
+      },
+      "1482": {
+        ".": "Armor Testing",
+        "text": "Whenever any character suffers%game.damage% from an attack that is not reduced by%game.action.shield%,%game.action.push%2 is added to the attack."
+      },
+      "1483": {
+        ".": "Empathy",
+        "text": "Whenever any enemy suffers%game.damage%, all other enemies gain advantage on all their attacks for the round."
+      },
+      "1484": {
+        ".": "Optimism",
+        "text": "Whenever you reveal a negative or %game.attackmodifier.null% attack modifier card from the monster attack modifier deck, treat it as a %game.attackmodifier.plus0% instead."
+      },
+      "1485": {
+        ".": "Foul Luck",
+        "text": "Whenever you reveal a %game.attackmodifier.minus2% attack modifier card from the monster attack modifier deck, treat it as a %game.attackmodifier.double% instead."
+      },
+      "1486": {
+        ".": "Divine Intervention",
+        "text": "Add three %game.attackmodifier.bless% attack modifier cards to the monster attack modifier deck at the start of the scenario."
+      },
+      "1487": {
+        ".": "Hypochondria",
+        "text": "Whenever any character gains a negative condition, they also gain%game.condition.wound%."
+      },
+      "1488": {
+        ".": "Upwind",
+        "text": "All enemy ranged attacks have +1%game.action.range%.<br>Add +1%game.action.move% to all enemy move abilities."
+      },
+      "1489": {
+        ".": "Sleep Trashing",
+        "text": "Whenever any character short or long rests, all adjacent allies suffer hazardous terrain damage."
+      },
+      "1490": {
+        ".": "Greed is Good",
+        "text": "Eneiems perform%game.action.loot%1 at the end of each of their turns. Whenever an enemey loots a loot token, it gains%game.condition.strengthen%. If this scenario has no loot deck, draw a new challenge and place this card on the bottom of the deck."
+      },
+      "1491": {
+        ".": "Alternate Tactics",
+        "text": "During ordering of initiative each round, initiative is ordered from highest to lowest."
+      },
+      "1492": {
+        ".": "Barbed",
+        "text": "All undamage enemies have%game.action.retaliate%2."
+      },
+      "1493": {
+        ".": "Hardy Stock",
+        "text": "All enemies add L/2 (rounded up) to their maximum hit point value."
+      },
+      "1494": {
+        ".": "Keep Watch",
+        "text": "Whenever you perform an attack targeting an enemy that has not yet acted this round, gain disadvantage on the attack. Whenever you perform an enemey that has already acted this round, gain advantage on the attack."
+      },
+      "1495": {
+        ".": "Toxic Termination",
+        "text": "The first time any enemies dies each round, each character adjacent to it gains%game.condition.poison%."
+      },
+      "1496": {
+        ".": "Feast or Famine",
+        "text": "Remove all %game.attackmodifier.plus0% attack modifier cards from the monster attack modifier deck at the start of the scenario.<br>All enemies are immune to%game.condition.curse%."
+      },
+      "1497": {
+        ".": "Combustible",
+        "text": "Whenever any enemy dies, one character closest to it suffers%game.damage:1% (or%game.damage:2% for scenario levels 4-7)."
+      },
+      "1498": {
+        ".": "Beguiling Force",
+        "text": "All enemy ranged attacks have%game.action.push%1."
+      },
+      "1499": {
+        ".": "Glittering Distraction",
+        "text": "Whenever there are three or more revealed loot tokens on the map at the end of any round, all characters gain%game.condition.impair%. If this scenario has no loot deck, draw a new challenge and place this card on the bottom of the deck."
+      },
+      "1500": {
+        ".": "Increasing Aggression",
+        "text": "Whenever a %game.attackmodifier.minus1% or %game.attackmodifier.minus2% attack modifier card is drawn from the monster attack modifier deck, after the attack, remove the card from the deck for the remainder of the scenario."
+      },
+      "1501": {
+        ".": "Heightedned Reflexes",
+        "text": "Decrease all enemy initiative values by 10."
+      },
+      "1502": {
+        ".": "Frozen Numb",
+        "text": "Characters cannot use%game.itemSlot.small%."
+      },
+      "1503": {
+        ".": "Imitation",
+        "text": "Add five random attack modifier cards to the monster attack modifier deck from among the perk attack modifier cards of any unlocked Frosthaven characters (player's choice) not participating in the scenario."
+      },
+      "1504": {
+        ".": "Fool's Gold",
+        "text": "Whenever any character loots one or more loot tokens, they gain%game.condition.curse%. If this scenario has no loot deck, draw a new challenge and place this card on the bottom of the deck."
+      },
+      "1505": {
+        ".": "Hungover",
+        "text": "Incease all character initiative values by 10."
+      },
+      "1506": {
+        ".": "Tight Formation",
+        "text": "Whenever any character performs an attack while not adjacent to an ally, add -1%game.action.attack% to the attack."
+      },
+      "1507": {
+        ".": "Shoddy Craftsmanship",
+        "text": "Whenever an item would be spent, it is lost instead."
+      },
+      "1508": {
+        ".": "Staggered Formation",
+        "text": "At the end of each character's turn, all adjacent enemies suffer%game.damage:1%."
+      },
+      "1509": {
+        ".": "Budget Rations",
+        "text": "Whenever any character rests, they gain%game.condition.curse%."
+      },
+      "1510": {
+        ".": "United Advance",
+        "text": "Whenever any character ends their turn more than two hexes away from any other character (three hexes away for three characters, or four hexes for four characters), the character ending their turn gains%game.condition.muddle%."
+      },
+      "1511": {
+        ".": "Dense Fog",
+        "text": "All characters' move abilities of value 4 or greater are reduced by 1."
+      },
+      "1512": {
+        ".": "Spiked Armor",
+        "text": "All characters gain%game.action.retaliate%X,%game.action.range%3, where X is their%game.action.shield% value. Add -1%game.action.attack to all character attacks."
+      },
+      "1513": {
+        ".": "Fight Fair",
+        "text": "Whenever any character kills an enemy, that character gains all negative conditions the enemy had when it died."
+      },
+      "1514": {
+        ".": "Phalanx",
+        "text": "Each enemy gains%game.action.shield% 1 while it is adjacent to one or more of its allies."
+      },
+      "1515": {
+        ".": "Dominating Presence",
+        "text": "While any elite enemy is present on the map, all normal enemies of the same type gain%game.action.shield%1."
+      },
+      "1516": {
+        ".": "Arcane Tactics",
+        "text": "Whenever one or more elements move from waning to inert at the end of a round, one character suffers hazardous terrain damage."
+      },
+      "1517": {
+        ".": "Warm Up",
+        "text": "While any character's hit point value is equal to or greater than half their maximum hit poiunt value (rounded down), that character gains disadvante on all their attacks."
+      },
+      "1518": {
+        ".": "Bloodlink",
+        "text": "The first time any enemy suffers%game.damage% each round, one other damaged enemy performs%game.action.heal%X, self, where X is the damage suffered."
+      },
+      "1519": {
+        ".": "Caltrops",
+        "text": "Characters and their allies treat all hexes with loot tokens as hazardous terrain. This does not affect enemies."
+      },
+      "1520": {
+        ".": "Shared Pain",
+        "text": "Each time any enemy causes a character to suffer%game.damage%, another character suffters%game.damage:1%."
+      },
+      "1521": {
+        ".": "Swarming Tactics",
+        "text": "All enemies add%game.action.jump% to all their move abilities."
+      },
+      "1522": {
+        ".": "Offensive Spread",
+        "text": "All figures add -1%game.action.attack% and +1%game.action.target% to all of their single-target attack abilities."
+      },
+      "1523": {
+        ".": "Pack Hunting",
+        "text": "At the start of the third round, spawn one normal Hound in any starting hex for each character in the party. If the scenario has Hounds in the first room or six types of monsters not counting the Hounds, draw a new challenge and place this card on the bottom of the deck."
+      },
+      "1524": {
+        ".": "Healthy Vigor",
+        "text": "Each enemy gains%game.action.shield%1 while it has no negative condition. Whenever any enemy loses on or more negative conditions at the end of its turn, it suffers%game.damage:1%."
+      },
+      "1525": {
+        ".": "Spiteful Retribution",
+        "text": "Whenever any negative condition is removed from any enemy, it gains%game.condition.strengthen%."
+      },
+      "1526": {
+        ".": "Hunker Down",
+        "text": "During ordering of initiative each round, if there are fewer monsters than characters on the map, all monsters gain%game.condition.ward.%."
+      }
+    }
+  },
   "custom": {
     "fh": {
       "astral": {
