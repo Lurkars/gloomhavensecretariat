@@ -65,7 +65,7 @@
       (after)="afterChallengeDeck($event)" [bottom]="true"></ghs-challenge-deck>
 
     <div class="active-toggle"
-      [ngClass]="{'inactive' : !gameManager.game.challengeDeck.active, 'denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.challengeDeck}">
+      [ngClass]="{'inactive' : !gameManager.game.challengeDeck.active, 'denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
       <span class="numeration" (click)="toggleChallengeDeck()">
         <img src="./assets/images/fh/challenges/challenge.png">
       </span>
