@@ -28,6 +28,8 @@
       <div class="stats" *ngIf="!hideStats">
         <ghs-monster-stats [monster]="monster" [forceStats]="true"> </ghs-monster-stats>
       </div>
+    </div>
+    <div class="container">
       <ng-container *ngFor="let ability of gameManager.abilities(monster);let index = index;">
         <div class="ability" [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}" ghs-pointer-input
           (singleClick)="close()" (doubleClick)="openAbility(ability)">

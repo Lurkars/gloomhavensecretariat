@@ -113,7 +113,8 @@ footer {
     z-index: 2;
   }
 
-  .loot-deck {
+  .loot-deck,
+  .challenge-deck {
     position: fixed;
     left: 0;
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
@@ -134,7 +135,7 @@ footer {
       transform: translateX(-17%);
     }
 
-    &.fully {
+    &.full {
       transform: none;
     }
 
@@ -145,6 +146,37 @@ footer {
     .active-toggle {
       left: initial;
       right: calc(var(--ghs-unit) * -5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    }
+
+    &.challenge-deck {
+      width: calc(var(--ghs-unit) * 50 * var(--ghs-text-factor) * var(--ghs-barsize));
+      bottom: calc(var(--ghs-unit) * 36.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+
+      &.initial {
+        transform: translateX(-69.5%);
+      }
+
+      &.partial {
+        transform: translateX(-37.5%);
+      }
+
+      &.partial-2 {
+        transform: translateX(-17%);
+      }
+
+      &.full {
+        transform: none;
+      }
+
+      &.collapsed {
+        transform: translateX(-100%);
+      }
+
+      .active-toggle {
+        width: 10%;
+        height: 50%;
+      }
+
     }
   }
 

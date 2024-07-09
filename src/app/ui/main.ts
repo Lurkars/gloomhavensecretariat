@@ -234,7 +234,7 @@ export class MainComponent implements OnInit {
     if (this.swUpdate.isEnabled) {
       document.body.addEventListener("click", (event) => {
         if (settingsManager.settings.fullscreen && this.swUpdate.isEnabled) {
-          document.body.requestFullscreen();
+          document.body.requestFullscreen && document.body.requestFullscreen();
         }
       });
     }

@@ -4,6 +4,8 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { FeedbackDialogComponent } from "./feedback/feedback-dialog";
 
+const FILTER_ERRORS: string[] = ["Failed to execute 'setItem' on 'Storage'"];
+
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
 
@@ -20,7 +22,7 @@ export class GhsErrorHandler extends ErrorHandler {
             window.document.body.classList.remove('server-sync');
 
             const errorId = error.message + (error.stack ? error.stack.split('\n')[0] : '');
-            if (!settingsManager.settings.feedbackErrorsIgnore || settingsManager.settings.feedbackErrorsIgnore.indexOf(errorId) == -1) {
+            if (!FILTER_ERRORS.some((msg) => error.message.startsWith(msg)) && (!settingsManager.settings.feedbackErrorsIgnore || settingsManager.settings.feedbackErrorsIgnore.indexOf(errorId) == -1)) {
                 this.dialog.open(FeedbackDialogComponent, {
                     panelClass: ['dialog'],
                     data: error

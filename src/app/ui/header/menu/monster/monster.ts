@@ -82,7 +82,8 @@ export class MonsterMenuComponent {
 
     addMonster(monsterData: MonsterData) {
         gameManager.stateManager.before("addMonster", "data.monster." + monsterData.name);
-        gameManager.monsterManager.addMonster(monsterData, gameManager.game.level);
+        let monster = gameManager.monsterManager.addMonster(monsterData, gameManager.game.level);
+        monster.tags.push('addedManually');
         gameManager.stateManager.after();
     }
 

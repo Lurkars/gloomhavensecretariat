@@ -1314,6 +1314,7 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
+    "consumed": true,
     "blueprint": true,
     "resources": {
       "lumber": 1,

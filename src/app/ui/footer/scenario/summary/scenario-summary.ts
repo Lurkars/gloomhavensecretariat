@@ -358,7 +358,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
             }
 
             if (gameManager.fhRules()) {
-                const townHall = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.state != 'wrecked');
+                const townHall = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked');
                 if (townHall) {
                     if (townHall.level == 1 || townHall.level == 2) {
                         this.numberChallenges = 1;

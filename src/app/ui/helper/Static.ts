@@ -72,7 +72,7 @@ export function ghsDurationLabel(value: number, totalHours: boolean = false): st
 
 export function ghsInputFullScreenCheck(): void {
   if (settingsManager.settings.fullscreen && !!document.fullscreenElement) {
-    document.exitFullscreen();
+    document.exitFullscreen && document.exitFullscreen();
     document.body.classList.add('fullscreen');
   }
   window.addEventListener('focus', ghsInputFullScreenCheckListener, true)
@@ -82,7 +82,7 @@ export function ghsInputFullScreenCheckListener(event: any) {
   setTimeout(() => {
     if (settingsManager.settings.fullscreen && !!!document.fullscreenElement) {
       try {
-        document.body.requestFullscreen();
+        document.body.requestFullscreen && document.body.requestFullscreen();
       } catch (e) { }
       document.body.classList.remove('fullscreen');
     }

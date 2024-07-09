@@ -74,6 +74,8 @@ export class RoundManager {
       if (this.firstRound) {
         gameManager.attackModifierManager.firstRound();
         gameManager.lootManager.firstRound();
+        gameManager.challengesManager.clearDrawn(this.game.challengeDeck, true);
+        this.game.challengeDeck.active = false;
         if (!this.game.scenario) {
           this.game.scenario = new Scenario(new ScenarioData(), [], [], true);
         }
@@ -107,6 +109,13 @@ export class RoundManager {
       }
 
     }
+
+    if (settingsManager.settings.removeUnusedMonster) {
+      this.game.figures.filter((figure) => figure instanceof Monster && figure.off && figure.entities.length == 0 && figure.tags.indexOf('addedManually') == -1).forEach((figure) => {
+        gameManager.monsterManager.removeMonster(figure as Monster);
+      })
+    }
+
     gameManager.uiChange.emit();
     setTimeout(() => this.working = false, 1);
   }
@@ -435,6 +444,10 @@ export class RoundManager {
     this.game.figures = this.game.figures.filter((figure) => figure instanceof Character || this.game.scenario && this.game.scenario.custom);
     this.game.entitiesCounter = [];
     this.game.lootDeck.fromModel(new LootDeck());
+    this.game.challengeDeck.active = false;
+    if (this.game.challengeDeck.cards.length) {
+      gameManager.challengesManager.clearDrawn(this.game.challengeDeck);
+    }
 
     this.game.figures.forEach((figure) => {
       figure.active = false;

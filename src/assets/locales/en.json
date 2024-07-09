@@ -40,6 +40,33 @@
     "sheet": "Global Campaign Management Sheet"
   },
   "cancel": "Cancel",
+  "challenges": {
+    ".": "Challenges",
+    "deck": {
+      "clear": {
+        ".": "Disgard drawn Challenge",
+        "multiple": "Disgard drawn Challenges"
+      },
+      "current": "Current",
+      "finished": "Finished",
+      "hint": {
+        "current": {
+          ".": "Current active Challenge",
+          "multiple": "Current active Challenges"
+        },
+        "drawAvailable": {
+          ".": "Draw Challenge",
+          "multiple": "Draw Challenges"
+        },
+        "select": {
+          ".": "Toggle active Challenge",
+          "multiple": "Toggle active  Challenges"
+        }
+      },
+      "upcoming": "Upcoming"
+    },
+    "disabled": "No challenges set for scenario!"
+  },
   "character": {
     ".": "Character",
     "absent": "Absent",
@@ -2049,6 +2076,10 @@
       ".": "Automatic Feedback",
       "clear": "Clear ignored Automatic Feedback Errors",
       "hint": "Automatically report errors via Feedback Dialog"
+    },
+    "fhChallenges": {
+      ".": "Support for Challenges",
+      "hint": "Draw and automatically apply (if possible) challenge cards from the challenge deck."
     },
     "fhGhItems": {
       ".": "Add Gloomhaven Items",

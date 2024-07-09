@@ -14,6 +14,7 @@ import { LevelComponent } from './level/level';
 import { ScenarioComponent } from './scenario/scenario';
 import { ScenarioConclusionComponent } from './scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from './scenario/summary/scenario-summary';
+import { ChallengeDeckChange } from '../figures/challenges/challenge-deck';
 
 @Component({
   selector: 'ghs-footer',
@@ -154,6 +155,15 @@ export class FooterComponent implements OnInit {
     gameManager.stateManager.after();
   }
 
+  beforeChallengeDeck(change: ChallengeDeckChange) {
+    gameManager.stateManager.before(change.type, ...change.values)
+  }
+
+  afterChallengeDeck(change: ChallengeDeckChange) {
+    gameManager.game.challengeDeck = change.deck;
+    gameManager.stateManager.after();
+  }
+
   confirmTurns() {
     gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
     this.next(true);
@@ -272,8 +282,9 @@ export class FooterComponent implements OnInit {
 
   toggleActiveMonsterAttackModifierDeck() {
     this.beforeMonsterAttackModifierDeck(new AttackModiferDeckChange(gameManager.game.monsterAttackModifierDeck, gameManager.game.monsterAttackModifierDeck.active && (!this.compact || !gameManager.game.lootDeck.active) ? 'amDeckHide' : 'amDeckShow'));
-    if (this.compact && gameManager.game.lootDeck.active) {
+    if (this.compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active)) {
       gameManager.game.lootDeck.active = false;
+      gameManager.game.challengeDeck.active = false;
       gameManager.game.monsterAttackModifierDeck.active = true;
     } else {
       gameManager.game.monsterAttackModifierDeck.active = !gameManager.game.monsterAttackModifierDeck.active;
@@ -287,4 +298,9 @@ export class FooterComponent implements OnInit {
     this.afterLootDeck(new LootDeckChange(gameManager.game.lootDeck, !gameManager.game.lootDeck.active ? 'lootDeckHide' : 'lootDeckShow'));
   }
 
+  toggleChallengeDeck() {
+    this.beforeChallengeDeck(new ChallengeDeckChange(gameManager.game.challengeDeck, gameManager.game.challengeDeck.active ? 'challengeDeckHide' : 'challengeDeckShow'));
+    gameManager.game.challengeDeck.active = !gameManager.game.challengeDeck.active;
+    this.afterChallengeDeck(new ChallengeDeckChange(gameManager.game.challengeDeck, !gameManager.game.challengeDeck.active ? 'challengeDeckHide' : 'challengeDeckShow'));
+  }
 }

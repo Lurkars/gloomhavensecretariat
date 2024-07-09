@@ -406,6 +406,10 @@ export class MonsterManager {
     monster.entities.push(monsterEntity);
     gameManager.addEntityCount(monster, monsterEntity);
 
+    if (monster.tags.indexOf('addedManually') != -1) {
+      monster.tags = monster.tags.filter((tag) => tag != 'addedManually');
+    }
+
     if (summon) {
       monsterEntity.summon = SummonState.new;
     }
@@ -511,6 +515,10 @@ export class MonsterManager {
         }
       } else {
         monster.off = true;
+      }
+
+      if (settingsManager.settings.removeUnusedMonster && monster.entities.length == 0) {
+        this.removeMonster(monster);
       }
     }
   }

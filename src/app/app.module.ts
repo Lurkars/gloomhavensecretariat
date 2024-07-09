@@ -28,6 +28,10 @@ import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { BattleGoalComponent } from './ui/figures/battlegoal/battlegoal';
 import { CharacterBattleGoalsDialog } from './ui/figures/battlegoal/dialog/battlegoal-dialog';
 import { BattleGoalSetupDialog } from './ui/figures/battlegoal/setup/battlegoal-setup';
+import { ChallengeCardComponent } from './ui/figures/challenges/challenge-card';
+import { ChallengeDeckComponent } from './ui/figures/challenges/challenge-deck';
+import { ChallengeDeckDialogComponent } from './ui/figures/challenges/challenge-deck-dialog';
+import { ChallengeDeckFullscreenComponent } from './ui/figures/challenges/challenge-deck-fullscreen';
 import { CharacterImageComponent } from './ui/figures/character/cards/image';
 import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
 import { CharacterInitiativeDialogComponent } from './ui/figures/character/cards/initiative-dialog';
@@ -173,6 +177,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterItemComponent, CharacterItemListComponent, CharacterSheetComponent, CharacterSheetDialog, AbilityCardsDialogComponent, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
     EventCardComponent, EventConditionLabelComponent, EventRewardLabelComponent,
+    ChallengeCardComponent, ChallengeDeckComponent, ChallengeDeckDialogComponent, ChallengeDeckFullscreenComponent,
     ObjectiveContainerComponent,
     SummonEntityComponent, SummonSheetComponent,
     StandeeComponent,

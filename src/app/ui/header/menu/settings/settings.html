@@ -216,6 +216,8 @@
     <div class="line" ghs-setting-menu="fhGhItems"
       [disabled]="!settingsManager.settings.characterItems && !settingsManager.settings.characterSheet || !gameManager.fhRules()">
     </div>
+    <div *ngIf="gameManager.challengesManager.available" class="line" ghs-setting-menu="fhChallenges"
+      [disabled]="!gameManager.fhRules()"></div>
   </div>
 
   <div class="column">
@@ -248,7 +250,8 @@
   <div class="column">
     <div class="line" ghs-setting-menu="turnConfirmation"
       [disabled]="!settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions"></div>
-    <div class="line" [disabled]="!settingsManager.settings.scenarioRules" ghs-setting-menu="scenarioRulesAutoapply"></div>
+    <div class="line" [disabled]="!settingsManager.settings.scenarioRules" ghs-setting-menu="scenarioRulesAutoapply">
+    </div>
     <div class="line" ghs-setting-menu="automaticUnlocking"></div>
     <div class="line" ghs-setting-menu="summons"></div>
     <div class="line" ghs-setting-menu="lootDeck"></div>

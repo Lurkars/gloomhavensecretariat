@@ -104,6 +104,7 @@ export class Settings {
   expireConditions: boolean = true;
   feedbackErrors: boolean = true;
   feedbackErrorsIgnore: string[] = [];
+  fhChallenges: boolean = false;
   fhGhItems: boolean = false;
   fhStyle: boolean = false;
   fontsize: number = 1;

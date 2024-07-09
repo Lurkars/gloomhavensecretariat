@@ -1,6 +1,7 @@
 import { EventEmitter } from "@angular/core";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
+import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
 import { Entity, EntityCounter } from "../model/Entity";
 import { Figure } from "../model/Figure";
@@ -22,9 +23,11 @@ import { ItemData } from "../model/data/ItemData";
 import { MonsterData } from "../model/data/MonsterData";
 import { MonsterStat } from "../model/data/MonsterStat";
 import { ScenarioData } from "../model/data/ScenarioData";
+import { ActionsManager } from "./ActionsManager";
 import { AttackModifierManager } from "./AttackModifierManager";
 import { BattleGoalManager } from "./BattleGoalManager";
 import { BuildingsManager } from "./BuildingsManager";
+import { ChallengesManager } from "./ChallengesManager";
 import { CharacterManager } from "./CharacterManager";
 import { EntityManager } from "./EntityManager";
 import { EventCardManager } from "./EventCardManager";
@@ -38,8 +41,7 @@ import { ScenarioManager } from "./ScenarioManager";
 import { ScenarioRulesManager } from "./ScenarioRulesManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
-import { ActionsManager } from "./ActionsManager";
-import { ghsShuffleArray } from "src/app/ui/helper/Static";
+import { ChallengeCard } from "../model/data/Challenges";
 
 declare global {
   interface Window { gameManager: GameManager }
@@ -69,6 +71,7 @@ export class GameManager {
   battleGoalManager: BattleGoalManager;
   eventCardManager: EventCardManager;
   buildingsManager: BuildingsManager;
+  challengesManager: ChallengesManager;
 
   uiChange = new EventEmitter<boolean>();
 
@@ -89,6 +92,7 @@ export class GameManager {
     this.battleGoalManager = new BattleGoalManager(this.game);
     this.eventCardManager = new EventCardManager(this.game);
     this.buildingsManager = new BuildingsManager(this.game);
+    this.challengesManager = new ChallengesManager(this.game);
     this.uiChange.subscribe({
       next: () => {
         this.checkEntitiesKilled();
@@ -99,12 +103,8 @@ export class GameManager {
           this.scenarioRulesManager.addScenarioRulesAlways();
           this.scenarioRulesManager.applyScenarioRulesAlways();
         }
-        if (settingsManager.settings.removeUnusedMonster) {
-          this.game.figures.filter((figure) => figure instanceof Monster && figure.off && figure.entities.length == 0).forEach((figure) => {
-            this.monsterManager.removeMonster(figure as Monster);
-          })
-        }
         this.roundManager.firstRound = this.game.round == 0 && this.game.roundResets.length == 0 && this.game.roundResetsHidden.length == 0;
+        this.challengesManager.update();
       }
     })
   }
@@ -252,6 +252,10 @@ export class GameManager {
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
     return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition, true).indexOf(edition) != -1)).flatMap((editionData) => editionData.items).filter((itemData, index, items) => (itemData.replace || !itemData.replace && !items.find((itemDataReplacement) => itemDataReplacement.replace && itemDataReplacement.id == itemData.id && itemDataReplacement.edition == itemData.edition)));
+  }
+
+  challengesData(edition: string | undefined = undefined, all: boolean = false): ChallengeCard[] {
+    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition, true).indexOf(edition) != -1)).flatMap((editionData) => editionData.challenges);
   }
 
   conditions(edition: string | undefined = undefined, forceEdition: boolean = false): Condition[] {

@@ -128,9 +128,10 @@
 
   .container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    width: calc(var(--ghs-unit) * 42 * var(--ghs-dialog-factor));
+    min-width: calc(var(--ghs-unit) * 42 * var(--ghs-dialog-factor));
     margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
     .stats {

@@ -69,7 +69,11 @@ export class StorageManager {
         count++;
         backup = localStorage.getItem("ghs-game-backup-" + count);
       }
-      localStorage.setItem("ghs-game-backup-" + count, JSON.stringify(gameModel));
+      try {
+        localStorage.setItem("ghs-game-backup-" + count, JSON.stringify(gameModel));
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 
@@ -113,8 +117,13 @@ export class StorageManager {
           reject();
         };
       } else {
-        localStorage.setItem("ghs-" + store, JSON.stringify(object));
-        resolve();
+        try {
+          localStorage.setItem("ghs-" + store, JSON.stringify(object));
+          resolve();
+        } catch (e) {
+          console.error(e);
+          reject();
+        }
       }
     })
   }
@@ -210,11 +219,17 @@ export class StorageManager {
         for (let index = 0; index < objects.length; index++) {
           const object = objects[index];
           await this.write(store, undefined, object).catch(() => reject());
+          resolve();
         };
       } else {
-        localStorage.setItem("ghs-" + store, JSON.stringify(objects));
+        try {
+          localStorage.setItem("ghs-" + store, JSON.stringify(objects));
+          resolve();
+        } catch (e) {
+          console.error(e);
+          reject();
+        }
       }
-      resolve();
     })
   }
 

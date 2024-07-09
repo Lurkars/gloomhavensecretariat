@@ -1,0 +1,278 @@
+.deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .challenge-container {
+        position: absolute;
+        width: 30%;
+        padding-top: 45%;
+        bottom: 0;
+        right: 0;
+    }
+
+    .challenge-card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+        display: block;
+        transition: filter 1000ms ease-in-out;
+    }
+
+    .draw {
+
+        .challenge-card {
+            cursor: pointer;
+            background-position: center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-image: url('~src/assets/images/fh/challenges/challenge-back.png');
+            border-radius: 5%;
+            transition: filter 1000ms ease-in-out;
+
+            .number {
+                display: flex;
+                align-items: center;
+                color: var(--ghs-color-gray);
+                text-shadow: var(--ghs-outline);
+                position: absolute;
+                font-size: 2em;
+                line-height: 1em;
+                left: 5%;
+                bottom: 0%;
+                z-index: 500;
+            }
+
+            &.disabled {
+                cursor: initial;
+                filter: grayscale(0.7);
+
+                &:hover {
+                    transition: filter 250ms linear, transform 0.8s cubic-bezier(0.75, 0, 0.85, 1), top 0.5s linear, left 0.5s linear;
+                    filter: grayscale(15%);
+                }
+            }
+        }
+
+        .settings,
+        .fullscreen {
+            cursor: pointer;
+            position: absolute;
+            right: -14%;
+            font-family: "ghs-title";
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            color: var(--ghs-color-white);
+            width: 22%;
+            height: 15%;
+            background-position: center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
+            transition: transform 500ms ease-in-out;
+            transform: scale(1.1);
+
+            &.minimize {
+                transform: scale(0);
+            }
+
+            &.fullscreen {
+                cursor: zoom-in;
+                bottom: 32.5%;
+            }
+
+            &.settings {
+                cursor: help;
+                bottom: -4%;
+
+                &.without-fullscreen {
+                    top: 50%;
+                    bottom: initial;
+                    transform: translateY(-50%);
+                }
+            }
+
+            img {
+                height: 60%;
+                width: auto;
+                align-self: center;
+                filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+            }
+
+            &:hover {
+                img {
+                    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                }
+            }
+        }
+    }
+
+    @keyframes challenge-draw {
+        0% {
+            transform: scale(1) translate(102%, 16.5%);
+        }
+
+        35%,
+        70% {
+            transform: scale(1.1) translate(51%, 25%);
+        }
+
+        100% {
+            transform: scale(1) translate(0, 0);
+        }
+    }
+
+    @keyframes challenge-draw-bottom {
+        0% {
+            transform: scale(1) translate(102%, -16.5%);
+        }
+
+        35%,
+        70% {
+            transform: scale(1.6) translate(110%, -90%);
+        }
+
+        100% {
+            transform: scale(1) translate(0, 0);
+        }
+    }
+
+    @keyframes challenge-last {
+        0% {
+            right: 42%;
+            transform: rotate(0);
+        }
+
+        70% {
+            right: 42%;
+            transform: rotate(0);
+        }
+
+        100% {
+            right: 75%;
+            transform: rotate(-5deg);
+        }
+    }
+
+    .current {
+        position: absolute;
+        bottom: 0;
+        right: 31.5%;
+        z-index: 1;
+    }
+
+    .disgarded {
+        position: absolute;
+        bottom: 0;
+        right: 55%;
+        transform: rotate(-5deg);
+        z-index: 0;
+
+        &.last:hover {
+            z-index: 100 !important;
+        }
+    }
+
+    &.drawing {
+
+        .draw {
+            cursor: wait !important;
+        }
+
+        .current {
+            cursor: wait !important;
+            animation: challenge-draw 1800ms ease-in-out;
+            animation-iteration-count: 1;
+
+            &.bottom {
+                animation: challenge-draw-bottom 1800ms ease-in-out;
+            }
+        }
+
+        .last {
+            cursor: wait !important;
+            animation: challenge-last 1800ms ease-in-out;
+            animation-iteration-count: 1;
+        }
+    }
+
+    .unkept {
+        filter: grayscale(0.9);
+    }
+
+}
+
+.vertical {
+
+    .challenge-container {
+        top: 0;
+        bottom: initial;
+        left: 0;
+    }
+
+    .current {
+        top: 0;
+        bottom: initial;
+        position: absolute;
+        transform: translateY(110%);
+        z-index: 1;
+    }
+
+    .disgarded,
+    .last {
+        position: absolute;
+        top: 0;
+        bottom: initial;
+        left: 30%;
+        transform: translateY(118%) rotate(5deg);
+        z-index: 0;
+    }
+
+
+    @keyframes challenge-draw-vertical {
+        0% {
+            transform: scale(1);
+        }
+
+        35%,
+        70% {
+            transform: scale(1.1) translate(15%, 125%);
+        }
+
+        100% {
+            transform: scale(1) translateY(110%);
+        }
+    }
+
+    @keyframes challenge-last-vertical {
+        0% {
+            left: 0;
+            transform: translateY(110%) rotate(0);
+        }
+
+        70% {
+            left: 0;
+            transform: translateY(110%) rotate(0);
+        }
+
+        100% {
+            left: 30%;
+            transform: translateY(118%) rotate(5deg);
+        }
+    }
+
+    &.drawing {
+
+        .current {
+            animation: challenge-draw-vertical 1000ms ease-in-out;
+        }
+
+        .last {
+            animation: challenge-last-vertical 1000ms ease-in-out;
+        }
+    }
+}

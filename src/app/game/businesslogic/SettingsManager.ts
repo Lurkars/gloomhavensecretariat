@@ -176,9 +176,9 @@ export class SettingsManager {
   async apply(setting: string, value: any) {
     if (setting === 'fullscreen') {
       if (value) {
-        document.body.requestFullscreen();
+        document.body.requestFullscreen && document.body.requestFullscreen();
       } else {
-        document.exitFullscreen();
+        document.exitFullscreen && document.exitFullscreen();
       }
     } else if (setting === 'locale') {
       await this.updateLocale(value as string);
@@ -358,6 +358,7 @@ export class SettingsManager {
           value.conditions = value.conditions || [];
           value.battleGoals = value.battleGoals || [];
           value.events = value.events || [];
+          value.challenges = value.challenges || [];
           value.personalQuests = value.personalQuests || [];
           value.label = value.label || {};
           value.labelSpoiler = value.labelSpoiler || {};
@@ -410,6 +411,16 @@ export class SettingsManager {
               }
             })
           }
+
+          value.challenges.map((challenge, index) => {
+            if (!challenge.edition) {
+              challenge.edition = value.edition;
+            }
+            if (!challenge.cardId) {
+              challenge.cardId = (index + 1);
+            }
+            return challenge;
+          })
 
           gameManager.editionData.push(value);
           gameManager.editionData.sort((a, b) => {
