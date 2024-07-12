@@ -42,6 +42,10 @@
           "state": "inert"
         },
         {
+          "type": "air",
+          "state": "inert"
+        },
+        {
           "type": "earth",
           "state": "inert"
         }
