@@ -49,17 +49,14 @@ export class FeedbackDialogComponent {
         scenario.allied = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isAllied).map((figure) => (figure as Monster).name);
         scenario.drawExtra = gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.drawExtra).map((figure) => (figure as Monster).name);
         scenario.objectives = gameManager.game.figures.filter((figure) => figure instanceof ObjectiveContainer).map((figure) => {
-            if (figure instanceof ObjectiveContainer) {
-                if (figure.objectiveId) {
-                    const objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId);
-                    if (objectiveData) {
-                        return objectiveData;
-                    }
+            if (figure.objectiveId) {
+                const objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId);
+                if (objectiveData) {
+                    return objectiveData;
                 }
-                const objective = figure as ObjectiveContainer;
-                return new ObjectiveData(objective.name, objective.health, objective.escort, -1, objective.marker, [], objective.initiative);
             }
-            return new ObjectiveData(figure.name, 0, false);
+            const objective = figure as ObjectiveContainer;
+            return new ObjectiveData(objective.name, objective.health, objective.escort, -1, objective.marker, [], objective.initiative);
         });
         scenario.rooms = gameManager.game.scenario?.rooms || [];
         scenario.marker = gameManager.game.scenario?.marker || "";
