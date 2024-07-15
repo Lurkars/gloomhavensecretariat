@@ -219,8 +219,8 @@ export class StorageManager {
         for (let index = 0; index < objects.length; index++) {
           const object = objects[index];
           await this.write(store, undefined, object).catch(() => reject());
-          resolve();
         };
+        resolve();
       } else {
         try {
           localStorage.setItem("ghs-" + store, JSON.stringify(objects));

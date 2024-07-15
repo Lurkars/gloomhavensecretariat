@@ -22,7 +22,7 @@ export class GhsErrorHandler extends ErrorHandler {
             window.document.body.classList.remove('server-sync');
 
             const errorId = error.message + (error.stack ? error.stack.split('\n')[0] : '');
-            if (!FILTER_ERRORS.some((msg) => error.message.startsWith(msg)) && (!settingsManager.settings.feedbackErrorsIgnore || settingsManager.settings.feedbackErrorsIgnore.indexOf(errorId) == -1)) {
+            if (error.message && error.message.trim() && !FILTER_ERRORS.some((msg) => error.message.startsWith(msg)) && (!settingsManager.settings.feedbackErrorsIgnore || settingsManager.settings.feedbackErrorsIgnore.indexOf(errorId) == -1)) {
                 this.dialog.open(FeedbackDialogComponent, {
                     panelClass: ['dialog'],
                     data: error

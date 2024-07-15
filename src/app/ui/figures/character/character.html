@@ -294,6 +294,8 @@
     </div>
 
     <div class="special-actions" *ngIf="character.specialActions">
+      <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+        (doubleClick)="compact && openCharacterSheet()"></div>
       <ng-container *ngFor="let specialAction of character.specialActions">
         <span *ngIf="character.tags.indexOf(specialAction.name) != -1" class="special-tag text-white"
           [ghs-label]="'data.character.' + character.name + '.' + specialAction.name" ghs-pointer-input

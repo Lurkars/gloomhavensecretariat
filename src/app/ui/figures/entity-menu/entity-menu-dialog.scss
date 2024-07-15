@@ -320,7 +320,8 @@
   }
 
 
-  .marker-container {
+  .marker-container,
+  .identities-container {
     display: grid;
     grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
     row-gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
@@ -330,7 +331,6 @@
     grid-column: 1 / span 3;
 
     .item {
-
       position: relative;
       display: flex;
       align-items: center;
@@ -347,6 +347,11 @@
       &:hover {
         border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
         border-radius: 100%;
+      }
+
+      &.disabled img {
+        filter: grayscale(0.7);
+        opacity: 0.7;
       }
 
     }

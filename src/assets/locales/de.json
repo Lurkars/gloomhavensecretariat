@@ -2476,6 +2476,7 @@
       "setEntitySummonState": "Beschwörung {3} für {1} Aufsteller {2} von {0}",
       "setExhausted": "{0} erschöpft",
       "setGold": "Gold {1} für {0}",
+      "setIdentity": "Setze Form auf %data.character.{1}.{2}% für {0}",
       "setInitiative": "Initiative {1} für {0}",
       "setLevel": "Level {1} für {0}",
       "setNotes": "Notizen \"{1}\" für {0} ",

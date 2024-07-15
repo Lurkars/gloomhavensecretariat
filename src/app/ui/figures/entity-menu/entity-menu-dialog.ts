@@ -6,6 +6,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Character } from "src/app/game/model/Character";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
+import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { OBJECTIV_MARKERS, ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
@@ -837,9 +838,20 @@ export class EntityMenuDialogComponent {
     this.titles[index] = event.target.value;
   }
 
+  setIdentity(index: number) {
+    if (this.data.entity instanceof Character && index != this.data.entity.identity) {
+      let timeTokens = this.data.entity.tags.find((tag) => tag === 'time_tokens') && this.data.entity.primaryToken == 0;
+      if ((gameManager.game.state == GameState.next || gameManager.game.state == GameState.draw && this.data.entity.identity == 0 && this.data.entity.tokenValues[0] == 0) && timeTokens) {
+        return;
+      }
+
+      gameManager.stateManager.before("setIdentity", gameManager.characterManager.characterName(this.data.entity, false, false, false), this.data.entity.name, this.data.entity.identities[index]);
+      this.data.entity.identity = index;
+      gameManager.stateManager.after();
+    }
+  }
+
   close(): void {
-    this.closeConditions();
-    this.closeAMs();
     if (this.data.entity instanceof Character) {
       this.closeCharacter();
     } else if (this.data.figure instanceof Monster) {
@@ -851,6 +863,8 @@ export class EntityMenuDialogComponent {
     } else if (this.data.figure instanceof ObjectiveContainer) {
       this.closeObjectiveContainer();
     }
+    this.closeAMs();
+    this.closeConditions();
   }
 
   closeCharacter(): void {

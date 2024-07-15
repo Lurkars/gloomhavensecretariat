@@ -2686,6 +2686,7 @@
       "setEntitySummonState": "Set summon {3} for {1} standee {2} of {0}",
       "setExhausted": "{0} exhausted",
       "setGold": "Gold {1} for {0}",
+      "setIdentity": "Set form of {0} to %data.character.{1}.{2}%",
       "setInitiative": "Initiative {1} for {0}",
       "setLevel": "Level {1} for {0}",
       "setNotes": "Notes \"{1}\" for {0}",
