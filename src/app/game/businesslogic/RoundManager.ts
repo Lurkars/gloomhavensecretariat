@@ -277,40 +277,55 @@ export class RoundManager {
       });
     }
 
-    if (!skipSummons && figure instanceof Character && settingsManager.settings.activeSummons && gameManager.entityManager.isAlive(figure)) {
-      const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
-      const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1);
+    if (figure instanceof Character && gameManager.entityManager.isAlive(figure)) {
+      if (!skipSummons && settingsManager.settings.activeSummons) {
+        const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
+        const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1);
 
-      figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
-        prevSummon.active = false;
-        if (settingsManager.settings.expireConditions) {
-          gameManager.entityManager.expireConditions(prevSummon);
-        }
-        if (settingsManager.settings.applyConditions && (!activeSummon || index > 0)) {
-          gameManager.entityManager.applyConditionsTurn(prevSummon, figure);
-          gameManager.entityManager.applyConditionsAfter(prevSummon, figure);
-        }
-      })
-
-      if (nextSummon) {
-        nextSummon.active = true;
-        if (settingsManager.settings.applyConditions) {
-          gameManager.entityManager.applyConditionsTurn(nextSummon, figure);
-        }
-        if (nextSummon.dead) {
-          this.turn(figure);
-        }
-      } else {
-        this.game.elementBoard.forEach((element) => {
-          if (element.state == ElementState.new) {
-            element.state = ElementState.strong;
+        figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
+          prevSummon.active = false;
+          if (settingsManager.settings.expireConditions) {
+            gameManager.entityManager.expireConditions(prevSummon);
+          }
+          if (settingsManager.settings.applyConditions && (!activeSummon || index > 0)) {
+            gameManager.entityManager.applyConditionsTurn(prevSummon, figure);
+            gameManager.entityManager.applyConditionsAfter(prevSummon, figure);
           }
         })
-        figure.summons.forEach((summon) => {
-          if (summon.active) {
-            summon.active = false;
+
+        if (nextSummon) {
+          nextSummon.active = true;
+          if (settingsManager.settings.applyConditions) {
+            gameManager.entityManager.applyConditionsTurn(nextSummon, figure);
           }
-        });
+          if (nextSummon.dead) {
+            this.turn(figure);
+          }
+        } else {
+          this.game.elementBoard.forEach((element) => {
+            if (element.state == ElementState.new) {
+              element.state = ElementState.strong;
+            }
+          })
+          figure.summons.forEach((summon) => {
+            if (summon.active) {
+              summon.active = false;
+            }
+          });
+        }
+      } else {
+        figure.summons.forEach((summon) => {
+          summon.active = false;
+          if (gameManager.entityManager.isAlive(summon)) {
+            if (settingsManager.settings.expireConditions) {
+              gameManager.entityManager.expireConditions(summon);
+            }
+            if (settingsManager.settings.applyConditions) {
+              gameManager.entityManager.applyConditionsTurn(summon, figure);
+              gameManager.entityManager.applyConditionsAfter(summon, figure);
+            }
+          }
+        })
       }
     }
 
