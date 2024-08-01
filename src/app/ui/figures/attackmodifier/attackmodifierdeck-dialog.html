@@ -12,10 +12,10 @@
       <a *ngIf="hasDrawnDiscards()" (click)="removeDrawnDiscards()"><span
           [ghs-label]="'game.cards.removeDrawnDiscards'"></span></a>
 
-      <label *ngIf="!gameManager.bbRules()"><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
+      <label *ngIf="!gameManager.bbRules() || !settingsManager.settings.bbAm"><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
           [ghs-label]="'game.cards.edit'"></span></label>
 
-      <label *ngIf="gameManager.bbRules()"><input type="checkbox" (click)="toggleBB()" [checked]="edit"><span
+      <label *ngIf="gameManager.bbRules() && settingsManager.settings.bbAm"><input type="checkbox" (click)="toggleBB()" [checked]="bbTable"><span
           [ghs-label]="'game.cards.edit.toggleBB'"></span></label>
 
       <div class="curse-bless" *ngIf="!gameManager.bbRules() && !edit && !townGuard">

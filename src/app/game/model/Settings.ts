@@ -49,6 +49,9 @@ export class Settings {
   battleGoalsCharacter: boolean = false;
   battleGoalsFh: boolean = false;
   battleGoalsReminder: boolean = true;
+  bbAm: boolean = true;
+  bbChars: boolean = true;
+  bbStandeeLimit: boolean = true;
   browserNavigation: boolean = false;
   buildingEffectsVisible: boolean = false;
   buildingInteractionsVisible: boolean = false;

@@ -2,6 +2,7 @@ import { registerLocaleData } from "@angular/common";
 import localeDe from '@angular/common/locales/de';
 import localeFr from '@angular/common/locales/fr';
 import localeKo from '@angular/common/locales/ko';
+import { Character } from "../model/Character";
 import { Settings } from "../model/Settings";
 import { BuildingData } from "../model/data/BuildingData";
 import { EditionData } from "../model/data/EditionData";
@@ -200,6 +201,13 @@ export class SettingsManager {
       } else {
         this.settings.fhStyle = false;
       }
+    } else if (setting === 'bbAm') {
+      gameManager.game.monsterAttackModifierDeck.bb = value || false;
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          figure.attackModifierDeck.bb = value || false;
+        }
+      })
     }
   }
 

@@ -452,7 +452,7 @@ export class RoundManager {
       const editionData = gameManager.editionData.find((editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length);
       if (editionData) {
         const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
-        this.game.monsterAttackModifierDeck = new AttackModifierDeck(editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType)), true);
+        this.game.monsterAttackModifierDeck = new AttackModifierDeck(editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType)), settingsManager.settings.bbAm);
       }
     }
 

@@ -2,12 +2,12 @@ import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { AttackModifier, AttackModifierDeck, AttackModifierType, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
-import { AttackModiferDeckChange } from "./attackmodifierdeck";
 import { ConditionName } from "src/app/game/model/data/Condition";
+import { AttackModiferDeckChange } from "./attackmodifierdeck";
 
 @Component({
   selector: 'ghs-attackmodifier-deck-dialog',
@@ -24,6 +24,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   @ViewChild('menu') menuElement!: ElementRef;
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   reveal: number = 0;
   edit: boolean = false;
@@ -76,6 +77,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   toggleEdit() {
     this.edit = !this.edit;
+    this.bbTable = false;
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
     }, 0);
@@ -83,6 +85,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   toggleBB() {
     this.bbTable = !this.bbTable;
+    this.edit = false;
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
     }, 0);
@@ -149,7 +152,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       const editionData = gameManager.editionData.find((editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length);
       if (editionData) {
         const monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
-        this.deck = new AttackModifierDeck(editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType)), true);
+        this.deck = new AttackModifierDeck(editionData.monsterAmTables[monsterDifficulty].map((value) => new AttackModifier(value as AttackModifierType)), settingsManager.settings.bbAm);
       } else {
         this.deck = new AttackModifierDeck();
       }

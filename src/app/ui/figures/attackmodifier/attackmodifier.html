@@ -105,6 +105,10 @@
           <img [src]="'./assets/images/bb/attackmodifier/' + bbIndex + '.svg'" />
         </div>
 
+        <span *ngIf="attackModifier.shuffle" class="shuffle-icon">
+          <img class="svg-icon" src="./assets/images/shuffle.svg" />
+        </span>
+
       </ng-container>
 
       <ng-container *ngIf="townGuard">

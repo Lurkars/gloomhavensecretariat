@@ -325,7 +325,7 @@ export class AttackModifierManager {
           am.id = 'bb-' + character.level + '-' + index;
           return am;
         }
-      }), true);
+      }), settingsManager.settings.bbAm);
     }
 
     const attackModifierDeck = new AttackModifierDeck();

@@ -378,6 +378,10 @@ export class MonsterManager {
   }
 
   monsterStandeeMax(monster: Monster): number {
+    if (monster.bb && !settingsManager.settings.bbStandeeLimit) {
+      return 10;
+    }
+
     let max = EntityValueFunction(monster.standeeCount || monster.count || 0, monster.level);
     if ((!max || !monster.standeeCount) && monster.standeeShare) {
       const share = gameManager.monstersData(monster.standeeShareEdition || monster.edition).find((value) => value.name == monster.standeeShare);

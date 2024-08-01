@@ -49,7 +49,7 @@
       <div class="separator"></div>
 
       <div class="line"
-        [ngClass]="{'disabled' : characters().length > 0 && gameManager.bbRules(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
+        [ngClass]="{'disabled' : characters().length > 0 && gameManager.bbRules() && settingsManager.settings.bbChars, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
         <a tabclick (click)="setActive(SubMenu.character_add)"><span [ghs-label]="'character.add'"></span></a>
       </div>
       <div class="line"

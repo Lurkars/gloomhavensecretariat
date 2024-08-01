@@ -626,10 +626,40 @@
         background-color: var(--ghs-color-bb-4);
       }
 
+      &.bb-5 {
+        background-color: var(--ghs-color-bb-5);
+      }
+
+      &.bb-6 {
+        background-color: var(--ghs-color-bb-6);
+      }
+
+      &.bb-7 {
+        background-color: var(--ghs-color-bb-7);
+      }
+
+      &.bb-8 {
+        background-color: var(--ghs-color-bb-8);
+      }
+
+      &.bb-9 {
+        background-color: var(--ghs-color-bb-9);
+      }
+
+      &.bb-10 {
+        background-color: var(--ghs-color-bb-10);
+      }
+
       &.bb-1,
       &.bb-2,
       &.bb-3,
-      &.bb-4 {
+      &.bb-4,
+      &.bb-5,
+      &.bb-6,
+      &.bb-7,
+      &.bb-8,
+      &.bb-9,
+      &.bb-10 {
         .value {
           color: var(--ghs-color-white);
           filter: var(--ghs-filter-shadow);

@@ -330,6 +330,28 @@
     }
   }
 
+  .front .shuffle-icon {
+    position: absolute;
+    right: 8.5%;
+    top: 67.5%;
+    z-index: 2;
+    width: 14%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-image: url('~src/assets/images/attackmodifier/am-shuffle-icon.png');
+
+    img {
+      filter: var(--ghs-filter-white);
+      height: 70%;
+      width: auto;
+    }
+  }
+
   .front .town-guard-icon {
     position: absolute;
     left: 7.5%;

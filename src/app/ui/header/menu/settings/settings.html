@@ -242,6 +242,23 @@
       [disabled]="!settingsManager.settings.alwaysFhAdvantage && !gameManager.fhRules()"></div>
   </div>
 
+
+  <ng-container *ngIf="gameManager.bbRules()">
+    <div class="separator"></div>
+
+    <!-- BUTTON&BUGS -->
+    <div class="line title span" ghs-setting-title-menu="bbRules" [sync]="true"></div>
+
+    <div class="column">
+      <div class="line" ghs-setting-menu="bbChars"></div>
+      <div class="line" ghs-setting-menu="bbAm" [disabled]="!settingsManager.settings.monsterAttackModifierDeck"></div>
+    </div>
+
+    <div class="column">
+      <div class="line" ghs-setting-menu="bbStandeeLimit" [disabled]="!settingsManager.settings.standees"></div>
+    </div>
+  </ng-container>
+
   <div class="separator"></div>
 
   <!-- ADDITIONAL -->
