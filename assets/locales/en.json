@@ -1897,6 +1897,19 @@
       ".": "Battle Goals Reminder",
       "hint": "Show a reminder before first round if not all characters has choosen their Battle Goal."
     },
+    "bbAm": {
+      ".": "Roll dice for AM",
+      "hint": "Roll dice to determine next Attack Modifier. If disabled, the normal Attack Modifier usage as a shuffled deck is used."
+    },
+    "bbChars": {
+      ".": "Character Limit",
+      "hint": "Just allow one character as usual solo play. If disabled, mutliple characters can be added."
+    },
+    "bbRules": "Button & Bugs Rules",
+    "bbStandeeLimit": {
+      ".": "Limit Monster Standees",
+      "hint": "Use the default limit of 4 standees for all monsters. If disabled up to 10 standees can be added."
+    },
     "bonusAdjustment": {
       ".": "Level bonuses adjustment",
       "hint": ""

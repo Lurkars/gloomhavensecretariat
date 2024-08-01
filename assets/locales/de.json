@@ -1709,6 +1709,19 @@
       ".": "Kampfziele Errinerung",
       "hint": "Zeigt eine Errinnerung vor dem Start der ersten Runde falls noch nicht alle Charaktere ihr Kampfziel festgelegt haben."
     },
+    "bbAm": {
+      ".": "Würfeln für AM",
+      "hint": "Einen Würfel werfen um den nächsten Angrifssmodifikator zu bestimmen. Falls deaktiviert wird die normale Mechanik eines gemischten Angriffsmodifikatordecks verwendet."
+    },
+    "bbChars": {
+      ".": "Charakteranzahl beschränken",
+      "hint": "Erlaube maximal einen Charakter als normale Solo-Variante. Falls deaktiviert können beliebig viele Charaktere hinzugefügt werden."
+    },
+    "bbRules": "Button & Bugs Regeln",
+    "bbStandeeLimit": {
+      ".": "Monster Aufsteller beschränken",
+      "hint": "Verwende das normale Limit von maximal 4 Aufstellern. Falls deaktiviert können bis zu 10 Aufsteller hinzugefügt werden."
+    },
     "bonusAdjustment": {
       ".": "Anpassung Boni Szenariostufe",
       "hint": ""
