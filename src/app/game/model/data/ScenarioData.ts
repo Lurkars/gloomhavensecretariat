@@ -140,6 +140,7 @@ export class ScenarioRewards {
   calendarSection: string[] = [];
   calendarSectionConditional: string[] = [];
   calendarSectionManual: { section: string, hint: string }[] = [];
+  calendarIgnore: boolean = false;
   lootDeckCards: number[] = [];
   removeLootDeckCards: number[] = [];
   townGuardAm: string[] = [];

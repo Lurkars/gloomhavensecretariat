@@ -287,7 +287,7 @@ export class ScenarioManager {
       if (restart) {
         gameManager.scenarioManager.setScenario(scenario);
       } else {
-        if (scenario && !scenario.conclusion && gameManager.fhRules() && !linkedScenario && settingsManager.settings.automaticPassTime && !scenario.solo && settingsManager.settings.partySheet && !internal && gainRewards) {
+        if (scenario && !scenario.conclusion && (!rewards || !rewards.calendarIgnore) && gameManager.fhRules() && !linkedScenario && settingsManager.settings.automaticPassTime && !scenario.solo && settingsManager.settings.partySheet && !internal && gainRewards) {
 
           this.game.party.weeks++;
 
