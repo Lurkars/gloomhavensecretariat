@@ -316,6 +316,9 @@ export class RoundManager {
       } else {
         figure.summons.forEach((summon) => {
           summon.active = false;
+          if (settingsManager.settings.applyConditions) {
+            gameManager.entityManager.applyConditionsTurn(summon, figure);
+          }
         })
       }
     }
@@ -392,7 +395,6 @@ export class RoundManager {
               gameManager.entityManager.expireConditions(summon);
             }
             if (settingsManager.settings.applyConditions) {
-              gameManager.entityManager.applyConditionsTurn(summon, figure);
               gameManager.entityManager.applyConditionsAfter(summon, figure);
             }
           }
