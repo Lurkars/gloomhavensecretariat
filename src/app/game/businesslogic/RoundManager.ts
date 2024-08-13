@@ -316,15 +316,6 @@ export class RoundManager {
       } else {
         figure.summons.forEach((summon) => {
           summon.active = false;
-          if (gameManager.entityManager.isAlive(summon)) {
-            if (settingsManager.settings.expireConditions) {
-              gameManager.entityManager.expireConditions(summon);
-            }
-            if (settingsManager.settings.applyConditions) {
-              gameManager.entityManager.applyConditionsTurn(summon, figure);
-              gameManager.entityManager.applyConditionsAfter(summon, figure);
-            }
-          }
         })
       }
     }
@@ -391,6 +382,21 @@ export class RoundManager {
           this.turn(figure);
           activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
         }
+      }
+
+      if (figure instanceof Character && !settingsManager.settings.activeSummons) {
+        figure.summons.forEach((summon) => {
+          summon.active = false;
+          if (gameManager.entityManager.isAlive(summon)) {
+            if (settingsManager.settings.expireConditions) {
+              gameManager.entityManager.expireConditions(summon);
+            }
+            if (settingsManager.settings.applyConditions) {
+              gameManager.entityManager.applyConditionsTurn(summon, figure);
+              gameManager.entityManager.applyConditionsAfter(summon, figure);
+            }
+          }
+        })
       }
 
       if (figure instanceof Character && figure.name == 'fist' && figure.tags.indexOf('gift-of-the-mountain') != -1 && (figure.health < EntityValueFunction(figure.maxHealth, figure.level) || figure.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired))) {
