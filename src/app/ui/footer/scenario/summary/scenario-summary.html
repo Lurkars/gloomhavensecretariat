@@ -666,7 +666,8 @@
       <div class="reward" *ngIf="hasBonus()">
         <label><span [ghs-label]="'scenario.rewards.bonus'"></span>:</label>
         <div class="list">
-          <div class="item inspiration" *ngIf="gameManager.fhRules() && EntityValueFunction('4-C')">
+          <div class="item inspiration"
+            *ngIf="gameManager.fhRules() && EntityValueFunction('4-C') && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('inspiration') == -1)">
             <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['' + (EntityValueFunction('4-C') |
               ghsValueSign) ]"></span> </span>
           </div>

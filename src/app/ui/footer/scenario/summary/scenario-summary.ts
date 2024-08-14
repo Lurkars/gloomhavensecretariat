@@ -392,7 +392,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
     }
 
     hasBonus(): boolean {
-        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && (gameManager.fhRules() && gameManager.characterManager.characterCount() < 4 || this.numberChallenges > 0);
+        return ((gameManager.game.party.campaignMode || this.forceCampaign) && this.success && !this.conclusionOnly && !this.scenario.solo) && (gameManager.fhRules() && (gameManager.characterManager.characterCount() < 4 && (!this.rewards || !this.rewards.ignoredBonus || this.rewards.ignoredBonus.indexOf('inspiration') == -1)) || this.numberChallenges > 0);
     }
 
     addWeek(): boolean {
