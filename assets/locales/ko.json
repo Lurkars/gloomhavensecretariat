@@ -40,6 +40,33 @@
     "sheet": "전역 캠페인 관리 기록지"
   },
   "cancel": "취소",
+  "challenges": {
+    ".": "도전",
+    "deck": {
+      "clear": {
+        ".": "뽑은 도전 카드 버리기",
+        "multiple": "뽑은 도전 카드 버리기"
+      },
+      "current": "현재",
+      "finished": "완료",
+      "hint": {
+        "current": {
+          ".": "현재 활성화된 도전",
+          "multiple": "현재 활성화된 도전"
+        },
+        "drawAvailable": {
+          ".": "도전 카드 뽑기",
+          "multiple": "도전 카드 뽑기"
+        },
+        "select": {
+          ".": "활성화 도전 카드 전환",
+          "multiple": "활성화 도전 카드 전환"
+        }
+      },
+      "upcoming": "예정"
+    },
+    "disabled": "시나리오에 준비된 도전 카드가 없음!"
+  },
   "character": {
     ".": "캐릭터",
     "absent": "부재",
@@ -2050,6 +2077,10 @@
       "clear": "Clear ignored Automatic Feedback Errors",
       "hint": "Automatically report errors via Feedback Dialog"
     },
+    "fhChallenges": {
+      ".": "도전 규칙 지원",
+      "hint": "(가능하다면) 도전 덱에서 도전 카드를 뽑고 자동으로 적용."
+    },
     "fhGhItems": {
       ".": "글룸헤이븐 아이템 추가",
       "hint": "규칙에 명시된 대로 글룸헤이븐 및 잊힌 비술의 아이템을 사용 가능한 보급품에 추가합니다. (활성화된 캐릭터 시트 또는 캐릭터 아이템 한정)"
@@ -2655,6 +2686,7 @@
       "setEntitySummonState": "소환된 {1} {0} 몬스터 말 {2}번을 {3} 상태로 설정",
       "setExhausted": "{0} 탈진",
       "setGold": "{0}의 금화 {1}개",
+      "setIdentity": "Set form of {0} to %data.character.{1}.{2}%",
       "setInitiative": "{0}의 주도권 {1}",
       "setLevel": "{0}의 레벨을 변경: {1}",
       "setNotes": "{0}의 메모 사항 변경",
