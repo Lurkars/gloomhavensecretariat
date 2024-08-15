@@ -1,0 +1,49 @@
+{
+  "name": "cragheart",
+  "characterClass": "savvas",
+  "icon": "gh-cragheart",
+  "edition": "gh2e",
+  "handSize": 11,
+  "color": "#828b3b",
+  "stats": [
+    {
+      "level": 1,
+      "health": 10
+    },
+    {
+      "level": 2,
+      "health": 12
+    },
+    {
+      "level": 3,
+      "health": 14
+    },
+    {
+      "level": 4,
+      "health": 16
+    },
+    {
+      "level": 5,
+      "health": 18
+    },
+    {
+      "level": 6,
+      "health": 20
+    },
+    {
+      "level": 7,
+      "health": 22
+    },
+    {
+      "level": 8,
+      "health": 24
+    },
+    {
+      "level": 9,
+      "health": 26
+    }
+  ],
+  "availableSummons": [],
+  "perkWarning": true,
+  "perks": []
+}

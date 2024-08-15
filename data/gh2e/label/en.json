@@ -1,0 +1,13 @@
+{
+  "character": {
+    "bruiser": "Bruiser",
+    "cragheart": "Cragheart",
+    "mindthief": "Mindthief",
+    "silent-knife": "Silent Knife",
+    "spellweaver": "Spellweaver",
+    "tinkerer": "Tinkerer"
+  },
+  "edition": {
+    "gh2e": "Gloomhaven Second Edition (%wip%)"
+  }
+}
