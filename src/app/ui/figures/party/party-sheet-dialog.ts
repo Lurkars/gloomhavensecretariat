@@ -1079,7 +1079,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       gameManager.stateManager.before("setPartySoldiers", "" + value);
       this.party.soldiers = value;
       gameManager.stateManager.after();
-    } else if (this.soldierAvailable()) {
+    } else if (this.soldierAvailable() && value == this.party.soldiers + 1) {
       this.dialog.open(BuildingUpgradeDialog, {
         panelClass: ['dialog'],
         data: {
