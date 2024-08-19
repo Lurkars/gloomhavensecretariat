@@ -44,7 +44,207 @@
       "health": 14
     }
   ],
-  "availableSummons": [],
-  "perkWarning": true,
-  "perks": []
+  "availableSummons": [
+    {
+      "name": "rat-swarm",
+      "cardId": "150",
+      "level": 1,
+      "health": 5,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
+    },
+    {
+      "name": "rat-monstrosity",
+      "cardId": "159",
+      "level": 5,
+      "health": 8,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.mindthief.1%",
+        "small": true
+      }
+    },
+    {
+      "name": "rat-king",
+      "cardId": "173",
+      "level": 9,
+      "health": 10,
+      "attack": "X",
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "%data.custom.gh2e.mindthief.2%",
+        "small": true
+      }
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.mindthief.3%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.mindthief.4%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "element",
+                "value": "ice"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "invisible",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "rolling": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.gh2e.mindthief.5%",
+      "count": 1
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.gh2e.mindthief.6%",
+      "count": 1
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.gh2e.mindthief.7%",
+      "count": 2,
+      "combined": true
+    }
+  ],
+  "masteries": [
+    "%data.custom.gh2e.mindthief.8%",
+    "%data.custom.gh2e.mindthief.9%"
+  ]
 }

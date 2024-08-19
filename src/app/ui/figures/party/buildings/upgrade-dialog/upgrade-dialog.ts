@@ -3,26 +3,16 @@ import { Component, Inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { BuildingCostType, BuildingCosts, BuildingRewards } from "src/app/game/model/data/BuildingData";
-import { LootType } from "src/app/game/model/data/Loot";
-import { Building } from "../buildings";
-import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { Scenario } from "src/app/game/model/Scenario";
+import { BuildingCostType, BuildingCosts, BuildingRewards, SelectResourceResult } from "src/app/game/model/data/BuildingData";
+import { LootType } from "src/app/game/model/data/Loot";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion";
+import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { Building } from "../buildings";
 
-export class SelectResourceResult {
-    characters: Character[];
-    characterSpent: BuildingCosts[];
-    fhSupportSpent: BuildingCosts;
 
-    constructor(characters: Character[], characterSpent: BuildingCosts[], fhSupportSpent: BuildingCosts) {
-        this.characters = characters;
-        this.characterSpent = characterSpent;
-        this.fhSupportSpent = fhSupportSpent;
-    }
-};
 
 @Component({
     selector: 'ghs-buildings-upgrade-dialog',
@@ -33,8 +23,8 @@ export class BuildingUpgradeDialog implements OnInit {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
-    building: Building;
-    action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards';
+    building: Building | undefined;
+    action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards' | 'soldiers';
     costs: BuildingCosts;
     requiredResources: number;
     paidResources: number = 0;
@@ -48,7 +38,7 @@ export class BuildingUpgradeDialog implements OnInit {
     rewardsOnly: boolean;
     discount: boolean;
 
-    constructor(@Inject(DIALOG_DATA) public data: { costs: BuildingCosts | undefined, repair: number, building: Building, action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards', force: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public data: { costs: BuildingCosts | undefined, repair: number, building: Building | undefined, action: 'build' | 'upgrade' | 'repait' | 'rebuild' | 'rewards' | 'soldiers', force: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.repair = data.repair || 0;
         this.requiredResources = this.repair;
         this.building = data.building;
@@ -56,7 +46,7 @@ export class BuildingUpgradeDialog implements OnInit {
         this.force = data.force || false;
         this.rewardsOnly = this.action == 'rewards';
         this.discount = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == "carpenter" && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined && !this.repair;
-        if (!this.repair) {
+        if (!this.repair && this.building) {
             this.costs = data.costs || { gold: 0, hide: 0, lumber: 0, metal: 0, prosperity: 0 };
             this.costs.gold = this.costs.gold || 0;
             this.costs.hide = this.costs.hide || 0;
@@ -103,7 +93,7 @@ export class BuildingUpgradeDialog implements OnInit {
             }
 
         } else {
-            this.costs = { "gold": 0, "hide": this.repair, "lumber": this.repair, "metal": this.repair, "prosperity": 0 }
+            this.costs = { "gold": data.costs && data.costs.gold || 0, "hide": this.repair, "lumber": this.repair, "metal": this.repair, "prosperity": 0 }
         }
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
         this.characters.forEach((character, index) => {

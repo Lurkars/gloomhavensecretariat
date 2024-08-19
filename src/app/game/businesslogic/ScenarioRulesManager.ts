@@ -601,19 +601,16 @@ export class ScenarioRulesManager {
             const figure = figures[0];
             const monster = gameManager.monsterManager.addMonsterByName(figureRule.value, scenario.edition);
             if (monster) {
-              if (figureRule.value.indexOf(':') == -1) {
-                monster.level = figure.level;
-              }
-              monster.off = figure.off;
-              monster.active = figure.active;
-              monster.drawExtra = figure.drawExtra;
-              monster.lastDraw = figure.lastDraw;
-
-              monster.ability = figure.ability;
-              monster.isAlly = figure.isAlly;
-              monster.isAllied = figure.isAllied;
-
               if (figureRule.type == "transfer") {
+                if (figureRule.value.indexOf(':') == -1) {
+                  monster.level = figure.level;
+                }
+                monster.active = figure.active;
+                monster.drawExtra = figure.drawExtra;
+                monster.lastDraw = figure.lastDraw;
+                monster.ability = figure.ability;
+                monster.isAlly = figure.isAlly;
+                monster.isAllied = figure.isAllied;
                 if (figureRule.identifier) {
                   gameManager.entityCounters(figureRule.identifier).forEach((entityCounter) => {
                     entityCounter.total -= figure.entities.length;
@@ -669,6 +666,8 @@ export class ScenarioRulesManager {
                   figure.entities = figure.entities.filter((entity) => entities.indexOf(entity) == -1);
                 }
               }
+              monster.off = gameManager.monsterManager.monsterEntityCount(monster) == 0;
+              figure.off = gameManager.monsterManager.monsterEntityCount(figure) == 0;
               gameManager.sortFigures(monster);
             }
           } else if (figures.length == 1 && figures[0] instanceof ObjectiveContainer) {

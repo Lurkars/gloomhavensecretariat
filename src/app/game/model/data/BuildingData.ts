@@ -1,3 +1,4 @@
+import { Character } from "../Character";
 import { Editional } from "./Editional";
 import { WorldMapCoordinates } from "./WorldMap";
 
@@ -49,3 +50,15 @@ export class BuildingModel {
         this.state = state;
     }
 }
+
+export class SelectResourceResult {
+    characters: Character[];
+    characterSpent: BuildingCosts[];
+    fhSupportSpent: BuildingCosts;
+  
+    constructor(characters: Character[], characterSpent: BuildingCosts[], fhSupportSpent: BuildingCosts) {
+        this.characters = characters;
+        this.characterSpent = characterSpent;
+        this.fhSupportSpent = fhSupportSpent;
+    }
+  };

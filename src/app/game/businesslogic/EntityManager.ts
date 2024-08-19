@@ -372,6 +372,12 @@ export class EntityManager {
 
     entityCondition.permanent = permanent;
     entityCondition.highlight = false;
+
+    // apply Challenge #1487
+    if (gameManager.challengesManager.available && gameManager.challengesManager.isActive(1487, 'fh') && entityCondition.types.indexOf(ConditionType.negative) && entityCondition.name != ConditionName.wound && entity instanceof Character && !this.isImmune(entity, entity, ConditionName.wound)) {
+      this.addCondition(entity, new Condition(ConditionName.wound), active, off);
+    }
+
   }
 
   removeCondition(entity: Entity, condition: Condition, permanent: boolean = false) {

@@ -1636,7 +1636,7 @@
     },
     "applyLootRandomItem": {
       ".": "Zufälliger Gegenstand bei Beute",
-      "hint": "Automatisch einen zufälligen Gegenstand auswählen und anlegen für den aktiven/ausgewählten Charakter nachdem eine Zufälliger Gegenstand Beute Karte gezogen wurde"
+      "hint": "Automatisch einen zufälligen Gegenstand auswählen und anlegen für den aktiven/ausgewählten Charakter nachdem eine Zufälliger Gegenstand Beute Karte gezogen wurde."
     },
     "applyRetirement": {
       ".": "Ruhestand Boni anwenden",
@@ -1652,7 +1652,7 @@
     },
     "automaticAttackModifierFullscreen": {
       ".": "Autom. Vollbild AM-Deck",
-      "hint": "Angrifssmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen. (Deaktiviert ohne Portraitmodus Optimierungen)"
+      "hint": "Angrifssmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen."
     },
     "automaticGameClock": {
       ".": "Automatischer Spieltimer",
@@ -1838,42 +1838,6 @@
       "rightClick": "Rechtsklick immer erlauben",
       "logServerMessages": "Servermeldungen protokollieren"
     },
-    "disableAnimations": {
-      ".": "Animationen deaktivieren",
-      "hint": "Alle Animationen deaktivieren um die Performance zu erhöhen"
-    },
-    "disableArtwork": {
-      ".": "Artwork deaktivieren",
-      "hint": "Artwork von Monstern und Charakteren deaktivieren"
-    },
-    "disableColumns": {
-      ".": "Zweispaltiges Layout deaktivieren",
-      "hint": "Deaktivere das zweispaltige Layout unabhängig von Zoom und Platz"
-    },
-    "disableDragFigures": {
-      ".": "Drag'n'Drop für Figurenliste deaktivieren",
-      "hint": "Deaktiviert Drag'n'Drop für die Figurenliste. Achtung, falls keine Initiative gesetzt werden muss ist ein manuelles Verschieben der Figuren nicht mehr möglich."
-    },
-    "disablePinchZoom": {
-      ".": "Gesten-Zooming deaktiveren",
-      "hint": "Deaktiviert das Zoomen mit Touch-Gesten."
-    },
-    "disableSortFigures": {
-      ".": "Figuren sortieren deaktivieren",
-      "hint": "Deaktiviert das automatische Sortieren der Figuren. Die Reihenfolge muss manuell über Drag'n'Drop festgelegt werden."
-    },
-    "disableStandees": {
-      ".": "Aufsteller deaktivieren",
-      "hint": "Blende alle Aufsteller aus (falls Werte ausblenden aktiviert ist, müssen normale und elite Monster separat hinzugefügt werden). Dies deaktiviert auch das freischalten von Räumen und das automatische Hinzufügen von Aufstellern."
-    },
-    "disabledTurnConfirmation": {
-      ".": "Runden/Zug Bestätigung deaktivieren",
-      "hint": "Deaktiviert die Errinnerung nach dem Klick auf \"%round.next%\" bevor alle Figuren am Zug waren. Falls %settings.expireConditions% oder %settings.applyConditions% aktiviert sind werden diese automatisch auf jede Figur angewendet."
-    },
-    "disableWakeLock": {
-      ".": "Display immer an deaktivieren",
-      "hint": "Deaktiviert Display immer an bei unterstützen Geräten. Die Funktion hält das Display immer eingeschaltet, dies kann zu höherem Energieverbrauch auf Mobilgeräten führen."
-    },
     "dragFigures": {
       ".": "Drag'n'Drop für Figurenliste",
       "hint": "Drag'n'Drop für die Figurenliste. Achtung, falls deaktiviert und keine Initiative gesetzt werden muss ist ein manuelles Verschieben der Figuren nicht mehr möglich."
@@ -2036,6 +2000,8 @@
       ".": "Zufällige Aufsteller",
       "hint": "Aufsteller mit zufälliger, nicht vergebener Nummer setzen"
     },
+    "requires": "Benötigt:",
+    "requiresOne": "Benötigt eines von:",
     "removeUnusedMonster": {
       ".": "Nicht genutze Monster entfernen",
       "hint": "Entferne automatische alle nicht genutzen Monster"

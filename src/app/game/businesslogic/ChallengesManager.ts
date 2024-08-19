@@ -1,8 +1,10 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { Game } from "../model/Game";
+import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from "../model/data/AttackModifier";
 import { ChallengeCard, ChallengeDeck } from "../model/data/Challenges";
 import { Identifier } from "../model/data/Identifier";
+import { Game, GameState } from "../model/Game";
 import { gameManager } from "./GameManager";
+import { settingsManager } from "./SettingsManager";
 
 export class ChallengesManager {
 
@@ -76,7 +78,7 @@ export class ChallengesManager {
     }
 
     update() {
-        this.available = gameManager.fhRules() && this.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked') != undefined
+        this.available = settingsManager.settings.fhChallenges && gameManager.fhRules() && this.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked') != undefined
 
         if (this.available && this.game.edition) {
             // build challenge deck if not present
@@ -93,10 +95,14 @@ export class ChallengesManager {
                 this.shuffleDeck(this.game.challengeDeck);
             }
         }
+
+        this.activeCards().forEach((card) => {
+            this.applyCardAlways(card);
+        })
     }
 
     activeCards(edition: string | undefined = undefined): ChallengeCard[] {
-        if (this.available && this.game.challengeDeck.cards.length && this.game.challengeDeck.current > this.game.challengeDeck.finished) {
+        if (this.available && this.game.challengeDeck.cards.length && this.game.challengeDeck.current > this.game.challengeDeck.finished && !gameManager.roundManager.firstRound || this.game.state == GameState.next) {
             return this.game.challengeDeck.cards.slice(this.game.challengeDeck.finished + 1, this.game.challengeDeck.current + 1).filter((card) => !edition || card.edition == edition || gameManager.editionExtensions(edition).indexOf(card.edition) != -1);
         }
         return [];
@@ -105,4 +111,44 @@ export class ChallengesManager {
     activeCardIds(edition: string | undefined = undefined): number[] {
         return this.activeCards(edition).map((card) => card.cardId);
     }
+
+    isActive(cardId: number, edition: string | undefined = undefined) {
+        return this.activeCardIds(edition).indexOf(cardId) != -1;
+    }
+
+    applyCardAlways(card: ChallengeCard) {
+        if (card.edition == 'fh') {
+            switch (card.cardId) {
+                case 1484:
+                    this.game.monsterAttackModifierDeck.cards.forEach((attackModifier) => {
+                        if (!attackModifier.id && (!attackModifier.effects || attackModifier.effects.length == 0) && (attackModifier.type == AttackModifierType.minus1 || attackModifier.type == AttackModifierType.minus2 || attackModifier.type == AttackModifierType.null)) {
+                            attackModifier.effects = [];
+                            attackModifier.effects.push(new AttackModifierEffect(AttackModifierEffectType.changeType, AttackModifierType.plus0));
+                        }
+                    });
+                    break;
+                case 1485:
+                    this.game.monsterAttackModifierDeck.cards.forEach((attackModifier) => {
+                        if (!attackModifier.id && (!attackModifier.effects || attackModifier.effects.length == 0) && (attackModifier.type == AttackModifierType.minus2)) {
+                            attackModifier.effects = [];
+                            attackModifier.effects.push(new AttackModifierEffect(AttackModifierEffectType.changeType, AttackModifierType.double));
+                        }
+                    });
+                    break;
+            }
+        }
+    }
+
+    applyCardStart(card: ChallengeCard) {
+        if (card.edition == 'fh') {
+            switch (card.cardId) {
+                case 1486:
+                    for (let i = 0; i < 3; i++) {
+                        gameManager.attackModifierManager.addModifier(this.game.monsterAttackModifierDeck, new AttackModifier(AttackModifierType.bless));
+                    }
+                    break;
+            }
+        }
+    }
+
 }

@@ -453,7 +453,8 @@
       "2": "Collectively train up to 1 soldier for 3 gold and 1 material resource<br><br><i>Capacity:</i> 6<br><i>Effect:</i> advantage and -15 %game.action.attack%",
       "3": "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 8<br><i>Effect:</i> advantage and -25 %game.action.attack%",
       "4": "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 10<br><i>Effect:</i> advantage and -35 %game.action.attack%",
-      "5": "Disadvantage on all attack event resolutions.<br>Cannot use soldiers."
+      "5": "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
+      "soldiers": "Train up 1 Soldier"
     },
     "boat": {
       ".": "Boat"

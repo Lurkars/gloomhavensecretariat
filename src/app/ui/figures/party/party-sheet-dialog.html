@@ -294,8 +294,10 @@
                 <span>{{level+1}}</span>
               </label>
               <div class="soldiers-line">
-                <div class="soldier" *ngFor="let soldier of [] | ghsRange:(level > 0 ? 2 : 4);"
-                  (click)="setSoldiers(soldier + (level > 0 ? 2 + level * 2 : 0) + 1)">
+                <div class="soldier" *ngFor="let soldier of [] | ghsRange:(level > 0 ? 2 : 4);" ghs-pointer-input
+                  (singleClick)="setSoldiers(soldier + (level > 0 ? 2 + level * 2 : 0) + 1)"
+                  (doubleClick)="setSoldiers(soldier + (level > 0 ? 2 + level * 2 : 0) + 1, true)"
+                  [ngClass]="{'disabled' : (soldier + (level > 0 ? 2 + level * 2 : 0))  >= party.soldiers + (soldierAvailable() ? 1 : 0)}">
                   <img src="./assets/images/fh/party/soldier.svg">
                   <div class="check"
                     [ngClass]="{'checked' : (soldier + (level > 0 ? 2 + level * 2 : 0)) < party.soldiers}"></div>

@@ -77,7 +77,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
     this.character.progress.perks = this.character.progress.perks || [];
 
-    this.fhSheet = gameManager.fhRules();
+    this.fhSheet = gameManager.fhRules(true);
     this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
 
     this.donations = !this.fhSheet;

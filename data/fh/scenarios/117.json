@@ -23,7 +23,7 @@
   },
   "monsters": [
     "hound",
-    "polar-bear-scenario-117",
+    "polar-bear",
     "vermling-priest",
     "vermling-scout"
   ],
@@ -60,7 +60,7 @@
           "identifier": {
             "type": "monster",
             "edition": "fh",
-            "name": "polar-bear-scenario-117"
+            "name": "polar-bear"
           },
           "type": "killed",
           "value": "3"
@@ -99,25 +99,25 @@
           "player4": "normal"
         },
         {
-          "name": "polar-bear-scenario-117",
+          "name": "polar-bear",
           "type": "elite"
         },
         {
-          "name": "polar-bear-scenario-117",
+          "name": "polar-bear",
           "type": "elite"
         },
         {
-          "name": "polar-bear-scenario-117",
+          "name": "polar-bear",
           "type": "elite"
         },
         {
-          "name": "polar-bear-scenario-117",
+          "name": "polar-bear",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "polar-bear-scenario-117",
+          "name": "polar-bear",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"

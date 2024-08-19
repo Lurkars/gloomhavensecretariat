@@ -1,22 +1,28 @@
 <div class="move-resources-dialog"
     [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <label class="title">
-        <span class="name">
+        <span class="name" *ngIf="building">
             <span [ghs-label]="'data.buildings.' + building.data.name"></span>
             <span *ngIf="building.data.id">({{building.data.id}})</span>
         </span>
-        <span class="building">
+        <span class="building" *ngIf="building">
             <img class="action" [src]="'./assets/images/fh/buildings/' + action + '.svg'">
             <span [ghs-label]="'party.campaign.sheet.buildings.' + action + '.action'"
                 [ghs-label-args]="[''+ (building.model.level + (rewardsOnly ? 0 : 1)) ]"></span>
         </span>
+        <span class="name" *ngIf="!building && action == 'soldiers'">
+            <span [ghs-label]="'data.buildings.barracks.soldiers'"></span>
+        </span>
 
-        <span class="costs" *ngIf="!repair && !rewardsOnly" [ngClass]="{'force' : force}">
-            <span class="cost" *ngIf="costs.lumber"><img class="ghs-svg" src="./assets/images/fh/loot/lumber.svg">
+        <span class="costs" *ngIf="!rewardsOnly" [ngClass]="{'force' : force}">
+            <span class="cost" *ngIf="!repair && costs.lumber"><img class="ghs-svg"
+                    src="./assets/images/fh/loot/lumber.svg">
                 {{costs.lumber}}</span>
-            <span class="cost" *ngIf="costs.metal"><img class="ghs-svg" src="./assets/images/fh/loot/metal.svg">
+            <span class="cost" *ngIf="!repair && costs.metal"><img class="ghs-svg"
+                    src="./assets/images/fh/loot/metal.svg">
                 {{costs.metal}}</span>
-            <span class="cost" *ngIf="costs.hide"><img class="ghs-svg" src="./assets/images/fh/loot/hide.svg">
+            <span class="cost" *ngIf="!repair && costs.hide"><img class="ghs-svg"
+                    src="./assets/images/fh/loot/hide.svg">
                 {{costs.hide}}</span>
             <span class="cost" *ngIf="costs.gold"><img class="ghs-svg" src="./assets/images/fh/loot.svg">
                 {{costs.gold}}</span>
@@ -62,7 +68,7 @@
                 [ngClass]="{'active' : rewardsOnly}" [ghs-label]="'party.campaign.sheet.buildings.rewards.section'"
                 [ghs-label-args]="[rewards.section]"></span>
 
-            <span class="text-white errata" *ngIf="rewards.errata">
+            <span class="text-white errata" *ngIf="building && rewards.errata">
                 <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
                     [ghs-label]="'data.custom.' +building.data.edition + '.errata.' + rewards.errata"></span>
             </span>
@@ -74,7 +80,7 @@
         <span class="head-col"
             [ngClass]="{'first' : !repair, 'costs' : repair, 'some' : paidResources, 'full' : (requiredResources - (discount ? 1 : 0) <= paidResources)}">
             <span *ngIf="repair" class="costs">
-                <span class="current">{{paidResources || '-'}}</span>/{{repair || '-'}}
+                <span class="current">{{paidResources || '-'}}</span> / {{repair || '-'}}
             </span>
             <span *ngIf="!repair" [ghs-label]="'party.campaign.sheet.buildings.costs'"></span>
         </span>
@@ -87,11 +93,10 @@
         </span>
 
         <ng-container *ngIf="costs.gold">
-            <span class="head-col calc-col"
-                [ngClass]="{'costs' : !repair, 'some' : spent.gold, 'full' : spent.gold == costs.gold}">
+            <span class="head-col calc-col costs" [ngClass]="{'some' : spent.gold, 'full' : spent.gold == costs.gold}">
                 <img class="ghs-svg"
                     [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'loot.svg'">
-                <span *ngIf="!repair" class="cost"><span class="current">{{spent.gold || '-'}}</span> /
+                <span class="cost"><span class="current">{{spent.gold || '-'}}</span> /
                     {{costs.gold}}</span>
             </span>
             <span class="calc-col"> - </span>
@@ -105,7 +110,7 @@
                         {{characterSpent[i].gold || '-'}} / {{character.progress.gold}}
                     </span>
                     <a class="button"
-                        [ngClass]="{'disabled' : character.progress.gold == 0 || character.progress.gold == characterSpent[i].gold || spent.gold == costs.gold || repair && paidResources == repair}"
+                        [ngClass]="{'disabled' : character.progress.gold == 0 || character.progress.gold == characterSpent[i].gold || spent.gold == costs.gold}"
                         (click)="changeValue('gold',characterSpent[i], 1)">
                         <img class="ghs-svg" src="./assets/images/plus.svg">
                     </a>

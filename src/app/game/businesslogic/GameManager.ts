@@ -677,8 +677,8 @@ export class GameManager {
     return ticks;
   }
 
-  fhRules(): boolean {
-    return this.editionRules('fh');
+  fhRules(gh2e: boolean = false): boolean {
+    return this.editionRules('fh') || gh2e && this.editionRules('gh2e');
   }
 
   bbRules(): boolean {

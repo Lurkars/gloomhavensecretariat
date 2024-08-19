@@ -1,11 +1,12 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
+import { SelectResourceResult } from "../model/data/BuildingData";
 import { Condition, ConditionName } from "../model/data/Condition";
+import { CountIdentifier, Identifier } from "../model/data/Identifier";
 import { ItemData } from "../model/data/ItemData";
+import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/data/Loot";
 import { TreasureData, TreasureReward, TreasureRewardType } from "../model/data/RoomData";
 import { Game } from "../model/Game";
-import { CountIdentifier, Identifier } from "../model/data/Identifier";
-import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/data/Loot";
 import { GameScenarioModel } from "../model/Scenario";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -368,6 +369,32 @@ export class LootManager {
       return "%game.loot.player.4% +" + loot.value4P + "/%game.loot.player.2-3% +" + loot.value2P;
     } else {
       return "%game.loot.player.4% +" + loot.value4P + "/%game.loot.player.3% +" + loot.value3P + "/%game.loot.player.2% +" + loot.value2P;
+    }
+  }
+
+  applySelectResources(result: SelectResourceResult) {
+    result.characters.forEach((character, index) => {
+      if (result.characterSpent[index].gold) {
+        character.progress.gold -= result.characterSpent[index].gold;
+      }
+      if (result.characterSpent[index].hide) {
+        character.progress.loot[LootType.hide] = (character.progress.loot[LootType.hide] || 0) - (result.characterSpent[index].hide);
+      }
+      if (result.characterSpent[index].lumber) {
+        character.progress.loot[LootType.lumber] = (character.progress.loot[LootType.lumber] || 0) - (result.characterSpent[index].lumber);
+      }
+      if (result.characterSpent[index].metal) {
+        character.progress.loot[LootType.metal] = (character.progress.loot[LootType.metal] || 0) - (result.characterSpent[index].metal);
+      }
+    })
+    if (result.fhSupportSpent.hide) {
+      gameManager.game.party.loot[LootType.hide] = (gameManager.game.party.loot[LootType.hide] || 0) - (result.fhSupportSpent.hide);
+    }
+    if (result.fhSupportSpent.lumber) {
+      gameManager.game.party.loot[LootType.lumber] = (gameManager.game.party.loot[LootType.lumber] || 0) - (result.fhSupportSpent.lumber);
+    }
+    if (result.fhSupportSpent.metal) {
+      gameManager.game.party.loot[LootType.metal] = (gameManager.game.party.loot[LootType.metal] || 0) - (result.fhSupportSpent.metal);
     }
   }
 

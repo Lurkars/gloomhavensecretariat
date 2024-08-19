@@ -1,5 +1,34 @@
-.hint-container label {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+.hint-container {
+    label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .requires {
+        font-family: var(--ghs-normal);
+        font-size: 0.9em;
+        display: flex;
+        flex-direction: column;
+        margin-top: 1em;
+
+        .title {
+            margin-bottom: 0.3em;
+        }
+
+        .require {
+            display: flex;
+            align-items: center;
+
+            input[type="checkbox"] {
+                width: 1.5em;
+                height: 1.5em;
+                border-width: 0.1em;
+                border-style: solid;
+                display: grid;
+                place-content: center;
+                margin-right: 0.5em;
+            }
+        }
+    }
 }

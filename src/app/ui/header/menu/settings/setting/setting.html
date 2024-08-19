@@ -1,19 +1,36 @@
 <div class="hint-container" *ngIf="type == 'checkbox'">
-    <label [ngClass]="{'disabled': disabled}">
-        <input tabclick type="checkbox" [checked]="!disabled && settingsManager.settings[setting] || checked"
+    <label [ngClass]="{'disabled': disabled     || isDisabled}">
+        <input tabclick type="checkbox"
+            [checked]="!disabled && !isDisabled && settingsManager.settings[setting] || checked"
             (change)="settingsManager.toggle(setting)">
         <span [ghs-label]="'settings.' + setting"></span>
     </label>
     <img *ngIf="hint" src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
     <span class="hint">
-        <span class="text" [ghs-label]="'settings.' + setting + '.hint'"></span>
-        <br>
-        <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
+        <div class="text">
+            <span [ghs-label]="'settings.' + setting + '.hint'"></span>
+            <br>
+            <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
+            <div class="requires" *ngIf="requires.length">
+                <span class="title" [ghs-label]="'settings.requires'"></span>
+                <span class="require" *ngFor="let require of requires">
+                    <input type="checkbox" [checked]="!require.startsWith('!')" [ngClass]="{'checked' : !require.startsWith('!')}">
+                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+                </span>
+            </div>
+            <div class="requires" *ngIf="requiresOne.length">
+                <span class="title" [ghs-label]="'settings.requiresOne'"></span>
+                <span class="require" *ngFor="let require of requiresOne">
+                    <input type="checkbox" [checked]="!require.startsWith('!')" [ngClass]="{'checked' : !require.startsWith('!')}">
+                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+                </span>
+            </div>
+        </div>
     </span>
 </div>
 <ng-container *ngIf="type == 'radio'">
     <div class="line" *ngFor="let value of values">
-        <label [ngClass]="{'disabled' : settingsManager.settings[setting] == value || disabled}">
+        <label [ngClass]="{'disabled' : settingsManager.settings[setting] == value || disabled || isDisabled}">
             <input tabclick type="checkbox" [checked]="settingsManager.settings[setting] == value"
                 (change)="settingsManager.set(setting, value)">
             <span [ghs-label]="'settings.' + setting + '.' + value"></span>
@@ -29,9 +46,23 @@
     <img *ngIf="hint" src="./assets/images/warning.svg" class="hint-trigger ghs-svg">
     <div class="hint">
         <div class="text">
-            <span class="text" [ghs-label]="'settings.' + setting + '.hint'"></span>
+            <span [ghs-label]="'settings.' + setting + '.hint'"></span>
             <br>
             <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
+            <div class="requires" *ngIf="requires.length">
+                <span class="title" [ghs-label]="'settings.requires'"></span>
+                <span class="require" *ngFor="let require of requires">
+                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+                    <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
+                </span>
+            </div>
+            <div class="requires" *ngIf="requiresOne.length">
+                <span class="title" [ghs-label]="'settings.requiresOne'"></span>
+                <span class="require" *ngFor="let require of requiresOne">
+                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+                    <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
+                </span>
+            </div>
         </div>
     </div>
 </div>
@@ -46,8 +77,24 @@
     </label>
     <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
     <span class="hint">
-        <span class="text" [ghs-label]="'settings.' + setting + '.hint'"></span>
-        <br>
-        <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
+        <div class="text">
+            <span [ghs-label]="'settings.' + setting + '.hint'"></span>
+            <br>
+            <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
+            <div class="requires" *ngIf="requires.length">
+                <span class="title" [ghs-label]="'settings.requires'"></span>
+                <span class="require" *ngFor="let require of requires">
+                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+                    <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
+                </span>
+            </div>
+            <div class="requires" *ngIf="requiresOne.length">
+                <span class="title" [ghs-label]="'settings.requiresOne'"></span>
+                <span class="require" *ngFor="let require of requiresOne">
+                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+                    <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
+                </span>
+            </div>
+        </div>
     </span>
 </div>

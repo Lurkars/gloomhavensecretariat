@@ -1,5 +1,5 @@
 <div class="container"
-  [ngClass]="{'flipped' : flipped,  'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'expanded-ability': settingsManager.settings.showExpandedAbilityCard && flipped, 'bottom-actions' : gameManager.monsterManager.hasBottomActions(monster), 'second-ability' : secondAbility,'fh' : settingsManager.settings.fhStyle,  'disabled' : !settingsManager.settings.abilities, 'denied' : monster && gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition] }">
+  [ngClass]="{'flipped' : flipped,  'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'expanded-ability': settingsManager.settings.showExpandedAbilityCard && flipped, 'bottom-actions' : hasBottomActions, 'second-ability' : secondAbility,'fh' : settingsManager.settings.fhStyle,  'disabled' : !settingsManager.settings.abilities, 'denied' : monster && gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition] }">
   <div
     *ngIf="!secondAbility && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard"
     class="hover-effect initiative"></div>
@@ -17,6 +17,5 @@
   </ng-container>
 </div>
 <span class="left-abilities" *ngIf="settingsManager.settings.abilities">
-  {{this.monster.abilities.length - gameManager.monsterManager.drawnAbilities(this.monster) - (secondAbility ? 1 :
-  0)}}/{{this.monster.abilities.length}}
+  {{this.monster.abilities.length - drawnAbilities - (secondAbility ? 1 : 0)}}/{{this.monster.abilities.length}}
 </span>

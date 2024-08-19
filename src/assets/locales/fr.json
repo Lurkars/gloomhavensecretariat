@@ -1759,37 +1759,6 @@
       "logServerMessages": "Messages du serveur de journalisation",
       "rightClick": "Toujour activer le clic droit"
     },
-    "disableAnimations": {
-      ".": "Désactiver les animations",
-      "hint": "Désactiver toutes les animations pour améliorer les performances"
-    },
-    "disableArtwork": {
-      ".": "Désactiver les illustrations",
-      "hint": "Désactiver l'illustration des monstres et des personnages"
-    },
-    "disableColumns": {
-      ".": "Désactiver affichage en colonnes",
-      "hint": "Désactivation complète de la mise en page en deux colonnes, indépendamment du zoom et de l'espace."
-    },
-    "disableDragFigures": {
-      ".": "Désactiver le glisser-déposer pour les unités",
-      "hint": "Désactiver le drag'n'drop pour la liste des unités. Attention, si aucune initiative n'est requise, il n'y a aucun moyen de réordonner les unités manuellement."
-    },
-    "disablePinchZoom": {
-      ".": "Désactiver le zoom gestuel",
-      "hint": "Désactiver le zoom par des gestes tactiles."
-    },
-    "disableSortFigures": {
-      ".": "Désactiver les chiffres de tri",
-      "hint": "Désactive le tri automatique des unités. L'ordre doit être défini manuellement par Drag'n'Drop."
-    },
-    "disableStandees": {
-      ".": "Désactiver les figurines",
-      "hint": "Ne pas afficher les figurines (lorsque l'option Hide stats est activée, ajouter les monstres normaux et élites séparément). Cela désactive également le déverrouillage des salles et les silhouettes automatiques."
-    },
-    "disabledTurnConfirmation": {
-      "hint": "Désactive le rappel lorsque l'on clique sur \"%round.next%\" avant que toutes les unités aient terminé leur tour. Si %settings.expireConditions% ou %settings.applyConditions% est actif, il sera automatiquement appliqué à toutes les unités."
-    },
     "dragFigures": {
       ".": "Drag'n'drop pour les unités",
       "hint": "Drag'n'drop pour la liste des unités. Attention, si cette option est désactivée et qu'aucune initiative n'est requise, il n'est pas possible de réorganiser les unités manuellement."

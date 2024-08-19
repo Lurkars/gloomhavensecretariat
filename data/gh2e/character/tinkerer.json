@@ -44,7 +44,224 @@
       "health": 20
     }
   ],
-  "availableSummons": [],
-  "perkWarning": true,
-  "perks": []
+  "availableSummons": [
+    {
+      "name": "decoy",
+      "cardId": "031",
+      "level": 1,
+      "health": 10,
+      "movement": 3
+    },
+    {
+      "name": "battle-bot",
+      "cardId": "049",
+      "level": 4,
+      "health": 7,
+      "attack": 3,
+      "movement": 3
+    },
+    {
+      "name": "kill-bot",
+      "cardId": "055",
+      "level": 7,
+      "health": 8,
+      "attack": 3,
+      "movement": 4,
+      "action": {
+        "type": "area",
+        "value": "(0,2,target)|(1,1,target)|(2,0,active)"
+      }
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "ally"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "immobilize"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "ally"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "ally"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.gh2e.tinkerer.1%",
+      "count": 1
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.gh2e.tinkerer.2%",
+      "count": 1
+    },
+    {
+      "type": "custom",
+      "custom": "%data.custom.gh2e.tinkerer.3%",
+      "count": 2,
+      "combined": true
+    }
+  ],
+  "masteries": [
+    "%data.custom.gh2e.tinkerer.4%",
+    "%data.custom.gh2e.tinkerer.5%"
+  ]
 }
