@@ -298,6 +298,7 @@
       position: sticky;
       top: 0;
       background-image: url('~src/assets/images/dialog_background.png');
+      z-index: 1;
 
       &.fh {
         background-image: url('~src/assets/images/fh/dialog_background_fh.png');
@@ -306,8 +307,6 @@
       &.modern {
         background-image: url('~src/assets/images/modern/dialog_background_modern.png');
       }
-
-      z-index: 1;
     }
 
   }

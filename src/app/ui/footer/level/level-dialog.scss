@@ -1,5 +1,8 @@
 .level-dialog {
 
+  display: flex;
+  flex-direction: column;
+
   .menu {
     display: flex;
     flex-direction: column;
@@ -24,9 +27,6 @@
       font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
     }
   }
-
-  display: flex;
-  flex-direction: column;
 
   span.item {
     position: relative;

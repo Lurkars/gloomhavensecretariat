@@ -42,12 +42,11 @@
             display: flex;
             justify-content: center;
             margin: 0 calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+            white-space: nowrap;
 
             &:hover {
                 opacity: 0.6;
             }
-
-            white-space: nowrap;
         }
 
         .cancel {

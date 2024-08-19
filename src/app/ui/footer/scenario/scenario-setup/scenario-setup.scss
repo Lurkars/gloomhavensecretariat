@@ -5,6 +5,7 @@
     align-items: center;
     text-align: center;
     color: var(--ghs-color-white);
+    margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
     .title {
         position: relative;
@@ -23,8 +24,6 @@
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     }
-
-    margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
     .loot-config {
 

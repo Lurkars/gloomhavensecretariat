@@ -13,14 +13,13 @@
   width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
   height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
   text-align: center;
+  stroke: var(--ghs-color-black);
+  stroke-width: calc(var(--ghs-unit) * 2);
 
   .ghs-svg {
     width: 100%;
     height: auto;
   }
-
-  stroke: var(--ghs-color-black);
-  stroke-width: calc(var(--ghs-unit) * 2);
 
   &.elite {
     color: var(--ghs-color-yellow);
@@ -66,8 +65,8 @@
 
     &.elite {
       color: var(--ghs-color-yellow);
-    }  
-    
+    }
+
     &.boss {
       color: var(--ghs-color-red);
     }

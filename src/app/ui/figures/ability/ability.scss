@@ -149,10 +149,11 @@
 
     &.bottom-actions,
     &.character-actions {
-
       background-position: top;
       background-attachment: local;
       height: 100%;
+      overflow-x: unset;
+      overflow-y: auto;
 
       &.bottom-actions::before {
         background-position: top;
@@ -240,9 +241,6 @@
         left: 14.7em;
         bottom: 2.2em;
       }
-
-      overflow-x: unset;
-      overflow-y: auto;
 
       .ability-actions-container {
         .ability-actions {

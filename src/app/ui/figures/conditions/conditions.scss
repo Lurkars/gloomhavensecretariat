@@ -117,6 +117,8 @@
     width: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     height: auto;
     filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+    top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    transform: translateY(-50%);
 
     &.dec {
       left: 0;
@@ -130,8 +132,5 @@
       pointer-events: none;
       filter: var(--ghs-filter-darkgray);
     }
-
-    top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-    transform: translateY(-50%);
   }
 }

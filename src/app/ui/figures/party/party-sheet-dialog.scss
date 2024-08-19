@@ -572,6 +572,7 @@
           position: absolute;
           top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
           left: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor));
+          z-index: 2;
 
           a {
             cursor: pointer;
@@ -590,8 +591,6 @@
           &.permissive {
             opacity: 0.6;
           }
-
-          z-index: 2;
         }
 
         .map {

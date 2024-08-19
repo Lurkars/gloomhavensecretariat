@@ -15,6 +15,7 @@
     overflow: visible;
     display: flex;
     justify-content: flex-end;
+    z-index: 2;
 
     a {
       cursor: pointer;
@@ -33,7 +34,5 @@
     &.permissive {
       opacity: 0.6;
     }
-
-    z-index: 2;
   }
 }

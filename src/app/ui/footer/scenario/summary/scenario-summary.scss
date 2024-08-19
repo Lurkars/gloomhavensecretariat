@@ -4,10 +4,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   font-family: var(--ghs-font-title);
   color: var(--ghs-color-white);
   font-size: calc(var(--ghs-unit) * 4* var(--ghs-text-factor));
+  margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
   .title {
     position: relative;
@@ -46,9 +46,6 @@
     font-family: var(--ghs-font-normal);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
   }
-
-  margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-
 }
 
 .main {

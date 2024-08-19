@@ -622,6 +622,7 @@ main {
     cursor: pointer;
     font-size: 1.5em;
     color: var(--ghs-color-gray);
+    margin: calc(var(--ghs-unit) * 1.5) 0;
 
     &:hover {
       opacity: 0.7;
@@ -632,8 +633,6 @@ main {
       width: auto;
       filter: var(--ghs-filter-gray);
     }
-
-    margin: calc(var(--ghs-unit) * 1.5) 0;
   }
 
   label {

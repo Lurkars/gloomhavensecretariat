@@ -1143,14 +1143,13 @@ input[type="radio"] {
 
   .icon {
     height: 1.3em;
+    width: auto;
+    margin: 0 0.1em;
+    vertical-align: middle;
 
     &.ghs-svg {
       height: 0.9em;
     }
-
-    width: auto;
-    margin: 0 0.1em;
-    vertical-align: middle;
   }
 
 

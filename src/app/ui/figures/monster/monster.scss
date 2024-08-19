@@ -9,11 +9,11 @@
   ghs-monster-ability-card,
   ghs-monster-stats,
   ghs-monster-image {
+    transition: filter 150ms ease-in-out;
+
     &:not(ghs-monster-image) {
       filter: var(--ghs-filter-outline);
     }
-
-    transition: filter 150ms ease-in-out;
   }
 
   &.off {

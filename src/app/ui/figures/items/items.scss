@@ -38,12 +38,11 @@
             .resource {
                 display: flex;
                 align-items: center;
+                margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
                 img {
                     width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                 }
-
-                margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             }
 
             .item {
