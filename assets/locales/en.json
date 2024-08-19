@@ -1824,7 +1824,7 @@
     },
     "applyLootRandomItem": {
       ".": "Draw Random Item on Loot",
-      "hint": "Automatically draw and equip a new random item on random item loot to active/chosen character"
+      "hint": "Automatically draw and equip a new random item on random item loot to active/chosen character."
     },
     "applyRetirement": {
       ".": "Apply Retirement Bonuses",
@@ -1840,7 +1840,7 @@
     },
     "automaticAttackModifierFullscreen": {
       ".": "Auto fullscreen AM Deck",
-      "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices. (Disabled without Portrait-Mode Optimization)"
+      "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
     },
     "automaticGameClock": {
       ".": "Automatic game clock",
@@ -2025,42 +2025,6 @@
       "rightClick": "Always enable Right-Click",
       "logServerMessages": "Log Server Messages"
     },
-    "disableAnimations": {
-      ".": "Disable Animations",
-      "hint": "Disable all animations to increase performance"
-    },
-    "disableArtwork": {
-      ".": "Disable Artwork",
-      "hint": "Disable artwork of monsters and characters"
-    },
-    "disableColumns": {
-      ".": "Disable column layout",
-      "hint": "Completely disable two-column layout regardless of zoom and space"
-    },
-    "disableDragFigures": {
-      ".": "Disable drag'n'drop for figures",
-      "hint": "Disable drag'n'drop for the figure list. Warning, if no initiative is required, there is no way to re-order the figures manually."
-    },
-    "disablePinchZoom": {
-      ".": "Disable gesture zooming",
-      "hint": "Disable zooming via touch gestures."
-    },
-    "disableSortFigures": {
-      ".": "Disable sorting figures",
-      "hint": "Disables the automatic sorting of figures. The order must be set manually via Drag'n'Drop."
-    },
-    "disableStandees": {
-      ".": "Disable standees",
-      "hint": "Do not display standees (when Hide stats is set, add normal and elite monster separate). This also disables unlocking rooms and automatic standees."
-    },
-    "disabledTurnConfirmation": {
-      ".": "Disable Round/Turn confirmation",
-      "hint": "Disables the reminder when clicking \"%round.next%\" before all figures finished their turns. If %settings.expireConditions% or %settings.applyConditions% is active it will be automatically applied for all figures."
-    },
-    "disableWakeLock": {
-      ".": "Disable Wake Lock",
-      "hint": "Disable Wake Lock on supported devices. Wake Lock will keep the screen on. This can drain battery on mobile."
-    },
     "dragFigures": {
       ".": "Drag'n'drop for figures",
       "hint": "Drag'n'drop for the figure list. Warning, if disabled and no initiative is required, there is no way to re-order the figures manually."
@@ -2231,6 +2195,8 @@
       ".": "Remove unused",
       "hint": "Automatically remove all unused monsters."
     },
+    "requires": "Requires:",
+    "requiresOne": "Requires one of:",
     "scenarioNumberInput": {
       ".": "Scenario Number Input",
       "hint": ""
