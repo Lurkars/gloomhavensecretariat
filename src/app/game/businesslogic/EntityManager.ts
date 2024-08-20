@@ -471,6 +471,7 @@ export class EntityManager {
         condition.highlight = true;
         setTimeout(() => {
           condition.highlight = false;
+          gameManager.uiChange.emit();
         }, 1000);
       } else {
         condition.highlight = false;
