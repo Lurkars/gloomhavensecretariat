@@ -162,12 +162,8 @@ export class StandeeComponent implements OnInit, OnDestroy {
 
   openEntityMenu(event: any): void {
     if (this.entity.number < 0 && this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
-      const max = gameManager.monsterManager.monsterStandeeMax(this.figure);
       if (settingsManager.settings.randomStandees) {
-        let number = Math.floor(Math.random() * max) + 1;
-        while (gameManager.monsterManager.monsterStandeeUsed(this.figure, number)) {
-          number = Math.floor(Math.random() * max) + 1;
-        }
+        const number = gameManager.monsterManager.monsterRandomStandee(this.figure);
         gameManager.stateManager.before("addRandomStandee", "data.monster." + this.figure.name, "monster." + this.entity.type, "" + number);
         this.entity.number = number;
         gameManager.stateManager.after();

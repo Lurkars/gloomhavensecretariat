@@ -1,6 +1,7 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
 import { Component, ElementRef, Input, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
@@ -8,7 +9,6 @@ import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 import { MonsterNumberPickerDialog } from "./numberpicker-dialog";
-import { Subscription } from "rxjs";
 
 
 @Component({
@@ -90,10 +90,7 @@ export class MonsterNumberPicker implements OnInit, OnDestroy {
   }
 
   randomStandee() {
-    let number = Math.floor(Math.random() * this.maxStandees) + 1;
-    while (gameManager.monsterManager.monsterStandeeUsed(this.monster, number)) {
-      number = Math.floor(Math.random() * this.maxStandees) + 1;
-    }
+    const number = gameManager.monsterManager.monsterRandomStandee(this.monster);
     this.pickNumber(number, true, false);
   }
 

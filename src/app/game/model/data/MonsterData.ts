@@ -8,6 +8,7 @@ export class MonsterData implements Editional, Spoilable {
 
   name: string = "";
   count: number | string = 0;
+  randomCount: number | string = 0;
   standeeCount: number | string | undefined;
   standeeShare: string | undefined;
   standeeShareEdition: string | undefined;
@@ -46,6 +47,7 @@ export class MonsterData implements Editional, Spoilable {
     if (monsterData) {
       this.name = monsterData.name;
       this.count = monsterData.count;
+      this.randomCount = monsterData.randomCount;
       this.standeeCount = monsterData.standeeCount;
       this.standeeShare = monsterData.standeeShare;
       this.standeeShareEdition = monsterData.standeeShareEdition;

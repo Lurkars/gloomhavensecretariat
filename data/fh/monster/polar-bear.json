@@ -2,6 +2,7 @@
   "name": "polar-bear",
   "edition": "fh",
   "count": 6,
+  "randomCount": 4,
   "baseStat": {
     "type": "normal",
     "immunities": [

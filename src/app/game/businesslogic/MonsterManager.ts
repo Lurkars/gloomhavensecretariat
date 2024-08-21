@@ -392,6 +392,30 @@ export class MonsterManager {
     return max;
   }
 
+  monsterRandomStandee(monster: Monster): number {
+    let number = -1;
+    const monsterCount = this.monsterStandeeMax(monster);
+
+    if ([...Array(monsterCount).keys()].every((n) => gameManager.monsterManager.monsterStandeeUsed(monster, n + 1))) {
+      console.error("This should not happen: monsterRandomStandee called with all standees used already!");
+      return number;
+    }
+
+    const randomCount = monster.randomCount ? EntityValueFunction(monster.randomCount) : 0;
+    if (randomCount && randomCount < monsterCount && [...Array(randomCount).keys()].some((n) => !gameManager.monsterManager.monsterStandeeUsed(monster, n + 1))) {
+      number = Math.floor(Math.random() * randomCount) + 1;
+      while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
+        number = Math.floor(Math.random() * randomCount) + 1;
+      }
+    } else {
+      number = Math.floor(Math.random() * monsterCount) + 1;
+      while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
+        number = Math.floor(Math.random() * monsterCount) + 1;
+      }
+    }
+    return number;
+  }
+
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
     if (monster.bb && !monster.baseStat || !monster.bb && !monster.stats.some((monsterStat) => {
       return monsterStat.type == type;
@@ -479,10 +503,7 @@ export class MonsterManager {
       }
 
       if (settingsManager.settings.randomStandees) {
-        number = Math.floor(Math.random() * monsterCount) + 1;
-        while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
-          number = Math.floor(Math.random() * monsterCount) + 1;
-        }
+        number = this.monsterRandomStandee(monster);
       } else if (this.monsterStandeeCount(monster, false) == monsterCount - 1) {
         number = 1;
         while (gameManager.monsterManager.monsterStandeeUsed(monster, number)) {
