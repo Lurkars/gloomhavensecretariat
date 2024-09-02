@@ -9,6 +9,7 @@ export class ScenarioRule {
   start: boolean = false;
   always: boolean = false;
   alwaysApply: boolean = false;
+  alwaysApplyTurn: "turn" | "after" | false = false;
   once: boolean = false;
   requiredRooms: number[] = [];
   requiredRules: ScenarioRuleIdentifier[] = [];

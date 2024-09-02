@@ -58,10 +58,10 @@ export class ScenarioRulesManager {
   addScenarioRulesAlways() {
     const scenario = this.game.scenario;
     if (scenario && scenario.rules) {
-      scenario.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply).forEach((rule) => {
+      scenario.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply || rule.alwaysApplyTurn).forEach((rule) => {
         if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply) {
           this.applyRule(rule, { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "index": scenario.rules.indexOf(rule), "section": false });
-        } else {
+        } else if (!this.game.disgardedScenarioRules.find((identifier) => identifier.edition == scenario.edition && identifier.scenario == scenario.index && identifier.group == scenario.group && identifier.index == scenario.rules.indexOf(rule) && !identifier.section)) {
           this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
         }
       })
@@ -70,11 +70,11 @@ export class ScenarioRulesManager {
     if (this.game.sections) {
       this.game.sections.forEach((section) => {
         if (section.rules) {
-          section.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply).forEach((rule) => {
+          section.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply || rule.alwaysApplyTurn).forEach((rule) => {
             if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply) {
               this.applyRule(rule, { "edition": section.edition, "scenario": section.index, "group": section.group, "index": section.rules.indexOf(rule), "section": true });
               gameManager.game.scenarioRules.splice(gameManager.game.scenarioRules.length - 1, 1);
-            } else {
+            } else if (!this.game.disgardedScenarioRules.find((identifier) => identifier.edition == section.edition && identifier.scenario == section.index && identifier.group == section.group && identifier.index == section.rules.indexOf(rule) && identifier.section)) {
               this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
             }
           })
@@ -109,6 +109,33 @@ export class ScenarioRulesManager {
 
     rules.forEach((ruleModel) => {
       this.applyRule(ruleModel.rule, ruleModel.identifier);
+    })
+  }
+
+
+  applyScenarioRulesTurn(entity: Entity, after: boolean = false) {
+    const scenario = this.game.scenario;
+    let rules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
+    if (scenario && scenario.rules) {
+      rules.push(...scenario.rules.map((rule, index) => {
+        const identifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "index": index, "section": false };
+        return { identifier: identifier, rule: rule };
+      }).filter((ruleModel) => ruleModel.rule.alwaysApplyTurn && (!after && ruleModel.rule.alwaysApplyTurn == "turn" || after && ruleModel.rule.alwaysApplyTurn == "after") && this.game.appliedScenarioRules.find((applied) => applied.edition == ruleModel.identifier.edition && applied.scenario == ruleModel.identifier.scenario && applied.group == ruleModel.identifier.group && applied.index == ruleModel.identifier.index && applied.section == ruleModel.identifier.section)));
+    }
+
+    if (this.game.sections) {
+      this.game.sections.forEach((section) => {
+        if (section.rules) {
+          rules.push(...section.rules.map((rule, index) => {
+            const identifier = { "edition": section.edition, "scenario": section.index, "group": section.group, "index": index, "section": true };
+            return { identifier: identifier, rule: rule };
+          }).filter((ruleModel) => ruleModel.rule.alwaysApplyTurn && (!after && ruleModel.rule.alwaysApplyTurn == "turn" || after && ruleModel.rule.alwaysApplyTurn == "after") && this.game.appliedScenarioRules.find((applied) => applied.edition == ruleModel.identifier.edition && applied.scenario == ruleModel.identifier.scenario && applied.group == ruleModel.identifier.group && applied.index == ruleModel.identifier.index && applied.section == ruleModel.identifier.section)))
+        }
+      })
+    }
+
+    rules.forEach((ruleModel) => {
+      this.applyRule(ruleModel.rule, ruleModel.identifier, [entity]);
     })
   }
 
@@ -411,7 +438,7 @@ export class ScenarioRulesManager {
     return this.entitiesByFigureRule(figureRule, rule).filter((entity) => (gameManager.entityManager.isAlive(entity) || entity instanceof MonsterEntity && entity.dormant) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (entity instanceof MonsterEntity && figureRule.identifier && entity.marker == figureRule.identifier.marker && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || (entity instanceof MonsterEntity && figureRule.identifier.tags.forEach((tag) => entity.tags.indexOf(tag) != -1)))))))
   }
 
-  applyRule(rule: ScenarioRule, identifier: ScenarioRuleIdentifier) {
+  applyRule(rule: ScenarioRule, identifier: ScenarioRuleIdentifier, entityFilter: Entity[] | undefined = undefined) {
 
     const scenario = gameManager.scenarioRulesManager.getScenarioForRule(identifier).scenario;
     const section = gameManager.scenarioRulesManager.getScenarioForRule(identifier).section;
@@ -487,7 +514,7 @@ export class ScenarioRulesManager {
           let figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
           let ruleEntities: Entity[] = gameManager.scenarioRulesManager.entitiesByFigureRule(figureRule, rule);
           figures.forEach((figure) => {
-            let entities: Entity[] = gameManager.entityManager.entities(figure).filter((entity) => ruleEntities.indexOf(entity) != -1);
+            let entities: Entity[] = gameManager.entityManager.entitiesAll(figure).filter((entity) => ruleEntities.indexOf(entity) != -1 && (!entityFilter || entityFilter.indexOf(entity) != -1));
             entities.forEach((entity) => {
               switch (figureRule.type) {
                 case "gainCondition":

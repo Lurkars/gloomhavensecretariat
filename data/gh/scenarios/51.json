@@ -45,6 +45,21 @@
           "scenarioEffect": true
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "characterWithSummon",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "2"
+        }
+      ],
+      "alwaysApplyTurn": "after"
     }
   ],
   "rooms": [

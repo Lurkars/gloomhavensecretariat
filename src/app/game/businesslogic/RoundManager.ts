@@ -287,6 +287,9 @@ export class RoundManager {
           if (settingsManager.settings.expireConditions) {
             gameManager.entityManager.expireConditions(prevSummon);
           }
+          if (settingsManager.settings.scenarioRules) {
+            gameManager.scenarioRulesManager.applyScenarioRulesTurn(prevSummon, true);
+          }
           if (settingsManager.settings.applyConditions && (!activeSummon || index > 0)) {
             gameManager.entityManager.applyConditionsTurn(prevSummon, figure);
             gameManager.entityManager.applyConditionsAfter(prevSummon, figure);
@@ -297,6 +300,9 @@ export class RoundManager {
           nextSummon.active = true;
           if (settingsManager.settings.applyConditions) {
             gameManager.entityManager.applyConditionsTurn(nextSummon, figure);
+          }
+          if (settingsManager.settings.scenarioRules) {
+            gameManager.scenarioRulesManager.applyScenarioRulesTurn(nextSummon);
           }
           if (nextSummon.dead) {
             this.turn(figure);
@@ -319,6 +325,9 @@ export class RoundManager {
           if (settingsManager.settings.applyConditions) {
             gameManager.entityManager.applyConditionsTurn(summon, figure);
           }
+          if (settingsManager.settings.scenarioRules) {
+            gameManager.scenarioRulesManager.applyScenarioRulesTurn(summon);
+          }
         })
       }
     }
@@ -329,13 +338,22 @@ export class RoundManager {
       }
     })
 
-    if (settingsManager.settings.applyConditions) {
-      if (!(figure instanceof Character) || skipSummons) {
-        gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
+    if (!(figure instanceof Character) || skipSummons) {
+      gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
+        if (settingsManager.settings.applyConditions) {
           gameManager.entityManager.applyConditionsTurn(entity, figure);
-        })
-      } else if (!skipSummons && !figure.summons.some((summon) => summon.active)) {
+        }
+
+        if (settingsManager.settings.scenarioRules) {
+          gameManager.scenarioRulesManager.applyScenarioRulesTurn(entity);
+        }
+      })
+    } else if (!skipSummons && !figure.summons.some((summon) => summon.active)) {
+      if (settingsManager.settings.applyConditions) {
         gameManager.entityManager.applyConditionsTurn(figure, figure);
+      }
+      if (settingsManager.settings.scenarioRules) {
+        gameManager.scenarioRulesManager.applyScenarioRulesTurn(figure);
       }
     }
 
@@ -397,6 +415,10 @@ export class RoundManager {
             if (settingsManager.settings.applyConditions) {
               gameManager.entityManager.applyConditionsAfter(summon, figure);
             }
+
+            if (settingsManager.settings.scenarioRules) {
+              gameManager.scenarioRulesManager.applyScenarioRulesTurn(summon, true);
+            }
           }
         })
       }
@@ -414,15 +436,33 @@ export class RoundManager {
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
 
-      gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
+      if (figure instanceof Character) {
         if (settingsManager.settings.expireConditions) {
-          gameManager.entityManager.expireConditions(entity);
+          gameManager.entityManager.expireConditions(figure);
         }
 
         if (settingsManager.settings.applyConditions) {
-          gameManager.entityManager.applyConditionsAfter(entity, figure);
+          gameManager.entityManager.applyConditionsAfter(figure, figure);
         }
-      })
+
+        if (settingsManager.settings.scenarioRules) {
+          gameManager.scenarioRulesManager.applyScenarioRulesTurn(figure, true);
+        }
+      } else {
+        gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
+          if (settingsManager.settings.expireConditions) {
+            gameManager.entityManager.expireConditions(entity);
+          }
+
+          if (settingsManager.settings.applyConditions) {
+            gameManager.entityManager.applyConditionsAfter(entity, figure);
+          }
+
+          if (settingsManager.settings.scenarioRules) {
+            gameManager.scenarioRulesManager.applyScenarioRulesTurn(entity, true);
+          }
+        })
+      }
     }
 
     this.game.elementBoard.forEach((element) => {

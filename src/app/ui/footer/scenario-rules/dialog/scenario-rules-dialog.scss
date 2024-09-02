@@ -1,0 +1,31 @@
+h2 {
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+    color: var(--ghs-color-darkgray);
+    margin: 0;
+    padding: 0;
+}
+
+.applied ghs-scenario-rule {
+
+    cursor: zoom-out;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        cursor: pointer;
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+}

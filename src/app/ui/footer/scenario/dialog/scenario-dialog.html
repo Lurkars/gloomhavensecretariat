@@ -58,6 +58,12 @@
         [ghs-label]="'scenario.setup'"></span>
     </label>
 
+    <div class="additional">
+      <a *ngIf="gameManager.game.appliedScenarioRules.length || gameManager.game.disgardedScenarioRules.length" (click)="showScenarioRules()"><span
+          [ghs-label]="'scenario.rules.show'"></span>
+      </a>
+    </div>
+
     <div class="menu">
       <label><span [ghs-label]="'scenario.finish'"></span></label>
       <div class="buttons">

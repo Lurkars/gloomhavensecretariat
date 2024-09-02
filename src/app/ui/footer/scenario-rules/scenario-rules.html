@@ -1,99 +1,16 @@
 <div class="rules-dialog"
   [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
   <ng-container *ngFor="let ruleModel of gameManager.game.scenarioRules; let index = index;">
-    <div class="rule dialog" #ruleElement *ngIf="visible(index)">
+    <div class="rule-dialog dialog" #ruleElement *ngIf="visible(index)">
       <div class="dialog-container">
         <div class="hide" (click)="hideRule(ruleElement, index)"><span [ghs-label]="'scenario.rules.hide'"></span>
           <img src="./assets/images/close.svg">
         </div>
-        <p *ngIf="ruleModel.rule.noteTop" class="text-white" [ghs-label]="ruleModel.rule.noteTop"></p>
-        <div class="spawns" *ngIf="gameManager.scenarioRulesManager.spawns(ruleModel.rule).length > 0">
-          <ng-container *ngFor="let spawn of gameManager.scenarioRulesManager.spawns(ruleModel.rule); let i = index">
-            <span class="and" *ngIf="i > 0" [ghs-label]="'and'"></span>
-            <span class="text-white text" [ghs-label]="'scenario.rules.spawn' + (spawn.marker ? 'Marker' : '')"
-              [ghs-label-args]="[spawn.monster.name, gameManager.scenarioRulesManager.spawnType(spawn.monster) || '', spawn.count ? gameManager.scenarioRulesManager.spawnCount(ruleModel.rule, spawn) + ' ' : '', spawn.marker]"></span>
-            <input type="number" *ngIf="spawn.manual" [(ngModel)]="spawn.count" [min]="spawn.manualMin || 0"
-              [max]="spawn.manualMax || ''">
-          </ng-container>
-        </div>
-        <div class="objective-spawns"
-          *ngIf="ruleModel.rule.objectiveSpawns && ruleModel.rule.objectiveSpawns.length > 0">
-          <ng-container *ngFor="let spawn of ruleModel.rule.objectiveSpawns; let i = index">
-            <span class="and" *ngIf="i > 0" [ghs-label]="'and'"></span>
-            <span class="text-white text"
-              [ghs-label]="'scenario.rules.spawnObjective' + ( EntityValueFunction(spawn.count || 1) > 1 ? 's' : '') + (spawn.objective.escort ? 'Escort' : '') + (spawn.marker ? 'Marker' : '')"
-              [ghs-label-args]="[spawn.objective.name ? 'data.objective.' + spawn.objective.name : '',  EntityValueFunction(spawn.count || 1) + ' ', spawn.marker]"></span>
-            <input type="number" *ngIf="spawn.manual" [(ngModel)]="spawn.count" [min]="spawn.manualMin || 0"
-              [max]="spawn.manualMax || ''" [value]="EntityValueFunction(spawn.count || 1)">
-          </ng-container>
-        </div>
-        <div class="elements" *ngIf="ruleModel.rule.elements && ruleModel.rule.elements.length > 0">
-          <ng-container *ngFor="let element of ruleModel.rule.elements; let i = index">
-            <span class="and" *ngIf="i > 0">,</span>
-            <span class="element">
-              <ghs-element-icon [element]="element"></ghs-element-icon>
-              <span><span [ghs-label]="'game.element.' + element.type"></span></span>
-              <span><span [ghs-label]="'game.element.state.' + element.state"></span></span>
-            </span>
-          </ng-container>
-        </div>
-        <div class="sections rooms" *ngIf="rooms(index).length > 0">
-          <ng-container *ngFor="let roomData of rooms(index); let i = index">
-            <span class="section room">
-              <img class="ghs-svg" src="./assets/images/scenario/door.svg">
-              <span class="text-white"
-                [ghs-label]="roomData.marker ? 'scenario.rules.openRoomMarker' : 'scenario.rules.openRoom'"
-                [ghs-label-args]="[roomData.marker || '']"></span>
-            </span>
-          </ng-container>
-        </div>
-        <div class="sections" *ngIf="sections(index).length > 0">
-          <ng-container *ngFor="let sectionData of sections(index); let i = index">
-            <span class="and" *ngIf="i > 0">,</span>
-            <span class="section">
-              <img class="ghs-svg" src="./assets/images/lock.svg">
-              <span class="text-white" *ngIf="!sectionData.conclusion"
-                [ghs-label]="(sectionData.marker ? 'scenario.rules.addSectionMarker' : 'scenario.rules.addSection') + (sectionData.hideIndex ? '' : 'Index')"
-                [ghs-label-args]="[sectionData.index, 'data.section.' + sectionData.name, sectionData.marker || '']"></span>
-              <span class="text-white" *ngIf="sectionData.conclusion"
-                [ghs-label]=" 'scenario.rules.finishWithConclusion'"
-                [ghs-label-args]="[sectionData.index, 'data.section.' + sectionData.name, sectionData.marker || '']"></span>
-            </span>
-          </ng-container>
-        </div>
-        <div class="figures" *ngIf="figureRules(ruleModel.rule).length > 0">
-          <ng-container *ngFor="let figureRule of figureRules(ruleModel.rule);">
-            <span class="figure">
-              <span class="text-white" [ghs-label]="'scenario.rules.figures.' + figureRule.type"
-                [ghs-label-args]="[figureNames(figureRule,ruleModel.rule), figureRule.value || '', (settingsManager.settings.calculate && (figureRule.type == 'damage' && figureRule.value && figureRule.value.indexOf('H') == -1 || (figureRule.type == 'setHp' || figureRule.type == 'heal') && figureRule.value && figureRule.value.indexOf('H') == -1)) ? '' + EntityValueFunction(figureRule.value || '') : (figureRule.value || ''), (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[0] : '', (figureRule.type == 'amAdd' || figureRule.type == 'amRemove' || figureRule.type == 'transfer' && figureRule.value && figureRule.value.split(':').length > 1) ? figureRule.value.split(':')[1] : '', figureRule.type == 'transferEntities' && figureRule.identifier && figureRule.identifier.number ? figureRule.identifier.number : '']"></span>
-              <span *ngIf="figureRule.scenarioEffect" class="text-white">
-                <span [ghs-label]="'scenario.rules.figures.scenarioEffect'"></span>
-              </span>
-            </span>
-          </ng-container>
-        </div>
-        <div class="random-dungeon" *ngIf="ruleModel.rule.randomDungeon">
-          <p *ngIf="ruleModel.rule.randomDungeon.dungeonCount" class="text-white"
-            [ghs-label]="'scenario.rules.randomDungeon.dungeon' + (ruleModel.rule.randomDungeon.dungeonCards && ruleModel.rule.randomDungeon.dungeonCards.length ? '.cards' : '')"
-            [ghs-label-args]="['' + ruleModel.rule.randomDungeon.dungeonCount, randomDungeonsDungeonLabel(ruleModel.rule).toString()]">
-          </p>
-          <br *ngIf="ruleModel.rule.randomDungeon.dungeonCount && ruleModel.rule.randomDungeon.monsterCount">
-          <p *ngIf="ruleModel.rule.randomDungeon.monsterCount" class="text-white"
-            [ghs-label]="'scenario.rules.randomDungeon.monster' + (ruleModel.rule.randomDungeon.monsterCards && ruleModel.rule.randomDungeon.monsterCards.length ? '.cards' : '')"
-            [ghs-label-args]="['' + ruleModel.rule.randomDungeon.monsterCount, randomDungeonsMonsterLabel(ruleModel.rule).toString()]">
-          </p>
-        </div>
-        <div class="stat-effects" *ngIf="ruleModel.rule.statEffects && ruleModel.rule.statEffects.length">
-          <div class="text text-white" *ngFor="let statEffectRule of ruleModel.rule.statEffects"
-            [ghs-label]="statEffectRule.note"></div>
-        </div>
-        <p *ngIf="ruleModel.rule.finish" class="text-white"
-          [ghs-label]="'scenario.rules.finish.' + ruleModel.rule.finish"></p>
-        <p *ngIf="ruleModel.rule.note" class="text-white" [ghs-label]="ruleModel.rule.note"></p>
+        <ghs-scenario-rule [rule]="ruleModel.rule" [identifier]="ruleModel.identifier"></ghs-scenario-rule>
         <div class="menu" *ngIf="apply(ruleModel.rule)">
           <a class="apply" (click)="applyRule(ruleElement, index)">
             <span
-              [ghs-label]="ruleModel.rule.alwaysApply ? 'scenario.rules.alwaysApply' : 'scenario.rules.apply'"></span>
+              [ghs-label]="ruleModel.rule.alwaysApply || ruleModel.rule.alwaysApplyTurn ? 'scenario.rules.alwaysApply' : 'scenario.rules.apply'"></span>
             <img src="./assets/images/check.svg">
           </a>
         </div>
