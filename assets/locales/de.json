@@ -1319,7 +1319,12 @@
       "addSectionMarker": "Sektion {1} %game.mapMarker.{2}% öffnen",
       "addSectionMarkerIndex": "Sektion #{0} {1} %game.mapMarker.{2}% öffnen",
       "alwaysApply": "Automatisch anwenden",
+      "alwaysApplyTurn": {
+        "turn": "zu Beginn eines jeden Zuges.",
+        "after": "am Ende eines jeden Zuges."
+      },
       "apply": "Anwenden",
+      "clearDiscarded": "Verworfene Szenario Regeln wiederherstellen",
       "dismiss": "Schließen",
       "figures": {
         "activate": "{0} werden aktiviert",
@@ -1362,6 +1367,11 @@
           ".": "Ziehe {0} zufällige Karten vom Raumkarten Deck. (manuell)",
           "cards": "Ziehe {0} zufällige Karten vom Raumkarten Deck. Verwende nur die folgenden Karten:<i>{1}</i>. (manuell)"
         }
+      },
+      "show": {
+        ".": "Zeige Szenario Regeln",
+        "applied": "Angwendete Szenario Regeln",
+        "discarded": "Verworfene Szenario Regeln"
       },
       "spawn": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) hinzu",
       "spawnMarker": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) an %game.mapMarker.{3}% hinzu",
@@ -2255,6 +2265,7 @@
       "characterLongRestOff": "Lange Rast für {0} deaktivieren",
       "characterReplay": "{0} wieder spielen für Spieler {1}",
       "characterSetAside": "Lege {0} beiseite für Spieler {1}",
+      "clearDiscardedScenarioRules": "Verworfene Szenario Regeln wiederherstellen",
       "craftItem": "Gegenstand {1} (%data.edition.{2}%) für {0} anfertigen",
       "declineApplyCondition": {
         "char": "Anwenden von {1} auf {0} abgelehnt",

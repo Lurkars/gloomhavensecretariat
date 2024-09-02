@@ -1506,7 +1506,12 @@
       "addSectionMarker": "Open Section {1} %game.mapMarker.{2}%",
       "addSectionMarkerIndex": "Open Section #{0} {1} %game.mapMarker.{2}%",
       "alwaysApply": "Apply automatically",
+      "alwaysApplyTurn": {
+        "turn": "at the start of each of their turns.",
+        "after": "at the end of each of their turns."
+      },
       "apply": "Apply",
+      "clearDiscarded": "Clear discarded scenario rules",
       "dismiss": "Dismiss",
       "figures": {
         "activate": "{0} activate",
@@ -1549,6 +1554,11 @@
           ".": "Draw {0} random cards from the random dungeon card deck. (manual)",
           "cards": "Draw {0} random cards from the random dungeon card deck. Only use cards:<i>{1}</i>. (manual)"
         }
+      },
+      "show": {
+        ".": "Show Scenario Rules",
+        "applied": "Applied Scenario Rules",
+        "discarded": "Discarded Scenario Rules"
       },
       "spawn": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}%",
       "spawnMarker": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
@@ -2462,6 +2472,7 @@
       "characterLongRestOff": "Disable Long Rest for {0}",
       "characterReplay": "Play {0} again for player {1}",
       "characterSetAside": "Set {0} aside for player {1}",
+      "clearDiscardedScenarioRules": "Clear discarded scenario rules",
       "craftItem": "Craft Item {1} (%data.edition.{2}%) for {0}",
       "declineApplyCondition": {
         "char": "Decline apply %game.condition.{1}% to {0}",
