@@ -2505,7 +2505,7 @@
         "failure": "시나리오 #{0} {1} ({2}) 실패",
         "linked": "시나리오 #{0} {1} 성공, 연결 #{3} ({2})",
         "remove": "시나리오 제거 #{0} {1} ({2}) 성공",
-        "restart": "실패한 시나리오  #{0} {1} ({2}) 재시작",
+        "restart": "실패한 시나리오 #{0} {1} ({2}) 재시작",
         "success": "시나리오 #{0} {1} ({2}) 성공"
       },
       "gameClock": {
@@ -2632,7 +2632,7 @@
       "setCharacterRetaliate": "{1} for {0}",
       "setCharacterRetaliatePersistent": "%game.card.persistent% {1} for {0}",
       "setCharacterShield": "%game.action.shield% {1} for {0}",
-      "setCharacterShieldPersistent": " %game.card.persistent% %game.action.shield% {1} for {0}",
+      "setCharacterShieldPersistent": "%game.card.persistent% %game.action.shield% {1} for {0}",
       "setCharacterTokenValue": "Set token {1} to {2} for {0}",
       "setConditionValue": {
         "char": "{0}의 {1} 상태를 변경: {2}",

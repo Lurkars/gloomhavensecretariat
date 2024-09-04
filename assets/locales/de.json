@@ -189,31 +189,7 @@
             ".": "Warnung: Automatisches Backup fehlgeschlagen",
             "status": "Das automatische Backup ist mit dem Statuscode '{0}' fehlgeschlagen. Öffne die Console des Browsers für mehr Details.",
             "unknown": "Das automatische Backup ist aus unbekannten Gründen fehlgeschlagen. Öffne die Console des Browsers für mehr Details."
-          },
-          "hint": "Instead of downloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
-        },
-        "uploadUrlAuthorization": {
-          ".": "Authorization Header",
-          "hint": "Used as the 'Authorization' header for upload request"
-        },
-        "uploadUrlFileUpload": {
-          ".": "Upload as File",
-          "hint": "Create a file object to upload. If unchecked, raw JSON string data will be send."
-        },
-        "uploadUrlMethod": {
-          ".": "Method",
-          "get": "GET",
-          "hint": "HTTP Method for uploading",
-          "post": "POST",
-          "put": "PUT"
-        },
-        "uploadUrlPassword": {
-          ".": "Password",
-          "hint": "Used password for upload request"
-        },
-        "uploadUrlUsername": {
-          ".": "Username",
-          "hint": "Used username for upload request"
+          }
         }
       },
       "download": {
@@ -2056,6 +2032,10 @@
       ".": "Aufsteller",
       "hint": "Zeige alle Aufsteller an. Falls deaktiviert, wird auch das freischalten von Räumen und das automatische Hinzufügen von Aufstellern deaktiviert."
     },
+    "standeeShieldRetaliate": {
+      ".": "Schild und Vergeltung",
+      "hint": "Verwalte zusätzliche %game.action.shield% und %game.action.retaliate% für Aufsteller und Beschwörungen."
+    },
     "standeeStats": {
       ".": "Schild und Vergeltung auf Aufsteller",
       "hint": "Zeige aktuelle Werte von %game.action.shield% und %game.action.retaliate% neben jedem Aufsteller an."
@@ -2393,6 +2373,30 @@
         "summon": "{3}x %game.condition.{2}% von '{1}' von {0} entfernen",
         "summons": "{2}x %game.condition.{1}% von allen {0} Beschwörungen entfernen"
       },
+      "removeEntityRetaliate": {
+        "char": "%game.action.retaliate% für {0} entfernen",
+        "monster": "%game.action.retaliate% für '{1}' von {0} entfernen",
+        "objectiveContainer": "%game.action.retaliate% für %game.objectiveMarker.{1}% von {0} entfernen",
+        "summon": "%game.action.retaliate% für '{1}' von {0} entfernen"
+      },
+      "removeEntityRetaliatePersistent": {
+        "char": "%game.card.persistent% %game.action.retaliate% für {0} entfernen",
+        "monster": "%game.card.persistent% %game.action.retaliate% für '{1}' von {0} entfernen",
+        "objectiveContainer": "%game.card.persistent% %game.action.retaliate% für %game.objectiveMarker.{1}% von {0} entfernen",
+        "summon": "%game.card.persistent% %game.action.retaliate% für '{1}' von {0} entfernen"
+      },
+      "removeEntityShield": {
+        "char": "%game.action.shield% für {0} entfernen",
+        "monster": "%game.action.shield% für '{1}' von {0} entfernen",
+        "objectiveContainer": "%game.action.shield% für %game.objectiveMarker.{1}% von {0} entfernen",
+        "summon": "%game.action.shield% für '{1}' von {0} entfernen"
+      },
+      "removeEntityShieldPersistent": {
+        "char": "%game.card.persistent% %game.action.shield% für {0} entfernen",
+        "monster": "%game.card.persistent% %game.action.shield% für '{1}' von {0} entfernen",
+        "objectiveContainer": "%game.card.persistent% %game.action.shield% für %game.objectiveMarker.{1}% von {0} entfernen",
+        "summon": "%game.card.persistent% %game.action.shield% für '{1}' von {0} entfernen"
+      },
       "removeGameCondition": "%game.condition.{0}% vom aktuellen Spiel entfernen",
       "removeGlobalAchievement": "Entferne globalen Erfolg '{0}'",
       "removeImmunity": {
@@ -2463,6 +2467,30 @@
       "setEdition": "Edition {0} setzen",
       "setEditionAll": "Alle Editionen auswählen",
       "setEntityActive": "Aufsteller {1} von {0} aktiv",
+      "setEntityRetaliate": {
+        "char": "{1} für {0}",
+        "monster": "{2} für '{1}' von {0}",
+        "objectiveContainer": "{2} für %game.objectiveMarker.{1}% von {0}",
+        "summon": "{2} für '{1}' von {0}"
+      },
+      "setEntityRetaliatePersistent": {
+        "char": "%game.card.persistent% {1} für {0}",
+        "monster": "%game.card.persistent% {2} für '{1}' von {0}",
+        "objectiveContainer": "%game.card.persistent% {2} für %game.objectiveMarker.{1}% von {0}",
+        "summon": "%game.card.persistent% {2} für '{1}' von {0}"
+      },
+      "setEntityShield": {
+        "char": "%game.action.shield% {1} für {0}",
+        "monster": "%game.action.shield% {2} für '{1}' von {0}",
+        "objectiveContainer": "%game.action.shield% {2} für %game.objectiveMarker.{1}% von {0}",
+        "summon": "%game.action.shield% {2} für '{1}' von {0}"
+      },
+      "setEntityShieldPersistent": {
+        "char": "%game.card.persistent% %game.action.shield% {1} für {0}",
+        "monster": "%game.card.persistent% %game.action.shield% {2} für '{1}' von {0}",
+        "objectiveContainer": "%game.card.persistent% %game.action.shield% {2} für %game.objectiveMarker.{1}% von {0}",
+        "summon": "%game.card.persistent% %game.action.shield% {2} für '{1}' von {0}"
+      },
       "setEntitySummonState": "Beschwörung {3} für {1} Aufsteller {2} von {0}",
       "setExhausted": "{0} erschöpft",
       "setGold": "Gold {1} für {0}",

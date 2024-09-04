@@ -305,7 +305,7 @@
       "edition": "Nom de l'édition",
       "extensions": "Éditions à étendre",
       "json": {
-        ".": " Données d'édition dans le type de fichier JSON",
+        ".": "Données d'édition dans le type de fichier JSON",
         "download": "Télécharger les données d'édition sous forme de fichier JSON"
       },
       "monster": {
@@ -2182,7 +2182,7 @@
         "failure": "Scénario #{0} {1} ({2}) terminé en échec",
         "linked": "Scénario #{0} {1} réussi, poursuivre avec #{3} ({2})",
         "remove": "Retrait scénario #{0} {1} ({2}) succès",
-        "restart": " Scénario d'échec de redémarrage #{0} {1} ({2})",
+        "restart": "Scénario d'échec de redémarrage #{0} {1} ({2})",
         "success": "Scénario #{0} {1} ({2}) terminé avec succès"
       },
       "hideScenarioRule": "Ne plus montrer la règle du scénario",
