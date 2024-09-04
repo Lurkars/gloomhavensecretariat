@@ -5,7 +5,7 @@
   },
   "items": {
     "fc-152": {
-      "1": "After performing the top action of any ability card, you may immediately perform the bottom action of the same card. This item cannot be used if both actions trigger a lost card icon consumed %game.card.lost%.",
+      "1": "After performing the top action of any ability card, you may immediately perform the bottom action of the same card. This item cannot be used if both actions trigger a lost card icon %game.card.lost%.",
       ".": "Ring of Duality"
     },
     "fc-153": {

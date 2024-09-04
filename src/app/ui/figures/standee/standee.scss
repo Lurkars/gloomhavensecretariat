@@ -1,6 +1,7 @@
 .entity-border {
   position: relative;
   touch-action: none;
+  height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
 
   &:hover {
     z-index: 999;
@@ -202,7 +203,6 @@
         }
       }
 
-
       .number,
       .health {
         display: flex;
@@ -284,71 +284,7 @@
           }
         }
       }
-
-
-
-      &.summon-standee {
-
-        .number {
-          display: none;
-        }
-
-        .summon-state {
-          position: absolute;
-          top: calc(var(--ghs-unit) * 0.5);
-          left: 0;
-          width: calc(var(--ghs-unit) * 4);
-          height: calc(var(--ghs-unit) * 4);
-          transition: top 500ms ease-out, left 500ms ease-out;
-
-          &.new::before {
-            content: " ";
-            display: block;
-            position: absolute;
-            width: calc(var(--ghs-unit) * 4);
-            height: calc(var(--ghs-unit) * 4);
-            background-image: url('~src/assets/images/summons/minus.svg');
-            background-size: cover;
-            z-index: 2;
-          }
-
-          img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-          }
-
-          .summon-number {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            top: 0;
-            left: calc(var(--ghs-unit) * -0.1);
-            height: calc(var(--ghs-unit) * 4);
-            width: calc(var(--ghs-unit) * 2);
-            font-family: var(--ghs-font-title);
-            font-size: calc(var(--ghs-unit) * 2.5);
-            color: var(--ghs-color-white);
-            background-color: var(--ghs-color-darkgray);
-            border-top-left-radius: calc(var(--ghs-unit) * 4);
-            border-bottom-left-radius: calc(var(--ghs-unit) * 4);
-            z-index: 3;
-            opacity: 0.9;
-          }
-        }
-
-        .health {
-          position: absolute;
-          top: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
-          left: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-        }
-      }
     }
-
 
     .markers {
       position: relative;
@@ -689,6 +625,128 @@
     z-index: 4;
   }
 
+  &.summon {
+    transition: height 500ms ease-out;
+
+    .entity {
+      transition: width 500ms ease-out;
+
+      .summon-standee {
+        background-color: var(--ghs-color-darkgray);
+        transition: height 500ms ease-out, width 500ms ease-out;
+
+        .number {
+          display: none;
+        }
+
+        .summon-state {
+          position: absolute;
+          top: calc(var(--ghs-unit) * 0.5);
+          left: 0;
+          width: calc(var(--ghs-unit) * 4);
+          height: calc(var(--ghs-unit) * 4);
+          transition: top 500ms ease-out, left 500ms ease-out;
+
+          &.new::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            width: calc(var(--ghs-unit) * 4);
+            height: calc(var(--ghs-unit) * 4);
+            background-image: url('~src/assets/images/summons/minus.svg');
+            background-size: cover;
+            z-index: 2;
+          }
+
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+          }
+
+          .summon-number {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: calc(var(--ghs-unit) * -0.1);
+            height: calc(var(--ghs-unit) * 4);
+            width: calc(var(--ghs-unit) * 2);
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 2.5);
+            color: var(--ghs-color-white);
+            background-color: var(--ghs-color-darkgray);
+            border-top-left-radius: calc(var(--ghs-unit) * 4);
+            border-bottom-left-radius: calc(var(--ghs-unit) * 4);
+            z-index: 3;
+            opacity: 0.9;
+            transition: top 500ms ease-out, left 500ms ease-out;
+          }
+
+          &.fh {
+            top: calc(var(--ghs-unit) * 1);
+            width: calc(var(--ghs-unit) * 3.5);
+            height: calc(var(--ghs-unit) * 3.5);
+
+            &.new::before {
+              right: calc(var(--ghs-unit) * -0.7);
+              top: calc(var(--ghs-unit) * 0.8);
+              width: calc(var(--ghs-unit) * 2);
+              height: calc(var(--ghs-unit) * 2);
+              background-image: url('~src/assets/images/fh/summons/minus.svg');
+              z-index: 4;
+            }
+
+            .summon-number {
+              width: calc(var(--ghs-unit) * 3.5);
+              height: calc(var(--ghs-unit) * 3.5);
+              font-family: ghs-title;
+              font-size: calc(var(--ghs-unit) * 2.5);
+              color: var(--ghs-color-white);
+              border: calc(var(--ghs-unit) * 0.3) solid var(--ghs-color-white);
+              border-radius: 100%;
+            }
+          }
+        }
+
+        .background-image-container {
+          transition: height 500ms ease-out, width 500ms ease-out, top 500ms ease-out, left 500ms ease-out;
+
+          .background-image {
+            top: calc(var(--ghs-unit) * -1.3 * var(--ghs-text-factor));
+            left: calc(var(--ghs-unit) * -0.8 * var(--ghs-text-factor));
+            width: calc(var(--ghs-unit) * 9.5 * var(--ghs-text-factor));
+            height: 150%;
+            background-size: 100% AUTO;
+            background-color: transparent;
+            transition: height 500ms ease-out, width 500ms ease-out, top 500ms ease-out, left 500ms ease-out;
+          }
+        }
+
+        .health {
+          position: absolute;
+          top: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
+          left: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+          transition: top 500ms ease-out, left 500ms ease-out;
+
+          .value-overlay {
+            top: initial;
+            left: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
+            bottom: calc(var(--ghs-unit) * -3 * var(--ghs-text-factor));
+          }
+        }
+      }
+
+      ghs-healthbar {
+        transition: width 500ms ease-out;
+      }
+    }
+  }
+
   &.active.summon {
 
     z-index: 15;
@@ -771,6 +829,11 @@
           left: calc(var(--ghs-unit) * 2);
         }
       }
+    }
+
+    ghs-pointer-input.drag-hp {
+      width: calc(var(--ghs-unit) * 30 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
     }
   }
 

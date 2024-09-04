@@ -1,3 +1,4 @@
+import { Action } from "./data/Action";
 import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
 import { Entity, EntityValueFunction } from "./Entity";
 import { ObjectiveContainer } from "./ObjectiveContainer";
@@ -21,6 +22,10 @@ export class ObjectiveEntity implements Entity {
   number: number;
   markers: string[] = [];
   tags: string[] = [];
+  shield: Action | undefined;
+  shieldPersistent: Action | undefined;
+  retaliate: Action[] = [];
+  retaliatePersistent: Action[] = [];
 
   constructor(uuid: string, number: number, objective: ObjectiveContainer, marker: string | undefined) {
     this.uuid = uuid;
@@ -34,7 +39,7 @@ export class ObjectiveEntity implements Entity {
   }
 
   toModel(): GameObjectiveEntityModel {
-    return new GameObjectiveEntityModel(this.uuid, this.number, this.marker, this.dead, this.active, this.dormant, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || []);
+    return new GameObjectiveEntityModel(this.uuid, this.number, this.marker, this.dead, this.active, this.dormant, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.shield, this.shieldPersistent, this.retaliate, this.retaliatePersistent);
   }
 
   fromModel(model: GameObjectiveEntityModel) {
@@ -55,6 +60,11 @@ export class ObjectiveEntity implements Entity {
     this.immunities = model.immunities || [];
     this.markers = model.markers || [];
     this.tags = model.tags || [];
+
+    this.shield = model.shield ? JSON.parse(model.shield) : undefined;
+    this.shieldPersistent = model.shieldPersistent ? JSON.parse(model.shieldPersistent) : undefined;
+    this.retaliate = (model.retaliate || []).map((value) => JSON.parse(value));
+    this.retaliatePersistent = (model.retaliatePersistent || []).map((value) => JSON.parse(value));
   }
 
 
@@ -73,6 +83,10 @@ export class GameObjectiveEntityModel {
   immunities: ConditionName[];
   markers: string[];
   tags: string[];
+  shield: string;
+  shieldPersistent: string;
+  retaliate: string[];
+  retaliatePersistent: string[];
 
   constructor(
     uuid: string,
@@ -86,7 +100,11 @@ export class GameObjectiveEntityModel {
     entityConditions: GameEntityConditionModel[],
     immunities: ConditionName[],
     markers: string[],
-    tags: string[]) {
+    tags: string[],
+    shield: Action | undefined,
+    shieldPersistent: Action | undefined,
+    retaliate: Action[],
+    retaliatePersistent: Action[]) {
     this.uuid = uuid;
     this.number = number;
     this.marker = marker;
@@ -99,5 +117,9 @@ export class GameObjectiveEntityModel {
     this.immunities = JSON.parse(JSON.stringify(immunities));
     this.markers = JSON.parse(JSON.stringify(markers));
     this.tags = JSON.parse(JSON.stringify(tags));
+    this.shield = shield ? JSON.stringify(shield) : "";
+    this.shieldPersistent = shieldPersistent ? JSON.stringify(shieldPersistent) : "";
+    this.retaliate = retaliate.map((action) => JSON.stringify(action));
+    this.retaliatePersistent = retaliatePersistent.map((action) => JSON.stringify(action));
   }
 }

@@ -102,6 +102,43 @@
       ghs-entity-index-key {
         margin-left: calc(var(--ghs-unit) * 1);
       }
+
+      .actions {
+        position: relative;
+        display: flex;
+        margin-left: calc(var(--ghs-unit) * 0.5);
+        font-size: calc(var(--ghs-unit) * 2);
+
+        .action {
+          position: relative;
+          margin-left: calc(var(--ghs-unit) * 0.5);
+
+          &:hover {
+            transform: translate(50%, 50%) scale(2);
+            transform-origin: center center;
+            z-index: 999;
+
+            &::before {
+              content: ' ';
+              position: absolute;
+              top: calc(var(--ghs-unit) * -1);
+              left: calc(var(--ghs-unit) * -1);
+              right: calc(var(--ghs-unit) * -1);
+              bottom: calc(var(--ghs-unit) * -1);
+              background-color: var(--ghs-color-darkgray);
+              opacity: 0.5;
+              border-radius: calc(var(--ghs-unit) * 1);
+            }
+          }
+
+          .action-overlay {
+            position: absolute;
+            z-index: 1;
+            top: calc(var(--ghs-unit) * 1);
+            left: calc(var(--ghs-unit) * -0.5);
+          }
+        }
+      }
     }
 
     .title {

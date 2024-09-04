@@ -1,16 +1,21 @@
 <div class="entity-border"
-  [ngClass]="{'dead' : entity.dead, 'off' : !entity.dormant && entity.off, 'dormant' : entity.dormant, 'revealed' : !entity.dormant && entity.revealed && settingsManager.settings.scenarioRooms, 'revealed-active' : figure.active && !entity.dormant && entity.revealed && settingsManager.settings.scenarioRooms && settingsManager.settings.activeStandees, 'active' : !entity.dormant &&  entity.active && settingsManager.settings.activeStandees, 'active-focus': !entity.dormant && entity.active && settingsManager.settings.activeStandees && !figure.active,'monster' : gameManager.isMonsterEntity(entity), 'objective' : gameManager.isObjectiveEntity(entity), 'summon' : gameManager.isSummon(entity), 'denied' : gameManager.isMonster(figure) && !gameManager.stateManager.monsterPermissions[figure.name + '|' + figure.edition] || gameManager.isObjectiveContainer(figure) && gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters ||  gameManager.isCharacter(figure) && !gameManager.stateManager.characterPermissions[figure.name + '|' + figure.edition], 'action-hint-border' : actionHints.length > 0 && (actionHints.length % 2) == 1 && activeConditions.length ==  0 && (gameManager.isObjectiveEntity(entity) && gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon == SummonState.false || gameManager.isSummon(entity) && gameManager.toSummon(entity).state == SummonState.false),  'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}"
+  [ngClass]="{'dead' : entity.dead, 'off' : !entity.dormant && entity.off, 'dormant' : entity.dormant, 'revealed' : !entity.dormant && entity.revealed && settingsManager.settings.scenarioRooms, 'revealed-active' : figure.active && !entity.dormant && entity.revealed && settingsManager.settings.scenarioRooms && settingsManager.settings.activeStandees, 'active' : !entity.dormant && (gameManager.isMonsterEntity(entity) && entity.active && settingsManager.settings.activeStandees || gameManager.isSummon(entity) && entity.active && settingsManager.settings.activeSummons), 'active-focus': !entity.dormant && entity.active && settingsManager.settings.activeStandees && !figure.active,'monster' : gameManager.isMonsterEntity(entity), 'objective' : gameManager.isObjectiveEntity(entity), 'summon' : gameManager.isSummon(entity), 'denied' : gameManager.isMonster(figure) && !gameManager.stateManager.monsterPermissions[figure.name + '|' + figure.edition] || gameManager.isObjectiveContainer(figure) && gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters ||  gameManager.isCharacter(figure) && !gameManager.stateManager.characterPermissions[figure.name + '|' + figure.edition], 'action-hint-border' : actionHints.length > 0 && (actionHints.length % 2) == 1 && activeConditions.length ==  0 && (gameManager.isObjectiveEntity(entity) && gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon == SummonState.false || gameManager.isSummon(entity) && gameManager.toSummon(entity).state == SummonState.false),  'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}"
   [entityAnimation]="entity.dead">
   <div class="entity" [ngClass]="gameManager.isMonsterEntity(entity) ? gameManager.toMonsterEntity(entity).type : ''">
     <div #standee class="standee"
       [ngClass]="{'monster-standee' : gameManager.isMonsterEntity(entity), 'objective-standee' : gameManager.isObjectiveEntity(entity), 'summon-standee' : gameManager.isSummon(entity)}">
 
-      <ghs-summon-sheet *ngIf="gameManager.isSummon(entity) && gameManager.toSummon(entity).active"
-        [summon]="gameManager.toSummon(entity)"></ghs-summon-sheet>
+      <div class="sheet" *ngIf="gameManager.isSummon(entity) && gameManager.toSummon(entity).active">
+        <ghs-summon-sheet [summon]="gameManager.toSummon(entity)"></ghs-summon-sheet>
+      </div>
 
       <div class="background-image-container">
-        <div class="background-image"
+        <div class="background-image" *ngIf="gameManager.isMonsterEntity(entity)"
           [style.background-image]="figure.noThumbnail || !settingsManager.settings.artwork || !gameManager.isMonster(figure) ? '': 'url(' + gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(figure)) + ')'">
+        </div>
+        <div class="background-image"
+          *ngIf="gameManager.isSummon(entity) && settingsManager.settings.artwork && (gameManager.toSummon(entity).thumbnail && !gameManager.toSummon(entity).noThumbnail || gameManager.toSummon(entity).thumbnailUrl)"
+          [style.background-image]="gameManager.toSummon(entity).thumbnailUrl ? 'url(' +  gameManager.toSummon(entity).thumbnailUrl + ')' : 'url(./assets/images/summons/thumbnail/' + gameManager.toSummon(entity).thumbnail + '.png)'">
         </div>
       </div>
       <span class="number"
@@ -19,8 +24,9 @@
         </span>
 
         <span *ngIf="gameManager.isSummon(entity)" class="summon-state"
-          [ngClass]="{'active' : gameManager.toSummon(entity).state == SummonState.true, 'new' : gameManager.toSummon(entity).state == SummonState.new, 'center' : (gameManager.toSummon(entity).entityConditions.length % 2) == 0}">
-          <img src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
+          [ngClass]="{'active' : gameManager.toSummon(entity).state == SummonState.true, 'new' : gameManager.toSummon(entity).state == SummonState.new, 'center' : (gameManager.toSummon(entity).entityConditions.length % 2) == 0,  'fh': gameManager.toSummon(entity).color == SummonColor.fh,}">
+          <img *ngIf="gameManager.toSummon(entity).color != SummonColor.fh"
+            src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
           <span class="summon-number">
             <span *ngIf="gameManager.toSummon(entity).number == 0">-</span>
             <span *ngIf="gameManager.toSummon(entity).number > 0">{{gameManager.toSummon(entity).number}}</span></span>

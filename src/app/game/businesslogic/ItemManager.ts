@@ -25,7 +25,7 @@ export class ItemManager {
     }
 
     getItems(edition: string | undefined, all: boolean = false): ItemData[] {
-        return gameManager.itemData().filter((itemData) => all && itemData.edition == edition || this.isItemAvailable(itemData, edition));
+        return gameManager.itemData().filter((itemData) => all && (!edition || itemData.edition == edition) || this.isItemAvailable(itemData, edition));
     }
 
     isItemAvailable(itemData: ItemData, edition: string | undefined, withUnlocks: boolean = true): boolean {
@@ -394,21 +394,18 @@ export class ItemManager {
             }
             character.health = character.maxHealth;
         }
-
-        if (equipIndex == -1 && !item.spent && !item.consumed) {
-            this.applyItemEffects(character, item);
-        }
     }
 
     drawRandomItem(edition: string, blueprint: boolean = false, from: number = -1, to: number = -1): ItemData | undefined {
-        let availableItems = this.getItems(edition, true).filter((itemData) =>
+        let availableItems = this.getItems(undefined, true).filter((itemData) =>
             (!blueprint && itemData.random ||
                 (blueprint && itemData.blueprint &&
                     (!itemData.requiredBuilding ||
                         gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)))) &&
             (from == -1 || itemData.id >= from) &&
             (to == -1 || itemData.id <= to) &&
-            !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition));
+            !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) &&
+            this.itemEditions(edition).indexOf(itemData.edition) != -1);
         let item: ItemData | undefined = undefined;
         if (availableItems.length > 0) {
             item = availableItems[Math.floor(Math.random() * availableItems.length)];
@@ -416,14 +413,26 @@ export class ItemManager {
         return item;
     }
 
-    applyItemEffects(character: Character, item: ItemData) {
+    applyEquippedItemEffects(character: Character, summon: boolean) {
+        character.immunities = [];
+        character.progress.equippedItems.forEach((identifier) => {
+            const item = gameManager.itemManager.getItem(+identifier.name, identifier.edition, true);
+            if (item) {
+                gameManager.itemManager.applyItemEffects(character, item, summon);
+            }
+        })
+    }
+
+    applyItemEffects(character: Character, item: ItemData, summon: boolean) {
         if (item.effects) {
             item.effects.forEach((itemEffect) => {
-                this.applyItemEffect(character, itemEffect);
+                if (!item.spent && !item.consumed || itemEffect.always) {
+                    this.applyItemEffect(character, itemEffect);
+                }
             })
         }
 
-        if (item.summon) {
+        if (summon && item.summon) {
             let summon = new Summon(uuidv4(), item.summon.name, item.summon.cardId, character.level, 1, SummonColor.blue, item.summon);
             summon.init = false;
             gameManager.characterManager.addSummon(character, summon);

@@ -1999,7 +1999,7 @@
     },
     "characterShieldRetaliate": {
       ".": "Shield and Retaliate",
-      "hint": "Track %game.action.shield% and %game.action.retaliate%  values for characters."
+      "hint": "Track %game.action.shield% and %game.action.retaliate% values for characters."
     },
     "characterSortIndex": {
       ".": "Sort by Player #",
@@ -2246,6 +2246,10 @@
     "standees": {
       ".": "Standees",
       "hint": "Display standees. If disabled, unlocking rooms and automatic standees is also disabled."
+    },
+    "standeeShieldRetaliate": {
+      ".": "Shield and Retaliate",
+      "hint": "Track extra %game.action.shield% and %game.action.retaliate% values for standees and summons."
     },
     "standeeStats": {
       ".": "Shield and Retaliate on Standee",
@@ -2531,7 +2535,7 @@
         "failure": "Scenario #{0} {1} ({2}) failed",
         "linked": "Scenario #{0} {1} successful, continue with #{3} ({2})",
         "remove": "Remove scenario #{0} {1} ({2}) success",
-        "restart": "Restart failed Scenario  #{0} {1} ({2})",
+        "restart": "Restart failed Scenario #{0} {1} ({2})",
         "success": "Scenario #{0} {1} ({2}) successful"
       },
       "gameClock": {
@@ -2602,6 +2606,30 @@
         "summon": "Remove {3}x %game.condition.{2}% from '{1}' of {0}",
         "summons": "Remove {2}x %game.condition.{1}% from all {0} summons"
       },
+      "removeEntityRetaliate": {
+        "char": "Remove %game.action.retaliate% for {0}",
+        "monster": "Remove %game.action.retaliate% for '{1}' of {0}",
+        "objectiveContainer": "Remove %game.action.retaliate% for %game.objectiveMarker.{1}% of {0}",
+        "summon": "Remove %game.action.retaliate% for '{1}' of {0}"
+      },
+      "removeEntityRetaliatePersistent": {
+        "char": "Remove %game.card.persistent% %game.action.retaliate% for {0}",
+        "monster": "Remove %game.card.persistent% %game.action.retaliate% for '{1}' of {0}",
+        "objectiveContainer": "Remove %game.card.persistent% %game.action.retaliate% for %game.objectiveMarker.{1}% of {0}",
+        "summon": "Remove %game.card.persistent% %game.action.retaliate% for '{1}' of {0}"
+      },
+      "removeEntityShield": {
+        "char": "Remove %game.action.shield% for {0}",
+        "monster": "Remove %game.action.shield% for '{1}' of {0}",
+        "objectiveContainer": "Remove %game.action.shield% for %game.objectiveMarker.{1}% of {0}",
+        "summon": "Remove %game.action.shield% for '{1}' of {0}"
+      },
+      "removeEntityShieldPersistent": {
+        "char": "Remove %game.card.persistent% %game.action.shield% for {0}",
+        "monster": "Remove %game.card.persistent% %game.action.shield% for '{1}' of {0}",
+        "objectiveContainer": "Remove %game.card.persistent% %game.action.shield% for %game.objectiveMarker.{1}% of {0}",
+        "summon": "Remove %game.card.persistent% %game.action.shield% for '{1}' of {0}"
+      },
       "removeGameCondition": "Remove %game.condition.{0}% to current game",
       "removeGlobalAchievement": "Remove global achievement '{0}'",
       "removeImmunity": {
@@ -2658,7 +2686,7 @@
       "setCharacterRetaliate": "{1} for {0}",
       "setCharacterRetaliatePersistent": "%game.card.persistent% {1} for {0}",
       "setCharacterShield": "%game.action.shield% {1} for {0}",
-      "setCharacterShieldPersistent": " %game.card.persistent% %game.action.shield% {1} for {0}",
+      "setCharacterShieldPersistent": "%game.card.persistent% %game.action.shield% {1} for {0}",
       "setCharacterTokenValue": "Set token {1} to {2} for {0}",
       "setConditionValue": {
         "char": "%game.condition.{1}% to {2} for {0}",
@@ -2673,6 +2701,30 @@
       "setEdition": "Set edition to {0}",
       "setEditionAll": "Select all editions",
       "setEntityActive": "Set standee {1} of {0} active",
+      "setEntityRetaliate": {
+        "char": "{1} for {0}",
+        "monster": "{2} for '{1}' of {0}",
+        "objectiveContainer": "{2} for %game.objectiveMarker.{1}% of {0}",
+        "summon": "{2} for '{1}' of {0}"
+      },
+      "setEntityRetaliatePersistent": {
+        "char": "%game.card.persistent% {1} for {0}",
+        "monster": "%game.card.persistent% {2} for '{1}' of {0}",
+        "objectiveContainer": "%game.card.persistent% {2} for %game.objectiveMarker.{1}% of {0}",
+        "summon": "%game.card.persistent% {2} for '{1}' of {0}"
+      },
+      "setEntityShield": {
+        "char": "%game.action.shield% {1} for {0}",
+        "monster": "%game.action.shield% {2} for '{1}' of {0}",
+        "objectiveContainer": "%game.action.shield% {2} for %game.objectiveMarker.{1}% of {0}",
+        "summon": "%game.action.shield% {2} for '{1}' of {0}"
+      },
+      "setEntityShieldPersistent": {
+        "char": "%game.card.persistent% %game.action.shield% {1} for {0}",
+        "monster": "%game.card.persistent% %game.action.shield% {2} for '{1}' of {0}",
+        "objectiveContainer": "%game.card.persistent% %game.action.shield% {2} for %game.objectiveMarker.{1}% of {0}",
+        "summon": "%game.card.persistent% %game.action.shield% {2} for '{1}' of {0}"
+      },
       "setEntitySummonState": "Set summon {3} for {1} standee {2} of {0}",
       "setExhausted": "{0} exhausted",
       "setGold": "Gold {1} for {0}",

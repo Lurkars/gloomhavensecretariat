@@ -8,7 +8,7 @@ import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/ap
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { Summon, SummonState } from 'src/app/game/model/Summon';
+import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 import { MonsterNumberPickerDialog } from '../monster/dialogs/numberpicker-dialog';
@@ -34,6 +34,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
   Conditions = Condition;
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
+  SummonColor = SummonColor;
   ConditionName = ConditionName;
   ConditionType = ConditionType;
 
@@ -44,6 +45,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
   actionHints: ActionHint[] = [];
   activeIndex: number = -1;
   marker: string = "";
+  specialActionsMarker: string[] = [];
 
   EntityValueFunction = EntityValueFunction;
 
@@ -75,7 +77,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
     })
     this.actionHints = [];
 
-    if (settingsManager.settings.standeeStats && this.figure instanceof Monster && this.entity instanceof MonsterEntity) {
+    if (settingsManager.settings.standeeStats) {
       this.actionHints = gameManager.actionsManager.calcActionHints(this.figure, this.entity);
     }
     if (this.entity.revealed) {
@@ -97,6 +99,15 @@ export class StandeeComponent implements OnInit, OnDestroy {
     }
 
     this.maxHp = EntityValueFunction(this.entity.maxHealth);
+
+    this.specialActionsMarker = [];
+    this.entity.tags.forEach((tag) => {
+      if (this.figure instanceof Character && this.figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.summon)) {
+        if (tag == 'prism_mode') {
+          this.specialActionsMarker.push('mode');
+        }
+      }
+    })
   }
 
   dragHpMove(value: number) {
@@ -153,10 +164,39 @@ export class StandeeComponent implements OnInit, OnDestroy {
   doubleClick(event: any): void {
     if (this.entity.revealed) {
       this.entity.revealed = false;
-    } else if (settingsManager.settings.activeStandees) {
+    } else if (settingsManager.settings.activeStandees && this.entity instanceof MonsterEntity) {
       gameManager.stateManager.before(this.figure.type + (this.entity.active ? "UnsetEntityActive" : "SetEntityActive"), this.figure.name, "" + this.entity.number, this.additionalType());
       gameManager.entityManager.toggleActive(this.figure, this.entity);
       gameManager.stateManager.after();
+    } else if (settingsManager.settings.activeSummons && this.entity instanceof Summon) {
+      this.toggleActive();
+    }
+  }
+
+
+  toggleActive() {
+    if (this.entity instanceof Summon && this.figure instanceof Character) {
+      if (this.entity.active) {
+        gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(this.figure), "data.summon." + this.entity.name);
+        if (settingsManager.settings.activeSummons && this.figure.active) {
+          gameManager.roundManager.toggleFigure(this.figure);
+        } else {
+          this.entity.active = false;
+        }
+        gameManager.stateManager.after();
+      } else {
+        gameManager.stateManager.before("summonActive", gameManager.characterManager.characterName(this.figure), "data.summon." + this.entity.name);
+        const activeSummon = this.figure.summons.find((summon) => summon.active);
+        if (settingsManager.settings.activeSummons && this.figure.active && gameManager.entityManager.isAlive(this.entity, true) && (!activeSummon || this.figure.summons.indexOf(activeSummon) < this.figure.summons.indexOf(this.entity))) {
+          while (!this.entity.active) {
+            gameManager.roundManager.toggleFigure(this.figure);
+          }
+        } else {
+          this.figure.summons.forEach((summon) => summon.active = false);
+          this.entity.active = true;
+        }
+        gameManager.stateManager.after();
+      }
     }
   }
 

@@ -2,6 +2,7 @@ import { gameManager } from "../businesslogic/GameManager";
 import { ConditionName, EntityCondition } from "./data/Condition";
 import { GameState } from "./Game";
 import { AdditionalIdentifier } from "./data/Identifier";
+import { Action } from "./data/Action";
 
 export interface Entity {
   active: boolean;
@@ -14,6 +15,10 @@ export interface Entity {
   number: number;
   markers: string[];
   tags: string[];
+  shield: Action | undefined;
+  shieldPersistent: Action | undefined;
+  retaliate: Action[];
+  retaliatePersistent: Action[];
 }
 
 export type EntityCounter = { identifier: AdditionalIdentifier, total: number, killed: number };

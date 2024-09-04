@@ -160,6 +160,7 @@ export class Settings {
   sortFigures: boolean = true;
   spoilers: string[] = [];
   standees: boolean = true;
+  standeeShieldRetaliate: boolean = false;
   standeeStats: boolean = false;
   statAnimations: boolean = false;
   stats: boolean = true;

@@ -56,6 +56,10 @@ export class Summon implements Entity {
   immunities: ConditionName[] = [];
   markers: string[] = [];
   tags: string[] = [];
+  shield: Action | undefined;
+  shieldPersistent: Action | undefined;
+  retaliate: Action[] = [];
+  retaliatePersistent: Action[] = [];
 
   constructor(uuid: string, name: string, cardId: string, level: number, number: number, color: SummonColor, summonData: SummonData | undefined = undefined) {
     this.uuid = uuid || uuidv4();
@@ -84,7 +88,7 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.uuid || uuidv4(), this.name, this.title, this.cardId, this.number, this.color, this.attack && this.attack + '' || '0', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.dormant, this.thumbnail, this.thumbnailUrl, this.noThumbnail);
+    return new GameSummonModel(this.uuid || uuidv4(), this.name, this.title, this.cardId, this.number, this.color, this.attack && this.attack + '' || '0', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.dormant, this.thumbnail, this.thumbnailUrl, this.noThumbnail, this.shield, this.shieldPersistent, this.retaliate, this.retaliatePersistent);
   }
 
   fromModel(model: GameSummonModel) {
@@ -129,6 +133,11 @@ export class Summon implements Entity {
     this.markers = model.markers || this.markers;
     this.tags = model.tags || this.tags;
     this.init = false;
+
+    this.shield = model.shield ? JSON.parse(model.shield) : undefined;
+    this.shieldPersistent = model.shieldPersistent ? JSON.parse(model.shieldPersistent) : undefined;
+    this.retaliate = (model.retaliate || []).map((value) => JSON.parse(value));
+    this.retaliatePersistent = (model.retaliatePersistent || []).map((value) => JSON.parse(value));
   }
 }
 
@@ -159,6 +168,10 @@ export class GameSummonModel {
   thumbnail: string | undefined;
   thumbnailUrl: string | undefined;
   noThumbnail: boolean;
+  shield: string;
+  shieldPersistent: string;
+  retaliate: string[];
+  retaliatePersistent: string[];
 
   constructor(
     uuid: string,
@@ -186,7 +199,11 @@ export class GameSummonModel {
     dormant: boolean,
     thumbnail: string | undefined,
     thumbnailUrl: string | undefined,
-    noThumbnail: boolean) {
+    noThumbnail: boolean,
+    shield: Action | undefined,
+    shieldPersistent: Action | undefined,
+    retaliate: Action[],
+    retaliatePersistent: Action[]) {
     this.uuid = uuid;
     this.name = name;
     this.title = title;
@@ -213,5 +230,9 @@ export class GameSummonModel {
     this.thumbnail = thumbnail;
     this.thumbnailUrl = thumbnailUrl;
     this.noThumbnail = noThumbnail;
+    this.shield = shield ? JSON.stringify(shield) : "";
+    this.shieldPersistent = shieldPersistent ? JSON.stringify(shieldPersistent) : "";
+    this.retaliate = retaliate.map((action) => JSON.stringify(action));
+    this.retaliatePersistent = retaliatePersistent.map((action) => JSON.stringify(action));
   }
 }

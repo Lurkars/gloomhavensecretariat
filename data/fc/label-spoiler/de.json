@@ -5,7 +5,7 @@
     },
   "items": {
     "fc-152": {
-      "1": "Nachdem du die obere Aktion einer Fertigkeitskarte ausgeführt hast, darfst du sofort die untere Aktion derselben Karte ausführen. Kann nicht verwendet werden, wenn beide Aktionen das Symbol zum Verlieren%game.card.lost% der Karte zeigen.",
+      "1": "Nachdem du die obere Aktion einer Fertigkeitskarte ausgeführt hast, darfst du sofort die untere Aktion derselben Karte ausführen. Kann nicht verwendet werden, wenn beide Aktionen das Symbol zum Verlieren %game.card.lost% der Karte zeigen.",
       ".": "Ring der Dualität"
     },
     "fc-153": {

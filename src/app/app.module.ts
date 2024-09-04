@@ -48,8 +48,6 @@ import { AbilityCardsDialogComponent } from './ui/figures/character/sheet/abilit
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
 import { CharacterRetirementDialog } from './ui/figures/character/sheet/retirement-dialog';
-import { SummonSheetComponent } from './ui/figures/character/summon/sheet/summon-sheet';
-import { SummonEntityComponent } from './ui/figures/character/summon/summon';
 import { ConditionsComponent } from './ui/figures/conditions/conditions';
 import { ConditionHighlightAnimationDirective, HighlightConditionsComponent } from './ui/figures/conditions/highlight';
 import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
@@ -94,6 +92,7 @@ import { TreasuresDialogComponent } from './ui/figures/party/treasures/treasures
 import { PartyWeekDialogComponent } from './ui/figures/party/week-dialog/week-dialog';
 import { WorldMapComponent } from './ui/figures/party/world-map/world-map';
 import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/entity-index-key';
+import { SummonSheetComponent } from './ui/figures/standee/sheet/summon-sheet';
 import { StandeeComponent } from './ui/figures/standee/standee';
 import { FooterComponent } from './ui/footer/footer';
 import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
@@ -181,7 +180,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     EventCardComponent, EventConditionLabelComponent, EventRewardLabelComponent,
     ChallengeCardComponent, ChallengeDeckComponent, ChallengeDeckDialogComponent, ChallengeDeckFullscreenComponent,
     ObjectiveContainerComponent,
-    SummonEntityComponent, SummonSheetComponent,
+    SummonSheetComponent,
     StandeeComponent,
     MonsterComponent,
     MonsterImageComponent,

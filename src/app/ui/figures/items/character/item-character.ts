@@ -79,7 +79,7 @@ export class CharacterItemComponent {
                 }
 
                 if ((flag == ItemFlags.consumed || flag == ItemFlags.spent) && equipped.tags.indexOf(flag) != -1 && settingsManager.settings.characterItemsApply) {
-                    gameManager.itemManager.applyItemEffects(this.character, this.item);
+                    gameManager.itemManager.applyItemEffects(this.character, this.item, true);
                 }
                 gameManager.stateManager.after();
 

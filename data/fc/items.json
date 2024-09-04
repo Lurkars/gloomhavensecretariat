@@ -67,7 +67,8 @@
     "effects": [
       {
         "type": "immune",
-        "value": "curse"
+        "value": "curse",
+        "always": true
       }
     ]
   },

@@ -79,6 +79,14 @@ export class RoundManager {
         if (!this.game.scenario) {
           this.game.scenario = new Scenario(new ScenarioData(), [], [], true);
         }
+
+        if (gameManager.game.scenario && settingsManager.settings.characterItemsApply) {
+          this.game.figures.forEach((figure) => {
+            if (figure instanceof Character) {
+              gameManager.itemManager.applyEquippedItemEffects(figure, false);
+            }
+          })
+        }
       }
       this.game.state = GameState.next;
       this.game.round++;

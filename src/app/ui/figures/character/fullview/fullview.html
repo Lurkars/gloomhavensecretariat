@@ -6,8 +6,8 @@
       <img [src]="character.iconUrl" />
     </span>
     <div class="summons">
-      <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon">
-      </ghs-summon-entity>
+      <ghs-standee *ngFor="let summon of character.summons" [figure]="character" [entity]="summon">
+      </ghs-standee>
     </div>
   </div>
 

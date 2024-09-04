@@ -43,6 +43,32 @@
           (objective.escort ? 'escort' : 'objective')"></span>
             <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
           </div>
+
+          <span class="actions" *ngIf="settingsManager.settings.characterShieldRetaliate">
+            <span class="action" *ngIf="entity.shield" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+              (doubleClick)="removeShield()">
+              <ghs-action [action]="entity.shield" [style]="'fh'"></ghs-action>
+            </span>
+            <span class="action" *ngFor="let retaliate of entity.retaliate; let i = index;" ghs-pointer-input
+              (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliate(i)">
+              <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
+            </span>
+
+            <span class="action" *ngIf="entity.shieldPersistent" ghs-pointer-input
+              (singleClick)="openEntityMenu($event)" (doubleClick)="removeShieldPersistent()">
+              <span class="action-overlay">
+                <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+              </span>
+              <ghs-action [action]="entity.shieldPersistent" [style]="'fh'"></ghs-action>
+            </span>
+            <span class="action" *ngFor="let retaliatePersistent of entity.retaliatePersistent; let i = index;"
+              ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliatePersistent(i)">
+              <span class="action-overlay">
+                <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
+              </span>
+              <ghs-action [action]="retaliatePersistent" [style]="'fh'"></ghs-action>
+            </span>
+          </span>
         </div>
         <div class="status-bar">
           <div class="health" ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="toggleDamageHP()"

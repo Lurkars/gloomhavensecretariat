@@ -18,6 +18,7 @@ import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 import { Monster } from 'src/app/game/model/Monster';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { Character } from 'src/app/game/model/Character';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
 
 @Component({
   selector: 'ghs-objective-container',
@@ -266,6 +267,53 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   onInteractiveActionsChange(change: InteractiveAction[]) {
     this.interactiveActionsChange.emit(change);
     this.interactiveActions = change;
+  }
+
+
+
+  removeShield() {
+    if (this.entity) {
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeEntityShield"));
+      this.entity.shield = undefined;
+      gameManager.stateManager.after();
+    }
+  }
+
+  removeShieldPersistent() {
+    if (this.entity) {
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeEntityShieldPersistent"));
+      this.entity.shieldPersistent = undefined;
+      gameManager.stateManager.after();
+    }
+  }
+
+  removeRetaliate(index: number) {
+    if (this.entity) {
+      let retaliate: Action[] = JSON.parse(JSON.stringify(this.entity.retaliate));
+      retaliate.splice(index, 1);
+      if (retaliate.length > 0) {
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "setEntityRetaliate"), retaliate.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
+
+      } else {
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeEntityRetaliate"));
+      }
+      this.entity.retaliate = retaliate;
+      gameManager.stateManager.after();
+    }
+  }
+
+  removeRetaliatePersistent(index: number) {
+    if (this.entity) {
+      let retaliatePersistent: Action[] = JSON.parse(JSON.stringify(this.entity.retaliatePersistent));
+      retaliatePersistent.splice(index, 1);
+      if (retaliatePersistent.length > 0) {
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "setEntityRetaliatePersistent"), retaliatePersistent.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
+      } else {
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeEntityRetaliatePersistent"));
+      }
+      this.entity.retaliatePersistent = retaliatePersistent;
+      gameManager.stateManager.after();
+    }
   }
 
 }

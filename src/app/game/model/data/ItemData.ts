@@ -58,7 +58,7 @@ export enum ItemEffectType {
   removeNegativeConditions = "removeNegativeConditions"
 }
 
-export type ItemEffect = { type: ItemEffectType, value: number | string };
+export type ItemEffect = { type: ItemEffectType, value: number | string, always: true | undefined };
 
 export enum ItemResourceTypes {
   arrowvine = "arrowvine",

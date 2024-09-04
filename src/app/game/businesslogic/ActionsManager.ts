@@ -6,6 +6,7 @@ import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { ObjectiveEntity } from "../model/ObjectiveEntity";
+import { Summon } from "../model/Summon";
 import { Action, ActionHint, ActionType, ActionValueType } from "../model/data/Action";
 import { AttackModifier, AttackModifierType } from "../model/data/AttackModifier";
 import { Condition, ConditionName } from "../model/data/Condition";
@@ -26,25 +27,114 @@ export class ActionsManager {
         return [];
     }
 
-    calcActionHints(monster: Monster, entity: MonsterEntity): ActionHint[] {
+    calcActionHints(figure: Figure, entity: Entity): ActionHint[] {
         let actionHints: ActionHint[] = [];
-        const stat = gameManager.monsterManager.getStat(monster, entity.type);
-        this.calcActionHint(monster, entity.type, ActionType.shield, stat.actions, actionHints);
-        this.calcActionHint(monster, entity.type, ActionType.retaliate, stat.actions, actionHints);
-        if (gameManager.entityManager.isAlive(entity, true) && (!entity.active || monster.active)) {
-            const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-            if (monster.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster))) {
-                let ability = gameManager.monsterManager.getAbility(monster);
-                if (ability) {
-                    this.calcActionHint(monster, entity.type, ActionType.shield, ability.actions, actionHints);
-                    this.calcActionHint(monster, entity.type, ActionType.retaliate, ability.actions, actionHints);
 
-                    if (ability.bottomActions) {
-                        this.calcActionHint(monster, entity.type, ActionType.shield, ability.bottomActions, actionHints, 'bottom');
-                        this.calcActionHint(monster, entity.type, ActionType.retaliate, ability.bottomActions, actionHints, 'bottom');
-                    }
+        if (figure instanceof Monster && entity instanceof MonsterEntity) {
+            actionHints.push(...this.calcMonsterActionHints(figure, entity));
+        }
+
+        if (entity instanceof Summon) {
+            if (entity.action && entity.action.type == ActionType.shield) {
+                const existingShield = actionHints.find((actionHint) => actionHint.type == ActionType.shield);
+                if (existingShield) {
+                    existingShield.value += EntityValueFunction(entity.action.value);
+                } else {
+                    actionHints.push(new ActionHint(ActionType.shield, EntityValueFunction(entity.action.value)));
                 }
             }
+            if (entity.additionalAction && entity.additionalAction.type == ActionType.shield) {
+                const existingShield = actionHints.find((actionHint) => actionHint.type == ActionType.shield);
+                if (existingShield) {
+                    existingShield.value += EntityValueFunction(entity.additionalAction.value);
+                } else {
+                    actionHints.push(new ActionHint(ActionType.shield, EntityValueFunction(entity.additionalAction.value)));
+                }
+            }
+            if (entity.action && entity.action.type == ActionType.retaliate) {
+                let rangeSubAction = entity.action.subActions && entity.action.subActions.find((subAction) => subAction.type == ActionType.range);
+                const existingRetaliate = actionHints.find((actionHint) => {
+                    if (!rangeSubAction || EntityValueFunction(rangeSubAction.value) == 1 && (!actionHint.range || actionHint.range == 1)) {
+                        return actionHint.type == ActionType.retaliate;
+                    } else {
+                        return actionHint.type == ActionType.retaliate && actionHint.range == EntityValueFunction(rangeSubAction.value);
+                    }
+                });
+                if (existingRetaliate) {
+                    existingRetaliate.value += EntityValueFunction(entity.action.value);
+                } else {
+                    actionHints.push(new ActionHint(ActionType.retaliate, EntityValueFunction(entity.action.value), rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 0));
+                }
+            }
+            if (entity.additionalAction && entity.additionalAction.type == ActionType.retaliate) {
+                let rangeSubAction = entity.additionalAction.subActions && entity.additionalAction.subActions.find((subAction) => subAction.type == ActionType.range);
+                const existingRetaliate = actionHints.find((actionHint) => {
+                    if (!rangeSubAction || EntityValueFunction(rangeSubAction.value) == 1 && (!actionHint.range || actionHint.range == 1)) {
+                        return actionHint.type == ActionType.retaliate;
+                    } else {
+                        return actionHint.type == ActionType.retaliate && actionHint.range == EntityValueFunction(rangeSubAction.value);
+                    }
+                });
+                if (existingRetaliate) {
+                    existingRetaliate.value += EntityValueFunction(entity.additionalAction.value);
+                } else {
+                    actionHints.push(new ActionHint(ActionType.retaliate, EntityValueFunction(entity.additionalAction.value), rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 0));
+                }
+            }
+        }
+
+        if (entity.shield) {
+            const existingShield = actionHints.find((actionHint) => actionHint.type == ActionType.shield);
+            if (existingShield) {
+                existingShield.value += EntityValueFunction(entity.shield.value);
+            } else {
+                actionHints.push(new ActionHint(ActionType.shield, EntityValueFunction(entity.shield.value)));
+            }
+        }
+
+        if (entity.shieldPersistent) {
+            const existingShield = actionHints.find((actionHint) => actionHint.type == ActionType.shield);
+            if (existingShield) {
+                existingShield.value += EntityValueFunction(entity.shieldPersistent.value);
+            } else {
+                actionHints.push(new ActionHint(ActionType.shield, EntityValueFunction(entity.shieldPersistent.value)));
+            }
+        }
+
+        if (entity.retaliate) {
+            entity.retaliate.forEach((action) => {
+                let rangeSubAction = action.subActions.find((subAction) => subAction.type == ActionType.range);
+                const existingRetaliate = actionHints.find((actionHint) => {
+                    if (!rangeSubAction || EntityValueFunction(rangeSubAction.value) == 1 && (!actionHint.range || actionHint.range == 1)) {
+                        return actionHint.type == ActionType.retaliate;
+                    } else {
+                        return actionHint.type == ActionType.retaliate && actionHint.range == EntityValueFunction(rangeSubAction.value);
+                    }
+                });
+                if (existingRetaliate) {
+                    existingRetaliate.value += EntityValueFunction(action.value);
+                } else {
+                    actionHints.push(new ActionHint(ActionType.retaliate, EntityValueFunction(action.value), rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 0));
+                }
+            })
+        }
+
+        if (entity.retaliatePersistent) {
+            entity.retaliatePersistent.forEach((action) => {
+                let rangeSubAction = action.subActions.find((subAction) => subAction.type == ActionType.range);
+                const existingRetaliate = actionHints.find((actionHint) => {
+                    if (!rangeSubAction || EntityValueFunction(rangeSubAction.value) == 1 && (!actionHint.range || actionHint.range == 1)) {
+                        return actionHint.type == ActionType.retaliate;
+                    } else {
+                        return actionHint.type == ActionType.retaliate && actionHint.range == EntityValueFunction(rangeSubAction.value);
+                    }
+                });
+                if (existingRetaliate) {
+                    existingRetaliate.value += EntityValueFunction(action.value);
+                } else {
+                    actionHints.push(new ActionHint(ActionType.retaliate, EntityValueFunction(action.value), rangeSubAction ? EntityValueFunction(rangeSubAction.value) : 0));
+                }
+            })
         }
 
         return actionHints.sort((a, b) => {
@@ -57,7 +147,31 @@ export class ActionsManager {
         });
     }
 
-    calcActionHint(monster: Monster, monsterType: MonsterType, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: string = "") {
+    calcMonsterActionHints(monster: Monster, entity: MonsterEntity): ActionHint[] {
+        let actionHints: ActionHint[] = [];
+        const stat = gameManager.monsterManager.getStat(monster, entity.type);
+        this.calcMonsterActionHint(monster, entity.type, ActionType.shield, stat.actions, actionHints);
+        this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, stat.actions, actionHints);
+        if (gameManager.entityManager.isAlive(entity, true) && (!entity.active || monster.active)) {
+            const activeFigure = gameManager.game.figures.find((figure) => figure.active);
+            if (monster.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster))) {
+                let ability = gameManager.monsterManager.getAbility(monster);
+                if (ability) {
+                    this.calcMonsterActionHint(monster, entity.type, ActionType.shield, ability.actions, actionHints);
+                    this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, ability.actions, actionHints);
+
+                    if (ability.bottomActions) {
+                        this.calcMonsterActionHint(monster, entity.type, ActionType.shield, ability.bottomActions, actionHints, 'bottom');
+                        this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, ability.bottomActions, actionHints, 'bottom');
+                    }
+                }
+            }
+        }
+
+        return actionHints;
+    }
+
+    calcMonsterActionHint(monster: Monster, monsterType: MonsterType, type: ActionType, actions: Action[], actionHints: ActionHint[], parentIndex: string = "") {
         actions.forEach((action, i) => {
             const index = (parentIndex ? parentIndex + '-' : '') + i;
             if (action.type == type && action.value != 'X') {
@@ -96,13 +210,13 @@ export class ActionsManager {
                     actionHints.push(actionHint)
                 }
             } else if (action.type == ActionType.monsterType && action.value == monsterType || action.type == ActionType.concatenation || action.type == ActionType.grid) {
-                this.calcActionHint(monster, monsterType, type, action.subActions, actionHints, index);
+                this.calcMonsterActionHint(monster, monsterType, type, action.subActions, actionHints, index);
             } else if (action.type == ActionType.element && action.valueType == ActionValueType.minus && monster.entities.find((monsterEntity) => monsterEntity.tags.find((tag) => tag == this.roundTag(action, index)))) {
-                this.calcActionHint(monster, monsterType, type, action.subActions, actionHints, index);
+                this.calcMonsterActionHint(monster, monsterType, type, action.subActions, actionHints, index);
             } else if (action.type == ActionType.special) {
                 const stats = monster.stats.find((stat) => stat.level == monster.level && stat.type == monsterType);
                 if (stats) {
-                    this.calcActionHint(monster, monsterType, type, stats.special[EntityValueFunction(action.value) - 1], actionHints, index);
+                    this.calcMonsterActionHint(monster, monsterType, type, stats.special[EntityValueFunction(action.value) - 1], actionHints, index);
                 }
             }
         })

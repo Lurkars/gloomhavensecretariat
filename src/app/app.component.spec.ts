@@ -27,6 +27,10 @@ import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { BattleGoalComponent } from './ui/figures/battlegoal/battlegoal';
 import { CharacterBattleGoalsDialog } from './ui/figures/battlegoal/dialog/battlegoal-dialog';
 import { BattleGoalSetupDialog } from './ui/figures/battlegoal/setup/battlegoal-setup';
+import { ChallengeCardComponent } from './ui/figures/challenges/challenge-card';
+import { ChallengeDeckComponent } from './ui/figures/challenges/challenge-deck';
+import { ChallengeDeckDialogComponent } from './ui/figures/challenges/challenge-deck-dialog';
+import { ChallengeDeckFullscreenComponent } from './ui/figures/challenges/challenge-deck-fullscreen';
 import { CharacterImageComponent } from './ui/figures/character/cards/image';
 import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
 import { CharacterInitiativeDialogComponent } from './ui/figures/character/cards/initiative-dialog';
@@ -43,8 +47,6 @@ import { AbilityCardsDialogComponent } from './ui/figures/character/sheet/abilit
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
 import { CharacterRetirementDialog } from './ui/figures/character/sheet/retirement-dialog';
-import { SummonSheetComponent } from './ui/figures/character/summon/sheet/summon-sheet';
-import { SummonEntityComponent } from './ui/figures/character/summon/summon';
 import { ConditionsComponent } from './ui/figures/conditions/conditions';
 import { ConditionHighlightAnimationDirective, HighlightConditionsComponent } from './ui/figures/conditions/highlight';
 import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
@@ -89,11 +91,14 @@ import { TreasuresDialogComponent } from './ui/figures/party/treasures/treasures
 import { PartyWeekDialogComponent } from './ui/figures/party/week-dialog/week-dialog';
 import { WorldMapComponent } from './ui/figures/party/world-map/world-map';
 import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/entity-index-key';
+import { SummonSheetComponent } from './ui/figures/standee/sheet/summon-sheet';
 import { StandeeComponent } from './ui/figures/standee/standee';
 import { FooterComponent } from './ui/footer/footer';
 import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
 import { LevelComponent } from './ui/footer/level/level';
 import { LevelDialogComponent } from './ui/footer/level/level-dialog';
+import { ScenarioRulesDialogComponent } from './ui/footer/scenario-rules/dialog/scenario-rules-dialog';
+import { ScenarioRuleComponent } from './ui/footer/scenario-rules/scenario-rule';
 import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rules';
 import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-dialog';
 import { StatsListComponent } from './ui/footer/scenario/dialog/stats-list/stats-list';
@@ -163,7 +168,7 @@ describe('AppComponent', () => {
         MainMenuComponent, CharacterMenuComponent, MonsterMenuComponent, SettingsMenuComponent, SettingMenuComponent, SettingMenuTitleComponent, DatamanagementMenuComponent, ScenarioMenuComponent, ScenarioChartDialogComponent, ScenarioChartPopupDialog, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent, UndoDialogComponent, AboutMenuComponent, CampaignMenuComponent,
         FooterComponent,
         LootComponent, LootDeckComponent, LootRandomItemDialogComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
-        HintDialogComponent, ScenarioRulesComponent,
+        HintDialogComponent, ScenarioRulesComponent, ScenarioRuleComponent, ScenarioRulesDialogComponent,
         AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDrawComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
         LevelComponent, LevelDialogComponent,
         ScenarioComponent, ScenarioDialogComponent, ScenarioSetupComponent, SectionDialogComponent, ScenarioSummaryComponent, StatsListComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent, EventEffectsDialog, EventRandomItemDialogComponent, EventRandomScenarioDialogComponent,
@@ -171,8 +176,9 @@ describe('AppComponent', () => {
         EntityMenuDialogComponent, EntitiesMenuDialogComponent, AdditionalAMSelectDialogComponent,
         CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterItemComponent, CharacterItemListComponent, CharacterSheetComponent, CharacterSheetDialog, AbilityCardsDialogComponent, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterRetirementDialog, ItemComponent, ItemDialogComponent, ItemsDialogComponent, ItemsCharacterDialogComponent, CharacterItemsComponent, ItemsBrewDialog, BattleGoalComponent, CharacterBattleGoalsDialog, BattleGoalSetupDialog,
         EventCardComponent, EventConditionLabelComponent, EventRewardLabelComponent,
+        ChallengeCardComponent, ChallengeDeckComponent, ChallengeDeckDialogComponent, ChallengeDeckFullscreenComponent,
         ObjectiveContainerComponent,
-        SummonEntityComponent, SummonSheetComponent,
+        SummonSheetComponent,
         StandeeComponent,
         MonsterComponent,
         MonsterImageComponent,

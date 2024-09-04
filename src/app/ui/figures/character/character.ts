@@ -507,13 +507,13 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   removeShield() {
-    gameManager.stateManager.before("removeCharacterShield", gameManager.characterManager.characterName(this.character));
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "removeEntityShield"));
     this.character.shield = undefined;
     gameManager.stateManager.after();
   }
 
   removeShieldPersistent() {
-    gameManager.stateManager.before("removeCharacterShieldPersistent", gameManager.characterManager.characterName(this.character));
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "removeEntityShieldPersistent"));
     this.character.shieldPersistent = undefined;
     gameManager.stateManager.after();
   }
@@ -522,9 +522,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
     let retaliate: Action[] = JSON.parse(JSON.stringify(this.character.retaliate));
     retaliate.splice(index, 1);
     if (retaliate.length > 0) {
-      gameManager.stateManager.before("setCharacterRetaliate", gameManager.characterManager.characterName(this.character), retaliate.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "setEntityRetaliate"), retaliate.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
+
     } else {
-      gameManager.stateManager.before("removeCharacterRetaliate", gameManager.characterManager.characterName(this.character));
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "removeEntityRetaliate"));
     }
     this.character.retaliate = retaliate;
     gameManager.stateManager.after();
@@ -534,9 +535,9 @@ export class CharacterComponent implements OnInit, OnDestroy {
     let retaliatePersistent: Action[] = JSON.parse(JSON.stringify(this.character.retaliatePersistent));
     retaliatePersistent.splice(index, 1);
     if (retaliatePersistent.length > 0) {
-      gameManager.stateManager.before("setCharacterRetaliatePersistent", gameManager.characterManager.characterName(this.character), retaliatePersistent.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "setEntityRetaliatePersistent"), retaliatePersistent.map((action) => '%game.action.retaliate% ' + EntityValueFunction(action.value) + (action.subActions && action.subActions[0] && action.subActions[0].type == ActionType.range && EntityValueFunction(action.subActions[0].value) > 1 ? ' %game.action.range% ' + EntityValueFunction(action.subActions[0].value) + '' : '')).join(', '));
     } else {
-      gameManager.stateManager.before("removeCharacterRetaliatePersistent", gameManager.characterManager.characterName(this.character));
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.character, this.character, "removeEntityRetaliatePersistent"));
     }
     this.character.retaliatePersistent = retaliatePersistent;
     gameManager.stateManager.after();

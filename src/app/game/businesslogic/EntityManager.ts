@@ -786,6 +786,9 @@ export class EntityManager {
             entityCondition.state = EntityConditionState.normal;
           });
         }
+
+        entity.shield = undefined;
+        entity.retaliate = [];
       })
     })
   }
