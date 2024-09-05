@@ -18,6 +18,8 @@ Multiple clients are supported by a server component [Gloomhaven Secretariat Ser
 
 Since *GHS* is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
 
+An extensive settings menu ensures highly individual customization to suit all requirements. Almost every feature can be switched on/off or customized.
+
 *Gloomhaven Secretariat* is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](#contributing) ideas, suggestions and of course feedback and bug fixes.
 
 A basic user guide is available [online](https://help.gloomhaven-secretariat.de).
@@ -71,7 +73,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Item Cards
   - Battle Goals
   - Building deck (partly!)
-  - World Map (GH/FH)
+  - World Map
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
   - PWA for installation on all devices!
