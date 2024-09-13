@@ -1,0 +1,110 @@
+{
+  "index": "3",
+  "name": "A Ship Besieged",
+  "edition": "ir",
+  "unlocks": [
+    "4",
+    "5"
+  ],
+  "rewards": {
+    "experience": 5,
+    "reputation": 1,
+    "prosperity": 1
+  },
+  "monsters": [
+    "deep-terror",
+    "frost-demon",
+    "lurker",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        16
+      ],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "elite"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

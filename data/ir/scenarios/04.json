@@ -1,0 +1,33 @@
+{
+  "index": "4",
+  "name": "Gloomhaven Secure Storage",
+  "edition": "ir",
+  "unlocks": [
+    "6"
+  ],
+  "requirements": [
+    {
+      "party": [
+        "!Ship repaired"
+      ]
+    }
+  ],
+  "rewards": {
+    "partyAchievements": [
+      "Ship repaired"
+    ],
+    "gold": 40,
+    "reputation": 1,
+    "prosperity": 1,
+    "battleGoals": 1,
+    "custom": "minus 10 gold for each further upgrade to the ship."
+  },
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}
