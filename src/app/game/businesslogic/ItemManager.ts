@@ -405,7 +405,7 @@ export class ItemManager {
             (from == -1 || itemData.id >= from) &&
             (to == -1 || itemData.id <= to) &&
             !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) &&
-            this.itemEditions(edition).indexOf(itemData.edition) != -1);
+            (itemData.edition == edition || gameManager.editionExtensions(edition).indexOf(itemData.edition) != -1));
         let item: ItemData | undefined = undefined;
         if (availableItems.length > 0) {
             item = availableItems[Math.floor(Math.random() * availableItems.length)];

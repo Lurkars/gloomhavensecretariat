@@ -370,10 +370,11 @@ export class RoundManager {
         figure.experience += 1;
       }
 
-      if (figure.tags.indexOf('repair_mode') != -1) {
+      if (figure.tags.indexOf('repair_mode') != -1 && figure.tags.indexOf('roundAction-repair_mode') == -1) {
         figure.health += 2;
         gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, 2), figure.active || false, figure.off || false);
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
+        figure.tags.push('roundAction-repair_mode');
       }
     }
 

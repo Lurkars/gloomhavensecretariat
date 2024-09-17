@@ -343,6 +343,10 @@ export class CharacterManager {
         if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57') && gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.wound)) && !gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.regenerate))) {
           gameManager.entityManager.addCondition(figure, new Condition(ConditionName.regenerate), figure.active, figure.off);
         }
+
+        if (figure.tags) {
+          figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));
+        }
       }
     })
   }
