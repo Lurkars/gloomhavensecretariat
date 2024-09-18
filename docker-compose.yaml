@@ -1,8 +1,8 @@
 # serving client on port 80
 version: "3.8"
 services:
-  ghs-client:
-    container_name: ghs
-    image: gloomhavensecretariat/ghs:latest
+  kh-client:
+    container_name: kh
+    image: kenwandererhaven/kh:latest
     ports:
       - "80:80"

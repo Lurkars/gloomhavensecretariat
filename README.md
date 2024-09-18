@@ -1,8 +1,8 @@
-# Gloomhaven Secretariat
+# Kenwanderer's Haven
 
-## [Latest Online Version](https://gloomhaven-secretariat.de)
+## [Latest Online Version](https://gloomhaven.kenwanderers.com)
 
-[![Publish Latest Online Version](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml) [![Build and Publish Release](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml) [![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
+[![Publish Latest Online Version](https://github.com/Kenwanderers/kenwandererhaven/actions/workflows/latest.yml/badge.svg)](https://github.com/Kenwanderers/kenwandererhaven/actions/workflows/latest.yml) [![Build and Publish Release](https://github.com/Kenwanderers/kenwandererhaven/actions/workflows/release.yml/badge.svg)](https://github.com/Kenwanderers/kenwandererhaven/actions/workflows/release.yml) [![Publish Docker Image](https://github.com/Kenwanderers/kenwandererhaven/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Kenwanderers/kenwandererhaven/actions/workflows/publish-docker-image.yml)
 
 <img width="776" alt="image" src="./resources/Screenshot.png">
 
@@ -10,17 +10,17 @@
 
 ## Introduction
 
-*Gloomhaven Secretariat* is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles** and **Button & Bugs**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content.
+*Kenwanderer's Haven* is a **companion app** for Gloomhaven-based board games. The app supports all official editions, namely **Gloomhaven**, **Frosthaven**, **Jaws of the Lion**, **Forgotten Circles** and **Button & Bugs**, the community editions **The Crimson Scales** and **Trail of Ashes** as well as **Solo** scenarios and custom content.
 
-*GHS* is a complete replacement for the abandoned [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) app (by [Esoteric Software®](http://esotericsoftware.com)), enhanced with more tracking and automation features. As a single-screen web application, *GHS* helps manage scenario play by tracking character and monster turns, automatically setting up monsters separately for each room or section, assisting with scenario-specific rules, attack modifiers, loot deck, and much more. *GHS* also tracks your progress on the Character, Party and Campaign sheets, allowing you to buy and equip items, loot treasures, apply all scenario rewards, register scenario unlocks and manage your outpost. For a more detailed feature list, including a comparison of some popular applications, see [Comparison of Companion Apps](./resources/app-comparison.md).
+*KH* takes directly from the outstanding work done on [Gloomhaven Secretariat](https://gloomhaven-secretariat.de) app (by [Lurkars](https://github.com/Lurkars/gloomhavensecretariat)), enhanced with more tracking and automation features. As a single-screen web application, *GHS* helps manage scenario play by tracking character and monster turns, automatically setting up monsters separately for each room or section, assisting with scenario-specific rules, attack modifiers, loot deck, and much more. *GHS* also tracks your progress on the Character, Party and Campaign sheets, allowing you to buy and equip items, loot treasures, apply all scenario rewards, register scenario unlocks and manage your outpost. For a more detailed feature list, including a comparison of some popular applications, see [Comparison of Companion Apps](./resources/app-comparison.md).
 
-Multiple clients are supported by a server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) with a public instance available at `gloomhaven-secretariat.de`.
+Multiple clients are supported by a server component [Merchant's Bay Server](https://github.com/Kenwanderers/kenwanderer-merchants-bay) with a public instance available at `gloomhaven.kenwanderers.com`.
 
-Since *GHS* is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
+Since *KH* is a web application, no installation is required and it runs in any modern browser, even on mobile devices, but it can also be [installed](#install) for offline use.
 
 An extensive settings menu ensures highly individual customization to suit all requirements. Almost every feature can be switched on/off or customized.
 
-*Gloomhaven Secretariat* is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](#contributing) ideas, suggestions and of course feedback and bug fixes.
+*Kenwanderer's Haven* is open-source software built with [Angular](https://angular.io/) and is open for the community to actively [contribute](#contributing) ideas, suggestions and of course feedback and bug fixes.
 
 A basic user guide is available [online](https://help.gloomhaven-secretariat.de).
 
@@ -31,7 +31,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
 ## Support me
 
-☕ [Buy me a coffee?](https://ko-fi.com/lurkars) (or [Donate directly via PayPal](https://paypal.me/Lurkars))
+☕ [Buy Lurkars a coffee?](https://ko-fi.com/lurkars) (or [Donate directly via PayPal](https://paypal.me/Lurkars))
 
 ## Current Features
 
@@ -77,8 +77,8 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
   - PWA for installation on all devices!
-  - Synchronise state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
-  - Manage permissions for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
+  - Synchronise state (+ settings) with [Merchant's Bay Server](https://github.com/Kenwanderers/kenwanderer-merchants-bay)
+  - Manage permissions for different clients with [Merchant's Bay Server](https://github.com/Kenwanderers/kenwanderer-merchants-bay)
   - [Keyboard Shortcuts](./resources/keyboard-shortcuts.md)
   - Load custom JSON edition data for custom content!
   - Edit monster attack modifier and monster ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
@@ -113,7 +113,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     </details>
   - Random Dungeons
   - Scenario Flow Chart
-  - Monster data editor (https://gloomhaven-secretariat.de/editor/monster)
+  - Monster data editor (https://gloomhaven.kenwanderers.com/editor/monster)
   - Includes Solo scenarios
   - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.
   - Includes the [Satire's Extended Battle Goals](https://boardgamegeek.com/thread/2184131/satires-extended-battle-goals): can be enabled under *Data Management*.
@@ -139,7 +139,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
 ### Install as App
 
-You can always install any hosted version as an App (PWA) if your OS/Browser supports PWA installation. For example, here is the [Latest Online Version](https://gloomhaven-secretariat.de).
+You can always install any hosted version as an App (PWA) if your OS/Browser supports PWA installation. For example, here is the [Latest Online Version](https://gloomhaven.kenwanderers.com).
 
 Instructions for different devices/browsers:
 - [Chrome: Computer/Android](https://support.google.com/chrome/answer/9658361)
@@ -150,32 +150,32 @@ Instructions for different devices/browsers:
 ### Standalone
 
 An Electron application is available for Linux, Mac and Windows.
-Download the appropriate files from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) assets.
+Download the appropriate files from the [latest release](https://github.com/Kenwanderers/kenwandererhaven/releases/latest) assets.
 
 > Linux AppImage only tested for now
 
 ### Self-hosting
 
-To self-host *Gloomhaven Secretariat* on your web server, simply download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) and unzip it on your web server.
+To self-host **Kenwanderer's Haven** on your web server, simply download the zip file from the [latest release](https://github.com/Kenwanderers/kenwandererhaven/releases/latest) and unzip it on your web server.
 
 > The base url for this build is set to root. To use a different base URL, please [build your own package](#build-from-source).
 
 #### Build and run with Docker
 
-[![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
+[![Publish Docker Image](https://github.com/Kenwanderers/kenwandererhaven/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Kenwanderers/kenwandererhaven/actions/workflows/publish-docker-image.yml)
 
 If you want to use docker to run on port 80, run the following
 
 ```shell
-docker pull gloomhavensecretariat/ghs
-docker run --rm -p 80:80 --name ghs gloomhavensecretariat/ghs
+docker pull kenwandererhaven/kh
+docker run --rm -p 80:80 --name kh kenwandererhaven/kh
 ```
 
 For use with docker compose, just run `docker compose up -d`.
 
 ## Building from source
 
-If you want to create your own custom build (e.g. for [self-hosting](#Selfhosting)), prepare a [development setup](#development). Then run `npm run build` ([available options](https://angular.io/cli/build#options)) and access the build at `./dist/gloomhavensecretariat`.
+If you want to create your own custom build (e.g. for [self-hosting](#Selfhosting)), prepare a [development setup](#development). Then run `npm run build` ([available options](https://angular.io/cli/build#options)) and access the build at `./dist/kenwandererhaven`.
 
 ## Development
 
@@ -183,7 +183,7 @@ Prerequisite:
 
 - Current [Node.js](https://nodejs.org) and npm version
 
-Check out the source with `git clone https://github.com/Lurkars/gloomhavensecretariat.git`.
+Check out the source with `git clone https://github.com/Kenwanderers/kenwandererhaven.git`.
 
 Install the dependencies with `npm install`.
 
@@ -193,7 +193,7 @@ To develop with docker, install docker compose and run `docker compose -f docker
 
 ## Contributing
 
-Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose) for bugs, features, and improvements, or start a new [new discussion](https://github.com/Lurkars/gloomhavensecretariat/discussions/new/choose) for help or feedback.
+Feel free to file a [new issue](https://github.com/Kenwanderers/kenwandererhaven/issues/new/choose) for bugs, features, and improvements, or start a new [new discussion](https://github.com/Kenwanderers/kenwandererhaven/discussions/new/choose) for help or feedback.
 
 All game data is located in the [data](./data/) folder with subfolders for each release. A third-party review of all data would be great. As all files are JSON data, they should easily be human-readable. Each character, monster, and monster deck has its own file, so it should be easy to check.
 Each edition folder will be concatenated into a single edition data file on build.
@@ -202,17 +202,17 @@ Pull requests are also welcome!
 
 > Please note: all files in the data subfolder will be automatically formatted and added to each commit. If you have made local changes to these files and do NOT want to commit those changes, please use the `--no-verify` parameter for your `git commit` and `git push` commands.
 
-Thanks to everyone who has already [contributed](https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors), you're awesome!
+Thanks to everyone who has already [contributed](https://github.com/Kenwanderers/kenwandererhaven/graphs/contributors), you're awesome!
 
 ## Archive
 
-All older versions are also available on `gloomhaven-secretariat.de`, for example the first version `v0.0.1` is available at [v0-0-1.gloomhaven-secretariat.de](https://v0-0-1.gloomhaven-secretariat.de). All available tags are listed under [Releases](https://github.com/Lurkars/gloomhavensecretariat/releases), just replace all `.` with `-` for a proper url. This is meant as a showcase for the evolution of GHS, but also as a fallback, if a release breaks something important, you can always fall back to a previous version. 
+All older versions are also available on `kenwanderers.com`, for example the first version `v0.0.1` is available at [v0-0-1.kenwanderers.com](https://v0-0-1.kenwanderers.com). All available tags are listed under [Releases](https://github.com/Kenwanderers/kenwandererhaven/releases), just replace all `.` with `-` for a proper url. This is meant as a showcase for the evolution of KH, but also as a fallback, if a release breaks something important, you can always fall back to a previous version. 
 
 > Please note that there is no history of the server component. So connecting to the current server with older clients may not work properly!
 
 ## Privacy
 
-This application does NOT collect any personal data. Everything runs and stays in your browser/local memory. For details on the server component please go to [Gloomhaven Secretariat Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
+This application does NOT collect any personal data. Everything runs and stays in your browser/local memory. For details on the server component please go to [Gloomhaven Secretariat Server#Privacy](https://github.com/Lurkars/kenwanderer-merchants-bay#privacy).
 
 ## Copyright / License
 

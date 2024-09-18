@@ -30,9 +30,9 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm i
-          npm run build -- --base-href gloomhavensecretariat
+          npm run build -- --base-href kenwandererhaven
       - name: Publish GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: ./dist/gloomhavensecretariat/
+          publish_dir: ./dist/kenwandererhaven/
           github_token: ${{ secrets.TOKEN }}

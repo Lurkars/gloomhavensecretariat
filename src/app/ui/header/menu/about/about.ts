@@ -17,7 +17,7 @@ export class AboutMenuComponent implements OnInit {
     constructor(private swUpdate: SwUpdate) { }
 
     async ngOnInit() {
-        await fetch('https://api.github.com/repos/lurkars/gloomhavensecretariat/releases/latest')
+        await fetch('https://api.github.com/repos/Kenwanderers/kenwandererhaven/releases/latest')
             .then(response => {
                 if (!response.ok) {
                     throw Error();

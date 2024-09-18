@@ -10,7 +10,7 @@ function createWindow() {
     show: false
   });
 
-  mainWindow.loadFile('./dist/gloomhavensecretariat/index.html');
+  mainWindow.loadFile('./dist/kenwandererhaven/index.html');
 
   mainWindow.on("closed", () => {
     mainWindow = null;
@@ -18,7 +18,7 @@ function createWindow() {
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
-    mainWindow.loadFile('./dist/gloomhavensecretariat/index.html');
+    mainWindow.loadFile('./dist/kenwandererhaven/index.html');
   })
 }
 

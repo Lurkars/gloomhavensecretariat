@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { DialogModule } from '@angular/cdk/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
@@ -215,10 +214,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'gloomhavensecretariat'`, () => {
+  it(`should have as title 'kenwandererhaven'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('gloomhavensecretariat');
+    expect(app.title).toEqual('kenwandererhaven');
   });
 
   describe('onRightClick', () => {

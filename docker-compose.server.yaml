@@ -1,14 +1,14 @@
 # This file is running both services, client on port 80 and server on port 8080, to connect to local server, use your local IP (e.g. 192.168.1.123) and port 8080 to connect to it
 version: "3.8"
 services:
-  ghs-client:
-    container_name: ghs
-    image: gloomhavensecretariat/ghs:latest
+  kh-client:
+    container_name: kh
+    image: kenwandererhaven/kh:latest
     ports:
       - "80:80"
 
-  ghs-server:
-    container_name: ghs-server
-    image: gloomhavensecretariat/ghs-server:latest
+  kh-server:
+    container_name: kh-server
+    image: kenwandererhaven/kh-server:latest
     ports:
       - "8080:8080"

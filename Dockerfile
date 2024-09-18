@@ -6,5 +6,5 @@ COPY . .
 RUN npm run build
 
 FROM nginx:alpine
-COPY --from=builder /src/dist/gloomhavensecretariat /usr/share/nginx/html
+COPY --from=builder /src/dist/kenwandererhaven /usr/share/nginx/html
 EXPOSE 80

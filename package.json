@@ -1,20 +1,16 @@
 {
-  "name": "gloomhavensecretariat",
-  "version": "0.100.1",
+  "name": "kenwandererhaven",
+  "version": "0.0.0.1",
   "license": "AGPL3",
-  "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
-  "homepage": "https://gloomhaven-secretariat.de",
+  "description": "Kenwanderer Haven is a Gloomhaven/Frosthaven Companion app.",
+  "homepage": "https://gloomhaven.kenwanderers.com",
   "author": {
-    "name": "Lurkars",
-    "email": "contact@gloomhaven-secretariat.de",
-    "url": "https://www.champonthis.de"
+    "name": "Laydo",
+    "email": "laydo@apollosarcade.com",
+    "url": "https://www.apollosarcade.com"
   },
-  "repository": "github:Lurkars/gloomhavensecretariat",
-  "bugs": "https://github.com/Lurkars/gloomhavensecretariat/issues",
-  "funding": {
-    "type": "ko-fi",
-    "url": "https://ko-fi.com/lurkars"
-  },
+  "repository": "github:Kenwanderers/kenwandererhaven",
+  "bugs": "https://github.com/Kenwanderers/kenwandererhaven/issues",
   "main": "main.js",
   "nodemonConfig": {
     "execMap": {
@@ -32,6 +28,7 @@
     "start": "ng serve",
     "prebuild": "node ./scripts/build-data.js && node ./scripts/pre-build.js",
     "build": "ng build",
+    "custom-build": "node custom-build.js",
     "postbuild": "node ./scripts/post-build.js",
     "pretest": "node ./scripts/build-data.js",
     "test": "ng test",
@@ -40,7 +37,7 @@
     "electron:build": "npm run build -- --base-href ./ && electron-builder"
   },
   "build": {
-    "appId": "gloomhavensecretariat",
+    "appId": "kenwandererhaven",
     "linux": {
       "target": [
         "AppImage",
@@ -70,7 +67,7 @@
     },
     "files": [
       "main.js",
-      "dist/gloomhavensecretariat"
+      "dist/kenwandererhaven"
     ]
   },
   "private": true,

@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.USER }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
-          source: "./dist/gloomhavensecretariat/*"
+          source: "./dist/kenwandererhaven/*"
           strip_components: 2
           rm : true
           target: "${{ secrets.TARGET }}"

@@ -52,16 +52,16 @@ jobs:
         uses: thedoctor0/zip-release@main
         with:
           type: "zip"
-          directory: "dist/gloomhavensecretariat"
-          filename: "gloomhavensecretariat-${{github.ref_name}}.zip"
+          directory: "dist/kenwandererhaven"
+          filename: "kenwandererhaven-${{github.ref_name}}.zip"
       - name: Upload release zip
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           upload_url: ${{ needs.create_release.outputs.upload_url }}
-          asset_path: ./dist/gloomhavensecretariat/gloomhavensecretariat-${{github.ref_name}}.zip
-          asset_name: gloomhavensecretariat-${{github.ref_name}}.zip
+          asset_path: ./dist/kenwandererhaven/kenwandererhaven-${{github.ref_name}}.zip
+          asset_name: kenwandererhaven-${{github.ref_name}}.zip
           asset_content_type: application/octet-stream
   release_electron:
     name: Release electron builds

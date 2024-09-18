@@ -1,8 +1,8 @@
 blank_issues_enabled: true
 contact_links:
     - name: ❓ FAQ and Basic User Guide
-      url: https://help.gloomhaven-secretariat.de/
-      about: A Small FAQ and basic guide how to use Gloomhaven Secretariat
+      url: https://gloomhaven.kenwanderers.com/help
+      about: A Small FAQ and basic guide how to use Kenwanderer Haven
     - name: 💡 General Ideas, Feedback and Questions
-      url: https://github.com/Lurkars/gloomhavensecretariat/discussions
+      url: https://github.com/Kenwanderers/kenwandererhaven/discussions
       about: To discuss ideas, give general feedback or asking for help just use the GitHub Discussion

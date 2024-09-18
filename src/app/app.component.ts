@@ -9,7 +9,7 @@ import { settingsManager } from './game/businesslogic/SettingsManager';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'gloomhavensecretariat';
+  title = 'kenwandererhaven';
 
   theme: string = '';
 
