@@ -1347,6 +1347,12 @@
         "value": "%data.items.fh-58.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "disarm"
+      }
     ]
   },
   {
@@ -1437,6 +1443,12 @@
         "type": "custom",
         "value": "%data.items.fh-62.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "regenerate"
       }
     ]
   },
@@ -1879,7 +1891,7 @@
     "effects": [
       {
         "type": "heal",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -2035,6 +2047,12 @@
         "type": "custom",
         "value": "%data.items.fh-86.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "element",
+        "value": "wild"
       }
     ]
   },
@@ -2318,6 +2336,16 @@
         "value": "%data.items.fh-98.1%",
         "small": true
       }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "wound"
+      },
+      {
+        "type": "condition",
+        "value": "poison"
+      }
     ]
   },
   {
@@ -2412,6 +2440,16 @@
         "type": "custom",
         "value": "%data.items.fh-102.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "element",
+        "value": "wild"
+      },
+      {
+        "type": "element",
+        "value": "wild"
       }
     ]
   },
@@ -2640,6 +2678,12 @@
         "type": "custom",
         "value": "%data.items.fh-112.1%",
         "small": true
+      }
+    ],
+    "effects": [
+      {
+        "type": "damage",
+        "value": 10
       }
     ]
   },
@@ -3742,6 +3786,16 @@
           }
         ]
       }
+    ],
+    "effects": [
+      {
+        "type": "condition",
+        "value": "bless"
+      },
+      {
+        "type": "condition",
+        "value": "bless"
+      }
     ]
   },
   {
@@ -3770,6 +3824,12 @@
             "small": true
           }
         ]
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 2
       }
     ]
   },
@@ -3876,6 +3936,12 @@
             "small": true
           }
         ]
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 2
       }
     ]
   },
@@ -5089,6 +5155,12 @@
             "small": true
           }
         ]
+      }
+    ],
+    "effects": [
+      {
+        "type": "heal",
+        "value": 6
       }
     ]
   },

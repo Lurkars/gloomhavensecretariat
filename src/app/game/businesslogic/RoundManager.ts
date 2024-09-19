@@ -83,7 +83,7 @@ export class RoundManager {
         if (gameManager.game.scenario && settingsManager.settings.characterItemsApply) {
           this.game.figures.forEach((figure) => {
             if (figure instanceof Character) {
-              gameManager.itemManager.applyEquippedItemEffects(figure, false);
+              gameManager.itemManager.applyEquippedItemEffects(figure);
             }
           })
         }

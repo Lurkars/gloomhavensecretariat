@@ -54,6 +54,7 @@ export enum ItemEffectType {
   heal = "heal",
   damage = "damage",
   element = "element",
+  initiative = "initiative",
   refreshSpent = "refreshSpent",
   removeNegativeConditions = "removeNegativeConditions"
 }

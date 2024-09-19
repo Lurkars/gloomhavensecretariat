@@ -413,26 +413,26 @@ export class ItemManager {
         return item;
     }
 
-    applyEquippedItemEffects(character: Character, summon: boolean) {
+    applyEquippedItemEffects(character: Character) {
         character.immunities = [];
         character.progress.equippedItems.forEach((identifier) => {
             const item = gameManager.itemManager.getItem(+identifier.name, identifier.edition, true);
             if (item) {
-                gameManager.itemManager.applyItemEffects(character, item, summon);
+                gameManager.itemManager.applyItemEffects(character, item);
             }
         })
     }
 
-    applyItemEffects(character: Character, item: ItemData, summon: boolean) {
+    applyItemEffects(character: Character, item: ItemData, equip: boolean = false) {
         if (item.effects) {
             item.effects.forEach((itemEffect) => {
-                if (!item.spent && !item.consumed || itemEffect.always) {
+                if (!item.spent && !item.consumed || equip || itemEffect.always) {
                     this.applyItemEffect(character, itemEffect);
                 }
             })
         }
 
-        if (summon && item.summon) {
+        if (equip && item.summon) {
             let summon = new Summon(uuidv4(), item.summon.name, item.summon.cardId, character.level, 1, SummonColor.blue, item.summon);
             summon.init = false;
             gameManager.characterManager.addSummon(character, summon);
@@ -461,7 +461,22 @@ export class ItemManager {
             case ItemEffectType.condition:
                 const condition: ConditionName = ("" + effect.value).split(':')[0] as ConditionName;
                 let value: number = ("" + effect.value).split(':').length > 1 ? +("" + effect.value).split(':')[1] : 1;
-                gameManager.entityManager.addCondition(character, new Condition(condition, value), character.active || false, character.off || false);
+
+                if (condition == ConditionName.bless) {
+                    for (let i = 0; i < value; i++) {
+                        if (gameManager.attackModifierManager.countUpcomingBlesses() < 10) {
+                            gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.bless));
+                        }
+                    }
+                } else if (condition == ConditionName.curse) {
+                    for (let i = 0; i < value; i++) {
+                        if (gameManager.attackModifierManager.countUpcomingCurses(false) < 10) {
+                            gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.curse));
+                        }
+                    }
+                } else {
+                    gameManager.entityManager.addCondition(character, new Condition(condition, value), character.active || false, character.off || false);
+                }
                 break;
             case ItemEffectType.immune:
                 const immunity: ConditionName = ("" + effect.value) as ConditionName;
@@ -477,6 +492,14 @@ export class ItemManager {
                             elementModel.state = ElementState.new;
                         }
                     })
+                }
+                break;
+            case ItemEffectType.initiative:
+                character.initiative += EntityValueFunction(effect.value);
+                if (character.initiative < 1) {
+                    character.initiative = 1;
+                } else if (character.initiative > 99) {
+                    character.initiative = 99;
                 }
                 break;
             case ItemEffectType.refreshSpent:
