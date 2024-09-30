@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
@@ -16,7 +16,7 @@ import { HiddenScenarioFigureRuleTypes, ScenarioFigureRule, ScenarioFigureRuleId
     templateUrl: './scenario-rule.html',
     styleUrls: ['./scenario-rule.scss']
 })
-export class ScenarioRuleComponent {
+export class ScenarioRuleComponent implements OnInit {
 
     @Input() rule!: ScenarioRule;
     @Input() identifier!: ScenarioRuleIdentifier;
@@ -24,6 +24,14 @@ export class ScenarioRuleComponent {
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
     EntityValueFunction = EntityValueFunction;
+
+    ngOnInit(): void {
+        if (this.rule.figures) {
+            this.rule.figures.forEach((figureRule) => {
+                figureRule.value = '' + figureRule.value;
+            })
+        }
+    }
 
     randomDungeonsMonsterLabel(rule: ScenarioRule): string[] {
         if (!rule.randomDungeon || !rule.randomDungeon.monsterCards || !rule.randomDungeon.monsterCards.length) {

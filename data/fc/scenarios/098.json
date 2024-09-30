@@ -16,11 +16,51 @@
     "bandit-guard",
     "spitting-drake"
   ],
+  "objectives": [
+    {
+      "name": "Ship",
+      "health": 12,
+      "marker": "a"
+    },
+    {
+      "name": "Ship",
+      "health": 12,
+      "marker": "b"
+    }
+  ],
   "rules": [
     {
       "round": "true",
       "start": true,
-      "note": "%data.scenario.rules.fc.98.1%"
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Ship"
+          },
+          "type": "damage",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "ancient-artillery"
+          },
+          "statEffect": {
+            "deck": "ancient-artillery-scenario-98"
+          },
+          "note": "%data.scenario.rules.fc.98.1%"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -81,6 +121,10 @@
           "player3": "normal",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        2
       ]
     }
   ]

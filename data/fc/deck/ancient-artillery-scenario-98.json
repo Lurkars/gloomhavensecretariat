@@ -1,0 +1,133 @@
+{
+  "name": "ancient-artillery-scenario-98",
+  "edition": "gh",
+  "abilities": [
+    {
+      "cardId": 700,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.fc.98.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 701,
+      "initiative": 71,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.fc.98.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 702,
+      "initiative": 71,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.fc.98.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 703,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.fc.98.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 704,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.fc.98.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 705,
+      "initiative": 95,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.fc.98.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 706,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.fc.98.2%",
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 707,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.fc.98.2%",
+          "small": true
+        }
+      ]
+    }
+  ]
+}

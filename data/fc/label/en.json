@@ -37,7 +37,11 @@
     "rules": {
       "fc": {
         "98": {
-          "1": "Place 1 damage token to both ships %game.mapMarker.a% and %game.mapMarker.b%."
+          "1": "Whenever the Ancient Artillery would perform an Attack action, place 1 damage token next to ship %game.mapMarker.a% instead. If that ship has 2 or more damage tokens next to it, place 1 damage token next to ship %game.mapMarker.b% instead.",
+          "2": "Place 1 damage token next to ship %game.mapMarker.a%/%game.mapMarker.b%."
+        },
+        "99": {
+          "1": "Whenever a Cultist would summon a Living Bones, it summons one Black Imp instead. Normal Cultists summon normal Black Imps, and elite Cultists summon elite Black Imps."
         },
         "101": {
           "1": "if adjacent Spitting Drake is alive and without %game.condition.stun%."

@@ -19,5 +19,6 @@
     "item:159",
     "battleGoal:1|event:rift-20",
     "gold:25|partyAchievement:A Strongbox|event:city-85",
-    "custom:%data.treasures.fc.96%"
+    "custom:%data.treasures.fc.96%",
+    "item:152"
 ]

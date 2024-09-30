@@ -20,6 +20,29 @@
           }
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "escort",
+            "name": "Civilian"
+          },
+          "type": "killed"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "valrath-savage",
+            "type": "elite"
+          }
+        }
+      ],
+      "alwaysApply": true
     }
   ]
 }

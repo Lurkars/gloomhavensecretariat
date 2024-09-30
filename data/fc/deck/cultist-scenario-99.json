@@ -1,0 +1,253 @@
+{
+  "name": "cultist-scenario-99",
+  "edition": "gh",
+  "abilities": [
+    {
+      "cardId": 604,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 605,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 606,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 607,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 608,
+      "initiative": 39,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 609,
+      "initiative": 63,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "monsterType",
+          "value": "normal",
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "normal"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "sufferDamage",
+          "value": 2,
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 610,
+      "initiative": 63,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "monsterType",
+          "value": "normal",
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "normal"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "monsterType",
+          "value": "elite",
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "sufferDamage",
+          "value": 2,
+          "small": true
+        }
+      ]
+    },
+    {
+      "cardId": 611,
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

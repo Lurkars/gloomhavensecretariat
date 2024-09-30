@@ -1,8 +1,10 @@
 {
   "index": "55",
+  "name": "Record of Journey saved",
   "edition": "fc",
   "parent": "98",
   "conclusion": true,
+  "named": true,
   "unlocks": [
     "103"
   ],

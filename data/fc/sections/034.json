@@ -27,6 +27,31 @@
       ]
     }
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar of Blizzards",
+            "marker": "f"
+          },
+          "type": "dead"
+        }
+      ],
+      "disableRules": [
+        {
+          "edition": "fc",
+          "scenario": "96",
+          "index": 0,
+          "section": false
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -91,9 +91,17 @@ export class LootManager {
     let rewardResults: string[][] = [];
     const editionData = gameManager.editionData.find((editionData) => editionData.edition == edition);
     if (editionData && editionData.treasures) {
-      index = index - (editionData.treasureOffset || 0);
+      index = index < 0 ? index : index - (editionData.treasureOffset || 0);
       if (index >= 0 && index < editionData.treasures.length) {
         const tresureString = editionData.treasures[index];
+        const treasure = new TreasureData(tresureString, index);
+        if (treasure.rewards) {
+          treasure.rewards.forEach((reward) => {
+            rewardResults.push(this.applyTreasureReward(character, reward, edition));
+          });
+        }
+      } else if (index < 0 && editionData.treasures.length + index + 1 > 0) {
+        const tresureString = editionData.treasures[editionData.treasures.length + index + 1];
         const treasure = new TreasureData(tresureString, index);
         if (treasure.rewards) {
           treasure.rewards.forEach((reward) => {

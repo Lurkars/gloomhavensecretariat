@@ -33,12 +33,15 @@ export class TreasureLabelComponent implements OnInit {
         if (!this.treasure) {
             const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.edition);
             if (editionData && editionData.treasures) {
-                const index = this.index - (editionData.treasureOffset || 0);
+                const index = this.index < 0 ? this.index : this.index - (editionData.treasureOffset || 0);
                 if (index >= 0 && index < editionData.treasures.length) {
                     const tresureString = editionData.treasures[index];
                     this.treasure = new TreasureData(tresureString, this.index);
+                } else if (index < 0 && editionData.treasures.length + index + 1 > 0) {
+                    const tresureString = editionData.treasures[index + 1 + editionData.treasures.length];
+                    this.treasure = new TreasureData(tresureString, this.index);
                 } else {
-                    console.warn("Invalid treasure index: '" + this.index + "' for Edition " + this.edition);
+                    console.warn("Invalid treasure index: '" + this.index + "' for Edition " + this.edition, editionData.treasures.length);
                 }
             }
         } else {

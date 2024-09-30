@@ -25,6 +25,41 @@
       "marker": "a"
     }
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "cultist"
+          },
+          "statEffect": {
+            "deck": "cultist-scenario-99"
+          },
+          "note": "%data.scenario.rules.fc.99.1%"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

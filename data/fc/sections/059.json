@@ -1,8 +1,10 @@
 {
   "index": "59",
+  "name": "Record of Accounts saved",
   "edition": "fc",
   "parent": "98",
   "conclusion": true,
+  "named": true,
   "unlocks": [
     "102"
   ],

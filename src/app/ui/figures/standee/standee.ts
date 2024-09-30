@@ -235,6 +235,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
         next: () => {
           if ((this.entity instanceof MonsterEntity || this.entity instanceof ObjectiveEntity) && this.entity.dead) {
             this.element.nativeElement.classList.add('dead');
+            gameManager.uiChange.emit();
           }
         }
       })

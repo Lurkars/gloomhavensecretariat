@@ -1,8 +1,10 @@
 {
   "index": "82",
+  "name": "Both Orchid records saved",
   "edition": "fc",
   "parent": "98",
   "conclusion": true,
+  "named": true,
   "unlocks": [
     "102",
     "103"
