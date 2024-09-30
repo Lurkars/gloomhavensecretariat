@@ -32,6 +32,9 @@
       "round": "true",
       "always": true,
       "once": true,
+      "requiredRooms": [
+        4
+      ],
       "spawns": [
         {
           "monster": {
@@ -69,9 +72,6 @@
           },
           "marker": "C"
         }
-      ],
-      "revealedRooms": [
-        4
       ]
     }
   ],
