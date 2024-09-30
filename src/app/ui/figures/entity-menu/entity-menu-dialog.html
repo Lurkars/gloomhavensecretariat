@@ -601,7 +601,7 @@
     class="special-actions">
     <ng-container *ngFor="let specialAction of gameManager.toCharacter(data.figure).specialActions">
       <span
-        *ngIf="(!specialAction.level || specialAction.level <= data.figure.level) && (gameManager.isCharacter(data.entity) && !specialAction.summon || gameManager.isSummon(data.entity) && specialAction.summon)"
+        *ngIf="(!specialAction.level || specialAction.level <= data.figure.level) && (!specialAction.perk || gameManager.isCharacter(data.entity) && gameManager.toCharacter(data.figure).progress.perks[specialAction.perk-1] == gameManager.toCharacter(data.figure).perks[specialAction.perk-1].count) && (gameManager.isCharacter(data.entity) && !specialAction.summon || gameManager.isSummon(data.entity) && specialAction.summon)"
         class="special-action text-white" [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}"
         tabclick (click)="applySpecialAction(specialAction)">
         <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialAction.name"></span>

@@ -13,6 +13,7 @@ import { MonsterStandeeData, RoomData } from "../model/data/RoomData";
 import { ScenarioData, ScenarioRewards } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { Condition, ConditionName } from "../model/data/Condition";
 
 export class ScenarioManager {
 
@@ -532,6 +533,18 @@ export class ScenarioManager {
               if (entities.indexOf(entity) != -1) {
                 entity.active = figure.active || gameManager.game.figures.some((other, index, self) => other.active && index > self.indexOf(figure));
                 entity.revealed = true;
+              }
+            })
+          }
+        })
+      }
+
+      if (this.game.figures.find((figure) => figure instanceof Character && figure.name == 'snowflake' && figure.tags.indexOf('muddle-monster') != -1)) {
+        this.game.figures.forEach((figure) => {
+          if (figure instanceof Monster) {
+            figure.entities.forEach((entity) => {
+              if (entities.indexOf(entity) != -1) {
+                gameManager.entityManager.addCondition(entity, new Condition(ConditionName.muddle), figure.active, figure.off);
               }
             })
           }

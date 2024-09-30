@@ -10,6 +10,12 @@
   ],
   "color": "#83b5be",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "muddle-monster",
+      "perk": 9
+    }
+  ],
   "stats": [
     {
       "level": 1,

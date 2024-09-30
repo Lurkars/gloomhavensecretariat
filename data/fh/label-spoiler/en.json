@@ -26,7 +26,10 @@
     },
     "shackles": "Pain Conduit",
     "shards": "Shattersong",
-    "snowflake": "Snowdancer",
+    "snowflake": {
+      ".": "Snowdancer",
+      "muddle-monster": "%game.condition.muddle% all newly revealed enemies"
+    },
     "trap": "Trapper"
   },
   "summon": {
