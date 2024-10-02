@@ -7,14 +7,14 @@ import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
-import { AttackModiferDeckChange } from '../figures/attackmodifier/attackmodifierdeck';
-import { LootDeckChange } from '../figures/loot/loot-deck';
+import { AttackModiferDeckChange, AttackModifierDeckComponent } from '../figures/attackmodifier/attackmodifierdeck';
+import { ChallengeDeckChange } from '../figures/challenges/challenge-deck';
+import { LootDeckChange, LootDeckComponent } from '../figures/loot/loot-deck';
 import { HintDialogComponent } from './hint-dialog/hint-dialog';
 import { LevelComponent } from './level/level';
 import { ScenarioComponent } from './scenario/scenario';
 import { ScenarioConclusionComponent } from './scenario/scenario-conclusion/scenario-conclusion';
 import { ScenarioSummaryComponent } from './scenario/summary/scenario-summary';
-import { ChallengeDeckChange } from '../figures/challenges/challenge-deck';
 
 @Component({
   selector: 'ghs-footer',
@@ -28,13 +28,16 @@ export class FooterComponent implements OnInit {
   @ViewChild('monsterDeck', { static: false }) monsterDeck!: ElementRef;
   @ViewChild('ghsLevel', { static: false }) ghsLevel!: LevelComponent;
   @ViewChild('ghsScenario', { static: false }) ghsScenario!: ScenarioComponent;
+  @ViewChild('monsterAttackModifierDeck', { static: false }) monsterAttackModifierDeck!: AttackModifierDeckComponent;
+  @ViewChild('allyAttackModifierDeck', { static: false }) allyAttackModifierDeck!: AttackModifierDeckComponent;
+  @ViewChild('lootDeck', { static: false }) lootDeck!: LootDeckComponent;
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   currentTime: string = "";
   hasAllyAttackModifierDeck: boolean = false;
-  lootDeck: boolean = false;
+  lootDeckEnabeld: boolean = false;
 
   compact: boolean = false;
 
@@ -45,12 +48,12 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
 
-    this.lootDeck = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
+    this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
 
     gameManager.uiChange.subscribe({
       next: () => {
         this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
-        this.lootDeck = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
+        this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
       }
     })
 

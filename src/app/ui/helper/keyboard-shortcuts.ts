@@ -148,17 +148,11 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                         gameManager.stateManager.after();
                     }
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('loot') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'l' && settingsManager.settings.lootDeck && gameManager.game.lootDeck.cards.length > 0) {
-                    gameManager.stateManager.before('lootDeckDraw');
-                    gameManager.game.lootDeck.active = true;
-                    const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
-                    if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
-                        gameManager.lootManager.drawCard(gameManager.game.lootDeck, activeCharacter);
-                    } else {
-                        gameManager.lootManager.drawCard(gameManager.game.lootDeck, undefined);
+                } else if ((!this.dialogOpen || this.allowed.indexOf('loot') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'l' && settingsManager.settings.lootDeck && gameManager.game.lootDeck.cards.length > 0 && this.footer && this.footer.lootDeck) {
+                    if (!this.footer.lootDeck.deck.active) {
+                        this.footer.toggleLootDeck();
                     }
-                    gameManager.stateManager.after();
-
+                    this.footer.lootDeck.draw(event, true);
                     event.preventDefault();
                 } else if (!this.dialogOpen && !event.ctrlKey && event.key === 'Tab' && gameManager.game.figures.length > 0) {
                     if (gameManager.game.state == GameState.next) {

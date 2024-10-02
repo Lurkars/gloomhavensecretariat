@@ -224,8 +224,8 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
         }, !settingsManager.settings.animations ? 0 : (this.vertical ? 1050 : 1850));
     }
 
-    draw(event: any) {
-        if (this.compact && this.fullscreen) {
+    draw(event: any, forceDraw: boolean = false) {
+        if (this.compact && this.fullscreen && !forceDraw) {
             this.openFullscreen(event);
         } else if (!this.disabled && this.deck.cards.length > 0) {
             if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {
