@@ -1215,7 +1215,7 @@
       },
       "1512": {
         ".": "Spiked Armor",
-        "text": "All characters gain%game.action.retaliate%X,%game.action.range%3, where X is their%game.action.shield% value. Add -1%game.action.attack to all character attacks."
+        "text": "All characters gain%game.action.retaliate%X,%game.action.range%3, where X is their%game.action.shield% value. Add -1%game.action.attack% to all character attacks."
       },
       "1513": {
         ".": "Fight Fair",
