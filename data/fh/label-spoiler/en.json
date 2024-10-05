@@ -1215,7 +1215,7 @@
       },
       "1512": {
         ".": "Spiked Armor",
-        "text": "All characters gain%game.action.retaliate%X,%game.action.range%3, where X is their%game.action.shield% value. Add -1%game.action.attack to all character attacks."
+        "text": "All characters gain%game.action.retaliate%X,%game.action.range%3, where X is their%game.action.shield% value. Add -1%game.action.attack% to all character attacks."
       },
       "1513": {
         ".": "Fight Fair",
@@ -1235,7 +1235,7 @@
       },
       "1517": {
         ".": "Warm Up",
-        "text": "While any character's hit point value is equal to or greater than half their maximum hit poiunt value (rounded down), that character gains disadvante on all their attacks."
+        "text": "While any character's hit point value is equal to or greater than half their maximum hit poiunt value (rounded down), that character gains disadvantage on all their attacks."
       },
       "1518": {
         ".": "Bloodlink",
