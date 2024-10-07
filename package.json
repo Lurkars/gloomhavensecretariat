@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.100.5",
+  "version": "0.100.6",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -54,8 +54,27 @@
     "mac": {
       "type": "distribution",
       "target": [
-        "dmg",
-        "pkg"
+        {
+          "target": "mas",
+          "arch": [
+            "universal"
+          ]
+        },
+        {
+          "target": "mas-dev"
+        },
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        },
+        {
+          "target": "pkg",
+          "arch": [
+            "universal"
+          ]
+        }
       ],
       "publish": [
         "github"
@@ -75,16 +94,16 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^18.2.6",
-    "@angular/cdk": "^18.2.6",
-    "@angular/common": "^18.2.6",
-    "@angular/compiler": "^18.2.6",
-    "@angular/core": "^18.2.6",
-    "@angular/forms": "^18.2.6",
-    "@angular/platform-browser": "^18.2.6",
-    "@angular/platform-browser-dynamic": "^18.2.6",
-    "@angular/router": "^18.2.6",
-    "@angular/service-worker": "^18.2.6",
+    "@angular/animations": "^18.2.7",
+    "@angular/cdk": "^18.2.7",
+    "@angular/common": "^18.2.7",
+    "@angular/compiler": "^18.2.7",
+    "@angular/core": "^18.2.7",
+    "@angular/forms": "^18.2.7",
+    "@angular/platform-browser": "^18.2.7",
+    "@angular/platform-browser-dynamic": "^18.2.7",
+    "@angular/router": "^18.2.7",
+    "@angular/service-worker": "^18.2.7",
     "autocompleter": "^9.3.2",
     "leaflet": "^1.9.4",
     "mermaid": "^10.9.1",
@@ -95,9 +114,9 @@
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.2.6",
-    "@angular/cli": "^18.2.6",
-    "@angular/compiler-cli": "^18.2.6",
+    "@angular-devkit/build-angular": "^18.2.7",
+    "@angular/cli": "^18.2.7",
+    "@angular/compiler-cli": "^18.2.7",
     "@types/d3": "^7.4.3",
     "@types/dom-screen-wake-lock": "1.0.3",
     "@types/dompurify": "^3.0.5",
@@ -105,7 +124,7 @@
     "@types/leaflet": "^1.9.12",
     "@types/uuid": "^10.0.0",
     "electron": "^32.1.2",
-    "electron-builder": "^25.0.5",
+    "electron-builder": "^25.1.7",
     "http-server": "^14.1.1",
     "husky": "^9.1.6",
     "jasmine-core": "~5.3.0",

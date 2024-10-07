@@ -547,9 +547,30 @@ export class CharacterComponent implements OnInit, OnDestroy {
     gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.name + '.' + specialAction + '%');
     this.character.tags = this.character.tags.filter((specialTag) => specialTag != specialAction);
 
-    if (this.character.name == 'lightning' && this.character.edition == 'gh' && specialAction.indexOf('immune') != -1) {
+    if (this.character.name == 'lightning' && this.character.edition == 'gh' && specialAction == 'immune') {
       this.character.immunities = [];
     }
+
+    if (this.character.name == 'boneshaper') {
+      if (specialAction == 'bone-dagger') {
+        this.character.summons.forEach((summon) => {
+          summon.attack = EntityValueFunction(summon.attack) - 1;
+        })
+      }
+      if (specialAction == 'solid-bones') {
+        this.character.summons.forEach((summon) => {
+          if (summon.name === 'shambling-skeleton') {
+            summon.maxHealth -= 1;
+            if (summon.health > summon.maxHealth) {
+              summon.health = summon.maxHealth;
+            }
+            summon.movement -= 1;
+            summon.action = undefined;
+          }
+        })
+      }
+    }
+
     gameManager.stateManager.after();
   }
 }

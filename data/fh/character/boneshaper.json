@@ -13,7 +13,12 @@
     {
       "name": "bone-dagger",
       "expire": true,
-      "summon": true
+      "level": 2
+    },
+    {
+      "name": "solid-bones",
+      "expire": true,
+      "level": 5
     }
   ],
   "stats": [

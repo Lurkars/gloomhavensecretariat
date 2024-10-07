@@ -950,6 +950,26 @@ export class EntityMenuDialogComponent {
           gameManager.entityManager.checkHealth(this.data.entity, this.data.entity);
         }
 
+        if (this.data.entity.name == 'boneshaper') {
+          if (specialTagsToTemove.indexOf('bone-dagger') != -1) {
+            this.data.entity.summons.forEach((summon) => {
+              summon.attack = EntityValueFunction(summon.attack) - 1;
+            })
+          }
+          if (specialTagsToTemove.indexOf('solid-bones') != -1) {
+            this.data.entity.summons.forEach((summon) => {
+              if (summon.name === 'shambling-skeleton') {
+                summon.maxHealth -= 1;
+                if (summon.health > summon.maxHealth) {
+                  summon.health = summon.maxHealth;
+                }
+                summon.movement -= 1;
+                summon.action = undefined;
+              }
+            })
+          }
+        }
+
         gameManager.stateManager.after();
       }
 
@@ -983,6 +1003,26 @@ export class EntityMenuDialogComponent {
           this.data.entity.health += 10;
           gameManager.entityManager.addCondition(this.data.entity, new Condition(ConditionName.heal, 10), this.data.entity.active || false, this.data.entity.off || false);
           gameManager.entityManager.applyCondition(this.data.entity, this.data.entity, ConditionName.heal, true);
+        }
+
+        if (this.data.entity.name == 'boneshaper') {
+          if (specialTagsToAdd.indexOf('bone-dagger') != -1) {
+            this.data.entity.summons.forEach((summon) => {
+              summon.attack = EntityValueFunction(summon.attack) + 1;
+            })
+          }
+          if (specialTagsToAdd.indexOf('solid-bones') != -1) {
+            this.data.entity.summons.forEach((summon) => {
+              if (summon.name === 'shambling-skeleton') {
+                summon.maxHealth += 1;
+                if (summon.health == summon.maxHealth - 1) {
+                  summon.health = summon.maxHealth;
+                }
+                summon.movement += 1;
+                summon.action = new Action(ActionType.pierce, 1);
+              }
+            })
+          }
         }
 
         gameManager.stateManager.after();
@@ -1116,11 +1156,6 @@ export class EntityMenuDialogComponent {
 
         if (specialTagsToTemove.length) {
           gameManager.stateManager.before("removeSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);
-
-          if (specialTagsToTemove.indexOf('bone-dagger') != -1) {
-            this.data.entity.attack = EntityValueFunction(this.data.entity.attack) - 1;
-          }
-
           this.data.entity.tags = this.data.entity.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
           gameManager.stateManager.after();
         }
@@ -1129,11 +1164,6 @@ export class EntityMenuDialogComponent {
 
         if (specialTagsToAdd.length) {
           gameManager.stateManager.before("addSpecialTagsSummon", gameManager.characterManager.characterName(this.data.figure), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','), this.data.entity.title ? this.data.entity.title : "data.summon." + this.data.entity.name);
-
-          if (specialTagsToAdd.indexOf('bone-dagger') != -1) {
-            this.data.entity.attack = EntityValueFunction(this.data.entity.attack) + 1;
-          }
-
           this.data.entity.tags.push(...specialTagsToAdd);
           gameManager.stateManager.after();
         }

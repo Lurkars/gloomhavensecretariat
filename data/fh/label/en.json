@@ -9,7 +9,8 @@
     },
     "boneshaper": {
       ".": "Boneshaper",
-      "bone-dagger": "Add +1 %game.action.attack%"
+      "bone-dagger": "Add +1 %game.action.attack% to all summons.",
+      "solid-bones": "+1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1 to all Shambling Skeletons"
     },
     "deathwalker": "Deathwalker",
     "drifter": "Drifter",
