@@ -61,9 +61,6 @@
           ]
         },
         {
-          "target": "mas-dev"
-        },
-        {
           "target": "dmg",
           "arch": [
             "universal"
