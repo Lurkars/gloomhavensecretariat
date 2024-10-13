@@ -85,55 +85,55 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Support for Frosthaven loot deck (including enhancements) and town guard deck
   - special ability automation for some characters
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-blinkblade.svg" height="20px" style="filter:grayscale(1)"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-blinkblade.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Automatically add/remove time tokens at start of round after defining slow/fast before
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-boneshaper.svg" height="20px" style="filter:grayscale(1)"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-boneshaper.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Bone Dagger: Add +1 Attack to all summons
 
       > Solid Bones: Add +1 HP, +1 Move and Pierce 1 to all Shambling Skeletons
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-fist.svg" height="20px" style="filter:grayscale(1)"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-fist.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > One with the Mountain: Whenever not having Regenerate, gain Regenerate
 
       > Gift of the Mountain: Heal 2 self at end of each turn
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-kelp.svg" height="20px" style="filter:grayscale(1)"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-kelp.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Perk: Start each scenario with 2 Trophy Tokens
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-prism.svg" height="20px" style="filter:grayscale(1)"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-prism.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Toggle Mode Token for summons (inactive if Mode Token set)
 
       > Repair Drone: Heal 2 self at start of turn
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-snowflake.svg" height="20px" style="filter:grayscale(1)"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-snowflake.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Perk: Muddle new revealed Monster
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/jotl-demolitionist.svg" height="20px" style="filter:grayscale(1)"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/jotl-demolitionist.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Mech Suit (+5 HP, Heal 10)
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1)"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Enable overhealing up to 26 HP
       
       > Toggle immunity for all conditions
     </details>
     <details>
-      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-music-note.svg" height="20px" style="filter:grayscale(1)"></summary>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-music-note.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Enable song to automatically gain 1 XP at start of turn
     </details>
