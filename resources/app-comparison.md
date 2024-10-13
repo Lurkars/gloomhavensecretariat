@@ -98,6 +98,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Play without initiative required                                                | ✅        | ✅         | ✅        | ⛔       | ✅       |
 | Automatic level calculation                                                     | ✅        | ✅         | ⛔        | ✅       | ✅❗[^12] |
 | Apply certain abilities (self conditions, elements, summons)                    | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
+| Automate some special Character Abilities/Perks                                 | ✅[^20]   | ⛔         | ⛔        | ⛔       | ⛔       |
 | Ability Card Names                                                              | ✅[^17.1] | ✅         | ✅[^17.2] | ✅       | ⛔       |
 | Named Summons                                                                   | ✅        | ✅         | ✅        | ✅       | ⛔       |
 | Summon Stats                                                                    | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
@@ -173,3 +174,5 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 [^18]: Currently HP only
 
 [^19]: Since no perks or any advanced character management support, there is no need to support those Crossover Characters!
+
+[^20]: See README for details

@@ -1,5 +1,2 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 node ./scripts/pre-commit.mjs ./data/
 git add ./data/*
