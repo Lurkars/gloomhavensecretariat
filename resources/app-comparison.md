@@ -37,7 +37,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Character Ability Cards                                                         | ⛔        | ⛔         | ⛔        | ✅       | ⛔       |
 | Campaign Progress                                                               | ✅        | ⛔         | ✅❗       | ✅       | ⛔       |
 | Event-Decks                                                                     | ⛔        | ⛔         | ⛔        | ✅       | ⛔       |
-| Battle Goal Deck                                                                | ✅[^1.1]  | ⛔         | ⛔        | ✅       | ⛔       |
+| Battle Goal Deck                                                                | ✅[^1]    | ⛔         | ⛔        | ✅       | ⛔       |
 | Multiple Parties/Campaigns                                                      | ✅        | ✅❗[^1.3]  | ✅        | ✅       | ⛔       |
 | Loot Deck                                                                       | ✅        | ✅         | ✅        | ✅       | ⛔       |
 | Frosthaven Outpost (Calendar, Resources, Buildings, Town Guard etc.)            | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
@@ -73,6 +73,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Calculate Abilities (based on stats)                                            | ✅        | ✅         | ✅        | ✅       | ✅       |
 | Add Basic Values to Stats                                                       | ✅        | ✅         | ⛔        | ✅       | ✅       |
 | Show calculated Shield/Retaliate Values                                         | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
+| Inspect/Reorder Monster Ability Cards                                           | ✅        | ✅         | ⛔        | ✅       | ✅       |
 | Update Elements                                                                 | ✅        | ✅         | ✅        | ✅       | ✅       |
 | Consume Elements by Monsters                                                    | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
 | Expire Conditions                                                               | ✅        | ✅         | ⛔        | ✅       | ✅       |
@@ -105,6 +106,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Automatic apply Long Rest (perform Heal 2)                                      | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
 | Support ≥ 5 Players rules                                                       | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
 | Absent Characters                                                               | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
+| Scenario Statistics                                                             | ✅[^1]    | ⛔         | ⛔        | ✅       | ⛔       |
 | Localization                                                                    | ✅[^5]    | ⛔         | ⛔        | ⛔       | ✅❗[^6]  |
 | Offline Support                                                                 | ✅[^10]   | ✅         | ✅        | ⛔       | ✅       |
 |                                                                                 |          |           |          |         |         |
@@ -122,7 +124,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Monster Editor (Stats + Abilities)                                              | ✅        | ⛔         | ⛔        | ⛔       | ⛔       |
 
 
-[^1.1]: Need to be enabled in **Settings** Menu
+[^1]: Need to be enabled in **Settings** Menu
 
 [^1.2]: Only support monster cards, dungeon cards must be drawn manually
 
