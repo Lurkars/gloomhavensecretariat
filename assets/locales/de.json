@@ -1387,6 +1387,80 @@
       "stats": "Monsterwerte"
     },
     "showAllSections": "Alle Sektionen anzeigen",
+    "stats": {
+      ".": "Szenario Statistiken",
+      "bossKills": {
+        ".": "%game.monsterType.boss%: {0}",
+        "hint": "Anzahl an getöteten %game.monsterType.boss% Monster"
+      },
+      "damage": {
+        ".": "Schaden"
+      },
+      "dealtDamage": {
+        ".": "%game.action.attack% {0}",
+        "hint": "Verteilter Schaden"
+      },
+      "eliteKills": {
+        ".": "%game.monsterType.elite%: {0}",
+        "hint": "Anzahl an getöteten %game.monsterType.elite% Monster"
+      },
+      "gold": {
+        ".": "%game.gameIcon:loot%: {0}",
+        "hint": "Anzahl an erbeuteten %game.gameIcon:loot% Münzen"
+      },
+      "heal": {
+        ".": "Heilung"
+      },
+      "healedDamage": {
+        ".": "%game.condition.heal:{0}%",
+        "hint": "Erhaltene Heilung"
+      },
+      "heals": {
+        ".": "%game.action.heal% {0}",
+        "hint": "Andere geheilt"
+      },
+      "kills": {
+        ".": "Tötungen"
+      },
+      "max": {
+        ".": "Max."
+      },
+      "maxDamage": {
+        ".": "%game.damage:{0}%",
+        "hint": "Höchster einzelner erlittener Schaden"
+      },
+      "maxDealtDamage": {
+        ".": "%game.action.attack% {0}",
+        "hint": "Höchster verteilter Schaden"
+      },
+      "monsterDamage": {
+        ".": "%game.damage:{0}%",
+        "hint": "Erlittener Schaden durch Monster"
+      },
+      "normalKills": {
+        ".": "%game.monsterType.normal%: {0}",
+        "hint": "Anzahl an getöteten %game.monsterType.normal% Monster"
+      },
+      "otherDamage": {
+        ".": "%game.gameIcon:trap% {0}",
+        "hint": "Anderer erlittener Schaden"
+      },
+      "progress": "Beute, EP",
+      "scenarios": "Szenarien",
+      "toggle": {
+        "hide": "Szenario Statistiken ausblenden",
+        "show": "Szenario Statistiken einblenden"
+      },
+      "total": "Insgesamt",
+      "treasures": {
+        ".": "%game.gameIcon:scenario/treasure%: {0}",
+        "hint": "Anzahl an geöffneten %game.gameIcon:scenario/treasure% Schätzen"
+      },
+      "xp": {
+        ".": "%game.gameIcon:experience%: {0}",
+        "hint": "Anzahl an gesammelter %game.gameIcon:experience% Erfahrung"
+      }
+    },
     "summary": {
       ".": "Szenario Zusammenfassung",
       "alreadyWarning": {
@@ -2015,6 +2089,10 @@
     "scenarioRulesAutoapply": {
       ".": "Automatische Szenario Regeln sofort anwenden",
       "hint": "Automatische Szenario Regeln werden automatisch ohne Bestätigung angewendet"
+    },
+    "scenarioStats": {
+      ".": "Szenario Statistiken",
+      "hint": "Sammle Statistiken über Schaden, Tötungen, Erfahrung, Beute und Heilung während eines Scenarios"
     },
     "showExpandedAbilityCard": {
       ".": "Alle Fertigkeiten auf Fertigkeitskarten anzeigen",
