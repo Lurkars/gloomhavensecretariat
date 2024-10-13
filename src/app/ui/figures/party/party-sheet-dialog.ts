@@ -26,6 +26,7 @@ import { BuildingUpgradeDialog } from "./buildings/upgrade-dialog/upgrade-dialog
 import { ScenarioRequirementsDialogComponent } from "./requirements/requirements";
 import { PartyResourcesDialogComponent } from "./resources/resources";
 import { ScenarioChartDialogComponent } from "./scenario-chart/scenario-chart";
+import { StatisticsDialogComponent } from "./statistics/statistics-dialog";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { WorldMapComponent } from "./world-map/world-map";
@@ -1275,6 +1276,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.dialog.open(BattleGoalSetupDialog, {
       panelClass: ['dialog']
     });
+  }
+
+  statistics() {
+    this.dialog.open(StatisticsDialogComponent, {
+      panelClass: ['dialog-invert']
+    })
   }
 
 }

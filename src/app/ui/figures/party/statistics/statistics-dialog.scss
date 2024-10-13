@@ -1,0 +1,74 @@
+.statistics-dialog {
+
+    position: relative;
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        tr {
+            margin: 0;
+            padding: 0;
+            border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-darkgray);
+        }
+
+        tbody tr {
+            &:nth-child(odd) {
+                background-color: var(--ghs-color-lightgray);
+            }
+
+            &:hover {
+                background-color: var(--ghs-color-yellow-light);
+            }
+        }
+
+        th,
+        td {
+            vertical-align: middle;
+            padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+            border-right: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-darkgray);
+        }
+
+        th {
+            text-align: right;
+            font-family: var(--ghs-font-title);
+            font-weight: initial;
+        }
+
+        td {
+            font-family: var(--ghs-font-text);
+            text-align: center;
+
+            &>span {
+                margin: 0 calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+            }
+        }
+
+        .character {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success {
+            color: var(--ghs-color-green);
+        }
+
+        .failure {
+            color: var(--ghs-color-red);
+        }
+        
+        img {
+            height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
+
+        .ghs-svg {
+            width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+            height: auto;
+        }
+    }
+}

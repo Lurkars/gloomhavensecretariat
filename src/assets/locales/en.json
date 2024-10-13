@@ -1598,6 +1598,80 @@
       "stats": "Monster Stats"
     },
     "showAllSections": "Show all Sections",
+    "stats": {
+      ".": "Scenario Statistics",
+      "bossKills": {
+        ".": "%game.monsterType.boss%: {0}",
+        "hint": "Number of %game.monsterType.boss% monster killed"
+      },
+      "damage": {
+        ".": "Damage"
+      },
+      "dealtDamage": {
+        ".": "%game.action.attack% {0}",
+        "hint": "Damage dealt"
+      },
+      "eliteKills": {
+        ".": "%game.monsterType.elite%: {0}",
+        "hint": "Number of %game.monsterType.elite% monster killed"
+      },
+      "gold": {
+        ".": "%game.gameIcon:loot%: {0}",
+        "hint": "Number of %game.gameIcon:loot% Coins looted"
+      },
+      "heal": {
+        ".": "Heals"
+      },
+      "healedDamage": {
+        ".": "%game.condition.heal:{0}%",
+        "hint": "Received heals"
+      },
+      "heals": {
+        ".": "%game.action.heal% {0}",
+        "hint": "Healed others"
+      },
+      "kills": {
+        ".": "Kills"
+      },
+      "max": {
+        ".": "Max."
+      },
+      "maxDamage": {
+        ".": "%game.damage:{0}%",
+        "hint": "Highest single damage received"
+      },
+      "maxDealtDamage": {
+        ".": "%game.action.attack% {0}",
+        "hint": "Highest single damage dealt"
+      },
+      "monsterDamage": {
+        ".": "%game.damage:{0}%",
+        "hint": "Damage received from enemies"
+      },
+      "normalKills": {
+        ".": "%game.monsterType.normal%: {0}",
+        "hint": "Number of %game.monsterType.normal% monster killed"
+      },
+      "otherDamage": {
+        ".": "%game.gameIcon:trap% {0}",
+        "hint": "Other damage received"
+      },
+      "progress": "Loot, XP",
+      "scenarios": "Scenarios",
+      "toggle": {
+        "hide": "Hide Scenario Statistics",
+        "show": "Show Scenario Statistics"
+      },
+      "total": "Total",
+      "treasures": {
+        ".": "%game.gameIcon:scenario/treasure%: {0}",
+        "hint": "Number of %game.gameIcon:scenario/treasure% treasures opened"
+      },
+      "xp": {
+        ".": "%game.gameIcon:experience%: {0}",
+        "hint": "Number of %game.gameIcon:experience% Experience gained"
+      }
+    },
     "summary": {
       ".": "Scenario Summary",
       "alreadyWarning": {
@@ -2230,6 +2304,10 @@
     "scenarioRulesAutoapply": {
       ".": "Apply automatic Scenario Rules",
       "hint": "Directly apply automatic Scenario Rules without confirmation"
+    },
+    "scenarioStats": {
+      ".": "Scenario Statistics",
+      "hint": "Collect statistics about damage, kills, loot, xp and heals during a scenario"
     },
     "showExpandedAbilityCard": {
       ".": "Show expanded ability cards",

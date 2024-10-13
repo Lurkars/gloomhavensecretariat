@@ -10,6 +10,7 @@ import { LootType } from "src/app/game/model/data/Loot";
 import { PerkType } from "src/app/game/model/data/Perks";
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 import { ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
+import { StatisticsDialogComponent } from "../../party/statistics/statistics-dialog";
 import { AbilityCardsDialogComponent } from "./ability-cards-dialog";
 import { CharacterMoveResourcesDialog } from "./move-resources";
 import { CharacterRetirementDialog } from "./retirement-dialog";
@@ -493,5 +494,12 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       panelClass: ['dialog'],
       data: { character: this.character }
     });
+  }
+
+  statistics() {
+    this.dialog.open(StatisticsDialogComponent, {
+      panelClass: ['dialog-invert'],
+      data: this.character
+    })
   }
 }

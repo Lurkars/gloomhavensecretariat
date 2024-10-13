@@ -73,7 +73,7 @@
         <div class="status-bar">
           <div class="health" ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="toggleDamageHP()"
             (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragHpCancel($event)"
-            [relative]="true" [screenWidth]="true">
+            [relative]="true" [screenWidth]="true" [fastShift]="true">
             <img [ngClass]="{'damage' : settingsManager.settings.damageHP}"
               [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
             <ng-container *ngIf="entity.maxHealth > 0">

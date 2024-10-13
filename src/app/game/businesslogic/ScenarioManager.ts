@@ -5,6 +5,7 @@ import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { GameScenarioModel, Scenario, ScenarioMissingRequirements } from "../model/Scenario";
+import { Condition, ConditionName } from "../model/data/Condition";
 import { LootDeckConfig, LootType, fullLootDeck } from "../model/data/Loot";
 import { MonsterData } from "../model/data/MonsterData";
 import { MonsterType } from "../model/data/MonsterType";
@@ -13,7 +14,6 @@ import { MonsterStandeeData, RoomData } from "../model/data/RoomData";
 import { ScenarioData, ScenarioRewards } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { Condition, ConditionName } from "../model/data/Condition";
 
 export class ScenarioManager {
 
@@ -63,6 +63,17 @@ export class ScenarioManager {
           Object.assign(rewards, conclusionSection.rewards);
         }
       }
+
+      if (!internal && characterProgress && settingsManager.settings.scenarioStats) {
+        this.game.figures.forEach((figure) => {
+          if (figure instanceof Character && !figure.absent) {
+            figure.progress.scenarioStats = figure.progress.scenarioStats || [];
+            gameManager.scenarioStatsManager.applyScenarioStats(figure, scenario, success);
+            figure.progress.scenarioStats.push(figure.scenarioStats);
+          }
+        })
+      }
+
       if (!internal && characterProgress && settingsManager.settings.characterSheet) {
         this.game.figures.forEach((figure) => {
           if (figure instanceof Character && !figure.absent) {

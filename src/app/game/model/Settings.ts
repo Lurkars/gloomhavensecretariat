@@ -143,6 +143,7 @@ export class Settings {
   scenarioRooms: boolean = true;
   scenarioRules: boolean = true;
   scenarioRulesAutoapply: boolean = false;
+  scenarioStats: boolean = false;
   serverAutoconnect: boolean = true;
   serverCode: string | undefined;
   serverPassword: string | undefined;

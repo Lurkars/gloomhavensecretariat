@@ -64,6 +64,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
     townGuardAMs: AttackModifier[] = [];
     levelUp: boolean[] = [];
     perksUp: boolean[] = [];
+    stats: boolean = false;
 
     EntityValueFunction = EntityValueFunction;
 
@@ -380,6 +381,10 @@ export class ScenarioSummaryComponent implements OnDestroy {
             const newPerks = Math.floor((character.progress.battleGoals
                 + this.battleGoals[index]) / 3);
             this.perksUp[index] = newPerks > currentPerks;
+
+            if (settingsManager.settings.scenarioStats) {
+                gameManager.scenarioStatsManager.applyScenarioStats(character, this.scenario, this.success);
+            }
         })
     }
 

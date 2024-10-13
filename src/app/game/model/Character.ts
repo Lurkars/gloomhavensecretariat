@@ -1,15 +1,15 @@
-import { Figure } from "./Figure";
-import { Entity } from "./Entity";
-import { CharacterStat } from "./data/CharacterStat";
-import { CharacterData } from "./data/CharacterData";
-import { GameSummonModel, Summon } from "./Summon";
 import { gameManager } from "../businesslogic/GameManager";
-import { FigureError, FigureErrorType } from "./data/FigureError";
-import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
-import { CharacterProgress } from "./CharacterProgress";
-import { AttackModifierDeck, GameAttackModifierDeckModel } from "./data/AttackModifier";
-import { Identifier } from "./data/Identifier";
+import { CharacterProgress, ScenarioStats } from "./CharacterProgress";
 import { Action } from "./data/Action";
+import { AttackModifierDeck, GameAttackModifierDeckModel } from "./data/AttackModifier";
+import { CharacterData } from "./data/CharacterData";
+import { CharacterStat } from "./data/CharacterStat";
+import { ConditionName, EntityCondition, GameEntityConditionModel } from "./data/Condition";
+import { FigureError, FigureErrorType } from "./data/FigureError";
+import { Identifier } from "./data/Identifier";
+import { Entity } from "./Entity";
+import { Figure } from "./Figure";
+import { GameSummonModel, Summon } from "./Summon";
 
 export class Character extends CharacterData implements Entity, Figure {
   title: string = "";
@@ -24,6 +24,7 @@ export class Character extends CharacterData implements Entity, Figure {
   identity: number = 0;
   progress: CharacterProgress;
   donations: number = 0;
+  scenarioStats: ScenarioStats = new ScenarioStats();
 
   initiativeVisible: boolean = false;
   attackModifierDeckVisible: boolean = false;
@@ -104,7 +105,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.itemsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.tokenValues, this.absent, this.longRest, this.battleGoals, this.battleGoal, this.shield, this.shieldPersistent, this.retaliate, this.retaliatePersistent);
+    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.treasures && this.treasures.map((treasure) => '' + treasure) || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.immunities, this.markers, this.tags || [], this.identity, this.summons.map((summon) => summon.toModel()), this.progress, this.scenarioStats, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.itemsVisible, this.number, this.attackModifierDeck.toModel(), this.donations, this.token, this.tokenValues, this.absent, this.longRest, this.battleGoals, this.battleGoal, this.shield, this.shieldPersistent, this.retaliate, this.retaliatePersistent);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -176,6 +177,12 @@ export class Character extends CharacterData implements Entity, Figure {
 
     if (model.progress) {
       this.progress = Object.assign(new CharacterProgress(), model.progress);
+    }
+
+    this.scenarioStats = new ScenarioStats();
+
+    if (model.scenarioStats) {
+      this.scenarioStats = Object.assign(new ScenarioStats(), model.scenarioStats);
     }
 
     let attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
@@ -276,6 +283,7 @@ export class GameCharacterModel {
   identity: number;
   summons: GameSummonModel[];
   progress: CharacterProgress | undefined;
+  scenarioStats: ScenarioStats;
   initiativeVisible: boolean;
   attackModifierDeckVisible: boolean;
   lootCardsVisible: boolean;
@@ -316,6 +324,7 @@ export class GameCharacterModel {
     identity: number,
     summons: GameSummonModel[],
     progress: CharacterProgress | undefined,
+    scenarioStats: ScenarioStats,
     initiativeVisible: boolean,
     attackModifierDeckVisible: boolean,
     lootCardsVisible: boolean,
@@ -355,6 +364,7 @@ export class GameCharacterModel {
     this.identity = identity;
     this.summons = summons;
     this.progress = JSON.parse(JSON.stringify(progress));
+    this.scenarioStats = JSON.parse(JSON.stringify(scenarioStats));
     this.initiativeVisible = initiativeVisible;
     this.attackModifierDeckVisible = attackModifierDeckVisible;
     this.lootCardsVisible = lootCardsVisible;

@@ -181,7 +181,7 @@
               <span *ngIf="('' + treasure).startsWith('G') || +treasure >= 0">
                 <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10">0</span>{{('' +
                 treasure).startsWith('G-') ? 'G' : ('' +treasure).split(':')[0]}}</span>
-                <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 0">???</span>
+              <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 0">???</span>
             </span>
             <span class="hint above center">
               <ghs-treasure-label class="text placeholder text-white" *ngIf="!('' + treasure).startsWith('G-')"
@@ -249,6 +249,56 @@
           </span>
         </span>
       </ng-container>
+      <ng-container *ngIf="settingsManager.settings.scenarioStats">
+        <span class="stats-toggle" [style.grid-column]="'span ' + (1 + characters.length)"
+          [ghs-label]="'scenario.stats.toggle.' +  (stats ? 'hide': 'show')" (click)="stats = !stats"></span>
+      </ng-container>
+
+      <ng-container *ngIf="stats">
+        <span class="head-col"><span [ghs-label]="'scenario.stats.damage'"></span></span>
+        <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
+          <span class="text-white" [ghs-label]="'scenario.stats.dealtDamage'"
+            [ghs-label-args]="['' + character.scenarioStats.dealtDamage]" [style]="'fh'"
+            [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
+          <span class="text-white" [ghs-label]="'scenario.stats.monsterDamage'"
+            [ghs-label-args]="['' + character.scenarioStats.monsterDamage]" [style]="'fh'"
+            [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"></span>
+          <span class="text-white" [ghs-label]="'scenario.stats.otherDamage'"
+            [ghs-label-args]="['' + character.scenarioStats.otherDamage]" [style]="'fh'"
+            [ghs-tooltip]="'scenario.stats.otherDamage.hint'"></span>
+        </span>
+        <span class="head-col"><span [ghs-label]="'scenario.stats.heal'"></span></span>
+        <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
+          <span class="text-white" [ghs-label]="'scenario.stats.heals'"
+            [ghs-label-args]="['' + character.scenarioStats.heals]" [style]="'fh'"
+            [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
+          <span class="text-white" [ghs-label]="'scenario.stats.healedDamage'"
+            [ghs-label-args]="['' + character.scenarioStats.healedDamage]" [style]="'fh'"
+            [ghs-tooltip]="'scenario.stats.healedDamage.hint'"></span>
+        </span>
+        <span class="head-col"><span [ghs-label]="'scenario.stats.kills'"></span></span>
+        <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
+          <span *ngIf="character.scenarioStats.normalKills" class="text-white"
+            [ghs-label]="'scenario.stats.normalKills'" [ghs-label-args]="['' + character.scenarioStats.normalKills]"
+            [style]="'fh'" [ghs-tooltip]="'scenario.stats.normalKills.hint'"></span>
+          <span *ngIf="character.scenarioStats.eliteKills" class="text-white" [ghs-label]="'scenario.stats.eliteKills'"
+            [ghs-label-args]="['' + character.scenarioStats.eliteKills]" [style]="'fh'"
+            [ghs-tooltip]="'scenario.stats.eliteKills.hint'"></span>
+          <span *ngIf="character.scenarioStats.bossKills" class="text-white" [ghs-label]="'scenario.stats.bossKills'"
+            [ghs-label-args]="['' + character.scenarioStats.bossKills]" [style]="'fh'"
+            [ghs-tooltip]="'scenario.stats.bossKills.hint'"></span>
+        </span>
+        <span class="head-col"><span [ghs-label]="'scenario.stats.max'"></span></span>
+        <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
+          <span class="text-white" [ghs-label]="'scenario.stats.maxDealtDamage'"
+            [ghs-label-args]="['' + character.scenarioStats.maxDealtDamage]" [style]="'fh'"
+            [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"></span>
+          <span class="text-white" [ghs-label]="'scenario.stats.maxDamage'"
+            [ghs-label-args]="['' + character.scenarioStats.maxDamage]" [style]="'fh'"
+            [ghs-tooltip]="'scenario.stats.maxDamage.hint'"></span>
+        </span>
+      </ng-container>
+
     </div>
 
     <div class="rewards">

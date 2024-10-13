@@ -151,6 +151,18 @@ export class PointerInputService {
       window.document.body.classList.remove('dragging');
       window.document.body.classList.remove('no-pointer');
     });
+
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (this.active && event.key === 'Shift') {
+        this.active.fast = true;
+      }
+    })
+
+    window.addEventListener('keyup', (event: KeyboardEvent) => {
+      if (this.active && event.key === 'Shift') {
+        this.active.fast = false;
+      }
+    })
   }
 
   zoom(value: number) {
@@ -234,6 +246,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   @Input() forcePress: boolean = false;
   @Input() forceDoubleClick: boolean = false;
   @Input() onRelease: boolean = false;
+  @Input() fastShift: boolean = false;
   @Output('dragMove') dragMove = new EventEmitter<number>();
   @Output('dragEnd') dragEnd = new EventEmitter<number>();
   @Output('dragCancel') dragCancel = new EventEmitter<number>();
@@ -249,6 +262,9 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   clicks: number = 0;
   startX: number = 0;
   move: boolean = false;
+  fast: boolean = false;
+  fastOffset: number = 0;
+  lastX: number = 0;
 
   constructor(public elementRef: ElementRef, private service: PointerInputService) {
     this.value = -1;
@@ -368,7 +384,11 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       if (this.relative && this.relativeValue == -1) {
         this.relativeValue = this.value;
       }
-      this.value = Math.floor(this.relative ? this.value - this.relativeValue : this.value);
+      if (this.fast) {
+        this.fastOffset += (x - this.lastX) < 0 ? -1 : 1;
+      }
+      this.value = Math.floor(this.relative ? this.value - this.relativeValue : this.value) + this.fastOffset;
+      this.lastX = x;
       this.dragMove.emit(this.value);
     }
   }
@@ -383,6 +403,8 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       this.move = false;
       this.value = -1;
       this.relativeValue = -1;
+      this.fast = false;
+      this.fastOffset = 0;
       this.elementRef.nativeElement.classList.remove('dragging');
     }
   }
@@ -402,6 +424,8 @@ export class PointerInputDirective implements OnInit, OnDestroy {
     this.move = false;
     this.value = -1;
     this.relativeValue = -1;
+    this.fast = false;
+    this.fastOffset = 0;
     this.elementRef.nativeElement.classList.remove('dragging');
   }
 

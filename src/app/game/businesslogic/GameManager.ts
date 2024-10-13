@@ -14,6 +14,7 @@ import { Party } from "../model/Party";
 import { Summon } from "../model/Summon";
 import { Ability } from "../model/data/Ability";
 import { Action, ActionType } from "../model/data/Action";
+import { ChallengeCard } from "../model/data/Challenges";
 import { CharacterData } from "../model/data/CharacterData";
 import { Condition, ConditionName, ConditionType, Conditions } from "../model/data/Condition";
 import { DeckData } from "../model/data/DeckData";
@@ -39,9 +40,9 @@ import { ObjectiveManager } from "./ObjectiveManager";
 import { RoundManager } from "./RoundManager";
 import { ScenarioManager } from "./ScenarioManager";
 import { ScenarioRulesManager } from "./ScenarioRulesManager";
+import { ScenarioStatsManager } from "./ScenarioStatsManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
-import { ChallengeCard } from "../model/data/Challenges";
 
 declare global {
   interface Window { gameManager: GameManager }
@@ -72,6 +73,7 @@ export class GameManager {
   eventCardManager: EventCardManager;
   buildingsManager: BuildingsManager;
   challengesManager: ChallengesManager;
+  scenarioStatsManager: ScenarioStatsManager;
 
   uiChange = new EventEmitter<boolean>();
 
@@ -93,6 +95,7 @@ export class GameManager {
     this.eventCardManager = new EventCardManager(this.game);
     this.buildingsManager = new BuildingsManager(this.game);
     this.challengesManager = new ChallengesManager(this.game);
+    this.scenarioStatsManager = new ScenarioStatsManager(this.game);
     this.uiChange.subscribe({
       next: () => {
         this.checkEntitiesKilled();

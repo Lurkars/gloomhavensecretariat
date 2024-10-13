@@ -243,6 +243,10 @@
             <span *ngIf="character.number > 0 && character.number <= gameManager.game.party.players.length && gameManager.game.party.players[character.number
                 - 1]">{{gameManager.game.party.players[character.number
               - 1]}}</span>
+
+            <span class="spacer"></span>
+            <a class="ignore-denied" (click)="statistics()" [ghs-tooltip]="'scenario.stats'"><img class="ghs-svg"
+                src="./assets/images/stats.svg"></a>
           </div>
           <div class="player-number">
             <label><span [ghs-label]="'character.playerNumber'"></span>:</label>
@@ -316,7 +320,7 @@
           </div>
           <hr class="compact-separator">
           <div class="import-export">
-            <label class="export" (click)="exportCharacter()" [ghs-label]="'character.progress.export'"
+            <label class="export ignore-denied" (click)="exportCharacter()" [ghs-label]="'character.progress.export'"
               [ghs-label-attribute]="'title'">
               <img src="./assets/images/export.svg">
               <span [ghs-label]="'character.progress.export'"></span>

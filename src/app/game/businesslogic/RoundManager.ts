@@ -1,5 +1,7 @@
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { Character } from "../model/Character";
+import { ScenarioStats } from "../model/CharacterProgress";
+import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
@@ -14,7 +16,6 @@ import { LootDeck } from "../model/data/Loot";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { EntityValueFunction } from "../model/Entity";
 
 export class RoundManager {
 
@@ -76,17 +77,23 @@ export class RoundManager {
         gameManager.lootManager.firstRound();
         gameManager.challengesManager.clearDrawn(this.game.challengeDeck, true);
         this.game.challengeDeck.active = false;
-        if (!this.game.scenario) {
-          this.game.scenario = new Scenario(new ScenarioData(), [], [], true);
+        let scenario = new Scenario(new ScenarioData(), [], [], true);
+        if (this.game.scenario) {
+          scenario = this.game.scenario;
+        } else {
+          this.game.scenario = scenario;
         }
 
-        if (gameManager.game.scenario && settingsManager.settings.characterItemsApply) {
-          this.game.figures.forEach((figure) => {
-            if (figure instanceof Character) {
+        this.game.figures.forEach((figure) => {
+          if (figure instanceof Character) {
+            if (gameManager.game.scenario && settingsManager.settings.characterItemsApply) {
               gameManager.itemManager.applyEquippedItemEffects(figure);
             }
-          })
-        }
+            if (settingsManager.settings.scenarioStats) {
+              figure.scenarioStats = new ScenarioStats();
+            }
+          }
+        })
       }
       this.game.state = GameState.next;
       this.game.round++;
@@ -548,6 +555,7 @@ export class RoundManager {
         figure.shieldPersistent = undefined;
         figure.retaliate = [];
         figure.retaliatePersistent = [];
+        figure.scenarioStats = new ScenarioStats();
 
         if (gameManager.fhRules() && figure.tags.indexOf('new-character') != -1) {
           figure.progress.gold = 0;

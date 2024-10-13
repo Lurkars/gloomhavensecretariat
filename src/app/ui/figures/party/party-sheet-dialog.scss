@@ -1865,8 +1865,16 @@
           }
         }
 
-        .time {
+        .bottom-sheet {
           margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+          a {
+            cursor: pointer;
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
         }
 
 

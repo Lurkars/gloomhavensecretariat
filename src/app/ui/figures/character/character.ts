@@ -1,29 +1,29 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
+import { Action, ActionType } from 'src/app/game/model/data/Action';
+import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
+import { SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { AttackModiferDeckChange } from '../attackmodifier/attackmodifierdeck';
 import { AttackModifierDeckFullscreenComponent } from '../attackmodifier/attackmodifierdeck-fullscreen';
+import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dialog';
+import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
+import { ItemsCharacterDialogComponent } from '../items/character/items-character-dialog';
+import { ItemsDialogComponent } from '../items/dialog/items-dialog';
+import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
 import { CharacterSheetDialog } from './dialogs/character-sheet-dialog';
 import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
-import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
-import { SummonState } from 'src/app/game/model/Summon';
-import { Subscription } from 'rxjs';
-import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dialog';
-import { ItemsCharacterDialogComponent } from '../items/character/items-character-dialog';
-import { ItemsDialogComponent } from '../items/dialog/items-dialog';
-import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { Action, ActionType } from 'src/app/game/model/data/Action';
 
 @Component({
   selector: 'ghs-character',

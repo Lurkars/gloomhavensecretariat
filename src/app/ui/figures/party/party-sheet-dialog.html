@@ -827,9 +827,12 @@
           </div>
         </div>
 
-        <div class="row time">
+        <div class="row bottom-sheet">
           <span [ghs-label]="'party.campaign.totalTime'"
             [ghs-label-args]="[(gameManager.game.totalSeconds| ghsDurationLabel:true)]"></span>
+          <span class="spacer"></span>
+          <a (click)="statistics()" [ghs-tooltip]="'scenario.stats'"><img class="ghs-svg"
+              src="./assets/images/stats.svg"></a>
         </div>
       </div>
     </div>

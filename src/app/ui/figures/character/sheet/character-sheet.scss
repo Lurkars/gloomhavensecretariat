@@ -421,6 +421,20 @@
         justify-content: space-between;
       }
 
+      .name {
+        display: flex;
+        justify-content: initial;
+        align-items: center;
+
+        a {
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
       .personal-quest,
       .extra-perks,
       .retirements,

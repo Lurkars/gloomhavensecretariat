@@ -127,7 +127,7 @@
           <div class="status-bar">
             <div class="health" *ngIf="!settingsManager.settings.hideCharacterHP" [ghs-label]="'game.health'"
               [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragHpMove($event)"
-              (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
+              (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true" [fastShift]="true"
               (singleClick)="openEntityMenu($event)" (doubleClick)="toggleDamageHP()">
               <img [ngClass]="{'damage' : settingsManager.settings.damageHP}"
                 [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />

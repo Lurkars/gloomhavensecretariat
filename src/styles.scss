@@ -1502,6 +1502,14 @@ input[type="radio"] {
       filter: invert(1);
     }
   }
+
+  &.text-black {
+    .placeholder-monster-type {
+      &.normal {
+        color: var(--ghs-color-black);
+      }
+    }
+  }
 }
 
 .map-marker {

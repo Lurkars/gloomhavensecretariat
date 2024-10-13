@@ -223,7 +223,10 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "fhIcon" && value) {
         image = '<img src="./assets/images/fh/icons/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-fh-icon">' + image + '</span>';
-      } else if (type == "trait" && value) {
+      } else if (type == "gameIcon" && value) {
+        image = '<img src="./assets/images/' + value + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-game-icon">' + image + '</span>';
+      }else if (type == "trait" && value) {
         image = '<img src="./assets/images/fh/character/traits/trait.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-trait">' + image + settingsManager.getLabel('data.character.traits.' + value) + '</span>';
       } else {

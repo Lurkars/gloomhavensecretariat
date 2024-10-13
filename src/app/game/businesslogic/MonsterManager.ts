@@ -546,6 +546,10 @@ export class MonsterManager {
         this.removeMonster(monster);
       }
     }
+
+    if (settingsManager.settings.scenarioStats && monsterEntity.dead) {
+      gameManager.scenarioStatsManager.killMonsterEntity(monsterEntity);
+    }
   }
 
   setLevel(monster: Monster, level: number) {

@@ -155,6 +155,13 @@ export class EntityManager {
     this.changeHealthHighlightConditions(entity, figure, value);
     entity.health += value;
     this.checkHealth(entity, figure);
+    if (settingsManager.settings.scenarioStats && value != 0) {
+      if (value > 0) {
+        gameManager.scenarioStatsManager.applyHeal(entity, figure, value);
+      } else {
+        gameManager.scenarioStatsManager.applyDamage(entity, figure, value * -1);
+      }
+    }
   }
 
   changeHealthHighlightConditions(entity: Entity, figure: Figure, value: number) {
