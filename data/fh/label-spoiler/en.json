@@ -1175,7 +1175,7 @@
       },
       "1502": {
         ".": "Frozen Numb",
-        "text": "Characters cannot use%game.itemSlot.small%."
+        "text": "Characters cannot use%game.itemSlot:small%."
       },
       "1503": {
         ".": "Imitation",
