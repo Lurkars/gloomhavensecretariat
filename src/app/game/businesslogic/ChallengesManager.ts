@@ -79,8 +79,8 @@ export class ChallengesManager {
     }
 
     update() {
-        this.available = gameManager.fhRules() && this.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked') != undefined;
-        this.enabled = settingsManager.settings.fhChallenges && this.available;
+        this.available = gameManager.fhRules() && this.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level) != undefined;
+        this.enabled = settingsManager.settings.fhChallenges && gameManager.fhRules() && this.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked') != undefined;
 
         if (this.available && this.game.edition) {
             // build challenge deck if not present
