@@ -381,7 +381,7 @@ export class EntityManager {
     entityCondition.highlight = false;
 
     // apply Challenge #1487
-    if (gameManager.challengesManager.available && gameManager.challengesManager.isActive(1487, 'fh') && entityCondition.types.indexOf(ConditionType.negative) && entityCondition.name != ConditionName.wound && entity instanceof Character && !this.isImmune(entity, entity, ConditionName.wound)) {
+    if (gameManager.challengesManager.enabled && gameManager.challengesManager.isActive(1487, 'fh') && entityCondition.types.indexOf(ConditionType.negative) && entityCondition.name != ConditionName.wound && entity instanceof Character && !this.isImmune(entity, entity, ConditionName.wound)) {
       this.addCondition(entity, new Condition(ConditionName.wound), active, off);
     }
 

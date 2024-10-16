@@ -67,6 +67,22 @@
                 filter: var(--ghs-filter-outline);
             }
 
+            .automation {
+                position: absolute;
+                bottom: 11%;
+                left: 14%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .ghs-svg {
+                    width: 1.5em;
+                    height: auto;
+                    filter: var(--ghs-filter-darkgray);
+                }
+
+            }
+
         }
 
         .card-back {

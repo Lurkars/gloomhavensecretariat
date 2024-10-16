@@ -18,6 +18,9 @@
                 <div class="card-id">
                     <span *ngIf="challenge.cardId < 10">0</span>{{challenge.cardId}}
                 </div>
+                <div class="automation" *ngIf="challenge.implemented" [ghs-tooltip]="'challenges.automation.hint'">
+                    <img class="ghs-svg" src="./assets/images/automation.svg">
+                </div>
             </ng-container>
         </div>
     </div>

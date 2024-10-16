@@ -7,6 +7,7 @@ export class ChallengeCard implements Editional {
     cardId: number = 0;
     edition: string = "";
     automation: "fully" | "partial" | undefined;
+    implemented: boolean = false;
 
 }
 

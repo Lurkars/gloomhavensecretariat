@@ -19,7 +19,8 @@
     },
     {
         "cardId": 1487,
-        "automation": "fully"
+        "automation": "fully",
+        "implemented": true
     },
     {
         "cardId": 1488,

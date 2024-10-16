@@ -60,7 +60,7 @@
 
   <div class="deck challenge-deck"
     [ngClass]="{'collapsed' : !gameManager.game.challengeDeck.active, 'initial' : gameManager.game.challengeDeck.active && gameManager.game.challengeDeck.current <= gameManager.game.challengeDeck.finished ,'partial' : gameManager.game.challengeDeck.current > gameManager.game.challengeDeck.finished,'partial-2' : gameManager.game.challengeDeck.current > gameManager.game.challengeDeck.finished + 1 , 'full' : gameManager.game.challengeDeck.active && gameManager.game.challengeDeck.current > gameManager.game.challengeDeck.finished + 2}"
-    *ngIf="settingsManager.settings.fhChallenges && gameManager.challengesManager.available">
+    *ngIf="settingsManager.settings.fhChallenges && gameManager.challengesManager.enabled">
     <ghs-challenge-deck [deck]="gameManager.game.challengeDeck" (before)="beforeChallengeDeck($event)"
       (after)="afterChallengeDeck($event)" [bottom]="true"></ghs-challenge-deck>
 

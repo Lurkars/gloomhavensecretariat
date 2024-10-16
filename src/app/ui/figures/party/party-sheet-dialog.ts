@@ -848,7 +848,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         indexElement.classList.add('error');
         const editionData = gameManager.editionData.find((editionData) => editionData.edition == edition);
         if (editionData && editionData.treasures) {
-          const treasureIndex = +treasure - (editionData.treasureOffset || 0);
+          const treasureIndex = +treasure - (editionData.treasureOffset || 0) - 1;
           if (treasureIndex >= 0 && treasureIndex < editionData.treasures.length) {
             gameManager.stateManager.before("addTreasure", edition, treasure);
             this.party.treasures = this.party.treasures || [];

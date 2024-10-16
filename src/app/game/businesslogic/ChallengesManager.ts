@@ -10,6 +10,7 @@ export class ChallengesManager {
 
     game: Game;
     available: boolean = false;
+    enabled: boolean = false;
 
     constructor(game: Game) {
         this.game = game;
@@ -78,7 +79,8 @@ export class ChallengesManager {
     }
 
     update() {
-        this.available = settingsManager.settings.fhChallenges && gameManager.fhRules() && this.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked') != undefined
+        this.available = gameManager.fhRules() && this.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked') != undefined;
+        this.enabled = settingsManager.settings.fhChallenges && this.available;
 
         if (this.available && this.game.edition) {
             // build challenge deck if not present
