@@ -42,6 +42,9 @@
   "cancel": "Cancel",
   "challenges": {
     ".": "Challenges",
+    "automation": {
+      "hint": "Effect of this card is automatically applied!"
+    },
     "deck": {
       "clear": {
         ".": "Disgard drawn Challenge",
