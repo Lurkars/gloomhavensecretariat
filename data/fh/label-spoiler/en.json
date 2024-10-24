@@ -1199,7 +1199,7 @@
       },
       "1508": {
         ".": "Staggered Formation",
-        "text": "At the end of each character's turn, all adjacent enemies suffer%game.damage:1%."
+        "text": "At the end of each character's turn, all adjacent characters suffer%game.damage:1%."
       },
       "1509": {
         ".": "Budget Rations",
