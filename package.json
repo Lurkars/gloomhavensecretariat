@@ -114,7 +114,7 @@
     "@types/jasmine": "~5.1.4",
     "@types/leaflet": "^1.9.14",
     "@types/uuid": "^10.0.0",
-    "electron": "^33.0.2",
+    "electron": "^32.2.0",
     "electron-builder": "^25.1.8",
     "http-server": "^14.1.1",
     "husky": "^9.1.6",
