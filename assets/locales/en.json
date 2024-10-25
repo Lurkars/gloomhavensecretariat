@@ -37,7 +37,11 @@
       "name": "Name for Campaign {0}",
       "reset": "Reset Campaign"
     },
-    "sheet": "Global Campaign Management Sheet"
+    "sheet": "Global Campaign Management Sheet",
+    "trials": {
+      ".": "Trials",
+      "automation": "Effect of this card is automatically applied!"
+    }
   },
   "cancel": "Cancel",
   "challenges": {
@@ -179,6 +183,7 @@
       },
       "retirements": "Retirements",
       "title": "{1} {0}",
+      "trial": "Trial",
       "xp": "XP"
     },
     "remove": "Remove Character",
@@ -755,7 +760,7 @@
         "scenario": "Unlock \"{1}\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "All start scenario with %game.condition.{0}%.",
         "scenarioDamage": "All start scenario with {0} damage.",
-        "scenarioSingleMinus1": "One starts scenario with %game.attackModifier.minus1% x{0}."
+        "scenarioSingleMinus1": "One starts scenario with %game.attackmodifier.minus1% x{0}."
       },
       "type": {
         "city": "City",
@@ -1379,6 +1384,14 @@
       },
       "hint": "Apply to all selected characters",
       "progress": "Affects character progress"
+    },
+    "favors": {
+      ".": "Appendix F: Favors",
+      "apply": "Apply",
+      "label": {
+        ".": "%game.data.favors.{0}.{1}% (1 Point)",
+        "multiple": "%game.data.favors.{0}.{1}% ({2} Points)"
+      }
     },
     "filter": {
       ".": "Filter Scenario",
@@ -2143,7 +2156,11 @@
     },
     "fhChallenges": {
       ".": "Support for Challenges",
-      "hint": "Draw and automatically apply (if possible) challenge cards from the challenge deck."
+      "hint": "Draw challenge cards from the challenge deck."
+    },
+    "fhChallengesApply": {
+      ".": "Apply Challenges",
+      "hint": "Automatically apply (if possible) active challenge cards."
     },
     "fhGhItems": {
       ".": "Add Gloomhaven Items",
@@ -2153,6 +2170,22 @@
     "fhStyle": {
       ".": "Frosthaven Style",
       "hint": "Display actions, abilities and icons in new Frosthaven style, automatically activates Frosthaven theme."
+    },
+    "fhTrials": {
+      ".": "Support for Trials",
+      "favors": {
+        ".": "Support for Appendix F: Favors",
+        "hint": "Select in the Event Effects menu"
+      },
+      "hint": "Draw trial cards for each character. Visible on character sheet!"
+    },
+    "fhTrialsApply": {
+      ".": "Apply Trials",
+      "favors": {
+        ".": "Apply Appendix F: Favors",
+        "hint": "Automatically apply (if possible) active Favors."
+      },
+      "hint": "Automatically apply (if possible) active trial cards."
     },
     "fontsize": {
       ".": "Ability fontsize",
@@ -2997,9 +3030,12 @@
         "hpDec": "Dec. current HP",
         "hpInc": "Inc. current HP",
         "kill": "Kill / Exhaust",
+        "lootDec": "Dec. Monoeytokens",
+        "lootInc": "Inc. Monoeytokens",
         "maxHpDec": "Dec. max. HP",
         "maxHpInc": "Inc. max. HP",
         "toggleCondition": "Toggle Condition/Condition modifier",
+        "toggleAbsent": "Toggle Character absent",
         "xpDec": "Dec. XP",
         "xpInc": "Inc. XP"
       },

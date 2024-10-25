@@ -1927,6 +1927,14 @@
       "clear": "Lösche ignorierte Fehler beim Automatische Feedback",
       "hint": "Software-Fehler automatisch über den Feedback Dialog melden"
     },
+    "fhChallenges": {
+      ".": "Unterstütze Herausforderungen",
+      "hint": "Ziehe Karten aus den Herausforderungkarten."
+    },
+    "fhChallengesApply": {
+      ".": "Herausforderungen anwenden",
+      "hint": "Automatisch aktive Herausforderungskarten anwenden (wenn möglich)."
+    },
     "fhGhItems": {
       ".": "Gegenstände aus Gloomhaven",
       "hint": "Fügt die Gegenstände aus Gloomhaven und Forgotten Circles zu den verfügbaren Gegenständen gemäß den Regeln hinzu. (Nur bei aktivierten Charakterbögen oder Charakter Gegenständen)"
@@ -2759,9 +2767,12 @@
         "hpDec": "dek. aktuelle TP",
         "hpInc": "ink. aktuelle TP",
         "kill": "Kill / Exhaust",
+        "lootDec": "dek. Münzmarker",
+        "lootInc": "ink. Münzmarker",
         "maxHpDec": "dek. max. TP",
         "maxHpInc": "ink. max. TP",
         "toggleCondition": "Zustände/Zustandsmodifikator umschalten",
+        "toggleAbsent": "Abwesende umschalten",
         "xpDec": "dek. EP",
         "xpInc": "ink. EP"
       },
