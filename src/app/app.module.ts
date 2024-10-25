@@ -32,6 +32,7 @@ import { ChallengeCardComponent } from './ui/figures/challenges/challenge-card';
 import { ChallengeDeckComponent } from './ui/figures/challenges/challenge-deck';
 import { ChallengeDeckDialogComponent } from './ui/figures/challenges/challenge-deck-dialog';
 import { ChallengeDeckFullscreenComponent } from './ui/figures/challenges/challenge-deck-fullscreen';
+import { ChallengeDialogComponent } from './ui/figures/challenges/dialog/challenge-dialog';
 import { CharacterImageComponent } from './ui/figures/character/cards/image';
 import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
 import { CharacterInitiativeDialogComponent } from './ui/figures/character/cards/initiative-dialog';
@@ -42,6 +43,7 @@ import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondial
 import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
 import { EventRandomItemDialogComponent } from './ui/figures/character/event-effects/random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './ui/figures/character/event-effects/random-scenario/random-scenario-dialog';
+import { FavorsComponent } from './ui/figures/character/event-effects/trials/favors';
 import { CharacterFullViewComponent } from './ui/figures/character/fullview/fullview';
 import { CharacterItemListComponent } from './ui/figures/character/item-list/item-list';
 import { AbilityCardsDialogComponent } from './ui/figures/character/sheet/ability-cards-dialog';
@@ -95,6 +97,8 @@ import { WorldMapComponent } from './ui/figures/party/world-map/world-map';
 import { EntityIndexKeyComponent } from './ui/figures/standee/entity-index-key/entity-index-key';
 import { SummonSheetComponent } from './ui/figures/standee/sheet/summon-sheet';
 import { StandeeComponent } from './ui/figures/standee/standee';
+import { TrialDialogComponent } from './ui/figures/trials/dialog/trial-dialog';
+import { TrialCardComponent } from './ui/figures/trials/trial-card';
 import { FooterComponent } from './ui/footer/footer';
 import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
 import { LevelComponent } from './ui/footer/level/level';
@@ -137,7 +141,7 @@ import { ValueSignDirective } from './ui/helper/ValueSign';
 import { AutocompleteDirective } from './ui/helper/autocomplete';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
-import { GhsLabelDirective, GhsLabelElementDirective } from './ui/helper/label';
+import { GhsLabelDirective, GhsLabelElementDirective, GhsPlaceholderDirective } from './ui/helper/label';
 import { GhsNumberInput } from './ui/helper/number-input/number-input';
 import { PointerInputDirective } from './ui/helper/pointer-input';
 import { TabClickDirective } from './ui/helper/tabclick';
@@ -194,6 +198,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     ChallengeDeckComponent,
     ChallengeDeckDialogComponent,
     ChallengeDeckFullscreenComponent,
+    ChallengeDialogComponent,
     CharacterBattleGoalsDialog,
     CharacterComponent,
     CharacterEditorComponent,
@@ -232,6 +237,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     EventRandomItemDialogComponent,
     EventRandomScenarioDialogComponent,
     EventRewardLabelComponent,
+    FavorsComponent,
     FeedbackDialogComponent,
     FeedbackToolComponent,
     FigureAutoscrollDirective,
@@ -246,6 +252,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     GhsLabelElementDirective,
     GhsMinZeroPipe,
     GhsNumberInput,
+    GhsPlaceholderDirective,
     GhsRangePipe,
     GhsScenarioSearch,
     GhsTooltipComponent,
@@ -324,6 +331,8 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     TreasureLabelComponent,
     TreasuresDialogComponent,
     TreasuresToolComponent,
+    TrialCardComponent,
+    TrialDialogComponent,
     UndoDialogComponent,
     ValueCalcDirective,
     ValueSignDirective,

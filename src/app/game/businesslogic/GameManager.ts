@@ -43,6 +43,7 @@ import { ScenarioRulesManager } from "./ScenarioRulesManager";
 import { ScenarioStatsManager } from "./ScenarioStatsManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
+import { TrialsManager } from "./TrialsManager";
 
 declare global {
   interface Window { gameManager: GameManager }
@@ -74,6 +75,7 @@ export class GameManager {
   buildingsManager: BuildingsManager;
   challengesManager: ChallengesManager;
   scenarioStatsManager: ScenarioStatsManager;
+  trialsManager: TrialsManager;
 
   uiChange = new EventEmitter<boolean>();
 
@@ -96,6 +98,7 @@ export class GameManager {
     this.buildingsManager = new BuildingsManager(this.game);
     this.challengesManager = new ChallengesManager(this.game);
     this.scenarioStatsManager = new ScenarioStatsManager(this.game);
+    this.trialsManager = new TrialsManager(this.game);
     this.uiChange.subscribe({
       next: () => {
         this.checkEntitiesKilled();
@@ -108,6 +111,7 @@ export class GameManager {
         }
         this.roundManager.firstRound = this.game.round == 0 && this.game.roundResets.length == 0 && this.game.roundResetsHidden.length == 0;
         this.challengesManager.update();
+        this.trialsManager.update();
       }
     })
   }
@@ -376,6 +380,12 @@ export class GameManager {
         if (a.getInitiative() == b.getInitiative()) {
           return this.sortFiguresByTypeAndName(a, b);
         }
+
+        // apply Challenge #1491
+        if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1487, 'fh')) {
+          return b.getInitiative() - a.getInitiative();
+        }
+
         return a.getInitiative() - b.getInitiative();
       }
 

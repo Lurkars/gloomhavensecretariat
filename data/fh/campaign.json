@@ -19,8 +19,14 @@
         "unfettered-allies",
         "unfettered-deactivated"
     ],
-    "highMorale": ["161.3"],
-    "lowMorale": ["126.1", "155.3", "175.2"],
+    "highMorale": [
+        "161.3"
+    ],
+    "lowMorale": [
+        "126.1",
+        "155.3",
+        "175.2"
+    ],
     "lootSpecial1Sections": [
         "43.3",
         "133.4",
@@ -80,7 +86,7 @@
                                 {
                                     "type": "custom",
                                     "value": "+1 material resource",
-                                    "hint":"Gain any one material resource"
+                                    "hint": "Gain any one material resource"
                                 }
                             ]
                         }

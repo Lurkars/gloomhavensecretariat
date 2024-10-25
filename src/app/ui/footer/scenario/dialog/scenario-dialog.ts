@@ -14,6 +14,7 @@ import { SectionDialogComponent } from "../section/section-dialog";
 import { ScenarioSummaryComponent } from "../summary/scenario-summary";
 import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog";
 import { ScenarioRulesDialogComponent } from "../../scenario-rules/dialog/scenario-rules-dialog";
+import { FavorsComponent } from "src/app/ui/figures/character/event-effects/trials/favors";
 
 @Component({
     selector: 'ghs-scenario-dialog',
@@ -56,7 +57,7 @@ export class ScenarioDialogComponent {
                 panelClass: ['dialog'],
                 data: { conclusions: conclusions, parent: this.scenario }
             }).closed.subscribe({
-                next: (conclusion) => {
+                next: (conclusion: unknown) => {
                     if (conclusion) {
                         this.dialog.open(ScenarioSummaryComponent, {
                             panelClass: ['dialog'],
@@ -124,12 +125,18 @@ export class ScenarioDialogComponent {
                 panelClass: ['dialog'],
                 data: sectionData
             }).closed.subscribe({
-                next: (added) => {
+                next: (added: unknown) => {
                     if (added) {
                         this.close();
                     }
                 }
             });
+    }
+
+    openFavors() {
+        this.dialog.open(FavorsComponent, {
+            panelClass: ['dialog']
+        })
     }
 
     close() {

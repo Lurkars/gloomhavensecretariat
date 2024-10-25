@@ -367,6 +367,8 @@ export class SettingsManager {
           value.battleGoals = value.battleGoals || [];
           value.events = value.events || [];
           value.challenges = value.challenges || [];
+          value.trials = value.trials || [];
+          value.favors = value.favors || [];
           value.personalQuests = value.personalQuests || [];
           value.label = value.label || {};
           value.labelSpoiler = value.labelSpoiler || {};
@@ -428,6 +430,26 @@ export class SettingsManager {
               challenge.cardId = (index + 1);
             }
             return challenge;
+          })
+
+          value.trials.map((trialCard, index) => {
+            if (!trialCard.edition) {
+              trialCard.edition = value.edition;
+            }
+            if (!trialCard.cardId) {
+              trialCard.cardId = (index + 1);
+            }
+            return trialCard;
+          })
+
+          value.favors.map((favor, index) => {
+            if (!favor.edition) {
+              favor.edition = value.edition;
+            }
+            if (!favor.name) {
+              favor.name = 'favor-' + (index + 1);
+            }
+            return favor;
           })
 
           gameManager.editionData.push(value);

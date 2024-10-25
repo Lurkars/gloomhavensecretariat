@@ -6,11 +6,13 @@ import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
+import { Identifier } from "src/app/game/model/data/Identifier";
 import { LootType } from "src/app/game/model/data/Loot";
 import { PerkType } from "src/app/game/model/data/Perks";
 import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 import { ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
 import { StatisticsDialogComponent } from "../../party/statistics/statistics-dialog";
+import { TrialDialogComponent } from "../../trials/dialog/trial-dialog";
 import { AbilityCardsDialogComponent } from "./ability-cards-dialog";
 import { CharacterMoveResourcesDialog } from "./move-resources";
 import { CharacterRetirementDialog } from "./retirement-dialog";
@@ -501,5 +503,44 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       panelClass: ['dialog-invert'],
       data: this.character
     })
+  }
+
+  openTrial() {
+    if (this.character.progress.trial) {
+      this.dialog.open(TrialDialogComponent, {
+        panelClass: ['fullscreen-panel'],
+        data: {
+          edition: this.character.progress.trial.edition,
+          trial: +this.character.progress.trial.name
+        }
+      })
+    }
+  }
+
+  setTrial(event: any) {
+    event.target.classList.add('error');
+    const trial = +event.target.value;
+    if (!this.character.progress.trial || this.character.progress.trial.name != '' + trial) {
+
+      const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition() && editionData.trials && editionData.trials.length);
+      if (editionData) {
+        const trialCard = editionData.trials.find((trialCard) => trialCard.cardId == trial && trialCard.edition == gameManager.currentEdition());
+        if (trialCard) {
+          event.target.classList.remove('error');
+          event.target.classList.add('warning');
+          if (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.trial && figure.progress.trial.edition == gameManager.currentEdition() && figure.progress.trial.name == '' + trial)) {
+            gameManager.stateManager.before("setTrial", gameManager.characterManager.characterName(this.character), event.target.value);
+            this.character.progress.trial = new Identifier('' + trial, gameManager.currentEdition());
+            if (!gameManager.game.party.trials || gameManager.game.party.trials <= editionData.trials.indexOf(trialCard)) {
+              gameManager.game.party.trials = editionData.trials.indexOf(trialCard) + 1;
+            }
+            event.target.classList.remove('warning');
+            gameManager.stateManager.after();
+          } else if (this.character.progress.trial) {
+            event.target.value = this.character.progress.trial.name;
+          }
+        }
+      }
+    }
   }
 }

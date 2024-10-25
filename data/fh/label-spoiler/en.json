@@ -1089,10 +1089,6 @@
   },
   "challenges": {
     "fh": {
-      "1480": {
-        ".": "",
-        "text": ""
-      },
       "1482": {
         ".": "Armor Testing",
         "text": "Whenever any character suffers%game.damage% from an attack that is not reduced by%game.action.shield%,%game.action.push%2 is added to the attack."
@@ -1179,6 +1175,7 @@
       },
       "1503": {
         ".": "Imitation",
+        "hint": "For implementation reasons, the character is chosen randomly!",
         "text": "Add five random attack modifier cards to the monster attack modifier deck from among the perk attack modifier cards of any unlocked Frosthaven characters (player's choice) not participating in the scenario."
       },
       "1504": {
@@ -1199,7 +1196,7 @@
       },
       "1508": {
         ".": "Staggered Formation",
-        "text": "At the end of each character's turn, all adjacent enemies suffer%game.damage:1%."
+        "text": "At the end of each character's turn, all adjacent characters suffer%game.damage:1%."
       },
       "1509": {
         ".": "Budget Rations",
@@ -1255,6 +1252,7 @@
       },
       "1522": {
         ".": "Offensive Spread",
+        "hint": "Only applied for monsters!",
         "text": "All figures add -1%game.action.attack% and +1%game.action.target% to all of their single-target attack abilities."
       },
       "1523": {
@@ -1272,6 +1270,98 @@
       "1526": {
         ".": "Hunker Down",
         "text": "During ordering of initiative each round, if there are fewer monsters than characters on the map, all monsters gain%game.condition.ward.%."
+      }
+    }
+  },
+  "trials": {
+    "fh": {
+      "348": {
+        ".": "Weakness",
+        "text": "At the start of each scenario, revert your attack modifier deck to its starting state without perks, then remove all positive modifiers (including %game.attackmodifier.double%).<br>You have passed this trial when you complete a scenario.<br>(Revert your deck back to its proper state when passed.)"
+      },
+      "349": {
+        ".": "Strategy",
+        "text": "At the start of each scenario, do not discard any battle goals. (If you draw two mutually exclusive battle goals, discard one and draw a replacement.)<br>You have passed this trial when you complete a scenario and achieve all battle goals you were dealt."
+      },
+      "350": {
+        ".": "Manipulation",
+        "text": "Convince the party to make event card choices according to the following agenda:<br>%game.eventCheckbox:A% %game.eventCheckbox:B% %game.eventCheckbox:B% %game.eventCheckbox:A%<br>Whe the party makes a choice that matches the leftmost unchecked box, check the box.<br>You have passed this trial when all boxes are checked."
+      },
+      "351": {
+        ".": "Poverty",
+        "text": "During each scenario, whenever an ally loots a loot token, suffer %game.damage:L/3% (rounded up).<br>You have passed this trial when you complete a scenario."
+      },
+      "352": {
+        ".": "Ceonsorship",
+        "text": "During each scenario you may not say the words: \"Attack\", \"Take\", or \"Damage\". Whenever you do, suffer %game.damage:L/2% (rounded up).<br>You have passed this trial when you complete a scenario."
+      },
+      "353": {
+        ".": "Order",
+        "text": "During each scenario, all of your attack abilities must target the lowest-numbered standee on the map.<br>You have passed this trial when you complete a scenario."
+      },
+      "354": {
+        ".": "Prediction",
+        "text": "At the start of each scenario, predict the number of rounds needed to complete the scenario by placing that number of damage tokens in front of you.<br>You have passed this trial when you complete a scenario in the prediceted number of rounds or one fewer than the predicted number of rounds."
+      },
+      "355": {
+        ".": "Inquisition",
+        "text": "During any scenario, publicly guess another character's battle goal (the name or effect) prior to its reveal. You may not guess more than once per character per scenario.<br>You have passed this trial when you correctly guess a battle goal."
+      },
+      "356": {
+        ".": "Trials",
+        "text": "During each scenario, draw one additional battle goal at the end of each round in which you suffered damage. Treat the conditions for each newly-drawn battle goal as though the scenario is just starting. Gain checkmarks for only one completed battle goal each scenario.<br>You have passed this trail when you complete a scenario and achieve at least half your battle goals."
+      },
+      "357": {
+        ".": "Deceit",
+        "text": "Complete a scenario during which your character becomes exhausted.<br>You have passed this trial when, before starting the next scenario, you convince another player that your trial is impossible and you should be permitted to reveal it."
+      },
+      "358": {
+        ".": "Expression",
+        "text": "At the start of each scenario select one noun. If your selected noun is not spoken aloud by another player during each round, suffer %game.damage:L/2% (rounded up) at the end of the round. The selected noun may not be \"Card\", \"Attack\", \"Damage\", \"Door\", \"Monster\", \"Hex\", or \"Initiative\".<br>You have passed this Trial when you complete a scenario."
+      },
+      "359": {
+        ".": "Patience",
+        "text": "You have passed this trial when the trials deck is empty and you are the last character holding an unfinished trial."
+      },
+      "360": {
+        ".": "Victory",
+        "text": "At the start of each scenario, instead of characters drawing battle goals normally. you draw C+1 two-check battle goals and assign one to each character.<br>You have passed this trial when you complete a scenario and all characters complete their battle goals."
+      }
+    }
+  },
+  "favors": {
+    "fh": {
+      "capacity": {
+        ".": "Capacity",
+        "automation": "Capicity of small items automatically increased for each favor. Unused item must be applied manually.",
+        "text": "Each character may bring one extra small item into this scenario, but they must have one unused small item at all times during this scenario."
+      },
+      "discovery": {
+        ".": "Discovery",
+        "automation": "Must be applied manual in the Loot Deck Menu!",
+        "text": "The party chooses a material or herb resource not included in the loot deck for this scenario. Add one random loot card of that type to the loot deck for this scenario."
+      },
+      "knowledge": {
+        ".": "Knowledge",
+        "automation": "Fully automated (applied in scenario summary)",
+        "reward": "Knowledge Favor",
+        "text": "Each character will gain 3 experience if they achieve their battle goal."
+      },
+      "potential": {
+        ".": "Potential",
+        "automation": "No automation. Must be applied phyisically.",
+        "text": "Each character may add one ability card, from among those they have passed over when leveling up, to their pool for this scenario. If they do, they must remove a different card of equal or higher level from their pool for this scenario."
+      },
+      "strategy": {
+        ".": "Strategy",
+        "automation": "Must be applied manual in the Monster Ability Deck Menu!",
+        "text": "The party chooses a monster ability deck and draws two cards at random, removing one from this scenario and shuffling the other back into the deck. This can only be done once per deck."
+      },
+      "wealth": {
+        ".": "Wealth",
+        "automation": "Fully automated (applied in scenario summary)",
+        "reward": "Wealth Favor",
+        "text": "Each character will gain +1 gold per coin on their loot cards."
       }
     }
   },

@@ -343,6 +343,10 @@ export class ItemManager {
                     allowed += 1;
                 }
 
+                if (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply) {
+                    allowed += gameManager.trialsManager.activeFavor('fh', 'capacity');
+                }
+
                 if (equippedItems.filter((itemData) => itemData.slot == item.slot).length >= allowed) {
                     const equipped = equippedItems.find((itemData) => itemData.slot == item.slot);
                     if (equipped) {
@@ -451,7 +455,7 @@ export class ItemManager {
             case ItemEffectType.heal:
                 const heal = EntityValueFunction(effect.value);
                 character.health += heal;
-                gameManager.entityManager.addCondition(character, new Condition(ConditionName.heal, heal), character.active || false, character.off || false);
+                gameManager.entityManager.addCondition(character, character, new Condition(ConditionName.heal, heal));
                 gameManager.entityManager.applyCondition(character, character, ConditionName.heal, true);
                 break;
             case ItemEffectType.damage:
@@ -475,7 +479,7 @@ export class ItemManager {
                         }
                     }
                 } else {
-                    gameManager.entityManager.addCondition(character, new Condition(condition, value), character.active || false, character.off || false);
+                    gameManager.entityManager.addCondition(character, character, new Condition(condition, value));
                 }
                 break;
             case ItemEffectType.immune:

@@ -24,6 +24,7 @@ export class SettingMenuComponent implements OnInit {
     @Input('default') default: number = 1;
     @Input('hint') hint: boolean = true;
     @Input('additionalHint') additionalHint: string = '';
+    @Input('labelSuffix') suffix : string = '';
     isDisabled: boolean = false;
 
     settingsManager: SettingsManager = settingsManager;

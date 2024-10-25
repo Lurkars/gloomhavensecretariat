@@ -1,14 +1,14 @@
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ActionType } from "src/app/game/model/data/Action";
-import { Character } from "src/app/game/model/Character";
-import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from "src/app/game/model/Entity";
 import { ActionHex } from "src/app/game/model/ActionHex";
-import { ActionTypesIcons } from "../figures/actions/action";
-import { Subscription } from "rxjs";
+import { Character } from "src/app/game/model/Character";
+import { ActionType } from "src/app/game/model/data/Action";
 import { AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
 import { Condition, ConditionType } from "src/app/game/model/data/Condition";
+import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from "src/app/game/model/Entity";
+import { ActionTypesIcons } from "../figures/actions/action";
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
 
@@ -226,7 +226,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "gameIcon" && value) {
         image = '<img src="./assets/images/' + value + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-game-icon">' + image + '</span>';
-      }else if (type == "trait" && value) {
+      } else if (type == "trait" && value) {
         image = '<img src="./assets/images/fh/character/traits/trait.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-trait">' + image + settingsManager.getLabel('data.character.traits.' + value) + '</span>';
       } else {
@@ -291,7 +291,7 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
 }
 
 @Directive({
-  selector: ' [ghs-label]'
+  selector: '[ghs-label]'
 })
 export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
 
@@ -366,7 +366,7 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
 }
 
 @Directive({
-  selector: ' [ghs-label-element]'
+  selector: '[ghs-label-element]'
 })
 export class GhsLabelElementDirective implements OnInit {
 
@@ -384,6 +384,34 @@ export class GhsLabelElementDirective implements OnInit {
 
   apply(): void {
     const value = this.value && applyPlaceholder(settingsManager.getLabel((this.prefix ? this.prefix + '.' : '') + this.value)) || "";
+    if (value) {
+      this.el.nativeElement.innerHTML = value;
+    }
+  }
+}
+
+@Directive({
+  selector: '[ghs-placeholder]'
+})
+export class GhsPlaceholderDirective implements OnInit, OnChanges {
+
+  @Input('ghs-placeholder') value: string = "";
+
+  constructor(private el: ElementRef) {
+    el.nativeElement.classList.add('placeholder');
+  }
+
+  ngOnInit(): void {
+    this.value = this.el.nativeElement.textContent;
+    this.apply();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.apply();
+  }
+
+  apply(): void {
+    const value = this.value && applyPlaceholder('%' + this.value + '%') || "";
     if (value) {
       this.el.nativeElement.innerHTML = value;
     }

@@ -520,19 +520,19 @@ export class ScenarioRulesManager {
                 case "gainCondition":
                   let gainCondition = new Condition(figureRule.value);
                   if (!gameManager.entityManager.hasCondition(entity, gainCondition)) {
-                    gameManager.entityManager.addCondition(entity, gainCondition, figure.active, figure.off);
+                    gameManager.entityManager.addCondition(entity, figure, gainCondition);
                   }
                   break;
                 case "permanentCondition":
                   let permanentCondition = new Condition(figureRule.value);
                   if (!gameManager.entityManager.hasCondition(entity, permanentCondition, true)) {
-                    gameManager.entityManager.addCondition(entity, permanentCondition, figure.active, figure.off, true);
+                    gameManager.entityManager.addCondition(entity, figure, permanentCondition, true);
                   }
                   break;
                 case "loseCondition":
                   let loseCondition = new Condition(figureRule.value);
                   if (gameManager.entityManager.hasCondition(entity, loseCondition)) {
-                    gameManager.entityManager.removeCondition(entity, loseCondition);
+                    gameManager.entityManager.removeCondition(entity, figure, loseCondition);
                   }
                   break;
                 case "damage": let damage = 0;
@@ -560,7 +560,7 @@ export class ScenarioRulesManager {
                   }
 
                   entity.health += heal;
-                  gameManager.entityManager.addCondition(entity, new Condition(ConditionName.heal, heal), figure.active, figure.off);
+                  gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.heal, heal));
                   gameManager.entityManager.applyCondition(entity, figure, ConditionName.heal, true);
                   break;
                 case "setHp":

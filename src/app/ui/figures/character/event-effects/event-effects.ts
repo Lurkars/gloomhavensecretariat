@@ -1,20 +1,21 @@
+import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { DIALOG_DATA, Dialog, DialogRef } from '@angular/cdk/dialog';
-import { Character } from 'src/app/game/model/Character';
 import { Subscription } from 'rxjs';
-import { ConditionName, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { ghsValueSign } from 'src/app/ui/helper/Static';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { LootType } from 'src/app/game/model/data/Loot';
-import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
-import { ItemData } from 'src/app/game/model/data/ItemData';
+import { Character } from 'src/app/game/model/Character';
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { ConditionName, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { CountIdentifier } from 'src/app/game/model/data/Identifier';
+import { ItemData } from 'src/app/game/model/data/ItemData';
+import { LootType } from 'src/app/game/model/data/Loot';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
+import { ghsValueSign } from 'src/app/ui/helper/Static';
+import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
+import { FavorsComponent } from './trials/favors';
 
 @Component({
   selector: 'ghs-event-effects',
@@ -293,7 +294,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         panelClass: ['dialog'],
         data: { item: itemData, blueprint: blueprint }
       }).closed.subscribe({
-        next: (result) => {
+        next: (result: unknown) => {
           if (result) {
             const itemData = result as ItemData;
             gameManager.stateManager.before("eventEffect.drawRandomItem" + (blueprint ? 'Blueprint' : ''), '' + itemData.id, itemData.edition, itemData.name);
@@ -314,7 +315,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         panelClass: ['dialog'],
         data: { scenario: scenarioData, section: section }
       }).closed.subscribe({
-        next: (result) => {
+        next: (result: unknown) => {
           if (result) {
             const scenarioData = result as ScenarioData;
             if (section) {
@@ -348,9 +349,9 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "eventEffect.removeCondition" : "eventEffect.addCondition", entityCondition.name, characterIcons);
       this.activeCharacters.find((character) => {
         if (entityCondition.state == EntityConditionState.removed) {
-          gameManager.entityManager.removeCondition(character, entityCondition, entityCondition.permanent);
+          gameManager.entityManager.removeCondition(character, character, entityCondition, entityCondition.permanent);
         } else {
-          gameManager.entityManager.addCondition(character, entityCondition, character.active, character.off, entityCondition.permanent);
+          gameManager.entityManager.addCondition(character, character, entityCondition, entityCondition.permanent);
         }
       })
       gameManager.stateManager.after();
@@ -522,6 +523,12 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         })
         gameManager.stateManager.after();
       }
+    })
+  }
+
+  openFavors() {
+    this.dialog.open(FavorsComponent, {
+      panelClass: ['dialog']
     })
   }
 }

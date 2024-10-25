@@ -631,6 +631,30 @@
           </a>
       </ng-container>
     </div>
+
+    <div class="decks">
+      <ng-container *ngFor="let deck of amDecks">
+        <span *ngIf="deck == 'M'" class="deck" (click)="toggleAMDeck(deck)"
+          [ngClass]="{'active': !gameManager.toObjectiveContainer(data.figure).amDeck || gameManager.toObjectiveContainer(data.figure).amDeck == deck}">m</span>
+        <span
+          *ngIf="settingsManager.settings.allyAttackModifierDeck && (gameManager.fhRules() || settingsManager.settings.alwaysAllyAttackModifierDeck) && deck == 'A'"
+          class="deck" (click)="toggleAMDeck(deck)"
+          [ngClass]="{'active': gameManager.toObjectiveContainer(data.figure).amDeck == deck}">A</span>
+
+        <span *ngIf="deck != 'M' && deck != 'A'" class="deck"
+          [ngClass]="{'active': gameManager.toObjectiveContainer(data.figure).amDeck == deck}"
+          (click)="toggleAMDeck(deck)">
+          <img [src]="gameManager.characterManager.characterIcon(deck)">
+        </span>
+      </ng-container>
+
+      <span
+        *ngIf="gameManager.toObjectiveContainer(data.figure).amDeck && amDecks.indexOf(gameManager.toObjectiveContainer(data.figure).amDeck ||'') == -1"
+        class="deck active warning" (click)="toggleAMDeck(gameManager.toObjectiveContainer(data.figure).amDeck || '')">
+        <img
+          [src]="gameManager.characterManager.characterIcon(gameManager.toObjectiveContainer(data.figure).amDeck || '')">
+      </span>
+    </div>
   </ng-container>
 
   <div *ngIf="levelDialog" class="level-dialog">

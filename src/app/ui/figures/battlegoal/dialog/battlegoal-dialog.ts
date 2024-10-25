@@ -22,6 +22,8 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   character: Character;
   selected: number;
   cardOnly: boolean = false;
+  trial349: boolean = false;
+  trial356: boolean = false;
 
   constructor(@Inject(DIALOG_DATA) data: { character: Character, draw: boolean, cardOnly: boolean }, private dialogRef: DialogRef, private dialog: Dialog) {
     this.character = data.character;
@@ -89,18 +91,20 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
     if (this.character.battleGoal && this.revealed.indexOf(0) == -1) {
       this.revealed.push(0);
     }
+    this.trial349 = gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && this.character.progress.trial && this.character.progress.trial.edition == 'fh' && this.character.progress.trial.name == '349' || false;
+    this.trial356 = gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && this.character.progress.trial && this.character.progress.trial.edition == 'fh' && this.character.progress.trial.name == '356' || false;
   }
 
   drawCard() {
     gameManager.stateManager.before("battleGoals.drawCard", gameManager.characterManager.characterName(this.character));
-    gameManager.battleGoalManager.drawBattleGoal(this.character);
+    gameManager.battleGoalManager.drawBattleGoal(this.character, this.trial356);
     gameManager.stateManager.after();
 
     this.update();
   }
 
   select(index: number, force: boolean = false) {
-    if (!this.cardOnly && (force || !this.character.battleGoal || gameManager.roundManager.firstRound)) {
+    if (!this.cardOnly && (force || !this.character.battleGoal || gameManager.roundManager.firstRound) && !this.trial349) {
       if (this.revealed.indexOf(index) == -1) {
         this.revealed.push(index);
       }
@@ -130,9 +134,11 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   }
 
   accept() {
-    if (this.selected != -1 && !this.character.battleGoal || this.selected != 0 && this.character.battleGoal) {
-      gameManager.stateManager.before("battleGoals." + (this.selected != -1 ? 'select' : 'deselect'), gameManager.characterManager.characterName(this.character));
-      if (this.selected != -1) {
+    if ((this.selected != -1 || this.trial349) && !this.character.battleGoal || this.selected != 0 && this.character.battleGoal) {
+      gameManager.stateManager.before("battleGoals." + (this.selected != -1 || this.trial349 ? 'select' : 'deselect'), gameManager.characterManager.characterName(this.character));
+      if (this.trial349) {
+        this.character.battleGoal = true;
+      } else if (this.selected != -1) {
         this.character.battleGoal = true;
         moveItemInArray(this.character.battleGoals, this.selected, 0);
       } else {

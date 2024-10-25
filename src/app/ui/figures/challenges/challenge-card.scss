@@ -20,8 +20,8 @@
             .title {
                 position: absolute;
                 top: 6%;
-                left: 17.5%;
-                width: 60%;
+                left: 0;
+                width: 100%;
                 height: 20%;
                 display: flex;
                 justify-content: center;
@@ -33,9 +33,43 @@
                 transform: rotate(-3deg);
 
                 p {
+                    max-width: 60%;
                     margin: 0;
                 }
 
+                .automation,
+                .hint {
+                    display: flex;
+                    align-items: center;
+                    width: 20%;
+
+                    .ghs-svg {
+                        cursor: help;
+                    }
+
+                    &.automation {
+                        justify-content: flex-end;
+
+                        .ghs-svg {
+                            margin-right: 0.2em;
+                            width: 1.5em;
+                            height: auto;
+                            filter: var(--ghs-filter-darkgray);
+                        }
+                    }
+
+                    &.hint {
+                        justify-content: flex-start;
+
+                        .ghs-svg {
+                            margin-left: 0.2em;
+                            width: 1.3em;
+                            height: auto;
+                            filter: var(--ghs-filter-yellow);
+                        }
+                    }
+
+                }
             }
 
             .text {
@@ -65,22 +99,6 @@
                 font-size: 0.5em;
                 color: var(--ghs-color-white);
                 filter: var(--ghs-filter-outline);
-            }
-
-            .automation {
-                position: absolute;
-                bottom: 11%;
-                left: 14%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .ghs-svg {
-                    width: 1.5em;
-                    height: auto;
-                    filter: var(--ghs-filter-darkgray);
-                }
-
             }
 
         }

@@ -345,7 +345,7 @@ export class ActionsManager {
             case ActionType.heal:
                 const heal = EntityValueFunction(action.value, figure.level);
                 entity.health += heal;
-                gameManager.entityManager.addCondition(entity, new Condition(ConditionName.heal, heal), figure.active || false, figure.off || false);
+                gameManager.entityManager.addCondition(entity,figure, new Condition(ConditionName.heal, heal));
                 gameManager.entityManager.applyCondition(entity, figure, ConditionName.heal, true);
                 break;
             case ActionType.condition:
@@ -355,7 +355,7 @@ export class ActionsManager {
                         gameManager.attackModifierManager.addModifier(am, new AttackModifier(action.value == 'bless' ? AttackModifierType.bless : AttackModifierType.curse));
                     }
                 } else {
-                    gameManager.entityManager.addCondition(entity, new Condition('' + action.value), figure.active, figure.off);
+                    gameManager.entityManager.addCondition(entity,figure, new Condition('' + action.value));
                 }
                 break;
             case ActionType.sufferDamage:

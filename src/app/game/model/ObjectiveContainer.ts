@@ -10,6 +10,7 @@ export class ObjectiveContainer implements Figure {
   title: string = "";
   escort: boolean = false;
   entities: ObjectiveEntity[] = [];
+  amDeck: string | undefined;
 
   // workaround
   noThumbnail: true = true;
@@ -37,7 +38,7 @@ export class ObjectiveContainer implements Figure {
   }
 
   toModel(): GameObjectiveContainerModel {
-    return new GameObjectiveContainerModel(this.uuid, this.marker, this.title, this.name, this.escort, this.entities.map((value) => value.toModel()), this.level, this.off, this.active, this.health, this.initiative, this.objectiveId && "scenario" in this.objectiveId ? this.objectiveId : undefined, this.objectiveId && !("scenario" in this.objectiveId) ? this.objectiveId : undefined);
+    return new GameObjectiveContainerModel(this.uuid, this.marker, this.title, this.name, this.escort, this.entities.map((value) => value.toModel()), this.level, this.off, this.active, this.health, this.initiative, this.objectiveId && "scenario" in this.objectiveId ? this.objectiveId : undefined, this.objectiveId && !("scenario" in this.objectiveId) ? this.objectiveId : undefined, this.amDeck);
   }
 
 
@@ -69,6 +70,7 @@ export class ObjectiveContainer implements Figure {
     this.health = model.health;
     this.initiative = model.initiative;
     this.objectiveId = model.additionalObjectiveId || model.objectiveId;
+    this.amDeck = model.amDeck || undefined;
   }
 
 }
@@ -88,6 +90,7 @@ export class GameObjectiveContainerModel {
   initiative: number;
   objectiveId: ScenarioObjectiveIdentifier | undefined;
   additionalObjectiveId: AdditionalIdentifier | undefined;
+  amDeck: string | undefined;
 
   constructor(
     uuid: string,
@@ -102,7 +105,8 @@ export class GameObjectiveContainerModel {
     health: number | string,
     initiative: number,
     objectiveId: ScenarioObjectiveIdentifier | undefined,
-    additionalObjectiveId: AdditionalIdentifier | undefined) {
+    additionalObjectiveId: AdditionalIdentifier | undefined,
+    amDeck: string | undefined) {
     this.uuid = uuid;
     this.marker = marker;
     this.title = title;
@@ -116,6 +120,7 @@ export class GameObjectiveContainerModel {
     this.initiative = initiative;
     this.objectiveId = objectiveId && JSON.parse(JSON.stringify(objectiveId)) || undefined;
     this.additionalObjectiveId = additionalObjectiveId && JSON.parse(JSON.stringify(additionalObjectiveId)) || undefined;
+    this.amDeck = amDeck;
   }
 }
 

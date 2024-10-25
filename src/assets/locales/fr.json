@@ -653,7 +653,7 @@
         "scenario": "Débloquer \"{1}\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Tous les scénarios démarrent avec %game.condition.{0}%.",
         "scenarioDamage": "Tous commencent le scénario avec {0} dégâts.",
-        "scenarioSingleMinus1": "Le scénario commence par %game.attackModifier.minus1% x{0}."
+        "scenarioSingleMinus1": "Le scénario commence par %game.attackmodifier.minus1% x{0}."
       },
       "type": {
         "city": "Ville",

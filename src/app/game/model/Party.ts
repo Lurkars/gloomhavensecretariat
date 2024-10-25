@@ -57,9 +57,11 @@ export class Party {
   campaignStickers: string[] = [];
   townGuardDeck: GameAttackModifierDeckModel | undefined;
   buildings: BuildingModel[] = [];
-  
+
   lootDeckEnhancements: Loot[] = [];
   lootDeckFixed: LootType[] = [];
   lootDeckSections: string[] = [];
+
+  trials: number = -1;
 
 }

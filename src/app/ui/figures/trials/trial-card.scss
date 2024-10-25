@@ -1,0 +1,105 @@
+.trial {
+    position: relative;
+    width: 100%;
+    padding-bottom: 147%;
+
+    .card {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 5% solid transparent;
+        border-radius: 5%;
+
+        .card-front {
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 5%;
+            background-image: url('~src/assets/images/fh/trials/trial-front.png');
+
+            .title {
+                position: absolute;
+                top: 7%;
+                left: 25%;
+                width: 100%;
+                margin: 0;
+                font-family: var(--ghs-font-title);
+                font-size: 1.1em;
+                color: var(--ghs-color-white);
+                filter: var(--ghs-filter-outline);
+                text-transform: uppercase;
+            }
+
+
+            .automation {
+                position: absolute;
+                top: 4%;
+                right: 8%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .ghs-svg {
+                    cursor: help;
+                    width: 1.2em;
+                    height: auto;
+                    filter: var(--ghs-filter-white);
+                }
+            }
+
+            .text {
+                position: absolute;
+                top: 23%;
+                left: 10%;
+                width: 80%;
+                height: 65%;
+                margin: 0;
+                font-family: var(--ghs-font-normal);
+                font-size: 0.8em;
+                line-height: 1.1em;
+                text-align: center;
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            .card-id {
+                position: absolute;
+                bottom: 1.2%;
+                right: 88%;
+                text-align: right;
+                font-family: var(--ghs-font-normal);
+                font-size: 0.45em;
+                color: var(--ghs-color-white);
+                filter: var(--ghs-filter-outline);
+            }
+        }
+
+        .card-back {
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 5%;
+            background-image: url('~src/assets/images/fh/trials/trial-back.png');
+        }
+
+    }
+
+    .confirm {
+        .revealed {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--ghs-color-black);
+            font-size: 1.3em;
+            filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-white));
+
+            .text {
+                text-align: center;
+            }
+        }
+    }
+}

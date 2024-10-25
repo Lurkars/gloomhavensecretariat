@@ -75,7 +75,13 @@ export class RoundManager {
       if (this.firstRound) {
         gameManager.attackModifierManager.firstRound();
         gameManager.lootManager.firstRound();
-        gameManager.challengesManager.clearDrawn(this.game.challengeDeck, true);
+        if (gameManager.challengesManager.enabled) {
+          gameManager.challengesManager.clearDrawn(this.game.challengeDeck, true);
+          gameManager.challengesManager.applyCardsStart();
+        }
+        if (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply) {
+          gameManager.trialsManager.applyFavorPoints();
+        }
         this.game.challengeDeck.active = false;
         let scenario = new Scenario(new ScenarioData(), [], [], true);
         if (this.game.scenario) {
@@ -110,6 +116,11 @@ export class RoundManager {
       }
 
       gameManager.sortFigures();
+
+      // apply Challenge #1526
+      if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1526, 'fh')) {
+        gameManager.challengesManager.applyCardsTrigger(1526);
+      }
 
       if (this.game.figures.length > 0) {
         let i = 0;
@@ -300,7 +311,7 @@ export class RoundManager {
         figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
           prevSummon.active = false;
           if (settingsManager.settings.expireConditions) {
-            gameManager.entityManager.expireConditions(prevSummon);
+            gameManager.entityManager.expireConditions(prevSummon, figure);
           }
           if (settingsManager.settings.scenarioRules) {
             gameManager.scenarioRulesManager.applyScenarioRulesTurn(prevSummon, true);
@@ -379,7 +390,7 @@ export class RoundManager {
 
       if (figure.tags.indexOf('repair_mode') != -1 && figure.tags.indexOf('roundAction-repair_mode') == -1) {
         figure.health += 2;
-        gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, 2), figure.active || false, figure.off || false);
+        gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, 2));
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
         figure.tags.push('roundAction-repair_mode');
       }
@@ -394,7 +405,7 @@ export class RoundManager {
         }
 
         figure.health += heal;
-        gameManager.entityManager.addCondition(figure, new Condition(ConditionName.heal, heal), figure.active || false, figure.off || false);
+        gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, heal));
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
     }
@@ -426,7 +437,7 @@ export class RoundManager {
           summon.active = false;
           if (gameManager.entityManager.isAlive(summon)) {
             if (settingsManager.settings.expireConditions) {
-              gameManager.entityManager.expireConditions(summon);
+              gameManager.entityManager.expireConditions(summon, figure);
             }
             if (settingsManager.settings.applyConditions) {
               gameManager.entityManager.applyConditionsAfter(summon, figure);
@@ -454,7 +465,7 @@ export class RoundManager {
 
       if (figure instanceof Character) {
         if (settingsManager.settings.expireConditions) {
-          gameManager.entityManager.expireConditions(figure);
+          gameManager.entityManager.expireConditions(figure, figure);
         }
 
         if (settingsManager.settings.applyConditions) {
@@ -467,7 +478,7 @@ export class RoundManager {
       } else {
         gameManager.entityManager.entitiesAll(figure).forEach((entity) => {
           if (settingsManager.settings.expireConditions) {
-            gameManager.entityManager.expireConditions(entity);
+            gameManager.entityManager.expireConditions(entity, figure);
           }
 
           if (settingsManager.settings.applyConditions) {
@@ -527,6 +538,8 @@ export class RoundManager {
     if (this.game.challengeDeck.cards.length) {
       gameManager.challengesManager.clearDrawn(this.game.challengeDeck);
     }
+    this.game.favors = [];
+    this.game.favorPoints = [];
 
     this.game.figures.forEach((figure) => {
       figure.active = false;
@@ -596,6 +609,8 @@ export class RoundManager {
       townGuardDeck.active = false;
       this.game.party.townGuardDeck = townGuardDeck.toModel();
     }
+
+    gameManager.trialsManager.applyTrialCards();
 
     gameManager.stateManager.standeeDialogCanceled = false;
     gameManager.uiChange.emit();

@@ -77,6 +77,8 @@ export class EntityMenuDialogComponent {
 
   bb: boolean = false;
 
+  amDecks: string[] = [];
+
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
   SummonColor = SummonColor;
@@ -216,57 +218,70 @@ export class EntityMenuDialogComponent {
     }
 
     this.bb = this.data.entity instanceof Character && this.data.entity.bb || this.data.figure instanceof Monster && this.data.figure.bb;
+
+    this.amDecks = ['M', 'A', ...gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => figure.name)];
   }
 
   @HostListener('document:keydown', ['$event'])
   keyboardShortcuts(event: KeyboardEvent) {
     if (!this.levelDialog && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
-      if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowRight') {
-        this.changeHealth(1);
-        event.preventDefault();
-        event.stopPropagation();
-      } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowLeft') {
-        this.changeHealth(-1);
-        event.preventDefault();
-        event.stopPropagation();
-      } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowUp') {
-        this.changeMaxHealth(1);
-        event.preventDefault();
-        event.stopPropagation();
-      } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowDown') {
-        this.changeMaxHealth(-1);
-        event.preventDefault();
-        event.stopPropagation();
-      } else if (!event.ctrlKey && event.key.toLowerCase() === 'x') {
-        this.changeExperience(event.shiftKey ? -1 : 1);
-        event.preventDefault();
-        event.stopPropagation();
-      } else if (!event.ctrlKey && event.key.toLowerCase() === 'b') {
-        this.changeBless(event.shiftKey ? -1 : 1);
-        event.preventDefault();
-        event.stopPropagation();
-      } else if (!event.ctrlKey && event.key.toLowerCase() === 'c') {
-        this.changeCurse(event.shiftKey ? -1 : 1);
-        event.preventDefault();
-        event.stopPropagation();
-      } else if (!event.ctrlKey && !event.shiftKey && (event.key.toLowerCase() === 'k' || event.key.toLowerCase() === 'd')) {
-        if (this.data.entity instanceof Character) {
-          this.toggleExhausted();
-        } else {
-          this.toggleDead();
-        }
-        event.preventDefault();
-        event.stopPropagation();
-      } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 's') {
-        if (this.data.entity instanceof Character) {
-          ghsDialogClosingHelper(this.dialogRef);
-          this.dialog.open(CharacterSheetDialog, {
-            panelClass: ['dialog-invert'],
-            data: { character: this.data.entity }
-          });
+      if (!(this.data.entity instanceof Character) || !this.data.entity.absent) {
+        if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowRight') {
+          this.changeHealth(1);
           event.preventDefault();
           event.stopPropagation();
+        } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowLeft') {
+          this.changeHealth(-1);
+          event.preventDefault();
+          event.stopPropagation();
+        } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowUp') {
+          this.changeMaxHealth(1);
+          event.preventDefault();
+          event.stopPropagation();
+        } else if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowDown') {
+          this.changeMaxHealth(-1);
+          event.preventDefault();
+          event.stopPropagation();
+        } else if (!event.ctrlKey && event.key.toLowerCase() === 'x') {
+          this.changeExperience(event.shiftKey ? -1 : 1);
+          event.preventDefault();
+          event.stopPropagation();
+        } else if (!event.ctrlKey && event.key.toLowerCase() === 'l') {
+          this.changeLoot(event.shiftKey ? -1 : 1);
+          event.preventDefault();
+          event.stopPropagation();
+        } else if (!event.ctrlKey && event.key.toLowerCase() === 'b') {
+          this.changeBless(event.shiftKey ? -1 : 1);
+          event.preventDefault();
+          event.stopPropagation();
+        } else if (!event.ctrlKey && event.key.toLowerCase() === 'c') {
+          this.changeCurse(event.shiftKey ? -1 : 1);
+          event.preventDefault();
+          event.stopPropagation();
+        } else if (!event.ctrlKey && !event.shiftKey && (event.key.toLowerCase() === 'k' || event.key.toLowerCase() === 'd')) {
+          if (this.data.entity instanceof Character) {
+            this.toggleExhausted();
+          } else {
+            this.toggleDead();
+          }
+          event.preventDefault();
+          event.stopPropagation();
+        } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 's') {
+          if (this.data.entity instanceof Character) {
+            ghsDialogClosingHelper(this.dialogRef);
+            this.dialog.open(CharacterSheetDialog, {
+              panelClass: ['dialog-invert'],
+              data: { character: this.data.entity }
+            });
+            event.preventDefault();
+            event.stopPropagation();
+          }
         }
+      }
+      if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'a' && this.data.entity instanceof Character) {
+        this.toggleCharacterAbsent();
+        event.preventDefault();
+        event.stopPropagation();
       }
     }
   }
@@ -851,6 +866,20 @@ export class EntityMenuDialogComponent {
     }
   }
 
+  toggleAMDeck(deck: string) {
+    if (this.data.figure instanceof ObjectiveContainer) {
+      if (this.data.figure.amDeck == deck || this.data.figure.amDeck && deck == 'M') {
+        gameManager.stateManager.before("unsetObjectiveAmDeck", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', deck);
+        this.data.figure.amDeck = undefined;
+        gameManager.stateManager.after();
+      } else if (deck != 'M' && this.amDecks.indexOf(deck) != -1) {
+        gameManager.stateManager.before("setObjectiveAmDeck", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', deck);
+        this.data.figure.amDeck = deck;
+        gameManager.stateManager.after();
+      }
+    }
+  }
+
   close(): void {
     if (this.data.entity instanceof Character) {
       this.closeCharacter();
@@ -1001,8 +1030,8 @@ export class EntityMenuDialogComponent {
         if (this.data.entity.name == 'demolitionist' && specialTagsToAdd.indexOf('mech') != -1) {
           this.data.entity.maxHealth += 5;
           this.data.entity.health += 10;
-          gameManager.entityManager.addCondition(this.data.entity, new Condition(ConditionName.heal, 10), this.data.entity.active || false, this.data.entity.off || false);
-          gameManager.entityManager.applyCondition(this.data.entity, this.data.entity, ConditionName.heal, true);
+          gameManager.entityManager.addCondition(this.data.entity, this.data.figure, new Condition(ConditionName.heal, 10));
+          gameManager.entityManager.applyCondition(this.data.entity, this.data.figure, ConditionName.heal, true);
         }
 
         if (this.data.entity.name == 'boneshaper') {
@@ -1412,9 +1441,9 @@ export class EntityMenuDialogComponent {
           entityCondition.expired = entityCondition.state == EntityConditionState.new;
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), entityCondition.name, this.data.entity instanceof MonsterEntity ? 'monster.' + this.data.entity.type + ' ' : '');
           if (entityCondition.state == EntityConditionState.removed) {
-            gameManager.entityManager.removeCondition(this.data.entity, entityCondition, entityCondition.permanent);
+            gameManager.entityManager.removeCondition(this.data.entity, this.data.figure, entityCondition, entityCondition.permanent);
           } else {
-            gameManager.entityManager.addCondition(this.data.entity, entityCondition, this.data.figure.active, this.data.figure.off, entityCondition.permanent);
+            gameManager.entityManager.addCondition(this.data.entity, this.data.figure, entityCondition, entityCondition.permanent);
           }
           gameManager.stateManager.after();
         }

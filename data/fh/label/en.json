@@ -491,7 +491,7 @@
     },
     "hall-of-revelry": {
       ".": "Hall of Revelry",
-      "1": "When the trials deck is complete, read %data.section:187.1",
+      "1": "When the trials deck is complete, read %data.section:187.1%",
       "2": "Access to Tholos' Favors",
       "3": "Lose 1 morale"
     },

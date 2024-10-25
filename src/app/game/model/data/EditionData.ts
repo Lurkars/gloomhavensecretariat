@@ -10,6 +10,7 @@ import { MonsterData } from "./MonsterData";
 import { Perk } from "./Perks";
 import { PersonalQuest } from "./PersonalQuest";
 import { ScenarioData } from "./ScenarioData";
+import { Favor, TrialCard } from "./Trials";
 
 export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];
 export const FH_PROSPERITY_STEPS = [5, 14, 26, 41, 59, 80, 104, 131];
@@ -29,6 +30,8 @@ export class EditionData implements Editional {
   events: EventCard[] = [];
   personalQuests: PersonalQuest[] = [];
   challenges: ChallengeCard[] = [];
+  trials: TrialCard[] = [];
+  favors: Favor[] = [];
   worldMap: { width: number, height: number } | undefined;
   extendWorldMap: string | undefined;
   label: any = {};

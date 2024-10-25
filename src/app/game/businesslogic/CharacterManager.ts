@@ -359,11 +359,16 @@ export class CharacterManager {
         }
 
         if (figure.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '57') && gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.wound)) && !gameManager.entityManager.hasCondition(figure, new Condition(ConditionName.regenerate))) {
-          gameManager.entityManager.addCondition(figure, new Condition(ConditionName.regenerate), figure.active, figure.off);
+          gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.regenerate));
         }
 
         if (figure.tags) {
           figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));
+        }
+
+        if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && settingsManager.settings.battleGoals && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '356' && figure.tags.indexOf('trial-fh-356') != -1) {
+          figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
+          gameManager.battleGoalManager.drawBattleGoal(figure, true);
         }
       }
     })

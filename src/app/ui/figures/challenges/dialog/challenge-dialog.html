@@ -1,0 +1,4 @@
+<div class="challenge-dialog" [ngClass]="{'closed' : !opened, 'opened' : opened}" (click)="close()">
+    <ghs-challenge-card [challenge]="card" [flipped]="opened"></ghs-challenge-card>
+</div>
+<div class="close-container" (click)="close()"></div>

@@ -19,8 +19,7 @@
     },
     {
         "cardId": 1487,
-        "automation": "fully",
-        "implemented": true
+        "automation": "fully"
     },
     {
         "cardId": 1488,
@@ -81,8 +80,7 @@
         "automation": "partial"
     },
     {
-        "cardId": 1504,
-        "automation": "fully"
+        "cardId": 1504
     },
     {
         "cardId": 1505,
@@ -108,8 +106,7 @@
         "cardId": 1511
     },
     {
-        "cardId": 1512,
-        "automation": "partial"
+        "cardId": 1512
     },
     {
         "cardId": 1513

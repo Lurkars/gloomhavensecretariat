@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
+import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
 
@@ -49,6 +50,11 @@ export class AttackModifierComponent implements OnInit, OnChanges {
       this.wildElement = false;
       this.mixedElement = undefined;
       this.orTypeEffect = undefined;
+
+      if (!this.characterIcon && this.attackModifier.character && this.attackModifier.id.startsWith('challenge-fh-1503-')) {
+        this.characterIcon = gameManager.characterManager.characterIcon(this.attackModifier.id.replace('challenge-fh-1503-', '').split('-')[0]);
+      }
+
       if (this.attackModifier.effects) {
         if (this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element) && this.attackModifier.effects.some((effect) => effect.type != AttackModifierEffectType.element)) {
           this.mixedElement = this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element);

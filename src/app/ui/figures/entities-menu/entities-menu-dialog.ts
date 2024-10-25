@@ -13,6 +13,7 @@ import { Summon, SummonState } from "src/app/game/model/Summon";
 import { Character } from "src/app/game/model/Character";
 import { ObjectiveEntity } from "src/app/game/model/ObjectiveEntity";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
+import { MonsterData } from "src/app/game/model/data/MonsterData";
 
 @Component({
   selector: 'ghs-entities-menu-dialog',
@@ -208,13 +209,13 @@ export class EntitiesMenuDialogComponent {
       this.entities.forEach((entity) => {
         entityCondition.expired = entityCondition.state == EntityConditionState.new;
         if (entityCondition.state == EntityConditionState.removed) {
-          gameManager.entityManager.removeCondition(entity, entityCondition, entityCondition.permanent);
+          gameManager.entityManager.removeCondition(entity, this.monster || this.character || this.objective || new Monster(new MonsterData()), entityCondition, entityCondition.permanent);
         } else if (this.monster && !gameManager.entityManager.isImmune(entity, this.monster, entityCondition.name)) {
-          gameManager.entityManager.addCondition(entity, entityCondition, this.monster.active, this.monster.off, entityCondition.permanent);
+          gameManager.entityManager.addCondition(entity, this.monster || this.character || this.objective || new Monster(new MonsterData()), entityCondition, entityCondition.permanent);
         } else if (this.character) {
-          gameManager.entityManager.addCondition(entity, entityCondition, entity.active, this.character.off, entityCondition.permanent);
+          gameManager.entityManager.addCondition(entity, this.monster || this.character || this.objective || new Monster(new MonsterData()), entityCondition, entityCondition.permanent);
         } else if (this.objective) {
-          gameManager.entityManager.addCondition(entity, entityCondition, entity.active, this.objective.off, entityCondition.permanent);
+          gameManager.entityManager.addCondition(entity, this.monster || this.character || this.objective || new Monster(new MonsterData()), entityCondition, entityCondition.permanent);
         }
       })
       gameManager.stateManager.after();

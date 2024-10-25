@@ -1,20 +1,22 @@
-import { DialogRef, DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
+import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject, OnDestroy } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { Character } from "src/app/game/model/Character";
-import { ItemData } from "src/app/game/model/data/ItemData";
-import { ScenarioData, ScenarioRewards, ScenarioFinish } from "src/app/game/model/data/ScenarioData";
-import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
-import { LootType } from "src/app/game/model/data/Loot";
-import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
-import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
-import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Subscription } from "rxjs";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { CharacterBattleGoalsDialog } from "src/app/ui/figures/battlegoal/dialog/battlegoal-dialog";
-import { BattleGoal } from "src/app/game/model/data/BattleGoal";
-import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
+import { Character } from "src/app/game/model/Character";
 import { AttackModifier, additionalTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
+import { BattleGoal } from "src/app/game/model/data/BattleGoal";
+import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
+import { ItemData } from "src/app/game/model/data/ItemData";
+import { LootType } from "src/app/game/model/data/Loot";
+import { ScenarioData, ScenarioFinish, ScenarioRewards } from "src/app/game/model/data/ScenarioData";
+import { EntityValueFunction } from "src/app/game/model/Entity";
+import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
+import { CharacterBattleGoalsDialog } from "src/app/ui/figures/battlegoal/dialog/battlegoal-dialog";
+import { ChallengeDialogComponent } from "src/app/ui/figures/challenges/dialog/challenge-dialog";
+import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
+import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
+import { TrialDialogComponent } from "src/app/ui/figures/trials/dialog/trial-dialog";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
@@ -61,6 +63,9 @@ export class ScenarioSummaryComponent implements OnDestroy {
     randomItemIndex: number = -1;
     randomItems: (ItemData | undefined)[] = [];
     randomItemBlueprints: number[] = [];
+    trials: boolean[] = [];
+    trial349: Character | undefined;
+    trial356: Character | undefined;
     townGuardAMs: AttackModifier[] = [];
     levelUp: boolean[] = [];
     perksUp: boolean[] = [];
@@ -102,6 +107,10 @@ export class ScenarioSummaryComponent implements OnDestroy {
             }
             return 0;
         });
+
+        this.trial349 = this.characters.find((character) => character.progress.trial && character.progress.trial.edition == 'fh' && character.progress.trial.name == '349');
+
+        this.trial356 = this.characters.find((character) => character.progress.trial && character.progress.trial.edition == 'fh' && character.progress.trial.name == '356');
 
         for (let value in LootType) {
             const lootType: LootType = value as LootType;
@@ -188,6 +197,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
         finish.randomItemIndex = this.randomItemIndex;
         finish.randomItems = this.randomItems ? this.randomItems.map((itemData) => itemData ? new Identifier('' + itemData.id, itemData.edition) : undefined) : [];
         finish.randomItemBlueprints = this.randomItemBlueprints;
+        finish.trials = this.trials;
         gameManager.game.finish = finish;
         this.updateState();
     }
@@ -209,6 +219,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
             this.randomItemIndex = finish.randomItemIndex;
             this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(+item.name, item.edition, true) : undefined) : [];
             this.randomItemBlueprints = finish.randomItemBlueprints;
+            this.trials = finish.trials;
             this.updateState();
         }
     }
@@ -358,7 +369,9 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 }
             }
 
-            if (gameManager.fhRules()) {
+            if (gameManager.challengesManager.enabled) {
+                this.numberChallenges = gameManager.game.challengeDeck.keep.length;
+            } else if (gameManager.fhRules()) {
                 const townHall = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked');
                 if (townHall) {
                     if (townHall.level == 1 || townHall.level == 2) {
@@ -368,6 +381,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                     }
                 }
             }
+
         }
 
         this.characters.forEach((character, index) => {
@@ -504,13 +518,47 @@ export class ScenarioSummaryComponent implements OnDestroy {
         });
     }
 
-    toggleChallenges(second: boolean = false) {
+    openTrial(character: Character): void {
+        if (character.progress.trial) {
+            this.dialog.open(TrialDialogComponent, {
+                panelClass: ['fullscreen-panel'],
+                data: {
+                    edition: character.progress.trial.edition,
+                    trial: +character.progress.trial.name
+                }
+            });
+        }
+    }
+
+    openChallenge(index: number): void {
+        if (gameManager.game.challengeDeck.cards[index]) {
+            this.dialog.open(ChallengeDialogComponent, {
+                panelClass: ['fullscreen-panel'],
+                data: gameManager.game.challengeDeck.cards[index]
+            });
+        }
+    }
+
+    toggleTrial(event: any, index: number) {
+        const character = this.characters[index];
+        gameManager.stateManager.before("finishScenario.trial", character.name, '' + this.trials[index]);
+        this.trials[index] = event.target.checked;
+        this.updateFinish();
+        gameManager.stateManager.after();
+    }
+
+    toggleChallenges(event: any, second: boolean = false) {
         gameManager.stateManager.before("finishScenario.dialog.challenge" + (second ? 's' : ''));
-        if (this.challenges > (second ? 1 : 0)) {
+        if (this.challenges < 1 && second && gameManager.challengesManager.enabled) {
+            const card = gameManager.game.challengeDeck.cards.splice(gameManager.game.challengeDeck.keep[0], 1)[0];
+            gameManager.game.challengeDeck.cards.splice(gameManager.game.challengeDeck.keep[1], 0, card);
+            this.challenges = 1;
+            event.target.checked = false;
+        } else if (this.challenges > (second ? 1 : 0)) {
             this.challenges = (second ? 1 : 0);
         } else {
             this.challenges = (second ? 2 : 1);
-        };
+        }
         this.updateFinish();
         gameManager.stateManager.after();
     }
@@ -670,6 +718,10 @@ export class ScenarioSummaryComponent implements OnDestroy {
                         character.progress.battleGoals += this.battleGoals[index];
                     }
 
+                    if (this.trials[index]) {
+                        character.progress.trial = undefined;
+                    }
+
                     if (this.collectiveGold[index] > 0) {
                         character.progress.gold += this.collectiveGold[index];
                     }
@@ -701,6 +753,17 @@ export class ScenarioSummaryComponent implements OnDestroy {
                     if (this.challenges) {
                         for (let i = 0; i < this.challenges; i++) {
                             character.progress.experience += 2;
+                        }
+                    }
+
+                    // Favors
+                    if (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply) {
+                        // FH Wealth
+                        character.progress.gold += character.loot * gameManager.trialsManager.activeFavor('fh', 'wealth');
+
+                        // FH Knowledge
+                        if (this.battleGoals[index]) {
+                            character.progress.experience += 3 * gameManager.trialsManager.activeFavor('fh', 'knowledge');
                         }
                     }
                 }
@@ -749,6 +812,10 @@ export class ScenarioSummaryComponent implements OnDestroy {
                         gameManager.game.party.weekSections[week]?.push(sectionManual.section);
                     }
                 })
+            }
+
+            if (gameManager.challengesManager.enabled && this.challenges) {
+                gameManager.game.challengeDeck.finished += this.challenges;
             }
         }
         if (this.conclusionOnly) {

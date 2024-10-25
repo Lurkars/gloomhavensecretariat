@@ -38,6 +38,12 @@
     }
   }
 
+  .favors {
+    cursor: pointer;
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  }
+
   .index {
     margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
   }

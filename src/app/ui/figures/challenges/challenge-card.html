@@ -8,8 +8,18 @@
         <div class="card-front">
             <ng-container *ngIf="challenge">
                 <div class="title">
+                    <div class="automation">
+                        <img *ngIf="challenge.automation && settingsManager.settings.fhChallengesApply"
+                            [ghs-tooltip]="'challenges.automation.hint'" class="ghs-svg"
+                            src="./assets/images/automation.svg">
+                    </div>
                     <p class="placeholder"
                         [ghs-label]="'data.challenges.' + challenge.edition + '.' +  challenge.cardId"></p>
+                    <div class="hint">
+                        <img *ngIf="challenge.automation == 'partial' && settingsManager.settings.fhChallengesApply"
+                            [ghs-tooltip]="'data.challenges.' + challenge.edition + '.' +  challenge.cardId + '.hint'"
+                            class="ghs-svg" src="./assets/images/warning.svg">
+                    </div>
                 </div>
                 <div class="text">
                     <p class="placeholder"
@@ -17,9 +27,6 @@
                 </div>
                 <div class="card-id">
                     <span *ngIf="challenge.cardId < 10">0</span>{{challenge.cardId}}
-                </div>
-                <div class="automation" *ngIf="challenge.implemented" [ghs-tooltip]="'challenges.automation.hint'">
-                    <img class="ghs-svg" src="./assets/images/automation.svg">
                 </div>
             </ng-container>
         </div>

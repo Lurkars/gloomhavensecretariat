@@ -9,6 +9,7 @@ import { Party } from "../model/Party";
 import { Perk, PerkCard, PerkType } from "../model/data/Perks";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { CharacterData } from "../model/data/CharacterData";
 
 export class AttackModifierManager {
   game: Game;
@@ -256,12 +257,16 @@ export class AttackModifierManager {
     const current = attackModifierDeck.current;
     const lastVisible = attackModifierDeck.lastVisible;
     let restoreCards: AttackModifier[] = onlyUpcoming && current > -1 ? attackModifierDeck.cards.splice(0, current + 1) : [];
-    attackModifierDeck.cards = attackModifierDeck.cards.filter(
-      (attackModifier, index) =>
-        index > attackModifierDeck.current ||
-        (attackModifier.type != AttackModifierType.bless &&
-          attackModifier.type != AttackModifierType.curse)
+    attackModifierDeck.cards = attackModifierDeck.cards.filter((attackModifier, index) =>
+      index > attackModifierDeck.current || (attackModifier.type != AttackModifierType.bless && attackModifier.type != AttackModifierType.curse)
     );
+
+    // apply Challenge #1500
+    if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1500, 'fh')) {
+      attackModifierDeck.cards = attackModifierDeck.cards.filter((attackModifier, index) =>
+        index > attackModifierDeck.current || (attackModifier.type != AttackModifierType.minus1 && attackModifier.type != AttackModifierType.minus2)
+      );
+    }
 
     attackModifierDeck.current = -1;
     attackModifierDeck.lastVisible = 0;
@@ -328,7 +333,7 @@ export class AttackModifierManager {
       }), settingsManager.settings.bbAm);
     }
 
-    const attackModifierDeck = new AttackModifierDeck();
+    let attackModifierDeck = new AttackModifierDeck();
 
     let perkId = 0;
     character.perks.forEach((perk) => {
@@ -367,6 +372,11 @@ export class AttackModifierManager {
           }
         }
       })
+    }
+
+    if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && character.progress.trial && character.progress.trial.edition == 'fh' && character.progress.trial.name == '348') {
+      attackModifierDeck = new AttackModifierDeck();
+      attackModifierDeck.cards = attackModifierDeck.cards.filter((am) => [AttackModifierType.double, AttackModifierType.plus1, AttackModifierType.plus2].indexOf(am.type) == -1);
     }
 
     if (!gameManager.characterManager.ignoreNegativeItemEffects(character)) {
@@ -519,6 +529,21 @@ export class AttackModifierManager {
     }
   }
 
+  perkCards(characterData: CharacterData): AttackModifier[] {
+    let attackModifiers: AttackModifier[] = [];
+    characterData.perks.forEach((perk) => {
+      for (let i = 0; i < (perk.combined ? 1 : perk.count); i++) {
+        if (perk.cards) {
+          perk.cards.forEach((card, index) => {
+            if (perk.type == PerkType.add || perk.type == PerkType.replace && index >= this.replaceCount(perk)) {
+              attackModifiers.push(Object.assign(new AttackModifier(card.attackModifier.type, card.attackModifier.value, card.attackModifier.valueType), card.attackModifier));
+            }
+          })
+        }
+      }
+    })
+    return attackModifiers;
+  }
 
   replaceCount(perk: Perk): number {
     let count: number = 0;
@@ -602,6 +627,9 @@ export class AttackModifierManager {
         attackModifier = this.getAllAdditional().find((attackModifier) => attackModifier.id == id);
       }
       if (!attackModifier) {
+        attackModifier = this.findForChallenge(id);
+      }
+      if (!attackModifier) {
         attackModifier = defaultTownGuardAttackModifier.find((attackModifier) => attackModifier.id == id);
       }
       if (!attackModifier) {
@@ -609,6 +637,23 @@ export class AttackModifierManager {
       }
     }
     return JSON.parse(JSON.stringify(attackModifier));
+  }
+
+  findForChallenge(id: string): AttackModifier | undefined {
+    if (id.startsWith('challenge-fh-1503-')) {
+      const characterName = id.replace('challenge-fh-1503-', '').split('-')[0];
+      const index = +id.replace('challenge-fh-1503-', '').split('-')[1];
+      const characterData = gameManager.charactersData('fh').find((other) => other.edition == 'fh' && other.name == characterName);
+      if (characterData) {
+        let am = this.perkCards(characterData)[index];
+        if (am) {
+          am.id = 'challenge-fh-1503-' + characterData.name + '-' + index;
+          am.character = true;
+          return am;
+        }
+      }
+    }
+    return undefined;
   }
 
   fromModel(attackModifierDeck: AttackModifierDeck, model: GameAttackModifierDeckModel) {

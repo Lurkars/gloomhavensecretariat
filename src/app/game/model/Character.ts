@@ -68,6 +68,12 @@ export class Character extends CharacterData implements Entity, Figure {
     if (this.exhausted || this.longRest || this.health <= 0) {
       return 100;
     }
+
+    // apply Challenge #1505
+    if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1505, 'fh')) {
+      return this.initiative < 90 ? this.initiative + 10 : 99;
+    }
+
     return this.initiative;
   }
 

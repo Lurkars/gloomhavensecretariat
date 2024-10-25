@@ -190,7 +190,40 @@
         }
       }
 
+      .battlegoal-list {
+        display: flex;
+        justify-content: center;
+      }
+
       .checkmarks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+
+
+    .trials {
+      display: flex;
+      align-items: center;
+
+      .trial {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      }
+
+      .checkmark {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -370,10 +403,39 @@
         }
 
         &.challenges {
-          flex-direction: row;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
           margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+          .menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .cards {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .card {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+              ghs-challenge-card {
+                cursor: pointer;
+                display: block;
+                width: calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
+                color: initial;
+              }
+            }
+          }
         }
 
         &.week-sections .week-section {

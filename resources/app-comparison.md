@@ -87,6 +87,8 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Assign Loot Cards to Character                                                  | ✅        | ✅         | ⛔        | ✅       | ⛔       |
 | Special Scenario Rules/Notes                                                    | ✅        | ✅         | ⛔        | ✅       | ⛔       |
 | Apply Special Scenario Rules                                                    | ✅        | ✅❗[^16.2] | ⛔        | ✅       | ⛔       |
+| Support Frosthaven Building 81 Mechanics                                        | ✅[^1]    | ⛔         | ⛔        | ✅       | ⛔       |
+| Support Frosthaven Building 90 Mechanics                                        | ✅[^1]    | ⛔         | ⛔        | ✅       | ⛔       |
 | Automatic Standees                                                              | ✅        | ✅         | ✅        | ✅       | ⛔       |
 | Assign Standee Numbers                                                          | ✅        | ✅         | ✅        | ✅       | ✅       |
 | Sort Standees                                                                   | ✅        | ✅         | ✅        | ✅       | ✅       |

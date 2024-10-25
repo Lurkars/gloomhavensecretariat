@@ -90,7 +90,7 @@
     </ng-container>
   </div>
   <div *ngIf="!fullviewChar && !welcome" class="figures" cdkDropListGroup
-    [ngClass]="{'loot-deck' : footer.lootDeck || settingsManager.settings.alwaysLootDeck && gameManager.game.lootDeck.active , 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': !settingsManager.settings.dragFigures, 'backup-hint-spacer' : showBackupHint}"
+    [ngClass]="{'loot-deck' : footer.lootDeckEnabeld, 'ally-deck' :  footer.hasAllyAttackModifierDeck, 'drag-disabled': !settingsManager.settings.dragFigures, 'backup-hint-spacer' : showBackupHint}"
     (scroll)="onFigureScroll($event)">
     <div class="figure" *ngFor="let figure of figures; let i = index;" [figure-autoscroll]="figure"
       [block]="i == this.lastScroll || i == this.lastScrollColumn ? 'end' : 'center'" [cdkDropListData]="i" cdkDropList

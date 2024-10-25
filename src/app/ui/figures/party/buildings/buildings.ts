@@ -106,8 +106,7 @@ export class PartyBuildingsComponent implements OnInit {
   }
 
   upgradeable(building: Building): boolean {
-
-    if (building.data.manualUpgrades > 0 && building.data.manualUpgrades >= building.model.level) {
+    if (building.data.manualUpgrades > 0 && building.model.level >= building.data.manualUpgrades) {
       return true;
     }
 

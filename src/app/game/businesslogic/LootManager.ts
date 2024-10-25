@@ -53,6 +53,13 @@ export class LootManager {
 
     character.lootCards.push(index);
 
+    if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled) {
+      const trialCharacter = this.game.figures.find((figure) => figure instanceof Character && figure != character && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '351') as Character;
+      if (trialCharacter) {
+        gameManager.entityManager.changeHealth(trialCharacter, trialCharacter, - Math.ceil(this.game.level / 3));
+      }
+    }
+
     return result;
   }
 
@@ -177,7 +184,7 @@ export class LootManager {
         if (typeof reward.value === 'string') {
           reward.value.split('+').forEach((condition) => {
             if (!gameManager.entityManager.hasCondition(character, new Condition(condition as ConditionName))) {
-              gameManager.entityManager.addCondition(character, new Condition(condition as ConditionName), character.active, character.off);
+              gameManager.entityManager.addCondition(character, character, new Condition(condition as ConditionName));
             }
           })
         }

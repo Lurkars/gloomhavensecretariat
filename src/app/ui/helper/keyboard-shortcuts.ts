@@ -140,6 +140,27 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                             gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "monster");
                             deck = gameManager.game.monsterAttackModifierDeck;
                         }
+                    } else if (activeFigure instanceof ObjectiveContainer) {
+                        if (!activeFigure.amDeck || activeFigure.amDeck == 'M' || activeFigure.amDeck == 'A' && (!gameManager.fhRules() && !settingsManager.settings.alwaysAllyAttackModifierDeck || !settingsManager.settings.allyAttackModifierDeck)) {
+                            gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "monster");
+                            deck = gameManager.game.monsterAttackModifierDeck;
+                        } else if (activeFigure.amDeck == 'A' && settingsManager.settings.allyAttackModifierDeck && (gameManager.fhRules() || settingsManager.settings.alwaysAllyAttackModifierDeck)) {
+                            gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "ally");
+                            deck = gameManager.game.allyAttackModifierDeck;
+                        } else if (activeFigure.amDeck) {
+                            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == activeFigure.amDeck) as Character;
+                            if (character && settingsManager.settings.characterAttackModifierDeck) {
+                                if (character.attackModifierDeckVisible) {
+                                    gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), gameManager.characterManager.characterName(character));
+                                    deck = character.attackModifierDeck;
+                                } else {
+                                    character.attackModifierDeckVisible = true;
+                                }
+                            } else {
+                                gameManager.stateManager.before("updateAttackModifierDeck.draw" + (state ? state : ''), "monster");
+                                deck = gameManager.game.monsterAttackModifierDeck;
+                            }
+                        }
                     }
 
                     if (deck) {

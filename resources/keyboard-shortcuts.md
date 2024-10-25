@@ -35,6 +35,8 @@ On any open figure/standee menu, those shortcuts are disabled, currently shortcu
 - <kbd>0</kbd>-<kbd>9</kbd>: toggle condition/condition modifier
 - <kbd>x</kbd>: inc. XP
 - <kbd>SHIFT</kbd> + <kbd>X</kbd>: dec. XP
+- <kbd>l</kbd>: inc. Loot
+- <kbd>SHIFT</kbd> + <kbd>L</kbd>: dec. Loot
 - <kbd>b</kbd>: inc. Bless
 - <kbd>SHIFT</kbd> + <kbd>B</kbd>: dec. Bless
 - <kbd>c</kbd>: inc. Curse
@@ -43,6 +45,7 @@ On any open figure/standee menu, those shortcuts are disabled, currently shortcu
 - <kbd>↑</kbd>: inc. max. HP
 - <kbd>↓</kbd>: dec. max. HP
 - <kbd>s</kbd>: open character sheet
+- <kbd>a</kbd>: toggle character absent
 
 On open menu:
 - <kbd>↵</kbd> | <kbd>SPACE</kbd>: confirm action / open submenu

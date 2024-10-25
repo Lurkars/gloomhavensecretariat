@@ -101,6 +101,7 @@ export class ActionComponent implements OnInit, OnDestroy {
     }
 
     this.updateSubActions();
+    this.applyChallenges();
     this.forceRelative = this.monster != undefined && !this.hasEntities();
     if (this.monster && !this.relative && !this.forceRelative && settingsManager.settings.calculate && this.action && (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && this.action.valueType != ActionValueType.minus && this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && !(subAction.value + '').startsWith('self'))) {
       this.forceRelative = true;
@@ -516,6 +517,45 @@ export class ActionComponent implements OnInit, OnDestroy {
     }
 
     return additionalSubActions.some((action) => action.type == subAction.type && action.value == subAction.value && (action.valueType || ActionValueType.fixed) == (subAction.valueType || ActionValueType.fixed));
+  }
+
+  applyChallenges() {
+
+    if (this.action && this.monster) {
+      if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1488, 'fh')) {
+        if (this.action.type == ActionType.attack) {
+          this.additionalSubActions.forEach((subAction) => {
+            if (this.monster && subAction.type == ActionType.range) {
+              subAction.value = EntityValueFunction(subAction.value, this.monster.level) + (subAction.valueType == ActionValueType.minus || subAction.valueType == ActionValueType.subtract ? -1 : 1);
+            }
+          })
+        }
+
+        if (this.action.type == ActionType.move) {
+          this.action.value = EntityValueFunction(this.action.value, this.monster.level) + (this.action.valueType == ActionValueType.minus || this.action.valueType == ActionValueType.subtract ? -1 : 1);
+        }
+      }
+
+      if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1498, 'fh')) {
+        if (this.action.type == ActionType.attack && this.additionalSubActions.find((subAction) => subAction.type == ActionType.range)) {
+          this.additionalSubActions.push(new Action(ActionType.push, 1, ActionValueType.fixed, [], true));
+        }
+      }
+
+      if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1521, 'fh')) {
+        if (this.action.type == ActionType.move && !this.additionalSubActions.find((subAction) => subAction.type == ActionType.jump)) {
+          this.additionalSubActions.push(new Action(ActionType.jump, "", ActionValueType.fixed, [], true));
+        }
+      }
+
+      if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1522, 'fh')) {
+        if (this.action.type == ActionType.attack && !this.additionalSubActions.find((subAction) => subAction.type == ActionType.target) && !this.additionalSubActions.find((subAction) => subAction.type == ActionType.area)) {
+          this.action.value = EntityValueFunction(this.action.value, this.monster.level) - (this.action.valueType == ActionValueType.minus || this.action.valueType == ActionValueType.subtract ? -1 : 1);
+          this.additionalSubActions.push(new Action(ActionType.target, 2, ActionValueType.fixed, [], true));
+        }
+      }
+    }
+
   }
 
   isGhsSvg(type: ActionType) {

@@ -212,5 +212,6 @@ export class ScenarioFinish {
   randomItemIndex: number = -1;
   randomItems: (Identifier | undefined)[] = [];
   randomItemBlueprints: number[] = [];
+  trials: boolean[] = [];
 
 }

@@ -78,6 +78,31 @@
 
       </ng-container>
 
+      <ng-container
+        *ngIf="success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && gameManager.trialsManager.activeFavor('fh', 'wealth')">
+        <span class="head-col calc-col">
+          <span [ghs-label]="'data.favors.fh.wealth.reward'" [ghs-tooltip]="'data.favors.fh.wealth.text'"></span>
+          <span
+            *ngIf="gameManager.trialsManager.activeFavor('fh', 'wealth') > 1">&nbsp;({{gameManager.trialsManager.activeFavor('fh',
+            'wealth')}}x)</span>
+        </span>
+        <span class="calc-col" *ngFor="let character of characters; let index = index;">
+          <ng-container *ngIf="character.loot">
+            <span class="gold">{{(character.loot*gameManager.trialsManager.activeFavor('fh', 'wealth')) |
+              ghsValueSign}}</span>
+            <ng-container *ngIf="gameManager.trialsManager.activeFavor('fh', 'wealth') > 1">
+              &nbsp;
+              <span>(</span>
+              <span
+                *ngFor="let i of [] | ghsRange:gameManager.trialsManager.activeFavor('fh', 'wealth')">{{character.loot
+                | ghsValueSign}}</span>
+              <span>)</span>
+            </ng-container>
+          </ng-container>
+          <span *ngIf="!character.loot">0</span>
+        </span>
+      </ng-container>
+
       <span class="head-col">
         <span *ngIf="!totalGold" [ghs-label]="'scenario.summary.gold'"></span>
         <ng-container *ngIf="totalGold">
@@ -85,6 +110,7 @@
           {{lootedGold}}/{{totalGold}}
         </ng-container>
       </span>
+
       <ng-container *ngFor="let character of characters; let index = index;">
         <span *ngIf="!character.absent">
           <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
@@ -92,7 +118,8 @@
             gameManager.levelManager.loot()) | ghsValueSign}}</span>
           ({{character.progress.gold + (success && rewards && rewards.gold ? rewards.gold : 0)+ (collectiveGold[index] ?
           collectiveGold[index] : 0) + character.loot *
-          gameManager.levelManager.loot()}})
+          gameManager.levelManager.loot() + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
+          ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0)}})
         </span>
 
         <span *ngIf="character.absent">
@@ -149,6 +176,27 @@
         </span>
       </ng-container>
 
+      <ng-container
+        *ngIf="success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply &&gameManager.trialsManager.activeFavor('fh', 'knowledge')">
+        <span class="head-col calc-col">
+          <span [ghs-label]="'data.favors.fh.knowledge.reward'" [ghs-tooltip]="'data.favors.fh.knowledge.text'"></span>
+          <span
+            *ngIf="gameManager.trialsManager.activeFavor('fh', 'knowledge') > 1">&nbsp;({{gameManager.trialsManager.activeFavor('fh',
+            'knowledge')}}x)</span>
+        </span>
+        <span class="calc-col" *ngFor="let character of characters; let index = index;">
+          <ng-container *ngIf="battleGoals[index]">
+            <span class="xp">{{(3*gameManager.trialsManager.activeFavor('fh', 'knowledge')) | ghsValueSign}}</span>
+            <ng-container *ngIf="gameManager.trialsManager.activeFavor('fh', 'knowledge') > 1">&nbsp;
+              <span>(</span>
+              <span *ngFor="let i of [] | ghsRange:gameManager.trialsManager.activeFavor('fh', 'knowledge')">+3</span>
+              <span>)</span>
+            </ng-container>
+          </ng-container>
+          <span *ngIf="!battleGoals[index]">0</span>
+        </span>
+      </ng-container>
+
       <span class="head-col"><span [ghs-label]="'scenario.summary.xp'"></span></span>
       <ng-container *ngFor="let character of characters; let index = index;">
         <span *ngIf="!character.absent">
@@ -160,7 +208,10 @@
           ({{character.progress.experience + challenges * 2 + character.experience + (success && rewards &&
           rewards.experience ?
           rewards.experience : 0) + ((success && (!rewards || !rewards.ignoredBonus ||
-          rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0))}})
+          rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0)) +
+          (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && battleGoals[index]
+          ? 3 *gameManager.trialsManager.activeFavor('fh', 'knowledge') : 0)
+          }})
 
           <span class="level-up" *ngIf="levelUp[index]" [ghs-tooltip]="'scenario.summary.levelUp'"
             [ghs-label-args]="['' + character.level,'' + (character.level + 1)]">
@@ -227,11 +278,29 @@
         <span *ngFor="let character of characters; let index = index;">
           <span class="battlegoals">
             <span class="battlegoal"
-              *ngIf="settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0"
+              *ngIf="settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 && character != trial349 && character != trial356"
               (click)="openBattleGoals(character)">
               <ghs-battlegoal [identifier]="character.battleGoal && character.battleGoals[0]"
                 [flipped]="character.battleGoal"></ghs-battlegoal>
             </span>
+
+            <div class="battlegoal-list" *ngIf="settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 &&
+              character == trial349">
+              <span class="battlegoal" *ngFor="let battleGoal of character.battleGoals"
+                (click)="openBattleGoals(character)">
+                <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
+              </span>
+            </div>
+
+            <div class="battlegoal-list" *ngIf="settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 2 &&
+              character == trial356">
+              <span class="battlegoal"
+                *ngFor="let battleGoal of character.battleGoals.slice(0,character.battleGoals.length - 2)"
+                (click)="openBattleGoals(character)">
+                <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
+              </span>
+            </div>
+
             <span class="checkmarks">
               <ng-container *ngIf="rewards && rewards.battleGoals">
                 <input type="checkbox" [disabled]="true" [checked]="true"
@@ -241,6 +310,10 @@
                 [checked]="!character.absent && battleGoals[index] > 0" (change)="toggleBattleGoal($event, index, 1)">
               <input type="checkbox" *ngIf="!character.absent && battleGoals[index] > 0"
                 [checked]="battleGoals[index] > 1" (change)="toggleBattleGoal($event, index, 2)">
+              <ng-container *ngIf="!character.absent && character == trial349 && battleGoals[index] > 1">
+                <input type="checkbox" *ngFor="let i of [] | ghsRange:battleGoals[index]-1"
+                  [checked]="battleGoals[index] > 2+ i" (change)="toggleBattleGoal($event, index, 3 + i)">
+              </ng-container>
             </span>
 
             <span class="level-up" *ngIf="perksUp[index]" [ghs-tooltip]="'scenario.summary.perksUp'">
@@ -249,6 +322,23 @@
           </span>
         </span>
       </ng-container>
+
+      <ng-container *ngIf="success && gameManager.trialsManager.trialsEnabled">
+        <span class="head-col"><span [ghs-label]="'character.progress.trial'"></span></span>
+        <span *ngFor="let character of characters; let index = index;">
+          <span class="trials">
+            <span class="trial" *ngIf="character.progress.trial" (click)="openTrial(character)">
+              <img src="./assets/images/fh/trials/trial.png">
+            </span>
+            <span class="checkmark">
+              <input type="checkbox" [disabled]="character.absent" [checked]="!character.absent && trials[index]"
+                (change)="toggleTrial($event, index)">
+            </span>
+            <span class="trial"></span>
+          </span>
+        </span>
+      </ng-container>
+
       <ng-container *ngIf="settingsManager.settings.scenarioStats">
         <span class="stats-toggle" [style.grid-column]="'span ' + (1 + characters.length)"
           [ghs-label]="'scenario.stats.toggle.' +  (stats ? 'hide': 'show')" (click)="stats = !stats"></span>
@@ -724,11 +814,30 @@
           </div>
 
           <div class="item challenges" *ngIf="numberChallenges > 0">
-            <span
-              [ghs-label]="('scenario.summary.challenges.' + (numberChallenges > 1 ? 'completed' : 'complete'))"></span>
-            <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges()">
-            <input *ngIf="numberChallenges > 1" type="checkbox" [checked]="challenges > 1"
-              (change)="toggleChallenges(true)">
+            <div class="menu">
+              <span
+                [ghs-label]="('scenario.summary.challenges.' + (numberChallenges > 1 ? 'completed' : 'complete'))"></span>
+              <input *ngIf="!gameManager.challengesManager.enabled" type="checkbox" [checked]="challenges > 0"
+                (change)="toggleChallenges($event)">
+              <input *ngIf="!gameManager.challengesManager.enabled && numberChallenges > 1" type="checkbox"
+                [checked]="challenges > 1" (change)="toggleChallenges($event,true)">
+            </div>
+
+            <div class="cards" *ngIf="gameManager.challengesManager.enabled">
+              <div class="card">
+                <ghs-challenge-card
+                  [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[0]]"
+                  [flipped]="true" (click)="openChallenge(gameManager.game.challengeDeck.keep[0])"></ghs-challenge-card>
+                <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges($event)">
+              </div>
+
+              <div class="card" *ngIf="numberChallenges > 1">
+                <ghs-challenge-card
+                  [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[1]]"
+                  [flipped]="true" (click)="openChallenge(gameManager.game.challengeDeck.keep[1])"></ghs-challenge-card>
+                <input type="checkbox" [checked]="challenges > 1" (change)="toggleChallenges($event,true)">
+              </div>
+            </div>
           </div>
         </div>
       </div>

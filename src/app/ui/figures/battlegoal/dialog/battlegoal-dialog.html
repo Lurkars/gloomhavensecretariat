@@ -5,15 +5,15 @@
     <div class="battle-goals">
       <ghs-battlegoal *ngFor="let battleGoal of battleGoals; let index = index;" ghs-pointer-input
         (singleClick)="select(index)" (doubleClick)="select(index,true)" [battleGoal]="battleGoal"
-        [flipped]="gameManager.roundManager.firstRound || selected == index || !character.battleGoal || revealed.indexOf(index) != -1"
-        [selected]="selected == index"
+        [flipped]="gameManager.roundManager.firstRound || selected == index || !character.battleGoal || revealed.indexOf(index) != -1 || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2"
+        [selected]="selected == index || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2"
         [reveal]="gameManager.game.round > 0 && selected != index && character.battleGoal && revealed.indexOf(index) == -1"
         [disabled]="character.battleGoal && gameManager.game.scenario && gameManager.game.round > 0 || false">
       </ghs-battlegoal>
     </div>
     <div class="menu" *ngIf="!character.battleGoal || selected != 0">
       <a class="cancel" (click)="cancel()" [ghs-label]="'game.battleGoals.cancel'"></a>
-      <a class="accept" (click)="accept()" [ngClass]="{'disabled': selected == -1}"
+      <a class="accept" (click)="accept()" [ngClass]="{'disabled': selected == -1 && !trial349}"
         [ghs-label]="'game.battleGoals.chooseCard'"></a>
     </div>
     <div class="menu small">

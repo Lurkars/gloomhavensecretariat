@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ChallengeCard } from "src/app/game/model/data/Challenges";
 
 
@@ -17,6 +18,8 @@ export class ChallengeCardComponent implements OnChanges {
 
     revealed: boolean = false;
     animate: boolean = false;
+
+    settingsManager: SettingsManager = settingsManager;
 
     onChange(revealed: boolean) {
         this.revealed = revealed;

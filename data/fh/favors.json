@@ -1,0 +1,31 @@
+[
+    {
+        "name": "knowledge",
+        "points": 1,
+        "automation": "fully"
+    },
+    {
+        "name": "wealth",
+        "points": 2,
+        "automation": "fully"
+    },
+    {
+        "name": "strategy",
+        "points": 1,
+        "automation": "manual"
+    },
+    {
+        "name": "capacity",
+        "points": 1,
+        "automation": "fully"
+    },
+    {
+        "name": "discovery",
+        "points": 1,
+        "automation": "manual"
+    },
+    {
+        "name": "potential",
+        "points": 2
+    }
+]

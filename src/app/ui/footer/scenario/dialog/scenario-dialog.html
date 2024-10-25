@@ -20,6 +20,10 @@
     <ghs-scenario-setup #setupComponent [scenario]="scenario"
       *ngIf="setup || gameManager.game.round < 1"></ghs-scenario-setup>
 
+    <a class="favors" *ngIf="gameManager.game.round < 1 && gameManager.trialsManager.favorsEnabled" (click)="openFavors()">
+      <span [ghs-label]="'scenario.favors'"></span>
+    </a>
+
     <div class="sections">
       <span *ngFor="let roomData of openRooms" class="section room">
         <img class="ghs-svg" src="./assets/images/scenario/door-open.svg">
@@ -58,9 +62,13 @@
         [ghs-label]="'scenario.setup'"></span>
     </label>
 
+    <a class="favors" *ngIf="gameManager.game.round > 0 && gameManager.trialsManager.favorsEnabled" (click)="openFavors()">
+      <span [ghs-label]="'scenario.favors'"></span>
+    </a>
+
     <div class="additional">
-      <a *ngIf="gameManager.game.appliedScenarioRules.length || gameManager.game.disgardedScenarioRules.length" (click)="showScenarioRules()"><span
-          [ghs-label]="'scenario.rules.show'"></span>
+      <a *ngIf="gameManager.game.appliedScenarioRules.length || gameManager.game.disgardedScenarioRules.length"
+        (click)="showScenarioRules()"><span [ghs-label]="'scenario.rules.show'"></span>
       </a>
     </div>
 

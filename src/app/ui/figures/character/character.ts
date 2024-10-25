@@ -389,7 +389,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     if (immunityIndex != -1) {
       this.character.immunities.splice(immunityIndex, 1);
     }
-    gameManager.entityManager.removeCondition(this.character, entityCondition, entityCondition.permanent);
+    gameManager.entityManager.removeCondition(this.character, this.character, entityCondition, entityCondition.permanent);
     gameManager.stateManager.after();
   }
 

@@ -41,8 +41,6 @@ export class MonsterData implements Editional, Spoilable {
 
   replace: boolean = false;
 
-  tags: string[] = [];
-
   constructor(monsterData: MonsterData | undefined = undefined) {
     if (monsterData) {
       this.name = monsterData.name;
@@ -68,7 +66,6 @@ export class MonsterData implements Editional, Spoilable {
       this.errors = monsterData.errors || [];
       this.hidden = monsterData.hidden;
       this.replace = monsterData.replace;
-      this.tags = monsterData.tags || [];
     }
   }
 

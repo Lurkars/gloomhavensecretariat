@@ -73,6 +73,17 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Item Cards
   - Battle Goals
   - Building deck (partly!)
+  - Frosthaven Decks:
+    <details>
+      <summary>SPOILER WARNING: Building 81</summary>
+
+      > Trials Deck
+    </details>
+    <details>
+      <summary>SPOILER WARNING: Building 90</summary>
+
+      > Challenges Deck
+    </details>
   - World Map
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations needed. Many thanks to the contributors of french and korean)
@@ -83,6 +94,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Load custom JSON edition data for custom content!
   - Edit monster attack modifier and monster ability decks (support for Diviner class mechanics): reveal cards, remove cards, rearrange cards
   - Support for Frosthaven loot deck (including enhancements) and town guard deck
+  - Support for Frosthaven Building 81 and 90 Mechanics including automation (if possible)
   - special ability automation for some characters
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-blinkblade.svg" height="20px" style="filter:grayscale(1);"></summary>
@@ -139,6 +151,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     </details>
   - Random Dungeons
   - Scenario Flow Chart
+  - Scenario Stats (damage/heal provided and received)
   - Monster data editor (https://gloomhaven-secretariat.de/editor/monster)
   - Includes Solo scenarios
   - Includes the [Seeker of Xorn](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*.

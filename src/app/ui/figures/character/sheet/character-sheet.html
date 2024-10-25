@@ -234,7 +234,6 @@
 
 
           <ghs-character-items *ngIf="fhSheet" [character]="character"></ghs-character-items>
-
         </div>
         <div class="column column-right notes">
           <div class="name">
@@ -266,6 +265,16 @@
                 <span [ghs-label]="'data.personalQuest.' + personalQuest.cardId"></span>
                 <span *ngIf="personalQuest.altId">&nbsp;({{personalQuest.altId}})</span>
               </span>
+            </div>
+
+            <div class="trial" *ngIf="gameManager.trialsManager.trialsEnabled">
+              <label><span [ghs-label]="'character.progress.trial'"></span>:</label>
+              <div class="trial-card">
+                <input #trialIndex class="card-id" [value]="character.progress.trial ? character.progress.trial.name : ''"
+                  type="text" (change)="setTrial($event)" (keyup)="trialIndex.classList.remove('error');">
+                <a class="open" *ngIf="fhSheet && character.progress.trial" (click)="openTrial()"><img
+                    src="./assets/images/fh/trials/trial.png"></a>
+              </div>
             </div>
 
             <div class="requirements" *ngIf="personalQuest">

@@ -108,8 +108,11 @@ export class Settings {
   feedbackErrors: boolean = true;
   feedbackErrorsIgnore: string[] = [];
   fhChallenges: boolean = false;
+  fhChallengesApply: boolean = true;
   fhGhItems: boolean = false;
   fhStyle: boolean = false;
+  fhTrials: boolean = false;
+  fhTrialsApply: boolean = true;
   fontsize: number = 1;
   gameClock: boolean = false;
   gameClockMerge: boolean = true;

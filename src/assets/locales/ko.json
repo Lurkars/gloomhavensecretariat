@@ -752,7 +752,7 @@
         "scenario": "%data.scenarioNumber:{0}%번 시나리오 “{1}” 해금.",
         "scenarioCondition": "모두 %game.condition.{0}% 상태로 시나리오 시작.",
         "scenarioDamage": "모두 피해 {0}점을 받고 시나리오 시작.",
-        "scenarioSingleMinus1": "%game.attackModifier.minus1% {0}장을 공격 보정 덱에 섞어 넣고 시나리오 시작."
+        "scenarioSingleMinus1": "%game.attackmodifier.minus1% {0}장을 공격 보정 덱에 섞어 넣고 시나리오 시작."
       },
       "type": {
         "city": "도시",

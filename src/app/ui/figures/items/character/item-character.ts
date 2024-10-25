@@ -4,7 +4,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
-import { ItemData, ItemFlags } from "src/app/game/model/data/ItemData";
+import { ItemData, ItemFlags, ItemSlot } from "src/app/game/model/data/ItemData";
 
 @Component({
     selector: 'ghs-character-item',
@@ -64,13 +64,21 @@ export class CharacterItemComponent {
     }
 
     toggleFlag(force: boolean, flag: string) {
+        if (!force && gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1502, 'fh') && this.item.slot == ItemSlot.small) {
+            return;
+        }
+
         if (!this.setup && gameManager.game.state == GameState.next || force) {
             const equipped = this.equipped();
             if (equipped) {
                 equipped.tags = equipped.tags || [];
                 gameManager.stateManager.before((equipped.tags.indexOf(flag) == -1 ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character), '' + this.item.id, this.item.edition, this.item.name)
                 if (equipped.tags.indexOf(flag) == -1) {
-                    equipped.tags.push(flag);
+                    if (!force && gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1507, 'fh') && flag == ItemFlags.spent) {
+                        equipped.tags.push(ItemFlags.consumed);
+                    } else {
+                        equipped.tags.push(flag);
+                    }
                 } else {
                     equipped.tags = equipped.tags.filter((tag) => tag != flag);
                     if (flag == ItemFlags.spent) {

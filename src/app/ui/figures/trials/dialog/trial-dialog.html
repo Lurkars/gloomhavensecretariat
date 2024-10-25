@@ -1,0 +1,4 @@
+<div class="trial-dialog" [ngClass]="{'closed' : !opened, 'opened' : opened}" (click)="close()">
+    <ghs-trial-card [edition]="data.edition" [trial]="data.trial" [flipped]="opened"></ghs-trial-card>
+</div>
+<div class="close-container" (click)="close()"></div>

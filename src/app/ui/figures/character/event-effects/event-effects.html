@@ -15,6 +15,12 @@
         <img class="icon" [src]="character.iconUrl">
         <img class="absent" src="./assets/images/status/absent.svg" *ngIf="character.absent">
       </a>
+
+      <a class="favors"
+        *ngIf="gameManager.trialsManager.favorsEnabled && gameManager.game.scenario"
+        (click)="openFavors()">
+        <span [ghs-label]="'scenario.favors'"></span>
+      </a>
     </div>
   </div>
 
@@ -250,6 +256,5 @@
         [ghs-label]="'scenario.eventEffects.drawRandomScenario'"></span>
 
     </div>
-
   </div>
 </div>

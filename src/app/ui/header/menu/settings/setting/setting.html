@@ -3,12 +3,12 @@
         <input tabclick type="checkbox"
             [checked]="!disabled && !isDisabled && settingsManager.settings[setting] || checked"
             (change)="settingsManager.toggle(setting)">
-        <span [ghs-label]="'settings.' + setting"></span>
+        <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
     </label>
     <img *ngIf="hint" src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
     <span class="hint">
         <div class="text">
-            <span [ghs-label]="'settings.' + setting + '.hint'"></span>
+            <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
             <br>
             <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
             <div class="requires" *ngIf="requires.length">
@@ -33,20 +33,20 @@
         <label [ngClass]="{'disabled' : settingsManager.settings[setting] == value || disabled || isDisabled}">
             <input tabclick type="checkbox" [checked]="settingsManager.settings[setting] == value"
                 (change)="settingsManager.set(setting, value)">
-            <span [ghs-label]="'settings.' + setting + '.' + value"></span>
+            <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.' + value"></span>
         </label>
     </div>
 </ng-container>
 
 <div class="hint-container" *ngIf="type == 'number'">
-    <label class="label"><span [ghs-label]="'settings.' + setting"></span>
+    <label class="label"><span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
         <input tabclick type="number" #numberInput [value]="settingsManager.get(setting)" [min]="min" [max]="max"
             (keyup)="0" (change)="settingsManager.set(setting, +numberInput.value)" [size]="numberInput.value.length"
-            [ghs-label]="'settings.' + setting" [ghs-label-attribute]="'placeholder'"></label>
+            [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')" [ghs-label-attribute]="'placeholder'"></label>
     <img *ngIf="hint" src="./assets/images/warning.svg" class="hint-trigger ghs-svg">
     <div class="hint">
         <div class="text">
-            <span [ghs-label]="'settings.' + setting + '.hint'"></span>
+            <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
             <br>
             <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
             <div class="requires" *ngIf="requires.length">
@@ -70,7 +70,7 @@
 <div class="hint-container" *ngIf="type == 'range'">
     <label>
         <span ghs-pointer-input (doubleClick)="settingsManager.set(setting, default)"
-            [ghs-label]="'settings.' + setting"></span>
+            [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
         <input tabclick #rangeInput type="range" [min]="min" [step]="step" [max]="max"
             [value]="settingsManager.get(setting)" (change)="settingsManager.set(setting, +rangeInput.value)"
             (input)="settingsManager.apply(setting, +rangeInput.value)" />
@@ -78,7 +78,7 @@
     <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
     <span class="hint">
         <div class="text">
-            <span [ghs-label]="'settings.' + setting + '.hint'"></span>
+            <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
             <br>
             <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
             <div class="requires" *ngIf="requires.length">

@@ -555,7 +555,7 @@ export class ScenarioManager {
           if (figure instanceof Monster) {
             figure.entities.forEach((entity) => {
               if (entities.indexOf(entity) != -1) {
-                gameManager.entityManager.addCondition(entity, new Condition(ConditionName.muddle), figure.active, figure.off);
+                gameManager.entityManager.addCondition(entity,figure, new Condition(ConditionName.muddle));
               }
             })
           }
