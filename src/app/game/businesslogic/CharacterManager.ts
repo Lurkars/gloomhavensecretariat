@@ -149,6 +149,7 @@ export class CharacterManager {
     if (this.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();
     }
+    gameManager.trialsManager.applyTrialCards();
   }
 
   removeCharacter(character: Character, retirement: boolean = false) {

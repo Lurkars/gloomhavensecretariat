@@ -44,10 +44,16 @@ export class TrialsManager {
             this.game.party.trials = this.game.party.trials || -1;
             if (editionData) {
                 this.game.figures.forEach((figure) => {
-                    if (figure instanceof Character && !figure.progress.trial && this.game.party.trials < editionData.trials.length - 1) {
-                        this.game.party.trials++;
-                        const trialCard = editionData.trials[this.game.party.trials];
-                        figure.progress.trial = new Identifier('' + trialCard.cardId, trialCard.edition);
+                    if (figure instanceof Character && !figure.progress.trial) {
+                        let retiredCharacter = this.game.party.retirements.find((model) => model.number == figure.number && model.progress && model.progress.trial)
+                        if (retiredCharacter && retiredCharacter.progress && retiredCharacter.progress.trial) {
+                            figure.progress.trial = retiredCharacter.progress.trial;
+                            retiredCharacter.progress.trial = undefined;
+                        } else if (this.game.party.trials < editionData.trials.length - 1) {
+                            this.game.party.trials++;
+                            const trialCard = editionData.trials[this.game.party.trials];
+                            figure.progress.trial = new Identifier('' + trialCard.cardId, trialCard.edition);
+                        }
                     }
                 })
             }

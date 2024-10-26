@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.102.2",
+  "version": "0.102.3",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -46,6 +46,26 @@
         "AppImage",
         "rpm",
         "deb"
+      ],
+      "publish": [
+        "github"
+      ]
+    },
+    "mac": {
+      "type": "distribution",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        },
+        {
+          "target": "pkg",
+          "arch": [
+            "universal"
+          ]
+        }
       ],
       "publish": [
         "github"
