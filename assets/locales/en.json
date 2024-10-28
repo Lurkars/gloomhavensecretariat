@@ -37,6 +37,7 @@
       "name": "Name for Campaign {0}",
       "reset": "Reset Campaign"
     },
+    "resources": "Resource Overview Table",
     "sheet": "Global Campaign Management Sheet",
     "trials": {
       ".": "Trials",
@@ -1233,6 +1234,8 @@
         "summer": "Summer",
         "supply": {
           ".": "Frosthaven Supply",
+          "apply": "Apply changes",
+          "edit": "Edit",
           "total": "Total"
         },
         "totalDefense": "Total Defense",

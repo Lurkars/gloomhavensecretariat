@@ -37,6 +37,7 @@
       "name": "Name für Kampagne {0}",
       "reset": "Kampagne zurücksetzen"
     },
+    "resources": "Ressourcen Übersicht",
     "sheet": "Globaler Kampagnenbogen"
   },
   "cancel": "Abbrechen",
@@ -1016,6 +1017,8 @@
         "summer": "Sommer",
         "supply": {
           ".": "Versorgung von Frosthaven",
+          "apply": "Änderungen anwenden",
+          "edit": "Bearbeiten",
           "total": "Insgesamt"
         },
         "totalDefense": "Gesamte Verteidigung",
