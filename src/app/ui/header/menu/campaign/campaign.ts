@@ -12,6 +12,7 @@ import { ItemsDialogComponent } from "src/app/ui/figures/items/dialog/items-dial
 import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 import { ScenarioChartDialogComponent } from "../../../figures/party/scenario-chart/scenario-chart";
+import { PartyResourcesDialogComponent } from "src/app/ui/figures/party/resources/resources";
 
 
 @Component({
@@ -159,6 +160,12 @@ export class CampaignMenuComponent implements OnInit {
         this.close.emit();
     }
 
+    openResources() {
+        this.dialog.open(PartyResourcesDialogComponent, {
+            panelClass: ['dialog'],
+        });
+        this.close.emit();
+    }
 
     addParty() {
         let party = new Party();

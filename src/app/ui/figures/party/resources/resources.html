@@ -3,7 +3,9 @@
         <table>
             <thead>
                 <tr>
-                    <th></th>
+                    <th><label>
+                            <span [ghs-label]="'party.campaign.sheet.supply.edit'"></span>
+                            <input type="checkbox" [(ngModel)]="edit"></label></th>
                     <th><span [ghs-label]="'party.campaign.sheet.supply'"></span></th>
                     <th *ngFor="let character of characters">
                         <span class="character">
@@ -19,11 +21,45 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let lootType of lootColumns; let i = index">
-                    <th><img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'"></th>
-                    <td><span class="loot">{{(gameManager.game.party.loot[lootType] || '-')}}</span></td>
+                <tr>
+                    <th [ghs-tooltip]="'character.progress.gold'"><img class="ghs-svg"
+                            [src]="'./assets/images/loot.svg'">
+                    </th>
+                    <td><span class="loot">-</span></td>
                     <td *ngFor="let character of characters">
-                        <span class="loot">{{(character.progress.loot[lootType] || '-')}}</span>
+                        <span *ngIf="!edit" class="loot">{{character.progress.gold || '-'}}</span>
+                        <input *ngIf="edit" [(ngModel)]="character.progress.gold" type="number" min="0"
+                            (change)="changeGold(character, $event)">
+                    </td>
+                    <td>
+                        <span class="loot" [ngClass]="{'total' : totalGold}">{{totalGold || '-'}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th [ghs-tooltip]="'game.experience'"><img class="ghs-svg" [src]="'./assets/images/experience.svg'">
+                    </th>
+                    <td><span class="loot">-</span></td>
+                    <td *ngFor="let character of characters">
+                        <span *ngIf="!edit" class="loot">{{character.progress.experience || '-'}}</span>
+                        <input *ngIf="edit" [(ngModel)]="character.progress.experience" type="number" min="0"
+                            (change)="changeXP(character, $event)">
+                    </td>
+                    <td>
+                        <span class="loot" [ngClass]="{'total' : totalXP}">{{totalXP || '-'}}</span>
+                    </td>
+                </tr>
+                <tr *ngFor="let lootType of lootColumns; let i = index">
+                    <th [ghs-tooltip]="'game.loot.' + lootType"><img class="ghs-svg"
+                            [src]="'./assets/images/fh/loot/' + lootType + '.svg'"></th>
+                    <td>
+                        <span *ngIf="!edit" class="loot">{{(party.loot[lootType] || '-')}}</span>
+                        <input *ngIf="edit" [(ngModel)]="party.loot[lootType]" type="number" min="0"
+                            (change)="changeLoot(undefined, lootType, $event)">
+                    </td>
+                    <td *ngFor="let character of characters">
+                        <span *ngIf="!edit" class="loot">{{(character.progress.loot[lootType] || '-')}}</span>
+                        <input *ngIf="edit" [(ngModel)]="character.progress.loot[lootType]" type="number" min="0"
+                            (change)="changeLoot(character, lootType, $event)">
                     </td>
                     <td>
                         <span class="loot" [ngClass]="{'total' : total[lootType]}">{{(total[lootType] || '-')}}</span>
@@ -31,5 +67,10 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <div class="buttons" *ngIf="edit || edited">
+        <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+        <a class="apply" (click)="apply()"><span [ghs-label]="'party.campaign.sheet.supply.apply'"></span></a>
     </div>
 </div>

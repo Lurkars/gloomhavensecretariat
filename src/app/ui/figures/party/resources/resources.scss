@@ -1,6 +1,7 @@
 .resources-dialog {
 
   position: relative;
+  color: var(--ghs-color-white);
 
   table {
     border-collapse: collapse;
@@ -15,14 +16,72 @@
       border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-darkgray);
     }
 
+    th {
+      label {
+        cursor: pointer;
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+    }
+
     tbody tr {
+
+      td,
+      th {
+        position: relative;
+        z-index: 1;
+
+        span,
+        input {
+          position: relative;
+          z-index: 2;
+        }
+
+        input {
+          width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+          max-width: 100%;
+          text-align: center;
+          border: none;
+          outline: none;
+        }
+      }
+
       &:nth-child(odd) {
-        background-color: var(--ghs-color-lightgray);
+
+        td,
+        th {
+          &::before {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--ghs-color-darkgray);
+            opacity: 0.3;
+            z-index: 0;
+          }
+        }
       }
 
       &:hover {
-        background-color: var(--ghs-color-yellow);
-        opacity: 0.5;
+
+        td,
+        th {
+          &::before {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--ghs-color-yellow);
+            opacity: 0.5;
+            z-index: 0;
+          }
+        }
       }
     }
 
@@ -58,6 +117,35 @@
     .ghs-svg {
       width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       height: auto;
+      filter: var(--ghs-filter-white)
+    }
+  }
+
+  .buttons {
+    display: flex;
+    margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      cursor: pointer;
+      min-width: 33%;
+      display: flex;
+      justify-content: center;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    .cancel {
+      color: var(--ghs-color-red);
+    }
+
+    .apply {
+      color: var(--ghs-color-green);
     }
   }
 }
