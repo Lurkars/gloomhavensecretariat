@@ -531,7 +531,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         if (trialCard) {
           event.target.classList.remove('error');
           event.target.classList.add('warning');
-          if (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.trial && figure.progress.trial.edition == gameManager.currentEdition() && figure.progress.trial.name == '' + trial)) {
+          if (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.trial && figure.progress.trial.edition == gameManager.currentEdition() && figure.progress.trial.name == '' + +event.target.value)) {
             gameManager.stateManager.before("setTrial", gameManager.characterManager.characterName(this.character), event.target.value);
             this.character.progress.trial = new Identifier('' + trial, gameManager.currentEdition());
             const currentTrialIndex = Math.max(...gameManager.game.figures.filter((figure) => figure instanceof Character).map((character) =>
