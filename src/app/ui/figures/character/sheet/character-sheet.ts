@@ -523,7 +523,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     if (settingsManager.settings.fhSecondEdition) {
       trial = gameManager.trialsManager.cardIdSecondPrinting(trial);
     }
-    if (!this.character.progress.trial || this.character.progress.trial.name != '' + trial) {
+    if (!this.character.progress.trial || this.character.progress.trial.name != event.target.value) {
 
       const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition() && editionData.trials && editionData.trials.length);
       if (editionData) {
@@ -531,7 +531,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
         if (trialCard) {
           event.target.classList.remove('error');
           event.target.classList.add('warning');
-          if (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.trial && figure.progress.trial.edition == gameManager.currentEdition() && figure.progress.trial.name == '' + +event.target.value)) {
+          if (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.trial && figure.progress.trial.edition == gameManager.currentEdition() && figure.progress.trial.name == event.target.value)) {
             gameManager.stateManager.before("setTrial", gameManager.characterManager.characterName(this.character), event.target.value);
             this.character.progress.trial = new Identifier('' + trial, gameManager.currentEdition());
             const currentTrialIndex = Math.max(...gameManager.game.figures.filter((figure) => figure instanceof Character).map((character) =>
