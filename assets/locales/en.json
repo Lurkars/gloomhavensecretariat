@@ -1391,6 +1391,7 @@
     "favors": {
       ".": "Appendix F: Favors",
       "apply": "Apply",
+      "keep": "Keep Favors for every scenario",
       "label": {
         ".": "%game.data.favors.{0}.{1}% (1 Point)",
         "multiple": "%game.data.favors.{0}.{1}% ({2} Points)"
@@ -2170,6 +2171,10 @@
       "hint": "Add Items from Gloomhaven and Forgotten Circles to available supply as stated out in the rules. (Only on enabled character sheets or character items)"
     },
     "fhRules": "Frosthaven Rules",
+    "fhSecondEdition": {
+      ".": "2nd Edition",
+      "hint": "Some changes between first and second printing of Frosthaven cannot be set automatically. So please check this if you are using second printing of Frosthaven."
+    },
     "fhStyle": {
       ".": "Frosthaven Style",
       "hint": "Display actions, abilities and icons in new Frosthaven style, automatically activates Frosthaven theme."
