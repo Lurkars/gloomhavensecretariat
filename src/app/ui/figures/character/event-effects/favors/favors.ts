@@ -3,8 +3,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
-import { Favor } from 'src/app/game/model/data/Trials';
 import { Identifier } from 'src/app/game/model/data/Identifier';
+import { Favor } from 'src/app/game/model/data/Trials';
 
 @Component({
   selector: 'ghs-favors',
@@ -16,6 +16,7 @@ export class FavorsComponent implements OnInit {
   favors: Favor[] = [];
   activeFavors: number[] = [];
   availablePoints: number = 0;
+  spentPoints: number = 0;
   leftPoints: number[] = [];
 
   gameFavors: Identifier[] = [];
@@ -46,9 +47,10 @@ export class FavorsComponent implements OnInit {
       this.activeFavors[index] = this.gameFavors.filter((value) => value.edition == favor.edition && value.name == favor.name).length;
     })
 
-    this.availablePoints = Math.min(Math.max(
-      (this.gameFavorPoints.length ? this.gameFavorPoints.reduce((a, b) => a + b) : 0)
-      - (this.activeFavors.length ? this.activeFavors.map((count, index) => count * this.favors[index].points).reduce((a, b) => a + b) : 0), 0), 7);
+    this.spentPoints = this.activeFavors.length ? this.activeFavors.map((count, index) => count * this.favors[index].points).reduce((a, b) => a + b) : 0;
+
+    this.availablePoints = Math.min(Math.max((this.gameFavorPoints.length ? this.gameFavorPoints.reduce((a, b) => a + b) : 0)
+      - this.spentPoints, 0), 7);
 
     this.leftPoints = gameManager.game.monsterAttackModifierDeck.cards.filter((am) => am.type == AttackModifierType.minus1 || am.type == AttackModifierType.minus2).map((am) => am.type == AttackModifierType.minus1 ? 1 : 2);
 
@@ -57,8 +59,13 @@ export class FavorsComponent implements OnInit {
     })
   }
 
+  toggleKeep() {
+    gameManager.stateManager.before(gameManager.game.keepFavors ? 'favorKeepOff' : 'favorKeepOn');
+    gameManager.game.keepFavors = !gameManager.game.keepFavors;
+    gameManager.stateManager.after();
+  }
 
-  spentPoints(points: number, force: boolean = false) {
+  addSpentPoints(points: number, force: boolean = false) {
     if (!this.disabled && this.leftPoints.indexOf(points) != -1 && (!this.gameFavorPoints.length || this.gameFavorPoints.reduce((a, b) => a + b) + points <= 7) || force) {
       this.gameFavorPoints.push(points);
       this.update();
@@ -66,7 +73,8 @@ export class FavorsComponent implements OnInit {
   }
 
   unspentPoints(index: number, force: boolean = false) {
-    if (!this.disabled || force) {
+
+    if (!this.disabled && this.gameFavorPoints.reduce((a, b) => a + b) - this.gameFavorPoints[index] >= this.spentPoints || force) {
       this.gameFavorPoints.splice(index, 1);
       this.update();
     }

@@ -79,4 +79,8 @@ export class TrialsManager {
     activeFavor(edition: string, name: string): number {
         return this.game.favors.filter((value) => value.edition == edition && value.name == name).length;
     }
+
+    cardIdSecondPrinting(cardId: number): number {
+        return 708 - cardId; // 360 - 12 + (360 - cardId)
+    }
 }

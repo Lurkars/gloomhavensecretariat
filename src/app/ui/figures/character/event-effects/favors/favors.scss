@@ -26,6 +26,18 @@
         }
     }
 
+    .header-menu {
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+        label {
+            cursor: pointer;
+            font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
     .favors {
         margin: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
         display: flex;

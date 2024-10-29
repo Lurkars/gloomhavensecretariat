@@ -538,8 +538,11 @@ export class RoundManager {
     if (this.game.challengeDeck.cards.length) {
       gameManager.challengesManager.clearDrawn(this.game.challengeDeck);
     }
-    this.game.favors = [];
-    this.game.favorPoints = [];
+
+    if (!this.game.keepFavors) {
+      this.game.favors = [];
+      this.game.favorPoints = [];
+    }
 
     this.game.figures.forEach((figure) => {
       figure.active = false;

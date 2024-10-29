@@ -130,8 +130,7 @@
       border-bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
       border-right: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-darkgray);
 
-      &.stats-toggle {
-        cursor: pointer;
+      &.stats-header {
         border: none;
       }
     }
@@ -151,6 +150,13 @@
         span {
           opacity: 0.6;
         }
+      }
+
+      &.stats-toggle {
+        cursor: pointer;
+        border: none;
+        grid-column: span 2;
+        justify-content: flex-start;
       }
     }
 
@@ -193,6 +199,11 @@
       .battlegoal-list {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+        max-width: calc(var(--ghs-unit) * 38 * var(--ghs-dialog-factor));
+        max-height: calc(var(--ghs-unit) * 34 * var(--ghs-dialog-factor));
+        padding: 0 calc(var(--ghs-unit) * 1);
+        overflow: auto;
       }
 
       .checkmarks {

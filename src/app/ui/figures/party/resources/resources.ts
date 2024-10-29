@@ -1,5 +1,5 @@
 
-import { DialogRef } from "@angular/cdk/dialog";
+import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, OnInit } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
@@ -26,12 +26,28 @@ export class PartyResourcesDialogComponent implements OnInit {
   edit: boolean = false;
   edited: boolean = false;
 
-  constructor(private dialogRef: DialogRef) { }
+  constructor(private dialogRef: DialogRef, private dialog: Dialog) {
+    this.edit = dialogRef.disableClose || false;
+  }
 
   ngOnInit(): void {
     this.party = JSON.parse(JSON.stringify(gameManager.game.party));
     this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => JSON.parse(JSON.stringify(figure)));
     this.update();
+  }
+
+  toggleEdit() {
+    this.dialogRef.close();
+    if (this.edit) {
+      this.dialog.open(PartyResourcesDialogComponent, {
+        panelClass: ['dialog', 'no-open-animation']
+      });
+    } else {
+      this.dialog.open(PartyResourcesDialogComponent, {
+        panelClass: ['dialog', 'no-open-animation'],
+        disableClose: true
+      });
+    }
   }
 
   update() {

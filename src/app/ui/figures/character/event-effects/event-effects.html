@@ -17,7 +17,7 @@
       </a>
 
       <a class="favors"
-        *ngIf="gameManager.trialsManager.favorsEnabled && gameManager.game.scenario"
+        *ngIf="gameManager.trialsManager.favorsEnabled"
         (click)="openFavors()">
         <span [ghs-label]="'scenario.favors'"></span>
       </a>

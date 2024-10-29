@@ -13,9 +13,9 @@ import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
+import { FavorsComponent } from './favors/favors';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
-import { FavorsComponent } from './trials/favors';
 
 @Component({
   selector: 'ghs-event-effects',

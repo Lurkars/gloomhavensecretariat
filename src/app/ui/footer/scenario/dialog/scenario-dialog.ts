@@ -14,7 +14,7 @@ import { SectionDialogComponent } from "../section/section-dialog";
 import { ScenarioSummaryComponent } from "../summary/scenario-summary";
 import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog";
 import { ScenarioRulesDialogComponent } from "../../scenario-rules/dialog/scenario-rules-dialog";
-import { FavorsComponent } from "src/app/ui/figures/character/event-effects/trials/favors";
+import { FavorsComponent } from "src/app/ui/figures/character/event-effects/favors/favors";
 
 @Component({
     selector: 'ghs-scenario-dialog',

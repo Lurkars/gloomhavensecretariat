@@ -49,18 +49,21 @@
 
             .text {
                 position: absolute;
-                top: 23%;
-                left: 10%;
-                width: 80%;
-                height: 65%;
+                top: 20%;
+                left: 11%;
+                width: 78%;
+                height: 70%;
                 margin: 0;
                 font-family: var(--ghs-font-normal);
                 font-size: 0.8em;
-                line-height: 1.1em;
-                text-align: center;
+                line-height: 0.9em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 p {
                     margin: 0;
+                    text-align: center;
                 }
             }
 

@@ -1045,7 +1045,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   openResources() {
     this.dialog.open(PartyResourcesDialogComponent, {
-      panelClass: ['dialog'],
+      panelClass: ['dialog']
     });
   }
 

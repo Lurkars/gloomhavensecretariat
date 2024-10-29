@@ -38,9 +38,14 @@ export class ActionComponent implements OnInit, OnDestroy {
   @Input() style: 'gh' | 'fh' | false = false;
 
   action!: Action | undefined;
+  normalValue: number | string = "";
+  eliteValue: number | string = "";
+  values: string[] = [];
+  specialActions: Action[] = [];
   subActions: Action[] = [];
   fhStyle: boolean = false;
   flying: boolean = false;
+  isInteractiveApplicableAction: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
   EntityValueFunction = EntityValueFunction;
@@ -100,8 +105,16 @@ export class ActionComponent implements OnInit, OnDestroy {
       this.monsterType = this.action.value as MonsterType;
     }
 
+    if (this.action) {
+      this.normalValue = this.getNormalValue();
+      this.eliteValue = this.getEliteValue();
+      this.values = this.getValues(this.action);
+      this.specialActions = this.getSpecial(this.action);
+    }
+
     this.updateSubActions();
     this.applyChallenges();
+
     this.forceRelative = this.monster != undefined && !this.hasEntities();
     if (this.monster && !this.relative && !this.forceRelative && settingsManager.settings.calculate && this.action && (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && this.action.valueType != ActionValueType.minus && this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && !(subAction.value + '').startsWith('self'))) {
       this.forceRelative = true;
@@ -118,6 +131,8 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (this.monster) {
       this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
     }
+
+    this.isInteractiveApplicableAction = this.interactiveAbilities && this.monster && this.monster.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || false;
   }
 
   hasEntities(type: MonsterType | string | undefined = undefined): boolean {
@@ -566,12 +581,8 @@ export class ActionComponent implements OnInit, OnDestroy {
     return this.interactiveActions.find((interactiveAction) => interactiveAction.index == this.actionIndex) != undefined || false;
   }
 
-  isInteractiveApplicableAction(): boolean {
-    return this.interactiveAbilities && this.monster && this.monster.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || false;
-  }
-
   toggleHighlight(event: MouseEvent | TouchEvent) {
-    if (this.isInteractiveApplicableAction()) {
+    if (this.isInteractiveApplicableAction) {
       if (this.highlightAction()) {
         this.interactiveActions = this.interactiveActions.filter((interactiveAction) => !interactiveAction.index.startsWith(this.actionIndex));
       } else if (this.origAction) {
@@ -591,6 +602,7 @@ export class ActionComponent implements OnInit, OnDestroy {
         }
       }
       this.interactiveActionsChange.emit(this.interactiveActions);
+      this.update();
       event.preventDefault();
       event.stopPropagation();
     }

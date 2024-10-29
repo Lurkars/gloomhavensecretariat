@@ -15,11 +15,12 @@
                         src="./assets/images/automation.svg">
                 </div>
                 <div class="text">
-                    <p class="placeholder"
+                    <p class="placeholder margin-breaks"
                         [ghs-label]="'data.trials.' + trialCard.edition + '.' +  trialCard.cardId + '.text'"></p>
                 </div>
                 <div class="card-id">
-                    <span *ngIf="trialCard.cardId < 1000">0</span>{{trialCard.cardId}}
+                    <span *ngIf="trialCard.cardId < 1000">0</span>{{settingsManager.settings.fhSecondEdition ?
+                    gameManager.trialsManager.cardIdSecondPrinting(trialCard.cardId) : trialCard.cardId}}
                 </div>
             </ng-container>
         </div>

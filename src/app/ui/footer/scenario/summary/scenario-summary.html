@@ -340,8 +340,9 @@
       </ng-container>
 
       <ng-container *ngIf="settingsManager.settings.scenarioStats">
-        <span class="stats-toggle" [style.grid-column]="'span ' + (1 + characters.length)"
-          [ghs-label]="'scenario.stats.toggle.' +  (stats ? 'hide': 'show')" (click)="stats = !stats"></span>
+        <span class="head-col stats-toggle" [ghs-label]="'scenario.stats.toggle.' +  (stats ? 'hide': 'show')"
+          (click)="stats = !stats"></span>
+        <span class="stats-header" [style.grid-column]="'span ' + (characters.length - 1)"></span>
       </ng-container>
 
       <ng-container *ngIf="stats">

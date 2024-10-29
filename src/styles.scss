@@ -737,6 +737,10 @@ ghs-pointer-input {
   }
 }
 
+.cdk-overlay-backdrop.disabled {
+  pointer-events: none;
+}
+
 
 @keyframes dialog-open {
   0% {
@@ -806,7 +810,7 @@ ghs-pointer-input {
     }
   }
 
-  .cdk-dialog-container {
+  &:not(.no-open-animation) .cdk-dialog-container {
     transform-origin: center center;
     animation: dialog-open 150ms ease-in-out;
   }
@@ -1152,6 +1156,12 @@ input[type="radio"] {
     }
   }
 
+  &.margin-breaks {
+    br {
+      display: block;
+      margin: 0.2em;
+    }
+  }
 
   .placeholder-action,
   .placeholder-condition,
@@ -1565,6 +1575,23 @@ input[type="radio"] {
     border-style: solid;
     border-width: 1em;
     z-index: -1;
+  }
+}
+
+.event-checkbox {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.6em;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    top: -0.1em;
+    left: -0.8em;
+    width: 1.5em;
+    height: 1em;
+    background-image: url('~src/assets/images/fh/eventcards/checkbox.svg');
+    background-size: 100% 100%;
   }
 }
 

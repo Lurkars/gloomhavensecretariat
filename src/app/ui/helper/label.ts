@@ -229,6 +229,8 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "trait" && value) {
         image = '<img src="./assets/images/fh/character/traits/trait.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-trait">' + image + settingsManager.getLabel('data.character.traits.' + value) + '</span>';
+      } else if (type == "eventCheckbox" && value) {
+        replace = '<span class="event-checkbox">' + value + '</span>';
       } else {
         let labelArgs = label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));

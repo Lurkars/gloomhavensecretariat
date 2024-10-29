@@ -4,12 +4,19 @@
         <span class="title" [ghs-label]="'scenario.favors'"></span>
     </div>
 
+    <div class="header-menu">
+        <label>
+            <input tabclick type="checkbox" [checked]="gameManager.game.keepFavors" (change)="toggleKeep()">
+            <span [ghs-label]="'scenario.favors.keep' "></span>
+        </label>
+    </div>
+
     <div class="points">
         <div class="point spent" *ngFor="let spent of gameFavorPoints; let i = index" ghs-pointer-input
             (singleClick)="unspentPoints(i)" (doubleClick)="unspentPoints(i, true)"><span
                 [ghs-placeholder]="'game.attackmodifier.minus' + spent"></span></div>
-        <div class="point left" *ngFor="let left of leftPoints" ghs-pointer-input (singleClick)="spentPoints(left)"
-            (doubleClick)="spentPoints(left, true)">
+        <div class="point left" *ngFor="let left of leftPoints" ghs-pointer-input (singleClick)="addSpentPoints(left)"
+            (doubleClick)="addSpentPoints(left, true)">
             <span [ghs-placeholder]="'game.attackmodifier.minus' + left"></span>
         </div>
     </div>
@@ -29,10 +36,12 @@
                 </span>
             </div>
             <div class="hint-container" *ngIf="settingsManager.settings.fhTrialsApply">
-                <img src="./assets/images/automation.svg" class="hint-trigger automation ghs-svg" [ngClass]="{'none': !favor.automation, 'manual': favor.automation == 'manual'}">
+                <img src="./assets/images/automation.svg" class="hint-trigger automation ghs-svg"
+                    [ngClass]="{'none': !favor.automation, 'manual': favor.automation == 'manual'}">
                 <span class="hint">
                     <div class="text">
-                        <span [ghs-label]="'%game.data.favors.' + favor.edition + '.' + favor.name + '.automation%'"></span>
+                        <span
+                            [ghs-label]="'%game.data.favors.' + favor.edition + '.' + favor.name + '.automation%'"></span>
                     </div>
                 </span>
             </div>

@@ -126,6 +126,10 @@
     }
 }
 
+.fh-second-edition {
+    margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+}
+
 @media (max-width: 600px),
 (orientation: portrait) {
 

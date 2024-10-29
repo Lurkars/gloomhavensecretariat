@@ -110,6 +110,7 @@ export class Settings {
   fhChallenges: boolean = false;
   fhChallengesApply: boolean = true;
   fhGhItems: boolean = false;
+  fhSecondEdition: boolean = false;
   fhStyle: boolean = false;
   fhTrials: boolean = false;
   fhTrialsApply: boolean = true;

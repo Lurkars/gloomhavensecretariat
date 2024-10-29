@@ -59,6 +59,7 @@ export class Game {
   challengeDeck: ChallengeDeck = new ChallengeDeck();
   favors: Identifier[] = [];
   favorPoints: number[] = [];
+  keepFavors: boolean = false;
 
   constructor() {
     this.elementBoard = JSON.parse(JSON.stringify(defaultElementBoard));
@@ -67,7 +68,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.revision, this.revisionOffset, this.edition, this.conditions, this.battleGoalEditions, this.filteredBattleGoals, this.figures.map((figure) => figure.edition + '-' + (figure instanceof ObjectiveContainer ? figure.uuid : figure.name)), this.entitiesCounter, this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof ObjectiveContainer).map((figure) => ((figure as ObjectiveContainer).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.additionalSections, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms, section.additionalSections)), this.scenarioRules.map((value) => value.identifier), this.appliedScenarioRules, this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.unlockedCharacters, this.server, this.finish, this.gameClock, this.challengeDeck.toModel(), this.favors, this.favorPoints);
+    return new GameModel(this.revision, this.revisionOffset, this.edition, this.conditions, this.battleGoalEditions, this.filteredBattleGoals, this.figures.map((figure) => figure.edition + '-' + (figure instanceof ObjectiveContainer ? figure.uuid : figure.name)), this.entitiesCounter, this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof ObjectiveContainer).map((figure) => ((figure as ObjectiveContainer).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.additionalSections, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms, section.additionalSections)), this.scenarioRules.map((value) => value.identifier), this.appliedScenarioRules, this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.unlockedCharacters, this.server, this.finish, this.gameClock, this.challengeDeck.toModel(), this.favors, this.favorPoints, this.keepFavors);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -283,6 +284,7 @@ export class Game {
 
     this.favors = model.favors || [];
     this.favorPoints = model.favorPoints || [];
+    this.keepFavors = model.keepFavors || false;
 
     // migration 
     this.lootDeckEnhancements.forEach((loot) => {
@@ -402,6 +404,7 @@ export class GameModel {
   challengeDeck: GameChallengeDeckModel;
   favors: Identifier[];
   favorPoints: number[];
+  keepFavors: boolean;
 
   constructor(
     revision: number = 0,
@@ -448,7 +451,8 @@ export class GameModel {
     gameClock: GameClockTimestamp[] = [],
     challengeDeck: GameChallengeDeckModel = new GameChallengeDeckModel(),
     favors: Identifier[] = [],
-    favorPoints: number[] = []) {
+    favorPoints: number[] = [],
+    keepFavors: boolean = false) {
     this.revision = revision;
     this.revisionOffset = revisionOffset;
     this.edition = edition;
@@ -498,6 +502,7 @@ export class GameModel {
     this.challengeDeck = challengeDeck;
     this.favors = JSON.parse(JSON.stringify(favors));
     this.favorPoints = JSON.parse(JSON.stringify(favorPoints));
+    this.keepFavors = keepFavors;
   }
 
 }

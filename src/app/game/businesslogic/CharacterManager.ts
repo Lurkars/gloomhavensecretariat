@@ -399,6 +399,10 @@ export class CharacterManager {
             }
           }
         }
+
+        if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled && settingsManager.settings.battleGoals && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '356' && figure.tags.indexOf('trial-fh-356') != -1) {
+          figure.tags.splice(figure.tags.indexOf('trial-fh-356'), 1);
+        }
       }
     })
   }

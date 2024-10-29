@@ -265,6 +265,36 @@ main {
     }
   }
 
+  .fh-second-edition {
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+
+    input[type="checkbox"] {
+      color: var(--ghs-color-black);
+
+      &::before {
+        color: var(--ghs-color-black);
+        background-color: var(--ghs-color-black);
+      }
+
+      &:hover::before {
+        background-color: var(--ghs-color-darkgray);
+      }
+    }
+
+    .hint-container {
+      label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+
+      .hint-trigger.ghs-svg {
+        width: auto;
+        filter: var(--ghs-filter-black) var(--ghs-filter-shadow);
+      }
+    }
+  }
+
   .settings-menu,
   .add-characters {
     color: var(--ghs-color-darkgray);

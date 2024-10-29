@@ -60,6 +60,21 @@
             [ghs-label]="'data.edition.' + gameManager.game.edition" [ghs-label-attribute]="'title'">
         </a>
       </div>
+      <div *ngIf="gameManager.game.edition == 'fh'" class="fh-second-edition">
+        <div class="hint-container">
+          <label>
+            <input tabclick type="checkbox" [checked]="settingsManager.settings['fhSecondEdition']"
+              (change)="settingsManager.toggle('fhSecondEdition')">
+            <span [ghs-label]="'settings.fhSecondEdition' "></span>
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <div class="text">
+              <span [ghs-label]="'settings.fhSecondEdition.hint'"></span>
+            </div>
+          </span>
+        </div>
+      </div>
     </div>
 
     <div class="container-row bordered">

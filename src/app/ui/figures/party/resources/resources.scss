@@ -23,6 +23,11 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+
+        &.disabled {
+          pointer-events: none;
+          opacity: 0.5;
+        }
       }
     }
 
@@ -146,6 +151,11 @@
 
     .apply {
       color: var(--ghs-color-green);
+    }
+
+    .disabled {
+      pointer-events: none;
+      color: var(--ghs-color-gray);
     }
   }
 }

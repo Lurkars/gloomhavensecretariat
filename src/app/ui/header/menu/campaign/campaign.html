@@ -14,6 +14,9 @@
                 (change)="setEdition(edition)">
             <span [ghs-label]="'data.edition.' + edition"></span>
         </label>
+        <div *ngIf="edition == 'fh' && gameManager.game.edition == edition" class="fh-second-edition">
+            <div ghs-setting-menu="fhSecondEdition"></div>
+        </div>
     </div>
     <div class="line separator ">
         <label

@@ -1,9 +1,10 @@
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject, OnInit } from '@angular/core';
-import { Ability } from 'src/app/game/model/data/Ability';
-import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
-import { Monster } from 'src/app/game/model/Monster';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
+import { Ability } from 'src/app/game/model/data/Ability';
+import { Monster } from 'src/app/game/model/Monster';
 
 @Component({
   selector: 'ghs-ability-dialog',
@@ -38,6 +39,6 @@ export class AbilityDialogComponent implements OnInit {
     this.opened = false;
     setTimeout(() => {
       this.dialogRef.close();
-    }, 1000);
+    }, settingsManager.settings.animations ? 1000 : 0);
   }
 }

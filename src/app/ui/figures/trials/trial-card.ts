@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { TrialCard } from "src/app/game/model/data/Trials";
 
@@ -22,6 +22,7 @@ export class TrialCardComponent implements OnInit, OnChanges {
     revealed: boolean = false;
     animate: boolean = false;
 
+    gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
 
     ngOnInit(): void {

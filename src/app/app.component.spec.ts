@@ -40,9 +40,9 @@ import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-s
 import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
 import { EventEffectsDialog } from './ui/figures/character/event-effects/event-effects';
+import { FavorsComponent } from './ui/figures/character/event-effects/favors/favors';
 import { EventRandomItemDialogComponent } from './ui/figures/character/event-effects/random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './ui/figures/character/event-effects/random-scenario/random-scenario-dialog';
-import { FavorsComponent } from './ui/figures/character/event-effects/trials/favors';
 import { CharacterFullViewComponent } from './ui/figures/character/fullview/fullview';
 import { CharacterItemListComponent } from './ui/figures/character/item-list/item-list';
 import { AbilityCardsDialogComponent } from './ui/figures/character/sheet/ability-cards-dialog';

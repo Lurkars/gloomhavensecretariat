@@ -162,7 +162,7 @@ export class CampaignMenuComponent implements OnInit {
 
     openResources() {
         this.dialog.open(PartyResourcesDialogComponent, {
-            panelClass: ['dialog'],
+            panelClass: ['dialog']
         });
         this.close.emit();
     }

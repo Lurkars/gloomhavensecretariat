@@ -519,7 +519,10 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   setTrial(event: any) {
     event.target.classList.add('error');
-    const trial = +event.target.value;
+    let trial = +event.target.value;
+    if (settingsManager.settings.fhSecondEdition) {
+      trial = gameManager.trialsManager.cardIdSecondPrinting(trial);
+    }
     if (!this.character.progress.trial || this.character.progress.trial.name != '' + trial) {
 
       const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition() && editionData.trials && editionData.trials.length);
@@ -531,8 +534,10 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
           if (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.trial && figure.progress.trial.edition == gameManager.currentEdition() && figure.progress.trial.name == '' + trial)) {
             gameManager.stateManager.before("setTrial", gameManager.characterManager.characterName(this.character), event.target.value);
             this.character.progress.trial = new Identifier('' + trial, gameManager.currentEdition());
-            if (!gameManager.game.party.trials || gameManager.game.party.trials <= editionData.trials.indexOf(trialCard)) {
-              gameManager.game.party.trials = editionData.trials.indexOf(trialCard) + 1;
+            const currentTrialIndex = Math.max(...gameManager.game.figures.filter((figure) => figure instanceof Character).map((character) =>
+              editionData.trials.find((trialCard) => character.progress.trial && trialCard.cardId == +character.progress.trial.name && trialCard.edition == character.progress.trial.edition)).map((trialCard) => trialCard ? editionData.trials.indexOf(trialCard) : -1));
+            if (!gameManager.game.party.trials || gameManager.game.party.trials != currentTrialIndex) {
+              gameManager.game.party.trials = currentTrialIndex;
             }
             event.target.classList.remove('warning');
             gameManager.stateManager.after();

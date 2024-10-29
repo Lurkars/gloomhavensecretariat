@@ -270,7 +270,8 @@
             <div class="trial" *ngIf="gameManager.trialsManager.trialsEnabled">
               <label><span [ghs-label]="'character.progress.trial'"></span>:</label>
               <div class="trial-card">
-                <input #trialIndex class="card-id" [value]="character.progress.trial ? character.progress.trial.name : ''"
+                <input #trialIndex class="card-id"
+                  [value]="character.progress.trial ? (settingsManager.settings.fhSecondEdition ? gameManager.trialsManager.cardIdSecondPrinting(+character.progress.trial.name) : character.progress.trial.name) : ''"
                   type="text" (change)="setTrial($event)" (keyup)="trialIndex.classList.remove('error');">
                 <a class="open ignore-denied" *ngIf="fhSheet && character.progress.trial" (click)="openTrial()"><img
                     src="./assets/images/fh/trials/trial.png"></a>

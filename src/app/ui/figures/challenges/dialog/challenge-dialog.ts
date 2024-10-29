@@ -1,5 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject, OnInit } from '@angular/core';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ChallengeCard } from 'src/app/game/model/data/Challenges';
 
 @Component({
@@ -21,6 +22,6 @@ export class ChallengeDialogComponent implements OnInit {
         this.opened = false;
         setTimeout(() => {
             this.dialogRef.close();
-        }, 1000);
+        }, settingsManager.settings.animations ? 1000 : 0);
     }
 }
