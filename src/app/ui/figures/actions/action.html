@@ -10,13 +10,13 @@
       [disabled]="!isInteractiveApplicableAction"
       [ngClass]="{'action-interactive' : isInteractiveApplicableAction, 'action-interactive-highlight': highlightAction()}">
       <span class="condition-value">
-        <span [ghs-label]="('game.condition.' + getConditionName(values[0]))"
-          [ghs-label-args]="(values.length > 1 ? [values[1]] : [])" [style]="style"></span>
+        <span [ghs-label]="('game.condition.' + getConditionName(getValues(action)[0]))"
+          [ghs-label-args]="(values.length > 1 ? [getValues(action)[1]] : [])" [style]="style"></span>
       </span>
       <span class="condition-image">
         <img class="icon" *ngIf="getConditionName(values[0]) != 'invalid'"
-          [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/condition/' + getConditionName(values[0]) + '.svg'" />
-        <img class="icon warning" *ngIf="getConditionName(values[0]) == 'invalid'" src="./assets/images/warning.svg" />
+          [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/condition/' + getConditionName(getValues(action)[0]) + '.svg'" />
+        <img class="icon warning" *ngIf="getConditionName(getValues(action)[0]) == 'invalid'" src="./assets/images/warning.svg" />
         <span *ngIf="values.length > 1" class="value">{{values[1]}}</span>
       </span>
     </span>
@@ -56,10 +56,10 @@
         ghs-pointer-input (singleClick)="toggleHighlight($event)" [clickBehind]="!isInteractiveApplicableAction"
         [ghs-tooltip]="'monster.toggleAction'" [delay]="1" [disabled]="!isInteractiveApplicableAction">
         <span class="element-half">
-          <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + values[0] + '.svg'" />
+          <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + getValues(action)[0] + '.svg'" />
         </span>
         <span class="element-half">
-          <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + values[1] + '.svg'" />
+          <img [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/element/' + getValues(action)[1] + '.svg'" />
         </span>
       </span>
       <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
@@ -100,8 +100,8 @@
   </ng-container>
 
   <span class="action-specialTarget" *ngSwitchCase="ActionType.specialTarget">
-    <span class="special-target-value" [ghs-label]="('game.specialTarget.' + values[0])"
-      [ghs-label-args]="values.splice(1)" [relative]="relative || forceRelative" [style]="style"
+    <span class="special-target-value" [ghs-label]="('game.specialTarget.' + getValues(action)[0])"
+      [ghs-label-args]="getValues(action).splice(1)" [relative]="relative || forceRelative" [style]="style"
       [ngClass]="{'text-white' : !right, 'small' : action.small}"></span>
     <span
       *ngIf="[ 'alliesRange:',  'alliesRangeAffect:','allyAffectRange:', 'enemiesRange:', 'enemiesRangeAffect:', 'enemyRange:'].indexOf(action.value + '') != -1"
@@ -272,7 +272,7 @@
           *ngIf="!inline && (values.length > 1 && +(values[1]) > 0 && index < +(values[1]) - 1 || values.length < 2 && index < subActions.length -1)"
           class="action-concatenation-item">
           <span *ngIf="values.length > 0">
-            <span *ngIf="!fhStyle" [ghs-label]="values[0]" [relative]="relative || forceRelative"
+            <span *ngIf="!fhStyle" [ghs-label]="getValues(action)[0]" [relative]="relative || forceRelative"
               [style]="style"></span>
             <span *ngIf="fhStyle">,</span>
           </span>
@@ -366,13 +366,13 @@
 
   <ng-container *ngSwitchCase="ActionType.card">
     <span class="action-card" [ngClass]="{'small' : action.small}">
-      <div class="card-value" [ngClass]="values[0]">
-        <img class="ghs-svg" src="./assets/images/action/card/{{values[0]}}.svg" />
+      <div class="card-value" [ngClass]="getValues(action)[0]">
+        <img class="ghs-svg" [src]="'./assets/images/action/card/'+ getValues(action)[0] + '.svg'" />
         <img *ngIf="values[0] != 'slot' && values[0] != 'slotStart' && values[0] != 'slotXp'" class="overlay"
-          src="./assets/images/action/card/overlay/{{values[0]}}.svg" />
+          [src]="'./assets/images/action/card/overlay/' + getValues(action)[0] + '.svg'" />
         <span *ngIf="values[0] == 'slot' || values[0] == 'slotStart' || values[0] == 'slotXp'" class="overlay"
-          [style.mask-image]="'url(\'/assets/images/action/card/overlay/' + values[0] +'.svg\')'"
-          [style.-webkit-mask-image]="'url(\'/assets/images/action/card/overlay/' + values[0] +'.svg\')'">
+          [style.mask-image]="'url(\'/assets/images/action/card/overlay/' + getValues(action)[0] +'.svg\')'"
+          [style.-webkit-mask-image]="'url(\'/assets/images/action/card/overlay/' + getValues(action)[0] +'.svg\')'">
         </span>
         <span class="value" *ngIf="values.length > 1">{{values[1]}}</span>
       </div>

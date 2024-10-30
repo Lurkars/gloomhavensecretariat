@@ -105,13 +105,6 @@ export class ActionComponent implements OnInit, OnDestroy {
       this.monsterType = this.action.value as MonsterType;
     }
 
-    if (this.action) {
-      this.normalValue = this.getNormalValue();
-      this.eliteValue = this.getEliteValue();
-      this.values = this.getValues(this.action);
-      this.specialActions = this.getSpecial(this.action);
-    }
-
     this.updateSubActions();
     this.applyChallenges();
 
@@ -130,6 +123,13 @@ export class ActionComponent implements OnInit, OnDestroy {
     this.flying = false;
     if (this.monster) {
       this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
+    }
+
+    if (this.action) {
+      this.normalValue = this.getNormalValue();
+      this.eliteValue = this.getEliteValue();
+      this.values = this.getValues(this.action, true);
+      this.specialActions = this.getSpecial(this.action);
     }
 
     this.isInteractiveApplicableAction = this.interactiveAbilities && this.monster && this.monster.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || false;
@@ -188,7 +188,10 @@ export class ActionComponent implements OnInit, OnDestroy {
     return this.getRange(MonsterType.elite);
   }
 
-  getValues(action: Action): string[] {
+  getValues(action: Action, force: boolean = false): string[] {
+    if (!force) {
+      return [...this.values];
+    }
     return gameManager.actionsManager.getValues(action);
   }
 
@@ -602,7 +605,6 @@ export class ActionComponent implements OnInit, OnDestroy {
         }
       }
       this.interactiveActionsChange.emit(this.interactiveActions);
-      this.update();
       event.preventDefault();
       event.stopPropagation();
     }
