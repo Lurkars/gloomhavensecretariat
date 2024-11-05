@@ -40,6 +40,7 @@
         "cardId": 359
     },
     {
-        "cardId": 360
+        "cardId": 360,
+        "automation": "fully"
     }
 ]

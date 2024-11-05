@@ -613,13 +613,15 @@ export class SettingsManager {
     return result;
   };
 
-  getEditionByUrl(url: string) {
-    if (!gameManager.editionData.some((editionData) => editionData.url == url)) {
-      console.error("No edition data found for url '" + url + "'");
-      return;
+  getEditionByUrl(url: string) : string {
+    const editionData = gameManager.editionData.find((editionData) => editionData.url == url);
+
+    if (editionData) {
+      return editionData.url;
     }
 
-    return gameManager.editionData.find((editionData) => editionData.url == url)?.edition;
+    console.error("No edition data found for url '" + url + "'");
+    return "";
   }
 
   async addEditionDataUrl(editionDataUrl: string): Promise<EditionData | undefined> {

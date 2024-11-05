@@ -29,7 +29,12 @@ export class BattleGoalManager {
   }
 
   drawBattleGoal(character: Character, splice: boolean = false) {
-    const battleGoals = this.getBattleGoals().filter((battleGoal) => !this.game.figures.find((figure) => figure instanceof Character && figure.battleGoals && figure.battleGoals.find((identifier) => battleGoal.edition == identifier.edition && battleGoal.name == identifier.name)));
+    let battleGoals = this.getBattleGoals().filter((battleGoal) => !this.game.figures.find((figure) => figure instanceof Character && figure.battleGoals && figure.battleGoals.find((identifier) => battleGoal.edition == identifier.edition && battleGoal.name == identifier.name)));
+
+    if (gameManager.trialsManager.apply && gameManager.trialsManager.activeTrial('fh', 360)) {
+      battleGoals = battleGoals.filter((battleGoal) => battleGoal.checks == 2);
+    }
+
     let battleGoal = battleGoals[Math.floor(Math.random() * battleGoals.length)];
     character.battleGoals = character.battleGoals || [];
     if (splice && character.battleGoals.length > 2) {

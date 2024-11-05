@@ -58,13 +58,20 @@ export class TrialsManager {
                 })
             }
         } else {
-            this.game.party.trials = -1;
-            this.game.figures.forEach((figure) => {
-                if (figure instanceof Character && figure.progress.trial) {
-                    figure.progress.trial = undefined;
-                }
-            })
+            const hall = gameManager.fhRules() && this.game.party.buildings.find((buildingModel) => buildingModel.name == 'hall-of-revelry' && buildingModel.level == 1);
+            if (!hall) {
+                this.game.party.trials = -1;
+                this.game.figures.forEach((figure) => {
+                    if (figure instanceof Character && figure.progress.trial) {
+                        figure.progress.trial = undefined;
+                    }
+                })
+            }
         }
+    }
+
+    activeTrial(edition: string, cardId: number): boolean {
+        return this.trialsEnabled && this.game.figures.find((figure) => figure instanceof Character && figure.progress.trial && figure.progress.trial.edition == edition && figure.progress.trial.name == '' + cardId) != undefined;
     }
 
     applyFavorPoints() {

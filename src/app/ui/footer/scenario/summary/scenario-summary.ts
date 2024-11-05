@@ -817,6 +817,8 @@ export class ScenarioSummaryComponent implements OnDestroy {
             if (gameManager.challengesManager.enabled && this.challenges) {
                 gameManager.game.challengeDeck.finished += this.challenges;
             }
+
+            gameManager.trialsManager.applyTrialCards();
         }
         if (this.conclusionOnly) {
             gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign, true);

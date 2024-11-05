@@ -76,9 +76,11 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
       this.character.battleGoals = [];
       this.character.battleGoal = false;
       gameManager.battleGoalManager.drawBattleGoal(this.character);
-      gameManager.battleGoalManager.drawBattleGoal(this.character);
-      if (gameManager.fhRules() || settingsManager.settings.battleGoalsFh) {
+      if (!gameManager.trialsManager.apply || !gameManager.trialsManager.activeTrial('fh', 360)) {
         gameManager.battleGoalManager.drawBattleGoal(this.character);
+        if (gameManager.fhRules() || settingsManager.settings.battleGoalsFh) {
+          gameManager.battleGoalManager.drawBattleGoal(this.character);
+        }
       }
       gameManager.stateManager.after();
     }

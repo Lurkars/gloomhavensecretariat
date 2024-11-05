@@ -28,7 +28,8 @@
             ],
             "allowedCommonJsDependencies": [
               "autocompleter",
-              "leaflet"
+              "leaflet",
+              "mermaid"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",

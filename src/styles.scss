@@ -109,6 +109,7 @@ body {
   --ghs-filter-blue: invert(72%) sepia(96%) saturate(1077%) hue-rotate(164deg) brightness(97%) contrast(94%);
   --ghs-filter-green: invert(56%) sepia(53%) saturate(536%) hue-rotate(39deg) brightness(95%) contrast(93%);
   --ghs-filter-red: invert(26%) sepia(70%) saturate(2000%) hue-rotate(348deg) brightness(104%) contrast(97%);
+  --ghs-filter-darkred: invert(10%) sepia(24%) saturate(6391%) hue-rotate(357deg) brightness(92%) contrast(106%);
   --ghs-filter-brown: brightness(0) saturate(100%) invert(21%) sepia(11%) saturate(2303%) hue-rotate(347deg) brightness(93%) contrast(89%);
   --ghs-filter-shadow: drop-shadow(2px 2px 2px var(--ghs-color-darkgray));
   --ghs-filter-shadow-thin: drop-shadow(1px 1px 1px var(--ghs-color-darkgray));
@@ -879,7 +880,7 @@ ghs-pointer-input {
     filter: none;
 
     img {
-      filter: var(--ghs-filter-gray);
+      filter: var(--ghs-filter-darkred);
     }
   }
 

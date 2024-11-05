@@ -277,11 +277,14 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         var parser = new DOMParser();
         var svgElement = parser.parseFromString(svg, "image/svg+xml").lastChild as SVGElement;
 
-        let subgraphs = svgElement.getElementsByClassName('clusters').length ? svgElement.getElementsByClassName('clusters')[0].getElementsByTagName("rect") : [];
+        let subgraphs: HTMLCollectionOf<SVGRectElement> | undefined[] = svgElement.getElementsByClassName('clusters').length ? svgElement.getElementsByClassName('clusters')[0].getElementsByTagName("rect") : [];
 
         for (let i = 0; i < subgraphs.length; i++) {
-            subgraphs[i].setAttribute("rx", "20");
-            subgraphs[i].setAttribute("ry", "20");
+            const subgraph = subgraphs[i];
+            if (subgraph) {
+                subgraph.setAttribute("rx", "20");
+                subgraph.setAttribute("ry", "20");
+            }
         }
 
         const viewBox = svgElement.getAttribute('viewBox') || "0 0 600 600";

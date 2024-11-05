@@ -162,6 +162,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       }
     })
     this.update();
+
+    this.dialogRef.closed.subscribe({
+      next: () => {
+        gameManager.trialsManager.applyTrialCards();
+      }
+    })
   }
 
   uiChangeSubscription: Subscription | undefined;
