@@ -55,15 +55,15 @@ export class ItemManager {
             if (itemData.edition == 'gh') {
                 const tradingPost = this.game.party.buildings && this.game.party.buildings.find((buildingModel) => buildingModel.name == "trading-post" && buildingModel.state != 'wrecked');
                 if (tradingPost) {
-                    if (tradingPost.level >= 2 && [21, 37, 53, 93, 94, 106, 115].indexOf(itemData.id) != -1) {
+                    if (typeof itemData.id === 'number' && tradingPost.level >= 2 && [21, 37, 53, 93, 94, 106, 115].indexOf(itemData.id) != -1) {
                         return true;
-                    } else if (tradingPost.level >= 3 && [46, 83, 84, 85, 86, 87, 88, 102, 110, 111, 120, 121, 122, 123, 126, 128].indexOf(itemData.id) != -1) {
+                    } else if (typeof itemData.id === 'number' && tradingPost.level >= 3 && [46, 83, 84, 85, 86, 87, 88, 102, 110, 111, 120, 121, 122, 123, 126, 128].indexOf(itemData.id) != -1) {
                         return true;
-                    } else if (tradingPost.level >= 4 && [17, 35, 47, 51, 62, 74, 77, 78, 79, 80, 81, 82, 117, 118, 119, 127, 129, 131].indexOf(itemData.id) != -1) {
+                    } else if (typeof itemData.id === 'number' && tradingPost.level >= 4 && [17, 35, 47, 51, 62, 74, 77, 78, 79, 80, 81, 82, 117, 118, 119, 127, 129, 131].indexOf(itemData.id) != -1) {
                         return true;
                     }
                 }
-                return [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
+                return typeof itemData.id === 'number' && [10, 25, 72, 105, 109, 116].indexOf(itemData.id) != -1;
             } else if (itemData.edition == 'fc') {
                 let fcItems = [];
                 if (this.game.party.scenarios.find((model) => model.edition == 'fh' && model.index == "82" && !model.group)) {
@@ -79,12 +79,15 @@ export class ItemManager {
         return false;
     }
 
-    getItem(id: number, edition: string, all: boolean): ItemData | undefined {
+    getItem(id: number | string, edition: string, all: boolean): ItemData | undefined {
+        if (!isNaN(+id)) {
+            id = +id;
+        }
         return gameManager.itemData().find((itemData) => (itemData && itemData.id == id && itemData.edition == edition && (all || this.isItemAvailable(itemData, edition))));
     }
 
     maxItemIndex(edition: string): number {
-        return Math.max(...this.getItems(edition, true).map((itemData) => itemData.id));
+        return Math.max(...this.getItems(edition, true).filter((itemData) => typeof itemData.id === 'number').map((itemData) => +itemData.id));
     }
 
     pricerModifier(): number {
@@ -314,7 +317,7 @@ export class ItemManager {
     }
 
     toggleEquippedItem(item: ItemData, character: Character, force: boolean) {
-        let equippedItems: ItemData[] = character.progress.equippedItems.map((identifier) => this.getItem(+identifier.name, identifier.edition, true)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
+        let equippedItems: ItemData[] = character.progress.equippedItems.map((identifier) => this.getItem(identifier.name, identifier.edition, true)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
         const equipIndex = equippedItems.indexOf(item);
         if (force && equipIndex == -1) {
             equippedItems.push(item);
@@ -406,8 +409,8 @@ export class ItemManager {
                 (blueprint && itemData.blueprint &&
                     (!itemData.requiredBuilding ||
                         gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)))) &&
-            (from == -1 || itemData.id >= from) &&
-            (to == -1 || itemData.id <= to) &&
+            (from == -1 || typeof itemData.id === 'number' && itemData.id >= from) &&
+            (to == -1 || typeof itemData.id === 'number' && itemData.id <= to) &&
             !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) &&
             (itemData.edition == edition || gameManager.editionExtensions(edition).indexOf(itemData.edition) != -1));
         let item: ItemData | undefined = undefined;
@@ -420,7 +423,7 @@ export class ItemManager {
     applyEquippedItemEffects(character: Character) {
         character.immunities = [];
         character.progress.equippedItems.forEach((identifier) => {
-            const item = gameManager.itemManager.getItem(+identifier.name, identifier.edition, true);
+            const item = gameManager.itemManager.getItem(identifier.name, identifier.edition, true);
             if (item) {
                 gameManager.itemManager.applyItemEffects(character, item);
             }
@@ -517,6 +520,20 @@ export class ItemManager {
                 const negativeConditions: ConditionName[] = gameManager.conditionsForTypes(ConditionType.negative, ConditionType.character).map((condition) => condition.name);
                 character.entityConditions = character.entityConditions.filter((entityCondition) => negativeConditions.indexOf(entityCondition.name) == -1);
                 break;
+        }
+    }
+
+    sortItems(a: ItemData, b: ItemData): number {
+        if (typeof a.id === 'number' && typeof b.id === 'number') {
+            return a.id - b.id;
+        } else if (typeof a.id === 'number') {
+            return -1;
+        } else if (typeof b.id === 'number') {
+            return 1;
+        } else if (a.id < b.id) {
+            return -1;
+        } else {
+            return 1;
         }
     }
 

@@ -390,6 +390,14 @@
     z-index: 1;
     text-shadow: 1px 0px var(--ghs-color-darkgray), 0px 1px var(--ghs-color-darkgray), 1px 0px var(--ghs-color-darkgray), 0px 1px var(--ghs-color-darkgray);
     filter: drop-shadow(1px 1px 1px var(--ghs-color-darkgray));
+
+    &.side {
+      left: 13%;
+      width: 15%;
+      height: 25%;
+      font-size: 1.6em;
+      z-index: 4;
+    }
   }
 
   .front .mixed-element {

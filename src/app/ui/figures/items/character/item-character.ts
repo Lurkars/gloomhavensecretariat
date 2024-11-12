@@ -28,7 +28,7 @@ export class CharacterItemComponent {
     }
 
     bbBlocked(): boolean {
-        return gameManager.bbRules() && !this.equipped() && this.character.progress.equippedItems.find((identifier) => (+identifier.name) == (this.item.id % 2 == 0 ? this.item.id - 1 : this.item.id + 1) && identifier.edition == this.item.edition) != undefined;
+        return gameManager.bbRules() && !this.equipped() && this.character.progress.equippedItems.find((identifier) => typeof this.item.id === 'number' && (+identifier.name) == (this.item.id % 2 == 0 ? this.item.id - 1 : this.item.id + 1) && identifier.edition == this.item.edition) != undefined;
     }
 
     isLootRandomItem() {

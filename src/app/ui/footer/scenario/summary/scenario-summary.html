@@ -643,11 +643,11 @@
             <div class="item items" *ngFor="let item of (rewards.items || []); let i = index;">
               <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white"
                 [ghs-label]="'scenario.rewards.items'"
-                [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
-                (click)="openItemDialog(gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
+                [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
+                (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
               <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
-                [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(+item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
-                (click)="openItemDialog(gameManager.itemManager.getItem(+item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
+                [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
+                (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.items && rewards.hints.items[i]"
                 [ghs-label]="rewards.hints.items[i]"></span>
@@ -659,12 +659,12 @@
                 <ng-container *ngFor="let item of (itemList || []);">
                   <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white"
                     [ghs-label]="'scenario.rewards.items'"
-                    [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
-                    (click)="openItemDialog(gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
+                    [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
+                    (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
                   <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white"
                     [ghs-label]="'scenario.rewards.item'"
-                    [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(+item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
-                    (click)="openItemDialog(gameManager.itemManager.getItem(+item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
+                    [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
+                    (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
                   <span class="placeholder text-white hint"
                     *ngIf="rewards.hints && rewards.hints.chooseItem && rewards.hints.chooseItem[i]"
                     [ghs-label]="rewards.hints.chooseItem[i]"></span>
@@ -678,12 +678,12 @@
                 [ghs-label]="'scenario.rewards.itemDesignRange'" [ghs-label-args]="[item]"></span>
               <span *ngIf="item.indexOf('-') == -1 && item.indexOf(':') == -1" class="placeholder text-white"
                 [ghs-label]="'scenario.rewards.itemDesign'"
-                [ghs-label-args]="[item, gameManager.itemManager.getItem(+item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true)?.name || '']"
-                (click)="openItemDialog(gameManager.itemManager.getItem(+item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true))"></span>
+                [ghs-label-args]="[item, gameManager.itemManager.getItem(item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true)?.name || '']"
+                (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true))"></span>
               <span *ngIf="item.indexOf('-') == -1 && item.indexOf(':') != -1" class="placeholder text-white"
                 [ghs-label]="'scenario.rewards.itemDesignEdition'"
-                [ghs-label-args]="[item.split(':')[0], gameManager.itemManager.getItem(+item.split(':')[0], item.split(':')[1], true)?.name || '', item.split(':')[1]]"
-                (click)="openItemDialog(gameManager.itemManager.getItem(+item.split(':')[0], item.split(':')[1], true))"></span>
+                [ghs-label-args]="[item.split(':')[0], gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true)?.name || '', item.split(':')[1]]"
+                (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true))"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.itemDesigns && rewards.hints.itemDesigns[i]"
                 [ghs-label]="rewards.hints.itemDesigns[i]"></span>
@@ -694,8 +694,8 @@
                 [ghs-label]="'scenario.rewards.itemBlueprintRange'" [ghs-label-args]="item.split('-')"></span>
               <span *ngIf="item.indexOf('-') == -1" class="placeholder text-white"
                 [ghs-label]="'scenario.rewards.itemBlueprint'"
-                [ghs-label-args]="[item, gameManager.itemManager.getItem(+item,scenario.edition || '', true)?.name || '']"
-                (click)="openItemDialog(gameManager.itemManager.getItem(+item,scenario.edition || '', true))"></span>
+                [ghs-label-args]="[item, gameManager.itemManager.getItem(item,scenario.edition || '', true)?.name || '']"
+                (click)="openItemDialog(gameManager.itemManager.getItem(item,scenario.edition || '', true))"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.itemBlueprints && rewards.hints.itemBlueprints[i]"
                 [ghs-label]="rewards.hints.itemBlueprints[i]"></span>

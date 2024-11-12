@@ -34,6 +34,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
     edition: string = "";
     slots: Action[] = [];
     slotsBack: Action[] = [];
+    idNumber: boolean = false;
 
     settingsManager: SettingsManager = settingsManager;
     gameManager: GameManager = gameManager;
@@ -41,7 +42,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
 
     ngOnInit(): void {
         if (!this.item && this.identifier) {
-            this.item = gameManager.itemManager.getItem(+this.identifier.name, this.identifier.edition, true);
+            this.item = gameManager.itemManager.getItem(this.identifier.name, this.identifier.edition, true);
         }
 
         if (this.item) {
@@ -76,6 +77,8 @@ export class ItemComponent implements OnInit, AfterViewInit {
                 action.small = true;
                 this.item.actions.push(action);
             }
+
+            this.idNumber = typeof this.item.id === 'number';
         }
 
         gameManager.uiChange.subscribe({

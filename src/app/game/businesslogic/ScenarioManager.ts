@@ -205,7 +205,7 @@ export class ScenarioManager {
                   if (item.indexOf(':') != -1) {
                     itemEdition = item.split(':')[1];
                   }
-                  const itemData = gameManager.itemManager.getItem(+(item.split(':')[0]), itemEdition, true);
+                  const itemData = gameManager.itemManager.getItem((item.split(':')[0]), itemEdition, true);
                   if (itemData && (!itemData.unlockScenario || itemData.unlockScenario.edition != scenario.edition || itemData.unlockScenario.name != scenario.index)) {
                     this.game.party.unlockedItems.push(new CountIdentifier(itemData.id + '', itemData.edition));
                   }

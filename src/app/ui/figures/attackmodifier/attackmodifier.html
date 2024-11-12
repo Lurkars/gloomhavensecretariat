@@ -86,8 +86,12 @@
         AttackModifierType.minus1extra" class="numeration character-curse-icon">
           *
         </span>
-        <span class="am-value" *ngIf="attackModifier.type == AttackModifierType.plus">+{{attackModifier.value}}</span>
-        <span class="am-value" *ngIf="attackModifier.type == AttackModifierType.minus">-{{attackModifier.value}}</span>
+        <span class="am-value"
+          [ngClass]="{'side' : newStyle && attackModifier.effects && attackModifier.effects.length > 0}"
+          *ngIf="attackModifier.type == AttackModifierType.plus">+{{attackModifier.value}}</span>
+        <span class="am-value"
+          [ngClass]="{'side' : newStyle && attackModifier.effects && attackModifier.effects.length > 0}"
+          *ngIf="attackModifier.type == AttackModifierType.minus">-{{attackModifier.value}}</span>
         <span *ngIf="characterIcon && attackModifier.character" class="character-icon">
           <img [src]="characterIcon" />
         </span>

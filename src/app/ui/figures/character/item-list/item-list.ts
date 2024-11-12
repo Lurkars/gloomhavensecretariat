@@ -44,7 +44,7 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
 
     update() {
         this.setup = gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound;
-        this.items = (gameManager.bbRules() ? gameManager.itemManager.getItems('bb') : this.character.progress.items.map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true))).filter((itemData) => itemData && (this.setup || !settingsManager.settings.characterItemsPermanentEquipped || this.equipped(itemData))).map((itemData) => itemData as ItemData).sort((a, b) => this.sortItems(a, b));
+        this.items = (gameManager.bbRules() ? gameManager.itemManager.getItems('bb') : this.character.progress.items.map((identifier) => gameManager.itemManager.getItem(identifier.name, identifier.edition, true))).filter((itemData) => itemData && (this.setup || !settingsManager.settings.characterItemsPermanentEquipped || this.equipped(itemData))).map((itemData) => itemData as ItemData).sort((a, b) => this.sortItems(a, b));
     }
 
     sortItems(a: ItemData, b: ItemData) {

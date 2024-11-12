@@ -1,11 +1,11 @@
 {
-  "name": "core",
-  "characterClass": "unfettered",
-  "iconUrl": "./assets/images/character/icons/cc-core.svg",
-  "thumbnailUrl": "./assets/images/character/thumbnail/cc-core.png",
+  "name": "woebound",
+  "characterClass": "valrath",
+  "iconUrl": "./assets/images/character/icons/cc-woebound.svg",
+  "thumbnailUrl": "./assets/images/character/thumbnail/cc-woebound.png",
   "edition": "fh",
-  "handSize": 9,
-  "color": "#de7519",
+  "handSize": 10,
+  "color": "#544169",
   "stats": [
     {
       "level": 1,
@@ -58,37 +58,16 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0"
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
+            "type": "minus",
+            "value": 4,
             "effects": [
               {
-                "type": "condition",
-                "value": "wound"
-              },
-              {
-                "type": "condition",
-                "value": "wound",
+                "type": "elementConsume",
+                "value": "wild",
                 "effects": [
                   {
-                    "type": "specialTarget",
-                    "value": "self"
+                    "type": "condition",
+                    "value": "bane"
                   }
                 ]
               }
@@ -107,66 +86,135 @@
             "type": "minus1"
           }
         },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "poison"
-              },
-              {
-                "type": "condition",
-                "value": "poison",
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "immobilize"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 2,
-      "cards": [
         {
           "count": 1,
           "attackModifier": {
             "type": "plus0",
+            "rolling": true,
             "effects": [
               {
-                "type": "custom",
-                "value": "%data.custom.perks.core.1%"
+                "type": "element",
+                "value": "ice"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "air"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "pierce",
+                "value": "2"
+              },
+              {
+                "type": "required",
+                "effects": [
+                  {
+                    "type": "element",
+                    "value": "fire"
+                  },
+                  {
+                    "type": "element",
+                    "value": "ice"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "required",
+                "effects": [
+                  {
+                    "type": "element",
+                    "value": "light"
+                  },
+                  {
+                    "type": "element",
+                    "value": "dark"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "dark"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "fire"
               }
             ]
           }
@@ -178,20 +226,78 @@
       "count": 2,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "disarm"
+              },
+              {
+                "type": "required",
+                "effects": [
+                  {
+                    "type": "element",
+                    "value": "air"
+                  },
+                  {
+                    "type": "element",
+                    "value": "earth"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
             "effects": [
               {
                 "type": "heal",
-                "value": 1,
+                "value": "1",
                 "effects": [
                   {
-                    "type": "range",
-                    "value": 1
+                    "type": "specialTarget",
+                    "value": "self"
                   }
                 ]
+              },
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": "1",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "earth"
               }
             ]
           }
@@ -205,28 +311,12 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
+            "type": "plus",
+            "value": "X",
             "effects": [
               {
-                "type": "condition",
-                "value": "ward",
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
-              },
-              {
-                "type": "condition",
-                "value": "regenerate",
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
+                "type": "custom",
+                "value": "%data.custom.perks.woebound.1%"
               }
             ]
           }
@@ -234,72 +324,23 @@
       ]
     },
     {
-      "type": "add",
+      "type": "custom",
       "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "minus2",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "brittle"
-              }
-            ]
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus3",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "brittle",
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "remove",
-      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        }
-      ]
+      "custom": "%data.custom.perks.woebound.2%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.perks.core.2%"
+      "custom": "%data.custom.perks.woebound.3%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "%data.custom.perks.core.3%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.core.4%"
+      "custom": "%data.custom.perks.woebound.4%"
     }
   ],
   "masteries": [
-    "%data.custom.perks.core.5%",
-    "%data.custom.perks.core.6%"
+    "%data.custom.perks.woebound.5%",
+    "%data.custom.perks.woebound.6%"
   ]
 }

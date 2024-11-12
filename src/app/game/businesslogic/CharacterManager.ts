@@ -26,8 +26,14 @@ export class CharacterManager {
     this.game = game;
   }
 
-  characterIcon(character: string): string {
-    const characterData = gameManager.getCharacterData(character);
+  characterIcon(character: CharacterData | string): string {
+    let characterData: CharacterData;
+    if (character instanceof CharacterData) {
+      characterData = character;
+    } else {
+      characterData = gameManager.getCharacterData(character);
+    }
+
     if (characterData.iconUrl) {
       return characterData.iconUrl;
     }
@@ -303,13 +309,13 @@ export class CharacterManager {
 
   itemEffect(itemData: ItemData): boolean {
     if (itemData.edition == 'gh') {
-      return [16, 38, 52, 101, 103, 108].indexOf(itemData.id) != -1;
+      return typeof itemData.id === 'number' && [16, 38, 52, 101, 103, 108].indexOf(itemData.id) != -1;
     } else if (itemData.edition == 'cs') {
-      return [157, 71].indexOf(itemData.id) != -1;
+      return typeof itemData.id === 'number' && [157, 71].indexOf(itemData.id) != -1;
     } else if (itemData.edition == 'toa') {
-      return [101, 107].indexOf(itemData.id) != -1;
+      return typeof itemData.id === 'number' && [101, 107].indexOf(itemData.id) != -1;
     } else if (itemData.edition == 'fh') {
-      return [3, 11, 41, 60, 132, 138, 178].indexOf(itemData.id) != -1;
+      return typeof itemData.id === 'number' && [3, 11, 41, 60, 132, 138, 178].indexOf(itemData.id) != -1;
     }
     return false;
   }

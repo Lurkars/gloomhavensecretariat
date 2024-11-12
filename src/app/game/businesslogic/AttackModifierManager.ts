@@ -167,13 +167,13 @@ export class AttackModifierManager {
       } else {
         attackModifierDeck.current = row * 3 + Math.floor(Math.random() * 3);
         if (state) {
-          const nextCard = row * 3 + Math.floor(Math.random() * 3);
-          if (nextCard < attackModifierDeck.current) {
-            attackModifierDeck.lastVisible = nextCard;
-          } else {
-            attackModifierDeck.lastVisible = attackModifierDeck.current;
-            attackModifierDeck.current = nextCard;
+          let nextRow = row + 1;
+          if (nextRow >= Math.floor(attackModifierDeck.cards.length / 3)) {
+            nextRow = 0;
           }
+          const nextCard = nextRow * 3 + Math.floor(Math.random() * 3);
+          attackModifierDeck.lastVisible = attackModifierDeck.current;
+          attackModifierDeck.current = nextCard;
         } else {
           attackModifierDeck.lastVisible = attackModifierDeck.current;
         }
@@ -381,7 +381,7 @@ export class AttackModifierManager {
 
     if (!gameManager.characterManager.ignoreNegativeItemEffects(character)) {
       for (let itemIdentifier of character.progress.equippedItems) {
-        const itemData = gameManager.itemManager.getItem(+itemIdentifier.name, itemIdentifier.edition, true);
+        const itemData = gameManager.itemManager.getItem(itemIdentifier.name, itemIdentifier.edition, true);
         if (itemData && itemData.minusOne) {
           for (let i = 0; i < itemData.minusOne; i++) {
             this.addModifier(attackModifierDeck, new AttackModifier(AttackModifierType.minus1));

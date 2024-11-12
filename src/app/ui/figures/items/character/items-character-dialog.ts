@@ -53,7 +53,7 @@ export class ItemsCharacterDialogComponent {
     }
 
     update() {
-        this.items = gameManager.bbRules() ? gameManager.itemManager.getItems('bb') : this.character.progress.items.map((identifier) => gameManager.itemManager.getItem(+identifier.name, identifier.edition, true)).filter((itemData) => itemData).map((itemData) => itemData as ItemData).sort((a, b) => this.sortItemData(a, b));
+        this.items = gameManager.bbRules() ? gameManager.itemManager.getItems('bb') : this.character.progress.items.map((identifier) => gameManager.itemManager.getItem(identifier.name, identifier.edition, true)).filter((itemData) => itemData).map((itemData) => itemData as ItemData).sort((a, b) => this.sortItemData(a, b));
 
         if (this.onlyEquipped) {
             this.items = this.items.filter((itemData) => this.equipped(itemData));

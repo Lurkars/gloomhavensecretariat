@@ -275,7 +275,7 @@ export class RoundManager {
       if (settingsManager.settings.characterItems) {
         figure.progress.equippedItems.forEach((identifier) => {
           if (identifier.tags) {
-            const item = gameManager.itemManager.getItem(+identifier.name, identifier.edition, true);
+            const item = gameManager.itemManager.getItem(identifier.name, identifier.edition, true);
             identifier.tags = identifier.tags.filter((tag) => tag != ItemFlags.spent);
             if (item && item.spent) {
               identifier.tags = identifier.tags.filter((tag) => tag != ItemFlags.slot && tag != ItemFlags.slotBack);

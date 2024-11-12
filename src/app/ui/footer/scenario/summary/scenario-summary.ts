@@ -215,9 +215,9 @@ export class ScenarioSummaryComponent implements OnDestroy {
             this.collectiveResources = finish.collectiveResources || [];
             this.items = finish.items;
             this.calendarSectionManual = finish.calendarSectionManual || finish.calenderSectionManual;
-            this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(+finish.randomItem.name, finish.randomItem.edition, true) : undefined;
+            this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(finish.randomItem.name, finish.randomItem.edition, true) : undefined;
             this.randomItemIndex = finish.randomItemIndex;
-            this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(+item.name, item.edition, true) : undefined) : [];
+            this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(item.name, item.edition, true) : undefined) : [];
             this.randomItemBlueprints = finish.randomItemBlueprints;
             this.trials = finish.trials;
             this.updateState();
@@ -265,7 +265,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 }
                 if (this.rewards.items) {
                     this.rewards.items.forEach((item, index) => {
-                        const itemData = gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
+                        const itemData = gameManager.itemManager.getItem(item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
                         if (itemData) {
                             this.rewardItems[index] = itemData;
                             this.rewardItemCount[index] = item.indexOf(':') == -1 ? 1 : +item.split(':')[1];
@@ -292,7 +292,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                     let index = 0;
                     this.rewards.chooseItem.forEach((itemList) => {
                         itemList.forEach((item) => {
-                            const itemData = gameManager.itemManager.getItem(+item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
+                            const itemData = gameManager.itemManager.getItem(item.split(':')[0].split('-')[0], item.split(':')[0].split('-').slice(1).join('-') || this.scenario.edition, true);
                             if (itemData) {
                                 this.rewardItems[index] = itemData;
                                 this.rewardItemCount[index] = item.indexOf(':') == -1 ? 1 : +item.split(':')[1];

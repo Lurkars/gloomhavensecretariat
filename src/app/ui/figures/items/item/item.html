@@ -9,12 +9,12 @@
                 <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
                 <div class="id">
                     <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span
-                        *ngIf="item.id < 100">0</span><span *ngIf="item.id < 10">0</span><span>{{item.id}}</span>
+                        *ngIf="idNumber && +item.id < 100">0</span><span *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
                 </div>
             </div>
             <div class="card-back front" *ngIf="item.actionsBack && item.actionsBack.length > 0">
                 <img class="artwork"
-                    [src]="'./assets/artwork/items/' + item.edition + '-' + (item.id < 100 ? '0' : '') + (item.id < 10 ? '0' : '') + item.id + '.png'">
+                    [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + (item.backArtwork ? '-back' : '') + '.png'">
                 <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
                 <div class="content">
                     <div class="actions">
@@ -39,13 +39,16 @@
                 </div>
                 <div class="id">
                     <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span
-                        *ngIf="item.id < 100">0</span><span *ngIf="item.id < 10">0</span><span>{{item.id}}</span>
+                        *ngIf="idNumber && +item.id < 100">0</span><span *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
+                </div>
+                <div class="solo" [ngClass]="{'fh' : settingsManager.settings.fhStyle}" *ngIf="item.solo">
+                    <span [ghs-label]="'%game.characterToken.' + item.solo + '%'"></span>
                 </div>
             </div>
 
             <div class="card-front front">
                 <img class="artwork" *ngIf="!bb"
-                    [src]="'./assets/artwork/items/' + item.edition + '-' + (item.id < 100 ? '0' : '') + (item.id < 10 ? '0' : '') + item.id + '.png'">
+                    [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + '.png'">
                 <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
                 <div class="content">
                     <div class="actions" *ngIf="item.actions && item.actions.length > 0">
@@ -120,7 +123,7 @@
                 </div>
                 <div class="id">
                     <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span
-                        *ngIf="item.id < 100">0</span><span *ngIf="item.id < 10">0</span><span>{{item.id}}</span>
+                        *ngIf="idNumber && +item.id < 100">0</span><span *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
                 </div>
                 <div class="solo" [ngClass]="{'fh' : settingsManager.settings.fhStyle}" *ngIf="item.solo">
                     <span [ghs-label]="'%game.characterToken.' + item.solo + '%'"></span>

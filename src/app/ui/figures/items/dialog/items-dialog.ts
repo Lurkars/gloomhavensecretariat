@@ -25,7 +25,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
     editions: string[];
     editionItems: ItemData[] = [];
     items: ItemData[] = [];
-    itemsMeta: { edition: string, id: number, canAdd: boolean, canBuy: boolean, canCraft: boolean, owned: boolean, assigned: number, countAvailable: number }[] = [];
+    itemsMeta: { edition: string, id: number | string, canAdd: boolean, canBuy: boolean, canCraft: boolean, owned: boolean, assigned: number, countAvailable: number }[] = [];
     selected: ItemData | undefined;
     character: Character | undefined;
     filter: string = "";
@@ -109,7 +109,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
         if (this.character && this.edition && this.campaignMode && !this.all && !this.affordable) {
             this.character.progress.items.forEach((identifier) => {
                 if (identifier.edition == this.edition && !this.items.find((itemData) => itemData.id == +identifier.name && itemData.edition == identifier.edition)) {
-                    const item = gameManager.itemManager.getItem(+identifier.name, identifier.edition, true);
+                    const item = gameManager.itemManager.getItem(identifier.name, identifier.edition, true);
                     if (item) {
                         this.items.push(item);
                     }
@@ -117,7 +117,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
             })
         }
 
-        this.items = this.items.filter((itemData) => !this.filter || (ghsTextSearch(itemData.name, this.filter) || ghsTextSearch('' + (itemData.id < 100 ? '0' : '') + (itemData.id < 10 ? '0' : '') + itemData.id, this.filter)));
+        this.items = this.items.filter((itemData) => !this.filter || (ghsTextSearch(itemData.name, this.filter) || ghsTextSearch('' + (typeof itemData.id === 'number' && itemData.id < 100 ? '0' : '') + (typeof itemData.id === 'number' && itemData.id < 10 ? '0' : '') + itemData.id, this.filter)));
 
         this.itemSlotUndefined = this.items.find((itemData) => !itemData.slot) != undefined;
 
@@ -193,7 +193,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
                         return a.edition == this.currentEdition ? -1 : 1;
                     }
 
-                    return a.id - b.id;
+                    return gameManager.itemManager.sortItems(a, b);
                 }
             })
 

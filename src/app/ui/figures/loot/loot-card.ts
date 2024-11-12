@@ -167,7 +167,7 @@ export class LootComponent implements OnInit, OnChanges {
                                     gameManager.lootManager.applyLoot(this.loot, character, this.index);
                                     gameManager.stateManager.after();
                                 } else {
-                                    let result: ItemData | undefined = randomItemIdentifier ? gameManager.itemManager.getItem(+randomItemIdentifier.name, randomItemIdentifier.edition, true) : undefined;
+                                    let result: ItemData | undefined = randomItemIdentifier ? gameManager.itemManager.getItem(randomItemIdentifier.name, randomItemIdentifier.edition, true) : undefined;
                                     if (!result) {
                                         result = gameManager.lootManager.applyLoot(this.loot, character, this.index);
                                     }

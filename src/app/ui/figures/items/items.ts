@@ -63,7 +63,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         this.items = [];
         if (this.character.progress.items) {
             this.character.progress.items.forEach((item) => {
-                const itemData = gameManager.itemManager.getItem(+item.name, item.edition, true);
+                const itemData = gameManager.itemManager.getItem(item.name, item.edition, true);
                 if (itemData) {
                     this.items.push(itemData);
                 } else {
@@ -71,7 +71,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
                 }
             });
 
-            this.items.sort((a, b) => a.id - b.id);
+            this.items.sort(gameManager.itemManager.sortItems);
         }
 
         this.brewing = 0;
@@ -128,7 +128,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         if (this.itemEdition) {
             const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.itemEdition);
             if (editionData && editionData.items) {
-                this.itemIndex = Math.min(...editionData.items.map((itemData) => itemData.id));
+                this.itemIndex = Math.min(...editionData.items.filter((itemData) => typeof itemData.id === 'number').map((itemData) => +itemData.id));
             }
         }
         this.itemChange();
@@ -198,7 +198,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             gameManager.stateManager.before("addItem", gameManager.characterManager.characterName(this.character), item.id + "", item.edition);
             this.character.progress.items.push(new Identifier(item.id + "", item.edition));
             this.items.push(item);
-            this.items.sort((a, b) => a.id - b.id);
+            this.items.sort(gameManager.itemManager.sortItems);
             gameManager.stateManager.after();
             this.itemChange();
         }
@@ -210,7 +210,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             this.character.progress.gold -= (item.cost + gameManager.itemManager.pricerModifier());
             this.character.progress.items.push(new Identifier(item.id + "", item.edition));
             this.items.push(item);
-            this.items.sort((a, b) => a.id - b.id);
+            this.items.sort(gameManager.itemManager.sortItems);
             gameManager.stateManager.after();
             this.itemChange();
         }
@@ -265,7 +265,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             this.craftItemResources(item);
             this.character.progress.items.push(new Identifier(item.id + "", item.edition));
             this.items.push(item);
-            this.items.sort((a, b) => a.id - b.id);
+            this.items.sort(gameManager.itemManager.sortItems);
             gameManager.stateManager.after();
             this.itemChange();
         }

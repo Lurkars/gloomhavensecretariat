@@ -1,0 +1,81 @@
+[
+  {
+    "id": "cc-core",
+    "name": "Absoption Shield",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "solo": "core",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.fh-cc-core.1%",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "forceBox",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "%data.items.fh-cc-core.2%",
+            "small": true
+          }
+        ]
+      },
+      {
+        "type": "custom",
+        "value": "%data.items.fh-cc-core.3%",
+        "small": true
+      }
+    ],
+    "effectsBack": [
+      {
+        "type": "condition",
+        "value": "wound"
+      }
+    ],
+    "backArtwork": true
+  },
+  {
+    "id": "wb01",
+    "name": "Shards of Oblivion",
+    "count": 1,
+    "edition": "fh",
+    "solo": "wildborn",
+    "slot": "onehand",
+    "spent": true,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.fh-wb01.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": "wb02",
+    "name": "Chaos Sickle",
+    "count": 1,
+    "edition": "fh",
+    "solo": "woebound",
+    "slot": "onehand",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.fh-wb02.1%",
+        "small": true
+      }
+    ],
+    "actionsBack": [
+      {
+        "type": "custom",
+        "value": "%data.items.fh-wb02.2%",
+        "small": true
+      }
+    ],
+    "backArtwork": true
+  }
+]

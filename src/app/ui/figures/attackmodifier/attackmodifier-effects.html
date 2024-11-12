@@ -199,6 +199,14 @@
         </div>
       </ng-container>
 
+      <span class="required-container" *ngSwitchCase="AttackModifierEffectType.required">
+        <span *ngIf="effect.value" class="label" [ghs-label]="'' + effect.value"></span>
+        <span *ngIf="!effect.value" class="label">!</span>
+        <div class="sub-effects">
+          <ghs-attackmodifier-effects *ngFor="let subEffect of effect.effects" [attackModifier]="attackModifier"
+            [effects]="[subEffect]" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
+        </div>
+      </span>
 
       <ng-container *ngSwitchDefault>
         <img class="full" [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}"

@@ -66,7 +66,7 @@ export class CharacterSummonDialog {
     if (settingsManager.settings.characterItems) {
       if (this.character.progress && this.character.progress.items) {
         for (let itemIdentifier of this.character.progress.items) {
-          const item = gameManager.itemManager.getItem(+itemIdentifier.name, itemIdentifier.edition, true);
+          const item = gameManager.itemManager.getItem(itemIdentifier.name, itemIdentifier.edition, true);
           if (item && item.summon) {
             if (!item.summon.name) {
               item.summon.name = item.name;

@@ -71,7 +71,7 @@ export class TreasureLabelComponent implements OnInit {
                             this.items.push(itemData);
                         }
                     } else if ([TreasureRewardType.randomItem, TreasureRewardType.randomItemBlueprint, TreasureRewardType.randomItemDesign].indexOf(reward.type) != -1 && this.rewardResults && this.rewardResults[index] && this.rewardResults[index][0] && !isNaN(+this.rewardResults[index][0])) {
-                        const itemData = gameManager.itemManager.getItem(+this.rewardResults[index][0], this.rewardResults[index][2], true);
+                        const itemData = gameManager.itemManager.getItem(this.rewardResults[index][0], this.rewardResults[index][2], true);
                         if (itemData) {
                             this.items.push(itemData);
                         }

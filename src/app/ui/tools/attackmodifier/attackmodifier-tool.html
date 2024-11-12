@@ -26,7 +26,7 @@
         <h1><span [ghs-label]="'data.character.' + character.name"></span> [{{character.attackModifierDeck.cards.length}}]
         </h1>
         <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"
-          [characterIcon]="'./assets/images/character/icons/' + character.edition + '-' + character.name + '.svg'"
+          [characterIcon]="gameManager.characterManager.characterIcon(character)"
           *ngFor="let attackModifier of character.attackModifierDeck.cards"
           [newStyle]="settingsManager.settings.fhStyle || gameManager.newAmStyle(character.edition)"></ghs-attackmodifier>
       </div>
