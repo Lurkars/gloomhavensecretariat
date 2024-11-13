@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1731444789065,
+  "timestamp": 1731525946758,
   "appData": {
-    "version": "0.103.0"
+    "version": "0.103.1"
   },
   "index": "gloomhavensecretariat/index.html",
   "assetGroups": [
@@ -48,7 +48,7 @@
         "gloomhavensecretariat/common.37f3524823f831b3.js",
         "gloomhavensecretariat/favicon.ico",
         "gloomhavensecretariat/index.html",
-        "gloomhavensecretariat/main.f3cb77a639f875c0.js",
+        "gloomhavensecretariat/main.7cfb29b636989576.js",
         "gloomhavensecretariat/manifest.webmanifest",
         "gloomhavensecretariat/polyfills.39ee2b4f23a5c9ce.js",
         "gloomhavensecretariat/runtime.f69c988834a9431d.js",
@@ -1739,8 +1739,8 @@
     "gloomhavensecretariat/am-town-guard-icon.c02be0601faddc20.png": "d553253dff972d3fb1be7e8b3179f82091a0b0ca",
     "gloomhavensecretariat/assets/data/.empty": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "gloomhavensecretariat/assets/data/bas.json": "31d253d509cae15b76cfc7d6bf1e37266b89b4f7",
-    "gloomhavensecretariat/assets/data/bb.json": "bc55465e5bc3cc00165b9759912f02dae9721c02",
-    "gloomhavensecretariat/assets/data/cc.json": "000766603de2e4742f68d49e21b007f525c5073e",
+    "gloomhavensecretariat/assets/data/bb.json": "c1c0305057de04f60e56b5d1683869a6003141e1",
+    "gloomhavensecretariat/assets/data/cc.json": "a175c69d60f2a1f99e646f1009f5fda6a2442e1f",
     "gloomhavensecretariat/assets/data/cs.json": "54665ff6d018f28ee777e21dbb30b039097930e5",
     "gloomhavensecretariat/assets/data/fc.json": "0de79ec9de55d5fb1e63df813b84af947b148476",
     "gloomhavensecretariat/assets/data/fh-crossover.json": "867f7e83144e440d909f6226a00aa10798d34376",
@@ -1756,7 +1756,7 @@
     "gloomhavensecretariat/assets/data/solo.json": "23d1b4270d17756ddd2613beba2d460df1a38c21",
     "gloomhavensecretariat/assets/data/sox.json": "67ce684d5816f7b743ad16f6c673ac844e3a2698",
     "gloomhavensecretariat/assets/data/toa-envv.json": "0f20b06c7ace5a78206fc361327a3ec69ccdb57b",
-    "gloomhavensecretariat/assets/data/toa.json": "03f34b515f36a8a0402ed3103add1655066ded07",
+    "gloomhavensecretariat/assets/data/toa.json": "d05d9e22746e5dd4ae92e21c52feaa4a83aba092",
     "gloomhavensecretariat/assets/fonts/HighTower.eot": "5f2bcc12b7e238b60715d1b43358d557f9dc7aaa",
     "gloomhavensecretariat/assets/fonts/HighTower.otf": "8b0e782d811a5d212dd00c6a8b4351cccf6e2429",
     "gloomhavensecretariat/assets/fonts/HighTower.svg": "15d93a196556cace48d9dbd86cf9050145938f43",
@@ -3278,7 +3278,7 @@
     "gloomhavensecretariat/icon.5a11343c46ebf913.png": "53e79fd7b007e043eefe1e474f511ff2654a8ae1",
     "gloomhavensecretariat/immune.3638b2264dfc0cf4.svg": "683fda2b898292506e4a8f0984c5057c0e877509",
     "gloomhavensecretariat/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretariat/index.html": "43eb11b59924cf36cf8d5fbe9cceb85f35cddf38",
+    "gloomhavensecretariat/index.html": "2bb481337533b01c86e76d350377d8c27e909030",
     "gloomhavensecretariat/initiative.a7663b57012bb669.svg": "85c1e0fe11ba2111c2dc55370ff84796c86eb556",
     "gloomhavensecretariat/inner-mask.f2d18d4a7559b09e.svg": "a0c4d9bcd2afcc66f402053f2bf680546215d16b",
     "gloomhavensecretariat/item-back-fh.e293bb7bd25a2ea5.png": "6887a5deedb532c38ab40bde42a8b2c01121ca5f",
@@ -3300,7 +3300,7 @@
     "gloomhavensecretariat/layers.ef6db8722c2c3f9a.png": "c9e7528e491a39232ba24a2706c6c739d6fb0f06",
     "gloomhavensecretariat/level.38e1f58a07dc5898.svg": "004f02ea9f24d4ecbfef70b7d0c9cbd5e731827e",
     "gloomhavensecretariat/loot-back.b3962872f80142fe.png": "a10c9bcc106f820ba1ce8e9a9a9cc47fdbc734d1",
-    "gloomhavensecretariat/main.f3cb77a639f875c0.js": "d0c154413c9265ceeaff54c58fca6746c8450ce3",
+    "gloomhavensecretariat/main.7cfb29b636989576.js": "9826d5dce4f47cede1059dc5b31e7a88c3c510cb",
     "gloomhavensecretariat/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretariat/majallab.3bc19f63b5b1d474.svg": "68458a0f79e0e45258f0948d48f2a65c125b4322",
     "gloomhavensecretariat/majallab.4ef31693f35ab4df.woff": "5f4a605494c5e4adbe49e3b23bfdcf1f7f8a92b6",
