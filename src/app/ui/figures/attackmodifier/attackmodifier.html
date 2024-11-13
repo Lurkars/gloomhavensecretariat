@@ -1,6 +1,6 @@
 <div *ngIf="attackModifier" class="attack-modifier {{attackModifier.type}}" [ngClass]="{'town-guard' : townGuard }">
   <div class="card" [ngClass]="{'flipped' : flipped || attackModifier.revealed, 'no-animations' : !animate}" card-reveal
-    (change)="onChange($event)" [disabled]="!reveal" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'">
+    (change)="onChange($event)" [disabled]="!reveal" #card>
     <div class="card-back back">
       <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
     </div>
@@ -17,11 +17,11 @@
           </div>
         </ng-container>
 
-        <ng-container *ngIf="mixedElement && effects().length > 0">
+        <ng-container *ngIf="mixedElement && effects.length > 0">
           <div class="type multiple multiple-mixed-element {{mixedElement.value}}"
             [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
           </div>
-          <ng-container *ngFor="let effect of effects()">
+          <ng-container *ngFor="let effect of effects">
             <div *ngIf="filter(effect)" class="type multiple multiple-mixed-element {{effect.type}} {{effect.value}}"
               [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
             </div>
@@ -95,14 +95,16 @@
         <span *ngIf="characterIcon && attackModifier.character" class="character-icon">
           <img [src]="characterIcon" />
         </span>
-        <ng-container *ngIf="attackModifier.effects">
-          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effects()"
-            [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
-        </ng-container>
+        <div class="effects" *ngIf="attackModifier.effects"
+          [ngClass]="{'center' : (attackModifier.type == AttackModifierType.plus0 || newStyle), 'multiple' : effects.length > 1, 'multiple-2' : effects.length == 2, 'multiple-3' : effects.length == 3, 'multiple-4' : effects.length == 4}">
+          <ghs-attackmodifier-effect *ngFor="let effect of effects" [attackModifier]="attackModifier" [effect]="effect"
+            [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"
+            [length]="effects.length"></ghs-attackmodifier-effect>
+        </div>
 
         <div class="mixed-element" *ngIf="mixedElement">
-          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="[mixedElement]"
-            [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
+          <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="mixedElement"
+            [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
         </div>
 
         <div class="bb-index" *ngIf="bbIndex > -1 && bbIndex < 3" [ngClass]="{'character' : characterIcon}">
@@ -132,10 +134,12 @@
           <img [src]="'./assets/images/action/custom/' + townGuardEffectIcon.value + '.svg'" />
         </span>
 
-        <ng-container *ngIf="attackModifier.effects">
-          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effects()"
-            [offsetWidth]="card.offsetWidth" [townGuard]="true"></ghs-attackmodifier-effects>
-        </ng-container>
+        <div class="effects town-guard"
+          [ngClass]="{'center' : attackModifier.value == 0, 'multiple' : effects.length > 1, 'multiple-2' : effects.length == 2, 'multiple-3' : effects.length == 3, 'multiple-4' : effects.length == 4}"
+          *ngIf="attackModifier.effects">
+          <ghs-attackmodifier-effect *ngFor="let effect of effects" [attackModifier]="attackModifier" [effect]="effect"
+            [offsetWidth]="card.offsetWidth" [townGuard]="true" [length]="effects.length"></ghs-attackmodifier-effect>
+        </div>
 
         <img class="rolling" *ngIf="attackModifier.rolling" src="./assets/images/attackmodifier/rolling.svg" />
       </ng-container>

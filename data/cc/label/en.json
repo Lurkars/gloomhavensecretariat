@@ -35,7 +35,7 @@
         "6": "Trigger an ongoing effect on Chaotic Recursion six or more times in one round"
       },
       "wildborn": {
-        "1": "suffer %game.damage:2%",
+        "1": "instead if you suffer %game.damage:2%",
         "2": "Add +1 %game.action.attack% per collected %data.action.custom.cc-essence%",
         "3": "Place this card in your active area. On your next commanded attack, discard this card to add +2 %game.action.attack%",
         "4": "On your next commanded attack, discard this card to add +2 %game.action.attack%",

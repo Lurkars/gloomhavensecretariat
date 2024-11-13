@@ -101,7 +101,7 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "poison",
+                  "value": "muddle",
                   "small": true
                 }
               ]

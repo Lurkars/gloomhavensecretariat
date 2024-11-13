@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
@@ -26,6 +26,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   AttackModifierType = AttackModifierType;
   AttackModifierValueType = AttackModifierValueType;
   AttackModifierEffectType = AttackModifierEffectType;
+  effects: AttackModifierEffect[] = [];
   defaultType: boolean = true;
   animate: boolean = true;
   multipe: boolean = false;
@@ -37,9 +38,20 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
   settingsManager: SettingsManager = settingsManager;
 
+  constructor(public elementRef: ElementRef) { }
+
   ngOnInit(): void {
     this.animate = !this.disableFlip;
     this.init();
+  }
+
+  ngAfterViewInit(): void {
+    this.adjustFontSize();
+    gameManager.uiChange.subscribe({ next: () => this.adjustFontSize() });
+  }
+
+  adjustFontSize() {
+    this.elementRef.nativeElement.style.fontSize = (this.elementRef.nativeElement.offsetWidth * 0.08) + 'px';
   }
 
   init() {
@@ -64,13 +76,15 @@ export class AttackModifierComponent implements OnInit, OnChanges {
           this.townGuardEffectIcon = this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.custom && effect.icon);
         }
 
-        this.multipe = this.effects().length > 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.element) || this.effects().length > 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.condition || effect.type == AttackModifierEffectType.pierce || effect.type == AttackModifierEffectType.pull || effect.type == AttackModifierEffectType.push) || this.effects().length == 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.elementHalf) || false;
+        this.effects = (this.mixedElement ? this.attackModifier.effects.filter((effect) => effect != this.mixedElement) : this.attackModifier.effects).filter((effect) => !this.townGuard || effect.type != AttackModifierEffectType.custom || !effect.icon);
 
-        this.wildElement = this.effects().length == 1 && this.effects().every((effect) => (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) && effect.value == 'wild');
+        this.multipe = this.effects.length > 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.element) || this.effects.length > 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.condition || effect.type == AttackModifierEffectType.pierce || effect.type == AttackModifierEffectType.pull || effect.type == AttackModifierEffectType.push) || this.effects.length == 1 && this.effects.every((effect) => effect.type == AttackModifierEffectType.elementHalf) || false;
 
-        this.orTypeEffect = this.effects().find((effect) => effect.type == AttackModifierEffectType.or);
+        this.wildElement = this.effects.length == 1 && this.effects.every((effect) => (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) && effect.value == 'wild');
 
-        this.effects().forEach((effect) => {
+        this.orTypeEffect = this.effects.find((effect) => effect.type == AttackModifierEffectType.or);
+
+        this.effects.forEach((effect) => {
           if (effect.type != AttackModifierEffectType.heal && effect.type != AttackModifierEffectType.shield) {
             this.defaultType = false;
           }
@@ -107,10 +121,6 @@ export class AttackModifierComponent implements OnInit, OnChanges {
       }
     }
     return "";
-  }
-
-  effects(): AttackModifierEffect[] {
-    return (this.mixedElement ? this.attackModifier.effects.filter((effect) => effect != this.mixedElement) : this.attackModifier.effects).filter((effect) => !this.townGuard || effect.type != AttackModifierEffectType.custom || !effect.icon);
   }
 
   filter(effect: AttackModifierEffect): boolean {

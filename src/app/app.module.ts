@@ -20,7 +20,7 @@ import { InteractiveActionsComponent } from './ui/figures/actions/interactive/in
 import { ActionSummonComponent } from './ui/figures/actions/summon/action-summon';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
 import { AttackModifierDrawComponent } from './ui/figures/attackmodifier/attackmodifier-draw';
-import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/attackmodifier-effects';
+import { AttackModifierEffectComponent } from './ui/figures/attackmodifier/attackmodifier-effect';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierDeckDialogComponent } from './ui/figures/attackmodifier/attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
@@ -184,7 +184,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     AttackModifierDeckDialogComponent,
     AttackModifierDeckFullscreenComponent,
     AttackModifierDrawComponent,
-    AttackModifierEffectsComponent,
+    AttackModifierEffectComponent,
     AttackModifierStandaloneComponent,
     AttackModifierToolComponent,
     AutocompleteDirective,

@@ -83,12 +83,17 @@
                 "value": "wound"
               },
               {
-                "type": "condition",
-                "value": "wound",
+                "type": "required",
                 "effects": [
                   {
-                    "type": "specialTarget",
-                    "value": "self"
+                    "type": "condition",
+                    "value": "wound",
+                    "effects": [
+                      {
+                        "type": "specialTarget",
+                        "value": "self"
+                      }
+                    ]
                   }
                 ]
               }

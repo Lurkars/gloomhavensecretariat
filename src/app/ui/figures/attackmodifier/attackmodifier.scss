@@ -183,6 +183,10 @@
         filter: hue-rotate(290deg) saturate(200%);
       }
 
+      &.ward {
+        filter: hue-rotate(290deg) saturate(200%) brightness(60%);
+      }
+
       &.strengthen {
         filter: hue-rotate(165deg) saturate(100%);
       }
@@ -374,6 +378,88 @@
     }
   }
 
+  .front .effects {
+    position: absolute;
+    width: 18%;
+    top: 35%;
+    left: 6%;
+    z-index: 3;
+
+    &>ghs-attackmodifier-effect {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    &.multiple {
+
+
+      &.multiple-2 {
+        &>ghs-attackmodifier-effect:nth-child(1) {
+          transform: translate(0, -110%);
+        }
+      }
+
+    }
+
+    &.town-guard {
+      top: 56%;
+      left: 43%;
+      width: 15%;
+    }
+
+    &.center {
+      top: 22%;
+      left: 31%;
+      width: 37%;
+
+      &.multiple {
+
+        &>ghs-attackmodifier-effect:nth-child(1) {
+          transform: translate(-70%, -70%) scale(0.5);
+        }
+
+        &>ghs-attackmodifier-effect:nth-child(2) {
+          transform: translate(-30%, -30%) scale(0.5);
+        }
+
+        &>ghs-attackmodifier-effect:nth-child(3) {
+          transform: translate(-30%, -70%) scale(0.5);
+        }
+
+        &>ghs-attackmodifier-effect:nth-child(4) {
+          transform: translate(-70%, -30%) scale(0.5);
+        }
+
+        &.multiple-2 {
+          &>ghs-attackmodifier-effect:nth-child(1) {
+            transform: translate(-18%, -18%) scale(0.5);
+          }
+
+          &>ghs-attackmodifier-effect:nth-child(2) {
+            transform: translate(18%, 18%) scale(0.5);
+          }
+        }
+
+        &.multiple-3 {
+          &>ghs-attackmodifier-effect:nth-child(1) {
+            transform: translate(-25%, -15%) scale(0.4);
+          }
+
+          &>ghs-attackmodifier-effect:nth-child(2) {
+            transform: translate(0%, 25%) scale(0.4);
+          }
+
+          &>ghs-attackmodifier-effect:nth-child(3) {
+            transform: translate(25%, -15%) scale(0.4);
+          }
+        }
+      }
+    }
+  }
+
   .front .am-value {
     position: absolute;
     display: flex;
@@ -402,10 +488,11 @@
 
   .front .mixed-element {
     position: absolute;
-    top: 0;
-    left: -7%;
-    width: 40%;
-    height: 40%;
+    top: 8%;
+    left: 5%;
+    width: 16%;
+    height: 25%;
+    z-index: 3;
   }
 
   &.bless .front::before {

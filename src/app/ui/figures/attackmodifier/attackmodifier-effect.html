@@ -1,0 +1,214 @@
+<span class="effect-wrapper {{effect.type}}" *ngIf="effect"
+  [ngClass]="{'fh': settingsManager.settings.fhStyle, 'new-style' : newStyle, 'town-guard': townGuard}">
+  <span class="effect" [ngSwitch]="effect.type">
+    <ng-container *ngSwitchCase="AttackModifierEffectType.condition">
+      <img class="full" [ngClass]="{'target' : getTarget() || getRange()}"
+        [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '')  + 'condition/' + effect.value.split(':')[0] + '.svg'" />
+      <span *ngIf="effect.value.split(':').length > 1" class="value">{{effect.value.split(':')[1]}}</span>
+
+      <span class="target-value-container {{'target-' + getTarget().replace('game.specialTarget.','')}}"
+        *ngIf="getTarget()">
+        <span class="target-value text-white" [ghs-label]="getTarget().split(':')[0]"
+          [ghs-label-args]="getTarget().split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
+      </span>
+      <span class="target-value-container range" *ngIf="getRange()">
+        <span class="target-value text-white" [ghs-label]="getRange()" [style]="newStyle ? 'fh' : false"></span>
+      </span>
+    </ng-container>
+    <ng-container *ngSwitchCase="AttackModifierEffectType.element">
+      <img class="full" [ngClass]="{'sub-effects' : effect.effects && effect.effects.length}"
+        [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'" />
+
+      <div class="sub-effects" *ngFor="let subEffect of effect.effects">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
+          [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </ng-container>
+
+    <span class="element-half-container" *ngSwitchCase="AttackModifierEffectType.elementHalf">
+      <span class="element-half">
+        <img
+          [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value.split('|')[0] + '.svg'">
+      </span>
+      <span class="element-half">
+        <img
+          [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value.split('|')[1] + '.svg'">
+      </span>
+    </span>
+
+    <ng-container *ngSwitchCase="AttackModifierEffectType.elementConsume">
+      <span class="element consume">
+        <img
+          [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'">
+      </span>
+      <span class="divider">:</span>
+      <div class="sub-effects" *ngFor="let subEffect of effect.effects">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="subEffect" [offsetWidth]="offsetWidth"
+          [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </ng-container>
+
+    <div class="effect-container heal-container" *ngSwitchCase="AttackModifierEffectType.heal"
+      [style.border-width]="(offsetWidth * 0.020)  + 'px'"
+      [ngClass]="{'target' : getTarget() || getRange(), 'sub-effects' : subEffects().length > 0}">
+      <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}" [src]="'./assets/images/action/' + effect.type + '.svg'" />
+      <span class="value" *ngIf="effect.value">{{+effect.value | ghsValueSign}}</span>
+      <span class="target-value-container {{'target-' + getTarget().replace('game.specialTarget.','')}}"
+        *ngIf="getTarget()">
+        <span class="target-value text-white" [ghs-label]="getTarget().split(':')[0]"
+          [ghs-label-args]="getTarget().split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
+      </span>
+      <span class="target-value-container range" *ngIf="getRange()">
+        <span class="target-value text-white" [ghs-label]="getRange()" [style]="newStyle ? 'fh' : false"></span>
+      </span>
+      <div class="sub-effects">
+        <span class="divider">,</span>
+        <ghs-attackmodifier-effect *ngFor="let subEffect of subEffects()" [attackModifier]="attackModifier"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </div>
+
+    <div class="effect-container shield-container" *ngSwitchCase="AttackModifierEffectType.shield"
+      [style.border-width]="(offsetWidth * 0.020)  + 'px'" [ngClass]="{'target' : getTarget() || getRange()}">
+      <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}"
+        [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'" />
+      <span class="value" *ngIf="effect.value">{{+effect.value}}</span>
+      <span class="target-value-container {{'target-' + getTarget().replace('game.specialTarget.','')}}"
+        *ngIf="getTarget()">
+        <span class="target-value text-white" [ghs-label]="getTarget().split(':')[0]"
+          [ghs-label-args]="getTarget().split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
+      </span>
+      <span class="target-value-container range" *ngIf="getRange()">
+        <span class="target-value text-white" [ghs-label]="getRange()" [style]="newStyle ? 'fh' : false"></span>
+      </span>
+      <div class="sub-effects">
+        <ghs-attackmodifier-effect *ngFor="let subEffect of subEffects()" [attackModifier]="attackModifier"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </div>
+    <div class="effect-container retaliate-container" *ngSwitchCase="AttackModifierEffectType.retaliate"
+      [style.border-width]="(offsetWidth * 0.020)  + 'px'" [ngClass]="{'target' : getTarget() || getRange()}">
+      <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}"
+        [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg'" />
+      <span class="value" *ngIf="effect.value">{{+effect.value}}</span>
+      <span class="target-value-container {{'target-' + getTarget().replace('game.specialTarget.','')}}"
+        *ngIf="getTarget()">
+        <span class="target-value text-white" [ghs-label]="getTarget().split(':')[0]"
+          [ghs-label-args]="getTarget().split(':').slice(1)" [style]="newStyle ? 'fh' : false"></span>
+      </span>
+      <span class="target-value-container range" *ngIf="getRange()">
+        <span class="target-value text-white" [ghs-label]="getRange()" [style]="newStyle ? 'fh' : false"></span>
+      </span>
+      <div class="sub-effects">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" *ngFor="let subEffect of subEffects()"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </div>
+
+    <ng-container *ngSwitchCase="AttackModifierEffectType.target">
+      <img class="full" [src]="'./assets/images/attackmodifier/target.svg'" />
+
+      <div class="sub-effects" *ngIf="effect.effects">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" *ngFor="let subEffect of effect.effects"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="AttackModifierEffectType.area">
+      <ghs-action-hex [value]="effect.value"></ghs-action-hex>
+
+      <div class="sub-effects" *ngIf="effect.effects">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" *ngFor="let subEffect of effect.effects"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="AttackModifierEffectType.refreshItem">
+      <span class="card-action">
+        <img class="ghs-svg" src="./assets/images/action/card/refresh.svg" />
+        <img class="overlay" src="./assets/images/action/card/overlay/refresh.svg" />
+      </span>
+      <div class="sub-effects" *ngIf="effect.effects">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" *ngFor="let subEffect of effect.effects"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="AttackModifierEffectType.refreshSpentItem">
+      <div class="card-action-container">
+        <span class="card-action">
+          <img class="ghs-svg" src="./assets/images/action/card/refresh.svg" />
+          <img class="overlay" src="./assets/images/action/card/overlay/refresh.svg" />
+        </span>
+        <span class="label"><span [ghs-label]="'game.attackModifiers.effects.refreshSpentItem'"></span></span>
+
+        <div class="sub-effects" *ngIf="effect.effects">
+          <ghs-attackmodifier-effect [attackModifier]="attackModifier" *ngFor="let subEffect of effect.effects"
+            [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="AttackModifierEffectType.recoverRandomDiscard">
+      <span class="card-action">
+        <img class="ghs-svg" src="./assets/images/action/card/recover.svg" />
+        <img class="overlay" src="./assets/images/action/card/overlay/recover.svg" />
+      </span>
+      <div class="sub-effects" *ngIf="effect.effects">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" *ngFor="let subEffect of effect.effects"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="AttackModifierEffectType.custom">
+      <ng-container *ngIf="!effect.icon">
+        <span class="custom-value-container">
+          <span class="custom-value" [ngClass]="{'text-white' : !settingsManager.settings.fhStyle || townGuard}"
+            [ghs-label]="effect.value + ''"></span>
+        </span>
+      </ng-container>
+      <ng-container *ngIf="effect.icon">
+        <span class="effect-icon">
+          <img [src]="'./assets/images/action/custom/' + effect.value + '.svg'" />
+        </span>
+      </ng-container>
+
+      <div class="sub-effects" *ngIf="effect.effects">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" *ngFor="let subEffect of effect.effects"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </ng-container>
+
+
+    <ng-container *ngSwitchCase="AttackModifierEffectType.or">
+      <span class="or-label" [ngClass]="{'new-style' : newStyle}"><span [ghs-label]="'or'"></span></span>
+      <ghs-attackmodifier-effect [attackModifier]="attackModifier" *ngFor="let subEffect of effect.effects"
+        [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+    </ng-container>
+
+
+    <ng-container *ngSwitchCase="AttackModifierEffectType.changeType">
+      <img class="overlay" [src]="'./assets/images/attackmodifier/overlays/replace/' +effect.value + '.png'" />
+      <div class="sub-effects" *ngIf="effect.effects">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" *ngFor="let subEffect of effect.effects"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </ng-container>
+
+    <span class="required-container" *ngSwitchCase="AttackModifierEffectType.required">
+      <span *ngIf="effect.value" class="label" [ghs-label]="'' + effect.value"></span>
+      <span *ngIf="!effect.value" class="label">!</span>
+      <div class="sub-effects">
+        <ghs-attackmodifier-effect *ngFor="let subEffect of effect.effects" [attackModifier]="attackModifier"
+          [effect]="subEffect" [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+    </span>
+
+    <ng-container *ngSwitchDefault>
+      <img class="full" [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}"
+        [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/'  + effect.type + '.svg'" />
+      <span class="value" *ngIf="effect.value">{{+effect.value}}</span>
+    </ng-container>
+
+  </span>
+</span>
