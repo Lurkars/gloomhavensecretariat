@@ -173,7 +173,7 @@
   "close": "Schließen",
   "datamanagement": {
     ".": "Daten verwalten",
-    "addEditionDataUrl": "Editionasdaten Url hinzufügen",
+    "addEditionDataUrl": "Editionsdaten Url hinzufügen",
     "addSpoiler": "Spoiler hinzufügen",
     "addUnlock": "Freischalten",
     "backup": {
@@ -621,7 +621,7 @@
         "toggleSorted": "Gegenstände sortieren"
       },
       "choose": "Gegenstand auswählen",
-      "craft": "'{0}' anertigen",
+      "craft": "'{0}' anfertigen",
       "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelklick kann das Anlegen erzwungen werden.",
       "empty": "Keine Gegenstände gefunden",
       "filter": {
@@ -636,7 +636,7 @@
         ".": "Gegenstandskarten",
         "buyingDisabled": "Kaufen von Items nicht möglich, erst '%data.buildings.trading-post%' (37) wiederaufbauen",
         "character": "Gegenstandsladen für %game.characterIconColored.{0}% {1}",
-        "craftingDisabled": "Anertigen von Items nicht möglich, erst '%data.buildings.craftsman%' (34) wiederaufbauen"
+        "craftingDisabled": "Anfertigen von Items nicht möglich, erst '%data.buildings.craftsman%' (34) wiederaufbauen"
       },
       "unlock": "Gegenstand freischalten",
       "unlocked": "Gegenstand freigeschaltet",
