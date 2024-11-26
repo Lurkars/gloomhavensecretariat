@@ -90,6 +90,10 @@
       height: auto;
       filter: var(--ghs-filter-white);
       transform: translateY(-50%);
+
+      &.catched {
+        filter: var(--ghs-filter-green) brightness(0.7);
+      }
     }
 
     .stat-effect {
@@ -121,6 +125,10 @@
 
       .catching {
         filter: var(--ghs-filter-gray);
+
+        &.catched {
+          filter: var(--ghs-filter-green);
+        }
       }
 
       .stat-effect {

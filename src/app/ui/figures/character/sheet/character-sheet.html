@@ -70,7 +70,7 @@
             <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)">
             <span class="donations" *ngIf="donations">
               <span [ghs-label]="'character.progress.donations'"
-                [ghs-label-args]="['' + character.progress.donations]"></span>
+                [ghs-label-args]="[character.progress.donations]"></span>
             </span>
             <span class="donate" *ngIf="donations">
               <span [ghs-label]="'character.progress.donate'"></span>:

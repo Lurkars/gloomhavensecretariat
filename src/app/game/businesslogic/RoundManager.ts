@@ -613,6 +613,12 @@ export class RoundManager {
       this.game.party.townGuardDeck = townGuardDeck.toModel();
     }
 
+    if (this.game.party.pets) {
+      this.game.party.pets.forEach((value) => {
+        value.lost = false;
+      })
+    }
+
     gameManager.trialsManager.applyTrialCards();
 
     gameManager.stateManager.standeeDialogCanceled = false;

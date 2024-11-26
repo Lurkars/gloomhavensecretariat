@@ -3,7 +3,7 @@
   "edition": "fh",
   "deck": "imp",
   "flying": true,
-  "catching": true,
+  "pet": "07",
   "count": 10,
   "baseStat": {
     "type": "normal"

@@ -247,6 +247,7 @@ export class Game {
 
     this.party.players = this.party.players || [];
     this.party.casualScenarios = this.party.casualScenarios || [];
+    this.party.pets = this.party.pets || [];
 
     this.parties = [this.party];
     if (model.parties) {

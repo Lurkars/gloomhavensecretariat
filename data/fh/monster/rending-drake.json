@@ -1,7 +1,7 @@
 {
   "name": "rending-drake",
   "edition": "fh",
-  "catching": true,
+  "pet": "04",
   "count": 6,
   "baseStat": {
     "type": "normal"

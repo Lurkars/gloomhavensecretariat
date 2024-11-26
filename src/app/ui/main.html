@@ -15,7 +15,7 @@
           <span [ghs-label]="'server.connect'"></span>
           <span class="tries" *ngIf="gameManager.stateManager.connectionTries > 0">
             <span [ghs-label]="'server.connectionTries'"
-              [ghs-label-args]="['' + gameManager.stateManager.connectionTries]"></span>
+              [ghs-label-args]="[gameManager.stateManager.connectionTries]"></span>
           </span>
           <span class="tries-hint" *ngIf="gameManager.stateManager.connectionTries > 4">
             <span [ghs-label]="'server.connectionTries.hint'"></span>
@@ -145,7 +145,7 @@
       <h2 [ghs-label]="'datamanagement.backup.auto.uploadUrl.error'"></h2>
       <p *ngIf="gameManager.stateManager.backupError > 0"
         [ghs-label]="'datamanagement.backup.auto.uploadUrl.error.status'"
-        [ghs-label-args]="['' + gameManager.stateManager.backupError]"></p>
+        [ghs-label-args]="[gameManager.stateManager.backupError]"></p>
       <p *ngIf="gameManager.stateManager.backupError == -1"
         [ghs-label]="'datamanagement.backup.auto.uploadUrl.error.unknown'"></p>
     </div>

@@ -109,7 +109,9 @@ export class Settings {
   feedbackErrorsIgnore: string[] = [];
   fhChallenges: boolean = false;
   fhChallengesApply: boolean = true;
+  fhGarden: boolean = true;
   fhGhItems: boolean = false;
+  fhPets: boolean = true;
   fhSecondEdition: boolean = false;
   fhStyle: boolean = false;
   fhTrials: boolean = false;

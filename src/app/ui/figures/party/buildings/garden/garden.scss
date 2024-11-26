@@ -1,0 +1,184 @@
+.garden-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--ghs-color-white);
+
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        }
+
+        .herbs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .herb {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+                .ghs-svg {
+                    width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                    height: auto;
+                    filter: var(--ghs-filter-gray);
+                }
+
+                .value {
+                    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                    color: var(--ghs-color-gray);
+                }
+
+                &.active {
+                    .ghs-svg {
+                        filter: var(--ghs-filter-white);
+                    }
+
+                    .value {
+                        color: var(--ghs-color-white);
+                    }
+                }
+
+                &:hover {
+                    .ghs-svg {
+                        filter: var(--ghs-filter-white);
+                    }
+
+                    .value {
+                        color: var(--ghs-color-white);
+                    }
+                }
+
+                &.disabled {
+                    cursor: initial;
+
+                    .ghs-svg {
+                        filter: var(--ghs-filter-darkgray);
+                    }
+
+                    .value {
+                        color: var(--ghs-color-darkgray);
+                    }
+
+                    &:hover {
+                        .ghs-svg {
+                            filter: var(--ghs-filter-darkgray);
+                        }
+
+                        .value {
+                            color: var(--ghs-color-darkgray);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .garden {
+        position: relative;
+        display: block;
+        width: calc(var(--ghs-unit) * 31 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 27.1 * var(--ghs-dialog-factor));
+        margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        &.level-1 {
+            background-image: url('~src/assets/images/world-map/fh/buildings/fh-24-garden-1.png');
+        }
+
+        &.level-2 {
+            background-image: url('~src/assets/images/world-map/fh/buildings/fh-24-garden-2.png');
+        }
+
+        &.level-3 {
+            background-image: url('~src/assets/images/world-map/fh/buildings/fh-24-garden-3.png');
+        }
+
+        &.level-4 {
+            background-image: url('~src/assets/images/world-map/fh/buildings/fh-24-garden-4.png');
+        }
+
+        .plot {
+            position: absolute;
+            display: block;
+            width: calc(var(--ghs-unit) * 5.7 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 9.9 * var(--ghs-dialog-factor));
+            background-repeat: no-repeat;
+            background-size: 0;
+            transform: rotate(-45deg);
+            cursor: pointer;
+
+            &:hover {
+                background-size: contain;
+                filter: brightness(1.2);
+            }
+
+            &.disabled {
+                cursor: initial;
+
+                &:hover {
+                    filter: brightness(0.7) grayscale(0.3);
+                }
+            }
+
+            &.arrowvine,
+            &.plant-arrowvine:hover {
+                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-arrowvine.png');
+            }
+
+            &.axenut,
+            &.plant-axenut:hover {
+                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-axenut.png');
+            }
+
+            &.corpsecap,
+            &.plant-corpsecap:hover {
+                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-corpsecap.png');
+            }
+
+            &.flamefruit,
+            &.plant-flamefruit:hover {
+                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-flamefruit.png');
+            }
+
+            &.rockroot,
+            &.plant-rockroot:hover {
+                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-rockroot.png');
+            }
+
+            &.snowthistle,
+            &.plant-snowthistle:hover {
+                background-image: url('~src/assets/images/world-map/fh/overlays/fh-24-garden-snowthistle.png');
+            }
+
+            &.harvest {
+                background-size: contain;
+            }
+
+            &.plot-1 {
+                top: calc(var(--ghs-unit) * 14.3 * var(--ghs-dialog-factor));
+                left: calc(var(--ghs-unit) * 12.5 * var(--ghs-dialog-factor));
+            }
+
+            &.plot-2 {
+                top: calc(var(--ghs-unit) * 7.2 * var(--ghs-dialog-factor));
+                left: calc(var(--ghs-unit) * 5.5 * var(--ghs-dialog-factor));
+            }
+
+            &.plot-3 {
+                top: calc(var(--ghs-unit) * 3.6 * var(--ghs-dialog-factor));
+                left: calc(var(--ghs-unit) * 10.5 * var(--ghs-dialog-factor));
+            }
+        }
+    }
+
+}

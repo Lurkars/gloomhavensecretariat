@@ -29,7 +29,7 @@
         </span>
 
         <span class="costs" *ngIf="repair && !rewardsOnly" [ngClass]="{'force' : force}">
-            <span [ghs-label]="'party.campaign.sheet.buildings.repair.costs'" [ghs-label-args]="['' + repair ]"></span>
+            <span [ghs-label]="'party.campaign.sheet.buildings.repair.costs'" [ghs-label-args]="[repair ]"></span>
             <span class="cost"><img src="./assets/images/fh/loot/lumber.svg"></span>
             <span class="cost"><img src="./assets/images/fh/loot/metal.svg"></span>
             <span class="cost"><img src="./assets/images/fh/loot/hide.svg"></span>

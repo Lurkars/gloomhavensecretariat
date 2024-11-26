@@ -487,7 +487,11 @@
     "garden": {
       ".": "Garden",
       "1": "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
-      "2": "Gain 1 collective herb from each planted plot, then plant herbs"
+      "2": "Gain 1 collective herb from each planted plot, then plant herbs",
+      "plots": {
+        ".": "Manage Garden (%wip%)",
+        "interaction": "Plant/Harvest herbs"
+      }
     },
     "hall-of-revelry": {
       ".": "Hall of Revelry",
@@ -557,7 +561,18 @@
       "2": "Bring one pet into each scenario.<br><i>Capacity:</i> 8",
       "3": "Bring two pets into each scenario.<br><i>Capacity:</i> 8",
       "4": "Bring two pets into each scenario.<br><i>Capacity:</i> 12",
-      "5": "Characters cannot use pets"
+      "5": "Characters cannot use pets",
+      "pets": {
+        ".": "Pets",
+        "add": "Add Pet",
+        "catch": "Catch Pet",
+        "confirmAdd": "Click again to add Pet to Stables",
+        "edit": "Edit Pets",
+        "empty": "Currently no Pets in Stables",
+        "interaction": "Manage Pets",
+        "name": "Name",
+        "showAll": "Show all"
+      }
     },
     "tavern": {
       ".": "Tavern",

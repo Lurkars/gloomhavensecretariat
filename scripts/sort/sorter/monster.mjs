@@ -25,5 +25,5 @@ export const sortMonster = function (monster) {
     });
   }
 
-  return sortObjectKeys(monster, 'name', 'thumbnail', 'thumbnailUrl', 'noThumbnail', 'noArtwork', 'edition', 'deck', 'boss', 'bb', 'flying', 'immortal', 'catching', 'hidden', 'count', 'randomCount', 'standeeCount', 'standeeShare', 'standeeShareEdition', 'baseStat', 'stats');
+  return sortObjectKeys(monster, 'name', 'thumbnail', 'thumbnailUrl', 'noThumbnail', 'noArtwork', 'edition', 'deck', 'boss', 'bb', 'flying', 'immortal', 'pet', 'hidden', 'count', 'randomCount', 'standeeCount', 'standeeShare', 'standeeShareEdition', 'baseStat', 'stats');
 }

@@ -22,6 +22,8 @@ import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
 import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
 import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
+import { ItemFlags } from "src/app/game/model/data/ItemData";
+import { PetIdentifier } from "src/app/game/model/data/PetCard";
 
 @Component({
   selector: 'ghs-entity-menu-dialog',
@@ -89,6 +91,8 @@ export class EntityMenuDialogComponent {
   EntityValueFunction = EntityValueFunction;
   ghsModulo = ghsModulo;
   Math = Math;
+  catching: boolean = false;
+  catchingDisabled: boolean = true;
 
   constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, positionElement: ElementRef, entityIndexKey: boolean }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
     if (data.entity instanceof Character) {
@@ -183,6 +187,11 @@ export class EntityMenuDialogComponent {
           this.entityRetaliateRangePersistent[index].value = rangeSubAction.value;
         }
       })
+
+      if (gameManager.buildingsManager.petsEnabled && this.data.figure instanceof Monster && this.data.figure.pet) {
+        this.catching = true;
+        this.catchingDisabled = gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || item.tags.indexOf(ItemFlags.consumed) == -1))) == undefined;
+      }
     }
 
     this.dialogRef.closed.subscribe({
@@ -631,14 +640,26 @@ export class EntityMenuDialogComponent {
     }
   }
 
-  dead() {
-    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
-      gameManager.stateManager.before("entityDead", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number);
+  dead(catching: boolean = false, force: boolean = false) {
+    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity && (!catching || this.catching && (!this.catchingDisabled || force))) {
+      gameManager.stateManager.before(catching ? 'buildings.stables.pets.catch' : "entityDead", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number);
       this.data.entity.dead = true;
 
       if (this.data.figure.entities.every((monsterEntity) => monsterEntity.dead)) {
         if (this.data.figure.active) {
           gameManager.roundManager.toggleFigure(this.data.figure);
+        }
+      }
+
+      if (catching && gameManager.game.party.pets.find((value) => this.data.figure instanceof Monster && value.edition == this.data.figure.edition && value.name == this.data.figure.pet) == undefined) {
+        gameManager.game.party.pets.push(new PetIdentifier(this.data.figure.pet, this.data.figure.edition));
+        const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || item.tags.indexOf(ItemFlags.consumed) == -1))) as Character;
+        if (character) {
+          const item = character.progress.equippedItems.find((item) => item.edition == 'fh' && item.name == '247' && (!item.tags || item.tags.indexOf(ItemFlags.consumed) == -1));
+          if (item) {
+            item.tags = item.tags || [];
+            item.tags.push(ItemFlags.consumed);
+          }
         }
       }
 
@@ -648,6 +669,7 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.after();
         }
       }, !settingsManager.settings.animations ? 0 : 1500);
+      ghsDialogClosingHelper(this.dialogRef, true)
     } else if (this.data.figure instanceof Character && this.data.entity instanceof Summon) {
       gameManager.stateManager.before("summonDead", gameManager.characterManager.characterName(this.data.figure), "data.summon." + this.data.entity.name);
       this.data.entity.dead = true;
@@ -657,6 +679,7 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.after();
         }
       }, !settingsManager.settings.animations ? 0 : 1500);
+      ghsDialogClosingHelper(this.dialogRef, true)
     } else if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
       let name = this.data.figure.name;
       if (!name) {
@@ -680,8 +703,8 @@ export class EntityMenuDialogComponent {
           gameManager.stateManager.after();
         }
       }, !settingsManager.settings.animations || !this.data.figure.entities.some((entity) => gameManager.entityManager.isAlive(entity)) ? 0 : 1500);
+      ghsDialogClosingHelper(this.dialogRef, true)
     }
-    ghsDialogClosingHelper(this.dialogRef, true)
   }
 
   changeAttack(value: number) {
@@ -931,7 +954,7 @@ export class EntityMenuDialogComponent {
         if (token < 0) {
           token = 0;
         }
-        gameManager.stateManager.before("setCharacterToken", gameManager.characterManager.characterName(this.data.entity), '' + token);
+        gameManager.stateManager.before("setCharacterToken", gameManager.characterManager.characterName(this.data.entity), token);
         this.data.entity.token = token;
         this.characterToken = 0;
         gameManager.stateManager.after();
@@ -943,7 +966,7 @@ export class EntityMenuDialogComponent {
           if (tokenValue < 0) {
             tokenValue = 0;
           }
-          gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.data.entity), '%data.characterToken.' + this.data.figure.name + '.' + this.data.entity.tokens[index] + '%', '' + tokenValue);
+          gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.data.entity), '%data.characterToken.' + this.data.figure.name + '.' + this.data.entity.tokens[index] + '%', tokenValue);
           this.data.entity.tokenValues[index] = tokenValue;
           this.characterTokenValues[index] = 0;
           gameManager.stateManager.after();
@@ -1227,7 +1250,7 @@ export class EntityMenuDialogComponent {
       }
 
       if (this.health != 0) {
-        gameManager.stateManager.before("changeObjectiveEntityHP", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', '' + this.data.entity.number, ghsValueSign(this.health));
+        gameManager.stateManager.before("changeObjectiveEntityHP", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', this.data.entity.number, ghsValueSign(this.health));
         gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
         if (this.data.entity.health <= 0) {
           gameManager.objectiveManager.removeObjectiveEntity(this.data.figure, this.data.entity);
@@ -1238,7 +1261,7 @@ export class EntityMenuDialogComponent {
 
       const newId = this.data.entity.number + this.id;
       if (newId != this.data.entity.number) {
-        gameManager.stateManager.before("changeObjectiveEntityNumber", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', '' + this.data.entity.number, "" + newId);
+        gameManager.stateManager.before("changeObjectiveEntityNumber", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', this.data.entity.number, "" + newId);
         this.data.entity.number = newId;
         gameManager.stateManager.after();
       }
@@ -1251,7 +1274,7 @@ export class EntityMenuDialogComponent {
       const newMarker = OBJECTIV_MARKERS[ghsModulo(this.marker + OBJECTIV_MARKERS.indexOf(this.data.entity.marker), OBJECTIV_MARKERS.length)];
 
       if (newMarker != this.data.entity.marker) {
-        gameManager.stateManager.before("changeObjectiveEntityMarker", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', '' + this.data.entity.number, newMarker);
+        gameManager.stateManager.before("changeObjectiveEntityMarker", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', this.data.entity.number, newMarker);
         this.data.entity.marker = newMarker;
         gameManager.stateManager.after();
       }
@@ -1307,7 +1330,7 @@ export class EntityMenuDialogComponent {
     if (settingsManager.settings.characterShieldRetaliate && (this.data.entity instanceof Character || this.data.entity instanceof ObjectiveEntity) || settingsManager.settings.standeeShieldRetaliate && (this.data.entity instanceof Summon || this.data.entity instanceof MonsterEntity)) {
       if (this.entityShield.value) {
         if (!this.data.entity.shield || this.entityShield.value != this.data.entity.shield.value) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "setEntityShield"), '' + this.entityShield.value);
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "setEntityShield"), this.entityShield.value);
           this.data.entity.shield = this.entityShield;
           gameManager.stateManager.after();
         }
@@ -1320,7 +1343,7 @@ export class EntityMenuDialogComponent {
 
       if (this.entityShieldPersistent.value) {
         if (!this.data.entity.shieldPersistent || this.entityShieldPersistent.value != this.data.entity.shieldPersistent.value) {
-          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "setEntityShieldPersistent"), '' + this.entityShield.value);
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "setEntityShieldPersistent"), this.entityShield.value);
           this.data.entity.shieldPersistent = this.entityShieldPersistent;
           gameManager.stateManager.after();
         }
@@ -1373,14 +1396,14 @@ export class EntityMenuDialogComponent {
 
   closeAMs() {
     if (this.bless != 0) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.bless < 0 ? "removeCondition" + (this.bless < -1 ? 's' : '') : "addCondition" + (this.bless > 1 ? 's' : '')), AttackModifierType.bless, '' + (this.bless > 0 ? this.bless : this.bless * -1));
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.bless < 0 ? "removeCondition" + (this.bless < -1 ? 's' : '') : "addCondition" + (this.bless > 1 ? 's' : '')), AttackModifierType.bless, (this.bless > 0 ? this.bless : this.bless * -1));
       this.changeAttackModifier(AttackModifierType.bless, this.bless);
       gameManager.stateManager.after();
       this.bless = 0;
     }
 
     if (this.curse != 0) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.curse < 0 ? "removeCondition" + (this.curse < -1 ? 's' : '') : "addCondition" + (this.curse > 1 ? 's' : '')), AttackModifierType.curse, '' + (this.curse > 0 ? this.curse : this.curse * -1));
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.curse < 0 ? "removeCondition" + (this.curse < -1 ? 's' : '') : "addCondition" + (this.curse > 1 ? 's' : '')), AttackModifierType.curse, (this.curse > 0 ? this.curse : this.curse * -1));
       this.changeAttackModifier(AttackModifierType.curse, this.curse);
       gameManager.stateManager.after();
       this.curse = 0;
@@ -1388,7 +1411,7 @@ export class EntityMenuDialogComponent {
 
     if (this.empower != 0) {
       if (this.empowerChar || this.empower < 0) {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.empower < 0 ? "removeCondition" + (this.empower < -1 ? 's' : '') : "addCondition" + (this.empower > 1 ? 's' : '')), AttackModifierType.empower, '' + (this.empower > 0 ? this.empower : this.empower * -1));
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.empower < 0 ? "removeCondition" + (this.empower < -1 ? 's' : '') : "addCondition" + (this.empower > 1 ? 's' : '')), AttackModifierType.empower, (this.empower > 0 ? this.empower : this.empower * -1));
         if (this.empowerChar && this.empower > 0) {
           const additional = gameManager.attackModifierManager.getAdditional(this.empowerChar, AttackModifierType.empower);
           for (let i = 0; i < Math.min(this.empower, additional.length); i++) {
@@ -1409,7 +1432,7 @@ export class EntityMenuDialogComponent {
 
     if (this.enfeeble != 0) {
       if (this.enfeebleChar || this.enfeeble < 0) {
-        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.enfeeble < 0 ? "removeCondition" + (this.enfeeble < -1 ? 's' : '') : "addCondition" + (this.enfeeble > 1 ? 's' : '')), AttackModifierType.enfeeble, '' + (this.enfeeble > 0 ? this.enfeeble : this.enfeeble * -1));
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, this.enfeeble < 0 ? "removeCondition" + (this.enfeeble < -1 ? 's' : '') : "addCondition" + (this.enfeeble > 1 ? 's' : '')), AttackModifierType.enfeeble, (this.enfeeble > 0 ? this.enfeeble : this.enfeeble * -1));
         if (this.enfeebleChar && this.enfeeble > 0) {
           const additional = gameManager.attackModifierManager.getAdditional(this.enfeebleChar, AttackModifierType.enfeeble);
           for (let i = 0; i < Math.min(this.enfeeble, additional.length); i++) {

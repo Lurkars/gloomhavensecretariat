@@ -1629,8 +1629,11 @@
             "hide": 6,
             "gold": 10
         },
-        "upgrades": [],
-        "manualUpgrades": 1,
+        "upgrades": [
+            {
+                "manual": 1
+            }
+        ],
         "repair": [
             3,
             4
@@ -2149,8 +2152,17 @@
             "hide": 0,
             "gold": 0
         },
-        "upgrades": [],
-        "manualUpgrades": 1,
+        "upgrades": [
+            {
+                "manual": 1
+            },
+            {
+                "manual": 1
+            },
+            {
+                "manual": 1
+            }
+        ],
         "repair": [
             2,
             2,

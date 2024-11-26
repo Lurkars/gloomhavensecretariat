@@ -6,7 +6,8 @@
             [ghs-label-attribute]="'placeholder'">
         <img src="./assets/images/plus.svg" (click)="unlockBuilding(building)">
     </form>
-    <div class="buildings" [ngClass]="{'visible-effects': settingsManager.settings.buildingEffectsVisible, 'visible-interactions': settingsManager.settings.buildingInteractionsVisible}">
+    <div class="buildings"
+        [ngClass]="{'visible-effects': settingsManager.settings.buildingEffectsVisible, 'visible-interactions': settingsManager.settings.buildingInteractionsVisible}">
         <div class="building head">
             <span class="name"><span [ghs-label]="'party.campaign.sheet.buildings.name'"></span></span>
             <span class="id"><span [ghs-label]="'party.campaign.sheet.buildings.id'"></span></span>
@@ -72,6 +73,22 @@
                     <span class="text"
                         [ghs-label]="building.data.interactionsUnavailable[building.model.level-1]"></span>
                 </span>
+                <span class="interaction stables"
+                    *ngIf="gameManager.buildingsManager.petsEnabled && building.data.name == 'stables'">
+                    <span class="icon" (click)="openStables()"
+                        [ghs-tooltip]="'data.buildings.stables.pets.interaction'"><img
+                            src="./assets/images/fh/catching.svg">
+                    </span>
+                    <span class="text" (click)="openStables()"
+                        [ghs-label]="'data.buildings.stables.pets.interaction'"></span>
+                </span>
+                <span class="interaction garden"
+                    *ngIf="gameManager.buildingsManager.gardenEnabled && building.data.name == 'garden'">
+                    <span class="icon" (click)="openGarden()" [ghs-tooltip]="'data.buildings.garden.plots.interaction'"><img
+                            src="./assets/images/fh/buildings/garden.png">
+                    </span>
+                    <span class="text" (click)="openGarden()" [ghs-label]="'data.buildings.garden.plots.interaction'"></span>
+                </span>
             </span>
             <span class="costs" [ngClass]="{'disabled' : !upgradeable(building)}">
                 <ng-container *ngIf="!building.model.level">
@@ -88,7 +105,7 @@
                 </ng-container>
                 <ng-container *ngIf="building.model.level > 0">
                     <ng-container
-                        *ngIf="building.model.state == 'normal' && building.model.level < building.data.upgrades.length + 1">
+                        *ngIf="building.model.state == 'normal' && building.model.level < building.data.upgrades.length + 1 && !building.data.upgrades[building.model.level - 1].manual">
                         <span class="cost"><img src="./assets/images/fh/buildings/prosperity.svg">
                             {{building.data.upgrades[building.model.level - 1].prosperity|| '-'}}</span>
                         <span class="cost"><img src="./assets/images/fh/loot/lumber.svg">
@@ -120,7 +137,7 @@
             </span>
             <span class="action">
                 <span
-                    *ngIf="(building.model.level < building.data.upgrades.length +1 || building.model.level < building.data.manualUpgrades + 1) && building.model.state == 'normal'"
+                    *ngIf="building.model.level < building.data.upgrades.length +1 && building.model.state == 'normal'"
                     [ngClass]="{'disabled' : !upgradeable(building)}" class="button upgrade" ghs-pointer-input
                     (singleClick)="upgrade(building)" (doubleClick)="upgrade(building, true)"
                     [ghs-tooltip]="('party.campaign.sheet.buildings.' + (building.model.level > 0 ? 'upgrade.hint' : 'build.hint'))"

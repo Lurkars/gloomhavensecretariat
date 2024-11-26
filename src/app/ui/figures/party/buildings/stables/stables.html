@@ -1,0 +1,40 @@
+<div class="stables-container">
+
+    <div class="menu">
+
+        <span class="capacity"><span class="used"
+                [ngClass]="{'full': used == capacity, 'warning': used > capacity}">{{used}}</span>/{{capacity}}</span>
+
+        <label *ngIf="!running">
+            <input type="checkbox" [(ngModel)]="edit">
+            <span [ghs-label]="'data.buildings.stables.pets.edit'"></span>
+        </label>
+
+        <label *ngIf="!running">
+            <input type="checkbox" [(ngModel)]="showAll" (change)="update()">
+            <span [ghs-label]="'data.buildings.stables.pets.showAll'"></span>
+        </label>
+    </div>
+
+    <div class="pet-list">
+        <div class="empty" *ngIf="!pets.length"><span [ghs-label]="'data.buildings.stables.pets.empty'"></span></div>
+
+        <div class="pet" *ngFor="let pet of pets">
+            <ghs-pet-card *ngIf="pet.card" [petCard]="pet.card" [flipped]="pet.model != undefined"
+                [reveal]="pet.model == undefined" [name]="!edit && pet.model ? pet.model.petname : ''"
+                (revealed)="addPet(pet)"
+                [ngClass]="{'selected': (select || running) && pet.model && pet.model.active, 'unavailable': pet.model && pet.model.active && pet.model.lost, 'disabled': (!pet.model || !pet.model.active) && !select && running}"
+                ghs-pointer-input (singleClick)="toggleActive(pet.model)"
+                (doubleClick)="toggleActive(pet.model, true)"></ghs-pet-card>
+
+            <input *ngIf="edit && pet.model" class="name" type="text" [value]="pet.model.petname"
+                (change)="updatePet($event, pet.model)">
+
+            <a class="button-remove" *ngIf="edit && pet.model" (click)="removePet(pet.model)">
+                <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+
+            <a class="button-lost" *ngIf="!edit && running && pet.model && pet.model.active" ghs-pointer-input
+                (singleClick)="toggleLost(pet.model)" (doubleClick)="toggleLost(pet.model,true)"></a>
+        </div>
+    </div>
+</div>

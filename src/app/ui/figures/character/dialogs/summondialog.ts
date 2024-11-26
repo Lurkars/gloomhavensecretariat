@@ -97,7 +97,7 @@ export class CharacterSummonDialog {
   }
 
   addCustomSummon() {
-    gameManager.stateManager.before("addCustomSummon", gameManager.characterManager.characterName(this.character), '' + this.summonNumber, this.summonColor);
+    gameManager.stateManager.before("addCustomSummon", gameManager.characterManager.characterName(this.character), this.summonNumber, this.summonColor);
     let summon: Summon = new Summon(uuidv4(), this.summonName, "", this.character.level, this.summonNumber, this.summonColor);
     summon.state = SummonState.new;
     gameManager.characterManager.addSummon(this.character, summon);

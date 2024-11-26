@@ -1,0 +1,10 @@
+{
+  "index": "40.1",
+  "name": "Brummix",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "pet": "12"
+  }
+}

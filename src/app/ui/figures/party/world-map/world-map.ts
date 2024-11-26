@@ -244,7 +244,7 @@ export class WorldMapComponent implements AfterViewInit {
                     if (buildingData.coordinates && buildingData.coordinates.length) {
                         const overlayData = buildingData.coordinates[level || 0];
                         if (overlayData) {
-                            const imageName = overlayData.image || buildingData.edition + '-' + (buildingData.id ? buildingData.id + '-' : '') + buildingData.name + (buildingData.upgrades.length || buildingData.manualUpgrades ? '-' + (level != undefined ? level : '0') : '');
+                            const imageName = overlayData.image || buildingData.edition + '-' + (buildingData.id ? buildingData.id + '-' : '') + buildingData.name + (buildingData.upgrades.length ? '-' + (level != undefined ? level : '0') : '');
                             const overlayBuilding: ImageOverlay = this.placeOverlay('./assets/images/world-map/' + buildingData.edition + '/buildings/' + imageName + '.png', overlayData, height, -1);
                             overlayBuilding.addTo(this.map);
                             const element = overlayBuilding.getElement();

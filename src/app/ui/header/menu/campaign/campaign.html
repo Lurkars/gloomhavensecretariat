@@ -137,7 +137,7 @@
         <label *ngIf="gameManager.game.party == party">
             <input tabclick type="checkbox" checked="true" disabled="disabled">
             <input type="text" [value]="party.name" (change)="setName($event)"
-                [ghs-label]="'campaign.campaignManagement.name'" [ghs-label-args]="['' + party.id]"
+                [ghs-label]="'campaign.campaignManagement.name'" [ghs-label-args]="[party.id]"
                 [ghs-label-attribute]="'placeholder'">
         </label>
         <span class="spacer"></span>

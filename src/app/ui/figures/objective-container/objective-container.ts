@@ -182,7 +182,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
 
   dragHpEnd(value: number) {
     if (this.health != 0 && this.entity) {
-      gameManager.stateManager.before("changeObjectiveEntityHP", gameManager.objectiveManager.objectiveName(this.objective), ghsValueSign(this.health), '' + this.entity.number);
+      gameManager.stateManager.before("changeObjectiveEntityHP", gameManager.objectiveManager.objectiveName(this.objective), ghsValueSign(this.health), this.entity.number);
       gameManager.entityManager.changeHealth(this.entity, this.objective, this.health);
       if (this.entity.health <= 0 && this.entity.maxHealth > 0) {
         gameManager.objectiveManager.removeObjective(this.objective)
@@ -240,7 +240,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
       }
     }
 
-    gameManager.stateManager.before('addObjective.entity', '' + (number + 1), name);
+    gameManager.stateManager.before('addObjective.entity', (number + 1), name);
     gameManager.objectiveManager.addObjectiveEntity(this.objective, number);
     gameManager.stateManager.after();
   }

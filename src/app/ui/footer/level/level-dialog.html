@@ -51,7 +51,10 @@
         <span class="icon"><img class="ghs-svg"
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">:</span>
         <span class="value">x{{loot}}</span>
-        <span class="hint"><span [ghs-label]="'game.level.loot'"></span></span>
+        <span class="hint"><span [ghs-label]="'game.level.loot'"></span>&nbsp;<span
+            *ngIf="gameManager.trialsManager.activeFavor('fh', 'wealth')"
+            [ghs-label]="'data.favors.fh.wealth.level'"
+            [ghs-label-args]="[gameManager.trialsManager.activeFavor('fh', 'wealth')]"></span></span>
       </div>
       <div class="trap">
         <span class="icon"><img class="ghs-svg" src="./assets/images/trap.svg">:</span>

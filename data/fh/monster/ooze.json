@@ -1,7 +1,7 @@
 {
   "name": "ooze",
   "edition": "fh",
-  "catching": true,
+  "pet": "08",
   "count": 10,
   "baseStat": {
     "type": "normal"

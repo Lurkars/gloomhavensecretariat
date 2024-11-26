@@ -13,9 +13,9 @@
     <span *ngIf="(!change || !entity) && (!entities || entities.length == 0)"
       [ghs-label]="(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type"></span>
     <span *ngIf="change && entity" [ghs-label]="'monster.changeStandee'"
-      [ghs-label-args]="[entity.type, '' + entity.number]"></span>
+      [ghs-label-args]="[entity.type, entity.number]"></span>
     <span *ngIf="entities && entities.length > 0" [ghs-label]="'monster.setStandees'"
-      [ghs-label-args]="[type, '' + entitiesLeft()]"></span>
+      [ghs-label-args]="[type, entitiesLeft()]"></span>
   </span>
 </div>
 

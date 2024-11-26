@@ -233,12 +233,19 @@
       }
     }
 
-    &.disabled {
+    &.disabled,
+    &.disabled:hover {
       pointer-events: none;
-      color: var(--ghs-color-gray);
+      color: var(--ghs-color-gray) !important;
+      opacity: initial;
 
       .ghs-svg {
         filter: var(--ghs-filter-gray) !important;
+      }
+
+      &.soft {
+        cursor: initial;
+        pointer-events: initial;
       }
     }
 

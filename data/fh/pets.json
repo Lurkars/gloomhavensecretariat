@@ -1,0 +1,188 @@
+[
+    {
+        "id": "01",
+        "cardId": 361,
+        "lost": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-01.1%",
+            "small": true,
+            "subActions": [
+                {
+                    "type": "loot",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "02",
+        "cardId": 362,
+        "lost": true,
+        "round": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-02.1%",
+            "small": true
+        }
+    },
+    {
+        "id": "03",
+        "cardId": 363,
+        "lost": true,
+        "round": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-03.1%",
+            "small": true
+        }
+    },
+    {
+        "id": "04",
+        "cardId": 364,
+        "lost": true,
+        "round": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-04.1%",
+            "small": true
+        }
+    },
+    {
+        "id": "05",
+        "cardId": 365,
+        "lost": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-05.1%",
+            "small": true,
+            "subActions": [
+                {
+                    "type": "attack",
+                    "value": 2
+                }
+            ]
+        }
+    },
+    {
+        "id": "06",
+        "cardId": 366,
+        "lost": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-06.1%",
+            "small": true,
+            "subActions": [
+                {
+                    "type": "heal",
+                    "value": 3,
+                    "subActions": [
+                        {
+                            "type": "specialTarget",
+                            "value": "self"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "07",
+        "cardId": 367,
+        "lost": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-07.1%",
+            "small": true,
+            "subActions": [
+                {
+                    "type": "move",
+                    "value": 2
+                }
+            ]
+        }
+    },
+    {
+        "id": "08",
+        "cardId": 368,
+        "lost": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-08.1%",
+            "small": true
+        }
+    },
+    {
+        "id": "09",
+        "cardId": 369,
+        "lost": true,
+        "round": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-09.1%",
+            "small": true,
+            "subActions": [
+                {
+                    "type": "shield",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "10",
+        "cardId": 370,
+        "lost": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-10.1%",
+            "small": true
+        }
+    },
+    {
+        "id": "11",
+        "cardId": 371,
+        "lost": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-11.1%",
+            "small": true,
+            "subActions": [
+                {
+                    "type": "concatenation",
+                    "value": ",",
+                    "subActions": [
+                        {
+                            "type": "attack",
+                            "value": 1
+                        },
+                        {
+                            "type": "attack",
+                            "value": 1
+                        },
+                        {
+                            "type": "heal",
+                            "value": 1,
+                            "subActions": [
+                                {
+                                    "type": "specialTarget",
+                                    "value": "self"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "id": "12",
+        "cardId": 372,
+        "lost": true,
+        "action": {
+            "type": "custom",
+            "value": "%data.pets.fh-12.1%",
+            "small": true
+        }
+    }
+]

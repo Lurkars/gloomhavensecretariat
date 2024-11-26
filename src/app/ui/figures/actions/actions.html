@@ -2,8 +2,10 @@
   <ng-container *ngFor="let action of actions; let index = index;">
     <div class="divider" *ngIf="divider[index]"></div>
     <ghs-action [action]="action" [monster]="monster" [monsterType]="monsterType" [objective]="objective"
-      [inline]="inline" [right]="right" [hexSize]="hexSize" [relative]="relative" [statsCalculation]="statsCalculation"
-      [highlight]="highlightActions.indexOf(action.type) != -1"  [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
+      [inline]="inline" [right]="right" [textBlack]="textBlack" [hexSize]="hexSize" [relative]="relative"
+      [statsCalculation]="statsCalculation" [highlight]="highlightActions.indexOf(action.type) != -1"
+      [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
+      (interactiveActionsChange)="onInteractiveActionsChange($event)"
       [index]="(actionIndex ? actionIndex + '-' : '') + index" [style]="style"
       [ngClass]="{'spacing' : !noDivider && !inline && index > 0 &&  !divider[index]}">
     </ghs-action>

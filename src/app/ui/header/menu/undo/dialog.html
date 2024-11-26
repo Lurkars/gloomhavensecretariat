@@ -30,7 +30,7 @@
                 </span>
                 <span class="warning" *ngIf="i > 0 && getRedoRevision(i) - getRedoRevision(i-1) != 1">
                     <img src="./assets/images/warning.svg">
-                    <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + (getRedoRevision(i) -
+                    <span [ghs-label]="'state.missing'" [ghs-label-args]="[(getRedoRevision(i) -
                     getRedoRevision(i-1) - 1)]"></span>
                 </span>
             </ng-container>
@@ -50,7 +50,7 @@
             <span class="warning undo-offset" *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"
                 (click)="gameManager.stateManager.gameOffsetWarning = false">
                 <img src="./assets/images/warning.svg">
-                <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + undoOffset]"></span>
+                <span [ghs-label]="'state.missing'" [ghs-label-args]="[undoOffset]"></span>
             </span>
         </div>
 
@@ -59,13 +59,13 @@
                 <span class="warning" *ngIf="!undoOffset && i == undoArray.length - 1 && ((gameManager.game.revision
                     - gameManager.game.revisionOffset) - getUndoRevision(i) - 1)">
                     <img src="./assets/images/warning.svg">
-                    <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + ((gameManager.game.revision
+                    <span [ghs-label]="'state.missing'" [ghs-label-args]="[((gameManager.game.revision
                         - gameManager.game.revisionOffset) -  getUndoRevision(i) - 1)]"></span>
                 </span>
                 <span class="warning"
                     *ngIf="i < undoArray.length - 1 &&  getUndoRevision(i+1) -  getUndoRevision(i) != 1">
                     <img src="./assets/images/warning.svg">
-                    <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + ( getUndoRevision(i+1)
+                    <span [ghs-label]="'state.missing'" [ghs-label-args]="[( getUndoRevision(i+1)
                     -  getUndoRevision(i) - 1)]"></span>
                 </span>
                 <span tabclick class="entry" (click)="undo(i)" (mouseleave)="cancelConfirm()"

@@ -23,10 +23,12 @@
     <span *ngIf="flying" class="flying"><img
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     <span class="edition" *ngIf="edition">[<span [ghs-label]="'data.edition.' + edition"></span>]</span>
-    <span *ngIf="catching" class="catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
+    <span *ngIf="catching" class="catching" [ngClass]="{'catched': catched}"><img class="ghs-svg"
+        src="./assets/images/fh/catching.svg"></span>
   </div>
 
-  <span class="toggle-ally" [ngClass]="{'is-ally' : monster.isAlly, 'is-allied' : monster.isAllied, 'bb': monster.bb}"><img
+  <span class="toggle-ally"
+    [ngClass]="{'is-ally' : monster.isAlly, 'is-allied' : monster.isAllied, 'bb': monster.bb}"><img
       [src]="monster.bb ? './assets/images/bb/monster.svg' : './assets/images/monster/enemy.png'" /></span>
 
   <div class="stats boss" *ngIf="monster.boss || monster.bb"

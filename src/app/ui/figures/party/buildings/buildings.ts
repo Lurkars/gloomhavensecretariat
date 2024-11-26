@@ -2,14 +2,17 @@ import { Dialog } from "@angular/cdk/dialog";
 import { Component, Input, OnInit } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { BuildingModel } from "src/app/game/model/Building";
 import { Character } from "src/app/game/model/Character";
 import { Party } from "src/app/game/model/Party";
 import { Scenario } from "src/app/game/model/Scenario";
-import { BuildingCosts, BuildingData, BuildingModel, SelectResourceResult } from "src/app/game/model/data/BuildingData";
+import { BuildingCosts, BuildingData, SelectResourceResult } from "src/app/game/model/data/BuildingData";
 import { LootType } from "src/app/game/model/data/Loot";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario-conclusion/scenario-conclusion";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
+import { GardenComponent } from "./garden/garden";
+import { StablesComponent } from "./stables/stables";
 import { BuildingUpgradeDialog } from "./upgrade-dialog/upgrade-dialog";
 
 export type Building = { model: BuildingModel, data: BuildingData };
@@ -106,10 +109,6 @@ export class PartyBuildingsComponent implements OnInit {
   }
 
   upgradeable(building: Building): boolean {
-    if (building.data.manualUpgrades > 0 && building.model.level >= building.data.manualUpgrades) {
-      return true;
-    }
-
     let costs: BuildingCosts = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
     if (building.model.level && !building.data.repair) {
       return false;
@@ -191,7 +190,7 @@ export class PartyBuildingsComponent implements OnInit {
   }
 
   upgrade(building: Building, force: boolean = false) {
-    if (building.model.level < building.data.upgrades.length + 1 || building.model.level < building.data.manualUpgrades + 1) {
+    if (building.model.level < building.data.upgrades.length + 1) {
       if (this.upgradeable(building) || force) {
         const costs = building.model.level ? building.data.upgrades[building.model.level - 1] : building.data.costs;
         this.dialog.open(BuildingUpgradeDialog, {
@@ -206,7 +205,7 @@ export class PartyBuildingsComponent implements OnInit {
           next: (result) => {
             if (force && result == true || result instanceof SelectResourceResult) {
               setTimeout(() => {
-                gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", building.data.id, building.model.name, '' + (building.model.level + 1));
+                gameManager.stateManager.before(building.model.level ? "upgradeBuilding" : "buildBuilding", building.data.id, building.model.name, (building.model.level + 1));
                 if (!force && result instanceof SelectResourceResult) {
                   gameManager.lootManager.applySelectResources(result);
                 }
@@ -378,7 +377,7 @@ export class PartyBuildingsComponent implements OnInit {
 
         gameManager.stateManager.after();
       } else if (!gameManager.buildingsManager.initialBuilding(building.data) && !gameManager.buildingsManager.availableBuilding(building.data) || building.model.level > 1) {
-        gameManager.stateManager.before("downgradeBuilding", building.data.id, building.model.name, '' + (building.model.level - 1));
+        gameManager.stateManager.before("downgradeBuilding", building.data.id, building.model.name, (building.model.level - 1));
         building.model.level--;
         if (building.model.level == 0) {
           building.model.state = 'normal';
@@ -398,4 +397,15 @@ export class PartyBuildingsComponent implements OnInit {
     }
   }
 
+  openStables() {
+    this.dialog.open(StablesComponent, {
+      panelClass: ['dialog']
+    })
+  }
+
+  openGarden() {
+    this.dialog.open(GardenComponent, {
+      panelClass: ['dialog']
+    })
+  }
 }

@@ -113,7 +113,7 @@ export class ScenarioDialogComponent {
             console.error("Could not find edition data!");
             return;
         }
-        gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", this.scenario.index, "data.scenario." + this.scenario.name, '' + roomData.ref, roomData.marker || '');
+        gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", this.scenario.index, "data.scenario." + this.scenario.name, roomData.ref, roomData.marker || '');
         gameManager.scenarioManager.openRoom(roomData, this.scenario, false);
         gameManager.stateManager.after();
         this.setupComponent && this.setupComponent.updateMonster();

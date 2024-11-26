@@ -41,22 +41,22 @@
                     <th><span [ghs-label]="'scenario.stats.damage'"></span></th>
                     <td *ngFor="let character of characters">
                         <span [ghs-label]="'scenario.stats.dealtDamage'"
-                            [ghs-label-args]="['' + character.scenarioStats.dealtDamage]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.dealtDamage]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
                         <span [ghs-label]="'scenario.stats.monsterDamage'"
-                            [ghs-label-args]="['' + character.scenarioStats.monsterDamage]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.monsterDamage]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"></span>
                         <span [ghs-label]="'scenario.stats.otherDamage'"
-                            [ghs-label-args]="['' + character.scenarioStats.otherDamage]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.otherDamage]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.otherDamage.hint'"></span>
                     </td>
                     <td *ngIf="!character">
-                        <span [ghs-label]="'scenario.stats.dealtDamage'" [ghs-label-args]="['' + overall.dealtDamage]"
+                        <span [ghs-label]="'scenario.stats.dealtDamage'" [ghs-label-args]="[overall.dealtDamage]"
                             [style]="'fh'" [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
                         <span [ghs-label]="'scenario.stats.monsterDamage'"
-                            [ghs-label-args]="['' + overall.monsterDamage]" [style]="'fh'"
+                            [ghs-label-args]="[overall.monsterDamage]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"></span>
-                        <span [ghs-label]="'scenario.stats.otherDamage'" [ghs-label-args]="['' + overall.otherDamage]"
+                        <span [ghs-label]="'scenario.stats.otherDamage'" [ghs-label-args]="[overall.otherDamage]"
                             [style]="'fh'" [ghs-tooltip]="'scenario.stats.otherDamage.hint'"></span>
                     </td>
                 </tr>
@@ -64,16 +64,16 @@
                     <th><span [ghs-label]="'scenario.stats.heal'"></span></th>
                     <td *ngFor="let character of characters">
                         <span [ghs-label]="'scenario.stats.heals'"
-                            [ghs-label-args]="['' + character.scenarioStats.heals]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.heals]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
                         <span [ghs-label]="'scenario.stats.healedDamage'"
-                            [ghs-label-args]="['' + character.scenarioStats.healedDamage]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.healedDamage]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.healedDamage.hint'"></span>
                     </td>
                     <td *ngIf="!character">
-                        <span [ghs-label]="'scenario.stats.heals'" [ghs-label-args]="['' + overall.heals]"
+                        <span [ghs-label]="'scenario.stats.heals'" [ghs-label-args]="[overall.heals]"
                             [style]="'fh'" [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
-                        <span [ghs-label]="'scenario.stats.healedDamage'" [ghs-label-args]="['' + overall.healedDamage]"
+                        <span [ghs-label]="'scenario.stats.healedDamage'" [ghs-label-args]="[overall.healedDamage]"
                             [style]="'fh'" [ghs-tooltip]="'scenario.stats.healedDamage.hint'"></span>
                     </td>
                 </tr>
@@ -82,24 +82,24 @@
                     <td *ngFor="let character of characters">
                         <span class="text-black" *ngIf="character.scenarioStats.normalKills"
                             [ghs-label]="'scenario.stats.normalKills'"
-                            [ghs-label-args]="['' + character.scenarioStats.normalKills]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.normalKills]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.normalKills.hint'"></span>
                         <span *ngIf="character.scenarioStats.eliteKills" [ghs-label]="'scenario.stats.eliteKills'"
-                            [ghs-label-args]="['' + character.scenarioStats.eliteKills]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.eliteKills]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.eliteKills.hint'"></span>
                         <span *ngIf="character.scenarioStats.bossKills" [ghs-label]="'scenario.stats.bossKills'"
-                            [ghs-label-args]="['' + character.scenarioStats.bossKills]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.bossKills]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.bossKills.hint'"></span>
                     </td>
                     <td *ngIf="!character">
                         <span class="text-black" *ngIf="overall.normalKills" [ghs-label]="'scenario.stats.normalKills'"
-                            [ghs-label-args]="['' + overall.normalKills]" [style]="'fh'"
+                            [ghs-label-args]="[overall.normalKills]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.normalKills.hint'"></span>
                         <span *ngIf="overall.eliteKills" [ghs-label]="'scenario.stats.eliteKills'"
-                            [ghs-label-args]="['' + overall.eliteKills]" [style]="'fh'"
+                            [ghs-label-args]="[overall.eliteKills]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.eliteKills.hint'"></span>
                         <span *ngIf="overall.bossKills" [ghs-label]="'scenario.stats.bossKills'"
-                            [ghs-label-args]="['' + overall.bossKills]" [style]="'fh'"
+                            [ghs-label-args]="[overall.bossKills]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.bossKills.hint'"></span>
                     </td>
                 </tr>
@@ -107,37 +107,37 @@
                     <th><span [ghs-label]="'scenario.stats.max'"></span></th>
                     <td *ngFor="let character of characters">
                         <span [ghs-label]="'scenario.stats.maxDealtDamage'"
-                            [ghs-label-args]="['' + character.scenarioStats.maxDealtDamage]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.maxDealtDamage]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"></span>
                         <span [ghs-label]="'scenario.stats.maxDamage'"
-                            [ghs-label-args]="['' + character.scenarioStats.maxDamage]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.maxDamage]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.maxDamage.hint'"></span>
                     </td>
                     <td *ngIf="!character">
                         <span [ghs-label]="'scenario.stats.maxDealtDamage'"
-                            [ghs-label-args]="['' + overall.maxDealtDamage]" [style]="'fh'"
+                            [ghs-label-args]="[overall.maxDealtDamage]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"></span>
-                        <span [ghs-label]="'scenario.stats.maxDamage'" [ghs-label-args]="['' + overall.maxDamage]"
+                        <span [ghs-label]="'scenario.stats.maxDamage'" [ghs-label-args]="[overall.maxDamage]"
                             [style]="'fh'" [ghs-tooltip]="'scenario.stats.maxDamage.hint'"></span>
                     </td>
                 </tr>
                 <tr>
                     <th><span [ghs-label]="'scenario.stats.progress'"></span></th>
                     <td *ngFor="let character of characters">
-                        <span [ghs-label]="'scenario.stats.gold'" [ghs-label-args]="['' + character.scenarioStats.gold]"
+                        <span [ghs-label]="'scenario.stats.gold'" [ghs-label-args]="[character.scenarioStats.gold]"
                             [style]="'fh'" [ghs-tooltip]="'scenario.stats.gold.hint'"></span>
-                        <span [ghs-label]="'scenario.stats.xp'" [ghs-label-args]="['' + character.scenarioStats.xp]"
+                        <span [ghs-label]="'scenario.stats.xp'" [ghs-label-args]="[character.scenarioStats.xp]"
                             [style]="'fh'" [ghs-tooltip]="'scenario.stats.xp.hint'"></span>
                         <span [ghs-label]="'scenario.stats.treasures'"
-                            [ghs-label-args]="['' + character.scenarioStats.treasures]" [style]="'fh'"
+                            [ghs-label-args]="[character.scenarioStats.treasures]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.treasures.hint'"></span>
                     </td>
                     <td *ngIf="!character">
-                        <span [ghs-label]="'scenario.stats.gold'" [ghs-label-args]="['' + overall.gold]" [style]="'fh'"
+                        <span [ghs-label]="'scenario.stats.gold'" [ghs-label-args]="[overall.gold]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.gold.hint'"></span>
-                        <span [ghs-label]="'scenario.stats.xp'" [ghs-label-args]="['' + overall.xp]" [style]="'fh'"
+                        <span [ghs-label]="'scenario.stats.xp'" [ghs-label-args]="[overall.xp]" [style]="'fh'"
                             [ghs-tooltip]="'scenario.stats.xp.hint'"></span>
-                        <span [ghs-label]="'scenario.stats.treasures'" [ghs-label-args]="['' + overall.treasures]"
+                        <span [ghs-label]="'scenario.stats.treasures'" [ghs-label-args]="[overall.treasures]"
                             [style]="'fh'" [ghs-tooltip]="'scenario.stats.treasures.hint'"></span>
                     </td>
                 </tr>

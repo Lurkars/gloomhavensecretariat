@@ -306,7 +306,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     toggleEquippedItem(itemData: ItemData, force: boolean = false) {
         const disabled = gameManager.game.state != GameState.draw || gameManager.game.round > 0;
         if ((!disabled || force) && this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition) != undefined) {
-            gameManager.stateManager.before(gameManager.itemManager.isEquipped(itemData, this.character) ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character), '' + itemData.id, itemData.edition)
+            gameManager.stateManager.before(gameManager.itemManager.isEquipped(itemData, this.character) ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character), itemData.id, itemData.edition)
             gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
             gameManager.stateManager.after();
         }

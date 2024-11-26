@@ -243,7 +243,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
         if (this.unlocks.indexOf(item) != -1 && revealed) {
             gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems || [];
             if (!this.unlocked(item)) {
-                gameManager.stateManager.before("addUnlockedItem", item.edition, '' + item.id, item.name);
+                gameManager.stateManager.before("addUnlockedItem", item.edition, item.id, item.name);
                 gameManager.game.party.unlockedItems.push(new CountIdentifier('' + item.id, item.edition));
                 gameManager.stateManager.after();
                 this.updateEditionItems();
@@ -253,7 +253,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
 
     removeUnlocked(itemData: ItemData) {
         if (this.unlocked(itemData)) {
-            gameManager.stateManager.before("removeUnlockedItem", itemData.edition, '' + itemData.id, itemData.name);
+            gameManager.stateManager.before("removeUnlockedItem", itemData.edition, itemData.id, itemData.name);
             gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems || [];
             gameManager.game.party.unlockedItems = gameManager.game.party.unlockedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
             gameManager.stateManager.after();

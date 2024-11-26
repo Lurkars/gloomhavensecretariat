@@ -27,6 +27,7 @@ export class ActionComponent implements OnInit, OnDestroy {
   @Input('action') origAction!: Action | undefined;
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
+  @Input() textBlack: boolean = false;
   @Input() right: boolean = false;
   @Input() highlight: boolean = false;
   @Input() interactiveAbilities: boolean = false;

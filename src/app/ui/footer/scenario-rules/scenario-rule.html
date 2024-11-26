@@ -56,7 +56,7 @@
     <ng-container *ngFor="let figureRule of figureRules();">
       <span class="figure">
         <span class="text-white" [ghs-label]="'scenario.rules.figures.' + figureRule.type"
-          [ghs-label-args]="[figureNames(figureRule), figureRule.value || '', (settingsManager.settings.calculate && (figureRule.type == 'damage' && figureRule.value && figureRule.value.indexOf('H') == -1 || (figureRule.type == 'setHp' || figureRule.type == 'heal') && figureRule.value && figureRule.value.indexOf('H') == -1)) ? '' + EntityValueFunction(figureRule.value || '') : (figureRule.value || ''), (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[0] : '', (figureRule.type == 'amAdd' || figureRule.type == 'amRemove' || figureRule.type == 'transfer' && figureRule.value && figureRule.value.split(':').length > 1) ? figureRule.value.split(':')[1] : '', figureRule.type == 'transferEntities' && figureRule.identifier && figureRule.identifier.number ? figureRule.identifier.number : '']"></span>
+          [ghs-label-args]="[figureNames(figureRule), figureRule.value || '', (settingsManager.settings.calculate && (figureRule.type == 'damage' && figureRule.value && figureRule.value.indexOf('H') == -1 || (figureRule.type == 'setHp' || figureRule.type == 'heal') && figureRule.value && figureRule.value.indexOf('H') == -1)) ? EntityValueFunction(figureRule.value || '') : (figureRule.value || ''), (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[0] : '', (figureRule.type == 'amAdd' || figureRule.type == 'amRemove' || figureRule.type == 'transfer' && figureRule.value && figureRule.value.split(':').length > 1) ? figureRule.value.split(':')[1] : '', figureRule.type == 'transferEntities' && figureRule.identifier && figureRule.identifier.number ? figureRule.identifier.number : '']"></span>
         <span *ngIf="figureRule.scenarioEffect" class="text-white">
           <span [ghs-label]="'scenario.rules.figures.scenarioEffect'"></span>
         </span>
@@ -66,12 +66,12 @@
   <div class="random-dungeon" *ngIf="rule.randomDungeon">
     <p *ngIf="rule.randomDungeon.dungeonCount" class="text-white"
       [ghs-label]="'scenario.rules.randomDungeon.dungeon' + (rule.randomDungeon.dungeonCards && rule.randomDungeon.dungeonCards.length ? '.cards' : '')"
-      [ghs-label-args]="['' + rule.randomDungeon.dungeonCount, randomDungeonsDungeonLabel().toString()]">
+      [ghs-label-args]="[rule.randomDungeon.dungeonCount, randomDungeonsDungeonLabel().toString()]">
     </p>
     <br *ngIf="rule.randomDungeon.dungeonCount && rule.randomDungeon.monsterCount">
     <p *ngIf="rule.randomDungeon.monsterCount" class="text-white"
       [ghs-label]="'scenario.rules.randomDungeon.monster' + (rule.randomDungeon.monsterCards && rule.randomDungeon.monsterCards.length ? '.cards' : '')"
-      [ghs-label-args]="['' + rule.randomDungeon.monsterCount, randomDungeonsMonsterLabel(rule).toString()]">
+      [ghs-label-args]="[rule.randomDungeon.monsterCount, randomDungeonsMonsterLabel(rule).toString()]">
     </p>
   </div>
   <div class="stat-effects" *ngIf="rule.statEffects && rule.statEffects.length">

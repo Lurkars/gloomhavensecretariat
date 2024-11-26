@@ -1,14 +1,15 @@
-import { DialogRef, DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
+import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { BuildingModel } from "src/app/game/model/Building";
 import { Character } from "src/app/game/model/Character";
-import { CharacterMoveResourcesDialog } from "./move-resources";
+import { BuildingData } from "src/app/game/model/data/BuildingData";
+import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
-import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
-import { BuildingData, BuildingModel } from "src/app/game/model/data/BuildingData";
+import { CharacterMoveResourcesDialog } from "./move-resources";
 
 @Component({
     selector: 'ghs-character-retirement-dialog',

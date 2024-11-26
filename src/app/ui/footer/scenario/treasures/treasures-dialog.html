@@ -46,7 +46,7 @@
         <ng-container
             *ngIf="character && treasureIndex != -1 && !gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)">
             <p><span [ghs-label]="'game.loot.lootTreasure'"
-                    [ghs-label-args]="[character.title || '%data.character.' + character.name + '%', ('' + treasures[treasureIndex]).startsWith('G') || +treasures[treasureIndex] >= 0 ? '' + treasures[treasureIndex] : '\'???\'']"></span>
+                    [ghs-label-args]="[character.title || '%data.character.' + character.name + '%', ('' + treasures[treasureIndex]).startsWith('G') || +treasures[treasureIndex] >= 0 ? treasures[treasureIndex] : '\'???\'']"></span>
             </p>
             <div class="button" (click)="lootTreasure()"><span [ghs-label]="'game.loot.lootTreasure.confirm'"></span>
             </div>

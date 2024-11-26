@@ -74,6 +74,7 @@ for (edition_path of edition_dirs) {
   edition_data['challenges'] = load_file(edition_path, 'challenges.json', []);
   edition_data['trials'] = load_file(edition_path, 'trials.json', []);
   edition_data['favors'] = load_file(edition_path, 'favors.json', []);
+  edition_data['pets'] = load_file(edition_path, 'pets.json', []);
 
   if (edition_data['campaign']) {
     edition_data['campaign']['buildings'] = load_file(edition_path, 'buildings.json', undefined);

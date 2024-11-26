@@ -115,7 +115,8 @@
         <span *ngIf="!character.absent">
           <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
             collectiveGold[index] : 0) + (character.loot *
-            gameManager.levelManager.loot()) | ghsValueSign}}</span>
+            gameManager.levelManager.loot()) + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
+            ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0)  | ghsValueSign}}</span>
           ({{character.progress.gold + (success && rewards && rewards.gold ? rewards.gold : 0)+ (collectiveGold[index] ?
           collectiveGold[index] : 0) + character.loot *
           gameManager.levelManager.loot() + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
@@ -214,7 +215,7 @@
           }})
 
           <span class="level-up" *ngIf="levelUp[index]" [ghs-tooltip]="'scenario.summary.levelUp'"
-            [ghs-label-args]="['' + character.level,'' + (character.level + 1)]">
+            [ghs-label-args]="[character.level, (character.level + 1)]">
             <img class="ghs-svg" src="./assets/images/arrow-up.svg">
           </span>
         </span>
@@ -349,43 +350,43 @@
         <span class="head-col"><span [ghs-label]="'scenario.stats.damage'"></span></span>
         <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
           <span class="text-white" [ghs-label]="'scenario.stats.dealtDamage'"
-            [ghs-label-args]="['' + character.scenarioStats.dealtDamage]" [style]="'fh'"
+            [ghs-label-args]="[character.scenarioStats.dealtDamage]" [style]="'fh'"
             [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
           <span class="text-white" [ghs-label]="'scenario.stats.monsterDamage'"
-            [ghs-label-args]="['' + character.scenarioStats.monsterDamage]" [style]="'fh'"
+            [ghs-label-args]="[character.scenarioStats.monsterDamage]" [style]="'fh'"
             [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"></span>
           <span class="text-white" [ghs-label]="'scenario.stats.otherDamage'"
-            [ghs-label-args]="['' + character.scenarioStats.otherDamage]" [style]="'fh'"
+            [ghs-label-args]="[character.scenarioStats.otherDamage]" [style]="'fh'"
             [ghs-tooltip]="'scenario.stats.otherDamage.hint'"></span>
         </span>
         <span class="head-col"><span [ghs-label]="'scenario.stats.heal'"></span></span>
         <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
           <span class="text-white" [ghs-label]="'scenario.stats.heals'"
-            [ghs-label-args]="['' + character.scenarioStats.heals]" [style]="'fh'"
+            [ghs-label-args]="[character.scenarioStats.heals]" [style]="'fh'"
             [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
           <span class="text-white" [ghs-label]="'scenario.stats.healedDamage'"
-            [ghs-label-args]="['' + character.scenarioStats.healedDamage]" [style]="'fh'"
+            [ghs-label-args]="[character.scenarioStats.healedDamage]" [style]="'fh'"
             [ghs-tooltip]="'scenario.stats.healedDamage.hint'"></span>
         </span>
         <span class="head-col"><span [ghs-label]="'scenario.stats.kills'"></span></span>
         <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
           <span *ngIf="character.scenarioStats.normalKills" class="text-white"
-            [ghs-label]="'scenario.stats.normalKills'" [ghs-label-args]="['' + character.scenarioStats.normalKills]"
+            [ghs-label]="'scenario.stats.normalKills'" [ghs-label-args]="[character.scenarioStats.normalKills]"
             [style]="'fh'" [ghs-tooltip]="'scenario.stats.normalKills.hint'"></span>
           <span *ngIf="character.scenarioStats.eliteKills" class="text-white" [ghs-label]="'scenario.stats.eliteKills'"
-            [ghs-label-args]="['' + character.scenarioStats.eliteKills]" [style]="'fh'"
+            [ghs-label-args]="[character.scenarioStats.eliteKills]" [style]="'fh'"
             [ghs-tooltip]="'scenario.stats.eliteKills.hint'"></span>
           <span *ngIf="character.scenarioStats.bossKills" class="text-white" [ghs-label]="'scenario.stats.bossKills'"
-            [ghs-label-args]="['' + character.scenarioStats.bossKills]" [style]="'fh'"
+            [ghs-label-args]="[character.scenarioStats.bossKills]" [style]="'fh'"
             [ghs-tooltip]="'scenario.stats.bossKills.hint'"></span>
         </span>
         <span class="head-col"><span [ghs-label]="'scenario.stats.max'"></span></span>
         <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
           <span class="text-white" [ghs-label]="'scenario.stats.maxDealtDamage'"
-            [ghs-label-args]="['' + character.scenarioStats.maxDealtDamage]" [style]="'fh'"
+            [ghs-label-args]="[character.scenarioStats.maxDealtDamage]" [style]="'fh'"
             [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"></span>
           <span class="text-white" [ghs-label]="'scenario.stats.maxDamage'"
-            [ghs-label-args]="['' + character.scenarioStats.maxDamage]" [style]="'fh'"
+            [ghs-label-args]="[character.scenarioStats.maxDamage]" [style]="'fh'"
             [ghs-tooltip]="'scenario.stats.maxDamage.hint'"></span>
         </span>
       </ng-container>
@@ -581,7 +582,7 @@
               <ng-container *ngFor="let item of rewards.resources; let i = index;">
                 <span class="placeholder text-white" *ngIf="item.value"
                   [ghs-label]="'scenario.rewards.resources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
-                  [ghs-label-args]="['' + item.type, ''+  EntityValueFunction(item.value)]"></span>
+                  [ghs-label-args]="[item.type, ''+  EntityValueFunction(item.value)]"></span>
                 <span class="placeholder text-white hint"
                   *ngIf="rewards.hints && rewards.hints.resources && rewards.hints.resources[i]"
                   [ghs-label]="rewards.hints.resources[i]"></span>
@@ -592,7 +593,7 @@
               <ng-container *ngFor="let item of rewards.collectiveResources; let i = index;">
                 <span class="placeholder text-white" *ngIf="item.value"
                   [ghs-label]="'scenario.rewards.collectiveResources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
-                  [ghs-label-args]="['' + item.type, ''+  EntityValueFunction(item.value)]"></span>
+                  [ghs-label-args]="[item.type, ''+  EntityValueFunction(item.value)]"></span>
                 <span class="placeholder text-white hint"
                   *ngIf="rewards.hints && rewards.hints.resources && rewards.hints.resources[i]"
                   [ghs-label]="rewards.hints.resources[i]"></span>
@@ -614,14 +615,14 @@
             </div>
 
             <div class="item inspiration" *ngIf="rewards.inspiration">
-              <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['' + (EntityValueFunction(rewards.inspiration) |
+              <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction(rewards.inspiration) |
                 ghsValueSign) ]"></span></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.inspiration"
                 [ghs-label]="rewards.hints.inspiration"></span>
             </div>
 
             <div class="item morale" *ngIf="rewards.morale">
-              <span><span [ghs-label]="'scenario.rewards.morale'" [ghs-label-args]="['' + (EntityValueFunction(rewards.morale) |
+              <span><span [ghs-label]="'scenario.rewards.morale'" [ghs-label-args]="[(EntityValueFunction(rewards.morale) |
                 ghsValueSign) ]"></span> </span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.morale"
                 [ghs-label]="rewards.hints.morale"></span>
@@ -711,7 +712,7 @@
               <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprint'"></span>
               <ng-container *ngFor="let itemId of randomItemBlueprints; let i = index;">
                 <span *ngIf="itemId > 0" class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
-                  [ghs-label-args]="['' + itemId, gameManager.itemManager.getItem(itemId,scenario.edition || '', true)?.name || '']"
+                  [ghs-label-args]="[itemId, gameManager.itemManager.getItem(itemId,scenario.edition || '', true)?.name || '']"
                   (click)="openItemDialog(gameManager.itemManager.getItem(itemId,scenario.edition || '', true))"></span>
                 <span *ngIf="itemId == -1"> <span [ghs-label]="'scenario.rewards.inspiration'"
                     [ghs-label-args]="['+1']"></span>
@@ -753,6 +754,14 @@
                 [ghs-label-args]="[rewards.overlaySticker.name, rewards.overlaySticker.location]"></span>
             </div>
 
+            <div class="item overlay-sticker" *ngIf="rewards.pet">
+              <span *ngIf="rewards.hints && rewards.hints.pet" class="placeholder text-white hint"
+                [ghs-label]="rewards.hints.pet"></span>
+              <span *ngIf="!rewards.hints || !rewards.hints.pet" class="placeholder text-white"
+                [ghs-label]="'scenario.rewards.pet'"
+                [ghs-label-args]="[rewards.pet, scenario.edition]"></span>
+            </div>
+
             <div class="list-inline unlock-character"
               *ngIf="rewards && rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length > 0">
               <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
@@ -781,7 +790,7 @@
             <div class="item loot-deck-cards"
               *ngFor="let lootDeckCard of (rewards.lootDeckCards || []); let i = index;">
               <span class="placeholder text-white" [ghs-label]="'scenario.rewards.lootDeckCard'"
-                [ghs-label-args]="['' + lootDeckCard]"></span>
+                [ghs-label-args]="[lootDeckCard]"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.lootDeckCards && rewards.hints.lootDeckCards[i]"
                 [ghs-label]="rewards.hints.lootDeckCards[i]"></span>
@@ -790,7 +799,7 @@
             <div class="item loot-deck-cards"
               *ngFor="let lootDeckCard of (rewards.removeLootDeckCards || []); let i = index;">
               <span class="placeholder text-white" [ghs-label]="'scenario.rewards.removeLootDeckCard'"
-                [ghs-label-args]="['' + lootDeckCard]"></span>
+                [ghs-label-args]="[lootDeckCard]"></span>
               <span class="placeholder text-white hint"
                 *ngIf="rewards.hints && rewards.hints.removeLootDeckCards && rewards.hints.removeLootDeckCards[i]"
                 [ghs-label]="rewards.hints.removeLootDeckCards[i]"></span>
@@ -799,7 +808,7 @@
             <div class="item town-guard-am" *ngIf="townGuardAMs && townGuardAMs.length > 0">
               <span *ngFor="let townGuardAm of townGuardAMs" class="placeholder text-white"
                 [ghs-label]="'scenario.rewards.townGuardAm'"
-                [ghs-label-args]="['' + townGuardAm.value, townGuardAm.valueType]"></span>
+                [ghs-label-args]="[townGuardAm.value, townGuardAm.valueType]"></span>
             </div>
           </div>
         </div>
@@ -810,7 +819,7 @@
         <div class="list">
           <div class="item inspiration"
             *ngIf="gameManager.fhRules() && EntityValueFunction('4-C') && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('inspiration') == -1)">
-            <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['' + (EntityValueFunction('4-C') |
+            <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction('4-C') |
               ghsValueSign) ]"></span> </span>
           </div>
 
@@ -849,7 +858,7 @@
         <div class="list">
           <div class="item week">
             <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.next'"
-                [ghs-label-args]="['' + (gameManager.game.party.weeks + 1)]"></span></span>
+                [ghs-label-args]="[(gameManager.game.party.weeks + 1)]"></span></span>
           </div>
 
           <div class="item summer"

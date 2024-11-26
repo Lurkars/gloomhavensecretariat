@@ -212,7 +212,10 @@
     <div *ngIf="gameManager.challengesManager.available" class="line" ghs-setting-menu="fhChallenges"
       [disabled]="!gameManager.fhRules()"></div>
     <div *ngIf="gameManager.trialsManager.available" class="line" ghs-setting-menu="fhTrials"
-      [disabled]="!gameManager.fhRules()" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''"></div>
+      [disabled]="!gameManager.fhRules()" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''">
+    </div>
+    <div *ngIf="gameManager.buildingsManager.petsAvailable" class="line" ghs-setting-menu="fhPets"
+      [disabled]="!gameManager.fhRules()"></div>
   </div>
 
   <div class="column">
@@ -235,7 +238,8 @@
     <div *ngIf="gameManager.challengesManager.available" class="line" ghs-setting-menu="fhChallengesApply"
       [disabled]="!gameManager.fhRules()" [requires]="['fhChallenges']"></div>
     <div *ngIf="gameManager.trialsManager.available" class="line" ghs-setting-menu="fhTrialsApply"
-      [disabled]="!gameManager.fhRules() || !gameManager.trialsManager.trialsEnabled && !gameManager.trialsManager.favorsEnabled" [requires]="['fhTrials']" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''">
+      [disabled]="!gameManager.fhRules() || !gameManager.trialsManager.trialsEnabled && !gameManager.trialsManager.favorsEnabled"
+      [requires]="['fhTrials']" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''">
     </div>
   </div>
 

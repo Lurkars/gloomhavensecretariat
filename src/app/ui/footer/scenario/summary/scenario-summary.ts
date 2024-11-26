@@ -404,7 +404,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     hasRewards(): boolean {
         const rewards = this.rewards;
-        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm || rewards.overlayCampaignSticker || rewards.overlaySticker)) {
+        if (rewards && (rewards.envelopes || rewards.gold || rewards.experience || rewards.collectiveGold || rewards.resources || rewards.collectiveResources || rewards.reputation || rewards.prosperity || rewards.inspiration || rewards.morale || rewards.perks || rewards.battleGoals || rewards.items || rewards.chooseItem || rewards.itemDesigns || rewards.itemBlueprints || rewards.randomItemBlueprint || rewards.randomItemBlueprints || rewards.events || rewards.chooseUnlockCharacter || rewards.unlockCharacter || rewards.custom || rewards.lootDeckCards || rewards.removeLootDeckCards || rewards.townGuardAm || rewards.overlayCampaignSticker || rewards.overlaySticker || rewards.pet)) {
             return true;
         }
         return false;
@@ -487,7 +487,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     toggleBattleGoal(event: any, index: number, value: number) {
         const character = this.characters[index];
-        gameManager.stateManager.before("finishScenario.battleGoal", character.name, '' + value);
+        gameManager.stateManager.before("finishScenario.battleGoal", character.name, value);
         let battleGoal: BattleGoal | undefined;
 
         if (settingsManager.settings.battleGoals) {
@@ -541,7 +541,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     toggleTrial(event: any, index: number) {
         const character = this.characters[index];
-        gameManager.stateManager.before("finishScenario.trial", character.name, '' + this.trials[index]);
+        gameManager.stateManager.before("finishScenario.trial", character.name, this.trials[index]);
         this.trials[index] = event.target.checked;
         this.updateFinish();
         gameManager.stateManager.after();
@@ -599,7 +599,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
     }
 
     toggleItem(event: any, index: number, itemIndex: number) {
-        gameManager.stateManager.before("finishScenario.dialog.item", '' + index, '' + this.rewardItems[itemIndex].id);
+        gameManager.stateManager.before("finishScenario.dialog.item", index, this.rewardItems[itemIndex].id);
         if (this.items[index].indexOf(itemIndex) == -1) {
             this.items[index].push(itemIndex);
         } else {
@@ -610,7 +610,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
     }
 
     toggleRandomItem(event: any, index: number) {
-        gameManager.stateManager.before("finishScenario.dialog.item", '' + index);
+        gameManager.stateManager.before("finishScenario.dialog.item", index);
         this.randomItemIndex = this.randomItemIndex == index ? -1 : index;
         this.updateFinish();
         gameManager.stateManager.after();
@@ -637,7 +637,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
         }
         this.collectiveGold[index] = old;
         if (value != (this.collectiveGold[index] || 0)) {
-            gameManager.stateManager.before("finishScenario.dialog.collectiveGold", '' + index, event.target.value);
+            gameManager.stateManager.before("finishScenario.dialog.collectiveGold", index, event.target.value);
             this.collectiveGold[index] = +event.target.value;
             this.updateFinish();
             gameManager.stateManager.after();
@@ -659,7 +659,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
         }
         this.collectiveResources[index][type] = old;
         if (value != (this.collectiveResources[index][type] || 0)) {
-            gameManager.stateManager.before("finishScenario.dialog.collectiveResource", type, '' + index, event.target.value);
+            gameManager.stateManager.before("finishScenario.dialog.collectiveResource", type, index, event.target.value);
             this.collectiveResources[index] = this.collectiveResources[index] || {};
             this.collectiveResources[index][type] = value;
             this.updateFinish();
@@ -669,7 +669,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
     }
 
     changeCalendarSectionManual(event: any, index: number) {
-        gameManager.stateManager.before("finishScenario.dialog.calendarSectionManual", '' + index, event.target.value);
+        gameManager.stateManager.before("finishScenario.dialog.calendarSectionManual", index, event.target.value);
         this.calendarSectionManual[index] = +event.target.value;
         this.updateFinish();
         gameManager.stateManager.after();

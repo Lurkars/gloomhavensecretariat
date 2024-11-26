@@ -1,0 +1,140 @@
+.stables-container {
+    display: flex;
+    flex-direction: column;
+    color: var(--ghs-color-white);
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        .capacity {
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+            .used.full {
+                color: var(--ghs-color-yellow);
+            }
+
+            .used.warning {
+                color: var(--ghs-color-red);
+            }
+        }
+
+        label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: var(--ghs-color-white);
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        }
+    }
+
+    .pet-list {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        min-height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+
+        .empty {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--ghs-font-text);
+            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-yellow);
+        }
+
+        .pet {
+            position: relative;
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+
+            ghs-pet-card {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                border: calc(var(--ghs-unit) * 0.35 * var(--ghs-dialog-factor)) solid transparent;
+                border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                overflow: hidden;
+
+                &.unavailable {
+                    cursor: initial;
+                    border-color: var(--ghs-color-darkgray);
+                    filter: grayscale(0.7);
+                }
+
+                &.disabled {
+                    cursor: not-allowed;
+                    opacity: 0.5;
+                }
+
+                &.edit {
+                    cursor: initial;
+                }
+
+                &.selectable {
+                    cursor: pointer;
+                }
+
+                &.selected {
+                    border-color: var(--ghs-color-green);
+                    opacity: 1;
+                }
+            }
+
+            input.name {
+                position: absolute;
+                top: calc(var(--ghs-unit) * 6.2 * var(--ghs-dialog-factor));
+                left: calc(var(--ghs-unit) * 5.35 * var(--ghs-dialog-factor));
+                width: calc(var(--ghs-unit) * 21 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+                color: var(--ghs-color-white);
+                font-family: ghs-extra-fh;
+                filter: var(--ghs-filter-outline-thin);
+                font-size: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+            }
+
+            .button-remove {
+                z-index: 1;
+                position: absolute;
+                display: flex;
+                cursor: pointer;
+                top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                justify-content: center;
+                align-items: center;
+                width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                color: var(--ghs-filter-white) var(--ghs-filter-shadow);
+
+                .ghs-svg {
+                    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                }
+
+                &:hover .ghs-svg {
+                    filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
+                }
+            }
+
+            .button-lost {
+                z-index: 1;
+                position: absolute;
+                display: block;
+                cursor: pointer;
+                bottom: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+                right: calc(var(--ghs-unit) * 1.2 * var(--ghs-dialog-factor));
+                width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            }
+        }
+    }
+}

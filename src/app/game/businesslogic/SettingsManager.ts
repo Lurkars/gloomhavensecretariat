@@ -369,6 +369,7 @@ export class SettingsManager {
           value.challenges = value.challenges || [];
           value.trials = value.trials || [];
           value.favors = value.favors || [];
+          value.pets = value.pets || [];
           value.personalQuests = value.personalQuests || [];
           value.label = value.label || {};
           value.labelSpoiler = value.labelSpoiler || {};
@@ -450,6 +451,16 @@ export class SettingsManager {
               favor.name = 'favor-' + (index + 1);
             }
             return favor;
+          })
+
+          value.pets.map((pet, index) => {
+            if (!pet.edition) {
+              pet.edition = value.edition;
+            }
+            if (!pet.id) {
+              pet.id = (index < 9 ? '0' : '') + (index + 1);
+            }
+            return pet;
           })
 
           gameManager.editionData.push(value);

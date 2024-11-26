@@ -76,9 +76,9 @@
             </ng-container>
             <span *ngIf="!brewed || otherCharacters.length > 0 || noChar">=</span>
             <span class="placeholder text-white item" *ngIf="item && (!brewed || noChar)"
-                [ghs-label]="'game.items.brewing.item'" [ghs-label-args]="['' + item.id, item.name]"></span>
+                [ghs-label]="'game.items.brewing.item'" [ghs-label-args]="[item.id, item.name]"></span>
             <span class="placeholder text-white item" *ngIf="brewed && otherCharacters.length > 0"
-                [ghs-label]="'game.items.brewing.item'" [ghs-label-args]="['' + brewed.id, brewed.name]"></span>
+                [ghs-label]="'game.items.brewing.item'" [ghs-label-args]="[brewed.id, brewed.name]"></span>
             <span class="herb" *ngIf="!item && !brewed">
                 <img class="ghs-svg" src="./assets/images/fh/loot/unknown.svg">
             </span>
@@ -87,7 +87,7 @@
         <div class="receipe" *ngIf="brewed && otherCharacters.length == 0 && !noChar">
             <span class="placeholder text-white item"
                 [ghs-label]="'game.items.brewing.brewed' + (otherCharacter ? 'Other' : '')"
-                [ghs-label-args]="['' + brewed.id, brewed.name, gameManager.characterManager.characterName(character,true) , otherCharacter ? gameManager.characterManager.characterName(otherCharacter,true): '']"></span>
+                [ghs-label-args]="[brewed.id, brewed.name, gameManager.characterManager.characterName(character,true) , otherCharacter ? gameManager.characterManager.characterName(otherCharacter,true): '']"></span>
         </div>
 
         <ng-container *ngIf="brewed && otherCharacters.length > 0">

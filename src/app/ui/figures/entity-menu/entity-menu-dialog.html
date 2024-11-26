@@ -482,6 +482,15 @@
               </ghs-pointer-input>
           </span>
       </ng-container>
+
+
+      <ng-container *ngIf="catching">
+        <span class="item" [ghs-label]="'data.buildings.stables.pets.catch'" [ghs-label-attribute]="'title'">
+          <ghs-pointer-input class="button" tabclick (singleClick)="dead(true)" (doubleClick)="dead(true, true)" [ngClass]="{'disabled soft' : catchingDisabled}">
+            <img class="ghs-svg" src="./assets/images/fh/catching.svg" />
+          </ghs-pointer-input>
+        </span>
+      </ng-container>
     </div>
 
     <ng-container

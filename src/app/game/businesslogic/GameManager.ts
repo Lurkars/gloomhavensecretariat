@@ -110,6 +110,7 @@ export class GameManager {
           this.scenarioRulesManager.applyScenarioRulesAlways();
         }
         this.roundManager.firstRound = this.game.round == 0 && this.game.roundResets.length == 0 && this.game.roundResetsHidden.length == 0;
+        this.buildingsManager.update();
         this.challengesManager.update();
         this.trialsManager.update();
       }

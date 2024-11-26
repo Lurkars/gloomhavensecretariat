@@ -225,13 +225,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   changePlayer(event: any, index: number) {
-    gameManager.stateManager.before("setPlayer", event.target.value, '' + (index + 1));
+    gameManager.stateManager.before("setPlayer", event.target.value, (index + 1));
     this.party.players[index] = event.target.value;
     gameManager.stateManager.after();
   }
 
   removePlayer(index: number) {
-    gameManager.stateManager.before("removePlayer", this.party.players[index], '' + (index + 1));
+    gameManager.stateManager.before("removePlayer", this.party.players[index], (index + 1));
     this.party.players.splice(index, 1);
     gameManager.stateManager.after();
   }
@@ -800,7 +800,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   removeItem(item: ItemData) {
     const identifier = this.party.unlockedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition);
     if (identifier) {
-      gameManager.stateManager.before("removeUnlockedItem", item.edition, '' + item.id, item.name);
+      gameManager.stateManager.before("removeUnlockedItem", item.edition, item.id, item.name);
       this.party.unlockedItems.splice(this.party.unlockedItems.indexOf(identifier), 1);
       gameManager.stateManager.after();
       this.update();
@@ -816,7 +816,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   incItemCount(item: ItemData, itemIdentifier: CountIdentifier) {
-    gameManager.stateManager.before("updateUnlockedItemCount", item.edition, '' + item.id, item.name);
+    gameManager.stateManager.before("updateUnlockedItemCount", item.edition, item.id, item.name);
     if (itemIdentifier.count < 0) {
       itemIdentifier.count = 1;
     } else {
@@ -975,7 +975,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   removeConclusion(section: string, edition: string) {
-    gameManager.stateManager.before("removeConclusion", gameManager.game.party.name, section + '');
+    gameManager.stateManager.before("removeConclusion", gameManager.game.party.name, section);
     gameManager.game.party.conclusions = gameManager.game.party.conclusions.filter((conclusion) => conclusion.edition != edition || conclusion.index != section);
     // TODO: remove week
     gameManager.stateManager.after();
@@ -1067,7 +1067,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (!isNaN(+event.target.value)) {
       const value = +event.target.value - this.moraleDefense;
       if (this.party.defense != value) {
-        gameManager.stateManager.before("setPartyTotalDefense", this.party.name, '' + value);
+        gameManager.stateManager.before("setPartyTotalDefense", this.party.name, value);
         this.party.defense = value;
         gameManager.stateManager.after();
       }

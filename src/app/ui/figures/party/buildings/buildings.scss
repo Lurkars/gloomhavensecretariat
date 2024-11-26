@@ -82,7 +82,23 @@
         height: 100%;
         background-color: var(--ghs-color-gray);
         opacity: 0.35;
-        z-index: -1;
+        z-index: 0;
+      }
+
+      &:hover::before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--ghs-color-yellow);
+        opacity: 0.35;
+        z-index: 1;
+      }
+
+      &>span {
+        z-index: 2;
       }
 
       .name {
@@ -214,6 +230,15 @@
                 background-position: center center;
                 background-repeat: no-repeat;
               }
+            }
+          }
+
+          &.stables,
+          &.garden {
+
+            .icon,
+            .text {
+              cursor: pointer;
             }
           }
         }

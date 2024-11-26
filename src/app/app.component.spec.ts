@@ -83,6 +83,9 @@ import { MonsterStatsComponent } from './ui/figures/monster/stats/stats';
 import { MonsterStatsDialogComponent } from './ui/figures/monster/stats/stats-dialog';
 import { ObjectiveContainerComponent } from './ui/figures/objective-container/objective-container';
 import { PartyBuildingsComponent } from './ui/figures/party/buildings/buildings';
+import { GardenComponent } from './ui/figures/party/buildings/garden/garden';
+import { PetCardComponent } from './ui/figures/party/buildings/stables/pet-card/pet-card';
+import { StablesComponent } from './ui/figures/party/buildings/stables/stables';
 import { BuildingUpgradeDialog } from './ui/figures/party/buildings/upgrade-dialog/upgrade-dialog';
 import { PartySheetDialogComponent } from './ui/figures/party/party-sheet-dialog';
 import { ScenarioRequirementsComponent, ScenarioRequirementsDialogComponent } from './ui/figures/party/requirements/requirements';
@@ -243,6 +246,7 @@ describe('AppComponent', () => {
         FigureErrorsDialogComponent,
         FooterComponent,
         GameClockDialogComponent,
+        GardenComponent,
         GhsCeilPipe,
         GhsDurationLabelPipe,
         GhsFloorPipe,
@@ -298,6 +302,7 @@ describe('AppComponent', () => {
         PartySheetDialogComponent,
         PartyWeekDialogComponent,
         PerkLabelComponent,
+        PetCardComponent,
         PointerInputDirective,
         ScenarioChartDialogComponent,
         ScenarioChartPopupDialog,
@@ -320,6 +325,7 @@ describe('AppComponent', () => {
         SettingMenuTitleComponent,
         SettingsDebugMenuComponent,
         SettingsMenuComponent,
+        StablesComponent,
         StandeeComponent,
         StatisticsDialogComponent,
         StatsListComponent,

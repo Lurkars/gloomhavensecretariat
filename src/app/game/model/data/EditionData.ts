@@ -9,6 +9,7 @@ import { ItemData } from "./ItemData";
 import { MonsterData } from "./MonsterData";
 import { Perk } from "./Perks";
 import { PersonalQuest } from "./PersonalQuest";
+import { PetCard } from "./PetCard";
 import { ScenarioData } from "./ScenarioData";
 import { Favor, TrialCard } from "./Trials";
 
@@ -32,6 +33,7 @@ export class EditionData implements Editional {
   challenges: ChallengeCard[] = [];
   trials: TrialCard[] = [];
   favors: Favor[] = [];
+  pets: PetCard[] = [];
   worldMap: { width: number, height: number } | undefined;
   extendWorldMap: string | undefined;
   label: any = {};

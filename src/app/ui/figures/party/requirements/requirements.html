@@ -11,7 +11,7 @@
       <div class="party">
         <div class="achievement" *ngFor="let achievement of requirement.partyAchievementsCount"
           [ghs-label]="'scenario.requirements.partyCount'"
-          [ghs-label-args]="[achievement.name, '' + (achievement.required - achievement.count) , '' + achievement.required]">
+          [ghs-label-args]="[achievement.name, (achievement.required - achievement.count) , achievement.required]">
         </div>
       </div>
       <div class="party">
@@ -25,7 +25,7 @@
       <div class="global">
         <div class="achievement" *ngFor="let achievement of requirement.globalAchievementsCount"
           [ghs-label]="'scenario.requirements.globalCount'"
-          [ghs-label-args]="[achievement.name, '' + (achievement.required - achievement.count) , '' + achievement.required]">
+          [ghs-label-args]="[achievement.name, (achievement.required - achievement.count), achievement.required]">
         </div>
       </div>
       <div class="global">
@@ -39,7 +39,7 @@
       <div class="campaign-stickers">
         <div class="achievement" *ngFor="let achievement of requirement.campaignStickersCount"
           [ghs-label]="'scenario.requirements.campaignStickersCount'"
-          [ghs-label-args]="[achievement.name, '' + (achievement.required - achievement.count) , '' + achievement.required]">
+          [ghs-label-args]="[achievement.name, (achievement.required - achievement.count), achievement.required]">
         </div>
       </div>
       <div class="campaign-stickers">
@@ -53,7 +53,7 @@
       <div class="buildings">
         <div class="achievement" *ngFor="let achievement of requirement.buildingsLevel"
           [ghs-label]="'scenario.requirements.buildingsLevel'"
-          [ghs-label-args]="[achievement.name, '' + achievement.level]"></div>
+          [ghs-label-args]="[achievement.name, achievement.level]"></div>
       </div>
       <div class="buildings">
         <div class="achievement" *ngFor="let achievement of requirement.buildingsMissing"

@@ -1,0 +1,160 @@
+.pet-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 147%;
+}
+
+.pet {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .front {
+        background-image: url('~src/assets/images/fh/pets/pets-card-front.png');
+        background-size: 100% 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 0.5em;
+        background-clip: padding-box;
+
+        .artwork {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            mask-image: url('~src/assets/images/fh/pets/pets-card-front-mask.png');
+            mask-size: 100% 100%;
+            mask-position: center center;
+            mask-repeat: no-repeat;
+        }
+
+        .title {
+            position: absolute;
+            top: 4%;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            display: flex;
+            color: var(--ghs-color-white);
+            justify-content: center;
+            align-items: center;
+            font-family: ghs-title-fh;
+            font-size: 1.3em;
+            filter: var(--ghs-filter-outline-thin);
+        }
+
+        .name-container {
+            position: absolute;
+            top: 14%;
+            left: 5%;
+            width: 95%;
+            height: 8%;
+            color: var(--ghs-color-white);
+            font-size: 0.8em;
+            font-family: ghs-normal-fh;
+            filter: var(--ghs-filter-outline-thin);
+            display: flex;
+            align-items: center;
+
+            .name {
+                font-family: ghs-extra-fh;
+                font-size: 1.05em;
+                margin-left: 3%;
+                flex-grow: 1;
+            }
+        }
+
+        .action {
+            position: absolute;
+            top: 74%;
+            left: 5%;
+            width: 75%;
+            height: 26%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: ghs-normal-fh;
+            font-size: 1.25em;
+            line-height: 0.8em;
+        }
+
+
+        .round,
+        .lost {
+            position: absolute;
+            top: 72%;
+            left: 80%;
+            width: 20%;
+            height: 13%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1.8em;
+
+            &.lost {
+                top: 83%;
+            }
+        }
+
+        .card-id {
+            position: absolute;
+            bottom: 0;
+            left: 78%;
+            width: 15%;
+            height: 6%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-family: ghs-normal;
+            font-size: 0.65em;
+        }
+
+    }
+
+    .back {
+        background-image: url('~src/assets/images/fh/pets/pets-card-back.png');
+        background-size: 100% 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 0.5em;
+        background-clip: padding-box;
+
+        .id {
+            position: absolute;
+            top: 0;
+            left: 40%;
+            width: 20%;
+            height: 7%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: ghs-title-fh;
+            font-size: 1.2em;
+        }
+    }
+
+
+    &.confirm {
+        .revealed {
+            position: relative;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--ghs-color-white);
+            font-size: 1.5em;
+            filter: drop-shadow(calc(var(--ghs-unit) * 0.2) calc(var(--ghs-unit) * 0.2) calc(var(--ghs-unit) * 0.2) var(--ghs-color-black));
+
+            .text {
+                text-align: center;
+            }
+        }
+    }
+}

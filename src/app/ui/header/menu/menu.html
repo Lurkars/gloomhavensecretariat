@@ -3,7 +3,7 @@
     <div class="line state-container span">
       <span class="warning" (click)="gameManager.stateManager.gameOffsetWarning = false"
         *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"> <img src="./assets/images/warning.svg">
-        <span [ghs-label]="'state.missing'" [ghs-label-args]="['' + undoOffset]"></span></span>
+        <span [ghs-label]="'state.missing'" [ghs-label-args]="[undoOffset]"></span></span>
       <a tabclick class="state undo"
         [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || gameManager.stateManager.undos.length == 0}"
         (click)="gameManager.stateManager.undo()">

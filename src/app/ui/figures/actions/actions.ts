@@ -21,6 +21,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
   @Input() actions!: Action[];
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
+  @Input() textBlack: boolean = false;
   @Input() right: boolean = false;
   @Input() statsCalculation: boolean = false;
   @Input() interactiveAbilities: boolean = false;

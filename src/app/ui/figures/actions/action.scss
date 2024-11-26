@@ -889,8 +889,6 @@
   }
 
   &.right {
-    color: var(--ghs-color-black);
-    filter: none;
     justify-content: flex-end;
     text-align: right;
 
@@ -927,11 +925,38 @@
         align-items: flex-end;
         align-self: flex-end;
       }
-
-      .ghs-svg {
-        filter: none;
-      }
     }
+  }
+
+  &.text-black {
+    color: var(--ghs-color-black);
+    filter: none !important;
+
+    .ghs-svg,
+    .placeholder-action .icon {
+      filter: none !important;
+    }
+
+    .action-default,
+    .action-custom,
+    .action-grant,
+    .action-trigger,
+    .action-specialTarget,
+    .action-condition {
+      filter: none !important;
+    }
+
+    .type,
+    .value,
+    .condition-value,
+    .custom-value,
+    .grant-value,
+    .special-target-value,
+    .monster-type,
+    .summon-value {
+      filter: none !important;
+    }
+
   }
 
   .subactions,
@@ -1092,6 +1117,20 @@
 
       ghs-action {
         margin: 0 0.1em;
+      }
+    }
+
+    &.text-black {
+      .subactions,
+      .condition-subactions,
+      .monster-type-subactions,
+      .subaction-custom .custom-subactions,
+      .subaction-grant .grant-subactions,
+      .subaction-specialTarget .special-target-subactions {
+
+        &::before {
+          opacity: 0.5;
+        }
       }
     }
 

@@ -286,7 +286,7 @@
         </div>
         <div class="line" *ngIf="backups > 1">
           <a tabclick (click)="exportAllBackups()">
-            <span [ghs-label]="'datamanagement.backup.all'" [ghs-label-args]="['' + backups]"></span>
+            <span [ghs-label]="'datamanagement.backup.all'" [ghs-label-args]="[backups]"></span>
           </a>
         </div>
         <div class="line">

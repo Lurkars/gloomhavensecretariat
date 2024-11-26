@@ -1360,9 +1360,60 @@
       "wealth": {
         ".": "Wealth",
         "automation": "Fully automated (applied in scenario summary)",
+        "level": "(incl. +{0} Wealth bonus)",
         "reward": "Wealth Favor",
         "text": "Each character will gain +1 gold per coin on their loot cards."
       }
+    }
+  },
+  "pets": {
+    "fh-01": {
+      ".": "Piranha Pig",
+      "1": "All characters immediately perform:"
+    },
+    "fh-02": {
+      ".": "Hound",
+      "1": "All characters add +1%game.action.attack% to all their melee attacks targeting enemies adjacent to any of the character's allies this round."
+    },
+    "fh-03": {
+      ".": "Spitting Drake",
+      "1": "All characters add %game.condition.poison% to all their ranged attacks this round."
+    },
+    "fh-04": {
+      ".": "Rending Drake",
+      "1": "All characters add %game.condition.wound% to all their melee attacks this round."
+    },
+    "fh-05": {
+      ".": "Black Imp",
+      "1": "In initiative order, all characters immediately perform:"
+    },
+    "fh-06": {
+      ".": "Forest Imp",
+      "1": "In initiative order, all characters immediately perform:"
+    },
+    "fh-07": {
+      ".": "Snow Imp",
+      "1": "In initiative order, all characters immediately perform:"
+    },
+    "fh-08": {
+      ".": "Ooze",
+      "1": "Create one 1-,2-, or 3-hex obstacle anywhere on the revealed map."
+    },
+    "fh-09": {
+      ".": "Ruined Machine",
+      "1": "All characters immediately perform:"
+    },
+    "fh-10": {
+      ".": "Lightning Eel",
+      "1": "All characters suffers %game.damage:2% to %game.card.recover% one of their level 1 or X discarded cards."
+    },
+    "fh-11": {
+      ".": "HE-RO-IC-S",
+      "1": "In initiative order, all characters can individually choose to immediately perform:"
+    },
+    "fh-12": {
+      ".": "Brummix",
+      "1": "During card selection, reveal the top card of each active monster set's ability deck for the round before each character selects their cards."
     }
   },
   "custom": {

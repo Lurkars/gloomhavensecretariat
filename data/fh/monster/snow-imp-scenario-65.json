@@ -3,7 +3,7 @@
   "edition": "fh",
   "deck": "imp",
   "flying": true,
-  "catching": true,
+  "pet": "07",
   "hidden": true,
   "count": 10,
   "standeeShare": "snow-imp",

@@ -1,7 +1,7 @@
 {
   "name": "piranha-pig",
   "edition": "fh",
-  "catching": true,
+  "pet": "01",
   "count": 10,
   "baseStat": {
     "type": "normal"

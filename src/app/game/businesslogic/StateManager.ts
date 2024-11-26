@@ -526,9 +526,9 @@ export class StateManager {
     })
   }
 
-  before(...info: string[]) {
+  before(...info: (string | number | boolean)[]) {
     window.document.body.classList.add('working');
-    this.addToUndo(info || []);
+    this.addToUndo(info && info.map((value) => '' + value) || []);
   }
 
   async after(timeout: number = 1, autoBackup: boolean = false, revisionChange: number = 1, type: string = "game", revision: number = 0, undolength: number = 1) {

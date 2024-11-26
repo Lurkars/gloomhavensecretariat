@@ -1,7 +1,7 @@
 {
   "name": "lightning-eel",
   "edition": "fh",
-  "catching": true,
+  "pet": "10",
   "count": 10,
   "baseStat": {
     "type": "normal",

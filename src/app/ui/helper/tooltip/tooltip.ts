@@ -36,7 +36,7 @@ export class GhsTooltipComponent {
 export class GhsTooltipDirective implements OnInit, OnDestroy {
 
     @Input('ghs-tooltip') value = '';
-    @Input('ghs-label-args') args: string[] = [];
+    @Input('ghs-label-args') args: (string | number | boolean)[] = [];
     @Input('ghs-label-args-replace') argLabel: boolean = true;
     @Input('style') style: 'gh' | 'fh' | false = false;
     @Input() relative: boolean = false;
@@ -83,7 +83,7 @@ export class GhsTooltipDirective implements OnInit, OnDestroy {
                 const tooltipRef: ComponentRef<GhsTooltipComponent>
                     = this.overlayRef.attach(new ComponentPortal(GhsTooltipComponent));
                 tooltipRef.instance.value = this.value;
-                tooltipRef.instance.args = this.args;
+                tooltipRef.instance.args = this.args.map((arg) => '' + arg);
                 tooltipRef.instance.argLabel = this.argLabel;
                 tooltipRef.instance.style = this.style;
                 tooltipRef.instance.relative = this.relative;

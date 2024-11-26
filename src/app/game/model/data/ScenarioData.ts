@@ -151,6 +151,7 @@ export class ScenarioRewards {
   ignoredBonus: string[] = [];
   overlaySticker: WorldMapOverlay | undefined = undefined;
   overlayCampaignSticker: WorldMapOverlay | undefined = undefined;
+  pet: string | undefined = undefined;
   hints: ScenarioRewardHints | undefined = undefined;
 
 }
@@ -192,6 +193,7 @@ export class ScenarioRewardHints {
   chooseUnlockCharacter: string[] = [];
   overlaySticker: string = "";
   overlayCampaignSticker: string = "";
+  pet: string = "";
 }
 
 export class ScenarioFinish {

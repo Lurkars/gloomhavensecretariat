@@ -22,7 +22,11 @@ export enum LootType {
     special2 = "special2"
 }
 
-export const resourceLootTypes: LootType[] = [LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle];
+export const materialResourceLootTypes: LootType[] = [LootType.lumber, LootType.metal, LootType.hide];
+
+export const herbResourceLootTypes: LootType[] = [LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle];
+
+export const resourceLootTypes: LootType[] = [...materialResourceLootTypes, ...herbResourceLootTypes];
 
 export const enhancableLootTypes: LootType[] = [...resourceLootTypes, LootType.money];
 

@@ -314,7 +314,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       value--;
     }
 
-    gameManager.stateManager.before("setPQProgress", gameManager.characterManager.characterName(this.character), '' + (index + 1), '' + value);
+    gameManager.stateManager.before("setPQProgress", gameManager.characterManager.characterName(this.character), (index + 1), value);
     this.character.progress.personalQuestProgress[index] = value;
     gameManager.stateManager.after();
   }

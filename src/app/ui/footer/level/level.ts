@@ -65,6 +65,10 @@ export class LevelComponent implements OnInit, OnDestroy {
     this.loot = gameManager.levelManager.loot();
     this.hazardousTerrain = gameManager.levelManager.terrain();
     this.monsterDifficulty = gameManager.levelManager.bbMonsterDifficutly();
+
+    if (gameManager.trialsManager.activeFavor('fh', 'wealth')) {
+      this.loot += gameManager.trialsManager.activeFavor('fh', 'wealth');
+    }
   }
 
 }

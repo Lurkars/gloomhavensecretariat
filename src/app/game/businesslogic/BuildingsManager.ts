@@ -2,12 +2,25 @@ import { Game } from "../model/Game";
 import { BuildingData, BuildingRewards } from "../model/data/BuildingData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
+import { settingsManager } from "./SettingsManager";
 
 export class BuildingsManager {
   game: Game;
 
+  petsAvailable: boolean = false;
+  petsEnabled: boolean = false;
+  gardenAvailable: boolean = false;
+  gardenEnabled: boolean = false;
+
   constructor(game: Game) {
     this.game = game;
+  }
+
+  update() {
+    this.petsAvailable = gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'stables' && value.level) != undefined;
+    this.petsEnabled = this.petsAvailable && settingsManager.settings.fhPets;
+    this.gardenAvailable = gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'garden' && value.level) != undefined;
+    this.gardenEnabled = this.gardenAvailable && settingsManager.settings.fhGarden;
   }
 
   applyRewards(rewards: BuildingRewards) {

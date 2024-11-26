@@ -5,9 +5,8 @@ import { WorldMapCoordinates } from "./WorldMap";
 export class BuildingData implements Editional {
     id: string = "";
     name: string = "";
-    costs: BuildingCosts = { "prosperity": 0, "lumber": 0, "metal": 0, "hide": 0, "gold": 0 };
+    costs: BuildingCosts = { "prosperity": 0, "lumber": 0, "metal": 0, "hide": 0, "gold": 0, "manual": 0 };
     upgrades: BuildingCosts[] = [];
-    manualUpgrades: number = 0;
     repair: number[] | undefined = undefined;
     rebuild: BuildingCosts[] = [];
     effectNormal: string[] = [];
@@ -35,21 +34,9 @@ export class BuildingRewards {
     errata: string = "";
 }
 
-export type BuildingCostType = "prosperity" | "lumber" | "metal" | "hide" | "gold";
+export type BuildingCostType = "prosperity" | "lumber" | "metal" | "hide" | "gold" | "manual";
 
 export type BuildingCosts = Record<BuildingCostType, number>;
-
-export class BuildingModel {
-    name: string;
-    level: number;
-    state: "normal" | "damaged" | "wrecked";
-
-    constructor(name: string = "", level: number = 1, state: "normal" | "damaged" | "wrecked" = "normal") {
-        this.name = name;
-        this.level = level;
-        this.state = state;
-    }
-}
 
 export class SelectResourceResult {
     characters: Character[];

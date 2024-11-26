@@ -59,7 +59,7 @@ export class CharacterMoveResourcesDialog implements OnInit {
             }
 
             if (value > 0) {
-                gameManager.stateManager.before("moveResource", gameManager.characterManager.characterName(this.character), "game.loot." + lootType, value + '');
+                gameManager.stateManager.before("moveResource", gameManager.characterManager.characterName(this.character), "game.loot." + lootType, value);
                 gameManager.game.party.loot[lootType] = (gameManager.game.party.loot[lootType] || 0) + value;
                 this.character.progress.loot[lootType] = (this.character.progress.loot[lootType] || 0) - value;
                 gameManager.stateManager.after();

@@ -2,7 +2,7 @@
   "name": "black-imp",
   "edition": "fh",
   "deck": "imp",
-  "catching": true,
+  "pet": "05",
   "count": 10,
   "baseStat": {
     "type": "normal",

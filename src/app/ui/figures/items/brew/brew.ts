@@ -141,7 +141,7 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
 
     brewInternal(character: Character, itemData: ItemData) {
         this.otherCharacter = character != this.character ? character : undefined
-        gameManager.stateManager.before(!this.otherCharacter ? 'brewPotion' : 'brewPotionOther', this.character.name, '' + itemData.id, itemData.name, character.name);
+        gameManager.stateManager.before(!this.otherCharacter ? 'brewPotion' : 'brewPotionOther', this.character.name, itemData.id, itemData.name, character.name);
         this.herbs.forEach((herb) => {
             if (this.fhSupportSpent[herb]) {
                 gameManager.game.party.loot[herb] = (gameManager.game.party.loot[herb] || 0) - (this.fhSupportSpent[herb] || 0);

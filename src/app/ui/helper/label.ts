@@ -298,7 +298,7 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
 export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
 
   @Input('ghs-label') value!: string | number;
-  @Input('ghs-label-args') args: string[] = [];
+  @Input('ghs-label-args') args: (string | number | boolean)[] = [];
   @Input('ghs-label-args-replace') argLabel: boolean = true;
   @Input('ghs-label-empty') empty: boolean = true;
   @Input('ghs-label-attribute') attribute: string = "";
@@ -353,7 +353,7 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   apply(): void {
-    let args = this.args || [];
+    let args: string[] = this.args.map((arg) => '' + arg) || [];
     if (this.argLabel) {
       args = args.map((arg) => applyPlaceholder(settingsManager.getLabel(arg, [], false, this.empty), [], this.relative, this.style));
     }

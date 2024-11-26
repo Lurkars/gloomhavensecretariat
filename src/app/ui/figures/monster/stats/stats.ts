@@ -37,6 +37,7 @@ export class MonsterStatsComponent implements OnInit {
   highlightActions: ActionType[] = [ActionType.shield, ActionType.retaliate];
   edition: string = "";
   catching: boolean = false;
+  catched: boolean = false;
   flying: boolean = false;
   monsterCopy!: Monster;
 
@@ -47,26 +48,21 @@ export class MonsterStatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
-    this.setStats();
+    this.update();
+    gameManager.uiChange.subscribe({ next: () => { this.update(); } });
+  }
+
+  update() {
     if (!settingsManager.settings.statAnimations) {
       this.highlightActions = [];
+    } else {
+      this.highlightActions = [ActionType.shield, ActionType.retaliate];
     }
     this.edition = gameManager.getEdition(this.monster);
-    this.catching = this.monster.catching && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'stables' && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined;
+    this.catching = this.monster.pet != undefined && gameManager.buildingsManager.petsAvailable;
+    this.catched = this.catching && gameManager.buildingsManager.petsEnabled && gameManager.game.party.pets.find((value) => value.edition == this.monster.edition && value.name == this.monster.pet) != undefined;
+    this.setStats();
     this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
-    gameManager.uiChange.subscribe({
-      next: () => {
-        if (!settingsManager.settings.statAnimations) {
-          this.highlightActions = [];
-        } else {
-          this.highlightActions = [ActionType.shield, ActionType.retaliate];
-        }
-        this.edition = gameManager.getEdition(this.monster);
-        this.catching = this.monster.catching && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'stables' && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined;
-        this.setStats();
-        this.flying = this.monster.flying && (!this.monster.statEffect || this.monster.statEffect.flying != 'disabled') || this.monster.statEffect != undefined && this.monster.statEffect.flying == true;
-      }
-    })
   }
 
   setStats() {
@@ -89,7 +85,7 @@ export class MonsterStatsComponent implements OnInit {
 
   setLevel(value: number) {
     if (value != this.monster.level) {
-      gameManager.stateManager.before("setLevel", "data.monster." + this.monster.name, '' + value);
+      gameManager.stateManager.before("setLevel", "data.monster." + this.monster.name, value);
       gameManager.monsterManager.setLevel(this.monster, value);
       gameManager.monsterManager.setLevel(this.monsterCopy, value);
       this.setStats();

@@ -98,7 +98,7 @@ export class PartyWeekDialogComponent {
         }
         sectionElement.classList.add('error');
         if (gameManager.game.party.weekSections[this.week]?.indexOf(sectionElement.value) == -1) {
-            gameManager.stateManager.before("addPartyWeekSection", gameManager.game.party.name, this.week + '', sectionElement.value + '');
+            gameManager.stateManager.before("addPartyWeekSection", gameManager.game.party.name, this.week, sectionElement.value);
             gameManager.game.party.weekSections[this.week]?.push(sectionElement.value);
             sectionElement.classList.remove('error');
             sectionElement.value = "";
@@ -108,7 +108,7 @@ export class PartyWeekDialogComponent {
 
     removeSection(section: string) {
         if (gameManager.game.party.weekSections[this.week]?.indexOf(section) != -1) {
-            gameManager.stateManager.before("removePartyWeekSection", gameManager.game.party.name, this.week + '', section + '');
+            gameManager.stateManager.before("removePartyWeekSection", gameManager.game.party.name, this.week, section);
             gameManager.game.party.weekSections[this.week]?.splice(gameManager.game.party.weekSections[this.week]?.indexOf(section) || -1, 1);
             if (gameManager.game.party.weekSections[this.week]?.length == 0) {
                 delete gameManager.game.party.weekSections[this.week];

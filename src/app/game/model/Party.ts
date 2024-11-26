@@ -1,10 +1,11 @@
 import { GameAttackModifierDeckModel } from "./data/AttackModifier";
 import { GameCharacterModel } from "./Character";
-import { BuildingModel } from "./data/BuildingData";
+import { BuildingModel, GardenModel } from "./Building";
 import { CountIdentifier, Identifier } from "./data/Identifier";
 import { Loot, LootType } from "./data/Loot";
 import { GameScenarioModel } from "./Scenario";
 import { ConditionName } from "./data/Condition";
+import { PetIdentifier } from "./data/PetCard";
 
 export class Party {
 
@@ -57,11 +58,13 @@ export class Party {
   campaignStickers: string[] = [];
   townGuardDeck: GameAttackModifierDeckModel | undefined;
   buildings: BuildingModel[] = [];
+  pets: PetIdentifier[] = [];
 
   lootDeckEnhancements: Loot[] = [];
   lootDeckFixed: LootType[] = [];
   lootDeckSections: string[] = [];
 
   trials: number = -1;
+  garden: GardenModel | undefined;
 
 }

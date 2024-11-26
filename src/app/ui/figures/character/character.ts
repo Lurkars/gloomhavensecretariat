@@ -288,12 +288,12 @@ export class CharacterComponent implements OnInit, OnDestroy {
   dragTokenEnd(value: number) {
     if (this.token != 0) {
       if (this.character.primaryToken < 0) {
-        gameManager.stateManager.before("setCharacterToken", gameManager.characterManager.characterName(this.character), '' + (this.character.token + this.token));
+        gameManager.stateManager.before("setCharacterToken", gameManager.characterManager.characterName(this.character), (this.character.token + this.token));
         this.character.token += this.token;
         this.token = 0;
         gameManager.stateManager.after();
       } else {
-        gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), '%data.characterToken.' + this.character.name + '.' + this.character.tokens[this.character.primaryToken] + '%', '' + (this.character.token + this.token));
+        gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), '%data.characterToken.' + this.character.name + '.' + this.character.tokens[this.character.primaryToken] + '%', (this.character.token + this.token));
         this.character.tokenValues[this.character.primaryToken] += this.token;
 
         if (this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0 && this.character.tokenValues[0] > 5) {

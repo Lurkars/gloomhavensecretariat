@@ -1,17 +1,18 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Element } from 'src/app/game/model/data/Element';
 import { GameClockTimestamp, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { MainMenuComponent, SubMenu } from './menu/menu';
-import { Subscription } from 'rxjs';
 import { EventEffectsDialog } from '../figures/character/event-effects/event-effects';
-import { PartySheetComponent } from './party/party-sheet';
+import { StablesComponent } from '../figures/party/buildings/stables/stables';
 import { GameClockDialogComponent } from './game-clock/game-clock';
+import { MainMenuComponent, SubMenu } from './menu/menu';
+import { PartySheetComponent } from './party/party-sheet';
 
 @Component({
   selector: 'ghs-header',
@@ -57,6 +58,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
             this.init = true;
           }, !settingsManager.settings.animations ? 0 : 500);
         }
+
         this.updateClock();
       }
     })
@@ -117,6 +119,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       panelClass: ['dialog'],
       data: gameManager.game.round > 0 || gameManager.game.state == GameState.next
     });
+  }
+
+  openPets() {
+    this.dialog.open(StablesComponent, {
+      panelClass: ['dialog']
+    })
   }
 
   updateClock() {

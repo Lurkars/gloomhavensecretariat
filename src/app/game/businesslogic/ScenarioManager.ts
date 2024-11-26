@@ -14,6 +14,7 @@ import { MonsterStandeeData, RoomData } from "../model/data/RoomData";
 import { ScenarioData, ScenarioRewards } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { PetIdentifier } from "../model/data/PetCard";
 
 export class ScenarioManager {
 
@@ -252,6 +253,12 @@ export class ScenarioManager {
                   }
                 }
               })
+            }
+
+            if (rewards.pet) {
+              if (gameManager.game.party.pets.find((value) => value.edition == scenario.edition && value.name == rewards.pet) == undefined) {
+                gameManager.game.party.pets.push(new PetIdentifier(rewards.pet, scenario.edition));
+              }
             }
           }
 
@@ -555,7 +562,7 @@ export class ScenarioManager {
           if (figure instanceof Monster) {
             figure.entities.forEach((entity) => {
               if (entities.indexOf(entity) != -1) {
-                gameManager.entityManager.addCondition(entity,figure, new Condition(ConditionName.muddle));
+                gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.muddle));
               }
             })
           }
