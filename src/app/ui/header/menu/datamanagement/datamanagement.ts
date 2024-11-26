@@ -30,7 +30,7 @@ export class DatamanagementMenuComponent implements OnInit {
       if (backups && backups.length > 0) {
         this.backups = backups.length;
       }
-    } catch {
+    } catch (e) {
       this.backups = 0;
     }
   }
@@ -142,7 +142,7 @@ export class DatamanagementMenuComponent implements OnInit {
         downloadButton.click();
         document.body.removeChild(downloadButton);
       }
-    } catch {
+    } catch (e) {
       console.warn("No game found");
     }
   }
@@ -159,7 +159,7 @@ export class DatamanagementMenuComponent implements OnInit {
         downloadButton.click();
         document.body.removeChild(downloadButton);
       }
-    } catch {
+    } catch (e) {
       console.warn("No backup found");
     }
   }
@@ -177,7 +177,7 @@ export class DatamanagementMenuComponent implements OnInit {
           document.body.removeChild(downloadButton);
         })
       }
-    } catch {
+    } catch (e) {
       console.warn("No backups found");
     }
   }
@@ -248,7 +248,7 @@ export class DatamanagementMenuComponent implements OnInit {
         downloadButton.click();
         document.body.removeChild(downloadButton);
       }
-    } catch {
+    } catch (e) {
       console.warn("No settings found");
     }
   }
@@ -360,7 +360,7 @@ export class DatamanagementMenuComponent implements OnInit {
         gameManager.stateManager.storageBlocked = true;
         console.info("Reload...");
         window.location.reload();
-      } catch {
+      } catch (e) {
         console.error("Could clear storage");
       }
     }

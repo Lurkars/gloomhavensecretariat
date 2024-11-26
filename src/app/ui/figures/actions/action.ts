@@ -237,7 +237,7 @@ export class ActionComponent implements OnInit, OnDestroy {
           } else {
             try {
               statValue = EntityValueFunction(stat.attack, this.level);
-            } catch {
+            } catch (e) {
               sign = false;
             }
           }

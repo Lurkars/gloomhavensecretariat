@@ -97,7 +97,7 @@ export class FeedbackDialogComponent {
             document.body.appendChild(downloadButton);
             downloadButton.click();
             document.body.removeChild(downloadButton);
-        } catch {
+        } catch (e) {
             console.warn("Could not read datadump");
         }
     }

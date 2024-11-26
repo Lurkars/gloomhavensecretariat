@@ -50,7 +50,7 @@ export class SettingsManager {
       } else {
         loadDefault = true;
       }
-    } catch {
+    } catch (e) {
       loadDefault = true;
     }
 
@@ -65,7 +65,7 @@ export class SettingsManager {
           }).then((value: Settings) => {
             this.setSettings(Object.assign(new Settings(), value));
           });
-      } catch {
+      } catch (e) {
         this.setSettings(new Settings());
       }
     }

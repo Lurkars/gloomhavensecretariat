@@ -1,7 +1,7 @@
 <div class="hex-grid" [style.--ghs-hex-size]="size" [ngClass]="{'small' : action.small}">
   <div class="hex" *ngFor="let hex of hexes" [style.grid-column-start]="hex.x * 2 + 1 + (hex.y % 2)"
     [style.grid-column-end]="hex.x * 2 + 3 + (hex.y % 2)" [style.grid-row-start]="hex.y + 1"
-    [style.grid-row-end]="hex.y + 1" [title]="ActionHex.toString(hex)" (click)="click(hex)">
+    [style.grid-row-end]="hex.y + 1" [title]="ActionHexToString(hex)" (click)="click(hex)">
     <img [src]="'./assets/images/action/hex/' + hex.type + '.svg'" [alt]="action.small">
 
     <span class="condition" *ngIf="hasCondition(hex)">

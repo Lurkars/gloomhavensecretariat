@@ -206,7 +206,7 @@ export class MainComponent implements OnInit {
     document.body.classList.add('no-select');
     try {
       await storageManager.init();
-    } catch {
+    } catch (e) {
       // continue
     }
     await settingsManager.init(!environment.production);
@@ -606,7 +606,7 @@ export class MainComponent implements OnInit {
       document.body.appendChild(downloadButton);
       downloadButton.click();
       document.body.removeChild(downloadButton);
-    } catch {
+    } catch (e) {
       console.warn("Could not read datadump");
     }
   }

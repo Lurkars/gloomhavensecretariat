@@ -33,7 +33,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
     async ngOnInit() {
         try {
             await storageManager.init();
-        } catch {
+        } catch (e) {
             // continue
         }
         await settingsManager.init(!environment.production);

@@ -1,14 +1,14 @@
-import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from "src/app/game/model/ActionHex";
 import { Action, ActionCardType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
-import { SummonData } from "src/app/game/model/data/SummonData";
 import { Element } from "src/app/game/model/data/Element";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
-import { ActionHex, ActionHexType } from "src/app/game/model/ActionHex";
+import { SummonData } from "src/app/game/model/data/SummonData";
 
 @Component({
   selector: 'ghs-editor-action',
@@ -45,13 +45,13 @@ export class EditorActionComponent implements OnInit {
       this.hexAction.value = '' + this.action.value;
       let hexes: ActionHex[] = [];
       this.hexAction.value.split('|').forEach((hexValue) => {
-        const hex: ActionHex | null = ActionHex.fromString(hexValue);
+        const hex: ActionHex | null = ActionHexFromString(hexValue);
         if (hex != null) {
           hexes.push(hex);
         }
       })
       hexes.forEach((other) => this.fillHexes(other, hexes));
-      this.hexAction.value = hexes.map((hex) => ActionHex.toString(hex)).join('|');
+      this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
       this.change();
     } else if (this.action.type == ActionType.condition || this.action.type == ActionType.specialTarget || this.action.type == ActionType.card) {
       if (('' + this.action.value).indexOf(':') != -1) {
@@ -144,7 +144,7 @@ export class EditorActionComponent implements OnInit {
 
     let hexes: ActionHex[] = [];
     ('' + this.hexAction.value).split('|').forEach((hexValue) => {
-      const hex: ActionHex | null = ActionHex.fromString(hexValue);
+      const hex: ActionHex | null = ActionHexFromString(hexValue);
       if (hex != null) {
         hexes.push(hex);
       }
@@ -160,22 +160,22 @@ export class EditorActionComponent implements OnInit {
 
     this.fillHexes(hex, hexes);
 
-    this.hexAction.value = hexes.map((hex) => ActionHex.toString(hex)).join('|');
-    this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHex.toString(hex)).join('|');
+    this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
+    this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHexToString(hex)).join('|');
     this.change();
   }
 
   changeHex() {
     let hexes: ActionHex[] = [];
     ('' + this.hexAction.value).split('|').forEach((hexValue) => {
-      const hex: ActionHex | null = ActionHex.fromString(hexValue);
+      const hex: ActionHex | null = ActionHexFromString(hexValue);
       if (hex != null) {
         hexes.push(hex);
       }
     })
 
-    this.hexAction.value = hexes.map((hex) => ActionHex.toString(hex)).join('|');
-    this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHex.toString(hex)).join('|');
+    this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
+    this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHexToString(hex)).join('|');
     this.change();
   }
 
@@ -184,7 +184,7 @@ export class EditorActionComponent implements OnInit {
 
     let hexes: ActionHex[] = [];
     ('' + this.hexAction.value).split('|').forEach((hexValue) => {
-      const hex: ActionHex | null = ActionHex.fromString(hexValue);
+      const hex: ActionHex | null = ActionHexFromString(hexValue);
       if (hex != null) {
         hexes.push(hex);
       }
@@ -212,8 +212,8 @@ export class EditorActionComponent implements OnInit {
 
     hexes.filter((other) => other.type != ActionHexType.invisible).forEach((other) => this.fillHexes(other, hexes));
 
-    this.hexAction.value = hexes.map((hex) => ActionHex.toString(hex)).join('|');
-    this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHex.toString(hex)).join('|');
+    this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
+    this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHexToString(hex)).join('|');
     this.change();
   }
 

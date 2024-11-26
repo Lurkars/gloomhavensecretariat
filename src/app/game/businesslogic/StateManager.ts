@@ -56,7 +56,7 @@ export class StateManager {
       const gameModel = await storageManager.readGameModel();
       gameModel.server = false;
       this.game.fromModel(gameModel);
-    } catch {
+    } catch (e) {
       if (!tool) {
         storageManager.writeGameModel(this.game.toModel());
       }
@@ -109,7 +109,7 @@ export class StateManager {
       this.redos = await storageManager.readAll<GameModel>('redo');
       this.undoInfos = await storageManager.readAll<string[]>('undo-infos');
       this.updatePermissions();
-    } catch {
+    } catch (e) {
       this.updatePermissions();
     }
   }
@@ -638,7 +638,7 @@ export class StateManager {
           downloadButton.click();
           document.body.removeChild(downloadButton);
         }
-      } catch {
+      } catch (e) {
         console.warn("Could not create autobackup");
       }
       window.document.body.classList.remove('working');

@@ -2,7 +2,7 @@ import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChang
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ActionHex } from "src/app/game/model/ActionHex";
+import { ActionHex, ActionHexFromString } from "src/app/game/model/ActionHex";
 import { Character } from "src/app/game/model/Character";
 import { ActionType } from "src/app/game/model/data/Action";
 import { AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
@@ -90,7 +90,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         }
 
         value.split('|').forEach((hexValue) => {
-          const hex: ActionHex | null = ActionHex.fromString(hexValue);
+          const hex: ActionHex | null = ActionHexFromString(hexValue);
           if (hex != null) {
             replace += '<span class="hex" style="grid-column-start : ' + (hex.x * 2 + 1 + (hex.y % 2)) + ';grid-column-end:' + (hex.x * 2 + 3 + (hex.y % 2)) + ';grid-row-start:' + (hex.y + 1) + ';grid-row-end:' + (hex.y + 1) + '"><img src="./assets/images/action/hex/' + hex.type + '.svg"></span>';
           }

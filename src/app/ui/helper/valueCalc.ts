@@ -31,7 +31,7 @@ export function valueCalc(value: string | number, level: number | undefined = un
   if (settingsManager.settings.calculate && (value.match(EntityExpressionRegex) || value.match(EntityValueRegex))) {
     try {
       return EntityValueFunction(value, L)
-    } catch {
+    } catch (e) {
       console.error("Could not calculate value for: ", value);
       return value;
     }
