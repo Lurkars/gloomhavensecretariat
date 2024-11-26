@@ -1496,6 +1496,7 @@
       "overlaySticker": "Place map overlay sticker {0} on map in location {0} ({1}).",
       "partyAchievements": "Party Achievements",
       "perks": "Gain {0} perk each",
+      "pet": "Add %data.pets.{1}-{0}% (Pet {0}) to the Stables. This can exceed the capacity of the Stables.",
       "prosperity": "{0} prosperity",
       "reputation": "{0} reputation",
       "randomItems": "Each character gains one random item ({0}-{1})",
@@ -2166,9 +2167,17 @@
       ".": "Apply Challenges",
       "hint": "Automatically apply (if possible) active challenge cards."
     },
+    "fhGarden": {
+      ".": "Support for Garden",
+      "hint": "Plant and Harvest Herbs (Building 24 Garden)"
+    },
     "fhGhItems": {
       ".": "Add Gloomhaven Items",
       "hint": "Add Items from Gloomhaven and Forgotten Circles to available supply as stated out in the rules. (Only on enabled character sheets or character items)"
+    },
+    "fhPets": {
+      ".": "Support for Pets",
+      "hint": "Catch and manage Pets (Building 88 Stables)"
     },
     "fhRules": "Frosthaven Rules",
     "fhSecondEdition": {
@@ -2554,6 +2563,22 @@
         }
       },
       "buildBuilding": "Build '%data.buildings.{1}%' ({0})",
+      "buildings": {
+        "garden": {},
+        "stables": {
+          "pets": {
+            "add": "Add pet %data.pets.{0}-{1}% to Stables",
+            "catch": "Catch pet from {1} standee {2} of {0}",
+            "remove": "Remove pet %data.pets.{0}-{1}% from Stables",
+            "restore": "Restore pet %data.pets.{0}-{1}% card",
+            "play": "Play pet %data.pets.{0}-{1}% card",
+            "setActive": "Take pet %data.pets.{0}-{1}% card to scenario",
+            "setInactive": "Remove pet %data.pets.{0}-{1}% card from scenario",
+            "setName": "Name pet %data.pets.{0}-{1}% '{2}'",
+            "unsetName": "Remove name from pet %data.pets.{0}-{1}%"
+          }
+        }
+      },
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
       "cancelScenario": "Cancel Scenario #{0} {1} ({2})",
       "changeBuildingState": "State of building '%data.buildings.{1}%' ({0}) to %party.campaign.sheet.buildings.state.{2}%",
