@@ -1123,7 +1123,7 @@
       },
       "1490": {
         ".": "Greed is Good",
-        "text": "Eneiems perform%game.action.loot%1 at the end of each of their turns. Whenever an enemey loots a loot token, it gains%game.condition.strengthen%. If this scenario has no loot deck, draw a new challenge and place this card on the bottom of the deck."
+        "text": "Enemies perform%game.action.loot%1 at the end of each of their turns. Whenever an enemy loots a loot token, it gains%game.condition.strengthen%. If this scenario has no loot deck, draw a new challenge and place this card on the bottom of the deck."
       },
       "1491": {
         ".": "Alternate Tactics",
@@ -1131,7 +1131,7 @@
       },
       "1492": {
         ".": "Barbed",
-        "text": "All undamage enemies have%game.action.retaliate%2."
+        "text": "All undamaged enemies have%game.action.retaliate%2."
       },
       "1493": {
         ".": "Hardy Stock",
@@ -1139,7 +1139,7 @@
       },
       "1494": {
         ".": "Keep Watch",
-        "text": "Whenever you perform an attack targeting an enemy that has not yet acted this round, gain disadvantage on the attack. Whenever you perform an attack targeting an enemey that has already acted this round, gain advantage on the attack."
+        "text": "Whenever you perform an attack targeting an enemy that has not yet acted this round, gain disadvantage on the attack. Whenever you perform an attack targeting an enemy that has already acted this round, gain advantage on the attack."
       },
       "1495": {
         ".": "Toxic Termination",
@@ -1166,7 +1166,7 @@
         "text": "Whenever a %game.attackmodifier.minus1% or %game.attackmodifier.minus2% attack modifier card is drawn from the monster attack modifier deck, after the attack, remove the card from the deck for the remainder of the scenario."
       },
       "1501": {
-        ".": "Heightedned Reflexes",
+        ".": "Heightened Reflexes",
         "text": "Decrease all enemy initiative values by 10."
       },
       "1502": {
@@ -1184,7 +1184,7 @@
       },
       "1505": {
         ".": "Hungover",
-        "text": "Incease all character initiative values by 10."
+        "text": "Increase all character initiative values by 10."
       },
       "1506": {
         ".": "Tight Formation",
@@ -1244,7 +1244,7 @@
       },
       "1520": {
         ".": "Shared Pain",
-        "text": "Each time any enemy causes a character to suffer%game.damage%, another character suffters%game.damage:1%."
+        "text": "Each time any enemy causes a character to suffer%game.damage%, another character suffers%game.damage:1%."
       },
       "1521": {
         ".": "Swarming Tactics",
