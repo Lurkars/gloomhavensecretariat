@@ -383,7 +383,7 @@ export class GameManager {
         }
 
         // apply Challenge #1491
-        if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1487, 'fh')) {
+        if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1491, 'fh')) {
           return b.getInitiative() - a.getInitiative();
         }
 
