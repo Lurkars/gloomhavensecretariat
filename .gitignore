@@ -40,7 +40,6 @@ package-lock.json
 /libpeerconnection.log
 testem.log
 /typings
-.browserslistrc
 .editorconfig
 
 # System files
