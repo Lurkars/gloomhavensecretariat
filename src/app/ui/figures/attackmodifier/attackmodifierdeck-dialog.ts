@@ -166,7 +166,9 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       (attackModifier: AttackModifier, index: number) =>
         index <= this.deck.current &&
         (attackModifier.type == AttackModifierType.bless ||
-          attackModifier.type == AttackModifierType.curse)
+          attackModifier.type == AttackModifierType.curse ||
+          attackModifier.type == AttackModifierType.empower ||
+          attackModifier.type == AttackModifierType.enfeeble)
     );
   }
 
@@ -364,7 +366,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
         }
       } else {
         for (let i = 0; i < value * -1; i++) {
-          const empower = this.deck.cards.find((am, index) => index > this.deck.current && am.type == AttackModifierType.empower && am.id && am.id.startsWith("additional-" + this.empowerChars[index].name));
+          const empower = this.deck.cards.find((am, index) => this.empowerChars[index] && index > this.deck.current && am.type == AttackModifierType.empower && am.id && am.id.startsWith("additional-" + this.empowerChars[index].name));
           if (empower) {
             this.deck.cards.splice(this.deck.cards.indexOf(empower), 1);
           }
@@ -385,7 +387,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
         }
       } else {
         for (let i = 0; i < value * -1; i++) {
-          const enfeeble = this.deck.cards.find((am, index) => index > this.deck.current && am.type == AttackModifierType.enfeeble && am.id && am.id.startsWith("additional-" + this.empowerChars[index].name));
+          const enfeeble = this.deck.cards.find((am, index) => this.empowerChars[index] && index > this.deck.current && am.type == AttackModifierType.enfeeble && am.id && am.id.startsWith("additional-" + this.empowerChars[index].name));
           if (enfeeble) {
             this.deck.cards.splice(this.deck.cards.indexOf(enfeeble), 1);
           }

@@ -88,6 +88,15 @@
       animation: shake .5s linear;
       color: var(--ghs-color-red) !important;
     }
+
+    &.warning {
+      animation: shake .5s linear;
+      color: var(--ghs-color-yellow) !important;
+    }
+  }
+
+  .hint-container label.hint-trigger {
+    margin-left: 0;
   }
 }
 

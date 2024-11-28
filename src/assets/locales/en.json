@@ -276,6 +276,10 @@
     "exportGame": "Export Game to File",
     "exportSettings": "Export Settings to File",
     "importDataDump": "Import Data Dump",
+    "importFile": {
+      ".": "Import File",
+      "hint": "Import any exported file like Game, Backup, Datadump or Settings. Confirm import with second click!"
+    },
     "importGame": "Import Game from File",
     "importSettings": "Import Settings from File",
     "removeAllSpoilers": "Remove all",

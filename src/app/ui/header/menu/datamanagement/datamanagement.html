@@ -6,30 +6,28 @@
         <a tabclick (click)="exportGame()"><span [ghs-label]="'datamanagement.exportGame'"></span></a>
       </div>
       <div class="line">
-        <label tabclick class="input-file" (click)="importGameCheck()"
-          [ngClass]="{'confirm-delete' : confirm == 'importGame'}" (mouseleave)="cancelConfirm()">
-          <input type="file" [ngClass]="{'disabled' : confirm != 'importGame'}" [disabled]="confirm != 'importGame'"
-            accept="application/json" (change)="importGame($event)" />
-          &lt;<span [ghs-label]="'datamanagement.importGame'"></span>(!)&gt;
-        </label>
-      </div>
-      <div class="line">
         <a tabclick (click)="resetGame()" [ngClass]="{'confirm-delete' : confirm == 'resetGame'}"
           (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.resetGame'"></span>(!)&gt;</a>
+      </div>
+      <div class="line">
+        <div class="hint-container">
+          <label tabclick class="input-file hint-trigger" (click)="importFileCheck($event)"
+            [ngClass]="{'confirm-delete' : confirm == 'importFile'}" (mouseleave)="cancelConfirm()">
+            <input type="file" [ngClass]="{'disabled' : confirm != 'importFile'}" [disabled]="confirm != 'importFile'"
+              accept="application/json" (change)="importFile($event)" />
+            &lt;<span [ghs-label]="'datamanagement.importFile'"></span>(!)&gt;
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text" [ghs-label]="'datamanagement.importFile.hint'"></span>
+          </span>
+        </div>
       </div>
     </div>
 
     <div class="column">
       <div class="line">
         <a tabclick (click)="exportSettings()"><span [ghs-label]="'datamanagement.exportSettings'"></span></a>
-      </div>
-      <div class="line">
-        <label class="input-file" (click)="importSettingsCheck()"
-          [ngClass]="{'confirm-delete' : confirm == 'importSettings'}" (mouseleave)="cancelConfirm()">
-          <input type="file" [ngClass]="{'disabled' : confirm != 'importSettings'}"
-            [disabled]="confirm != 'importSettings'" accept="application/json" (change)="importSettings($event)" />
-          &lt;<span [ghs-label]="'datamanagement.importSettings'"></span>(!)&gt;
-        </label>
       </div>
       <div class="line">
         <a tabclick (click)="resetSettings()" [ngClass]="{'confirm-delete' : confirm == 'resetSettings'}"
@@ -40,15 +38,6 @@
     <div class="column">
       <div class="line">
         <a tabclick (click)="exportDataDump()"><span [ghs-label]="'datamanagement.exportDataDump'"></span></a>
-      </div>
-      <div class="line" [ngClass]="{'disabled' : working}">
-        <label tabclick class="input-file" (click)="importDataDumpCheck()"
-          [ngClass]="{'confirm-delete' : confirm == 'importDataDump'}" (mouseleave)="cancelConfirm()">
-          <input type="file" [ngClass]="{'disabled' : confirm != 'importDataDump'}"
-            [disabled]="confirm != 'importDataDump'" accept="application/json" (change)="importDataDump($event)" />
-          &lt;<span [ghs-label]="'datamanagement.importDataDump'"></span>(!)&gt;
-          <img src="./assets/images/shuffle.svg" class="working" *ngIf="working == 'importDataDump'">
-        </label>
       </div>
       <div class="line">
         <a tabclick (click)="clearAllData()" [ngClass]="{'confirm-delete' : confirm == 'clearAllData'}"
@@ -190,9 +179,11 @@
       </div>
       <div class="line">
         <span class="input-button">
-          <input tabclick type="text" #inputUnlock (keyup.enter)="addUnlock($event.target)" (keyup)="inputUnlock.classList.remove('error')"
-            [ghs-label]="'datamanagement.addUnlock'" [ghs-label-attribute]="'placeholder'">
-          <span class="add-button" (click)="addUnlock(inputUnlock)" [ngClass]="{'disabled' : !inputUnlock.value}"></span>
+          <input tabclick type="text" #inputUnlock (keyup.enter)="addUnlock($event.target)"
+            (keyup)="inputUnlock.classList.remove('error')" [ghs-label]="'datamanagement.addUnlock'"
+            [ghs-label-attribute]="'placeholder'">
+          <span class="add-button" (click)="addUnlock(inputUnlock)"
+            [ngClass]="{'disabled' : !inputUnlock.value}"></span>
         </span>
       </div>
       <div class="line spoilers">
@@ -215,7 +206,8 @@
         <span class="input-button">
           <input tabclick type="text" #inputSpoiler (keyup.enter)="addSpoiler($event.target)" (keyup)="0"
             [ghs-label]="'datamanagement.addSpoiler'" [ghs-label-attribute]="'placeholder'">
-          <span class="add-button" (click)="addSpoiler(inputSpoiler)" [ngClass]="{'disabled' : !(inputSpoiler.value)}"></span>
+          <span class="add-button" (click)="addSpoiler(inputSpoiler)"
+            [ngClass]="{'disabled' : !(inputSpoiler.value)}"></span>
         </span>
       </div>
       <div class="line spoilers">

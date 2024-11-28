@@ -1,15 +1,15 @@
-import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { AttackModifier, AttackModifierDeck, AttackModifierType, AttackModifierValueType, CsOakDeckAttackModifier, GameAttackModifierDeckModel, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
+import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
+import { CharacterData } from "../model/data/CharacterData";
 import { CampaignData } from "../model/data/EditionData";
+import { Perk, PerkCard, PerkType } from "../model/data/Perks";
 import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { Party } from "../model/Party";
-import { Perk, PerkCard, PerkType } from "../model/data/Perks";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { CharacterData } from "../model/data/CharacterData";
 
 export class AttackModifierManager {
   game: Game;
@@ -258,7 +258,7 @@ export class AttackModifierManager {
     const lastVisible = attackModifierDeck.lastVisible;
     let restoreCards: AttackModifier[] = onlyUpcoming && current > -1 ? attackModifierDeck.cards.splice(0, current + 1) : [];
     attackModifierDeck.cards = attackModifierDeck.cards.filter((attackModifier, index) =>
-      index > attackModifierDeck.current || (attackModifier.type != AttackModifierType.bless && attackModifier.type != AttackModifierType.curse)
+      index > attackModifierDeck.current || (attackModifier.type != AttackModifierType.bless && attackModifier.type != AttackModifierType.curse && attackModifier.type != AttackModifierType.empower && attackModifier.type != AttackModifierType.enfeeble)
     );
 
     // apply Challenge #1500
@@ -284,7 +284,9 @@ export class AttackModifierManager {
       (attackModifier, index) =>
         index > attackModifierDeck.current ||
         (attackModifier.type != AttackModifierType.bless &&
-          attackModifier.type != AttackModifierType.curse)
+          attackModifier.type != AttackModifierType.curse &&
+          attackModifier.type != AttackModifierType.empower &&
+          attackModifier.type != AttackModifierType.enfeeble)
     );
     attackModifierDeck.current = attackModifierDeck.current - (before - attackModifierDeck.cards.length);
   }
