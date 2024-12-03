@@ -7,6 +7,7 @@ import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Favor } from 'src/app/game/model/data/Trials';
 
 @Component({
+	standalone: false,
   selector: 'ghs-favors',
   templateUrl: './favors.html',
   styleUrls: ['./favors.scss'],

@@ -17,6 +17,7 @@ import { ScenarioConclusionComponent } from './scenario/scenario-conclusion/scen
 import { ScenarioSummaryComponent } from './scenario/summary/scenario-summary';
 
 @Component({
+	standalone: false,
   selector: 'ghs-footer',
   templateUrl: './footer.html',
   styleUrls: ['./footer.scss']

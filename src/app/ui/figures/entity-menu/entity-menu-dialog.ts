@@ -26,6 +26,7 @@ import { ItemFlags } from "src/app/game/model/data/ItemData";
 import { PetIdentifier } from "src/app/game/model/data/PetCard";
 
 @Component({
+	standalone: false,
   selector: 'ghs-entity-menu-dialog',
   templateUrl: 'entity-menu-dialog.html',
   styleUrls: ['./entity-menu-dialog.scss']

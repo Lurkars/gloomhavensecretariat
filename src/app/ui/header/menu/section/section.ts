@@ -7,6 +7,7 @@ import { GameState } from "src/app/game/model/Game";
 import { ScenarioCache } from "src/app/game/model/Scenario";
 
 @Component({
+	standalone: false,
   selector: 'ghs-section-menu',
   templateUrl: 'section.html',
   styleUrls: ['../menu.scss', 'section.scss']

@@ -4,6 +4,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
 
 @Component({
+	standalone: false,
   selector: 'ghs-attackmodifier',
   templateUrl: './attackmodifier.html',
   styleUrls: ['./attackmodifier.scss'],

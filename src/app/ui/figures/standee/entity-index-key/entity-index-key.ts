@@ -4,6 +4,7 @@ import { Entity } from 'src/app/game/model/Entity';
 import { Subscription } from 'rxjs';
 
 @Component({
+	standalone: false,
     selector: 'ghs-entity-index-key',
     templateUrl: './entity-index-key.html',
     styleUrls: ['./entity-index-key.scss']

@@ -19,6 +19,7 @@ import { compactAction, DeckEditorComponent } from "../deck/deck";
 export const newMonsterJson: string = '{"name": "new-monster", "thumbnail" : "", "edition": "", "deck": "", "boss": false, "flying" : false, "hidden":false, "count": 10, "baseStat" : {}, "stats": []}';
 
 @Component({
+	standalone: false,
   selector: 'ghs-monster-editor',
   templateUrl: './monster.html',
   styleUrls: ['../editor.scss', './monster.scss']

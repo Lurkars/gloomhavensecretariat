@@ -11,6 +11,7 @@ import { ItemDialogComponent } from "../dialog/item-dialog";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-items-brew',
     templateUrl: 'brew.html',
     styleUrls: ['./brew.scss']

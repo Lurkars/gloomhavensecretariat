@@ -12,6 +12,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { HiddenScenarioFigureRuleTypes, ScenarioFigureRule, ScenarioFigureRuleIdentifier, ScenarioRule, ScenarioRuleIdentifier } from "src/app/game/model/data/ScenarioRule";
 
 @Component({
+	standalone: false,
     selector: 'ghs-scenario-rule',
     templateUrl: './scenario-rule.html',
     styleUrls: ['./scenario-rule.scss']

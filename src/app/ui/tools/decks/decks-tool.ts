@@ -9,6 +9,7 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { environment } from "src/environments/environment";
 
 @Component({
+	standalone: false,
   selector: 'ghs-decks-tool',
   templateUrl: './decks-tool.html',
   styleUrls: ['./decks-tool.scss']

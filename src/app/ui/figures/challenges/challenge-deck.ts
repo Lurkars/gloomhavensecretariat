@@ -22,6 +22,7 @@ export class ChallengeDeckChange {
 }
 
 @Component({
+	standalone: false,
     selector: 'ghs-challenge-deck',
     templateUrl: './challenge-deck.html',
     styleUrls: ['./challenge-deck.scss']

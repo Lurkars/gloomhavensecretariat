@@ -12,6 +12,7 @@ import { CharacterInitiativeDialogComponent } from "./initiative-dialog";
 
 
 @Component({
+	standalone: false,
   selector: 'ghs-character-initiative',
   templateUrl: 'initiative.html',
   styleUrls: ['./initiative.scss']

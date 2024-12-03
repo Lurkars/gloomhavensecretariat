@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
+	standalone: false,
     selector: 'ghs-number-input',
     styleUrls: ['./number-input.scss'],
     templateUrl: './number-input.html'

@@ -2,6 +2,7 @@ import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
 @Directive({
+	standalone: false,
   selector: '[card-reveal]'
 })
 export class CardRevealDirective {

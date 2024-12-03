@@ -13,6 +13,7 @@ import { HeaderComponent } from "../../header/header";
 import { SubMenu } from "../../header/menu/menu";
 
 @Component({
+	standalone: false,
     selector: 'ghs-attackmodifier-standalone',
     templateUrl: './attackmodifier-standalone.html',
     styleUrls: ['./attackmodifier-standalone.scss',]

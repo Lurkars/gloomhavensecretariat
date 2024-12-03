@@ -6,6 +6,7 @@ import { ScenarioSummaryComponent } from "../summary/scenario-summary"
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-section-dialog',
     templateUrl: './section-dialog.html',
     styleUrls: ['./section-dialog.scss']

@@ -4,6 +4,7 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ChallengeCard } from 'src/app/game/model/data/Challenges';
 
 @Component({
+	standalone: false,
     selector: 'ghs-challenge-dialog',
     templateUrl: './challenge-dialog.html',
     styleUrls: ['./challenge-dialog.scss'],

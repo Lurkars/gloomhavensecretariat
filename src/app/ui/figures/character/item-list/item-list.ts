@@ -12,6 +12,7 @@ import { ItemDialogComponent } from "../../items/dialog/item-dialog";
 
 
 @Component({
+	standalone: false,
     selector: 'ghs-character-item-list',
     templateUrl: './item-list.html',
     styleUrls: ['./item-list.scss']

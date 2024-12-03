@@ -5,6 +5,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Component({
+	standalone: false,
     selector: 'ghs-undo-dialog',
     templateUrl: './dialog.html',
     styleUrls: ['./dialog.scss']

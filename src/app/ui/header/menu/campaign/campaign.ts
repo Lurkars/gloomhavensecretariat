@@ -16,6 +16,7 @@ import { PartyResourcesDialogComponent } from "src/app/ui/figures/party/resource
 
 
 @Component({
+	standalone: false,
     selector: 'ghs-campaign-menu',
     templateUrl: 'campaign.html',
     styleUrls: ['../menu.scss', 'campaign.scss']

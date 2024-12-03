@@ -6,6 +6,7 @@ import { Ability } from "src/app/game/model/data/Ability";
 import { AbilityDialogComponent } from "../../ability/ability-dialog";
 
 @Component({
+	standalone: false,
     selector: 'ghs-ability-cards-dialog',
     templateUrl: 'ability-cards-dialog.html',
     styleUrls: ['./ability-cards-dialog.scss']

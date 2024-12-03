@@ -19,6 +19,7 @@ import { ghsDialogClosingHelper } from './helper/Static';
 import { PointerInputService } from './helper/pointer-input';
 
 @Component({
+	standalone: false,
   selector: 'ghs-main',
   templateUrl: './main.html',
   styleUrls: ['./main.scss'],

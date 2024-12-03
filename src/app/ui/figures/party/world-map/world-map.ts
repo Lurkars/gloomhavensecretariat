@@ -13,6 +13,7 @@ import { PartySheetDialogComponent } from "../party-sheet-dialog";
 import { Subscription } from "rxjs";
 
 @Component({
+	standalone: false,
     selector: 'ghs-world-map',
     templateUrl: './world-map.html',
     styleUrls: ['./world-map.scss',],

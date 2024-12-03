@@ -26,6 +26,7 @@ import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
 
 @Component({
+	standalone: false,
   selector: 'ghs-character',
   templateUrl: './character.html',
   styleUrls: ['./character.scss']

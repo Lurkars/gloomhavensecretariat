@@ -8,6 +8,7 @@ import { ScenarioTreasuresDialogComponent } from "src/app/ui/footer/scenario/tre
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-treasures-dialog',
     templateUrl: 'treasures-dialog.html',
     styleUrls: ['./treasures-dialog.scss']

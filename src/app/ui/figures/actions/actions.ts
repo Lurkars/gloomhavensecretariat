@@ -9,6 +9,7 @@ import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Act
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 
 @Component({
+	standalone: false,
   selector: 'ghs-actions',
   templateUrl: './actions.html',
   styleUrls: ['./actions.scss']

@@ -15,6 +15,7 @@ import { valueCalc } from '../../helper/valueCalc';
 export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.damage, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
 @Component({
+	standalone: false,
   selector: 'ghs-action',
   templateUrl: './action.html',
   styleUrls: ['./action.scss']

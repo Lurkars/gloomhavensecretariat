@@ -14,6 +14,7 @@ import { ghsDialogClosingHelper } from "../../helper/Static";
 export type FEEDBACK_ISSUE_TYPE = "abilityCard" | "monsterStat" | "characterStat" | "artwork" | "software" | "feedback" | "automatic";
 
 @Component({
+	standalone: false,
     selector: 'ghs-feedback-dialog',
     templateUrl: './feedback-dialog.html',
     styleUrls: ['./feedback-dialog.scss']

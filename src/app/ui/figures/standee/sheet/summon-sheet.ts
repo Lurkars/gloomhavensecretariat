@@ -5,6 +5,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Summon } from "src/app/game/model/Summon";
 
 @Component({
+	standalone: false,
     selector: 'ghs-summon-sheet',
     templateUrl: './summon-sheet.html',
     styleUrls: ['./summon-sheet.scss']

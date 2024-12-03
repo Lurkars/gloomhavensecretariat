@@ -5,6 +5,7 @@ import { ghsDialogClosingHelper } from "../../helper/Static";
 import { ChallengeDeckChange } from "./challenge-deck";
 
 @Component({
+	standalone: false,
   selector: 'ghs-challenge-deck-fullscreen',
   templateUrl: './challenge-deck-fullscreen.html',
   styleUrls: ['./challenge-deck-fullscreen.scss',]

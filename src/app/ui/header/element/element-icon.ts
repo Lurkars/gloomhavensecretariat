@@ -4,6 +4,7 @@ import { Element, ElementModel, ElementState } from "src/app/game/model/data/Ele
 
 
 @Component({
+	standalone: false,
     selector: 'ghs-element-icon',
     templateUrl: './element-icon.html',
     encapsulation: ViewEncapsulation.None,

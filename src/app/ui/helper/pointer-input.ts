@@ -234,6 +234,7 @@ export class PointerInputService {
 
 
 @Directive({
+	standalone: false,
   selector: 'ghs-pointer-input, [ghs-pointer-input]'
 })
 export class PointerInputDirective implements OnInit, OnDestroy {

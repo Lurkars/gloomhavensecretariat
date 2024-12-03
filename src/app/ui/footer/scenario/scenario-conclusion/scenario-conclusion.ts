@@ -5,6 +5,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-scenario-conclusion-dialog',
     templateUrl: './scenario-conclusion.html',
     styleUrls: ['./scenario-conclusion.scss']

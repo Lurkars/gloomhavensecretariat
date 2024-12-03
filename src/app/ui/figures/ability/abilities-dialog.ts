@@ -9,6 +9,7 @@ import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { applyPlaceholder } from '../../helper/label';
 
 @Component({
+	standalone: false,
   selector: 'ghs-abilities-dialog',
   templateUrl: './abilities-dialog.html',
   styleUrls: ['./abilities-dialog.scss']

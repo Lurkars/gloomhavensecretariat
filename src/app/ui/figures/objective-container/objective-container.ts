@@ -21,6 +21,7 @@ import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 
 @Component({
+	standalone: false,
   selector: 'ghs-objective-container',
   templateUrl: './objective-container.html',
   styleUrls: ['./objective-container.scss']

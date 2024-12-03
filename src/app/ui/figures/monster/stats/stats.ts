@@ -14,6 +14,7 @@ import { MonsterStatDialogComponent } from './stat-dialog';
 import { MonsterStatsDialogComponent } from './stats-dialog';
 
 @Component({
+	standalone: false,
   selector: 'ghs-monster-stats',
   templateUrl: './stats.html',
   styleUrls: ['./stats.scss']

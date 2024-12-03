@@ -19,6 +19,7 @@ import { ActionHint } from 'src/app/game/model/data/Action';
 import { Character } from 'src/app/game/model/Character';
 
 @Component({
+	standalone: false,
   selector: 'ghs-standee',
   templateUrl: './standee.html',
   styleUrls: ['./standee.scss']

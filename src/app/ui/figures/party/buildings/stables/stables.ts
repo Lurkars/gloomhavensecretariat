@@ -3,6 +3,7 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { PetCard, PetIdentifier } from "src/app/game/model/data/PetCard";
 
 @Component({
+	standalone: false,
 
     selector: 'ghs-stables',
     templateUrl: 'stables.html',

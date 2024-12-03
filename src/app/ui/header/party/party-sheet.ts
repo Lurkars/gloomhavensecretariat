@@ -4,6 +4,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { PartySheetDialogComponent } from "../../figures/party/party-sheet-dialog";
 
 @Component({
+	standalone: false,
   selector: 'ghs-party-sheet',
   templateUrl: 'party-sheet.html',
   styleUrls: ['./party-sheet.scss']

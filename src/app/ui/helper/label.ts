@@ -293,6 +293,7 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
 }
 
 @Directive({
+	standalone: false,
   selector: '[ghs-label]'
 })
 export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
@@ -368,6 +369,7 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
 }
 
 @Directive({
+	standalone: false,
   selector: '[ghs-label-element]'
 })
 export class GhsLabelElementDirective implements OnInit {
@@ -393,6 +395,7 @@ export class GhsLabelElementDirective implements OnInit {
 }
 
 @Directive({
+	standalone: false,
   selector: '[ghs-placeholder]'
 })
 export class GhsPlaceholderDirective implements OnInit, OnChanges {

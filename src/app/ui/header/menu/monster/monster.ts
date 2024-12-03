@@ -6,6 +6,7 @@ import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled, ghsTextSearch } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-monster-menu',
     templateUrl: 'monster.html',
     styleUrls: ['../menu.scss', 'monster.scss']

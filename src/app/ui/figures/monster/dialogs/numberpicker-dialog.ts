@@ -11,6 +11,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 
 @Component({
+	standalone: false,
     selector: 'ghs-monster-numberpicker-dialog',
     templateUrl: 'numberpicker-dialog.html',
     styleUrls: ['./numberpicker-dialog.scss']

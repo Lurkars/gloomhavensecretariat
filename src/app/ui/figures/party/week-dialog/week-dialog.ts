@@ -7,6 +7,7 @@ import { Scenario } from "src/app/game/model/Scenario";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 
 @Component({
+	standalone: false,
     selector: 'ghs-party-week-dialog',
     templateUrl: 'week-dialog.html',
     styleUrls: ['./week-dialog.scss']

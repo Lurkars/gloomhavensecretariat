@@ -9,6 +9,7 @@ import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { environment } from "src/environments/environment";
 
 @Component({
+	standalone: false,
     selector: 'ghs-edition-editor',
     templateUrl: './edition.html',
     styleUrls: ['./editor.scss', './edition.scss']

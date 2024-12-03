@@ -16,6 +16,7 @@ import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 
 @Component({
+	standalone: false,
   selector: 'ghs-entities-menu-dialog',
   templateUrl: 'entities-menu-dialog.html',
   styleUrls: ['./entities-menu-dialog.scss']

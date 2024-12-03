@@ -19,6 +19,7 @@ import { CharacterRetirementDialog } from "./retirement-dialog";
 
 
 @Component({
+	standalone: false,
   selector: 'ghs-character-sheet',
   templateUrl: 'character-sheet.html',
   styleUrls: ['./character-sheet.scss'],

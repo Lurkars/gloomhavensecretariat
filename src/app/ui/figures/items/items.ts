@@ -13,6 +13,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 
 
 @Component({
+	standalone: false,
     selector: 'ghs-character-items',
     templateUrl: 'items.html',
     styleUrls: ['./items.scss'],

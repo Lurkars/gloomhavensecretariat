@@ -4,6 +4,7 @@ import { Action } from "src/app/game/model/data/Action";
 import { ConditionName } from "src/app/game/model/data/Condition";
 
 @Component({
+	standalone: false,
   selector: 'ghs-action-hex',
   templateUrl: './action-hex.html',
   styleUrls: ['./action-hex.scss']

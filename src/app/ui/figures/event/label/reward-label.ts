@@ -6,6 +6,7 @@ import { ItemData } from "src/app/game/model/data/ItemData";
 import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
 
 @Component({
+	standalone: false,
     selector: 'ghs-event-reward-label',
     templateUrl: './reward-label.html',
     styleUrls: ['./reward-label.scss'],

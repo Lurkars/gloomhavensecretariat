@@ -5,6 +5,7 @@ import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackM
 import { Perk, PerkType } from "src/app/game/model/data/Perks";
 
 @Component({
+	standalone: false,
     selector: 'ghs-perk-label',
     templateUrl: './label.html',
     styleUrls: ['./label.scss'],

@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 
 @Component({
+	standalone: false,
   selector: 'ghs-healthbar',
   templateUrl: './healthbar.html',
   styleUrls: [ './healthbar.scss' ]

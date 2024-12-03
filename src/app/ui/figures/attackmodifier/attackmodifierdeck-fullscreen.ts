@@ -7,6 +7,7 @@ import { AttackModiferDeckChange } from "./attackmodifierdeck";
 import { ghsDialogClosingHelper } from "../../helper/Static";
 
 @Component({
+	standalone: false,
   selector: 'ghs-attackmodifier-deck-fullscreen',
   templateUrl: './attackmodifierdeck-fullscreen.html',
   styleUrls: ['./attackmodifierdeck-fullscreen.scss',]

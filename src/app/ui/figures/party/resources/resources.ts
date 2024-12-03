@@ -8,6 +8,7 @@ import { Party } from "src/app/game/model/Party";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
   selector: 'ghs-party-resources',
   templateUrl: 'resources.html',
   styleUrls: ['./resources.scss']

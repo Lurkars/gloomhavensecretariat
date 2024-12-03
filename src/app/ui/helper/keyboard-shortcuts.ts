@@ -20,6 +20,7 @@ import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/ke
 export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP";
 
 @Directive({
+	standalone: false,
     selector: '[ghs-keyboard-shortcuts]'
 })
 export class KeyboardShortcuts implements OnInit, OnDestroy {

@@ -62,6 +62,7 @@ export function compactAction(action: any) {
 }
 
 @Component({
+	standalone: false,
     selector: 'ghs-deck-editor',
     templateUrl: './deck.html',
     styleUrls: ['../editor.scss', './deck.scss']

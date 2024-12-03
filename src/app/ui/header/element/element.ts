@@ -5,6 +5,7 @@ import { ElementModel, ElementState } from "src/app/game/model/data/Element";
 import { GameState } from "src/app/game/model/Game";
 
 @Component({
+	standalone: false,
   selector: 'ghs-element',
   templateUrl: './element.html',
   encapsulation: ViewEncapsulation.None,

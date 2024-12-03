@@ -6,6 +6,7 @@ import { Loot } from "src/app/game/model/data/Loot";
 import { ghsDialogClosingHelper } from "../../helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-loot-apply-dialog',
     templateUrl: './loot-apply-dialog.html',
     styleUrls: ['./loot-apply-dialog.scss',]

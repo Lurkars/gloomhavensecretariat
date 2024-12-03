@@ -10,6 +10,7 @@ import { LootDeckChange } from "./loot-deck";
 import { ghsDialogClosingHelper } from "../../helper/Static";
 
 @Component({
+	standalone: false,
   selector: 'ghs-loot-deck-dialog',
   templateUrl: './loot-deck-dialog.html',
   styleUrls: ['./loot-deck-dialog.scss',]

@@ -6,6 +6,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 
 
 @Component({
+	standalone: false,
   selector: 'ghs-character-sheet-dialog',
   templateUrl: 'character-sheet-dialog.html',
   styleUrls: ['./character-sheet-dialog.scss']

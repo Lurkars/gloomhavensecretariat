@@ -8,6 +8,7 @@ import { PerkType } from "src/app/game/model/data/Perks";
 import { environment } from "src/environments/environment";
 
 @Component({
+	standalone: false,
   selector: 'ghs-attackmodifier-tool',
   templateUrl: './attackmodifier-tool.html',
   styleUrls: ['./attackmodifier-tool.scss']

@@ -29,6 +29,7 @@ export class LootDeckChange {
 }
 
 @Component({
+	standalone: false,
     selector: 'ghs-loot-deck',
     templateUrl: './loot-deck.html',
     styleUrls: ['./loot-deck.scss']

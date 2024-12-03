@@ -10,6 +10,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
+	standalone: false,
   selector: 'ghs-character-summondialog',
   templateUrl: 'summondialog.html',
   styleUrls: ['./summondialog.scss']

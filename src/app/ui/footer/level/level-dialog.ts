@@ -7,6 +7,7 @@ import { ghsValueSign } from "../../helper/Static";
 
 
 @Component({
+	standalone: false,
     selector: 'ghs-level-dialog',
     templateUrl: './level-dialog.html',
     styleUrls: ['./level-dialog.scss']

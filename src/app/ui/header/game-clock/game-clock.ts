@@ -4,6 +4,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { GameClockTimestamp } from "src/app/game/model/Game";
 
 @Component({
+	standalone: false,
     selector: 'ghs-game-clock-dialog',
     templateUrl: 'game-clock.html',
     styleUrls: ['./game-clock.scss']

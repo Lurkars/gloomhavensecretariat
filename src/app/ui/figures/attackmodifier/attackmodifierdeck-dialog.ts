@@ -10,6 +10,7 @@ import { ConditionName } from "src/app/game/model/data/Condition";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
 
 @Component({
+	standalone: false,
   selector: 'ghs-attackmodifier-deck-dialog',
   templateUrl: './attackmodifierdeck-dialog.html',
   styleUrls: ['./attackmodifierdeck-dialog.scss',]

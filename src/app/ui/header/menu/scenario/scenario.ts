@@ -12,6 +12,7 @@ import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { ScenarioChartDialogComponent } from "../../../figures/party/scenario-chart/scenario-chart";
 
 @Component({
+	standalone: false,
   selector: 'ghs-scenario-menu',
   templateUrl: 'scenario.html',
   styleUrls: ['../menu.scss', 'scenario.scss']

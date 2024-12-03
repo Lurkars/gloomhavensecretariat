@@ -9,6 +9,7 @@ import { ghsIsSpoiled } from "src/app/ui/helper/Static";
 import { environment } from "src/environments/environment";
 
 @Component({
+	standalone: false,
   selector: 'ghs-character-editor',
   templateUrl: './character.html',
   styleUrls: ['../editor.scss', './character.scss']

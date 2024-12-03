@@ -6,6 +6,7 @@ import { TreasureData } from "src/app/game/model/data/RoomData";
 import { environment } from "src/environments/environment";
 
 @Component({
+	standalone: false,
   selector: 'ghs-treasures-tool',
   templateUrl: './treasures-tool.html',
   styleUrls: ['./treasures-tool.scss']

@@ -18,6 +18,7 @@ import { EventRandomItemDialogComponent } from './random-item/random-item-dialog
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
 
 @Component({
+	standalone: false,
   selector: 'ghs-event-effects',
   templateUrl: './event-effects.html',
   styleUrls: ['./event-effects.scss']

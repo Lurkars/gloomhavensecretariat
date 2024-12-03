@@ -11,6 +11,7 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { SummonData } from "src/app/game/model/data/SummonData";
 
 @Component({
+	standalone: false,
   selector: 'ghs-editor-action',
   templateUrl: './action.html',
   styleUrls: ['./action.scss']
@@ -345,6 +346,7 @@ export class EditorActionComponent implements OnInit {
 
 
 @Component({
+	standalone: false,
   selector: 'ghs-editor-action-dialog',
   templateUrl: './action-dialog.html',
   styleUrls: ['./action-dialog.scss']

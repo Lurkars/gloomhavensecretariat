@@ -6,6 +6,7 @@ import { Character } from "src/app/game/model/Character";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-additional-am-select-dialog',
     templateUrl: './additional-am-select.html',
     styleUrls: ['./additional-am-select.scss']

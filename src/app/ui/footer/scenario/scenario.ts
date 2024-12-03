@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 import { ScenarioSummaryComponent } from './summary/scenario-summary';
 
 @Component({
+	standalone: false,
   selector: 'ghs-scenario',
   templateUrl: './scenario.html',
   styleUrls: ['./scenario.scss']

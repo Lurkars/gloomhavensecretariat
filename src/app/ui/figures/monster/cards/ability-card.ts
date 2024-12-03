@@ -10,6 +10,7 @@ import { AbiltiesDialogComponent } from '../../ability/abilities-dialog';
 import { AbilityDialogComponent } from '../../ability/ability-dialog';
 
 @Component({
+	standalone: false,
   selector: 'ghs-monster-ability-card',
   templateUrl: './ability-card.html',
   styleUrls: ['./ability-card.scss']

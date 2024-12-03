@@ -10,6 +10,7 @@ import { HiddenScenarioFigureRuleTypes, ScenarioFigureRule, ScenarioRule } from 
 import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 
 @Component({
+	standalone: false,
     selector: 'ghs-scenario-rules',
     templateUrl: './scenario-rules.html',
     styleUrls: ['./scenario-rules.scss']

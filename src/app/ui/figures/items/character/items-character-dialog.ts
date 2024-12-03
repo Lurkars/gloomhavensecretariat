@@ -10,6 +10,7 @@ import { ItemsDialogComponent } from "../dialog/items-dialog";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-items-character-dialog',
     templateUrl: './items-character-dialog.html',
     styleUrls: ['./items-character-dialog.scss']

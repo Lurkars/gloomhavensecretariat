@@ -6,6 +6,7 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 
 @Component({
+	standalone: false,
     selector: 'ghs-item',
     templateUrl: './item.html',
     styleUrls: ['./item.scss']

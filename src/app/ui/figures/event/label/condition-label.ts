@@ -4,6 +4,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EventCondition, EventConditionType, } from "src/app/game/model/data/EventCard";
 
 @Component({
+	standalone: false,
     selector: 'ghs-event-condition-label',
     templateUrl: './condition-label.html',
     styleUrls: ['./condition-label.scss'],

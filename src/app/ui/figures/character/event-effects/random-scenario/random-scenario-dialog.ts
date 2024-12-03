@@ -6,6 +6,7 @@ import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
+	standalone: false,
   selector: 'ghs-event-random-scenario-dialog',
   templateUrl: './random-scenario-dialog.html',
   styleUrls: ['./random-scenario-dialog.scss'],

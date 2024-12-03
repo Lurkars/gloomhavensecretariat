@@ -10,6 +10,7 @@ import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { ghsDialogClosingHelper } from "../../helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-hint-dialog',
     templateUrl: './hint-dialog.html',
     styleUrls: ['./hint-dialog.scss']

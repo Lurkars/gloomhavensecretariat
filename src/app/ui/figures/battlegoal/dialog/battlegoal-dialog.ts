@@ -10,6 +10,7 @@ import { Subscription } from "rxjs";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
   selector: 'ghs-character-battlegoals',
   templateUrl: './battlegoal-dialog.html',
   styleUrls: ['./battlegoal-dialog.scss']

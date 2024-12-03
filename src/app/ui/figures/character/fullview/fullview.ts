@@ -3,6 +3,7 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { CharacterComponent } from "../character";
 
 @Component({
+	standalone: false,
   selector: 'ghs-character-fullview',
   templateUrl: './fullview.html',
   styleUrls: [ '../character.scss', './fullview.scss' ]

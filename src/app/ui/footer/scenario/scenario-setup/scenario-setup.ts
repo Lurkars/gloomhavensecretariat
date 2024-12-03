@@ -10,6 +10,7 @@ import { StatsListComponent } from "../dialog/stats-list/stats-list";
 import { StatEffectRule } from "src/app/game/model/data/ScenarioRule";
 
 @Component({
+	standalone: false,
     selector: 'ghs-scenario-setup',
     templateUrl: './scenario-setup.html',
     styleUrls: ['./scenario-setup.scss']

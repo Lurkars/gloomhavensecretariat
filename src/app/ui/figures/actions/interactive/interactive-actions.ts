@@ -11,6 +11,7 @@ import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Act
 import { Element, ElementState } from "src/app/game/model/data/Element";
 
 @Component({
+	standalone: false,
     selector: 'ghs-interactive-actions',
     templateUrl: './interactive-actions.html',
     styleUrls: ['./interactive-actions.scss']

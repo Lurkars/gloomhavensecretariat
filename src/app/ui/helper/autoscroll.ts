@@ -5,6 +5,7 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Figure } from 'src/app/game/model/Figure';
 
 @Directive({
+	standalone: false,
   selector: '[autoscroll]'
 })
 export class AutoscrollDirective implements OnChanges {
@@ -29,6 +30,7 @@ export class AutoscrollDirective implements OnChanges {
 
 
 @Directive({
+	standalone: false,
   selector: '[figure-autoscroll]'
 })
 export class FigureAutoscrollDirective implements OnInit, OnDestroy {

@@ -63,6 +63,7 @@ export function valueCalc(value: string | number, level: number | undefined = un
 }
 
 @Directive({
+	standalone: false,
   selector: ' [value-calc]'
 })
 export class ValueCalcDirective implements OnInit, OnDestroy, OnChanges {

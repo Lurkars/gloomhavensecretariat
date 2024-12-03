@@ -4,6 +4,7 @@ import { gameManager } from './game/businesslogic/GameManager';
 import { settingsManager } from './game/businesslogic/SettingsManager';
 
 @Component({
+	standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']

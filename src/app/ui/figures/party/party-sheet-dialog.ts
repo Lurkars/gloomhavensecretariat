@@ -32,6 +32,7 @@ import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { WorldMapComponent } from "./world-map/world-map";
 
 @Component({
+	standalone: false,
   selector: 'ghs-party-sheet-dialog',
   templateUrl: 'party-sheet-dialog.html',
   styleUrls: ['./party-sheet-dialog.scss']

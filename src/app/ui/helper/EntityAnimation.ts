@@ -4,6 +4,7 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
 
 @Directive({
+	standalone: false,
   selector: '[entityAnimation]'
 })
 export class EntityAnimationDirective implements OnChanges {

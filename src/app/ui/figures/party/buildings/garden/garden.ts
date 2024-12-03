@@ -5,6 +5,7 @@ import { Character } from "src/app/game/model/Character";
 import { herbResourceLootTypes, LootType } from "src/app/game/model/data/Loot";
 
 @Component({
+	standalone: false,
 
     selector: 'ghs-garden',
     templateUrl: 'garden.html',

@@ -9,6 +9,7 @@ import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditi
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 
 @Component({
+	standalone: false,
   selector: 'ghs-conditions',
   templateUrl: './conditions.html',
   styleUrls: ['./conditions.scss']

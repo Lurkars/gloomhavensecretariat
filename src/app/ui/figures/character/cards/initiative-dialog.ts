@@ -9,6 +9,7 @@ import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-character-initiative-dialog',
     templateUrl: 'initiative-dialog.html',
     styleUrls: ['./initiative-dialog.scss']

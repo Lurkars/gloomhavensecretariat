@@ -8,6 +8,7 @@ import { ItemDialogComponent } from '../../items/dialog/item-dialog';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
+	standalone: false,
   selector: 'ghs-random-item-dialog',
   templateUrl: './random-item-dialog.html',
   styleUrls: ['./random-item-dialog.scss'],

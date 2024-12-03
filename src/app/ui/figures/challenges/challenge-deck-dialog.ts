@@ -9,6 +9,7 @@ import { ChallengeDeckChange } from "./challenge-deck";
 
 
 @Component({
+	standalone: false,
     selector: 'ghs-challenges-dialog',
     templateUrl: './challenge-deck-dialog.html',
     styleUrls: ['./challenge-deck-dialog.scss']

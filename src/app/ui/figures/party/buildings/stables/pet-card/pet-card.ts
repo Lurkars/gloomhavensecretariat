@@ -4,6 +4,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { PetCard } from "src/app/game/model/data/PetCard";
 
 @Component({
+	standalone: false,
     selector: 'ghs-pet-card',
     templateUrl: './pet-card.html',
     styleUrls: ['./pet-card.scss']

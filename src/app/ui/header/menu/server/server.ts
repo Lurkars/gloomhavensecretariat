@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 @Component({
+	standalone: false,
   selector: 'ghs-server-menu',
   templateUrl: 'server.html',
   styleUrls: ['../menu.scss', 'server.scss']

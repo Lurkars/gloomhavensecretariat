@@ -20,6 +20,7 @@ import { TrialDialogComponent } from "src/app/ui/figures/trials/dialog/trial-dia
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-scenario-summary',
     templateUrl: './scenario-summary.html',
     styleUrls: ['./scenario-summary.scss']

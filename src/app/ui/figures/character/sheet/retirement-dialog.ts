@@ -12,6 +12,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { CharacterMoveResourcesDialog } from "./move-resources";
 
 @Component({
+	standalone: false,
     selector: 'ghs-character-retirement-dialog',
     templateUrl: 'retirement-dialog.html',
     styleUrls: ['./retirement-dialog.scss']

@@ -7,6 +7,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
+	standalone: false,
   selector: 'ghs-monster-image',
   templateUrl: './image.html',
   styleUrls: ['./image.scss']
@@ -42,6 +43,7 @@ export class MonsterImageComponent {
 
 
 @Component({
+	standalone: false,
   selector: 'ghs-monster-image-dialog',
   templateUrl: './imagedialog.html',
   styleUrls: ['./imagedialog.scss']

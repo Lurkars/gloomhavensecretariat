@@ -9,6 +9,7 @@ import { Settings } from "src/app/game/model/Settings";
 import { ghsInputFullScreenCheck } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
   selector: 'ghs-datamanagement-menu',
   templateUrl: 'datamanagement.html',
   styleUrls: ['../menu.scss', 'datamanagement.scss']

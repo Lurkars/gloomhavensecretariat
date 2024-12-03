@@ -11,6 +11,7 @@ import { applyPlaceholder } from "../../helper/label";
 
 
 @Component({
+	standalone: false,
   selector: 'ghs-ability',
   templateUrl: './ability.html',
   styleUrls: ['./ability.scss']

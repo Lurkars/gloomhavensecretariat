@@ -4,6 +4,7 @@ import { ChallengeCard } from "src/app/game/model/data/Challenges";
 
 
 @Component({
+	standalone: false,
     selector: 'ghs-challenge-card',
     templateUrl: './challenge-card.html',
     styleUrls: ['./challenge-card.scss']

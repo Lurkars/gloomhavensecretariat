@@ -18,6 +18,7 @@ import { BuildingUpgradeDialog } from "./upgrade-dialog/upgrade-dialog";
 export type Building = { model: BuildingModel, data: BuildingData };
 
 @Component({
+	standalone: false,
   selector: 'ghs-party-buildings',
   templateUrl: 'buildings.html',
   styleUrls: ['./buildings.scss']

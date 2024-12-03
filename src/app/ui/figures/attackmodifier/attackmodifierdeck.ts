@@ -26,6 +26,7 @@ export class AttackModiferDeckChange {
 }
 
 @Component({
+	standalone: false,
   selector: 'ghs-attackmodifier-deck',
   templateUrl: './attackmodifierdeck.html',
   styleUrls: ['./attackmodifierdeck.scss']

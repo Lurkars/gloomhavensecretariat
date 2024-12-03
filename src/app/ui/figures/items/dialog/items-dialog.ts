@@ -11,6 +11,7 @@ import { ghsDialogClosingHelper, ghsTextSearch } from "src/app/ui/helper/Static"
 import { ItemsBrewDialog } from "../brew/brew";
 
 @Component({
+	standalone: false,
     selector: 'ghs-items-dialog',
     templateUrl: './items-dialog.html',
     styleUrls: ['./items-dialog.scss']

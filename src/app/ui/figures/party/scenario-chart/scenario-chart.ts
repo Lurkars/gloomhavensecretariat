@@ -13,6 +13,7 @@ import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
 import { Subscription } from "rxjs";
 
 @Component({
+	standalone: false,
     selector: 'ghs-scenario-chart',
     templateUrl: 'scenario-chart.html',
     styleUrls: ['scenario-chart.scss'],

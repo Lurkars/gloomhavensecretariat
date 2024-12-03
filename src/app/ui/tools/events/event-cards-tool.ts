@@ -6,6 +6,7 @@ import { environment } from "src/environments/environment";
 import { EventCard } from "src/app/game/model/data/EventCard";
 
 @Component({
+	standalone: false,
   selector: 'ghs-event-cards-tool',
   templateUrl: './event-cards-tool.html',
   styleUrls: ['./event-cards-tool.scss']

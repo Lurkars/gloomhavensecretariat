@@ -8,6 +8,7 @@ import { StatsListComponent } from "src/app/ui/footer/scenario/dialog/stats-list
 import { MonsterStatDialogComponent } from "./stat-dialog";
 
 @Component({
+	standalone: false,
   selector: 'ghs-monster-stats-popup',
   templateUrl: './stats-dialog.html',
   styleUrls: ['./stats-dialog.scss']

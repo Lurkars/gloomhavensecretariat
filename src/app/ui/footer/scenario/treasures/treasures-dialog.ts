@@ -9,6 +9,7 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
+	standalone: false,
     selector: 'ghs-scenario-treasures-dialog',
     templateUrl: './treasures-dialog.html',
     styleUrls: ['./treasures-dialog.scss']

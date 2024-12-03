@@ -7,6 +7,7 @@ import { TreasureData, TreasureReward, TreasureRewardType } from "src/app/game/m
 import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
 
 @Component({
+	standalone: false,
     selector: 'ghs-treasure-label',
     templateUrl: './label.html',
     styleUrls: ['./label.scss'],

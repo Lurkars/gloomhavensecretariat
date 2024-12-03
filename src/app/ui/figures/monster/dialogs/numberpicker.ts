@@ -12,6 +12,7 @@ import { MonsterNumberPickerDialog } from "./numberpicker-dialog";
 
 
 @Component({
+	standalone: false,
   selector: 'ghs-monster-numberpicker',
   templateUrl: 'numberpicker.html',
   styleUrls: ['./numberpicker.scss']

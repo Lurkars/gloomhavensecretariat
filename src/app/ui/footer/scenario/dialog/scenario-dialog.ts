@@ -17,6 +17,7 @@ import { ScenarioRulesDialogComponent } from "../../scenario-rules/dialog/scenar
 import { FavorsComponent } from "src/app/ui/figures/character/event-effects/favors/favors";
 
 @Component({
+	standalone: false,
     selector: 'ghs-scenario-dialog',
     templateUrl: './scenario-dialog.html',
     styleUrls: ['./scenario-dialog.scss']

@@ -8,6 +8,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
+	standalone: false,
   selector: 'ghs-stats-list',
   templateUrl: './stats-list.html',
   styleUrls: ['./stats-list.scss']
