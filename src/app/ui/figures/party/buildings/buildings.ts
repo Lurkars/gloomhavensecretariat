@@ -175,7 +175,9 @@ export class PartyBuildingsComponent implements OnInit {
         }
       }
 
-      if ((costs.gold || 0) > gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).progress.gold).reduce((a, b) => a + b)) {
+      const characterGold = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).progress.gold);
+
+      if (!characterGold.length || (costs.gold || 0) > characterGold.reduce((a, b) => a + b)) {
         return false;
       }
 
