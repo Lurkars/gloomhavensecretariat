@@ -9,7 +9,7 @@ import { Settings } from "src/app/game/model/Settings";
 import { ghsInputFullScreenCheck } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-datamanagement-menu',
   templateUrl: 'datamanagement.html',
   styleUrls: ['../menu.scss', 'datamanagement.scss']
@@ -215,7 +215,7 @@ export class DatamanagementMenuComponent implements OnInit {
           this.importGame(Object.assign(new GameModel(), data));
         } else if (data.zoom && typeof data.zoom === 'number') {
           this.importSettings(Object.assign(new Settings(), data));
-        } else if (data.game && data.settings) {
+        } else if (data.game && data.settings || typeof data === 'object' && data['ghs-game'] && data['ghs-settings']) {
           this.importDataDump(data);
         } else {
           inputEvent.target.parentElement.classList.add("warning");
@@ -294,20 +294,21 @@ export class DatamanagementMenuComponent implements OnInit {
     const keys = Object.keys(data);
     let success = false;
     for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
+      const origKey = keys[i];
+      const key = origKey.startsWith('ghs-') ? origKey.replace('ghs-', '') : origKey;
       if (key === 'game') {
-        await storageManager.write('game', 'default', data[key]);
+        await storageManager.write('game', 'default', data[origKey]);
         success = true;
       } else if (key === 'settings') {
-        await storageManager.write('settings', 'default', Object.assign(new Settings(), data[key]));
+        await storageManager.write('settings', 'default', Object.assign(new Settings(), data[origKey]));
       } else if (key === 'undo') {
-        await storageManager.writeArray('undo', data[key]);
+        await storageManager.writeArray('undo', data[origKey]);
       } else if (key === 'redo') {
-        await storageManager.writeArray('redo', data[key]);
+        await storageManager.writeArray('redo', data[origKey]);
       } else if (key === 'undo-infos') {
-        await storageManager.writeArray('undo-infos', data[key]);
+        await storageManager.writeArray('undo-infos', data[origKey]);
       } else if (key === 'game-backup') {
-        await storageManager.writeArray('game-backup', data[key]);
+        await storageManager.writeArray('game-backup', data[origKey]);
       }
     }
     if (success) {
