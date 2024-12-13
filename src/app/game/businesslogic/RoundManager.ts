@@ -463,6 +463,10 @@ export class RoundManager {
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
       }
 
+      if (figure instanceof Character && figure.name == 'shards' && figure.tags.indexOf('resonance_tokens') != -1 && figure.tokenValues[0] < 5) {
+        figure.tokenValues[0] += 1;
+      }
+
       if (figure instanceof Character) {
         if (settingsManager.settings.expireConditions) {
           gameManager.entityManager.expireConditions(figure, figure);
@@ -585,6 +589,10 @@ export class RoundManager {
 
         if (figure.tags.find((tag) => tag === 'trophy_tokens') && figure.primaryToken == 0 && figure.progress.perks[10] == 1) {
           figure.tokenValues[0] = 2;
+        }
+
+        if (figure.tags.find((tag) => tag === 'resonance_tokens') && figure.primaryToken == 0) {
+          figure.tokenValues[0] =  figure.progress.perks[10] == 1 ? 3 : 1;
         }
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));

@@ -25,7 +25,10 @@
       "repair_mode": "%data.characterToken.prism.mode% Repair Drone Mode: %game.action.heal% 2"
     },
     "shackles": "Pain Conduit",
-    "shards": "Shattersong",
+    "shards": {
+      ".": "Shattersong",
+      "resonance_tokens": "%data.characterToken.shards.resonance% Resonance Tokens"
+    },
     "snowflake": {
       ".": "Snowdancer",
       "muddle-monster": "%game.condition.muddle% all newly revealed enemies"

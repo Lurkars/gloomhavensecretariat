@@ -281,7 +281,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.token = - this.character.token;
     } else if (this.character.primaryToken >= 0 && this.character.tokenValues[this.character.primaryToken] + this.token < 0) {
       this.token = - this.character.tokenValues[this.character.primaryToken];
-    } else if (this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0 && this.character.tokenValues[0] + this.token > 5) {
+    } else if (this.character.tags.find((tag) => ['time_tokens', 'resonance_token'].indexOf(tag) >= 0) && this.character.primaryToken == 0 && this.character.tokenValues[0] + this.token > 5) {
       this.token = 5 - this.character.tokenValues[this.character.primaryToken];
     }
   }
@@ -297,7 +297,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
         gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), '%data.characterToken.' + this.character.name + '.' + this.character.tokens[this.character.primaryToken] + '%', (this.character.token + this.token));
         this.character.tokenValues[this.character.primaryToken] += this.token;
 
-        if (this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0 && this.character.tokenValues[0] > 5) {
+        if (this.character.tags.find((tag) => ['time_tokens', 'resonance_token'].indexOf(tag) >= 0) && this.character.primaryToken == 0 && this.character.tokenValues[0] > 5) {
           this.character.tokenValues[0] = 5;
         }
 
