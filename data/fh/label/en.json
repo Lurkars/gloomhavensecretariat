@@ -489,8 +489,18 @@
       "1": "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
       "2": "Gain 1 collective herb from each planted plot, then plant herbs",
       "plots": {
-        ".": "Manage Garden (%wip%)",
-        "interaction": "Plant/Harvest herbs"
+        ".": "Manage Garden",
+        "automated": {
+          ".": "Automatic Harvesting",
+          "hint": "Harvest Garden automatically when a week passed by"
+        },
+        "harvest": "Manually Harvest",
+        "interaction": "Plant/Harvest herbs",
+        "state": {
+          "both": "Harvest Garden and plant herbs",
+          "harvest": "Garden is flipped, only harvesting this week",
+          "plant": "Plant Herbs"
+        }
       }
     },
     "hall-of-revelry": {

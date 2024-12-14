@@ -1,3 +1,4 @@
+import { GardenModel } from "../model/Building";
 import { Game } from "../model/Game";
 import { BuildingData, BuildingRewards } from "../model/data/BuildingData";
 import { ScenarioData } from "../model/data/ScenarioData";
@@ -85,5 +86,25 @@ export class BuildingsManager {
 
   availableBuilding(buildingData: BuildingData): boolean {
     return buildingData.prosperityUnlock && buildingData.costs.prosperity <= gameManager.prosperityLevel() && !gameManager.game.party.buildings.find((model) => buildingData.name == model.name && model.level) && (!buildingData.requires || gameManager.game.party.buildings.find((model) => model.name == buildingData.requires && model.level) != undefined);
+  }
+
+  nextWeek() {
+    if (this.gardenEnabled) {
+      const gardenBuilding = this.game.party.buildings.find((value) => value.name == 'garden' && value.level);
+      this.game.party.garden = this.game.party.garden || new GardenModel();
+      if (gardenBuilding) {
+        if (gardenBuilding.level < 3) {
+          this.game.party.garden.flipped = !this.game.party.garden.flipped;
+        } else {
+          this.game.party.garden.flipped = false;
+        }
+
+        if (this.game.party.garden.automated && (gardenBuilding.level > 2 || this.game.party.garden.flipped)) {
+          this.game.party.garden.plots.forEach((herb) => {
+            this.game.party.loot[herb] = (this.game.party.loot[herb] || 0) + 1;
+          })
+        }
+      }
+    }
   }
 }

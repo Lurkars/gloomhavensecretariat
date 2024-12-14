@@ -10,8 +10,34 @@
         flex-direction: column;
 
         .title {
+            text-align: center;
             font-family: var(--ghs-font-title);
             font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        }
+
+        .state-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .hint-container {
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                label {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            a {
+                cursor: pointer;
+                font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            }
         }
 
         .herbs {

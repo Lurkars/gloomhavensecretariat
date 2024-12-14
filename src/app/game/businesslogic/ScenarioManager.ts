@@ -311,6 +311,8 @@ export class ScenarioManager {
 
           this.game.party.weeks++;
 
+          gameManager.buildingsManager.nextWeek();
+
           const editionData = gameManager.editionData.find((editionData) => editionData.edition == scenario.edition);
           let weekSections: string[] = [];
           if (editionData && editionData.campaign) {
