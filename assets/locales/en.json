@@ -159,9 +159,16 @@
         "openEnvelope": {
           ".": "Open Envelope %game.fhIcon:envelope% {0}",
           "alt": "Open Envelope %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
-          "building": "Unlocks building '%data.buildings.{1}%' ({0})"
+          "building": "Unlocks building '%data.buildings.{1}%' ({0})",
+          "inspiration": "Gain +1 Inspiration",
+          "itemBlueprint": "Gain \"%data.items.{1}-{0}%\" blueprint (Item {0})",
+          "randomScenario": "Open %data.section:{0}%, unlock %data.scenarioNumber:{1}%"
         },
-        "unlockCharacter": "Open Box %game.characterIcon.{0}%"
+        "unlockCharacter": {
+          ".": "Open Box %game.characterIcon.{0}%",
+          "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0})",
+          "randomScenario": "Unlock \"{1}\" %data.scenarioNumber:{0}%"
+        }
       },
       "resources": {
         ".": "Resources",
