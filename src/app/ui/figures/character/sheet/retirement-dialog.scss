@@ -71,7 +71,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-size: 1.5em;
+        font-size: calc(var(--ghs-unit) * 2.6 * var(--ghs-dialog-factor));
     }
 
     .conclusion {
@@ -89,6 +89,18 @@
             &:hover {
                 opacity: 0.7;
             }
+        }
+    }
+
+    .already-unlocked {
+        filter: brightness(0) var(--ghs-filter-darkgray);
+    }
+
+    .link {
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
         }
     }
 
