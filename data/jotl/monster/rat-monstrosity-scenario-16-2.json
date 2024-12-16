@@ -13,14 +13,25 @@
         "value": "%game.custom.ondeath%",
         "subActions": [
           {
-            "type": "spawn",
-            "value": "monsterStandee",
-            "valueObject": [
+            "type": "custom",
+            "value": "%data.custom.jotl.rat-monstrosity.1%"
+          },
+          {
+            "type": "custom",
+            "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+            "small": true,
+            "subActions": [
               {
-                "monster": {
-                  "name": "black-imp",
-                  "type": "elite"
-                }
+                "type": "spawn",
+                "value": "monsterStandee",
+                "valueObject": [
+                  {
+                    "monster": {
+                      "name": "blood-imp",
+                      "type": "elite"
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -51,31 +62,186 @@
       "level": 3,
       "health": 6,
       "movement": 2,
-      "attack": 3
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.2%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "level": 4,
       "health": 8,
       "movement": 2,
-      "attack": 3
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.2%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "level": 5,
       "health": 10,
       "movement": 3,
-      "attack": 3
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.2%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "level": 6,
       "health": 12,
       "movement": 3,
-      "attack": 3
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.3%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "level": 7,
       "health": 12,
       "movement": 3,
-      "attack": 4
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.3%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "type": "elite",
@@ -100,14 +266,25 @@
           "value": "%game.custom.ondeath%",
           "subActions": [
             {
-              "type": "spawn",
-              "value": "monsterStandee",
-              "valueObject": [
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.2%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
                 {
-                  "monster": {
-                    "name": "black-imp",
-                    "type": "elite"
-                  }
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -131,14 +308,25 @@
           "value": "%game.custom.ondeath%",
           "subActions": [
             {
-              "type": "spawn",
-              "value": "monsterStandee",
-              "valueObject": [
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.2%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
                 {
-                  "monster": {
-                    "name": "black-imp",
-                    "type": "elite"
-                  }
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -162,14 +350,25 @@
           "value": "%game.custom.ondeath%",
           "subActions": [
             {
-              "type": "spawn",
-              "value": "monsterStandee",
-              "valueObject": [
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.2%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
                 {
-                  "monster": {
-                    "name": "black-imp",
-                    "type": "elite"
-                  }
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -193,14 +392,25 @@
           "value": "%game.custom.ondeath%",
           "subActions": [
             {
-              "type": "spawn",
-              "value": "monsterStandee",
-              "valueObject": [
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.3%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
                 {
-                  "monster": {
-                    "name": "black-imp",
-                    "type": "elite"
-                  }
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -224,14 +434,25 @@
           "value": "%game.custom.ondeath%",
           "subActions": [
             {
-              "type": "spawn",
-              "value": "monsterStandee",
-              "valueObject": [
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.3%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
                 {
-                  "monster": {
-                    "name": "black-imp",
-                    "type": "elite"
-                  }
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -255,14 +476,25 @@
           "value": "%game.custom.ondeath%",
           "subActions": [
             {
-              "type": "spawn",
-              "value": "monsterStandee",
-              "valueObject": [
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.3%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
                 {
-                  "monster": {
-                    "name": "black-imp",
-                    "type": "elite"
-                  }
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -286,14 +518,25 @@
           "value": "%game.custom.ondeath%",
           "subActions": [
             {
-              "type": "spawn",
-              "value": "monsterStandee",
-              "valueObject": [
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity.4%"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.rat-monstrosity-16-2.1%",
+              "small": true,
+              "subActions": [
                 {
-                  "monster": {
-                    "name": "black-imp",
-                    "type": "elite"
-                  }
+                  "type": "spawn",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "blood-imp",
+                        "type": "elite"
+                      }
+                    }
+                  ]
                 }
               ]
             }

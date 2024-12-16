@@ -553,8 +553,10 @@ export class RoundManager {
       figure.off = false;
       if (figure instanceof Character) {
         if (figure.name == 'demolitionist' && figure.tags.find((tag) => tag === 'mech')) {
-          figure.maxHealth -= 5;
-          gameManager.entityManager.checkHealth(figure, figure);
+          const stat = figure.stats.find((stat) => stat.level == figure.level);
+          if (stat) {
+            figure.maxHealth = stat.health;
+          }
         }
 
         figure.health = figure.maxHealth;
@@ -592,7 +594,7 @@ export class RoundManager {
         }
 
         if (figure.tags.find((tag) => tag === 'resonance_tokens') && figure.primaryToken == 0) {
-          figure.tokenValues[0] =  figure.progress.perks[10] == 1 ? 3 : 1;
+          figure.tokenValues[0] = figure.progress.perks[10] == 1 ? 3 : 1;
         }
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));

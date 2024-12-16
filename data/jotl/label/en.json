@@ -250,6 +250,9 @@
         "3": "all adjacent figures suffer %game.damage:3%",
         "4": "all adjacent figures suffer %game.damage:4%"
       },
+      "rat-monstrosity-16-2": {
+        "1": "If any figure dies or become exhausted due to the damage"
+      },
       "basic-vermling-raider": {
         "1": "Shuffle this deck at the end of the round.",
         "2": "They will move to avoid being adjacent to their focus.",
