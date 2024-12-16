@@ -19,7 +19,7 @@ import { CharacterRetirementDialog } from "./retirement-dialog";
 
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-character-sheet',
   templateUrl: 'character-sheet.html',
   styleUrls: ['./character-sheet.scss'],
@@ -43,8 +43,8 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   PerkType = PerkType;
   LootType = LootType;
   availablePerks: number = 0;
-  retired: boolean = false;
   personalQuest: PersonalQuest | undefined;
+  retireEnabled: boolean = false;
   hasAbilities: boolean = false;
 
   goldTimeout: any = null;
@@ -60,7 +60,6 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
   constructor(private dialog: Dialog) { }
 
   ngOnInit(): void {
-    this.retired = this.character.progress.retired;
     if (this.character.identities && this.character.identities.length > 1 && settingsManager.settings.characterIdentities) {
       this.titles = this.character.title.split('|');
       if (this.titles.length < this.character.identities.length) {
@@ -116,6 +115,14 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       }
     }
 
+    if (!gameManager.game.scenario) {
+      if (this.personalQuest) {
+        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
+      } else {
+        this.retireEnabled = true;
+      }
+    }
+
     this.hasAbilities = gameManager.deckData(this.character, true).abilities.length > 0;
 
     gameManager.uiChange.subscribe({
@@ -127,10 +134,16 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
             this.character.progress.perks[i] = 0;
           }
         }
-
-        if (this.personalQuest) {
-          this.retired = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
+        
+        this.retireEnabled = false;
+        if (!gameManager.game.scenario) {
+          if (this.personalQuest) {
+            this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
+          } else {
+            this.retireEnabled = true;
+          }
         }
+    
       }
     })
   }
@@ -167,33 +180,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       gameManager.stateManager.after();
     }
 
-
-    if (this.retired != this.character.progress.retired && this.editable) {
-      if (settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode && this.retired) {
-        this.dialog.open(CharacterRetirementDialog, {
-          panelClass: ['dialog'],
-          data: this.character
-        });
-      } else {
-        gameManager.stateManager.before(this.character.progress.retired ? "setRetired" : "unsetRetired", gameManager.characterManager.characterName(this.character));
-        this.character.progress.retired = this.retired;
-        if (this.retired && gameManager.game.party.campaignMode) {
-          gameManager.game.party.retirements.push(this.character.toModel());
-          gameManager.characterManager.removeCharacter(this.character);
-        }
-        gameManager.stateManager.after();
-      }
-    }
   }
 
   titleChange() {
-    if (this.standalone) {
-      this.applyValues();
-    }
-  }
-
-  toggleRetired() {
-    this.retired = !this.retired;
     if (this.standalone) {
       this.applyValues();
     }
@@ -290,9 +279,11 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
       this.character.progress.personalQuest = event.target.value;
       this.character.progress.personalQuestProgress = [];
       this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
-      if (this.personalQuest && this.character.progress.personalQuest != this.personalQuest.cardId) {
+      if (this.personalQuest) {
         this.character.progress.personalQuest = this.personalQuest.cardId;
+        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
       }
+
       gameManager.stateManager.after();
     }
   }
@@ -318,6 +309,45 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     gameManager.stateManager.before("setPQProgress", gameManager.characterManager.characterName(this.character), (index + 1), value);
     this.character.progress.personalQuestProgress[index] = value;
     gameManager.stateManager.after();
+
+    if (!gameManager.game.scenario) {
+      const retiredEnabled = this.retireEnabled;
+      if (this.personalQuest) {
+        this.retireEnabled = this.personalQuest.requirements.every((requirement, i) => this.character.progress.personalQuestProgress[i] >= EntityValueFunction(requirement.counter));
+      }
+
+      if (!retiredEnabled && this.retireEnabled && settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode) {
+        this.retire(false, true);
+      }
+    }
+  }
+
+  retire(force: boolean = false, dialogOnly: boolean = false) {
+    if (force || this.retireEnabled) {
+      if (settingsManager.settings.applyRetirement && gameManager.game.party.campaignMode) {
+        this.dialog.open(CharacterRetirementDialog, {
+          panelClass: ['dialog'],
+          data: this.character
+        }).closed.subscribe({
+          next: (retired) => {
+            if (retired && this.dialogRef) {
+              ghsDialogClosingHelper(this.dialogRef);
+            }
+          }
+        });
+      } else if (!dialogOnly) {
+        if (this.dialogRef) {
+          ghsDialogClosingHelper(this.dialogRef);
+        }
+        gameManager.stateManager.before(this.character.progress.retired ? "setRetired" : "unsetRetired", gameManager.characterManager.characterName(this.character));
+        this.character.progress.retired = true;
+        if (gameManager.game.party.campaignMode) {
+          gameManager.game.party.retirements.push(this.character.toModel());
+          gameManager.characterManager.removeCharacter(this.character);
+        }
+        gameManager.stateManager.after();
+      }
+    }
   }
 
   personalQuestRequirementUnlocked(index: number): boolean {

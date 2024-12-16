@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <div class="additional" *ngIf="gameManager.fhRules()">
+    <div class="additional" *ngIf="gameManager.fhRules() && hasResources">
         <a (click)="moveResources()"><span [ghs-label]="'character.progress.retirement.moveSupply'"></span></a>
     </div>
 

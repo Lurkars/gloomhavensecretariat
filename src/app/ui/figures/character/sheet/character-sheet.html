@@ -258,9 +258,12 @@
               <input class="card-id" [value]="character.progress.personalQuest" type="text"
                 (change)="setPersonalQuest($event)">
 
-              <span *ngIf="!personalQuest" class="retired checkbox" [ngClass]="{'checked' : retired}"
-                (click)="toggleRetired()" [ghs-label]="'character.progress.retired'"
-                [ghs-label-attribute]="'title'"></span>
+              <label *ngIf="editable && !personalQuest" class="retire-button" ghs-pointer-input (singleClick)="retire()"
+                (doubleClick)="retire(true)" [ngClass]="{'disabled': !retireEnabled}">
+                <img class="ghs-svg" src="./assets/images/trophy.svg">
+                <span [ghs-label]="'character.progress.retirement'"></span>
+              </label>
+
               <span *ngIf="personalQuest" class="personal-quest-name">
                 <span [ghs-label]="'data.personalQuest.' + personalQuest.cardId"></span>
                 <span *ngIf="personalQuest.altId">&nbsp;({{personalQuest.altId}})</span>
@@ -312,6 +315,11 @@
               </div>
             </div>
 
+            <label *ngIf="editable && personalQuest" class="retire-button" ghs-pointer-input (singleClick)="retire()"
+              (doubleClick)="retire(true)" [ngClass]="{'disabled': !retireEnabled}">
+              <img class="ghs-svg" src="./assets/images/trophy.svg">
+              <span [ghs-label]="'character.progress.retirement'"></span>
+            </label>
           </div>
           <div class="retirements" *ngIf="!gameManager.editionRules('jotl')">
             <label><span [ghs-label]="'character.progress.retirements'"></span>:</label>

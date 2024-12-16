@@ -40,63 +40,78 @@
             }
         }
 
-        .herbs {
+        .herbs,
+        .sources {
             display: flex;
             justify-content: center;
             align-items: center;
 
-            .herb {
+            .herb,
+            .source {
                 cursor: pointer;
                 display: flex;
-                justify-content: center;
+                justify-content: space-evenly;
                 align-items: center;
                 margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+                font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                color: var(--ghs-color-gray);
 
-                .ghs-svg {
+                img {
                     width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
                     height: auto;
-                    filter: var(--ghs-filter-gray);
-                }
 
-                .value {
-                    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                    color: var(--ghs-color-gray);
+                    &.ghs-svg {
+                        filter: var(--ghs-filter-gray);
+                    }
+
+                    &.character-icon {
+                        filter: grayscale(0.2) brightness(0.6);
+                    }
                 }
 
                 &.active {
+                    color: var(--ghs-color-white);
+
                     .ghs-svg {
                         filter: var(--ghs-filter-white);
                     }
 
-                    .value {
-                        color: var(--ghs-color-white);
+                    .character-icon {
+                        filter: none;
                     }
                 }
 
                 &:hover {
+                    color: var(--ghs-color-white);
+
                     .ghs-svg {
                         filter: var(--ghs-filter-white);
                     }
 
-                    .value {
-                        color: var(--ghs-color-white);
+                    .character-icon {
+                        filter: none;
                     }
                 }
 
                 &.disabled {
                     cursor: initial;
+                    color: var(--ghs-color-darkgray);
 
                     .ghs-svg {
                         filter: var(--ghs-filter-darkgray);
                     }
 
-                    .value {
-                        color: var(--ghs-color-darkgray);
+                    .character-icon {
+                        filter: brightness(0) var(--ghs-filter-darkgray);
                     }
 
                     &:hover {
                         .ghs-svg {
                             filter: var(--ghs-filter-darkgray);
+                        }
+
+                        .character-icon {
+                            filter: brightness(0) var(--ghs-filter-darkgray);
                         }
 
                         .value {

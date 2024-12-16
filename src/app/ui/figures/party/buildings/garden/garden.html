@@ -29,6 +29,21 @@
                 <span class="value">{{resources[herb]}}</span>
             </a>
         </div>
+
+        <div class="sources">
+            <a class="source" (click)="selectSource(characters.length)"
+                [ngClass]="{'active': currentSource == characters.length, 'disabled' : !currentResources[characters.length]}">
+                <span [ghs-label]="'party.campaign.sheet.supply'"></span>:&nbsp;
+                <span class="value">{{currentResources[characters.length]}}</span>
+            </a>
+            <a class="source" (click)="selectSource(i)"
+                [ngClass]="{'active': currentSource == i, 'disabled' : !currentResources[i]}"
+                *ngFor="let character of characters; let i = index">
+                <img class="character-icon" [src]="character.iconUrl" />
+                <span class="value">{{currentResources[i]}}</span>
+            </a>
+        </div>
+
     </div>
 
     <div class="garden"

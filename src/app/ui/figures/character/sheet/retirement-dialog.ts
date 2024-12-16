@@ -10,6 +10,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { CharacterMoveResourcesDialog } from "./move-resources";
+import { LootType, resourceLootTypes } from "src/app/game/model/data/Loot";
 
 @Component({
 	standalone: false,
@@ -29,6 +30,8 @@ export class CharacterRetirementDialog {
     additionalPQ: PersonalQuest | undefined;
     additionalPQBuilding: BuildingData | undefined;
 
+    hasResources: boolean = false;
+
     constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef, private dialog: Dialog) {
         this.conclusion = gameManager.sectionData(this.character.edition).find((sectionData) => sectionData.retirement == this.character.name && sectionData.conclusion);
         if (this.character.progress.personalQuest) {
@@ -36,6 +39,13 @@ export class CharacterRetirementDialog {
 
             if (settingsManager.settings.unlockEnvelopeBuildings && this.personalQuest && this.personalQuest.openEnvelope) {
                 this.personalQuestBuilding = this.buildingsEnvelopeHelper(this.personalQuest.openEnvelope);
+            }
+        }
+
+        for(let key of Object.keys(this.character.progress.loot)) {
+            const loot : LootType = key as LootType;
+            if (resourceLootTypes.indexOf(loot) != -1 &&  this.character.progress.loot[loot]) {
+                this.hasResources = true;
             }
         }
     }

@@ -385,7 +385,7 @@ export class EntityManager {
     entityCondition.highlight = false;
 
     // apply Challenge #1487
-    if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1487, 'fh') && entityCondition.types.indexOf(ConditionType.negative) && entityCondition.name != ConditionName.wound && entity instanceof Character && !this.isImmune(entity, entity, ConditionName.wound)) {
+    if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1487, 'fh') && entityCondition.types.indexOf(ConditionType.negative) != -1 && entityCondition.name != ConditionName.wound && entity instanceof Character && !this.isImmune(entity, entity, ConditionName.wound)) {
       this.addCondition(entity, figure, new Condition(ConditionName.wound));
     }
 
@@ -395,7 +395,7 @@ export class EntityManager {
     entity.entityConditions = entity.entityConditions.filter((entityCondition) => entityCondition.name != condition.name || entityCondition.permanent != permanent);
 
     // apply Challenge #1525
-    if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1525, 'fh') && condition.types.indexOf(ConditionType.negative) && entity instanceof MonsterEntity) {
+    if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1525, 'fh') && condition.types.indexOf(ConditionType.negative) != -1 && entity instanceof MonsterEntity) {
       this.addCondition(entity, figure, new Condition(ConditionName.strengthen));
     }
   }
@@ -547,21 +547,29 @@ export class EntityManager {
       }
     })
 
-    let challenge1524 = false;
+    let negativeCondition = false;
 
     entity.entityConditions.forEach((entityCondition) => {
       if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
         if (entityCondition.state == EntityConditionState.expire && !entityCondition.permanent) {
           entityCondition.expired = true;
           if (entityCondition.types.indexOf(ConditionType.negative) != -1) {
-            challenge1524 = true;
+            negativeCondition = true;
           }
         }
       }
     })
 
-    if (challenge1524 && figure instanceof Monster && !figure.isAlly && entity instanceof MonsterEntity && gameManager.challengesManager.isActive(1524, 'fh')) {
-      this.changeHealth(entity, figure, -1);
+    if (gameManager.challengesManager.apply && negativeCondition && figure instanceof Monster && !figure.isAlly && entity instanceof MonsterEntity) {
+      // apply Challenge #1524
+      if (gameManager.challengesManager.isActive(1524, 'fh')) {
+        this.changeHealth(entity, figure, -1);
+      }
+
+      // apply Challenge #1525
+      if (gameManager.challengesManager.isActive(1525, 'fh')) {
+        this.addCondition(entity, figure, new Condition(ConditionName.strengthen));
+      }
     }
   }
 

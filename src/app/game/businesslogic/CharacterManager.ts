@@ -159,7 +159,11 @@ export class CharacterManager {
   }
 
   removeCharacter(character: Character, retirement: boolean = false) {
-    this.game.figures.splice(this.game.figures.indexOf(character), 1);
+    const index = this.game.figures.indexOf(character);
+    if (index == -1) {
+      return;
+    }
+    this.game.figures.splice(index, 1);
 
     if (retirement && settingsManager.settings.applyRetirement) {
       gameManager.game.party.prosperity += gameManager.fhRules() ? 2 : 1;
