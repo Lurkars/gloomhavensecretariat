@@ -11,14 +11,14 @@
   "color": "#49a967",
   "specialActions": [
     {
-      "name": "bone-dagger",
-      "expire": true,
-      "level": 2
-    },
-    {
       "name": "solid-bones",
       "expire": true,
       "level": 5
+    },
+    {
+      "name": "unholy-prowess",
+      "expire": true,
+      "level": 9
     }
   ],
   "stats": [

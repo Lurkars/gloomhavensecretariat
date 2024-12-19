@@ -6,6 +6,7 @@ import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { ObjectiveContainer } from "../model/ObjectiveContainer";
 import { Summon, SummonColor, SummonState } from "../model/Summon";
+import { Action, ActionType } from "../model/data/Action";
 import { CharacterData } from "../model/data/CharacterData";
 import { CharacterStat } from "../model/data/CharacterStat";
 import { Condition, ConditionName } from "../model/data/Condition";
@@ -14,8 +15,6 @@ import { PersonalQuest } from "../model/data/PersonalQuest";
 import { SummonData } from "../model/data/SummonData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { EntityValueFunction } from "../model/Entity";
-import { Action, ActionType } from "../model/data/Action";
 
 export class CharacterManager {
 
@@ -197,17 +196,16 @@ export class CharacterManager {
     character.summons.push(summon);
 
     if (character.name == 'boneshaper') {
-      if (character.tags.indexOf('bone-dagger') != -1) {
-        summon.attack = EntityValueFunction(summon.attack) + 1;
-      }
-      if (character.tags.indexOf('solid-bones') != -1) {
+      if (character.tags.indexOf('solid-bones') != -1 || character.tags.indexOf('unholy-prowess') != -1) {
         if (summon.name === 'shambling-skeleton') {
           summon.maxHealth += 1;
           if (summon.health == summon.maxHealth - 1) {
             summon.health = summon.maxHealth;
           }
-          summon.movement += 1;
-          summon.action = new Action(ActionType.pierce, 1);
+          if (character.tags.indexOf('solid-bones') != -1) {
+            summon.movement += 1;
+            summon.action = new Action(ActionType.pierce, 1);
+          }
         }
       }
     }

@@ -8,8 +8,7 @@
       "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
     },
     "boneshaper": {
-      ".": "Boneshaper",
-      "bone-dagger": "Add +1 %game.action.attack%"
+      ".": "Boneshaper"
     },
     "deathwalker": "Deathwalker",
     "drifter": "Drifter",

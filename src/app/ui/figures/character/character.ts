@@ -26,7 +26,7 @@ import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-character',
   templateUrl: './character.html',
   styleUrls: ['./character.scss']
@@ -553,20 +553,17 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
 
     if (this.character.name == 'boneshaper') {
-      if (specialAction == 'bone-dagger') {
-        this.character.summons.forEach((summon) => {
-          summon.attack = EntityValueFunction(summon.attack) - 1;
-        })
-      }
-      if (specialAction == 'solid-bones') {
+      if (specialAction == 'solid-bones' || specialAction == 'unholy-prowess') {
         this.character.summons.forEach((summon) => {
           if (summon.name === 'shambling-skeleton') {
             summon.maxHealth -= 1;
             if (summon.health > summon.maxHealth) {
               summon.health = summon.maxHealth;
             }
-            summon.movement -= 1;
-            summon.action = undefined;
+            if (specialAction == 'solid-bones') {
+              summon.movement -= 1;
+              summon.action = undefined;
+            }
           }
         })
       }

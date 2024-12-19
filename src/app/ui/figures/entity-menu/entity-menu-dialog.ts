@@ -16,17 +16,17 @@ import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Act
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 import { CharacterSpecialAction } from "src/app/game/model/data/CharacterStat";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/data/Condition";
+import { ItemFlags } from "src/app/game/model/data/ItemData";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
+import { PetIdentifier } from "src/app/game/model/data/PetCard";
 import { ghsDefaultDialogPositions, ghsDialogClosingHelper, ghsModulo, ghsValueSign } from "../../helper/Static";
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
 import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
 import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
-import { ItemFlags } from "src/app/game/model/data/ItemData";
-import { PetIdentifier } from "src/app/game/model/data/PetCard";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-entity-menu-dialog',
   templateUrl: 'entity-menu-dialog.html',
   styleUrls: ['./entity-menu-dialog.scss']
@@ -1004,20 +1004,17 @@ export class EntityMenuDialogComponent {
         }
 
         if (this.data.entity.name == 'boneshaper') {
-          if (specialTagsToTemove.indexOf('bone-dagger') != -1) {
-            this.data.entity.summons.forEach((summon) => {
-              summon.attack = EntityValueFunction(summon.attack) - 1;
-            })
-          }
-          if (specialTagsToTemove.indexOf('solid-bones') != -1) {
+          if (specialTagsToTemove.indexOf('solid-bones') != -1 || specialTagsToTemove.indexOf('unholy-prowess') != -1) {
             this.data.entity.summons.forEach((summon) => {
               if (summon.name === 'shambling-skeleton') {
                 summon.maxHealth -= 1;
                 if (summon.health > summon.maxHealth) {
                   summon.health = summon.maxHealth;
                 }
-                summon.movement -= 1;
-                summon.action = undefined;
+                if (specialTagsToTemove.indexOf('solid-bones') != -1) {
+                  summon.movement -= 1;
+                  summon.action = undefined;
+                }
               }
             })
           }
@@ -1059,20 +1056,17 @@ export class EntityMenuDialogComponent {
         }
 
         if (this.data.entity.name == 'boneshaper') {
-          if (specialTagsToAdd.indexOf('bone-dagger') != -1) {
-            this.data.entity.summons.forEach((summon) => {
-              summon.attack = EntityValueFunction(summon.attack) + 1;
-            })
-          }
-          if (specialTagsToAdd.indexOf('solid-bones') != -1) {
+          if (specialTagsToAdd.indexOf('solid-bones') != -1 || specialTagsToAdd.indexOf('unholy-prowess') != -1) {
             this.data.entity.summons.forEach((summon) => {
               if (summon.name === 'shambling-skeleton') {
                 summon.maxHealth += 1;
                 if (summon.health == summon.maxHealth - 1) {
                   summon.health = summon.maxHealth;
                 }
-                summon.movement += 1;
-                summon.action = new Action(ActionType.pierce, 1);
+                if (specialTagsToAdd.indexOf('solid-bones') != -1) {
+                  summon.movement += 1;
+                  summon.action = new Action(ActionType.pierce, 1);
+                }
               }
             })
           }

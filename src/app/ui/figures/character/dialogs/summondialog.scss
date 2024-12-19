@@ -171,7 +171,7 @@
       }
 
       &.disabled {
-        pointer-events: none;
+        cursor: initial;
         color: var(--ghs-color-darkgray);
 
         &:hover {
