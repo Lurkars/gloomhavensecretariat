@@ -810,7 +810,7 @@
         ".": "Wing Clippers"
       },
       "fh-183": {
-        "1": "During your turn, all figures gain disadvantage on and add 1 %game.action.range% to all ranged attacks this round. ",
+        "1": "During your turn, all figures gain disadvantage on and add -1 %game.action.range% to all ranged attacks this round. ",
         ".": "Decanter of Mists"
       },
       "fh-184": {
