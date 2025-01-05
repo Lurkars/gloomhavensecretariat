@@ -594,7 +594,7 @@ export class RoundManager {
         }
 
         if (figure.tags.find((tag) => tag === 'resonance_tokens') && figure.primaryToken == 0) {
-          figure.tokenValues[0] = figure.progress.perks[10] == 1 ? 3 : 1;
+          figure.tokenValues[0] = 1;
         }
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
