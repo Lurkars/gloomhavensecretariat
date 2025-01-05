@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [22.x]
     steps:
       - uses: actions/checkout@v4
       - name: Cache node modules
@@ -46,7 +46,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and npm run build
         run: |
-          npm i
+          npm ci
           npm run build
       - name: Create Zip
         uses: thedoctor0/zip-release@main
@@ -69,7 +69,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [22.x]
         os: [macos-latest, windows-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
@@ -86,7 +86,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and npm run electron:build
         run: |
-          npm i
+          npm ci
           npm run electron:build
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}

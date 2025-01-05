@@ -16,7 +16,7 @@
     },
     "kelp": {
       ".": "Deepwraith",
-      "trophy_tokens": "%data.characterToken.kelp.trophy% Trophy Tokens"
+      "trophy_tokens": "Start each scenario with 2 %game.action.custom.fh-trophy%"
     },
     "meteor": "Pyroclast",
     "prism": {
@@ -27,6 +27,7 @@
     "shackles": "Pain Conduit",
     "shards": {
       ".": "Shattersong",
+      "extra_resonance_tokens": "Start each scenario with %game.condition.brittle% to gain 2 %game.action.custom.fh-resonance%",
       "resonance_tokens": "%data.characterToken.shards.resonance% Resonance Tokens"
     },
     "snowflake": {

@@ -16,7 +16,8 @@
   "spoiler": true,
   "specialActions": [
     {
-      "name": "trophy_tokens"
+      "name": "trophy_tokens",
+      "perk": 11
     }
   ],
   "stats": [

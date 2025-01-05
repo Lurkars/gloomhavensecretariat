@@ -571,6 +571,7 @@ export class RoundManager {
         figure.exhausted = false;
         figure.longRest = false;
         figure.token = 0;
+        figure.tokenValues[figure.primaryToken] = 0;
         figure.battleGoal = false;
         figure.battleGoals = [];
         figure.shield = undefined;
@@ -586,15 +587,20 @@ export class RoundManager {
         figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire));
 
         if (figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
-          figure.tokenValues[0] = 1;
+          figure.tokenValues[0] += 1;
         }
 
-        if (figure.tags.find((tag) => tag === 'trophy_tokens') && figure.primaryToken == 0 && figure.progress.perks[10] == 1) {
-          figure.tokenValues[0] = 2;
+        if (figure.tags.find((tag) => tag === 'trophy_tokens') && figure.primaryToken == 0) {
+          figure.tokenValues[0] += 2;
         }
 
         if (figure.tags.find((tag) => tag === 'resonance_tokens') && figure.primaryToken == 0) {
-          figure.tokenValues[0] = figure.progress.perks[10] == 1 ? 3 : 1;
+          figure.tokenValues[0] += 1;
+        }
+
+        if (figure.tags.find((tag) => tag === 'extra_resonance_tokens') && figure.primaryToken == 0) {
+          figure.tokenValues[0] += 2;
+          gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.brittle));
         }
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));

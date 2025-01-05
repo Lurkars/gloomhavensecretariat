@@ -1,7 +1,8 @@
 FROM node:lts-alpine as builder
 WORKDIR /src
 COPY package.json /src/
-RUN npm i
+COPY package-lock.json /src/
+RUN npm ci
 COPY . .
 RUN npm run build
 

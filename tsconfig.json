@@ -11,6 +11,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "declaration": false,
     "downlevelIteration": true,

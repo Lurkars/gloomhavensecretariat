@@ -60,15 +60,58 @@
           <span>{{ability.cardId}}</span>
         </span>
         <span class="logo" *ngIf="character"><img [src]="character.iconUrl" /></span>
-        <span *ngIf="ability.lost" class="lost">
-          <img src="./assets/images/action/card/lost.svg">
-          <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
-        </span>
-        <span *ngIf="ability.bottomLost" class="lost bottom">
-          <img src="./assets/images/action/card/lost.svg">
-          <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
-        </span>
-
+        <div class="required-container"
+          *ngIf="ability.lost || ability.persistent || ability.loss || ability.round || ability.xp">
+          <span class="label">!</span>
+          <div class="box">
+            <span class="xp" *ngIf="ability.xp">
+              <img src="./assets/images/action/card/experience.svg">
+              <span class="value">{{ability.xp}}</span>
+            </span>
+            <span class="lost" *ngIf="ability.lost">
+              <img src="./assets/images/action/card/lost.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+            </span>
+            <span class="persistent" *ngIf="ability.persistent">
+              <img src="./assets/images/action/card/persistent.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">
+            </span>
+            <span class="loss" *ngIf="ability.loss">
+              <img src="./assets/images/action/card/loss.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
+            </span>
+            <span class="round" *ngIf="ability.round">
+              <img src="./assets/images/action/card/round.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
+            </span>
+          </div>
+        </div>
+        <div class="required-container bottom"
+          *ngIf="ability.bottomLost || ability.bottomPersistent || ability.bottomLoss || ability.bottomRound || ability.bottomXp">
+          <span class="label">!</span>
+          <div class="box">
+            <span class="xp" *ngIf="ability.bottomXp">
+              <img src="./assets/images/action/card/experience.svg">
+              <span class="value">{{ability.bottomXp}}</span>
+            </span>
+            <span class="lost" *ngIf="ability.bottomLost">
+              <img src="./assets/images/action/card/lost.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+            </span>
+            <span class="persistent" *ngIf="ability.bottomPersistent">
+              <img src="./assets/images/action/card/persistent.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">
+            </span>
+            <span class="loss" *ngIf="ability.bottomLoss">
+              <img src="./assets/images/action/card/loss.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/loss.svg">
+            </span>
+            <span class="round" *ngIf="ability.bottomRound">
+              <img src="./assets/images/action/card/round.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
+            </span>
+          </div>
+        </div>
       </ng-container>
     </div>
   </div>

@@ -16,6 +16,10 @@
   "spoiler": true,
   "specialActions": [
     {
+      "name": "extra_resonance_tokens",
+      "perk": 10
+    },
+    {
       "name": "resonance_tokens"
     }
   ],

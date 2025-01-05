@@ -9,11 +9,13 @@ export class Ability {
   actions: Action[];
   lost: boolean = false;
   round: boolean = false;
+  persistent: boolean = false;
   loss: boolean = false;
   xp: number = 0;
   bottomActions: Action[];
   bottomLost: boolean = false;
   bottomRound: boolean = false;
+  bottomPersistent: boolean = false;
   bottomLoss: boolean = false;
   bottomXp: number = 0;
   bottomShuffle: boolean = false;

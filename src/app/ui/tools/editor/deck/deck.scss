@@ -81,6 +81,11 @@
                     flex-direction: column;
                     align-items: flex-start;
 
+                    &::before {
+                        background-position: top;
+                        // background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
+                    }
+
                     .add,
                     .bottom {
                         font-size: calc(var(--ghs-unit) * 2);
@@ -105,10 +110,23 @@
 
                 width: calc(var(--ghs-unit) * 40);
                 height: calc(var(--ghs-unit) * 25.5);
-                background-image: url('~src/assets/images/monster/abilities/monster-ability-front.png');
-                z-index: 1;
+                z-index: 2;
 
-                --ghs-ability-color: var(--ghs-color-red);
+                &::before {
+                    content: ' ';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+                }
+
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                }
 
                 .remove {
                     position: absolute;
@@ -266,19 +284,12 @@
 
 
                 &.bottom-actions {
-                    background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
-                    background-position: top;
-                    background-attachment: local;
                     height: calc(var(--ghs-unit) * 54);
 
                     &.character-actions {
-                        background-color: var(--ghs-ability-color);
-                        background-image: url('~src/assets/images/character/abilities/character-ability-front.png'), url('~src/assets/images/character/abilities/character-ability-front-blend.png');
-                        background-blend-mode: screen, luminosity;
                         overflow-x: unset;
                         overflow-y: auto;
                     }
-
 
                     .name {
                         top: 4.5%;
@@ -310,83 +321,65 @@
 
                     }
 
-                    .lost,
-                    .round,
-                    .loss,
-                    .shuffle,
-                    .bottom-shuffle {
-                        position: absolute;
-                        bottom: 50%;
-                        right: 15%;
-                        height: 6%;
+                    .required-container {
+                        display: flex;
                         z-index: 3;
-                        filter: grayscale(1);
-                        opacity: 0.5;
-
-                        &:hover {
-                            filter: grayscale(0);
-                        }
-
-                        &.enabled {
-                            filter: grayscale(0);
-                            opacity: 1;
-
-                            &:hover {
-                                filter: grayscale(1);
-                                opacity: 0.5;
-                            }
-                        }
-
-                        img {
-                            position: relative;
-                            top: 0;
-                            left: 0;
-                            height: 100%;
-                            width: auto;
-
-                            &:nth-child(1) {
-                                filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-                            }
-
-                            &:nth-child(2) {
-                                position: absolute;
-
-                            }
-                        }
+                        position: absolute;
+                        bottom: 49%;
+                        height: 6%;
+                        right: 1%;
 
                         &.bottom {
-                            right: 19%;
                             bottom: 9%;
                         }
 
-                        &.shuffle {
-                            right: 27%;
-                            height: 5.5%;
+                        a,
+                        div {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100%;
+                            width: auto;
+                            margin: 0.1em;
+                            filter: grayscale(0.7);
+                            opacity: 0.5;
 
-                            &.bottom {
-                                right: 32%;
+                            &:hover {
+                                filter: grayscale(0);
+                                opacity: 1;
+                            }
+
+                            &.enabled {
+                                filter: grayscale(0);
+                                opacity: 1;
+
+                                &:hover {
+                                    filter: grayscale(0.7);
+                                    opacity: 0.5;
+                                }
+                            }
+
+                            &.xp {
+                                display: none;
+                            }
+
+                            img {
+                                position: relative;
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                width: auto;
+
+                                &:nth-child(1) {
+                                    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                                }
+
+                                &:nth-child(2) {
+                                    position: absolute;
+
+                                }
                             }
                         }
-
-                        &.round {
-                            right: 24%;
-
-                            &.bottom {
-                                right: 29%;
-                            }
-                        }
-
-                        &.loss {
-                            right: 34%;
-
-                            &.bottom {
-                                right: 39%;
-                            }
-                        }
-                    }
-
-                    .xp {
-                        display: none;
                     }
 
                     .level {
@@ -429,12 +422,9 @@
                 }
 
                 &.fh {
-                    background-image: url('~src/assets/images/fh/monster/abilities/monster-ability-front.png');
 
                     &.character-actions,
                     &.bottom-actions {
-                        background-image: url('~src/assets/images/fh/character/abilities/character-ability-front.png'), url('~src/assets/images/fh/character/abilities/character-ability-front-blend.png');
-
                         .level {
                             top: 5%;
                             left: 5%;
@@ -452,66 +442,43 @@
                             bottom: 5%;
                         }
 
-                        .lost,
-                        .round,
-                        .loss,
-                        .shuffle,
-                        .bottom-shuffle {
-                            bottom: 48%;
-                            right: 12%;
+
+                        .required-container {
 
                             &.bottom {
-                                bottom: 7%;
+                                bottom: 5%;
                             }
 
-                            &.shuffle {
-                                right: 24%;
+                            .xp {
+                                display: flex;
+                                justify-content: flex-end;
+                                font-size: 1em;
+                                background-color: var(--ghs-color-white);
+                                mask-image: url('~src/assets/images/experience.svg');
+                                mask-size: 100% 100%;
+                                position: relative;
+                                width: 3.5em;
+                                margin-left: -1em;
 
-                                &.bottom {
-                                    right: 29%;
+                                input {
+                                    position: absolute;
+                                    width: 2em;
+                                    font-size: 1em;
+                                    font-family: var(--ghs-font-title);
+                                    background-color: transparent;
+                                    border: none;
                                 }
                             }
-
-                            &.round {
-                                right: 21%;
-                            }
-
-                            &.loss {
-                                right: 32%;
-                            }
-                        }
-
-                        .xp {
-                            display: flex;
-                            justify-content: flex-end;
-                            align-items: center;
-                            position: absolute;
-                            right: -2%;
-                            bottom: 48%;
-                            height: 8%;
-                            width: 16%;
-                            font-size: 1em;
-                            background-color: var(--ghs-color-white);
-                            mask-image: url('~src/assets/images/experience.svg');
-                            mask-size: 100% 100%;
-
-                            input {
-                                width: 70%;
-                                height: 100%;
-                                font-size: 2em;
-                                font-family: var(--ghs-font-title);
-                                background-color: transparent;
-                                border: none;
-                            }
-
-                            &.bottom {
-                                bottom: 8%;
-                            }
-
-
                         }
                     }
                 }
+            }
+
+            ghs-ability {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
             }
         }
     }

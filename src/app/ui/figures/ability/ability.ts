@@ -11,7 +11,7 @@ import { applyPlaceholder } from "../../helper/label";
 
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-ability',
   templateUrl: './ability.html',
   styleUrls: ['./ability.scss']
@@ -35,6 +35,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
   deckLabel: string = "";
   abilityIndex: number = -1;
   abilityLabel: string = "";
+  fh: boolean = false;
 
   interactiveActions: InteractiveAction[] = [];
   interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
@@ -87,6 +88,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
       this.abilityIndex = this.getAbilityIndex(this.ability);
       this.abilityLabel = this.getAbilityLabel(this.ability);
     }
+    this.fh = this.character && (this.character.edition == 'fh' || gameManager.editionExtensions(this.character.edition).indexOf('fh') != -1) || false;
   }
 
   getAbilityIndex(ability: Ability): number {
