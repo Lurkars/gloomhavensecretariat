@@ -92,7 +92,7 @@
         </span>
         <span class="item">
           <ghs-pointer-input class="button"
-            [ngClass]="{'disabled' : (data.entity.health + health) == (Math.max(EntityValueFunction(data.entity.maxHealth), specialTags.indexOf('overheal') != -1 ? 26 : 0) + maxHp)}"
+            [ngClass]="{'disabled' : (data.entity.health + health) == (Math.max(EntityValueFunction(data.entity.maxHealth), specialTags.indexOf('unbridled-power') != -1 ? 26 : 0) + maxHp)}"
             tabclick (singleClick)="changeHealth(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-pointer-input>
@@ -486,7 +486,8 @@
 
       <ng-container *ngIf="catching">
         <span class="item" [ghs-label]="'data.buildings.stables.pets.catch'" [ghs-label-attribute]="'title'">
-          <ghs-pointer-input class="button" tabclick (singleClick)="dead(true)" (doubleClick)="dead(true, true)" [ngClass]="{'disabled soft' : catchingDisabled}">
+          <ghs-pointer-input class="button" tabclick (singleClick)="dead(true)" (doubleClick)="dead(true, true)"
+            [ngClass]="{'disabled soft' : catchingDisabled}">
             <img class="ghs-svg" src="./assets/images/fh/catching.svg" />
           </ghs-pointer-input>
         </span>
@@ -609,12 +610,20 @@
     *ngIf="data.entity && !levelDialog && gameManager.isCharacter(data.figure) && gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0"
     class="special-actions">
     <ng-container *ngFor="let specialAction of gameManager.toCharacter(data.figure).specialActions">
-      <span
-        *ngIf="(!specialAction.level || specialAction.level <= data.figure.level) && (!specialAction.perk || gameManager.isCharacter(data.entity) && gameManager.toCharacter(data.figure).progress.perks[specialAction.perk-1] == gameManager.toCharacter(data.figure).perks[specialAction.perk-1].count) && (gameManager.isCharacter(data.entity) && !specialAction.summon || gameManager.isSummon(data.entity) && specialAction.summon)"
-        class="special-action text-white" [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}"
-        tabclick (click)="applySpecialAction(specialAction)">
-        <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialAction.name"></span>
-      </span>
+      <div class="hint-container"
+        *ngIf="(!specialAction.level || specialAction.level <= data.figure.level) && (!specialAction.perk || gameManager.isCharacter(data.entity) && gameManager.toCharacter(data.figure).progress.perks[specialAction.perk-1] == gameManager.toCharacter(data.figure).perks[specialAction.perk-1].count) && (gameManager.isCharacter(data.entity) && !specialAction.summon || gameManager.isSummon(data.entity) && specialAction.summon)">
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint-trigger special-action text-white"
+          [ngClass]="{'active-tag' : specialTags.indexOf(specialAction.name) != -1}" tabclick
+          (click)="applySpecialAction(specialAction)">
+          <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialAction.name"></span>
+        </span>
+        <span class="hint above center">
+          <div class="text">
+            <span [ghs-label]="'data.character.' + data.figure.name + '.' + specialAction.name + '.hint'"></span>
+          </div>
+        </span>
+      </div>
     </ng-container>
   </div>
 

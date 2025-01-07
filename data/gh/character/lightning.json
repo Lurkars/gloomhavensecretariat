@@ -10,11 +10,15 @@
   "spoiler": true,
   "specialActions": [
     {
-      "name": "overheal",
+      "name": "blood-pact",
       "expire": true
     },
     {
-      "name": "immune",
+      "name": "unbridled-power",
+      "expire": true
+    },
+    {
+      "name": "careless-charge",
       "level": 7,
       "expire": true
     }

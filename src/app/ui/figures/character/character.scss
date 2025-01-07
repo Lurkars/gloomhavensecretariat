@@ -853,6 +853,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .separator {
+      margin: 0 calc(var(--ghs-unit) * 0.2 * var(--ghs-text-factor));
+    }
   }
 
   .title,

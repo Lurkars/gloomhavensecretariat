@@ -301,7 +301,7 @@ export class EntityMenuDialogComponent {
 
     if (this.data.entity) {
       let maxHealth = EntityValueFunction(this.data.entity.maxHealth);
-      if (this.data.entity instanceof Character && this.specialTags.indexOf('overheal') != -1) {
+      if (this.data.entity instanceof Character && this.data.entity.name == 'lightning' && this.specialTags.indexOf('unbridled-power') != -1) {
         maxHealth = Math.max(maxHealth, 26);
       }
 
@@ -879,7 +879,7 @@ export class EntityMenuDialogComponent {
 
   setIdentity(index: number) {
     if (this.data.entity instanceof Character && index != this.data.entity.identity) {
-      let timeTokens = this.data.entity.tags.find((tag) => tag === 'time_tokens') && this.data.entity.primaryToken == 0;
+      let timeTokens = this.data.entity.name == 'blinkblade' && this.data.entity.tags.find((tag) => tag === 'time_tokens') && this.data.entity.primaryToken == 0;
       if ((gameManager.game.state == GameState.next || gameManager.game.state == GameState.draw && this.data.entity.identity == 0 && this.data.entity.tokenValues[0] == 0) && timeTokens) {
         return;
       }
@@ -990,8 +990,9 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToTemove.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
         this.data.entity.tags = this.data.entity.tags.filter((specialTag) => specialTagsToTemove.indexOf(specialTag) == -1);
 
-        if (this.data.entity.name == 'lightning' && specialTagsToTemove.indexOf('immune') != -1) {
+        if (this.data.entity.name == 'lightning' && specialTagsToTemove.indexOf('careless-charge') != -1) {
           this.data.entity.immunities = [];
+          this.entityImmunities = this.data.entity.immunities;
         }
 
         if (this.data.entity.name == 'fist' && specialTagsToTemove.indexOf('one-with-the-mountain') != -1) {
@@ -1029,12 +1030,13 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.before("addSpecialTags", gameManager.characterManager.characterName(this.data.entity), specialTagsToAdd.map((specialTag) => '%data.character.' + this.data.figure.name + '.' + specialTag + '%').join(','));
         this.data.entity.tags.push(...specialTagsToAdd);
 
-        if (this.data.entity.name == 'lightning' && specialTagsToAdd.indexOf('immune') != -1) {
+        if (this.data.entity.name == 'lightning' && specialTagsToAdd.indexOf('careless-charge') != -1) {
           this.data.entity.immunities = gameManager.conditionsForTypes('character', 'negative').map((condition) => condition.name);
           this.data.entity.immunities.push(ConditionName.curse);
           if (this.hasCondition(ConditionName.enfeeble)) {
             this.data.entity.immunities.push(ConditionName.enfeeble);
           }
+          this.entityImmunities = this.data.entity.immunities;
         }
 
         if (this.data.entity.name == 'fist' && specialTagsToAdd.indexOf('one-with-the-mountain') != -1) {

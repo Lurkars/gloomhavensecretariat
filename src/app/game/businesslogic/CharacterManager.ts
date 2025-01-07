@@ -363,7 +363,7 @@ export class CharacterManager {
           }
         });
 
-        if (figure instanceof Character && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
+        if (figure instanceof Character && figure.name == 'blinkblade' && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
           figure.identity = 0;
         }
 
@@ -395,7 +395,7 @@ export class CharacterManager {
           figure.off = false;
         }
 
-        if (figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
+        if (figure.name == 'blinkblade' && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
           if (figure.identity == 0 && figure.tokenValues[0] < 2) {
             figure.tokenValues[0] += 1;
           } else if (figure.identity == 1) {

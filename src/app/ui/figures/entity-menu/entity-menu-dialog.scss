@@ -576,6 +576,24 @@
     justify-content: center;
     align-items: center;
 
+    .hint-container {
+
+      img.hint-trigger {
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        width: auto;
+        margin-top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+      }
+
+      .special-action {
+        height: auto;
+        margin-left: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+      }
+
+      .hint {
+        min-width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+      }
+    }
+
     .special-action {
       display: flex;
       justify-content: center;

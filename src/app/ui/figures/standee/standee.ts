@@ -103,7 +103,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
 
     this.specialActionsMarker = [];
     this.entity.tags.forEach((tag) => {
-      if (this.figure instanceof Character && this.figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.summon)) {
+      if (this.figure instanceof Character && this.figure.name == 'prism' && this.figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.summon)) {
         if (tag == 'prism_mode') {
           this.specialActionsMarker.push('mode');
         }

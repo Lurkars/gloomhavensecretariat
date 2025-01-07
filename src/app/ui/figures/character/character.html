@@ -127,8 +127,8 @@
           <div class="status-bar">
             <div class="health" *ngIf="!settingsManager.settings.hideCharacterHP" [ghs-label]="'game.health'"
               [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragHpMove($event)"
-              (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true" [fastShift]="true"
-              (singleClick)="openEntityMenu($event)" (doubleClick)="toggleDamageHP()">
+              (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
+              [fastShift]="true" (singleClick)="openEntityMenu($event)" (doubleClick)="toggleDamageHP()">
               <img [ngClass]="{'damage' : settingsManager.settings.damageHP}"
                 [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
               <span *ngIf="!settingsManager.settings.damageHP">
@@ -296,10 +296,12 @@
     <div class="special-actions" *ngIf="character.specialActions">
       <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"
         (doubleClick)="compact && openCharacterSheet()"></div>
-      <ng-container *ngFor="let specialAction of character.specialActions">
-        <span *ngIf="character.tags.indexOf(specialAction.name) != -1" class="special-tag text-white"
-          [ghs-label]="'data.character.' + character.name + '.' + specialAction.name" ghs-pointer-input
-          (singleClick)="openEntityMenu($event)" (doubleClick)="removeSpecialAction(specialAction.name)"></span>
+      <ng-container *ngFor="let specialAction of specialActions; let i = index">
+        <span class="special-tag text-white" [ghs-label]="'data.character.' + character.name + '.' + specialAction.name"
+          ghs-pointer-input (singleClick)="openEntityMenu($event)"
+          (doubleClick)="removeSpecialAction(specialAction.name)"
+          [ghs-tooltip]="'data.character.' + character.name + '.' + specialAction.name + '.hint'" [originY]="'top'" [overlayY]="'bottom'" [originX]="'center'" [overlayX]="'center'"></span>
+        <span class="separator" *ngIf="i < specialActions.length - 1 && specialActions.length > 1">|</span>
       </ng-container>
     </div>
   </div>

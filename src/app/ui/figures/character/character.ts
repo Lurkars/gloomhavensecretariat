@@ -24,6 +24,7 @@ import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
 import { CharacterSheetDialog } from './dialogs/character-sheet-dialog';
 import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
+import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
 
 @Component({
   standalone: false,
@@ -60,6 +61,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   summonCount: number = 0;
   activeConditions: EntityCondition[] = [];
+  specialActions: CharacterSpecialAction[] = [];
 
   bb: boolean = false;
 
@@ -96,6 +98,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
     this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme != 'modern';
     this.bb = gameManager.bbRules() || this.character.bb;
+    this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.indexOf(specialAction.name) != -1);
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {
@@ -192,7 +195,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   nextIdentity(event: any): void {
     if (settingsManager.settings.characterIdentities && this.character.identities && this.character.identities.length > 1) {
 
-      let timeTokens = this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0;
+      let timeTokens = this.character.name == 'blinkblade' && this.character.tags.find((tag) => tag === 'time_tokens') && this.character.primaryToken == 0;
 
       if ((gameManager.game.state == GameState.next || gameManager.game.state == GameState.draw && this.character.identity == 0 && this.character.tokenValues[0] == 0) && timeTokens) {
         return;
@@ -231,7 +234,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   dragHpMove(value: number) {
     this.health = value;
     let maxHealth = EntityValueFunction(this.character.maxHealth);
-    if (this.character.tags.find((tag) => tag === 'overheal')) {
+    if (this.character.name == 'lightning' && this.character.tags.find((tag) => tag === 'unbridled-power')) {
       maxHealth = Math.max(maxHealth, 26);
     }
 
@@ -281,7 +284,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.token = - this.character.token;
     } else if (this.character.primaryToken >= 0 && this.character.tokenValues[this.character.primaryToken] + this.token < 0) {
       this.token = - this.character.tokenValues[this.character.primaryToken];
-    } else if (this.character.tags.find((tag) => ['time_tokens', 'resonance_token'].indexOf(tag) >= 0) && this.character.primaryToken == 0 && this.character.tokenValues[0] + this.token > 5) {
+    } else if (this.character.name == 'blinkblade' && this.character.tags.find((tag) => ['time_tokens', 'resonance_token'].indexOf(tag) >= 0) && this.character.primaryToken == 0 && this.character.tokenValues[0] + this.token > 5) {
       this.token = 5 - this.character.tokenValues[this.character.primaryToken];
     }
   }
@@ -297,7 +300,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
         gameManager.stateManager.before("setCharacterTokenValue", gameManager.characterManager.characterName(this.character), '%data.characterToken.' + this.character.name + '.' + this.character.tokens[this.character.primaryToken] + '%', (this.character.token + this.token));
         this.character.tokenValues[this.character.primaryToken] += this.token;
 
-        if (this.character.tags.find((tag) => ['time_tokens', 'resonance_token'].indexOf(tag) >= 0) && this.character.primaryToken == 0 && this.character.tokenValues[0] > 5) {
+        if (this.character.name == 'blinkblade' && this.character.tags.find((tag) => ['time_tokens', 'resonance_token'].indexOf(tag) >= 0) && this.character.primaryToken == 0 && this.character.tokenValues[0] > 5) {
           this.character.tokenValues[0] = 5;
         }
 
@@ -548,7 +551,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.name + '.' + specialAction + '%');
     this.character.tags = this.character.tags.filter((specialTag) => specialTag != specialAction);
 
-    if (this.character.name == 'lightning' && this.character.edition == 'gh' && specialAction == 'immune') {
+    if (this.character.name == 'lightning' && specialAction == 'careless-charge') {
       this.character.immunities = [];
     }
 

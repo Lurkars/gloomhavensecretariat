@@ -6,12 +6,25 @@
     "envx": "Bladeswarm",
     "lightning": {
       ".": "Berserker",
-      "immune": "%game.characterIconColored.lightning% Immune to all negative conditions",
-      "overheal": "%game.characterIconColored.lightning% Heal up to 26 HP"
+      "blood-pact": {
+        ".": "Blood Pact",
+        "hint": "Suffer %game.damage:1% at the start of each of your turns."
+      },
+      "careless-charge": {
+        ".": "Careless Charge",
+        "hint": "You are immune to all negative conditions."
+      },
+      "unbridled-power": {
+        ".": "Unbridled Power",
+        "hint": "You may overheal to a maximum of 26 hit points, but your maximum hit point value."
+      }
     },
     "music-note": {
       ".": "Soothsinger",
-      "song_active": "%game.characterIconColored.music-note% Song Active"
+      "song_active": {
+        ".": "%game.characterIconColored.music-note% Song Active",
+        "hint": "Gain 1 XP at start of each of your turns."
+      }
     },
     "saw": "Sawbones",
     "squidface": "Plagueherald",

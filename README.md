@@ -104,7 +104,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-boneshaper.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Bone Dagger: Add +1 Attack to all summons
+      > Unholy Prowess: Add +1 Heal to to all Shambling Skeletons
 
       > Solid Bones: Add +1 HP, +1 Move and Pierce 1 to all Shambling Skeletons
     </details>
@@ -118,19 +118,26 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-kelp.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Perk: Start each scenario with 2 Trophy Tokens
+      > Perk 11: Start each scenario with 2 Trophy Tokens
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-prism.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Toggle Mode Token for summons (inactive if Mode Token set)
 
-      > Repair Drone: Heal 2 self at start of turn
+      > Repair Drone Mode: Heal 2 self at start of turn
+    </details>
+    <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-shards.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+      > Resonance Tokens: At the end of each of your turns, you gain one Resonance Token
+
+      > Perk 10: Start scenario with Brittle to gain 2 Resonance Tokens
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-snowflake.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Perk: Muddle new revealed Monster
+      > Perk 9: Muddle new revealed Monster
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/jotl-demolitionist.svg" height="20px" style="filter:grayscale(1);"></summary>
@@ -140,14 +147,16 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-lightning.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Enable overhealing up to 26 HP
+      > Blood Pact: Summer 1 damage at the start of each of your turns 
+
+      > Unbridled Power: Enable overhealing up to 26 HP
       
-      > Toggle immunity for all conditions
+      > Careless Charge: Toggle immunity for all conditions
     </details>
     <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/gh-music-note.svg" height="20px" style="filter:grayscale(1);"></summary>
 
-      > Enable song to automatically gain 1 XP at start of turn
+      > Automatically gain 1 XP at start of turn for active song
     </details>
   - Random Dungeons
   - Scenario Flow Chart

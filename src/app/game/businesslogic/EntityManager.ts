@@ -117,7 +117,7 @@ export class EntityManager {
   checkHealth(entity: Entity, figure: Figure,) {
     let maxHealth = EntityValueFunction(entity.maxHealth);
 
-    if (entity instanceof Character && entity.tags.find((tag) => tag === 'overheal')) {
+    if (entity instanceof Character && entity.name == 'lightning' && entity.tags.find((tag) => tag === 'unbridled-power')) {
       maxHealth = Math.max(maxHealth, 26);
     }
 
@@ -329,7 +329,7 @@ export class EntityManager {
 
       immune = immunities.indexOf(conditionName) != -1;
     } else if (entity instanceof Summon) {
-      if (entity.tags.indexOf('prism_mode') != -1) {
+      if (figure instanceof Character && figure.name == 'prism' && entity.tags.indexOf('prism_mode') != -1) {
         return true;
       }
     }

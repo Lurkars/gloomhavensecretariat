@@ -104,7 +104,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       this.health[i] += value;
 
       let maxHealth = EntityValueFunction(character.maxHealth);
-      if (character.tags.find((tag) => tag === 'overheal')) {
+      if (character.name == 'lightning' && character.tags.find((tag) => tag === 'unbridled-power')) {
         maxHealth = Math.max(maxHealth, 26);
       }
 

@@ -247,7 +247,7 @@ export class RoundManager {
       })
 
       if (figure instanceof Character) {
-        if (figure.tags.indexOf('song_active') != -1) {
+        if (figure.name == 'music-note' && figure.tags.indexOf('song_active') != -1) {
           figure.experience -= 1;
         }
       }
@@ -344,6 +344,11 @@ export class RoundManager {
               summon.active = false;
             }
           });
+
+          if (figure.name == 'lightning' && figure.tags.indexOf('blood-pact') != -1) {
+            figure.health -= 1;
+            gameManager.entityManager.checkHealth(figure, figure);
+          }
         }
       } else {
         figure.summons.forEach((summon) => {
@@ -355,6 +360,12 @@ export class RoundManager {
             gameManager.scenarioRulesManager.applyScenarioRulesTurn(summon);
           }
         })
+
+        if (figure.name == 'lightning' && figure.tags.indexOf('blood-pact') != -1) {
+          figure.health -= 1;
+          gameManager.entityManager.checkHealth(figure, figure);
+        }
+
       }
     }
 
@@ -384,11 +395,11 @@ export class RoundManager {
     }
 
     if (figure instanceof Character && (skipSummons || !figure.summons.some((summon) => summon.active))) {
-      if (figure.tags.indexOf('song_active') != -1) {
+      if (figure.name == 'music-note' && figure.tags.indexOf('song_active') != -1) {
         figure.experience += 1;
       }
 
-      if (figure.tags.indexOf('repair_mode') != -1 && figure.tags.indexOf('roundAction-repair_mode') == -1) {
+      if (figure.name == 'prism' && figure.tags.indexOf('repair_mode') != -1 && figure.tags.indexOf('roundAction-repair_mode') == -1) {
         figure.health += 2;
         gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, 2));
         gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
@@ -586,19 +597,19 @@ export class RoundManager {
 
         figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire));
 
-        if (figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
+        if (figure.name == 'blinkblade' && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
           figure.tokenValues[0] += 1;
         }
 
-        if (figure.tags.find((tag) => tag === 'trophy_tokens') && figure.primaryToken == 0) {
+        if (figure.name == 'kelp' && figure.tags.find((tag) => tag === 'trophy_tokens') && figure.primaryToken == 0) {
           figure.tokenValues[0] += 2;
         }
 
-        if (figure.tags.find((tag) => tag === 'resonance_tokens') && figure.primaryToken == 0) {
+        if (figure.name == 'shards' && figure.tags.find((tag) => tag === 'resonance_tokens') && figure.primaryToken == 0) {
           figure.tokenValues[0] += 1;
         }
 
-        if (figure.tags.find((tag) => tag === 'extra_resonance_tokens') && figure.primaryToken == 0) {
+        if (figure.name == 'shards' && figure.tags.find((tag) => tag === 'extra_resonance_tokens') && figure.primaryToken == 0) {
           figure.tokenValues[0] += 2;
           gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.brittle));
         }
