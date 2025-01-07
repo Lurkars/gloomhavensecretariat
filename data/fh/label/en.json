@@ -5,12 +5,21 @@
       ".": "Blinkblade",
       "fast": "Fast",
       "slow": "Slow",
-      "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
+      "time_tokens": {
+        ".": "%data.characterToken.blinkblade.time% Time Tokens",
+        "hint": "Automatically add/remove time tokens at start of round after defining slow/fast before"
+      }
     },
     "boneshaper": {
       ".": "Boneshaper",
-      "solid-bones": "+1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1 to all Shambling Skeletons",
-      "unholy-prowess": "+1 %game.action.heal% to all Shambling Skeletons"
+      "solid-bones": {
+        ".": "Solid Bones",
+        "hint": "All Shambling Skeletons have +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+      },
+      "unholy-prowess": {
+        ".": "Unholy Prowess",
+        "hint": "All Shambling Skeletons have +1 %game.action.heal%."
+      }
     },
     "deathwalker": "Deathwalker",
     "drifter": "Drifter",

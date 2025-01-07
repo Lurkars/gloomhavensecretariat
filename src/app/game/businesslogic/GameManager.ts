@@ -255,7 +255,20 @@ export class GameManager {
   }
 
   sectionData(edition: string | undefined = undefined, extension: boolean = false): ScenarioData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || editionData.additional && this.editionExtensions(editionData.edition).indexOf(edition) != -1 || extension && this.editionExtensions(edition).indexOf(editionData.edition) != -1)).flatMap((editionData) => editionData.sections).filter((sectionData) => !edition || sectionData.edition == edition || extension);
+    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || editionData.additional && this.editionExtensions(editionData.edition).indexOf(edition) != -1 || extension && this.editionExtensions(edition).indexOf(editionData.edition) != -1)).flatMap((editionData) => editionData.sections).filter((sectionData) => !edition || sectionData.edition == edition || extension).map((sectionData) => {
+      if (!settingsManager.settings.fhSecondEdition || sectionData.edition != 'fh') {
+        return sectionData;
+      } else if (sectionData.index == '6.2') {
+        let section = new ScenarioData(sectionData);
+        section.index = "60.2";
+        return section;
+      } else if (sectionData.index == '60.2') {
+        let section = new ScenarioData(sectionData);
+        section.index = "6.2";
+        return section;
+      }
+      return sectionData;
+    });
   }
 
   itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {

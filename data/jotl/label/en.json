@@ -2,7 +2,10 @@
   "character": {
     "demolitionist": {
       ".": "Demolitionist",
-      "mech": "Mech Suit"
+      "mech": {
+        ".": "Mech Suit",
+        "hint": "Your maximum hit point value is increased by 5. Heal %game.action.heal% 10, self."
+      }
     },
     "hatchet": "Hatchet",
     "red-guard": "Red Guard",

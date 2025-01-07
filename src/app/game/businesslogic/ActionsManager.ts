@@ -345,7 +345,7 @@ export class ActionsManager {
             case ActionType.heal:
                 const heal = EntityValueFunction(action.value, figure.level);
                 entity.health += heal;
-                gameManager.entityManager.addCondition(entity,figure, new Condition(ConditionName.heal, heal));
+                gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.heal, heal));
                 gameManager.entityManager.applyCondition(entity, figure, ConditionName.heal, true);
                 break;
             case ActionType.condition:
@@ -355,7 +355,7 @@ export class ActionsManager {
                         gameManager.attackModifierManager.addModifier(am, new AttackModifier(action.value == 'bless' ? AttackModifierType.bless : AttackModifierType.curse));
                     }
                 } else {
-                    gameManager.entityManager.addCondition(entity,figure, new Condition('' + action.value));
+                    gameManager.entityManager.addCondition(entity, figure, new Condition('' + action.value));
                 }
                 break;
             case ActionType.sufferDamage:
@@ -385,6 +385,14 @@ export class ActionsManager {
                 }
                 break;
             case ActionType.element:
+                if (figure instanceof Monster) {
+                    // interactive element action only apply once per monster
+                    figure.entities.forEach((monsterEntity) => {
+                        if (monsterEntity != entity) {
+                            monsterEntity.tags.push(tag);
+                        }
+                    })
+                }
                 if (action.valueType == ActionValueType.minus) {
                     let elements: Element[] = this.getValues(action).map((value) => value as Element);
                     let toConsume: Element[] = this.getElementsToConsume(action).map((value) => value.type);

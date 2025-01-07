@@ -11,28 +11,49 @@
     },
     "fist": {
       ".": "Frozen Fist",
-      "gift-of-the-mountain": "At end of turn, %game.action.heal% 2, self",
-      "one-with-the-mountain": "Permanent %game.condition.regenerate%"
+      "gift-of-the-mountain": {
+        ".": "Gift of the Mountain",
+        "hint": "At end of each of your turns, perform: %game.action.heal% 2, self"
+      },
+      "one-with-the-mountain": {
+        ".": "One with the Mountain",
+        "hint": "Whenever you do not have %game.condition.regenerate%, gain %game.condition.regenerate%."
+      }
     },
     "kelp": {
       ".": "Deepwraith",
-      "trophy_tokens": "Start each scenario with 2 %game.action.custom.fh-trophy%"
+      "trophy_tokens": {
+        ".": "Perk 11",
+        "hint": "%data.custom.fh.kelp.4%"
+      }
     },
     "meteor": "Pyroclast",
     "prism": {
       ".": "HIVE",
       "prism_mode": "%data.characterToken.prism.mode% Mode Token",
-      "repair_mode": "%data.characterToken.prism.mode% Repair Drone Mode: %game.action.heal% 2"
+      "repair_mode": {
+        ".": "Reconstructive Aid",
+        "hint": "%data.characterToken.prism.mode% Repair Drone Mode: At the start of each of your turns, perform: %game.action.heal% 2, self"
+      }
     },
     "shackles": "Pain Conduit",
     "shards": {
       ".": "Shattersong",
-      "extra_resonance_tokens": "Start each scenario with %game.condition.brittle% to gain 2 %game.action.custom.fh-resonance%",
-      "resonance_tokens": "%data.characterToken.shards.resonance% Resonance Tokens"
+      "extra_resonance_tokens": {
+        ".": "Perk 10",
+        "hint": "%data.custom.fh.shards.5%"
+      },
+      "resonance_tokens": {
+        ".": "%data.characterToken.shards.resonance% Resonance Tokens",
+        "hint": "At the end of each of your turns, you gain one %data.characterToken.shards.resonance%"
+      }
     },
     "snowflake": {
       ".": "Snowdancer",
-      "muddle-monster": "%game.condition.muddle% all newly revealed enemies"
+      "muddle-monster": {
+        ".": "Perk 9",
+        "hint": "%data.custom.fh.snowflake.4%"
+      }
     },
     "trap": "Trapper"
   },

@@ -178,6 +178,10 @@
           "player4": "elite"
         },
         {
+          "name": "robotic-boltshooter",
+          "player4": "normal"
+        },
+        {
           "name": "steel-automaton",
           "type": "normal"
         },
