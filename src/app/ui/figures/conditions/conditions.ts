@@ -9,7 +9,7 @@ import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditi
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-conditions',
   templateUrl: './conditions.html',
   styleUrls: ['./conditions.scss']
@@ -68,13 +68,13 @@ export class ConditionsComponent implements OnInit {
         const combined: number = this.numberStore * 10 + keyNumber;
         this.numberStore = combined;
         this.selectCondition();
-      } else if (keyNumber * 10 <= this.conditions.length + 2) {
+      } else if (keyNumber > 0 && keyNumber * 10 <= this.conditions.length + 3) {
         this.numberStore = keyNumber;
         this.timeout = setTimeout(() => {
           this.selectCondition();
         }, 1000);
       } else {
-        this.numberStore = keyNumber;
+        this.numberStore = keyNumber == 0 ? 10 : keyNumber;
         this.selectCondition();
       }
 

@@ -11,7 +11,7 @@ import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-monster-numberpicker-dialog',
     templateUrl: 'numberpicker-dialog.html',
     styleUrls: ['./numberpicker-dialog.scss']
@@ -56,31 +56,40 @@ export class MonsterNumberPickerDialog implements OnInit {
             if (this.timeout) {
                 clearTimeout(this.timeout);
                 this.timeout = undefined;
-
                 const combined: number = +event.key + 10;
                 const thisKey: number = +event.key;
-                if (this.entity) {
-                    if (combined <= this.max) {
-                        this.pickNumber(combined);
-
-                    } else {
-                        this.pickNumber(1);
-                        this.pickNumber(thisKey);
-                    }
+                if (combined <= this.max) {
+                    this.pickNumber(combined);
+                } else {
+                    this.pickNumber(1);
+                    this.pickNumber(thisKey);
                 }
-            } else if (event.key === '1' && this.range.filter((number) => number >= 10).some((number) => !this.hasNumber(number))) {
+
+            } else if (event.key === '1' && this.range.filter((number) => number > 10).some((number) => !this.hasNumber(number))) {
                 this.timeout = setTimeout(() => {
-                    if (this.entity) {
-                        this.pickNumber(+event.key);
-                    }
+                    this.pickNumber(+event.key);
                     this.timeout = undefined;
                 }, 1000);
-            } else if (this.entity) {
+            } else if (event.key === '0' && this.max > 9) {
+                this.pickNumber(10);
+            } else {
                 this.pickNumber(+event.key);
             }
 
             event.preventDefault();
             event.stopPropagation();
+        } else if (event.key === 's' && !this.entity) {
+            this.summon = !this.summon;
+        } else if (event.key === 't') {
+            if (this.entity) {
+                this.toggleMonsterType();
+            }
+
+            if (this.type == MonsterType.normal) {
+                this.type = MonsterType.elite;
+            } else if (this.type == MonsterType.elite) {
+                this.type = MonsterType.normal;
+            }
         }
     }
 
