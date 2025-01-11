@@ -197,7 +197,6 @@
 
         a {
             cursor: pointer;
-            min-width: 33%;
             display: flex;
             justify-content: center;
             margin: 0 calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
@@ -212,6 +211,10 @@
 
             &.secondary {
                 color: var(--ghs-color-gray);
+            }
+
+            &.tertiary {
+                color: var(--ghs-color-blue);
             }
 
             &:hover {

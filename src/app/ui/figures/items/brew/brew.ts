@@ -11,7 +11,7 @@ import { ItemDialogComponent } from "../dialog/item-dialog";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-items-brew',
     templateUrl: 'brew.html',
     styleUrls: ['./brew.scss']
@@ -142,7 +142,7 @@ export class ItemsBrewDialog implements OnInit, OnDestroy {
 
     brewInternal(character: Character, itemData: ItemData) {
         this.otherCharacter = character != this.character ? character : undefined
-        gameManager.stateManager.before(!this.otherCharacter ? 'brewPotion' : 'brewPotionOther', this.character.name, itemData.id, itemData.name, character.name);
+        gameManager.stateManager.before(!this.otherCharacter ? 'brewPotion' : 'brewPotionOther', gameManager.characterManager.characterName(this.character), itemData.id, itemData.edition, this.otherCharacter ? gameManager.characterManager.characterName(this.otherCharacter) : '');
         this.herbs.forEach((herb) => {
             if (this.fhSupportSpent[herb]) {
                 gameManager.game.party.loot[herb] = (gameManager.game.party.loot[herb] || 0) - (this.fhSupportSpent[herb] || 0);

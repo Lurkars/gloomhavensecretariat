@@ -8,7 +8,7 @@ import { Condition, ConditionName, ConditionType } from "../model/data/Condition
 import { Element, ElementState } from "../model/data/Element";
 import { AdditionalIdentifier, CountIdentifier, Identifier } from "../model/data/Identifier";
 import { ItemData, ItemEffect, ItemEffectType, ItemFlags, ItemSlot } from "../model/data/ItemData";
-import { LootClass, LootType, getLootClass } from "../model/data/Loot";
+import { LootClass, LootType, getLootClass, herbResourceLootTypes } from "../model/data/Loot";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -166,6 +166,18 @@ export class ItemManager {
         return canCraft && isCraftItem;
     }
 
+    canDistill(item: ItemData) {
+        if (gameManager.buildingsManager.distillAvailable) {
+            if (item.resourcesAny && item.resourcesAny.length) {
+                return item.resourcesAny.every((resource) => resource.herb_resources);
+            } else if (item.resources && item.resources) {
+                const resources: LootType[] = Object.keys(item.resources).map((value) => value as LootType);
+                return resources.every((resource) => herbResourceLootTypes.indexOf(resource) != -1);
+            }
+        }
+        return false;
+    }
+
     craftingDisabled(): boolean {
         return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'craftsman' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
     }
@@ -179,6 +191,11 @@ export class ItemManager {
             return Math.floor(itemData.cost / 2);
         } else {
             let gold = 0;
+
+            if (itemData.resourcesAny) {
+                gold += itemData.resourcesAny.length;
+            }
+
             if (itemData.resources) {
                 Object.keys(itemData.resources).forEach(key => {
                     const lootType = key as LootType;

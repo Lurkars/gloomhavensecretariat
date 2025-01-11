@@ -2,11 +2,11 @@
     <label><span [ghs-label]="'game.items'"></span>:</label>
     <div class="item-list">
         <div class="item-entry" *ngFor="let item of items; let index = index;">
-            <span class="icon">
+            <span class="icon item-dialog"  ghs-pointer-input (singleClick)="openItem(item)">
                 <img *ngIf="item.slot" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
                 <span *ngIf="!item.slot" class="item placeholder" [ghs-label]="'%game.itemFh.' + item.id + '%'"></span>
             </span>
-            <span class="id">{{item.id}}.</span>
+            <span class="id item-dialog" ghs-pointer-input (singleClick)="openItem(item)">{{item.id}}.</span>
             <span class="name"
                 [ngClass]="{'disabled' : gameManager.game.state != GameState.draw || gameManager.game.round > 0}"
                 ghs-pointer-input (singleClick)="toggleEquippedItem(item)"
@@ -28,10 +28,19 @@
                 <img src="./assets/images/action/card/minus1.svg">
                 x{{item.minusOne}}
             </span>
-            <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">
+            <a class="button distill" *ngIf="gameManager.itemManager.canDistill(item)" (click)="distillItem(item)"
+                [ghs-tooltip]="'game.items.distilling'" [ghs-label-args]="['data.items.' + item.edition + '-' + item.id]">
+                <img src="./assets/images/fh/brewing.svg">
+            </a>
+            <a class="button loot" (click)="sellItem(item)" [ghs-tooltip]="'game.items.sell'"
+                [ghs-label-args]="['data.items.' + item.edition + '-' + item.id, gameManager.itemManager.itemSellValue(item)]">
+                <img src="./assets/images/loot.svg">
                 {{gameManager.itemManager.itemSellValue(item)}}
             </a>
-            <a class="button remove" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
+            <a class="button remove" (click)="removeItem(item)" [ghs-tooltip]="'game.items.remove'"
+                [ghs-label-args]="['data.items.' + item.edition + '-' + item.id]">
+                <img src="./assets/images/close.svg">
+            </a>
         </div>
     </div>
     <div class="item-form">

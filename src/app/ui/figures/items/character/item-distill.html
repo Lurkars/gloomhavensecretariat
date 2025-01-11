@@ -1,0 +1,24 @@
+<div class="item-distill-dialog">
+    <div class="header">
+        <span class="title" [ghs-label]="'game.items.distilling'"
+            [ghs-label-args]="['data.items.' + item.edition + '-' + item.id]"></span>
+    </div>
+
+    <div class="item">
+        <ghs-item [item]="item" [reveal]="true" [flipped]="true"></ghs-item>
+    </div>
+
+    <div class="resources">
+        <div class="resource" *ngFor="let resource of availableResources;"
+            [ngClass]="{'selected': resource == selectedResource}" (click)="toggleSelected(resource)">
+            <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  resource + '.svg'">
+        </div>
+    </div>
+
+    <div class="menu">
+        <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+        <a class="apply" [ngClass]="{'disabled' : !selectedResource}" ghs-pointer-input (singleClick)="distill()">
+            <span [ghs-label]="selectedResource ? 'game.items.distilling.distill' : 'game.items.distilling.select'"
+                [ghs-label-args]="['' + selectedResource]"></span></a>
+    </div>
+</div>

@@ -104,20 +104,24 @@
             <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
             <a class="secondary" *ngIf="selected && !gameManager.itemManager.owned(selected, character)"
                 (click)="addItem(selected, true)" [ghs-label]="'game.items.add'"
-                [ghs-label-args]="selected ? ['%data.items.' + selected.edition + '-' + selected.id + '%'] : []"></a>
+                [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ] : []"></a>
             <a class="primary"
                 *ngIf="!selected || (selected.cost || selected.resources) && !gameManager.itemManager.owned(selected, character)"
                 [ngClass]="{'disabled' : !selected || !gameManager.itemManager.canBuy(selected, character) && !gameManager.itemManager.canCraft(selected, character)}"
                 (click)="selected ? (selected.cost ? buyItem(selected): craftItem(selected)) : false"
                 [ghs-label]="'game.items.' + (selected ? (selected.cost ? 'buy' : 'craft') : 'choose')"
-                [ghs-label-args]="selected ? ['%data.items.' + selected.edition + '-' + selected.id + '%',(selected.cost + gameManager.itemManager.pricerModifier())] : []"></a>
+                [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ,(selected.cost + gameManager.itemManager.pricerModifier())] : []"></a>
 
             <a class="secondary" *ngIf="selected && gameManager.itemManager.owned(selected, character)"
                 (click)="removeItem(selected)" [ghs-label]="'game.items.remove'"
-                [ghs-label-args]="['%data.items.' + selected.edition + '-' + selected.id + '%']"></a>
+                [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
             <a class="primary" *ngIf="selected && gameManager.itemManager.owned(selected, character)"
                 (click)="sellItem(selected)" [ghs-label]="'game.items.sell'"
-                [ghs-label-args]="['%data.items.' + selected.edition + '-' + selected.id + '%', gameManager.itemManager.itemSellValue(selected)]"></a>
+                [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id , gameManager.itemManager.itemSellValue(selected)]"></a>
+            <a class="tertiary"
+                *ngIf="selected && gameManager.itemManager.owned(selected, character) && gameManager.itemManager.canDistill(selected)"
+                (click)="distillItem(selected)" [ghs-label]="'game.items.distilling'"
+                [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
         </div>
 
         <div class="item-list" *ngIf="items.length == 0 && unlocks.length == 0">

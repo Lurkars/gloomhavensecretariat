@@ -62,6 +62,7 @@ import { EventRewardLabelComponent } from './ui/figures/event/label/reward-label
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
 import { CharacterItemComponent } from './ui/figures/items/character/item-character';
+import { ItemDistillDialogComponent } from './ui/figures/items/character/item-distill';
 import { ItemsCharacterDialogComponent } from './ui/figures/items/character/items-character-dialog';
 import { ItemDialogComponent } from './ui/figures/items/dialog/item-dialog';
 import { ItemsDialogComponent } from './ui/figures/items/dialog/items-dialog';
@@ -269,6 +270,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     InteractiveActionsComponent,
     ItemComponent,
     ItemDialogComponent,
+    ItemDistillDialogComponent,
     ItemsBrewDialog,
     ItemsCharacterDialogComponent,
     ItemsDialogComponent,

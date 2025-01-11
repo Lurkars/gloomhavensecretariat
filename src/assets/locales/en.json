@@ -839,6 +839,11 @@
       },
       "choose": "Select Item",
       "craft": "Craft '{0}'",
+      "distilling": {
+        ".": "Distill '{0}'",
+        "distill": "Distill for 1 %game.loot.{0}%",
+        "select": "Select Resource"
+      },
       "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Double-click to force equipping.",
       "empty": "No items found",
       "filter": {
@@ -2573,6 +2578,8 @@
           "removeEdition": "Remove Battle Goal cards from edition %data.edition.{0}%"
         }
       },
+      "brewPotion": "Brew Item \"%data.items.{2}-{1}%\" for {0}",
+      "brewPotionOther": "{0} brew Item \"%data.items.{2}-{1}%\" for {3}",
       "buildBuilding": "Build '%data.buildings.{1}%' ({0})",
       "buildings": {
         "garden": {},
@@ -2650,6 +2657,7 @@
       "disabledManualPlayerCount": "Disable manual player count",
       "disablePartyCampaignMode": "Disable campaign mode",
       "disableSolo": "Disable solo level calculation",
+      "distillItem": "Distill Item \"%data.items.{2}-{1}%\" for {0}",
       "donate": "{0} donate to Sanctuary of the Great Oak",
       "downgradeBuilding": "Downgrade building '%data.buildings.{1}%' ({0}) to level {2}",
       "draw": "Draw",
@@ -2833,7 +2841,7 @@
       "resetScenario": "Reset scenario #{0} {1} ({2})",
       "restoreAbility": "Restore ability \"{1}\" for {0}",
       "restoreDefaultAbilities": "Restore default abilities of {0}",
-      "sellItem": "Sell Item {1} (%data.edition.{2}%) for {0}",
+      "sellItem": "Sell Item \"%data.items.{2}-{1}%\" for {0}",
       "serverSync": "Server: {0}",
       "serverSyncEmpty": "Server Sync",
       "setAbsent": "{0} absent",

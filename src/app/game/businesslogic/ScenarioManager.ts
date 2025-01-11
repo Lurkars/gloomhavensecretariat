@@ -563,7 +563,7 @@ export class ScenarioManager {
         this.game.figures.forEach((figure) => {
           if (figure instanceof Monster) {
             figure.entities.forEach((entity) => {
-              if (entities.indexOf(entity) != -1) {
+              if (entities.indexOf(entity) != -1 && !gameManager.entityManager.isImmune(entity, figure, ConditionName.muddle)) {
                 gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.muddle));
               }
             })

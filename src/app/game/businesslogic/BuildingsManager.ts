@@ -12,6 +12,7 @@ export class BuildingsManager {
   petsEnabled: boolean = false;
   gardenAvailable: boolean = false;
   gardenEnabled: boolean = false;
+  distillAvailable: boolean = false;
 
   constructor(game: Game) {
     this.game = game;
@@ -22,6 +23,7 @@ export class BuildingsManager {
     this.petsEnabled = this.petsAvailable && settingsManager.settings.fhPets;
     this.gardenAvailable = gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'garden' && value.level) != undefined;
     this.gardenEnabled = this.gardenAvailable && settingsManager.settings.fhGarden;
+    this.distillAvailable = settingsManager.settings.characterItems && gameManager.fhRules() && gameManager.game.party.buildings.find((value) => value.name == 'alchemist' && value.level > 1 && value.state != 'wrecked') != undefined;
   }
 
   applyRewards(rewards: BuildingRewards) {

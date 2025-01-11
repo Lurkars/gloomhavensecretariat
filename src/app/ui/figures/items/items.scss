@@ -31,6 +31,16 @@
             }
         }
 
+        &.distill {
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-yellow);
+
+            img {
+                filter: var(--ghs-filter-blue);
+                width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+            }
+        }
+
         &.craft {
             margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             color: var(--ghs-color-black);
@@ -78,6 +88,10 @@
             display: flex;
             align-items: center;
             margin: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+
+            .item-dialog {
+                cursor: zoom-in;
+            }
 
             .icon {
                 display: flex;

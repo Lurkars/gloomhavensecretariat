@@ -9,9 +9,10 @@ import { CountIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
 import { ghsDialogClosingHelper, ghsTextSearch } from "src/app/ui/helper/Static";
 import { ItemsBrewDialog } from "../brew/brew";
+import { ItemDistillDialogComponent } from "../character/item-distill";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-items-dialog',
     templateUrl: './items-dialog.html',
     styleUrls: ['./items-dialog.scss']
@@ -311,6 +312,15 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
             gameManager.itemManager.sellItem(itemData, this.character)
             gameManager.stateManager.after();
             this.update();
+        }
+    }
+
+    distillItem(itemData: ItemData) {
+        if (this.character) {
+            this.dialog.open(ItemDistillDialogComponent, {
+                panelClass: ['dialog'],
+                data: { character: this.character, item: itemData }
+            })
         }
     }
 

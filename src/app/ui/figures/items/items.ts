@@ -1,19 +1,21 @@
+import { Dialog } from "@angular/cdk/dialog";
 import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { ItemData } from "src/app/game/model/data/ItemData";
 import { Identifier } from "src/app/game/model/data/Identifier";
+import { ItemData } from "src/app/game/model/data/ItemData";
 import { getLootClass, LootClass, LootType } from "src/app/game/model/data/Loot";
 import { GameState } from "src/app/game/model/Game";
-import { Subscription } from "rxjs";
-import { Dialog } from "@angular/cdk/dialog";
 import { ItemsBrewDialog } from "./brew/brew";
+import { ItemDistillDialogComponent } from "./character/item-distill";
+import { ItemDialogComponent } from "./dialog/item-dialog";
 import { ItemsDialogComponent } from "./dialog/items-dialog";
-import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-character-items',
     templateUrl: 'items.html',
     styleUrls: ['./items.scss'],
@@ -272,6 +274,12 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         }
     }
 
+    openItem(itemData: ItemData) {
+        this.dialog.open(ItemDialogComponent, {
+            panelClass: ['fullscreen-panel'],
+            data: { character: this.character, item: itemData, setup: gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound }
+        })
+    }
 
     removeItem(itemData: ItemData) {
         const item = this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
@@ -298,6 +306,13 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             gameManager.stateManager.after();
             this.itemChange();
         }
+    }
+
+    distillItem(itemData: ItemData) {
+        this.dialog.open(ItemDistillDialogComponent, {
+            panelClass: ['dialog'],
+            data: { character: this.character, item: itemData }
+        })
     }
 
     isEquipped(item: ItemData) {
