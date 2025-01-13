@@ -144,6 +144,7 @@ import { GhsCeilPipe, GhsDurationLabelPipe, GhsFloorPipe, GhsMinZeroPipe, GhsRan
 import { ValueSignDirective } from './ui/helper/ValueSign';
 import { AutocompleteDirective } from './ui/helper/autocomplete';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
+import { ConfirmDialogComponent } from './ui/helper/confirm/confirm';
 import { KeyboardShortcuts } from './ui/helper/keyboard-shortcuts';
 import { GhsLabelDirective, GhsLabelElementDirective, GhsPlaceholderDirective } from './ui/helper/label';
 import { GhsNumberInput } from './ui/helper/number-input/number-input';
@@ -222,6 +223,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     CharacterSummonDialog,
     ConditionHighlightAnimationDirective,
     ConditionsComponent,
+    ConfirmDialogComponent,
     DatamanagementMenuComponent,
     DeckEditorComponent,
     DecksToolComponent,

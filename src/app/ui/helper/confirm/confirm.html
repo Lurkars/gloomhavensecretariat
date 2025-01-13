@@ -1,0 +1,8 @@
+<div class="confirm-dialog">
+  <div class="title" [ghs-label]="label" [ghs-label-args]="args"></div>
+
+  <div class="menu">
+    <a class="cancel" (click)="cancel()"><span [ghs-label]="'cancel'"></span></a>
+    <a class="confirm" (click)="confirm()" [ghs-label]="'confirm'"></a>
+  </div>
+</div>

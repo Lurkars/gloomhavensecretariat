@@ -213,6 +213,7 @@
     }
   },
   "close": "Close",
+  "confirm": "Confirm",
   "datamanagement": {
     ".": "Data Management",
     "addEditionDataUrl": "Add Edition Data Url",

@@ -197,6 +197,7 @@
     }
   },
   "close": "닫기",
+  "confirm": "확인하기",
   "datamanagement": {
     ".": "데이터 관리",
     "addEditionDataUrl": "에디션 데이터 URL 추가",
