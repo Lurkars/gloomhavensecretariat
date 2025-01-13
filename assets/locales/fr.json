@@ -147,6 +147,7 @@
     }
   },
   "close": "Fermer",
+  "confirm": "Confirmer",
   "datamanagement": {
     ".": "Gestion des données",
     "addEditionDataUrl": "Ajouter une URL de donnée d'édition",

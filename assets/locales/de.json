@@ -171,6 +171,7 @@
     }
   },
   "close": "Schließen",
+  "confirm": "Bestätigen",
   "datamanagement": {
     ".": "Daten verwalten",
     "addEditionDataUrl": "Editionsdaten Url hinzufügen",
