@@ -14,7 +14,7 @@ import { MonsterStatDialogComponent } from './stat-dialog';
 import { MonsterStatsDialogComponent } from './stats-dialog';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-monster-stats',
   templateUrl: './stats.html',
   styleUrls: ['./stats.scss']
@@ -71,8 +71,9 @@ export class MonsterStatsComponent implements OnInit {
       this.stats = gameManager.monsterManager.getStat(this.monster, MonsterType.boss);
       this.hideStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.boss);
     } else {
-      this.stats = gameManager.monsterManager.getStat(this.monster, MonsterType.normal);
-      this.hideStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.normal);
+      const statsType = !this.monster.bb || this.monster.tags.indexOf('bb-elite') == -1 ? MonsterType.normal : MonsterType.elite;
+      this.stats = gameManager.monsterManager.getStat(this.monster, statsType);
+      this.hideStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != statsType);
       if (!this.monster.bb) {
         this.eliteStats = gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
         this.hideEliteStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.elite);
