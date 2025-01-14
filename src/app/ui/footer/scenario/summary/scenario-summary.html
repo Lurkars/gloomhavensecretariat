@@ -115,8 +115,9 @@
         <span *ngIf="!character.absent">
           <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
             collectiveGold[index] : 0) + (character.loot *
-            gameManager.levelManager.loot()) + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
-            ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0)  | ghsValueSign}}</span>
+            gameManager.levelManager.loot()) + (gameManager.trialsManager.favorsEnabled &&
+            gameManager.trialsManager.apply
+            ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0) | ghsValueSign}}</span>
           ({{character.progress.gold + (success && rewards && rewards.gold ? rewards.gold : 0)+ (collectiveGold[index] ?
           collectiveGold[index] : 0) + character.loot *
           gameManager.levelManager.loot() + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
@@ -445,11 +446,14 @@
             'scenario.rewards.locations' :
             'scenario.rewards.location')"></span></label>
           <div class="list" *ngIf="scenario.unlocks">
-            <div class="item location" *ngFor="let location of scenario.unlocks; let i = index;">
-              <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
+            <ng-container *ngFor="let location of scenario.unlocks; let i = index;">
+              <div class="item location" *ngIf="gameManager.scenarioManager.getScenario(location,scenario.edition,
+              scenario.group)">
+                <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
               scenario.group)?.name"></span> <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
-              <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
-            </div>
+                <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
+              </div>
+            </ng-container>
           </div>
           <div class="list" *ngIf="rewards && rewards.chooseLocation">
             <div class="item"><span [ghs-label]="'scenario.rewards.chooseLocation'"></span>:</div>
@@ -467,11 +471,14 @@
           <label><span [ghs-label]="(conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' :
             'scenario.rewards.location')"></span></label>
           <div class="list">
-            <div class="item location" *ngFor="let location of conclusion.unlocks; let i = index;">
-              <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,conclusion.edition,
+            <ng-container *ngFor="let location of conclusion.unlocks; let i = index;">
+              <div class="item location" *ngIf="gameManager.scenarioManager.getScenario(location,conclusion.edition,
+              conclusion.group)">
+                <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,conclusion.edition,
               conclusion.group)?.name"></span> <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
-              <span *ngIf="conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1">,</span>
-            </div>
+                <span *ngIf="conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1">,</span>
+              </div>
+            </ng-container>
           </div>
         </div>
         <div class="reward achievements"
@@ -758,8 +765,7 @@
               <span *ngIf="rewards.hints && rewards.hints.pet" class="placeholder text-white hint"
                 [ghs-label]="rewards.hints.pet"></span>
               <span *ngIf="!rewards.hints || !rewards.hints.pet" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.pet'"
-                [ghs-label-args]="[rewards.pet, scenario.edition]"></span>
+                [ghs-label]="'scenario.rewards.pet'" [ghs-label-args]="[rewards.pet, scenario.edition]"></span>
             </div>
 
             <div class="list-inline unlock-character"

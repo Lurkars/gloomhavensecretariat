@@ -5,7 +5,7 @@
   "bb": true,
   "count": 4,
   "baseStat": {
-    "type": "normal",
+    "type": "bb",
     "health": 8,
     "actions": [
       {
@@ -13,5 +13,17 @@
         "value": 1
       }
     ]
-  }
+  },
+  "stats": [
+    {
+      "type": "elite",
+      "health": 18,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    }
+  ]
 }

@@ -29,7 +29,7 @@ export class ScenarioManager {
   }
 
   getScenario(index: string, edition: string, group: string | undefined): ScenarioData | undefined {
-    return gameManager.scenarioData().find((scenarioData) => scenarioData.index == index && scenarioData.edition == edition && scenarioData.group == group);
+    return gameManager.scenarioData(edition).find((scenarioData) => scenarioData.index == index && scenarioData.edition == edition && scenarioData.group == group);
   }
 
   setScenario(scenario: Scenario | undefined) {
@@ -630,6 +630,14 @@ export class ScenarioManager {
         }
       }
     }
+    if (monster && monster.bb) {
+      if (entities.length && entities.every((entity) => entity.type == MonsterType.elite) && monster.tags.indexOf('bb-elite') == -1) {
+        monster.tags.push('bb-elite');
+      } else {
+        monster.tags = monster.tags.filter((tag) => tag != 'bb-elite');
+      }
+    }
+
     return entities;
   }
 

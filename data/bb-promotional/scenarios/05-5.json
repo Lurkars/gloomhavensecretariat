@@ -1,20 +1,15 @@
 {
-  "index": "2",
-  "name": "Crossing the Road",
+  "index": "5.5",
+  "name": "Arena Challenge",
   "edition": "bb",
-  "level": 1,
-  "unlocks": [
-    "2.5",
-    "3",
-    "4"
-  ],
+  "level": 3,
   "links": [
-    "3",
-    "4"
+    "8"
   ],
   "monsters": [
     "bandit-archer",
-    "bandit-guard"
+    "king-button",
+    "mouse"
   ],
   "rooms": [
     {
@@ -26,12 +21,16 @@
           "number": 2
         },
         {
-          "name": "bandit-archer",
+          "name": "king-button",
+          "number": 1
+        },
+        {
+          "name": "mouse",
           "number": 3
         },
         {
-          "name": "bandit-guard",
-          "number": 1
+          "name": "mouse",
+          "number": 4
         }
       ]
     }

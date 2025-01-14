@@ -179,6 +179,13 @@ export class RoundManager {
     if (next) {
       this.afterTurn(toggleFigure);
       figure = figures.find((other, otherIndex) => gameManager.gameplayFigure(other) && !other.off && otherIndex != index);
+
+      if (!toggleFigure.off && toggleFigure instanceof Monster && toggleFigure.bb && toggleFigure.tags.indexOf('bb-elite') != -1) {
+        if (!figure || figure.getInitiative() > toggleFigure.getInitiative()) {
+          figure = toggleFigure;
+        }
+        gameManager.sortFigures();
+      }
     }
 
     if (skipObjectives) {
@@ -518,6 +525,15 @@ export class RoundManager {
 
     figure.off = true;
     figure.active = false;
+
+    if (figure instanceof Monster && figure.bb && figure.tags.indexOf('bb-elite') != -1 && figure.tags.indexOf('roundAction-bb-elite') == -1) {
+      figure.tags.push('roundAction-bb-elite');
+      figure.ability += 1;
+      if (figure.ability >= figure.abilities.length) {
+        figure.ability = 0;
+      }
+      figure.off = false;
+    }
   }
 
   resetScenario() {
