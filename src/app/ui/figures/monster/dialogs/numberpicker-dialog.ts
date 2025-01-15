@@ -1,4 +1,4 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, HostListener, Inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -191,12 +191,8 @@ export class MonsterNumberPickerDialog implements OnInit {
 
     toggleMonsterType() {
         if (this.entity && (this.entity.type == MonsterType.normal || this.entity.type == MonsterType.elite)) {
-            const normalStat = this.monster.stats.find((stat) => {
-                return stat.level == this.monster.level && stat.type == MonsterType.normal;
-            });
-            const eliteStat = this.monster.stats.find((stat) => {
-                return stat.level == this.monster.level && stat.type == MonsterType.elite;
-            });
+            const normalStat = gameManager.monsterManager.getStat(this.monster, MonsterType.normal);
+            const eliteStat = gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
             if (normalStat && eliteStat) {
                 gameManager.stateManager.before("changeMonsterType", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal);
                 this.entity.type = this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal;
@@ -206,6 +202,17 @@ export class MonsterNumberPickerDialog implements OnInit {
                 } else if (this.entity.health < this.entity.maxHealth && this.entity.health == EntityValueFunction(this.entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, this.monster.level)) {
                     this.entity.health = this.entity.maxHealth;
                 }
+
+                if (this.monster.bb) {
+                    if (this.monster.entities.every((entity) => entity.type == MonsterType.elite)) {
+                        if (this.monster.tags.indexOf('bb-elite') == -1) {
+                            this.monster.tags.push('bb-elite');
+                        }
+                    } else if (this.monster.tags.indexOf('bb-elite') != -1) {
+                        this.monster.tags = this.monster.tags.filter((tag) => tag != 'bb-elite');
+                    }
+                }
+
                 gameManager.stateManager.after();
             } else {
                 console.warn("Missing stats!", this.monster);

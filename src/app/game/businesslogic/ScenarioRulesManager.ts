@@ -61,7 +61,7 @@ export class ScenarioRulesManager {
       scenario.rules.filter((rule) => this.game.round > 0 && rule.always || rule.alwaysApply || rule.alwaysApplyTurn).forEach((rule) => {
         if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply) {
           this.applyRule(rule, { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "index": scenario.rules.indexOf(rule), "section": false });
-        } else if (!this.game.disgardedScenarioRules.find((identifier) => identifier.edition == scenario.edition && identifier.scenario == scenario.index && identifier.group == scenario.group && identifier.index == scenario.rules.indexOf(rule) && !identifier.section)) {
+        } else if (!this.game.discardedScenarioRules.find((identifier) => identifier.edition == scenario.edition && identifier.scenario == scenario.index && identifier.group == scenario.group && identifier.index == scenario.rules.indexOf(rule) && !identifier.section)) {
           this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
         }
       })
@@ -74,7 +74,7 @@ export class ScenarioRulesManager {
             if (rule.alwaysApply && settingsManager.settings.scenarioRulesAutoapply) {
               this.applyRule(rule, { "edition": section.edition, "scenario": section.index, "group": section.group, "index": section.rules.indexOf(rule), "section": true });
               gameManager.game.scenarioRules.splice(gameManager.game.scenarioRules.length - 1, 1);
-            } else if (!this.game.disgardedScenarioRules.find((identifier) => identifier.edition == section.edition && identifier.scenario == section.index && identifier.group == section.group && identifier.index == section.rules.indexOf(rule) && identifier.section)) {
+            } else if (!this.game.discardedScenarioRules.find((identifier) => identifier.edition == section.edition && identifier.scenario == section.index && identifier.group == section.group && identifier.index == section.rules.indexOf(rule) && identifier.section)) {
               this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
             }
           })
@@ -290,11 +290,11 @@ export class ScenarioRulesManager {
 
     const applied = this.game.appliedScenarioRules.find((applied) => applied.edition == identifier.edition && applied.scenario == identifier.scenario && applied.group == identifier.group && applied.index == identifier.index && applied.section == identifier.section);
 
-    const disgarded = this.game.disgardedScenarioRules.find((disgarded) => disgarded.edition == identifier.edition && disgarded.scenario == identifier.scenario && disgarded.group == identifier.group && disgarded.index == identifier.index && disgarded.section == identifier.section);
+    const discarded = this.game.discardedScenarioRules.find((discarded) => discarded.edition == identifier.edition && discarded.scenario == identifier.scenario && discarded.group == identifier.group && discarded.index == identifier.index && discarded.section == identifier.section);
 
     const visible = this.game.scenarioRules.find((ruleModel) => ruleModel.identifier.edition == identifier.edition && ruleModel.identifier.scenario == identifier.scenario && ruleModel.identifier.group == identifier.group && ruleModel.identifier.index == identifier.index && ruleModel.identifier.section == identifier.section);
 
-    if (add && !applied && !disgarded && !visible) {
+    if (add && !applied && !discarded && !visible) {
       if (rule.spawns) {
         rule.spawns.forEach((spawn) => {
           if (spawn.manual && !spawn.count && spawn.count != 0) {

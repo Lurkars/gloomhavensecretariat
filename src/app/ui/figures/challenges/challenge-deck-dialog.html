@@ -27,7 +27,7 @@
         <div class="challenge-deck-container" [style.maxHeight]="maxHeight"
             [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
             <div class="upcoming drop-list" cdkDropList id="listUpcomping" [cdkDropListDisabled]="!edit"
-                #upcomingList="cdkDropList" [cdkDropListConnectedTo]="[disgardedList, finishedList]"
+                #upcomingList="cdkDropList" [cdkDropListConnectedTo]="[discardedList, finishedList]"
                 (cdkDropListDropped)="dropUpcoming($event)" [cdkDropListAutoScrollStep]="20" [ngClass]="{'edit': edit}">
                 <div class="title" [ghs-label]="'challenges.deck.upcoming'"></div>
                 <div class="empty" *ngIf="upcomingCards.length == 0"></div>
@@ -40,13 +40,13 @@
                 </div>
             </div>
 
-            <div class="disgarded drop-list" cdkDropList id="listDisgarded" [cdkDropListDisabled]="!edit"
-                #disgardedList="cdkDropList" [cdkDropListConnectedTo]="[upcomingList, finishedList]"
-                (cdkDropListDropped)="dropDisgarded($event)" [cdkDropListAutoScrollStep]="20"
+            <div class="discarded drop-list" cdkDropList id="listDiscarded" [cdkDropListDisabled]="!edit"
+                #discardedList="cdkDropList" [cdkDropListConnectedTo]="[upcomingList, finishedList]"
+                (cdkDropListDropped)="dropDiscarded($event)" [cdkDropListAutoScrollStep]="20"
                 [ngClass]="{'edit': edit}">
                 <div class="title" [ghs-label]="'challenges.deck.current'"></div>
                 <div class="empty"></div>
-                <div class="challenge-container" *ngFor="let card of disgardedCards; let index = index" cdkDrag
+                <div class="challenge-container" *ngFor="let card of discardedCards; let index = index" cdkDrag
                     [ngClass]="{'active': !edit && gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state == GameState.draw, 'keep': !disabled && deck.keep.indexOf(deck.current - index) != -1}">
                     <ghs-challenge-card class="drag-hidden" [challenge]="card"
                         [keep]="deck.keep.indexOf(deck.current - index) != -1" [flipped]="true" ghs-pointer-input
@@ -59,7 +59,7 @@
             </div>
 
             <div class="finished drop-list" cdkDropList id="listFinished" [cdkDropListDisabled]="!edit"
-                #finishedList="cdkDropList" [cdkDropListConnectedTo]="[upcomingList, disgardedList]"
+                #finishedList="cdkDropList" [cdkDropListConnectedTo]="[upcomingList, discardedList]"
                 (cdkDropListDropped)="dropFinished($event)" [cdkDropListAutoScrollStep]="20" [ngClass]="{'edit': edit}">
                 <div class="title" [ghs-label]="'challenges.deck.finished'"></div>
                 <div class="empty"></div>

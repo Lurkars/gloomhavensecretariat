@@ -1,15 +1,15 @@
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { Ability } from 'src/app/game/model/data/Ability';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { applyPlaceholder } from '../../helper/label';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-abilities-dialog',
   templateUrl: './abilities-dialog.html',
   styleUrls: ['./abilities-dialog.scss']
@@ -26,7 +26,7 @@ export class AbiltiesDialogComponent implements OnInit {
   maxHeight: string = "";
   bottomActions: boolean = false;
   upcomingCards: Ability[] = [];
-  disgardedCards: Ability[] = [];
+  discardedCards: Ability[] = [];
   deletedCards: Ability[] = [];
 
   constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef) { }
@@ -56,7 +56,7 @@ export class AbiltiesDialogComponent implements OnInit {
       abilityNumber++;
     }
     this.upcomingCards = this.monster.abilities.filter((value, index) => index > abilityNumber).map((value) => gameManager.abilities(this.monster)[value]);
-    this.disgardedCards = this.monster.abilities.filter((value, index) => index <= abilityNumber).map((value) => gameManager.abilities(this.monster)[value]).reverse();
+    this.discardedCards = this.monster.abilities.filter((value, index) => index <= abilityNumber).map((value) => gameManager.abilities(this.monster)[value]).reverse();
     this.deletedCards = gameManager.deckData(this.monster).abilities.filter((ability, index) => this.monster.abilities.indexOf(index) == -1);
   }
 
@@ -116,7 +116,7 @@ export class AbiltiesDialogComponent implements OnInit {
     this.update();
   }
 
-  dropDisgarded(event: CdkDragDrop<Ability[]>) {
+  dropDiscarded(event: CdkDragDrop<Ability[]>) {
     gameManager.stateManager.before("reorderAbilities", "data.monster." + this.monster.name);
     if (event.container == event.previousContainer) {
       moveItemInArray(this.monster.abilities, this.monster.ability - event.previousIndex, this.monster.ability - event.currentIndex);

@@ -153,7 +153,7 @@
     <div *ngIf="!bbTable" class="attack-modifiers-container" [style.maxHeight]="maxHeight"
       [ngClass]="{'has-deleted': edit && deletedCards.length}">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
-        [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
+        [cdkDropListConnectedTo]="discardedList" (cdkDropListDropped)="dropUpcoming($event)"
         [cdkDropListAutoScrollStep]="20"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition])}">
         <div class="empty" *ngIf="upcomingCards.length == 0"></div>
@@ -169,12 +169,12 @@
         </div>
       </div>
 
-      <div class="disgarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
-        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
+      <div class="discarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #discardedList="cdkDropList"
+        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDiscarded($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
 
-        <div class="attack-modifier-container" *ngFor="let attackModifier of disgardedCards; let index = index" cdkDrag>
+        <div class="attack-modifier-container" *ngFor="let attackModifier of discardedCards; let index = index" cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
             [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally" [townGuard]="townGuard"
             [bbIndex]="deck.bb ? ( deck.current -index) % 3 : -1"></ghs-attackmodifier>

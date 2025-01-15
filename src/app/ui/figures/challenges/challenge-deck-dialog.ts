@@ -9,7 +9,7 @@ import { ChallengeDeckChange } from "./challenge-deck";
 
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-challenges-dialog',
     templateUrl: './challenge-deck-dialog.html',
     styleUrls: ['./challenge-deck-dialog.scss']
@@ -38,7 +38,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
     keepAvailable: number = 0;
 
     upcomingCards: ChallengeCard[] = [];
-    disgardedCards: ChallengeCard[] = [];
+    discardedCards: ChallengeCard[] = [];
     finishedCards: ChallengeCard[] = [];
 
     constructor(@Inject(DIALOG_DATA) public data: { deck: ChallengeDeck, before: EventEmitter<ChallengeDeckChange>, after: EventEmitter<ChallengeDeckChange> }, public dialogRef: DialogRef) {
@@ -58,7 +58,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
 
     update() {
         this.upcomingCards = this.deck.cards.filter((card, index) => index > this.deck.current);
-        this.disgardedCards = this.deck.cards.filter((card, index) => index <= this.deck.current && index > this.deck.finished).reverse();
+        this.discardedCards = this.deck.cards.filter((card, index) => index <= this.deck.current && index > this.deck.finished).reverse();
         this.finishedCards = this.deck.cards.filter((card, index) => index <= this.deck.finished).reverse();
 
         const building = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'town-hall' && buildingModel.level && buildingModel.state != 'wrecked');
@@ -131,7 +131,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
         this.update();
     }
 
-    dropDisgarded(event: CdkDragDrop<ChallengeCard[]>) {
+    dropDiscarded(event: CdkDragDrop<ChallengeCard[]>) {
         this.before.emit(new ChallengeDeckChange(this.deck, 'challengeDeckReorder'));
         let offset = 0;
         let prev = 0;
@@ -169,7 +169,7 @@ export class ChallengeDeckDialogComponent implements OnInit {
             prev = offset - event.previousIndex;
             cur = offset - event.currentIndex;
             moveItemInArray(this.deck.cards, prev, cur);
-        } else if (event.previousContainer.id == "listDisgarded") {
+        } else if (event.previousContainer.id == "listDiscarded") {
             this.deck.finished = this.deck.finished + 1;
             offset = this.deck.finished;
             prev = this.deck.current - event.previousIndex;

@@ -24,7 +24,7 @@
         <div class="challenge-container" ghs-pointer-input (singleClick)="clickCard(index, $event)"
             (doubleClick)="doubleClickCard(index, $event)" *ngIf="index > current - 3 && index > deck.finished"
             [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1 + (deck.keep.indexOf(index) != -1 ? 5 : 0)"
-            [ngClass]="{'disgarded' : index < current, 'current' : index == current, 'bottom' : bottom, 'unkept': deck.keep.indexOf(index) == -1}"
+            [ngClass]="{'discarded' : index < current, 'current' : index == current, 'bottom' : bottom, 'unkept': deck.keep.indexOf(index) == -1}"
             [style.right]="index < current ? (55 + 25 * (current - index -1)) + '%' : ''">
             <ghs-challenge-card class="challenge-card" [challenge]="card" [keep]="deck.keep.indexOf(index) != -1"
                 [flipped]="index <= current" [disableFlip]="!drawing || index != current"></ghs-challenge-card>

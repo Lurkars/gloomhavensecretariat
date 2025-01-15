@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+    - name: 🖊️ Typo Collection Thread
+      url: https://github.com/Lurkars/gloomhavensecretariat/issues/242
+      about: If you just find typos, please report them in this issue!
     - name: ❓ FAQ and Basic User Guide
       url: https://help.gloomhaven-secretariat.de/
       about: A Small FAQ and basic guide how to use Gloomhaven Secretariat

@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<div class="change-type" *ngIf="change && entity && entity.type != MonsterType.boss && !monster.bb">
+<div class="change-type" *ngIf="change && entity && entity.type != MonsterType.boss">
   <a tabclick (click)="toggleMonsterType()"><span [ghs-label]="'monster.changeType'"
       [ghs-label-args]="[(entity.type == MonsterType.normal ? entity.type  :  MonsterType.elite),(entity.type == MonsterType.normal ?  MonsterType.elite: MonsterType.normal)]"></span></a>
 </div>

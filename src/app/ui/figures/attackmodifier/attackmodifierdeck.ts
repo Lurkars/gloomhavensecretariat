@@ -1,14 +1,14 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { GameState } from 'src/app/game/model/Game';
+import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dialog';
 import { AttackModifierDeckDialogComponent } from './attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './attackmodifierdeck-fullscreen';
-import { Subscription } from 'rxjs';
-import { CharacterBattleGoalsDialog } from '../battlegoal/dialog/battlegoal-dialog';
 
 export class AttackModiferDeckChange {
 
@@ -26,7 +26,7 @@ export class AttackModiferDeckChange {
 }
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-attackmodifier-deck',
   templateUrl: './attackmodifierdeck.html',
   styleUrls: ['./attackmodifierdeck.scss']
@@ -75,6 +75,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
 
   bbCurrent: number = 0;
   bbRows: number = 0;
+  activeAMs: AttackModifier[] = [];
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
@@ -226,6 +227,8 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
     }
 
     this.compact = settingsManager.settings.automaticAttackModifierFullscreen && settingsManager.settings.portraitMode && (window.innerWidth < 800 || window.innerHeight < 400);
+
+    this.activeAMs = this.deck.cards.filter((am, i) => am.active && i < this.deck.lastVisible && this.deck.discarded.indexOf(i) == -1);
   }
 
   drawQueue() {
@@ -312,10 +315,10 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   clickCard(index: number, event: any) {
     if (!this.drawing || index > this.current) {
       const am: AttackModifier = this.deck.cards[index];
-      if (am.active && this.deck.disgarded.indexOf(index) == -1) {
-        this.before.emit(new AttackModiferDeckChange(this.deck, "disgard", "" + index));
-        this.deck.disgarded.push(index);
-        this.after.emit(new AttackModiferDeckChange(this.deck, "disgard", "" + index));
+      if (am.active && this.deck.discarded.indexOf(index) == -1) {
+        this.before.emit(new AttackModiferDeckChange(this.deck, "discard", "" + index));
+        this.deck.discarded.push(index);
+        this.after.emit(new AttackModiferDeckChange(this.deck, "discard", "" + index));
       } else {
         this.open(event);
       }

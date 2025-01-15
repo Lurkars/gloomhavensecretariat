@@ -295,6 +295,7 @@ export class AttackModifierManager {
 
     attackModifierDeck.current = -1;
     attackModifierDeck.lastVisible = 0;
+    attackModifierDeck.discarded = [];
     ghsShuffleArray(attackModifierDeck.cards);
     if (onlyUpcoming) {
       attackModifierDeck.current = current;
@@ -710,7 +711,7 @@ export class AttackModifierManager {
     })
 
     attackModifierDeck.cards = model.cards.map((id) => this.cardById(attackModifierDeck, id) || new AttackModifier(AttackModifierType.invalid, 0, AttackModifierValueType.default, id));
-    attackModifierDeck.disgarded = model.disgarded || [];
+    attackModifierDeck.discarded = model.discarded || model.disgarded || [];
     attackModifierDeck.active = model.active;
     attackModifierDeck.state = model.state;
     attackModifierDeck.bb = model.bb;

@@ -59,11 +59,12 @@
   </div>
   <ng-container *ngIf="!deck.bb">
     <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">
-      <div class="am-container" *ngIf="index <= current + 1 && index >= lastVisible"
+      <div class="am-container"
+        *ngIf="index <= current + 1 && (index >= lastVisible || attackModifier.active && deck.discarded.indexOf(index) == -1)"
         [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
-        [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling  && index <= current, 'active' : attackModifier.active && index <= current && deck.disgarded.indexOf(index) == -1, 'disgard-active': deck.disgarded.indexOf(index) != -1, 'animate' : index < current - 1 && index >= lastVisible, 'animate-reverse' : false, 'disabled' : disabled, 'highlight': !drawing && deck.state && index == current, 'ignored': !drawing && deck.state == 'disadvantage' && (index < current || !gameManager.fhRules() && !settingsManager.settings.alwaysFhAdvantage) && attackModifier.rolling}"
-        [style.left]="!vertical && index < current && index >= lastVisible ?  'calc(75% + ' + (current - index -1) + ' * 25%)' : ''"
-        [style.top]="vertical && index < current && index >= lastVisible ?  'calc(' + (current - index - 1) * (drawCard.offsetHeight / 1.3) + 'px)' : ''"
+        [ngClass]="{'discarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling  && index <= current, 'active' : attackModifier.active && index <= current && deck.discarded.indexOf(index) == -1, 'discard-active': deck.discarded.indexOf(index) != -1, 'animate' : index < current - 1 && index >= lastVisible, 'animate-reverse' : false, 'disabled' : disabled, 'highlight': !drawing && deck.state && index == current, 'ignored': !drawing && deck.state == 'disadvantage' && (index < current || !gameManager.fhRules() && !settingsManager.settings.alwaysFhAdvantage) && attackModifier.rolling}"
+        [style.left]="!vertical && index < current && (index >= lastVisible || attackModifier.active && deck.discarded.indexOf(index) == -1) ?  'calc(75% + ' + (current - index -1 + (attackModifier.active && index < lastVisible ? index - lastVisible + this.activeAMs.indexOf(attackModifier) + 1 : 0)) + ' * 25%)' : ''"
+        [style.top]="vertical && index < current && (index >= lastVisible || attackModifier.active && deck.discarded.indexOf(index) == -1) ?  'calc(' + (current - index - 1 + (attackModifier.active && index < lastVisible ? index - lastVisible + this.activeAMs.indexOf(attackModifier) + 1 : 0)) * (drawCard.offsetHeight / 1.3) + 'px)' : ''"
         [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'" (click)="clickCard(index, $event)">
         <ghs-attackmodifier class="am" [attackModifier]="attackModifier" [numeration]="numeration"
           [characterIcon]="characterIcon" [ally]="ally" [flipped]="index <= current"
@@ -76,24 +77,22 @@
   <ng-container *ngIf="deck.bb">
     <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">
       <div class="am-container current animate" *ngIf="index == current" [style.z-index]="deck.cards.length + 2"
-        [ngClass]="{'bottom' : bottom,  'disabled' : disabled}"
-        [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'" (click)="clickCard(index, $event)">
+        [ngClass]="{'bottom' : bottom,  'disabled' : disabled}" [ghs-label]="'game.cards.openDialog'"
+        [ghs-label-attribute]="'title'" (click)="clickCard(index, $event)">
         <ghs-attackmodifier class="am" [attackModifier]="attackModifier" [numeration]="numeration"
-          [characterIcon]="characterIcon" [ally]="ally" [flipped]="true"
-          [disableFlip]="!drawing" [newStyle]="newStyle" [townGuard]="townGuard"
-          [bbIndex]="deck.bb ? index % 3 : -1">
+          [characterIcon]="characterIcon" [ally]="ally" [flipped]="true" [disableFlip]="!drawing" [newStyle]="newStyle"
+          [townGuard]="townGuard" [bbIndex]="deck.bb ? index % 3 : -1">
         </ghs-attackmodifier>
       </div>
     </ng-container>
     <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">
-      <div class="am-container disgarded animate" *ngIf="deck.state && current >= 0 && lastVisible >= 0 && index == lastVisible"
-        [style.z-index]="deck.cards.length + 1"
-        [ngClass]="{'bottom' : bottom,  'disabled' : disabled}"
+      <div class="am-container discarded animate"
+        *ngIf="deck.state && current >= 0 && lastVisible >= 0 && index == lastVisible"
+        [style.z-index]="deck.cards.length + 1" [ngClass]="{'bottom' : bottom,  'disabled' : disabled}"
         [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'" (click)="clickCard(index, $event)">
         <ghs-attackmodifier class="am" [attackModifier]="attackModifier" [numeration]="numeration"
-          [characterIcon]="characterIcon" [ally]="ally" [flipped]="true"
-          [disableFlip]="!drawing" [newStyle]="newStyle" [townGuard]="townGuard"
-          [bbIndex]="deck.bb ? index % 3 : -1">
+          [characterIcon]="characterIcon" [ally]="ally" [flipped]="true" [disableFlip]="!drawing" [newStyle]="newStyle"
+          [townGuard]="townGuard" [bbIndex]="deck.bb ? index % 3 : -1">
         </ghs-attackmodifier>
       </div>
     </ng-container>

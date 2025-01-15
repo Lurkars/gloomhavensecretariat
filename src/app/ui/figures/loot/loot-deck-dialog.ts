@@ -41,7 +41,7 @@ export class LootDeckDialogComponent implements OnInit {
   characters: boolean = true;
 
   upcomingCards: Loot[] = [];
-  disgardedCards: Loot[] = [];
+  discardedCards: Loot[] = [];
   enhancementDeck: Loot[] = [];
 
   constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange>, apply: boolean }, public dialogRef: DialogRef) {
@@ -84,7 +84,7 @@ export class LootDeckDialogComponent implements OnInit {
 
   update() {
     this.upcomingCards = this.deck.cards.filter((loot, index) => index > this.deck.current);
-    this.disgardedCards = this.deck.cards.filter((loot, index) => index <= this.deck.current).reverse();
+    this.discardedCards = this.deck.cards.filter((loot, index) => index <= this.deck.current).reverse();
   }
 
   enhanceCard(loot: Loot) {
@@ -250,7 +250,7 @@ export class LootDeckDialogComponent implements OnInit {
     this.update();
   }
 
-  dropDisgarded(event: CdkDragDrop<Loot[]>) {
+  dropDiscarded(event: CdkDragDrop<Loot[]>) {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
     let offset = 0;
     let prev = 0;

@@ -101,7 +101,7 @@
     overflow: auto;
 
     .upcoming,
-    .disgarded,
+    .discarded,
     .finished {
       display: flex;
       flex-direction: column;
@@ -141,7 +141,7 @@
         }
       }
 
-      &.disgarded {
+      &.discarded {
         flex-direction: row;
         flex-wrap: wrap;
         width: calc(var(--ghs-unit) * 90 * var(--ghs-dialog-factor));
@@ -229,7 +229,7 @@
         }
       }
 
-      &.disgarded .challenge-container.active {
+      &.discarded .challenge-container.active {
         cursor: pointer;
       }
 
@@ -251,7 +251,7 @@
     &.fh {
 
       .upcoming,
-      .disgarded,
+      .discarded,
       .finished {
 
         .title {
@@ -263,7 +263,7 @@
     &.modern {
 
       .upcoming,
-      .disgarded,
+      .discarded,
       .finished {
 
         .title {

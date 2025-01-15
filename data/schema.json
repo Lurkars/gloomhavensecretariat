@@ -228,7 +228,7 @@
                 "current": {
                     "type": "number"
                 },
-                "disgarded": {
+                "discarded": {
                     "default": [],
                     "items": {
                         "type": "number"
@@ -764,7 +764,7 @@
                 "current": {
                     "type": "number"
                 },
-                "disgarded": {
+                "discarded": {
                     "items": {
                         "type": "number"
                     },

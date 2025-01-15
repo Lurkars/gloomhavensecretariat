@@ -43,7 +43,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   drawing: boolean = false;
   upcomingCards: AttackModifier[] = [];
-  disgardedCards: AttackModifier[] = [];
+  discardedCards: AttackModifier[] = [];
   deletedCards: AttackModifier[] = [];
 
   empowerChars: Character[] = [];
@@ -94,7 +94,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   update() {
     this.upcomingCards = this.deck.cards.filter((attackModifier, index) => index > this.deck.current);
-    this.disgardedCards = this.deck.cards.filter((AttackModifier, index) => index <= this.deck.current).reverse();
+    this.discardedCards = this.deck.cards.filter((AttackModifier, index) => index <= this.deck.current).reverse();
     let originalDeck: AttackModifierDeck | undefined;
     if (this.character) {
       originalDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character);
@@ -187,7 +187,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.update();
   }
 
-  dropDisgarded(event: CdkDragDrop<AttackModifier[]>) {
+  dropDiscarded(event: CdkDragDrop<AttackModifier[]>) {
     this.before.emit(new AttackModiferDeckChange(this.deck, "reorder"));
     if (event.container == event.previousContainer) {
       moveItemInArray(this.deck.cards, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
