@@ -52,8 +52,8 @@
     },
     "deck": {
       "clear": {
-        ".": "Disgard drawn Challenge",
-        "multiple": "Disgard drawn Challenges"
+        ".": "Discard drawn Challenge",
+        "multiple": "Discard drawn Challenges"
       },
       "current": "Current",
       "finished": "Finished",
