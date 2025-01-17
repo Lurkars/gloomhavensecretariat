@@ -83,7 +83,6 @@
         .character-title {
           display: table;
           align-self: center;
-          cursor: pointer;
         }
 
         .absent {
@@ -1060,7 +1059,7 @@
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
   }
 
-  .gh-cards {
+  .ability-cards {
     position: absolute;
     top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     left: calc(var(--ghs-unit) * 30.5 * var(--ghs-dialog-factor));

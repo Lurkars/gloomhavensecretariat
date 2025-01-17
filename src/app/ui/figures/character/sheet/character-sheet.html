@@ -6,14 +6,15 @@
       <div class="column column-left">
         <div class="row title">
           <img [src]="character.iconUrl" />
-          <label class="headline" [ngClass]="{'absent' : character.absent}" (click)="toggleCharacterAbsent()"
-            [ghs-label]="(character.absent ? 'character.absent' : 'character.present')" [ghs-label-attribute]="'title'">
+          <label class="headline" [ghs-label]="(character.absent ? 'character.absent' : 'character.present')"
+            [ghs-label-attribute]="'title'">
             <div class="character-title">
               <span [ghs-label]="'character.progress.title'" [ghs-label-args]="['data.character.' + character.name,
                 character.characterClass ? 'character.class.' + (character.gender ? character.gender + '.' : '') +
                 character.characterClass : '']"></span>
             </div>
-            <img class="absent" [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
+            <img (click)="toggleCharacterAbsent()" class="absent"
+              [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
               [ghs-label]="(character.absent ? 'character.present' : 'character.absent')"
               [ghs-label-attribute]="'title'">
           </label>
@@ -358,5 +359,5 @@
     </div>
   </div>
 
-  <div *ngIf="hasAbilities" class="gh-cards" (click)="openGhCards()"></div>
+  <div *ngIf="hasAbilities" class="ability-cards" (click)="openAbilityCards()"></div>
 </div>

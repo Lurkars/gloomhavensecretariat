@@ -6,7 +6,7 @@ import { Ability } from "src/app/game/model/data/Ability";
 import { AbilityDialogComponent } from "../../ability/ability-dialog";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-ability-cards-dialog',
     templateUrl: 'ability-cards-dialog.html',
     styleUrls: ['./ability-cards-dialog.scss']
@@ -15,6 +15,7 @@ export class AbilityCardsDialogComponent {
 
     character: Character;
     level: number;
+    exclusiveLevel: number | undefined;
     abilities: Ability[] = [];
 
     constructor(@Inject(DIALOG_DATA) public data: { character: Character }, private dialog: Dialog) {
@@ -24,11 +25,12 @@ export class AbilityCardsDialogComponent {
     }
 
     update() {
-        this.abilities = gameManager.deckData(this.character).abilities.filter((ability) => typeof ability.level == 'string' || ability.level <= +this.level);
+        this.abilities = gameManager.deckData(this.character).abilities.filter((ability) => !this.exclusiveLevel && (typeof ability.level == 'string' || +ability.level <= this.level) || this.exclusiveLevel && ability.level == this.exclusiveLevel || this.exclusiveLevel == 1 && ability.level == 'X');
     }
 
-    setLevel(level: number) {
+    setLevel(level: number, exclusive: boolean = false) {
         this.level = level;
+        this.exclusiveLevel = exclusive ? level : undefined;
         this.update();
     }
 

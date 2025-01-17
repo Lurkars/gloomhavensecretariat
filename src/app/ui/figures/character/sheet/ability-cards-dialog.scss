@@ -6,15 +6,23 @@
     a.level {
         cursor: pointer;
         display: flex;
+        justify-content: center;
         align-items: center;
         font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
         color: var(--ghs-color-darkgray);
         text-shadow: var(--ghs-outline);
-        margin: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
 
         &.active {
             color: var(--ghs-color-white);
+        }
+
+        &.exclusive {
+            border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
+            border-radius: 100%;
         }
 
         &:hover {

@@ -522,7 +522,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
   }
 
-  openGhCards() {
+  openAbilityCards() {
     this.dialog.open(AbilityCardsDialogComponent, {
       panelClass: ['dialog'],
       data: { character: this.character }
