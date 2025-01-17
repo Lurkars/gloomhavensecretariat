@@ -4,10 +4,10 @@ import { sortScenario } from './sorter/scenario.mjs';
 
 export const sortScenarioFiles = function (dataDirectory, sections = false) {
     let changedFiles = [];
-    if (fs.existsSync(dataDirectory) && fs.lstatSync(dataDirectory).isDirectory) {
+    if (fs.existsSync(dataDirectory) && fs.lstatSync(dataDirectory).isDirectory()) {
         for (let editionDirectory of fs.readdirSync(dataDirectory)) {
             const scenarioDirectory = path.join(dataDirectory, editionDirectory, sections ? 'sections' : 'scenarios');
-            if (fs.existsSync(scenarioDirectory) && fs.lstatSync(scenarioDirectory).isDirectory) {
+            if (fs.existsSync(scenarioDirectory) && fs.lstatSync(scenarioDirectory).isDirectory()) {
                 for (let file of fs.readdirSync(scenarioDirectory)) {
                     const scenarioFile = path.join(scenarioDirectory, file);
                     const f = fs.readFileSync(scenarioFile, 'utf8');

@@ -64,8 +64,9 @@ for (edition_path of edition_dirs) {
   }
 
   edition_data['characters'] = load_subfolder(edition_path, 'character', []);
+  edition_data['decks'] = load_subfolder(edition_path, 'character/deck', []);
   edition_data['monsters'] = load_subfolder(edition_path, 'monster', []);
-  edition_data['decks'] = load_subfolder(edition_path, 'deck', []);
+  edition_data['decks'].push(...load_subfolder(edition_path, 'monster/deck', []));
   edition_data['scenarios'] = load_file(edition_path, 'scenarios.json', []);
   edition_data['battleGoals'] = load_file(edition_path, 'battle-goals.json', []);
   edition_data['events'] = load_file(edition_path, 'events.json', []);
@@ -160,8 +161,8 @@ for (edition_path of edition_dirs) {
 
   edition_data['items'] = load_file(edition_path, 'items.json', []);
   edition_data['treasures'] = load_file(edition_path, 'treasures.json', []);
-  edition_data['label'] = load_file(edition_path, 'label.json', {});
-  edition_data['labelSpoiler'] = load_file(edition_path, 'label-spoiler.json', {});
+  edition_data['label'] = {};
+  edition_data['labelSpoiler'] = {};
 
   const labelFolder = path.join(edition_path, 'label');
   if (fs.existsSync(labelFolder) && fs.lstatSync(labelFolder).isDirectory()) {
@@ -180,7 +181,7 @@ for (edition_path of edition_dirs) {
     }
   }
 
-  const labelSpoilerFolder = path.join(edition_path, 'label-spoiler');
+  const labelSpoilerFolder = path.join(edition_path, 'label/spoiler');
   if (fs.existsSync(labelSpoilerFolder) && fs.lstatSync(labelSpoilerFolder).isDirectory()) {
     for (let labelSpoilerFile of fs.readdirSync(labelSpoilerFolder)) {
       const inputFile = path.join(labelSpoilerFolder, labelSpoilerFile);
