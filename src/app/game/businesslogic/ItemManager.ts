@@ -186,6 +186,13 @@ export class ItemManager {
         return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
     }
 
+    itemUsable(itemData: ItemData) {
+        if (itemData.requiredBuilding == 'alchemist' && this.brewingDisabled()) {
+            return false;
+        }
+        return true;
+    }
+
     itemSellValue(itemData: ItemData): number {
         if (itemData.cost) {
             return Math.floor(itemData.cost / 2);

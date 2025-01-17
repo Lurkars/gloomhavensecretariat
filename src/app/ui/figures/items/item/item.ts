@@ -6,7 +6,7 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-item',
     templateUrl: './item.html',
     styleUrls: ['./item.scss']
@@ -36,6 +36,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
     slots: Action[] = [];
     slotsBack: Action[] = [];
     idNumber: boolean = false;
+    usable: boolean = true;
 
     settingsManager: SettingsManager = settingsManager;
     gameManager: GameManager = gameManager;
@@ -80,11 +81,15 @@ export class ItemComponent implements OnInit, AfterViewInit {
             }
 
             this.idNumber = typeof this.item.id === 'number';
+            this.usable = gameManager.itemManager.itemUsable(this.item);
         }
 
         gameManager.uiChange.subscribe({
             next: () => {
-                this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';;
+                this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';
+                if (this.item) {
+                    this.usable = gameManager.itemManager.itemUsable(this.item);
+                }
             }
         })
     }

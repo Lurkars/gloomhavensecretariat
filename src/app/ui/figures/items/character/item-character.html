@@ -1,7 +1,7 @@
 <div class="item" #container [style.fontSize]="container.offsetWidth * 0.1 + 'px'">
     <ghs-item *ngIf="setup" [item]="item" [flipped]="flipped" ghs-pointer-input
         [count]="gameManager.itemManager.assigned(item)" [editionLabel]="gameManager.currentEdition()"
-        [ngClass]="{'selected': equipped() && true || false, 'unavailable': bbBlocked()}"></ghs-item>
+        [ngClass]="{'selected': !dialog && equipped() && true || false, 'unavailable': !dialog && bbBlocked()}"></ghs-item>
 
     <ghs-item *ngIf="!setup" [item]="item" [count]="gameManager.itemManager.assigned(item)"
         [flipped]="flipped && !countFlag(ItemFlags.flipped)" [slotsMarked]="slotsMarked(ItemFlags.slot)"
@@ -10,7 +10,8 @@
         (clickedSpent)="toggleFlag($event,ItemFlags.spent)"
         (clickedPersistent)="toggleFlag($event,ItemFlags.persistend)"
         (clickedSlot)="toggleFlagCount($event,ItemFlags.slot)"
-        (clickedSlotBack)="toggleFlagCount($event,ItemFlags.slotBack)" [ngClass]="{'filtered' : !equipped(), 
+        (clickedSlotBack)="toggleFlagCount($event,ItemFlags.slotBack)"
+        [ngClass]="{'filtered' : !equipped(), 
     'unavailable': countFlag( ItemFlags.consumed) > 0 || bbBlocked(), 'owned': countFlag( ItemFlags.persistend) > 0 }"></ghs-item>
 
     <span class="loot-random-item" *ngIf="isLootRandomItem()">
