@@ -372,6 +372,7 @@
       "chooseCard": "Markierte Karte auswählen",
       "drawCard": "Weitere Karte ziehen",
       "drawCards": "Neue Karten ziehen",
+      "drawUnavailable": "Alle Kampfziele bereits gezogen!",
       "edition": "%data.edition.{0}% Karten",
       "setup": {
         ".": "Kampfziel-Karten einrichten",
