@@ -543,6 +543,7 @@
       "chooseCard": "Choose selected Card",
       "drawCard": "Draw another card",
       "drawCards": "Redraw cards",
+      "drawUnavailable": "All Battle Goals have been drawn!",
       "edition": "%data.edition.{0}% Cards",
       "setup": {
         ".": "Setup Battle Goals",

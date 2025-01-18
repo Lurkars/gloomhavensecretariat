@@ -17,8 +17,9 @@
         [ghs-label]="'game.battleGoals.chooseCard'"></a>
     </div>
     <div class="menu small" *ngIf="!cardOnly">
-      <a (click)="drawCards()" [ghs-label]="'game.battleGoals.drawCards'"></a>
-      <a (click)="drawCard()" [ghs-label]="'game.battleGoals.drawCard'"></a>
+      <a (click)="drawCards()" *ngIf="redrawAvailable" [ghs-label]="'game.battleGoals.drawCards'"></a>
+      <a (click)="drawCard()" *ngIf="available" [ghs-label]="'game.battleGoals.drawCard'"></a>
+      <p class="empty-hint" *ngIf="!available || !redrawAvailable" [ghs-label]="'game.battleGoals.drawUnavailable'"></p>
     </div>
     <div class="menu small" *ngIf="!cardOnly">
       <a (click)="setup()" [ghs-label]="'game.battleGoals.setup'"></a>
