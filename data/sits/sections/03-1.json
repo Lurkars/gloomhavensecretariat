@@ -1,0 +1,52 @@
+{
+  "index": "143.1",
+  "name": "Rotten Revelation",
+  "edition": "sits",
+  "parent": "143",
+  "marker": "1",
+  "monsters": [
+    "frozen-corpse",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "11-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "index": "143",
+  "name": "Rotten Revelation",
+  "edition": "sits",
+  "unlocks": [
+    "144"
+  ],
+  "rewards": {
+    "experience": 20,
+    "custom": "Gain any 1 herb resources each",
+    "ignoredBonus": [
+      "inspiration"
+    ],
+    "calendarIgnore": true
+  },
+  "monsters": [
+    "frozen-corpse",
+    "harrower-infester",
+    "ooze"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 4,
+    "metal": 2,
+    "hide": 2,
+    "flamefruit": 2,
+    "axenut": 1
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "curse",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "07-D",
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "index": "142.2",
+  "name": "Gateway to Radiance",
+  "edition": "sits",
+  "parent": "142",
+  "parentSections": [
+    [
+      "142.1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "burrowing-blade",
+    "shrike-fiend"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "05-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

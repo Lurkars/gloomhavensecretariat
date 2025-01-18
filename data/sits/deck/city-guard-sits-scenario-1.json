@@ -1,0 +1,24 @@
+{
+  "name": "city-guard-sits-scenario-1",
+  "edition": "fh",
+  "abilities": [
+    {
+      "name": "Nothing Special",
+      "cardId": 751,
+      "initiative": 50,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    }
+  ]
+}

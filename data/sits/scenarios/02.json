@@ -1,0 +1,109 @@
+{
+  "index": "142",
+  "name": "Gateway to Radiance",
+  "edition": "sits",
+  "unlocks": [
+    "143"
+  ],
+  "rewards": {
+    "experience": 20,
+    "items": [
+      "65-fh"
+    ],
+    "ignoredBonus": [
+      "inspiration"
+    ],
+    "calendarIgnore": true
+  },
+  "monsters": [
+    "burrowing-blade",
+    "ice-wraith",
+    "shrike-fiend",
+    "vermling-scout"
+  ],
+  "allied": [
+    "vermling-scout"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 4,
+    "metal": 2,
+    "hide": 4,
+    "arrowvine": 2,
+    "axenut": 1
+  },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "vermling-scout"
+          },
+          "statEffect": {
+            "health": "HxC",
+            "actions": [
+              {
+                "type": "shield",
+                "value": 1
+              }
+            ],
+            "deck": "frenzied-sniper"
+          },
+          "note": "%data.scenario.rules.sits.2%"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "type": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

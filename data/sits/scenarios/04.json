@@ -1,0 +1,275 @@
+{
+  "index": "144",
+  "name": "The Healing Swarm",
+  "edition": "sits",
+  "unlocks": [
+    "145"
+  ],
+  "rewards": {
+    "experience": 25,
+    "perks": 1,
+    "ignoredBonus": [
+      "inspiration"
+    ],
+    "calendarIgnore": true
+  },
+  "monsters": [
+    "forest-imp",
+    "harrower-infester",
+    "rending-drake"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 3,
+    "flamefruit": 1,
+    "rockroot": 1,
+    "snowthistle": 2
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "curse",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 4 || R == 19",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "forest-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "rending-drake",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "rending-drake",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 7 && R == 22",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "forest-imp",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "forest-imp",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "forest-imp",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 10 && R == 25",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "rending-drake",
+            "type": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "rending-drake",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "rending-drake",
+            "player4": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 13 && R == 28",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "forest-imp",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "rending-drake",
+            "type": "normal"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "rending-drake",
+            "player4": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    },
+    {
+      "round": "R == 16 && R == 31",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "f"
+        },
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "f"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}
