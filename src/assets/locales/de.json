@@ -1058,7 +1058,14 @@
       "hint": "Während eines Szenarios ist das Erstellen einer neuen Kampagne deaktiviert. Beende oder breche das aktuelle Szenario ab um eine neue Kampagne zu erstellen."
     },
     "notes": "Notizen",
-    "prosperity": "Wohlstand",
+    "prosperity": {
+      ".": "Wohlstand",
+      "reset": "Wohlstand zurücksetzen",
+      "wrap": {
+        "expand": "Einklappen",
+        "shrink": "Ausklappen"
+      }
+    },
     "remove": "Gruppe löschen",
     "reputation": "Ansehen",
     "sheet": "Gruppenbogen",
