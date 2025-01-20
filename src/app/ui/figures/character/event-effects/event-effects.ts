@@ -323,11 +323,6 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
               const unlocks = scenarioData.unlocks ? scenarioData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : '';
               gameManager.stateManager.before("eventEffect.drawRandomScenarioSection", scenarioData.index, scenarioData.edition, scenarioData.name, unlocks);
               gameManager.game.party.conclusions.push(new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group));
-              if (scenarioData.unlocks) {
-                scenarioData.unlocks.forEach((unlock) => {
-                  gameManager.game.party.manualScenarios.push(new GameScenarioModel(unlock, scenarioData.edition));
-                })
-              }
               gameManager.stateManager.after();
             } else {
               gameManager.stateManager.before("eventEffect.drawRandomScenario", scenarioData.index, scenarioData.edition, scenarioData.name);

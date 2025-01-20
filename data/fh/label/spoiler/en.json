@@ -911,7 +911,7 @@
       ".": "Eventide Scepter"
     },
     "fh-201": {
-      "1": "During your attack ability performed while occupying or ad adjacent to a hex with a water tile, add %game.action.push% and %game.condition.immobilize% one attack.",
+      "1": "During your melee attack ability performed while occupying or adjacent to a hex with a water tile, add %game.action.push%1 and %game.condition.immobilize% to one attack.",
       ".": "Wave Blade"
     },
     "fh-202": {

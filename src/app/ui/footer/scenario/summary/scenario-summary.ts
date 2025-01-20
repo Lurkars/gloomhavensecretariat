@@ -478,14 +478,6 @@ export class ScenarioSummaryComponent implements OnDestroy {
         return value;
     }
 
-    treasureRewardsFromString(treasure: string): string[][] {
-        if (treasure.split(':').length < 2) {
-            return [];
-        } else {
-            return treasure.split(':')[1].split('|').map((value) => value.split('+'));
-        }
-    }
-
     toggleBattleGoal(event: any, index: number, value: number) {
         const character = this.characters[index];
         gameManager.stateManager.before("finishScenario.battleGoal", character.name, value);
