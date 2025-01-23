@@ -1,0 +1,190 @@
+{
+  "items": {
+    "fh-1": {
+      "1": "Erhalte bei deiner Angriffsfertigkeit Vorteil für einen Angriff.",
+      ".": "Fernrohr"
+    },
+    "fh-2": {
+      "1": "Wenn du angegriffen wirst, gilt jeder gezogene %game.attackmodifier.double% Angriffsmodifikator des Gegners stattdessen als %game.attackmodifier.plus1%.",
+      ".": "Grober Helm"
+    },
+    "fh-3": {
+      "1": "At the start of the scenario increase your maximum hit point value by 1.",
+      ".": "Traveling Cloak"
+    },
+    "fh-4": {
+      "1": "Bei den nächsten 2 Angriffen, die dich anvisieren, erhält der Angreifer Nachteil.",
+      ".": "Grobe Fellrüstung"
+    },
+    "fh-5": {
+      "1": "Füge bei deiner Bewegungsfertigkeit +1 %game.action.move% hinzu.",
+      ".": "Grobe Stiefel"
+    },
+    "fh-6": {
+      "1": "Erhalte beim Erbeuten am Zugende die Beute eines angrenzendes Feldes statt des Feldes, auf dem du stehst.",
+      ".": "Bequeme Latschen"
+    },
+    "fh-7": {
+      "1": "Füge während deines Zugs einem deiner Fernangriffe +1 %game.action.range% hinzu.",
+      ".": "Grober Bogen"
+    },
+    "fh-8": {
+      "1": "Während deines Zugs kannst du mit einer Einzelziel-Nahkampf-Angriffsfertigkeit einen Gegner im Umkreis von 2 Feldern anvisieren.",
+      ".": "Grober Speer"
+    },
+    "fh-9": {
+      "1": "Gewähre während deines Zugs einem Verbündeten in %game.action.range:2%:",
+      ".": "Schutzzepter"
+    },
+    "fh-10": {
+      "1": "Wenn dir ein Gegner einen negativen Zustand geben würde, wird der Zustand verhindert.",
+      ".": "Grober Schild"
+    },
+    "fh-11": {
+      "1": "Entferne zu Beginn des Szenarios eine %game.attackmodifier.minus1% Karte aus deinem Angriffsmodifikator-Deck.",
+      ".": "Einfaches Amulett"
+    },
+    "fh-12": {
+      "1": "Wenn du durch einen Angriff %game.damage% erleidest, erhältst du für den Angriff %game.action.shield:2%.",
+      ".": "Grobe Kettenrüstung"
+    },
+    "fh-13": {
+      "1": "Nachdem du durch einen Angriff %game.damage% erleidest, führe aus:",
+      ".": "Tanzschuhe"
+    },
+    "fh-14": {
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff +1 %game.action.attack% hinzu.",
+      ".": "Schweres Schwert"
+    },
+    "fh-15": {
+      "1": "Wenn dir ein Gegner einen negativen Zustand geben würde, wird der Zustand verhindert.",
+      ".": "Verstärkter Schild"
+    },
+    "fh-16": {
+      "1": "Gewähre während deines Zugs allen angrenzenden Verbündeten: %game.action.move% 2",
+      ".": "Inspirierender Helm"
+    },
+    "fh-17": {
+      "1": "Bei den nächsten 2 Angriffen, die dich anvisieren, erhält der Angreifer Nachteil.",
+      ".": "Hartlederrüstung"
+    },
+    "fh-18": {
+      "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten +1 %game.action.move% hinzu.",
+      ".": "Spröde Stiefel"
+    },
+    "fh-19": {
+      "1": "Füge bei deiner Angriffsfertigkeit allen Angriffen %game.condition.muddle% hinzu.",
+      ".": "Klanghammer"
+    },
+    "fh-20": {
+      "1": "DFüge während deines Zugs allen deinen Fernangriffen +1 %game.action.range% hinzu.",
+      ".": "Getillerter Bogen"
+    },
+    "fh-21": {
+      "1": "Erhalte %game.action.shield:1%, während du an mindestens 3 Gegner angrenzt.",
+      ".": "Kettenhaube"
+    },
+    "fh-22": {
+      "1": "Wenn du durch einen Angriff %game.damage% erleidest, erhältst du für den Angriff %game.action.shield:3%.",
+      ".": "Schwere Kettenrüstung"
+    },
+    "fh-23": {
+      "1": "Füge zu Beginn deines Zugs allen deinen Bewegungsfertigkeiten -2 %game.action.move% hinzu, um in dieser Runden %game.action.shield% zu erhalten. ",
+      ".": "Robuster Beinpanzer"
+    },
+    "fh-24": {
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.condition.wound%, %game.condition.poison%, und %game.condition.muddle% hinzu.",
+      ".": "Verdorbene Klinge"
+    },
+    "fh-25": {
+      "1": "Füge während deines Zugs aus: %game.condition.regenerate% %game.action.target% 1 ally, %game.action.range:2%",
+      ".": "Sanftes Szepter"
+    },
+    "fh-26": {
+      "1": "Bei deiner Angriffsfertigkeit gelten alle negativen und %game.attackmodifier.null% Angriffsmodifikator-Karten stattdessen als %game.attackmodifier.plus0%.",
+      ".": "Wahrsichtbrille"
+    },
+    "fh-27": {
+      "1": "Führe, wenn ein Gegner seine Bewegungsfertigkeit an dich angrenzend beendet, sofort aus: %game.action.push% %game.action.target% dieser Gegner",
+      ".": "Schutzmantel"
+    },
+    "fh-28": {
+      "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten +1 %game.action.move% hinzu und ignoriere schwieriges Gelände.",
+      ".": "Robuste Stiefel"
+    },
+    "fh-29": {
+      "1": "Nach deinem Nahkampfangriff erleidet ein an das Ziel angrenzender Gegner %game.damage% 2.",
+      ".": "Spaltaxt"
+    },
+    "fh-30": {
+      "1": "Führe, wenn ein Gegner seine Bewegungsfertigkeit an dich angrenzend beendet, sofort aus: %game.action.attack% 3 %game.action.target% dieser Gegner",
+      ".": "Parrierstulpe"
+    },
+    "fh-31": {
+      "1": "Wenn du durch eine beliebige Quelle %game.damage% erleiden würdest, negiere den %game.damage%.",
+      ".": "Todesschutz-Amulett"
+    },
+    "fh-32": {
+      "1": "Führe während deines Zugs aus: %game.condition.ward% Selbst",
+      ".": "Panzerhaut"
+    },
+    "fh-33": {
+      "1": "Füge bei deiner Bewegungsfertigkeit bis zu einmal pro Zug +1 %game.action.move% hinzu. Drehe dann die Karte am Ende deines Zugs um.",
+      "2": "Erleide bei deiner Bewegungsfertigkeit bis zu einmal pro Zug %game.damage:1%. Drehe dann die Karte am Ende deines Zugs um.",
+      ".": "Instabile Stiefel"
+    },
+    "fh-34": {
+      "1": "Nach deinem Fernangriff erleiden alle ans Ziel angrenzenden Gegner %game.damage% 2.",
+      ".": "Schrapnellbombe"
+    },
+    "fh-35": {
+      "1": "Wenn du durch einen Angriff %game.damage% erleidest, erhältst du für den Angriff %game.action.shield:1% und verhinderst alle negativen Zustände durch den Angriff.",
+      ".": "Drachenschild"
+    },
+    "fh-36": {
+      "1": "Wenn du von einem Angriff mit Nachteil angegriffen wirst, gelten alle %game.attackmodifier.plus0% und %game.attackmodifier.plus1% Karten stattdessen als %game.attackmodifier.minus1%.",
+      ".": "Gefiederhelm"
+    },
+    "fh-37": {
+      "1": "Erleide während deines Zugs %game.damage% 3, um auszuführen: $invisible$ Selbst",
+      ".": "Geistmantel"
+    },
+    "fh-38": {
+      "1": "Führe während deines Zugs aus: %game.action.move% 2 Diese Bewegung muss an einen Gegner angrenzend enden.",
+      ".": "Duellschuhe"
+    },
+    "fh-39": {
+      "1": "Füge bei deiner Angriffsfertigkeit einem Angriff, der Gefrorene Leichen, Eisspuke oder Wandelnde Schicksale anvisiert +3 %game.action.attack% und %game.action.pierce%1.",
+      ".": "Abgrundaxt"
+    },
+    "fh-55": {
+      "1": "Wenn du von einem angrenzenden Gegner angegriffen wirst, erhältst du für den Angriff %game.action,retaliate% 2.",
+      ".": "Stachelstulpe"
+    },
+    "fh-71": {
+      "1": "Führe nach deiner Fertigkeit, mit der du einen Gegner getötet hast, aus:",
+      ".": "Knochenstiefel"
+    },
+    "fh-75": {
+      "1": "Nachdem ein Verbündeter in %game.action.range:2% durch einen Angriff %game.damage% erleidet, entferne alle negativen Zustände von ihm und führe aus:",
+      ".": "Rosenstulpe"
+    },
+    "fh-84": {
+      "1": "%game.card.recover% während deines Zugs eine Stufe-1-Karte von deinem Abwurfstapel.",
+      ".": "Ausdauertrank"
+    },
+    "fh-89": {
+      "1": "Führe während deines Zugs aus: %game.condition.ward% Selbst",
+      ".": "Steinhauttrank"
+    }
+  },
+  "treasures": {
+    "fh": {
+      "12": "Ihr findet die Überreste von Camilla und ihre Gemälde eines majestätischen, gehörnten Wesens.",
+      "51": "Lest %data.section:78.1%",
+      "54": "Schatzkiste? Da war keine Schatzkiste. Vielleicht war das letzte Bier eins zu viel.",
+      "57": "Was ist das? Eine leere Truhe mit einer bleiernen Falltür am Boden? Ihr notiert euch den Ort, damit ihr später mit Gemmes Hilfe zurückkehren könnt.",
+      "62": "Erhalte den Gegenstandsplan Mechanikwürfel %game.itemFh.82%, sobald ihr die andere Hälfte dieses Plans findet."
+    }
+  }
+}
