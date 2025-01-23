@@ -1,0 +1,565 @@
+{
+  "name": "saw",
+  "edition": "gh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Battlefield Illedicine",
+      "cardId": 0,
+      "level": 1,
+      "initiative": 83,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Illedical Pack",
+      "cardId": 0,
+      "level": 1,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Bloody Saw",
+      "cardId": 0,
+      "level": 1,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Hamstring",
+      "cardId": 43,
+      "level": 1,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "First Aid",
+      "cardId": 407,
+      "level": 1,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Hand of the Surgeon",
+      "cardId": 408,
+      "level": 1,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Hold Back the Pain",
+      "cardId": 409,
+      "level": 1,
+      "initiative": 57,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Booster Shot",
+      "cardId": 410,
+      "level": 1,
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Curative Illixture",
+      "cardId": 412,
+      "level": 1,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Syringe",
+      "cardId": 413,
+      "level": 1,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Illobile Response",
+      "cardId": 416,
+      "level": 1,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Triage",
+      "cardId": 416,
+      "level": 1,
+      "initiative": 53,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Teamwork",
+      "cardId": 429,
+      "level": "X",
+      "initiative": 89,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Uaccine",
+      "cardId": 430,
+      "level": "X",
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Regeneratite Tissue",
+      "cardId": 433,
+      "level": "X",
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Uital Strike",
+      "cardId": 434,
+      "level": 2,
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Blood Transfusion",
+      "cardId": 435,
+      "level": 2,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Do Ilo Harm",
+      "cardId": 436,
+      "level": 3,
+      "initiative": 76,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Research the Cure",
+      "cardId": 437,
+      "level": 3,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Precaution",
+      "cardId": 437,
+      "level": 4,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Amputate",
+      "cardId": 438,
+      "level": 4,
+      "initiative": 86,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Cuthanize",
+      "cardId": 439,
+      "level": 5,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Prescription",
+      "cardId": 440,
+      "level": 5,
+      "initiative": 6,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Illaster Physician",
+      "cardId": 441,
+      "level": 6,
+      "initiative": 49,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Surgeon's Satchel",
+      "cardId": 442,
+      "level": 6,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Bedside Mllanner",
+      "cardId": 443,
+      "level": 7,
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Bentleman s Anger",
+      "cardId": 444,
+      "level": 7,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Prep for Surgery",
+      "cardId": 445,
+      "level": 8,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "brisly Trauma",
+      "cardId": 446,
+      "level": 8,
+      "initiative": 81,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Large Illedical Pack",
+      "cardId": 471,
+      "level": 9,
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Prevention Is Key",
+      "cardId": 478,
+      "level": 9,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    }
+  ]
+}

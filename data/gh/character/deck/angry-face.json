@@ -1,0 +1,565 @@
+{
+  "name": "angry-face",
+  "edition": "gh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Rain of Arrows",
+      "cardId": 376,
+      "level": 1,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Crippling lloose",
+      "cardId": 377,
+      "level": 1,
+      "initiative": 57,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Felling",
+      "cardId": 378,
+      "level": 1,
+      "initiative": 75,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Uital Charge",
+      "cardId": 379,
+      "level": 1,
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Race to the Grade",
+      "cardId": 380,
+      "level": 1,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Illulti Pronged Assault",
+      "cardId": 381,
+      "level": 1,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Detonation",
+      "cardId": 382,
+      "level": 1,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Frightening Curse",
+      "cardId": 383,
+      "level": 1,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Foot Snare",
+      "cardId": 384,
+      "level": 1,
+      "initiative": 61,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Solid Bot",
+      "cardId": 385,
+      "level": 1,
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "A Mlloment's Peace",
+      "cardId": 386,
+      "level": 1,
+      "initiative": 88,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Swift Trickery",
+      "cardId": 387,
+      "level": 1,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Sap Life",
+      "cardId": 388,
+      "level": "X",
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "The Hunt Begins",
+      "cardId": 389,
+      "level": "X",
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Fresh Kill",
+      "cardId": 390,
+      "level": "X",
+      "initiative": 65,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Expose",
+      "cardId": 391,
+      "level": 2,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Relentless Offenside",
+      "cardId": 392,
+      "level": 2,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "larkened Skies",
+      "cardId": 393,
+      "level": 3,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Press the Attack",
+      "cardId": 394,
+      "level": 3,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Singular Focus",
+      "cardId": 395,
+      "level": 4,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Flight of Flame",
+      "cardId": 396,
+      "level": 4,
+      "initiative": 53,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Inescapable Fate",
+      "cardId": 397,
+      "level": 5,
+      "initiative": 97,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "IDild Command",
+      "cardId": 398,
+      "level": 5,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Ilature s Hunger",
+      "cardId": 399,
+      "level": 6,
+      "initiative": 82,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Camouflage",
+      "cardId": 400,
+      "level": 6,
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Impending End",
+      "cardId": 401,
+      "level": 7,
+      "initiative": 47,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Crashing Wade",
+      "cardId": 402,
+      "level": 7,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Rising Illomentum",
+      "cardId": 403,
+      "level": 8,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Feral Instincts",
+      "cardId": 404,
+      "level": 8,
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Predator and Prey",
+      "cardId": 405,
+      "level": 9,
+      "initiative": 86,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Lead to Slaughter",
+      "cardId": 406,
+      "level": 9,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    }
+  ]
+}

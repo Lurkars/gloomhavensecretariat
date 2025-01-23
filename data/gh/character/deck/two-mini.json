@@ -1,0 +1,529 @@
+{
+  "name": "two-mini",
+  "edition": "gh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Disorienting Roar",
+      "cardId": 477,
+      "level": 1,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Spirit Swap",
+      "cardId": 478,
+      "level": 1,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Venomous Hlly",
+      "cardId": 479,
+      "level": 1,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Relentless Ally",
+      "cardId": 480,
+      "level": 1,
+      "initiative": 87,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Concentrated Rage",
+      "cardId": 481,
+      "level": 1,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Disappearing Wounds",
+      "cardId": 482,
+      "level": 1,
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Palch Fur",
+      "cardId": 483,
+      "level": 1,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Illaul",
+      "cardId": 484,
+      "level": 1,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Forceful Swipe",
+      "cardId": 485,
+      "level": 1,
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Howling Bolfs",
+      "cardId": 486,
+      "level": 1,
+      "initiative": 47,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Soaring Ally",
+      "cardId": 487,
+      "level": "X",
+      "initiative": 77,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Focused Aggression",
+      "cardId": 488,
+      "level": "X",
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Borrowed Essence",
+      "cardId": 489,
+      "level": "X",
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Energizing Strire",
+      "cardId": 490,
+      "level": 2,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Earthen Spikes",
+      "cardId": 491,
+      "level": 2,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Uicious",
+      "cardId": 492,
+      "level": 3,
+      "initiative": 86,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Unstoppable Beast",
+      "cardId": 493,
+      "level": 3,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Ancient WDard",
+      "cardId": 494,
+      "level": 4,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Punch Through",
+      "cardId": 495,
+      "level": 4,
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Rampage",
+      "cardId": 496,
+      "level": 5,
+      "initiative": 34,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Sione Sigil",
+      "cardId": 497,
+      "level": 5,
+      "initiative": 95,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Primal Blessing",
+      "cardId": 498,
+      "level": 6,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Blood Hunger",
+      "cardId": 499,
+      "level": 6,
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Storm Sigil",
+      "cardId": 500,
+      "level": 7,
+      "initiative": 93,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Tyrannical Force",
+      "cardId": 501,
+      "level": 7,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "lash Out",
+      "cardId": 502,
+      "level": 8,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "llatural Remedy",
+      "cardId": 503,
+      "level": 8,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Jaws of Death",
+      "cardId": 504,
+      "level": 9,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Tribal Sigil",
+      "cardId": 505,
+      "level": 9,
+      "initiative": 91,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    }
+  ]
+}

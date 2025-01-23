@@ -1,0 +1,511 @@
+{
+  "name": "music-note",
+  "edition": "gh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Power Ballad",
+      "cardId": 348,
+      "level": 1,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Defensite",
+      "cardId": 349,
+      "level": 1,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "of Speed",
+      "cardId": 350,
+      "level": 1,
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Tuning the Outcome",
+      "cardId": 351,
+      "level": 1,
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Call to Action",
+      "cardId": 352,
+      "level": 1,
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Warding Dagger",
+      "cardId": 353,
+      "level": 1,
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Unending Chant",
+      "cardId": 353,
+      "level": 1,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Throw Uoice",
+      "cardId": 354,
+      "level": 1,
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Singing Arrow",
+      "cardId": 355,
+      "level": 1,
+      "initiative": 89,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Mllarching Beat",
+      "cardId": 356,
+      "level": "X",
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Iistful Wounding",
+      "cardId": 357,
+      "level": "X",
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Ilimble Knife",
+      "cardId": 359,
+      "level": "X",
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Soothing Lullaby",
+      "cardId": 360,
+      "level": 2,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Change Tempo",
+      "cardId": 361,
+      "level": 2,
+      "initiative": 91,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Echoing Aria",
+      "cardId": 362,
+      "level": 3,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Crippling Chorus",
+      "cardId": 363,
+      "level": 3,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Disorienting Dirge",
+      "cardId": 364,
+      "level": 4,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Inspiring Anthem",
+      "cardId": 365,
+      "level": 4,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Illelody and Harmony",
+      "cardId": 366,
+      "level": 5,
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Illobilizing Illeasure",
+      "cardId": 367,
+      "level": 5,
+      "initiative": 6,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Pull the Strings",
+      "cardId": 368,
+      "level": 6,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Prouoke Terror",
+      "cardId": 369,
+      "level": 6,
+      "initiative": 60,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "llightmare Serenade",
+      "cardId": 370,
+      "level": 7,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Booming Proclamation",
+      "cardId": 371,
+      "level": 7,
+      "initiative": 65,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Tranquil Trill",
+      "cardId": 372,
+      "level": 8,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Commanding Presence",
+      "cardId": 373,
+      "level": 8,
+      "initiative": 59,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Captidating Performance",
+      "cardId": 374,
+      "level": 9,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Shadow Puppets",
+      "cardId": 375,
+      "level": 9,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,529 @@
+{
+  "name": "triangles",
+  "edition": "gh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Raw Enhancement",
+      "cardId": 447,
+      "level": 1,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Pure Augmentation",
+      "cardId": 448,
+      "level": 1,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Formless Power",
+      "cardId": 449,
+      "level": 1,
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Shaping the Ether",
+      "cardId": 450,
+      "level": 1,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Stoking Hail",
+      "cardId": 451,
+      "level": 1,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Tremulant Cyclone",
+      "cardId": 452,
+      "level": 1,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Infernal Uortex",
+      "cardId": 453,
+      "level": 1,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "lava Eruption",
+      "cardId": 454,
+      "level": 1,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Ice Spikes",
+      "cardId": 455,
+      "level": 1,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Frigid Torrent",
+      "cardId": 456,
+      "level": 1,
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Mllalleable Evocation",
+      "cardId": 457,
+      "level": "X",
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Brilliant Flash",
+      "cardId": 458,
+      "level": "X",
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Encompassing Shadow",
+      "cardId": 459,
+      "level": "X",
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Boiling Arc",
+      "cardId": 460,
+      "level": 2,
+      "initiative": 47,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Crystallizing Blast",
+      "cardId": 461,
+      "level": 2,
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Burial",
+      "cardId": 462,
+      "level": 3,
+      "initiative": 65,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Chain Lightning",
+      "cardId": 463,
+      "level": 3,
+      "initiative": 414,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Primal Duality",
+      "cardId": 464,
+      "level": 4,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Gravel Uortex",
+      "cardId": 465,
+      "level": 4,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Obsidian Shards",
+      "cardId": 466,
+      "level": 5,
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Winter s Edge",
+      "cardId": 467,
+      "level": 5,
+      "initiative": 43,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Eye of the Hurricane",
+      "cardId": 468,
+      "level": 6,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Simulacrum",
+      "cardId": 469,
+      "level": 6,
+      "initiative": 94,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Uengeance",
+      "cardId": 470,
+      "level": 7,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Pragmatic Reinforcement",
+      "cardId": 471,
+      "level": 7,
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Uolatile Consumption",
+      "cardId": 472,
+      "level": 8,
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Elemental Hegis",
+      "cardId": 473,
+      "level": 8,
+      "initiative": 144,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Ethereal Mllanifestation",
+      "cardId": 474,
+      "level": 9,
+      "initiative": 98,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    },
+    {
+      "name": "Eternal Equilibrium",
+      "cardId": 475,
+      "level": 9,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%wip%"
+        }
+      ]
+    }
+  ]
+}

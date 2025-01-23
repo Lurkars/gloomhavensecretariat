@@ -273,7 +273,7 @@
       ".": "Ornate Armor"
     },
     "fh-43": {
-      "1": "During your melee attack ability, add %game.action.push% to one attack.",
+      "1": "During your melee attack ability, add %game.action.push%2 to one attack.",
       ".": "Kicking Boots"
     },
     "fh-44": {
