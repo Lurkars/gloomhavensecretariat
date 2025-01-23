@@ -9,8 +9,8 @@
       ".": "Grober Helm"
     },
     "fh-3": {
-      "1": "At the start of the scenario increase your maximum hit point value by 1.",
-      ".": "Traveling Cloak"
+      "1": "Erhöhe zu Beginn des Szenarios deinen maximalen Trefferpunkte-Wert um 1.",
+      ".": "Reisemantel"
     },
     "fh-4": {
       "1": "Bei den nächsten 2 Angriffen, die dich anvisieren, erhält der Angreifer Nachteil.",
@@ -157,25 +157,328 @@
       "1": "Füge bei deiner Angriffsfertigkeit einem Angriff, der Gefrorene Leichen, Eisspuke oder Wandelnde Schicksale anvisiert +3 %game.action.attack% und %game.action.pierce%1.",
       ".": "Abgrundaxt"
     },
+    "fh-40": {
+      "1": "Füge während deines Zugs einem deiner Fernangriffe +1 %game.action.attack% und +2 %game.action.range% hinzu.",
+      ".": "Herzschlagbogen"
+    },
+    "fh-41": {
+      "1": "Entferne zu Beginn des Szenarios eine %game.attackmodifier.plus0% und eine %game.attackmodifier.minus1% Karte aus deinem Angriffsmodifikator-Deck.",
+      ".": "Schnörkelamulett"
+    },
+    "fh-42": {
+      "1": "Erhalte bei den nächsten beiden %game.damage% Quellen bei Angriffen, die dich anvisieren, %game.action.shield:2% für die Angriffe.",
+      ".": "Zierrüstung"
+    },
+    "fh-43": {
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.push% 2 hinzu.",
+      ".": "Trittstiefel"
+    },
+    "fh-44": {
+      "1": "Wenn du %game.condition.poison% oder %game.condition.curse% erhalten würdest, erhalte stattdessen %game.condition.bless%.",
+      ".": "Schwert der Absolution"
+    },
+    "fh-45": {
+      "1": "Führe während deines Zugs aus:",
+      ".": "Meisterszepter"
+    },
+    "fh-46": {
+      "1": "Erhalte bei deiner Angriffsfertigkeit Vorteil für alle deine Angriffe und behandle alle %game.attackmodifier.plus0% und %game.attackmodifier.minus1% Karten stattdessen als %game.attackmodifier.plus1%.",
+      ".": "Doppellinsenbrille"
+    },
+    "fh-47": {
+      "1": "OErleide bei den nächsten beiden %game.damage% Quellen bei Angriffen, die dich anvisieren, %game.damage% 3, damit der Angreifer %game.condition.brittle% erhält.",
+      ".": "Robe des Schicksals"
+    },
+    "fh-48": {
+      "1": "Führe nach der Heilungsfertigkeit eines Verbündeten, die dich anvisiert hat, aus:",
+      ".": "Lebende Schuhe"
+    },
+    "fh-49": {
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff +1 %game.action.attack% und %game.condition.wound% hinzu.",
+      ".": "Grauensdolch"
+    },
+    "fh-50": {
+      "1": "Wenn du durch einen Angriff %game.damage% erleidest, erhältst du für den Angriff %game.action.shield:1%. Drehe dann diese Karte um.",
+      "2": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.action.pierce% 1 hinzu und drehe diese Karte um.",
+      ".": "Wechselschild"
+    },
+    "fh-51": {
+      "1": "Führe während deines Zugs aus: %game.condition.wound% Selbst",
+      ".": "Stachelhalsband"
+    },
+    "fh-52": {
+      "1": "%game.element.consume.fire% während deines Zugs, damit bis zu 2 Gegner in %game.action.range:4% %game.damage% 1 erleiden.",
+      ".": "Laserlinse"
+    },
+    "fh-53": {
+      "1": "Erhalte, nachdem du dich während deines Zugs mindestens 4 Felder weit bewegt hast, %game.action,retaliate% 1 für die Runde.",
+      ".": "Nagelstiefel"
+    },
+    "fh-54": {
+      "1": "Statt bei einer kurzen Rast eine zufällige Karte vom Abwurfstapel zu verlieren, ziehe 3 Karten vom Abwurfstapel und wähle, welche davon du verlierst.",
+      ".": "Wohlfühlschuhe"
+    },
     "fh-55": {
       "1": "Wenn du von einem angrenzenden Gegner angegriffen wirst, erhältst du für den Angriff %game.action,retaliate% 2.",
       ".": "Stachelstulpe"
+    },
+    "fh-56": {
+      "1": "%game.element.consume.earth% während deines Zugs, um einen angrenzenden Beutemarker zu erbeuten.",
+      ".": "Magnetsammler"
+    },
+    "fh-57": {
+      "1": "Zerstöre während deines Zugs einen angrenzenden Hindernis-, Eis-, Fallen-, schwierigen oder gefährlichen Geländeaufleger.",
+      ".": "Schaufel"
+    },
+    "fh-58": {
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff +2 %game.action.attack% hinzu. Erhalte nach der Fertigkeit %game.condition.disarm%.",
+      ".": "Glitschiges Schwert"
+    },
+    "fh-59": {
+      "1": "Erhalte von Beginn bis Ende des Szenarios eine noch nicht freigeschaltete 1-Häkchen-Verbesserung deines Charakterbogens.",
+      ".": "Amulett der Kompetenz"
+    },
+    "fh-60": {
+      "1": "Du kannst zu Beginn des Szenarios maximal 2 zusätzliche %game.items.slots.small% Gegenstände mitnehmen.",
+      ".": "Vieltaschenmantel"
+    },
+    "fh-61": {
+      "1": "Wenn du von einem angrenzenden Gegner angegriffen wirst, erleidet dieser Gegner sofort %game.damage% X. X entspricht deinem %game.action.shield% Wert bei diesem Angriff.",
+      ".": "Stachelpanzer"
+    },
+    "fh-62": {
+      "1": "Füge bei deiner Bewegungsfertigkeit +1 %game.action.move% hinzu und erhalte %game.condition.regenerate%",
+      ".": "Ewige Stiefel"
+    },
+    "fh-63": {
+      "1": "%game.element.consume.dark% bei deiner Bewegungsfertigkeit, um +2 %game.action.move% hinzuzufügen.",
+      ".": "Schattenstampfer"
+    },
+    "fh-64": {
+      "1": "Wenn einer deiner Beschworenen getötet wird, erleiden alle an ihn angrenzenden Gegner %game.damage% 2 und erhalten %game.condition.wound%.",
+      ".": "Zünder"
+    },
+    "fh-65": {
+      "1": "Lege während deines Zugs einen Charaktermarker auf einen normalen oder Elite-Gegner in %game.action.range:3%. Dieser Gegner erhält -1 %game.action.shield% für das Szenario.",
+      ".": "Rostpulver"
+    },
+    "fh-66": {
+      "1": "Führe zu Beginn deiner Rasten aus:",
+      ".": "Amulett des ewigen Lebens"
+    },
+    "fh-67": {
+      "1": "Füge, wenn du angegriffen wirst, +1 %game.action.attack% hinzu, statt eine Angriffsmodifikator-Karte zu ziehen, und drehe diese Karte um.",
+      "2": "Füge bei deiner Angriffsfertigkeit einem Angriff +1 %game.action.attack% hinzu, statt eine Angriffsmodifikator-Karte zu tiehen, und drehe diese Karte um.",
+      ".": "Samellinsen"
+    },
+    "fh-68": {
+      "1": "Negiere den %game.damage% der nächsten 3 gegen dich gerichteten %game.damage% Quellen mit bis zu 2 %game.damage%.",
+      ".": "Schuppenrüstung"
+    },
+    "fh-69": {
+      "1": "Wenn du durch einen Angriff %game.damage% erleidest, %game.element.consume.air% um %game.action.shield:3% für den Angriff zu erhalten.",
+      ".": "Federmantel"
+    },
+    "fh-70": {
+      "1": "Wann immer du %game.damage% durch %game.action.retaliate% erleidest, reduziere den %game.damage% auf 1. Ist der %game.damage% bereits 1, reduziere ihn auf 0.",
+      ".": "Aesther-Robe"
     },
     "fh-71": {
       "1": "Führe nach deiner Fertigkeit, mit der du einen Gegner getötet hast, aus:",
       ".": "Knochenstiefel"
     },
+    "fh-72": {
+      "1": "%game.element.consume.light% während deines Zugs, um auszuführen:",
+      ".": "Eichenstab"
+    },
+    "fh-73": {
+      "1": "Wenn du einem Verbündeten einen positiven Zustand gibst, erhält ein anderer Verbündeter in %game.action.range:3% denselben Zustand.",
+      ".": "Energieknüppel"
+    },
+    "fh-74": {
+      "1": "Führe während deines Zugs aus:",
+      ".": "Schockgranate"
+    },
     "fh-75": {
       "1": "Nachdem ein Verbündeter in %game.action.range:2% durch einen Angriff %game.damage% erleidet, entferne alle negativen Zustände von ihm und führe aus:",
       ".": "Rosenstulpe"
+    },
+    "fh-76": {
+      "1": "Bestimme während des Zugs eines deiner Beschworenen, wie er seine Fertigkeiten einsetzt.",
+      ".": "Befehlshorn"
+    },
+    "fh-77": {
+      "1": "Ersetze während deines Zugs einen 1er-Aufleger (Hindernis, Eis, schwieriges oder gefährliches Gelände) auf einem unbesetzten Feld in %game.action.range:2% durch einen der anderen genannten Typen.",
+      ".": "Chaoskanone"
+    },
+    "fh-78": {
+      "1": "Erhalte einmal pro Zug Vorteil für einen Angriff deiner Angriffsfertigkeit. Drehe dann die Karte am Ende deines Zugs um.",
+      "2": "Erhalte einmal pro Zug Nachteil für einen Angriff deiner Angriffsfertigkeit. Drehe dann die Karte am Ende deines Zugs um.",
+      ".": "Geeichte Waage"
+    },
+    "fh-79": {
+      "1": "Füge während deines Zugs allen deinen Angriffen +1 %game.action.attack% hinzu und führe aus:",
+      ".": "Brathähnchen"
+    },
+    "fh-80": {
+      "1": "Wenn du maximal 4 %game.damage% durch einen Angriff erleiden würdest, negiere den %game.damage% und führe aus: %game.action.heal% X Selbst. X ist der Schaden, den du erlitten hättest.",
+      ".": "Lebender Stein"
+    },
+    "fh-81": {
+      "1": "Wenn du maximal 5 %game.damage% durch einen Angriff erleidest, erleidet ein Gegner in %game.action.range:2% ebenso viel %game.damage%.",
+      ".": "Schmerzpuppe"
+    },
+    "fh-82": {
+      "1": "Gib bei deiner Bewegungsfertigkeit, nachdem du ein beliebiges Feld betreten hast, allen angrenzenden Gegnern %game.condition.immobilize%.",
+      ".": "Mechanikwürfel"
+    },
+    "fh-83": {
+      "1": "Führe während deines Zugs aus: %game.action.heal% 3 Selbst",
+      ".": "Heiltrank"
     },
     "fh-84": {
       "1": "%game.card.recover% während deines Zugs eine Stufe-1-Karte von deinem Abwurfstapel.",
       ".": "Ausdauertrank"
     },
+    "fh-85": {
+      "1": "Füge während deines Zugs allen deinen Angriffen +1 %game.action.attack% hinzu.",
+      ".": "Krafttrank"
+    },
+    "fh-86": {
+      "1": "%game.element.wild% während deines Zugs.",
+      ".": "Elementtrank"
+    },
+    "fh-87": {
+      "1": "Entferne während deines Zugs einen deiner negativen Zustände. Dieser Gegenstand kann trotz %game.condition.impair% und %game.condition.stun% genutzt werden.",
+      ".": "Arzneitrank"
+    },
+    "fh-88": {
+      "1": "Führe während deines Zugs aus: %game.action,retaliate% 1 %game.action.range:3% ",
+      ".": "Feuerschildtrank"
+    },
     "fh-89": {
       "1": "Führe während deines Zugs aus: %game.condition.ward% Selbst",
       ".": "Steinhauttrank"
+    },
+    "fh-90": {
+      "1": "Führe während deines Zugs aus: %game.condition.strengthen% Selbst",
+      ".": "Muskeltrank"
+    },
+    "fh-91": {
+      "1": "Führe während deines Zugs aus: %game.condition.bless% Selbst",
+      ".": "Weihwasser"
+    },
+    "fh-92": {
+      "1": "%game.card.recover% während deines Zugs bis zu 2 deiner abgenutzten Gegenstände.",
+      ".": "Erneuerungstrank"
+    },
+    "fh-93": {
+      "1": "Wenn du eine %game.attackmodifier.null% Angriffsmodifikator-Karte von deinem Deck ziehst, gilt sie stattdessen als %game.attackmodifier.plus0%.",
+      ".": "Streiftrank"
+    },
+    "fh-94": {
+      "1": "Führe während deines Zugs aus:",
+      ".": "Rasereitrank"
+    },
+    "fh-95": {
+      "1": "Führe während deines Zugs aus: %game.condition.poison% %game.action.range:1%",
+      ".": "Giftfläschchen"
+    },
+    "fh-96": {
+      "1": "Führe während deines Zugs aus: %game.condition.wound% %game.action.range:1%",
+      ".": "Flammenfläschchen"
+    },
+    "fh-97": {
+      "1": "Während deines Zugs erleidet ein Gegner in %game.action.range:2% %game.damage% 2.",
+      ".": "Sprengfläschchen"
+    },
+    "fh-98": {
+      "1": "Führe während deines Zugs aus: %game.condition.wound%, %game.condition.poison% Selbst",
+      ".": "Ungesunde Mischung"
+    },
+    "fh-99": {
+      "1": "Führe während deines Zugs aus: %game.action.heal% 6 Selbst",
+      ".": "Großer Heiltrank"
+    },
+    "fh-100": {
+      "1": "%game.card.recover% während deines Zugs eine Karte von deinem Abwurfstapel.",
+      ".": "Großer Ausdauertrank"
+    },
+    "fh-101": {
+      "1": "Füge während deines Zugs allen deinen Angriffen +2 %game.action.attack% hinzu.",
+      ".": "Großer Krafttrank"
+    },
+    "fh-102": {
+      "1": "%game.element.wild% %game.element.wild% während deines Zugs.",
+      ".": "Großer Elementtrank"
+    },
+    "fh-103": {
+      "1": "Entferne während deines Zugs alle deine negativen Zustände. Dieser Gegenstand kann trotz %game.condition.impair% und %game.condition.stun% genutzt werden.",
+      ".": "Großer Arzneitrank"
+    },
+    "fh-104": {
+      "1": "Füge bei deiner Bewegungsfertigkeit +3 %game.action.move% und %game.action.jump%. hinzu",
+      ".": "Flinkheitstrank"
+    },
+    "fh-105": {
+      "1": "Führe während deines Zugs aus: %game.action,retaliate% 2 %game.action.range:3% ",
+      ".": "Großer Feuerschild"
+    },
+    "fh-106": {
+      "1": "Führe während deines Zugs aus: %game.condition.ward% %game.action.target% 2 angrenzende Verbündete und Selbst",
+      ".": "Steinmauertrank"
+    },
+    "fh-107": {
+      "1": "Führe während deines Zugs aus: %game.condition.strengthen% %game.action.target% 2 angrenzende Verbündete und Selbst",
+      ".": "Elantrank"
+    },
+    "fh-108": {
+      "1": "Führe während deines Zugs aus: %game.condition.bless% %game.action.target% 2 angrenzende Verbündete und Selbst",
+      ".": "Heiliger Regen"
+    },
+    "fh-109": {
+      "1": "%game.card.recover% während deines Zugs maximal einen deiner verlorenen 2-Kräuter-Tränke.",
+      ".": "Großer Erneuerungstrank"
+    },
+    "fh-110": {
+      "1": "Wenn du eine %game.attackmodifier.null% Angriffsmodifikator-Karte von deinem Deck ziehst, gilt sie stattdessen als %game.attackmodifier.plus2%.",
+      ".": "Präzisionstrank"
+    },
+    "fh-111": {
+      "1": "Führe während deines Zugs aus:",
+      ".": "Großer Rasereitrank"
+    },
+    "fh-112": {
+      "1": "Erleide während deines Zugs %game.damage% 10.",
+      ".": "Hammertrank"
+    },
+    "fh-113": {
+      "1": "Wirf zu Beginn deines Zugs eine deiner ausgespielten Karten ab, um beide Aktionen der anderen ausgespielten Karte auszuführen. Maximal eine Aktion darf ein %game.card.lost% Symbol haben.",
+      ".": "Kompetenztrank"
+    },
+    "fh-114": {
+      "1": "Decke während deines Zugs die oberste Karte eines Monster-Fertigkeitsdecks auf. Du kannst die Karte unter das Deck legen.",
+      ".": "Vorhersagetrank"
+    },
+    "fh-115": {
+      "1": "Ignoriere bei einer deiner Aktionen während deines Zugs ein Elementverbrauch-Symbol und erhalte trotzdem den Effekt.",
+      ".": "Anreicherungstrank"
+    },
+    "fh-116": {
+      "1": "Führe während deines Zugs aus:",
+      ".": "Seuchenflasche"
+    },
+    "fh-117": {
+      "1": "Führe während deines Zugs aus:",
+      ".": "Infernoflasche"
+    },
+    "fh-118": {
+      "1": "Während deines Zugs erleidet ein Gegner in %game.action.range:2% %game.damage% 4.",
+      ".": "Fulminanzflasche"
+    },
+    "fh-119": {
+      "1": "Führe während deines Zugs aus:",
+      ".": "Tödliche Mischung"
     }
   },
   "treasures": {
