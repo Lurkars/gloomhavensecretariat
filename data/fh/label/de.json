@@ -742,11 +742,11 @@
         "4": "Negieren Sie in jeder Runde die erste Quelle von %game.damage% für einen benachbarten Verbündeten",
         "5": "Alle Feinde innerhalb von %game.action.range%4 erleiden zu Beginn ihres Zuges %game.damage:1%.",
         "6": "Addiere +1 %game.action.attack% für jeden Verbündeten neben dem Ziel",
-        "7": "Gewähre am Ende jeder deiner langen Pausen einem Verbündeten innerhalb von %game.action.range:3%: %game.action.move% 2",
-        "8": "Immer wenn du eine Tür mit einer Bewegungsfähigkeit öffnest, füge +3 %game.action.move% hinzu",
-        "9": "Einmal in jedem Szenario erhalten Sie während Ihres Zuges %game.action.shield% 2 für die Runde",
-        "10": "Greife mindestens drei Feinde mit jeweils drei unterschiedlichen Flächenangriffsfähigkeiten an",
-        "11": "Führe in deinem ersten Zug eine Bannerbeschwörungsfähigkeit aus, halte das Banner während des gesamten Szenarios am Leben und innerhalb von %game.action.range:3% von dir"
+        "7": "Gewähre am Ende deiner langen Rast einem Verbündeten in %game.action.range:3%: %game.action.move% 2",
+        "8": "Füge, wenn du eine Tür durch eine Bewegungsfertigkeit öffnest, +3 %game.action.move% hinzu",
+        "9": "Erhalte einmal pro Szenario während deines Zugs %game.action.shield% 2 für die Runde",
+        "10": "Greife mit 3 unterschiedlichen Wirkungsbereich-Angriffsfertigkeiten jeweils mindestens 3 Gegner an",
+        "11": "Beschwöre während deines ersten Zugs 1 Banner und halte es während des gesamten Szenarios am Leben und in %game.action.range:3% zu dir"
       },
       "blinkblade": {
         "1": "Lege diese Karte bei deinem nächsten Angriff ab, um +2 %game.action.attack% hinzuzufügen.<br>%game.card.persistent%",
@@ -754,41 +754,41 @@
         "3": "Erhalte 1 %data.characterToken.blinkblade.time%",
         "4": "Erhalte 1 %data.action.custom.fh-hourglass%",
         "5": "Wann immer Sie eine kurze Pause einlegen, können Sie einen nicht ausgegebenen %game.card.refresh%-Gegenstand ohne Wirkung ausgeben, um einen anderen ausgegebenen Gegenstand %game.card.recover% zu erhalten",
-        "6": "Zu Beginn Ihres ersten Zuges in jedem Szenario können Sie %game.action.move% 3 ausführen",
-        "7": "Wann immer Sie %game.condition.immobilize% erhalten würden, verhindern Sie den Zustand",
-        "8": "Erkläre für sieben aufeinanderfolgende Runden „Schnell“.",
-        "9": "Lassen Sie sich niemals zum Ziel eines Angriffs werden"
+        "6": "In jedem Szenario kannst du zu Beginn deines ersten Zugs %game.action.move% 3 ausführen",
+        "7": "Wann immer du %game.condition.immobilize% erhalten würdest, wird der Zustand verhindert",
+        "8": "Kündige in 7 aufeinanderfolgenden Runden „schnell“ an",
+        "9": "Sei nie das anvisierte Ziel eines Angriffs"
       },
       "boneshaper": {
         "1": "+1 %game.action.attack% für jeden Marker auf dieser Karte.",
         "2": "Töte die angreifende Beschwörung, um stattdessen %game.attack modifier.plus4% hinzuzufügen",
-        "3": "Unmittelbar vor jeder deiner Pausen kannst du einen deiner Beschworenen töten, um %game.condition.bless% selbst auszuführen",
-        "4": "Wenn in jedem Szenario ein Verbündeter eines Charakters durch %game.damage% erschöpft wäre, kannst du stattdessen %game.damage:2% erleiden, um seinen Trefferpunktwert auf 1 zu reduzieren",
-        "5": "Zu Beginn jedes Szenarios können Sie eine Karte der Stufe 1 aus Ihrer Hand spielen, um eine Beschwörungsaktion der Karte durchzuführen",
-        "6": "Töte mindestens fünfzehn deiner Beschworenen",
-        "7": "Führen Sie in Ihrem ersten Zug eine Beschwörungsaktion aus, lassen Sie die Beschwörung mindestens sechs Feinde töten und halten Sie sie für das gesamte Szenario am Leben"
+        "3": "Bevor du rastest kannst du einen deiner Beschworenen töten, um %game.condition.bless% Selbst auszuführen",
+        "4": "Du kannst einmal pro Szenario, wenn ein verbündeter Charakter durch Erleiden von %game.damage% erschöpft würde, %game.damage:2% erleiden, um seinen TP-Wert stattdessen auf 1 zu senken",
+        "5": "Zu Beginn jedes Szenarios kannst du eine Stufe-1-Karte von deiner Hand spielen, um eine Beschwörungsaktion der Karte auszuführen",
+        "6": "Töte mindestens 15 deiner Beschworenen",
+        "7": "Beschwöre im ersten Zug, lass den Beschworenen mindestens 6 Gegner töten und halte ihn während des gesamten Szenarios am Leben"
       },
       "deathwalker": {
-        "1": "Wenn Sie lange ruhen, können Sie einen %data.action.custom.fh-shadow% bis zu drei Felder weit bewegen",
-        "2": "Wann immer Sie eine kurze Pause einlegen, können Sie %game.element.consume.dark% ausführen, um %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% auszuführen, als ob Sie ein Feld besetzen würden mit einem %data.action.custom.fh-shadow%",
-        "3": "Während Sie ein Hexfeld mit einem %data.action.custom.fh-shadow% besetzen, erhalten alle Angriffe, die auf Sie abzielen, einen Nachteil",
-        "4": "Entferne sieben %data.action.custom.fh-shadow% in einer Runde",
-        "5": "Platzieren oder entfernen Sie in jeder Runde mindestens einen %data.action.custom.fh-shadow%"
+        "1": "Bei deiner langen Rast kannst du 1 %data.action.custom.fh-shadow% bis zu 3 Felder weit bewegen",
+        "2": "Bei deiner kurzen Rast kannst du %game.element.consume.dark%, um %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% auszuführen, als würdest du ein Feld mit %data.action.custom.fh-shadow% besetzen",
+        "3": "Während du ein Feld mit %data.action.custom.fh-shadow% besetzt, erhalten alle Angriffe, die dich anvisieren, Nachteil",
+        "4": "Entferne 7 %data.action.custom.fh-shadow% in einer Runde",
+        "5": "Platziere oder entferne mindestens 1 %data.action.custom.fh-shadow% in jeder Runde"
       },
       "drifter": {
         "1": "Bewegen Sie einen Ihrer Charaktermarker um einen Platz nach hinten",
-        "2": "Immer wenn Sie lange ruhen, können Sie einen Ihrer Charaktermarker um ein Feld nach hinten verschieben",
-        "3": "Sie können in jedes Szenario einen zusätzlichen %game.items.slots.onehand%-Gegenstand mitbringen",
-        "4": "Am Ende jedes Szenarios darfst du bis zu zwei Beutekarten, außer „Zufälliger Gegenstand“, abwerfen, um so viele neue Beutekarten zu ziehen",
-        "5": "Beenden Sie ein Szenario mit Ihren Charaktermarkern auf den letzten Feldern von vier dauerhaften Fähigkeiten",
-        "6": "Führe niemals eine Bewegungs- oder Angriffsfähigkeit mit einem Wert unter 4 aus und führe jede Runde mindestens eine Bewegungs- oder Angriffsfähigkeit aus"
+        "2": "Bei deiner langen Rast kannst du einen deiner Charaktermarker um ein Feld zurückbewegen",
+        "3": "Du kannst 1 zusätzlichen %game.items.slots.onehand%-Gegenstand in jedes Szenario mitnehmen",
+        "4": "Am Ende jedes Szenarios kannst du bis zu 2 Beutekarten außer „Zufälliger Gegenstand“ abwerfen,  um ebenso viele neue Beutekarten zu ziehen",
+        "5": "Beende das Szenario mit deinen Charaktermarkern auf den letzten Feldern deiner vier anhaltenden Fertigkeiten",
+        "6": "Führe nie eine Bewegungs- oder Angriffsfertigkeit mit einem Wert unter 4 aus, und führe jede Runde mindestens eine von beiden aus"
       },
       "geminate": {
-        "1": "Immer wenn du dich kurz ausruhst, kannst du einen negativen Zustand von einem Verbündeten innerhalb von %game.action.range:3% entfernen.",
+        "1": "Bei deiner kurzen Rast darfst du 1 negativen Zustand von 1 Verbündeten in %game.action.range:3% entfernen",
         "2": "Keine Negativen Szenarioeffekte",
-        "3": "Immer wenn Sie eine Aktion mit einem Verloren-Symbol ausführen, können Sie eine Karte abwerfen, um %game.card.recover% eine Karte von Ihrem Ablagestapel gleicher oder niedrigerer Stufe zu erhalten",
-        "4": "Wechseln Sie in jeder Runde die Form",
-        "5": "Verliere jede Runde mindestens eine Fähigkeitskarte"
+        "3": "Wann immer du eine Aktion mit Verloren-Symbol ausführst, kannst du 1 Karte abwerfen, um 1 Karte höchstens gleicher Stufe von deinem Abwurfstapel %game.card.recover%",
+        "4": "Wechsle jede Runde die Form",
+        "5": "Verliere jede Runde mindestens eine Fertigkeitskarte"
       }
     }
   }
