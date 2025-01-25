@@ -43,6 +43,26 @@
   "cancel": "Abbrechen",
   "character": {
     ".": "Charakter",
+    "abilities": {
+      "currentDeck": "Aktuelles Kartendeck",
+      "forceDeck": "Doppelklick um die Karte zum Kartendeck hinzu zufügen",
+      "pickCard": "Wähle deine Karte für Level {0}",
+      "removeFromDeck": "Doppelklick um die Karte vom Kartendeck zu entfernen",
+      "show": "Zeige alle Fertigkeitskarten",
+      "showDeck": "Zeige aktuelles Kartendeck",
+      "sort": {
+        "cardId": "Nach Kartennumer sortieren",
+        "level-deck": "Nach Kartendeckreihenfolge sortieren",
+        "level-name": "Nach Level und Name sortieren",
+        "name": "Nach Namen sortieren"
+      },
+      "undoLastPick": {
+        ".": "Kartenauswahl für Level {0} rückgängig",
+        "hint": "Doppelklick um die Kartenauswahl zurückzusetzen"
+      },
+      "warning": "Keine korrekte Kartenauswahl möglich, da zuviele Karten im Kartendeck sind!",
+      "wip": "<i>%wip%</i>"
+    },
     "absent": "Abwesend",
     "add": "Charakter hinzufügen",
     "class": {
