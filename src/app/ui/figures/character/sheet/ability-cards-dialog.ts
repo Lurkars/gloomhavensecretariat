@@ -1,5 +1,6 @@
 import { DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
+import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { Ability } from "src/app/game/model/data/Ability";
@@ -11,7 +12,7 @@ import { AbilityDialogComponent } from "../../ability/ability-dialog";
     templateUrl: 'ability-cards-dialog.html',
     styleUrls: ['./ability-cards-dialog.scss']
 })
-export class AbilityCardsDialogComponent {
+export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
 
     character: Character;
     level: number | string;
@@ -35,7 +36,19 @@ export class AbilityCardsDialogComponent {
                 this.additionalLevels.push(ability.level);
             }
         })
+    }
+
+    ngOnInit(): void {
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() })
         this.update();
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     update() {
