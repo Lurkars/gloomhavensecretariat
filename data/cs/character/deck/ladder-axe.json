@@ -1,0 +1,529 @@
+{
+  "name": "ladder-axe",
+  "edition": "cs",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Forcible Entry",
+      "cardId": 117,
+      "level": 1,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Comoined Effort",
+      "cardId": 118,
+      "level": 1,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Collective Combat",
+      "cardId": 119,
+      "level": 1,
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Controlled Aggression",
+      "cardId": 120,
+      "level": 1,
+      "initiative": 77,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Rapid Response",
+      "cardId": 121,
+      "level": 1,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Playing With Fire",
+      "cardId": 122,
+      "level": 1,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Fire Whirl",
+      "cardId": 123,
+      "level": 1,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Light Irons",
+      "cardId": 124,
+      "level": 1,
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Combat Medic",
+      "cardId": 125,
+      "level": 1,
+      "initiative": 61,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Coordinated Attack",
+      "cardId": 126,
+      "level": 1,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Fiery Charisma",
+      "cardId": 127,
+      "level": "X",
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Loyal Companion",
+      "cardId": 128,
+      "level": "X",
+      "initiative": 81,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Practical Tools",
+      "cardId": 129,
+      "level": "X",
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Heavy Irons",
+      "cardId": 130,
+      "level": 2,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Trauma Care",
+      "cardId": 131,
+      "level": 2,
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Ladder Assault",
+      "cardId": 132,
+      "level": 3,
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Crew Integrity",
+      "cardId": 133,
+      "level": 3,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Jack of Ail Trades",
+      "cardId": 134,
+      "level": 4,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Kindled Tonic",
+      "cardId": 135,
+      "level": 4,
+      "initiative": 39,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Hook and Ladder",
+      "cardId": 136,
+      "level": 5,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Searing Blaze",
+      "cardId": 137,
+      "level": 5,
+      "initiative": 75,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Flaming Axe",
+      "cardId": 138,
+      "level": 6,
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Mutual Aid",
+      "cardId": 139,
+      "level": 6,
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Rolling Flames",
+      "cardId": 140,
+      "level": 7,
+      "initiative": 53,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Search and Rescue",
+      "cardId": 141,
+      "level": 7,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Backdraft",
+      "cardId": 142,
+      "level": 8,
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Cauterize Wound",
+      "cardId": 143,
+      "level": 8,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Flashover",
+      "cardId": 144,
+      "level": 9,
+      "initiative": 96,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Incident Commander",
+      "cardId": 145,
+      "level": 9,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    }
+  ]
+}

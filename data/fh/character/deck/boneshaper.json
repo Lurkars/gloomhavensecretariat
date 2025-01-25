@@ -1,0 +1,565 @@
+{
+  "name": "boneshaper",
+  "edition": "fh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Life in Death",
+      "cardId": 120,
+      "level": 1,
+      "initiative": 91,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Returned Servant",
+      "cardId": 121,
+      "level": 1,
+      "initiative": 81,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Damned Horde",
+      "cardId": 122,
+      "level": 1,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Transfer of Essence",
+      "cardId": 123,
+      "level": 1,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Decaying Will",
+      "cardId": 124,
+      "level": 1,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Dark",
+      "cardId": 125,
+      "level": 1,
+      "initiative": 43,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Angry Spirits",
+      "cardId": 126,
+      "level": 1,
+      "initiative": 76,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Fell Remedy",
+      "cardId": 127,
+      "level": 1,
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Flow of the Black River",
+      "cardId": 128,
+      "level": 1,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Command the Wretched",
+      "cardId": 129,
+      "level": 1,
+      "initiative": 83,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Eternal Torment",
+      "cardId": 130,
+      "level": 1,
+      "initiative": 70,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Malicious Conuersion",
+      "cardId": 131,
+      "level": 1,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Approach Oblivion",
+      "cardId": 132,
+      "level": "X",
+      "initiative": 53,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Exploding Corpse",
+      "cardId": 133,
+      "level": "X",
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Wrath of the Turned Earth",
+      "cardId": 134,
+      "level": "X",
+      "initiative": 80,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Unearthed Horror",
+      "cardId": 135,
+      "level": 2,
+      "initiative": 94,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Bone",
+      "cardId": 136,
+      "level": 2,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Grave Digging",
+      "cardId": 137,
+      "level": 3,
+      "initiative": 96,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Putrid Cloud",
+      "cardId": 138,
+      "level": 3,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Critical Failure",
+      "cardId": 139,
+      "level": 4,
+      "initiative": 95,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Flesh Shield",
+      "cardId": 140,
+      "level": 4,
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Unforgivable methods",
+      "cardId": 141,
+      "level": 5,
+      "initiative": 98,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Solid Bones",
+      "cardId": 142,
+      "level": 5,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Rotting Multitude",
+      "cardId": 143,
+      "level": 6,
+      "initiative": 66,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Twisted Decree",
+      "cardId": 144,
+      "level": 6,
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Recycled Limbs",
+      "cardId": 145,
+      "level": 7,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Soul Claim",
+      "cardId": 146,
+      "level": 7,
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Endless Iumbers",
+      "cardId": 147,
+      "level": 8,
+      "initiative": 86,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Wailing from Beyond",
+      "cardId": 148,
+      "level": 8,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Unholy Prowess",
+      "cardId": 149,
+      "level": 9,
+      "initiative": 97,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Behold the Shrouded Sun",
+      "cardId": 150,
+      "level": 9,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    }
+  ]
+}

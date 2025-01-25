@@ -4,150 +4,6 @@
   "character": true,
   "abilities": [
     {
-      "name": "Spring the",
-      "cardId": 0,
-      "level": 1,
-      "initiative": 13,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Watch It Burn",
-      "cardId": 0,
-      "level": 1,
-      "initiative": 98,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Uisage of the Ineuitable",
-      "cardId": 0,
-      "level": 1,
-      "initiative": 88,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Stick to the Shadots",
-      "cardId": 0,
-      "level": 1,
-      "initiative": 26,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Crippling Poison",
-      "cardId": 3,
-      "level": 1,
-      "initiative": 30,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Con",
-      "cardId": 4,
-      "level": 1,
-      "initiative": 2,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Open Wound",
-      "cardId": 6,
-      "level": 1,
-      "initiative": 11,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Cull the Weak",
-      "cardId": 6,
-      "level": 1,
-      "initiative": 16,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
       "name": "Single Out",
       "cardId": 88,
       "level": 1,
@@ -155,283 +11,427 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Hlanking Strike",
+      "name": "Fanking Strike",
       "cardId": 89,
-      "level": "X",
+      "level": 1,
       "initiative": 4,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Smoke Bomb",
       "cardId": 90,
-      "level": "X",
+      "level": 1,
       "initiative": 12,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Backstab",
       "cardId": 91,
-      "level": "X",
+      "level": 1,
       "initiative": 6,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Thief s Knack",
       "cardId": 92,
-      "level": 2,
+      "level": 1,
       "initiative": 23,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Uenom Shio",
       "cardId": 93,
-      "level": 2,
+      "level": 1,
       "initiative": 60,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Throwing Knives",
       "cardId": 94,
-      "level": 3,
+      "level": 1,
       "initiative": 10,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Quick Hands",
       "cardId": 95,
-      "level": 3,
+      "level": 1,
       "initiative": 64,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Special Illixture",
+      "name": "Special Mixture",
       "cardId": 96,
-      "level": 4,
+      "level": 1,
       "initiative": 33,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Sinister Opportunity",
       "cardId": 97,
-      "level": 4,
+      "level": "X",
       "initiative": 93,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Trickster S Reversal",
       "cardId": 98,
-      "level": 5,
+      "level": "X",
       "initiative": 9,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Swift Bow",
       "cardId": 99,
-      "level": 5,
+      "level": "X",
       "initiative": 36,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Open Wound",
+      "cardId": 100,
+      "level": 2,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Flintlock",
+      "cardId": 101,
+      "level": 2,
+      "initiative": 90,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Hidden Daggers",
+      "cardId": 102,
+      "level": 3,
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Duelist s Advance",
+      "cardId": 103,
+      "level": 3,
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Flurry of Blades",
       "cardId": 104,
-      "level": 6,
+      "level": 4,
       "initiative": 3,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Hidden Daggers",
-      "cardId": 107,
-      "level": 6,
-      "initiative": 85,
+      "name": "Gruesome Addantage",
+      "cardId": 105,
+      "level": 4,
+      "initiative": 62,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Duelist s Advance",
-      "cardId": 107,
-      "level": 7,
+      "name": "Cull the Weak",
+      "cardId": 106,
+      "level": 5,
       "initiative": 16,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Visage of the Inevitable",
+      "cardId": 107,
+      "level": 5,
+      "initiative": 88,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Crippling Poison",
+      "cardId": 108,
+      "level": 6,
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Burning Uil",
       "cardId": 109,
-      "level": 7,
+      "level": 6,
       "initiative": 95,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Stick to the Shadows",
+      "cardId": 110,
+      "level": 7,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Spring the Trap",
+      "cardId": 111,
+      "level": 7,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -443,13 +443,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -461,49 +461,49 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Flintlock",
-      "cardId": 401,
+      "name": "Long Con",
+      "cardId": 114,
       "level": 9,
-      "initiative": 90,
+      "initiative": 2,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Gruesome Addantage",
-      "cardId": 405,
+      "name": "Watch It Burn",
+      "cardId": 115,
       "level": 9,
-      "initiative": 62,
+      "initiative": 98,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     }

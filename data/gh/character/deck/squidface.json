@@ -4,24 +4,6 @@
   "character": true,
   "abilities": [
     {
-      "name": "Baneful Hex",
-      "cardId": 34,
-      "level": 1,
-      "initiative": 33,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
       "name": "Uile Pestilence",
       "cardId": 289,
       "level": 1,
@@ -29,13 +11,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Grasping Vermin",
+      "cardId": 290,
+      "level": 9,
+      "initiative": 69,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -47,13 +47,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -65,13 +65,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -83,13 +83,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -101,13 +101,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -119,31 +119,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "bathering Doom",
+      "name": "Gathering Doom",
       "cardId": 296,
       "level": 1,
-      "initiative": 376,
+      "initiative": 76,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -155,13 +155,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -173,13 +173,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -191,13 +191,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -209,13 +209,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -227,13 +227,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -245,13 +245,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -263,13 +263,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -281,13 +281,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -295,17 +295,17 @@
       "name": "Succumb fo the Gift",
       "cardId": 305,
       "level": 3,
-      "initiative": 370,
+      "initiative": 70,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -317,13 +317,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -335,13 +335,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -353,13 +353,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -371,13 +371,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -389,13 +389,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -407,13 +407,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -425,13 +425,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -443,31 +443,49 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Baneful Hex",
+      "cardId": 314,
+      "level": 7,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Spreading Scourge",
       "cardId": 315,
-      "level": 7,
+      "level": 8,
       "initiative": 71,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -479,31 +497,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Illass Extinction",
+      "name": "Mass Extinction",
       "cardId": 317,
-      "level": 8,
+      "level": 9,
       "initiative": 94,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -515,31 +533,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "brasping Uermin",
-      "cardId": 790,
-      "level": 9,
-      "initiative": 69,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     }

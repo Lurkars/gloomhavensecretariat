@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GardenModel } from "src/app/game/model/Building";
 import { Character } from "src/app/game/model/Character";
 import { herbResourceLootTypes, LootType } from "src/app/game/model/data/Loot";
@@ -24,6 +25,8 @@ export class GardenComponent {
     characters: Character[] = [];
     currentSource: number = -1;
     harvested: boolean = false;
+
+    settingsManager: SettingsManager = settingsManager;
 
     constructor() {
         this.update();
@@ -130,10 +133,12 @@ export class GardenComponent {
     }
 
     toggleAutomation() {
-        gameManager.stateManager.before('buildings.garden.' + (this.garden.automated ? 'automationOff' : 'automationOn'));
-        this.garden.automated = !this.garden.automated;
-        gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
-        gameManager.stateManager.after();
+        if (settingsManager.settings.automaticPassTime) {
+            gameManager.stateManager.before('buildings.garden.' + (this.garden.automated ? 'automationOff' : 'automationOn'));
+            this.garden.automated = !this.garden.automated;
+            gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
+            gameManager.stateManager.after();
+        }
     }
 
     harvest() {

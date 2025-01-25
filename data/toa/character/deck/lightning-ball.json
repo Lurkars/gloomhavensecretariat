@@ -1,0 +1,529 @@
+{
+  "name": "lightning-ball",
+  "edition": "toa",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Flash of Lightning",
+      "cardId": 580,
+      "level": 1,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Static Shock",
+      "cardId": 581,
+      "level": 1,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Voltaic Burst",
+      "cardId": 582,
+      "level": 1,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Electromagnetic Pulse",
+      "cardId": 583,
+      "level": 1,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Scorching Arcbolt",
+      "cardId": 584,
+      "level": 1,
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Breakneck Blitz",
+      "cardId": 585,
+      "level": 1,
+      "initiative": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Energy Siphon",
+      "cardId": 586,
+      "level": 1,
+      "initiative": 19,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Channeled Energy",
+      "cardId": 587,
+      "level": 1,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Surging Storm",
+      "cardId": 588,
+      "level": 1,
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Swift Strike",
+      "cardId": 589,
+      "level": 1,
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Lightbender",
+      "cardId": 590,
+      "level": "X",
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Aerial Dominance",
+      "cardId": 591,
+      "level": "X",
+      "initiative": 39,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Nimble Resilience",
+      "cardId": 592,
+      "level": "X",
+      "initiative": 66,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Arcblast",
+      "cardId": 593,
+      "level": 2,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Hard Target",
+      "cardId": 594,
+      "level": 2,
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Air Current",
+      "cardId": 595,
+      "level": 3,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Electric Current",
+      "cardId": 596,
+      "level": 3,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Arc Reaction",
+      "cardId": 597,
+      "level": 4,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Rejuvenating Charge",
+      "cardId": 598,
+      "level": 4,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Stormy Retribution",
+      "cardId": 599,
+      "level": 5,
+      "initiative": 77,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Spark Conduit",
+      "cardId": 600,
+      "level": 5,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Electrostatic Bypass",
+      "cardId": 601,
+      "level": 6,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Jetstream Gust",
+      "cardId": 602,
+      "level": 6,
+      "initiative": 69,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Radiant Explosion",
+      "cardId": 603,
+      "level": 7,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Rushing Wind",
+      "cardId": 604,
+      "level": 7,
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Hurricane",
+      "cardId": 605,
+      "level": 8,
+      "initiative": 82,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Shock Therapy",
+      "cardId": 606,
+      "level": 8,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Storm Lightning",
+      "cardId": 607,
+      "level": 9,
+      "initiative": 88,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Protective Gale",
+      "cardId": 608,
+      "level": 9,
+      "initiative": 2,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,529 @@
+{
+  "name": "banner-spear",
+  "edition": "fh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "At All Costs",
+      "cardId": 61,
+      "level": 1,
+      "initiative": 60,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Rallying Cry",
+      "cardId": 62,
+      "level": 1,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Unbreakable Wall",
+      "cardId": 63,
+      "level": 1,
+      "initiative": 83,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Jauelin",
+      "cardId": 64,
+      "level": 1,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Deflecting Maneuver",
+      "cardId": 65,
+      "level": 1,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Tip of the Spear",
+      "cardId": 66,
+      "level": 1,
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Combined Effort",
+      "cardId": 67,
+      "level": 1,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Set for the",
+      "cardId": 68,
+      "level": 1,
+      "initiative": 6,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Pincer Movement",
+      "cardId": 69,
+      "level": 1,
+      "initiative": 69,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Regroup",
+      "cardId": 70,
+      "level": 1,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Resolved Courage",
+      "cardId": 71,
+      "level": "X",
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Incendiary Throw",
+      "cardId": 72,
+      "level": "X",
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Driving Inspiration",
+      "cardId": 73,
+      "level": "X",
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Meat Grinder",
+      "cardId": 74,
+      "level": 2,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Pinning Charge",
+      "cardId": 75,
+      "level": 2,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Let Them Come",
+      "cardId": 76,
+      "level": 3,
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Head of the Hammer",
+      "cardId": 77,
+      "level": 3,
+      "initiative": 87,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Boldening Blow",
+      "cardId": 78,
+      "level": 4,
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Air Support",
+      "cardId": 79,
+      "level": 4,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Explosive Epicenter",
+      "cardId": 80,
+      "level": 5,
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Hold the Line",
+      "cardId": 81,
+      "level": 5,
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Barricade",
+      "cardId": 82,
+      "level": 6,
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Bolstering Shout",
+      "cardId": 83,
+      "level": 6,
+      "initiative": 75,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "TricThrust",
+      "cardId": 84,
+      "level": 7,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Lead from Afar",
+      "cardId": 85,
+      "level": 7,
+      "initiative": 80,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Sweeping Aid",
+      "cardId": 86,
+      "level": 8,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Taunting Howl",
+      "cardId": 87,
+      "level": 8,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Take no Prisoners",
+      "cardId": 88,
+      "level": 9,
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Hail of Spears",
+      "cardId": 89,
+      "level": 9,
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    }
+  ]
+}

@@ -4,24 +4,6 @@
   "character": true,
   "abilities": [
     {
-      "name": "Ilightfall",
-      "cardId": 177,
-      "level": 1,
-      "initiative": 73,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
       "name": "Black Knives",
       "cardId": 261,
       "level": 1,
@@ -29,13 +11,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -47,49 +29,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Empowering Uoid",
+      "name": "Empowering Void",
       "cardId": 263,
       "level": 1,
       "initiative": 21,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Silent Force",
-      "cardId": 263,
-      "level": 1,
-      "initiative": 91,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -101,13 +65,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -119,13 +83,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -137,13 +101,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -155,31 +119,49 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Silent Force",
+      "cardId": 268,
+      "level": 1,
+      "initiative": 91,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Smoke",
       "cardId": 269,
-      "level": "X",
+      "level": 1,
       "initiative": 28,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -191,13 +173,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -209,31 +191,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Dark Cloud",
       "cardId": 272,
-      "level": 2,
+      "level": "X",
       "initiative": 74,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -245,31 +227,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Soulfire",
       "cardId": 274,
-      "level": 3,
+      "level": 2,
       "initiative": 85,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -281,31 +263,49 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Armor of the Jlight",
       "cardId": 276,
-      "level": 4,
+      "level": 3,
       "initiative": 23,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Nightfall",
+      "cardId": 277,
+      "level": 4,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -317,13 +317,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -335,13 +335,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -353,13 +353,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -371,13 +371,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -389,13 +389,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -407,13 +407,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -425,13 +425,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -443,13 +443,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -461,13 +461,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -479,13 +479,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -497,13 +497,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     }

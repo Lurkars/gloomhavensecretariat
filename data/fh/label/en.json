@@ -501,7 +501,7 @@
         ".": "Manage Garden",
         "automated": {
           ".": "Automatic Harvesting",
-          "hint": "Harvest Garden automatically when a week passed by"
+          "hint": "Harvest Garden automatically when a week passed by. This is disabled when <i>%settings.automaticPassTime%</i> is not activated."
         },
         "harvest": "Manually Harvest",
         "interaction": "Plant/Harvest herbs",

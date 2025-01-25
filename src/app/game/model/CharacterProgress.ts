@@ -22,6 +22,7 @@ export class CharacterProgress {
   donations: number = 0;
   scenarioStats: ScenarioStats[] = [];
   trial: Identifier | undefined;
+  deck: number[] = [];
 
 }
 

@@ -4,24 +4,6 @@
   "character": true,
   "abilities": [
     {
-      "name": "Biting Wind",
-      "cardId": 7,
-      "level": 1,
-      "initiative": 25,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
       "name": "Forged Ferocity",
       "cardId": 233,
       "level": 1,
@@ -29,13 +11,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -47,13 +29,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -65,13 +47,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -83,13 +65,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -101,31 +83,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Illighty Bond",
+      "name": "Mighty Bond",
       "cardId": 238,
       "level": 1,
       "initiative": 51,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -137,13 +119,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Biting Wind",
+      "cardId": 240,
+      "level": 1,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -155,13 +155,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -173,13 +173,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -191,139 +191,157 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Ethereal Uines",
+      "cardId": 244,
+      "level": "X",
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Earthen Steed",
       "cardId": 245,
-      "level": "X",
+      "level": 2,
       "initiative": 13,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Grasping the Uoid",
+      "name": "Grasping the Void",
       "cardId": 246,
       "level": 2,
       "initiative": 62,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Tear the Fabric",
       "cardId": 247,
-      "level": 2,
+      "level": 3,
       "initiative": 41,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Oozing Illanifestation",
+      "name": "Oozing Manifestation",
       "cardId": 248,
       "level": 3,
       "initiative": 86,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Living Illountain",
+      "name": "Living Mountain",
       "cardId": 249,
-      "level": 3,
+      "level": 4,
       "initiative": 88,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Divided Illind",
+      "name": "Divided Mind",
       "cardId": 250,
       "level": 4,
       "initiative": 55,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Strength in llumbers",
       "cardId": 251,
-      "level": 4,
+      "level": 5,
       "initiative": 45,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -335,67 +353,67 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Endless Spikes",
       "cardId": 253,
-      "level": 5,
+      "level": 6,
       "initiative": 97,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Inexorable Illomentum",
+      "name": "Inexorable Momentum",
       "cardId": 254,
       "level": 6,
       "initiative": 32,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "llegative Energy",
       "cardId": 255,
-      "level": 6,
+      "level": 7,
       "initiative": 95,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -407,31 +425,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
       "name": "Interdening Apparitions",
       "cardId": 257,
-      "level": 7,
+      "level": 8,
       "initiative": 68,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -443,67 +461,49 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Interplanar Mllastery",
+      "name": "Interplanar Mastery",
       "cardId": 259,
-      "level": 8,
+      "level": 9,
       "initiative": 22,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Horned Mllajesty",
+      "name": "Horned Majesty",
       "cardId": 260,
       "level": 9,
       "initiative": 80,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Ethereal Uines",
-      "cardId": 744,
-      "level": 9,
-      "initiative": 30,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     }

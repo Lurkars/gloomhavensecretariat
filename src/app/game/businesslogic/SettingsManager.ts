@@ -7,7 +7,7 @@ import { Settings } from "../model/Settings";
 import { BuildingData } from "../model/data/BuildingData";
 import { EditionData } from "../model/data/EditionData";
 import { Spoilable } from "../model/data/Spoilable";
-import { debugManager } from "./DebugManager";
+import { DebugManager, debugManager } from "./DebugManager";
 import { gameManager } from "./GameManager";
 import { storageManager } from "./StorageManager";
 
@@ -25,6 +25,7 @@ export class SettingsManager {
   label: any = {};
   locales: string[] = ["en", "de", "fr", "ko"];
   developent: boolean = false;
+  debugManager: DebugManager = debugManager;
 
 
   async init(developent: boolean) {

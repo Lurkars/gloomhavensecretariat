@@ -1,5 +1,5 @@
 <div class="hint-container" *ngIf="type == 'checkbox'">
-    <label [ngClass]="{'disabled': disabled     || isDisabled}">
+    <label [ngClass]="{'disabled': disabled || isDisabled}">
         <input tabclick type="checkbox"
             [checked]="!disabled && !isDisabled && settingsManager.settings[setting] || checked"
             (change)="settingsManager.toggle(setting)">

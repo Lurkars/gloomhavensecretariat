@@ -7,8 +7,9 @@
                 [ghs-label]="level < 3 ? (!garden.flipped ? 'data.buildings.garden.plots.state.plant' : 'data.buildings.garden.plots.state.harvest') : 'data.buildings.garden.plots.state.both'">
             </div>
             <div class="hint-container">
-                <label>
-                    <input type="checkbox" [(ngModel)]="garden.automated">
+                <label [ngClass]="{'disabled': !settingsManager.settings.automaticPassTime}">
+                    <input type="checkbox" (change)="toggleAutomation()"
+                        [checked]="garden.automated && settingsManager.settings.automaticPassTime" [disabled]="!settingsManager.settings.automaticPassTime">
                     <span [ghs-label]="'data.buildings.garden.plots.automated'"></span>
                 </label>
                 <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
@@ -17,7 +18,7 @@
                 </span>
             </div>
 
-            <a *ngIf="!garden.automated && !harvested" (click)="harvest()"
+            <a *ngIf="(!garden.automated || !settingsManager.settings.automaticPassTime) && !harvested" (click)="harvest()"
                 [ghs-label]="'data.buildings.garden.plots.harvest'"></a>
         </div>
 

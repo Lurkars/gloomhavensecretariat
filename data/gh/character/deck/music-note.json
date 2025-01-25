@@ -11,13 +11,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -29,13 +29,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -47,13 +47,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -65,13 +65,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -83,13 +83,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -101,31 +101,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
-        }
-      ]
-    },
-    {
-      "name": "Unending Chant",
-      "cardId": 353,
-      "level": 1,
-      "initiative": 51,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
-        }
-      ],
-      "bottomActions": [
-        {
-          "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -137,13 +119,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -155,31 +137,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Mllarching Beat",
+      "name": "Marching Beat",
       "cardId": 356,
-      "level": "X",
+      "level": 1,
       "initiative": 32,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -191,13 +173,31 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
+        }
+      ]
+    },
+    {
+      "name": "Unending Chant",
+      "cardId": 358,
+      "level": "X",
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -209,13 +209,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -227,13 +227,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -245,13 +245,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -263,13 +263,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -281,13 +281,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -299,13 +299,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -317,49 +317,49 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Illelody and Harmony",
+      "name": "Melody and Harmony",
       "cardId": 366,
       "level": 5,
       "initiative": 78,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
     {
-      "name": "Illobilizing Illeasure",
+      "name": "Mobilizing Measure",
       "cardId": 367,
       "level": 5,
       "initiative": 6,
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -371,13 +371,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -389,13 +389,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -407,13 +407,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -425,13 +425,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -443,13 +443,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -461,13 +461,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -479,13 +479,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     },
@@ -497,13 +497,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%wip%"
+          "value": "%character.abilities.wip%"
         }
       ]
     }
