@@ -1954,8 +1954,7 @@
             "hint": "Entsprechende Zustände werden automatisch nach dem Zug der Figur entfernt, z.B. Stärke wird nach dem Zug entfernt."
         },
         "feedback": {
-            ".": "Feedback Button deaktivieren",
-            "hint": ""
+            ".": "Feedback Button deaktivieren"
         },
         "feedbackErrors": {
             ".": "Automatisches Feedback",
