@@ -2268,8 +2268,7 @@
         },
         "gameplay": "Gameplay",
         "ge5Player": {
-            ".": "≥ 5 player rules",
-            "hint": ""
+            ".": "≥ 5 player rules"
         },
         "helperDefaults": {
             ".": "Apply default Helper settings",
