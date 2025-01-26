@@ -2864,6 +2864,12 @@
         ".": "Herausforderungen",
         "automation": {
             "hint": "Die Effekte dieser Karte werden automatisch angewendet!"
+        },
+        "deck": {
+            "clear": {
+                ".": "Gezogene Herausforderung verwerfen",
+                "multiple": "Gezogene Herausforderungen verwerfen"
+            }
         }
     }
 }
