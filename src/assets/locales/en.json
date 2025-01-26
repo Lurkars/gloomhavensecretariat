@@ -2195,8 +2195,7 @@
             "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strengthen will be removed after turn"
         },
         "feedback": {
-            ".": "Disable Feedback Button",
-            "hint": ""
+            ".": "Disable Feedback Button"
         },
         "feedbackErrors": {
             ".": "Automatic Feedback",
