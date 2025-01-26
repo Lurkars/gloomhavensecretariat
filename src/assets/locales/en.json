@@ -2271,8 +2271,7 @@
             ".": "≥ 5 player rules"
         },
         "helperDefaults": {
-            ".": "Apply default Helper settings",
-            "hint": ""
+            ".": "Apply default Helper settings"
         },
         "hideAbsent": {
             ".": "Hide absent figures",
