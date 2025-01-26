@@ -23,13 +23,6 @@
   "campaign": {
     ".": "Campaign/Character Management",
     "battleGoals": "Battle Goal Setup",
-    "character": "Character Sheets",
-    "items": "Itemcards Overview",
-    "map": {
-      ".": "Global Map",
-      "highlighting": "Highlighting"
-    },
-    "party": "Party/Campaign Sheet",
     "campaignManagement": {
       ".": "Manage Campaign",
       "add": "Add Campaign",
@@ -37,6 +30,13 @@
       "name": "Name for Campaign {0}",
       "reset": "Reset Campaign"
     },
+    "character": "Character Sheets",
+    "items": "Itemcards Overview",
+    "map": {
+      ".": "Global Map",
+      "highlighting": "Highlighting"
+    },
+    "party": "Party/Campaign Sheet",
     "resources": "Resource Overview Table",
     "sheet": "Global Campaign Management Sheet",
     "trials": {
@@ -100,11 +100,11 @@
     "absent": "Absent",
     "add": "Add Character",
     "class": {
-      "algox": "Algox",
       "aesther": "Aesther",
+      "algox": "Algox",
       "f": {
-        "algox": "Algox",
         "aesther": "Aesther",
+        "algox": "Algox",
         "harrower": "Harrower",
         "human": "Human",
         "inox": "Inox",
@@ -121,8 +121,8 @@
       "inox": "Inox",
       "lurker": "Lurker",
       "m": {
-        "algox": "Algox",
         "aesther": "Aesther",
+        "algox": "Algox",
         "harrower": "Harrower",
         "human": "Human",
         "inox": "Inox",
@@ -158,8 +158,8 @@
       "donations": "Donations to Sanctuary of the Great Oak: {0}",
       "export": "Export",
       "fh": {
-        "enable": "Go to Frosthaven Character Sheet",
-        "disable": "Go to Gloomhaven Character Sheet"
+        "disable": "Go to Gloomhaven Character Sheet",
+        "enable": "Go to Frosthaven Character Sheet"
       },
       "gold": "Gold",
       "gold-notes": "Gold Notes",
@@ -192,8 +192,8 @@
       },
       "resources": {
         ".": "Resources",
-        "move": "Move to Frosthaven Supply",
-        "apply": "Move Resources"
+        "apply": "Move Resources",
+        "move": "Move to Frosthaven Supply"
       },
       "retired": "Retired",
       "retirement": {
@@ -369,16 +369,16 @@
       "data": {
         ".": "Character Data",
         "deck": "Ability Deck Name",
-        "json": {
-          ".": "Character Data JSON Data",
-          "download": "Download Character Data as JSON file"
-        },
         "hp": {
-          ".": "Hit Points",
           "-1": "Custom Profile",
+          ".": "Hit Points",
           "0": "Low Profile",
           "1": "Middle Profile",
           "2": "High Profile"
+        },
+        "json": {
+          ".": "Character Data JSON Data",
+          "download": "Download Character Data as JSON file"
         }
       },
       "edition": "Edition",
@@ -516,12 +516,12 @@
         "card": "card",
         "cardLabel": "{0}{1} {2}",
         "cards": {
+          ".": "cards",
           "1": "%number.1%",
           "2": "%number.2%",
           "3": "%number.3%",
           "4": "%number.4%",
-          "5": "%number.5%",
-          ".": "cards"
+          "5": "%number.5%"
         },
         "effects": {
           "recoverRandomDiscard": "Recover %game.card.recover% one random card from your discard pile",
@@ -559,8 +559,8 @@
       "all": "Current Cards",
       "cancel": "Cancel",
       "choose": "Choose Battle Goal for %game.characterIconColored.{0}% {1}",
-      "chosen": "Battle Goal for %game.characterIconColored.{0}% {1}",
       "chooseCard": "Choose selected Card",
+      "chosen": "Battle Goal for %game.characterIconColored.{0}% {1}",
       "drawCard": "Draw another card",
       "drawCards": "Redraw cards",
       "drawUnavailable": "All Battle Goals have been drawn!",
@@ -643,7 +643,7 @@
       },
       "heal": {
         ".": "Heal",
-        "hint": ""
+        "hint": "No condition, but helper if %game.action.heal% should be applied when increasing hitpoints."
       },
       "immobilize": {
         ".": "Immobilize",
@@ -739,7 +739,6 @@
     "dead": "Dead",
     "element": {
       "air": "Air",
-      "wild": "Wild",
       "dark": "Dark",
       "earth": "Earth",
       "fire": "Fire",
@@ -752,7 +751,8 @@
         "new": "strong",
         "strong": "strong",
         "waning": "waning"
-      }
+      },
+      "wild": "Wild"
     },
     "enemy": "Enemy",
     "events": {
@@ -771,12 +771,12 @@
       },
       "rewards": {
         "additionalGold": "Gain {0} additional gold each.",
-        "event": "Add %game.events.type.{0}% Event {1} to the deck.",
         "collectiveGold": "Gain {0} collective gold.",
         "collectiveItem": "Gain {2} collective \"%data.items.{1}-{0}%\" (Item {0}).",
         "consumeCollectiveItem": "Consume {0} collective %game.itemSlot:{1}% item.",
         "consumeItem": "Consume {0} %game.itemSlot:{1}% item each.",
         "discard": "Discard {0} cards each.",
+        "event": "Add %game.events.type.{0}% Event {1} to the deck.",
         "experience": "Gain {0} experience each.",
         "globalAchievement": "Global Achievement: \"{0}\".",
         "gold": "Gain {0} gold each.",
@@ -787,10 +787,10 @@
         "loseReputation": "Lose {0} reputation.",
         "noEffect": "No effect.",
         "outcome": "Read outome %game.events.option.{0}%.",
-        "randomItemDesign": "Gain Random Item Design.",
-        "reputation": "Gain {0} reputation.",
         "partyAchievement": "Party Achievement: \"{0}\".",
         "prosperity": "Gain {0} prosperity.",
+        "randomItemDesign": "Gain Random Item Design.",
+        "reputation": "Gain {0} reputation.",
         "scenario": "Unlock \"{1}\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "All start scenario with %game.condition.{0}%.",
         "scenarioDamage": "All start scenario with {0} damage.",
@@ -843,8 +843,8 @@
       "brewing": {
         ".": "Brew Potions",
         "brew": "Brew",
-        "brewed": "{2} brewed {1} %game.itemFh.{0}%",
         "brewFor": "Brew for {0}",
+        "brewed": "{2} brewed {1} %game.itemFh.{0}%",
         "brewedOther": "{2} brewed {1} %game.itemFh.{0}% for {3}",
         "disabled": "Cannot brew potions, rebuild '%data.buildings.alchemist%' (35) first",
         "item": "{1} %game.itemFh.{0}%",
@@ -971,9 +971,9 @@
           "goldFh": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "perform \"Heal {0}, Self\"",
           "item": "gain {1} ({0})",
-          "itemFh": "gain {1} %game.itemFh.{0}%",
-          "itemDesign": "gain {1} design ({0})",
           "itemBlueprint": "gain {1} blueprint %game.itemFh.{0}%",
+          "itemDesign": "gain {1} design ({0})",
+          "itemFh": "gain {1} %game.itemFh.{0}%",
           "loot": "gain {0} money tokens",
           "lootCards": "gain %number.{0}% loot cards",
           "partyAchievement": "Party Achievement: \"{0}\"",
@@ -1020,9 +1020,9 @@
       "enemiesMovedThrough": "%game.target% all enemies moved through",
       "enemiesMovedThroughAdjacent": "%game.target% all enemies occupying or adjacent to<br>hexes entered during the move ability",
       "enemiesRange": "%game.target% all enemies within %game.action.range% {0}",
-      "enemiesRangeExact": "%game.target% all enemies at exactly %game.action.range% {0}",
       "enemiesRangeAffect": "%game.affect% all enemies within %game.action.range% {0}",
       "enemiesRangeAffectExact": "%game.affect% all enemies at exactly %game.action.range% {0}",
+      "enemiesRangeExact": "%game.target% all enemies at exactly %game.action.range% {0}",
       "enemy": "%game.target% one enemy",
       "enemyAdjacent": "%game.target% one adjacent enemy",
       "enemyOneAll": "%game.target% one enemy with all attacks",
@@ -1041,15 +1041,15 @@
     },
     "sufferDamage": "{0} suffers %game.damage:{1}%",
     "summon": {
+      "player2-3": "%game.monsterType.{0}% for two or three characters or %game.monsterType.{1}% for four characters",
+      "player3-4": "%game.monsterType.{0}% for two or %game.monsterType.{1}% for three or four characters",
+      "playerAll": "%game.monsterType.{0}% for all characters",
       "spawn": "{1} %data.monster.{0}%",
       "spawnMarker": "{1} %data.monster.{0}% at %game.mapMarker.{2}%",
       "spawnObjective": "{1} %data.objective.{0}%",
       "spawnObjectiveMarker": "{1} %data.objective.{0}% at %game.mapMarker.{2}%",
       "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
-      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
-      "playerAll": "%game.monsterType.{0}% for all characters",
-      "player2-3": "%game.monsterType.{0}% for two or three characters or %game.monsterType.{1}% for four characters",
-      "player3-4": "%game.monsterType.{0}% for two or %game.monsterType.{1}% for three or four characters"
+      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%"
     },
     "target": {
       ".": "Target",
@@ -1134,6 +1134,7 @@
   },
   "numbered": {
     "1": "first",
+    "10": "tenth",
     "2": "second",
     "3": "third",
     "4": "fourth",
@@ -1141,8 +1142,7 @@
     "6": "sixth",
     "7": "seventh",
     "8": "eighth ",
-    "9": "ninth",
-    "10": "tenth"
+    "9": "ninth"
   },
   "objective": {
     ".": "Objective",
@@ -1171,6 +1171,10 @@
       "items": "Unlocked Items",
       "manage": "Global Campaign Management",
       "map": "Map",
+      "players": {
+        ".": "Player Names",
+        "add": "Add Player"
+      },
       "retirements": {
         ".": "Retired Characters",
         "character": "Character",
@@ -1181,14 +1185,10 @@
         "player": "Player",
         "reactivate": "Reactivate Character"
       },
-      "players": {
-        ".": "Player Names",
-        "add": "Add Player"
-      },
       "scenarios": {
         ".": "Scenarios",
-        "addSuccess": "Mark successful",
         "addConclusion": "Add Conclusion",
+        "addSuccess": "Mark successful",
         "conclusions": "Conclusions",
         "edition": "Edition",
         "finished": "Finished",
@@ -1342,6 +1342,9 @@
       ".": "All Characters",
       "hint": "Update and change all characters and objectives."
     },
+    "code": {
+      ".": "New Game Code for Permissions"
+    },
     "create": "Create new Permissions",
     "custom": {
       ".": "Define new Permissions",
@@ -1367,9 +1370,6 @@
     "party": {
       ".": "Party",
       "hint": "Update and change Party and Campaign progress"
-    },
-    "code": {
-      ".": "New Game Code for Permissions"
     },
     "round": {
       ".": "Round",
@@ -1460,20 +1460,20 @@
       "index": "Scenario number, comma separated"
     },
     "openRoom": "Open door",
-    "openRoomRef": "Open door for tile '{0}'",
     "openRoomMarker": "Open door %game.mapMarker.{1}%",
     "openRoomMarkerRef": "Open door %game.mapMarker.{1}% for tile '{0}'",
+    "openRoomRef": "Open door for tile '{0}'",
     "random": "Random Dungeon",
     "requirements": {
       ".": "Scenario Requirements",
       "all": "Show all requirements (include fulfilled)",
-      "cancel": "Cancel",
       "buildings": "'%data.buildings.{0}%' (Building) BUILD",
       "buildingsLevel": "'%data.buildings.{0}%' (Building) Level {1} BUILD",
       "buildingsMissing": "'%data.buildings.{0}%' (Building) NOT BUILD",
       "campaignStickers": "'{0}' (Campaign Sticker) COMPLETE",
       "campaignStickersCount": "'{0}' (Campaign Sticker) x{2} COMPLETE  (got {1})",
       "campaignStickersMissing": "'{0}' (Campaign Sticker) INCOMPLETE",
+      "cancel": "Cancel",
       "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' present",
       "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' absent",
       "global": "'{0}' (Global) COMPLETE",
@@ -1526,12 +1526,12 @@
       "gold": "{0} gold each",
       "inspiration": "{0} inspiration",
       "item": "\"{1}\" (Item {0})",
-      "items": "{2} \"{1}\" (Item {0})",
       "itemBlueprint": "Gain \"{1}\" %game.itemFh.{0}% blueprint",
       "itemBlueprintRange": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the available item supply.",
       "itemDesign": "\"{1}\" design (Item {0})",
       "itemDesignEdition": "\"{1}\" design (Item {0} %data.edition.{2}%)",
       "itemDesignRange": "Add Item designs {0}",
+      "items": "{2} \"{1}\" (Item {0})",
       "location": "New Location",
       "locations": "New Locations",
       "lootDeckCard": "Add loot card {0} to every scenario loot deck in addition to the normal loot distribution.",
@@ -1543,10 +1543,9 @@
       "perks": "Gain {0} perk each",
       "pet": "Add %data.pets.{1}-{0}% (Pet {0}) to the Stables. This can exceed the capacity of the Stables.",
       "prosperity": "{0} prosperity",
-      "reputation": "{0} reputation",
-      "randomItems": "Each character gains one random item ({0}-{1})",
       "randomItemBlueprint": "Gain one random item blueprint",
       "randomItemBlueprints": "Add items %game.itemFh.{0}% to %game.itemFh.{1}% to the random item blueprint deck.",
+      "randomItems": "Each character gains one random item ({0}-{1})",
       "removeEvent": {
         "boat": "Remove event {0} from the boat deck",
         "city": "Remove City Event {0} from the deck",
@@ -1558,6 +1557,7 @@
         "winter-road": "Remove event {0} from the winter road deck"
       },
       "removeLootDeckCard": "Remove loot card {0} from the game. No longer add it to any scenario's loot deck.",
+      "reputation": "{0} reputation",
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
       "townGuardAm": "Add one %game.townGuardAm.{1}:{0}% card to the town guard deck.",
@@ -1573,8 +1573,8 @@
       "addSectionMarkerIndex": "Open Section #{0} {1} %game.mapMarker.{2}%",
       "alwaysApply": "Apply automatically",
       "alwaysApplyTurn": {
-        "turn": "at the start of each of their turns.",
-        "after": "at the end of each of their turns."
+        "after": "at the end of each of their turns.",
+        "turn": "at the start of each of their turns."
       },
       "apply": "Apply",
       "clearDiscarded": "Clear discarded scenario rules",
@@ -1593,14 +1593,14 @@
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} lose %game.condition.{1}%",
         "permanentCondition": "{0} gain permanent %game.condition.{1}%",
+        "remove": "Remove {0}",
         "scenarioEffect": "as scenario effect",
         "setAbility": "Set active ability card of {0} to '{1}'",
         "setHp": "{0} HP to {2}",
         "toggleOff": "{0} to inactive",
         "toggleOn": "{0} to active",
         "transfer": "{0} become %data.monster.{1}% {4}",
-        "transferEntities": "{0} become %data.monster.{1}% {4}",
-        "remove": "Remove {0}"
+        "transferEntities": "{0} become %data.monster.{1}% {4}"
       },
       "finish": {
         "lost": "Scenario lost!",
@@ -1612,13 +1612,13 @@
       "openRoom": "Open door",
       "openRoomMarker": "Open door %game.mapMarker.{0}%",
       "randomDungeon": {
-        "monster": {
-          ".": "Add {0} random cards from the random monster card deck.",
-          "cards": "Add {0} random cards from the random monster card deck. Only use cards:<i>{1}</i>."
-        },
         "dungeon": {
           ".": "Draw {0} random cards from the random dungeon card deck. (manual)",
           "cards": "Draw {0} random cards from the random dungeon card deck. Only use cards:<i>{1}</i>. (manual)"
+        },
+        "monster": {
+          ".": "Add {0} random cards from the random monster card deck.",
+          "cards": "Add {0} random cards from the random monster card deck. Only use cards:<i>{1}</i>."
         }
       },
       "show": {
@@ -1629,13 +1629,13 @@
       "spawn": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}%",
       "spawnMarker": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
       "spawnObjective": "Spawn Objective '{0}'",
-      "spawnObjectiveMarker": "Spawn Objective '{0}' at %game.mapMarker.{2}%",
-      "spawnObjectives": "Spawn {1} Objectives '{0}'",
-      "spawnObjectivesMarker": "Spawn {1} Objectives '{0}' at %game.mapMarker.{2}%",
       "spawnObjectiveEscort": "Spawn Escort '{0}'",
       "spawnObjectiveEscortMarker": "Spawn Escort '{0}' at %game.mapMarker.{2}%",
+      "spawnObjectiveMarker": "Spawn Objective '{0}' at %game.mapMarker.{2}%",
+      "spawnObjectives": "Spawn {1} Objectives '{0}'",
       "spawnObjectivesEscort": "Spawn {1} Escorts '{0}'",
-      "spawnObjectivesEscortMarker": "Spawn {1} Escorts '{0}' at %game.mapMarker.{2}%"
+      "spawnObjectivesEscortMarker": "Spawn {1} Escorts '{0}' at %game.mapMarker.{2}%",
+      "spawnObjectivesMarker": "Spawn {1} Objectives '{0}' at %game.mapMarker.{2}%"
     },
     "section": {
       ".": "Section",
@@ -1644,7 +1644,6 @@
       "addMarker": "Open Section %game.mapMarker.{1}%?",
       "addMarkerIndex": "Open Section #{0} %game.mapMarker.{1}%?",
       "cancel": "Cancel",
-      "confirm": "Confirm",
       "conclusion": {
         ".": "Finish scenario with {0}",
         "continue": {
@@ -1653,7 +1652,8 @@
         },
         "named": "Finish scenario with {1} {0}",
         "select": "Select conclusion:"
-      }
+      },
+      "confirm": "Confirm"
     },
     "set": "Set Scenario",
     "setup": {
@@ -1765,8 +1765,8 @@
         ".": "Missing Solution!",
         "hint": "It seems that this scenario is finished without a conclusion. This may lead to missing rewards and unlocks. Conclusion sections are marked with a <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> icon."
       },
-      "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (forced)",
+      "gold": "Gold",
       "item": "Item \"{0}\"",
       "levelUp": "Up to Level {1}",
       "link": "Continue with #{0}",
@@ -1777,6 +1777,8 @@
       "randomItem": "Random Item",
       "randomItemLooted": "Random Item Looted",
       "randomItems": "Random Items",
+      "restart": "Restart scenario",
+      "restartLoseLoot": "Restart scenario (lose resources)",
       "rewards": {
         ".": "Scenario Rewards",
         "collectiveGold": "Collective %game.resource.gold%",
@@ -1784,8 +1786,6 @@
         "experience": "Reward XP",
         "gold": "Reward Gold"
       },
-      "restart": "Restart scenario",
-      "restartLoseLoot": "Restart scenario (lose resources)",
       "solve": "Continue",
       "totalGold": "Total Gold",
       "totalXp": "Total XP",
@@ -1918,10 +1918,6 @@
       ".": "Always Attack Modifier Deck for allies",
       "hint": "Always show the Attack Modifier Deck for allies"
     },
-    "alwaysHazardousTerrain": {
-      ".": "Always Hazardous Terrain",
-      "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation (Automatic enabled when playing Frosthaven)"
-    },
     "alwaysFhAdvantage": {
       ".": "Always Frosthaven Advantage/Disadvantage Rules",
       "hint": "Always apply Frosthaven rules for drawing Attack Modifier with Advantage or Disadvantage (Automatic enabled when playing Frosthaven)"
@@ -1929,6 +1925,10 @@
     "alwaysFhSolo": {
       ".": "Always Frosthaven Solo Rules",
       "hint": "Always apply Frosthaven rules for Solo level calculation (Automatic enabled when playing Frosthaven)"
+    },
+    "alwaysHazardousTerrain": {
+      ".": "Always Hazardous Terrain",
+      "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation (Automatic enabled when playing Frosthaven)"
     },
     "alwaysLootApplyDialog": {
       ".": "Always show Loot Apply Dialog",
@@ -1984,10 +1984,6 @@
       ".": "Artwork",
       "hint": "Artwork for monsters and characters"
     },
-    "autoscroll": {
-      ".": "Autoscroll",
-      "hint": "Automatic scroll to next active figure"
-    },
     "automaticAttackModifierFullscreen": {
       ".": "Auto fullscreen AM Deck",
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
@@ -2020,16 +2016,20 @@
       ".": "Automatic Character Unlock",
       "hint": "Automatically unlock characters from scenario rewards."
     },
+    "autoscroll": {
+      ".": "Autoscroll",
+      "hint": "Automatic scroll to next active figure"
+    },
+    "backupHint": {
+      ".": "Show Backup Hint",
+      "hint": "Show a backup reminder when no scenario is running."
+    },
     "barsize": {
       ".": "Barsize",
       "dec": "Decrease barsize",
       "hint": "Set size of header and footer",
       "inc": "Increase barsize",
       "reset": "Reset barsize"
-    },
-    "backupHint": {
-      ".": "Show Backup Hint",
-      "hint": "Show a backup reminder when no scenario is running."
     },
     "battleGoals": {
       ".": "Battle Goals",
@@ -2061,33 +2061,32 @@
       "hint": "Use the default limit of 4 standees for all monsters. If disabled up to 10 standees can be added."
     },
     "bonusAdjustment": {
-      ".": "Level bonuses adjustment",
-      "hint": ""
+      ".": "Level bonuses adjustment"
     },
     "browserNavigation": {
       ".": "Undo/Redo with navigation",
-      "hint": ""
+      "hint": "%wip%"
     },
     "calculate": {
       ".": "Show calculated stats",
       "hint": "Ability values are calculated with stats, so instead of Attack +1 Attack 4 is shown for an Attack value of 3 in the stats "
     },
-    "calculateStats": {
-      ".": "Add stats values to abilities",
-      "hint": "Default stats values are added to the ability value, for example a Range value is automatically added to the Attack ability"
-    },
     "calculateShieldStats": {
       ".": "Add Shield and Retaliate to abilities",
       "hint": "Default stats values of %game.action.shield% and %game.action.retaliate% are added to %game.action.shield% and %game.action.retaliate% actions on ability card, so full aggregated values are shown."
     },
-    "character": "Character",
-    "characterAttackModifierDeck": {
-      ".": "Character Attack Modifier Deck",
-      "hint": "Enable Attack Modifier Deck for Characters. To use perks the Character Sheet must be enabled."
+    "calculateStats": {
+      ".": "Add stats values to abilities",
+      "hint": "Default stats values are added to the ability value, for example a Range value is automatically added to the Attack ability"
     },
+    "character": "Character",
     "characterAttackModifierAnimate": {
       ".": "Animate Character AM Deck draw",
       "hint": "Display a draw animation if an Attack Modifier is drawn from a closed Attack Modifier Deck of a character."
+    },
+    "characterAttackModifierDeck": {
+      ".": "Character Attack Modifier Deck",
+      "hint": "Enable Attack Modifier Deck for Characters. To use perks the Character Sheet must be enabled."
     },
     "characterAttackModifierDeckPermanent": {
       ".": "Permanent Character AM Deck",
@@ -2172,8 +2171,8 @@
     },
     "debug": {
       ".": "Debug Settings/Tools",
-      "rightClick": "Always enable Right-Click",
-      "logServerMessages": "Log Server Messages"
+      "logServerMessages": "Log Server Messages",
+      "rightClick": "Always enable Right-Click"
     },
     "dragFigures": {
       ".": "Drag'n'drop for figures",
@@ -2196,8 +2195,7 @@
       "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strengthen will be removed after turn"
     },
     "feedback": {
-      ".": "Disable Feedback Button",
-      "hint": ""
+      ".": "Disable Feedback Button"
     },
     "feedbackErrors": {
       ".": "Automatic Feedback",
@@ -2270,12 +2268,10 @@
     },
     "gameplay": "Gameplay",
     "ge5Player": {
-      ".": "≥ 5 player rules",
-      "hint": ""
+      ".": "≥ 5 player rules"
     },
     "helperDefaults": {
-      ".": "Apply default Helper settings",
-      "hint": ""
+      ".": "Apply default Helper settings"
     },
     "hideAbsent": {
       ".": "Hide absent figures",
@@ -2311,12 +2307,10 @@
     },
     "interface": "Interface",
     "levelAdjustment": {
-      ".": "Scenario level adjustment",
-      "hint": ""
+      ".": "Scenario level adjustment"
     },
     "levelCalculation": {
-      ".": "Automatic scenario level",
-      "hint": ""
+      ".": "Automatic scenario level"
     },
     "locale": {
       ".": "Language",
@@ -2337,13 +2331,13 @@
         "firefox": "On Firefox you can enable IndexedDB for private mode in <a href=\"about:config\" target=\"_blank\">about:config</a> with the key <i>dom.indexedDB.privateBrowsing.enabled</i>."
       }
     },
-    "monsters": {
-      ".": "Monsters",
-      "hint": "If disabled no monsters are shown."
-    },
     "monsterAttackModifierDeck": {
       ".": "Attack Modifier Deck for monsters",
       "hint": "Enable the Attack Modifier Deck for monsters"
+    },
+    "monsters": {
+      ".": "Monsters",
+      "hint": "If disabled no monsters are shown."
     },
     "moveElements": {
       ".": "Automatic update element state",
@@ -2358,8 +2352,7 @@
       "hint": "Zooming via touch gestures."
     },
     "playerCount": {
-      ".": "Manual character count",
-      "hint": ""
+      ".": "Manual character count"
     },
     "portraitMode": {
       ".": "Portrait-Mode Optimization",
@@ -2380,8 +2373,7 @@
     "requires": "Requires:",
     "requiresOne": "Requires one of:",
     "scenarioNumberInput": {
-      ".": "Scenario Number Input",
-      "hint": ""
+      ".": "Scenario Number Input"
     },
     "scenarioRewards": {
       ".": "Apply Scenario Rewards",
@@ -2419,10 +2411,6 @@
       ".": "Sort figures",
       "hint": "Automatically sort figures. If disabled, the order must be set manually via Drag'n'Drop."
     },
-    "standees": {
-      ".": "Standees",
-      "hint": "Display standees. If disabled, unlocking rooms and automatic standees is also disabled."
-    },
     "standeeShieldRetaliate": {
       ".": "Shield and Retaliate",
       "hint": "Track extra %game.action.shield% and %game.action.retaliate% values for standees and summons."
@@ -2430,6 +2418,10 @@
     "standeeStats": {
       ".": "Shield and Retaliate on Standee",
       "hint": "Show current %game.action.shield% and %game.action.retaliate% value next to every standee."
+    },
+    "standees": {
+      ".": "Standees",
+      "hint": "Display standees. If disabled, unlocking rooms and automatic standees is also disabled."
     },
     "statAnimations": {
       ".": "Stat Animation",
@@ -2510,8 +2502,8 @@
       "addChar": "Add character {0}",
       "addCondition": {
         "char": "%game.condition.{1}% {0}",
-        "monsterEntities": "%game.condition.{1}% all {2}{0}",
         "monster": "%game.condition.{2}% '{1}' of {0}",
+        "monsterEntities": "%game.condition.{1}% all {2}{0}",
         "objective": "%game.condition.{1}% {0}",
         "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% of {0}",
         "objectives": "%game.condition.{1}% all {0}",
@@ -2520,8 +2512,8 @@
       },
       "addConditions": {
         "char": "{2}x %game.condition.{1}% {0}",
-        "monsterEntities": "{3}x %game.condition.{1}% all {2}{0}",
         "monster": "{3}x %game.condition.{2}% '{1}' of {0}",
+        "monsterEntities": "{3}x %game.condition.{1}% all {2}{0}",
         "objective": "{2}x %game.condition.{1}% {0}",
         "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% of {0}",
         "objectives": "{2}x %game.condition.{1}% all {0}",
@@ -2532,8 +2524,8 @@
       "addGlobalAchievement": "Add global achievement '{0}'",
       "addImmunity": {
         "char": "%game.immunity.{1}% immunity {0}",
-        "monsterEntities": "%game.immunity.{1}% immunity all {2}{0}",
         "monster": "%game.immunity.{2}% immunity '{1}' of {0}",
+        "monsterEntities": "%game.immunity.{1}% immunity all {2}{0}",
         "objective": "%game.immunity.{1}% immunity {0}",
         "objectiveContainer": "%game.immunity.{2}% immunity %game.objectiveMarker.{1}% of {0}",
         "objectives": "%game.immunity.{1}% immunity all {0}",
@@ -2544,8 +2536,8 @@
       "addManualScenario": "Unlock scenario #{0} {1} ({2})",
       "addMarker": {
         "char": "%data.characterIconColored.{2}% {1} marker to {0}",
-        "monsterEntities": "%data.characterIconColored.{2}% {1} marker to all {2}{0}",
         "monster": "%data.characterIconColored.{3}% {2} marker to '{1}' of {0}",
+        "monsterEntities": "%data.characterIconColored.{2}% {1} marker to all {2}{0}",
         "objective": "%data.characterIconColored.{2}% {1} marker to {0}",
         "objectiveContainer": "%data.characterIconColored.{3}% {2} marker to %game.objectiveMarker.{1}% of {0}",
         "objectives": "%data.characterIconColored.{2}% {1} marker to all {0}",
@@ -2575,8 +2567,8 @@
       "addTreasures": "Add treasure {1} (%data.edition.{0}%)",
       "applyCondition": {
         "char": "Apply %game.condition.{1}% to {0}",
-        "monsterEntities": "Apply %game.condition.{1}% to all {2}{0}",
         "monster": "Apply %game.condition.{2}% to '{1}' of {0}",
+        "monsterEntities": "Apply %game.condition.{1}% to all {2}{0}",
         "objective": "Apply %game.condition.{1}% to {0}",
         "objectiveContainer": "Apply %game.condition.{2}% to %game.objectiveMarker.{1}% of {0}",
         "summon": "Apply %game.condition.{2}% to '{1}' of {0}"
@@ -2586,17 +2578,17 @@
         "elementConsume": "Consume {0}",
         "elementInfuse": "Infuse {0}",
         "heal": "%game.action.heal% {0}",
-        "summon": "Summon",
         "spawn": "Spawn",
         "sufferDamage": "Suffer %game.damage:{0}%",
+        "summon": "Summon",
         "switchType": "Switching of %game.monsterType.normal% and %game.monsterType.elite%"
       },
       "applyInteractiveActions": "Apply {0} for standees {1} of {2}",
       "applyScenarioRule": "Apply scenario rule",
       "battleGoals": {
+        "deselect": "Deselect current Battle Goal of {0}",
         "drawCard": "Draw another Battle Goal card for {0}",
         "drawCards": "Draw Battle Goal cards for {0}",
-        "deselect": "Deselect current Battle Goal of {0}",
         "select": "Select Battle Goal of {0}",
         "setup": {
           "addEdition": "Add Battle Goal cards from edition %data.edition.{0}%",
@@ -2611,14 +2603,13 @@
       "brewPotionOther": "{0} brew Item \"%data.items.{2}-{1}%\" for {3}",
       "buildBuilding": "Build '%data.buildings.{1}%' ({0})",
       "buildings": {
-        "garden": {},
         "stables": {
           "pets": {
             "add": "Add pet %data.pets.{0}-{1}% to Stables",
             "catch": "Catch pet from {1} standee {2} of {0}",
+            "play": "Play pet %data.pets.{0}-{1}% card",
             "remove": "Remove pet %data.pets.{0}-{1}% from Stables",
             "restore": "Restore pet %data.pets.{0}-{1}% card",
-            "play": "Play pet %data.pets.{0}-{1}% card",
             "setActive": "Take pet %data.pets.{0}-{1}% card to scenario",
             "setInactive": "Remove pet %data.pets.{0}-{1}% card from scenario",
             "setName": "Name pet %data.pets.{0}-{1}% '{2}'",
@@ -2651,20 +2642,20 @@
       "changeSummonRange": "Range {2} for summon '{1}' of {0}",
       "changeXP": "XP {1} for {0}",
       "characterItemApply": {
-        "spent": "{0} spent item {1} \"{3}\"",
         "consumed": "{0} consumed item {1} \"{3}\"",
         "flipped": "{0} flipped item {1} \"{3}\"",
         "persistend": "{0} persistend item {1} \"{3}\"",
         "slot": "{0} marked slot on item {1} \"{3}\"",
-        "slotBack": "{0} unmarked slot on item {1} \"{3}\""
+        "slotBack": "{0} unmarked slot on item {1} \"{3}\"",
+        "spent": "{0} spent item {1} \"{3}\""
       },
       "characterItemUnapply": {
-        "spent": "{0} refreshed item {1} \"{3}\"",
         "consumed": "{0} recovered item {1} \"{3}\"",
         "flipped": "{0} flipped item {1} \"{3}\" back",
         "persistend": "{0} unpersistend item {1} \"{3}\"",
         "slot": "{0} unmarked slot on item {1} \"{3}\"",
-        "slotBack": "{0} marked slot on item {1} \"{3}\""
+        "slotBack": "{0} marked slot on item {1} \"{3}\"",
+        "spent": "{0} refreshed item {1} \"{3}\""
       },
       "characterLongRest": "Set Long Rest for {0}",
       "characterLongRestOff": "Disable Long Rest for {0}",
@@ -2674,18 +2665,18 @@
       "craftItem": "Craft Item {1} (%data.edition.{2}%) for {0}",
       "declineApplyCondition": {
         "char": "Decline apply %game.condition.{1}% to {0}",
-        "monsterEntities": "Decline apply %game.condition.{1}% to all {2}{0}",
         "monster": "Decline apply %game.condition.{2}% to '{1}' of {0}",
+        "monsterEntities": "Decline apply %game.condition.{1}% to all {2}{0}",
         "objective": "Decline apply %game.condition.{1}% to {0}",
         "objectiveContainer": "Decline apply %game.condition.{2}% to %game.objectiveMarker.{1}% of {0}",
         "summon": "Decline apply %game.condition.{2}% to '{1}' of {0}"
       },
       "disableAutomaticLevel": "Disable automatic level calculation",
       "disableEnvelopeB": "Disable Envelope B",
-      "disabledGe5Player": "Disable ≥ 5 player rules",
-      "disabledManualPlayerCount": "Disable manual player count",
       "disablePartyCampaignMode": "Disable campaign mode",
       "disableSolo": "Disable solo level calculation",
+      "disabledGe5Player": "Disable ≥ 5 player rules",
+      "disabledManualPlayerCount": "Disable manual player count",
       "distillItem": "Distill Item \"%data.items.{2}-{1}%\" for {0}",
       "donate": "{0} donate to Sanctuary of the Great Oak",
       "downgradeBuilding": "Downgrade building '%data.buildings.{1}%' ({0}) to level {2}",
@@ -2693,18 +2684,14 @@
       "drawAbility": "Draw ability for {0}",
       "enableAutomaticLevel": "Enable automatic level calculation",
       "enableEnvelopeB": "Open Envelope B",
-      "enabledGe5Player": "Enable ≥ 5 player rules",
-      "enabledManualPlayerCount": "Enable manual player count",
       "enablePartyCampaignMode": "Enable campaign mode",
       "enableSolo": "Enable solo level calculation",
+      "enabledGe5Player": "Enable ≥ 5 player rules",
+      "enabledManualPlayerCount": "Enable manual player count",
       "endAllTurns": "End all turns",
       "entityDead": "Kill {1} standee {2} of {0}",
       "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
       "eventEffect": {
-        "drawRandomItem": "Draw Random Item Design {0} \"{2}\" (%data.edition.{1}%)",
-        "drawRandomItemBlueprint": "Draw Random Item Blueprint {0} \"{2}\" (%data.edition.{1}%)",
-        "drawRandomScenario": "Draw Random Scenario {2} %data.scenarioNumber:{0}%",
-        "drawRandomScenarioSection": "Draw Random Scenario Section %data.section:{0}%, unlock {3}",
         "addCondition": "%game.condition.{0}% to {1}",
         "addImmunity": "%game.immunity.{0}% to {1}",
         "changeCharacterBattleGoals": "{0} %game.checkmark% for {1}",
@@ -2714,12 +2701,16 @@
         "changeCharacterHP": "{0} HP for {1}",
         "changeCharacterResource": "{1} %game.resource.{0}% for {2}",
         "changeCharacterXP": "{0} XP for {1}",
+        "drawRandomItem": "Draw Random Item Design {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomItemBlueprint": "Draw Random Item Blueprint {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomScenario": "Draw Random Scenario {2} %data.scenarioNumber:{0}%",
+        "drawRandomScenarioSection": "Draw Random Scenario Section %data.section:{0}%, unlock {3}",
         "inspiration": "{0} Inspiration",
         "morale": "{0} Morale",
+        "prosperity": "{0} Prosperity",
         "removeCondition": "Remove %game.condition.{0}% from {1}",
         "removeImmunity": "Remove %game.immunity.{0}% from {1}",
         "reputation": "{0} Reputation",
-        "prosperity": "{0} Prosperity",
         "setConditionValue": "%game.condition.{0}% to {1} for {2}"
       },
       "finishConclusion": "Finish conclusion #{0} {1} ({2})",
@@ -2755,13 +2746,13 @@
       "lootDeckShuffle": "Shuffle Loot deck",
       "lootDeckShuffleUpcoming": "Shuffle upcoming cards from Loot deck",
       "lootRandomItem": "{3} loots random item {0} \"{2}\" (%data.edition.{1}%)",
-      "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
       "monsterChangeEntityHp": "HP {2} for standee {1} of %data.monster.{0}%",
       "monsterConsumeElement": "{0} consume {1}",
       "monsterDead": "Kill all {1}{0}",
       "monsterInfuseElement": "{0} infuse {1}",
       "monsterSetEntityActive": "Set %game.monster.{2}% standee {1} of %data.monster.{0}% active",
       "monsterUnsetEntityActive": "Set %game.monster.{2}% standee {1} of %data.monster.{0}% inactive",
+      "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
       "nextIdentity": "Set form of {0} from %data.character.{1}.{2}% to %data.character.{1}.{3}%",
       "nextRound": "Next Round",
       "objectiveContainerChangeEntityHp": "HP {2} for %game.objectiveMarker.{1}% of {0}",
@@ -2776,15 +2767,15 @@
       "removeBuilding": "Remove building '%data.buildings.{1}%' ({0})",
       "removeCampaignSticker": "Remove Campaign Sticker {0}",
       "removeChar": "Remove character {0}",
+      "removeCharTreasure": "Remove treasure {1} for {2}",
       "removeCharacterRetaliate": "Remove %game.action.retaliate% for {0}",
       "removeCharacterRetaliatePersistent": "Remove %game.card.persistent% %game.action.retaliate% for {0}",
       "removeCharacterShield": "Remove  %game.action.shield% for {0}",
       "removeCharacterShieldPersistent": "Remove %game.card.persistent% %game.action.shield% for {0}",
-      "removeCharTreasure": "Remove treasure {1} for {2}",
       "removeCondition": {
         "char": "Remove %game.condition.{1}% from {0}",
-        "monsterEntities": "Remove %game.condition.{1}% from all {2}{0}",
         "monster": "Remove %game.condition.{2}% from '{1}' of {0}",
+        "monsterEntities": "Remove %game.condition.{1}% from all {2}{0}",
         "objective": "Remove %game.condition.{1}% from {0}",
         "objectiveContainer": "Remove %game.condition.{2}% from %game.objectiveMarker.{1}% of {0}",
         "objectives": "Remove %game.condition.{1}% from all {0}",
@@ -2793,8 +2784,8 @@
       },
       "removeConditions": {
         "char": "Remove {2}x %game.condition.{1}% from {0}",
-        "monsterEntities": "Remove {3}x %game.condition.{1}% from all {2}{0}",
         "monster": "Remove {3}x %game.condition.{2}% from '{1}' of {0}",
+        "monsterEntities": "Remove {3}x %game.condition.{1}% from all {2}{0}",
         "objective": "Remove {2}x %game.condition.{1}% from {0}",
         "objectiveContainer": "Remove {3}x %game.condition.{2}% from %game.objectiveMarker.{1}% of {0}",
         "objectives": "Remove {2}x %game.condition.{1}% from all {0}",
@@ -2829,8 +2820,8 @@
       "removeGlobalAchievement": "Remove global achievement '{0}'",
       "removeImmunity": {
         "char": "Remove %game.immunity.{1}% immunity from {0}",
-        "monsterEntities": "Remove %game.immunity.{1}% immunity from all {2}{0}",
         "monster": "Remove %game.immunity.{2}% immunity from '{1}' of {0}",
+        "monsterEntities": "Remove %game.immunity.{1}% immunity from all {2}{0}",
         "objective": "Remove %game.immunity.{1}% immunity from {0}",
         "objectiveContainer": "Remove %game.immunity.{2}% immunity from %game.objectiveMarker.{1}% of {0}",
         "objectives": "Remove %game.immunity.{1}% immunity from all {0}",
@@ -2841,8 +2832,8 @@
       "removeManualScenario": "Remove scenario #{0} {1} ({2}) from unlocked",
       "removeMarker": {
         "char": "Remove marker %data.characterIconColored.{2}% {1} from {0}",
-        "monsterEntities": "Remove marker %data.characterIconColored.{2}% {1} from all {2}{0}",
         "monster": "Remove marker %data.characterIconColored.{3}% {2} from '{1}' of {0}",
+        "monsterEntities": "Remove marker %data.characterIconColored.{2}% {1} from all {2}{0}",
         "objective": "Remove marker %data.characterIconColored.{2}% {1} from {0}",
         "objectiveContainer": "Remove marker %data.characterIconColored.{3}% {2} from %game.objectiveMarker.{1}% of {0}",
         "objectives": "Remove marker %data.characterIconColored.{2}% {1} from all {0}",
@@ -2875,8 +2866,8 @@
       "serverSyncEmpty": "Server Sync",
       "setAbsent": "{0} absent",
       "setActive": "Start turn for {0}",
-      "setAlly": "{0} as ally",
       "setAllied": "{0} as allied",
+      "setAlly": "{0} as ally",
       "setBG": "Set Battle Goals of {0} to {1}",
       "setCharacterRetaliate": "{1} for {0}",
       "setCharacterRetaliatePersistent": "%game.card.persistent% {1} for {0}",
@@ -2885,8 +2876,8 @@
       "setCharacterTokenValue": "Set token {1} to {2} for {0}",
       "setConditionValue": {
         "char": "%game.condition.{1}% to {2} for {0}",
-        "monsterEntities": "%game.condition.{1}% to {2} for all {3}{0}",
         "monster": "%game.condition.{2}% to {3} for '{1}' of {0}",
+        "monsterEntities": "%game.condition.{1}% to {2} for all {3}{0}",
         "objective": "%game.condition.{1}% to {2} for {0}",
         "objectiveContainer": "%game.condition.{2}% to {3} for %game.objectiveMarker.{1}% of {0}",
         "summon": "%game.condition.{2}% to {3} for '{1}' of {0}"
@@ -2929,6 +2920,8 @@
       "setNotes": "Notes \"{1}\" for {0}",
       "setObjectiveExhausted": "Objective {0} exhausted",
       "setObjectiveInitiative": "Initiative {1} for objective {0}",
+      "setPQ": "Personal Quest {1} for {0} ",
+      "setPQProgress": "Set Personal Quest counter {1} to {2} for {0}",
       "setPartyAchievements": "Party achievements",
       "setPartyDonations": "Donations to {0}",
       "setPartyInspiration": "Inspiration to {1}",
@@ -2946,8 +2939,6 @@
       "setPerk": "Perk {1} to {2} for {0}",
       "setPlayer": "Set Player {1} to {0}",
       "setPlayerNumber": "Set Player number {1} for {0}",
-      "setPQ": "Personal Quest {1} for {0} ",
-      "setPQProgress": "Set Personal Quest counter {1} to {2} for {0}",
       "setRandomScenario": "Set Random Dungeon",
       "setResource": "Set {1} {2} for {0}",
       "setRetired": "{0} retired",
@@ -2960,17 +2951,17 @@
       "shuffleAbilityDeck": "Shuffle abilities of {0}",
       "shuffleAbilityDeckUpcoming": "Shuffle upcoming abilities of {0}",
       "skipInteractiveActions": "Skip interactive abilities for standees {1} of {2}",
+      "startCampaign": "Start a new {0} campaign",
       "summonActive": "Summon '{1}' von {0} active",
       "summonDead": "Kill summon '{1}' of {0}",
       "summonInactive": "Summon '{1}' von {0} inactive",
-      "startCampaign": "Start a new {0} campaign",
       "toggleTypeAll": "Toggle all monster standee types for {0}",
       "unequipItem": "Unequip Item {1} (%data.edition.{2}%) for {0}",
       "unlockChar": "Unlock {0}",
       "unsetAbsent": "{0} present",
       "unsetActive": "End turn of {0}",
-      "unsetAlly": "{0} as enemy",
       "unsetAllied": "{0} not as allied",
+      "unsetAlly": "{0} as enemy",
       "unsetCustomScenario": "Unset custom scenario",
       "unsetDrawExtraAbility": "Unset draw extra for {0}",
       "unsetEntityActive": "Set standee {1} of {0} inactive",
@@ -3115,8 +3106,8 @@
         "lootInc": "Inc. Monoeytokens",
         "maxHpDec": "Dec. max. HP",
         "maxHpInc": "Inc. max. HP",
-        "toggleCondition": "Toggle Condition/Condition modifier",
         "toggleAbsent": "Toggle Character absent",
+        "toggleCondition": "Toggle Condition/Condition modifier",
         "xpDec": "Dec. XP",
         "xpInc": "Inc. XP"
       },
@@ -3143,11 +3134,11 @@
       "shift": "SHIFT",
       "space": "SPACE",
       "tab": "↹",
+      "toggelTab": "Toggle active figure when drawn / Toggle initiative input when focused input",
       "toggleAbsent": "Toggle <i>Hide absent figures</i>",
       "toggleDamageHP": "Toggle <i>%settings.damageHP%</i>",
       "toggleElements": "Toggle through element state",
       "toggleHandSize": "Toggle <i>Display hand size and level</i>",
-      "toggelTab": "Toggle active figure when drawn / Toggle initiative input when focused input",
       "toggleTraits": "Toggle <i>Display traits</i>",
       "undo": "Undo",
       "zoomIn": "Zoom-in",
