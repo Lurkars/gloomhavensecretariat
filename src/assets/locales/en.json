@@ -2065,7 +2065,7 @@
         },
         "browserNavigation": {
             ".": "Undo/Redo with navigation",
-            "hint": ""
+            "hint": "%wip%"
         },
         "calculate": {
             ".": "Show calculated stats",
