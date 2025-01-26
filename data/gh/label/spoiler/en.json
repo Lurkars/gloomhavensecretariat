@@ -609,29 +609,6 @@
   "events": {
     "gh": {
       "city": {
-        "0": {
-          "text": "",
-          "options": {
-            "1": {
-              "choice": "",
-              "outcome": "",
-              "effects": {
-                "1": {
-                  "1": ""
-                }
-              }
-            },
-            "2": {
-              "choice": "",
-              "outcome": "",
-              "effects": {
-                "1": {
-                  "1": ""
-                }
-              }
-            }
-          }
-        },
         "1": {
           "text": "You decide to unwind at the Sleeping Lion, but just as you are starting to relax, a bear of a man crashes into your table, scattering your drinks across the floor.<br><br>Towering over him is a massive Inox. \"What did you say about my horns?\" the Inox shouts.<br><br>The man stands up and brushes shards of glass from his tunic. \"I said the sight of them makes me want to vomit!\"<br><br>The Inox roars and charges headlong into the man, crashing through more tables in the process. At this, the entire tavern erupts into violence. After all, when a man is deep into his drink, the last thing you want to do is knock that drink over.",
           "options": {
