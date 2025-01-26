@@ -2352,8 +2352,7 @@
             "hint": "Zooming via touch gestures."
         },
         "playerCount": {
-            ".": "Manual character count",
-            "hint": ""
+            ".": "Manual character count"
         },
         "portraitMode": {
             ".": "Portrait-Mode Optimization",
