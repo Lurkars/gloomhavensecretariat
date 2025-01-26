@@ -32,7 +32,7 @@ import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { WorldMapComponent } from "./world-map/world-map";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-party-sheet-dialog',
   templateUrl: 'party-sheet-dialog.html',
   styleUrls: ['./party-sheet-dialog.scss']
@@ -717,8 +717,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
       if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].globalAchievements) {
         this.globalAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)));
-      } else if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
-        this.globalAchievements.push(...Object.keys(editionData.label['en'].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)));
+      }
+
+      if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
+        Object.keys(editionData.label['en'].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)).forEach((item) => {
+          if (this.globalAchievements.every((other) => item.value != other.value)) {
+            this.globalAchievements.push(item);
+          }
+        })
       }
 
       if (editionData.campaign && editionData.campaign.campaignStickers) {
