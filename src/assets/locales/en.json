@@ -2310,8 +2310,7 @@
             ".": "Scenario level adjustment"
         },
         "levelCalculation": {
-            ".": "Automatic scenario level",
-            "hint": ""
+            ".": "Automatic scenario level"
         },
         "locale": {
             ".": "Language",
