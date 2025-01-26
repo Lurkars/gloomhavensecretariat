@@ -2002,8 +2002,7 @@
             ".": "≥ 5 Spieler Regeln"
         },
         "helperDefaults": {
-            ".": "Orig. Helper Einstellungen anwenden",
-            "hint": ""
+            ".": "Orig. Helper Einstellungen anwenden"
         },
         "hideAbsent": {
             ".": "Abwesende Figuren ausblenden",
