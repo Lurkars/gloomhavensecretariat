@@ -1819,8 +1819,7 @@
             "hint": "Verwende das normale Limit von maximal 4 Aufstellern. Falls deaktiviert können bis zu 10 Aufsteller hinzugefügt werden."
         },
         "bonusAdjustment": {
-            ".": "Anpassung Boni Szenariostufe",
-            "hint": ""
+            ".": "Anpassung Boni Szenariostufe"
         },
         "browserNavigation": {
             ".": "Rückgängig/Wiederherstellen über Navigation",
