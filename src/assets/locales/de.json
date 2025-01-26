@@ -41,7 +41,7 @@
         "sheet": "Globaler Kampagnenbogen",
         "trials": {
             ".": "Prüfungen",
-            "automation": "Die Effekte dieser Karte wird automatisch angewendet!"
+            "automation": "Die Effekte dieser Karte werden automatisch angewendet!"
         }
     },
     "cancel": "Abbrechen",
