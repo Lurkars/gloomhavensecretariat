@@ -2104,8 +2104,7 @@
             "hint": "Entferne automatische alle nicht genutzen Monster"
         },
         "scenarioNumberInput": {
-            ".": "Numerische Szenario Eingabe",
-            "hint": ""
+            ".": "Numerische Szenario Eingabe"
         },
         "scenarioRewards": {
             ".": "Belohnungen von Szenario anwenden",
