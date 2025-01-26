@@ -652,20 +652,7 @@
     "587": "Aesther-Außenposten",
     "588": "Gefährliches Spiel",
     "589": "Lebenserfahrung",
-    "590": "Erkundung der Weite",
-    "505": "Refined Tastes",
-    "509": "Threat from the Deep",
-    "513": "End the Trickery",
-    "519": "Eternal Wanderer",
-    "523": "Continued Prosperity",
-    "527": "Prepared for the Worst",
-    "538": "Battle Legend",
-    "542": "Let Them Be",
-    "545": "Quiet the Dead Places",
-    "549": "Return to Simplicity",
-    "552": "The Study of Life",
-    "557": "The Greatest Challenge",
-    "543": "The Choosen One"
+    "590": "Erkundung der Weite"
   },
   "custom": {
     "fh": {
@@ -739,9 +726,6 @@
       },
       "harrower-infester": {
         "1": "Führe \"%game.action.heal% X, Selbst\"aus. X ist<br>die doppelte Anzahl der mit der<br>Angriffsfertigkeit anvisierten Gegner."
-      },
-      "hound": {
-        "1": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies."
       },
       "laser-spires": {
         "1": "Drehe jeden Laserturm im Uhrzeigersinn (wenn möglich)",

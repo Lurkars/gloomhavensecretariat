@@ -179,63 +179,7 @@
         "Back Alley Brawl": "뒷골목 난투",
         "Sunken Vessel": "침몰선",
         "Vermling Nest": "버믈링 소굴",
-        "Payment Due": "상환일",
-        "rules": {
-            "gh": {
-                "19": {
-                    "1": "towards the altar %game.mapMarker.b%"
-                },
-                "22": {
-                    "1": "For each altar that isn't destroyed, regardless of whether it has been revealed, the maximum hit point and attack values of all demons is increased by 1 and their movement and range values are increased by 0.5 (rounded up). Melee attacks do not increase in range."
-                },
-                "36": {
-                    "1": "The Prime Demon starts the scenario with twice the number of hit points indicated on its stat card."
-                },
-                "38": {
-                    "1": "towards the shaman on the D tile"
-                },
-                "42": {
-                    "1": "All monsters add +1 %game.action.attack% to all their attacks",
-                    "2": "All monsters gain Advantage on all their attacks",
-                    "3": "All monsters heal 1 hit point at the start of each of their turns",
-                    "4": "All characters and character summons suffer 1 damage at the start of each of their turns.",
-                    "5": "All characters and character summons gain Disadvantage on all their attacks.",
-                    "6": "All characters and character summons deduct -1 Attack from all their attacks."
-                },
-                "54": {
-                    "1": "All Cave Bears add %game.condition.poison% to all their attacks."
-                },
-                "67": {
-                    "1": "The elite Stone Golem is one level higher than the scenario level, up to a maximum of 7, and it has HxC hit points, where H is an elite Stone Golem's regular hit point value. This is the Arcane Golem. It cannot enter or pass through door %game.mapMarker.2%."
-                },
-                "71": {
-                    "1": "Move left",
-                    "2": "Move up",
-                    "3": "Move right",
-                    "4": "Move down"
-                },
-                "73": {
-                    "1": "Roll boulders down."
-                },
-                "74": {
-                    "1": "Add water tile."
-                },
-                "78": {
-                    "1": "The two Cultists %game.mapMarker.b%, as well as the victim %game.mapMarker.a%, are immune to forced movement, %game.condition.immobilize%, and %game.condition.stun%, and can also open doors.",
-                    "2": "Immune to forced movement",
-                    "3": "Can open doors"
-                },
-                "79": {
-                    "1": "Move to starting location, if moved off, then perform"
-                },
-                "86": {
-                    "1": "towards the end of the docks %game.mapMarker.b%"
-                },
-                "89": {
-                    "1": "All Cultists summon elite Giant Vipers instead of normal Living Bones."
-                }
-            }
-        }
+        "Payment Due": "상환일"
     },
     "partyAchievements": {
         "A Demon's Errand": "악마의 심부름",
@@ -443,7 +387,6 @@
                 "1": "대상이 %data.monster.hound%의 아군에 인접해 있다면 +2 %game.action.attack% 추가."
             },
             "mindthief": {
-                "1": "X is half the rat's current hit point value (rounded up).",
                 "augment": "증강 %game.characterIconColoredBg.mindthief%",
                 "augments": "증강 %game.characterIconColoredBg.mindthief%"
             },

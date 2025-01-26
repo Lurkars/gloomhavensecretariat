@@ -170,7 +170,7 @@
       },
       "retirements": "Ruhestände",
       "title": "{1} {0}",
-      "xp": "XP"
+      "xp": "EP"
     },
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen",
@@ -2631,7 +2631,7 @@
       "setPartySoldiers": "Soldaten auf {0}",
       "setPartyTotalDefense": "Komplette Verteidigung auf {1}",
       "setPartyTownGuardPerks": "Verbesserungen der Stadtwache auf {0}",
-      "setPartyWeeks": "Weeks to {0}",
+      "setPartyWeeks": "Woche auf {0}",
       "setPerk": "Verbesserung {1} auf {2} für {0}",
       "setPlayer": "Spieler {1} auf {0}",
       "setPlayerNumber": "Spielernummer {1} für {0}",
@@ -2714,7 +2714,7 @@
   },
   "tools": {
     ".": "Tools [Spoiler!]",
-    "attackModifier": "Attack Modifier",
+    "attackModifier": "Angriffsmodifikatoren",
     "backToGhs": "Zurück zu GHS",
     "decks": "Fertigkeitskarten",
     "feedback": {
@@ -2798,7 +2798,7 @@
         "curseInc": "ink. Flüche",
         "hpDec": "dek. aktuelle TP",
         "hpInc": "ink. aktuelle TP",
-        "kill": "Kill / Exhaust",
+        "kill": "Töten / Erschöpfung",
         "lootDec": "dek. Münzmarker",
         "lootInc": "ink. Münzmarker",
         "maxHpDec": "dek. max. TP",

@@ -3,15 +3,9 @@
     "solo": "1인용 시나리오"
   },
   "monster": {
-    "abael-warlord": "Abael Warlord",
-    "algox-icespeaker-shards-solo": "Algox Icespeaker (Solo)",
-    "algox-snowspeaker-trap-solo": "Algox Snowspeaker (Solo)",
     "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.music-note% %solo%)",
     "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.music-note% %solo%)",
-    "black-imp-deathwalker-solo": "Black Imp (Solo)",
     "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.circles% %solo%)",
-    "chief-of-spikes": "Chief of Spikes",
-    "city-guard-banner-spear-solo": "City Guard (Solo)",
     "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.saw% %solo%)",
     "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.scoundrel% %solo%)",
     "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.sun% %solo%)",
@@ -22,15 +16,8 @@
     "ghost-wolf": "유령 늑대",
     "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.angry-face% %solo%)",
     "high-flame": "높은 화염",
-    "hollow-scholar": "Hollow Scholar",
-    "incarnation-of-ancestors": "Incarnation of Ancestors",
     "inox-necromancer": "이녹스 강령술사",
     "lieutenant": "장교",
-    "lost-in-seaweed": "Lost in Seaweed",
-    "mountains-heart": "Mountain's Heart",
-    "night-demon-deathwalker-solo": "Night Demon (Solo)",
-    "plea-for-help-without-answer": "Plea for Help Without Answer",
-    "shape-blocks-out-the-sun": "Shape Blocks Out the Sun",
     "song-of-the-deep": "심연의 노래",
     "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.scoundrel% %solo%)",
     "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
@@ -64,16 +51,8 @@
       "char-am-deck": "캐릭터 공격 보정 덱 사용"
     },
     "gh": {
-      "city-guard-saw-solo": {
-        "1": "Suffer %game.damage:1% at end of round until fully healed"
-      },
       "ghost-wolf": {
         "1": "매번 라운드 시작에:"
-      }
-    },
-    "fh": {
-      "errata": {
-        "solo28": "Special rules: \"Snowspeaker\" should be \"Icespeaker\""
       }
     }
   }
