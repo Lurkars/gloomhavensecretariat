@@ -2060,7 +2060,9 @@
       ".": "Sprache",
       "de": "Deutsch",
       "en": "Englisch (English)",
+      "es": "Spanisch (Español) &lt;%wip%(!)&gt;",
       "fr": "Französisch (Français)",
+      "help": "Bei der Übersetzung helfen!",
       "ko": "Koreanisch (한국어)"
     },
     "lootDeck": {

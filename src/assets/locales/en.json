@@ -2316,7 +2316,9 @@
       ".": "Language",
       "de": "German (Deutsch)",
       "en": "English",
+      "es": "Spanish (Español) &lt;%wip%(!)&gt;",
       "fr": "French (Français)",
+      "help": "Help translating!",
       "ko": "Korean (한국어)"
     },
     "lootDeck": {
