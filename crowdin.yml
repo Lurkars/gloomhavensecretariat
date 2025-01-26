@@ -1,3 +1,0 @@
-files:
-  - source: '**/en.properties'
-    translation: '/%original_path%/%two_letters_code%.properties'
