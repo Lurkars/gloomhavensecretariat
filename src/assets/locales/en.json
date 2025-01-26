@@ -2307,8 +2307,7 @@
         },
         "interface": "Interface",
         "levelAdjustment": {
-            ".": "Scenario level adjustment",
-            "hint": ""
+            ".": "Scenario level adjustment"
         },
         "levelCalculation": {
             ".": "Automatic scenario level",
