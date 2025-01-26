@@ -2041,8 +2041,7 @@
             ".": "Anpassung Szenariostufe"
         },
         "levelCalculation": {
-            ".": "Szenariostufe automatisch berechnen",
-            "hint": ""
+            ".": "Szenariostufe automatisch berechnen"
         },
         "locale": {
             ".": "Sprache",
