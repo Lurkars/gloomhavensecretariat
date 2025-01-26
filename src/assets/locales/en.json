@@ -2061,8 +2061,7 @@
             "hint": "Use the default limit of 4 standees for all monsters. If disabled up to 10 standees can be added."
         },
         "bonusAdjustment": {
-            ".": "Level bonuses adjustment",
-            "hint": ""
+            ".": "Level bonuses adjustment"
         },
         "browserNavigation": {
             ".": "Undo/Redo with navigation",
