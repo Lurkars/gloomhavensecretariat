@@ -2013,8 +2013,7 @@
         },
         "interface": "인터페이스",
         "levelAdjustment": {
-            ".": "시나리오 레벨 조정",
-            "hint": ""
+            ".": "시나리오 레벨 조정"
         },
         "levelCalculation": {
             ".": "자동 시나리오 레벨",
