@@ -1999,8 +1999,7 @@
         },
         "gameplay": "Spielablauf",
         "ge5Player": {
-            ".": "≥ 5 Spieler Regeln",
-            "hint": ""
+            ".": "≥ 5 Spieler Regeln"
         },
         "helperDefaults": {
             ".": "Orig. Helper Einstellungen anwenden",
