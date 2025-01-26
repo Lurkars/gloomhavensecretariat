@@ -2373,8 +2373,7 @@
         "requires": "Requires:",
         "requiresOne": "Requires one of:",
         "scenarioNumberInput": {
-            ".": "Scenario Number Input",
-            "hint": ""
+            ".": "Scenario Number Input"
         },
         "scenarioRewards": {
             ".": "Apply Scenario Rewards",
