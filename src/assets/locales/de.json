@@ -2038,8 +2038,7 @@
         },
         "interface": "Oberfläche",
         "levelAdjustment": {
-            ".": "Anpassung Szenariostufe",
-            "hint": ""
+            ".": "Anpassung Szenariostufe"
         },
         "levelCalculation": {
             ".": "Szenariostufe automatisch berechnen",
