@@ -70,8 +70,10 @@
           ".": "Aktive Herausforderung umschalten",
           "multiple": "Aktive Herausforderungen umschalten"
         }
-      }
-    }
+      },
+      "upcoming": "Kommende"
+    },
+    "disabled": "Keine Herausforderungen für das Szenario ausgewählt!"
   },
   "character": {
     ".": "Charakter",
@@ -177,9 +179,16 @@
         "openEnvelope": {
           ".": "Umschlag %game.fhIcon:envelope% {0} öffnen",
           "alt": "Umschlag %game.fhIcon:envelope% {0} öffnen<br>(sonst: %game.fhIcon:envelope% {1})",
-          "building": "Schaltet Gebäude '%data.buildings.{1}%' ({0}) frei"
+          "building": "Schaltet Gebäude '%data.buildings.{1}%' ({0}) frei",
+          "inspiration": "Erhälte +1 Inspiration",
+          "itemBlueprint": "Erhalte Gegenstandsplan \"%data.items.{1}-{0}%\" (Gegenstand {0})",
+          "randomScenario": "%data.section:{0}% öffnen, %data.scenarioNumber:{1}% freischalten"
         },
-        "unlockCharacter": "Schachtel %game.characterIcon.{0}% öffnen"
+        "unlockCharacter": {
+          ".": "Schachtel %game.characterIcon.{0}% öffnen",
+          "itemDesign": "Erhalte Gegenstanddesign \"%data.items.{1}-{0}%\" (Gegenstand {0})",
+          "randomScenario": "\"{1}\" %data.scenarioNumber:{0}% freischalten"
+        }
       },
       "resources": {
         ".": "Ressourcen",
