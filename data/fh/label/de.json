@@ -418,10 +418,10 @@
         "3": "Alle benachbarten Verbündeten erhalten %game.shield% 1.",
         "4": "Negieren Sie in jeder Runde die erste Quelle von %game.damage% für einen benachbarten Verbündeten",
         "5": "Alle Feinde innerhalb von %game.action.range%4 erleiden zu Beginn ihres Zuges %game.damage:1%.",
-        "6": "Addiere +1 %game.action.attack% für jeden Verbündeten neben dem Ziel",
+        "6": "Füge für jeden an das Ziel angrenzenden Verbündeten +1 %game.action.attack% hinzu",
         "7": "Gewähre am Ende deiner langen Rast einem Verbündeten in %game.action.range:3%: %game.action.move% 2",
         "8": "Füge, wenn du eine Tür durch eine Bewegungsfertigkeit öffnest, +3 %game.action.move% hinzu",
-        "9": "Erhalte einmal pro Szenario während deines Zugs %game.action.shield% 2 für die Runde"
+        "9": "Erhalte einmal pro Szenario während deines Zugs %game.action.shield% 2 für die Runde"
       },
       "belara": {
         "1": "Alle Verbündete und Gegner angrenzend<br>zum Ziel erleiden %game.damage:2%",
@@ -432,10 +432,10 @@
       },
       "blinkblade": {
         "1": "Lege diese Karte bei deinem nächsten Angriff ab, um +2 %game.action.attack% hinzuzufügen.<br>%game.card.persistent%",
-        "2": "Lege diese Karte in deinen aktiven Bereich. Lege diese Karte bei deinem nächsten Angriff ab, um +2 %game.action.attack% hinzuzufügen.",
+        "2": "Lege diese Karte in deinen aktiven Bereich. Wirf diese Karte bei deinem nächsten Angriff ab, um +2 %game.action.attack% hinzuzufügen",
         "3": "Erhalte 1 %data.characterToken.blinkblade.time%",
         "4": "Erhalte 1 %data.action.custom.fh-hourglass%",
-        "5": "Wann immer Sie eine kurze Pause einlegen, können Sie einen nicht ausgegebenen %game.card.refresh%-Gegenstand ohne Wirkung ausgeben, um einen anderen ausgegebenen Gegenstand %game.card.recover% zu erhalten",
+        "5": "Bei deiner kurzen Rast kannst du 1 nicht abgenutzten Gegenstand ohne Effekt %game.card.spent%, um 1 anderen abgenutzten Gegenstand %game.card.recover%",
         "6": "In jedem Szenario kannst du zu Beginn deines ersten Zugs %game.action.move% 3 ausführen",
         "7": "Wann immer du %game.condition.immobilize% erhalten würdest, wird der Zustand verhindert",
         "8": "Kündige in 7 aufeinanderfolgenden Runden „schnell“ an",
@@ -443,7 +443,7 @@
       },
       "boneshaper": {
         "1": "+1 %game.action.attack% für jeden Marker auf dieser Karte.",
-        "2": "Töte die angreifende Beschwörung, um stattdessen %game.attack modifier.plus4% hinzuzufügen",
+        "2": "Töte den angreifenden Beschworenen, um stattdessen %game.attack modifier.plus4% hinzuzufügen",
         "3": "Bevor du rastest kannst du einen deiner Beschworenen töten, um %game.condition.bless% Selbst auszuführen",
         "4": "Du kannst einmal pro Szenario, wenn ein verbündeter Charakter durch Erleiden von %game.damage% erschöpft würde, %game.damage:2% erleiden, um seinen TP-Wert stattdessen auf 1 zu senken",
         "5": "Zu Beginn jedes Szenarios kannst du eine Stufe-1-Karte von deiner Hand spielen, um eine Beschwörungsaktion der Karte auszuführen",
@@ -485,10 +485,10 @@
         "2": "auf einem an das Ziel<br> der Angriffsfertigkeit angrenzenden leeren Feld."
       },
       "drifter": {
-        "1": "Bewegen Sie einen Ihrer Charaktermarker um einen Platz nach hinten",
+        "1": "Bewege einen deiner Charaktermarker um ein Feld zurück",
         "2": "Bei deiner langen Rast kannst du einen deiner Charaktermarker um ein Feld zurückbewegen",
         "3": "Du kannst 1 zusätzlichen %game.items.slots.onehand%-Gegenstand in jedes Szenario mitnehmen",
-        "4": "Am Ende jedes Szenarios kannst du bis zu 2 Beutekarten außer „Zufälliger Gegenstand“ abwerfen,  um ebenso viele neue Beutekarten zu ziehen",
+        "4": "Am Ende jedes Szenarios kannst du bis zu 2 Beutekarten außer „Zufälliger Gegenstand“ abwerfen, um ebenso viele neue Beutekarten zu ziehen",
         "5": "Beende das Szenario mit deinen Charaktermarkern auf den letzten Feldern deiner vier anhaltenden Fertigkeiten",
         "6": "Führe nie eine Bewegungs- oder Angriffsfertigkeit mit einem Wert unter 4 aus, und führe jede Runde mindestens eine von beiden aus"
       },
@@ -535,7 +535,7 @@
       },
       "geminate": {
         "1": "Bei deiner kurzen Rast darfst du 1 negativen Zustand von 1 Verbündeten in %game.action.range:3% entfernen",
-        "2": "Keine Negativen Szenarioeffekte",
+        "2": "Wenn du dir einen negativen Zustand geben würdest, wende ihn einmal pro Szenario nicht an",
         "3": "Wann immer du eine Aktion mit Verloren-Symbol ausführst, kannst du 1 Karte abwerfen, um 1 Karte höchstens gleicher Stufe von deinem Abwurfstapel %game.card.recover%",
         "4": "Wechsle jede Runde die Form",
         "5": "Verliere jede Runde mindestens eine Fertigkeitskarte"
