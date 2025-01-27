@@ -510,7 +510,7 @@
         },
         "type": {
           "add": "añade {0}",
-          "remove": "elimima {0}",
+          "remove": "elimina {0}",
           "replace": "reemplaza {0} por {1}"
         },
         "warning": "¡Más pericias que las disponibles seleccionadas!",
@@ -3119,9 +3119,13 @@
       "toggleDamageHP": "Fijar <i>%settings.damageHP%</i>",
       "toggleElements": "Fijar el estado de los elementos",
       "toggleHandSize": "Fijar <i>Mostar tamaño de mano y nivel</i>",
+      "toggleTraits": "Fijar <i>Mostrar rasgos</i>",
       "undo": "Deshacer",
+      "zoomIn": "Zoom-in",
+      "zoomOut": "Zoom-out",
       "zoomReset": "Reiniciar Zoom"
-    }
+    },
+    "validateEditionData": "Validar datos de Edición"
   },
   "update": "Actualizar - Recargar",
   "welcome": {
