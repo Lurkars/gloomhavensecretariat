@@ -3069,6 +3069,9 @@
       "ctrl": "CTRL",
       "difficulty": "Menú Dificultad/Nivel",
       "enter": "↵",
+      "entityMenu": {
+        ".": "En cualquier figura/peana abierta, esos atajos están desactivados, actualmente los atajos están disponibles en el menú figura/peana:"
+      },
       "loot": "Roba del mazo de botín",
       "mainMenu": {
         ".": "Abrir el menú principal",
