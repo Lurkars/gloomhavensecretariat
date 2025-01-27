@@ -68,7 +68,7 @@
         },
         "select": {
           ".": "Toggle active Challenge",
-          "multiple": "Toggle active  Challenges"
+          "multiple": "Toggle active Challenges"
         }
       },
       "upcoming": "Upcoming"
