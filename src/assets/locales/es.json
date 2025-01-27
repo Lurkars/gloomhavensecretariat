@@ -958,7 +958,39 @@
           "name": "Nombre",
           "rebuild": {
             ".": "Reconstruir",
-            "action": "Reconstruir"
+            "action": "Reconstruir",
+            "hint": "Reconstruir (forzar con doble clic)"
+          },
+          "repair": {
+            ".": "Reparar edificio",
+            "action": "Reparar edificio",
+            "costs": "Cualquiera {0}",
+            "hint": "Reparar edificio (forzar con doble clic)"
+          },
+          "rewards": {
+            "action": "Nivel {0}",
+            "defense": "+{0} defensa",
+            "items": "Añade %game.itemFh.{0}% a %game.itemFh.{1}% los objetos disponibles",
+            "loseMorale": "-{0} moral",
+            "plot": "+{0} parcela",
+            "plots": "+{0} parcelas",
+            "prosperity": "+{0} prosperidad",
+            "soldiers": "+{0} soldados"
+          },
+          "selectResources": {
+            ".": "Seleccionar Recursos",
+            "confirm": "Confirmar"
+          },
+          "state": {
+            "damaged": "Dañado",
+            "normal": "normal",
+            "wrecked": "destrozado"
+          },
+          "unlock": "Desbloquear edificio",
+          "upgrade": {
+            ".": "Mejorar edificio",
+            "action": "Mejorar edificio a nivel {0}",
+            "hint": "Mejorar edificio (forzar con doble clic)"
           }
         },
         "campaignStickers": {
@@ -969,15 +1001,32 @@
         "disable": "Ir a la hoja de grupo de Gloomhaven",
         "enable": "Ir a la Hoja de Campaña de Frosthaven",
         "name": "Nombre del grupo",
+        "nextWeek": "Siguiente semana (nuevo calendario)",
+        "soldierLevel": "Nivel",
         "soldiers": "SOLDADOS",
+        "summer": "Verano",
         "supply": {
           ".": "Suministros de Frosthaven",
           "apply": "Aplicar cambios",
-          "edit": "Editar"
+          "edit": "Editar",
+          "total": "Total"
+        },
+        "totalDefense": "Defensa total",
+        "townGuardPerks": "Pericias guardia de la ciudad",
+        "weekSections": {
+          ".": "Establecer Secciones para la semana {0}",
+          "addSection": "Añadir sección a la semana",
+          "calc": "{0} semanas desde la semana actual",
+          "hint": "Doble clic para fijar/editar las secciones de la semana",
+          "lock": "Bloquea el calendario para evitar editarlo por accidente. Doble clic para un bloqueo un bloqueo permisivo, permite añadir o eliminar una sola semana.",
+          "openConclusion": "Seleccionar sección continua",
+          "section": "Sección"
         },
         "winter": "Invierto"
       },
       "totalTime": "Jugado en Escenarios: {0}",
+      "townGuard": "Guardia de la Ciudad",
+      "townGuardDeck": "Mazo de la Guardia de la Ciudad",
       "treasures": {
         ".": "Tesoros",
         "applySelect": "Aplicar selección",
@@ -990,6 +1039,7 @@
     "export": "Exportar",
     "import": "Importar",
     "inspiration": "Inspiración",
+    "location": "Localización",
     "morale": "Moral",
     "name": "Nombre",
     "new": {
@@ -999,16 +1049,26 @@
     "notes": "Notas",
     "prosperity": {
       ".": "Prosperidad",
-      "reset": "Reiniciar Prosperidad"
+      "reset": "Reiniciar Prosperidad",
+      "wrap": {
+        "expand": "Expandir",
+        "shrink": "Encoger"
+      }
     },
     "remove": "Eliminar grupo",
     "reputation": "Reputación",
     "sheet": "Hoja de grupo",
     "shop": {
-      ".": "Modificar Precio de la tienda"
+      ".": "Modificar Precio de la tienda",
+      "none": "Vacío"
     }
   },
   "permissions": {
+    ".": "Tus permisos",
+    "all": {
+      ".": "Todos los permisos",
+      "hint": "¡Puedes crear nuevos Permisos! ¡NO se pueden cambiar después!"
+    },
     "attackModifiers": {
       ".": "Mazo de modificador de ataque",
       "hint": "Roba y edita el Mazo de Modificadores de Ataque de Monstruos y Aliados"
@@ -1017,9 +1077,22 @@
       ".": "Todos los personajes",
       "hint": "Actualiza y cambia todos los personajes y objetivos."
     },
+    "code": {
+      ".": "Nuevo Código de Juego para Permisos"
+    },
+    "create": "Crear nuevos Permisos",
+    "custom": {
+      ".": "Definir nuevos Permisos",
+      "hint": "Especificar los permisos concedidos"
+    },
     "elements": {
       ".": "Elementos",
       "hint": "Establecer estado de los elementos"
+    },
+    "hasAll": "Conceder todos los Permisos",
+    "level": {
+      ".": "Nivel",
+      "hint": "Cambiar nivel del Escenario"
     },
     "lootDeck": {
       ".": "Mazo de botín",
@@ -1034,7 +1107,13 @@
       "hint": "Actualizar y modificar el progreso del grupo y de la campaña"
     },
     "round": {
-      ".": "Rondas"
+      ".": "Rondas",
+      "hint": "Controlar rondas y turnos de las figuras"
+    },
+    "save": "Guardar Permisos",
+    "scenario": {
+      ".": "Escenario",
+      "hint": "Cambiar Edición, Escenario y Secciones"
     }
   },
   "round": {
@@ -1088,6 +1167,15 @@
       "hint": "Aplicar a todos los personajes seleccionados",
       "progress": "Afecta al progreso del personaje"
     },
+    "favors": {
+      ".": "Apéndice F: Favores",
+      "apply": "Aplicar",
+      "keep": "Mantener Favores para cada Escenario",
+      "label": {
+        ".": "%game.data.favors.{0}.{1}% (1 Punto)",
+        "multiple": "%game.data.favors.{0}.{1}% ({2} Puntos)"
+      }
+    },
     "filter": {
       ".": "Filtrar Escenario",
       "noResult": "Sin Resultados"
@@ -1113,7 +1201,14 @@
     "requirements": {
       ".": "Requisitos del escenario",
       "all": "Mostrar todos los requisitos (incluir los cumplidos)",
-      "cancel": "Cancelar"
+      "buildings": "'%data.buildings.{0}%' (Edificio) CONSTRUIR",
+      "buildingsLevel": "'%data.buildings.{0}%' (Edificio) Nivel {1} CONSTRUIR",
+      "buildingsMissing": "'%data.buildings.{0}%' (Edificio) NO CONSTRUIR",
+      "campaignStickers": "'{0}' (Pegatina de Campaña) COMPLETADO",
+      "campaignStickersCount": "'{0}' (Pegatina de Campaña) x{2} COMPLETADO  (obtén{1})",
+      "campaignStickersMissing": "'{0}' (Pegatina de Campaña) NO COMPLETADO",
+      "cancel": "Cancelar",
+      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' presente"
     },
     "reset": "Reiniciar Escenario",
     "rewards": {
