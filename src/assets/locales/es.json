@@ -3068,6 +3068,7 @@
       "amDisadvantage": "como <kbd><span>m</span></kbd>, pero robado con Desventaja si esta activado",
       "ctrl": "CTRL",
       "difficulty": "Menú Dificultad/Nivel",
+      "enter": "↵",
       "loot": "Roba del mazo de botín",
       "mainMenu": {
         ".": "Abrir el menú principal",
