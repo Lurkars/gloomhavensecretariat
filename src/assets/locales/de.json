@@ -56,7 +56,21 @@
         "multiple": "Gezogene Herausforderungen verwerfen"
       },
       "current": "Aktuell",
-      "finished": "Abgeschlossen"
+      "finished": "Abgeschlossen",
+      "hint": {
+        "current": {
+          ".": "Aktuell aktive Herausforderung",
+          "multiple": "Aktuell aktive Herausforderungen"
+        },
+        "drawAvailable": {
+          ".": "Ziehe Herausforderung",
+          "multiple": "Ziehe Herausforderungen"
+        },
+        "select": {
+          ".": "Aktive Herausforderung umschalten",
+          "multiple": "Aktive Herausforderungen umschalten"
+        }
+      }
     }
   },
   "character": {
