@@ -1208,7 +1208,8 @@
       "campaignStickersCount": "'{0}' (Pegatina de Campaña) x{2} COMPLETADO  (obtén{1})",
       "campaignStickersMissing": "'{0}' (Pegatina de Campaña) NO COMPLETADO",
       "cancel": "Cancelar",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' presente"
+      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' presente",
+      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' ausente"
     },
     "reset": "Reiniciar Escenario",
     "rewards": {
