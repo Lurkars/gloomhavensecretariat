@@ -808,7 +808,7 @@
       },
       "longRest": "Establecer Descanso Largo",
       "longRestOff": "Desactivar Descanso Largo",
-      "setInitiative": "Indica la iniciativa",
+      "setInitiative": "Indicar iniciativa",
       "startTurn": "Inicio de turno"
     },
     "health": "Puntos de Vida",
@@ -1101,7 +1101,7 @@
   },
   "number": {
     "0": "cero",
-    "1": "uno",
+    "1": "una",
     "2": "dos",
     "3": "tres",
     "4": "cuatro",
@@ -1375,7 +1375,7 @@
       "empty": "Por favor, añade monstruos y personajes antes de la ronda.",
       "failed": "Todos los personajes parecen agotados. ¿Quieres reiniciar el escenario?",
       "finish": "No quedan monstruos. Has superado con éxito el escenario?",
-      "missingInitiative": "La iniciativa debe fijarse para todas las figuras."
+      "missingInitiative": "Indica la iniciativa para todas las figuras."
     },
     "next": "Siguiente Ronda"
   },
@@ -1396,7 +1396,7 @@
     "conclusion": "Conclusión",
     "custom": "Personalizado",
     "eventEffects": {
-      ".": "Efectos del eventos",
+      ".": "Efectos de Evento",
       "campaign": "Afecta a la campaña",
       "drawRandomItem": {
         ".": "Roba un diseño de objeto aleatorio",
@@ -2983,7 +2983,7 @@
     "missing": "Estados perdidos: {0}",
     "redo": "Rehacer",
     "reset": "Reiniciar",
-    "undo": "Deshazer"
+    "undo": "Deshacer"
   },
   "summon": {
     ".": "Invocación",
