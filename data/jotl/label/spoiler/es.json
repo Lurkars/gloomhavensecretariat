@@ -14,7 +14,7 @@
     },
     "jotl-12": {
       ".": "Poción de resistencia",
-      "1": "Durante tu turno, devuelve 1 de tus cartas descartadas a tu mano"
+      "1": "Durante tu turno, devuelve 1 de tus cartas descartadas a tu mano."
     },
     "jotl-13": {
       ".": "Poción de poder",
@@ -90,7 +90,7 @@
     },
     "jotl-3": {
       ".": "Armadura de malla",
-      "1": "Durante tu turno, obten %game.action.shield% 1 para el resto de la ronda."
+      "1": "Durante tu turno, obtén %game.action.shield% 1 para el resto de la ronda"
     },
     "jotl-30": {
       ".": "Anillo de premura",
@@ -138,7 +138,7 @@
     },
     "jotl-8": {
       ".": "Martillo arrojadizo",
-      "1": "Durante tu ataque a distancia, añade %game.condition.stun% a un único ataque."
+      "1": "Durante tu ataque a distancia, añade %game.condition.stun% a un único ataque"
     },
     "jotl-9": {
       ".": "Daga envenenada",
