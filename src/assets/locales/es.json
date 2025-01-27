@@ -3118,6 +3118,7 @@
       "toggleAbsent": "Fijar <i>Ocultar cifras ausentes</i>",
       "toggleDamageHP": "Fijar <i>%settings.damageHP%</i>",
       "toggleElements": "Fijar el estado de los elementos",
+      "toggleHandSize": "Fijar <i>Mostar tamaño de mano y nivel</i>",
       "undo": "Deshacer",
       "zoomReset": "Reiniciar Zoom"
     }
