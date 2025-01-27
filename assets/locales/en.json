@@ -68,7 +68,7 @@
         },
         "select": {
           ".": "Toggle active Challenge",
-          "multiple": "Toggle active  Challenges"
+          "multiple": "Toggle active Challenges"
         }
       },
       "upcoming": "Upcoming"
@@ -216,7 +216,10 @@
     },
     "remove": "Remove Character",
     "removeAll": "Remove All",
-    "replay": "Doubleclick to replay character",
+    "replay": {
+      ".": "Replay character",
+      "hint": "Doubleclick to replay character"
+    },
     "setAside": "Set character aside",
     "summon": {
       "level": "(Level {0})"
