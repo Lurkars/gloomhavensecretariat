@@ -3075,8 +3075,21 @@
         "blessInc": "Aumentar Bendición",
         "characterSheet": "Abrir hoja de personaje",
         "curseDec": "Disminuir Maldición",
-        "curseInc": "Inc. Maldición"
+        "curseInc": "Aumentar Maldición",
+        "hpDec": "Disminuir PV actuales",
+        "hpInc": "Aumentar PV actuales",
+        "kill": "Muerto / Agotado",
+        "lootDec": "Disminuir Monoeytokens",
+        "lootInc": "Aumentar Monoeytokens",
+        "maxHpDec": "Disminuir PV Máx.",
+        "maxHpInc": "Aumentar PV máx.",
+        "toggleAbsent": "Fijar personaje ausente",
+        "toggleCondition": "Fijar estado/Modificador de estado",
+        "xpDec": "Disminuir Exp.",
+        "xpInc": "Aumentar Exp."
       },
+      "esc": "ESC",
+      "events": "Menú de efectos de evento",
       "loot": "Roba del mazo de botín",
       "mainMenu": {
         ".": "Abrir el menú principal",
