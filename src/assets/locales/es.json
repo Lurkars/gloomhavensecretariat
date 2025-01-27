@@ -3114,6 +3114,10 @@
       "shift": "SHIFT",
       "space": "ESPACIO",
       "tab": "↹",
+      "toggelTab": "Fijar la figura activa cuando robas / Fijar la iniciativa cuando se enfoca la entrada",
+      "toggleAbsent": "Fijar <i>Ocultar cifras ausentes</i>",
+      "toggleDamageHP": "Fijar <i>%settings.damageHP%</i>",
+      "toggleElements": "Fijar el estado de los elementos",
       "undo": "Deshacer",
       "zoomReset": "Reiniciar Zoom"
     }
