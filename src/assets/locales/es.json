@@ -3090,17 +3090,27 @@
       },
       "esc": "ESC",
       "events": "Menú de efectos de evento",
+      "finish": "(finalizar) menú escenario",
+      "global": "Actualmente están implementados los siguientes atajos de teclado:",
+      "globalMap": "Abrir mapa Global",
+      "keyboard": "Mostrar atajos de teclado",
       "loot": "Roba del mazo de botín",
       "mainMenu": {
         ".": "Abrir el menú principal",
         "confirm": "Confirmar acción / Abrir submenu",
-        "decline": "Declinar acción / Cerrar menu"
+        "decline": "Declinar acción / Cerrar menu",
+        "open": "Al abrir el menú",
+        "select": "Seleccionar acción"
       },
       "party": "Abrir hoja de grupo",
       "redo": "rehacer",
       "round": "Siguiente ronda / Robar",
       "scenarioChart": "Mostrar el diagrama del escenario",
+      "select": "seleccionar figura/peana para abrir el menú con la tecla numérica",
+      "selectNatural": "seleccionar figura/peana para abrir el menú en orden fijo con la tecla numérica",
+      "shift": "SHIFT",
       "space": "ESPACIO",
+      "tab": "↹",
       "undo": "Deshacer",
       "zoomReset": "Reiniciar Zoom"
     }
