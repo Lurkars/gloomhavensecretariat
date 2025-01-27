@@ -4,7 +4,8 @@
     "forceUpdate": "Forzar Actualización",
     "ip": "Gloomhaven y todas las marcas relacionadas, imágenes y textos relacionados son propiedad de {0}.",
     "license": "Licenciado bajo {0}.",
-    "support": "Apoya al dev",
+    "sourceCode": "Código fuente",
+    "support": "Apoya al desarollador",
     "version": {
       "latest": "Última",
       "unknown": "No se pudo obtener la última versión",
@@ -22,12 +23,6 @@
   "campaign": {
     ".": "Campaña/Gestión de personajes",
     "battleGoals": "Confg. Objetivos de batalla",
-    "character": "Hojas de Personajes",
-    "map": {
-      ".": "Mapa Global",
-      "highlighting": "Resaltar"
-    },
-    "party": "Hojas de Grupo/Campaña",
     "campaignManagement": {
       ".": "Gestionar Campaña",
       "add": "Añadir Campaña",
@@ -35,19 +30,48 @@
       "name": "Nombre de la Campaña {0}",
       "reset": "Reiniciar Campaña"
     },
-    "sheet": "Hoja de gestión global de campañas"
+    "character": "Hojas de Personajes",
+    "items": "Visión general de cartas de Objeto",
+    "map": {
+      ".": "Mapa Global",
+      "highlighting": "Resaltar"
+    },
+    "party": "Hojas de Grupo/Campaña",
+    "resources": "Tabla general de recursos",
+    "sheet": "Hoja de gestión global de campañas",
+    "trials": {
+      ".": "Pruebas",
+      "automation": "¡El efecto de esta carta se aplica automáticamente!"
+    }
   },
   "cancel": "Cancelar",
   "challenges": {
+    ".": "Desafíos",
+    "automation": {
+      "hint": "¡El efecto de esta carta se aplica automáticamente!"
+    },
     "deck": {
+      "clear": {
+        ".": "Descartar el Desafío robado",
+        "multiple": "Descartar los Desafíos robados"
+      },
       "current": "Actual",
       "finished": "Finalizado",
       "hint": {
+        "current": {
+          ".": "Desafío activo actualmente",
+          "multiple": "Desafíos actualmente activos"
+        },
         "drawAvailable": {
           ".": "Robar Challenge",
           "multiple": "Robar Challenges"
+        },
+        "select": {
+          ".": "Fijar Desafío activo",
+          "multiple": "Fijar desafíos activos"
         }
-      }
+      },
+      "upcoming": "Próximamente"
     },
     "disabled": "¡No hay ningún desafío fijado para el escenario!"
   },
@@ -69,24 +93,43 @@
       "undoLastPick": {
         ".": "Deshacer elección de nivel {0}",
         "hint": "Haz doble clic para restablecer todas las elecciones"
+      },
+      "warning": "¡No es posible seleccionar la carta porque hay demasiadas cartas en la baraja!",
+      "wip": "<i>%limpiar%</i>"
+    },
+    "absent": "Ausente",
+    "add": "Añadir Personaje",
+    "class": {
+      "human": "Humano",
+      "inox": "Inox",
+      "m": {
+        "human": "Humano",
+        "quatryl": "Quatryl"
       }
     },
-    "add": "Añadir Personaje",
     "filter": {
       ".": "Filtrar Personajes",
       "allEditions": "Todas las ediciones",
       "noResult": "Sin resultados"
     },
+    "lootCards": {
+      "drawn": "Ordenar por momento robado",
+      "sort": "Ordenar por tipo"
+    },
+    "playerNumber": "Jugador #",
+    "present": "Regalo",
     "progress": {
+      ".": "Hoja de Personaje",
       "donate": "Donaciones",
       "donations": "Donaciones al Santuario del Gran Roble: {0}",
       "export": "Exportar",
       "fh": {
-        "enable": "Ir a la hoja de personaje de Frosthaven",
-        "disable": "Ir a la hoja de personaje de Gloomhaven"
+        "disable": "Ir a la hoja de personaje de Gloomhaven",
+        "enable": "Ir a la hoja de personaje de Frosthaven"
       },
       "gold": "Oro",
       "gold-notes": "Notas de Oro",
+      "import": "Importar",
       "level": "Nivel",
       "lock": "Bloquea la hoja de personaje para evitar ediciones accidentales.",
       "masteries": "Maestrias",
@@ -114,19 +157,36 @@
         }
       },
       "resources": {
-        ".": "Recursos"
+        ".": "Recursos",
+        "apply": "Mover recursos",
+        "move": "Mover a suministros de Frosthaven"
       },
       "retired": "Retirado",
       "retirement": {
         ".": "Retirar Personaje",
         "additionalPQ": {
+          ".": "Gasta 15 de inspiración para una nueva misión personal",
+          "cancel": "Cancelar misión personal adicional",
           "inspiration": "-15 inspiración"
-        }
-      }
+        },
+        "apply": "Aplicar",
+        "conclusion": "Abrir Sección %data.section:{0}%",
+        "events": "Añade el evento de Ciudad {0} y el evento de Carretera{0} a sus respectivos mazos",
+        "moveSupply": "Mueve los recursos al almacén de Frosthaven",
+        "prosperity": "+{0} prosperidad"
+      },
+      "retirements": "Retirados",
+      "title": "{1} {0}",
+      "trial": "Prueba",
+      "xp": "Exp"
     },
     "remove": "Eliminar Personaje",
     "removeAll": "Eliminar todo",
     "replay": "Doble Click para rejugar Personaje",
+    "setAside": "Pon al personaje a un lado",
+    "summon": {
+      "level": "(Nivel {0})"
+    },
     "token": "Token de Personaje",
     "traits": "Rasgos",
     "unlock": {
@@ -154,9 +214,36 @@
         "countHint": "Número de acciones entre Backups automáticas",
         "onFinish": "Tras finalizar el Escenario",
         "uploadUrl": {
+          ".": "Subir URL",
           "error": {
-            ".": "Advertencia: Fallo en la Backup automática"
-          }
+            ".": "Advertencia: Fallo en la Backup automática",
+            "status": "Backup automático fallido con código de error'{0}'. Hecha un vistazo al monitor del navegador para más detalles.",
+            "unknown": "Backup automático fallido debido a un error desconocido. Por favor revisa el monitor del navegador para más detalles."
+          },
+          "hint": "En vez de descargar el fichero del Backup automático, fija una URL para subir los datos. {FILENAME} puede utilizarse como marcador de posición (placeholder) para el nombre de archivo.  (Esto requiere una configuración CORS adecuada para funcionar.)"
+        },
+        "uploadUrlAuthorization": {
+          ".": "Cabecera de autorización",
+          "hint": "Se utiliza como cabecera \"Autorización\" para la solicitud de carga"
+        },
+        "uploadUrlFileUpload": {
+          ".": "Cargar como Archico",
+          "hint": "Crea un objeto de archivo para cargar. Si no está marcada, se enviarán datos de cadena JSON sin procesar."
+        },
+        "uploadUrlMethod": {
+          ".": "Método",
+          "get": "OBTENER",
+          "hint": "Método HTTP para cargar",
+          "post": "POST",
+          "put": "PUT"
+        },
+        "uploadUrlPassword": {
+          ".": "Contraseña",
+          "hint": "Contraseña utilizada para la solicitud de carga"
+        },
+        "uploadUrlUsername": {
+          ".": "Nombre de usuario",
+          "hint": "Nombre de usuario utilizado para la solicitud de carga"
         }
       },
       "delete": "Eliminar Backups de juego",
@@ -206,55 +293,177 @@
       "clockIn": "Reloj en el reloj del juego",
       "clockOut": "Salir del Reloj de Juego",
       "current": "Actual: {0}",
-      "off": "Reloj del juego en pausa Haz doble clic para iniciar."
+      "off": "Reloj del juego en pausa Haz doble clic para iniciar.",
+      "paused": "Reloj de juego pausado! Doble clic para iniciar.<br>Total: {0}",
+      "running": "¡Reloj de juego en marca! Doble clic para parar.<br>Actual: {1}",
+      "runningTotal": "¡Reloj de juego en marca! Doble clic para parar.<br>Actual: {1}<br>Total: {0}",
+      "timestamp": "Ejecutar de {0} a {1}",
+      "total": "Total: {0}"
     },
     "hours": "{2} horas, {1} minutos y {0} segundos",
     "minutes": "{1} minutos y {0} segundos",
     "seconds": "{0} segundos",
     "totalHours": "{0}, aprox. {1} horas"
   },
+  "edition": {
+    ".": "Seleccionar Edición",
+    "all": "Todas las ediciones",
+    "conditions": "Estados disponibles"
+  },
   "editor": {
+    ".": "Editor [¡Spoiler!]",
+    "action": {
+      "add": "Añadir Acción",
+      "addBottom": "Añadir acción inferior",
+      "addSubAction": "Añadir acción secundaria",
+      "remove": "Eliminar Acción",
+      "removeSubAction": "Eliminar acción secundaria",
+      "small": "Más pequeño",
+      "type": "Tipo de Acción",
+      "value": "Valor de la acción",
+      "valueType": {
+        ".": "Tipo de valor",
+        "add": "Añadir",
+        "fixed": "Fijado",
+        "minus": "Menos",
+        "plus": "Más",
+        "subtract": "Resta"
+      }
+    },
     "character": {
       ".": "Editor de personaje",
       "data": {
         ".": "Datos de personaje",
-        "deck": "Nombre mazo de habilidades"
-      }
+        "deck": "Nombre mazo de habilidades",
+        "hp": {
+          "-1": "Perfil personalizado",
+          ".": "Puntos de vida",
+          "0": "Perfil bajo",
+          "1": "Perfil medio",
+          "2": "Perfil alto"
+        },
+        "json": {
+          ".": "Datos de personaje JSON datos",
+          "download": "Descargar datos de personaje como archivo JSON"
+        }
+      },
+      "edition": "Edición",
+      "new": "Nuevo personaje"
+    },
+    "deck": {
+      ".": "Editor del mazo de habilidades",
+      "abilityName": "Nombre de la habilidad",
+      "addAbility": "Añadir habilidad",
+      "character": "Mazo de personaje",
+      "json": {
+        ".": "Mazo de habilidades Datos JSON",
+        "download": "Descargar mazo de habilidades como archivo JSON"
+      },
+      "name": "Nombre del mazo",
+      "new": "Mazo de nuevas habilidades",
+      "removeAbility": "Eliminar habilidad"
     },
     "edition": {
+      ".": "Editar Edición",
+      "base": "Datos Básicos",
+      "character": {
+        ".": "Añadir archivos de personajes",
+        "remove": "Eliminar personaje"
+      },
+      "conditions": {
+        ".": "Estados disponibles",
+        "allHint": "Cancelar selección de todos los estados",
+        "allSelected": "Seleccionar todos los estados"
+      },
+      "decks": {
+        ".": "Añadir archivos de mazo de habilidades",
+        "remove": "Eliminar mazo de habilidades"
+      },
+      "edition": "Nombre de Edición",
+      "extensions": "Ediciones a ampliar",
+      "json": {
+        ".": "Editar datos JSON",
+        "download": "Eliminar datos de Edición como archivo JSON"
+      },
       "monster": {
         ".": "Añadir archivos de monstruos",
         "remove": "Eliminar Monstruo"
       }
+    },
+    "monster": {
+      ".": "Editor de monstruo",
+      "new": "Nuevo monstruo",
+      "stats": {
+        ".": "­Estadísticas de monstruo",
+        "addSpecial": "Añadir especial",
+        "allLevel": "Todos los Niveles",
+        "applyAll": "Aplicar a todos los Niveles",
+        "boss": "Es un Jefe",
+        "count": "Recuento de peana",
+        "deck": "Añadir nombre al mazo de habilidades",
+        "flying": "Volador",
+        "hidden": "Invisible",
+        "json": {
+          ".": "Estadísticas de monstruo JSON datos",
+          "download": "Descargar estadísticas de monstruo como archivo JSON"
+        },
+        "levelSelect": "Seleccionar nivel"
+      }
     }
+  },
+  "errata": "Errata",
+  "escort": {
+    ".": "Escolta",
+    "add": "Añadir Escolta"
   },
   "game": {
     "action": {
       "area": "Efecto de área",
       "attack": "Ataque",
+      "box": "[Caja]",
       "card": "Carta",
+      "concatenation": "[Concatenación]",
       "condition": "Condición",
       "custom": "Personalizado",
       "damage": "Daño",
       "element": "Elemento",
       "elementHalf": "Medio elemento",
+      "fly": "Vuelo",
+      "grant": "Conceder",
+      "grid": "[Rejilla]",
       "heal": "Curación",
       "jump": "Salta",
       "loot": "Saqueo",
       "monsterType": "Tipo de Monstruo",
       "move": "Movimiento",
+      "nonCalc": "org. Acción",
+      "pierce": "Muelle",
       "pull": "Tirar",
       "push": "Empujar",
       "range": "Alcance",
+      "refreshItem": "Recuperar un objeto",
+      "retaliate": "Represalia",
       "shield": "Escudo",
       "spawn": "Aparición",
       "special": "Especial",
       "specialTarget": "Objetivo Especial",
       "sufferDamage": "Sufre Daño",
       "summon": "Invocación",
+      "swing": "Tajo",
       "target": "Objetivo",
       "targets": "Objetivos",
-      "teleport": "Teletransporte"
+      "teleport": "Teletransporte",
+      "trigger": "Disparar"
+    },
+    "affect": "Afecta",
+    "allied": "Aliado",
+    "ally": {
+      ".": "Aliado",
+      "addEntity": {
+        "boss": "Generar Jefe aliado",
+        "elite": "Generar Elite aliado",
+        "normal": "Generar aliado normal"
+      }
     },
     "attackModifiers": {
       ".": "Mazo de Modificar de ataque",
@@ -271,8 +480,20 @@
         ".": "Pericias",
         "additional": "{0} y {1}",
         "card": "carta",
+        "cardLabel": "{0}{1} {2}",
         "cards": {
-          ".": "cartas"
+          ".": "cartas",
+          "1": "%número.1%",
+          "2": "%número.2%",
+          "3": "% número.3%",
+          "4": "% número.4%",
+          "5": "% número.5%"
+        },
+        "effects": {
+          "recoverRandomDiscard": "Recuperar %game.card.recover% una carta aleatoria de la pila de descartes",
+          "refreshItem": "Recuperar un objeto",
+          "refreshItemFh": "%game.card.recover% un objeto",
+          "refreshSpentItem": "Recuperar un objeto gastado"
         },
         "type": {
           "add": "añade {0}",
@@ -286,7 +507,17 @@
         "bless": "Bendecido",
         "curse": "Maldecido",
         "double": "Doble",
-        "invalid": "Nulo"
+        "invalid": "Nulo",
+        "minus": "Menos",
+        "minus1": "Menos 1",
+        "minus2": "Menos 2",
+        "null": "Nulo",
+        "plus": "Más",
+        "plus0": "Más 0",
+        "plus1": "Más 1",
+        "plus2": "Más 2",
+        "plus3": "Más 3",
+        "plus4": "Más 4"
       }
     },
     "battleGoals": {
@@ -294,8 +525,8 @@
       "all": "Cartas actuales",
       "cancel": "Cancelar",
       "choose": "Elige Objetivo de Batalla para %game.characterIconColored.{0}% {1}",
-      "chosen": "Objetivo de batalla para %game.characterIconColored.{0}% {1}",
       "chooseCard": "Elija la carta seleccionada",
+      "chosen": "Objetivo de batalla para %game.characterIconColored.{0}% {1}",
       "drawCard": "Robar otra carta",
       "drawCards": "Cartas de recompensa",
       "drawUnavailable": "¡Se han robado todos los Objetivos de Batalla!",
@@ -304,6 +535,16 @@
         ".": "Establecer objetivos de batalla",
         "empty": "No hay Cartas de Objetivos de Batalla seleccionadas."
       }
+    },
+    "card": {
+      "experience": "X Experiencia",
+      "lost": "Perdido",
+      "persistent": "Bonus continuo",
+      "recover": "Recuperar",
+      "refresh": "Recuperar",
+      "round": "Ronda bonus",
+      "slot": "Usar espacio",
+      "slotXp": "Utilizar el espacio X Experiencia"
     },
     "cards": {
       "confirmReveal": "Haz clic de nuevo para revelar.",
@@ -315,7 +556,8 @@
       "drawDisadvantage": "Robar con Desventaja",
       "drawExtra": "Robo Extra",
       "edit": {
-        ".": "Editar"
+        ".": "Editar",
+        "toggleBB": "Mostrar como tabla BB"
       },
       "fullscreen": "Mostrar pantalla completa",
       "openDialog": "Mostrar todas las cartas",
@@ -434,10 +676,13 @@
       },
       "deck": "Mazo de botín",
       "lootTreasure": {
+        "looted": "{0} saqueados:",
         "selectCharacter": "Selecciona personaje para el tesoro {0}",
         "selectTreasure": "Selecciona tesoro para {0}"
       },
       "lumber": "Madera",
+      "material_resources": "material",
+      "metal": "Metal",
       "money": "Dinero",
       "random_item": {
         ".": "Objeto aleatorio",
@@ -445,6 +690,7 @@
         "draw": "Objeto aleatorio para %game.characterIconColored.{0}% {1}"
       },
       "remove": "Eliminar de %data.character.{0}%",
+      "snowthistle": "Cardo de las nieves",
       "special": "Especial",
       "special1": "Carta especial 1 (#1418)",
       "special2": "Carta especial 2 (#1419)",
@@ -457,15 +703,98 @@
           "condition": "adquiere {0}",
           "damage": "sufre {0}",
           "event": {
-            "city": "añade el Evento de Ciudad {0} a su mazo"
-          }
+            "city": "añade el Evento de Ciudad {0} a su mazo",
+            "road": "Añade el Evento de Carretera {0} a su mazo"
+          },
+          "experience": "Gana {0} experiencia",
+          "experienceFh": "Gana {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "goal": "Objetivo",
+          "gold": "Gana {0} oro",
+          "goldFh": "Gana {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "heal": "Realiza \"Curación {0}, Personal\"",
+          "item": "gana {1} ({0})",
+          "itemBlueprint": "gana {1} receta %game.itemFh.{0}%",
+          "itemDesign": "gana {1} diseño ({0})",
+          "itemFh": "gana {1} %game.itemFh.{0}%",
+          "loot": "gana {0} fichas de dinero",
+          "lootCards": "gana %number.{0}% cartas de botín",
+          "partyAchievement": "Logro de Grupo: \"{0}\"",
+          "randomItem": {
+            ".": "Gana un objeto aleatorio (Items {0})",
+            "result": ": {1} ({0})"
+          },
+          "randomItemBlueprint": {
+            ".": "Receta de objeto aleatoria",
+            "result": ": {1} receta ({0})"
+          },
+          "randomItemDesign": {
+            ".": "Diseño de objeto aleatorio",
+            "result": ": {1} diseño ({0})"
+          },
+          "randomScenario": {
+            ".": "Escenario secundario aleatorio",
+            "result": ": {1} %data.scenarioNumber:{0}%"
+          },
+          "randomScenarioFh": {
+            ".": "Escenario secundario aleatorio",
+            "result": ": Abre %data.section:{0}%, desbloquea {2}"
+          },
+          "resource": "gana {0}",
+          "scenario": "Nuevo Escenario: {1} %data.scenarioNumber:{0}%"
         }
       }
     },
+    "maxHealth": "Puntos de Vida Máximos",
+    "solo": "Solitario",
     "specialTarget": {
+      "allies": "%game.target% todos los aliados",
+      "alliesAdjacent": "%game.target% todos los aliados adyacentes",
+      "alliesAdjacentAffect": "%game.affect% todos los aliados adyacentes",
+      "alliesRange": "%game.target% todos los aliados a %game.action.range% {0}",
+      "alliesRangeAffect": "%game.affect% todos los aliados a %game.action.range% {0}",
+      "ally": "%game.target% 1 aliado",
+      "allyAdjacent": "%game.target% un aliado adyacente",
+      "allyAffect": "%game.affect% cualquier aliado",
+      "allyAffectRange": "%game.affect% un aliado a %game.action.range% {0}",
+      "allyShort": "Aliado",
+      "enemies": "%game.target% todos los enemigos",
+      "enemiesAdjacent": "%game.target% todos los enemigos adyacentes",
+      "enemiesMovedThrough": "%game.target% todos los enemigos atravesados",
+      "enemiesMovedThroughAdjacent": "%game.target% todos los enemigos ocupando o adyacentes<br>hexagonos que ha entrado durante la habilidad de movimiento",
+      "enemiesRange": "%game.target% todos los enemigos a %game.action.range% {0}",
+      "enemiesRangeAffect": "%game.affect% todos los enemigos a %game.action.range% {0}",
+      "enemiesRangeAffectExact": "%game.affect% todos los enemigos exactamente a %game.action.range% {0}",
+      "enemiesRangeExact": "%game.target% todos los enemigos exactamente a %game.action.range% {0}",
+      "enemy": "%game.target% un enemigo",
+      "enemyAdjacent": "%game.target% un enemigo adyacente",
+      "enemyOneAll": "%game.target% un enemigo con todos los ataques",
+      "enemyRange": "%game.target% un enemigo a exactamente %game.action.range% {0}",
+      "figures": "%game.target% todas las figuras",
+      "figuresAdjacent": "%game.target% todas las figuras adyacentes",
+      "figuresRange": "%game.target% todas las figuras a %game.action.range% {0}",
+      "focusEnemyFarthest": "Se centra en el enemigo<br>más alejado.",
       "self": "Personal",
+      "selfAllies": "Personal y todos los aliados",
+      "selfAlliesAdjacentAffect": "%game.affect%ect Personal y todos los aliados adyacentes",
       "selfAlliesAffect": "%game.affect% personal y todos los aliados",
-      "selfOrAlly": "Personal o aliados"
+      "selfAlliesRange": "%game.target% Personal y todos los aliados a %game.action.range% {0}",
+      "selfOrAlly": "Personal o aliados",
+      "targets": "Todos los objetivos"
+    },
+    "sufferDamage": "{0} sufre %game.damage:{1}%",
+    "summon": {
+      "player2-3": "%game.monsterType.{0}% para dos o tres personajes o %game.monsterType.{1}% para cuatro personajes",
+      "player3-4": "%game.monsterType.{0}% para dos o %game.monsterType.{1}% para tres o cuatro personajes",
+      "playerAll": "%game.monsterType.{0}% para todos los personajes",
+      "spawn": "{1} %data.monster.{0}%",
+      "spawnMarker": "{1} %data.monster.{0}% en %game.mapMarker.{2}%",
+      "spawnObjective": "{1} %data.objective.{0}%",
+      "spawnObjectiveMarker": "{1} %data.objective.{0}% en %game.mapMarker.{2}%",
+      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% en %game.mapMarker.{3}%"
+    },
+    "target": {
+      ".": "Objetivo",
+      "all": "todos"
     }
   },
   "help": "Ayuda",
@@ -474,9 +803,14 @@
     "active-full": "Por turnos, haz clic en la imagen de cada figura",
     "addAdditionalContent": "Añadir contenido adicional",
     "addMonsterEntities": "Usa el botón \"+\" para generar monstruos.",
+    "draw": "Clic \"%round.draw%\"",
     "draw-full": "Elige las cartas de habilidad de los personajes, fija la iniciativa, haz clic \"%round.draw%\".",
     "draw-short": "Establecer iniciativa, haz clic en \"%round.draw%\"",
     "next": "Clic \"%round.next%\""
+  },
+  "menu": {
+    "backToMain": "Volver al %menu.main%",
+    "main": "Menú principal"
   },
   "monster": {
     ".": "Monstruo",
@@ -518,6 +852,7 @@
   },
   "numbered": {
     "1": "primero",
+    "10": "decimo",
     "2": "segundo",
     "3": "tercero",
     "4": "cuarto",
@@ -525,8 +860,7 @@
     "6": "sexto",
     "7": "séptimo",
     "8": "octabo ",
-    "9": "noveno",
-    "10": "decimo"
+    "9": "noveno"
   },
   "objective": {
     ".": "Objetivo",
@@ -551,6 +885,10 @@
       ".": "Campaña",
       "items": "Desbloquear Objetos",
       "map": "Mapa",
+      "players": {
+        ".": "Nombres de Jugadores",
+        "add": "Añadir Jugador"
+      },
       "retirements": {
         ".": "Personajes retirados",
         "character": "Personaje",
@@ -561,14 +899,10 @@
         "player": "Jugador",
         "reactivate": "Reactivar Personaje"
       },
-      "players": {
-        ".": "Nombres de Jugadores",
-        "add": "Añadir Jugador"
-      },
       "scenarios": {
         ".": "Escenarios",
-        "addSuccess": "Marcar como superado",
         "addConclusion": "Añadir conclusión",
+        "addSuccess": "Marcar como superado",
         "conclusions": "Conclusión",
         "edition": "Edición",
         "finished": "Finalizado",
@@ -736,9 +1070,9 @@
       "index": "Número de Escenario, separados por comas"
     },
     "openRoom": "Abrir puerta",
-    "openRoomRef": "Abrir puerta para loseta '{0}'",
     "openRoomMarker": "Abrir puerta %game.mapMarker.{1}%",
     "openRoomMarkerRef": "Abrir puerta %game.mapMarker.{1}% para loseta '{0}'",
+    "openRoomRef": "Abrir puerta para loseta '{0}'",
     "random": "Mazmorra aleatoria",
     "requirements": {
       ".": "Requisitos del escenario",
@@ -776,7 +1110,6 @@
       "addMarker": "Abrir Sección %game.mapMarker.{1}%?",
       "addMarkerIndex": "Abrir Sección #{0} %game.mapMarker.{1}%?",
       "cancel": "Cancelar",
-      "confirm": "Confirmar",
       "conclusion": {
         ".": "Finalizar Escenario con {0}",
         "continue": {
@@ -785,7 +1118,8 @@
         },
         "named": "Finalizar escenario con{1} {0}",
         "select": "Selecciona conclusión:"
-      }
+      },
+      "confirm": "Confirmar"
     },
     "set": "Seleccionar Escenario",
     "setup": {
@@ -831,13 +1165,13 @@
       "randomItem": "Objeto aleatorio",
       "randomItemLooted": "Objeto aleatorio obtenido",
       "randomItems": "Objetos aleatorios",
+      "restart": "Reiniciar Escenario",
+      "restartLoseLoot": "Reiniciar Escenario (perder recursos)",
       "rewards": {
         ".": "Recompensas del Escenario",
         "experience": "Exp. de recompensa",
         "gold": "Oro de recompensa"
       },
-      "restart": "Reiniciar Escenario",
-      "restartLoseLoot": "Reiniciar Escenario (perder recursos)",
       "solve": "Continuar",
       "totalGold": "Oro Total",
       "totalXp": "Exp. Total",
@@ -973,10 +1307,6 @@
       ".": "Aplicar botín al personaje",
       "hint": "Añadir automáticamente el botín después de robar una carta al personaje activo/elegido"
     },
-    "autoscroll": {
-      ".": "Scroll Automático",
-      "hint": "Desplazamiento automático a la siguiente figura activa."
-    },
     "automaticAttackModifierFullscreen": {
       ".": "Mazo MA pantalla completa",
       "hint": "Abrir el Mazo de Modificadores de Ataque (y también el Mazo de Botín) a pantalla completa en dispositivos pequeños."
@@ -1000,6 +1330,10 @@
     "automaticUnlocking": {
       ".": "Desbloqueo automático de personajes",
       "hint": "Desbloqueo automático de personajes a partir de las recompensas de los escenarios."
+    },
+    "autoscroll": {
+      ".": "Scroll Automático",
+      "hint": "Desplazamiento automático a la siguiente figura activa."
     },
     "barsize": {
       ".": "Tamaño de barras",
@@ -1030,13 +1364,13 @@
       ".": "Mostrar Atributos calculados",
       "hint": "Los valores de habilidad se calculan con los Atributos, por lo que en lugar de Ataque +1 Ataque 4 se muestra para un valor de Ataque de 3 en los Atributos. "
     },
-    "characterAttackModifierDeck": {
-      ".": "Mazo de Modificador de ataque de Personajes",
-      "hint": "Habilitar Mazo de Modificadores de Ataque para Personajes. Para usar pericias la Hoja de Personaje debe estar habilitada."
-    },
     "characterAttackModifierAnimate": {
       ".": "Animación robo mazo MA de personajes",
       "hint": "Muestra una animación de robo si se roba un modificador de ataque de un mazo de modificadores de ataque de un personaje."
+    },
+    "characterAttackModifierDeck": {
+      ".": "Mazo de Modificador de ataque de Personajes",
+      "hint": "Habilitar Mazo de Modificadores de Ataque para Personajes. Para usar pericias la Hoja de Personaje debe estar habilitada."
     },
     "characterAttackModifierDeckPermanent": {
       ".": "Mazo MA permanente de personajes",
@@ -1131,12 +1465,12 @@
     "maxUndo": {
       ".": "Número máx. de deshacer"
     },
-    "monsters": {
-      ".": "Monstruos"
-    },
     "monsterAttackModifierDeck": {
       ".": "Mazo de modificadores de ataque para monstruos",
       "hint": "Activa el Mazo de modificadores de ataque para monstruos."
+    },
+    "monsters": {
+      ".": "Monstruos"
     },
     "moveElements": {
       ".": "Actualización automática del estado de los elementos",
