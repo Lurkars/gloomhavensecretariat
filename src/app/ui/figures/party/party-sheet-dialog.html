@@ -155,6 +155,9 @@
           <img *ngIf="worldMap" (click)="openMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'">
         </span>
 
+        <span class="next" *ngIf="party.weeks == (80 + 80*calendarSheet)" (click)="setWeek(party.weeks+1)"><span
+          [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"></span>
+
         <div class="weeks">
           <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
             [ghs-tooltip]="'party.campaign.sheet.weekSections.hint'" (singleClick)="setWeek(index+1 + 80*calendarSheet)"
@@ -171,8 +174,6 @@
               {{section}}
             </div>
           </div>
-          <span class="next" *ngIf="party.weeks == (80 + 80*calendarSheet)" (click)="setWeek(party.weeks+1)"><span
-              [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"></span>
         </div>
 
         <div class="name">
