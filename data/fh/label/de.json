@@ -1,313 +1,4 @@
 {
-  "character": {
-    "banner-spear": "Bannerspeer",
-    "blinkblade": {
-      ".": "Blitzklinge",
-      "fast": "Schnell",
-      "slow": "Langsam",
-      "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
-    },
-    "boneshaper": "Knochenformerin",
-    "deathwalker": "Todeswandlerin",
-    "drifter": "Wanderer",
-    "geminate": {
-      ".": "Doppelseele",
-      "melee": "Nahkampf",
-      "range": "Fernkampf"
-    },
-    "traits": {
-      "arcane": "Arcane",
-      "armored": "Armored",
-      "chaotic": "Chaotic",
-      "educated": "Educated",
-      "intimidating": "Intimidating",
-      "night": "Night",
-      "nimble": "Nimble",
-      "outcast": "Outcast",
-      "persuasive": "Persuasive",
-      "resourceful": "Resourceful",
-      "strong": "Strong"
-    }
-  },
-  "edition": {
-    "fh": "Frosthaven"
-  },
-  "monster": {
-    "abael-herder": "Abael-Treiber",
-    "abael-scout": "Abael-Späher",
-    "algox-archer": "Algox-Schütze",
-    "algox-guard": "Algox-Wache",
-    "algox-icespeaker": "Algox-Eissprecher",
-    "algox-priest": "Algox-Priester",
-    "algox-scout": "Algox-Späher",
-    "algox-snowspeaker": "Algox-Schneesprecher",
-    "algox-stormcaller": "Algox-Sturmruferin",
-    "ancient-artillery": "Antike Artillerie",
-    "augmented-mindthief": "Verbesserte Gedankendiebin",
-    "belara": "Belara",
-    "black-imp": "Schwarzwicht",
-    "blacksmith": "Blacksmith",
-    "brother": "Bruder",
-    "burrowing-blade": "Klingengräber",
-    "chaos-demon": "Chaosdämon",
-    "chaos-lieutenant": "Chaosleutnant",
-    "chaos-spark": "Chaos Energiestrahl",
-    "city-guard": "Stadtwache",
-    "coral-corpse": "Korallen Leiche",
-    "deep-terror": "Tiefenschreck",
-    "earth-demon": "Erddämon",
-    "elder-ooze": "Schleimfürst",
-    "fish-king": "Fischkönig",
-    "flame-demon": "Flammendämon",
-    "flaming-bladespinner": "Flammen-Klingenschleuder",
-    "flaming-sword-of-justice": "Flamende Schwert der Gerechtigkeit",
-    "forest-imp": "Waldwicht",
-    "fracture-of-the-deep": "Tiefenbruch",
-    "frost-demon": "Frostdämon",
-    "frozen-corpse": "Gefrorene Leiche",
-    "frozen-fist": "Frostfaust",
-    "giant-piranha-pig": "Riesen Piranhaschwein",
-    "giant-piranha-pig-boss": "Extra Boss Deck #83",
-    "guard-captain": "Wachhauptmann",
-    "harbinger-of-shadow": "Vorbote der Schatten",
-    "harbinger-of-shadow-1": "Vorbote der Schatten %game.mapMarker.1%",
-    "harbinger-of-shadow-2": "Vorbote der Schatten %game.mapMarker.2%",
-    "harrower-infester": "Schwarmling-Kontagion",
-    "hateful-corpse": "Hasserfüllte Leiche",
-    "hound": "Grimmwolf",
-    "hungry-maw": "Hungrige Schlund",
-    "ice-wraith": "Eisspuk",
-    "lady-in-white": "Weiße Dame",
-    "large-vermling-scout": "Große Ratzen-Späher",
-    "laser-spires": "Lasersäulen",
-    "lightning-eel": "Blitzaal",
-    "living-bones": "Wandelndes Skelett",
-    "living-doom": "Wandelndes Schicksal",
-    "living-spirit": "Wandelnde Seele",
-    "lord-of-chaos": "Gebieter des Chaos",
-    "lurker-clawcrusher": "Pirscher-Schmetterschere",
-    "lurker-clawcrusher-scenario-60": "Gebrochener Leutnant (Schmetterschere)",
-    "lurker-conductor": "Pirscher Conductor-----",
-    "lurker-mindsnipper": "Pirscher-Geistspalter",
-    "lurker-mindsnipper-scenario-60": "Gebrochener Leutnant (Geistspalter)",
-    "lurker-soldier": "Pirscher-Soldat",
-    "lurker-wavethrower": "Pirscher-Wellenwerfer",
-    "lurker-wavethrower-scenario-60": "Gebrochener Leutnant (Wellenwerfer)",
-    "night-demon": "Nachtdämon",
-    "ooze": "Schleim",
-    "orphan": "Der Waise",
-    "piranha-pig": "Piranhaschwein",
-    "polar-bear": "Eisbär",
-    "power-core": "Energiekern",
-    "prince-of-frost": "Frostprinz",
-    "program-director": "Programmsteuerung",
-    "reluctant-ghost": "Wiederwillige Geist",
-    "render": "Reißer",
-    "rending-drake": "Reißdraken",
-    "rimeheart": "Klirrende Herz",
-    "robotic-boltshooter": "Bolzenschussroboter",
-    "ruined-machine": "Schrottmaschine",
-    "savvas-icestorm": "Savvas-Eissturm",
-    "savvas-lavaflow": "Savvas-Lavastrom",
-    "scabwit": "Krätzwitz",
-    "seeker-of-the-abyss": "Sucher der Abgrunds",
-    "shrike-fiend": "Flederbrut",
-    "snowdancer": "Schneetänzerin",
-    "snow-imp": "Schneewicht",
-    "spitting-drake": "Speidraken",
-    "steel-automaton": "Stahlapparat",
-    "sun-demon": "Sonnendämon",
-    "the-collector": "Der Sammler",
-    "the-relic": "Das Relikt",
-    "the-shimmer": "Der Schimmer",
-    "tormentor": "Peiniger",
-    "vanjal": "Vanjal",
-    "vermling-priest": "Ratzen-Priester",
-    "vermling-scout": "Ratzen-Späher",
-    "vestige-of-the-imprisoned-god": "Überrest des gefangenen Gottes",
-    "wind-demon": "Winddämon",
-    "yoglang": "Yoglang"
-  },
-  "deck": {},
-  "ability": {},
-  "scenario": {
-    "Howling in the Snow": "Heulen im Schnee",
-    "A Town in Flames": "Stadt in Flammen",
-    "Algox Scouting": "Algox-Erkundung",
-    "Algox Offensive": "Aglox-Angriff",
-    "Heart of Ice A": "Herz des Eises A",
-    "Heart of Ice B": "Herz des Eises B",
-    "Frozen Crypt": "Gefrorene Krypta",
-    "Avalanche": "Lawine",
-    "Edge of the World": "Am Rand der Welt",
-    "Crystal Trench": "Kristallgraben",
-    "Glowing Catacombs": "Schimmernde Katakomben",
-    "Crystal Enclosure": "Kristallpferch",
-    "Snowscorn Peak": "Schneehohn-Gipfel",
-    "Temple Entrance": "Tempeleingang",
-    "Frozen Fjord": "Eisiger Fjord",
-    "Jagged Shoals": "Zerklüftete Untiefen",
-    "Ancient Spire": "Alter Turm",
-    "Derelict Elevator": "Verfallener Fahrstuhl",
-    "Haunted Vault": "Spukkammer",
-    "Crystal Fields": "Kristallfelder",
-    "Skyhall": "Himmelssaal",
-    "Temple of Liberation": "Tempel der Befreiung",
-    "Realm of Endless Frost": "Reich des endlosen Frosts",
-    "Ice Floes": "Eisschollen",
-    "Spire Basement": "Turmkeller",
-    "Upper Spire": "Oberer Turm",
-    "Rusted Tunnels": "Rostige Tunnel",
-    "Quatryl Library": "Quatryl-Bibliothek",
-    "Depths of Delirium": "Tiefen des Wahns",
-    "Summit Meeting": "Gipfeltreffen",
-    "War of the Spire A": "Kampf um den Turm A",
-    "War of the Spire B": "Kampf um den Turm B",
-    "Crackling Tunnel": "Knisternder Tunnel",
-    "Ravens' Roost": "Rabenhorst",
-    "Thawed Wood": "Getauter Wald",
-    "Top of the Spire": "Turmspitze",
-    "Scrap Pit": "Schrottgrube",
-    "Buried Ducts": "Vergrabene Rohre",
-    "The Dead Mile": "Die Todesmeile",
-    "The Way Forward": "Der Weg nach vorn",
-    "Corrupted Camp": "Verdorbenes Lager",
-    "Relief Effort": "Hilfsmaßnahmen",
-    "Unfettered Shard": "Entfesselten-Splitter",
-    "Sunless Trench": "Sonnenloser Graben",
-    "Overrun Barricade": "Überrante Barrikade",
-    "Nerve Center": "Nervenzentrum",
-    "Living Glacier": "Lebender Gletscher",
-    "Dead Pass": "Toter Pass",
-    "Carrion Ridge": "Aasgebirge",
-    "Blizzard Island": "Schneesturminsel",
-    "Beneath Sea and Stone": "Unter See und Stein",
-    "Explosive Descent": "Explosiver Tauchgang",
-    "Orphan's Halls": "Halle der Waise",
-    "Fleeting Permanence": "Vergängliche Beständigkeit",
-    "Underwater Throne": "Unterwasserthron",
-    "Among the Wreckage": "Unter Trümmern",
-    "Change of Heart": "Gesinnungswandel",
-    "Call of the Harbinger": "Ruf des Vorboten",
-    "Sanctuary of Snow": "Die Schneestätte",
-    "Orphan's Core": "Kern der Waise",
-    "Automaton Uprising": "Aufstand der Apparate",
-    "Uniting the Crown": "Die Krone vereinen",
-    "Life and Death": "Leben und Tod",
-    "The Unfettered Seal": "Entfesselten-Siegel",
-    "The Savvas Seal": "Savvas-Siegel",
-    "The Frosthaven Seal": "Frosthaven-Siegel",
-    "A Strong Foundation": "Solide Grundlage",
-    "Elemental Cores": "Elementarkerne",
-    "Core Attunement": "Kerneinstimmung",
-    "The Face of Torment": "Antlitz der Pein",
-    "Sacred Soil": "Heiliger Boden",
-    "The True Oak": "Die Wahre Eiche",
-    "Invasion of the Dock": "Invasion der Kais",
-    "A Giant Block of Ice": "Ein riesiger Eisblock",
-    "Flotsam": "Treibgut",
-    "Gaps in the Road A": "Straßengräben A",
-    "Gaps in the Road B": "Straßengräben B",
-    "Infiltrating the Lair": "Vorstoß ins Innere",
-    "Apotheosis": "Geburt eines Gottes",
-    "Fish King's Ascension": "Aufstieg des Fischkönigs",
-    "The Lurker Problem": "Das Pirscherproblem",
-    "Relic": "Das Relikt",
-    "Relic Renewed": "Erneuertes Relikt",
-    "Ruinous Research Lab": "Ruinöses Forschungslabor",
-    "Expedition North": "Expedition nordwärts",
-    "Rising Brine": "Steigende Salzflut",
-    "Here There Be Oozes": "Schleimerei",
-    "Deadly Pastimes": "Tödliches Hobby",
-    "The Lady in White": "Die Weiße Dame",
-    "The Collection": "Die Sammlung",
-    "Collection's Capstone": "Krönender Abschluss",
-    "A Contained Fire": "Gezügeltes Feuer",
-    "Frozen Treasure": "Gefrorene Schätze",
-    "Shoreline Scramble": "Küstenklettern",
-    "Sinking Ship": "Sinkendes Schiff",
-    "Midwinter Brawl A": "Mittwinter-Schlägerei A",
-    "Midwinter Brawl B": "Mittwinter-Schlägerei B",
-    "A Grand View": "Grandiose Aussicht",
-    "To Bury the Dead": "Totenruhe",
-    "Underground Station": "Bahntunnel",
-    "Program Control Nexus": "Steuerzentrale",
-    "Collapsing Vent": "Instabiler Schacht",
-    "Prison Break": "Gefängnisausbruch",
-    "Inside the Swarm": "Herz des Schwarms",
-    "Harrower Library": "Schwarmling-Bibliothek",
-    "Into the Black": "Tiefste Schwärze",
-    "The Lead Door": "Die Bleitür",
-    "Ruins of the Solstice": "Sonnenwende",
-    "Ruins of the Equinox": "Tagundnachtgleiche",
-    "The Tempus Forge": "Die Temporalschmieden",
-    "My Private Empire": "Mein eigenes Reich",
-    "Lustrous Pit": "Schimmernde Grube",
-    "Furious Factory": "Feindliche Fabrik",
-    "Guardian's Temple": "Wächtertempel",
-    "Ice Cave": "Eishöhle",
-    "Raised by Wolves": "Unter Wölfen",
-    "Lush Grotto": "Pflanzengrotte",
-    "Work Freeze": "Arbeitsstörung",
-    "Pylon Problems": "Verstrebungsschutz",
-    "Caravan Guards": "Geleitschutz",
-    "A Waiting Game": "Geduldsprobe",
-    "Lurker Necromancy": "Pirscher-Nekromantie",
-    "Radiant Dust": "Strahlender Staub",
-    "Under the Influence": "Einflussnahme",
-    "Black Memories": "Schwarze Erinnerungen",
-    "The Eternal Crave": "Endloses Verlangen",
-    "The Titan": "Der Titan",
-    "A Growing Problem": "Wachsende Probleme",
-    "The Longest Second": "Der längste Augenblick",
-    "Joseph the Lion": "Joseph der Löwe",
-    "Derelict Freighter": "Verfallener Frachter",
-    "A Tall Drunken Tale": "Fabulöse Fakten",
-    "How to Lay an Ambush": "Strategischer Hinterhalt",
-    "And Then, a Stream": "Am knirschenden Bach",
-    "The Dancing Iceberg": "Der tanzende Eisberg",
-    "Temple of Feline Power": "Der Katzentempel",
-    "Bolt": "Blitz",
-    "Tower of Knowledge": "Turm des Wissens",
-    "Belara's Keep": "Belaras Festung",
-    "Abandoned Hideout": "Verlassenes Versteck",
-    "Pirate Queen's Haul": "Die Piratenkönigin",
-    "group": {
-      "randomMonsterCard": "Zufällige Monster Karten"
-    }
-  },
-  "section": {
-    "rules": {
-      "fh": {
-        "21-1": {
-          "1": "auf einem beliebigen leeren Startfeld"
-        },
-        "65-3": {
-          "1": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte."
-        }
-      }
-    }
-  },
-  "campaignSticker": {
-    "brummix": "Brummix",
-    "bug-in-a-jar": "Käfer im Glas",
-    "charged-core": "Geladener Kern",
-    "coral-shard": "Korallenscherbe",
-    "crown-united": "Vereinte Krone",
-    "destroyer-of-the-icespeakers": "Vernichter der Eissprecher",
-    "destroyer-of-the-snowspeakers": "Vernichter der Schneesprecher",
-    "empty-jar": "Leeres Glas",
-    "firepepper": "Feuerpfeffer",
-    "friend-of-the-fish-king": "Freunde des Fischkönigs",
-    "friend-of-the-frostspeakers": "Freunde der Frostsprecher",
-    "friend-of-the-icespeakers": "Freunde der Eissprecher",
-    "friend-of-the-snowspeakers": "Freunde der Schneesprecher",
-    "into-the-forest": "In den Wald",
-    "shard-seeker": "Splintersuche",
-    "uncharged-core": "Ungeladener Kern",
-    "unfettered-allies": "Entfesselten-Verbündete",
-    "unfettered-deactivated": "Entfesselte deaktiviert"
-  },
   "battleGoals": {
     "1301": {
       ".": "Buchführung",
@@ -642,17 +333,55 @@
       ".": "Werkstatt"
     }
   },
-  "personalQuest": {
-    "581": "Pflanzenstudien",
-    "582": "Suche nach der Eiche",
-    "583": "Kaufmannsgilde",
-    "584": "Gute Gier",
-    "585": "Aufbau statt Zerstörung",
-    "586": "Gruppengefühl",
-    "587": "Aesther-Außenposten",
-    "588": "Gefährliches Spiel",
-    "589": "Lebenserfahrung",
-    "590": "Erkundung der Weite"
+  "campaignSticker": {
+    "brummix": "Brummix",
+    "bug-in-a-jar": "Käfer im Glas",
+    "charged-core": "Geladener Kern",
+    "coral-shard": "Korallenscherbe",
+    "crown-united": "Vereinte Krone",
+    "destroyer-of-the-icespeakers": "Vernichter der Eissprecher",
+    "destroyer-of-the-snowspeakers": "Vernichter der Schneesprecher",
+    "empty-jar": "Leeres Glas",
+    "firepepper": "Feuerpfeffer",
+    "friend-of-the-fish-king": "Freunde des Fischkönigs",
+    "friend-of-the-frostspeakers": "Freunde der Frostsprecher",
+    "friend-of-the-icespeakers": "Freunde der Eissprecher",
+    "friend-of-the-snowspeakers": "Freunde der Schneesprecher",
+    "into-the-forest": "In den Wald",
+    "shard-seeker": "Splintersuche",
+    "uncharged-core": "Ungeladener Kern",
+    "unfettered-allies": "Entfesselten-Verbündete",
+    "unfettered-deactivated": "Entfesselte deaktiviert"
+  },
+  "character": {
+    "banner-spear": "Bannerspeer",
+    "blinkblade": {
+      ".": "Blitzklinge",
+      "fast": "Schnell",
+      "slow": "Langsam",
+      "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
+    },
+    "boneshaper": "Knochenformerin",
+    "deathwalker": "Todeswandlerin",
+    "drifter": "Wanderer",
+    "geminate": {
+      ".": "Doppelseele",
+      "melee": "Nahkampf",
+      "range": "Fernkampf"
+    },
+    "traits": {
+      "arcane": "Arcane",
+      "armored": "Armored",
+      "chaotic": "Chaotic",
+      "educated": "Educated",
+      "intimidating": "Intimidating",
+      "night": "Night",
+      "nimble": "Nimble",
+      "outcast": "Outcast",
+      "persuasive": "Persuasive",
+      "resourceful": "Resourceful",
+      "strong": "Strong"
+    }
   },
   "custom": {
     "fh": {
@@ -671,6 +400,9 @@
       "algox-snowspeaker": {
         "1": "Alle Gegner in<br>%game.action.range:3% erleiden %game.damage:2%"
       },
+      "algox-stormcaller": {
+        "1": "Erschaffe gefährliches Gelände und alle Feinde, die gefährliches Gelände besetzen oder daran angrenzen, erleiden Schaden."
+      },
       "ancient-artillery": {
         "1": "Fokussiere den am<br>weitesten Gegner in %game.action.range:7%",
         "2": "Alle an das Ziel angrenzenden<br>Gegner erleiden %game.damage:2%."
@@ -678,190 +410,10 @@
       "archer": {
         "1": "Erstelle eine %game.damage:3% Falle in einem angrenzenden<br>leeren Hex-Feld zum nächsten Gegner."
       },
-      "belara": {
-        "1": "Alle Verbündete und Gegner angrenzend<br>zum Ziel erleiden %game.damage:2%",
-        "2": "Alle Gegner in %game.action.range:4% erleiden %game.damage:2%."
-      },
-      "burrowing-blade": {
-        "1": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
-        "2": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%."
-      },
-      "chaos-demon": {
-        "1": "%game.custom.advantage%"
-      },
-      "chaos-spark": {
-        "1": "+(2xT)",
-        "2": "T ist die Anzahl an Schadensmarkern auf dem Charakter",
-        "3": "Kann keine Charakter-Beschworenen fokussieren."
-      },
-      "city-guard-scenario-1": {
-        "1": "Macht keinen Zug."
-      },
-      "deep-terror": {
-        "1": "Wenn die Angriffsfertigkeit ausgeführt wurde",
-        "2": "auf einem an das Ziel<br> der Angriffsfertigkeit angrenzenden leeren Feld."
-      },
-      "fish-king-scenario-76": {
-        "1": "Der Fischkönig macht keinen Zug."
-      },
-      "flame-demon": {
-        "1": "Erstelle eine %game.damage:4% auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist.",
-        "2": "%game.damage:1%",
-        "3": "Alle angrenzenden<br>Gegner erleiden %game.damage:2%"
-      },
-      "flaming-bladespinner": {
-        "1": "Alle Gegner in<br>%game.action.range:2% erleiden %game.damage:2%.",
-        "2": "Alle Gegner in<br>%game.action.range:2% erleiden %game.damage:1%."
-      },
-      "frost-demon": {
-        "1": "%game.damage:1%"
-      },
-      "frozen-corpse": {
-        "1": "Hat die Gefrorene Leiche während<br>dieser Bewegung das Element<br> verbraucht, erleidet sie %game.damage:2%."
-      },
-      "giant-piranha-pig-boss": {
-        "1": "Nichts",
-        "2": "Bewege alle Wasserfelder 2 Felder nach rechts",
-        "3": "Bewege alle Wasserfelder 1 Feld nach rechts"
-      },
-      "harrower-infester": {
-        "1": "Führe \"%game.action.heal% X, Selbst\"aus. X ist<br>die doppelte Anzahl der mit der<br>Angriffsfertigkeit anvisierten Gegner."
-      },
-      "laser-spires": {
-        "1": "Drehe jeden Laserturm im Uhrzeigersinn (wenn möglich)",
-        "2": "Drehe jeden Laserturm gegen den Uhrzeigersinn (wenn möglich)",
-        "3": "Alle charaktere und Charakter-Beschworene angrenzend zu einem Laserturm<br>erleiden gefährlichen Gelände Schaden.",
-        "4": "Laser aussenden, beginnen bei %game.mapMarker.a%"
-      },
-      "living-doom": {
-        "1": "Beschwöre X normale<br>Wandelnde Skelette",
-        "2": "<br>X ist der TP-Wert des Wandelnden Schicksals geteilt durch 5 (abgerundet), bis maximal X = 3."
-      },
-      "lurker-clawcrusher": {
-        "1": "Das Ziel erleidet %game.damage:X%, X ist der<br>%game.action.shield%Wert des Ziels bei diesem Angriff.",
-        "2": "X ist stattdessen der doppelte %game.action.shield%Wert."
-      },
-      "lurker-mindsnipper": {
-        "1": "Kontrolliere alle Ziele der Angriffs-<br>fertigkeit in Initiative-Reihenfolge:"
-      },
-      "lurker-soldier": {
-        "1": "%game.action.target% Gegner im Umkreis von 2 Feldern,"
-      },
-      "lurker-wavethrower-scenario-128": {
-        "1": "Fokussiere den am<br>weitesten entfernten Gegner in %game.action.range:6%",
-        "2": "Erstelle einen 1er-Wasseraufleger<br>auf einem angrenzenden leeren Feld."
-      },
-      "lurker-wavethrower-scenario-131": {
-        "1": "Fokussiere den am<br>weitesten entfernten Gegner in %game.action.range:6%",
-        "2": "Erstelle einen 1er-Wasseraufleger<br>auf einem angrenzenden leeren Feld.",
-        "3": "ganz links auf ein leeres Feld in einer ungraden Runde,<br>ansonsten ganz rechts in einer graden Runde"
-      },
-      "lurker-wavethrower": {
-        "1": "Fokussiere den am<br>weitesten entfernten Gegner in %game.action.range:6%",
-        "2": "Erstelle einen 1er-Wasseraufleger<br>auf einem angrenzenden leeren Feld.",
-        "3": "auf einem angrenzenden unbesetzten Feld mit Wasseraufleger."
-      },
-      "night-demon": {
-        "1": "Alle angrenzenden Verbündeten und<br>Gegner erleiden %game.damage:1%.",
-        "2": "%game.custom.disadvantage%"
-      },
-      "ooze": {
-        "1": "Beschwöre 1 normalen Schleim mit einem TP-Wert,<br>der dem aktuellen TP-Wert des beschwörenden Schleims entspricht<br>(maximal mit dem TP-Wert der Normalvariante)."
-      },
-      "piranha-pig": {
-        "1": "Füge +1 %game.action.attack% hinzu, wenn das Ziel an einen Verbündeten<br>des Piranhaschweins angrenzt.",
-        "2": "Füge +2 %game.action.attack% hinzu, wenn das Ziel %game.condition.wound% hat.",
-        "3": "Füge +1 %game.action.attack% hinzu, wennn das Ziel ein Feld mit<br>Wasseraufleger besetzt.",
-        "4": "X ist die Menge des Schadens,<br>den das Ziel der<br>Angriffsfertigkeit erlitten hat."
-      },
-      "ruined-machine": {
-        "1": "Hat die Schrottmaschine diese Bewegung ausgeführt,<br>erleidet sie ",
-        "2": "Hat die Schrottmaschine diesen Angriff ausgeführt,<br>erleidet sie ",
-        "3": "Hat die Schrottmaschine diesen Angriff ausgeführt,<br>erleiden alle angrenzenden Gegner Fallenschaden<br>und die Schrottmaschine stirbt."
-      },
-      "savvas-icestorm": {
-        "1": "Gewähre allen Verbündeten in %game.action.range:2% und dir selbst:"
-      },
-      "savvas-lavaflow": {
-        "1": "Alle an das Ziel angrenzenden Verbündeten<br>und Gegner erleiden %game.damage:2%",
-        "2": "Alle Gegner in %game.action.range:4% erleiden %game.damage:2%."
-      },
-      "shrike-fiend": {
-        "1": "Alle Gegner in %game.action.range:3% erleiden %game.damage:2%."
-      },
-      "steel-automaton": {
-        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%",
-        "2": "Alle angrenzenden Gegner erleiden<br>Schaden durch gefährliches Gelände."
-      },
-      "algox-stormcaller": {
-        "1": "Erschaffe gefährliches Gelände und alle Feinde, die gefährliches Gelände besetzen oder daran angrenzen, erleiden Schaden."
-      },
-      "black-imp": {
-        "1": "%game.custom.disadvantage%"
-      },
-      "brother": {
-        "1": "Ein Bruder macht:",
-        "2": "Bruder %game.mapMarker.b% macht:"
-      },
-      "chaos-lieutenant": {
-        "1": "Am Ende der Runde mach:",
-        "2": "X ist (RxL)/2 (abgerundet), und R ist die Anzahl der Schrottmaschinen aktuell auf der Karte"
-      },
-      "elder-ooze": {
-        "1": "Das Ziel verliert einen Gegenstandt.",
-        "2": "Alle angrenzenden erhalten 1 Schleim."
-      },
-      "fish-king-scenario-77": {
-        "1": "Töte das nächsten Piranhaschwein.<br>Alle angrenzenden Gegner erleiden Fallenschaden."
-      },
-      "frozen-corpse-scenario-32": {
-        "1": "Siehe Szenario Sonderregeln"
-      },
-      "harbinger-of-shadow": {
-        "1": "Der %data.monster.harbinger-of-shadow-1% macht nichts.",
-        "2": "Der %data.monster.harbinger-of-shadow-2% macht nichts."
-      },
-      "lightning-eel": {
-        "1": "Behandelt Wasserfelder als Korridore und Nichtwasserfelder als Hindernisse."
-      },
-      "lord-of-chaos": {
-        "1": "Zwinge alle Feinde, sich ein Hexfeld in Richtung des nächsten unbesetzten Korridorhexfelds zu bewegen."
-      },
-      "orphan": {
-        "1": "Selbst oder leuchtende Kugel"
-      },
-      "prince-of-frost": {
-        "1": "Ein Charakter %game.card.recover% ein Verloren-Karte.",
-        "2": "Ein Charakter verliert eine Karte."
-      },
-      "program-director": {
-        "1": "zu einem leeren Hexfeld, das dem Fokus am nächsten liegt",
-        "2": "Verbünde dich in dieser Runde mit allen Monstern",
-        "3": "Fokus auf den nächsten Feind",
-        "4": "zu jedem leeren Hexfeld, das dem Fokus am nächsten liegt"
-      },
-      "render": {
-        "1": "bis zum weitesten schnitzen und es zerstören.",
-        "2": "Zerstöre alle angrenzenden Schnitzereien."
-      },
-      "seeker-of-the-abyss": {
-        "1": "Alle Ziele verlieren eine Karte.",
-        "2": "Erstelle eine %game.condition.immobilize% Falle in einem angrenzenden freien Hex-Feld.",
-        "3": "Alle Verbündete bekommen +1 %game.action.attack% auf alle ihre Angriffe in dieser Runde."
-      },
-      "sun-demon": {
-        "1": "%game.custom.advantage%"
-      },
-      "tormentor": {
-        "1": "Erschaffe gefährliches 1-Hex-Gelände in allen an das Ziel angrenzenden,<br> freie Hex-Feldern. Feinde in diesen Hexfeldern leiden darunter",
-        "2": "Erschaffe 1 Hexfeld eisiges Gelände in allen freien Hex-Feldern,<br> die an die Angriffsziele angrenzen"
-      },
-      "vestige-of-the-imprisoned-god": {
-        "1": "Gelände ändern.",
-        "2": "Alle Charaktere, die nicht angegriffen haben, erleiden am Ende der Runde Fallenschaden."
-      },
       "banner-spear": {
         "1": "Alle Verbündeten innerhalb von %game.range:2% addieren in jeder Runde +1 %game.action.attack% zu einem ihrer Angriffe.",
+        "10": "Greife mit 3 unterschiedlichen Wirkungsbereich-Angriffsfertigkeiten jeweils mindestens 3 Gegner an",
+        "11": "Beschwöre während deines ersten Zugs 1 Banner und halte es während des gesamten Szenarios am Leben und in %game.action.range:3% zu dir",
         "2": "Gewähre zu Beginn ihres Zuges Verbündeten im Umkreis von %game.range:3%:",
         "3": "Alle benachbarten Verbündeten erhalten %game.shield% 1.",
         "4": "Negieren Sie in jeder Runde die erste Quelle von %game.damage% für einen benachbarten Verbündeten",
@@ -869,9 +421,14 @@
         "6": "Addiere +1 %game.action.attack% für jeden Verbündeten neben dem Ziel",
         "7": "Gewähre am Ende deiner langen Rast einem Verbündeten in %game.action.range:3%: %game.action.move% 2",
         "8": "Füge, wenn du eine Tür durch eine Bewegungsfertigkeit öffnest, +3 %game.action.move% hinzu",
-        "9": "Erhalte einmal pro Szenario während deines Zugs %game.action.shield% 2 für die Runde",
-        "10": "Greife mit 3 unterschiedlichen Wirkungsbereich-Angriffsfertigkeiten jeweils mindestens 3 Gegner an",
-        "11": "Beschwöre während deines ersten Zugs 1 Banner und halte es während des gesamten Szenarios am Leben und in %game.action.range:3% zu dir"
+        "9": "Erhalte einmal pro Szenario während deines Zugs %game.action.shield% 2 für die Runde"
+      },
+      "belara": {
+        "1": "Alle Verbündete und Gegner angrenzend<br>zum Ziel erleiden %game.damage:2%",
+        "2": "Alle Gegner in %game.action.range:4% erleiden %game.damage:2%."
+      },
+      "black-imp": {
+        "1": "%game.custom.disadvantage%"
       },
       "blinkblade": {
         "1": "Lege diese Karte bei deinem nächsten Angriff ab, um +2 %game.action.attack% hinzuzufügen.<br>%game.card.persistent%",
@@ -893,12 +450,39 @@
         "6": "Töte mindestens 15 deiner Beschworenen",
         "7": "Beschwöre im ersten Zug, lass den Beschworenen mindestens 6 Gegner töten und halte ihn während des gesamten Szenarios am Leben"
       },
+      "brother": {
+        "1": "Ein Bruder macht:",
+        "2": "Bruder %game.mapMarker.b% macht:"
+      },
+      "burrowing-blade": {
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
+        "2": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%."
+      },
+      "chaos-demon": {
+        "1": "%game.custom.advantage%"
+      },
+      "chaos-lieutenant": {
+        "1": "Am Ende der Runde mach:",
+        "2": "X ist (RxL)/2 (abgerundet), und R ist die Anzahl der Schrottmaschinen aktuell auf der Karte"
+      },
+      "chaos-spark": {
+        "1": "+(2xT)",
+        "2": "T ist die Anzahl an Schadensmarkern auf dem Charakter",
+        "3": "Kann keine Charakter-Beschworenen fokussieren."
+      },
+      "city-guard-scenario-1": {
+        "1": "Macht keinen Zug."
+      },
       "deathwalker": {
         "1": "Bei deiner langen Rast kannst du 1 %data.action.custom.fh-shadow% bis zu 3 Felder weit bewegen",
         "2": "Bei deiner kurzen Rast kannst du %game.element.consume.dark%, um %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% auszuführen, als würdest du ein Feld mit %data.action.custom.fh-shadow% besetzen",
         "3": "Während du ein Feld mit %data.action.custom.fh-shadow% besetzt, erhalten alle Angriffe, die dich anvisieren, Nachteil",
         "4": "Entferne 7 %data.action.custom.fh-shadow% in einer Runde",
         "5": "Platziere oder entferne mindestens 1 %data.action.custom.fh-shadow% in jeder Runde"
+      },
+      "deep-terror": {
+        "1": "Wenn die Angriffsfertigkeit ausgeführt wurde",
+        "2": "auf einem an das Ziel<br> der Angriffsfertigkeit angrenzenden leeren Feld."
       },
       "drifter": {
         "1": "Bewegen Sie einen Ihrer Charaktermarker um einen Platz nach hinten",
@@ -908,6 +492,47 @@
         "5": "Beende das Szenario mit deinen Charaktermarkern auf den letzten Feldern deiner vier anhaltenden Fertigkeiten",
         "6": "Führe nie eine Bewegungs- oder Angriffsfertigkeit mit einem Wert unter 4 aus, und führe jede Runde mindestens eine von beiden aus"
       },
+      "elder-ooze": {
+        "1": "Das Ziel verliert einen Gegenstandt.",
+        "2": "Alle angrenzenden erhalten 1 Schleim."
+      },
+      "fish-king-scenario-76": {
+        "1": "Der Fischkönig macht keinen Zug."
+      },
+      "fish-king-scenario-77": {
+        "1": "Töte das nächsten Piranhaschwein.<br>Alle angrenzenden Gegner erleiden Fallenschaden."
+      },
+      "flame-demon": {
+        "1": "Erstelle eine %game.damage:4% auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist.",
+        "2": "%game.damage:1%",
+        "3": "Alle angrenzenden<br>Gegner erleiden %game.damage:2%"
+      },
+      "flaming-bladespinner": {
+        "1": "Alle Gegner in<br>%game.action.range:2% erleiden %game.damage:2%.",
+        "2": "Alle Gegner in<br>%game.action.range:2% erleiden %game.damage:1%."
+      },
+      "flowChartGroup": {
+        "algox-1": "Algox",
+        "algox-2": "Algox",
+        "algox-3": "Algox",
+        "intro": "Prolog",
+        "job-postings": "Auftragsangebot",
+        "lurker": "Pirscher",
+        "other": "Sonstige",
+        "personal-quests": "Persönliche Quest",
+        "puzzle-book": "Rätselbuch",
+        "random-scenarios": "Zufallsszenario",
+        "unfettered": "Entfesselte"
+      },
+      "frost-demon": {
+        "1": "%game.damage:1%"
+      },
+      "frozen-corpse": {
+        "1": "Hat die Gefrorene Leiche während<br>dieser Bewegung das Element<br> verbraucht, erleidet sie %game.damage:2%."
+      },
+      "frozen-corpse-scenario-32": {
+        "1": "Siehe Szenario Sonderregeln"
+      },
       "geminate": {
         "1": "Bei deiner kurzen Rast darfst du 1 negativen Zustand von 1 Verbündeten in %game.action.range:3% entfernen",
         "2": "Keine Negativen Szenarioeffekte",
@@ -915,18 +540,399 @@
         "4": "Wechsle jede Runde die Form",
         "5": "Verliere jede Runde mindestens eine Fertigkeitskarte"
       },
-      "flowChartGroup": {
-        "intro": "Prolog",
-        "algox-1": "Algox",
-        "algox-2": "Algox",
-        "algox-3": "Algox",
-        "lurker": "Pirscher",
-        "unfettered": "Entfesselte",
-        "puzzle-book": "Rätselbuch",
-        "personal-quests": "Persönliche Quest",
-        "job-postings": "Auftragsangebot",
-        "other": "Sonstige",
-        "random-scenarios": "Zufallsszenario"
+      "giant-piranha-pig-boss": {
+        "1": "Nichts",
+        "2": "Bewege alle Wasserfelder 2 Felder nach rechts",
+        "3": "Bewege alle Wasserfelder 1 Feld nach rechts"
+      },
+      "harbinger-of-shadow": {
+        "1": "Der %data.monster.harbinger-of-shadow-1% macht nichts.",
+        "2": "Der %data.monster.harbinger-of-shadow-2% macht nichts."
+      },
+      "harrower-infester": {
+        "1": "Führe \"%game.action.heal% X, Selbst\"aus. X ist<br>die doppelte Anzahl der mit der<br>Angriffsfertigkeit anvisierten Gegner."
+      },
+      "laser-spires": {
+        "1": "Drehe jeden Laserturm im Uhrzeigersinn (wenn möglich)",
+        "2": "Drehe jeden Laserturm gegen den Uhrzeigersinn (wenn möglich)",
+        "3": "Alle charaktere und Charakter-Beschworene angrenzend zu einem Laserturm<br>erleiden gefährlichen Gelände Schaden.",
+        "4": "Laser aussenden, beginnen bei %game.mapMarker.a%"
+      },
+      "lightning-eel": {
+        "1": "Behandelt Wasserfelder als Korridore und Nichtwasserfelder als Hindernisse."
+      },
+      "living-doom": {
+        "1": "Beschwöre X normale<br>Wandelnde Skelette",
+        "2": "<br>X ist der TP-Wert des Wandelnden Schicksals geteilt durch 5 (abgerundet), bis maximal X = 3."
+      },
+      "lord-of-chaos": {
+        "1": "Zwinge alle Feinde, sich ein Hexfeld in Richtung des nächsten unbesetzten Korridorhexfelds zu bewegen."
+      },
+      "lurker-clawcrusher": {
+        "1": "Das Ziel erleidet %game.damage:X%, X ist der<br>%game.action.shield%Wert des Ziels bei diesem Angriff.",
+        "2": "X ist stattdessen der doppelte %game.action.shield%Wert."
+      },
+      "lurker-mindsnipper": {
+        "1": "Kontrolliere alle Ziele der Angriffs-<br>fertigkeit in Initiative-Reihenfolge:"
+      },
+      "lurker-soldier": {
+        "1": "%game.action.target% Gegner im Umkreis von 2 Feldern,"
+      },
+      "lurker-wavethrower": {
+        "1": "Fokussiere den am<br>weitesten entfernten Gegner in %game.action.range:6%",
+        "2": "Erstelle einen 1er-Wasseraufleger<br>auf einem angrenzenden leeren Feld.",
+        "3": "auf einem angrenzenden unbesetzten Feld mit Wasseraufleger."
+      },
+      "lurker-wavethrower-scenario-128": {
+        "1": "Fokussiere den am<br>weitesten entfernten Gegner in %game.action.range:6%",
+        "2": "Erstelle einen 1er-Wasseraufleger<br>auf einem angrenzenden leeren Feld."
+      },
+      "lurker-wavethrower-scenario-131": {
+        "1": "Fokussiere den am<br>weitesten entfernten Gegner in %game.action.range:6%",
+        "2": "Erstelle einen 1er-Wasseraufleger<br>auf einem angrenzenden leeren Feld.",
+        "3": "ganz links auf ein leeres Feld in einer ungraden Runde,<br>ansonsten ganz rechts in einer graden Runde"
+      },
+      "night-demon": {
+        "1": "Alle angrenzenden Verbündeten und<br>Gegner erleiden %game.damage:1%.",
+        "2": "%game.custom.disadvantage%"
+      },
+      "ooze": {
+        "1": "Beschwöre 1 normalen Schleim mit einem TP-Wert,<br>der dem aktuellen TP-Wert des beschwörenden Schleims entspricht<br>(maximal mit dem TP-Wert der Normalvariante)."
+      },
+      "orphan": {
+        "1": "Selbst oder leuchtende Kugel"
+      },
+      "piranha-pig": {
+        "1": "Füge +1 %game.action.attack% hinzu, wenn das Ziel an einen Verbündeten<br>des Piranhaschweins angrenzt.",
+        "2": "Füge +2 %game.action.attack% hinzu, wenn das Ziel %game.condition.wound% hat.",
+        "3": "Füge +1 %game.action.attack% hinzu, wennn das Ziel ein Feld mit<br>Wasseraufleger besetzt.",
+        "4": "X ist die Menge des Schadens,<br>den das Ziel der<br>Angriffsfertigkeit erlitten hat."
+      },
+      "prince-of-frost": {
+        "1": "Ein Charakter %game.card.recover% ein Verloren-Karte.",
+        "2": "Ein Charakter verliert eine Karte."
+      },
+      "program-director": {
+        "1": "zu einem leeren Hexfeld, das dem Fokus am nächsten liegt",
+        "2": "Verbünde dich in dieser Runde mit allen Monstern",
+        "3": "Fokus auf den nächsten Feind",
+        "4": "zu jedem leeren Hexfeld, das dem Fokus am nächsten liegt"
+      },
+      "render": {
+        "1": "bis zum weitesten schnitzen und es zerstören.",
+        "2": "Zerstöre alle angrenzenden Schnitzereien."
+      },
+      "ruined-machine": {
+        "1": "Hat die Schrottmaschine diese Bewegung ausgeführt,<br>erleidet sie ",
+        "2": "Hat die Schrottmaschine diesen Angriff ausgeführt,<br>erleidet sie ",
+        "3": "Hat die Schrottmaschine diesen Angriff ausgeführt,<br>erleiden alle angrenzenden Gegner Fallenschaden<br>und die Schrottmaschine stirbt."
+      },
+      "savvas-icestorm": {
+        "1": "Gewähre allen Verbündeten in %game.action.range:2% und dir selbst:"
+      },
+      "savvas-lavaflow": {
+        "1": "Alle an das Ziel angrenzenden Verbündeten<br>und Gegner erleiden %game.damage:2%",
+        "2": "Alle Gegner in %game.action.range:4% erleiden %game.damage:2%."
+      },
+      "seeker-of-the-abyss": {
+        "1": "Alle Ziele verlieren eine Karte.",
+        "2": "Erstelle eine %game.condition.immobilize% Falle in einem angrenzenden freien Hex-Feld.",
+        "3": "Alle Verbündete bekommen +1 %game.action.attack% auf alle ihre Angriffe in dieser Runde."
+      },
+      "shrike-fiend": {
+        "1": "Alle Gegner in %game.action.range:3% erleiden %game.damage:2%."
+      },
+      "steel-automaton": {
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%",
+        "2": "Alle angrenzenden Gegner erleiden<br>Schaden durch gefährliches Gelände."
+      },
+      "sun-demon": {
+        "1": "%game.custom.advantage%"
+      },
+      "tormentor": {
+        "1": "Erschaffe gefährliches 1-Hex-Gelände in allen an das Ziel angrenzenden,<br> freie Hex-Feldern. Feinde in diesen Hexfeldern leiden darunter",
+        "2": "Erschaffe 1 Hexfeld eisiges Gelände in allen freien Hex-Feldern,<br> die an die Angriffsziele angrenzen"
+      },
+      "vestige-of-the-imprisoned-god": {
+        "1": "Gelände ändern.",
+        "2": "Alle Charaktere, die nicht angegriffen haben, erleiden am Ende der Runde Fallenschaden."
+      }
+    }
+  },
+  "edition": {
+    "fh": "Frosthaven"
+  },
+  "monster": {
+    "abael-herder": "Abael-Treiber",
+    "abael-scout": "Abael-Späher",
+    "algox-archer": "Algox-Schütze",
+    "algox-guard": "Algox-Wache",
+    "algox-icespeaker": "Algox-Eissprecher",
+    "algox-priest": "Algox-Priester",
+    "algox-scout": "Algox-Späher",
+    "algox-snowspeaker": "Algox-Schneesprecher",
+    "algox-stormcaller": "Algox-Sturmruferin",
+    "ancient-artillery": "Antike Artillerie",
+    "augmented-mindthief": "Verbesserte Gedankendiebin",
+    "belara": "Belara",
+    "black-imp": "Schwarzwicht",
+    "blacksmith": "Blacksmith",
+    "brother": "Bruder",
+    "burrowing-blade": "Klingengräber",
+    "chaos-demon": "Chaosdämon",
+    "chaos-lieutenant": "Chaosleutnant",
+    "chaos-spark": "Chaos Energiestrahl",
+    "city-guard": "Stadtwache",
+    "coral-corpse": "Korallen Leiche",
+    "deep-terror": "Tiefenschreck",
+    "earth-demon": "Erddämon",
+    "elder-ooze": "Schleimfürst",
+    "fish-king": "Fischkönig",
+    "flame-demon": "Flammendämon",
+    "flaming-bladespinner": "Flammen-Klingenschleuder",
+    "flaming-sword-of-justice": "Flamende Schwert der Gerechtigkeit",
+    "forest-imp": "Waldwicht",
+    "fracture-of-the-deep": "Tiefenbruch",
+    "frost-demon": "Frostdämon",
+    "frozen-corpse": "Gefrorene Leiche",
+    "frozen-fist": "Frostfaust",
+    "giant-piranha-pig": "Riesen Piranhaschwein",
+    "giant-piranha-pig-boss": "Extra Boss Deck #83",
+    "guard-captain": "Wachhauptmann",
+    "harbinger-of-shadow": "Vorbote der Schatten",
+    "harbinger-of-shadow-1": "Vorbote der Schatten %game.mapMarker.1%",
+    "harbinger-of-shadow-2": "Vorbote der Schatten %game.mapMarker.2%",
+    "harrower-infester": "Schwarmling-Kontagion",
+    "hateful-corpse": "Hasserfüllte Leiche",
+    "hound": "Grimmwolf",
+    "hungry-maw": "Hungrige Schlund",
+    "ice-wraith": "Eisspuk",
+    "lady-in-white": "Weiße Dame",
+    "large-vermling-scout": "Große Ratzen-Späher",
+    "laser-spires": "Lasersäulen",
+    "lightning-eel": "Blitzaal",
+    "living-bones": "Wandelndes Skelett",
+    "living-doom": "Wandelndes Schicksal",
+    "living-spirit": "Wandelnde Seele",
+    "lord-of-chaos": "Gebieter des Chaos",
+    "lurker-clawcrusher": "Pirscher-Schmetterschere",
+    "lurker-clawcrusher-scenario-60": "Gebrochener Leutnant (Schmetterschere)",
+    "lurker-conductor": "Pirscher Conductor-----",
+    "lurker-mindsnipper": "Pirscher-Geistspalter",
+    "lurker-mindsnipper-scenario-60": "Gebrochener Leutnant (Geistspalter)",
+    "lurker-soldier": "Pirscher-Soldat",
+    "lurker-wavethrower": "Pirscher-Wellenwerfer",
+    "lurker-wavethrower-scenario-60": "Gebrochener Leutnant (Wellenwerfer)",
+    "night-demon": "Nachtdämon",
+    "ooze": "Schleim",
+    "orphan": "Der Waise",
+    "piranha-pig": "Piranhaschwein",
+    "polar-bear": "Eisbär",
+    "power-core": "Energiekern",
+    "prince-of-frost": "Frostprinz",
+    "program-director": "Programmsteuerung",
+    "reluctant-ghost": "Wiederwillige Geist",
+    "render": "Reißer",
+    "rending-drake": "Reißdraken",
+    "rimeheart": "Klirrende Herz",
+    "robotic-boltshooter": "Bolzenschussroboter",
+    "ruined-machine": "Schrottmaschine",
+    "savvas-icestorm": "Savvas-Eissturm",
+    "savvas-lavaflow": "Savvas-Lavastrom",
+    "scabwit": "Krätzwitz",
+    "seeker-of-the-abyss": "Sucher der Abgrunds",
+    "shrike-fiend": "Flederbrut",
+    "snow-imp": "Schneewicht",
+    "snowdancer": "Schneetänzerin",
+    "spitting-drake": "Speidraken",
+    "steel-automaton": "Stahlapparat",
+    "sun-demon": "Sonnendämon",
+    "the-collector": "Der Sammler",
+    "the-relic": "Das Relikt",
+    "the-shimmer": "Der Schimmer",
+    "tormentor": "Peiniger",
+    "vanjal": "Vanjal",
+    "vermling-priest": "Ratzen-Priester",
+    "vermling-scout": "Ratzen-Späher",
+    "vestige-of-the-imprisoned-god": "Überrest des gefangenen Gottes",
+    "wind-demon": "Winddämon",
+    "yoglang": "Yoglang"
+  },
+  "personalQuest": {
+    "581": "Pflanzenstudien",
+    "582": "Suche nach der Eiche",
+    "583": "Kaufmannsgilde",
+    "584": "Gute Gier",
+    "585": "Aufbau statt Zerstörung",
+    "586": "Gruppengefühl",
+    "587": "Aesther-Außenposten",
+    "588": "Gefährliches Spiel",
+    "589": "Lebenserfahrung",
+    "590": "Erkundung der Weite"
+  },
+  "scenario": {
+    "A Contained Fire": "Gezügeltes Feuer",
+    "A Giant Block of Ice": "Ein riesiger Eisblock",
+    "A Grand View": "Grandiose Aussicht",
+    "A Growing Problem": "Wachsende Probleme",
+    "A Strong Foundation": "Solide Grundlage",
+    "A Tall Drunken Tale": "Fabulöse Fakten",
+    "A Town in Flames": "Stadt in Flammen",
+    "A Waiting Game": "Geduldsprobe",
+    "Abandoned Hideout": "Verlassenes Versteck",
+    "Algox Offensive": "Aglox-Angriff",
+    "Algox Scouting": "Algox-Erkundung",
+    "Among the Wreckage": "Unter Trümmern",
+    "Ancient Spire": "Alter Turm",
+    "And Then, a Stream": "Am knirschenden Bach",
+    "Apotheosis": "Geburt eines Gottes",
+    "Automaton Uprising": "Aufstand der Apparate",
+    "Avalanche": "Lawine",
+    "Belara's Keep": "Belaras Festung",
+    "Beneath Sea and Stone": "Unter See und Stein",
+    "Black Memories": "Schwarze Erinnerungen",
+    "Blizzard Island": "Schneesturminsel",
+    "Bolt": "Blitz",
+    "Buried Ducts": "Vergrabene Rohre",
+    "Call of the Harbinger": "Ruf des Vorboten",
+    "Caravan Guards": "Geleitschutz",
+    "Carrion Ridge": "Aasgebirge",
+    "Change of Heart": "Gesinnungswandel",
+    "Collapsing Vent": "Instabiler Schacht",
+    "Collection's Capstone": "Krönender Abschluss",
+    "Core Attunement": "Kerneinstimmung",
+    "Corrupted Camp": "Verdorbenes Lager",
+    "Crackling Tunnel": "Knisternder Tunnel",
+    "Crystal Enclosure": "Kristallpferch",
+    "Crystal Fields": "Kristallfelder",
+    "Crystal Trench": "Kristallgraben",
+    "Dead Pass": "Toter Pass",
+    "Deadly Pastimes": "Tödliches Hobby",
+    "Depths of Delirium": "Tiefen des Wahns",
+    "Derelict Elevator": "Verfallener Fahrstuhl",
+    "Derelict Freighter": "Verfallener Frachter",
+    "Edge of the World": "Am Rand der Welt",
+    "Elemental Cores": "Elementarkerne",
+    "Expedition North": "Expedition nordwärts",
+    "Explosive Descent": "Explosiver Tauchgang",
+    "Fish King's Ascension": "Aufstieg des Fischkönigs",
+    "Fleeting Permanence": "Vergängliche Beständigkeit",
+    "Flotsam": "Treibgut",
+    "Frozen Crypt": "Gefrorene Krypta",
+    "Frozen Fjord": "Eisiger Fjord",
+    "Frozen Treasure": "Gefrorene Schätze",
+    "Furious Factory": "Feindliche Fabrik",
+    "Gaps in the Road A": "Straßengräben A",
+    "Gaps in the Road B": "Straßengräben B",
+    "Glowing Catacombs": "Schimmernde Katakomben",
+    "Guardian's Temple": "Wächtertempel",
+    "Harrower Library": "Schwarmling-Bibliothek",
+    "Haunted Vault": "Spukkammer",
+    "Heart of Ice A": "Herz des Eises A",
+    "Heart of Ice B": "Herz des Eises B",
+    "Here There Be Oozes": "Schleimerei",
+    "How to Lay an Ambush": "Strategischer Hinterhalt",
+    "Howling in the Snow": "Heulen im Schnee",
+    "Ice Cave": "Eishöhle",
+    "Ice Floes": "Eisschollen",
+    "Infiltrating the Lair": "Vorstoß ins Innere",
+    "Inside the Swarm": "Herz des Schwarms",
+    "Into the Black": "Tiefste Schwärze",
+    "Invasion of the Dock": "Invasion der Kais",
+    "Jagged Shoals": "Zerklüftete Untiefen",
+    "Joseph the Lion": "Joseph der Löwe",
+    "Life and Death": "Leben und Tod",
+    "Living Glacier": "Lebender Gletscher",
+    "Lurker Necromancy": "Pirscher-Nekromantie",
+    "Lush Grotto": "Pflanzengrotte",
+    "Lustrous Pit": "Schimmernde Grube",
+    "Midwinter Brawl A": "Mittwinter-Schlägerei A",
+    "Midwinter Brawl B": "Mittwinter-Schlägerei B",
+    "My Private Empire": "Mein eigenes Reich",
+    "Nerve Center": "Nervenzentrum",
+    "Orphan's Core": "Kern der Waise",
+    "Orphan's Halls": "Halle der Waise",
+    "Overrun Barricade": "Überrante Barrikade",
+    "Pirate Queen's Haul": "Die Piratenkönigin",
+    "Prison Break": "Gefängnisausbruch",
+    "Program Control Nexus": "Steuerzentrale",
+    "Pylon Problems": "Verstrebungsschutz",
+    "Quatryl Library": "Quatryl-Bibliothek",
+    "Radiant Dust": "Strahlender Staub",
+    "Raised by Wolves": "Unter Wölfen",
+    "Ravens' Roost": "Rabenhorst",
+    "Realm of Endless Frost": "Reich des endlosen Frosts",
+    "Relic": "Das Relikt",
+    "Relic Renewed": "Erneuertes Relikt",
+    "Relief Effort": "Hilfsmaßnahmen",
+    "Rising Brine": "Steigende Salzflut",
+    "Ruinous Research Lab": "Ruinöses Forschungslabor",
+    "Ruins of the Equinox": "Tagundnachtgleiche",
+    "Ruins of the Solstice": "Sonnenwende",
+    "Rusted Tunnels": "Rostige Tunnel",
+    "Sacred Soil": "Heiliger Boden",
+    "Sanctuary of Snow": "Die Schneestätte",
+    "Scrap Pit": "Schrottgrube",
+    "Shoreline Scramble": "Küstenklettern",
+    "Sinking Ship": "Sinkendes Schiff",
+    "Skyhall": "Himmelssaal",
+    "Snowscorn Peak": "Schneehohn-Gipfel",
+    "Spire Basement": "Turmkeller",
+    "Summit Meeting": "Gipfeltreffen",
+    "Sunless Trench": "Sonnenloser Graben",
+    "Temple Entrance": "Tempeleingang",
+    "Temple of Feline Power": "Der Katzentempel",
+    "Temple of Liberation": "Tempel der Befreiung",
+    "Thawed Wood": "Getauter Wald",
+    "The Collection": "Die Sammlung",
+    "The Dancing Iceberg": "Der tanzende Eisberg",
+    "The Dead Mile": "Die Todesmeile",
+    "The Eternal Crave": "Endloses Verlangen",
+    "The Face of Torment": "Antlitz der Pein",
+    "The Frosthaven Seal": "Frosthaven-Siegel",
+    "The Lady in White": "Die Weiße Dame",
+    "The Lead Door": "Die Bleitür",
+    "The Longest Second": "Der längste Augenblick",
+    "The Lurker Problem": "Das Pirscherproblem",
+    "The Savvas Seal": "Savvas-Siegel",
+    "The Tempus Forge": "Die Temporalschmieden",
+    "The Titan": "Der Titan",
+    "The True Oak": "Die Wahre Eiche",
+    "The Unfettered Seal": "Entfesselten-Siegel",
+    "The Way Forward": "Der Weg nach vorn",
+    "To Bury the Dead": "Totenruhe",
+    "Top of the Spire": "Turmspitze",
+    "Tower of Knowledge": "Turm des Wissens",
+    "Under the Influence": "Einflussnahme",
+    "Underground Station": "Bahntunnel",
+    "Underwater Throne": "Unterwasserthron",
+    "Unfettered Shard": "Entfesselten-Splitter",
+    "Uniting the Crown": "Die Krone vereinen",
+    "Upper Spire": "Oberer Turm",
+    "War of the Spire A": "Kampf um den Turm A",
+    "War of the Spire B": "Kampf um den Turm B",
+    "Work Freeze": "Arbeitsstörung",
+    "group": {
+      "randomMonsterCard": "Zufällige Monster Karten"
+    },
+    "rules": {
+      "fh": {
+        "0": "Bereitet das Grimmwolf-Fertigkeitsdeck nicht vor. Stattdessen führen alle Grimmwölfe in jeder Runde mit Initiative-Wert 26 %game.action.move% 2, %game.action.attack% 2 aus.",
+        "1": "Stadtwachen gelten als eure Verbündeten und Gegner aller anderen Monstertypen. Sie führen keine Züge aus, sondern erhalten stattdessen die zusätzlichen inhärenten Fertigkeiten %game.action.shield% 1 (für insgesamt %game.action.shield% 2 auf Stufe 1) und %game.action.retaliate% 2, und haben für die Berechnung des Fokus eine Initiative von 50.",
+        "60": "Alle 6 Pirscher auf Elementen 13-B und 13-D sind Gebrochene Leutnants und fügen ihren Angriffen +1 %game.action.attack% hinzu.",
+        "65": "Alle Monster fügen ihren Angriffen %game.action.push% 1 hinzu, ab einer Szenariostufe von 4 stattdessen %game.action.push% 2."
+      }
+    }
+  },
+  "section": {
+    "rules": {
+      "fh": {
+        "21-1": {
+          "1": "auf einem beliebigen leeren Startfeld"
+        },
+        "65-3": {
+          "1": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte."
+        }
       }
     }
   }
