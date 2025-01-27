@@ -1,44 +1,4 @@
 {
-  "character": {
-    "demolitionist": {
-      ".": "Sprengmeisterin",
-      "mech": "Mech Suit"
-    },
-    "hatchet": "Axtwerfer",
-    "red-guard": "Rotgardist",
-    "voidwarden": "Leerehüterin"
-  },
-  "edition": {
-    "jotl": "Die Pranken des Löwen"
-  },
-  "monster": {
-    "basic-giant-viper": "Riesenviper (einfach)",
-    "basic-vermling-raider": "Ratzenräuber (einfach)",
-    "basic-zealot": "Fanatiker (einfach)",
-    "black-imp": "Schwarzwicht",
-    "black-sludge": "Schwarzschlick",
-    "blood-horror": "Blutschrecken",
-    "blood-imp": "Blutwicht",
-    "blood-monstrosity": "Blutmonstrosität",
-    "blood-tumor": "Blutgeschwür",
-    "chaos-demon": "Chaosdämon",
-    "common-vermling-raider": "Ratzenräuber (gewöhnlich)",
-    "first-of-the-order": "Erster des Ordens",
-    "giant-viper": "Riesenviper",
-    "living-corpse": "Wandelnde Leiche",
-    "living-spirit": "Wandelnde Seele",
-    "monstrosity": "Monstrosität",
-    "rat-monstrosity": "Rattenmonstrosität",
-    "stone-golem": "Steingolem",
-    "vermling-raider": "Ratzenräuber",
-    "vermling-scout": "Ratzenspäher",
-    "zealot": "Fanatiker"
-  },
-  "deck": {
-    "boss": "Boss",
-    "monstrosity": "Monstrosität",
-    "imp": "Wicht"
-  },
   "ability": {
     "Accelerated Power": "Beschleunigte Kraft",
     "Angry Howl": "Wütendes Heulen",
@@ -107,33 +67,6 @@
     "Violent Slam": "Brutaler Schlag",
     "Weakening Bite": "Schwächender Biss",
     "Whirlwind": "Wirbelwind"
-  },
-  "scenario": {
-    "Roadside Ambush": "Straßenraub",
-    "A Hole in the Wall": "Mauerloch",
-    "The Black Ship": "Das schwarze Schiff",
-    "A Ritual in Stone": "Ritual der Steine",
-    "A Deeper Understanding": "Tieferes Verständnis",
-    "Corrupted Research": "Verdorbene Forschung",
-    "Sunken Tumor": "Versunkenes Geschwür",
-    "Hidden Tumor": "Verstecktes Geschwür",
-    "Explosive Evolution": "Explosive Evolution",
-    "The Gauntlet": "Das Wagnis",
-    "Defiled Sewers": "Geschändete Kanalisation",
-    "Beguiling Sewers": "Trügerische Kanalisation",
-    "Vile Harvest": "Abscheuliche Ernte",
-    "Toxic Harvest": "Giftige Ernte",
-    "Tainted Blood": "Beflecktes Blut",
-    "Mixed Results": "Testergebnisse",
-    "Red Twilight": "Rotes Zwielicht",
-    "The Heist": "Der Raubzug",
-    "Den of Thieves": "Diebesnest",
-    "Misplaced Goods": "Warenverkehr",
-    "Agents of Chaos": "Handlanger des Chaos",
-    "Unfriendly Message": "Eindeutige Botschaft",
-    "The Best of the Best": "Einsame Spitze",
-    "Warding the Void": "Hüter der Leere",
-    "The Greatest Job in the World": "Der beste Beruf der Welt"
   },
   "battleGoals": {
     "286": {
@@ -265,18 +198,48 @@
       "text": "Werde als erster Charakter erschöpft."
     }
   },
+  "character": {
+    "demolitionist": {
+      ".": "Sprengmeisterin",
+      "mech": "Mech Suit"
+    },
+    "hatchet": "Axtwerfer",
+    "red-guard": "Rotgardist",
+    "voidwarden": "Leerehüterin"
+  },
   "custom": {
     "jotl": {
-      "giant-viper": {
-        "1": "Alle Angriffe an %data.monster.giant-viper% erhalten in dieser Runde Nachteil.",
-        "2": "Füge +2 %game.action.attack% wenn das Ziel an einer %data.monster.giant-viper%'s Verbündeten angrenzt."
+      "basic-vermling-raider": {
+        "1": "Mische diese Karten am Ende der Runde.",
+        "2": "Werden sich bewegen um zu vermeiden an ihren Fokus anzugrenzen.",
+        "3": "Bewegen sich diese Runde nicht.",
+        "4": "Dies ist dasselbe Verhalten wie im vorherigen Szenario."
       },
       "black-sludge": {
         "1": "Der nächste Gegner in Sichtlinie erleidet unabhängig der Reichweite %game.damage:[1+L/2{$math.ceil}]%."
       },
+      "blood-horror": {
+        "1": "Springe zum am weitesten entfernen toten %data.monster.zealot% und belebe diesen wieder oder springe zum am weitesten entfernten Charakter und führe %game.action.attack%+0 aus.",
+        "2": "Belebe alle toten %data.monster.zealot% um Raum."
+      },
+      "blood-monstrosity": {
+        "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%."
+      },
       "chaos-demon": {
         "1": "Wann immer der %data.monster.chaos-demon% in dieser Runde angegriffen wird, erleidet der Angreifer %game.damage:2%.",
         "2": "Alle an das Ziel angrenzenden Gegner erleiden %game.damage:1%."
+      },
+      "demolitionist": {
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%"
+      },
+      "first-of-the-order": {
+        "1": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%.",
+        "2": "Beschwöre [C/2{math.ceil}] %data.monster.black-imp%",
+        "3": "innerhalb von %game.action.range:2% vom Ziel"
+      },
+      "giant-viper": {
+        "1": "Alle Angriffe an %data.monster.giant-viper% erhalten in dieser Runde Nachteil.",
+        "2": "Füge +2 %game.action.attack% wenn das Ziel an einer %data.monster.giant-viper%'s Verbündeten angrenzt."
       },
       "living-corpse": {
         "1": "Das Ziel erleidet ebenfalls %game.damage:1%.",
@@ -289,6 +252,12 @@
         "3": "Jede Figur die die %data.monster.monstrosity% diese Runde angreift erleidet %game.damage:1%.",
         "4": "%data.monster.monstrosity% erleidet %game.damage:1%."
       },
+      "rat-monstrosity": {
+        "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%.",
+        "2": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:2%.",
+        "3": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:3%.",
+        "4": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:4%."
+      },
       "stone-golem": {
         "1": "Jede Figur die den %data.monster.stone-golem% diese Runde angreift erleidet %game.damage:3%.",
         "2": "Falls diese Bewegung ausgeführt wird erleidet der %data.monster.stone-golem% %game.damage:1%.",
@@ -299,33 +268,6 @@
       },
       "zealot": {
         "1": "X ist der durch den Angriff erlittene Schaden des Ziels."
-      },
-      "blood-horror": {
-        "1": "Springe zum am weitesten entfernen toten %data.monster.zealot% und belebe diesen wieder oder springe zum am weitesten entfernten Charakter und führe %game.action.attack%+0 aus.",
-        "2": "Belebe alle toten %data.monster.zealot% um Raum."
-      },
-      "blood-monstrosity": {
-        "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%."
-      },
-      "first-of-the-order": {
-        "1": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%.",
-        "2": "Beschwöre [C/2{math.ceil}] %data.monster.black-imp%",
-        "3": "innerhalb von %game.action.range:2% vom Ziel"
-      },
-      "rat-monstrosity": {
-        "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%.",
-        "2": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:2%.",
-        "3": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:3%.",
-        "4": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:4%."
-      },
-      "basic-vermling-raider": {
-        "1": "Mische diese Karten am Ende der Runde.",
-        "2": "Werden sich bewegen um zu vermeiden an ihren Fokus anzugrenzen.",
-        "3": "Bewegen sich diese Runde nicht.",
-        "4": "Dies ist dasselbe Verhalten wie im vorherigen Szenario."
-      },
-      "demolitionist": {
-        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%"
       }
     },
     "perks": {
@@ -333,5 +275,63 @@
         "1": "Alle angrenzenden Gegner erleiden %game.damage:1%"
       }
     }
+  },
+  "deck": {
+    "boss": "Boss",
+    "imp": "Wicht",
+    "monstrosity": "Monstrosität"
+  },
+  "edition": {
+    "jotl": "Die Pranken des Löwen"
+  },
+  "monster": {
+    "basic-giant-viper": "Riesenviper (einfach)",
+    "basic-vermling-raider": "Ratzenräuber (einfach)",
+    "basic-zealot": "Fanatiker (einfach)",
+    "black-imp": "Schwarzwicht",
+    "black-sludge": "Schwarzschlick",
+    "blood-horror": "Blutschrecken",
+    "blood-imp": "Blutwicht",
+    "blood-monstrosity": "Blutmonstrosität",
+    "blood-tumor": "Blutgeschwür",
+    "chaos-demon": "Chaosdämon",
+    "common-vermling-raider": "Ratzenräuber (gewöhnlich)",
+    "first-of-the-order": "Erster des Ordens",
+    "giant-viper": "Riesenviper",
+    "living-corpse": "Wandelnde Leiche",
+    "living-spirit": "Wandelnde Seele",
+    "monstrosity": "Monstrosität",
+    "rat-monstrosity": "Rattenmonstrosität",
+    "stone-golem": "Steingolem",
+    "vermling-raider": "Ratzenräuber",
+    "vermling-scout": "Ratzenspäher",
+    "zealot": "Fanatiker"
+  },
+  "scenario": {
+    "A Deeper Understanding": "Tieferes Verständnis",
+    "A Hole in the Wall": "Mauerloch",
+    "A Ritual in Stone": "Ritual der Steine",
+    "Agents of Chaos": "Handlanger des Chaos",
+    "Beguiling Sewers": "Trügerische Kanalisation",
+    "Corrupted Research": "Verdorbene Forschung",
+    "Defiled Sewers": "Geschändete Kanalisation",
+    "Den of Thieves": "Diebesnest",
+    "Explosive Evolution": "Explosive Evolution",
+    "Hidden Tumor": "Verstecktes Geschwür",
+    "Misplaced Goods": "Warenverkehr",
+    "Mixed Results": "Testergebnisse",
+    "Red Twilight": "Rotes Zwielicht",
+    "Roadside Ambush": "Straßenraub",
+    "Sunken Tumor": "Versunkenes Geschwür",
+    "Tainted Blood": "Beflecktes Blut",
+    "The Best of the Best": "Einsame Spitze",
+    "The Black Ship": "Das schwarze Schiff",
+    "The Gauntlet": "Das Wagnis",
+    "The Greatest Job in the World": "Der beste Beruf der Welt",
+    "The Heist": "Der Raubzug",
+    "Toxic Harvest": "Giftige Ernte",
+    "Unfriendly Message": "Eindeutige Botschaft",
+    "Vile Harvest": "Abscheuliche Ernte",
+    "Warding the Void": "Hüter der Leere"
   }
 }

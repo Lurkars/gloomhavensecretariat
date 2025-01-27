@@ -77,6 +77,8 @@
       },
       "envx": {
         "1": "All adjacent allies may perform \"%game.action.move%1\" at end of turn.",
+        "10": "Perform two different summon actions on your first turn and keep all summons from those actions alive for the entire scenario.",
+        "11": "Perform three different non-summon persistent loss actions before your first rest.",
         "2": "All adjacent allies and enemies suffer %game.damage:2% ad end of turn.",
         "3": "All adjacent allies gain %game.action.shield% 1.",
         "4": "X is the number of adjacent figures.",
@@ -84,9 +86,7 @@
         "6": "All adjacent summoned allies add +1 %game.action.attack% to all their attacks",
         "7": "Add +2 %game.action.attack% when the target is adjacent to any of your allies",
         "8": "Add %game.condition.disarm% when the target is affected by a negative condition.",
-        "9": "<b>Spinning Up:</b> At the start of your first turn each scenario, you may play one card from your hand to perform a persistent loss action of that card.",
-        "10": "Perform two different summon actions on your first turn and keep all summons from those actions alive for the entire scenario.",
-        "11": "Perform three different non-summon persistent loss actions before your first rest."
+        "9": "<b>Spinning Up:</b> At the start of your first turn each scenario, you may play one card from your hand to perform a persistent loss action of that card."
       },
       "flask": {
         "1": "<b>Spark of Inspiration:</b> Whenever you long rest, after you revocer your cards from your discard pile, you may play one card from your hand to perform all persistent abilities on either the top or bottom action of the card",

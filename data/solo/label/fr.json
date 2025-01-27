@@ -1,4 +1,17 @@
 {
+  "custom": {
+    "gh": {
+      "city-guard-saw-solo": {
+        "1": "Subit 1 dégât à la fin de chaque round tant qu'il n'a pas récupéré tous ses PV"
+      },
+      "ghost-wolf": {
+        "1": "Au début de chaque round:"
+      }
+    },
+    "solo": {
+      "char-am-deck": "Utilise le paquet de modificateur d'attaque du personnage"
+    }
+  },
   "edition": {
     "solo": "Scénarios solo (toutes éditions)"
   },
@@ -23,40 +36,27 @@
     "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
   },
   "scenario": {
-    "group": {
-      "solo": "Scénarios solo"
-    },
-    "Return to the Black Barrow": "Retour au Tertre Noir",
+    "Aftermath": "Conséquences",
     "An Unfortunate Intrusion": "Une Intrustion Mavenue",
-    "Corrupted Laboratory": "Le Laboratoire Corrompu",
     "Armory Heist": "Casse à l'Armurerie",
-    "Stone Defense": "Une Défense de Pierre",
-    "Rodent Liberation": "La Libération des Rongeurs",
+    "Battle of the Bards": "La Bataille des Bardes",
     "Caravan Escort": "L'Escorte de la Caravane",
-    "Unnatural Insults": "Insultes Anormales",
-    "Storage Fees": "Frais de Stockage",
-    "Plane of Wild Beasts": "La Dimension des Bêtes Sauvages",
+    "Corrupted Hunt": "Chasse Perverse",
+    "Corrupted Laboratory": "Le Laboratoire Corrompu",
+    "Elemental Secrets": "Les Secrets Élémentaires",
+    "Forecast of the Inevitable": "Un Aperçu de l'Inévitable",
     "Harvesting the Night": "Récolte Nocturne",
     "Plagued Crypt": "La Crypte Pesteuse",
-    "Battle of the Bards": "La Bataille des Bardes",
-    "Corrupted Hunt": "Chasse Perverse",
-    "Aftermath": "Conséquences",
-    "Elemental Secrets": "Les Secrets Élémentaires",
+    "Plane of Wild Beasts": "La Dimension des Bêtes Sauvages",
+    "Return to the Black Barrow": "Retour au Tertre Noir",
+    "Rodent Liberation": "La Libération des Rongeurs",
+    "Stone Defense": "Une Défense de Pierre",
+    "Storage Fees": "Frais de Stockage",
     "The Caged Bear": "L'Ours en Cage",
     "The Sands of Time": "Les Sables du Temps",
-    "Forecast of the Inevitable": "Un Aperçu de l'Inévitable"
-  },
-  "custom": {
-    "solo": {
-      "char-am-deck": "Utilise le paquet de modificateur d'attaque du personnage"
-    },
-    "gh": {
-      "city-guard-saw-solo": {
-        "1": "Subit 1 dégât à la fin de chaque round tant qu'il n'a pas récupéré tous ses PV"
-      },
-      "ghost-wolf": {
-        "1": "Au début de chaque round:"
-      }
+    "Unnatural Insults": "Insultes Anormales",
+    "group": {
+      "solo": "Scénarios solo"
     }
   }
 }

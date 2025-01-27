@@ -2,26 +2,26 @@
   "character": {
     "diviner": "점술가"
   },
+  "custom": {
+    "fc": {
+      "flowChartGroup": {
+        "citizens": "글룸헤이븐 시민",
+        "corruption": "부패",
+        "diviner": "점술가",
+        "orchid-society": "오키드 사회",
+        "tainted-crypt": "오염된 묘지",
+        "the-rift": "균열 장치"
+      }
+    }
+  },
+  "deck": {
+    "ashblade": "잿빛칼날"
+  },
   "edition": {
     "fc": "잊힌 비술"
   },
   "monster": {
     "aesther-ashblade": "에스더 잿빛칼날",
     "aesther-scout": "에스더 정찰병"
-  },
-  "deck": {
-    "ashblade": "잿빛칼날"
-  },
-  "custom": {
-    "fc": {
-      "flowChartGroup": {
-        "diviner": "점술가",
-        "orchid-society": "오키드 사회",
-        "citizens": "글룸헤이븐 시민",
-        "the-rift": "균열 장치",
-        "tainted-crypt": "오염된 묘지",
-        "corruption": "부패"
-      }
-    }
   }
 }

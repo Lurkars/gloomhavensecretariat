@@ -260,11 +260,11 @@
         ".": "Données sur les personnages",
         "deck": "Nom du deck de capacité",
         "hp": {
+          "-1": "Profil personnalisé",
+          ".": "Points de vie",
           "0": "Profil bas",
           "1": "Profil intermédiaire",
-          "2": "Profil élevé",
-          "-1": "Profil personnalisé",
-          ".": "Points de vie"
+          "2": "Profil élevé"
         },
         "json": {
           ".": "Données de personnages dans le type de fichier JSON",
@@ -402,12 +402,12 @@
         "card": "carte",
         "cardLabel": "{0}{1} {2}",
         "cards": {
+          ".": "cartes",
           "1": "%number.1%",
           "2": "%number.2%",
           "3": "%number.3%",
           "4": "%number.4%",
-          "5": "%number.5%",
-          ".": "cartes"
+          "5": "%number.5%"
         },
         "effects": {
           "recoverRandomDiscard": "Récupérer %game.card.recover% une carte aléatoire de votre pile de défausse",
@@ -626,10 +626,10 @@
         "reputationLT": "Réputation < {0}:"
       },
       "option": {
+        ".": "Option {0} :",
         "1": "A",
         "2": "B",
-        "3": "C",
-        ".": "Option {0} :"
+        "3": "C"
       },
       "rewards": {
         "additionalGold": "Gagnez {0} or supplémentaire chacun.",
@@ -953,6 +953,7 @@
   },
   "numbered": {
     "1": "premier",
+    "10": "dixième",
     "2": "deuxième",
     "3": "troisième",
     "4": "quatrième",
@@ -960,8 +961,7 @@
     "6": "sixième",
     "7": "septième",
     "8": "huitième",
-    "9": "neuvième",
-    "10": "dixième"
+    "9": "neuvième"
   },
   "objective": {
     ".": "Objectif",
@@ -1141,6 +1141,9 @@
       ".": "Tous les personnages",
       "hint": "Mettre à jour et modifier tous les personnages et les objectifs."
     },
+    "code": {
+      ".": "Nouveau mot de passe pour les autorisations"
+    },
     "create": "Créer de nouvelles permissions",
     "custom": {
       ".": "Définir de nouvelles permissions",
@@ -1166,9 +1169,6 @@
     "party": {
       ".": "Groupe",
       "hint": "Mise à jour et modification de l'état d'avancement des groupes et des campagnes"
-    },
-    "code": {
-      ".": "Nouveau mot de passe pour les autorisations"
     },
     "round": {
       ".": "Round",
@@ -1474,6 +1474,11 @@
     "blocked": "La connexion au serveur est interrompue, les modifications du jeu sont donc actuellement interdites.",
     "closed": "Fermé",
     "closing": "Fermeture",
+    "code": {
+      ".": "Mot de passe",
+      "hint": "Le code de jeu identifie votre jeu. Pour un nouveau jeu, il suffit de saisir un nouveau code de votre choix ou d'en générer un. Toutes les personnes ayant le même code se connectent au même jeu. <br><br>Ce code était auparavant appelé \"mot de passe\", mais pour éviter toute confusion, il a été renommé.",
+      "uuid": "Générer Code (UUID)"
+    },
     "connect": "Connecter",
     "connected": "Connecté",
     "connecting": "Connexion...",
@@ -1502,11 +1507,6 @@
     "menu": {
       "connect": "Se connecter au serveur",
       "connected": "Connecté au serveur"
-    },
-    "code": {
-      ".": "Mot de passe",
-      "hint": "Le code de jeu identifie votre jeu. Pour un nouveau jeu, il suffit de saisir un nouveau code de votre choix ou d'en générer un. Toutes les personnes ayant le même code se connectent au même jeu. <br><br>Ce code était auparavant appelé \"mot de passe\", mais pour éviter toute confusion, il a été renommé.",
-      "uuid": "Générer Code (UUID)"
     },
     "port": "Port",
     "reconnect": "Reconnecter",

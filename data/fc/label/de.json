@@ -1,9 +1,94 @@
 {
+  "ability": {
+    "Blistering Heat": "Glühende Hitze",
+    "Corruptiing Presence": "Beschädigen der Anwesenheit",
+    "Endless Legions": "Endlose Legionen",
+    "Flame Lance": "Flammenlanze",
+    "Harsh Entrapment": "Harte Verstrickung",
+    "Heed My Call": "Folge meinen Ruf",
+    "Legandary - Shadows": "Legendär - Schatten",
+    "Legendary - Domination": "Legendär - Herrschaft",
+    "Legendary - Void": "Legendär - Leere",
+    "Legengary - Gloom": "Legendär - Finsternis",
+    "Lure Them In": "Lock Sie An",
+    "Marked for Death": "Markiert für den Tod",
+    "Nightmare Spheres": "Albtraum-Sphären",
+    "Plaque Their Dreams": "Tafel Ihre Träume an",
+    "Pulse of Malice": "Puls der Bosheit",
+    "Searing Vapors": "Ätzende Dämpfe",
+    "Toxic Blast": "Giftige Explosion",
+    "Unfathomable Fortitude": "Unergründliche Stärke",
+    "What's Yours is Mine": "Was dir gehört, gehört mir",
+    "You Date to Defy Me": "Treff mich um mir zu trotzen"
+  },
   "character": {
     "diviner": "Prophetin"
   },
+  "custom": {
+    "fc": {
+      "ashblade": {
+        "1": "Fokussiere den Gegner mit der höchsten Initiative.",
+        "2": "%game.action.teleport% zum nächsten freien Feld angrenzend an den Fokus."
+      },
+      "manifestation-of-corruption": {
+        "1": "Spiele die ersten beiden Karten mit der ersten Karte als Initiative. Führe die untere Aktion der ersten und die obere Aktion der zweiten Karte aus.",
+        "10": "Beschwöre zwei %data.monster.black-imp%s: beide Normal für zwei; einen Normal und einen Elite für drei; zwei Elite für vier Charaktere.",
+        "11": "Beschwöre einen zusätzlichen Elite %data.monster.black-imp%",
+        "12": "Visiere alle Gegner in %game.action.range%4",
+        "13": "Alle angrenzenden Gegner erleiden %game.damage:3%.",
+        "14": "Die nächsten drei mal wenn du Schaden erleidest, erhalte %game.action.shield% 3.",
+        "15": "Erstelle eine %game.condition.disarm% und eine %game.condition.poison% Falle in jeweils einem angrenzenden freien Feld.",
+        "16": "%game.action.teleport% zum Feld des weitesten Gegners in %game.action.range%+1 und %game.action.teleport% diesen gleichzeitig auf dein Feld.",
+        "17": "Beschwöre jeweils eine Normal %data.monster.valrath-savage% angrenzend an jeden Gegner in %game.action.range%5.",
+        "18": "Alle dich anvisierenden Angreifer erleiden %game.condition.curse%.",
+        "19": "Alle dich anvisierenden Angreifer erhalten Nachteil.",
+        "2": "Führe diese Aktion direkt nach dem Aufdecken aus, nicht nach Reihenfolge der Initiative.",
+        "20": "%game.action.attack%-1 für einen Gegner in %game.action.range%4 zum ersten Ziel, anschließend %game.action.attack%-2 an einen dritten Gegner in %game.action.range%3 des zweiten Ziels.",
+        "21": "Beschwöre einen %game.monster.aesther-scout%: Normal für zwei oder drei, Elite für vier Charaktere.",
+        "22": "Die nächsten drei mal wenn du Schaden erleidest, erleide stattdessen keinen Schaden.",
+        "3": "Der Charakter mit der höchsten Initiative ist gezwungen alle Verbündeten als Gegner und alle Gegner als Verbündete anzusehen. Während des Zuge, führe \"%game.action.move%2\" also obere Aktion der Initiativ-Karte aus. Anschließend werden beide Karten abgeworfen unabhängig davon ob sie normalerweise verloren wären.",
+        "4": "Alle dich anwisierende Angreifer erleiden diese Runde %game.condition.curse%",
+        "5": "Beschwöre einen %data.monster.flame-demon%: Normal für zwei oder drei, Elite für vier Charaktere.<br>Beschwöre einen %data.monster.night-demon%: Normal für zwei oder drei, Elite für vier Charaktere.",
+        "7": "Beschwöre einen zusätzlichen %data.monster.night-demon%",
+        "8": "Beschwöre einen zusätzlichen %data.monster.flame-demon%",
+        "9": "Beschwöre eine %data.monster.valrath-tracker%: Normal für zwei oder drei, Elite für vier Charaktere."
+      },
+      "sraka-the-wise": {
+        "1": "Verdopple alle Heil-Werte. Wenn möglich visiert Heilung den Stählernden Löwen an.",
+        "2": "Falls %game.condition.curse% oder %game.condition.bless% angewendet wird, wende %game.condition.curse% oder %game.condition.bless% erneut an."
+      },
+      "the-steel-lion": {
+        "1": "Alle Angriffe an angrenzende Verbündete visieren dich stattdessen an.",
+        "2": "Die ersten [C] mal die du 6 oder mehr Schaden erleidest, erleide stattdessen keinen Schaden."
+      },
+      "tracker": {
+        "1": "Erstelle eine %game.condition.disarm% Falle in einem leeren angrenzenden Feld zum nächsten Gegner.",
+        "2": "Visiere den Gegner mit dem niedrigesten TP Wert an."
+      },
+      "uyart-ikkuma": {
+        "1": "Konsumiere %game.element.consume.fire% / %game.element.consume.earth% als wäre das Element stark fall %data.monster.flame-demon% / %data.monster.earth-demon% auf der Karte sind."
+      },
+      "valrath-savage": {
+        "1": "Alle angrenzenden Verbündeten fügen +1 %game.action.attack% zu allen Angriffen hinzu.",
+        "2": "Alle angrenzenden Verbündeten fügen +2 %game.action.attack% zu allen Angriffen hinzu."
+      }
+    }
+  },
+  "deck": {
+    "ashblade": "Ascheklinge",
+    "savage": "Wilde",
+    "tracker": "Häscher"
+  },
   "edition": {
     "fc": "Forgotten Circles"
+  },
+  "globalAchievements": {
+    "A Peril Averted": "Gefahr gebannt",
+    "Knowledge is Power": "Wissen ist Macht",
+    "Mechanical Splendor": "Mechanische Pracht",
+    "Pieces of an Artifact": "Teile eines Artefakts",
+    "Severed Ties": "Gekappte Verbindung",
+    "Through the Portal": "Durch das Portal"
   },
   "monster": {
     "aesther-ashblade": "Aesther Ascheklinge",
@@ -27,60 +112,43 @@
     "warden": "Wächter",
     "wolf-viper-abomination": "Wolf-Viper-Abscheulichkeit"
   },
-  "deck": {
-    "ashblade": "Ascheklinge",
-    "savage": "Wilde",
-    "tracker": "Häscher"
-  },
-  "ability": {
-    "Pulse of Malice": "Puls der Bosheit",
-    "Harsh Entrapment": "Harte Verstrickung",
-    "Searing Vapors": "Ätzende Dämpfe",
-    "Toxic Blast": "Giftige Explosion",
-    "Blistering Heat": "Glühende Hitze",
-    "Nightmare Spheres": "Albtraum-Sphären",
-    "Lure Them In": "Lock Sie An",
-    "Plaque Their Dreams": "Tafel Ihre Träume an",
-    "Flame Lance": "Flammenlanze",
-    "What's Yours is Mine": "Was dir gehört, gehört mir",
-    "Corruptiing Presence": "Beschädigen der Anwesenheit",
-    "Endless Legions": "Endlose Legionen",
-    "Heed My Call": "Folge meinen Ruf",
-    "Unfathomable Fortitude": "Unergründliche Stärke",
-    "Marked for Death": "Markiert für den Tod",
-    "You Date to Defy Me": "Treff mich um mir zu trotzen",
-    "Legendary - Void": "Legendär - Leere",
-    "Legandary - Shadows": "Legendär - Schatten",
-    "Legengary - Gloom": "Legendär - Finsternis",
-    "Legendary - Domination": "Legendär - Herrschaft"
+  "partyAchievements": {
+    "A Strongbox": "Eine Schatulle",
+    "Angels of Death": "Todesengel",
+    "Beauty in Freedom": "Schönheit in Freiheit",
+    "Custodians": "Bewahrer",
+    "Diamara's Aid": "Diamaras Hilfe",
+    "Dimensional Equilibrium": "Dimensionsgleichgewicht",
+    "Guard Detail": "Wachdienst",
+    "Hunted Prey": "Gehetzte Beute",
+    "Hunting the Hunter": "Jagd auf die Jägerin",
+    "Opportunists": "Opportunisten",
+    "Xangroth's Aid": "Xangroths Hilfe"
   },
   "scenario": {
-    "Unexpected Visitors": "Unerwarteter Besuch",
-    "Lore Untold": "Neuigkeiten",
-    "Past In Flames": "Flammenmeer",
+    "A Circular Solution": "Eine runde Sache",
+    "A Gaping Wound": "Klaffende Wunde",
     "Aftershocks": "Nachbeben",
+    "Bazaar of Knowledge": "Basar des Wissens",
+    "Epilogue of a War": "Epilog eines Krieges",
+    "Future Uncertain": "Ungewisse Zukunft",
+    "Ink Not Yet Dry": "In der Schwebe",
+    "Intricate Work": "Komplexitäten",
+    "Lore Untold": "Neuigkeiten",
+    "Mechanical Genius": "Mechanisches Genie",
+    "Monstrosities of a Cult": "Kultische Monstrositäten",
+    "Past In Flames": "Flammenmeer",
+    "Prologue to the End": "Prolog des Endes",
     "Shifting Gears": "Getrieberaum",
     "Shrouded Crypt": "Verhüllte Krypta",
-    "Bazaar of Knowledge": "Basar des Wissens",
-    "Where It Is Needed": "Wo Bedarf ist",
-    "A Gaping Wound": "Klaffende Wunde",
-    "Monstrosities of a Cult": "Kultische Monstrositäten",
-    "Intricate Work": "Komplexitäten",
-    "Mechanical Genius": "Mechanisches Genie",
-    "Prologue to the End": "Prolog des Endes",
-    "Epilogue of a War": "Epilog eines Krieges",
-    "A Circular Solution": "Eine runde Sache",
-    "The Shackles Loosen": "Gelockerte Fesseln",
     "The Bottom of It": "Auf den Grund",
     "The Lost Thread": "Verlorener Faden",
-    "Ink Not Yet Dry": "In der Schwebe",
-    "Future Uncertain": "Ungewisse Zukunft",
+    "The Shackles Loosen": "Gelockerte Fesseln",
     "Tower to the Stars": "Turm zu den Sternen",
+    "Unexpected Visitors": "Unerwarteter Besuch",
+    "Where It Is Needed": "Wo Bedarf ist",
     "rules": {
       "fc": {
-        "98": {
-          "1": "Platziere 1 Schadenstoken auf beiden Schiffen %game.mapMarker.a% and %game.mapMarker.b%."
-        },
         "101": {
           "1": "wenn der angrenzende Speidraken lebendig und nicht %game.condition.stun% ist."
         },
@@ -101,6 +169,9 @@
           "2": "Entfernt zwei Schadensmarker von jedem Altar %game.mapMarker.a% und %game.mapMarker.b%. Das leibhaftige Verderben wird für jeden entfernten Schadensmarker um [C/2{$math.floor}] Trefferpunkte geheilt.",
           "3": "bei %game.mapMarker.c% wenn Altar %game.mapMarker.a% noch keinen Schadensmarker hat.",
           "4": "bei %game.mapMarker.d% wenn Altar %game.mapMarker.b% noch keinen Schadensmarker hat."
+        },
+        "98": {
+          "1": "Platziere 1 Schadenstoken auf beiden Schiffen %game.mapMarker.a% and %game.mapMarker.b%."
         }
       }
     }
@@ -108,13 +179,19 @@
   "section": {
     "rules": {
       "fc": {
-        "5": {
-          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.3%, %game.mapMarker.5%, %game.mapMarker.8% und %game.mapMarker.11% um.",
-          "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a2% auf %game.mapMarker.p%, %game.mapMarker.a3% auf %game.mapMarker.t%, %game.mapMarker.a4% auf %game.mapMarker.s%"
-        },
         "10": {
           "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.3%, %game.mapMarker.8%, %game.mapMarker.9% und %game.mapMarker.10% um.",
           "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.q%, %game.mapMarker.a2% auf %game.mapMarker.n%, %game.mapMarker.a3% auf %game.mapMarker.r%, %game.mapMarker.a5% auf %game.mapMarker.t%"
+        },
+        "123": {
+          "1": "auf einem rechts an den Türen %game.mapMarker.4% angrenzenden Feld"
+        },
+        "128": {
+          "1": "%game.action.teleport% %data.monster.the-husk-section-66% auf %game.mapMarker.c% und entfernt den Mauerabschnitt %game.mapMarker.d%"
+        },
+        "132": {
+          "1": "Sofort ausführen!",
+          "2": "Nachdem die Fähigkeit abgehandelt wurde:"
         },
         "19": {
           "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.1%, %game.mapMarker.6%, %game.mapMarker.7% und %game.mapMarker.10% um",
@@ -128,6 +205,10 @@
           "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.4%, %game.mapMarker.6%, %game.mapMarker.8% und %game.mapMarker.9% um.",
           "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.m%, %game.mapMarker.a3% auf %game.mapMarker.s%, %game.mapMarker.a5% auf %game.mapMarker.p%"
         },
+        "5": {
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.3%, %game.mapMarker.5%, %game.mapMarker.8% und %game.mapMarker.11% um.",
+          "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a2% auf %game.mapMarker.p%, %game.mapMarker.a3% auf %game.mapMarker.t%, %game.mapMarker.a4% auf %game.mapMarker.s%"
+        },
         "56": {
           "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.1%, %game.mapMarker.2%, %game.mapMarker.5% und %game.mapMarker.7% um.",
           "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.m%, %game.mapMarker.a3% auf %game.mapMarker.q%, %game.mapMarker.a6% auf %game.mapMarker.s%"
@@ -140,88 +221,7 @@
         },
         "72": {
           "1": "auf einen rechts an den Türen %game.mapMarker.3% angrenzenden Feld"
-        },
-        "123": {
-          "1": "auf einem rechts an den Türen %game.mapMarker.4% angrenzenden Feld"
-        },
-        "128": {
-          "1": "%game.action.teleport% %data.monster.the-husk-section-66% auf %game.mapMarker.c% und entfernt den Mauerabschnitt %game.mapMarker.d%"
-        },
-        "132": {
-          "1": "Sofort ausführen!",
-          "2": "Nachdem die Fähigkeit abgehandelt wurde:"
         }
-      }
-    }
-  },
-  "partyAchievements": {
-    "A Strongbox": "Eine Schatulle",
-    "Angels of Death": "Todesengel",
-    "Beauty in Freedom": "Schönheit in Freiheit",
-    "Custodians": "Bewahrer",
-    "Diamara's Aid": "Diamaras Hilfe",
-    "Dimensional Equilibrium": "Dimensionsgleichgewicht",
-    "Guard Detail": "Wachdienst",
-    "Hunted Prey": "Gehetzte Beute",
-    "Hunting the Hunter": "Jagd auf die Jägerin",
-    "Opportunists": "Opportunisten",
-    "Xangroth's Aid": "Xangroths Hilfe"
-  },
-  "globalAchievements": {
-    "A Peril Averted": "Gefahr gebannt",
-    "Knowledge is Power": "Wissen ist Macht",
-    "Mechanical Splendor": "Mechanische Pracht",
-    "Pieces of an Artifact": "Teile eines Artefakts",
-    "Severed Ties": "Gekappte Verbindung",
-    "Through the Portal": "Durch das Portal"
-  },
-  "custom": {
-    "fc": {
-      "ashblade": {
-        "1": "Fokussiere den Gegner mit der höchsten Initiative.",
-        "2": "%game.action.teleport% zum nächsten freien Feld angrenzend an den Fokus."
-      },
-      "manifestation-of-corruption": {
-        "1": "Spiele die ersten beiden Karten mit der ersten Karte als Initiative. Führe die untere Aktion der ersten und die obere Aktion der zweiten Karte aus.",
-        "2": "Führe diese Aktion direkt nach dem Aufdecken aus, nicht nach Reihenfolge der Initiative.",
-        "3": "Der Charakter mit der höchsten Initiative ist gezwungen alle Verbündeten als Gegner und alle Gegner als Verbündete anzusehen. Während des Zuge, führe \"%game.action.move%2\" also obere Aktion der Initiativ-Karte aus. Anschließend werden beide Karten abgeworfen unabhängig davon ob sie normalerweise verloren wären.",
-        "4": "Alle dich anwisierende Angreifer erleiden diese Runde %game.condition.curse%",
-        "5": "Beschwöre einen %data.monster.flame-demon%: Normal für zwei oder drei, Elite für vier Charaktere.<br>Beschwöre einen %data.monster.night-demon%: Normal für zwei oder drei, Elite für vier Charaktere.",
-        "7": "Beschwöre einen zusätzlichen %data.monster.night-demon%",
-        "8": "Beschwöre einen zusätzlichen %data.monster.flame-demon%",
-        "9": "Beschwöre eine %data.monster.valrath-tracker%: Normal für zwei oder drei, Elite für vier Charaktere.",
-        "10": "Beschwöre zwei %data.monster.black-imp%s: beide Normal für zwei; einen Normal und einen Elite für drei; zwei Elite für vier Charaktere.",
-        "11": "Beschwöre einen zusätzlichen Elite %data.monster.black-imp%",
-        "12": "Visiere alle Gegner in %game.action.range%4",
-        "13": "Alle angrenzenden Gegner erleiden %game.damage:3%.",
-        "14": "Die nächsten drei mal wenn du Schaden erleidest, erhalte %game.action.shield% 3.",
-        "15": "Erstelle eine %game.condition.disarm% und eine %game.condition.poison% Falle in jeweils einem angrenzenden freien Feld.",
-        "16": "%game.action.teleport% zum Feld des weitesten Gegners in %game.action.range%+1 und %game.action.teleport% diesen gleichzeitig auf dein Feld.",
-        "17": "Beschwöre jeweils eine Normal %data.monster.valrath-savage% angrenzend an jeden Gegner in %game.action.range%5.",
-        "18": "Alle dich anvisierenden Angreifer erleiden %game.condition.curse%.",
-        "19": "Alle dich anvisierenden Angreifer erhalten Nachteil.",
-        "20": "%game.action.attack%-1 für einen Gegner in %game.action.range%4 zum ersten Ziel, anschließend %game.action.attack%-2 an einen dritten Gegner in %game.action.range%3 des zweiten Ziels.",
-        "21": "Beschwöre einen %game.monster.aesther-scout%: Normal für zwei oder drei, Elite für vier Charaktere.",
-        "22": "Die nächsten drei mal wenn du Schaden erleidest, erleide stattdessen keinen Schaden."
-      },
-      "sraka-the-wise": {
-        "1": "Verdopple alle Heil-Werte. Wenn möglich visiert Heilung den Stählernden Löwen an.",
-        "2": "Falls %game.condition.curse% oder %game.condition.bless% angewendet wird, wende %game.condition.curse% oder %game.condition.bless% erneut an."
-      },
-      "the-steel-lion": {
-        "1": "Alle Angriffe an angrenzende Verbündete visieren dich stattdessen an.",
-        "2": "Die ersten [C] mal die du 6 oder mehr Schaden erleidest, erleide stattdessen keinen Schaden."
-      },
-      "tracker": {
-        "1": "Erstelle eine %game.condition.disarm% Falle in einem leeren angrenzenden Feld zum nächsten Gegner.",
-        "2": "Visiere den Gegner mit dem niedrigesten TP Wert an."
-      },
-      "uyart-ikkuma": {
-        "1": "Konsumiere %game.element.consume.fire% / %game.element.consume.earth% als wäre das Element stark fall %data.monster.flame-demon% / %data.monster.earth-demon% auf der Karte sind."
-      },
-      "valrath-savage": {
-        "1": "Alle angrenzenden Verbündeten fügen +1 %game.action.attack% zu allen Angriffen hinzu.",
-        "2": "Alle angrenzenden Verbündeten fügen +2 %game.action.attack% zu allen Angriffen hinzu."
       }
     }
   }

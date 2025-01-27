@@ -155,6 +155,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         if (this.party != gameManager.game.party) {
           this.party = gameManager.game.party;
           this.update();
+        } else {
+          this.updateAlways();
         }
 
         if (server && this.townGuardDeck && this.party.townGuardDeck) {
@@ -750,13 +752,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.items = this.itemIdentifier.map((identifier) => gameManager.itemManager.getItem(identifier.name, identifier.edition, true));
     this.summer = Math.max(this.party.weeks - 1, 0) % 20 < 10;
 
-
-    this.availableCharacters = [];
-    this.party.availableCharacters.forEach((characterModel) => {
-      this.availableCharacters[characterModel.number - 1] = this.availableCharacters[characterModel.number - 1] || [];
-      this.availableCharacters[characterModel.number - 1].push(characterModel);
-    })
-
     if (campaign) {
       if (campaign.lowMorale && campaign.lowMorale.length) {
         this.lowMoraleSolved = 0;
@@ -772,6 +767,15 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         }
       }
     }
+    this.updateAlways();
+  }
+
+  updateAlways() {
+    this.availableCharacters = [];
+    this.party.availableCharacters.forEach((characterModel) => {
+      this.availableCharacters[characterModel.number - 1] = this.availableCharacters[characterModel.number - 1] || [];
+      this.availableCharacters[characterModel.number - 1].push(characterModel);
+    })
   }
 
   characterIcon(name: string): string {

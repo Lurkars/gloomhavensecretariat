@@ -215,7 +215,10 @@
     },
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen",
-    "replay": "Doppelklick um Charakter wieder zu spielen",
+    "replay": {
+      ".": "Charakter wieder spielen",
+      "hint": "Doppelklick um Charakter wieder zu spielen"
+    },
     "setAside": "Charakter beiseitelegen",
     "summon": {
       "level": "(Level {0})"

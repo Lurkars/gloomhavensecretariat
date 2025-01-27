@@ -182,7 +182,10 @@
     },
     "remove": "Eliminar Personaje",
     "removeAll": "Eliminar todo",
-    "replay": "Doble Click para rejugar Personaje",
+    "replay": {
+      ".": "Rejugar Personaje",
+      "hint": "Doble Click para rejugar Personaje"
+    },
     "setAside": "Pon al personaje a un lado",
     "summon": {
       "level": "(Nivel {0})"

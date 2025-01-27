@@ -49,6 +49,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   goldTimeout: any = null;
   xpTimeout: any = null;
+  replayable: boolean = false;
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
@@ -124,6 +125,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     }
 
     this.hasAbilities = gameManager.deckData(this.character, true).abilities.length > 0;
+    this.replayable = !gameManager.game.scenario && gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.character.name && figure.number == this.character.number) == undefined;
 
     gameManager.uiChange.subscribe({
       next: () => {
@@ -134,7 +136,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
             this.character.progress.perks[i] = 0;
           }
         }
-        
+
         this.retireEnabled = false;
         if (!gameManager.game.scenario) {
           if (this.personalQuest) {
@@ -143,7 +145,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
             this.retireEnabled = true;
           }
         }
-    
+
       }
     })
   }
@@ -514,6 +516,24 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     gameManager.stateManager.after();
     if (this.dialogRef) {
       ghsDialogClosingHelper(this.dialogRef);
+    }
+  }
+
+  replay() {
+    if (this.replayable) {
+      gameManager.stateManager.before("characterReplay", gameManager.characterManager.characterName(this.character, true, true), gameManager.game.party.players[this.character.number - 1] ? gameManager.game.party.players[this.character.number - 1] : '' + this.character.number);
+      gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter((availableCharacter) => availableCharacter.name != this.character.name || availableCharacter.edition != this.character.edition || availableCharacter.number != this.character.number);
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character && figure.number == this.character.number) {
+          gameManager.game.party.availableCharacters.push(figure.toModel());
+          gameManager.characterManager.removeCharacter(figure);
+        }
+      })
+      gameManager.game.figures.push(this.character);
+      gameManager.stateManager.after();
+      if (this.dialogRef) {
+        ghsDialogClosingHelper(this.dialogRef);
+      }
     }
   }
 

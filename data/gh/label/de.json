@@ -1,443 +1,443 @@
 {
-    "character": {
-        "brute": "Barbar",
-        "cragheart": "Felsenherz",
-        "mindthief": "Gedankendiebin",
-        "scoundrel": "Schurkin",
-        "spellweaver": "Spruchweberin",
-        "tinkerer": "Tüftler"
+  "ability": {},
+  "battleGoals": {
+    "458": {
+      ".": "Sparsam",
+      "text": "Habe am Ende des Szenarios insgesamt mindestens 5 Karten in der Hand und dem Abwurfstapel."
     },
-    "edition": {
-        "gh": "Gloomhaven"
+    "459": {
+      ".": "Müßiggang",
+      "text": "Erhalte während des Szenarios höchstens 7 Erfahrungspunkte."
     },
-    "monster": {
-        "ancient-artillery": "Antike Artillerie",
-        "bandit-archer": "Banditen Schützin",
-        "bandit-commander": "Banditen Kommandeur",
-        "bandit-guard": "Banditen-Wache",
-        "black-imp": "Schwarzwicht",
-        "captain-of-the-guard": "Hauptmann der Wache",
-        "cave-bear": "Höhlenbär",
-        "city-archer": "Stadtschütze",
-        "city-guard": "Stadtwache",
-        "cultist": "Kultist",
-        "dark-rider": "Der Dunkle Reiter",
-        "deep-terror": "Tiefenschreck",
-        "earth-demon": "Erddämon",
-        "elder-drake": "Drachenfürst",
-        "flame-demon": "Flammendämon",
-        "forest-imp": "Waldwicht",
-        "frost-demon": "Frostdämon",
-        "giant-viper": "Riesenviper",
-        "harrower-infester": "Schwarmling Kontagion",
-        "hound": "Grimmwolf",
-        "inox-archer": "Inox Schütze",
-        "inox-bodyguard": "Inox Leibwache",
-        "inox-guard": "Inox Wache",
-        "inox-shaman": "Inox Schamane",
-        "jekserah": "Jekserah",
-        "living-bones": "Wandelndes Skelett",
-        "living-corpse": "Wandelnde Leiche",
-        "living-spirit": "Wandelnde Seele",
-        "lurker": "Pirscher",
-        "merciless-overseer": "Gnadenloser Aufseher",
-        "night-demon": "Nachtdämon",
-        "ooze": "Schleim",
-        "prime-demon": "Erzdämon",
-        "rending-drake": "Reißdrachen",
-        "savvas-icestorm": "Savvas Eissturm",
-        "savvas-lavaflow": "Savvas Lavastrom",
-        "the-betrayer": "Der Abtrünnige",
-        "the-colorless": "Der Fahle",
-        "the-gloom": "Das Grauen",
-        "the-sightless-eye": "Das Blicklose Auge",
-        "spitting-drake": "Speidrachen",
-        "stone-golem": "Steingolem",
-        "sun-demon": "Sonnendämon",
-        "vermling-scout": "Ratzenspäher",
-        "vermling-shaman": "Ratzenschamane",
-        "wind-demon": "Winddämon",
-        "winged-horror": "Der Geflügelte Schrecken"
+    "460": {
+      ".": "Arbeitstier",
+      "text": "Erhalte während des Szenarios mindestens 13 Erfahrungspunkte."
     },
-    "deck": {
-        "archer": "Schütze",
-        "boss": "Boss",
-        "guard": "Wache",
-        "imp": "Wicht",
-        "scout": "Späher",
-        "shaman": "Schamane"
+    "461": {
+      ".": "Voller Eifer",
+      "text": "Habe am Ende des Szenarios noch insgesamt höchstens 3 Karten in der Hand und dem Abwurfstapel."
     },
-    "ability": {},
-    "scenario": {
-        "Black Barrow": "Schwarzgrab",
-        "Barrow Lair": "Grabhöhle",
-        "Inox Encampment": "Inox-Lager",
-        "Crypt of the Damned": "Kypta der Verdammten",
-        "Ruinous Crypt": "Unheilvolle Krypta",
-        "Decaying Crypt": "Faulige Krypra",
-        "Vibrant Grotto": "Üppige Grotte",
-        "Gloomhaven Warehouse": "Lagerhaus von Gloomhaven",
-        "Diamond Mine": "Diamantenmine",
-        "Plane of Elemental Power": "Ebene der Elementarmächte",
-        "Gloomhaven Square A": "Gloomhaven-Platz A",
-        "Gloomhaven Square B": "Gloomhaven-Platz B",
-        "Temple of the Seer": "Tempel des Sehers",
-        "Frozen Hollow": "Frostsenke",
-        "Shrine of Strength": "Schrein der Stärke",
-        "Mountain Pass": "Gebirgspass",
-        "Lost Island": "Verschollene Insel",
-        "Abandoned Sewers": "Verlassene Kanalisation",
-        "Forgotten Crypt": "Vergessene Krypta",
-        "Necromancer's Sanctum": "Versteck der Nekromantin",
-        "Infernal Throne": "Höllenthron",
-        "Temple of the Elements": "Tempel der Elemente",
-        "Deep Ruins": "Tiefe Ruinen",
-        "Echo Chamber": "Echokammer",
-        "Icecrag Ascent": "Aufstieg zu Eisklippe",
-        "Ancient Cistern": "Die alte Zisterne",
-        "Ruinous Rift": "Unheilvoller Riss",
-        "Outer Ritual Chamber": "Äußere Ritualkammer",
-        "Sanctuary of Gloom": "Heiligtum des Grauens",
-        "Shrine of the Depths": "Schrein der Tiefe",
-        "Plane of the Night": "Ebene der Nacht",
-        "Decrepit Wood": "Moderwald",
-        "Savvas Armory": "Savvas-Waffenkammer",
-        "Scorched Summit": "Versengter Gipfel",
-        "Gloomhaven Battlements A": "Zinnen von Gloomhaven A",
-        "Gloomhaven Battlements B": "Zinnen von Gloomhaven B",
-        "Doom Trench": "Schicksalgraben",
-        "Slave Pens": "Sklavenpferche",
-        "Treacherous Divide": "Tückische Kluft",
-        "Ancient Defense Network": "Altes Verteidigungsnetzwerk",
-        "Timeworn Tomb": "Verfallenes Grab",
-        "Realm of the Voice": "Reich der Stimme",
-        "Drake Nest": "Drachennest",
-        "Tribal Assault": "Stammesangriff",
-        "Rebel Swamp": "Rebellensumpf",
-        "Nightmare Peak": "Albtraumspitze",
-        "Lair of the Unseeing Eye": "Hort des Blicklosen",
-        "Shadow Weald": "Schattenwald",
-        "Rebel's Stand": "Letzter Widerstand",
-        "Ghost Fortress": "Geisterfestung",
-        "The Void": "Die Leere",
-        "Noxious Cellar": "Verseuchter Keller",
-        "Crypt Basement": "Unter der Krypta",
-        "Palace of Ice": "Eispalast",
-        "Foggy Thicket": "Nebeldickicht",
-        "Bandit's Wood": "Banditenwald",
-        "Investigation": "Ermittlungen",
-        "Bloody Shack": "Blutige Hütte",
-        "Forgotten Grove": "Vergessener Hain",
-        "Alchemy Lab": "Alchemielabor",
-        "Fading Lighthouse": "Schwindender Leuchtturm",
-        "Pit of Souls": "Grube der Seelen",
-        "Magma Pit": "Lavagrube",
-        "Underwater Lagoon": "Unterwasserlagune",
-        "Sulfur Mine": "Schwefelmine",
-        "Clockwork Cove": "Zahnradbucht",
-        "Arcane Library": "Arkane Bibliothek",
-        "Toxic Moor": "Giftmoor",
-        "Well of the Unfortunate": "Brunnen der Glücklosen",
-        "Chained Isle": "Ketteninsel",
-        "Windswept Highlands": "Windumtostes Hochland",
-        "Oozing Grove": "Triefender Hain",
-        "Rockslide Ridge": "Felssturzkamm",
-        "Merchant Ship": "Handelsschiff",
-        "Overgrown Graveyard": "Überwucherter Friedhof",
-        "Harrower Hive": "Schwarmling Nest",
-        "Vault of Secrets": "Kammer der Geheimnisse",
-        "Sacrifice Pit": "Opfergrube",
-        "Lost Temple": "Verschollener Tempel",
-        "Vigil Keep": "Wachtburg",
-        "Temple of the Eclipse": "Tempel des Zwielichts",
-        "Burning Mountain": "Brandberg",
-        "Shadows Within": "Schatten im Innern",
-        "Crystalline Cave": "Kristallhöhle",
-        "Sun Temple": "Sonnentempel",
-        "Harried Village": "Verwüstetes Dorf",
-        "Corrupted Cove": "Bucht der Fäulnis",
-        "Plane of Water": "Ebene des Wassers",
-        "Syndicate Hideout": "Syndikatsversteck",
-        "Demonic Rift": "Dämonischer Riss",
-        "Wild Melee": "Wilde Schlacht",
-        "Back Alley Brawl": "Gassenschlägerei",
-        "Sunken Vessel": "Versunkenes Schiff",
-        "Vermling Nest": "Ratzenbau",
-        "Payment Due": "Zahltag",
-        "Random Dungeon": "Zufallsabenteuer",
-        "group": {
-            "randomMonsterCard": "Zufällige Monsterkarten"
-        },
-        "rules": {
-            "gh": {
-                "19": {
-                    "1": "in Richtung des Altars %game.mapMarker.b%"
-                },
-                "38": {
-                    "1": "in Richtung des Schamanen auf dem D-Kartenelement"
-                },
-                "42": {
-                    "1": "Alle Monster fügen ihren Angriffen +1 %game.action.attack% Angriff hinzu",
-                    "2": "Alle Monster erhalten einen Vorteil bei ihren Angriffen",
-                    "3": "Alle Monster heilen zu Beginn ihres jeweiligen Zugs 1 Trefferpunkt",
-                    "4": "Alle Charaktere und Charakter-Beschworenen erleiden zu Beginn ihres Zuges 1 Schaden.",
-                    "5": "Alle Charaktere und Charakter-Beschworenen erhalten Nachteil bei ihren Angriffen.",
-                    "6": "Alle Charaktere und Charakter-Beschworenen erhalten -1 Angriff auf ihre Angriffe."
-                },
-                "71": {
-                    "1": "Bewegung Links",
-                    "2": "Bewegung Hoch",
-                    "3": "Bewegung Rechts",
-                    "4": "Bewegung Runter"
-                },
-                "73": {
-                    "1": "Rollt die Steine runter."
-                },
-                "74": {
-                    "1": "Fügt Wasseraufleger hinzu."
-                },
-                "79": {
-                    "1": "Zurück zur Startposition, falls er davon wegbewegt wurde. Angriff 3, Angrenzende"
-                },
-                "86": {
-                    "1": "in Richtung zum Ende der Kais %game.mapMarker.b%"
-                }
-            }
-        }
+    "462": {
+      ".": "Masochistisch",
+      "text": "Dein aktueller Trefferpunkte-Wert am Ende des Szenarios darf höchstens 2 betragen."
     },
-    "partyAchievements": {
-        "A Demon's Errand": "Dämonischer Auftrag",
-        "A Map to Treasure": "Eine Karte zum Schatz",
-        "Across the Divide": "Jenseits der Kluft",
-        "An Invitation": "Eine Einladung",
-        "Bad Business": "Üble Machenschaften",
-        "Dark Bounty": "Finstere Beute",
-        "Debt Collection": "Schuldenfrei",
-        "First Steps": "Erste Schritte",
-        "Fish's Aid": "Fischs Hilfe",
-        "Following Clues": "Hinweisen folgen",
-        "Grave Job": "Grabraub",
-        "High Sea Escort": "Hochsee-Eskorte",
-        "Jekserah's Plans": "Jekserahs Pläne",
-        "Redthorn's Aid": "Rotdorns Hilfe",
-        "Sin-Ra": "Sin-Ra",
-        "Stonebreaker's Censer": "Steinbrechers Rauchfass",
-        "Sun-Blessed": "Sonnengesegnet",
-        "The Drake's Command": "Befehl des Draken",
-        "The Drake's Treasure": "Der Schatz des Draken",
-        "The Poison's Source": "Quelle des Gifts",
-        "The Scepter and the Voice": "Zepter und Stimme",
-        "The Voice's Command": "Befehl der Stimme",
-        "The Voice's Treasure": "Der Schatz der Stimme",
-        "Through the Nest": "Durch den Bau",
-        "Through the Ruins": "Durch die Ruinen",
-        "Through the Trench": "Durch den Graben",
-        "Tremors": "Beben",
-        "Water Staff": "Wasserstab"
+    "463": {
+      ".": "Heilfleisch",
+      "text": "Dein aktueller TP-Wert am Ende des Szenarios muss deinem maximalen TP-Wert entsprechen."
     },
-    "globalAchievements": {
-        "Ancient Technology": "Antike Technologie",
-        "Annihilation of Order": "Auslöschung jeglicher Ordnung",
-        "Artifact: Cleansed": "Artefakt: geläutert",
-        "Artifact: Lost": "Artefakt: verloren",
-        "Artifact: Recovered": "Artefakt: geborgen",
-        "City Rule: Demonic": "Stadtherrschaft: dämonisch",
-        "City Rule: Economic": "Stadtherrschaft: kaufmännisch",
-        "City Rule: Militaristic": "Stadtherrschaft: militärisch",
-        "End of Corruption": "Ende der Verderbtheit",
-        "End of Gloom": "Ende des Grauens",
-        "End of the Invasion": "Ende der Invasion",
-        "The Dead Invade": "Invasion der Toten",
-        "The Drake Slain": "Erlegter Draken",
-        "The Edge of Darkness": "Am Rand der Finternis",
-        "The Merchant Flees": "Geflohene Händlerin",
-        "The Power of Enhancement": "Macht der Verbesserung",
-        "The Rift Neutralized": "Riss neutralisiert",
-        "The Voice Freed": "Befreite Stimme",
-        "The Voice Silenced": "Verstummte Stimme",
-        "Water-Breathing": "Wasseratmung"
+    "464": {
+      ".": "Entschärfend",
+      "text": "Sorge dafür, dass während des Szenarios in deinem Zug oder dem deiner Beschworenen eine Falle ausgelöst oder entschärft wird."
     },
-    "battleGoals": {
-        "458": {
-            ".": "Sparsam",
-            "text": "Habe am Ende des Szenarios insgesamt mindestens 5 Karten in der Hand und dem Abwurfstapel."
-        },
-        "459": {
-            ".": "Müßiggang",
-            "text": "Erhalte während des Szenarios höchstens 7 Erfahrungspunkte."
-        },
-        "460": {
-            ".": "Arbeitstier",
-            "text": "Erhalte während des Szenarios mindestens 13 Erfahrungspunkte."
-        },
-        "461": {
-            ".": "Voller Eifer",
-            "text": "Habe am Ende des Szenarios noch insgesamt höchstens 3 Karten in der Hand und dem Abwurfstapel."
-        },
-        "462": {
-            ".": "Masochistisch",
-            "text": "Dein aktueller Trefferpunkte-Wert am Ende des Szenarios darf höchstens 2 betragen."
-        },
-        "463": {
-            ".": "Heilfleisch",
-            "text": "Dein aktueller TP-Wert am Ende des Szenarios muss deinem maximalen TP-Wert entsprechen."
-        },
-        "464": {
-            ".": "Entschärfend",
-            "text": "Sorge dafür, dass während des Szenarios in deinem Zug oder dem deiner Beschworenen eine Falle ausgelöst oder entschärft wird."
-        },
-        "465": {
-            ".": "Beutegier",
-            "text": "Erbeute während des Szenarios einen Schatzaufleger."
-        },
-        "466": {
-            ".": "Schutzschild",
-            "text": "Lass nicht zu, dass verbündete Charaktere während des Szenarios erschöpft werden."
-        },
-        "467": {
-            ".": "Forscherdrang",
-            "text": "Erkunde während des Szenarios einen Raum, indem du in deinem Zug eine Tür öffnest."
-        },
-        "468": {
-            ".": "Raffzahn",
-            "text": "Erbeute während des Szenarios mindestens 5 Münzmarker."
-        },
-        "469": {
-            ".": "Mittelos",
-            "text": "Erbeute während des Szenarios keine Münzmarker oder Schatzaufleger."
-        },
-        "470": {
-            ".": "Pazifistisch",
-            "text": "Töte während des Szenarios höchstens 3 Monster."
-        },
-        "471": {
-            ".": "Sadistisch",
-            "text": "Töte während des Szenarios mindestens 3 Monster."
-        },
-        "472": {
-            ".": "Jagdkunst",
-            "text": "Töte während des Szenarios mindestens ein Elite-Monster."
-        },
-        "473": {
-            ".": "Professionell",
-            "text": "Setze während des Szenarios deine ausgerüsteten Gegenstände mindestens so oft ein, wie deine Stufe plus 2 ergibt."
-        },
-        "474": {
-            ".": "Aggressionen",
-            "text": "Sorge dafür, dass während des Szenarios zu Beginn jeder Runde mindestens ein Monster auf der Karte ist."
-        },
-        "475": {
-            ".": "Übertrieben",
-            "text": "Töte während des Szenarios ein Monster und verursache dabei mindestens 4 Schaden mehr als notwendig."
-        },
-        "476": {
-            ".": "Puristisch",
-            "text": "Benutze während des Szenarios keine Gegenstände."
-        },
-        "477": {
-            ".": "Erstschlag",
-            "text": "Das erste getötete Monster im Szenario muss durch deine Hand sterben."
-        },
-        "478": {
-            ".": "Zäher Hund",
-            "text": "Lass nicht zu, dass während des Szenarios dein aktueller TP-Wert unter die Hälfte deines maximalen TP-Werts (aufgerundet) sinkt."
-        },
-        "479": {
-            ".": "Volltreffer",
-            "text": "Töte während des Szenarios ein unverletztes Monster mit einem einzigen Angriff."
-        },
-        "480": {
-            ".": "Schlusslicht",
-            "text": "Mach während des Szenarios nur lange Rasten."
-        },
-        "481": {
-            ".": "Ruhelos",
-            "text": "Mach während des Szenarios nur kurze Rasten."
-        }
+    "465": {
+      ".": "Beutegier",
+      "text": "Erbeute während des Szenarios einen Schatzaufleger."
     },
-    "personalQuest": {
-        "510": "Suche nach Xorn",
-        "511": "Kaufmannsgilde",
-        "513": "Suche nach Heilung",
-        "514": "Anatomische Studien",
-        "516": "Wehrhaftes Fleisch",
-        "518": "Ewige Wanderschaft",
-        "519": "Kampflegende",
-        "520": "Werkzeug des Lichts",
-        "521": "Rückeroberung des Waldes",
-        "522": "Hauchdünn",
-        "523": "Tilgung des Unnatürlichen",
-        "524": "Unerschrocken",
-        "525": "Voller Frömmigkeit",
-        "526": "Rachefeldzug",
-        "527": "Für den Blutgott",
-        "528": "Sturz der Giganten",
-        "529": "Vergangene Zivilisation",
-        "530": "Verbesserte Fähigkeiten",
-        "533": "Das perfekte Gift"
+    "466": {
+      ".": "Schutzschild",
+      "text": "Lass nicht zu, dass verbündete Charaktere während des Szenarios erschöpft werden."
     },
-    "custom": {
-        "gh": {
-            "ancient-artillery": {
-                "1": "Alle angrenzenden Gegner erleiden %game.damage:2%."
-            },
-            "archer": {
-                "1": "Erstelle eine %game.damage:3% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
-            },
-            "deep-terror": {
-                "1": "in einem am Ziel angrenzenden Feld."
-            },
-            "flame-demon": {
-                "1": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
-                "2": "Erstelle eine %game.damage:4% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
-            },
-            "giant-viper": {
-                "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten der %data.monster.giant-viper% angrenzt.",
-                "2": "Alle Angriffe gegen %data.monster.giant-viper% erhalten in dieser Runde Nachteil."
-            },
-            "harrower-infester": {
-                "1": "Führe \"%game.action.heal% 2, %game.specialTarget.self%\" für jedes angegriffene Ziel durch."
-            },
-            "hound": {
-                "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
-            },
-            "mindthief": {
-                "augment": "Erweiterung %game.characterIconColoredBg.mindthief%",
-                "augments": "Erweiterungen %game.characterIconColoredBg.mindthief%"
-            },
-            "night-demon": {
-                "1": "Alle angrenzenden Verbündeten und Gegner erleiden %game.damage:2%."
-            },
-            "ooze": {
-                "1": "mit H gleich dem TP Wert des beschwörenden %data.monster.ooze% (limitiert auf den maximalen TP Wert eines normalens %data.monster.ooze%)"
-            },
-            "savvas-lavaflow": {
-                "1": "Alle an das Ziel angrenzenden Verbündeten und Gegner erleiden %game.damage:2%.",
-                "2": "Alle Gegner erleiden %game.damage:2%."
-            },
-            "bandit-commander": {
-                "1": "Zur nächsten Tür gehen und den Raum aufdecken."
-            },
-            "captain-of-the-guard": {
-                "1": "Alle Verbündeten fügen +1 %game.action.attack% zu allen Angriffen dieser Runde hinzu."
-            },
-            "merciless-overseer": {
-                "1": "Alle Späher sind erneut an der Reihe",
-                "2": "V = Anzahl der vorhnanden Späher"
-            },
-            "prime-demon": {
-                "1": "Thron bewegen"
-            },
-            "winged-horror": {
-                "1": "Eier schlüpfen",
-                "2": "%game.action.summon% [C] Eier"
-            },
-            "dark-rider": {
-                "1": "X = Bewegte Felder"
-            },
-            "the-betrayer": {
-                "1": "Gedankenkontrolle"
-            }
-        }
+    "467": {
+      ".": "Forscherdrang",
+      "text": "Erkunde während des Szenarios einen Raum, indem du in deinem Zug eine Tür öffnest."
+    },
+    "468": {
+      ".": "Raffzahn",
+      "text": "Erbeute während des Szenarios mindestens 5 Münzmarker."
+    },
+    "469": {
+      ".": "Mittelos",
+      "text": "Erbeute während des Szenarios keine Münzmarker oder Schatzaufleger."
+    },
+    "470": {
+      ".": "Pazifistisch",
+      "text": "Töte während des Szenarios höchstens 3 Monster."
+    },
+    "471": {
+      ".": "Sadistisch",
+      "text": "Töte während des Szenarios mindestens 3 Monster."
+    },
+    "472": {
+      ".": "Jagdkunst",
+      "text": "Töte während des Szenarios mindestens ein Elite-Monster."
+    },
+    "473": {
+      ".": "Professionell",
+      "text": "Setze während des Szenarios deine ausgerüsteten Gegenstände mindestens so oft ein, wie deine Stufe plus 2 ergibt."
+    },
+    "474": {
+      ".": "Aggressionen",
+      "text": "Sorge dafür, dass während des Szenarios zu Beginn jeder Runde mindestens ein Monster auf der Karte ist."
+    },
+    "475": {
+      ".": "Übertrieben",
+      "text": "Töte während des Szenarios ein Monster und verursache dabei mindestens 4 Schaden mehr als notwendig."
+    },
+    "476": {
+      ".": "Puristisch",
+      "text": "Benutze während des Szenarios keine Gegenstände."
+    },
+    "477": {
+      ".": "Erstschlag",
+      "text": "Das erste getötete Monster im Szenario muss durch deine Hand sterben."
+    },
+    "478": {
+      ".": "Zäher Hund",
+      "text": "Lass nicht zu, dass während des Szenarios dein aktueller TP-Wert unter die Hälfte deines maximalen TP-Werts (aufgerundet) sinkt."
+    },
+    "479": {
+      ".": "Volltreffer",
+      "text": "Töte während des Szenarios ein unverletztes Monster mit einem einzigen Angriff."
+    },
+    "480": {
+      ".": "Schlusslicht",
+      "text": "Mach während des Szenarios nur lange Rasten."
+    },
+    "481": {
+      ".": "Ruhelos",
+      "text": "Mach während des Szenarios nur kurze Rasten."
     }
+  },
+  "character": {
+    "brute": "Barbar",
+    "cragheart": "Felsenherz",
+    "mindthief": "Gedankendiebin",
+    "scoundrel": "Schurkin",
+    "spellweaver": "Spruchweberin",
+    "tinkerer": "Tüftler"
+  },
+  "custom": {
+    "gh": {
+      "ancient-artillery": {
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:2%."
+      },
+      "archer": {
+        "1": "Erstelle eine %game.damage:3% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
+      },
+      "bandit-commander": {
+        "1": "Zur nächsten Tür gehen und den Raum aufdecken."
+      },
+      "captain-of-the-guard": {
+        "1": "Alle Verbündeten fügen +1 %game.action.attack% zu allen Angriffen dieser Runde hinzu."
+      },
+      "dark-rider": {
+        "1": "X = Bewegte Felder"
+      },
+      "deep-terror": {
+        "1": "in einem am Ziel angrenzenden Feld."
+      },
+      "flame-demon": {
+        "1": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
+        "2": "Erstelle eine %game.damage:4% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
+      },
+      "giant-viper": {
+        "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten der %data.monster.giant-viper% angrenzt.",
+        "2": "Alle Angriffe gegen %data.monster.giant-viper% erhalten in dieser Runde Nachteil."
+      },
+      "harrower-infester": {
+        "1": "Führe \"%game.action.heal% 2, %game.specialTarget.self%\" für jedes angegriffene Ziel durch."
+      },
+      "hound": {
+        "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
+      },
+      "merciless-overseer": {
+        "1": "Alle Späher sind erneut an der Reihe",
+        "2": "V = Anzahl der vorhnanden Späher"
+      },
+      "mindthief": {
+        "augment": "Erweiterung %game.characterIconColoredBg.mindthief%",
+        "augments": "Erweiterungen %game.characterIconColoredBg.mindthief%"
+      },
+      "night-demon": {
+        "1": "Alle angrenzenden Verbündeten und Gegner erleiden %game.damage:2%."
+      },
+      "ooze": {
+        "1": "mit H gleich dem TP Wert des beschwörenden %data.monster.ooze% (limitiert auf den maximalen TP Wert eines normalens %data.monster.ooze%)"
+      },
+      "prime-demon": {
+        "1": "Thron bewegen"
+      },
+      "savvas-lavaflow": {
+        "1": "Alle an das Ziel angrenzenden Verbündeten und Gegner erleiden %game.damage:2%.",
+        "2": "Alle Gegner erleiden %game.damage:2%."
+      },
+      "the-betrayer": {
+        "1": "Gedankenkontrolle"
+      },
+      "winged-horror": {
+        "1": "Eier schlüpfen",
+        "2": "%game.action.summon% [C] Eier"
+      }
+    }
+  },
+  "deck": {
+    "archer": "Schütze",
+    "boss": "Boss",
+    "guard": "Wache",
+    "imp": "Wicht",
+    "scout": "Späher",
+    "shaman": "Schamane"
+  },
+  "edition": {
+    "gh": "Gloomhaven"
+  },
+  "globalAchievements": {
+    "Ancient Technology": "Antike Technologie",
+    "Annihilation of Order": "Auslöschung jeglicher Ordnung",
+    "Artifact: Cleansed": "Artefakt: geläutert",
+    "Artifact: Lost": "Artefakt: verloren",
+    "Artifact: Recovered": "Artefakt: geborgen",
+    "City Rule: Demonic": "Stadtherrschaft: dämonisch",
+    "City Rule: Economic": "Stadtherrschaft: kaufmännisch",
+    "City Rule: Militaristic": "Stadtherrschaft: militärisch",
+    "End of Corruption": "Ende der Verderbtheit",
+    "End of Gloom": "Ende des Grauens",
+    "End of the Invasion": "Ende der Invasion",
+    "The Dead Invade": "Invasion der Toten",
+    "The Drake Slain": "Erlegter Draken",
+    "The Edge of Darkness": "Am Rand der Finternis",
+    "The Merchant Flees": "Geflohene Händlerin",
+    "The Power of Enhancement": "Macht der Verbesserung",
+    "The Rift Neutralized": "Riss neutralisiert",
+    "The Voice Freed": "Befreite Stimme",
+    "The Voice Silenced": "Verstummte Stimme",
+    "Water-Breathing": "Wasseratmung"
+  },
+  "monster": {
+    "ancient-artillery": "Antike Artillerie",
+    "bandit-archer": "Banditen Schützin",
+    "bandit-commander": "Banditen Kommandeur",
+    "bandit-guard": "Banditen-Wache",
+    "black-imp": "Schwarzwicht",
+    "captain-of-the-guard": "Hauptmann der Wache",
+    "cave-bear": "Höhlenbär",
+    "city-archer": "Stadtschütze",
+    "city-guard": "Stadtwache",
+    "cultist": "Kultist",
+    "dark-rider": "Der Dunkle Reiter",
+    "deep-terror": "Tiefenschreck",
+    "earth-demon": "Erddämon",
+    "elder-drake": "Drachenfürst",
+    "flame-demon": "Flammendämon",
+    "forest-imp": "Waldwicht",
+    "frost-demon": "Frostdämon",
+    "giant-viper": "Riesenviper",
+    "harrower-infester": "Schwarmling Kontagion",
+    "hound": "Grimmwolf",
+    "inox-archer": "Inox Schütze",
+    "inox-bodyguard": "Inox Leibwache",
+    "inox-guard": "Inox Wache",
+    "inox-shaman": "Inox Schamane",
+    "jekserah": "Jekserah",
+    "living-bones": "Wandelndes Skelett",
+    "living-corpse": "Wandelnde Leiche",
+    "living-spirit": "Wandelnde Seele",
+    "lurker": "Pirscher",
+    "merciless-overseer": "Gnadenloser Aufseher",
+    "night-demon": "Nachtdämon",
+    "ooze": "Schleim",
+    "prime-demon": "Erzdämon",
+    "rending-drake": "Reißdrachen",
+    "savvas-icestorm": "Savvas Eissturm",
+    "savvas-lavaflow": "Savvas Lavastrom",
+    "spitting-drake": "Speidrachen",
+    "stone-golem": "Steingolem",
+    "sun-demon": "Sonnendämon",
+    "the-betrayer": "Der Abtrünnige",
+    "the-colorless": "Der Fahle",
+    "the-gloom": "Das Grauen",
+    "the-sightless-eye": "Das Blicklose Auge",
+    "vermling-scout": "Ratzenspäher",
+    "vermling-shaman": "Ratzenschamane",
+    "wind-demon": "Winddämon",
+    "winged-horror": "Der Geflügelte Schrecken"
+  },
+  "partyAchievements": {
+    "A Demon's Errand": "Dämonischer Auftrag",
+    "A Map to Treasure": "Eine Karte zum Schatz",
+    "Across the Divide": "Jenseits der Kluft",
+    "An Invitation": "Eine Einladung",
+    "Bad Business": "Üble Machenschaften",
+    "Dark Bounty": "Finstere Beute",
+    "Debt Collection": "Schuldenfrei",
+    "First Steps": "Erste Schritte",
+    "Fish's Aid": "Fischs Hilfe",
+    "Following Clues": "Hinweisen folgen",
+    "Grave Job": "Grabraub",
+    "High Sea Escort": "Hochsee-Eskorte",
+    "Jekserah's Plans": "Jekserahs Pläne",
+    "Redthorn's Aid": "Rotdorns Hilfe",
+    "Sin-Ra": "Sin-Ra",
+    "Stonebreaker's Censer": "Steinbrechers Rauchfass",
+    "Sun-Blessed": "Sonnengesegnet",
+    "The Drake's Command": "Befehl des Draken",
+    "The Drake's Treasure": "Der Schatz des Draken",
+    "The Poison's Source": "Quelle des Gifts",
+    "The Scepter and the Voice": "Zepter und Stimme",
+    "The Voice's Command": "Befehl der Stimme",
+    "The Voice's Treasure": "Der Schatz der Stimme",
+    "Through the Nest": "Durch den Bau",
+    "Through the Ruins": "Durch die Ruinen",
+    "Through the Trench": "Durch den Graben",
+    "Tremors": "Beben",
+    "Water Staff": "Wasserstab"
+  },
+  "personalQuest": {
+    "510": "Suche nach Xorn",
+    "511": "Kaufmannsgilde",
+    "513": "Suche nach Heilung",
+    "514": "Anatomische Studien",
+    "516": "Wehrhaftes Fleisch",
+    "518": "Ewige Wanderschaft",
+    "519": "Kampflegende",
+    "520": "Werkzeug des Lichts",
+    "521": "Rückeroberung des Waldes",
+    "522": "Hauchdünn",
+    "523": "Tilgung des Unnatürlichen",
+    "524": "Unerschrocken",
+    "525": "Voller Frömmigkeit",
+    "526": "Rachefeldzug",
+    "527": "Für den Blutgott",
+    "528": "Sturz der Giganten",
+    "529": "Vergangene Zivilisation",
+    "530": "Verbesserte Fähigkeiten",
+    "533": "Das perfekte Gift"
+  },
+  "scenario": {
+    "Abandoned Sewers": "Verlassene Kanalisation",
+    "Alchemy Lab": "Alchemielabor",
+    "Ancient Cistern": "Die alte Zisterne",
+    "Ancient Defense Network": "Altes Verteidigungsnetzwerk",
+    "Arcane Library": "Arkane Bibliothek",
+    "Back Alley Brawl": "Gassenschlägerei",
+    "Bandit's Wood": "Banditenwald",
+    "Barrow Lair": "Grabhöhle",
+    "Black Barrow": "Schwarzgrab",
+    "Bloody Shack": "Blutige Hütte",
+    "Burning Mountain": "Brandberg",
+    "Chained Isle": "Ketteninsel",
+    "Clockwork Cove": "Zahnradbucht",
+    "Corrupted Cove": "Bucht der Fäulnis",
+    "Crypt Basement": "Unter der Krypta",
+    "Crypt of the Damned": "Kypta der Verdammten",
+    "Crystalline Cave": "Kristallhöhle",
+    "Decaying Crypt": "Faulige Krypra",
+    "Decrepit Wood": "Moderwald",
+    "Deep Ruins": "Tiefe Ruinen",
+    "Demonic Rift": "Dämonischer Riss",
+    "Diamond Mine": "Diamantenmine",
+    "Doom Trench": "Schicksalgraben",
+    "Drake Nest": "Drachennest",
+    "Echo Chamber": "Echokammer",
+    "Fading Lighthouse": "Schwindender Leuchtturm",
+    "Foggy Thicket": "Nebeldickicht",
+    "Forgotten Crypt": "Vergessene Krypta",
+    "Forgotten Grove": "Vergessener Hain",
+    "Frozen Hollow": "Frostsenke",
+    "Ghost Fortress": "Geisterfestung",
+    "Gloomhaven Battlements A": "Zinnen von Gloomhaven A",
+    "Gloomhaven Battlements B": "Zinnen von Gloomhaven B",
+    "Gloomhaven Square A": "Gloomhaven-Platz A",
+    "Gloomhaven Square B": "Gloomhaven-Platz B",
+    "Gloomhaven Warehouse": "Lagerhaus von Gloomhaven",
+    "Harried Village": "Verwüstetes Dorf",
+    "Harrower Hive": "Schwarmling Nest",
+    "Icecrag Ascent": "Aufstieg zu Eisklippe",
+    "Infernal Throne": "Höllenthron",
+    "Inox Encampment": "Inox-Lager",
+    "Investigation": "Ermittlungen",
+    "Lair of the Unseeing Eye": "Hort des Blicklosen",
+    "Lost Island": "Verschollene Insel",
+    "Lost Temple": "Verschollener Tempel",
+    "Magma Pit": "Lavagrube",
+    "Merchant Ship": "Handelsschiff",
+    "Mountain Pass": "Gebirgspass",
+    "Necromancer's Sanctum": "Versteck der Nekromantin",
+    "Nightmare Peak": "Albtraumspitze",
+    "Noxious Cellar": "Verseuchter Keller",
+    "Oozing Grove": "Triefender Hain",
+    "Outer Ritual Chamber": "Äußere Ritualkammer",
+    "Overgrown Graveyard": "Überwucherter Friedhof",
+    "Palace of Ice": "Eispalast",
+    "Payment Due": "Zahltag",
+    "Pit of Souls": "Grube der Seelen",
+    "Plane of Elemental Power": "Ebene der Elementarmächte",
+    "Plane of Water": "Ebene des Wassers",
+    "Plane of the Night": "Ebene der Nacht",
+    "Random Dungeon": "Zufallsabenteuer",
+    "Realm of the Voice": "Reich der Stimme",
+    "Rebel Swamp": "Rebellensumpf",
+    "Rebel's Stand": "Letzter Widerstand",
+    "Rockslide Ridge": "Felssturzkamm",
+    "Ruinous Crypt": "Unheilvolle Krypta",
+    "Ruinous Rift": "Unheilvoller Riss",
+    "Sacrifice Pit": "Opfergrube",
+    "Sanctuary of Gloom": "Heiligtum des Grauens",
+    "Savvas Armory": "Savvas-Waffenkammer",
+    "Scorched Summit": "Versengter Gipfel",
+    "Shadow Weald": "Schattenwald",
+    "Shadows Within": "Schatten im Innern",
+    "Shrine of Strength": "Schrein der Stärke",
+    "Shrine of the Depths": "Schrein der Tiefe",
+    "Slave Pens": "Sklavenpferche",
+    "Sulfur Mine": "Schwefelmine",
+    "Sun Temple": "Sonnentempel",
+    "Sunken Vessel": "Versunkenes Schiff",
+    "Syndicate Hideout": "Syndikatsversteck",
+    "Temple of the Eclipse": "Tempel des Zwielichts",
+    "Temple of the Elements": "Tempel der Elemente",
+    "Temple of the Seer": "Tempel des Sehers",
+    "The Void": "Die Leere",
+    "Timeworn Tomb": "Verfallenes Grab",
+    "Toxic Moor": "Giftmoor",
+    "Treacherous Divide": "Tückische Kluft",
+    "Tribal Assault": "Stammesangriff",
+    "Underwater Lagoon": "Unterwasserlagune",
+    "Vault of Secrets": "Kammer der Geheimnisse",
+    "Vermling Nest": "Ratzenbau",
+    "Vibrant Grotto": "Üppige Grotte",
+    "Vigil Keep": "Wachtburg",
+    "Well of the Unfortunate": "Brunnen der Glücklosen",
+    "Wild Melee": "Wilde Schlacht",
+    "Windswept Highlands": "Windumtostes Hochland",
+    "group": {
+      "randomMonsterCard": "Zufällige Monsterkarten"
+    },
+    "rules": {
+      "gh": {
+        "19": {
+          "1": "in Richtung des Altars %game.mapMarker.b%"
+        },
+        "38": {
+          "1": "in Richtung des Schamanen auf dem D-Kartenelement"
+        },
+        "42": {
+          "1": "Alle Monster fügen ihren Angriffen +1 %game.action.attack% Angriff hinzu",
+          "2": "Alle Monster erhalten einen Vorteil bei ihren Angriffen",
+          "3": "Alle Monster heilen zu Beginn ihres jeweiligen Zugs 1 Trefferpunkt",
+          "4": "Alle Charaktere und Charakter-Beschworenen erleiden zu Beginn ihres Zuges 1 Schaden.",
+          "5": "Alle Charaktere und Charakter-Beschworenen erhalten Nachteil bei ihren Angriffen.",
+          "6": "Alle Charaktere und Charakter-Beschworenen erhalten -1 Angriff auf ihre Angriffe."
+        },
+        "71": {
+          "1": "Bewegung Links",
+          "2": "Bewegung Hoch",
+          "3": "Bewegung Rechts",
+          "4": "Bewegung Runter"
+        },
+        "73": {
+          "1": "Rollt die Steine runter."
+        },
+        "74": {
+          "1": "Fügt Wasseraufleger hinzu."
+        },
+        "79": {
+          "1": "Zurück zur Startposition, falls er davon wegbewegt wurde. Angriff 3, Angrenzende"
+        },
+        "86": {
+          "1": "in Richtung zum Ende der Kais %game.mapMarker.b%"
+        }
+      }
+    }
+  }
 }

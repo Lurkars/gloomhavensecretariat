@@ -60,7 +60,15 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
         this.levelToPick = this.pick && this.cardsToPick ? this.character.level - this.cardsToPick + 1 : 0;
 
         if (this.levelToPick) {
-            this.visibleAbilities = this.abilities.filter((ability, i) => typeof ability.level == 'number' && ability.level > 1 && ability.level <= this.levelToPick && this.character.progress.deck.indexOf(i) == -1);
+            this.visibleAbilities = this.abilities.filter((ability, i) => typeof ability.level == 'number' && ability.level > 1 && ability.level <= this.levelToPick && this.character.progress.deck.indexOf(i) == -1).sort((a, b) => {
+                if (typeof a.level === 'number' && typeof b.level === 'number' && a.level != b.level) {
+                    return b.level - a.level;
+                }
+                if (a.cardId && b.cardId) {
+                    return a.cardId - b.cardId;
+                }
+                return 0;
+            });
             this.smallAbilities = this.abilities.filter((ability, i) => ability.level == 'X' || ability.level == 1 || this.character.progress.deck.indexOf(i) != -1);
         } else {
             this.visibleAbilities = this.abilities.filter((ability) => !this.exclusiveLevel && typeof this.level === 'number' && (typeof ability.level == 'string' || +ability.level <= this.level) && this.additionalLevels.indexOf(ability.level) == -1 || this.exclusiveLevel && ability.level == this.exclusiveLevel || this.exclusiveLevel == 1 && ability.level == 'X');

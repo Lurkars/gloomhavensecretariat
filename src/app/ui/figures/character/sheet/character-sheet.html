@@ -337,6 +337,11 @@
               <img src="./assets/images/long-rest.svg"><span [ghs-label]="'character.setAside'"></span>
             </label>
           </div>
+          <div *ngIf="replayable && settingsManager.settings.partySheet" class="set-aside">
+            <label class="ignore-denied" (click)="replay()">
+              <img src="./assets/images/long-rest.svg"><span [ghs-label]="'character.replay'"></span>
+            </label>
+          </div>
           <hr class="compact-separator">
           <div class="import-export">
             <label class="export ignore-denied" (click)="exportCharacter()" [ghs-label]="'character.progress.export'"

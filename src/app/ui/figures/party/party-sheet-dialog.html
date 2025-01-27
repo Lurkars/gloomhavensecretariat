@@ -774,7 +774,7 @@
                 <div class="available-characters" *ngIf="availableCharacters[index]">
                   <a class="available-character" *ngFor="let characterModel of availableCharacters[index]"
                     ghs-pointer-input (singleClick)="openCharacterSheet(characterModel)"
-                    (doubleClick)="replayCharacter(characterModel)" [ghs-tooltip]="'character.replay'">
+                    (doubleClick)="replayCharacter(characterModel)" [ghs-tooltip]="'character.replay.hint'">
                     <img
                       [src]="'./assets/images/character/icons/' + characterModel.edition + '-' + characterModel.name + '.svg'" />
                   </a>

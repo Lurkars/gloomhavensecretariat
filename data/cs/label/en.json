@@ -1,129 +1,5 @@
 {
-  "edition": {
-    "cs": "The Crimson Scales"
-  },
-  "monster": {
-    "apex-demon": "Apex Demon",
-    "archaic-golem": "Archaic Golem",
-    "bandit-archer-hired-muscle": "Bandit Archer (Hired Muscle)",
-    "bandit-guard-hired-muscle": "Bandit Guard (Hired Muscle)",
-    "black-bear": "Black Bear",
-    "blood-ooze": "Blood Ooze",
-    "bone-archer": "Bone Archer",
-    "brood-mother": "Brood Mother",
-    "carrion-scavenger": "Carrion Scavenger",
-    "cave-imp": "Cave Imp",
-    "clockwork-bombard": "Clockwork Bombard",
-    "clockwork-devastator": "Clockwork Devastator",
-    "clockwork-guardian": "Clockwork Guardian",
-    "clockwork-railcaster": "Clockwork Railcaster",
-    "clockwork-ravager": "Clockwork Ravager",
-    "clockwork-soldier": "Clockwork Soldier",
-    "dark-lurker": "Dark Lurker",
-    "drake-porter": "Drake Porter",
-    "drakefiend": "Drakefiend",
-    "eternal-demon": "Eternal Demon",
-    "flaming-drake": "Flaming Drake",
-    "frozen-cadaver": "Frozen Cadaver",
-    "gelatinous-giant-immortal": "Gelatinous Giant (Immune)",
-    "gelatinous-giant": "Gelatinous Giant",
-    "ghost-viper": "Ghost Viper",
-    "ghost-viper-extra": "Extra Ghost Viper Deck #39",
-    "gnashing-drake": "Gnashing Drake",
-    "goremyon-shatter-mind": "Goremyon Shatter-Mind",
-    "goring-grizzly": "Goring Grizzly",
-    "guttermaw": "Guttermaw",
-    "hail-demon": "Hail Demon",
-    "hanging-snake": "Hanging Snake",
-    "harrower-aegis": "Harrower Aegis",
-    "harrower-icecrawlers": "Harrower Icecrawlers",
-    "hydra-spirit": "Hydra Spirit",
-    "inox-bloodguard": "Inox Bloodguard",
-    "king-cobra": "King Cobra",
-    "land-leviathan": "Land Leviathan",
-    "lavalite": "Lavalite",
-    "living-wall": "Living Wall",
-    "morphling": "Morphling",
-    "ravenous-gharial": "Ravenous Gharial",
-    "rogue-hollowpact": "Rogue Hollowpact",
-    "ruinmaw": "Ruinmaw",
-    "savvas-icebound": "Savvas Icebound",
-    "selandre": "Selandre",
-    "shadow-demon": "Shadow Demon",
-    "sly-wolf": "Sly Wolf",
-    "steel-construct": "Steel Construct",
-    "terrible-two-archer": "Terrible Two Archer",
-    "terrible-two-guard": "Terrible Two Guard",
-    "terror-drone": "Terror Drone",
-    "terrorscale-drake": "Terrorscale Drake",
-    "the-cultist": "The Cultist",
-    "the-echo": "The Echo",
-    "the-gilded-one": "The Gilded One",
-    "tomb-protector": "Tomb Protector",
-    "tomb-protector-extra": "Extra Tomb Protector Ability",
-    "toxic-imp": "Toxic Imp",
-    "twin-corpse": "Twin Corpse",
-    "undead-archer": "Undead Archer",
-    "vermling-scout-ally": "Vermling Scout (ally)",
-    "vermling-shaman-ally": "Vermling Shaman (ally)",
-    "water-spirit": "Water Spirit",
-    "your-shadow": "Your Shadow"
-  },
-  "deck": {
-    "scout-ally": "%data.deck.scout% (%game.ally%)",
-    "shaman-ally": "%data.deck.shaman% (%game.ally%)"
-  },
   "ability": {},
-  "scenario": {
-    "rules": {
-      "cs": {
-        "11": {
-          "1": "on each tile occupied by a character."
-        }
-      }
-    }
-  },
-  "partyAchievements": {
-    "Accomplished Mercenaries": "Accomplished Mercenaries",
-    "A Potion Lost": "A Potion Lost",
-    "Fallen Lava": "Fallen Lava",
-    "Follow the Money": "Follow the Money",
-    "Frozen Warrior": "Frozen Warrior",
-    "Inox Alliance": "Inox Alliance",
-    "Oaks Alliance": "Oaks Alliance",
-    "Ooze Destroyed": "Ooze Destroyed",
-    "Take the Money": "Take the Money"
-  },
-  "personalQuest": {
-    "330": "Protect and Serve",
-    "331": "Weapon Specialist",
-    "332": "Experimentation",
-    "333": "Thrill Seeker",
-    "334": "Trap Setter",
-    "335": "Bandit Banisher",
-    "336": "Creatures in the Night",
-    "337": "Experienced Leader",
-    "338": "Adrenaline Spike",
-    "339": "Mutual Support",
-    "340": "Thy be Blessed",
-    "341": "Spiritual Gains",
-    "342": "The Path of Agony",
-    "343": "Cruel Dominion",
-    "344": "Natural Selection",
-    "345": "Predator and Prey",
-    "346": "An Adder Divides",
-    "347": "Field Research",
-    "348": "Conjurers Hand",
-    "349": "No Rest for the Wicked",
-    "350": "Health First",
-    "351": "Limitless Searching",
-    "AA1": "At All Costs",
-    "AA2": "The Weight of Failure",
-    "QA1": "Ingenious Inventor",
-    "QA2": "Scrap Diver",
-    "RM1": "Brutal Enforcer",
-    "RM2": "Apex Predator"
-  },
   "custom": {
     "cs": {
       "blood-ooze": {
@@ -148,6 +24,18 @@
         "1": "to a map tile occupied by the least amount of characters.",
         "2": "where X is equal to the number of characters on different map tiles not occupied by the %data.monster.eternal-demon%.",
         "3": "Target all enemies sharing the same map tile."
+      },
+      "flowChartGroup": {
+        "chilly": "Chilly",
+        "city-events": "City Events",
+        "infectious": "Infectious",
+        "intro": "Intro",
+        "personal-quests": "Personal Quests",
+        "road-events": "Road Events",
+        "sail": "Sail",
+        "side-quests": "Side Quests",
+        "tainted": "Tainted",
+        "wonderous": "Wonderous"
       },
       "frozen-cadaver": {
         "1": "Target all adjacent enemies that do not have any %game.condition.chill% tokens",
@@ -196,6 +84,7 @@
       },
       "ravenous-gharial": {
         "1": "Unaffected by water hexes",
+        "10": "If this attack was performed, remove %game.condition.invisible%.",
         "2": "Shield only applies on ranged attacks",
         "3": "At %game.initiative.60% perform the following abilities",
         "4": "At %game.initiative.90% perform the following abilities",
@@ -203,8 +92,7 @@
         "6": "This movement may move through all figures.",
         "7": "where X is this figure's %game.action.attack% value.",
         "8": "All ranged attacks targeting this figure gain Disadvantage.",
-        "9": "At %game.initiative.50% perform the following abilities",
-        "10": "If this attack was performed, remove %game.condition.invisible%."
+        "9": "At %game.initiative.50% perform the following abilities"
       },
       "rogue-hollowpact": {
         "1": "where X is equal to the number of Void Pit obstacles",
@@ -236,18 +124,6 @@
         "1": "your maximum hit point value",
         "2": "%game.action.teleport% to an unoccupied hex adjacent to the enemy and perform",
         "3": "If no legal hex exists for the %game.action.teleport% perform instead"
-      },
-      "flowChartGroup": {
-        "intro": "Intro",
-        "infectious": "Infectious",
-        "wonderous": "Wonderous",
-        "chilly": "Chilly",
-        "sail": "Sail",
-        "tainted": "Tainted",
-        "personal-quests": "Personal Quests",
-        "side-quests": "Side Quests",
-        "city-events": "City Events",
-        "road-events": "Road Events"
       }
     },
     "perks": {
@@ -307,6 +183,130 @@
       "vortex": {
         "1": "Voidsight %data.action.custom.cs-voidsight%",
         "2": "Create a Void pit in an empty hex within %game.action.range:2%"
+      }
+    }
+  },
+  "deck": {
+    "scout-ally": "%data.deck.scout% (%game.ally%)",
+    "shaman-ally": "%data.deck.shaman% (%game.ally%)"
+  },
+  "edition": {
+    "cs": "The Crimson Scales"
+  },
+  "monster": {
+    "apex-demon": "Apex Demon",
+    "archaic-golem": "Archaic Golem",
+    "bandit-archer-hired-muscle": "Bandit Archer (Hired Muscle)",
+    "bandit-guard-hired-muscle": "Bandit Guard (Hired Muscle)",
+    "black-bear": "Black Bear",
+    "blood-ooze": "Blood Ooze",
+    "bone-archer": "Bone Archer",
+    "brood-mother": "Brood Mother",
+    "carrion-scavenger": "Carrion Scavenger",
+    "cave-imp": "Cave Imp",
+    "clockwork-bombard": "Clockwork Bombard",
+    "clockwork-devastator": "Clockwork Devastator",
+    "clockwork-guardian": "Clockwork Guardian",
+    "clockwork-railcaster": "Clockwork Railcaster",
+    "clockwork-ravager": "Clockwork Ravager",
+    "clockwork-soldier": "Clockwork Soldier",
+    "dark-lurker": "Dark Lurker",
+    "drake-porter": "Drake Porter",
+    "drakefiend": "Drakefiend",
+    "eternal-demon": "Eternal Demon",
+    "flaming-drake": "Flaming Drake",
+    "frozen-cadaver": "Frozen Cadaver",
+    "gelatinous-giant": "Gelatinous Giant",
+    "gelatinous-giant-immortal": "Gelatinous Giant (Immune)",
+    "ghost-viper": "Ghost Viper",
+    "ghost-viper-extra": "Extra Ghost Viper Deck #39",
+    "gnashing-drake": "Gnashing Drake",
+    "goremyon-shatter-mind": "Goremyon Shatter-Mind",
+    "goring-grizzly": "Goring Grizzly",
+    "guttermaw": "Guttermaw",
+    "hail-demon": "Hail Demon",
+    "hanging-snake": "Hanging Snake",
+    "harrower-aegis": "Harrower Aegis",
+    "harrower-icecrawlers": "Harrower Icecrawlers",
+    "hydra-spirit": "Hydra Spirit",
+    "inox-bloodguard": "Inox Bloodguard",
+    "king-cobra": "King Cobra",
+    "land-leviathan": "Land Leviathan",
+    "lavalite": "Lavalite",
+    "living-wall": "Living Wall",
+    "morphling": "Morphling",
+    "ravenous-gharial": "Ravenous Gharial",
+    "rogue-hollowpact": "Rogue Hollowpact",
+    "ruinmaw": "Ruinmaw",
+    "savvas-icebound": "Savvas Icebound",
+    "selandre": "Selandre",
+    "shadow-demon": "Shadow Demon",
+    "sly-wolf": "Sly Wolf",
+    "steel-construct": "Steel Construct",
+    "terrible-two-archer": "Terrible Two Archer",
+    "terrible-two-guard": "Terrible Two Guard",
+    "terror-drone": "Terror Drone",
+    "terrorscale-drake": "Terrorscale Drake",
+    "the-cultist": "The Cultist",
+    "the-echo": "The Echo",
+    "the-gilded-one": "The Gilded One",
+    "tomb-protector": "Tomb Protector",
+    "tomb-protector-extra": "Extra Tomb Protector Ability",
+    "toxic-imp": "Toxic Imp",
+    "twin-corpse": "Twin Corpse",
+    "undead-archer": "Undead Archer",
+    "vermling-scout-ally": "Vermling Scout (ally)",
+    "vermling-shaman-ally": "Vermling Shaman (ally)",
+    "water-spirit": "Water Spirit",
+    "your-shadow": "Your Shadow"
+  },
+  "partyAchievements": {
+    "A Potion Lost": "A Potion Lost",
+    "Accomplished Mercenaries": "Accomplished Mercenaries",
+    "Fallen Lava": "Fallen Lava",
+    "Follow the Money": "Follow the Money",
+    "Frozen Warrior": "Frozen Warrior",
+    "Inox Alliance": "Inox Alliance",
+    "Oaks Alliance": "Oaks Alliance",
+    "Ooze Destroyed": "Ooze Destroyed",
+    "Take the Money": "Take the Money"
+  },
+  "personalQuest": {
+    "330": "Protect and Serve",
+    "331": "Weapon Specialist",
+    "332": "Experimentation",
+    "333": "Thrill Seeker",
+    "334": "Trap Setter",
+    "335": "Bandit Banisher",
+    "336": "Creatures in the Night",
+    "337": "Experienced Leader",
+    "338": "Adrenaline Spike",
+    "339": "Mutual Support",
+    "340": "Thy be Blessed",
+    "341": "Spiritual Gains",
+    "342": "The Path of Agony",
+    "343": "Cruel Dominion",
+    "344": "Natural Selection",
+    "345": "Predator and Prey",
+    "346": "An Adder Divides",
+    "347": "Field Research",
+    "348": "Conjurers Hand",
+    "349": "No Rest for the Wicked",
+    "350": "Health First",
+    "351": "Limitless Searching",
+    "AA1": "At All Costs",
+    "AA2": "The Weight of Failure",
+    "QA1": "Ingenious Inventor",
+    "QA2": "Scrap Diver",
+    "RM1": "Brutal Enforcer",
+    "RM2": "Apex Predator"
+  },
+  "scenario": {
+    "rules": {
+      "cs": {
+        "11": {
+          "1": "on each tile occupied by a character."
+        }
       }
     }
   }

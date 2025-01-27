@@ -1,4 +1,73 @@
 {
+  "ability": {
+    "Accelerated Power": "Puissance Accélérée",
+    "Angry Howl": "Hurlement de Colère",
+    "Black Hex": "Noire Damnation",
+    "Black Tendrils": "Vrilles Noires",
+    "Boil Blood": "Sang Bouillant",
+    "Booming Scream": "Cri Retentissant",
+    "Calculated Strike": "Coup Calculé",
+    "Careful Throw": "Lancer Précis",
+    "Chilling Breath": "Souffle Glacial",
+    "Constrict": "Constriction",
+    "Coupled Chain": "Chaîne Couplée",
+    "Cripple": "Estropier",
+    "Dark Charm": "Sombre Charme",
+    "Defensive Strike": "Coup Défensif",
+    "Drain Life": "Drain de Vie",
+    "Dual Daggers": "Doubles Dagues",
+    "Explosive Blisters": "Bulles Explosives",
+    "Feed": "Repas",
+    "Find Cover": "À Couvert",
+    "Flashing Claws": "Griffes Soudaines",
+    "Greed": "Avidité",
+    "Ground Pound": "Marteler le Sol",
+    "Hasty Assault": "Assaut Précipité",
+    "Heat Blast": "Déflagration de Chaleur",
+    "Hex Whip": "Fouet de Damnation",
+    "Hungry Maw": "Gueule Affamée",
+    "Icy Glare": "Regard Glacial",
+    "Leech Warmth": "Aspirer la Chaleur",
+    "Lingering Strenth": "Force Durable",
+    "Mana Explosion": "Explosion de Mana",
+    "Nothing Special": "Rien de Particulier",
+    "Noxious Blade": "Lame Délétère",
+    "Parry": "Parade",
+    "Patch Wounds": "Panser les Blessures",
+    "Phase Out": "Hors Phase",
+    "Plasma Ward": "Sceau Plasmique",
+    "Rancid Arrow": "Flèche Rance",
+    "Rapid Bolts": "Carreaux Rapides",
+    "Reckless Charge": "Charge Téméraire",
+    "Release Gas": "Émission de Gaz",
+    "Restoration": "Récupération",
+    "Rotting Embrace": "Étreinte Putride",
+    "Runic Draw": "Attraction Runique",
+    "Runic Feedback": "Réaction Runique",
+    "Sacrificial Hurl": "Lancer Sacrificiel",
+    "Sap Strength": "Saper l'Énergie",
+    "Screaming Shot": "Hurlements Repoussants",
+    "Seismic Punch": "Coup Sismique",
+    "Septic Hex": "Damnation Infectieuse",
+    "Short Bow": "Arc Court",
+    "Spiked Pit": "Fosse à Pointes",
+    "Surround": "Cerner",
+    "Swarm": "Nuée",
+    "Swift Fangs": "Crocs Rapides",
+    "Taxing Advance": "Progression Éprouvante",
+    "Tip The Scales": "Faire Pencher la Balance",
+    "Toxic Explosion": "Explosion Toxique",
+    "Toxic Frenzy": "Frénésie Toxique",
+    "Twin Missiles": "Projectiles Jumeaux",
+    "Unholy Flame": "Flamme Impie",
+    "Unstable Frenzy": "Frénésie Incertaine",
+    "Unstable Scratch": "Égratinure Incertaine",
+    "Vicious Spear": "Méchant Épieu",
+    "Vile Scourge": "Fléau Infâme",
+    "Violent Slam": "Charge Violente",
+    "Weakening Bite": "Morsure Affaiblissante",
+    "Whirlwind": "Tourbillon"
+  },
   "character": {
     "demolitionist": {
       ".": "Artificier",
@@ -7,6 +76,77 @@
     "hatchet": "Lanceur de hache",
     "red-guard": "Garde Rouge",
     "voidwarden": "Gardienne du Néant"
+  },
+  "custom": {
+    "jotl": {
+      "basic-vermling-raider": {
+        "1": "Mélangez ce paquet à la fin du round.",
+        "2": "Ils se déplaceront pour éviter d'être adjacents à leur adversaire en focus.",
+        "3": "Ins ne se déplacent pas ce round.",
+        "4": "Ils ont agi exactement de la même faion dans le dernier scénario."
+      },
+      "black-sludge": {
+        "1": "L'adversaire en ligne de vue le plus proche, sans considération de portée, subit %game.damage:[1+L/2{$math.ceil}]%."
+      },
+      "blood-horror": {
+        "1": "Saute jusqu'au %data.monster.zealot% mort le plus éloigné et le ressuscite OU Saute jusqu'à l'aventurier le plus éloigné et %game.action.attack% +0.",
+        "2": "Revive all dead %data.monster.zealot% in room"
+      },
+      "blood-monstrosity": {
+        "1": "À sa mort, tous les personnages adjacents subissent 1 dégât."
+      },
+      "chaos-demon": {
+        "1": "Chaque fois qu'un personnage attaque le %data.monster.chaos-demon%, ce personnage subit %game.damage:2%.",
+        "2": "Tous les adversaires adjacents à la cible subissent 1 dégât."
+      },
+      "first-of-the-order": {
+        "1": "Tous les adversaires à %game.action.range:2% subissent %game.damage:2%.",
+        "2": "Générez [C/2{math.ceil}] %data.monster.black-imp%",
+        "3": "à %game.action.range:2% de la cible."
+      },
+      "giant-viper": {
+        "1": "Toutes les attaques ciblant la Vipère Géante ce round gagnent Désavantage.",
+        "2": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la Vipère Géante."
+      },
+      "living-corpse": {
+        "1": "La cible subit aussi %game.damage:2%.",
+        "2": "Si le déplacement est effectué, le %data.monster.living-corpse% subit 1 dégât.",
+        "3": "Si cette attaque est effectuée, le %data.monster.living-corpse% subit 1 dégât."
+      },
+      "monstrosity": {
+        "1": "Si cette attaque est effectuée, la %data.monster.monstrosity% subit 1 dégât.",
+        "2": "Ajoute +1 %game.action.attack% si la cible est adjacente à un allié de la %data.monster.monstrosity%.",
+        "3": "Chaque fois qu'un personnage attaque la %data.monster.monstrosity%, ce personnage subit %game.damage:2%.",
+        "4": "La %data.monster.monstrosity% subit 1 dégât."
+      },
+      "rat-monstrosity": {
+        "1": "À sa mort, tous les personnages adjacents subissent 1 dégât.",
+        "2": "À sa mort, tous les personnages adjacents subissent %game.damage:2%.",
+        "3": "À sa mort, tous les personnages adjacents subissent %game.damage:3%.",
+        "4": "À sa mort, tous les personnages adjacents subissent %game.damage:4%."
+      },
+      "stone-golem": {
+        "1": "Chaque fois qu'un personnage attaque le %data.monster.stone-golem% this round, ce personnage subit %game.damage:3%.",
+        "2": "Si le déplacement est effectué, le %data.monster.stone-golem% subit 1 dégât.",
+        "3": "Si cette attaque est effectuée, le %data.monster.stone-golem% subit %game.damage:2%."
+      },
+      "vermling-raider": {
+        "1": "Crée un piège à %game.damage:3% sur l'hexagone vide adjacent le plus proche d'un adversaire."
+      },
+      "zealot": {
+        "1": "X est le montant des dégâts subit pas la cible de l'attaque."
+      }
+    },
+    "perks": {
+      "demolitionist": {
+        "1": "Tous les adversaires adjacents subissent 1 dégât."
+      }
+    }
+  },
+  "deck": {
+    "boss": "Boss",
+    "imp": "Diablotins",
+    "monstrosity": "Monstruosités"
   },
   "edition": {
     "jotl": "Les Mâchoires du Lion"
@@ -34,171 +174,31 @@
     "vermling-scout": "Éclaireur Vermling",
     "zealot": "Zélote"
   },
-  "deck": {
-    "boss": "Boss",
-    "monstrosity": "Monstruosités",
-    "imp": "Diablotins"
-  },
-  "ability": {
-    "Swift Fangs": "Crocs Rapides",
-    "Find Cover": "À Couvert",
-    "Constrict": "Constriction",
-    "Toxic Frenzy": "Frénésie Toxique",
-    "Screaming Shot": "Hurlements Repoussants",
-    "Careful Throw": "Lancer Précis",
-    "Dual Daggers": "Doubles Dagues",
-    "Boil Blood": "Sang Bouillant",
-    "Hex Whip": "Fouet de Damnation",
-    "Vile Scourge": "Fléau Infâme",
-    "Drain Life": "Drain de Vie",
-    "Toxic Explosion": "Explosion Toxique",
-    "Feed": "Repas",
-    "Plasma Ward": "Sceau Plasmique",
-    "Black Hex": "Noire Damnation",
-    "Septic Hex": "Damnation Infectieuse",
-    "Accelerated Power": "Puissance Accélérée",
-    "Lingering Strenth": "Force Durable",
-    "Twin Missiles": "Projectiles Jumeaux",
-    "Chilling Breath": "Souffle Glacial",
-    "Heat Blast": "Déflagration de Chaleur",
-    "Seismic Punch": "Coup Sismique",
-    "Whirlwind": "Tourbillon",
-    "Flashing Claws": "Griffes Soudaines",
-    "Black Tendrils": "Vrilles Noires",
-    "Mana Explosion": "Explosion de Mana",
-    "Hungry Maw": "Gueule Affamée",
-    "Surround": "Cerner",
-    "Defensive Strike": "Coup Défensif",
-    "Phase Out": "Hors Phase",
-    "Restoration": "Récupération",
-    "Cripple": "Estropier",
-    "Dark Charm": "Sombre Charme",
-    "Tip The Scales": "Faire Pencher la Balance",
-    "Rotting Embrace": "Étreinte Putride",
-    "Hasty Assault": "Assaut Précipité",
-    "Nothing Special": "Rien de Particulier",
-    "Calculated Strike": "Coup Calculé",
-    "Reckless Charge": "Charge Téméraire",
-    "Release Gas": "Émission de Gaz",
-    "Violent Slam": "Charge Violente",
-    "Sap Strength": "Saper l'Énergie",
-    "Booming Scream": "Cri Retentissant",
-    "Coupled Chain": "Chaîne Couplée",
-    "Leech Warmth": "Aspirer la Chaleur",
-    "Angry Howl": "Hurlement de Colère",
-    "Icy Glare": "Regard Glacial",
-    "Unstable Scratch": "Égratinure Incertaine",
-    "Swarm": "Nuée",
-    "Weakening Bite": "Morsure Affaiblissante",
-    "Explosive Blisters": "Bulles Explosives",
-    "Unstable Frenzy": "Frénésie Incertaine",
-    "Runic Feedback": "Réaction Runique",
-    "Taxing Advance": "Progression Éprouvante",
-    "Sacrificial Hurl": "Lancer Sacrificiel",
-    "Ground Pound": "Marteler le Sol",
-    "Runic Draw": "Attraction Runique",
-    "Patch Wounds": "Panser les Blessures",
-    "Parry": "Parade",
-    "Vicious Spear": "Méchant Épieu",
-    "Spiked Pit": "Fosse à Pointes",
-    "Short Bow": "Arc Court",
-    "Rancid Arrow": "Flèche Rance",
-    "Noxious Blade": "Lame Délétère",
-    "Rapid Bolts": "Carreaux Rapides",
-    "Greed": "Avidité",
-    "Unholy Flame": "Flamme Impie"
-  },
   "scenario": {
-    "Roadside Ambush": "Embuscade au Bord de la Route",
-    "A Hole in the Wall": "Un Trou dans le Mur",
-    "The Black Ship": "Le Vaisseau Noir",
-    "A Ritual in Stone": "Un rituel de Pierre",
     "A Deeper Understanding": "Une Compréhension plus profonde",
-    "Corrupted Research": "Recherche Corrompue",
-    "Sunken Tumor": "La Tumeur Engloutie",
-    "Hidden Tumor": "La Tumeur Cachée",
-    "Explosive Evolution": "Évolution explosive",
-    "The Gauntlet": "Le Défi",
-    "Defiled Sewers": "Les Égouts Souillés",
+    "A Hole in the Wall": "Un Trou dans le Mur",
+    "A Ritual in Stone": "Un rituel de Pierre",
+    "Agents of Chaos": "Agents du Chaos",
     "Beguiling Sewers": "Les Égouts Trompeurs",
-    "Vile Harvest": "Une Vilaine Récolte",
-    "Toxic Harvest": "Une Récolte Toxique",
-    "Tainted Blood": "Sang Contaminé",
+    "Corrupted Research": "Recherche Corrompue",
+    "Defiled Sewers": "Les Égouts Souillés",
+    "Den of Thieves": "Repaire de Voleurs",
+    "Explosive Evolution": "Évolution explosive",
+    "Hidden Tumor": "La Tumeur Cachée",
+    "Misplaced Goods": "Marchandises Égarées",
     "Mixed Results": "Résultats Mitigés",
     "Red Twilight": "Crépuscule Rouge",
-    "The Heist": "Le Casse",
-    "Den of Thieves": "Repaire de Voleurs",
-    "Misplaced Goods": "Marchandises Égarées",
-    "Agents of Chaos": "Agents du Chaos",
-    "Unfriendly Message": "Message Hostile",
+    "Roadside Ambush": "Embuscade au Bord de la Route",
+    "Sunken Tumor": "La Tumeur Engloutie",
+    "Tainted Blood": "Sang Contaminé",
     "The Best of the Best": "Le Meilleur parmi les Meilleurs",
-    "Warding the Void": "Sceller le Néant",
-    "The Greatest Job in the World": "Le Meilleur Boulot au Monde"
-  },
-  "custom": {
-    "jotl": {
-      "giant-viper": {
-        "1": "Toutes les attaques ciblant la Vipère Géante ce round gagnent Désavantage.",
-        "2": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la Vipère Géante."
-      },
-      "black-sludge": {
-        "1": "L'adversaire en ligne de vue le plus proche, sans considération de portée, subit %game.damage:[1+L/2{$math.ceil}]%."
-      },
-      "chaos-demon": {
-        "1": "Chaque fois qu'un personnage attaque le %data.monster.chaos-demon%, ce personnage subit %game.damage:2%.",
-        "2": "Tous les adversaires adjacents à la cible subissent 1 dégât."
-      },
-      "living-corpse": {
-        "1": "La cible subit aussi %game.damage:2%.",
-        "2": "Si le déplacement est effectué, le %data.monster.living-corpse% subit 1 dégât.",
-        "3": "Si cette attaque est effectuée, le %data.monster.living-corpse% subit 1 dégât."
-      },
-      "monstrosity": {
-        "1": "Si cette attaque est effectuée, la %data.monster.monstrosity% subit 1 dégât.",
-        "2": "Ajoute +1 %game.action.attack% si la cible est adjacente à un allié de la %data.monster.monstrosity%.",
-        "3": "Chaque fois qu'un personnage attaque la %data.monster.monstrosity%, ce personnage subit %game.damage:2%.",
-        "4": "La %data.monster.monstrosity% subit 1 dégât."
-      },
-      "stone-golem": {
-        "1": "Chaque fois qu'un personnage attaque le %data.monster.stone-golem% this round, ce personnage subit %game.damage:3%.",
-        "2": "Si le déplacement est effectué, le %data.monster.stone-golem% subit 1 dégât.",
-        "3": "Si cette attaque est effectuée, le %data.monster.stone-golem% subit %game.damage:2%."
-      },
-      "vermling-raider": {
-        "1": "Crée un piège à %game.damage:3% sur l'hexagone vide adjacent le plus proche d'un adversaire."
-      },
-      "zealot": {
-        "1": "X est le montant des dégâts subit pas la cible de l'attaque."
-      },
-      "blood-horror": {
-        "1": "Saute jusqu'au %data.monster.zealot% mort le plus éloigné et le ressuscite OU Saute jusqu'à l'aventurier le plus éloigné et %game.action.attack% +0.",
-        "2": "Revive all dead %data.monster.zealot% in room"
-      },
-      "blood-monstrosity": {
-        "1": "À sa mort, tous les personnages adjacents subissent 1 dégât."
-      },
-      "first-of-the-order": {
-        "1": "Tous les adversaires à %game.action.range:2% subissent %game.damage:2%.",
-        "2": "Générez [C/2{math.ceil}] %data.monster.black-imp%",
-        "3": "à %game.action.range:2% de la cible."
-      },
-      "rat-monstrosity": {
-        "1": "À sa mort, tous les personnages adjacents subissent 1 dégât.",
-        "2": "À sa mort, tous les personnages adjacents subissent %game.damage:2%.",
-        "3": "À sa mort, tous les personnages adjacents subissent %game.damage:3%.",
-        "4": "À sa mort, tous les personnages adjacents subissent %game.damage:4%."
-      },
-      "basic-vermling-raider": {
-        "1": "Mélangez ce paquet à la fin du round.",
-        "2": "Ils se déplaceront pour éviter d'être adjacents à leur adversaire en focus.",
-        "3": "Ins ne se déplacent pas ce round.",
-        "4": "Ils ont agi exactement de la même faion dans le dernier scénario."
-      }
-    },
-    "perks": {
-      "demolitionist": {
-        "1": "Tous les adversaires adjacents subissent 1 dégât."
-      }
-    }
+    "The Black Ship": "Le Vaisseau Noir",
+    "The Gauntlet": "Le Défi",
+    "The Greatest Job in the World": "Le Meilleur Boulot au Monde",
+    "The Heist": "Le Casse",
+    "Toxic Harvest": "Une Récolte Toxique",
+    "Unfriendly Message": "Message Hostile",
+    "Vile Harvest": "Une Vilaine Récolte",
+    "Warding the Void": "Sceller le Néant"
   }
 }

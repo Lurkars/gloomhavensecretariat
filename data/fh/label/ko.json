@@ -1,4 +1,18 @@
 {
+  "ability": {},
+  "custom": {
+    "fh": {
+      "flowChartGroup": {
+        "intro": "서막",
+        "job-postings": "채용 공고",
+        "other": "기타",
+        "personal-quests": "개인 퀘스트",
+        "puzzle-book": "퍼즐 책",
+        "random-scenarios": "무작위 시나리오"
+      }
+    }
+  },
+  "deck": {},
   "edition": {
     "fh": "프로스트헤이븐"
   },
@@ -28,23 +42,9 @@
     "wind-demon": "바람 악마",
     "yoglang": "Yoglang"
   },
-  "deck": {},
-  "ability": {},
   "scenario": {
     "group": {
       "randomMonsterCard": "무작위 몬스터 카드"
-    }
-  },
-  "custom": {
-    "fh": {
-      "flowChartGroup": {
-        "intro": "서막",
-        "puzzle-book": "퍼즐 책",
-        "personal-quests": "개인 퀘스트",
-        "job-postings": "채용 공고",
-        "other": "기타",
-        "random-scenarios": "무작위 시나리오"
-      }
     }
   }
 }

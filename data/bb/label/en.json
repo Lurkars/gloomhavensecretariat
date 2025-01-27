@@ -10,71 +10,10 @@
   "edition": {
     "bb": "Button & Bugs"
   },
-  "monster": {
-    "arena-sorcerer": "Arena Sorcerer",
-    "bandit-archer": "Bandit Archer",
-    "bandit-guard": "Bandit Guard",
-    "demon-prince": "Demon Prince",
-    "earth-demon": "Earth Demon",
-    "flame-demon": "Flame Demon",
-    "frost-demon": "Frost Demon",
-    "gloomtoad": "Gloomtoad",
-    "goring-beetle": "Goring Beetle",
-    "harrowing-infestation": "Harrowing Infestation",
-    "king-button": "King Button",
-    "mounted-prince": "Mounted Prince",
-    "mouse": "Mouse",
-    "rending-beetle": "Rending Beetle",
-    "sewer-rat": "Sewer Rat",
-    "spitting-moth": "Spitting Moth",
-    "stuffed-construct": "Stuffed Construct",
-    "tattered-construct": "Tattered Construct",
-    "venomous-centipede": "Venomous Centipede",
-    "wind-demon": "Wind Demon"
-  },
-  "scenario": {
-    "rules": {
-      "bb": {
-        "15": "Flip all of your abilitiy cards to their B-Site."
-      }
-    }
-  },
   "items": {
     "bb-1": {
       ".": "Rosethorn Knife",
       "1": "During your attack, %game.elementHalf.consume:ice|earth% to add %game.action.pierce% 1."
-    },
-    "bb-2": {
-      ".": "Venomous Fang",
-      "1": "During your melee attack, add %game.condition.poison%."
-    },
-    "bb-3": {
-      ".": "Shrunken Weathered Boots",
-      "1": "During your movement, add +1 %game.action.move%."
-    },
-    "bb-4": {
-      ".": "Old Spring",
-      "1": "During your turn, add %game.action.jump% to all your movement."
-    },
-    "bb-5": {
-      ".": "Drop of Power Potion",
-      "1": "Durin your turn, add +1 %game.action.attack% to all your attacks."
-    },
-    "bb-6": {
-      ".": "Drop of Clear Water",
-      "1": "During your turn, %game.elementHalf.consume:ice|air% to remove one negative condition."
-    },
-    "bb-7": {
-      ".": "Spring Hammer",
-      "1": "During your melee attack, add %game.action.push% 2."
-    },
-    "bb-8": {
-      ".": "Button Shield",
-      "1": "During an enemy's attack, gain %game.action.shield% 1."
-    },
-    "bb-9": {
-      ".": "Iron Nail",
-      "1": "During your turn, add %game.action.pierce% 2 to all your melee attacks."
     },
     "bb-10": {
       ".": "Tanglevine Whip",
@@ -116,6 +55,10 @@
       ".": "Brass Cog",
       "1": "After determining initiative, increase or decrease your initiative by 10."
     },
+    "bb-2": {
+      ".": "Venomous Fang",
+      "1": "During your melee attack, add %game.condition.poison%."
+    },
     "bb-20": {
       ".": "Lubricating Oil",
       "1": "During your movement, add +2 %game.action.move%."
@@ -155,6 +98,10 @@
     "bb-29": {
       ".": "Embernettle",
       "1": "After an enemy's attack, %game.elementHalf.consume:fire|earth% to %game.condition.wound% that enemy."
+    },
+    "bb-3": {
+      ".": "Shrunken Weathered Boots",
+      "1": "During your movement, add +1 %game.action.move%."
     },
     "bb-30": {
       ".": "Lucky Cat's-Eye Marble",
@@ -196,9 +143,62 @@
       ".": "Iridescent Shell Shield",
       "1": "During your turn, gain %game.action.shield% 1 for the round. Create %game.element.wild%."
     },
+    "bb-4": {
+      ".": "Old Spring",
+      "1": "During your turn, add %game.action.jump% to all your movement."
+    },
     "bb-40": {
       ".": "Pocket Knife",
       "1": "During your melee attack, add +1 %game.action.attack%, %game.action.pierce% 2, %game.condition.wound%."
+    },
+    "bb-5": {
+      ".": "Drop of Power Potion",
+      "1": "Durin your turn, add +1 %game.action.attack% to all your attacks."
+    },
+    "bb-6": {
+      ".": "Drop of Clear Water",
+      "1": "During your turn, %game.elementHalf.consume:ice|air% to remove one negative condition."
+    },
+    "bb-7": {
+      ".": "Spring Hammer",
+      "1": "During your melee attack, add %game.action.push% 2."
+    },
+    "bb-8": {
+      ".": "Button Shield",
+      "1": "During an enemy's attack, gain %game.action.shield% 1."
+    },
+    "bb-9": {
+      ".": "Iron Nail",
+      "1": "During your turn, add %game.action.pierce% 2 to all your melee attacks."
+    }
+  },
+  "monster": {
+    "arena-sorcerer": "Arena Sorcerer",
+    "bandit-archer": "Bandit Archer",
+    "bandit-guard": "Bandit Guard",
+    "demon-prince": "Demon Prince",
+    "earth-demon": "Earth Demon",
+    "flame-demon": "Flame Demon",
+    "frost-demon": "Frost Demon",
+    "gloomtoad": "Gloomtoad",
+    "goring-beetle": "Goring Beetle",
+    "harrowing-infestation": "Harrowing Infestation",
+    "king-button": "King Button",
+    "mounted-prince": "Mounted Prince",
+    "mouse": "Mouse",
+    "rending-beetle": "Rending Beetle",
+    "sewer-rat": "Sewer Rat",
+    "spitting-moth": "Spitting Moth",
+    "stuffed-construct": "Stuffed Construct",
+    "tattered-construct": "Tattered Construct",
+    "venomous-centipede": "Venomous Centipede",
+    "wind-demon": "Wind Demon"
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "15": "Flip all of your abilitiy cards to their B-Site."
+      }
     }
   }
 }

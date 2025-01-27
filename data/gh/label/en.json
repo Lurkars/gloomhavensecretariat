@@ -1,407 +1,407 @@
 {
-    "character": {
-        "brute": "Brute",
-        "cragheart": "Cragheart",
-        "mindthief": "Mindthief",
-        "scoundrel": "Scoundrel",
-        "spellweaver": "Spellweaver",
-        "tinkerer": "Tinkerer"
+  "ability": {},
+  "battleGoals": {
+    "458": {
+      ".": "Streamliner",
+      "text": "Have five or more total cards in your hand and discard at the end of the scenario."
     },
-    "edition": {
-        "gh": "Gloomhaven"
+    "459": {
+      ".": "Layabout",
+      "text": "Gain 7 or fewer experience points during the scenario."
     },
-    "monster": {
-        "ancient-artillery": "Ancient Artillery",
-        "arcane-golem": "Arcane Golem",
-        "bandit-archer": "Bandit Archer",
-        "bandit-commander": "Bandit Commander",
-        "bandit-guard": "Bandit Guard",
-        "black-imp": "Black Imp",
-        "bloated-regent": "Bloated Regent",
-        "captain-of-the-guard": "Captain of the Guard",
-        "cave-bear": "Cave Bear",
-        "city-archer": "City Archer",
-        "city-guard": "City Guard",
-        "cultist": "Cultist",
-        "dark-rider": "Dark Rider",
-        "deep-terror": "Deep Terror",
-        "earth-demon": "Earth Demon",
-        "elder-drake": "Elder Drake",
-        "flame-demon": "Flame Demon",
-        "forest-imp": "Forest Imp",
-        "frost-demon": "Frost Demon",
-        "giant-ooze": "Giant Ooze",
-        "giant-viper": "Giant Viper",
-        "harrower-infester": "Harrower Infester",
-        "hound": "Hound",
-        "hungry-soul": "Hungry Soul",
-        "infiltrator": "Infiltrator",
-        "inox-archer": "Inox Archer",
-        "inox-bodyguard": "Inox Bodyguard",
-        "inox-guard": "Inox Guard",
-        "inox-shaman": "Inox Shaman",
-        "jekserah": "Jekserah",
-        "living-bones": "Living Bones",
-        "living-corpse": "Living Corpse",
-        "living-spirit": "Living Spirit",
-        "lurker": "Lurker",
-        "lurker-king": "Lurker King",
-        "merciless-overseer": "Merciless Overseer",
-        "night-demon": "Night Demon",
-        "ooze": "Ooze",
-        "prime-demon": "Prime Demon",
-        "prime-lieutenant": "Prime Lieutenant",
-        "rending-drake": "Rending Drake",
-        "savvas-icestorm": "Savvas Icestorm",
-        "savvas-lavaflow": "Savvas Lavaflow",
-        "siege-cannon": "Siege Cannon",
-        "spitting-drake": "Spitting Drake",
-        "stone-golem": "Stone Golem",
-        "sun-demon": "Sun Demon",
-        "the-betrayer": "The Betrayer",
-        "the-colorless": "The Colorless",
-        "the-gloom": "The Gloom",
-        "the-harvester": "The Harvester",
-        "the-sightless-eye": "The Sightless Eye",
-        "vermling-scout": "Vermling Scout",
-        "vermling-shaman": "Vermling Shaman",
-        "wind-demon": "Wind Demon",
-        "winged-horror": "Winged Horror"
+    "460": {
+      ".": "Workhorse",
+      "text": "Gain 13 or more experience points during the scenario."
     },
-    "objective": {
-        "zephyr": "Zephyr"
+    "461": {
+      ".": "Zealot",
+      "text": "Have three or fewer total cards in your hand and discard at the end of the scenario."
     },
-    "deck": {
-        "archer": "Archer",
-        "boss": "Boss",
-        "guard": "Guard",
-        "imp": "Imp",
-        "scout": "Scout",
-        "shaman": "Shaman"
+    "462": {
+      ".": "Masochist",
+      "text": "Your current hit point value must be equal to or less than 2 at the end of the scenario."
     },
-    "ability": {},
-    "scenario": {
-        "group": {
-            "randomDungeon": "%scenario.random%",
-            "randomMonsterCard": "Random Monster Cards"
-        },
-        "rules": {
-            "gh": {
-                "19": {
-                    "1": "towards the altar %game.mapMarker.b%"
-                },
-                "22": {
-                    "1": "For each altar that isn't destroyed, regardless of whether it has been revealed, the maximum hit point and attack values of all demons is increased by 1 and their movement and range values are increased by 0.5 (rounded up). Melee attacks do not increase in range."
-                },
-                "36": {
-                    "1": "The Prime Demon starts the scenario with twice the number of hit points indicated on its stat card."
-                },
-                "38": {
-                    "1": "towards the shaman on the D tile"
-                },
-                "42": {
-                    "1": "All monsters add +1 %game.action.attack% to all their attacks",
-                    "2": "All monsters gain Advantage on all their attacks",
-                    "3": "All monsters heal 1 hit point at the start of each of their turns",
-                    "4": "All characters and character summons suffer 1 damage at the start of each of their turns.",
-                    "5": "All characters and character summons gain Disadvantage on all their attacks.",
-                    "6": "All characters and character summons deduct -1 Attack from all their attacks."
-                },
-                "54": {
-                    "1": "All Cave Bears add %game.condition.poison% to all their attacks."
-                },
-                "67": {
-                    "1": "The elite Stone Golem is one level higher than the scenario level, up to a maximum of 7, and it has HxC hit points, where H is an elite Stone Golem's regular hit point value. This is the Arcane Golem. It cannot enter or pass through door %game.mapMarker.2%."
-                },
-                "71": {
-                    "1": "Move left",
-                    "2": "Move up",
-                    "3": "Move right",
-                    "4": "Move down"
-                },
-                "73": {
-                    "1": "Roll boulders down."
-                },
-                "74": {
-                    "1": "Add water tile."
-                },
-                "78": {
-                    "1": "The two Cultists %game.mapMarker.b%, as well as the victim %game.mapMarker.a%, are immune to forced movement, %game.condition.immobilize%, and %game.condition.stun%, and can also open doors.",
-                    "2": "Immune to forced movement",
-                    "3": "Can open doors"
-                },
-                "79": {
-                    "1": "Move to starting location, if moved off, then perform"
-                },
-                "86": {
-                    "1": "towards the end of the docks %game.mapMarker.b%"
-                },
-                "89": {
-                    "1": "All Cultists summon elite Giant Vipers instead of normal Living Bones."
-                }
-            }
-        }
+    "463": {
+      ".": "Fast Healer",
+      "text": "Your current hit point value must be equal to your maximum hit point value at the end of the scenario."
     },
-    "partyAchievements": {
-        "A Demon's Errand": "A Demon's Errand",
-        "A Map to Treasure": "A Map to Treasure",
-        "Across the Divide": "Across the Divide",
-        "An Invitation": "An Invitation",
-        "Bad Business": "Bad Business",
-        "Dark Bounty": "Dark Bounty",
-        "Debt Collection": "Debt Collection",
-        "First Steps": "First Steps",
-        "Fish's Aid": "Fish's Aid",
-        "Following Clues": "Following Clues",
-        "Grave Job": "Grave Job",
-        "High Sea Escort": "High Sea Escort",
-        "Jekserah's Plans": "Jekserah's Plans",
-        "Redthorn's Aid": "Redthorn's Aid",
-        "Sin-Ra": "Sin-Ra",
-        "Stonebreaker's Censer": "Stonebreaker's Censer",
-        "Sun-Blessed": "Sun-Blessed",
-        "The Drake's Command": "The Drake's Command",
-        "The Drake's Treasure": "The Drake's Treasure",
-        "The Poison's Source": "The Poison's Source",
-        "The Scepter and the Voice": "The Scepter and the Voice",
-        "The Voice's Command": "The Voice's Command",
-        "The Voice's Treasure": "The Voice's Treasure",
-        "Through the Nest": "Through the Nest",
-        "Through the Ruins": "Through the Ruins",
-        "Through the Trench": "Through the Trench",
-        "Tremors": "Tremors",
-        "Water Staff": "Water Staff"
+    "464": {
+      ".": "Neutralizer",
+      "text": "Cause a trap to be sprung or disarmed on your turn or on the turn of one of your summons during the scenario."
     },
-    "globalAchievements": {
-        "Ancient Technology": "Ancient Technology",
-        "Annihilation of Order": "Annihilation of Order",
-        "Artifact: Cleansed": "Artifact: Cleansed",
-        "Artifact: Lost": "Artifact: Lost",
-        "Artifact: Recovered": "Artifact: Recovered",
-        "City Rule: Demonic": "City Rule: Demonic",
-        "City Rule: Economic": "City Rule: Economic",
-        "City Rule: Militaristic": "City Rule: Militaristic",
-        "End of Corruption": "End of Corruption",
-        "End of Gloom": "End of Gloom",
-        "End of the Invasion": "End of the Invasion",
-        "The Dead Invade": "The Dead Invade",
-        "The Drake Aided": "The Drake Aided",
-        "The Drake Slain": "The Drake Slain",
-        "The Edge of Darkness": "The Edge of Darkness",
-        "The Merchant Flees": "The Merchant Flees",
-        "The Power of Enhancement": "The Power of Enhancement",
-        "The Rift Neutralized": "The Rift Neutralized",
-        "The Voice Freed": "The Voice Freed",
-        "The Voice Silenced": "The Voice Silenced",
-        "Water-Breathing": "Water-Breathing"
+    "465": {
+      ".": "Plunderer",
+      "text": "Loot a treasure overlay tile during the scenario."
     },
-    "battleGoals": {
-        "458": {
-            ".": "Streamliner",
-            "text": "Have five or more total cards in your hand and discard at the end of the scenario."
-        },
-        "459": {
-            ".": "Layabout",
-            "text": "Gain 7 or fewer experience points during the scenario."
-        },
-        "460": {
-            ".": "Workhorse",
-            "text": "Gain 13 or more experience points during the scenario."
-        },
-        "461": {
-            ".": "Zealot",
-            "text": "Have three or fewer total cards in your hand and discard at the end of the scenario."
-        },
-        "462": {
-            ".": "Masochist",
-            "text": "Your current hit point value must be equal to or less than 2 at the end of the scenario."
-        },
-        "463": {
-            ".": "Fast Healer",
-            "text": "Your current hit point value must be equal to your maximum hit point value at the end of the scenario."
-        },
-        "464": {
-            ".": "Neutralizer",
-            "text": "Cause a trap to be sprung or disarmed on your turn or on the turn of one of your summons during the scenario."
-        },
-        "465": {
-            ".": "Plunderer",
-            "text": "Loot a treasure overlay tile during the scenario."
-        },
-        "466": {
-            ".": "Protector",
-            "text": "Allow none of your character allies to become exhausted during the scenario."
-        },
-        "467": {
-            ".": "Explorer",
-            "text": "Reveal a room tile by opening a door on your turn during the scenario."
-        },
-        "468": {
-            ".": "Hoarder",
-            "text": "Loot five or more money tokens during the scenario."
-        },
-        "469": {
-            ".": "Indigent",
-            "text": "Loot no money tokens or treasure overlay tiles during the scenario."
-        },
-        "470": {
-            ".": "Pacifist",
-            "text": "Kill three or fewer monsters during the scenario."
-        },
-        "471": {
-            ".": "Sadist",
-            "text": "Kill five or more monsters during the scenario."
-        },
-        "472": {
-            ".": "Hunter",
-            "text": "Kill one or more elite monsters during the scenario."
-        },
-        "473": {
-            ".": "Professional",
-            "text": "Use your equipped items a number of times equal to or greater than your level plus 2 during the scenario."
-        },
-        "474": {
-            ".": "Aggressor",
-            "text": "Have one or more monsters present on the map at the beginning of every round during the scenario."
-        },
-        "475": {
-            ".": "Dynamo",
-            "text": "Kill a monster during the scenario by causing at least 4 more points of damage to it than is necessary."
-        },
-        "476": {
-            ".": "Purist",
-            "text": "Use no items during the scenario."
-        },
-        "477": {
-            ".": "Opener",
-            "text": "Be the first to kill a monster during the scenario."
-        },
-        "478": {
-            ".": "Diehard",
-            "text": "Never allow your current hit point value to drop below half your maximum hit point value (rounded up) during the scenario."
-        },
-        "479": {
-            ".": "Executioner",
-            "text": "Kill an undamaged monster with a single attack during the scenario."
-        },
-        "480": {
-            ".": "Straggler",
-            "text": "Take only long rests during the scenario."
-        },
-        "481": {
-            ".": "Scrambler",
-            "text": "Take only short rests during the scenario."
-        }
+    "466": {
+      ".": "Protector",
+      "text": "Allow none of your character allies to become exhausted during the scenario."
     },
-    "personalQuest": {
-        "510": "Seeker of Xorn",
-        "511": "Merchant Class",
-        "512": "Greed Is Gold",
-        "513": "Finding the Cure",
-        "514": "A Study of Anatomy",
-        "515": "Law Bringer",
-        "516": "Pounds of Flesh",
-        "517": "Trophy Hunt",
-        "518": "Eternal Wanderer",
-        "519": "Battle Legend",
-        "520": "Implement of Light",
-        "521": "Take Back the Trees",
-        "522": "The Thin Places",
-        "523": "Aberrant Slayer",
-        "524": "Fearless Stand",
-        "525": "Piety in All Things",
-        "526": "Vengeance",
-        "527": "Zealot of the Blood Good",
-        "528": "Goliath Toppler",
-        "529": "The Fall of Man",
-        "530": "Augmented Abilities",
-        "531": "Elemental Samples",
-        "532": "A Helping Hand",
-        "533": "The Perfect Poison"
+    "467": {
+      ".": "Explorer",
+      "text": "Reveal a room tile by opening a door on your turn during the scenario."
     },
-    "custom": {
-        "gh": {
-            "ancient-artillery": {
-                "1": "All adjacent enemies suffer %game.damage:2%."
-            },
-            "archer": {
-                "1": "Create a %game.damage:3% trap in an adjacent empty hex closest to an enemy."
-            },
-            "deep-terror": {
-                "1": "in a hex adjacent to the target"
-            },
-            "elder-drake": {
-                "1": "Fly to next perch of boulders"
-            },
-            "flame-demon": {
-                "1": "All adjacent enemies suffer %game.damage:2%.",
-                "2": "Create a %game.damage:4% trap in an adjacent empty hex closest to an enemy."
-            },
-            "giant-viper": {
-                "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies.",
-                "2": "All attacks targeting %data.monster.giant-viper% this round gain Disadvantage."
-            },
-            "harrower-infester": {
-                "1": "Perform \"%game.action.heal% 2, %game.specialTarget.self%\" for each target damaged"
-            },
-            "hound": {
-                "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
-            },
-            "mindthief": {
-                "1": "X is half the rat's current hit point value (rounded up).",
-                "augment": "Augment %game.characterIconColoredBg.mindthief%",
-                "augments": "Augments %game.characterIconColoredBg.mindthief%"
-            },
-            "night-demon": {
-                "1": "All adjacent enemies and allies suffer %game.damage:1%."
-            },
-            "ooze": {
-                "1": "with H equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
-            },
-            "savvas-lavaflow": {
-                "1": "All allies and enemies adjacent to the target suffer %game.damage:2%",
-                "2": "All enemies suffer %game.damage:2%."
-            },
-            "bandit-commander": {
-                "1": "Move to next door and reveal room"
-            },
-            "captain-of-the-guard": {
-                "1": "All allies add +1 %game.action.attack% to all attacks this round"
-            },
-            "merciless-overseer": {
-                "1": "All Scouts act again",
-                "2": "V = Number of Scouts present"
-            },
-            "prime-demon": {
-                "1": "Throne moves"
-            },
-            "winged-horror": {
-                "1": "Hatch eggs",
-                "2": "%game.action.summon% [C] eggs"
-            },
-            "dark-rider": {
-                "1": "X = Hexes moved"
-            },
-            "the-betrayer": {
-                "1": "Mind Control"
-            },
-            "flowChartGroup": {
-                "intro": "Intro",
-                "sealed": "Sealed",
-                "the-merchant": "The Merchant",
-                "demon-and-rift": "Demon and Rift",
-                "sewers": "Sewers",
-                "voice": "Voice",
-                "dragons": "Dragons",
-                "through-jungles": "Thorugh Jungles",
-                "atop-mountains": "Atop Mountains",
-                "rebellion-rises": "Rebellion Rises",
-                "under-oceans": "Under Oceans",
-                "personal-quests": "Personal Quests",
-                "random-scenarios": "Random Scenarios",
-                "city-events": "City Events",
-                "road-events": "Road Events"
-            }
-        }
+    "468": {
+      ".": "Hoarder",
+      "text": "Loot five or more money tokens during the scenario."
+    },
+    "469": {
+      ".": "Indigent",
+      "text": "Loot no money tokens or treasure overlay tiles during the scenario."
+    },
+    "470": {
+      ".": "Pacifist",
+      "text": "Kill three or fewer monsters during the scenario."
+    },
+    "471": {
+      ".": "Sadist",
+      "text": "Kill five or more monsters during the scenario."
+    },
+    "472": {
+      ".": "Hunter",
+      "text": "Kill one or more elite monsters during the scenario."
+    },
+    "473": {
+      ".": "Professional",
+      "text": "Use your equipped items a number of times equal to or greater than your level plus 2 during the scenario."
+    },
+    "474": {
+      ".": "Aggressor",
+      "text": "Have one or more monsters present on the map at the beginning of every round during the scenario."
+    },
+    "475": {
+      ".": "Dynamo",
+      "text": "Kill a monster during the scenario by causing at least 4 more points of damage to it than is necessary."
+    },
+    "476": {
+      ".": "Purist",
+      "text": "Use no items during the scenario."
+    },
+    "477": {
+      ".": "Opener",
+      "text": "Be the first to kill a monster during the scenario."
+    },
+    "478": {
+      ".": "Diehard",
+      "text": "Never allow your current hit point value to drop below half your maximum hit point value (rounded up) during the scenario."
+    },
+    "479": {
+      ".": "Executioner",
+      "text": "Kill an undamaged monster with a single attack during the scenario."
+    },
+    "480": {
+      ".": "Straggler",
+      "text": "Take only long rests during the scenario."
+    },
+    "481": {
+      ".": "Scrambler",
+      "text": "Take only short rests during the scenario."
     }
+  },
+  "character": {
+    "brute": "Brute",
+    "cragheart": "Cragheart",
+    "mindthief": "Mindthief",
+    "scoundrel": "Scoundrel",
+    "spellweaver": "Spellweaver",
+    "tinkerer": "Tinkerer"
+  },
+  "custom": {
+    "gh": {
+      "ancient-artillery": {
+        "1": "All adjacent enemies suffer %game.damage:2%."
+      },
+      "archer": {
+        "1": "Create a %game.damage:3% trap in an adjacent empty hex closest to an enemy."
+      },
+      "bandit-commander": {
+        "1": "Move to next door and reveal room"
+      },
+      "captain-of-the-guard": {
+        "1": "All allies add +1 %game.action.attack% to all attacks this round"
+      },
+      "dark-rider": {
+        "1": "X = Hexes moved"
+      },
+      "deep-terror": {
+        "1": "in a hex adjacent to the target"
+      },
+      "elder-drake": {
+        "1": "Fly to next perch of boulders"
+      },
+      "flame-demon": {
+        "1": "All adjacent enemies suffer %game.damage:2%.",
+        "2": "Create a %game.damage:4% trap in an adjacent empty hex closest to an enemy."
+      },
+      "flowChartGroup": {
+        "atop-mountains": "Atop Mountains",
+        "city-events": "City Events",
+        "demon-and-rift": "Demon and Rift",
+        "dragons": "Dragons",
+        "intro": "Intro",
+        "personal-quests": "Personal Quests",
+        "random-scenarios": "Random Scenarios",
+        "rebellion-rises": "Rebellion Rises",
+        "road-events": "Road Events",
+        "sealed": "Sealed",
+        "sewers": "Sewers",
+        "the-merchant": "The Merchant",
+        "through-jungles": "Thorugh Jungles",
+        "under-oceans": "Under Oceans",
+        "voice": "Voice"
+      },
+      "giant-viper": {
+        "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies.",
+        "2": "All attacks targeting %data.monster.giant-viper% this round gain Disadvantage."
+      },
+      "harrower-infester": {
+        "1": "Perform \"%game.action.heal% 2, %game.specialTarget.self%\" for each target damaged"
+      },
+      "hound": {
+        "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
+      },
+      "merciless-overseer": {
+        "1": "All Scouts act again",
+        "2": "V = Number of Scouts present"
+      },
+      "mindthief": {
+        "1": "X is half the rat's current hit point value (rounded up).",
+        "augment": "Augment %game.characterIconColoredBg.mindthief%",
+        "augments": "Augments %game.characterIconColoredBg.mindthief%"
+      },
+      "night-demon": {
+        "1": "All adjacent enemies and allies suffer %game.damage:1%."
+      },
+      "ooze": {
+        "1": "with H equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
+      },
+      "prime-demon": {
+        "1": "Throne moves"
+      },
+      "savvas-lavaflow": {
+        "1": "All allies and enemies adjacent to the target suffer %game.damage:2%",
+        "2": "All enemies suffer %game.damage:2%."
+      },
+      "the-betrayer": {
+        "1": "Mind Control"
+      },
+      "winged-horror": {
+        "1": "Hatch eggs",
+        "2": "%game.action.summon% [C] eggs"
+      }
+    }
+  },
+  "deck": {
+    "archer": "Archer",
+    "boss": "Boss",
+    "guard": "Guard",
+    "imp": "Imp",
+    "scout": "Scout",
+    "shaman": "Shaman"
+  },
+  "edition": {
+    "gh": "Gloomhaven"
+  },
+  "globalAchievements": {
+    "Ancient Technology": "Ancient Technology",
+    "Annihilation of Order": "Annihilation of Order",
+    "Artifact: Cleansed": "Artifact: Cleansed",
+    "Artifact: Lost": "Artifact: Lost",
+    "Artifact: Recovered": "Artifact: Recovered",
+    "City Rule: Demonic": "City Rule: Demonic",
+    "City Rule: Economic": "City Rule: Economic",
+    "City Rule: Militaristic": "City Rule: Militaristic",
+    "End of Corruption": "End of Corruption",
+    "End of Gloom": "End of Gloom",
+    "End of the Invasion": "End of the Invasion",
+    "The Dead Invade": "The Dead Invade",
+    "The Drake Aided": "The Drake Aided",
+    "The Drake Slain": "The Drake Slain",
+    "The Edge of Darkness": "The Edge of Darkness",
+    "The Merchant Flees": "The Merchant Flees",
+    "The Power of Enhancement": "The Power of Enhancement",
+    "The Rift Neutralized": "The Rift Neutralized",
+    "The Voice Freed": "The Voice Freed",
+    "The Voice Silenced": "The Voice Silenced",
+    "Water-Breathing": "Water-Breathing"
+  },
+  "monster": {
+    "ancient-artillery": "Ancient Artillery",
+    "arcane-golem": "Arcane Golem",
+    "bandit-archer": "Bandit Archer",
+    "bandit-commander": "Bandit Commander",
+    "bandit-guard": "Bandit Guard",
+    "black-imp": "Black Imp",
+    "bloated-regent": "Bloated Regent",
+    "captain-of-the-guard": "Captain of the Guard",
+    "cave-bear": "Cave Bear",
+    "city-archer": "City Archer",
+    "city-guard": "City Guard",
+    "cultist": "Cultist",
+    "dark-rider": "Dark Rider",
+    "deep-terror": "Deep Terror",
+    "earth-demon": "Earth Demon",
+    "elder-drake": "Elder Drake",
+    "flame-demon": "Flame Demon",
+    "forest-imp": "Forest Imp",
+    "frost-demon": "Frost Demon",
+    "giant-ooze": "Giant Ooze",
+    "giant-viper": "Giant Viper",
+    "harrower-infester": "Harrower Infester",
+    "hound": "Hound",
+    "hungry-soul": "Hungry Soul",
+    "infiltrator": "Infiltrator",
+    "inox-archer": "Inox Archer",
+    "inox-bodyguard": "Inox Bodyguard",
+    "inox-guard": "Inox Guard",
+    "inox-shaman": "Inox Shaman",
+    "jekserah": "Jekserah",
+    "living-bones": "Living Bones",
+    "living-corpse": "Living Corpse",
+    "living-spirit": "Living Spirit",
+    "lurker": "Lurker",
+    "lurker-king": "Lurker King",
+    "merciless-overseer": "Merciless Overseer",
+    "night-demon": "Night Demon",
+    "ooze": "Ooze",
+    "prime-demon": "Prime Demon",
+    "prime-lieutenant": "Prime Lieutenant",
+    "rending-drake": "Rending Drake",
+    "savvas-icestorm": "Savvas Icestorm",
+    "savvas-lavaflow": "Savvas Lavaflow",
+    "siege-cannon": "Siege Cannon",
+    "spitting-drake": "Spitting Drake",
+    "stone-golem": "Stone Golem",
+    "sun-demon": "Sun Demon",
+    "the-betrayer": "The Betrayer",
+    "the-colorless": "The Colorless",
+    "the-gloom": "The Gloom",
+    "the-harvester": "The Harvester",
+    "the-sightless-eye": "The Sightless Eye",
+    "vermling-scout": "Vermling Scout",
+    "vermling-shaman": "Vermling Shaman",
+    "wind-demon": "Wind Demon",
+    "winged-horror": "Winged Horror"
+  },
+  "objective": {
+    "zephyr": "Zephyr"
+  },
+  "partyAchievements": {
+    "A Demon's Errand": "A Demon's Errand",
+    "A Map to Treasure": "A Map to Treasure",
+    "Across the Divide": "Across the Divide",
+    "An Invitation": "An Invitation",
+    "Bad Business": "Bad Business",
+    "Dark Bounty": "Dark Bounty",
+    "Debt Collection": "Debt Collection",
+    "First Steps": "First Steps",
+    "Fish's Aid": "Fish's Aid",
+    "Following Clues": "Following Clues",
+    "Grave Job": "Grave Job",
+    "High Sea Escort": "High Sea Escort",
+    "Jekserah's Plans": "Jekserah's Plans",
+    "Redthorn's Aid": "Redthorn's Aid",
+    "Sin-Ra": "Sin-Ra",
+    "Stonebreaker's Censer": "Stonebreaker's Censer",
+    "Sun-Blessed": "Sun-Blessed",
+    "The Drake's Command": "The Drake's Command",
+    "The Drake's Treasure": "The Drake's Treasure",
+    "The Poison's Source": "The Poison's Source",
+    "The Scepter and the Voice": "The Scepter and the Voice",
+    "The Voice's Command": "The Voice's Command",
+    "The Voice's Treasure": "The Voice's Treasure",
+    "Through the Nest": "Through the Nest",
+    "Through the Ruins": "Through the Ruins",
+    "Through the Trench": "Through the Trench",
+    "Tremors": "Tremors",
+    "Water Staff": "Water Staff"
+  },
+  "personalQuest": {
+    "510": "Seeker of Xorn",
+    "511": "Merchant Class",
+    "512": "Greed Is Gold",
+    "513": "Finding the Cure",
+    "514": "A Study of Anatomy",
+    "515": "Law Bringer",
+    "516": "Pounds of Flesh",
+    "517": "Trophy Hunt",
+    "518": "Eternal Wanderer",
+    "519": "Battle Legend",
+    "520": "Implement of Light",
+    "521": "Take Back the Trees",
+    "522": "The Thin Places",
+    "523": "Aberrant Slayer",
+    "524": "Fearless Stand",
+    "525": "Piety in All Things",
+    "526": "Vengeance",
+    "527": "Zealot of the Blood Good",
+    "528": "Goliath Toppler",
+    "529": "The Fall of Man",
+    "530": "Augmented Abilities",
+    "531": "Elemental Samples",
+    "532": "A Helping Hand",
+    "533": "The Perfect Poison"
+  },
+  "scenario": {
+    "group": {
+      "randomDungeon": "%scenario.random%",
+      "randomMonsterCard": "Random Monster Cards"
+    },
+    "rules": {
+      "gh": {
+        "19": {
+          "1": "towards the altar %game.mapMarker.b%"
+        },
+        "22": {
+          "1": "For each altar that isn't destroyed, regardless of whether it has been revealed, the maximum hit point and attack values of all demons is increased by 1 and their movement and range values are increased by 0.5 (rounded up). Melee attacks do not increase in range."
+        },
+        "36": {
+          "1": "The Prime Demon starts the scenario with twice the number of hit points indicated on its stat card."
+        },
+        "38": {
+          "1": "towards the shaman on the D tile"
+        },
+        "42": {
+          "1": "All monsters add +1 %game.action.attack% to all their attacks",
+          "2": "All monsters gain Advantage on all their attacks",
+          "3": "All monsters heal 1 hit point at the start of each of their turns",
+          "4": "All characters and character summons suffer 1 damage at the start of each of their turns.",
+          "5": "All characters and character summons gain Disadvantage on all their attacks.",
+          "6": "All characters and character summons deduct -1 Attack from all their attacks."
+        },
+        "54": {
+          "1": "All Cave Bears add %game.condition.poison% to all their attacks."
+        },
+        "67": {
+          "1": "The elite Stone Golem is one level higher than the scenario level, up to a maximum of 7, and it has HxC hit points, where H is an elite Stone Golem's regular hit point value. This is the Arcane Golem. It cannot enter or pass through door %game.mapMarker.2%."
+        },
+        "71": {
+          "1": "Move left",
+          "2": "Move up",
+          "3": "Move right",
+          "4": "Move down"
+        },
+        "73": {
+          "1": "Roll boulders down."
+        },
+        "74": {
+          "1": "Add water tile."
+        },
+        "78": {
+          "1": "The two Cultists %game.mapMarker.b%, as well as the victim %game.mapMarker.a%, are immune to forced movement, %game.condition.immobilize%, and %game.condition.stun%, and can also open doors.",
+          "2": "Immune to forced movement",
+          "3": "Can open doors"
+        },
+        "79": {
+          "1": "Move to starting location, if moved off, then perform"
+        },
+        "86": {
+          "1": "towards the end of the docks %game.mapMarker.b%"
+        },
+        "89": {
+          "1": "All Cultists summon elite Giant Vipers instead of normal Living Bones."
+        }
+      }
+    }
+  }
 }

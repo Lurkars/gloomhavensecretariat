@@ -1,4 +1,22 @@
 {
+  "custom": {
+    "fh": {
+      "errata": {
+        "solo28": "Special rules: \"Snowspeaker\" should be \"Icespeaker\""
+      }
+    },
+    "gh": {
+      "city-guard-saw-solo": {
+        "1": "Suffer %game.damage:1% at end of round until fully healed"
+      },
+      "ghost-wolf": {
+        "1": "At start of each round:"
+      }
+    },
+    "solo": {
+      "char-am-deck": "Uses character AM deck"
+    }
+  },
   "edition": {
     "solo": "Solo Scenarios (all Editions)"
   },
@@ -39,24 +57,6 @@
   "scenario": {
     "group": {
       "solo": "Solo Scenarios"
-    }
-  },
-  "custom": {
-    "solo": {
-      "char-am-deck": "Uses character AM deck"
-    },
-    "gh": {
-      "city-guard-saw-solo": {
-        "1": "Suffer %game.damage:1% at end of round until fully healed"
-      },
-      "ghost-wolf": {
-        "1": "At start of each round:"
-      }
-    },
-    "fh": {
-      "errata": {
-        "solo28": "Special rules: \"Snowspeaker\" should be \"Icespeaker\""
-      }
     }
   }
 }
