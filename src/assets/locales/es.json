@@ -815,12 +815,22 @@
   "monster": {
     ".": "Monstruo",
     "add": "Añadir Monstruo",
+    "addEntity": {
+      "boss": "Añadir Monstruo Jefe",
+      "elite": "Añadir Monstruo Elite",
+      "normal": "Añadir Monstruo Normal"
+    },
+    "applyInteractiveActions": "Aplicar las habilidades destacadas para",
     "boss": "Jefe",
     "cancelNumberpicker": "Cancelar",
+    "changeStandee": "Cambiar %game.monsterType.{0}% peana #{1}",
+    "changeType": "Cambiar tipo de %game.monsterType.{0}% a %game.monsterType.{1}%",
+    "elite": "Elite",
     "filter": {
       ".": "Filtrar Monstruo",
       "noResult": "Sin resultados"
     },
+    "normal": "Normal",
     "remove": "Eliminar Monstruo",
     "removeAll": "Eliminar todos",
     "removeUnused": "Eliminar los no usados",
@@ -835,7 +845,17 @@
     "showHidden": "Mostrar Monstruos ocultos",
     "skipInteractiveActions": "Saltar capacidades interactivas para",
     "statEffect": {
-      ".": "Se aplican normas especiales tras los cambios:"
+      ".": "Se aplican normas especiales tras los cambios:",
+      "deck": "Usar habilidades modificadas:<br>\"{0}\""
+    },
+    "toggleAction": "Activar la habilidad aplicable",
+    "toggleAllied": {
+      "off": "Finalizar<span class=\"monster-allied-off\">Allied</span> turno",
+      "on": "Iniciar <span class=\"monster-allied-on\">Allied</span> turno"
+    },
+    "toggleAlly": {
+      "off": "Volver a <span class=\"monster-ally-off\">Enemigo</span>",
+      "on": "Cambiar a <span class=\"monster-ally-on\">Aliado</span>"
     }
   },
   "number": {
@@ -883,7 +903,11 @@
     },
     "campaign": {
       ".": "Campaña",
+      "achievements": "Logros Globales",
+      "donations": "Donaciones al Santuario del Gran Roble",
+      "envelopeB": "Sobre B",
       "items": "Desbloquear Objetos",
+      "manage": "Gestión global de campañas",
       "map": "Mapa",
       "players": {
         ".": "Nombres de Jugadores",
@@ -923,7 +947,14 @@
             "action": "Construir",
             "hint": "Contruir (forzar con doble-clic)"
           },
-          "costs": "Costes"
+          "costs": "Costes",
+          "discount": "-1 recurso",
+          "effects": "Efectos",
+          "id": "Número",
+          "interactions": "Interacciones",
+          "level": {
+            ".": "Nivel"
+          }
         },
         "campaignStickers": {
           ".": "Pegatinas de Campaña",
