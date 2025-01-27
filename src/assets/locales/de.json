@@ -282,6 +282,9 @@
     "exportGame": "Spiel in Datei exportieren",
     "exportSettings": "Einstellungen in Datei exportieren",
     "importDataDump": "Datenauszug importieren",
+    "importFile": {
+      ".": "Datei importieren"
+    },
     "importGame": "Spiel aus Datei importieren",
     "importSettings": "Einstellungen aus Datei importieren",
     "removeAllSpoilers": "Alle löschen",
@@ -591,7 +594,7 @@
         "ceil": "(aufgerundet)",
         "floor": "(abgerundet)",
         "max": ", bis zu einem Maximum von %game.number.{0}%",
-        "maxCeil": "(abgerundet), bis zu einem Maximum von %game.number.{0}%",
+        "maxCeil": "(aufgerundet), bis zu einem Maximum von %game.number.{0}%",
         "maxFloor": "(abgerundet), bis zu einem Maximum von %game.number.{0}%",
         "min": ", mindestens aber %game.number.{0}%",
         "minCeil": "(aufgerundet), mindestens aber %game.number.{0}%",
@@ -2109,7 +2112,7 @@
       "hint": "Das Angriffsmodifikatordeck für Monster anzeigen"
     },
     "monsters": {
-      ".": "Monsters",
+      ".": "Monster",
       "hint": "Falls deaktiviert werden keine Monster mehr angezeigt"
     },
     "moveElements": {
@@ -2458,7 +2461,7 @@
         "failure": "Szenario #{0} {1} ({2}) gescheitert",
         "linked": "Szenario #{0} {1} erfolgreich, weiter mit #{3} ({2})",
         "remove": "Entferne Szenario #{0} {1} ({2}) von Erfolgreichen",
-        "restart": "Gescheitertes Szenario  #{0} {1} ({2}) neustarten",
+        "restart": "Gescheitertes Szenario #{0} {1} ({2}) neustarten",
         "success": "Szenario #{0} {1} ({2}) erfolgreich"
       },
       "gameClock": {
@@ -2870,11 +2873,11 @@
       "space": "Leertaste",
       "tab": "↹",
       "toggelTab": "Aktive Figure umschalten währende der Runde / Fokus für Eingabefeld der Initivative umschalten",
-      "toggleAbsent": "<i>Abwesende Figuren ausblenden<i> umschalten",
+      "toggleAbsent": "<i>Abwesende Figuren ausblenden</i> umschalten",
       "toggleDamageHP": "<i>%settings.damageHP%</i> umschalten",
       "toggleElements": "Elementen Status durchschalten",
-      "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen<i> umschalten",
-      "toggleTraits": "<i>Eigenschaften anzeigen<i> umschalten",
+      "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen</i> umschalten",
+      "toggleTraits": "<i>Eigenschaften anzeigen</i> umschalten",
       "undo": "Rückgängig",
       "zoomIn": "Reinzoomen",
       "zoomOut": "Rauszoomen",
