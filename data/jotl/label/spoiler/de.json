@@ -6,7 +6,7 @@
     },
     "jotl-10": {
       ".": "Eisenspeer",
-      "1": "Greife während deiner Einzelziel-Nahkampf-Angriffsfertigkeit einen beliebigen Gegner im Umkreis von 2 Feldern an."
+      "1": "Greife während deiner Einzelziel-Nahkampf-Angriffsfertigkeit einen beliebigen Gegner im Umkreis von 2 Feldern an"
     },
     "jotl-11": {
       ".": "Heiltrank",
@@ -90,7 +90,7 @@
     },
     "jotl-3": {
       ".": "Kettenrüstung",
-      "1": "Erhalte während deines Zugs %game.action.shield% 1 für den Rest der Runde."
+      "1": "Erhalte während deines Zugs %game.action.shield% 1 für den Rest der Runde"
     },
     "jotl-30": {
       ".": "Ring der Eile",
@@ -138,7 +138,7 @@
     },
     "jotl-8": {
       ".": "Wurfhammer",
-      "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.condition.stun% hinzu."
+      "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.condition.stun% hinzu"
     },
     "jotl-9": {
       ".": "Giftdolch",
