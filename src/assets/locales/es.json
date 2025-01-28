@@ -147,7 +147,7 @@
       "notes": "Notas",
       "perks": {
         ".": "Pericias",
-        "extra": "Pericias extra"
+        "extra": "Pericia adicional"
       },
       "personalQuest": {
         ".": "Misión personal",
@@ -156,13 +156,13 @@
           ".": "Abre el sobre %game.fhIcon:envelope% {0}",
           "alt": "Abre el sobre %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
           "building": "Desbloquea el edificio '%data.buildings.{1}%' ({0})",
-          "inspiration": "Gana +1 Inspiración",
-          "itemBlueprint": "Gana \"%data.items.{1}-{0}%\" plano (Item {0})",
+          "inspiration": "Obtén +1 Inspiración",
+          "itemBlueprint": "Obtén \"%data.items.{1}-{0}%\" plano (Item {0})",
           "randomScenario": "Abre %data.section:{0}%, Desbloquea %data.scenarioNumber:{1}%"
         },
         "unlockCharacter": {
           ".": "Abre la caja %game.characterIcon.{0}%",
-          "itemDesign": "Gana \"%data.items.{1}-{0}%\" diseño (Item {0})",
+          "itemDesign": "Obtén \"%data.items.{1}-{0}%\" Diseño (Item {0})",
           "randomScenario": "Desbloquea \"{1}\" %data.scenarioNumber:{0}%"
         }
       },
@@ -181,7 +181,7 @@
         },
         "apply": "Aplicar",
         "conclusion": "Abrir Sección %data.section:{0}%",
-        "events": "Añade el evento de Ciudad {0} y el evento de Carretera{0} a sus respectivos mazos",
+        "events": "Añade el evento de Ciudad {0} y el evento de Camino{0} a sus respectivos mazos",
         "moveSupply": "Mueve los recursos al almacén de Frosthaven",
         "prosperity": "+{0} prosperidad"
       },
@@ -407,7 +407,7 @@
       ".": "Editor de monstruo",
       "new": "Nuevo monstruo",
       "stats": {
-        ".": "­Estadísticas de monstruo",
+        ".": "Atributos de monstruos",
         "addSpecial": "Añadir especial",
         "allLevel": "Todos los Niveles",
         "applyAll": "Aplicar a todos los Niveles",
@@ -417,8 +417,8 @@
         "flying": "Volador",
         "hidden": "Invisible",
         "json": {
-          ".": "Estadísticas de monstruo JSON datos",
-          "download": "Descargar estadísticas de monstruo como archivo JSON"
+          ".": "Atributos de monstruo JSON datos",
+          "download": "Descargar Atributos de monstruo como archivo JSON"
         },
         "levelSelect": "Seleccionar nivel"
       }
@@ -454,7 +454,7 @@
       "pull": "Tirar",
       "push": "Empujar",
       "range": "Alcance",
-      "refreshItem": "Recuperar un objeto",
+      "refreshItem": "Reponer objeto",
       "retaliate": "Represalia",
       "shield": "Escudo",
       "spawn": "Aparición",
@@ -496,17 +496,17 @@
         "cardLabel": "{0}{1} {2}",
         "cards": {
           ".": "cartas",
-          "1": "%número.1%",
-          "2": "%número.2%",
-          "3": "% número.3%",
-          "4": "% número.4%",
-          "5": "% número.5%"
+          "1": "%number.1%",
+          "2": "%number.2%",
+          "3": "%number.3%",
+          "4": "%number.4%",
+          "5": "%number.5%"
         },
         "effects": {
           "recoverRandomDiscard": "Recuperar %game.card.recover% una carta aleatoria de la pila de descartes",
-          "refreshItem": "Recuperar un objeto",
+          "refreshItem": "Reponer un objeto",
           "refreshItemFh": "%game.card.recover% un objeto",
-          "refreshSpentItem": "Recuperar un objeto gastado"
+          "refreshSpentItem": "Reponer un objeto gastado"
         },
         "type": {
           "add": "añade {0}",
@@ -554,7 +554,7 @@
       "lost": "Perdido",
       "persistent": "Bonus continuo",
       "recover": "Recuperar",
-      "refresh": "Recuperar",
+      "refresh": "Reponer",
       "round": "Ronda bonus",
       "slot": "Usar espacio",
       "slotXp": "Utilizar el espacio X Experiencia"
@@ -590,7 +590,7 @@
       },
       "bless": {
         ".": "Bendición",
-        "hint": "%game.conditionIcon.bless% Bendición: Baraja una carta %game.attackmodifier.bless% en el mazo de modificadores de ataque"
+        "hint": "%game.conditionIcon.bless% Bendición: Baraja una carta %game.attackmodifier.bless% en el mazo de Modificadores de Ataque"
       },
       "brittle": {
         ".": "Frágil",
@@ -598,15 +598,15 @@
       },
       "chill": {
         ".": "Enfriado",
-        "hint": "%game.conditionIcon.chill% Enfriado: Gana -1 en todos los movimientos y ataques por cada ficha. Elimina una al final del siguiente turno."
+        "hint": "%game.conditionIcon.chill% Enfriado: Obtén -1 en todos los movimientos y ataques por cada ficha. Elimina una al final del siguiente turno."
       },
       "curse": {
         ".": "Maldición",
-        "hint": "%game.conditionIcon.curse% Maldito: baraja una carta %game.attackmodifier.curse% en el mazo de Modificador de Ataque"
+        "hint": "%game.conditionIcon.curse% Maldición: baraja una carta %game.attackmodifier.curse% en el mazo de Modificador de Ataques"
       },
       "disarm": {
         ".": "Desarme",
-        "hint": "%game.conditionIcon.disarm% Desarmado: no puede atacar. Elimínalo al final del siguiente turno."
+        "hint": "%game.conditionIcon.disarm% Desarme: no puede atacar. Elimínalo al final del siguiente turno."
       },
       "dodge": {
         ".": "Esquivar",
@@ -626,11 +626,11 @@
       },
       "immobilize": {
         ".": "Inmovilización",
-        "hint": "%game.conditionIcon.immobilize% Inmovilizado: no se puede mover. Eliminar en el próximo turno."
+        "hint": "%game.conditionIcon.immobilize% Inmovilización: no se puede mover. Eliminar en el próximo turno."
       },
       "immune": {
         ".": "Inmune",
-        "hint": "Inmune al estado"
+        "hint": "Inmune a estado"
       },
       "impair": {
         ".": "Impedido",
@@ -646,11 +646,11 @@
       },
       "muddle": {
         ".": "Confusión",
-        "hint": "%game.conditionIcon.muddle% Confundido: Desventaja en todos los ataques. Eliminar al final del siguiente turno."
+        "hint": "%game.conditionIcon.muddle% Confusión: Desventaja en todos los ataques. Eliminar al final del siguiente turno."
       },
       "permanent": {
-        ".": "Permanente",
-        "hint": "Estado permanente"
+        ".": "Continuo",
+        "hint": "Estado continuo"
       },
       "poison": {
         ".": "Veneno",
@@ -669,12 +669,12 @@
         "hint": "%game.conditionIcon.rupture% Ruptura: Al realizar movimiento sufre %game.damage:1%. Se elimina al curarse."
       },
       "strengthen": {
-        ".": "Fortaleza",
-        "hint": "%game.conditionIcon.strengthen% Fortaleza: Ventaja en todos los ataques. Elimínalo al final del siguiente turno."
+        ".": "Fortalecimiento",
+        "hint": "%game.conditionIcon.strengthen% Fortalecimiento: Ventaja en todos los ataques. Elimínalo al final del siguiente turno."
       },
       "stun": {
         ".": "Aturdimiento",
-        "hint": "%game.conditionIcon.stun% Aturdido: No puedes realizar habilidades ni usar o activar objetos. Se elimina al final del siguiente turno."
+        "hint": "%game.conditionIcon.stun% Aturdimiento: No puedes realizar habilidades ni usar o activar objetos. Se elimina al final del siguiente turno."
       },
       "ward": {
         ".": "Protegido",
@@ -691,7 +691,7 @@
     },
     "custom": {
       "advantage": "Ventaja",
-      "disadvantage": "Atacantes ganan Desventaja",
+      "disadvantage": "Atacantes obtienen Desventaja",
       "instead": "En cambio",
       "math": {
         "ceil": "(Redondeado hacia arriba)",
@@ -707,7 +707,7 @@
       "perks": {
         "addTarget": "Añade objetivo",
         "addTargets": "Añade {0} objetivos",
-        "ignoreNegativeItem": "Ignora los efectos negativos de objetos",
+        "ignoreNegativeItem": "Ignora los efectos negativos de los objetos",
         "ignoreNegativeItemFh": "Ignora efectos de objetos %game.card.minus1%",
         "ignoreNegativeScenario": "Ignora los efectos negativos del Escenario",
         "ignoreScenario": "Ignora efectos de Escenario"
@@ -724,7 +724,7 @@
       "ice": "Hielo",
       "light": "Luz",
       "state": {
-        "always": "permanente",
+        "always": "continuo",
         "consumed": "consumido",
         "inert": "inerte",
         "new": "fuerte",
@@ -759,7 +759,7 @@
         "experience": "Obtén {0} experiencia cada uno.",
         "globalAchievement": "Logro global: \"{0}\".",
         "gold": "Obtén {0} oro cada uno.",
-        "itemDesign": "Obtén \"%data.items.{1}-{0}%\" diseño (Item {0}).",
+        "itemDesign": "Obtén \"%data.items.{1}-{0}%\" Diseño (Item {0}).",
         "loseBattleGoal": "Pierde {0} %game.checkmark% cada uno.",
         "loseCollectiveGold": "Pierde {0} oro colectivo.",
         "loseGold": "Pierde {0} oro cada uno.",
@@ -768,7 +768,7 @@
         "outcome": "Lee outome %game.events.option.{0}%.",
         "partyAchievement": "Logo de grupo: \"{0}\".",
         "prosperity": "Obtén {0} prosperidad.",
-        "randomItemDesign": "Obtén diseño de objeto aleatorio.",
+        "randomItemDesign": "Obtén un Diseño de objeto aleatorio.",
         "reputation": "Obtén {0} reputación..",
         "scenario": "Desbloquea \"{1}\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Todos empezáis el escenario con %game.condition.{0}%.",
@@ -777,7 +777,7 @@
       },
       "type": {
         "city": "Ciudad",
-        "road": "Carretera"
+        "road": "Camino"
       }
     },
     "exhausted": "Agotado",
@@ -798,17 +798,17 @@
           "hint": "¡Tipo de Monstruo actual {3} no encontrado para '%data.{0}.{1}%'! Por favor, comprueba los datos del monstruo (Edición: %data.edition.{2}%)."
         },
         "stat": {
-          ".": "Faltan estadísticas",
-          "hint": "¡Faltan estadísticas de {3} nivel {4} para %{0}% '%data.{0}.{1}%'! Comprueba los datos de la cifra (Edición: %data.edition.{2}%)."
+          ".": "Faltan Atributos",
+          "hint": "¡Faltan atributos de {3} nivel {4} para %{0}% '%data.{0}.{1}%'! Comprueba los datos de la cifra (Edición: %data.edition.{2}%)."
         },
         "unknown": {
           ".": "Figura desconocida",
           "hint": "¡No se han encontrado datos para %{0}% '%data.{0}.{1}%'! Compruebe los datos de edición (Edición: %data.edition.{2}%)."
         }
       },
-      "longRest": "Establecer Descanso Largo",
-      "longRestOff": "Desactivar Descanso Largo",
-      "setInitiative": "Indicar iniciativa",
+      "longRest": "Realizar Descanso largo",
+      "longRestOff": "Desactivar Descanso largo",
+      "setInitiative": "Introduce iniciativa",
       "startTurn": "Inicio de turno"
     },
     "health": "Puntos de Vida",
@@ -877,10 +877,10 @@
           "4": "Muy difícil"
         }
       },
-      "experience": "Bonificación de experiencia",
+      "experience": "Experiencia extra",
       "hazardousTerrain": "Daño por terreno peligroso",
       "loot": "Conversión de oro",
-      "trap": "Daño de trampas"
+      "trap": "Daño de las trampas"
     },
     "loot": {
       ".": "Botín",
@@ -933,7 +933,7 @@
       "treasures": {
         ".": "Tesoros",
         "rewards": {
-          "battleGoal": "gana {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "battleGoal": "Obtén {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
           "calendarSection": "añade %data.section:{0}% in %number.{1}% semanas",
           "campaignSticker": "Adquiere \"{0}\" pegatina de campaña",
           "condition": "adquiere {0}",
@@ -941,23 +941,23 @@
           "event": {
             "city": "añade el Evento de Ciudad {0} a su mazo",
             "rift": "Añade evento Rift {0} al mazo",
-            "road": "Añade el Evento de Carretera {0} a su mazo"
+            "road": "Añade el Evento de Camino {0} a su mazo"
           },
-          "experience": "Gana {0} experiencia",
-          "experienceFh": "Gana {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "experience": "Obtén {0} experiencia",
+          "experienceFh": "Obtén {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
           "goal": "Objetivo",
-          "gold": "Gana {0} oro",
-          "goldFh": "Gana {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "gold": "Obtén {0} oro",
+          "goldFh": "Obtén {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "Realiza \"Curación {0}, Personal\"",
-          "item": "gana {1} ({0})",
-          "itemBlueprint": "gana {1} receta %game.itemFh.{0}%",
-          "itemDesign": "gana {1} diseño ({0})",
-          "itemFh": "gana {1} %game.itemFh.{0}%",
-          "loot": "gana {0} fichas de dinero",
-          "lootCards": "gana %number.{0}% cartas de botín",
+          "item": "Obtén {1} ({0})",
+          "itemBlueprint": "Obtén {1} receta %game.itemFh.{0}%",
+          "itemDesign": "obtén {1} Diseño ({0})",
+          "itemFh": "Obtén {1} %game.itemFh.{0}%",
+          "loot": "Obtén {0} fichas de dinero",
+          "lootCards": "Obtén %number.{0}% cartas de botín",
           "partyAchievement": "Logro de Grupo: \"{0}\"",
           "randomItem": {
-            ".": "Gana un objeto aleatorio (Items {0})",
+            ".": "Obtén un objeto aleatorio (Items {0})",
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
@@ -976,7 +976,7 @@
             ".": "Escenario secundario aleatorio",
             "result": ": Abre %data.section:{0}%, desbloquea {2}"
           },
-          "resource": "gana {0}",
+          "resource": "Obtén {0}",
           "scenario": "Nuevo Escenario: {1} %data.scenarioNumber:{0}%"
         }
       }
@@ -1044,7 +1044,7 @@
     "addMonsterEntities": "Usa el botón \"+\" para generar monstruos.",
     "addMonsters": "%monster.add%",
     "draw": "Clic \"%round.draw%\"",
-    "draw-full": "Elige las cartas de habilidad de los personajes, fija la iniciativa, haz clic \"%round.draw%\".",
+    "draw-full": "Elige las cartas de habilidad de los personajes, indica la iniciativa y haz clic \"%round.draw%\".",
     "draw-short": "Establecer iniciativa, haz clic en \"%round.draw%\"",
     "next": "Clic \"%round.next%\"",
     "setScenario": "%scenario.set%"
@@ -1336,7 +1336,7 @@
     "hasAll": "Conceder todos los Permisos",
     "level": {
       ".": "Nivel",
-      "hint": "Cambiar nivel del Escenario"
+      "hint": "Cambiar nivel del escenario"
     },
     "lootDeck": {
       ".": "Mazo de botín",
@@ -1375,7 +1375,7 @@
       "empty": "Por favor, añade monstruos y personajes antes de la ronda.",
       "failed": "Todos los personajes parecen agotados. ¿Quieres reiniciar el escenario?",
       "finish": "No quedan monstruos. Has superado con éxito el escenario?",
-      "missingInitiative": "Indica la iniciativa para todas las figuras."
+      "missingInitiative": "¡Introduce la iniciativa de todas las figuras!"
     },
     "next": "Siguiente Ronda"
   },
@@ -1484,28 +1484,28 @@
         }
       },
       "campaignSticker": "Pegatina de Campaña",
-      "chooseItem": "Elige para ganar uno de los siguientes",
+      "chooseItem": "Elige para obtener uno de los siguientes",
       "chooseLocation": "Elige para desbloquear uno de los siguientes",
       "collectiveGold": "{0} oro colectivo",
-      "collectiveResources": "Gana {1} %game.resource.{0}% colectivo",
+      "collectiveResources": "Obtén {1} %game.resource.{0}% colectivo",
       "collectiveResourcesLose": "Pierde {1} %game.resource.{0}% colectivo",
       "envelope": "Abre el sobre {0}",
       "event": {
         "boat": "Añade el evento {0} al mazo de Navegación",
         "city": "Añade el Evento de Ciudad {0} a su mazo",
         "rift": "Añade el Evento de Grieta {0} a su mazo",
-        "road": "Añade el Evento de Carretera {0} a su mazo",
+        "road": "Añade el Evento de Camino {0} a su mazo",
         "summer-outpost": "Añade el evento {0} al mazo de Verano del Puesto de Avanzada",
-        "summer-road": "Añade el evento {0} al mazo de verano de Carretera",
+        "summer-road": "Añade el evento {0} al mazo de verano de Camino",
         "winter-outpost": "Añade el Eventl {0} al mazo de invierno del Puesto de Avanzada",
-        "winter-road": "Añade el Evento {0} al mazo de invierno de Carretera"
+        "winter-road": "Añade el Evento {0} al mazo de invierno de Camino"
       },
       "experience": "{0} experiencia cada personaje",
       "globalAchievements": "Logros Globales",
       "gold": "{0} oro cada personaje",
       "inspiration": "{0} inspiración",
       "item": "\"{1}\" (Objeto {0})",
-      "itemBlueprint": "Gana \"{1}\" %game.itemFh.{0}% receta",
+      "itemBlueprint": "Obtén \"{1}\" %game.itemFh.{0}% receta",
       "itemBlueprintRange": "Añade el objeto %game.itemFh.{0}% a %game.itemFh.{1}% la reserva de objetos disponibles.",
       "itemDesign": "\"{1}\" diseño (Objeto {0})",
       "itemDesignEdition": "\"{1}\" diseño (Objeto {0} %data.edition.{2}%)",
@@ -1519,21 +1519,21 @@
       "overlayCampaignSticker": "Coloca \"%data.campaignSticker.{0}%\" la pegatina de campaña en el mapa de la ciudad en la ubicación {1}",
       "overlaySticker": "Coloca la pegatina de mapa superpuesto {0} en la ubicación {0} ({1}).",
       "partyAchievements": "Logros de Grupo",
-      "perks": "Gana {0} pericias cada uno",
+      "perks": "Obtener {0} pericias cada uno",
       "pet": "Añade %data.pets.{1}-{0}% (Pet {0}) a los establos. No puede superar la capacidad de estos.",
       "prosperity": "{0} prosperidad",
-      "randomItemBlueprint": "Gana una receta de objeto aleatoria",
+      "randomItemBlueprint": "Obtén una receta de objeto aleatoria",
       "randomItemBlueprints": "Añade los objetos %game.itemFh.{0}% a %game.itemFh.{1}% el mazo aleatorio de recetas.",
       "randomItems": "Cada personaje obtiene un objeto aleatorio ({0}-{1})",
       "removeEvent": {
         "boat": "Elimina el evento {0} del mazo de navegación",
         "city": "Elimina el evento de Ciudad {0} del mazo",
         "rift": "Elimina el evento de Grieta {0} del mazo",
-        "road": "Elimina el Evento de Carretera {0} del mazo",
+        "road": "Elimina el Evento de Camino {0} del mazo",
         "summer-outpost": "Elimina el evento {0} del mazo de verano del Puesto de Avanzada",
-        "summer-road": "Elimina el evento {0} del mazo de verano de Carretera",
+        "summer-road": "Elimina el evento {0} del mazo de verano de Camino",
         "winter-outpost": "Elimina el evento {0} del mazo de invierno del Puesto de Avanzada",
-        "winter-road": "Elimina el evento {0} del mazo de invierno de Carretera"
+        "winter-road": "Elimina el evento {0} del mazo de invierno de Camino"
       },
       "removeLootDeckCard": "Elimina la carta de botín {0} del juego. No la añadas más a ningún mazo de botín de cualquier Escenario.",
       "reputation": "{0} reputación",
@@ -1568,10 +1568,10 @@
         "discardAbilityToBottom": "Coloca una habilidad en el fondo de la pila de descartes para {0}",
         "dormant": "{0} se vuelven inactivos",
         "drawAbility": "Roba otra carta de habilidad para {0}",
-        "gainCondition": "{0} gana %game.condition.{1}%",
+        "gainCondition": "{0} obtén %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} pierde %game.condition.{1}%",
-        "permanentCondition": "{0} gana permanentemente %game.condition.{1}%",
+        "permanentCondition": "{0} obtiene continuo %game.condition.{1}%",
         "remove": "Eliminar {0}",
         "scenarioEffect": "como efecto de escenario",
         "setAbility": "Pon la carta de habilidad de {0} a \"{1}\"",
@@ -1584,7 +1584,7 @@
       "finish": {
         "lost": "¡Escenario perdido!",
         "round": "¡Siguiente ronda!",
-        "won": "¡Escenario ganado!"
+        "won": "¡Escenario superado!"
       },
       "finishWithConclusion": "Finalizar escenario con #{0} {1}",
       "hide": "No mostrar de nuevo",
@@ -1638,9 +1638,9 @@
     "setup": {
       ".": "Configuración de Escenario",
       "abilities": "Habilidades",
-      "detailed": "Mostrar estadísticas detalladas de Monstruos",
+      "detailed": "Mostrar atributos detallados de Monstruos",
       "spoiler": "Spoiler",
-      "stats": "Estadísticas de Monstruos"
+      "stats": "Atributos de Monstruos"
     },
     "showAllSections": "Mostras todas las Secciones",
     "stats": {
@@ -1714,7 +1714,7 @@
       },
       "xp": {
         ".": "%game.gameIcon:experience%: {0}",
-        "hint": "Cantidad de %game.gameIcon:experience% experiencia ganada"
+        "hint": "Cantidad de %game.gameIcon:experience% experiencia obtenida"
       }
     },
     "summary": {
@@ -1722,7 +1722,7 @@
       "alreadyWarning": {
         ".": "Ya finalizado",
         "hint": "El escenario ya se ha finalizado con éxito en el modo campaña, no se conceden recompensas.",
-        "ignore": "¡Gana recompensas igualmente!",
+        "ignore": "¡Obtener recompensas igualmente!",
         "reapply": "Eliminar recompensas"
       },
       "apply": "Finalizar",
@@ -1732,7 +1732,7 @@
         "campaignRewards": "Habilitar recompensas de Campaña",
         "fh": "Modo Casual de Frosthaven",
         "hintFh": "En el modo casual de Frosthaven, se ignoran todos los efectos de la campaña. No se resuelve ningún evento, no pasa el tiempo, y el grupo no gana experiencia, botín, tesoros, marcas de verificación, progreso en misiones personales, recompensas, desbloqueables, etc.",
-        "ignore": "¡Gana recompensas igualmente!",
+        "ignore": "¡Obtener recompensas igualmente!",
         "reapply": "Volver al modo casual"
       },
       "challenges": {
@@ -1752,7 +1752,7 @@
       "links": "Continuar con el escenario enlazado",
       "loot": "Botín",
       "name": "%character%",
-      "perksUp": "Ganar nueva perícia",
+      "perksUp": "Obtén una nueva perícia",
       "randomItem": "Objeto aleatorio",
       "randomItemLooted": "Objeto aleatorio obtenido",
       "randomItems": "Objetos aleatorios",
@@ -1772,7 +1772,7 @@
       "xp": "Exp.",
       "xpBonus": "Bonus de Exp.",
       "xpChallenges": "Experiencia de desafíos",
-      "xpGained": "Exp. Ganada"
+      "xpGained": "Exp. obtenida"
     },
     "title": "Título",
     "tooltip": {
@@ -1944,8 +1944,8 @@
       }
     },
     "applyLongRest": {
-      ".": "Aplicar Descanso Largo",
-      "hint": "Realiza automáticamente %game.action.heal% 2 en el turno de un personaje en Descanso Largo."
+      ".": "Aplicar Descanso largo",
+      "hint": "Realiza automáticamente %game.action.heal% 2 en el turno de un personaje en Descanso largo."
     },
     "applyLoot": {
       ".": "Aplicar botín al personaje",
@@ -2040,7 +2040,7 @@
       "hint": "Usar el límite estándar de 4 peanas para todos los monstruos. Si se desactiva permite añadir hasta 10 peanas."
     },
     "bonusAdjustment": {
-      ".": "Ajuste de las bonificaciones de nivel"
+      ".": "Cambiar las bonificaciones por nivel"
     },
     "browserNavigation": {
       ".": "Deshacer/Rehacer con navegación",
@@ -2056,7 +2056,7 @@
     },
     "calculateStats": {
       ".": "Añadir valores de las estadísticas a las habilidades",
-      "hint": "Los valores por defecto de las estadísticas se añaden al valor de la habilidad, por ejemplo, un valor de Rango se añade automáticamente a la habilidad de Ataque"
+      "hint": "Los valores por defecto de los atributos se añaden al valor de la habilidad, por ejemplo, un valor de Rango se añade automáticamente a la habilidad de Ataque"
     },
     "character": "Personaje",
     "characterAttackModifierAnimate": {
@@ -2101,11 +2101,11 @@
     },
     "characterItemsPermanent": {
       ".": "Objetos permanentes",
-      "hint": "Mostrar objetos de forma permanentes bajo los personajes."
+      "hint": "Mostrar objetos de forma permanente bajo los personajes."
     },
     "characterItemsPermanentActive": {
       ".": "Activación Auto. Objetos",
-      "hint": "Fija automáticamente los objetos permanentes del personaje activo."
+      "hint": "Fija automáticamente los objetos continuos del personaje activo."
     },
     "characterSheet": {
       ".": "Hojas de Personajes",
@@ -2229,7 +2229,7 @@
     "fontsize": {
       ".": "Tamaño fuente habilidades",
       "dec": "Reducir tamaño fuente habilidades",
-      "hint": "Ajustar tamaño de fuente de las cartas de habilidades y estadísticas",
+      "hint": "Ajustar tamaño de fuente de las cartas de habilidades y atributos",
       "inc": "Aumentar tamaño fuente habilidades",
       "reset": "Reiniciar tamaño fuente habilidades"
     },
@@ -2286,10 +2286,10 @@
     },
     "interface": "Interfaz",
     "levelAdjustment": {
-      ".": "Ajuste del nivel del Escenario"
+      ".": "Cambiar el nivel del escenario"
     },
     "levelCalculation": {
-      ".": "Nivel del Escenario automático"
+      ".": "Nivel del escenario automático"
     },
     "locale": {
       ".": "Idioma",
@@ -2405,12 +2405,12 @@
       "hint": "Muestra las peanas. Si se desactiva, desbloquear salas y las peanas automaticas también se desactivarán."
     },
     "statAnimations": {
-      ".": "Animación de estadísticas",
-      "hint": "Activa la animación para resaltar estadísticas como %game.action.shield% o %game.action.retaliate%."
+      ".": "Animación de atributos",
+      "hint": "Activa la animación para resaltar los atributos como %game.action.shield% o %game.action.retaliate%."
     },
     "stats": {
-      ".": "Cartas de estadísticas",
-      "hint": "Muestra las cartas de estadísticas de los monstruos."
+      ".": "Cartas de atributos",
+      "hint": "Muestra las cartas de atributos de los monstruos."
     },
     "summons": {
       ".": "Invocaciones de Personajes",
@@ -2636,10 +2636,10 @@
         "persistend": "{0} objeto no persistente {1} \"{3}\"",
         "slot": "{0} ranura sin marcar en el artículo {1} \"{3}\"",
         "slotBack": "{0} ranura marcada en el artículo {1} \"{3}\"",
-        "spent": "{0} objeto renovado {1} \"{3}\""
+        "spent": "{0} objeto repuesto {1} \"{3}\""
       },
-      "characterLongRest": "Fijar Descanso Largo para {0}",
-      "characterLongRestOff": "Desactivar Descanso Largo para {0}",
+      "characterLongRest": "Fijar Descanso largo para {0}",
+      "characterLongRestOff": "Desactivar Descanso largo para {0}",
       "characterReplay": "Juega {0} otra vez para el jugador {1}",
       "characterSetAside": "Pon {0} a un lado para el jugador {1}",
       "clearDiscardedScenarioRules": "Borrar las reglas de escenario descartadas",
@@ -3042,9 +3042,9 @@
             "subject": "Feedback General"
           },
           "monsterStat": {
-            ".": "Estadísticas monstruo",
-            "hint": "Valores incorrectos en estadísticas de monstruo.",
-            "subject": "Encontré un problema en las Estadísticas de un monstruo"
+            ".": "Atributos de monstruo",
+            "hint": "Valores incorrectos en los atributos del monstruo.",
+            "subject": "Encontré un problema en los atributos de un monstruo"
           },
           "software": {
             ".": "Software",
