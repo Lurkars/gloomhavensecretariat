@@ -7,7 +7,7 @@
     "sourceCode": "Código fuente",
     "support": "Apoya al desarollador",
     "version": {
-      "latest": "Última",
+      "latest": "Última versión",
       "unknown": "No se pudo obtener la última versión",
       "update": "La última versión és: <a target=\"_blank\" href=\"{1}\">{0}</a>"
     }
@@ -130,7 +130,7 @@
     "present": "Regalo",
     "progress": {
       ".": "Hoja de Personaje",
-      "donate": "Donaciones",
+      "donate": "Donar",
       "donations": "Donaciones al Santuario del Gran Roble: {0}",
       "export": "Exportar",
       "fh": {
@@ -222,7 +222,7 @@
       ".": "Backups de Juego",
       "all": "Descargar todas las Backups de juegos ({0})",
       "auto": {
-        ".": "Backups Automaticas",
+        ".": "Backups automáticas",
         "count": "Cada (x) acciones",
         "countHint": "Número de acciones entre Backups automáticas",
         "onFinish": "Tras finalizar el Escenario",
@@ -542,11 +542,11 @@
       "chosen": "Objetivo de batalla para %game.characterIconColored.{0}% {1}",
       "drawCard": "Robar otra carta",
       "drawCards": "Cartas de recompensa",
-      "drawUnavailable": "¡Se han robado todos los Objetivos de Batalla!",
+      "drawUnavailable": "¡Se han robado todos los Objetivos de batalla!",
       "edition": "%data.edition.{0}% Cartas",
       "setup": {
-        ".": "Establecer objetivos de batalla",
-        "empty": "No hay Cartas de Objetivos de Batalla seleccionadas."
+        ".": "Establecer Objetivos de batalla",
+        "empty": "No hay Cartas de Objetivos de batalla seleccionadas."
       }
     },
     "card": {
@@ -1139,7 +1139,7 @@
       "empty": "No se ha encontrado Logro Global"
     },
     "addPartyAchievement": {
-      ".": "Añadir Logro Grupo",
+      ".": "Añadir logro de grupo",
       "empty": "No se ha encontrado Logro Global de Grupo"
     },
     "campaign": {
@@ -1177,7 +1177,7 @@
         "removeManual": "Eliminar de Desbloqueados",
         "removeSuccess": "Eliminar de Superado",
         "removeSuccessCasual": "Eliminar de los escenarios casuales completados",
-        "unlock": "Desbloquear Escenario"
+        "unlock": "Desbloquear escenario"
       },
       "sheet": {
         ".": "Hoja de Campaña",
@@ -1244,7 +1244,7 @@
         "defense": "Defensa",
         "disable": "Ir a la hoja de grupo de Gloomhaven",
         "enable": "Ir a la Hoja de Campaña de Frosthaven",
-        "name": "Nombre del grupo",
+        "name": "Nombre",
         "nextWeek": "Siguiente semana (nuevo calendario)",
         "soldierLevel": "Nivel",
         "soldiers": "SOLDADOS",
@@ -1283,7 +1283,7 @@
     "export": "Exportar",
     "import": "Importar",
     "inspiration": "Inspiración",
-    "location": "Localización",
+    "location": "Ubicación",
     "morale": "Moral",
     "name": "Nombre",
     "new": {
@@ -1303,7 +1303,7 @@
     "reputation": "Reputación",
     "sheet": "Hoja de grupo",
     "shop": {
-      ".": "Modificar Precio de la tienda",
+      ".": "Modificar precio",
       "none": "Vacío"
     }
   },
@@ -1364,7 +1364,7 @@
     "draw": "Robar",
     "hint": {
       "active": "No todas las figuras han finalizado aún. ¿Terminar la ronda igualmente?",
-      "battleGoals": "No todos los Personajes han elegido Objetivos de Batalla. ¿Empezar la ronda igualmente?",
+      "battleGoals": "No todos los Personajes han elegido Objetivos de batalla. ¿Quieres empezar la ronda igualmente?",
       "confirm": "Confirmar",
       "confirmFailed": "Finalizar el escenario como fracasado",
       "confirmFinish": "Finalizar el escenario con un completado",
@@ -1435,8 +1435,8 @@
     "level": "Nivel {0}",
     "locked": "Requisitos que faltan",
     "manual": {
-      "add": "Desbloquear Escenario",
-      "index": "Número de Escenario, separados por comas"
+      "add": "Desbloquear escenario",
+      "index": "Núm. escenario, separa con comas"
     },
     "openRoom": "Abrir puerta",
     "openRoomMarker": "Abrir puerta %game.mapMarker.{1}%",
@@ -1462,7 +1462,7 @@
       "partyCount": "'{0}' (Grupo)x{2} COMPLETADO  (obtén{1})",
       "partyMissing": "'{0}' (Grupo) NO COMPLETADO",
       "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Nivel 5 o superior",
-      "start": "Empezar Escenario igualmente"
+      "start": "Empezar igualmente"
     },
     "reset": "Reiniciar Escenario",
     "rewards": {
@@ -1644,7 +1644,7 @@
     },
     "showAllSections": "Mostras todas las Secciones",
     "stats": {
-      ".": "Estadísticas del Escenario",
+      ".": "Estadísticas de escenario",
       "bossKills": {
         ".": "%game.monsterType.boss%: {0}",
         "hint": "Cantidad de %game.monsterType.boss% monstruos muertos"
@@ -1704,8 +1704,8 @@
       "progress": "Botín, Exp.",
       "scenarios": "Escenarios",
       "toggle": {
-        "hide": "Ocultar estadísticas del Escenario",
-        "show": "Mostrar estadísticas del Escenario"
+        "hide": "Ocultar estadísticas de Escenario",
+        "show": "Mostrar estadísticas de Escenario"
       },
       "total": "Total",
       "treasures": {
@@ -1807,7 +1807,7 @@
     "info": {
       ".": "Información",
       "description": "Descripción",
-      "location": "Localización",
+      "location": "Ubicación",
       "privacy": "Política de privacidad",
       "status": "Página de estado",
       "version": {
@@ -1831,7 +1831,7 @@
     "reconnect": "Reconectar",
     "settings": {
       ".": "Sincronizar Ajustes",
-      "hint": "Sincroniza además del juego también los ajustes de todos los clientes utilizando esta opción. Es cierto que <b>no</b> todos los ajustes se sincronizarán, como algunas opciones para los efectos visuales o la interfaz."
+      "hint": "Utilizando esta opción, sincroniza, además del juego, todos los ajustes de los clientes. Ten en cuenta que <b>no</b> todos los ajustes se sincronizarán, como algunas opciones para los efectos visuales o la interfaz."
     },
     "undefined": "Conexión no especificada",
     "url": "Host",
@@ -1867,7 +1867,7 @@
         }
       },
       "hint": {
-        ".": "Ciertos Estados requieren confirmación para ser aplicados, por ejemplo cuando reduces los puntos de vida con Veneno, confirma para perder 1PV adicional.",
+        ".": "Ciertos Estados requieren confirmación manual para ser aplicados, por ejemplo cuando reduces los puntos de vida con Veneno, confirma para perder 1 PV adicional. ",
         "brittle": "Al sufrir daño, preguntar para aplicar %game.condition.brittle% e incrementar el daño.",
         "heal": "No es un Estado, pero preguntará si %game.action.heal% debe aplicarse cuando se aumentan los puntos de vida.",
         "poison": "Cuando sufras daño, pregunta para aplicar %game.action.attack% +1 de %game.condition.poison% (Incluido %game.attackmodifier.double%).",
@@ -1877,8 +1877,8 @@
       }
     },
     "activeStandees": {
-      ".": "Peanas ativas",
-      "hint": "En el turno de los monstruos, cada peana tiene un estado activo, haz doble clic en la peana para marcarlo como hecho"
+      ".": "Peanas activas",
+      "hint": "En el turno de los monstruos, cada peana tiene un estado activo, haz doble clic en la peana para marcarlo como realizado"
     },
     "activeSummons": {
       ".": "Activar Invocaciones",
@@ -1886,7 +1886,7 @@
     },
     "addAllMonsters": {
       ".": "Añadir para todas las salas/secciones",
-      "hint": "Esto añadirá automáticamente todos los monstruos que aparezcan en el escenario. Por favor, ten en cuenta que esto puede estropear salas/secciones no reveladas."
+      "hint": "Esta opción añadirá automáticamente todos los monstruos que del escenario. Ten en cuenta que esto puede estropear salas/secciones no reveladas."
     },
     "additional": "Jugabilidad adicional",
     "allyAttackModifierDeck": {
@@ -1927,7 +1927,7 @@
     },
     "animations": {
       ".": "Animaciones",
-      "hint": "Desactiva todas las animaciones para mejorar el rendimiento"
+      "hint": "Desactiva todas las animaciones, esta opción permite mejorar el rendimiento"
     },
     "applyBuildingRewards": {
       ".": "Aplicar bonificaciones de construcción",
@@ -1936,7 +1936,7 @@
     "applyConditions": {
       ".": "Aplicar automaticamente Estados",
       "hint": {
-        ".": "Las Estados correspondientes se aplican automáticamente antes y después del turno, por ejemplo, cuando la entidad está herida perderá 1 punto de vida al inicio de su ronda.",
+        ".": "Las Estados que correspondan se aplican de forma automática antes y después de los turnos, por ejemplo, cuando una figura esté Herida perderá 1 punto de vida al inicio de su turno.",
         "bane": "Aplica automáticamente el daño de %game.condition.bane% a finalizar el turno.",
         "regenerate": "Aplica automáticamente %game.condition.regenerate% al inicio del turno.",
         "wound": "Aplica automáticamente el daño de %game.condition.wound% al finalizar el turno.",
@@ -1965,7 +1965,7 @@
     },
     "automaticAttackModifierFullscreen": {
       ".": "Mazo MA pantalla completa",
-      "hint": "Abrir el Mazo de Modificadores de Ataque (y también el Mazo de Botín) a pantalla completa en dispositivos pequeños."
+      "hint": "Abre el mazo de Modificadores de Ataque (y también el Mazo de Botín) a pantalla completa en dispositivos con pequeños."
     },
     "automaticGameClock": {
       ".": "Reloj de juego automático",
@@ -2012,11 +2012,11 @@
     },
     "battleGoals": {
       ".": "Objetivos de batalla",
-      "hint": "Permitir robar y seleccionar Objetivos de batalla antes de la primera ronda de un escenario."
+      "hint": "Permitir robar y seleccionar Objetivos de batalla en formato digital antes de la primera ronda de un escenario."
     },
     "battleGoalsCharacter": {
-      ".": "Mostrar siempre Objetivos de batalla",
-      "hint": "Mostrar siempre el menú de Objetivos de Batalla en el personaje. Esto se activa automáticamente si el modificador de ataque del personaje está desactivado para seguir accediendo al menú de objetivos de batalla."
+      ".": "Mostrar siempre los Objetivos de batalla",
+      "hint": "Muestra siempre el menú de Objetivos de Batalla en el personaje. Esta opción se activa de manera automática si el uso del mazo de Modificador de Ataque del personaje está desactivado para poder seguir accediendo al menú de Objetivos de batalla."
     },
     "battleGoalsFh": {
       ".": "Roba siempre 3 objetivos de Batalla",
@@ -2064,8 +2064,8 @@
       "hint": "Muestra una animación de robo si se roba un modificador de ataque de un mazo de modificadores de ataque de un personaje."
     },
     "characterAttackModifierDeck": {
-      ".": "Mazo de Modificador de ataque de Personajes",
-      "hint": "Habilitar Mazo de Modificadores de Ataque para Personajes. Para usar pericias la Hoja de Personaje debe estar habilitada."
+      ".": "Mazo de Modificador de Ataque de personajes",
+      "hint": "Activa el mazo de Modificadores de Ataque en formato digital para los personajes activos. Mejóralos mediante pericias a través de la Hoja de Personaje (debe estar habilitada)."
     },
     "characterAttackModifierDeckPermanent": {
       ".": "Mazo MA permanente de personajes",
@@ -2109,11 +2109,11 @@
     },
     "characterSheet": {
       ".": "Hojas de Personajes",
-      "hint": "Activa la Hoja de Personaje. Para abrirla, haz clic en el icono del personaje grande de la derecha."
+      "hint": "Activa la Hoja de Personaje. Para abrirla, haz clic en el icono grande del personaje a la derecha."
     },
     "characterSheetCompact": {
       ".": "Hojas de Personajes Compactas (%wip%)",
-      "hint": "Mostrar hojas de personaje más compactas que no utilicen el diseño original de las hojas de personaje."
+      "hint": "Utiliza Hojas de Personaje más compactas que no utilicen el diseño original de las hojas de personaje."
     },
     "characterShieldRetaliate": {
       ".": "Escudo y represalia",
@@ -2207,8 +2207,8 @@
       "hint": "Algunos cambios entre la primera y la segunda impresión de Frosthaven no pueden establecerse automáticamente. Por lo tanto, compruébalo si utilizas la segunda impresión de Frosthaven."
     },
     "fhStyle": {
-      ".": "Estilo de Frosthaven",
-      "hint": "Muestra acciones, habilidades e iconos en el nuevo estilo Frosthaven, activa automáticamente el tema Frosthaven."
+      ".": "Estilo Frosthaven",
+      "hint": "Muestra acciones, habilidades e iconos en el nuevo estilo gráfico de Frosthaven, activa automáticamente el tema Frosthaven."
     },
     "fhTrials": {
       ".": "Soporte para Pruebas",
@@ -2277,7 +2277,7 @@
       "hint": "Mostrar accesos directos y sugerencias junto al menú principal"
     },
     "initiativeRequired": {
-      ".": "Iniciativa obligatoria",
+      ".": "Requerir Iniciativa",
       "hint": "Si no está marcada, el orden de la ronda debe establecerse manualmente mediante arrastrar y soltar."
     },
     "interactiveAbilities": {
@@ -2321,16 +2321,16 @@
       "hint": "Si se desactiva, no se muestra ningún monstruo."
     },
     "moveElements": {
-      ".": "Actualización automática del estado de los elementos",
-      "hint": "El estado del elemento se cambia automáticamente antes de cada ronda."
+      ".": "Elementos automáticos",
+      "hint": "El estado de los elementos cambia de forma automática antes del inicio de cada ronda. "
     },
     "partySheet": {
       ".": "Hoja de grupo",
-      "hint": "Activa la hoja de grupo y de campaña. La hoja de campaña esta ubicada en <i>backside</i> de la hoja de grupo."
+      "hint": "Activa la hoja de grupo y de campaña. La hoja de campaña está ubicada en <i>en la parte de atrás</i> de la hoja de grupo."
     },
     "pinchZoom": {
-      ".": "Gesto Zoom",
-      "hint": "Permite hacer Zoom mediente gestos táctiles."
+      ".": "Zoom por gesto",
+      "hint": "Permite hacer Zoom mediante gestos táctiles."
     },
     "playerCount": {
       ".": "Recuento manual de personajes"
@@ -2348,7 +2348,7 @@
       "hint": "Añade peanas con un número no usado aleatorio"
     },
     "removeUnusedMonster": {
-      ".": "Eliminar los no utilizados",
+      ".": "Eliminar monstruos no utilizados",
       "hint": "Elimina automáticamente todos los monstruos no utilizados."
     },
     "requires": "Requiere:",
@@ -2366,11 +2366,11 @@
     },
     "scenarioRooms": {
       ".": "Salas de los Escenarios",
-      "hint": "Desbloqueo de salas separadas en un escenario. Si no se establece, también desactiva la adición automática de peanas."
+      "hint": "Permite el desbloqueo de las diferentes salas de un escenario. Si no se activa, se desactiva la opción de añadir automáticamente peanas."
     },
     "scenarioRules": {
       ".": "Reglas de Escenario",
-      "hint": "Mostrar ventanas emergentes sobre reglas de escenarios especiales y aplicarlas opcionalmente"
+      "hint": "Muestra ventanas emergentes sobre las reglas especiales de los escenarios y permite aplicarlas de manera opcional."
     },
     "scenarioRulesAutoapply": {
       ".": "Aplicar reglas de Escenario Automáticamente",
@@ -2431,7 +2431,7 @@
     },
     "treasures": {
       ".": "Indicar tesoros de la sala",
-      "hint": "Mostrar tesoros disponibles para el escenario cuando se revela la sala correspondiente y añade un diálogo para abrir el tesoro."
+      "hint": "Muestra los tesoros disponibles para el escenario en curso cuando se revela una sala y añade una opción interactiva para abrir los tesoros."
     },
     "treasuresLoot": {
       ".": "Aplicar tesoros de recompensas",
@@ -2904,7 +2904,7 @@
       "setPQ": "Misión personal {1} para {0} ",
       "setPQProgress": "Poner el contador de Búsqueda Personal {1} a {2} para {0}",
       "setPartyAchievements": "Logros de grupo",
-      "setPartyDonations": "Donaciones a {0}",
+      "setPartyDonations": "Donar a {0}",
       "setPartyInspiration": "Inspiración para{1}",
       "setPartyLocation": "Ubicación del grupo '{0}'",
       "setPartyMorale": "Moral para {0}",
