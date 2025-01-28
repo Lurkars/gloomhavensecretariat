@@ -201,7 +201,10 @@
   "character": {
     "demolitionist": {
       ".": "Sprengmeisterin",
-      "mech": "Mech Suit"
+      "mech": {
+        ".": "Mechanikanzug",
+        "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
+      }
     },
     "hatchet": "Axtwerfer",
     "red-guard": "Rotgardist",
@@ -216,30 +219,39 @@
         "4": "Dies ist dasselbe Verhalten wie im vorherigen Szenario."
       },
       "black-sludge": {
-        "1": "Der nächste Gegner in Sichtlinie erleidet unabhängig der Reichweite %game.damage:[1+L/2{$math.ceil}]%."
+        "1": "Der nächste Gegner in Sichtlinie erleidet unabhängig der Reichweite %game.damage:[1+L/2{$math.ceil}]%"
       },
       "blood-horror": {
-        "1": "Springe zum am weitesten entfernen toten %data.monster.zealot% und belebe diesen wieder oder springe zum am weitesten entfernten Charakter und führe %game.action.attack%+0 aus.",
-        "2": "Belebe alle toten %data.monster.zealot% um Raum."
+        "1": "Springe zum am weitesten entfernen toten %data.monster.zealot% und belebe diesen wieder oder springe zum am weitesten entfernten Charakter und führe %game.action.attack%+0 aus",
+        "2": "Belebe alle toten %data.monster.zealot% um Raum"
       },
       "blood-monstrosity": {
-        "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%."
+        "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%"
       },
       "chaos-demon": {
-        "1": "Wann immer der %data.monster.chaos-demon% in dieser Runde angegriffen wird, erleidet der Angreifer %game.damage:2%.",
-        "2": "Alle an das Ziel angrenzenden Gegner erleiden %game.damage:1%."
+        "1": "Wann immer der %data.monster.chaos-demon% in dieser Runde angegriffen wird, erleidet der Angreifer %game.damage:2%",
+        "2": "Alle an das Ziel angrenzenden Gegner erleiden %game.damage:1%"
       },
       "demolitionist": {
         "1": "Alle angrenzenden Gegner erleiden %game.damage:1%"
       },
       "first-of-the-order": {
-        "1": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%.",
+        "1": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%",
         "2": "Beschwöre [C/2{math.ceil}] %data.monster.black-imp%",
         "3": "innerhalb von %game.action.range:2% vom Ziel"
+      },
+      "flowChartGroup": {
+        "characters": "Charaktere",
+        "city-events": "Stadt-Ereignisse",
+        "intro": "Prolog",
+        "main": "Haupt"
       },
       "giant-viper": {
         "1": "Alle Angriffe an %data.monster.giant-viper% erhalten in dieser Runde Nachteil.",
         "2": "Füge +2 %game.action.attack% wenn das Ziel an einer %data.monster.giant-viper%'s Verbündeten angrenzt."
+      },
+      "giant-viper-scenario-21": {
+        "1": "Wann immer eine Figur eine Riesenviper angreift, erleidet diese Figur nach dem Angriff %game.damage:L%"
       },
       "living-corpse": {
         "1": "Das Ziel erleidet ebenfalls %game.damage:1%.",
@@ -249,14 +261,17 @@
       "monstrosity": {
         "1": "Falls dieser Angriff ausgeführt wird, erleidet die %data.monster.monstrosity% %game.damage:1%.",
         "2": "Füge +1 %game.action.attack% hinzu falls das Ziel an einen Verbündeten der %data.monster.monstrosity% angrenzt.",
-        "3": "Jede Figur die die %data.monster.monstrosity% diese Runde angreift erleidet %game.damage:1%.",
-        "4": "%data.monster.monstrosity% erleidet %game.damage:1%."
+        "3": "Wann immer die %data.monster.monstrosity% in dieser Runde angegriffen wird, erleidet der Angreifer %game.damage:2%.",
+        "4": "%data.monster.monstrosity% erleidet %game.damage:1%"
       },
       "rat-monstrosity": {
-        "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%.",
-        "2": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:2%.",
-        "3": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:3%.",
-        "4": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:4%."
+        "1": "alle angrenzenden Figuren erleiden %game.damage:1%",
+        "2": "alle angrenzenden Figuren erleiden %game.damage:2%",
+        "3": "alle angrenzenden Figuren erleiden %game.damage:3%",
+        "4": "alle angrenzenden Figuren erleiden %game.damage:4%"
+      },
+      "rat-monstrosity-16-2": {
+        "1": "Wenn eine Figur aufgrund des beim Tod einer Ratten-Monstrosität verursachten Schadens stirbt oder erschöpft wird"
       },
       "stone-golem": {
         "1": "Jede Figur die den %data.monster.stone-golem% diese Runde angreift erleidet %game.damage:3%.",
@@ -267,7 +282,7 @@
         "1": "Erstelle eine %game.damage:3% Falle in einem an das Ziel angrenzenden freiem Feld."
       },
       "zealot": {
-        "1": "X ist der durch den Angriff erlittene Schaden des Ziels."
+        "1": "X ist der durch den Angriff erlittene %game.damage% des Ziels"
       }
     },
     "perks": {
@@ -286,7 +301,7 @@
   },
   "monster": {
     "basic-giant-viper": "Riesenviper (einfach)",
-    "basic-vermling-raider": "Ratzenräuber (einfach)",
+    "basic-vermling-raider": "Ratzen-Räuber (einfach)",
     "basic-zealot": "Fanatiker (einfach)",
     "black-imp": "Schwarzwicht",
     "black-sludge": "Schwarzschlick",
@@ -295,7 +310,7 @@
     "blood-monstrosity": "Blutmonstrosität",
     "blood-tumor": "Blutgeschwür",
     "chaos-demon": "Chaosdämon",
-    "common-vermling-raider": "Ratzenräuber (gewöhnlich)",
+    "common-vermling-raider": "Ratzen-Räuber (gewöhnlich)",
     "first-of-the-order": "Erster des Ordens",
     "giant-viper": "Riesenviper",
     "living-corpse": "Wandelnde Leiche",
@@ -303,8 +318,8 @@
     "monstrosity": "Monstrosität",
     "rat-monstrosity": "Rattenmonstrosität",
     "stone-golem": "Steingolem",
-    "vermling-raider": "Ratzenräuber",
-    "vermling-scout": "Ratzenspäher",
+    "vermling-raider": "Ratzen-Räuber",
+    "vermling-scout": "Ratzen-Späher",
     "zealot": "Fanatiker"
   },
   "scenario": {
@@ -332,6 +347,28 @@
     "Toxic Harvest": "Giftige Ernte",
     "Unfriendly Message": "Eindeutige Botschaft",
     "Vile Harvest": "Abscheuliche Ernte",
-    "Warding the Void": "Hüter der Leere"
+    "Warding the Void": "Hüter der Leere",
+    "rules": {
+      "jotl": {
+        "10": {
+          "1": "Bewege Fallen in %game.mapMarker.1% ein Feld nach unten",
+          "2": "Bewege Fallen in %game.mapMarker.2% ein Feld näher an den nächsten Charakter"
+        },
+        "14": {
+          "1": "eine für jede normale Riesenviper und zwei für jede Elite-Riesenviper benachbart zu einem Fanatiker, die Riesenviper stirbt"
+        },
+        "15": {
+          "1": "ein für jeden Schwarzwicht in Rechweite 3 eines Fanatikers, welcher dann %game.condition.stun% erhält"
+        },
+        "20": {
+          "2": "Findet 1x Waren",
+          "3": "Findet Ring der Erholung (Gegenstand 32)"
+        },
+        "21": {
+          "1": "auf einem Feld des zuletzt zerstörten Zielobjekts",
+          "2": "Charaktere erleiden %game.damage:[L/2{$math.floor}]% für jedes Feld, das sie in diesem Raum betreten, bis der Chaosdämon %game.mapMarker.A% getötet wurde"
+        }
+      }
+    }
   }
 }
