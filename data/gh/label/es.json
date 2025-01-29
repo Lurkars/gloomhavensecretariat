@@ -1,1 +1,28 @@
-{}
+{
+  "character": {
+    "brute": "Salvaje",
+    "cragheart": "Corazón Hueco",
+    "mindthief": "Ladrona Mental",
+    "scoundrel": "Pícara",
+    "spellweaver": "Tejedora de Hechizos",
+    "tinkerer": "Manitas"
+  },
+  "custom": {
+    "gh": {
+      "ancient-artillery": {
+        "1": "Todos los enemigos adyacentes sufren %game.damage:2%."
+      },
+      "archer": {
+        "1": "Crea 1 trampa de %game.damage:3% en el hexágono adyacente vacío más cercano a un enemigo."
+      },
+      "flame-demon": {
+        "2": "Crea 1 trampa de %game.damage:4% en el hexágono adyacente vacío más cercano a un enemigo."
+      }
+    }
+  },
+  "monster": {
+    "ancient-artillery": "Artilleria Antigua",
+    "bandit-archer": "Arquera Bandido",
+    "jekserah": "Jekserah"
+  }
+}
