@@ -4,10 +4,17 @@
     "circles": "Invocadora",
     "eclipse": "Sudario Nocturno",
     "lightning": {
-      ".": "Berserker"
+      ".": "Berserker",
+      "blood-pact": {
+        ".": "Pacto de Sangre",
+        "hint": "Sufres %game.damage:1% al inicio de cada uno de tus turnos."
+      }
     },
     "music-note": {
-      ".": "Melodiosa"
+      ".": "Melodiosa",
+      "song_active": {
+        "hint": "Obtiene 1 Exp al inicio de cada uno de sus turnos."
+      }
     },
     "saw": "Matasanos",
     "squidface": "Heraldo de la Plaga",
@@ -15,5 +22,33 @@
     "three-spears": "Intendente",
     "triangles": "Elementalista",
     "two-mini": "Señor de las Bestias"
+  },
+  "custom": {
+    "gh": {
+      "circles": {
+        "1": "cuando realice un %game.action.attack%",
+        "2": "al final del turno"
+      },
+      "triangles": {
+        "1": "Puedes realizar acciones de Ataque como si ocuparas el hexágono de la invocación.",
+        "2": "cuando se realice %game.action.attack%"
+      },
+      "two-mini": {
+        "1": "Todos los aliados adyacentes añaden +2 %game.action.attack% a todos sus ataques."
+      }
+    }
+  },
+  "events": {
+    "gh": {
+      "city": {
+        "1": {
+          "options": {
+            "1": {
+              "choice": "¡Únete a la refriega! ¡Estos insultos no quedarán sin respuesta!"
+            }
+          }
+        }
+      }
+    }
   }
 }
