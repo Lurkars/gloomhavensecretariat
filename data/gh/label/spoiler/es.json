@@ -1,1 +1,19 @@
-{}
+{
+  "character": {
+    "angry-face": "Cazador Silencioso",
+    "circles": "Invocadora",
+    "eclipse": "Sudario Nocturno",
+    "lightning": {
+      ".": "Berserker"
+    },
+    "music-note": {
+      ".": "Melodiosa"
+    },
+    "saw": "Matasanos",
+    "squidface": "Heraldo de la Plaga",
+    "sun": "Guardiana del Sol",
+    "three-spears": "Intendente",
+    "triangles": "Elementalista",
+    "two-mini": "Señor de las Bestias"
+  }
+}
