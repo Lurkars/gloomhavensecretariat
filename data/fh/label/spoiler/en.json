@@ -423,7 +423,7 @@
     },
     "fh-105": {
       ".": "Major Fireshield Potion",
-      "1": "During your turn, perform, %game.action,retaliate% 2 %game.action.range:3% "
+      "1": "During your turn, perform, %game.action.retaliate% 2 %game.action.range:3%"
     },
     "fh-106": {
       ".": "Stonewall Potion",
@@ -579,7 +579,7 @@
     },
     "fh-140": {
       ".": "Mantle of Summoning",
-      "1": "During your turn, grant one of your summons: %game.action.shield:2%. "
+      "1": "During your turn, grant one of your summons: %game.action.shield:2%."
     },
     "fh-141": {
       ".": "Studded Leather",
