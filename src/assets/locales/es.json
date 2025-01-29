@@ -461,7 +461,7 @@
       "special": "Especial",
       "specialTarget": "Objetivo Especial",
       "sufferDamage": "Sufre Daño",
-      "summon": "Invocación",
+      "summon": "Invoca",
       "swing": "Tajo",
       "target": "Objetivo",
       "targets": "Objetivos",
@@ -474,7 +474,7 @@
       ".": "Aliado",
       "addEntity": {
         "boss": "Generar Jefe aliado",
-        "elite": "Generar Elite aliado",
+        "elite": "Generar aliado Élite",
         "normal": "Generar aliado normal"
       }
     },
@@ -511,7 +511,7 @@
         "type": {
           "add": "añade {0}",
           "remove": "elimina {0}",
-          "replace": "reemplaza {0} por {1}"
+          "replace": "sustituye {0} por {1}"
         },
         "warning": "¡Más pericias que las disponibles seleccionadas!",
         "wip": "%wip%! Perícias no completadas aún."
@@ -1027,8 +1027,8 @@
       "spawnMarker": "{1} %data.monster.{0}% en %game.mapMarker.{2}%",
       "spawnObjective": "{1} %data.objective.{0}%",
       "spawnObjectiveMarker": "{1} %data.objective.{0}% en %game.mapMarker.{2}%",
-      "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
-      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% en %game.mapMarker.{3}%"
+      "spawnType": "{2} %data.monster.{0}% %game.monsterType.{1}%",
+      "spawnTypeMarker": "{2} %data.monster.{0}% %game.monsterType.{1}% en %game.mapMarker.{3}%"
     },
     "target": {
       ".": "Objetivo",
@@ -1058,15 +1058,15 @@
     "add": "Añadir Monstruo",
     "addEntity": {
       "boss": "Añadir Monstruo Jefe",
-      "elite": "Añadir Monstruo Elite",
+      "elite": "Añadir Monstruo Élite",
       "normal": "Añadir Monstruo Normal"
     },
     "applyInteractiveActions": "Aplicar las habilidades destacadas para",
     "boss": "Jefe",
     "cancelNumberpicker": "Cancelar",
-    "changeStandee": "Cambiar %game.monsterType.{0}% peana #{1}",
+    "changeStandee": "Cambiar peana %game.monsterType.{0}% #{1}",
     "changeType": "Cambiar tipo de %game.monsterType.{0}% a %game.monsterType.{1}%",
-    "elite": "Elite",
+    "elite": "Élite",
     "filter": {
       ".": "Filtrar Monstruo",
       "noResult": "Sin resultados"
@@ -1078,10 +1078,10 @@
     "selectStandees": {
       "all": "Seleccionar todas las peanas",
       "boss": "Seleccionar todas las peanas de Jefes",
-      "elite": "Seleccionar todas las peanas Elite",
+      "elite": "Seleccionar todas las peanas Élites",
       "normal": "Seleccionar todas las peanas Normales"
     },
-    "setStandees": "Añade peana {1} %game.monsterType.{0}%",
+    "setStandees": "Añade {1} peana %game.monsterType.{0}%",
     "showBoss": "Mostrar Monstruos Jefe",
     "showHidden": "Mostrar Monstruos ocultos",
     "skipInteractiveActions": "Saltar capacidades interactivas para",
@@ -1605,8 +1605,8 @@
         "applied": "Reglas de escenario aplicadas",
         "discarded": "Reglas de escenario descartadas"
       },
-      "spawn": "Añadir monstruo {2}%game.monsterType.{1}% %data.monster.{0}%",
-      "spawnMarker": "Añadir monstruo {2}%game.monsterType.{1}% %data.monster.{0}% en %game.mapMarker.{3}%",
+      "spawn": "Añade {2} %data.monster.{0}% %game.monsterType.{1}%",
+      "spawnMarker": "Añade {2}%data.monster.{0}% %game.monsterType.{1}% en %game.mapMarker.{3}%",
       "spawnObjective": "Añadir Objetivo '{0}'",
       "spawnObjectiveEscort": "Añadir Escolta '{0}'",
       "spawnObjectiveEscortMarker": "Añadir Escolta '{0}' en %game.mapMarker.{2}%",
@@ -1647,7 +1647,7 @@
       ".": "Estadísticas de escenario",
       "bossKills": {
         ".": "%game.monsterType.boss%: {0}",
-        "hint": "Cantidad de %game.monsterType.boss% monstruos muertos"
+        "hint": "Cantidad de monstruos %game.monsterType.boss% muertos"
       },
       "damage": {
         ".": "Daño"
@@ -1658,7 +1658,7 @@
       },
       "eliteKills": {
         ".": "%game.monsterType.elite%: {0}",
-        "hint": "Cantidad de %game.monsterType.elite% monstruos matados"
+        "hint": "Cantidad de monstruos %game.monsterType.elite% matados"
       },
       "gold": {
         ".": "%game.gameIcon:loot%: {0}",
@@ -1694,8 +1694,8 @@
         "hint": "Daño recibido por enemigos"
       },
       "normalKills": {
-        ".": "%game.monsterType.normal%: {0}",
-        "hint": "Cantidad de %game.monsterType.normal% monstruos matados"
+        ".": "{0}: %game.monsterType.normal%",
+        "hint": "Cantidad de monstruos %game.monsterType.normal% matados"
       },
       "otherDamage": {
         ".": "%game.gameIcon:trap% {0}",
