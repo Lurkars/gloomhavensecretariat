@@ -256,6 +256,8 @@ Thanks to everyone who has already [contributed](https://github.com/Lurkars/gloo
 
 Latest, I am now trying to use [Weblate](https://translate.gloomhaven-secretariat.de/) as a translation tool. You can log in with your *GitHub* account to help translate the application.
 
+<img src="https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg" alt="Translation status" />
+
 ## Archive
 
 All older versions are also available on `gloomhaven-secretariat.de`, for example the first version `v0.0.1` is available at [v0-0-1.gloomhaven-secretariat.de](https://v0-0-1.gloomhaven-secretariat.de). All available tags are listed under [Releases](https://github.com/Lurkars/gloomhavensecretariat/releases), just replace all `.` with `-` for a proper url. This is meant as a showcase for the evolution of GHS, but also as a fallback, if a release breaks something important, you can always fall back to a previous version. 
