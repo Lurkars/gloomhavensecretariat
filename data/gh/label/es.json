@@ -1,7 +1,100 @@
 {
   "battleGoals": {
+    "458": {
+      ".": "Optimizador",
+      "text": "Ten 5 o más cartas en total en la mano y en la pila de descartes al final del escenario."
+    },
+    "459": {
+      ".": "Haragán",
+      "text": "Obtén 7 o menos puntos de experiencia durante el escenario."
+    },
+    "460": {
+      ".": "Trabajador",
+      "text": "Obtén 13 o más puntos de experiencia durante el escenario."
+    },
+    "461": {
+      ".": "Fanático",
+      "text": "Ten 3 o menos cartas en total en la mano y en la pila de descartes al final del escenario."
+    },
+    "462": {
+      ".": "Masoquista",
+      "text": "Tu valor actual de puntos de vida debe ser 2 o menos al final del escenario."
+    },
+    "463": {
+      ".": "Salud de hierro",
+      "text": "Tu valor actual de puntos de vida debe ser igual a tu valor máximo de puntos de vida al final del escenario."
+    },
+    "464": {
+      ".": "Neutralizador",
+      "text": "Haz que una trampa se active o desactive en tu turno o en el turno de una de tus invocaciones durante el escenario."
+    },
+    "465": {
+      ".": "Saqueador",
+      "text": "Saquea una pieza de Tesoro durante el escenario."
+    },
+    "466": {
+      ".": "Protector",
+      "text": "No permitas que ninguno de tus aliados quede agotado durante el escenario."
+    },
+    "467": {
+      ".": "Explorador",
+      "text": "Revela una sala abriendo una puerta en tu turno durante el escenario."
+    },
+    "468": {
+      ".": "Avaro",
+      "text": "Saquea 5 fichas de Dinero o más durante el escenario."
+    },
+    "469": {
+      ".": "Indigente",
+      "text": "No saquees ninguna ficha de Dinero ni pieza de Tesoro durante el escenario."
+    },
+    "470": {
+      ".": "Pacifista",
+      "text": "Mata a 3 o menos monstruos durante el escenario."
+    },
+    "471": {
+      ".": "Sadico",
+      "text": "Mata a 5 o más monstruos durante el escenario."
+    },
+    "472": {
+      ".": "Cazador",
+      "text": "Mata a 1 o más monstruos de élite durante el escenario."
+    },
+    "473": {
+      ".": "Profesional",
+      "text": "Usa tus objetos equipados un número de veces igual o mayor que tu nivel más 2 durante el escenario."
+    },
+    "474": {
+      ".": "Agresivo",
+      "text": "Consigue que siempre haya 1 o más monstruos presentes en el mapa al principio de todas las rondas durante el escenario."
+    },
+    "475": {
+      ".": "Apisonadora",
+      "text": "Mata a un monstruo infligiéndole al menos 4 puntos de daño más de los necesarios durante el escenario."
+    },
+    "476": {
+      ".": "Purista",
+      "text": "No uses objetos durante el escenario."
+    },
+    "477": {
+      ".": "Primera Sangre",
+      "text": "Sé el primero en matar a un monstruo durante el escenario."
+    },
+    "478": {
+      ".": "Duro de pelar",
+      "text": "No permitas que tus puntos de vida desciendan por debajo de la mitad de tu valor máximo (redondeando hacia arriba) durante el escenario."
+    },
+    "479": {
+      ".": "Ejecutor",
+      "text": "Mata a un monstruo sin daño con un solo ataque durante el escenario."
+    },
+    "480": {
+      ".": "Rezagado",
+      "text": "Realiza únicamente descansos largos durante el escenario."
+    },
     "481": {
-      "text": "Realiza sólo descansos cortos durante este escenario."
+      ".": "Impaciente",
+      "text": "Realiza únicamente descansos cortos durante el escenario."
     }
   },
   "character": {
@@ -221,6 +314,32 @@
     "Through the Trench": "A través de la fosa",
     "Tremors": "Temblores",
     "Water Staff": "Personal del agua"
+  },
+  "personalQuest": {
+    "510": "Buscador de Xorn",
+    "511": "Clase comerciante",
+    "512": "la codicia es buena",
+    "513": "Hallar la cura",
+    "514": "Estudios de anatomía",
+    "515": "Defensor de la ley",
+    "516": "Tributo de sangre",
+    "517": "Trofeo de caza",
+    "518": "Eterno viajero",
+    "519": "Leyenda de las batallas",
+    "520": "Instrumento de la luz",
+    "521": "Recupera los árboles",
+    "522": "lugares enrarecidos",
+    "523": "Cazador de aberraciones",
+    "524": "Actitud intrépida",
+    "525": "Devoción por todas las cosas",
+    "526": "Venganza",
+    "527": "Fanático del dios de la sangre",
+    "528": "Vencedor de Goliat",
+    "529": "la caída del hombre",
+    "530": "Capacidades aumentadas",
+    "531": "Muestras elementales",
+    "532": "Una mano amiga",
+    "533": "El veneno perfecto"
   },
   "scenario": {
     "group": {
