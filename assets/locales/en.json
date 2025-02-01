@@ -79,7 +79,9 @@
     ".": "Character",
     "abilities": {
       "currentDeck": "Current Deck",
+      "deckWarning": "No correct card selection possible as there are too many cards in the deck!",
       "forceDeck": "Double click to add Card to Deck",
+      "levelWarning": "Invalid deck as some cards are higher level than character!",
       "pickCard": "Pick your level {0} card",
       "removeFromDeck": "Double click to remove Card from Deck",
       "show": "Show all Abilitycards",
@@ -94,7 +96,6 @@
         ".": "Undo pick for level {0}",
         "hint": "Double click to reset all picks"
       },
-      "warning": "No correct card selection possible as there are too many cards in the deck!",
       "wip": "<i>%wip%</i>"
     },
     "absent": "Absent",
@@ -2319,7 +2320,7 @@
       ".": "Language",
       "de": "German (Deutsch)",
       "en": "English",
-      "es": "Spanish (Español) &lt;%wip%(!)&gt;",
+      "es": "Spanish (Español)",
       "fr": "French (Français)",
       "help": "Help translating!",
       "ko": "Korean (한국어)"
