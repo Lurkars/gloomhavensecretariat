@@ -79,6 +79,7 @@
     ".": "Personaje",
     "abilities": {
       "currentDeck": "Mazo actual",
+      "deckWarning": "¡No es posible seleccionar la carta porque hay demasiadas cartas en la baraja!",
       "forceDeck": "Doble clic para añadir la carta al Mazo",
       "pickCard": "Coge tu carta de nivel {0} .",
       "removeFromDeck": "Doble clic para eliminar la carta del mazo",
@@ -94,7 +95,6 @@
         ".": "Deshacer elección de nivel {0}",
         "hint": "Haz doble clic para restablecer todas las elecciones"
       },
-      "warning": "¡No es posible seleccionar la carta porque hay demasiadas cartas en la baraja!",
       "wip": "<i>%wip%</i>"
     },
     "absent": "Ausente",

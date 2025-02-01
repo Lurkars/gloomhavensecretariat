@@ -18,7 +18,7 @@ export class LootManager {
     this.game = game;
   }
 
-  drawCard(deck: LootDeck, character: Character | undefined): ItemData | undefined {
+  drawCard(deck: LootDeck, character: Character | undefined = undefined): ItemData | undefined {
     let result: ItemData | undefined = undefined;
     deck.current++;
     if (deck.current >= deck.cards.length) {
@@ -246,7 +246,7 @@ export class LootManager {
         if (typeof reward.value === 'number') {
           gameManager.game.lootDeck.active = true;
           for (let i = 0; i < reward.value; i++) {
-            this.drawCard(gameManager.game.lootDeck, character);
+            this.drawCard(gameManager.game.lootDeck);
           }
           gameManager.uiChange.emit();
         }

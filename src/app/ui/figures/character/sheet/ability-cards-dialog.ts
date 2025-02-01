@@ -25,7 +25,8 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     levelToPick: number = 1;
     sort: 'level-deck' | 'cardId' | 'level-name' | 'name' = 'level-deck';
     sorts: ('level-deck' | 'cardId' | 'level-name' | 'name')[] = ['level-deck', 'cardId', 'level-name', 'name'];
-    pick: boolean = true;
+    deck: boolean = true;
+    maxLevel: number = 1;
 
     constructor(@Inject(DIALOG_DATA) public data: { character: Character }, private dialog: Dialog) {
         this.character = data.character;
@@ -57,8 +58,8 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
             this.cardsToPick = 0;
         }
         this.character.progress.deck = this.character.progress.deck || [];
-        this.levelToPick = this.pick && this.cardsToPick ? this.character.level - this.cardsToPick + 1 : 0;
-
+        this.levelToPick = this.deck && this.cardsToPick ? this.character.level - this.cardsToPick + 1 : 0;
+        this.maxLevel = Math.max(...this.abilities.filter((ability, i) => typeof ability.level === 'number' && this.character.progress.deck.indexOf(i) != -1).map((ability) => +ability.level), this.character.level);
         if (this.levelToPick) {
             this.visibleAbilities = this.abilities.filter((ability, i) => typeof ability.level == 'number' && ability.level > 1 && ability.level <= this.levelToPick && this.character.progress.deck.indexOf(i) == -1).sort((a, b) => {
                 if (typeof a.level === 'number' && typeof b.level === 'number' && a.level != b.level) {
@@ -73,6 +74,10 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
         } else {
             this.visibleAbilities = this.abilities.filter((ability) => !this.exclusiveLevel && typeof this.level === 'number' && (typeof ability.level == 'string' || +ability.level <= this.level) && this.additionalLevels.indexOf(ability.level) == -1 || this.exclusiveLevel && ability.level == this.exclusiveLevel || this.exclusiveLevel == 1 && ability.level == 'X');
             this.smallAbilities = [];
+
+            if (this.deck) {
+                this.visibleAbilities = this.visibleAbilities.filter((ability) => ability.level == 'X' || ability.level == 1 || this.character.progress.deck.indexOf(this.abilities.indexOf(ability)) != -1);
+            }
 
             if (this.sort == 'cardId') {
                 this.visibleAbilities.sort((a, b) => {
@@ -132,18 +137,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     }
 
     togglePick() {
-        this.pick = !this.pick;
-        if (!this.pick) {
-            this.sorts = this.sorts.filter((value) => value != 'level-deck');
-            if (this.sort == 'level-deck') {
-                this.sort = 'cardId';
-            }
-        } else {
-            this.sorts.unshift('level-deck');
-            if (this.sort == 'cardId') {
-                this.sort = 'level-deck';
-            }
-        }
+        this.deck = !this.deck;
         this.update();
     }
 
@@ -172,7 +166,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
 
     clickAbility(ability: Ability) {
         const level1 = typeof ability.level === 'string' || ability.level == 1;
-        if (level1 || !this.levelToPick || !this.pick) {
+        if (level1 || !this.levelToPick || !this.deck) {
             this.openDialog(ability);
         } else {
             this.toggleDeck(ability);

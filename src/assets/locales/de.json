@@ -79,7 +79,9 @@
     ".": "Charakter",
     "abilities": {
       "currentDeck": "Aktuelles Kartendeck",
+      "deckWarning": "Keine korrekte Kartenauswahl möglich, da zuviele Karten im Kartendeck sind!",
       "forceDeck": "Doppelklick um die Karte zum Kartendeck hinzu zufügen",
+      "levelWarning": "Ungültiges Kartendeck, da einige Karten ein höheres Level als der Charakter haben!",
       "pickCard": "Wähle deine Karte für Level {0}",
       "removeFromDeck": "Doppelklick um die Karte vom Kartendeck zu entfernen",
       "show": "Zeige alle Fertigkeitskarten",
@@ -94,7 +96,6 @@
         ".": "Kartenauswahl für Level {0} rückgängig",
         "hint": "Doppelklick um die Kartenauswahl zurückzusetzen"
       },
-      "warning": "Keine korrekte Kartenauswahl möglich, da zuviele Karten im Kartendeck sind!",
       "wip": "<i>%wip%</i>"
     },
     "absent": "Abwesend",

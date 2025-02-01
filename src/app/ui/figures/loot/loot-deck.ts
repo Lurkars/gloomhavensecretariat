@@ -5,7 +5,7 @@ import { LootManager } from "src/app/game/businesslogic/LootManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
-import { appliableLootTypes, LootDeck, LootType } from "src/app/game/model/data/Loot";
+import { appliableLootTypes, Loot, LootDeck, LootType } from "src/app/game/model/data/Loot";
 import { LootApplyDialogComponent } from "./loot-apply-dialog";
 import { LootDeckDialogComponent } from "./loot-deck-dialog";
 import { LootDeckFullscreenComponent } from "./loot-deck-fullscreen";
@@ -29,7 +29,7 @@ export class LootDeckChange {
 }
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-loot-deck',
     templateUrl: './loot-deck.html',
     styleUrls: ['./loot-deck.scss']
@@ -174,55 +174,66 @@ export class LootDeckComponent implements OnInit, OnDestroy, OnChanges {
                 }
             }
 
-            if (!fromServer && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && !this.standalone && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) && (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) || settingsManager.settings.alwaysLootApplyDialog)) {
-                const dialog = this.dialog.open(LootApplyDialogComponent, {
-                    panelClass: ['dialog'],
-                    data: { loot: loot }
-                });
+            if (!fromServer && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && !this.standalone && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure))) {
+                let activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
+                if ((!activeCharacter || settingsManager.settings.alwaysLootApplyDialog)) {
+                    const dialog = this.dialog.open(LootApplyDialogComponent, {
+                        panelClass: ['dialog'],
+                        data: { loot: loot }
+                    });
 
-                dialog.closed.subscribe({
-                    next: (name) => {
-                        if (name) {
-                            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
-                            if (character instanceof Character) {
-                                gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", gameManager.characterManager.characterName(character), "game.loot." + loot.type, this.lootManager.getValue(loot));
-                                const result = gameManager.lootManager.applyLoot(loot, character, currentIndex);
-                                gameManager.stateManager.after();
-                                if (result) {
-                                    this.dialog.open(LootRandomItemDialogComponent, {
-                                        panelClass: ['dialog'],
-                                        data: { item: result, character: character }
-                                    }).closed.subscribe({
-                                        next: (result) => {
-                                            if (result) {
-                                                const item = result as ItemData;
-                                                gameManager.stateManager.before("lootRandomItem", item.id, item.edition, item.name, gameManager.characterManager.characterName(character));
-                                                let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
-                                                gameManager.itemManager.addItemCount(item);
-                                                if (character.lootCards.indexOf(currentIndex) == -1) {
-                                                    character.lootCards.push(currentIndex);
-                                                    character.lootCards.sort((a, b) => a - b);
-                                                }
-                                                if (character.progress.items.find((existing) => existing.name == '' + item.id && existing.edition == item.edition) != undefined) {
-                                                    character.progress.gold += gameManager.itemManager.itemSellValue(item);
-                                                } else {
-                                                    character.progress.items.push(itemIdentifier);
-                                                    character.progress.equippedItems.push(new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, "loot-random-item"));
-                                                }
-                                                gameManager.stateManager.after();
-                                            } else {
-                                                character.lootCards = character.lootCards.filter((index) => index != currentIndex);
-                                            }
-                                        }
-                                    })
+                    dialog.closed.subscribe({
+                        next: (name) => {
+                            if (name) {
+                                const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
+                                if (character instanceof Character) {
+                                    this.applyLoot(character, loot, currentIndex);
                                 }
                             }
+                        }
+                    })
+                } else if (activeCharacter) {
+                    this.applyLoot(activeCharacter, loot, currentIndex);
+                }
+            }
+
+        }, !settingsManager.settings.animations ? 0 : (this.vertical ? 1050 : 1850));
+    }
+
+    applyLoot(character: Character, loot: Loot, index: number) {
+        if (character.lootCards.indexOf(index) == -1) {
+            gameManager.stateManager.before(loot.type == LootType.random_item ? "lootRandomItem" : "addResource", gameManager.characterManager.characterName(character), "game.loot." + loot.type, this.lootManager.getValue(loot));
+            const result = gameManager.lootManager.applyLoot(loot, character, index);
+            gameManager.stateManager.after();
+            if (result) {
+                this.dialog.open(LootRandomItemDialogComponent, {
+                    panelClass: ['dialog'],
+                    data: { item: result, character: character }
+                }).closed.subscribe({
+                    next: (result) => {
+                        if (result) {
+                            const item = result as ItemData;
+                            gameManager.stateManager.before("lootRandomItem", item.id, item.edition, item.name, gameManager.characterManager.characterName(character));
+                            let itemIdentifier: Identifier = new Identifier('' + item.id, item.edition);
+                            gameManager.itemManager.addItemCount(item);
+                            if (character.lootCards.indexOf(index) == -1) {
+                                character.lootCards.push(index);
+                                character.lootCards.sort((a, b) => a - b);
+                            }
+                            if (character.progress.items.find((existing) => existing.name == '' + item.id && existing.edition == item.edition) != undefined) {
+                                character.progress.gold += gameManager.itemManager.itemSellValue(item);
+                            } else {
+                                character.progress.items.push(itemIdentifier);
+                                character.progress.equippedItems.push(new AdditionalIdentifier(itemIdentifier.name, itemIdentifier.edition, undefined, "loot-random-item"));
+                            }
+                            gameManager.stateManager.after();
+                        } else {
+                            character.lootCards = character.lootCards.filter((index) => index != index);
                         }
                     }
                 })
             }
-
-        }, !settingsManager.settings.animations ? 0 : (this.vertical ? 1050 : 1850));
+        }
     }
 
     draw(event: any, forceDraw: boolean = false) {
