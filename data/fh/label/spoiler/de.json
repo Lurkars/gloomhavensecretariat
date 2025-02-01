@@ -30,7 +30,7 @@
     },
     "fh-105": {
       ".": "Großer Feuerschild",
-      "1": "Führe während deines Zugs aus: %game.action.retaliate% 2 %game.action.range:3% "
+      "1": "Führe während deines Zugs aus: %game.action.retaliate% 2 %game.action.range:3%"
     },
     "fh-106": {
       ".": "Steinmauertrank",

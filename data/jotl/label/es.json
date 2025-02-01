@@ -173,7 +173,7 @@
       "flowChartGroup": {
         "characters": "Personajes",
         "city-events": "Eventos de Ciudad",
-        "intro": "Introducción",
+        "intro": "Tutorial",
         "main": "Principal"
       },
       "giant-viper": {
@@ -209,7 +209,7 @@
         "3": "Si el %data.monster.stone-golem% realiza este ataque sufre %game.damage:2%."
       },
       "vermling-raider": {
-        "1": "Cre una trampa de 3-%game.damage% en el hexágono adyacente vacío más cercano a un enemigo."
+        "1": "Cre una trampa de %game.damage% 3 en el hexágono adyacente vacío más cercano a un enemigo."
       },
       "zealot": {
         "1": "X es el %game.damage% sufrido por el objetivo del ataque"

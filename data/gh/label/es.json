@@ -1,1 +1,406 @@
-{}
+{
+  "battleGoals": {
+    "458": {
+      ".": "Optimizador",
+      "text": "Ten 5 o más cartas en total en la mano y en la pila de descartes al final del escenario."
+    },
+    "459": {
+      ".": "Haragán",
+      "text": "Obtén 7 o menos puntos de experiencia durante el escenario."
+    },
+    "460": {
+      ".": "Trabajador",
+      "text": "Obtén 13 o más puntos de experiencia durante el escenario."
+    },
+    "461": {
+      ".": "Fanático",
+      "text": "Ten 3 o menos cartas en total en la mano y en la pila de descartes al final del escenario."
+    },
+    "462": {
+      ".": "Masoquista",
+      "text": "Tu valor actual de puntos de vida debe ser 2 o menos al final del escenario."
+    },
+    "463": {
+      ".": "Salud de hierro",
+      "text": "Tu valor actual de puntos de vida debe ser igual a tu valor máximo de puntos de vida al final del escenario."
+    },
+    "464": {
+      ".": "Neutralizador",
+      "text": "Haz que una trampa se active o desactive en tu turno o en el turno de una de tus invocaciones durante el escenario."
+    },
+    "465": {
+      ".": "Saqueador",
+      "text": "Saquea una pieza de Tesoro durante el escenario."
+    },
+    "466": {
+      ".": "Protector",
+      "text": "No permitas que ninguno de tus aliados quede agotado durante el escenario."
+    },
+    "467": {
+      ".": "Explorador",
+      "text": "Revela una sala abriendo una puerta en tu turno durante el escenario."
+    },
+    "468": {
+      ".": "Avaro",
+      "text": "Saquea 5 fichas de Dinero o más durante el escenario."
+    },
+    "469": {
+      ".": "Indigente",
+      "text": "No saquees ninguna ficha de Dinero ni pieza de Tesoro durante el escenario."
+    },
+    "470": {
+      ".": "Pacifista",
+      "text": "Mata a 3 o menos monstruos durante el escenario."
+    },
+    "471": {
+      ".": "Sadico",
+      "text": "Mata a 5 o más monstruos durante el escenario."
+    },
+    "472": {
+      ".": "Cazador",
+      "text": "Mata a 1 o más monstruos de élite durante el escenario."
+    },
+    "473": {
+      ".": "Profesional",
+      "text": "Usa tus objetos equipados un número de veces igual o mayor que tu nivel más 2 durante el escenario."
+    },
+    "474": {
+      ".": "Agresivo",
+      "text": "Consigue que siempre haya 1 o más monstruos presentes en el mapa al principio de todas las rondas durante el escenario."
+    },
+    "475": {
+      ".": "Apisonadora",
+      "text": "Mata a un monstruo infligiéndole al menos 4 puntos de daño más de los necesarios durante el escenario."
+    },
+    "476": {
+      ".": "Purista",
+      "text": "No uses objetos durante el escenario."
+    },
+    "477": {
+      ".": "Primera Sangre",
+      "text": "Sé el primero en matar a un monstruo durante el escenario."
+    },
+    "478": {
+      ".": "Duro de pelar",
+      "text": "No permitas que tus puntos de vida desciendan por debajo de la mitad de tu valor máximo (redondeando hacia arriba) durante el escenario."
+    },
+    "479": {
+      ".": "Ejecutor",
+      "text": "Mata a un monstruo sin daño con un solo ataque durante el escenario."
+    },
+    "480": {
+      ".": "Rezagado",
+      "text": "Realiza únicamente descansos largos durante el escenario."
+    },
+    "481": {
+      ".": "Impaciente",
+      "text": "Realiza únicamente descansos cortos durante el escenario."
+    }
+  },
+  "character": {
+    "brute": "Salvaje",
+    "cragheart": "Corazón Hueco",
+    "mindthief": "Ladrona Mental",
+    "scoundrel": "Pícara",
+    "spellweaver": "Tejedora de Hechizos",
+    "tinkerer": "Manitas"
+  },
+  "custom": {
+    "gh": {
+      "ancient-artillery": {
+        "1": "Todos los enemigos adyacentes sufren %game.damage:2%."
+      },
+      "archer": {
+        "1": "Crea 1 trampa de %game.damage:3% en el hexágono adyacente vacío más cercano a un enemigo."
+      },
+      "bandit-commander": {
+        "1": "Se mueve a la puerta siguiente y revela la sala"
+      },
+      "captain-of-the-guard": {
+        "1": "Todos los aliados ganan +1 %game.action.attack% a todos sus ataques durante esta ronda"
+      },
+      "dark-rider": {
+        "1": "X = hexágonos movidos"
+      },
+      "deep-terror": {
+        "1": "en un hexágono adyacente al objetivo"
+      },
+      "elder-drake": {
+        "1": "Vuela a la siguiente posición elevada de rocas"
+      },
+      "flame-demon": {
+        "1": "Todos los enemigos adyacentes sufren %game.damage:2%.",
+        "2": "Crea 1 trampa de %game.damage:4% en el hexágono adyacente vacío más cercano a un enemigo."
+      },
+      "flowChartGroup": {
+        "atop-mountains": "Montañas Atop",
+        "city-events": "Eventos de Ciudad",
+        "demon-and-rift": "El Demon y la fisura",
+        "dragons": "Dragones",
+        "intro": "Intro",
+        "personal-quests": "Misiones Personales",
+        "random-scenarios": "Escenarios aleatorios",
+        "rebellion-rises": "Surge la rebelión",
+        "road-events": "Eventos de Camino",
+        "sealed": "Sellado",
+        "sewers": "Cloacas",
+        "the-merchant": "El Mercader",
+        "through-jungles": "A través de la selva",
+        "under-oceans": "Bajo los océanos",
+        "voice": "La voz"
+      },
+      "giant-viper": {
+        "1": "Añade +2 %game.action.attack% si el objetivo está adyacente a cualquiera de los aliados de la %data.monster.giant-viper%'.",
+        "2": "Todos los ataques con objetivo a la %data.monster.giant-viper% ganan Desventaja durante esta ronda."
+      },
+      "harrower-infester": {
+        "1": "Realiza \"%game.action.heal% 2, %game.specialTarget.self%\" por cada objetivo dañado"
+      },
+      "hound": {
+        "1": "Obtiene +2 %game.action.attack% si el objeto está adyacente a cualquier %data.monster.hound%'s aliado."
+      },
+      "merciless-overseer": {
+        "1": "Todos los exploradores actúan otra vez",
+        "2": "V = Número de Exploradores presentes"
+      },
+      "mindthief": {
+        "1": "X es la mitad del valor actual de puntos de vida de la rata (redondeado hacia arriba).",
+        "augment": "Aumento %game.characterIconColoredBg.mindthief%",
+        "augments": "Augmentos %game.characterIconColoredBg.mindthief%"
+      },
+      "night-demon": {
+        "1": "Todos los enemigos y aliados adyacentes sufren %game.damage:1%."
+      },
+      "ooze": {
+        "1": "con H igual al valor de PV de la invocación %data.monster.ooze%'s (limitado a los PV máximos específicos de un %data.monster.ooze% normal)"
+      },
+      "prime-demon": {
+        "1": "El trono se mueve"
+      },
+      "savvas-lavaflow": {
+        "1": "Todos los aliados y enemigos adyacentes al objetivo sufren %game.damage:2%",
+        "2": "Todos los enemigos sufren %game.damage:2%."
+      },
+      "the-betrayer": {
+        "1": "Control Mental"
+      },
+      "winged-horror": {
+        "1": "Incubar huevos",
+        "2": "%game.action.summon% [C] huevos"
+      }
+    }
+  },
+  "deck": {
+    "archer": "Arquero",
+    "boss": "Jefe",
+    "guard": "Guardia bandido",
+    "imp": "Duende",
+    "scout": "Explorador",
+    "shaman": "Chamán"
+  },
+  "edition": {
+    "gh": "Gloomhaven"
+  },
+  "globalAchievements": {
+    "Ancient Technology": "Tecnología antigua",
+    "Annihilation of Order": "Aniquilación del orden",
+    "Artifact: Cleansed": "Artefacto: Limpiado",
+    "Artifact: Lost": "Artefacto: Perdido",
+    "Artifact: Recovered": "Artifact: Recuperado",
+    "City Rule: Demonic": "Gobierno de la ciudad: Demoniaco",
+    "City Rule: Economic": "Gobierno de la ciudad: Económico",
+    "City Rule: Militaristic": "Gobierno de la ciudad: Militaristico",
+    "End of Corruption": "El fin de la corrupción",
+    "End of Gloom": "El fin de la oscuridad",
+    "End of the Invasion": "El fin de la invasión",
+    "The Dead Invade": "La invasión de los muertos",
+    "The Drake Aided": "El dragón presto ayuda",
+    "The Drake Slain": "El asesinato del Dragón",
+    "The Edge of Darkness": "Al filo de la oscuridad",
+    "The Merchant Flees": "El mercader huye",
+    "The Power of Enhancement": "El poder del refuerzo",
+    "The Rift Neutralized": "Fisura neutralizada",
+    "The Voice Freed": "Voz liberada",
+    "The Voice Silenced": "Voz silenciada",
+    "Water-Breathing": "El agua respira"
+  },
+  "monster": {
+    "ancient-artillery": "Artilleria Antigua",
+    "arcane-golem": "Gólem Arcano",
+    "bandit-archer": "Arquera Bandido",
+    "bandit-commander": "Comandante Bandido",
+    "bandit-guard": "Capitán bandido",
+    "black-imp": "Duende negro",
+    "bloated-regent": "Regente hinchado",
+    "captain-of-the-guard": "Capitán de la Guardia",
+    "cave-bear": "Oso de Cueva",
+    "city-archer": "Arquero de la Ciudad",
+    "city-guard": "Guardia de la ciudad",
+    "cultist": "Sectario",
+    "dark-rider": "Jinete oscuro",
+    "deep-terror": "Terror de las Profundidades",
+    "earth-demon": "Demonio de Tierra",
+    "elder-drake": "Draco Anciano",
+    "flame-demon": "Demonio de Fuego",
+    "forest-imp": "Duende del bosque",
+    "frost-demon": "Demonio de Hielo",
+    "giant-ooze": "Ooze Gigante",
+    "giant-viper": "Víbora gigante",
+    "harrower-infester": "Putrefactor atormentador",
+    "hound": "Sabueso",
+    "hungry-soul": "Alma hambrienta",
+    "infiltrator": "Infiltrado",
+    "inox-archer": "Arquero Inox",
+    "inox-bodyguard": "Guardaespaldas Inox",
+    "inox-guard": "Guardia Inox",
+    "inox-shaman": "Chamán Inox",
+    "jekserah": "Jekserah",
+    "living-bones": "Huesos vivientes",
+    "living-corpse": "Cadáver viviente",
+    "living-spirit": "Espíritu viviente",
+    "lurker": "Acechador",
+    "lurker-king": "Rey Acechador",
+    "merciless-overseer": "Supervisor Implacable",
+    "night-demon": "Demonio de Noche",
+    "ooze": "Cieno",
+    "prime-demon": "Demonio Supremo",
+    "prime-lieutenant": "Lugarteniente Primero",
+    "rending-drake": "Draco desgarrador",
+    "savvas-icestorm": "Cellisca Savvas",
+    "savvas-lavaflow": "Rio de lava Savvas",
+    "siege-cannon": "Cañón de asedio",
+    "spitting-drake": "Draco escupidor",
+    "stone-golem": "Gólem de piedra",
+    "sun-demon": "Demonio de Sol",
+    "the-betrayer": "El traidor",
+    "the-colorless": "El Incoloro",
+    "the-gloom": "La Penumbra",
+    "the-harvester": "El Segador",
+    "the-sightless-eye": "El ojo que ve",
+    "vermling-scout": "Explorador infestor",
+    "vermling-shaman": "Chamán infestor",
+    "wind-demon": "Demonio de Viento",
+    "winged-horror": "Horror Alado"
+  },
+  "objective": {
+    "zephyr": "Zephyr"
+  },
+  "partyAchievements": {
+    "A Demon's Errand": "El encargo del Demonio",
+    "A Map to Treasure": "Un mapa hacia el tesoro",
+    "Across the Divide": "Através de la división",
+    "An Invitation": "Una invitación",
+    "Bad Business": "Malos negocios",
+    "Dark Bounty": "Recompensa oscura",
+    "Debt Collection": "Cobro de deudas",
+    "First Steps": "Primeros pasos",
+    "Fish's Aid": "Ayuda para los peces",
+    "Following Clues": "Siguiendo pistas",
+    "Grave Job": "Trabajo en la tumba",
+    "High Sea Escort": "Escolta en alta mar",
+    "Jekserah's Plans": "Planes de Jekserah",
+    "Redthorn's Aid": "Ayuda de Redthorn",
+    "Sin-Ra": "Sin-Ra",
+    "Stonebreaker's Censer": "Incensario rompepiedras",
+    "Sun-Blessed": "Bendecido por el sol",
+    "The Drake's Command": "El mando del Drake",
+    "The Drake's Treasure": "El tesoro de Drake",
+    "The Poison's Source": "La fuente del veneno",
+    "The Scepter and the Voice": "El cetro y la Voz",
+    "The Voice's Command": "El mandato de la Voz",
+    "The Voice's Treasure": "El tesoro de la Voz",
+    "Through the Nest": "A través del nido",
+    "Through the Ruins": "A través de las ruinas",
+    "Through the Trench": "A través de la fosa",
+    "Tremors": "Temblores",
+    "Water Staff": "Personal del agua"
+  },
+  "personalQuest": {
+    "510": "Buscador de Xorn",
+    "511": "Clase comerciante",
+    "512": "la codicia es buena",
+    "513": "Hallar la cura",
+    "514": "Estudios de anatomía",
+    "515": "Defensor de la ley",
+    "516": "Tributo de sangre",
+    "517": "Trofeo de caza",
+    "518": "Eterno viajero",
+    "519": "Leyenda de las batallas",
+    "520": "Instrumento de la luz",
+    "521": "Recupera los árboles",
+    "522": "lugares enrarecidos",
+    "523": "Cazador de aberraciones",
+    "524": "Actitud intrépida",
+    "525": "Devoción por todas las cosas",
+    "526": "Venganza",
+    "527": "Fanático del dios de la sangre",
+    "528": "Vencedor de Goliat",
+    "529": "la caída del hombre",
+    "530": "Capacidades aumentadas",
+    "531": "Muestras elementales",
+    "532": "Una mano amiga",
+    "533": "El veneno perfecto"
+  },
+  "scenario": {
+    "group": {
+      "randomDungeon": "%scenario.random%",
+      "randomMonsterCard": "Cartas de monstruos aleatorias"
+    },
+    "rules": {
+      "gh": {
+        "19": {
+          "1": "hacia el altar %game.mapMarker.b%"
+        },
+        "22": {
+          "1": "Por cada altar que no se destruya, independientemente de si se ha revelado o no, los valores máximos de puntos de vida y ataque de todos los demonios aumentan en 1 y sus valores de movimiento y alcance aumentan en 0,5 (redondeado hacia arriba). Los ataques cuerpo a cuerpo no aumentan su alcance."
+        },
+        "36": {
+          "1": "El Demonio Supremo empieza el escenario con el doble de PV indicado en su carta de atributo."
+        },
+        "38": {
+          "1": "hacia el chamán en la pieza de tablero D"
+        },
+        "42": {
+          "1": "Todos los monstruos obtienen +1 %game.action.attack% a todos sus ataques",
+          "2": "Todos los monstruos obtienen Ventaja en todos sus ataques",
+          "3": "Todos los monstruos se curan 1 PV al inicio de cada uno de sus turnos",
+          "4": "Todos los personajes e invocaciones de personajes sufren 1 de daño al inicio de cada uno de sus turnos.",
+          "5": "Todos los personajes e invocaciones de personajes obtienen Desventaja en todos sus ataques.",
+          "6": "Todos los personajes e invocaciones de personajes reducen su ataque en -1 para todos sus ataques."
+        },
+        "54": {
+          "1": "Todos los Osos de Cueva añaden %game.condition.poison% a sus ataques."
+        },
+        "67": {
+          "1": "El Golem de Piedra Élite tine un nivel superior al del escenario, hasta un máximo de 7, y tiene HxP PV, donde H es el valor de puntos de vida estándar de un Golem de Piedra Élite. Este es el Golem Arcano. No puede entrar o atravesar la puerta%game.mapMarker.2%."
+        },
+        "71": {
+          "1": "Muévete a la izquierda",
+          "2": "Muévete arriba",
+          "3": "Muévete a la derecha",
+          "4": "Muévete abajo"
+        },
+        "73": {
+          "1": "Haz rodar las rocas hacia abajo."
+        },
+        "74": {
+          "1": "Añade pieza de agua."
+        },
+        "78": {
+          "1": "Los dos Sectarios %game.mapMarker.b%, así como la víctima %game.mapMarker.a%, son inmunes a acciones de movimiento obligatorio, %game.condition.immobilize%, y %game.condition.stun%, además, pueden abrir puertas.",
+          "2": "Inmune al movimiento forzado",
+          "3": "Puede abrir puertas"
+        },
+        "79": {
+          "1": "Muévelo a la posición inicial, si se ha movido, entonces realiza"
+        },
+        "86": {
+          "1": "hacia el final de los muelles %game.mapMarker.b%"
+        },
+        "89": {
+          "1": "Todos los Sectarios invocan Víboras Gigantes en vez de Huesos Vivientes."
+        }
+      }
+    }
+  }
+}

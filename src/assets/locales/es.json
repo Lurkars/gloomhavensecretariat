@@ -22,7 +22,7 @@
   },
   "campaign": {
     ".": "Campaña/Gestión de personajes",
-    "battleGoals": "Confg. Objetivos de batalla",
+    "battleGoals": "Conf. Objetivos de batalla",
     "campaignManagement": {
       ".": "Gestionar Campaña",
       "add": "Añadir Campaña",
@@ -95,26 +95,35 @@
         "hint": "Haz doble clic para restablecer todas las elecciones"
       },
       "warning": "¡No es posible seleccionar la carta porque hay demasiadas cartas en la baraja!",
-      "wip": "<i>%limpiar%</i>"
+      "wip": "<i>%wip%</i>"
     },
     "absent": "Ausente",
     "add": "Añadir Personaje",
     "class": {
+      "aesther": "Etérida",
       "f": {
+        "aesther": "Etérida",
         "human": "Humano",
         "inox": "Inox",
+        "orchid": "Orquídea",
         "quatryl": "Quatryl",
+        "savvas": "Savvas",
         "valrath": "Valrath"
       },
       "human": "Humano",
       "inox": "Inox",
       "m": {
+        "aesther": "Etérida",
         "human": "Humano",
         "inox": "Inox",
+        "orchid": "Orquídea",
         "quatryl": "Quatryl",
+        "savvas": "Savvas",
         "valrath": "Valrath"
       },
+      "orchid": "Orquídea",
       "quatryl": "Quatryl",
+      "savvas": "Savvas",
       "valrath": "Valrath"
     },
     "filter": {
@@ -162,7 +171,7 @@
         },
         "unlockCharacter": {
           ".": "Abre la caja %game.characterIcon.{0}%",
-          "itemDesign": "Obtén \"%data.items.{1}-{0}%\" Diseño (Item {0})",
+          "itemDesign": "Obtén el diseño \"%data.items.{1}-{0}%\" (Item {0})",
           "randomScenario": "Desbloquea \"{1}\" %data.scenarioNumber:{0}%"
         }
       },
@@ -181,12 +190,12 @@
         },
         "apply": "Aplicar",
         "conclusion": "Abrir Sección %data.section:{0}%",
-        "events": "Añade el evento de Ciudad {0} y el evento de Camino{0} a sus respectivos mazos",
+        "events": "Añade el evento de Ciudad {0} y el evento de Camino {0} a sus respectivos mazos",
         "moveSupply": "Mueve los recursos al almacén de Frosthaven",
         "prosperity": "+{0} prosperidad"
       },
       "retirements": "Retirados",
-      "title": "{1} {0}",
+      "title": "{0} {1}",
       "trial": "Prueba",
       "xp": "Exp"
     },
@@ -196,7 +205,7 @@
       ".": "Rejugar Personaje",
       "hint": "Doble Click para rejugar Personaje"
     },
-    "setAside": "Pon al personaje a un lado",
+    "setAside": "Apartar personaje",
     "summon": {
       "level": "(Nivel {0})"
     },
@@ -233,7 +242,7 @@
             "status": "Backup automático fallido con código de error'{0}'. Hecha un vistazo al monitor del navegador para más detalles.",
             "unknown": "Backup automático fallido debido a un error desconocido. Por favor revisa el monitor del navegador para más detalles."
           },
-          "hint": "En vez de descargar el fichero del Backup automático, fija una URL para subir los datos. {FILENAME} puede utilizarse como marcador de posición (placeholder) para el nombre de archivo.  (Esto requiere una configuración CORS adecuada para funcionar.)"
+          "hint": "En lugar de descargar el fichero del Backup automático, fija una URL para subir los datos. {FILENAME} puede utilizarse como marcador de posición (placeholder) para el nombre de archivo.  (Esto requiere una configuración CORS adecuada para funcionar.)"
         },
         "uploadUrlAuthorization": {
           ".": "Cabecera de autorización",
@@ -414,7 +423,7 @@
         "boss": "Es un Jefe",
         "count": "Recuento de peana",
         "deck": "Añadir nombre al mazo de habilidades",
-        "flying": "Volador",
+        "flying": "Volando",
         "hidden": "Invisible",
         "json": {
           ".": "Atributos de monstruo JSON datos",
@@ -450,7 +459,7 @@
       "monsterType": "Tipo de Monstruo",
       "move": "Movimiento",
       "nonCalc": "org. Acción",
-      "pierce": "Muelle",
+      "pierce": "Perforante",
       "pull": "Tirar",
       "push": "Empujar",
       "range": "Alcance",
@@ -461,7 +470,7 @@
       "special": "Especial",
       "specialTarget": "Objetivo Especial",
       "sufferDamage": "Sufre Daño",
-      "summon": "Invocación",
+      "summon": "Invoca",
       "swing": "Tajo",
       "target": "Objetivo",
       "targets": "Objetivos",
@@ -474,12 +483,12 @@
       ".": "Aliado",
       "addEntity": {
         "boss": "Generar Jefe aliado",
-        "elite": "Generar Elite aliado",
+        "elite": "Generar aliado Élite",
         "normal": "Generar aliado normal"
       }
     },
     "attackModifiers": {
-      ".": "Mazo de Modificar de ataque",
+      ".": "Mazo de Modificación de ataque",
       "additional": {
         "apply": "Usar mazo de {0}",
         "dialog": "Selecciona el mazo de personaje para aplicar %game.condition.{0}%",
@@ -493,7 +502,7 @@
         ".": "Pericias",
         "additional": "{0} y {1}",
         "card": "carta",
-        "cardLabel": "{0}{1} {2}",
+        "cardLabel": "{0} {2} {1}",
         "cards": {
           ".": "cartas",
           "1": "%number.1%",
@@ -511,7 +520,7 @@
         "type": {
           "add": "añade {0}",
           "remove": "elimina {0}",
-          "replace": "reemplaza {0} por {1}"
+          "replace": "sustituye {0} por {1}"
         },
         "warning": "¡Más pericias que las disponibles seleccionadas!",
         "wip": "%wip%! Perícias no completadas aún."
@@ -538,14 +547,14 @@
       "all": "Cartas actuales",
       "cancel": "Cancelar",
       "choose": "Elige Objetivo de Batalla para %game.characterIconColored.{0}% {1}",
-      "chooseCard": "Elija la carta seleccionada",
+      "chooseCard": "Elegir carta",
       "chosen": "Objetivo de batalla para %game.characterIconColored.{0}% {1}",
       "drawCard": "Robar otra carta",
-      "drawCards": "Cartas de recompensa",
+      "drawCards": "Robar de nuevo",
       "drawUnavailable": "¡Se han robado todos los Objetivos de batalla!",
-      "edition": "%data.edition.{0}% Cartas",
+      "edition": "Cartas de %data.edition.{0}%",
       "setup": {
-        ".": "Establecer Objetivos de batalla",
+        ".": "Configurar Objetivos de batalla",
         "empty": "No hay Cartas de Objetivos de batalla seleccionadas."
       }
     },
@@ -641,8 +650,8 @@
         "hint": "%game.conditionIcon.infect% infectado: no puedes obtener escudo. Se elimina al recibir curación."
       },
       "invisible": {
-        ".": "Invisible",
-        "hint": "%game.conditionIcon.invisible% Invisible: no puedes ser marcado como objetivo. Elimínalo al final del siguiente turno."
+        ".": "Invisibilidad",
+        "hint": "%game.conditionIcon.invisible% Invisibilidad: no puedes ser marcado como objetivo. Elimínalo al final del siguiente turno."
       },
       "muddle": {
         ".": "Confusión",
@@ -692,7 +701,7 @@
     "custom": {
       "advantage": "Ventaja",
       "disadvantage": "Atacantes obtienen Desventaja",
-      "instead": "En cambio",
+      "instead": "En lugar de",
       "math": {
         "ceil": "(Redondeado hacia arriba)",
         "floor": "(redondeado hacia abajo)",
@@ -749,23 +758,23 @@
         "3": "C"
       },
       "rewards": {
-        "additionalGold": "Obtén {0} oro adicional cada uno.",
+        "additionalGold": "Cada personaje obtiene {0} oro adicional.",
         "collectiveGold": "Obtén {0} oro colectivo.",
         "collectiveItem": "Obtén {2} colectivo \"%data.items.{1}-{0}%\" (Item {0}).",
         "consumeCollectiveItem": "Consume {0} objeto colectivo %game.itemSlot:{1}% .",
-        "consumeItem": "Consume {0} %game.itemSlot:{1}% objeto cada uno.",
-        "discard": "Descartar cada uno {0} cartas..",
-        "event": "Añade %game.events.type.{0}% Evento {1} al mazo.",
-        "experience": "Obtén {0} experiencia cada uno.",
+        "consumeItem": "Cada personaje consume un objeto {0} %game.itemSlot:{1}%.",
+        "discard": "Cada personaje descarta {0} cartas.",
+        "event": "Añade el evento %game.events.type.{0}% {1} al mazo.",
+        "experience": "Cada personaje obtiene {0} experiencia.",
         "globalAchievement": "Logro global: \"{0}\".",
-        "gold": "Obtén {0} oro cada uno.",
-        "itemDesign": "Obtén \"%data.items.{1}-{0}%\" Diseño (Item {0}).",
-        "loseBattleGoal": "Pierde {0} %game.checkmark% cada uno.",
+        "gold": "Cada personaje obtiene {0} oro.",
+        "itemDesign": "Obtén el diseño \"%data.items.{1}-{0}%\" (Item {0}).",
+        "loseBattleGoal": "Cada personaje pierde {0} %game.checkmark%.",
         "loseCollectiveGold": "Pierde {0} oro colectivo.",
-        "loseGold": "Pierde {0} oro cada uno.",
+        "loseGold": "Cada personaje pierde {0} oro.",
         "loseReputation": "Pierde {0} reputación.",
         "noEffect": "Sin efecto.",
-        "outcome": "Lee outome %game.events.option.{0}%.",
+        "outcome": "Lee conclusión %game.events.option.{0}%.",
         "partyAchievement": "Logo de grupo: \"{0}\".",
         "prosperity": "Obtén {0} prosperidad.",
         "randomItemDesign": "Obtén un Diseño de objeto aleatorio.",
@@ -834,7 +843,7 @@
       "character": {
         ".": "Cartas de objeto para %game.characterIconColored.{0}% {1}",
         "empty": "Sin Objetos",
-        "shop": "Tienda de Objetos",
+        "shop": "Tienda de objetos",
         "toggleEquipped": "Sólo objetos equipados",
         "toggleSorted": "Ordenar objetos"
       },
@@ -935,7 +944,7 @@
         "rewards": {
           "battleGoal": "Obtén {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
           "calendarSection": "añade %data.section:{0}% in %number.{1}% semanas",
-          "campaignSticker": "Adquiere \"{0}\" pegatina de campaña",
+          "campaignSticker": "Adquiere la pegatina de campaña \"{0}\"",
           "condition": "adquiere {0}",
           "damage": "sufre {0}",
           "event": {
@@ -957,7 +966,7 @@
           "lootCards": "Obtén %number.{0}% cartas de botín",
           "partyAchievement": "Logro de Grupo: \"{0}\"",
           "randomItem": {
-            ".": "Obtén un objeto aleatorio (Items {0})",
+            ".": "Obtén un objeto aleatorio (Objeto {0})",
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
@@ -1027,8 +1036,8 @@
       "spawnMarker": "{1} %data.monster.{0}% en %game.mapMarker.{2}%",
       "spawnObjective": "{1} %data.objective.{0}%",
       "spawnObjectiveMarker": "{1} %data.objective.{0}% en %game.mapMarker.{2}%",
-      "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
-      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% en %game.mapMarker.{3}%"
+      "spawnType": "{2} %data.monster.{0}% %game.monsterType.{1}%",
+      "spawnTypeMarker": "{2} %data.monster.{0}% %game.monsterType.{1}% en %game.mapMarker.{3}%"
     },
     "target": {
       ".": "Objetivo",
@@ -1058,15 +1067,15 @@
     "add": "Añadir Monstruo",
     "addEntity": {
       "boss": "Añadir Monstruo Jefe",
-      "elite": "Añadir Monstruo Elite",
+      "elite": "Añadir Monstruo Élite",
       "normal": "Añadir Monstruo Normal"
     },
     "applyInteractiveActions": "Aplicar las habilidades destacadas para",
     "boss": "Jefe",
     "cancelNumberpicker": "Cancelar",
-    "changeStandee": "Cambiar %game.monsterType.{0}% peana #{1}",
+    "changeStandee": "Cambiar peana %game.monsterType.{0}% #{1}",
     "changeType": "Cambiar tipo de %game.monsterType.{0}% a %game.monsterType.{1}%",
-    "elite": "Elite",
+    "elite": "Élite",
     "filter": {
       ".": "Filtrar Monstruo",
       "noResult": "Sin resultados"
@@ -1078,10 +1087,10 @@
     "selectStandees": {
       "all": "Seleccionar todas las peanas",
       "boss": "Seleccionar todas las peanas de Jefes",
-      "elite": "Seleccionar todas las peanas Elite",
+      "elite": "Seleccionar todas las peanas Élites",
       "normal": "Seleccionar todas las peanas Normales"
     },
-    "setStandees": "Añade peana {1} %game.monsterType.{0}%",
+    "setStandees": "Añade {1} peana/s %game.monsterType.{0}%",
     "showBoss": "Mostrar Monstruos Jefe",
     "showHidden": "Mostrar Monstruos ocultos",
     "skipInteractiveActions": "Saltar capacidades interactivas para",
@@ -1147,7 +1156,7 @@
       "achievements": "Logros Globales",
       "donations": "Donaciones al Santuario del Gran Roble",
       "envelopeB": "Sobre B",
-      "items": "Desbloquear Objetos",
+      "items": "Desbloquear objetos",
       "manage": "Gestión global de campañas",
       "map": "Mapa",
       "players": {
@@ -1268,7 +1277,7 @@
         },
         "winter": "Invierto"
       },
-      "totalTime": "Jugado en Escenarios: {0}",
+      "totalTime": "Tiempo jugado en escenarios: {0}",
       "townGuard": "Guardia de la Ciudad",
       "townGuardDeck": "Mazo de la Guardia de la Ciudad",
       "treasures": {
@@ -1384,7 +1393,7 @@
     "blocked": "Bloqueado",
     "cancel": "Cancelar Escenario",
     "chart": {
-      ".": "Flujo de escenario",
+      ".": "Diagrama de flujo",
       "setup": "Mostrar Configuración del Escenario",
       "start": "Iniciar Escenario",
       "success": "Marcar como completado",
@@ -1474,7 +1483,7 @@
         "summer": "Nueva estación: Verano <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
         "winter": "Nueva estación: Invierno <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
       },
-      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> cada uno",
+      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> cada personaje",
       "bonus": "Bonificaciones",
       "calendarSection": {
         ".": "Enlaces de secciones",
@@ -1497,7 +1506,7 @@
         "road": "Añade el Evento de Camino {0} a su mazo",
         "summer-outpost": "Añade el evento {0} al mazo de Verano del Puesto de Avanzada",
         "summer-road": "Añade el evento {0} al mazo de verano de Camino",
-        "winter-outpost": "Añade el Eventl {0} al mazo de invierno del Puesto de Avanzada",
+        "winter-outpost": "Añade el Evento {0} al mazo de invierno del Puesto de Avanzada",
         "winter-road": "Añade el Evento {0} al mazo de invierno de Camino"
       },
       "experience": "{0} experiencia cada personaje",
@@ -1519,11 +1528,11 @@
       "overlayCampaignSticker": "Coloca \"%data.campaignSticker.{0}%\" la pegatina de campaña en el mapa de la ciudad en la ubicación {1}",
       "overlaySticker": "Coloca la pegatina de mapa superpuesto {0} en la ubicación {0} ({1}).",
       "partyAchievements": "Logros de Grupo",
-      "perks": "Obtener {0} pericias cada uno",
+      "perks": "Cada personaje obtiene {0} pericia",
       "pet": "Añade %data.pets.{1}-{0}% (Pet {0}) a los establos. No puede superar la capacidad de estos.",
       "prosperity": "{0} prosperidad",
       "randomItemBlueprint": "Obtén una receta de objeto aleatoria",
-      "randomItemBlueprints": "Añade los objetos %game.itemFh.{0}% a %game.itemFh.{1}% el mazo aleatorio de recetas.",
+      "randomItemBlueprints": "Añade los objetos %game.itemFh.{0}% a %game.itemFh.{1}% el mazo de recetas aleatorias.",
       "randomItems": "Cada personaje obtiene un objeto aleatorio ({0}-{1})",
       "removeEvent": {
         "boat": "Elimina el evento {0} del mazo de navegación",
@@ -1537,8 +1546,8 @@
       },
       "removeLootDeckCard": "Elimina la carta de botín {0} del juego. No la añadas más a ningún mazo de botín de cualquier Escenario.",
       "reputation": "{0} reputación",
-      "resources": "Obtener {1} %game.resource.{0}% cada uno",
-      "resourcesLose": "Perdéis {1} %game.resource.{0}% cada uno",
+      "resources": "Cada personaje obtiene {1} %game.resource.{0}%",
+      "resourcesLose": "Cada personaje pierde {1} %game.resource.{0}%",
       "townGuardAm": "Añade una carta %game.townGuardAm.{1}:{0}% al mazo de la Guardia de la Ciudad.",
       "unlockCharacter": {
         ".": "Desbloquear",
@@ -1564,7 +1573,7 @@
         "amAdd": "{0} añade %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% a la baraja de Modificación de Ataque",
         "amRemove": "{0} elimina %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% del mazo de Modificación de Ataques",
         "damage": "{0} sufre %game.damage:{2}%",
-        "discard": "{0} descarta %number.{2}% cartas de habilidad cada uno",
+        "discard": "{0} cada personaje descarta %number.{2}% cartas de habilidad",
         "discardAbilityToBottom": "Coloca una habilidad en el fondo de la pila de descartes para {0}",
         "dormant": "{0} se vuelven inactivos",
         "drawAbility": "Roba otra carta de habilidad para {0}",
@@ -1605,8 +1614,8 @@
         "applied": "Reglas de escenario aplicadas",
         "discarded": "Reglas de escenario descartadas"
       },
-      "spawn": "Añadir monstruo {2}%game.monsterType.{1}% %data.monster.{0}%",
-      "spawnMarker": "Añadir monstruo {2}%game.monsterType.{1}% %data.monster.{0}% en %game.mapMarker.{3}%",
+      "spawn": "Añade {2} %data.monster.{0}% %game.monsterType.{1}%",
+      "spawnMarker": "Añade {2}%data.monster.{0}% %game.monsterType.{1}% en %game.mapMarker.{3}%",
       "spawnObjective": "Añadir Objetivo '{0}'",
       "spawnObjectiveEscort": "Añadir Escolta '{0}'",
       "spawnObjectiveEscortMarker": "Añadir Escolta '{0}' en %game.mapMarker.{2}%",
@@ -1647,7 +1656,7 @@
       ".": "Estadísticas de escenario",
       "bossKills": {
         ".": "%game.monsterType.boss%: {0}",
-        "hint": "Cantidad de %game.monsterType.boss% monstruos muertos"
+        "hint": "Cantidad de monstruos %game.monsterType.boss% muertos"
       },
       "damage": {
         ".": "Daño"
@@ -1658,7 +1667,7 @@
       },
       "eliteKills": {
         ".": "%game.monsterType.elite%: {0}",
-        "hint": "Cantidad de %game.monsterType.elite% monstruos matados"
+        "hint": "Cantidad de monstruos %game.monsterType.elite% matados"
       },
       "gold": {
         ".": "%game.gameIcon:loot%: {0}",
@@ -1694,8 +1703,8 @@
         "hint": "Daño recibido por enemigos"
       },
       "normalKills": {
-        ".": "%game.monsterType.normal%: {0}",
-        "hint": "Cantidad de %game.monsterType.normal% monstruos matados"
+        ".": "{0}: %game.monsterType.normal%",
+        "hint": "Cantidad de monstruos %game.monsterType.normal% matados"
       },
       "otherDamage": {
         ".": "%game.gameIcon:trap% {0}",
@@ -2012,7 +2021,7 @@
     },
     "battleGoals": {
       ".": "Objetivos de batalla",
-      "hint": "Permitir robar y seleccionar Objetivos de batalla en formato digital antes de la primera ronda de un escenario."
+      "hint": "Permite robar y seleccionar Objetivos de batalla en formato digital antes de la primera ronda de un escenario."
     },
     "battleGoalsCharacter": {
       ".": "Mostrar siempre los Objetivos de batalla",
@@ -2048,7 +2057,7 @@
     },
     "calculate": {
       ".": "Mostrar Atributos calculados",
-      "hint": "Los valores de habilidad se calculan con los Atributos, por lo que en lugar de Ataque +1 Ataque 4 se muestra para un valor de Ataque de 3 en los Atributos. "
+      "hint": "Los valores de habilidad se calculan con los Atributos, por lo que en lugar de Ataque +1, se muestra Ataque 4 para un valor de Ataque de 3 en los Atributos. "
     },
     "calculateShieldStats": {
       ".": "Añade Escudo y Represalia a las habilidades",
@@ -2142,7 +2151,7 @@
     "conditions": "Estados/Elementos",
     "damageHP": {
       ".": "Daño en vez de PV",
-      "hint": "Muestra el daño realizado en vez de los Puntos de Vida restantes."
+      "hint": "Muestra el daño realizado en lugar de de los Puntos de Vida restantes."
     },
     "damageHPToggle": {
       ".": "Fijar Daño/PV en el tablero de personaje",
@@ -2474,7 +2483,7 @@
     "clear": {
       ".": "Limpiar",
       "redos": "Limpiar Rehacer",
-      "undos": "Limpiar Deshacer"
+      "undos": "Limpiar deshacer"
     },
     "currentGame": "Actual",
     "info": {
@@ -2849,7 +2858,7 @@
       "setActive": "Iniciar turno para {0}",
       "setAllied": "{0} como alianza",
       "setAlly": "{0} como aliado",
-      "setBG": "Establecer objetivos de batalla de {0} a {1}",
+      "setBG": "Configurar objetivos de batalla de {0} a {1}",
       "setCharacterRetaliate": "{1} para {0}",
       "setCharacterRetaliatePersistent": "%game.card.persistent% {1} para {0}",
       "setCharacterShield": "%game.action.shield% {1} para {0}",
@@ -2866,7 +2875,7 @@
       "setCustomScenario": "Establecer escenario personalizado",
       "setDrawExtraAbility": "Establecer robo extra para {0}",
       "setEdition": "Establecer edición a {0}",
-      "setEditionAll": "Sseleccionar todas las ediciones",
+      "setEditionAll": "Seleccionar todas las ediciones",
       "setEntityActive": "Establecer peana {1} de {0} activa",
       "setEntityRetaliate": {
         "char": "{1} para {0}",
@@ -3003,7 +3012,7 @@
     "decks": "Mazos de habilidades",
     "feedback": {
       ".": "Feedback",
-      "githubIssue": "Presentar una incidencia en GitHub",
+      "githubIssue": "Presenta una incidencia en GitHub",
       "reportIssue": {
         ".": "Informar de un problema",
         "automaticText": "Texto automático",
@@ -3121,8 +3130,8 @@
       "toggleHandSize": "Fijar <i>Mostar tamaño de mano y nivel</i>",
       "toggleTraits": "Fijar <i>Mostrar rasgos</i>",
       "undo": "Deshacer",
-      "zoomIn": "Zoom-in",
-      "zoomOut": "Zoom-out",
+      "zoomIn": "Ampliar",
+      "zoomOut": "Reducir",
       "zoomReset": "Reiniciar Zoom"
     },
     "validateEditionData": "Validar datos de Edición"
