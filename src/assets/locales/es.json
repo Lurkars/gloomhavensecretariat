@@ -190,12 +190,12 @@
         },
         "apply": "Aplicar",
         "conclusion": "Abrir Sección %data.section:{0}%",
-        "events": "Añade el evento de Ciudad {0} y el evento de Camino{0} a sus respectivos mazos",
+        "events": "Añade el evento de Ciudad {0} y el evento de Camino {0} a sus respectivos mazos",
         "moveSupply": "Mueve los recursos al almacén de Frosthaven",
         "prosperity": "+{0} prosperidad"
       },
       "retirements": "Retirados",
-      "title": "{1} {0}",
+      "title": "{0} {1}",
       "trial": "Prueba",
       "xp": "Exp"
     },
@@ -205,7 +205,7 @@
       ".": "Rejugar Personaje",
       "hint": "Doble Click para rejugar Personaje"
     },
-    "setAside": "Pon al personaje a un lado",
+    "setAside": "Apartar personaje",
     "summon": {
       "level": "(Nivel {0})"
     },
@@ -459,7 +459,7 @@
       "monsterType": "Tipo de Monstruo",
       "move": "Movimiento",
       "nonCalc": "org. Acción",
-      "pierce": "Muelle",
+      "pierce": "Perforante",
       "pull": "Tirar",
       "push": "Empujar",
       "range": "Alcance",
@@ -502,7 +502,7 @@
         ".": "Pericias",
         "additional": "{0} y {1}",
         "card": "carta",
-        "cardLabel": "{0}{1} {2}",
+        "cardLabel": "{0} {2} {1}",
         "cards": {
           ".": "cartas",
           "1": "%number.1%",
@@ -843,7 +843,7 @@
       "character": {
         ".": "Cartas de objeto para %game.characterIconColored.{0}% {1}",
         "empty": "Sin Objetos",
-        "shop": "Tienda de Objetos",
+        "shop": "Tienda de objetos",
         "toggleEquipped": "Sólo objetos equipados",
         "toggleSorted": "Ordenar objetos"
       },
@@ -1090,7 +1090,7 @@
       "elite": "Seleccionar todas las peanas Élites",
       "normal": "Seleccionar todas las peanas Normales"
     },
-    "setStandees": "Añade {1} peana %game.monsterType.{0}%",
+    "setStandees": "Añade {1} peana/s %game.monsterType.{0}%",
     "showBoss": "Mostrar Monstruos Jefe",
     "showHidden": "Mostrar Monstruos ocultos",
     "skipInteractiveActions": "Saltar capacidades interactivas para",
@@ -1156,7 +1156,7 @@
       "achievements": "Logros Globales",
       "donations": "Donaciones al Santuario del Gran Roble",
       "envelopeB": "Sobre B",
-      "items": "Desbloquear Objetos",
+      "items": "Desbloquear objetos",
       "manage": "Gestión global de campañas",
       "map": "Mapa",
       "players": {
@@ -1277,7 +1277,7 @@
         },
         "winter": "Invierto"
       },
-      "totalTime": "Jugado en Escenarios: {0}",
+      "totalTime": "Tiempo jugado en escenarios: {0}",
       "townGuard": "Guardia de la Ciudad",
       "townGuardDeck": "Mazo de la Guardia de la Ciudad",
       "treasures": {
@@ -1393,7 +1393,7 @@
     "blocked": "Bloqueado",
     "cancel": "Cancelar Escenario",
     "chart": {
-      ".": "Flujo de escenario",
+      ".": "Diagrama de flujo",
       "setup": "Mostrar Configuración del Escenario",
       "start": "Iniciar Escenario",
       "success": "Marcar como completado",
