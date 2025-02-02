@@ -519,7 +519,7 @@
         },
         "type": {
           "add": "añade {0}",
-          "remove": "elimina {0}",
+          "remove": "retira {0}",
           "replace": "sustituye {0} por {1}"
         },
         "warning": "¡Más pericias que las disponibles seleccionadas!",
@@ -914,7 +914,7 @@
       },
       "flamefruit": "Flamefruit",
       "herb_resources": "Yerba",
-      "hide": "Ocultar",
+      "hide": "Pieles",
       "keep": "Continua %data.character.{0}%",
       "lootTreasure": {
         ".": "¿{0} saquear tesoro {1}?",
@@ -1511,7 +1511,7 @@
       },
       "experience": "{0} experiencia cada personaje",
       "globalAchievements": "Logros Globales",
-      "gold": "{0} oro cada personaje",
+      "gold": "Cada personaje obtiene {0} oro.",
       "inspiration": "{0} inspiración",
       "item": "\"{1}\" (Objeto {0})",
       "itemBlueprint": "Obtén \"{1}\" %game.itemFh.{0}% receta",
