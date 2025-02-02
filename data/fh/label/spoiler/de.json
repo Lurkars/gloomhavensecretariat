@@ -1,4 +1,7 @@
 {
+  "character": {
+    "coral": "Gezeitenbruch"
+  },
   "items": {
     "fh-1": {
       ".": "Fernrohr",
@@ -96,6 +99,18 @@
       ".": "Grobe Kettenrüstung",
       "1": "Wenn du durch einen Angriff %game.damage% erleidest, erhältst du für den Angriff %game.action.shield:2%."
     },
+    "fh-120": {
+      ".": "Amulett des Lebens",
+      "1": "Führe während deines Zugs aus:"
+    },
+    "fh-125": {
+      ".": "Schnellläufer",
+      "1": "Erhöhe/reduziere nach dem Aufdecken aller Fertigkeitskarten zum Bestimmen der Initiative deinen Initiative-Wert um 10."
+    },
+    "fh-127": {
+      ".": "Giftdolch",
+      "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.condition.poison% hinzu."
+    },
     "fh-13": {
       ".": "Tanzschuhe",
       "1": "Nachdem du durch einen Angriff %game.damage% erleidest, führe aus:"
@@ -120,9 +135,17 @@
       ".": "Spröde Stiefel",
       "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten +1 %game.action.move% hinzu."
     },
+    "fh-186": {
+      ".": "Wildwuchs-Samen",
+      "1": "Erstelle während deines Zugs ein 1er-Hindernis auf einem angrenzenden leeren Feld."
+    },
     "fh-19": {
       ".": "Klanghammer",
       "1": "Füge bei deiner Angriffsfertigkeit allen Angriffen %game.condition.muddle% hinzu."
+    },
+    "fh-191": {
+      ".": "Verdorbene Schrift",
+      "1": "Führe während deines Zugs aus:"
     },
     "fh-2": {
       ".": "Grober Helm",
@@ -147,6 +170,11 @@
     "fh-24": {
       ".": "Verdorbene Klinge",
       "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.condition.wound%, %game.condition.poison%, und %game.condition.muddle% hinzu."
+    },
+    "fh-243": {
+      ".": "Verfluchter Stein",
+      "1": "Dieser Gegenstand kann nicht verkauf werden. Er muss in jedes Szenario mitgenommen und dabei genutzt werden.",
+      "2": "Führe zu Beginn des Szenarios aus:"
     },
     "fh-25": {
       ".": "Sanftes Szepter",
