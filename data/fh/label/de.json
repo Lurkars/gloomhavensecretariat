@@ -372,16 +372,16 @@
     },
     "traits": {
       "arcane": "Arkan",
-      "armored": "Armored",
-      "chaotic": "Chaotic",
+      "armored": "Gerüstet",
+      "chaotic": "Chaotisch",
       "educated": "Gelehrt",
       "intimidating": "Einschüchternd",
       "night": "Night",
-      "nimble": "Nimble",
-      "outcast": "Outcast",
-      "persuasive": "Persuasive",
-      "resourceful": "Resourceful",
-      "strong": "Strong"
+      "nimble": "Flink",
+      "outcast": "Ausgestoßen",
+      "persuasive": "Überzeugend",
+      "resourceful": "Erfinderisch",
+      "strong": "Stark"
     }
   },
   "custom": {
