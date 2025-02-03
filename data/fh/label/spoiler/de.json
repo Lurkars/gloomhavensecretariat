@@ -9,7 +9,7 @@
     },
     "fh-10": {
       ".": "Grober Schild",
-      "1": "Wenn dir ein Gegner einen negativen Zustand geben würde, wird der Zustand verhindert."
+      "1": "Wenn dir ein Gegner einen negativen Zustand geben würde, wird der Zustand verhindert"
     },
     "fh-100": {
       ".": "Großer Ausdauertrank",
@@ -21,7 +21,7 @@
     },
     "fh-102": {
       ".": "Großer Elementtrank",
-      "1": "%game.element.wild% %game.element.wild% während deines Zugs."
+      "1": "%game.element.wild% %game.element.wild% während deines Zugs"
     },
     "fh-103": {
       ".": "Großer Arzneitrank",
@@ -29,7 +29,7 @@
     },
     "fh-104": {
       ".": "Flinkheitstrank",
-      "1": "Füge bei deiner Bewegungsfertigkeit +3 %game.action.move% und %game.action.jump%. hinzu"
+      "1": "Füge bei deiner Bewegungsfertigkeit +3 %game.action.move% und %game.action.jump%. hinzu."
     },
     "fh-105": {
       ".": "Großer Feuerschild",
@@ -287,7 +287,7 @@
     },
     "fh-5": {
       ".": "Grobe Stiefel",
-      "1": "Füge bei deiner Bewegungsfertigkeit +1 %game.action.move% hinzu."
+      "1": "Füge bei deiner Bewegungsfertigkeit +1 %game.action.move% hinzu"
     },
     "fh-50": {
       ".": "Wechselschild",
@@ -348,7 +348,7 @@
     },
     "fh-63": {
       ".": "Schattenstampfer",
-      "1": "%game.element.consume.dark% bei deiner Bewegungsfertigkeit, um +2 %game.action.move% hinzuzufügen."
+      "1": "%game.element.consume.dark% bei deiner Bewegungsfertigkeit, um +2 %game.action.move% hinzuzufügen"
     },
     "fh-64": {
       ".": "Zünder",
@@ -450,7 +450,7 @@
     },
     "fh-86": {
       ".": "Elementtrank",
-      "1": "%game.element.wild% während deines Zugs."
+      "1": "%game.element.wild% während deines Zugs"
     },
     "fh-87": {
       ".": "Arzneitrank",
