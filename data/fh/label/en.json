@@ -1,5 +1,4 @@
 {
-  "ability": {},
   "battleGoals": {
     "1301": {
       ".": "Accountant",
@@ -593,7 +592,7 @@
         "3": "Cannot focus on character summons."
       },
       "city-guard-scenario-1": {
-        "1": "Does not Perform a Turn"
+        "1": "Does not perform a turn."
       },
       "deathwalker": {
         "1": "Whenever you long rest, you may move one %data.action.custom.fh-shadow% up to three hexes",
@@ -645,7 +644,7 @@
         "tavern3": "1st Printing: This should have a requirement to build of already having 3 coins."
       },
       "fish-king-scenario-76": {
-        "1": "The Fish King does not act"
+        "1": "The Fish King does not act."
       },
       "fish-king-scenario-77": {
         "1": "Kill the closest Piranha Pig.<br>All adjacent enemies suffer trap damage."
@@ -810,7 +809,6 @@
       }
     }
   },
-  "deck": {},
   "edition": {
     "fh": "Frosthaven"
   },
