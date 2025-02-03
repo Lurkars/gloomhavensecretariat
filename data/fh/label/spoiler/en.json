@@ -805,7 +805,7 @@
     },
     "fh-191": {
       ".": "Corrupted Scroll",
-      "1": "During your, perform:"
+      "1": "During your turn, perform:"
     },
     "fh-192": {
       ".": "Enticing Bell",
@@ -1489,7 +1489,7 @@
     "fh": {
       "12": "You find the remains of Camilla and her paintings of a majestic horned creature.",
       "51": "Read %data.section:78.1%",
-      "54": "Treasure chest? There was no treasure chest there Maybe you should slow down on the drink",
+      "54": "Treasure chest? There was no treasure chest there Maybe you should slow down on the drink.",
       "57": "What's this? An empty chest with a lead trapdoor at the bottom You make note of the location so you can return with Gem's help later.",
       "62": "gain Mechanical Cube blueprint %game.itemFh.82% when you find the other half of this blueprint."
     }
