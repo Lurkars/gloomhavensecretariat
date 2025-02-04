@@ -1,1 +1,18 @@
-{}
+{
+  "character": {
+    "banner-spear": "Estandarte",
+    "blinkblade": {
+      ".": "Dagacentella"
+    },
+    "boneshaper": {
+      ".": "Nigromante"
+    },
+    "deathwalker": "Guía de ánimas",
+    "drifter": "Errante",
+    "geminate": {
+      ".": "Geminado",
+      "melee": "Cuerpo a cuerpo",
+      "range": "A distancia"
+    }
+  }
+}
