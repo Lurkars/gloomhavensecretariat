@@ -1,15 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { PetCard, PetIdentifier } from "src/app/game/model/data/PetCard";
 
 @Component({
-	standalone: false,
+    standalone: false,
 
     selector: 'ghs-stables',
     templateUrl: 'stables.html',
     styleUrls: ['./stables.scss'],
 })
-export class StablesComponent implements OnInit {
+export class StablesComponent implements OnInit, OnDestroy {
 
     pets: { card: PetCard | undefined, model: PetIdentifier | undefined }[] = [];
 
@@ -24,11 +25,19 @@ export class StablesComponent implements OnInit {
 
     ngOnInit() {
         this.update();
-        gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 this.updateState();
             }
         })
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     update() {

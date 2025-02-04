@@ -1,24 +1,25 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Dialog } from "@angular/cdk/dialog";
+import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { storageManager } from "src/app/game/businesslogic/StorageManager";
+import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { environment } from "src/environments/environment";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
-import { Character } from "src/app/game/model/Character";
-import { ActivatedRoute, Router } from "@angular/router";
 import { CharacterSheetDialog } from "../../figures/character/dialogs/character-sheet-dialog";
-import { Dialog } from "@angular/cdk/dialog";
-import { storageManager } from "src/app/game/businesslogic/StorageManager";
 import { HeaderComponent } from "../../header/header";
 import { SubMenu } from "../../header/menu/menu";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-attackmodifier-standalone',
     templateUrl: './attackmodifier-standalone.html',
     styleUrls: ['./attackmodifier-standalone.scss',]
 })
-export class AttackModifierStandaloneComponent implements OnInit {
+export class AttackModifierStandaloneComponent implements OnInit, OnDestroy {
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
@@ -75,7 +76,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
             }
         })
 
-        gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
                 if (this.activeDeckIndex > this.characters.length + 1) {
@@ -84,6 +85,14 @@ export class AttackModifierStandaloneComponent implements OnInit {
                 }
             }
         })
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     vertical(): boolean {

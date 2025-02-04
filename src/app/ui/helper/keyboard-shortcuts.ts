@@ -1,5 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Directive, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -20,7 +21,7 @@ import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/ke
 export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP";
 
 @Directive({
-	standalone: false,
+    standalone: false,
     selector: '[ghs-keyboard-shortcuts]'
 })
 export class KeyboardShortcuts implements OnInit, OnDestroy {
@@ -61,7 +62,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.currentZoom = settingsManager.settings.zoom;
 
-        gameManager.uiChange.subscribe({ next: () => this.currentZoom = settingsManager.settings.zoom })
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.currentZoom = settingsManager.settings.zoom })
 
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
             if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
@@ -290,7 +291,12 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         })
     }
 
+    uiChangeSubscription: Subscription | undefined;
+
     ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
         window.removeEventListener('keydown', this.keydown);
         window.removeEventListener('keyup', this.keyup);
     }

@@ -1,5 +1,6 @@
 import { Dialog, DialogRef } from "@angular/cdk/dialog";
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
@@ -25,7 +26,7 @@ import { CharacterRetirementDialog } from "./retirement-dialog";
   styleUrls: ['./character-sheet.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class CharacterSheetComponent implements OnInit, AfterViewInit {
+export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() character!: Character;
   @Input() editable: boolean = true;
@@ -127,7 +128,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     this.hasAbilities = gameManager.deckData(this.character, true).abilities.length > 0;
     this.replayable = !gameManager.game.scenario && gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.character.name && figure.number == this.character.number) == undefined;
 
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
 
@@ -148,6 +149,14 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
       }
     })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   applyValues() {

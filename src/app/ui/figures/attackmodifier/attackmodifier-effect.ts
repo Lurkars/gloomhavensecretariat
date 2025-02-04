@@ -1,15 +1,16 @@
-import { AfterViewInit, Component, ElementRef, Input } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from "src/app/game/model/data/AttackModifier";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-attackmodifier-effect',
   templateUrl: './attackmodifier-effect.html',
   styleUrls: ['./attackmodifier-effect.scss']
 })
-export class AttackModifierEffectComponent implements AfterViewInit {
+export class AttackModifierEffectComponent implements AfterViewInit, OnDestroy {
 
   @Input() offsetWidth!: number;
   @Input() attackModifier!: AttackModifier;
@@ -28,7 +29,15 @@ export class AttackModifierEffectComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.adjustFontSize();
-    gameManager.uiChange.subscribe({ next: () => this.adjustFontSize() });
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.adjustFontSize() });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   adjustFontSize() {

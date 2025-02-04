@@ -1,16 +1,17 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
+import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-attackmodifier',
   templateUrl: './attackmodifier.html',
   styleUrls: ['./attackmodifier.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AttackModifierComponent implements OnInit, OnChanges {
+export class AttackModifierComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() attackModifier!: AttackModifier;
   @Input() characterIcon!: string;
@@ -48,7 +49,15 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
   ngAfterViewInit(): void {
     this.adjustFontSize();
-    gameManager.uiChange.subscribe({ next: () => this.adjustFontSize() });
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.adjustFontSize() });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   adjustFontSize() {

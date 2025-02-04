@@ -1,6 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { GameState } from 'src/app/game/model/Game';
@@ -14,7 +15,7 @@ import { applyPlaceholder } from '../../helper/label';
   templateUrl: './abilities-dialog.html',
   styleUrls: ['./abilities-dialog.scss']
 })
-export class AbiltiesDialogComponent implements OnInit {
+export class AbiltiesDialogComponent implements OnInit, OnDestroy {
 
   @ViewChild('menu') menuElement!: ElementRef;
   reveal: number = 0;
@@ -40,7 +41,15 @@ export class AbiltiesDialogComponent implements OnInit {
 
     this.bottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
     this.update();
-    gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   toggleEdit() {

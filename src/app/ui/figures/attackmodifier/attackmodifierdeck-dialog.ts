@@ -1,6 +1,7 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
@@ -10,12 +11,12 @@ import { ConditionName } from "src/app/game/model/data/Condition";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-attackmodifier-deck-dialog',
   templateUrl: './attackmodifierdeck-dialog.html',
   styleUrls: ['./attackmodifierdeck-dialog.scss',]
 })
-export class AttackModifierDeckDialogComponent implements OnInit {
+export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
 
   deck: AttackModifierDeck;
   character: Character;
@@ -73,7 +74,15 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
     }, !settingsManager.settings.animations ? 0 : 250);
     this.update();
-    gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   toggleEdit() {

@@ -1,6 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -17,12 +18,12 @@ import { ScenarioConclusionComponent } from './scenario/scenario-conclusion/scen
 import { ScenarioSummaryComponent } from './scenario/summary/scenario-summary';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-footer',
   templateUrl: './footer.html',
   styleUrls: ['./footer.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements OnInit, OnDestroy {
 
   @ViewChild('nextButton', { static: false }) nextButton!: ElementRef;
   @ViewChild('footer', { static: false }) footer!: ElementRef;
@@ -51,7 +52,7 @@ export class FooterComponent implements OnInit {
 
     this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
 
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && (figure.isAlly || figure.isAllied) || figure instanceof ObjectiveContainer && figure.objectiveId && gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck) || false;
         this.lootDeckEnabeld = settingsManager.settings.lootDeck && Object.keys(gameManager.game.lootDeck.cards).length > 0;
@@ -87,6 +88,14 @@ export class FooterComponent implements OnInit {
     window.addEventListener('resize', (event) => {
       this.compact = this.monsterDeck && this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
     });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   next(force: boolean = false): void {

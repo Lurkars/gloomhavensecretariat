@@ -1,6 +1,7 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
@@ -52,8 +53,16 @@ export class ChallengeDeckDialogComponent implements OnInit {
             this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
         }, !settingsManager.settings.animations ? 0 : 250);
         this.update();
-        gameManager.uiChange.subscribe({ next: () => this.update() });
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
         this.edit = !gameManager.game.scenario;
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     update() {

@@ -1,6 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
@@ -19,7 +20,7 @@ import { MonsterStatsDialogComponent } from './stats-dialog';
   templateUrl: './stats.html',
   styleUrls: ['./stats.scss']
 })
-export class MonsterStatsComponent implements OnInit {
+export class MonsterStatsComponent implements OnInit, OnDestroy {
 
   @Input() monster!: Monster;
   @Input() forceStats: boolean = false;
@@ -50,7 +51,15 @@ export class MonsterStatsComponent implements OnInit {
   ngOnInit(): void {
     this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
     this.update();
-    gameManager.uiChange.subscribe({ next: () => { this.update(); } });
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => { this.update(); } });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   update() {

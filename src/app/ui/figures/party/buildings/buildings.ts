@@ -1,5 +1,6 @@
 import { Dialog } from "@angular/cdk/dialog";
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { BuildingModel } from "src/app/game/model/Building";
@@ -18,12 +19,12 @@ import { BuildingUpgradeDialog } from "./upgrade-dialog/upgrade-dialog";
 export type Building = { model: BuildingModel, data: BuildingData };
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-party-buildings',
   templateUrl: 'buildings.html',
   styleUrls: ['./buildings.scss']
 })
-export class PartyBuildingsComponent implements OnInit {
+export class PartyBuildingsComponent implements OnInit, OnDestroy {
   @Input() party!: Party;
 
   gameManager: GameManager = gameManager;
@@ -35,12 +36,20 @@ export class PartyBuildingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateBuildings();
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.party = gameManager.game.party;
         this.updateBuildings();
       }
     })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   updateBuildings() {

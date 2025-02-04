@@ -1,9 +1,9 @@
 import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 import { ghsLabelRegex } from "./label";
-import { Subscription } from "rxjs";
 
 
 export function valueCalc(value: string | number, level: number | undefined = undefined, empty: boolean = false): string | number {
@@ -63,7 +63,7 @@ export function valueCalc(value: string | number, level: number | undefined = un
 }
 
 @Directive({
-	standalone: false,
+  standalone: false,
   selector: ' [value-calc]'
 })
 export class ValueCalcDirective implements OnInit, OnDestroy, OnChanges {
@@ -88,17 +88,16 @@ export class ValueCalcDirective implements OnInit, OnDestroy, OnChanges {
 
 
   ngOnInit(): void {
-    this.uiChangeSubscription =
-      gameManager.uiChange.subscribe({
-        next: () => {
-          if (this.calc != settingsManager.settings.calculate || this.C != Math.max(2, gameManager.characterManager.characterCount()) || this.L != gameManager.game.level) {
-            this.C = Math.max(2, gameManager.characterManager.characterCount());
-            this.L = gameManager.game.level;
-            this.calc = settingsManager.settings.calculate;
-            this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
-          }
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+      next: () => {
+        if (this.calc != settingsManager.settings.calculate || this.C != Math.max(2, gameManager.characterManager.characterCount()) || this.L != gameManager.game.level) {
+          this.C = Math.max(2, gameManager.characterManager.characterCount());
+          this.L = gameManager.game.level;
+          this.calc = settingsManager.settings.calculate;
+          this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
         }
-      });
+      }
+    });
     this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
   }
 
