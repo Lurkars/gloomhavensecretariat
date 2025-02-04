@@ -6,12 +6,20 @@
     "envx": "칼날군주",
     "lightning": {
       ".": "광전사",
-      "immune": "모든 부정적 상태에 면역",
-      "overheal": "최대 26까지 Hp 회복 가능"
+      "careless-charge": {
+        ".": "Careless Charge",
+        "hint": "모든 부정적 상태에 면역"
+      },
+      "unbridled-power": {
+        ".": "Unbridled Power",
+        "hint": "최대 26까지 Hp 회복 가능"
+      }
     },
     "music-note": {
       ".": "위무음악가",
-      "song_active": "노래 활성화"
+      "song_active": {
+        ".": "노래 활성화"
+      }
     },
     "saw": "의무관",
     "squidface": "역병전령",

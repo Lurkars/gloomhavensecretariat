@@ -1909,10 +1909,6 @@
       ".": "사용 가능한 모든 세로 열 사용",
       "hint": "사용 가능한 모든 세로 열에 항상 피규어를 나눠서 배치합니다."
     },
-    "combineSummonAction": {
-      ".": "소환수 행동 결합",
-      "hint": "모든 말의 소환수 행동을 한 번에 수행합니다."
-    },
     "conditions": "상태/원소",
     "damageHP": {
       ".": "체력 대신 피해로 표기",
@@ -2228,8 +2224,8 @@
       "addRandomStandee": "무작위 {1} {0} 몬스터 말 {2}번 추가",
       "addResource": "{0}의 {1} +{2} 추가",
       "addSection": "섹션 추가 #{0} {1} ({2})",
-      "addSpecialTag": "Add special actions {1} for {0}",
-      "addSpecialTags": "Add special actions {1} for {2} of {0}",
+      "addSpecialTags": "Add special actions {1} for {0}",
+      "addSpecialTagsSummon": "Add special actions {1} for {2} of {0}",
       "addStandee": "{1} {0} 몬스터 말 {2}번 추가",
       "addSummon": "{0}의 '{1}' 소환수 추가",
       "addTreasure": "{1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) 보물 추가",
@@ -2278,7 +2274,7 @@
       "changeMonsterType": "{0} 몬스터 말 {2}번의 유형을 {1}에서 %monster.{3}% 유형으로 변경",
       "changeObjectiveHP": "목표 대상 {0}의 체력을 {1}만큼 변경",
       "changeObjectiveId": "{0}의 번호 번경: '{1}'",
-      "changeObjectiveMaxHP": "목표 대상 {0}의 최대 체력을 {1}만큼 변경",
+      "changeObjectiveMaxHp": "목표 대상 {0}의 최대 체력을 {1}만큼 변경",
       "changeParty": "'{0}' 파티로 변경",
       "changeSummonAttack": "{0}의 소환수 '{1}'의 공격력을 변경: {2}",
       "changeSummonHp": "{0}의 소환수 '{1}'의 체력을 변경: {2}",
@@ -2365,14 +2361,14 @@
         "objective": "{0}에게서 {1} 상태 제거",
         "summon": "{0} {1}번에게서 {2} 상태 제거"
       },
-      "removeGlobalAchievements": "전역 업적 {0} 제거",
+      "removeGlobalAchievement": "전역 업적 {0} 제거",
       "removeItem": "{0}에게서 {1} (%data.edition.{2}%) 아이템 제거",
       "removeManualScenario": "해금된 시나리오 #{0} {1} ({2}) 제거",
       "removeMastery": "{0}의 숙련 {1} 체크 해제",
       "removeMonster": "{0} 몬스터 제거",
       "removeObjective": "{0} 목표 대상 제거",
       "removeParty": "'{0}' 파티 제거",
-      "removePartyAchievements": "파티 업적 {0} 제거",
+      "removePartyAchievement": "파티 업적 {0} 제거",
       "removePartyTownGuardPerkSection": "마을 경비병 특혜 섹션 {0} 제거",
       "removePartyWeekSection": "{1}주차로부터 섹션 {2} 제거",
       "removePlayer": "플레이어 {1} ({0}) 제거",

@@ -4,12 +4,10 @@
     "circles": "Ruferin",
     "eclipse": "Nachtschleier",
     "lightning": {
-      ".": "Berserkerin",
-      "overheal": "%game.characterIconColored.lightning% Heile bis zu 26 HP"
+      ".": "Berserkerin"
     },
     "music-note": {
-      ".": "Wahrsängerin",
-      "song_active": "%game.characterIconColored.music-note% Lied aktiv"
+      ".": "Wahrsängerin"
     },
     "saw": "Knochenflicker",
     "squidface": "Seuchenbringer",

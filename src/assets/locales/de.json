@@ -1347,9 +1347,7 @@
       "hint": "Ändern aller Charaktere und Zielobjekte"
     },
     "code": {
-      ".": "Neuer Spielcode für Berechtigungen",
-      "hint": "Der Spielcode identifiziert dein Spiel. Für ein neues Spiel, überlege dir einfach deinen eigenen Code oder generiere dir einen. Die anderen Spieler tragen dann einfach denselben Code ein um mit dem gleichen Spiel verbunden zu werden.<br><br>Vorher hieß der Spielcode \"Passwort\" und wurde umbenannt um Verwirrungen zu vermeiden.",
-      "uuid": "Code generieren (UUID)"
+      ".": "Neuer Spielcode für Berechtigungen"
     },
     "create": "Neue Berechtigungen erstellen",
     "custom": {
@@ -2177,7 +2175,6 @@
     },
     "debug": {
       ".": "Debug Einstellung/Werkzeuge",
-      "hint": "",
       "logServerMessages": "Servermeldungen protokollieren",
       "rightClick": "Rechtsklick immer erlauben"
     },
@@ -2529,7 +2526,6 @@
         "summon": "{3}x %game.condition.{2}% '{1}' von {0}",
         "summons": "{2}x %game.condition.{1}% alle {0} Beschwörungen"
       },
-      "addEntityMarker": "{2} Markierung von {0} Aufsteller {1}",
       "addGameCondition": "%game.condition.{0}% zum aktuellen Spiel hinzufügen",
       "addGlobalAchievement": "Füge globalen Erfolg '{0}' hinzu",
       "addImmunity": {
@@ -2987,8 +2983,6 @@
         "amDeckHide": "{0} AM Deck ausblenden",
         "amDeckShow": "{0} AM Deck einblenden",
         "draw": "{0} AM Karte ziehen",
-        "drawAdvantage": "{0} AM Karten mit Vorteil ziehen",
-        "drawDisadvantage": "{0} AM Karten mit Vorteil ziehen",
         "drawadvantage": "{0} AM mit Vorteil ziehen",
         "drawdisadvantage": "{0} AM mit Nachteil ziehen",
         "removeBless": "Segen von {0} AM Deck entfernen",
@@ -3142,8 +3136,7 @@
       "round": "Nächste Runde / Ziehen",
       "scenarioChart": "Szenario Flussdiagramm anzeigen",
       "select": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
-      "selectNarual": "Figur/Aufsteller Menü in fester Reihenfolge öffnen durch Auswählen mit Nummertasten",
-      "selectNatural": "Öffnen des Figur/Aufsteller Menüs in fester Reihenfolge mit der Zifferntaste",
+      "selectNatural": "Figur/Aufsteller Menü in fester Reihenfolge öffnen durch Auswählen mit Nummertasten",
       "shift": "UMSCHALT",
       "space": "Leertaste",
       "tab": "↹",

@@ -237,8 +237,7 @@
       },
       "first-of-the-order": {
         "1": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%",
-        "2": "Beschwöre [C/2{math.ceil}] %data.monster.black-imp%",
-        "3": "innerhalb von %game.action.range:2% vom Ziel"
+        "2": "innerhalb von %game.action.range:2% vom Ziel"
       },
       "flowChartGroup": {
         "characters": "Charaktere",
@@ -283,11 +282,6 @@
       },
       "zealot": {
         "1": "X ist der durch den Angriff erlittene %game.damage% des Ziels"
-      }
-    },
-    "perks": {
-      "demolitionist": {
-        "1": "Alle angrenzenden Gegner erleiden %game.damage:1%"
       }
     }
   },

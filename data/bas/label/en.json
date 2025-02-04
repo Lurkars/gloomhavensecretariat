@@ -29,5 +29,8 @@
     "jackal": "Jackal",
     "sand-spider": "Sand Spider"
   },
-  "scenario": {}
+  "scenario": {
+    "All Over the Map": "All Over the Map",
+    "Troubled Waters": "Troubled Waters"
+  }
 }

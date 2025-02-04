@@ -55,6 +55,25 @@
     "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
   },
   "scenario": {
+    "Aftermath": "Aftermath",
+    "An Unfortunate Intrusion": "An Unfortunate Intrusion",
+    "Armory Heist": "Armory Heist",
+    "Battle of the Bards": "Battle of the Bards",
+    "Caravan Escort": "Caravan Escort",
+    "Corrupted Hunt": "Corrupted Hunt",
+    "Corrupted Laboratory": "Corrupted Laboratory",
+    "Elemental Secrets": "Elemental Secrets",
+    "Forecast of the Inevitable": "Forecast of the Inevitable",
+    "Harvesting the Night": "Harvesting the Night",
+    "Plagued Crypt": "Plagued Crypt",
+    "Plane of Wild Beasts": "Plane of Wild Beasts",
+    "Return to the Black Barrow": "Return to the Black Barrow",
+    "Rodent Liberation": "Rodent Liberation",
+    "Stone Defense": "Stone Defense",
+    "Storage Fees": "Storage Fees",
+    "The Caged Bear": "The Caged Bear",
+    "The Sands of Time": "The Sands of Time",
+    "Unnatural Insults": "Unnatural Insults",
     "group": {
       "solo": "Solo Scenarios"
     }

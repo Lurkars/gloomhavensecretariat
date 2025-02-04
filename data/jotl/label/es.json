@@ -247,29 +247,6 @@
     "vermling-scout": "Explorador infestor",
     "zealot": "Fanático"
   },
-  "rules": {
-    "jotl": {
-      "10": {
-        "1": "Mueve las trampas de %game.mapMarker.1% un hexágono hacia abajo",
-        "2": "Mueve las trampas de %game.mapMarker.2% un hexágono más cerca del personaje más cercano"
-      },
-      "14": {
-        "1": "uno por cada Víbora gigante normal y dos por cada Víbora gigante de élite adyacente a un Fanático, la Víbora gigante muere"
-      },
-      "15": {
-        "1": "uno por cada Duende negro a Alcance 3 de un Fanático, el Fánatico sufre %game.condition.stun%"
-      },
-      "20": {
-        "1": "El botín se representa como Objetivos, trás saquear agota el Objetivo correspondiente para ver el botín",
-        "2": "Encuentras 1 mercancía.",
-        "3": "Encuentra el Anillo de recuperación (Objeto 32)."
-      },
-      "21": {
-        "1": "en cualquier hexágono en el que el último objetivo fue destruido",
-        "2": "Los personajes sufren %game.damage:[L/2{$math.floor}]% por cada hexágono en el que entran en esta sala hasta que el Demonio de Caos %game.mapMarker.A% haya muerto."
-      }
-    }
-  },
   "scenario": {
     "A Deeper Understanding": "Profundizando en la investigación",
     "A Hole in the Wall": "Un agujero en la pared",

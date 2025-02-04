@@ -4,7 +4,10 @@
     "cragheart": "Felsenherz",
     "demolitionist": {
       ".": "Sprengmeisterin",
-      "mech": "Mech Suit"
+      "mech": {
+        ".": "Mechanikanzug",
+        "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
+      }
     },
     "diviner": "Prophetin",
     "hatchet": "Axtwerfer",

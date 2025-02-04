@@ -1750,10 +1750,6 @@
       ".": "Disposition des colonnes",
       "hint": "Activer la mise en page sur deux colonnes si le zoom et l'espace sont suffisants"
     },
-    "combineSummonAction": {
-      ".": "Combiner l'action d'invocation",
-      "hint": "Effectuez l'action d'invocation pour tous les figurines en même temps."
-    },
     "conditions": "Conditions/Éléments",
     "debug": {
       ".": "Paramètres de debug/instruments",
@@ -2028,7 +2024,6 @@
         "summon": "{3}x %game.condition.{2}% '{1}' de {0}",
         "summons": "{2}x %game.condition.{1}% tous {0} convocation"
       },
-      "addEntityMarker": "{2} Marqueur sur {0} figurine {1}",
       "addGameCondition": "Ajouter %game.condition.{0}% à la partie en cours",
       "addGlobalAchievement": "Ajouter le Haut Fait Global '{0}'",
       "addImmunity": {
