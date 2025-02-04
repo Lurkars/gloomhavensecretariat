@@ -16,7 +16,7 @@
   "app": {
     "install": "Instalar como App",
     "loading": {
-      ".": "Cargando...",
+      ".": "Cargando…",
       "cancel": "¿Cancelar Cargado?"
     }
   },
@@ -242,7 +242,7 @@
             "status": "Backup automático fallido con código de error'{0}'. Hecha un vistazo al monitor del navegador para más detalles.",
             "unknown": "Backup automático fallido debido a un error desconocido. Por favor revisa el monitor del navegador para más detalles."
           },
-          "hint": "En lugar de descargar el fichero del Backup automático, fija una URL para subir los datos. {FILENAME} puede utilizarse como marcador de posición (placeholder) para el nombre de archivo.  (Esto requiere una configuración CORS adecuada para funcionar.)"
+          "hint": "En lugar de descargar el fichero del Backup automático, fija una URL para subir los datos. {FILENAME} puede utilizarse como marcador de posición (placeholder) para el nombre de archivo. (Esto requiere una configuración CORS adecuada para funcionar.)"
         },
         "uploadUrlAuthorization": {
           ".": "Cabecera de autorización",
@@ -302,7 +302,7 @@
     "removeAllUnlocks": "Eliminar todos",
     "removeSpoiler": "Eliminar Spoiler",
     "removeUnlock": "Eliminar Desbloqueo",
-    "resetGame": "Reiniciar Juego ",
+    "resetGame": "Reiniciar Juego",
     "resetSettings": "Reiniciar Ajustes",
     "restoreEditionDataUrls": "Restaurar valores predeterminados",
     "spoilers": "Gestionar Spoilers",
@@ -857,7 +857,7 @@
       "effect": "Si el objeto está equipado, su efecto se aplica automáticamente. Para equipar un objeto, haz clic en su nombre. Equipar objetos sólo está permitido antes y entre escenarios. Haz doble clic para forzar el equipamiento.",
       "empty": "No se han encontrado objetos",
       "filter": {
-        ".": "Buscar...",
+        ".": "Buscar…",
         "affordable": "Sólo artículos de precio asequible",
         "all": "Mostrar todos los items",
         "sorted": "Ordenado"
@@ -1129,7 +1129,7 @@
     "5": "quinto",
     "6": "sexto",
     "7": "séptimo",
-    "8": "octabo ",
+    "8": "octabo",
     "9": "noveno"
   },
   "objective": {
@@ -2057,7 +2057,7 @@
     },
     "calculate": {
       ".": "Mostrar Atributos calculados",
-      "hint": "Los valores de habilidad se calculan con los Atributos, por lo que en lugar de Ataque +1, se muestra Ataque 4 para un valor de Ataque de 3 en los Atributos. "
+      "hint": "Los valores de habilidad se calculan con los Atributos, por lo que en lugar de Ataque +1, se muestra Ataque 4 para un valor de Ataque de 3 en los Atributos."
     },
     "calculateShieldStats": {
       ".": "Añade Escudo y Represalia a las habilidades",
@@ -2331,7 +2331,7 @@
     },
     "moveElements": {
       ".": "Elementos automáticos",
-      "hint": "El estado de los elementos cambia de forma automática antes del inicio de cada ronda. "
+      "hint": "El estado de los elementos cambia de forma automática antes del inicio de cada ronda."
     },
     "partySheet": {
       ".": "Hoja de grupo",
@@ -2910,7 +2910,7 @@
       "setNotes": "Notas \"{1}\" para {0}",
       "setObjectiveExhausted": "Objectivo {0} agotado",
       "setObjectiveInitiative": "Iniciativa {1} para el objetivo {0}",
-      "setPQ": "Misión personal {1} para {0} ",
+      "setPQ": "Misión personal {1} para {0}",
       "setPQProgress": "Poner el contador de Búsqueda Personal {1} a {2} para {0}",
       "setPartyAchievements": "Logros de grupo",
       "setPartyDonations": "Donar a {0}",
@@ -2970,7 +2970,7 @@
         "drawadvantage": "Roba {0} MA con Ventaja",
         "drawdisadvantage": "Roba {0} MA con Desventaja",
         "removeBless": "Elimina Bendición {0} del mazo MA",
-        "removeCard": "Elimina carta {1} del {0} mazo MA ",
+        "removeCard": "Elimina carta {1} del {0} mazo MA",
         "removeCurse": "Elimina Maldición {0} del mazo MA",
         "removeDrawnDiscards": "Elimina los descartes robados del {0} mazo AM",
         "reorder": "Reorganizar {0} el mazo MA",
