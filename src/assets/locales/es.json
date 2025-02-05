@@ -1504,9 +1504,9 @@
         "city": "Añade el Evento de Ciudad {0} a su mazo",
         "rift": "Añade el Evento de Grieta {0} a su mazo",
         "road": "Añade el Evento de Camino {0} a su mazo",
-        "summer-outpost": "Añade el evento {0} al mazo de Verano del Puesto de Avanzada",
+        "summer-outpost": "Añade el evento {0} al mazo de Verano del puesto fronterizo",
         "summer-road": "Añade el evento {0} al mazo de verano de Camino",
-        "winter-outpost": "Añade el Evento {0} al mazo de invierno del Puesto de Avanzada",
+        "winter-outpost": "Añade el Evento {0} al mazo de invierno del puesto fronterizo",
         "winter-road": "Añade el Evento {0} al mazo de invierno de Camino"
       },
       "experience": "{0} experiencia cada personaje",
@@ -1539,9 +1539,9 @@
         "city": "Elimina el evento de Ciudad {0} del mazo",
         "rift": "Elimina el evento de Grieta {0} del mazo",
         "road": "Elimina el Evento de Camino {0} del mazo",
-        "summer-outpost": "Elimina el evento {0} del mazo de verano del Puesto de Avanzada",
+        "summer-outpost": "Elimina el evento {0} del mazo de verano del puesto fronterizo",
         "summer-road": "Elimina el evento {0} del mazo de verano de Camino",
-        "winter-outpost": "Elimina el evento {0} del mazo de invierno del Puesto de Avanzada",
+        "winter-outpost": "Elimina el evento {0} del mazo de invierno del puesto fronterizo",
         "winter-road": "Elimina el evento {0} del mazo de invierno de Camino"
       },
       "removeLootDeckCard": "Elimina la carta de botín {0} del juego. No la añadas más a ningún mazo de botín de cualquier Escenario.",
