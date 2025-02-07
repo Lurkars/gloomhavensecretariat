@@ -14,5 +14,70 @@
       "melee": "Cuerpo a cuerpo",
       "range": "A distancia"
     }
+  },
+  "custom": {
+    "fh": {
+      "flowChartGroup": {
+        "algox-1": "Algox",
+        "algox-2": "Algox",
+        "algox-3": "Algox",
+        "lurker": "Acechador"
+      },
+      "frozen-corpse-scenario-32": {
+        "1": "Mira las reglas especiales del escenario"
+      }
+    }
+  },
+  "monster": {
+    "abael-herder": "Pastor abel",
+    "abael-scout": "Explorador abel",
+    "algox-archer": "Arquero algox",
+    "algox-guard": "Guardia algox",
+    "algox-icespeaker": "Voz del hielo algox",
+    "algox-priest": "Sacerdote algox",
+    "algox-scout": "Explorador algox",
+    "algox-snowspeaker": "Voz de la nieve algox",
+    "ancient-artillery": "Artilleria Antigua",
+    "black-imp": "Duende negro",
+    "chaos-demon": "Demonio de caos",
+    "city-guard": "Guardia de la ciudad",
+    "deep-terror": "Terror de las Profundidades",
+    "earth-demon": "Demonio de Tierra",
+    "flame-demon": "Demonio de Fuego",
+    "forest-imp": "Duende del bosque",
+    "frost-demon": "Demonio de Hielo",
+    "frozen-corpse": "Cadáver helado",
+    "harrower-infester": "Putrefactor atormentador",
+    "hound": "Sabueso",
+    "lightning-eel": "Anguila relámpago",
+    "living-bones": "Huesos vivientes",
+    "living-doom": "Perdición viviente",
+    "living-spirit": "Espíritu viviente",
+    "lurker-clawcrusher": "Triturador acechador",
+    "lurker-mindsnipper": "Rebanamentes acechador",
+    "lurker-soldier": "Soldado acechador",
+    "night-demon": "Demonio de Noche",
+    "ooze": "Cieno",
+    "polar-bear": "Oso polar",
+    "rending-drake": "Draco desgarrador",
+    "savvas-icestorm": "Cellisca Savvas",
+    "savvas-lavaflow": "Rio de lava Savvas",
+    "spitting-drake": "Draco escupidor",
+    "steel-automaton": "Autómata de acero",
+    "sun-demon": "Demonio de Sol",
+    "vermling-priest": "Sacerdote infestor",
+    "vermling-scout": "Explorador infestor",
+    "wind-demon": "Demonio de Viento"
+  },
+  "scenario": {
+    "A Town in Flames": "Una ciudad en llamas",
+    "Algox Scouting": "Vigilando a los Algox",
+    "Howling in the Snow": "Aullidos en la nieve",
+    "rules": {
+      "fh": {
+        "0": "No coloques el mazo de habilidades del monstruo Sabueso. En lugar de eso, cada ronda tienen una iniciativa de 26, todos los Sabuesos realizan, %game.action.move% 2; %game.action.attack% 2.",
+        "1": "Los Guardias de la ciudad no realizan turnos pero obtienen %game.action.shield% 1 adicional (con un total %game.action.shield% 2 a nivel 1) y %game.action.retaliate% 2, tienen una iniciativa de 50 a efectos de centro de atención."
+      }
+    }
   }
 }
