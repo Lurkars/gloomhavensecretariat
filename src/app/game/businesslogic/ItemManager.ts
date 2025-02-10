@@ -340,7 +340,7 @@ export class ItemManager {
         return character.progress.equippedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition) != undefined;
     }
 
-    toggleEquippedItem(item: ItemData, character: Character, force: boolean) {
+    toggleEquippedItem(item: ItemData, character: Character, force: boolean = false) {
         let equippedItems: ItemData[] = character.progress.equippedItems.map((identifier) => this.getItem(identifier.name, identifier.edition, true)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
         const equipIndex = equippedItems.indexOf(item);
         if (force && equipIndex == -1) {
@@ -404,6 +404,7 @@ export class ItemManager {
                     equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.onehand);
                 }
             } else {
+                equippedItems.filter((equipped) => equipped.slot == item.slot).forEach((equipped) => this.toggleEquippedItem(equipped, character));
                 equippedItems = equippedItems.filter((equipped) => equipped.slot != item.slot);
             }
 
