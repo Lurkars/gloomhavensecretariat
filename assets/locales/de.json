@@ -16,7 +16,7 @@
   "app": {
     "install": "Installiere als App",
     "loading": {
-      ".": "Laden...",
+      ".": "Laden…",
       "cancel": "Laden abbrechen?"
     }
   },
@@ -212,6 +212,7 @@
       },
       "retirements": "Ruhestände",
       "title": "{1} {0}",
+      "trial": "Prüfung",
       "xp": "EP"
     },
     "remove": "Charakter entfernen",
@@ -256,7 +257,31 @@
             ".": "Warnung: Automatisches Backup fehlgeschlagen",
             "status": "Das automatische Backup ist mit dem Statuscode '{0}' fehlgeschlagen. Öffne die Console des Browsers für mehr Details.",
             "unknown": "Das automatische Backup ist aus unbekannten Gründen fehlgeschlagen. Öffne die Console des Browsers für mehr Details."
-          }
+          },
+          "hint": "Anstatt Sicherungsdateien automatisch herunterzuladen, kann auch eine URL für den Upload festgelegt werden. {FILENAME} kann als Platzhalter für den Dateinamen verwendet werden. (Achte auf korrekte CORS Einstellungen damit der Upload funktioniert!)"
+        },
+        "uploadUrlAuthorization": {
+          ".": "Authorization Header",
+          "hint": "Wird als 'Authorization' header bei der Upload-Anfrage verwendet"
+        },
+        "uploadUrlFileUpload": {
+          ".": "Upload als Datei",
+          "hint": "Erstellt ein Dateiobjekt zum Hochladen. Wenn diese Option nicht aktiviert ist, werden rohe JSON-String-Daten gesendet."
+        },
+        "uploadUrlMethod": {
+          ".": "Methode",
+          "get": "GET",
+          "hint": "HTTP-Methode für den Upload",
+          "post": "POST",
+          "put": "PUT"
+        },
+        "uploadUrlPassword": {
+          ".": "Passwort",
+          "hint": "Verwendetes Passwort für die Upload-Anfrage"
+        },
+        "uploadUrlUsername": {
+          ".": "Username",
+          "hint": "Verwendeter Usernamer für die Upload-Anfrage"
         }
       },
       "delete": "Spielsicherungen löschen",
@@ -284,7 +309,8 @@
     "exportSettings": "Einstellungen in Datei exportieren",
     "importDataDump": "Datenauszug importieren",
     "importFile": {
-      ".": "Datei importieren"
+      ".": "Datei importieren",
+      "hint": "Importiere jede exportierte Datei wie Spiel, Sicherung, Datadump oder Einstellungen. Bestätige den Import mit einem zweiten Klick!"
     },
     "importGame": "Spiel aus Datei importieren",
     "importSettings": "Einstellungen aus Datei importieren",
@@ -321,6 +347,107 @@
     ".": "Edition auswählen",
     "all": "Alle Editionen",
     "conditions": "Verfügbare Zustände"
+  },
+  "editor": {
+    ".": "Editor [Spoiler!]",
+    "action": {
+      "add": "Aktion hinzufügen",
+      "addBottom": "Untere Aktion hinzufügen",
+      "addSubAction": "Unter-Aktion hinzufügen",
+      "remove": "Aktion entfernen",
+      "removeSubAction": "Unter-Aktion entfernen",
+      "small": "Kleiner",
+      "type": "Aktionstyp",
+      "value": "Aktionswert",
+      "valueType": {
+        ".": "Wertetyp",
+        "add": "Hinzufügen",
+        "fixed": "Festgelegt",
+        "minus": "Minus",
+        "plus": "Plus",
+        "subtract": "Subtrahieren"
+      }
+    },
+    "character": {
+      ".": "Charakter Editor",
+      "data": {
+        ".": "Charakterdaten",
+        "deck": "Name des Fertigkeitendecks",
+        "hp": {
+          "-1": "Individuelles Profil",
+          ".": "Trefferpunkte",
+          "0": "Unteres Profil",
+          "1": "Mittleres Profil",
+          "2": "Starkes Profil"
+        },
+        "json": {
+          ".": "Charakterdaten JSON Daten",
+          "download": "Charakterdaten als JSON-Datei herunterladen"
+        }
+      },
+      "edition": "Edition",
+      "new": "Neuer Charakter"
+    },
+    "deck": {
+      ".": "Fertigkeitendeck Editor",
+      "abilityName": "Fertigkeitsname",
+      "addAbility": "Fertigkeit hinzufügen",
+      "character": "Charakterdeck",
+      "json": {
+        ".": "Fertigkeitsdeck JSON Daten",
+        "download": "Fertigkeitsdeck als JSON-Datei herunterladen"
+      },
+      "name": "Deckname",
+      "new": "Neues Fertigkeitendeck",
+      "removeAbility": "Fertigkeit entfernen"
+    },
+    "edition": {
+      ".": "Editionseditor",
+      "base": "Basisdaten",
+      "character": {
+        ".": "Charakterdaten hinzufügen",
+        "remove": "Charakter entfernen"
+      },
+      "conditions": {
+        ".": "Verfügbare Zustände",
+        "allHint": "Alle Zustände abwählen",
+        "allSelected": "Alle Zustände auswählen"
+      },
+      "decks": {
+        ".": "Fertigkeitsdeckdateien hinzufügen",
+        "remove": "Fertigkeitsdeck entfernen"
+      },
+      "edition": "Name der Edition",
+      "extensions": "Editionen zur Erweiterung",
+      "json": {
+        ".": "Edition JSON Daten",
+        "download": "Edition Daten als JSON-Datei herunterladen"
+      },
+      "monster": {
+        ".": "Monsterdateien hinzufügen",
+        "remove": "Monster entfernen"
+      }
+    },
+    "monster": {
+      ".": "Monster Editor",
+      "new": "Neues Monster",
+      "stats": {
+        ".": "Monsterdaten",
+        "addSpecial": "Spezial hinzufügen",
+        "allLevel": "Alle Level",
+        "applyAll": "Auf alle Level anwenden",
+        "boss": "Ist Boss",
+        "count": "Anzahl an Aufstellern",
+        "deck": "Fertigkeitendeck Name",
+        "flying": "Kann fliegen",
+        "hidden": "Ausgeblendet",
+        "json": {
+          ".": "Monsterdaten als JSON Daten",
+          "download": "Monsterdaten als JSON Datei herunterladen"
+        },
+        "levelSelect": "Level auswählen"
+      }
+    }
   },
   "errata": "Druckfehler",
   "escort": {
@@ -520,7 +647,7 @@
       },
       "heal": {
         ".": "Heilen",
-        "hint": ""
+        "hint": "Kein Zustand, aber ein Helfer, wenn %game.action.heal% beim Erhöhen der Trefferpunkte angewendet werden soll."
       },
       "immobilize": {
         ".": "Lähmung",
@@ -632,6 +759,52 @@
       "wild": "Beliebig"
     },
     "enemy": "Gegner",
+    "events": {
+      "conditions": {
+        "otherwise": "Sonst:",
+        "payCollectiveGold": "{0} kollektives Gold zahlen:",
+        "payCollectiveGoldConditional": "{0} ({1}) oder {2} ({3}) kollektives Gold zahlen:",
+        "reputationGT": "Ansehen > {0}:",
+        "reputationLT": "Ansehen < {0}:"
+      },
+      "option": {
+        ".": "Option {0}:",
+        "1": "A",
+        "2": "B",
+        "3": "C"
+      },
+      "rewards": {
+        "additionalGold": "Jeder erhält {0} Gold zusätzlich.",
+        "collectiveGold": "Erhalte {0} kollektives Gold.",
+        "collectiveItem": "Erhalteted gemeinsam {2} \"%data.items.{1}-{0}%\" (Gegenstand {0}).",
+        "consumeCollectiveItem": "Verbraucht gemeinsam {0} %game.itemSlot:{1}% Gegenstände.",
+        "consumeItem": "Jeder verbaucht {0} %game.itemSlot:{1}% Gegenstand.",
+        "discard": "Jeder legt jeweils {0} Karten ab.",
+        "event": "Füge %game.events.type.{0}% Ergeignis {1} zum Ereignisdeck hinzu.",
+        "experience": "Erhaltet jeder {0} Erfahrung.",
+        "globalAchievement": "Globaler Erfolg: \"{0}\".",
+        "gold": "Erhaltet jeweils {0} Gold.",
+        "itemDesign": "Erhalte \"%data.items.{1}-{0}%\" Gegenstandsplan (Gegenstein {0}).",
+        "loseBattleGoal": "Verliert jeweils {0} %game.checkmark%.",
+        "loseCollectiveGold": "Verliert gemeinsam {0} Gold.",
+        "loseGold": "Verliert jeweils {0} Gold.",
+        "loseReputation": "Verliere {0} Ansehen.",
+        "noEffect": "Kein Effekt.",
+        "outcome": "Lese Ausgang %game.events.option.{0}%.",
+        "partyAchievement": "Gruppenerfolg: \"{0}\".",
+        "prosperity": "Erhalte {0} Wohlstand.",
+        "randomItemDesign": "Erhalte einen zufälligen Gegenstandsplan.",
+        "reputation": "Erhalte {0} Ansehen.",
+        "scenario": "\"{1}\" %data.scenarioNumber:{0}% freischalten.",
+        "scenarioCondition": "Alle beginnen das Szenario mit %game.condition.{0}%.",
+        "scenarioDamage": "Alle beginnen das Szenario mit {0} Schaden.",
+        "scenarioSingleMinus1": "Jeder beginnt das Szenario mit %game.attackmodifier.minus1% x{0}."
+      },
+      "type": {
+        "city": "Stadt",
+        "road": "Weg"
+      }
+    },
     "exhausted": "Erschöpfung",
     "experience": "Erfahrung",
     "figure": {
@@ -692,10 +865,15 @@
       },
       "choose": "Gegenstand auswählen",
       "craft": "'{0}' anfertigen",
+      "distilling": {
+        ".": "Destilliere '{0}'",
+        "distill": "Destilliere für 1 %game.loot.{0}%",
+        "select": "Ressource auswählen"
+      },
       "effect": "Falls der Gegenstand angelegt ist, wird der Effekt automatisch angewendet. Um einen Gegenstand anzulegen, einfach auf den Namen klicken. Anlegen von Gegenständen ist nur vor oder zwischen Scenarien möglich. Durch Doppelklick kann das Anlegen erzwungen werden.",
       "empty": "Keine Gegenstände gefunden",
       "filter": {
-        ".": "Suchen...",
+        ".": "Suchen…",
         "affordable": "Nur erschwingliche Gegenstäne",
         "all": "Alle Gegenstände anzeigen",
         "sorted": "Sortiert"
@@ -714,6 +892,16 @@
     },
     "level": {
       ".": "Level",
+      "bb": {
+        "monsterDifficulty": {
+          ".": "Schwierigkeitsgrad Monster-Modifikator",
+          "0": "Sehr einfach",
+          "1": "Einfach",
+          "2": "Standard",
+          "3": "Schwer",
+          "4": "Sehr schwer"
+        }
+      },
       "experience": "Bonuserfahrung",
       "hazardousTerrain": "Gefährliches Gelände Schaden",
       "loot": "Geldwechselkurs",
@@ -766,6 +954,7 @@
       "special": "Spezial",
       "special1": "Spezial Karte 1 (#1418)",
       "special2": "Spezial Karte 2 (#1419)",
+      "toggleSpecial": "%game.loot.{0}%",
       "treasures": {
         ".": "Schätze",
         "rewards": {
@@ -1097,6 +1286,7 @@
           ".": "Sektion für Woche {0} setzen",
           "addSection": "Sektion der Woche hinzufügen",
           "calc": "{0} Wochen von der akutellen Woche",
+          "hint": "Doppelklick um die Sektion für die Woche zu setzen/bearbeiten",
           "lock": "Sperrt den Kalender um unabsichtliche Änderungen zu vermeiden. Doppelklick um Änderungen um das Hinzufügen oder Entfernen von genau einer Woche zu erlauben",
           "openConclusion": "Fortführende Sektion auswählen",
           "section": "Sektion"
@@ -1157,9 +1347,7 @@
       "hint": "Ändern aller Charaktere und Zielobjekte"
     },
     "code": {
-      ".": "Neuer Spielcode für Berechtigungen",
-      "hint": "Der Spielcode identifiziert dein Spiel. Für ein neues Spiel, überlege dir einfach deinen eigenen Code oder generiere dir einen. Die anderen Spieler tragen dann einfach denselben Code ein um mit dem gleichen Spiel verbunden zu werden.<br><br>Vorher hieß der Spielcode \"Passwort\" und wurde umbenannt um Verwirrungen zu vermeiden.",
-      "uuid": "Code generieren (UUID)"
+      ".": "Neuer Spielcode für Berechtigungen"
     },
     "create": "Neue Berechtigungen erstellen",
     "custom": {
@@ -1249,6 +1437,15 @@
       "hint": "Auf alle ausgewählten Charaktere anwenden",
       "progress": "Betrifft Charakter Progression"
     },
+    "favors": {
+      ".": "Anhang F: Gefälligkeiten",
+      "apply": "Anwenden",
+      "keep": "Gefälligkeiten für jedes Szenario beibehalten",
+      "label": {
+        ".": "%game.data.favors.{0}.{1}% (1 Punkt)",
+        "multiple": "%game.data.favors.{0}.{1}% ({2} Punkte)"
+      }
+    },
     "filter": {
       ".": "Szenario filtern",
       "noResult": "Kein Ergebnis"
@@ -1260,6 +1457,7 @@
       "reset": "Neustarten",
       "success": "Erfolg"
     },
+    "level": "Lvl {0}",
     "locked": "Fehlende Vorraussetzungen",
     "manual": {
       "add": "Szenarien freischalten",
@@ -1333,6 +1531,7 @@
       "inspiration": "{0} Inspiration",
       "item": "\"{1}\" (Gegenstand {0})",
       "itemBlueprint": "Erhalte \"{1}\" %game.itemFh.{0}% Gegenstandsplan",
+      "itemBlueprintRange": "Füge Gegenstände %game.itemFh.{0}% bis %game.itemFh.{1}% zu den verfügbaren Gegenständen hinzu.",
       "itemDesign": "\"{1}\" Design (Gegenstand {0})",
       "itemDesignEdition": "\"{1}\" Design (Gegenstand {0} %data.edition.{2}%)",
       "itemDesignRange": "Füge Gegenstände {0} hinzu",
@@ -1346,8 +1545,10 @@
       "overlaySticker": "Klebe den Sticker {0} auf der Karte an Stelle {0} ({1}) ein.",
       "partyAchievements": "Gruppenerfolge",
       "perks": "Jeweils {0} Verbesserungen",
+      "pet": "Füge %data.pets.{1}-{0}% (Haustier {0}) zu den Ställen hinzu. Dies kann die Kapazität der Ställe überschreiten.",
       "prosperity": "{0} Wohlstand",
       "randomItemBlueprint": "Erhalte einen zufälligen Gegenstandsplan",
+      "randomItemBlueprints": "Füge Gegenstände %game.itemFh.{0}% bis %game.itemFh.{1}% zu den zufälligen Gegenstandsblaupausen hinzu.",
       "randomItems": "Jeder Charakter erhält ein zufälliges Item ({0}-{1})",
       "removeEvent": {
         "boat": "Entferne Ereignis {0} vom Bootdeck",
@@ -1650,6 +1851,7 @@
       "connect": "Mit Server verbinden",
       "connected": "Server Verbindung"
     },
+    "ping": "Server-Ping",
     "port": "Port",
     "reconnect": "Neu Verbinden",
     "settings": {
@@ -1867,7 +2069,7 @@
     },
     "browserNavigation": {
       ".": "Rückgängig/Wiederherstellen über Navigation",
-      "hint": ""
+      "hint": "%wip%"
     },
     "calculate": {
       ".": "Zeige berechnete Werte an",
@@ -1973,7 +2175,6 @@
     },
     "debug": {
       ".": "Debug Einstellung/Werkzeuge",
-      "hint": "",
       "logServerMessages": "Servermeldungen protokollieren",
       "rightClick": "Rechtsklick immer erlauben"
     },
@@ -2013,14 +2214,42 @@
       ".": "Herausforderungen anwenden",
       "hint": "Automatisch aktive Herausforderungskarten anwenden (wenn möglich)."
     },
+    "fhGarden": {
+      ".": "Unterstützung für Garten",
+      "hint": "Pflanzen und Ernten von Kräutern (Gebäude 24 Garten)"
+    },
     "fhGhItems": {
       ".": "Gegenstände aus Gloomhaven",
       "hint": "Fügt die Gegenstände aus Gloomhaven und Forgotten Circles zu den verfügbaren Gegenständen gemäß den Regeln hinzu. (Nur bei aktivierten Charakterbögen oder Charakter Gegenständen)"
     },
+    "fhPets": {
+      ".": "Unterstützung für Haustiere",
+      "hint": "Haustiere fangen und verwalten (Gebäude 88 Ställe)"
+    },
     "fhRules": "Frosthaven Regeln",
+    "fhSecondEdition": {
+      ".": "2te Edition",
+      "hint": "Einige Änderungen zwischen der ersten und zweiten Auflage von Frosthaven können nicht automatisch angewandt werden. Bitte diese Option auswählen, wenn die zweite Auflage von Frosthaven verwendet wird."
+    },
     "fhStyle": {
       ".": "Frosthaven Stil",
       "hint": "Aktionen, Fertigkeitskarten und Symbole in neuem Frosthaven Stil anzeigen, aktiviert außerdem automatsich das Frosthaven Theme."
+    },
+    "fhTrials": {
+      ".": "Unterstützungen von Prüfungen",
+      "favors": {
+        ".": "Unterstützung für Anhang F: Gefälligkeiten",
+        "hint": "Im Ereignis-Effekte-Menu auswählen"
+      },
+      "hint": "Prüfungen für jeden Charakter ziehen. Sichtbar auf dem Charakterbogen!"
+    },
+    "fhTrialsApply": {
+      ".": "Prüfungen anwenden",
+      "favors": {
+        ".": "Anhang F: Gefälligkeiten anwenden",
+        "hint": "Automatisch aktive Gefälligkeiten anwenden (wenn möglich)."
+      },
+      "hint": "Automatisch aktive Prüfungen anwenden (wenn möglich)."
     },
     "fontsize": {
       ".": "Fertigkeit Schriftgröße",
@@ -2297,7 +2526,6 @@
         "summon": "{3}x %game.condition.{2}% '{1}' von {0}",
         "summons": "{2}x %game.condition.{1}% alle {0} Beschwörungen"
       },
-      "addEntityMarker": "{2} Markierung von {0} Aufsteller {1}",
       "addGameCondition": "%game.condition.{0}% zum aktuellen Spiel hinzufügen",
       "addGlobalAchievement": "Füge globalen Erfolg '{0}' hinzu",
       "addImmunity": {
@@ -2342,6 +2570,7 @@
       "addStandee": "Aufsteller {1} {0} {2} hinzufügen",
       "addSummon": "Beschwöre '{1}' von {0}",
       "addTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) hinzufügen",
+      "addTreasures": "Schatz {1} (%data.edition.{0}%) hinzufügen",
       "applyCondition": {
         "char": "%game.condition.{1}% anwenden auf {0}",
         "monster": "%game.condition.{2}% anwenden auf '{1}' von {0}",
@@ -2376,7 +2605,24 @@
           "removeEdition": "Kampfzielkarten von %data.edition.{0}% entfernen"
         }
       },
+      "brewPotion": "Trank \"%data.items.{2}-{1}%\" für {0} brauen",
+      "brewPotionOther": "{0} braut Trank \"%data.items.{2}-{1}%\" für {3}",
       "buildBuilding": "'%data.buildings.{1}%' ({0}) gebaut",
+      "buildings": {
+        "stables": {
+          "pets": {
+            "add": "Haustier %data.pets.{0}-{1}% zu Ställen hinzufügen",
+            "catch": "Haustier von {1} Aufsteller {2} von {0} fangen",
+            "play": "Haustier %data.pets.{0}-{1}% Karte ausspielen",
+            "remove": "Haustier %data.pets.{0}-{1}% von den Ställen entfernen",
+            "restore": "Haustier %data.pets.{0}-{1}% Karte wiederherstellen",
+            "setActive": "Haustier %data.pets.{0}-{1}% Karte zum Szenario mitnehmen",
+            "setInactive": "Haustier %data.pets.{0}-{1}% Karte vom Szenario entfernen",
+            "setName": "Haustier %data.pets.{0}-{1}% '{2}' nennen",
+            "unsetName": "Name von Haustier %data.pets.{0}-{1}% entfernen"
+          }
+        }
+      },
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
       "cancelScenario": "Szenario #{0} {1} ({2}) abbrechen",
       "changeBuildingState": "Zustand von Gebäude '%data.buildings.{1}%' ({0}) zu %party.campaign.sheet.buildings.state.{2}%",
@@ -2391,7 +2637,7 @@
       "changeObjectiveEntityHP": "TP {2} für %game.objectiveMarker.{1}% von {0}",
       "changeObjectiveEntityNumber": "Ändere Marker von %game.objectiveMarker.{1}% auf %game.objectiveMarker.{2}% für {0}",
       "changeObjectiveHP": "TP {1} für Ziel {0}",
-      "changeObjectiveId": "ID '{1}' für {0} ",
+      "changeObjectiveId": "ID '{1}' für {0}",
       "changeObjectiveMaxHp": "Max. TP {1} für Ziel {0}",
       "changeObjectivesHP": "HP {1} für alle {0}",
       "changeParty": "Wechsel zu Gruppe '{0}'",
@@ -2401,6 +2647,22 @@
       "changeSummonMove": "Bewegung {2} für Beschwörung '{1}' von {0}",
       "changeSummonRange": "Reichweite {2} für Beschwörung '{1}' von {0}",
       "changeXP": "EP {1} für {0}",
+      "characterItemApply": {
+        "consumed": "{0} verbraucht Gegenstand {1} \"{3}\"",
+        "flipped": "{0} dreht Gegenstand {1} \"{3}\" um",
+        "persistend": "{0} dauerhafter Gegenstand {1} \"{3}\"",
+        "slot": "{0} markiert Slot auf Gegenstand {1} \"{3}\"",
+        "slotBack": "{0} unmarkiert Slot auf Gegenstand {1} \"{3}\"",
+        "spent": "{0} nutzt Gegenstand {1} \"{3}\""
+      },
+      "characterItemUnapply": {
+        "consumed": "{0} stellt Gegenstand {1} \"{3}\" wieder her",
+        "flipped": "{0} dreht Gegenstand {1} \"{3}\" zurück",
+        "persistend": "{0} hebt Persistenz von Gegenstand {1} \"{3}\" auf",
+        "slot": "{0} unmarkiert Slot von Gegenstand {1} \"{3}\"",
+        "slotBack": "{0} markiert Slot von Gegenstand {1} \"{3}\"",
+        "spent": "{0} erneuert Gegenstand {1} \"{3}\""
+      },
       "characterLongRest": "Lange Rast für {0} setzen",
       "characterLongRestOff": "Lange Rast für {0} deaktivieren",
       "characterReplay": "{0} wieder spielen für Spieler {1}",
@@ -2416,15 +2678,18 @@
         "summon": "Anwenden von {2} auf {1} von {0} abgelehnt"
       },
       "disableAutomaticLevel": "Automatische Berechnung Level ausschalten",
+      "disableEnvelopeB": "Umschlag B deaktivieren",
       "disablePartyCampaignMode": "Kampagnenmodus ausschalten",
       "disableSolo": "Einzelspieler Level Berechnung ausschalten",
       "disabledGe5Player": "≥ 5 Spieler Regel ausschalten",
       "disabledManualPlayerCount": "Manuelle Charakter Anzahal ausschalten",
+      "distillItem": "Destilliere Gegenstand \"%data.items.{2}-{1}%\" für {0}",
       "donate": "{0} spendet an Tempel der Großen Eiche",
       "downgradeBuilding": "Gebäude '%data.buildings.{1}%' ({0}) auf Level {2} herabstufen",
       "draw": "Ziehen",
       "drawAbility": "Fertigkeit für {0} ziehen",
       "enableAutomaticLevel": "Automatische Berechnung Level einschalten",
+      "enableEnvelopeB": "Umschlag B öffnen",
       "enablePartyCampaignMode": "Kampagnenmodus einschalten",
       "enableSolo": "Einzelspieler Level Berechnung einschalten",
       "enabledGe5Player": "≥ 5 Spieler Regel einschalten",
@@ -2480,7 +2745,7 @@
       "lootDeckChangeConfig": "Beute Tabelle ändern",
       "lootDeckDraw": "Beute Karte ziehen",
       "lootDeckHide": "Beute Deck ausblenden",
-      "lootDeckRemoveCard": "Karte {0} ais Beute Deck entfernen",
+      "lootDeckRemoveCard": "Karte {0} aus Beute Deck entfernen",
       "lootDeckRemoveEnhancement": "Verzauberung von Beute Karte '{1} %game.loot.{0}%' entfernen",
       "lootDeckReorder": "Beute Deck neu anordnen",
       "lootDeckShow": "Beute Deck einblenden",
@@ -2594,6 +2859,7 @@
       "removeSpecialTags": "Entferne Spezialactionen {1} von {0}",
       "removeSpecialTagsSummon": "Entferne Spezialactionen {1} von {2} von {0}",
       "removeTreasure": "Schatz {1} (%data.edition.{0}%) entfernen",
+      "removeTreasures": "Schatz {1} (%data.edition.{0}%) entfernen",
       "reorder": "Figuren neu anordnen",
       "reorderAbilities": "Fertigkeitskarten von {0} neu anordnen",
       "repairBuilding": "'%data.buildings.{1}%' ({0}) repariert",
@@ -2657,7 +2923,7 @@
       "setIdentity": "Setze Form auf %data.character.{1}.{2}% für {0}",
       "setInitiative": "Initiative {1} für {0}",
       "setLevel": "Level {1} für {0}",
-      "setNotes": "Notizen \"{1}\" für {0} ",
+      "setNotes": "Notizen \"{1}\" für {0}",
       "setObjectiveExhausted": "Ziel {0} erschöpft",
       "setObjectiveInitiative": "Initiative {1} für Ziel {0}",
       "setPQ": "Persönliche Quest {1} für {0}",
@@ -2717,13 +2983,13 @@
         "amDeckHide": "{0} AM Deck ausblenden",
         "amDeckShow": "{0} AM Deck einblenden",
         "draw": "{0} AM Karte ziehen",
-        "drawAdvantage": "{0} AM Karten mit Vorteil ziehen",
-        "drawDisadvantage": "{0} AM Karten mit Vorteil ziehen",
+        "drawadvantage": "{0} AM mit Vorteil ziehen",
+        "drawdisadvantage": "{0} AM mit Nachteil ziehen",
         "removeBless": "Segen von {0} AM Deck entfernen",
         "removeCard": "Karte {1} von {0} AM Deck entfernen",
         "removeCurse": "Fluch von {0} AM Deck entfernen",
         "removeDrawnDiscards": "Entferne gezogene Abgeworfene von {0} AM Deck",
-        "reorder": "{0} AM Deck anordnen ",
+        "reorder": "{0} AM Deck anordnen",
         "restoreDefault": "Standard {0} AM Deck wiederherstellen",
         "shuffle": "{0} AM Deck mischen",
         "shuffleUpcoming": "Nicht gezogene Karten von {0} AM Deck mischen"
@@ -2732,6 +2998,7 @@
       "updateElement": "Element {0} {1}",
       "updateGlobalAchievements": "Globalen Erfolg auf {0}",
       "updateLevelAdjustment": "Anpassung Szenariostufe {0}",
+      "updateLevelAdjustmentBb": "Monster-Modifikator Schwierigkeit auf %game.level.bb.monsterDifficulty.{0}% setzen",
       "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}",
       "updatePartyAchievements": "Gruppenerfolg auf {0}",
       "updateStandee": "Ändere {1} Aufsteller Nummer {2} zu {3} für {0}",
@@ -2818,7 +3085,7 @@
         "name": "Szenario Name",
         "notes": {
           ".": "Weitere Notizen",
-          "hint": "z.B.. spezielle Szenario Regeln wie Monster Level Anpassungen, Rundenereignisse oder TP Berechnungen..."
+          "hint": "z.B.. spezielle Szenario Regeln wie Monster Level Anpassungen, Rundenereignisse oder TP Berechnungen…"
         },
         "send": "Szneario senden"
       }
@@ -2869,7 +3136,7 @@
       "round": "Nächste Runde / Ziehen",
       "scenarioChart": "Szenario Flussdiagramm anzeigen",
       "select": "Figur/Aufsteller Menü öffnen durch Auswählen mit Nummertasten",
-      "selectNarual": "Figur/Aufsteller Menü in fester Reihenfolge öffnen durch Auswählen mit Nummertasten",
+      "selectNatural": "Figur/Aufsteller Menü in fester Reihenfolge öffnen durch Auswählen mit Nummertasten",
       "shift": "UMSCHALT",
       "space": "Leertaste",
       "tab": "↹",

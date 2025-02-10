@@ -16,7 +16,7 @@
   "app": {
     "install": "Install as App",
     "loading": {
-      ".": "Loading...",
+      ".": "Loading…",
       "cancel": "Cancel loading?"
     }
   },
@@ -258,7 +258,7 @@
             "status": "Automatic Backup failed with response code '{0}'. Take a look at the browser console for more details.",
             "unknown": "Automatic Backup failed due to unknown reason. Please take a look at the browser console for more details."
           },
-          "hint": "Instead of downloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename.  (This requires proper CORS settings to work!)"
+          "hint": "Instead of downloading the automatic backup file, set an URL to upload the data to. {FILENAME} can be used as placeholder for filename. (This requires proper CORS settings to work!)"
         },
         "uploadUrlAuthorization": {
           ".": "Authorization Header",
@@ -873,7 +873,7 @@
       "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Double-click to force equipping.",
       "empty": "No items found",
       "filter": {
-        ".": "Search...",
+        ".": "Search…",
         "affordable": "Only affordable Items",
         "all": "Show all items",
         "sorted": "Sorted"
@@ -1145,7 +1145,7 @@
     "5": "fifth",
     "6": "sixth",
     "7": "seventh",
-    "8": "eighth ",
+    "8": "eighth",
     "9": "ninth"
   },
   "objective": {
@@ -2073,7 +2073,7 @@
     },
     "calculate": {
       ".": "Show calculated stats",
-      "hint": "Ability values are calculated with stats, so instead of Attack +1 Attack 4 is shown for an Attack value of 3 in the stats "
+      "hint": "Ability values are calculated with stats, so instead of Attack +1 Attack 4 is shown for an Attack value of 3 in the stats"
     },
     "calculateShieldStats": {
       ".": "Add Shield and Retaliate to abilities",
@@ -2347,7 +2347,7 @@
     },
     "moveElements": {
       ".": "Automatic update element state",
-      "hint": "The element state is automatically changed before each round "
+      "hint": "The element state is automatically changed before each round"
     },
     "partySheet": {
       ".": "Party Sheet",
@@ -2745,7 +2745,7 @@
       "lootDeckChangeConfig": "Change Loot Table",
       "lootDeckDraw": "Draw Loot card",
       "lootDeckHide": "Hide Loot deck",
-      "lootDeckRemoveCard": "Remove card {0} from Loot deck ",
+      "lootDeckRemoveCard": "Remove card {0} from Loot deck",
       "lootDeckRemoveEnhancement": "Remove enhancement from Loot Card '{1} %game.loot.{0}%'",
       "lootDeckReorder": "Reorder Loot deck",
       "lootDeckShow": "Show Loot deck",
@@ -2926,7 +2926,7 @@
       "setNotes": "Notes \"{1}\" for {0}",
       "setObjectiveExhausted": "Objective {0} exhausted",
       "setObjectiveInitiative": "Initiative {1} for objective {0}",
-      "setPQ": "Personal Quest {1} for {0} ",
+      "setPQ": "Personal Quest {1} for {0}",
       "setPQProgress": "Set Personal Quest counter {1} to {2} for {0}",
       "setPartyAchievements": "Party achievements",
       "setPartyDonations": "Donations to {0}",
@@ -2986,7 +2986,7 @@
         "drawadvantage": "Draw {0} AM width Advantage",
         "drawdisadvantage": "Draw {0} AM width Disadvantage",
         "removeBless": "Remove Bless from {0} AM deck",
-        "removeCard": "Remove card {1} from {0} AM deck ",
+        "removeCard": "Remove card {1} from {0} AM deck",
         "removeCurse": "Remove Curse from {0} AM deck",
         "removeDrawnDiscards": "Remove drawn discards from {0} AM deck",
         "reorder": "Reorder {0} AM deck",
@@ -3085,7 +3085,7 @@
         "name": "Scenario Name",
         "notes": {
           ".": "Additional Notes",
-          "hint": "e.g. special scenario rules like monster level adjustments, round events or HP calculations..."
+          "hint": "e.g. special scenario rules like monster level adjustments, round events or HP calculations…"
         },
         "send": "Send Scenario"
       }

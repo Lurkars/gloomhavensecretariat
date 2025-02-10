@@ -16,7 +16,7 @@
   "app": {
     "install": "앱으로 설치",
     "loading": {
-      ".": "불러오는 중...",
+      ".": "불러오는 중…",
       "cancel": "불러오기를 취소하시겠습니까?"
     }
   },
@@ -798,7 +798,7 @@
       "effect": "아이템이 장착되어 있으면 자동으로 효과가 적용됩니다. 아이템을 장착하려면 아이템 이름을 클릭하기만 하면 됩니다. 아이템 장착은 시나리오 시작 전과 시나리오 사이에만 가능합니다. 강제로 장착하려면 두 번 클릭합니다.",
       "empty": "아이템을 찾을 수 없음",
       "filter": {
-        ".": "검색...",
+        ".": "검색…",
         "affordable": "소유 금액 이하의 아이템만 보기",
         "all": "모든 아이템 보기",
         "sorted": "정렬됨"
@@ -1001,7 +1001,7 @@
       "elite": "정예 몬스터 출현",
       "normal": "일반 몬스터 출현"
     },
-    "applyInteractiveActions": "다음의 강조된 능력 적용: ",
+    "applyInteractiveActions": "다음의 강조된 능력 적용:",
     "boss": "보스",
     "cancelNumberpicker": "취소하기",
     "changeStandee": "%game.monsterType.{0}% 말을 #{1}번으로 변경",
@@ -1050,7 +1050,7 @@
     "5": "다섯 번째",
     "6": "여섯 번째",
     "7": "일곱 번째",
-    "8": "여덟 번째 ",
+    "8": "여덟 번째",
     "9": "아홉 번째"
   },
   "objective": {
@@ -1909,10 +1909,6 @@
       ".": "사용 가능한 모든 세로 열 사용",
       "hint": "사용 가능한 모든 세로 열에 항상 피규어를 나눠서 배치합니다."
     },
-    "combineSummonAction": {
-      ".": "소환수 행동 결합",
-      "hint": "모든 말의 소환수 행동을 한 번에 수행합니다."
-    },
     "conditions": "상태/원소",
     "damageHP": {
       ".": "체력 대신 피해로 표기",
@@ -2228,8 +2224,8 @@
       "addRandomStandee": "무작위 {1} {0} 몬스터 말 {2}번 추가",
       "addResource": "{0}의 {1} +{2} 추가",
       "addSection": "섹션 추가 #{0} {1} ({2})",
-      "addSpecialTag": "Add special actions {1} for {0}",
-      "addSpecialTags": "Add special actions {1} for {2} of {0}",
+      "addSpecialTags": "Add special actions {1} for {0}",
+      "addSpecialTagsSummon": "Add special actions {1} for {2} of {0}",
       "addStandee": "{1} {0} 몬스터 말 {2}번 추가",
       "addSummon": "{0}의 '{1}' 소환수 추가",
       "addTreasure": "{1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) 보물 추가",
@@ -2278,7 +2274,7 @@
       "changeMonsterType": "{0} 몬스터 말 {2}번의 유형을 {1}에서 %monster.{3}% 유형으로 변경",
       "changeObjectiveHP": "목표 대상 {0}의 체력을 {1}만큼 변경",
       "changeObjectiveId": "{0}의 번호 번경: '{1}'",
-      "changeObjectiveMaxHP": "목표 대상 {0}의 최대 체력을 {1}만큼 변경",
+      "changeObjectiveMaxHp": "목표 대상 {0}의 최대 체력을 {1}만큼 변경",
       "changeParty": "'{0}' 파티로 변경",
       "changeSummonAttack": "{0}의 소환수 '{1}'의 공격력을 변경: {2}",
       "changeSummonHp": "{0}의 소환수 '{1}'의 체력을 변경: {2}",
@@ -2350,7 +2346,7 @@
       "moveResource": "{0}에게서 프로스트헤이븐 보급으로 {1} {2}개 이동",
       "nextRound": "다음 라운드",
       "openRoom": "#{0} {1}: '{2}' 타일 문 열기",
-      "openRoomMarker": "#{0} {1}:  %game.mapMarker.{3}% 위치의 '{2}' 타일 문 열기",
+      "openRoomMarker": "#{0} {1}: %game.mapMarker.{3}% 위치의 '{2}' 타일 문 열기",
       "removeAbility": "{0}의 {1} 능력 카드 제거",
       "removeAllChars": "모든 캐릭터 제거",
       "removeAllMonster": "모든 몬스터 제거",
@@ -2365,14 +2361,14 @@
         "objective": "{0}에게서 {1} 상태 제거",
         "summon": "{0} {1}번에게서 {2} 상태 제거"
       },
-      "removeGlobalAchievements": "전역 업적 {0} 제거",
+      "removeGlobalAchievement": "전역 업적 {0} 제거",
       "removeItem": "{0}에게서 {1} (%data.edition.{2}%) 아이템 제거",
       "removeManualScenario": "해금된 시나리오 #{0} {1} ({2}) 제거",
       "removeMastery": "{0}의 숙련 {1} 체크 해제",
       "removeMonster": "{0} 몬스터 제거",
       "removeObjective": "{0} 목표 대상 제거",
       "removeParty": "'{0}' 파티 제거",
-      "removePartyAchievements": "파티 업적 {0} 제거",
+      "removePartyAchievement": "파티 업적 {0} 제거",
       "removePartyTownGuardPerkSection": "마을 경비병 특혜 섹션 {0} 제거",
       "removePartyWeekSection": "{1}주차로부터 섹션 {2} 제거",
       "removePlayer": "플레이어 {1} ({0}) 제거",
@@ -2412,7 +2408,7 @@
       "setNotes": "{0}의 메모 사항 변경",
       "setObjectiveExhausted": "목표 대상 {0} 탈진",
       "setObjectiveInitiative": "목표 대상 {0}의 주도권 {1}",
-      "setPQ": "{0}의 개인 퀘스트 {1} ",
+      "setPQ": "{0}의 개인 퀘스트 {1}",
       "setPQProgress": "{0}의 개인 퀘스트 목표 수량 설정: {1} → {2}",
       "setPartyAchievements": "파티 업적",
       "setPartyDonations": "{0} 기부",

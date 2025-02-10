@@ -11,7 +11,7 @@
   "app": {
     "install": "Installer en tant qu'application",
     "loading": {
-      ".": "Chargement...",
+      ".": "Chargement…",
       "cancel": "Annuler le chargement?"
     }
   },
@@ -158,7 +158,7 @@
       "all": "Télécharger toutes les sauvegardes du jeu ({0})",
       "auto": {
         ".": "Sauvegarde automatique",
-        "count": "Toutes les (x) actions ",
+        "count": "Toutes les (x) actions",
         "countHint": "Nombre d'actions entre les sauvegardes automatiques",
         "onFinish": "Après avoir terminé le scénario",
         "uploadUrl": {
@@ -168,7 +168,7 @@
             "status": "La sauvegarde automatique a échoué avec le code de réponse '{0}'. Consultez la console du navigateur pour plus de détails.",
             "unknown": "La sauvegarde automatique a échoué pour une raison inconnue. Veuillez consulter la console du navigateur pour plus de détails."
           },
-          "hint": "Au lieu de télécharger le fichier de sauvegarde automatique, définir une URL pour télécharger les données. {FILENAME} peut être utilisé comme paramètre pour le nom de fichier.  (Pour que cela fonctionne, il faut que les paramètres CORS soient corrects)."
+          "hint": "Au lieu de télécharger le fichier de sauvegarde automatique, définir une URL pour télécharger les données. {FILENAME} peut être utilisé comme paramètre pour le nom de fichier. (Pour que cela fonctionne, il faut que les paramètres CORS soient corrects)."
         },
         "uploadUrlAuthorization": {
           ".": "En-tête d'autorisation",
@@ -723,7 +723,7 @@
       "effect": "Si l'objet est équipé, son effet est automatiquement appliqué. Pour équiper un objet, il suffit de cliquer sur son nom. L'équipement des objets n'est autorisé qu'avant et entre les scénarios. Double-cliquez pour forcer l'équipement.",
       "empty": "Aucun élément trouvé",
       "filter": {
-        ".": "Recherche...",
+        ".": "Recherche…",
         "affordable": "Uniquement des objets abordables",
         "all": "Afficher tous les objets",
         "sorted": "Trié"
@@ -927,7 +927,7 @@
       "elite": "Sélectionnez tous les Figurines Elites",
       "normal": "Sélectionner tous les Figurines normaux"
     },
-    "setStandees": "Mise en place {1} figurines %game.monsterType.{0}% ",
+    "setStandees": "Mise en place {1} figurines %game.monsterType.{0}%",
     "showBoss": "Voir les monstres boss",
     "showHidden": "Voir les monstres cachés",
     "toggleAllied": {
@@ -1685,7 +1685,7 @@
     },
     "calculate": {
       ".": "Afficher les stats calculées",
-      "hint": "Les valeurs de capacité sont calculées avec les statistiques, donc au lieu de Attaque +1 Attaque 4 est indiqué pour une valeur d'attaque de 3 dans les statistiques. "
+      "hint": "Les valeurs de capacité sont calculées avec les statistiques, donc au lieu de Attaque +1 Attaque 4 est indiqué pour une valeur d'attaque de 3 dans les statistiques."
     },
     "calculateShieldStats": {
       ".": "Ajout du bouclier et de la riposte aux capacités",
@@ -1749,10 +1749,6 @@
     "columns": {
       ".": "Disposition des colonnes",
       "hint": "Activer la mise en page sur deux colonnes si le zoom et l'espace sont suffisants"
-    },
-    "combineSummonAction": {
-      ".": "Combiner l'action d'invocation",
-      "hint": "Effectuez l'action d'invocation pour tous les figurines en même temps."
     },
     "conditions": "Conditions/Éléments",
     "debug": {
@@ -1873,7 +1869,7 @@
     },
     "moveElements": {
       ".": "Mettre à jour les éléments automatiquement",
-      "hint": "L'état de l'élément est automatiquement modifié avant chaque tour "
+      "hint": "L'état de l'élément est automatiquement modifié avant chaque tour"
     },
     "partySheet": {
       ".": "Feuille de route",
@@ -2028,7 +2024,6 @@
         "summon": "{3}x %game.condition.{2}% '{1}' de {0}",
         "summons": "{2}x %game.condition.{1}% tous {0} convocation"
       },
-      "addEntityMarker": "{2} Marqueur sur {0} figurine {1}",
       "addGameCondition": "Ajouter %game.condition.{0}% à la partie en cours",
       "addGlobalAchievement": "Ajouter le Haut Fait Global '{0}'",
       "addImmunity": {
@@ -2287,7 +2282,7 @@
       "setNotes": "Notes \"{1}\" pour {0}",
       "setObjectiveExhausted": "Objectif {0} épuisé",
       "setObjectiveInitiative": "Initiative {1} pour objectif {0}",
-      "setPQ": "Quête Personnelle {1} pour {0} ",
+      "setPQ": "Quête Personnelle {1} pour {0}",
       "setPQProgress": "Réglez le compteur de quête personnelle {1} sur {2} pour {0}",
       "setPartyAchievements": "Hauts Faits de Compagnie",
       "setPartyDonations": "Niveau de donations passé à {0}",
@@ -2340,7 +2335,7 @@
         "addCurse": "Ajout de Malédiction au paquet de Modificateur d'Attaque de {0}",
         "draw": "Piocher dans le paquet de Modificateur d'Attaque de {0}",
         "removeBless": "Retrait de Bénédiction du paquet de Modificateur d'Attaque de {0}",
-        "removeCard": "Retirer carte {1} du paquet de Modificateur d'Attaque de {0} ",
+        "removeCard": "Retirer carte {1} du paquet de Modificateur d'Attaque de {0}",
         "removeCurse": "Retrait de Malédiction du paquet de Modificateur d'Attaque de {0}",
         "removeDrawnDiscards": "Retirer les cartes défaussées du paquet de Modificateur d'Attaque de {0}",
         "reorder": "Réarranger le paquet de Modificateur d'Attaque de {0}",

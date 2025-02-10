@@ -16,7 +16,7 @@
   "app": {
     "install": "Instalar como App",
     "loading": {
-      ".": "Cargando...",
+      ".": "Cargando…",
       "cancel": "¿Cancelar Cargado?"
     }
   },
@@ -242,7 +242,7 @@
             "status": "Backup automático fallido con código de error'{0}'. Hecha un vistazo al monitor del navegador para más detalles.",
             "unknown": "Backup automático fallido debido a un error desconocido. Por favor revisa el monitor del navegador para más detalles."
           },
-          "hint": "En lugar de descargar el fichero del Backup automático, fija una URL para subir los datos. {FILENAME} puede utilizarse como marcador de posición (placeholder) para el nombre de archivo.  (Esto requiere una configuración CORS adecuada para funcionar.)"
+          "hint": "En lugar de descargar el fichero del Backup automático, fija una URL para subir los datos. {FILENAME} puede utilizarse como marcador de posición (placeholder) para el nombre de archivo. (Esto requiere una configuración CORS adecuada para funcionar.)"
         },
         "uploadUrlAuthorization": {
           ".": "Cabecera de autorización",
@@ -302,7 +302,7 @@
     "removeAllUnlocks": "Eliminar todos",
     "removeSpoiler": "Eliminar Spoiler",
     "removeUnlock": "Eliminar Desbloqueo",
-    "resetGame": "Reiniciar Juego ",
+    "resetGame": "Reiniciar Juego",
     "resetSettings": "Reiniciar Ajustes",
     "restoreEditionDataUrls": "Restaurar valores predeterminados",
     "spoilers": "Gestionar Spoilers",
@@ -519,7 +519,7 @@
         },
         "type": {
           "add": "añade {0}",
-          "remove": "elimina {0}",
+          "remove": "retira {0}",
           "replace": "sustituye {0} por {1}"
         },
         "warning": "¡Más pericias que las disponibles seleccionadas!",
@@ -857,7 +857,7 @@
       "effect": "Si el objeto está equipado, su efecto se aplica automáticamente. Para equipar un objeto, haz clic en su nombre. Equipar objetos sólo está permitido antes y entre escenarios. Haz doble clic para forzar el equipamiento.",
       "empty": "No se han encontrado objetos",
       "filter": {
-        ".": "Buscar...",
+        ".": "Buscar…",
         "affordable": "Sólo artículos de precio asequible",
         "all": "Mostrar todos los items",
         "sorted": "Ordenado"
@@ -914,7 +914,7 @@
       },
       "flamefruit": "Flamefruit",
       "herb_resources": "Yerba",
-      "hide": "Ocultar",
+      "hide": "Piel",
       "keep": "Continua %data.character.{0}%",
       "lootTreasure": {
         ".": "¿{0} saquear tesoro {1}?",
@@ -1129,7 +1129,7 @@
     "5": "quinto",
     "6": "sexto",
     "7": "séptimo",
-    "8": "octabo ",
+    "8": "octabo",
     "9": "noveno"
   },
   "objective": {
@@ -1478,7 +1478,7 @@
       ".": "Recompensas",
       "addWeek": {
         ".": "Calendario",
-        "next": "Pasar automáticamente el calendario a la semana {0}",
+        "next": "Haz pasar el tiempo en el calendario a la semana {0}",
         "section": "Abre %data.section:{0}% (aplicado automáticamente)",
         "summer": "Nueva estación: Verano <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
         "winter": "Nueva estación: Invierno <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
@@ -1504,14 +1504,14 @@
         "city": "Añade el Evento de Ciudad {0} a su mazo",
         "rift": "Añade el Evento de Grieta {0} a su mazo",
         "road": "Añade el Evento de Camino {0} a su mazo",
-        "summer-outpost": "Añade el evento {0} al mazo de Verano del Puesto de Avanzada",
+        "summer-outpost": "Añade el evento {0} al mazo de Verano del puesto fronterizo",
         "summer-road": "Añade el evento {0} al mazo de verano de Camino",
-        "winter-outpost": "Añade el Evento {0} al mazo de invierno del Puesto de Avanzada",
+        "winter-outpost": "Añade el Evento {0} al mazo de invierno del puesto fronterizo",
         "winter-road": "Añade el Evento {0} al mazo de invierno de Camino"
       },
       "experience": "{0} experiencia cada personaje",
       "globalAchievements": "Logros Globales",
-      "gold": "{0} oro cada personaje",
+      "gold": "Cada personaje obtiene {0} oro.",
       "inspiration": "{0} inspiración",
       "item": "\"{1}\" (Objeto {0})",
       "itemBlueprint": "Obtén \"{1}\" %game.itemFh.{0}% receta",
@@ -1539,9 +1539,9 @@
         "city": "Elimina el evento de Ciudad {0} del mazo",
         "rift": "Elimina el evento de Grieta {0} del mazo",
         "road": "Elimina el Evento de Camino {0} del mazo",
-        "summer-outpost": "Elimina el evento {0} del mazo de verano del Puesto de Avanzada",
+        "summer-outpost": "Elimina el evento {0} del mazo de verano del puesto fronterizo",
         "summer-road": "Elimina el evento {0} del mazo de verano de Camino",
-        "winter-outpost": "Elimina el evento {0} del mazo de invierno del Puesto de Avanzada",
+        "winter-outpost": "Elimina el evento {0} del mazo de invierno del puesto fronterizo",
         "winter-road": "Elimina el evento {0} del mazo de invierno de Camino"
       },
       "removeLootDeckCard": "Elimina la carta de botín {0} del juego. No la añadas más a ningún mazo de botín de cualquier Escenario.",
@@ -1550,8 +1550,8 @@
       "resourcesLose": "Cada personaje pierde {1} %game.resource.{0}%",
       "townGuardAm": "Añade una carta %game.townGuardAm.{1}:{0}% al mazo de la Guardia de la Ciudad.",
       "unlockCharacter": {
-        ".": "Desbloquear",
-        "box": "%game.characterIcon.{0}% caja de clase"
+        ".": "Desbloquea",
+        "box": "la caja de clase: %game.characterIcon.{0}%"
       }
     },
     "rules": {
@@ -1570,7 +1570,7 @@
       "figures": {
         "activate": "{0} activar",
         "all": "Todas las figuras",
-        "amAdd": "{0} añade %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% a la baraja de Modificación de Ataque",
+        "amAdd": "{0} añade %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% al mazo de Modificación de ataque",
         "amRemove": "{0} elimina %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% del mazo de Modificación de Ataques",
         "damage": "{0} sufre %game.damage:{2}%",
         "discard": "{0} cada personaje descarta %number.{2}% cartas de habilidad",
@@ -1751,9 +1751,9 @@
       },
       "conclusionWarning": {
         ".": "¡Falta la solución!",
-        "hint": "Parece que este escenario ha finalizado sin una conclusión. Esto puede hacer que se pierdan recompensas y desbloqueos. Las secciones de conclusión están marcadas con un <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> icono."
+        "hint": "Parece que este escenario ha finalizado sin una conclusión. Esto puede hacer que se pierdan recompensas y desbloqueos. Las secciones de conclusión están marcadas con un icono <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\">."
       },
-      "forcedLinks": "%scenario.summary.links% (forzado)",
+      "forcedLinks": "%scenario.summary.links% (obligatorio)",
       "gold": "Oro",
       "item": "Objeto \"{0}\"",
       "levelUp": "Subir a nivel {1}",
@@ -1920,7 +1920,7 @@
     },
     "alwaysLootApplyDialog": {
       ".": "Mostrar siempre ventana de aplicar botín",
-      "hint": "Muestra siempre una ventana para seleccionar el personaje que va a robar la baraja de botín en lugar de usar el personaje activo"
+      "hint": "Muestra siempre una ventana para seleccionar el personaje que va a robar el mazo de botín en lugar de usar el personaje activo"
     },
     "alwaysLootDeck": {
       ".": "Usar siempre mazo de botín",
@@ -1986,7 +1986,7 @@
     },
     "automaticPassTime": {
       ".": "Pasar automáticamente el tiempo del calendario",
-      "hint": "Pasar el tiempo automáticamente añadiendo una semana al calendario después de terminar un escenario. Esto también añade automáticamente efectos de secciones del calendario en esta semana."
+      "hint": "Añade de forma automática una semana al calendario después de terminar un escenario. Esto también añade automáticamente efectos de secciones del calendario en esta semana."
     },
     "automaticStandees": {
       ".": "Peanas Automaticas",
@@ -2057,7 +2057,7 @@
     },
     "calculate": {
       ".": "Mostrar Atributos calculados",
-      "hint": "Los valores de habilidad se calculan con los Atributos, por lo que en lugar de Ataque +1, se muestra Ataque 4 para un valor de Ataque de 3 en los Atributos. "
+      "hint": "Los valores de habilidad se calculan con los Atributos, por lo que en lugar de Ataque +1, se muestra Ataque 4 para un valor de Ataque de 3 en los Atributos."
     },
     "calculateShieldStats": {
       ".": "Añade Escudo y Represalia a las habilidades",
@@ -2331,7 +2331,7 @@
     },
     "moveElements": {
       ".": "Elementos automáticos",
-      "hint": "El estado de los elementos cambia de forma automática antes del inicio de cada ronda. "
+      "hint": "El estado de los elementos cambia de forma automática antes del inicio de cada ronda."
     },
     "partySheet": {
       ".": "Hoja de grupo",
@@ -2910,7 +2910,7 @@
       "setNotes": "Notas \"{1}\" para {0}",
       "setObjectiveExhausted": "Objectivo {0} agotado",
       "setObjectiveInitiative": "Iniciativa {1} para el objetivo {0}",
-      "setPQ": "Misión personal {1} para {0} ",
+      "setPQ": "Misión personal {1} para {0}",
       "setPQProgress": "Poner el contador de Búsqueda Personal {1} a {2} para {0}",
       "setPartyAchievements": "Logros de grupo",
       "setPartyDonations": "Donar a {0}",
@@ -2970,7 +2970,7 @@
         "drawadvantage": "Roba {0} MA con Ventaja",
         "drawdisadvantage": "Roba {0} MA con Desventaja",
         "removeBless": "Elimina Bendición {0} del mazo MA",
-        "removeCard": "Elimina carta {1} del {0} mazo MA ",
+        "removeCard": "Elimina carta {1} del {0} mazo MA",
         "removeCurse": "Elimina Maldición {0} del mazo MA",
         "removeDrawnDiscards": "Elimina los descartes robados del {0} mazo AM",
         "reorder": "Reorganizar {0} el mazo MA",
