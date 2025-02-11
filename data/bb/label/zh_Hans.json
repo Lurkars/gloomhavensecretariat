@@ -1,1 +1,8 @@
-{}
+{
+  "character": {
+    "bruiser": "拳击手",
+    "silent-knife": "沉默之刃",
+    "spellweaver": "魔法织造者",
+    "tinkerer": "修补匠"
+  }
+}
