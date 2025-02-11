@@ -166,7 +166,7 @@
           "alt": "Abre el sobre %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
           "building": "Desbloquea el edificio '%data.buildings.{1}%' ({0})",
           "inspiration": "Obtén +1 Inspiración",
-          "itemBlueprint": "Obtén \"%data.items.{1}-{0}%\" plano (Item {0})",
+          "itemBlueprint": "Obtén \"%data.items.{1}-{0}%\" diseño (Item {0})",
           "randomScenario": "Abre %data.section:{0}%, Desbloquea %data.scenarioNumber:{1}%"
         },
         "unlockCharacter": {
@@ -522,7 +522,7 @@
           "remove": "retira {0}",
           "replace": "sustituye {0} por {1}"
         },
-        "warning": "¡Más pericias que las disponibles seleccionadas!",
+        "warning": "¡Has seleccionado más pericias de las disponibles!",
         "wip": "%wip%! Perícias no completadas aún."
       },
       "types": {
@@ -959,7 +959,7 @@
           "goldFh": "Obtén {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "Realiza \"Curación {0}, Personal\"",
           "item": "Obtén {1} ({0})",
-          "itemBlueprint": "Obtén {1} receta %game.itemFh.{0}%",
+          "itemBlueprint": "Obtén {1} diseño %game.itemFh.{0}%",
           "itemDesign": "obtén {1} Diseño ({0})",
           "itemFh": "Obtén {1} %game.itemFh.{0}%",
           "loot": "Obtén {0} fichas de dinero",
@@ -970,8 +970,8 @@
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
-            ".": "Receta de objeto aleatoria",
-            "result": ": {1} receta ({0})"
+            ".": "Diseño de objeto aleatorio",
+            "result": ": {1} diseño ({0})"
           },
           "randomItemDesign": {
             ".": "Diseño de objeto aleatorio",
@@ -1410,7 +1410,7 @@
       "drawRandomItem": {
         ".": "Roba un diseño de objeto aleatorio",
         "apply": "Aplicar",
-        "blueprint": "Roba una receta de objeto aleatoria."
+        "blueprint": "Roba un diseño de objeto aleatorio."
       },
       "drawRandomScenario": {
         ".": "Robar un escenario aleatorio",
@@ -1514,8 +1514,8 @@
       "gold": "Cada personaje obtiene {0} oro.",
       "inspiration": "{0} inspiración",
       "item": "\"{1}\" (Objeto {0})",
-      "itemBlueprint": "Obtén \"{1}\" %game.itemFh.{0}% receta",
-      "itemBlueprintRange": "Añade el objeto %game.itemFh.{0}% a %game.itemFh.{1}% la reserva de objetos disponibles.",
+      "itemBlueprint": "Obtén \"{1}\" %game.itemFh.{0}% diseño",
+      "itemBlueprintRange": "Añade los objetos del %game.itemFh.{0}% a %game.itemFh.{1}% a la reserva de objetos disponibles.",
       "itemDesign": "\"{1}\" diseño (Objeto {0})",
       "itemDesignEdition": "\"{1}\" diseño (Objeto {0} %data.edition.{2}%)",
       "itemDesignRange": "Todos los diseños de Objetos {0}",
@@ -1531,8 +1531,8 @@
       "perks": "Cada personaje obtiene {0} pericia",
       "pet": "Añade %data.pets.{1}-{0}% (Pet {0}) a los establos. No puede superar la capacidad de estos.",
       "prosperity": "{0} prosperidad",
-      "randomItemBlueprint": "Obtén una receta de objeto aleatoria",
-      "randomItemBlueprints": "Añade los objetos %game.itemFh.{0}% a %game.itemFh.{1}% el mazo de recetas aleatorias.",
+      "randomItemBlueprint": "Obtén un diseño de objeto aleatorio",
+      "randomItemBlueprints": "Añade los objetos %game.itemFh.{0}% a %game.itemFh.{1}% el mazo de diseños aleatorios.",
       "randomItems": "Cada personaje obtiene un objeto aleatorio ({0}-{1})",
       "removeEvent": {
         "boat": "Elimina el evento {0} del mazo de navegación",
@@ -2692,7 +2692,7 @@
         "changeCharacterResource": "{1} %game.resource.{0}% para {2}",
         "changeCharacterXP": "{0} Exp. para {1}",
         "drawRandomItem": "Roba un diseño de objeto aleatorio {0} \"{2}\" (%data.edition.{1}%)",
-        "drawRandomItemBlueprint": "Roba aleatoriamente una receta de objeto {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomItemBlueprint": "Roba aleatoriamente un diseño de objeto {0} \"{2}\" (%data.edition.{1}%)",
         "drawRandomScenario": "Roba un escenario aleatorio {2} %data.scenarioNumber:{0}%",
         "drawRandomScenarioSection": "Roba una sección aleatoria %data.section:{0}%, desbloquea {3}",
         "inspiration": "{0} Inspiración",

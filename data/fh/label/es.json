@@ -1,8 +1,37 @@
 {
+  "buildings": {
+    "trading-post": {
+      "1": "Pierde 5 de oro colectivo",
+      "2": "Pierde 10 de oro colectivo",
+      "3": "Pierde 15 de oro colectivo",
+      "4": "Pierde 20 de oro colectivo"
+    },
+    "wall-j": {
+      ".": "Muralla J"
+    },
+    "wall-k": {
+      ".": "Muralla K"
+    },
+    "wall-l": {
+      ".": "Muralla L"
+    },
+    "wall-m": {
+      ".": "Muralla M"
+    },
+    "wall-n": {
+      ".": "Muralla N"
+    }
+  },
   "character": {
     "banner-spear": "Estandarte",
     "blinkblade": {
-      ".": "Dagacentella"
+      ".": "Dagacentella",
+      "fast": "Rápido",
+      "slow": "Lento",
+      "time_tokens": {
+        ".": "Fichas de tiempo",
+        "hint": "Añadir/eliminar de forma automática fichas de tiempo al inicio de la ronda tras definir lento/rápido"
+      }
     },
     "boneshaper": {
       ".": "Nigromante"
@@ -17,6 +46,52 @@
   },
   "custom": {
     "fh": {
+      "algox-snowspeaker": {
+        "1": "Todos los enemigos a <br>%game.action.range:3% sufren %game.damage:2%"
+      },
+      "algox-stormcaller": {
+        "1": "Crea terreno peligroso, todos los enemigos que ocupen terreno peligroso o estén adyacentes a él sufren daño."
+      },
+      "ancient-artillery": {
+        "2": "Todos los enemigos adyacentes<br>al objetivo sufren %game.damage:2%."
+      },
+      "archer": {
+        "1": "Crea una trampa %game.damage:3% en el hexágono <br>adyacente más cercano a un enemigo."
+      },
+      "banner-spear": {
+        "1": "Todos los aliados a %game.range:2% añaden %game.action.attack% +1 a uno de sus ataques cada turno.",
+        "10": "Ataca al menos a tres enemigos con cada una de las tres habilidades de ataque de área de efecto distintas"
+      },
+      "blinkblade": {
+        "3": "Obtén 1 %data.characterToken.blinkblade.time%",
+        "4": "Obtén 1 %data.action.custom.fh-hourglass%"
+      },
+      "errata": {
+        "env24": "1ª Impresión (Edición en Inglés): El sobre 24 debería incluir la pegatina 10",
+        "env37": "1ª Impresión (Edición en Inglés): El sobre 37 debería incluir las pegatinas 11 y 13",
+        "env44": "1ª Impresión (Edición en Inglés): El sobre 44 debería incluir las pegatinas 12 y 14",
+        "env81": "1ª Impresión (Edición en Inglés): En el sobre 81 hay un mazo cuyo orden debe invertirse. Si lo sacas y la carta visible se titula «T___ de W___», invierte el orden del mazo para que esa carta sea la primera que se saque cuando el mazo esté boca abajo.",
+        "env85": "1ª Impresión (Edición en Inglés): El sobre 85 debería incluir las pegatinas 15",
+        "env90": "1ª Impresión (Edición en Inglés): El sobre 90 debería incluir las pegatinas 1, 5, 8 y 9",
+        "scenario110": "1ª Impresión (Edición en Inglés): los hexágonos de agua son terreno peligroso, no pasillos.",
+        "scenario111": "1ª Impresión (Edición en Inglés): Las posiciones de las puertas de la Sección 182.2 son correctas. La Sección 138.2 debe enlazar con la Sección 147.2.",
+        "scenario117": "1ª Impresión (Edición en Inglés): Este escenario tiene 5 osos polares pero sólo hay 4 figuras. Un quinto oso polar debe ser sustituido por otras figuras o miniaturas disponibles. (¡Corregido en GHS!)",
+        "scenario130": "1ª Impresión (Edición en Inglés): Key - Shrike Fiend has an image of Night Demon. (Fixed in GHS!)",
+        "scenario18": "1ª Impresión (Edición en Inglés): Disposición de tablero: La pieza de tablero 11 derecha es la 11-C.",
+        "scenario28": "1ª Impresión (Edición en Inglés): Los arqueros deberían aparecer en D y los guardias en E. Los hexágonos de salida también están intercambiados (¡arreglado en GHS!)",
+        "scenario36-37": "1ª Impresión (Edición en Inglés): Añade el diseño del objeto 067 a las recompensas del escenario. (¡Corregido en GHS!)",
+        "scenario37": "1ª Impresión (Edición en Inglés): El Cofre del Tesoro debería ser el #56. (¡Corregido en GHS!)",
+        "scenario60": "1ª Impresión (Edición en Inglés): debería tener el objeto 224 como recompensa del escenario. (¡Corregido en GHS!)",
+        "scenario70": "1ª Impresión (Edición en Inglés): tiene dos objetos aleatorios en el mazo de botín. Es una errata; debería haber 1. (¡Corregido en GHS!)",
+        "scenario78": "1ª Impresión (Edición en Inglés): tiene un problema con el mapa - Cambia la imagen del diseño del mapa, dando la vuelta a 13-D y 13-B en esa imagen (y también dando la vuelta a 13-B en la representación del mapa en la página de introducción).",
+        "scenraio104": "1ª Impresión (Edición en Inglés): Penúltima línea de las reglas especiales: «Ice Wraith» debería ser «Savvas Icestorm». (¡Corregido en GHS!)",
+        "section111-2": "1ª Impresión (Edición en Inglés): Mapa: «Lurker Soldier» debería ser «Lurker Clawcrusher» (¡Corregido en GHS!)",
+        "section14-2": "1ª Impresión (Edición en Inglés): «Ice Wraith» debería ser «Frost Demon» (¡Corregido en GHS!)",
+        "section154-1": "1ª Impresión (Edición en Inglés): «Black Imp» debería ser «Forest Imp» (¡Corregido en GHS!)",
+        "section197-1": "1ª Impresión (Edición en Inglés): La sección 197.1 tiene descripciones y nombres obsoletos de algunas cartas.",
+        "section25-3": "1ª Impresión (Edición en Inglés): Sección 25.3 - en lugar de Puerta 3 que abre la Sección 62.3, debe decir Puerta 1. (¡Corregido en GHS!)",
+        "tavern3": "1ª Impresión (Edición en Inglés): Esto debería tener un requisito de construcción de tener 3 monedas."
+      },
       "flowChartGroup": {
         "algox-1": "Algox",
         "algox-2": "Algox",

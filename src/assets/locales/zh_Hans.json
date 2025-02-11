@@ -1,0 +1,150 @@
+{
+  "about": {
+    ".": "关于",
+    "forceUpdate": "强制更新",
+    "ip": "幽港迷城及其所有相关的资产,图片以及文本都归 {0}所有.",
+    "license": "获得{0}许可.",
+    "sourceCode": "源代码",
+    "support": "帮助开发",
+    "version": {
+      "latest": "最新的",
+      "unknown": "无法获取到最新版本",
+      "update": "最新版本 <a target=\"_blank\" href=\"{1}\">{0}</a>"
+    }
+  },
+  "and": "和",
+  "app": {
+    "install": "以app形式安装",
+    "loading": {
+      ".": "载入中…",
+      "cancel": "取消载入?"
+    }
+  },
+  "campaign": {
+    ".": "战役/角色管理",
+    "battleGoals": "战斗目标设置",
+    "campaignManagement": {
+      ".": "管理战役",
+      "add": "添加战役",
+      "hint": "在游玩剧本时不能更改当前战役或创建新的战役.请完成或取消游玩当前剧本来更改当前战役或创建新的战役.",
+      "name": "活动名称 {0}",
+      "reset": "重置战役"
+    },
+    "character": "角色信息表",
+    "items": "物品卡片概览",
+    "map": {
+      ".": "世界地图",
+      "highlighting": "突出"
+    },
+    "party": "团队 / 活动资料表",
+    "resources": "资源总览表",
+    "sheet": "全球活动管理表",
+    "trials": {
+      ".": "考验",
+      "automation": "此卡片效果自动生效！"
+    }
+  },
+  "cancel": "取消",
+  "challenges": {
+    ".": "挑战",
+    "automation": {
+      "hint": "此卡片效果自动生效！"
+    },
+    "deck": {
+      "clear": {
+        ".": "弃掉抽到的挑战（卡）",
+        "multiple": "弃掉所有已抽取的挑战卡牌"
+      },
+      "current": "当前的",
+      "finished": "完成的",
+      "hint": {
+        "current": {
+          ".": "当前正在进行的挑战",
+          "multiple": "当前正在进行的所有挑战"
+        },
+        "drawAvailable": {
+          ".": "抽取挑战（卡）",
+          "multiple": "抽取所有挑战（卡）"
+        },
+        "select": {
+          ".": "切换激活挑战",
+          "multiple": "切换激活所有挑战"
+        }
+      },
+      "upcoming": "即将来临的"
+    },
+    "disabled": "该场景未设置任何挑战！"
+  },
+  "character": {
+    ".": "角色",
+    "abilities": {
+      "currentDeck": "当前牌组",
+      "deckWarning": "由于牌组中的牌太多，无法做出正确的选牌操作！",
+      "forceDeck": "双击以将卡片添加到牌组",
+      "levelWarning": "牌组无效，因为部分卡片的等级高于角色等级！",
+      "pickCard": "挑选你的等级为 {0} 的卡片",
+      "removeFromDeck": "双击以从牌组中移除卡片",
+      "show": "查看所有技能卡牌",
+      "showDeck": "查看当前角色卡池",
+      "sort": {
+        "cardId": "以卡牌编号整理",
+        "level-deck": "按牌组中的卡牌排序",
+        "level-name": "以等级和名称整理",
+        "name": "以名称整理"
+      },
+      "undoLastPick": {
+        ".": "不选择等级 {0}",
+        "hint": "双击重置所有选择"
+      },
+      "wip": ""
+    },
+    "absent": "缺席",
+    "add": "添加角色",
+    "class": {
+      "aesther": "以太灵",
+      "algox": "冰角",
+      "f": {
+        "aesther": "以太灵",
+        "algox": "冰角",
+        "harrower": "骇虫",
+        "human": "人类",
+        "inox": "钢角",
+        "lurker": "潜伏蟹",
+        "orchid": "兰晶",
+        "quatryl": "石晶",
+        "savvas": "萨瓦斯",
+        "unfettered": "自由机",
+        "valrath": "亡怒者",
+        "vermling": "腐鼠"
+      },
+      "harrower": "骇虫",
+      "human": "人类",
+      "inox": "钢角",
+      "lurker": "潜伏蟹",
+      "m": {
+        "aesther": "以太灵",
+        "algox": "冰角",
+        "harrower": "骇虫",
+        "human": "人类",
+        "inox": "钢角",
+        "lurker": "潜伏蟹",
+        "orchid": "兰晶",
+        "quatryl": "石晶",
+        "savvas": "萨瓦斯",
+        "unfettered": "自由机",
+        "valrath": "亡怒者",
+        "vermling": "腐鼠"
+      },
+      "orchid": "兰晶",
+      "quatryl": "石晶",
+      "savvas": "萨瓦斯",
+      "unfettered": "自由机",
+      "valrath": "亡怒者",
+      "vermling": "腐鼠"
+    },
+    "filter": {
+      ".": "筛选角色",
+      "allEditions": "所有版本"
+    }
+  }
+}
