@@ -556,7 +556,7 @@
         "2": "Place this card in your active area. On your next attack, discard this card to add +2 %game.action.attack%",
         "3": "Gain 1 %data.characterToken.blinkblade.time%",
         "4": "Gain 1 %data.action.custom.fh-hourglass%",
-        "5": "Whenever you short rest, you may spend one unspent %game.card.refresh% item for no effect to %game.card.recover% a different spent item",
+        "5": "Whenever you short rest, you may spend one unspent %game.card.spent% item for no effect to %game.card.recover% a different spent item",
         "6": "At the start of your first turn each scenario, you may perform %game.action.move% 3",
         "7": "Whenever you would gain %game.condition.immobilize%, prevent the condition",
         "8": "Declare Fast for seven consecutive rounds",
