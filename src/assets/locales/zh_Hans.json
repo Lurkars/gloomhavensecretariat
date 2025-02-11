@@ -144,7 +144,16 @@
     },
     "filter": {
       ".": "筛选角色",
-      "allEditions": "所有版本"
+      "allEditions": "所有版本",
+      "noResult": "无结果"
+    },
+    "lootCards": {
+      "drawn": "按抽卡时间排序",
+      "sort": "按类型排序"
+    },
+    "progress": {
+      ".": "角色表"
     }
-  }
+  },
+  "wip": "工作正在进行"
 }
