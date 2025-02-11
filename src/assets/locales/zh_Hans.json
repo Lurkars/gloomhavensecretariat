@@ -151,6 +151,8 @@
       "drawn": "按抽卡时间排序",
       "sort": "按类型排序"
     },
+    "playerNumber": "玩家#",
+    "present": "在线",
     "progress": {
       ".": "角色表"
     }
