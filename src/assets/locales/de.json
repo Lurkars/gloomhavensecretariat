@@ -194,7 +194,7 @@
       "resources": {
         ".": "Ressourcen",
         "apply": "Ressourcen verschieben",
-        "move": "Zur Frosthaven Versorgung verschieben"
+        "move": "Zum Vorrat verschieben"
       },
       "retired": "Ruhestand",
       "retirement": {
@@ -207,7 +207,7 @@
         "apply": "Anwenden",
         "conclusion": "Öffne Sektion %data.section:{0}%",
         "events": "Füge Stadt-Ereignis {0} als auch Weg-Ereignis {0} zum Deck hinzu",
-        "moveSupply": "Ressourcen zur Frosthaven Versorgung verschieben",
+        "moveSupply": "Ressourcen zum Frosthaven-Vorrat verschieben",
         "prosperity": "+{0} Wohlstand"
       },
       "retirements": "Ruhestände",
@@ -1275,7 +1275,7 @@
         "soldiers": "Soldaten",
         "summer": "Sommer",
         "supply": {
-          ".": "Versorgung von Frosthaven",
+          ".": " Frosthaven-Vorrat",
           "apply": "Änderungen anwenden",
           "edit": "Bearbeiten",
           "total": "Insgesamt"
@@ -2758,7 +2758,7 @@
       "monsterInfuseElement": "{0} reichert {1} an",
       "monsterSetEntityActive": "Setze %game.monster.{2}% Aufsteller {1} von %data.monster.{0}% aktiv",
       "monsterUnsetEntityActive": "Setze %game.monster.{2}% Aufsteller {1} von %data.monster.{0}% inaktiv",
-      "moveResource": "{2} {1} von {0} zur Frosthaven Versorgung hinzufügen",
+      "moveResource": "{2} {1} von {0} zum Frosthaven-Vorrat hinzufügen",
       "nextIdentity": "Setze Form von %data.character.{1}.{2}% zu %data.character.{1}.{3}% für {0}",
       "nextRound": "Nächste Runde",
       "objectiveContainerChangeEntityHp": "TP {2} für %game.objectiveMarker.{1}% von {0}",
@@ -2937,7 +2937,7 @@
       "setPartyNotes": "Gruppennotizen",
       "setPartyProsperity": "Wohlstand auf {0}",
       "setPartyReputation": "Ansehen auf {0}",
-      "setPartyResource": "Frosthaven Versorgung {1} auf {2} setzen",
+      "setPartyResource": "Frosthaven-Vorrat {1} auf {2} setzen",
       "setPartySoldiers": "Soldaten auf {0}",
       "setPartyTotalDefense": "Komplette Verteidigung auf {1}",
       "setPartyTownGuardPerks": "Verbesserungen der Stadtwache auf {0}",
