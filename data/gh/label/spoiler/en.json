@@ -611,7 +611,7 @@
     },
     "gh-75": {
       ".": "Circlet of Elements",
-      "1": "During your turn, %game.element.consume.wild% to create any element. "
+      "1": "During your turn, %game.element.consume.wild% to create any element."
     },
     "gh-76": {
       ".": "Chain Hood",

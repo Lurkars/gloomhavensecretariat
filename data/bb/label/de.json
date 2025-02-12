@@ -1,1 +1,14 @@
-{}
+{
+  "character": {
+    "cragheart": "Felsenherz",
+    "mindthief": "Gedankendiebin"
+  },
+  "monster": {
+    "bandit-archer": "Banditen Schützin",
+    "bandit-guard": "Banditen-Wache",
+    "earth-demon": "Erddämon",
+    "flame-demon": "Flammendämon",
+    "frost-demon": "Frostdämon",
+    "wind-demon": "Winddämon"
+  }
+}

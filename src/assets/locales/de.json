@@ -490,7 +490,7 @@
       "swing": "Schwingen",
       "target": "Ziel",
       "targets": "Ziele",
-      "teleport": "Teleport",
+      "teleport": "Teleportieren",
       "trigger": "Auslöser"
     },
     "affect": "Visiere",
@@ -507,11 +507,11 @@
       ".": "Angriffsmodifikatordeck",
       "additional": {
         "apply": "Verwende Kartendeck von {0}",
-        "dialog": "Wähle das Kartendeck eines Charakters um %game.condition.{0}% anzuwenden.",
+        "dialog": "Wähle das Kartendeck eines Charakters um %game.condition.{0}% anzuwenden",
         "select": "Charakter auswählen"
       },
       "effects": {
-        "refreshSpentItem": "Verbraucht"
+        "refreshSpentItem": "Abgenutzt"
       },
       "openDialog": "Angriffsmodifikatordeck anzeigen",
       "perks": {
@@ -531,7 +531,7 @@
           "recoverRandomDiscard": "Hole %game.card.recover% eine zufällig Karte vom Abwurfstapel zurück",
           "refreshItem": "Einen Gegenstand erneuern",
           "refreshItemFh": "%game.card.recover% einen Gegenstand",
-          "refreshSpentItem": "Einen verbrauchten Gegenstand erneuern"
+          "refreshSpentItem": "Einen abgenutzten Gegenstand erneuern"
         },
         "type": {
           "add": "füge {0} hinzu",
@@ -1066,11 +1066,11 @@
     "active-full": "Auf die Bilder der Figuren klicken um die Züge durchzuführen",
     "addAdditionalContent": "Weitere Inhalte hinzufügen",
     "addCharacters": "%character.add%",
-    "addMonsterEntities": "Auf die \"+\" Buttons klicken um Monster zu platzieren",
+    "addMonsterEntities": "Auf die \"+\" Buttons klicken um Monster zu platzieren.",
     "addMonsters": "%monster.add%",
     "draw": "\"%round.draw%\" klicken",
     "draw-full": "Fertigkeitskarten der Charakter auswählen, Initiative festlegen, \"%round.draw%\" klicken.",
-    "draw-short": "Initiative festlegen, \"%round.draw%\" klicken.",
+    "draw-short": "Initiative festlegen, \"%round.draw%\" klicken",
     "next": "\"%round.next%\" klicken",
     "setScenario": "%scenario.set%"
   },
@@ -1275,7 +1275,7 @@
         "soldiers": "Soldaten",
         "summer": "Sommer",
         "supply": {
-          ".": " Frosthaven-Vorrat",
+          ".": "Frosthaven-Vorrat",
           "apply": "Änderungen anwenden",
           "edit": "Bearbeiten",
           "total": "Insgesamt"
@@ -1287,7 +1287,7 @@
           "addSection": "Sektion der Woche hinzufügen",
           "calc": "{0} Wochen von der aktuellen Woche",
           "hint": "Doppelklick um die Sektion für die Woche zu setzen/bearbeiten",
-          "lock": "Sperrt den Kalender um unabsichtliche Änderungen zu vermeiden. Doppelklick um Änderungen um das Hinzufügen oder Entfernen von genau einer Woche zu erlauben",
+          "lock": "Sperrt den Kalender um unabsichtliche Änderungen zu vermeiden. Doppelklick um Änderungen um das Hinzufügen oder Entfernen von genau einer Woche zu erlauben.",
           "openConclusion": "Fortführende Sektion auswählen",
           "section": "Sektion"
         },
@@ -1344,7 +1344,7 @@
     },
     "characters": {
       ".": "Alle Charaktere",
-      "hint": "Ändern aller Charaktere und Zielobjekte"
+      "hint": "Ändern aller Charaktere und Zielobjekte."
     },
     "code": {
       ".": "Neuer Spielcode für Berechtigungen"
@@ -1541,7 +1541,7 @@
       "lootDeckCard": "Füge Beutekarte {0} in jedem Szenario zusätzlich zum vorgegebenen Beutekarten Deck hinzu.",
       "lostPartyAchievements": "Verlorene Gruppenerfolge",
       "morale": "{0} Moral",
-      "overlayCampaignSticker": "Klebe den Kampagnensticker {0} auf der Stadtkarte an Stelle {1}.",
+      "overlayCampaignSticker": "Klebe den Kampagnensticker {0} auf der Stadtkarte an Stelle {1}",
       "overlaySticker": "Klebe den Sticker {0} auf der Karte an Stelle {0} ({1}) ein.",
       "partyAchievements": "Gruppenerfolge",
       "perks": "Jeweils {0} Verbesserungen",
@@ -1869,7 +1869,7 @@
     ".": "Einstellungen",
     "abilities": {
       ".": "Fertigkeitskarten",
-      "hint": "Ziehe Fertigkeitskarten für Monster. Falls deaktiviert muss die Reihenfolge der Monster manuell über drag&drop festgelegt werden"
+      "hint": "Ziehe Fertigkeitskarten für Monster. Falls deaktiviert muss die Reihenfolge der Monster manuell über drag&drop festgelegt werden."
     },
     "abilityNumbers": {
       ".": "Zeige Fertigkeitsnummern an",
@@ -1970,7 +1970,7 @@
     },
     "applyLongRest": {
       ".": "Lange Rast anwenden",
-      "hint": "Automatisch %game.action.heal% 2 während der langen Rast ausführen."
+      "hint": "Automatisch %game.action.heal% 2 während der langen Rast ausführen"
     },
     "applyLoot": {
       ".": "Beute Charakter zuweisen",
@@ -2167,7 +2167,7 @@
     "conditions": "Zustände/Elemente",
     "damageHP": {
       ".": "Schaden statt TP",
-      "hint": "Zeige den erleideten Schaden statt der verbleibenden Trefferpunkte an."
+      "hint": "Zeige den erleideten Schaden statt der verbleibenden Trefferpunkte an"
     },
     "damageHPToggle": {
       ".": "Schaden statt TP auf Charakterboard umschalten",
@@ -2196,7 +2196,7 @@
     },
     "expireConditions": {
       ".": "Automatisch Zustände löschen",
-      "hint": "Entsprechende Zustände werden automatisch nach dem Zug der Figur entfernt, z.B. Stärke wird nach dem Zug entfernt."
+      "hint": "Entsprechende Zustände werden automatisch nach dem Zug der Figur entfernt, z.B. Stärke wird nach dem Zug entfernt"
     },
     "feedback": {
       ".": "Feedback Button deaktivieren"
@@ -2343,7 +2343,7 @@
     },
     "monsters": {
       ".": "Monster",
-      "hint": "Falls deaktiviert werden keine Monster mehr angezeigt"
+      "hint": "Falls deaktiviert werden keine Monster mehr angezeigt."
     },
     "moveElements": {
       ".": "Automatisch Elementen Status ändern",
@@ -2374,7 +2374,7 @@
     },
     "removeUnusedMonster": {
       ".": "Nicht genutze Monster entfernen",
-      "hint": "Entferne automatische alle nicht genutzten Monster"
+      "hint": "Entferne automatische alle nicht genutzten Monster."
     },
     "requires": "Benötigt:",
     "requiresOne": "Benötigt eines von:",
@@ -2387,7 +2387,7 @@
     },
     "scenarioRewardsItems": {
       ".": "Zufälligen Gegenstand für Szenario ziehen",
-      "hint": "Automatisch einen zufälligen Gegenstand für Szenario Belohnung ziehen"
+      "hint": "Automatisch einen zufälligen Gegenstand für Szenario Belohnung ziehen."
     },
     "scenarioRooms": {
       ".": "Szenario Räume",
@@ -2447,7 +2447,7 @@
       "bb": "Button & Bugs (%wip%)",
       "default": "Standard",
       "fh": "Frosthaven",
-      "hint": "Wähle ein Thema für Hintergrund, Leisten und Schriftarten",
+      "hint": "Wähle ein Thema für Hintergrund, Leisten und Schriftarten.",
       "modern": "Modern"
     },
     "tooltips": {
@@ -2464,11 +2464,11 @@
     },
     "treasuresLootItem": {
       ".": "Zufälligen Gegenstand für Schatz ziehen",
-      "hint": "Automatisch einen zufälligen Gegenstand für Schatz Belohnung ziehen"
+      "hint": "Automatisch einen zufälligen Gegenstand für Schatz Belohnung ziehen."
     },
     "treasuresLootScenario": {
       ".": "Zufälliges Szenario für Schatz ziehen",
-      "hint": "Automatisch ein zufälliges Szenario für Schatz Belohnung ziehen"
+      "hint": "Automatisch ein zufälliges Szenario für Schatz Belohnung ziehen."
     },
     "turnConfirmation": {
       ".": "Runden/Zug Bestätigung",
@@ -2512,7 +2512,7 @@
         "monsterEntities": "%game.condition.{1}% alle {2}{0}",
         "objective": "%game.condition.{1}% {0}",
         "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% von {0}",
-        "objectives": "%game.condition.{1}% all {0}",
+        "objectives": "%game.condition.{1}% alle {0}",
         "summon": "%game.condition.{2}% '{1}' von {0}",
         "summons": "%game.condition.{1}% alle {0} Beschwörungen"
       },
@@ -2945,7 +2945,7 @@
       "setPerk": "Verbesserung {1} auf {2} für {0}",
       "setPlayer": "Spieler {1} auf {0}",
       "setPlayerNumber": "Spielernummer {1} für {0}",
-      "setRandomScenario": "Zufallsabenteuer",
+      "setRandomScenario": "Zufallsabenteuer festlegen",
       "setResource": "{1} {2} für {0}",
       "setRetired": "{0} in Ruhestand",
       "setRetirements": "Ruhestände auf {1} für {0}",
@@ -3054,7 +3054,7 @@
           },
           "automatic": {
             ".": "Automatisch",
-            "hint": "Ein Softwarefehler, automatisch gemeldet.",
+            "hint": "Ein Softwarefehler, automatisch gemeldet",
             "subject": "Automatischer Softwarefehler"
           },
           "characterStat": {
@@ -3128,7 +3128,7 @@
         ".": "Hauptmenü öffnen",
         "confirm": "Aktion bestätigen / Untermenü öffnen",
         "decline": "Aktion ablehnen / Menü schließen",
-        "open": "Bei geöffnetem Menu:",
+        "open": "Bei geöffnetem Menu",
         "select": "Aktion auswählen"
       },
       "party": "Gruppenbogen öffnen",

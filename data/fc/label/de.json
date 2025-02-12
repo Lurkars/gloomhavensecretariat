@@ -31,7 +31,7 @@
         "2": "%game.action.teleport% zum nächsten freien Feld angrenzend an den Fokus."
       },
       "manifestation-of-corruption": {
-        "1": "Spiele die ersten beiden Karten mit der ersten Karte als Initiative. Führe die untere Aktion der ersten und die obere Aktion der zweiten Karte aus.",
+        "1": "Spiele die ersten beiden Karten mit der ersten Karte als Initiative. Führe die untere Aktion der ersten und die obere Aktion der zweiten Karte aus",
         "10": "Beschwöre zwei %data.monster.black-imp%s: beide Normal für zwei; einen Normal und einen Elite für drei; zwei Elite für vier Charaktere.",
         "11": "Beschwöre einen zusätzlichen Elite %data.monster.black-imp%",
         "12": "Visiere alle Gegner in %game.action.range%4",
@@ -47,30 +47,30 @@
         "21": "Beschwöre einen %game.monster.aesther-scout%: Normal für zwei oder drei, Elite für vier Charaktere.",
         "22": "Die nächsten drei mal wenn du Schaden erleidest, erleide stattdessen keinen Schaden.",
         "3": "Der Charakter mit der höchsten Initiative ist gezwungen alle Verbündeten als Gegner und alle Gegner als Verbündete anzusehen. Während des Zuge, führe \"%game.action.move%2\" also obere Aktion der Initiativ-Karte aus. Anschließend werden beide Karten abgeworfen unabhängig davon ob sie normalerweise verloren wären.",
-        "4": "Alle dich anwisierende Angreifer erleiden diese Runde %game.condition.curse%",
+        "4": "Alle dich anwisierende Angreifer erleiden diese Runde %game.condition.curse%.",
         "5": "Beschwöre einen %data.monster.flame-demon%: Normal für zwei oder drei, Elite für vier Charaktere.<br>Beschwöre einen %data.monster.night-demon%: Normal für zwei oder drei, Elite für vier Charaktere.",
         "7": "Beschwöre einen zusätzlichen %data.monster.night-demon%",
         "8": "Beschwöre einen zusätzlichen %data.monster.flame-demon%",
         "9": "Beschwöre eine %data.monster.valrath-tracker%: Normal für zwei oder drei, Elite für vier Charaktere."
       },
       "sraka-the-wise": {
-        "1": "Verdopple alle Heil-Werte. Wenn möglich visiert Heilung den Stählernden Löwen an.",
-        "2": "Falls %game.condition.curse% oder %game.condition.bless% angewendet wird, wende %game.condition.curse% oder %game.condition.bless% erneut an."
+        "1": "Verdopple alle Heil-Werte. Wenn möglich visiert Heilung den Stählernden Löwen an",
+        "2": "Falls %game.condition.curse% oder %game.condition.bless% angewendet wird, wende %game.condition.curse% oder %game.condition.bless% erneut an"
       },
       "the-steel-lion": {
-        "1": "Alle Angriffe an angrenzende Verbündete visieren dich stattdessen an.",
-        "2": "Die ersten [C] mal die du 6 oder mehr Schaden erleidest, erleide stattdessen keinen Schaden."
+        "1": "Alle Angriffe an angrenzende Verbündete visieren dich stattdessen an",
+        "2": "Die ersten [C] mal die du 6 oder mehr Schaden erleidest, erleide stattdessen keinen Schaden"
       },
       "tracker": {
         "1": "Erstelle eine %game.condition.disarm% Falle in einem leeren angrenzenden Feld zum nächsten Gegner.",
         "2": "Visiere den Gegner mit dem niedrigesten TP Wert an."
       },
       "uyart-ikkuma": {
-        "1": "Konsumiere %game.element.consume.fire% / %game.element.consume.earth% als wäre das Element stark fall %data.monster.flame-demon% / %data.monster.earth-demon% auf der Karte sind."
+        "1": "Konsumiere %game.element.consume.fire% / %game.element.consume.earth% als wäre das Element stark fall %data.monster.flame-demon% / %data.monster.earth-demon% auf der Karte sind"
       },
       "valrath-savage": {
-        "1": "Alle angrenzenden Verbündeten fügen +1 %game.action.attack% zu allen Angriffen hinzu.",
-        "2": "Alle angrenzenden Verbündeten fügen +2 %game.action.attack% zu allen Angriffen hinzu."
+        "1": "Alle angrenzenden Verbündeten fügen +1 %game.action.attack% zu allen Angriffen hinzu",
+        "2": "Alle angrenzenden Verbündeten fügen +2 %game.action.attack% zu allen Angriffen hinzu"
       }
     }
   },
@@ -167,7 +167,7 @@
         "115": {
           "1": "Entfernt einen Schadensmarker von jedem Altar %game.mapMarker.a% und %game.mapMarker.b%. Das leibhaftige Verderben wird für jeden entfernten Schadensmarker um [C/2{$math.floor}] Trefferpunkte geheilt.",
           "2": "Entfernt zwei Schadensmarker von jedem Altar %game.mapMarker.a% und %game.mapMarker.b%. Das leibhaftige Verderben wird für jeden entfernten Schadensmarker um [C/2{$math.floor}] Trefferpunkte geheilt.",
-          "3": "bei %game.mapMarker.c% wenn Altar %game.mapMarker.a% noch keinen Schadensmarker hat.",
+          "3": "bei %game.mapMarker.c% wenn Altar %game.mapMarker.a% noch keinen Schadensmarker hat",
           "4": "bei %game.mapMarker.d% wenn Altar %game.mapMarker.b% noch keinen Schadensmarker hat."
         },
         "98": {
@@ -180,7 +180,7 @@
     "rules": {
       "fc": {
         "10": {
-          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.3%, %game.mapMarker.8%, %game.mapMarker.9% und %game.mapMarker.10% um.",
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.3%, %game.mapMarker.8%, %game.mapMarker.9% und %game.mapMarker.10% um",
           "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.q%, %game.mapMarker.a2% auf %game.mapMarker.n%, %game.mapMarker.a3% auf %game.mapMarker.r%, %game.mapMarker.a5% auf %game.mapMarker.t%"
         },
         "123": {
@@ -198,23 +198,23 @@
           "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a3% auf %game.mapMarker.q%, %game.mapMarker.a4% auf %game.mapMarker.p%, %game.mapMarker.a5% auf %game.mapMarker.t%"
         },
         "31": {
-          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.2%, %game.mapMarker.3%, %game.mapMarker.4% und %game.mapMarker.9% um.",
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.2%, %game.mapMarker.3%, %game.mapMarker.4% und %game.mapMarker.9% um",
           "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.q%, %game.mapMarker.a2% auf %game.mapMarker.o%, %game.mapMarker.a3% auf %game.mapMarker.r%, %game.mapMarker.a5% auf %game.mapMarker.t%"
         },
         "43": {
-          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.4%, %game.mapMarker.6%, %game.mapMarker.8% und %game.mapMarker.9% um.",
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.4%, %game.mapMarker.6%, %game.mapMarker.8% und %game.mapMarker.9% um",
           "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.m%, %game.mapMarker.a3% auf %game.mapMarker.s%, %game.mapMarker.a5% auf %game.mapMarker.p%"
         },
         "5": {
-          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.3%, %game.mapMarker.5%, %game.mapMarker.8% und %game.mapMarker.11% um.",
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.3%, %game.mapMarker.5%, %game.mapMarker.8% und %game.mapMarker.11% um",
           "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a2% auf %game.mapMarker.p%, %game.mapMarker.a3% auf %game.mapMarker.t%, %game.mapMarker.a4% auf %game.mapMarker.s%"
         },
         "56": {
-          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.1%, %game.mapMarker.2%, %game.mapMarker.5% und %game.mapMarker.7% um.",
+          "1": "Dreht die nummerierten Marker auf den Türen %game.mapMarker.1%, %game.mapMarker.2%, %game.mapMarker.5% und %game.mapMarker.7% um",
           "2": "Bewegt die Eisenmauern wie folgt: %game.mapMarker.a1% auf %game.mapMarker.m%, %game.mapMarker.a3% auf %game.mapMarker.q%, %game.mapMarker.a6% auf %game.mapMarker.s%"
         },
         "64": {
-          "1": "Beide Fässer bewegen sich zwei Felder über die Wasseraufleger auf den Wasseraufleger %game.mapMarker.9% zu."
+          "1": "Beide Fässer bewegen sich zwei Felder über die Wasseraufleger auf den Wasseraufleger %game.mapMarker.9% zu"
         },
         "66": {
           "1": "%game.action.teleport% %data.monster.the-husk% auf %game.mapMarker.b%"

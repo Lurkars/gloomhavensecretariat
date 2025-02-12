@@ -94,7 +94,7 @@
     },
     "gh-112": {
       ".": "Alter Bohrer",
-      "1": "Füge bei deinem Nahkampfangriff der gesamten Aktion +2 %game.action.attack% und %game.action.pierce% 2 hinzu."
+      "1": "Füge bei deinem Nahkampfangriff der gesamten Aktion +2 %game.action.attack% und %game.action.pierce% 2 hinzu"
     },
     "gh-113": {
       ".": "Schädelfluch",
@@ -102,14 +102,14 @@
     },
     "gh-114": {
       ".": "Stab des Xorn",
-      "1": "Füge bei deinem Fernangriff der gesamten Aktion %game.condition.poison% und %game.condition.muddle% hinzu."
+      "1": "Füge bei deinem Fernangriff der gesamten Aktion %game.condition.poison% und %game.condition.muddle% hinzu"
     },
     "gh-115": {
       ".": "Gebirgshammer"
     },
     "gh-116": {
       ".": "Flammenfalchion",
-      "1": "Bei deinem Einzelziel-Nahkampfangriff erleiden das Ziel und alle angrenzenden Gegner 1 Schaden."
+      "1": "Bei deinem Einzelziel-Nahkampfangriff erleiden das Ziel und alle angrenzenden Gegner 1 Schaden"
     },
     "gh-117": {
       ".": "Blutaxt",
@@ -173,7 +173,7 @@
     "gh-130": {
       ".": "Spiralring",
       "1": " ",
-      "3": "während deines Zugs, um \"%game.action.heal% 25\" bei dir anzuwenden."
+      "3": "während deines Zugs, um \"%game.action.heal% 25\" bei dir anzuwenden"
     },
     "gh-131": {
       ".": "Herz des Abtrünnigen",
@@ -384,7 +384,7 @@
     },
     "gh-59": {
       ".": "Teleskoplinse",
-      "1": "Füge bei deinem Fernangriff deiner gesamten Aktion +2 %game.action.range% hinzu."
+      "1": "Füge bei deinem Fernangriff deiner gesamten Aktion +2 %game.action.range% hinzu"
     },
     "gh-6": {
       ".": "Adleraugenbrille",
@@ -449,11 +449,11 @@
     },
     "gh-73": {
       ".": "Flirrender Umhang",
-      "1": "Wende während deines Zugs \"%game.action.move% 4, %game.action.jump%\" an."
+      "1": "Wende während deines Zugs \"%game.action.move% 4, %game.action.jump%\" an"
     },
     "gh-74": {
       ".": "Klingenrüstung",
-      "1": "Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1, %game.action.retaliate% 1."
+      "1": "Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen, die dich anvisieren, %game.action.shield% 1, %game.action.retaliate% 1"
     },
     "gh-75": {
       ".": "Reif der Elemente",
@@ -461,7 +461,7 @@
     },
     "gh-76": {
       ".": "Kettenhaube",
-      "1": "Solange du an 3 oder mehr Monster angrenzt, erhalte %game.action.shield% 1."
+      "1": "Solange du an 3 oder mehr Monster angrenzt, erhalte %game.action.shield% 1"
     },
     "gh-77": {
       ".": "Frostklinge",
@@ -533,23 +533,23 @@
     },
     "gh-92": {
       ".": "Dämpfungsring",
-      "1": "Wenn ein Gegner ein Element verbrauchen will, verbrauche es stattdessen selbst ohne Auswirkungen."
+      "1": "Wenn ein Gegner ein Element verbrauchen will, verbrauche es stattdessen selbst ohne Auswirkungen"
     },
     "gh-93": {
       ".": "Schrift der Kraft",
-      "1": "Füge beim Angriff eines Verbündeten seiner gesamten Aktion +1 %game.action.attack% hinzu."
+      "1": "Füge beim Angriff eines Verbündeten seiner gesamten Aktion +1 %game.action.attack% hinzu"
     },
     "gh-94": {
       ".": "Schrift der Heilung",
-      "1": "Wende während deines Zugs \"%game.action.heal% 3, %game.action.range:5%\" an."
+      "1": "Wende während deines Zugs \"%game.action.heal% 3, %game.action.range:5%\" an"
     },
     "gh-95": {
       ".": "Schrift der Ausdauer",
-      "1": "Während deines Zugs kann ein Verbündeter in %game.action.range:5% bis zu 2 seiner abgeworfenen Karten zurückbekommen %game.card.recover%."
+      "1": "Während deines Zugs kann ein Verbündeter in %game.action.range:5% bis zu 2 seiner abgeworfenen Karten zurückbekommen %game.card.recover%"
     },
     "gh-96": {
       ".": "Raketenstiefel",
-      "1": "Füge einer deiner Einzelbewegungen +3 %game.action.move% und %game.action.jump% hinzu."
+      "1": "Füge einer deiner Einzelbewegungen +3 %game.action.move% und %game.action.jump% hinzu"
     },
     "gh-97": {
       ".": "Sandalen der Ausdauer",

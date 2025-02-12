@@ -306,7 +306,7 @@
       ".": "Schenke"
     },
     "temple": {
-      ".": "Temple of the Great Oak"
+      ".": "Tempel der Großen Eiche"
     },
     "town-hall": {
       ".": "Rathaus"
@@ -483,7 +483,7 @@
       },
       "deep-terror": {
         "1": "Wenn die Angriffsfertigkeit ausgeführt wurde",
-        "2": "auf einem an das Ziel<br> der Angriffsfertigkeit angrenzenden leeren Feld."
+        "2": "auf einem an das Ziel<br> der Angriffsfertigkeit angrenzenden leeren Feld"
       },
       "drifter": {
         "1": "Bewege einen deiner Charaktermarker um ein Feld zurück",
@@ -504,7 +504,7 @@
         "1": "Töte das nächsten Piranhaschwein.<br>Alle angrenzenden Gegner erleiden Fallenschaden."
       },
       "flame-demon": {
-        "1": "Erstelle eine %game.damage:4% auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist.",
+        "1": "Erstelle eine %game.damage:4% auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist",
         "2": "%game.damage:1%",
         "3": "Alle angrenzenden<br>Gegner erleiden %game.damage:2%"
       },
@@ -544,7 +544,7 @@
       "giant-piranha-pig-boss": {
         "1": "Nichts",
         "2": "Bewege alle Wasserfelder 2 Felder nach rechts",
-        "3": "Bewege alle Wasserfelder 1 Feld nach rechts"
+        "3": "Bewege alle Wasserfelder 1 Feld nach rechts."
       },
       "harbinger-of-shadow": {
         "1": "Der %data.monster.harbinger-of-shadow-1% macht nichts.",
@@ -556,11 +556,11 @@
       "laser-spires": {
         "1": "Drehe jeden Laserturm im Uhrzeigersinn (wenn möglich)",
         "2": "Drehe jeden Laserturm gegen den Uhrzeigersinn (wenn möglich)",
-        "3": "Alle charaktere und Charakter-Beschworene angrenzend zu einem Laserturm<br>erleiden gefährlichen Gelände Schaden.",
+        "3": "Alle charaktere und Charakter-Beschworene angrenzend zu einem Laserturm<br>erleiden gefährlichen Gelände Schaden",
         "4": "Laser aussenden, beginnen bei %game.mapMarker.a%"
       },
       "lightning-eel": {
-        "1": "Behandelt Wasserfelder als Korridore und Nichtwasserfelder als Hindernisse."
+        "1": "Behandelt Wasserfelder als Korridore und Nichtwasserfelder als Hindernisse"
       },
       "living-doom": {
         "1": "Beschwöre X normale<br>Wandelnde Skelette",
@@ -624,8 +624,8 @@
         "2": "Zerstöre alle angrenzenden Schnitzereien."
       },
       "ruined-machine": {
-        "1": "Hat die Schrottmaschine diese Bewegung ausgeführt,<br>erleidet sie ",
-        "2": "Hat die Schrottmaschine diesen Angriff ausgeführt,<br>erleidet sie ",
+        "1": "Hat die Schrottmaschine diese Bewegung ausgeführt,<br>erleidet sie",
+        "2": "Hat die Schrottmaschine diesen Angriff ausgeführt,<br>erleidet sie",
         "3": "Hat die Schrottmaschine diesen Angriff ausgeführt,<br>erleiden alle angrenzenden Gegner Fallenschaden<br>und die Schrottmaschine stirbt."
       },
       "savvas-icestorm": {
@@ -698,7 +698,7 @@
     "frozen-corpse": "Gefrorene Leiche",
     "frozen-fist": "Frostfaust",
     "giant-piranha-pig": "Riesen Piranhaschwein",
-    "giant-piranha-pig-boss": "Extra Boss Deck #83",
+    "giant-piranha-pig-boss": "Extra Boss Kartendeck #83",
     "guard-captain": "Wachhauptmann",
     "harbinger-of-shadow": "Vorbote der Schatten",
     "harbinger-of-shadow-1": "Vorbote der Schatten %game.mapMarker.1%",
@@ -738,8 +738,8 @@
     "rimeheart": "Klirrende Herz",
     "robotic-boltshooter": "Bolzenschussroboter",
     "ruined-machine": "Schrottmaschine",
-    "savvas-icestorm": "Savvas-Eissturm",
-    "savvas-lavaflow": "Savvas-Lavastrom",
+    "savvas-icestorm": "Savvas Eissturm",
+    "savvas-lavaflow": "Savvas Lavastrom",
     "scabwit": "Krätzwitz",
     "seeker-of-the-abyss": "Sucher der Abgrunds",
     "shrike-fiend": "Flederbrut",

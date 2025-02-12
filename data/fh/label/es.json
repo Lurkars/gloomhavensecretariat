@@ -66,6 +66,17 @@
         "3": "Obtén 1 %data.characterToken.blinkblade.time%",
         "4": "Obtén 1 %data.action.custom.fh-hourglass%"
       },
+      "burrowing-blade": {
+        "1": "Todos los enemigos adyacentes sufren %game.damage:2%.",
+        "2": "Todos los enemigos a %game.action.range:2% sufren %game.damage:2%."
+      },
+      "deep-terror": {
+        "1": "Si se realizó la habilidad de ataque",
+        "2": "en un hexágono vacío adyacente al<br>objetivo del ataque"
+      },
+      "elder-ooze": {
+        "1": "El objetivo pierde un objeto."
+      },
       "errata": {
         "env24": "1ª Impresión (Edición en Inglés): El sobre 24 debería incluir la pegatina 10",
         "env37": "1ª Impresión (Edición en Inglés): El sobre 37 debería incluir las pegatinas 11 y 13",
@@ -92,20 +103,56 @@
         "section25-3": "1ª Impresión (Edición en Inglés): Sección 25.3 - en lugar de Puerta 3 que abre la Sección 62.3, debe decir Puerta 1. (¡Corregido en GHS!)",
         "tavern3": "1ª Impresión (Edición en Inglés): Esto debería tener un requisito de construcción de tener 3 monedas."
       },
+      "flame-demon": {
+        "1": "Crea una trampa %game.damage:4% en un hexágono<br>vacío adyacente al enemigo más cercano",
+        "2": "%game.damage:1%",
+        "3": "Todos los enemigos<br>adyacentes sufren %game.damage:2%"
+      },
       "flowChartGroup": {
         "algox-1": "Algox",
         "algox-2": "Algox",
         "algox-3": "Algox",
         "lurker": "Acechador"
       },
+      "frost-demon": {
+        "1": "%game.damage:1%"
+      },
+      "frozen-corpse": {
+        "1": "Si el elemento es consumido por<br>el Cadáver helado durante<br>su movimiento, sufre %game.damage:2%."
+      },
       "frozen-corpse-scenario-32": {
         "1": "Mira las reglas especiales del escenario"
+      },
+      "harrower-infester": {
+        "1": "Realiza \"%game.action.heal% X, personal\" donde X <br>es el doble del número de<br>enemigos que han sido objetivo del ataque."
+      },
+      "hound": {
+        "1": "Añade %game.action.attack% +2 si el objeto está<br>adyacente a cualquier aliado del sabueso."
+      },
+      "living-doom": {
+        "1": "Invoca X Perdición<br>viviente normal",
+        "2": "<br>donde X es el valor de<br>PV actuales de la Perdición<br>viviente dividido entre 5 (redondeado<br>hacia abajo),<br>hasta un máximo de 3."
+      },
+      "lurker-clawcrusher": {
+        "1": "El objetivo sufre %game.damage:X%, donde X<br>es su valor de %game.action.shield% para este ataque.",
+        "2": "X es el doble de su valor de %game.action.shield%."
+      },
+      "lurker-soldier": {
+        "1": "%game.action.target% todos los enemigos a 2 hexágonos"
+      },
+      "night-demon": {
+        "1": "Todos los aliados y<br>enemigos adyacentes sufren %game.damage:1%.",
+        "2": "%game.custom.disadvantage%"
+      },
+      "steel-automaton": {
+        "1": "Todos los enemigos adyacentes sufren %game.damage:1%",
+        "2": "Todos los enemigos adyacentes<br>sufren daño de terreno peligroso."
       }
     }
   },
   "monster": {
-    "abael-herder": "Pastor abel",
-    "abael-scout": "Explorador abel",
+    "abael-herder": "Pastor abael",
+    "abael-scout": "Explorador abael",
     "algox-archer": "Arquero algox",
     "algox-guard": "Guardia algox",
     "algox-icespeaker": "Voz del hielo algox",
@@ -135,6 +182,7 @@
     "ooze": "Cieno",
     "polar-bear": "Oso polar",
     "rending-drake": "Draco desgarrador",
+    "ruined-machine": "Maquina ruinosa",
     "savvas-icestorm": "Cellisca Savvas",
     "savvas-lavaflow": "Rio de lava Savvas",
     "spitting-drake": "Draco escupidor",
@@ -151,7 +199,9 @@
     "rules": {
       "fh": {
         "0": "No coloques el mazo de habilidades del monstruo Sabueso. En lugar de eso, cada ronda tienen una iniciativa de 26, todos los Sabuesos realizan, %game.action.move% 2; %game.action.attack% 2.",
-        "1": "Los Guardias de la ciudad no realizan turnos pero obtienen %game.action.shield% 1 adicional (con un total %game.action.shield% 2 a nivel 1) y %game.action.retaliate% 2, tienen una iniciativa de 50 a efectos de centro de atención."
+        "1": "Los Guardias de la ciudad no realizan turnos pero obtienen %game.action.shield% 1 adicional (con un total %game.action.shield% 2 a nivel 1) y %game.action.retaliate% 2, tienen una iniciativa de 50 a efectos de centro de atención.",
+        "112": "Los dos sabuesos tienen el doble de sus valores máximos de puntos de vida.",
+        "129": "Todos los guardias de la ciudad usan cartas de habilidad de monstruo Arquero en lugar de las suyas."
       }
     }
   }

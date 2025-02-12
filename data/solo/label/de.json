@@ -2,7 +2,7 @@
   "custom": {
     "gh": {
       "city-guard-saw-solo": {
-        "1": "Erleidet %game.damage:1% am Ende der Runde solange nicht vollständig geheilt."
+        "1": "Erleidet %game.damage:1% am Ende der Runde solange nicht vollständig geheilt"
       },
       "ghost-wolf": {
         "1": "Zum Beginn jeder Runde:"

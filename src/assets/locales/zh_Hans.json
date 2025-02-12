@@ -96,7 +96,7 @@
         ".": "不选择等级 {0}",
         "hint": "双击重置所有选择"
       },
-      "wip": ""
+      "wip": "<i>%制作中%</i>"
     },
     "absent": "缺席",
     "add": "添加角色",
@@ -154,7 +154,947 @@
     "playerNumber": "玩家#",
     "present": "在线",
     "progress": {
-      ".": "角色表"
+      ".": "角色表",
+      "donate": "捐赠",
+      "donations": "向圣橡树捐赠: {0}",
+      "export": "导出",
+      "fh": {
+        "disable": "前往幽港迷城角色卡",
+        "enable": "前往霜港迷城角色卡"
+      },
+      "gold": "金币",
+      "gold-notes": "金币记录",
+      "import": "导入",
+      "level": "等级",
+      "lock": "将角色表锁定以免误触.",
+      "masteries": "巅峰战绩",
+      "name": "名称",
+      "notes": "记录",
+      "perks": {
+        ".": "专长",
+        "extra": "额外的专长"
+      },
+      "personalQuest": {
+        ".": "个人使命",
+        "counter": "计数",
+        "openEnvelope": {
+          ".": "打开信封 %game.fhIcon:envelope% {0}",
+          "alt": "打开信封 %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
+          "building": "打开信封 %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
+          "inspiration": "获得+1激励值",
+          "itemBlueprint": "获得 \"%data.items.{1}-{0}%\" 设计图纸 (Item {0})",
+          "randomScenario": "查看 %data.section:{0}%, 解锁 %data.scenarioNumber:{1}%"
+        },
+        "unlockCharacter": {
+          ".": "打开角色盒子 %game.characterIcon.{0}%",
+          "itemDesign": "获得 \"%data.items.{1}-{0}%\" 设计图纸 (Item {0})",
+          "randomScenario": "解锁 \"{1}\" %data.scenarioNumber:{0}%"
+        }
+      },
+      "resources": {
+        ".": "资源",
+        "apply": "挪动资源",
+        "move": "挪至寒霜港补给中"
+      },
+      "retired": "退休",
+      "retirement": {
+        ".": "退休角色",
+        "additionalPQ": {
+          ".": "花费15点激励值来完成额外的个人使命",
+          "cancel": "取消额外的个人使命",
+          "inspiration": "-15激励值"
+        },
+        "apply": "应用",
+        "conclusion": "查看段落 %data.section:{0}%",
+        "events": "添加城镇事件 {0} 和道路事件 {0} 到相应的牌堆中",
+        "moveSupply": "将资源挪至寒霜港补给中",
+        "prosperity": "+{0} 繁荣度"
+      },
+      "retirements": "退休",
+      "title": "{1} {0}",
+      "trial": "特性",
+      "xp": "经验值"
+    },
+    "remove": "移除角色",
+    "removeAll": "移除所有",
+    "replay": {
+      ".": "重新游玩角色",
+      "hint": "双击来重玩角色"
+    },
+    "setAside": "将角色闲置",
+    "summon": {
+      "level": "(等级 {0})"
+    },
+    "token": "角色指示物",
+    "traits": "特性",
+    "unlock": {
+      ".": "解锁?",
+      "confirm": "解锁!"
+    },
+    "unlockAll": {
+      ".": "解锁所有?",
+      "confirm": "解锁所有!"
+    }
+  },
+  "close": "关闭",
+  "confirm": "确认",
+  "datamanagement": {
+    ".": "数据管理",
+    "addEditionDataUrl": "添加版本数据Url",
+    "addSpoiler": "添加剧透信息",
+    "addUnlock": "解锁",
+    "backup": {
+      ".": "游戏备份",
+      "all": "下载所有的游戏备份 ({0})",
+      "auto": {
+        ".": "自动备份",
+        "count": "每 (x) 次操作",
+        "countHint": "自动备份间的操作数",
+        "onFinish": "完成剧本后",
+        "uploadUrl": {
+          ".": "上传Url",
+          "error": {
+            ".": "警告:自动备份失败",
+            "status": "责任代码 '{0}'导致自动备份失败. 请在浏览器控制台中查看更多信息.",
+            "unknown": "未知原因导致自动备份失败. 请在浏览器控制台中查看更多信息."
+          }
+        },
+        "uploadUrlFileUpload": {
+          ".": "上传为文件"
+        },
+        "uploadUrlMethod": {
+          ".": "方法"
+        },
+        "uploadUrlPassword": {
+          ".": "密码"
+        },
+        "uploadUrlUsername": {
+          ".": "用户名"
+        }
+      },
+      "delete": "删除游戏备份",
+      "download": {
+        ".": "立即下载备份文件",
+        "hint": {
+          ".": "定期备份游戏以防止数据丢失。",
+          "hide": "不再显示"
+        },
+        "onFinish": "完成剧本后自动备份"
+      },
+      "latest": "下载最近的游戏备份"
+    },
+    "clearAll": "重置所有数据",
+    "exportGame": "将游戏导出到文件",
+    "exportSettings": "导出设置到文件",
+    "importFile": {
+      ".": "导入文件"
+    },
+    "importGame": "从文件导入游戏",
+    "importSettings": "从文件导入设置",
+    "removeAllSpoilers": "全部移除",
+    "removeAllUnlocks": "全部移除",
+    "resetGame": "重置游戏",
+    "resetSettings": "重置设置",
+    "restoreEditionDataUrls": "恢复默认设置"
+  },
+  "duration": {
+    "days": "{3} 天, {2} 小时, {1} 分 , {0} 秒",
+    "gameClock": {
+      ".": "游戏计时钟",
+      "current": "目前: {0}",
+      "total": "总共: {0}"
+    },
+    "hours": "{2} 小时, {1}分, {0} 秒",
+    "minutes": "{1} 分 {0} 秒",
+    "seconds": "{0} 秒",
+    "totalHours": "{0}, 约 {1} 小时"
+  },
+  "edition": {
+    "conditions": "可供状态"
+  },
+  "editor": {
+    "action": {
+      "add": "添加行动",
+      "addBottom": "添加下行动",
+      "remove": "移除行动"
+    },
+    "character": {
+      "data": {
+        ".": "角色数据",
+        "hp": {
+          ".": "生命"
+        }
+      },
+      "new": "新角色"
+    },
+    "deck": {
+      "abilityName": "能力名称",
+      "addAbility": "添加能力",
+      "removeAbility": "移除能力"
+    },
+    "edition": {
+      "base": "基础数据",
+      "character": {
+        ".": "添加角色文件",
+        "remove": "移除角色"
+      },
+      "conditions": {
+        ".": "可供状态",
+        "allHint": "反选所有状态",
+        "allSelected": "选择全部状态"
+      },
+      "monster": {
+        ".": "添加怪物文件",
+        "remove": "移除怪物"
+      }
+    },
+    "monster": {
+      "new": "新怪物",
+      "stats": {
+        ".": "怪物属性",
+        "boss": "头目",
+        "flying": "飞行",
+        "hidden": "隐身",
+        "levelSelect": "选择等级"
+      }
+    }
+  },
+  "errata": "勘误",
+  "escort": {
+    ".": "守卫",
+    "add": "添加守卫"
+  },
+  "game": {
+    "action": {
+      "area": "区域效果",
+      "attack": "攻击",
+      "card": "卡牌",
+      "condition": "状态",
+      "damage": "伤害",
+      "element": "元素",
+      "fly": "飞行",
+      "grant": "赋予",
+      "heal": "治疗",
+      "jump": "跳跃",
+      "loot": "拾取",
+      "monsterType": "怪物类型",
+      "move": "移动",
+      "pierce": "穿刺",
+      "pull": "拖拽",
+      "push": "推斥",
+      "range": "射程",
+      "refreshItem": "回收一件物品",
+      "retaliate": "反击",
+      "shield": "护盾",
+      "spawn": "生成",
+      "sufferDamage": "承受伤害",
+      "summon": "召唤",
+      "target": "目标",
+      "targets": "目标",
+      "teleport": "传送"
+    },
+    "affect": "作用",
+    "allied": "盟友",
+    "ally": {
+      ".": "盟友",
+      "addEntity": {
+        "boss": "生成头目盟友",
+        "elite": "生成精英盟友",
+        "normal": "生成普通盟友"
+      }
+    },
+    "attackModifiers": {
+      ".": "攻击修正牌库",
+      "additional": {
+        "select": "选择角色"
+      },
+      "effects": {
+        "refreshSpentItem": "横置"
+      },
+      "openDialog": "展示攻击修正牌库",
+      "perks": {
+        ".": "专长",
+        "card": "卡牌",
+        "cards": {
+          ".": "卡牌"
+        },
+        "effects": {
+          "refreshItem": "回收一件物品",
+          "refreshSpentItem": "回收一件横置物品"
+        },
+        "type": {
+          "add": "添加{0}",
+          "remove": "移除{0}",
+          "replace": "将{0}替换为{1}"
+        }
+      },
+      "types": {
+        "bless": "祝福",
+        "curse": "诅咒",
+        "double": "翻倍"
+      }
+    },
+    "battleGoals": {
+      ".": "战斗目标",
+      "drawCard": "再抽一张卡牌",
+      "drawCards": "重新抽牌",
+      "setup": {
+        ".": "设置战斗目标",
+        "empty": "未选择战斗目标。"
+      }
+    },
+    "card": {
+      "experience": "X点经验",
+      "lost": "遗失",
+      "persistent": "持续型增益效果",
+      "recover": "回收",
+      "refresh": "刷新",
+      "round": "回合型增益效果",
+      "slot": "使用槽位",
+      "slotXp": "使用槽位获取 X 经验值"
+    },
+    "cards": {
+      "confirmReveal": "再次点击以揭示!",
+      "coverAll": "覆盖全部",
+      "defaultSort": "整理",
+      "draw": "抽取",
+      "drawAdvantage": "优势抽取",
+      "drawAnother": "再抽",
+      "drawDisadvantage": "劣势抽取",
+      "fullscreen": "全屏显示",
+      "openDialog": "显示所有卡牌",
+      "restore": "恢复默认设置",
+      "revealAll": "全部显示？",
+      "revealAllConfirm": "全部显示！",
+      "shuffle": {
+        ".": "混洗",
+        "upcomingHint": "双击以混洗未抽取的卡牌！"
+      }
+    },
+    "condition": {
+      "bane": {
+        ".": "灾祸"
+      },
+      "bless": {
+        ".": "祝福"
+      },
+      "brittle": {
+        ".": "脆弱"
+      },
+      "curse": {
+        ".": "诅咒"
+      },
+      "disarm": {
+        ".": "缴械"
+      },
+      "heal": {
+        ".": "治疗"
+      },
+      "immobilize": {
+        ".": "禁足"
+      },
+      "immune": {
+        ".": "免疫",
+        "hint": "对状态免疫"
+      },
+      "impair": {
+        ".": "破损"
+      },
+      "invisible": {
+        ".": "隐身"
+      },
+      "muddle": {
+        ".": "迷茫"
+      },
+      "poison": {
+        ".": "中毒"
+      },
+      "poison_x": {
+        ".": "中毒{0}"
+      },
+      "regenerate": {
+        ".": "再生"
+      },
+      "strengthen": {
+        ".": "强化"
+      },
+      "stun": {
+        ".": "晕眩"
+      },
+      "ward": {
+        ".": "界护"
+      },
+      "wound": {
+        ".": "负伤"
+      },
+      "wound_x": {
+        ".": "负伤{0}"
+      }
+    },
+    "custom": {
+      "advantage": "优势",
+      "disadvantage": "攻击者获得劣势",
+      "math": {
+        "ceil": "（向上取整）",
+        "floor": "（向下取整）"
+      },
+      "perks": {
+        "addTarget": "添加目标",
+        "addTargets": "添加{0}目标",
+        "ignoreNegativeItem": "忽略负面物品效果",
+        "ignoreNegativeScenario": "忽略负面剧本效果",
+        "ignoreScenario": "忽略剧本效果"
+      },
+      "scenarioBook": "参考剧本书"
+    },
+    "damage": "{0}伤害",
+    "dead": "死亡",
+    "element": {
+      "air": "空气",
+      "dark": "黑暗",
+      "earth": "大地",
+      "fire": "火焰",
+      "ice": "寒冰",
+      "light": "光明",
+      "state": {
+        "always": "总是",
+        "consumed": "消耗",
+        "inert": "惰性",
+        "new": "强烈",
+        "strong": "强烈",
+        "waning": "衰退"
+      },
+      "wild": "百搭"
+    },
+    "enemy": "敌人",
+    "events": {
+      "conditions": {
+        "otherwise": "否则：",
+        "payCollectiveGold": "共同支付{0}金币：",
+        "payCollectiveGoldConditional": "共同支付{0} ({1})或者{2} ({3})金币：",
+        "reputationGT": "声望> {0}:",
+        "reputationLT": "声望< {0}:"
+      },
+      "option": {
+        ".": "选项{0}:",
+        "1": "A",
+        "2": "B",
+        "3": "C"
+      },
+      "rewards": {
+        "additionalGold": "每人获得额外{0}金币。",
+        "collectiveGold": "共同获得{0}金币。",
+        "collectiveItem": "共同获得{2}件\"%data.items.{1}-{0}%\"(物品{0})。",
+        "consumeCollectiveItem": "共同消耗{0}件%game.itemSlot:{1}%物品。",
+        "consumeItem": "每人消耗{0}件%game.itemSlot:{1}%物品。",
+        "discard": "每人弃{0}张牌。",
+        "event": "添加%game.events.type.{0}%事件{1}到牌库中。",
+        "experience": "每人获得{0}点经验。",
+        "globalAchievement": "战役成就：\"{0}\"。",
+        "gold": "每人获得{0}金币。",
+        "itemDesign": "获得\"%data.items.{1}-{0}%\"(道具{0})。",
+        "loseBattleGoal": "每人失去{0} %game.checkmark%。",
+        "loseCollectiveGold": "共同失去{0}金币。",
+        "loseGold": "每人失去{0}金币。",
+        "loseReputation": "失去{0}点声望。",
+        "noEffect": "没有效果。",
+        "outcome": "阅读结果%game.events.option.{0}%。",
+        "partyAchievement": "团队成就: \"{0}\"。",
+        "prosperity": "获得{0}点繁荣。",
+        "randomItemDesign": "获得随机物品。",
+        "reputation": "获得{0}点声望。",
+        "scenario": "解锁\"{1}\" %data.scenarioNumber:{0}%。",
+        "scenarioCondition": "剧本开始时全部角色%game.condition.{0}%。",
+        "scenarioDamage": "剧本开始时全部角色受到{0}点伤害。",
+        "scenarioSingleMinus1": "剧本开始时一名角色获得%game.attackmodifier.minus1% x{0}。"
+      },
+      "type": {
+        "city": "城镇",
+        "road": "道路"
+      }
+    },
+    "exhausted": "筋疲力尽",
+    "experience": "经验",
+    "figure": {
+      "endTurn": "回合结束",
+      "error": {
+        "stat": {
+          ".": "属性丢失"
+        },
+        "unknown": {
+          ".": "未知个体"
+        }
+      },
+      "longRest": "宣布充分休息",
+      "setInitiative": "设置先攻值",
+      "startTurn": "回合开始"
+    },
+    "health": "生命",
+    "hp": "HP",
+    "initiative": "先攻值",
+    "item": "物品",
+    "items": {
+      ".": "物品",
+      "add": "添加'{0}'",
+      "anyResource": "任意%game.loot.{0}%",
+      "brewing": {
+        ".": "酿造药水",
+        "brew": "酿造",
+        "brewFor": "酿造{0}",
+        "brewed": "{2}酿造{1} %game.itemFh.{0}%",
+        "disabled": "无法酿造药水，请先重建'%data.buildings.alchemist%' (35)",
+        "item": "{1} %game.itemFh.{0}%",
+        "noChar": "药水已被每名角色持有！",
+        "selectCharacter": "选择获得酿造的角色："
+      },
+      "character": {
+        "empty": "无物品",
+        "shop": "物品商店",
+        "toggleEquipped": "仅仅已装备物品",
+        "toggleSorted": "整理物品"
+      },
+      "choose": "选择物品",
+      "craft": "制作 '{0}'",
+      "distilling": {
+        ".": "蒸馏 '{0}'",
+        "distill": "蒸馏以获得 1 %game.loot.{0}%",
+        "select": "选择资源"
+      },
+      "effect": "如果装备该物品,它的效果会自动结算.你可以点击物品名称来装备物品.仅允许在剧本开始前以及剧本之间装备物品.双击以强制装备物品.",
+      "empty": "未搜索到物品",
+      "filter": {
+        ".": "搜索…",
+        "affordable": "仅展示足以支付的装备",
+        "all": "查看所有装备",
+        "sorted": "已整理"
+      },
+      "remove": "移除 '{0}'",
+      "sell": "出售 '{0}' 以获取 {1} 金币",
+      "shop": {
+        ".": "物品卡牌",
+        "buyingDisabled": "不能购买装备, 请先重建 '%data.buildings.trading-post%' (37)",
+        "character": "物品商店 %game.characterIconColored.{0}% {1}",
+        "craftingDisabled": "不能制作物品,请先重建'%data.buildings.craftsman%' (34)"
+      },
+      "unlock": "解锁物品",
+      "unlocked": "已解锁物品",
+      "wip": "%wip%! %data.edition.{0}% 的物品尚未完成."
+    },
+    "level": {
+      ".": "等级",
+      "bb": {
+        "monsterDifficulty": {
+          ".": "怪物难度修正",
+          "0": "非常简单",
+          "1": "简单",
+          "2": "普通",
+          "3": "困难",
+          "4": "非常困难"
+        }
+      },
+      "experience": "奖励经验",
+      "hazardousTerrain": "危险地形伤害",
+      "loot": "金币换算",
+      "trap": "陷阱伤害"
+    },
+    "loot": {
+      ".": "拾取",
+      "apply": "添加给 %data.character.{0}%",
+      "arrowvine": "箭藤草",
+      "axenut": "斧首仁",
+      "chooseCharacter": "选择角色 +{0} {1}",
+      "config": {
+        ".": "拾取物表",
+        "apply": "应用拾取物表",
+        "create": "创建拾取物表",
+        "discard": "放弃更改",
+        "hide": "隐藏拾取物表",
+        "show": "展示拾取物表"
+      },
+      "corpsecap": "尸帽菇",
+      "deck": "拾取物牌堆",
+      "enhancements": {
+        ".": "附魔",
+        "add": "添加附魔",
+        "remove": "移除附魔"
+      },
+      "flamefruit": "烈焰果",
+      "herb_resources": "草药",
+      "hide": "隐藏",
+      "keep": "继续 %data.character.{0}%",
+      "lootTreasure": {
+        ".": "{0} 拾取宝箱 {1}?",
+        "confirm": "确认",
+        "looted": "{0} 拾取:",
+        "selectCharacter": "选择角色获得宝箱 {0}",
+        "selectTreasure": "选择宝箱给 {0}"
+      },
+      "lumber": "木材",
+      "material_resources": "材料",
+      "metal": "金属",
+      "money": "金钱",
+      "random_item": {
+        ".": "随机物品",
+        "apply": "选择并装备",
+        "draw": "随机物品给 %game.characterIconColored.{0}% {1}"
+      },
+      "remove": "从 %data.character.{0}%中移除",
+      "rockroot": "岩土根",
+      "snowthistle": "雪蓟花",
+      "special": "特殊",
+      "special1": "特殊卡牌 1 (#1418)",
+      "special2": "特殊卡牌 2 (#1419)",
+      "toggleSpecial": "%game.loot.{0}%",
+      "treasures": {
+        ".": "宝箱",
+        "rewards": {
+          "battleGoal": "获得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "calendarSection": "添加 %data.section:{0}% 至 %number.{1}% 周",
+          "campaignSticker": "获得 \"{0}\" 战役贴纸",
+          "condition": "获得 {0}",
+          "damage": "承受 {0}",
+          "event": {
+            "city": "添加城镇事件 {0} 至相应牌堆",
+            "rift": "添加裂痕事件 {0} 至相应牌堆",
+            "road": "添加道路事件 {0} 至相应牌堆"
+          },
+          "experience": "获得 {0} 经验值",
+          "experienceFh": "获得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "goal": "目标",
+          "gold": "获得 {0} 金币",
+          "goldFh": "获得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "heal": "执行 \"治疗 {0}, 自身\"",
+          "item": "获得 {1} ({0})",
+          "itemBlueprint": "获得 {1} 设计图纸 %game.itemFh.{0}%",
+          "itemDesign": "获得 {1} 设计图纸 ({0})",
+          "itemFh": "获得 {1} %game.itemFh.{0}%",
+          "loot": "获得 {0} 金钱指示物",
+          "lootCards": "获得 %number.{0}% 拾取物卡牌",
+          "partyAchievement": "团队成就: \"{0}\"",
+          "randomItem": {
+            ".": "获得一个随机物品 (物品 {0})",
+            "result": ": {1} ({0})"
+          },
+          "randomItemBlueprint": {
+            ".": "随机物品设计图纸",
+            "result": ": {1} 设计图纸 ({0})"
+          },
+          "randomItemDesign": {
+            ".": "随机物品设计图纸",
+            "result": ": {1} 设计图纸 ({0})"
+          },
+          "randomScenario": {
+            ".": "随机支线剧本",
+            "result": ": {1} %data.scenarioNumber:{0}%"
+          },
+          "randomScenarioFh": {
+            ".": "随机支线剧本",
+            "result": ": 查看 %data.section:{0}%, 解锁 {2}"
+          },
+          "resource": "获得 {0}",
+          "scenario": "新剧本: {1} %data.scenarioNumber:{0}%"
+        }
+      }
+    },
+    "maxHealth": "最大生命值",
+    "solo": "单人游玩",
+    "specialTarget": {
+      "allies": "%game.target% 所有盟友",
+      "alliesAdjacent": "%game.target% 所有相邻盟友",
+      "alliesAdjacentAffect": "%game.affect% 所有相邻盟友",
+      "alliesRange": "在%game.action.range% {0}范围内的所有盟友%game.target%",
+      "alliesRangeAffect": "在%game.action.range% {0}范围内的所有盟友%game.affect%",
+      "ally": "%game.target% 1 盟友",
+      "allyAdjacent": "%game.target% 1名相邻盟友",
+      "allyAffect": "%game.affect% 任意盟友",
+      "allyAffectRange": "在%game.action.range% {0}范围内的1名盟友%game.affect%",
+      "allyShort": "盟友",
+      "enemies": "%game.target% 所有敌人",
+      "enemiesAdjacent": "%game.target% 所有相邻敌人",
+      "enemiesMovedThrough": "%game.target% 所经过的所有敌人",
+      "enemiesMovedThroughAdjacent": "%game.target% 在移动能力中占据所经过的格子或与<br>之相邻的所有敌人",
+      "enemiesRange": "在%game.action.range% {0}范围内的%game.target% 所有敌人",
+      "enemiesRangeAffect": "在%game.action.range% {0}范围内的%game.affect% 所有敌人",
+      "enemiesRangeAffectExact": "正好在%game.action.range% {0}范围的%game.affect% 所有敌人",
+      "enemiesRangeExact": "正好在%game.action.range% {0}范围的%game.target% 所有敌人",
+      "enemy": "%game.target% 1名敌人",
+      "enemyAdjacent": "%game.target% 1名相邻敌人",
+      "enemyOneAll": "所有攻击%game.target% 1名敌人",
+      "enemyRange": "%game.target% 1名正好在 %game.action.range% {0}范围的敌人",
+      "figures": "%game.target% 所有个体",
+      "figuresAdjacent": "%game.target% 所有相邻个体",
+      "figuresRange": "%game.target% 所有 %game.action.range% {0}范围内的个体",
+      "focusEnemyFarthest": "以距离最远的敌人<br>为焦点.",
+      "self": "自身",
+      "selfAllies": "自身以及所有盟友",
+      "selfAlliesAdjacentAffect": "%game.affect%作用于自身和所有相邻盟友",
+      "selfAlliesAffect": "%game.affect% 自身以及所有盟友",
+      "selfAlliesRange": "%game.target% 自身以及在%game.action.range% {0}范围内的所有盟友",
+      "selfOrAlly": "自身或盟友",
+      "targets": "所有目标"
+    },
+    "sufferDamage": "{0} 承受 %game.damage:{1}%",
+    "summon": {
+      "player2-3": "2人局或3人局中%game.monsterType.{0}% 或者 4人局中%game.monsterType.{1}%",
+      "player3-4": "2人局中%game.monsterType.{0}% 或者3人局或4人局中%game.monsterType.{1}%",
+      "playerAll": "对所有角色%game.monsterType.{0}%",
+      "spawn": "{1} %data.monster.{0}%",
+      "spawnMarker": "{1} %data.monster.{0}% 在 %game.mapMarker.{2}%",
+      "spawnObjective": "{1} %data.objective.{0}%",
+      "spawnObjectiveMarker": "{1} %data.objective.{0}% 在 %game.mapMarker.{2}%",
+      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% 在 %game.mapMarker.{3}%"
+    },
+    "target": {
+      ".": "指向",
+      "all": "所有"
+    }
+  },
+  "help": "求助",
+  "hints": {
+    "active": "轮流",
+    "active-full": "依次点击每个单位图片",
+    "addAdditionalContent": "添加额外的目录",
+    "addMonsterEntities": "使用 \"+\" 按钮来生成怪物.",
+    "draw": "点击 \"%round.draw%\"",
+    "draw-full": "选择角色技能卡牌,设置时序值,点击 \"%round.draw%\".",
+    "draw-short": "设置时序值, 点击 \"%round.draw%\"",
+    "next": "点击 \"%round.next%\""
+  },
+  "menu": {
+    "backToMain": "回到 %menu.main%",
+    "main": "主菜单"
+  },
+  "monster": {
+    ".": "怪物",
+    "add": "添加怪物",
+    "addEntity": {
+      "boss": "生成Boss类型怪物",
+      "elite": "生成精英怪物",
+      "normal": "生成普通怪物"
+    },
+    "applyInteractiveActions": "应用突出能力于",
+    "boss": "头目",
+    "cancelNumberpicker": "取消",
+    "changeStandee": "更改 %game.monsterType.{0}% 立牌 #{1}",
+    "changeType": "从 %game.monsterType.{0}% 更改类型至 %game.monsterType.{1}%",
+    "elite": "精英",
+    "filter": {
+      ".": "怪物筛选",
+      "noResult": "无结果"
+    },
+    "normal": "普通",
+    "remove": "移除怪物",
+    "removeAll": "移除所有",
+    "removeUnused": "移除未使用的",
+    "selectStandees": {
+      "all": "选择所有立牌",
+      "boss": "选择所有头目立牌",
+      "elite": "选择所有精英立牌",
+      "normal": "选择所有普通立牌"
+    },
+    "setStandees": "设置 {1} %game.monsterType.{0}% 立牌",
+    "showBoss": "查看头目怪物",
+    "showHidden": "查看隐藏怪物",
+    "skipInteractiveActions": "跳过互动能力",
+    "statEffect": {
+      ".": "以下变更适用于特殊规则:",
+      "deck": "使用修正能力:<br>\"{0}\""
+    },
+    "toggleAction": "切换适用能力",
+    "toggleAllied": {
+      "off": "将 <span class=\"monster-allied-off\">盟友</span> 关闭",
+      "on": "将 <span class=\"monster-allied-on\">盟友</span> 打开"
+    },
+    "toggleAlly": {
+      "off": "切换回 <span class=\"monster-ally-off\">敌人</span>",
+      "on": "切换至 <span class=\"monster-ally-on\">盟友</span>"
+    }
+  },
+  "number": {
+    "0": "0",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9"
+  },
+  "numbered": {
+    "1": "第1",
+    "10": "第10",
+    "2": "第2",
+    "3": "第3",
+    "4": "第4",
+    "5": "第5",
+    "6": "第6",
+    "7": "第7",
+    "8": "第8",
+    "9": "第9"
+  },
+  "objective": {
+    ".": "目标点",
+    "add": "添加目标点",
+    "addContainer": "添加目标点容器 (%wip%)",
+    "remove": "移除目标点",
+    "removeAll": "移除所有"
+  },
+  "or": "或",
+  "party": {
+    ".": "团队",
+    "achievements": "成就",
+    "addGlobalAchievement": {
+      ".": "添加世界成就",
+      "empty": "未搜索到匹配的世界成就"
+    },
+    "addPartyAchievement": {
+      ".": "添加团队成就",
+      "empty": "为搜索到匹配的团队成就"
+    },
+    "campaign": {
+      ".": "战役",
+      "achievements": "世界成就",
+      "donations": "对圣橡树的捐款",
+      "envelopeB": "信封B",
+      "items": "已解锁的物品",
+      "manage": "整体战役管理",
+      "map": "地图",
+      "players": {
+        ".": "玩家名称",
+        "add": "添加玩家"
+      },
+      "retirements": {
+        ".": "已退役角色",
+        "character": "角色",
+        "class": "职业",
+        "level": "等级",
+        "masteries": "巅峰战绩",
+        "perks": "专长",
+        "player": "玩家",
+        "reactivate": "重新激活角色"
+      },
+      "scenarios": {
+        ".": "剧本",
+        "addConclusion": "添加结局",
+        "addSuccess": "标记为胜利",
+        "conclusions": "结局",
+        "edition": "版本",
+        "finished": "已完成",
+        "group": "队伍",
+        "index": "#",
+        "name": "名称",
+        "removeManual": "从已解锁中移除",
+        "removeSuccess": "从胜利中移除",
+        "removeSuccessCasual": "从已完成的临时剧本中移除",
+        "unlock": "解锁剧本"
+      },
+      "sheet": {
+        ".": "战役表",
+        "buildings": {
+          ".": "建筑物",
+          "action": "行动",
+          "build": {
+            ".": "建造",
+            "action": "建造",
+            "hint": "建造 (双击以强制建造)"
+          },
+          "costs": "花费",
+          "discount": "-1 材料资源",
+          "effects": "效果",
+          "id": "数字",
+          "interactions": "相互作用",
+          "level": {
+            ".": "等级",
+            "hint": "查看奖励 (双击以降低等级)"
+          },
+          "name": "名称",
+          "rebuild": {
+            ".": "重建",
+            "action": "重建",
+            "hint": "重建 (双击以强制重建)"
+          },
+          "repair": {
+            ".": "修理建筑",
+            "action": "修理建筑",
+            "costs": "任意 {0}",
+            "hint": "修理建筑 (双击以强制修理)"
+          },
+          "rewards": {
+            "action": "等级 {0}",
+            "defense": "+{0} 防御",
+            "items": "添加 %game.itemFh.{0}% ~ %game.itemFh.{1}% 至物品补给中",
+            "loseMorale": "-{0} 士气值",
+            "plot": "+{0} 土地",
+            "plots": "+{0} 土地",
+            "prosperity": "+{0} 繁荣度",
+            "soldiers": "+{0} 士兵"
+          },
+          "selectResources": {
+            ".": "选择资源",
+            "confirm": "确认"
+          },
+          "state": {
+            "damaged": "损坏的",
+            "normal": "普通",
+            "wrecked": "损毁的"
+          },
+          "unlock": "解锁建筑物",
+          "upgrade": {
+            ".": "升级建筑物",
+            "action": "升级建筑物至等级 {0}",
+            "hint": "升级建筑物 (双击以强制升级)"
+          }
+        },
+        "campaignStickers": {
+          ".": "战役贴纸",
+          "empty": "为搜索到匹配的战役贴纸"
+        },
+        "defense": "防御",
+        "disable": "前往幽港迷城团队表",
+        "enable": "前往霜港迷城战役表",
+        "name": "团队名称",
+        "nextWeek": "下周(新日历)",
+        "soldierLevel": "等级",
+        "soldiers": "士兵",
+        "summer": "夏季",
+        "supply": {
+          ".": "寒霜港补给",
+          "apply": "应用改动",
+          "edit": "编辑",
+          "total": "总计"
+        },
+        "totalDefense": "总防御值",
+        "townGuardPerks": "城镇守卫专长",
+        "weekSections": {
+          ".": "为 {0}周设置段落",
+          "addSection": "添加段落至周",
+          "calc": "从当前周往后{0}周",
+          "hint": "双击为周设置/编辑段落"
+        }
+      }
+    }
+  },
+  "tools": {
+    "keyboard": {
+      "loot": "抽拾取牌库",
+      "mainMenu": {
+        ".": "打开主菜单",
+        "select": "选择行动"
+      },
+      "party": "打开战役卡",
+      "redo": "恢复",
+      "round": "下一轮 / 抽牌",
+      "scenarioChart": "显示剧本流程图",
+      "shift": "SHIFT",
+      "space": "SPACE",
+      "tab": "↹"
+    }
+  },
+  "welcome": {
+    "settings": {
+      ".": "设置"
     }
   },
   "wip": "工作正在进行"

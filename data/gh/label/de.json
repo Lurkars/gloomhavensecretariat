@@ -114,16 +114,16 @@
         "1": "Erstelle eine %game.damage:3% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
       },
       "bandit-commander": {
-        "1": "Zur nächsten Tür gehen und den Raum aufdecken."
+        "1": "Zur nächsten Tür gehen und den Raum aufdecken"
       },
       "captain-of-the-guard": {
-        "1": "Alle Verbündeten fügen +1 %game.action.attack% zu allen Angriffen dieser Runde hinzu."
+        "1": "Alle Verbündeten fügen +1 %game.action.attack% zu allen Angriffen dieser Runde hinzu"
       },
       "dark-rider": {
         "1": "X = Bewegte Felder"
       },
       "deep-terror": {
-        "1": "in einem am Ziel angrenzenden Feld."
+        "1": "in einem am Ziel angrenzenden Feld"
       },
       "flame-demon": {
         "1": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
@@ -134,7 +134,7 @@
         "2": "Alle Angriffe gegen %data.monster.giant-viper% erhalten in dieser Runde Nachteil."
       },
       "harrower-infester": {
-        "1": "Führe \"%game.action.heal% 2, %game.specialTarget.self%\" für jedes angegriffene Ziel durch."
+        "1": "Führe \"%game.action.heal% 2, %game.specialTarget.self%\" für jedes angegriffene Ziel durch"
       },
       "hound": {
         "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
@@ -157,7 +157,7 @@
         "1": "Thron bewegen"
       },
       "savvas-lavaflow": {
-        "1": "Alle an das Ziel angrenzenden Verbündeten und Gegner erleiden %game.damage:2%.",
+        "1": "Alle an das Ziel angrenzenden Verbündeten und Gegner erleiden %game.damage:2%",
         "2": "Alle Gegner erleiden %game.damage:2%."
       },
       "the-betrayer": {
@@ -221,7 +221,7 @@
     "forest-imp": "Waldwicht",
     "frost-demon": "Frostdämon",
     "giant-viper": "Riesenviper",
-    "harrower-infester": "Schwarmling Kontagion",
+    "harrower-infester": "Schwarmling-Kontagion",
     "hound": "Grimmwolf",
     "inox-archer": "Inox Schütze",
     "inox-bodyguard": "Inox Leibwache",
@@ -246,7 +246,7 @@
     "the-colorless": "Der Fahle",
     "the-gloom": "Das Grauen",
     "the-sightless-eye": "Das Blicklose Auge",
-    "vermling-scout": "Ratzenspäher",
+    "vermling-scout": "Ratzen-Späher",
     "vermling-shaman": "Ratzenschamane",
     "wind-demon": "Winddämon",
     "winged-horror": "Der Geflügelte Schrecken"
