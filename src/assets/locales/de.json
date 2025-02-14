@@ -2311,7 +2311,7 @@
     },
     "interface": "Oberfläche",
     "keyboardShortcuts": {
-      ".":"Tastenkürzel aktiviert",
+      ".": "Tastenkürzel aktiviert",
       "hint": "Aktiviert die aufgelisteten Tastenkürzel."
     },
     "levelAdjustment": {
