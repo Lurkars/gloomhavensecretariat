@@ -110,7 +110,7 @@ export class HintDialogComponent {
 
     @HostListener('document:keydown', ['$event'])
     onKeyEnter(event: KeyboardEvent) {
-        if (event.key === 'Enter') {
+        if (settingsManager.settings.keyboardShortcuts && event.key === 'Enter') {
             if (this.active()) {
                 this.confirm();
             } else if (this.finish()) {

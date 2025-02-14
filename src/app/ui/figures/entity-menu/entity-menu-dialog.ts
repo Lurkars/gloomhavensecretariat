@@ -234,7 +234,7 @@ export class EntityMenuDialogComponent {
 
   @HostListener('document:keydown', ['$event'])
   keyboardShortcuts(event: KeyboardEvent) {
-    if (!this.levelDialog && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
+    if (settingsManager.settings.keyboardShortcuts && !this.levelDialog && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
       if (!(this.data.entity instanceof Character) || !this.data.entity.absent) {
         if (!event.ctrlKey && !event.shiftKey && event.key === 'ArrowRight') {
           this.changeHealth(1);
@@ -288,7 +288,7 @@ export class EntityMenuDialogComponent {
           }
         }
       }
-      if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'a' && this.data.entity instanceof Character) {
+      if (settingsManager.settings.keyboardShortcuts && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'a' && this.data.entity instanceof Character) {
         this.toggleCharacterAbsent();
         event.preventDefault();
         event.stopPropagation();

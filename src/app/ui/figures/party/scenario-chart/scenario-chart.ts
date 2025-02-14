@@ -347,7 +347,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
     @HostListener('document:keydown', ['$event'])
     keyboardShortcuts(event: KeyboardEvent) {
-        if (!this.campaignSheet) {
+        if (settingsManager.settings.keyboardShortcuts && !this.campaignSheet) {
             if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'p' && settingsManager.settings.partySheet) {
                 this.openCampaignSheet();
                 event.stopPropagation();

@@ -67,7 +67,7 @@ export class ConditionsComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keydown', ['$event'])
   onKeyPress(event: KeyboardEvent) {
-    if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+    if (settingsManager.settings.keyboardShortcuts && event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
       const keyNumber = +event.key;
       if (this.timeout) {
         clearTimeout(this.timeout);

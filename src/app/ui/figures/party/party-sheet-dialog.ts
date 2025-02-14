@@ -183,7 +183,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keydown', ['$event'])
   keyboardShortcuts(event: KeyboardEvent) {
-    if (!this.disableShortcuts && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
+    if (settingsManager.settings.keyboardShortcuts && !this.disableShortcuts && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
       if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && this.worldMap) {
         this.openMap();
         event.stopPropagation();

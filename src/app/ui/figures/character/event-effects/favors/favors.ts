@@ -7,7 +7,7 @@ import { Identifier } from 'src/app/game/model/data/Identifier';
 import { Favor } from 'src/app/game/model/data/Trials';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-favors',
   templateUrl: './favors.html',
   styleUrls: ['./favors.scss'],
@@ -123,7 +123,7 @@ export class FavorsComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   confirm(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
+    if (settingsManager.settings.keyboardShortcuts && event.key === 'Enter') {
       this.apply();
       event.preventDefault();
       event.stopPropagation();

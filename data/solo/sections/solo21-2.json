@@ -13,6 +13,22 @@
   "monsters": [
     "steel-automaton"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "ancient-artillery"
+          },
+          "type": "remove"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,

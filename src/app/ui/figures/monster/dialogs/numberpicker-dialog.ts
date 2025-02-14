@@ -52,43 +52,45 @@ export class MonsterNumberPickerDialog implements OnInit {
 
     @HostListener('document:keydown', ['$event'])
     onKeyPress(event: KeyboardEvent) {
-        if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
-            if (this.timeout) {
-                clearTimeout(this.timeout);
-                this.timeout = undefined;
-                const combined: number = +event.key + 10;
-                const thisKey: number = +event.key;
-                if (combined <= this.max) {
-                    this.pickNumber(combined);
+        if (settingsManager.settings.keyboardShortcuts) {
+            if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+                if (this.timeout) {
+                    clearTimeout(this.timeout);
+                    this.timeout = undefined;
+                    const combined: number = +event.key + 10;
+                    const thisKey: number = +event.key;
+                    if (combined <= this.max) {
+                        this.pickNumber(combined);
+                    } else {
+                        this.pickNumber(1);
+                        this.pickNumber(thisKey);
+                    }
+
+                } else if (event.key === '1' && this.range.filter((number) => number > 10).some((number) => !this.hasNumber(number))) {
+                    this.timeout = setTimeout(() => {
+                        this.pickNumber(+event.key);
+                        this.timeout = undefined;
+                    }, 1000);
+                } else if (event.key === '0' && this.max > 9) {
+                    this.pickNumber(10);
                 } else {
-                    this.pickNumber(1);
-                    this.pickNumber(thisKey);
+                    this.pickNumber(+event.key);
                 }
 
-            } else if (event.key === '1' && this.range.filter((number) => number > 10).some((number) => !this.hasNumber(number))) {
-                this.timeout = setTimeout(() => {
-                    this.pickNumber(+event.key);
-                    this.timeout = undefined;
-                }, 1000);
-            } else if (event.key === '0' && this.max > 9) {
-                this.pickNumber(10);
-            } else {
-                this.pickNumber(+event.key);
-            }
+                event.preventDefault();
+                event.stopPropagation();
+            } else if (event.key === 's' && !this.entity) {
+                this.summon = !this.summon;
+            } else if (event.key === 't') {
+                if (this.entity) {
+                    this.toggleMonsterType();
+                }
 
-            event.preventDefault();
-            event.stopPropagation();
-        } else if (event.key === 's' && !this.entity) {
-            this.summon = !this.summon;
-        } else if (event.key === 't') {
-            if (this.entity) {
-                this.toggleMonsterType();
-            }
-
-            if (this.type == MonsterType.normal) {
-                this.type = MonsterType.elite;
-            } else if (this.type == MonsterType.elite) {
-                this.type = MonsterType.normal;
+                if (this.type == MonsterType.normal) {
+                    this.type = MonsterType.elite;
+                } else if (this.type == MonsterType.elite) {
+                    this.type = MonsterType.normal;
+                }
             }
         }
     }

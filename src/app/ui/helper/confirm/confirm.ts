@@ -1,5 +1,6 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, HostListener, Inject } from '@angular/core';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ghsDialogClosingHelper } from '../Static';
 
 @Component({
@@ -31,7 +32,7 @@ export class ConfirmDialogComponent {
 
   @HostListener('document:keydown', ['$event'])
   keydown(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
+    if (settingsManager.settings.keyboardShortcuts && event.key === 'Enter') {
       this.confirm();
       event.preventDefault();
       event.stopPropagation();

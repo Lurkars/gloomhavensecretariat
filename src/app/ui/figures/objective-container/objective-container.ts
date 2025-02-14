@@ -45,6 +45,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   initiative: number = -1;
   health: number = 0;
   marker: string = "";
+  compact: boolean = false;
 
   nonDead: number = 0;
 
@@ -113,6 +114,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
         }
       }
     }
+    this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme != 'modern';
   }
 
   toggleFigure(event: any): void {

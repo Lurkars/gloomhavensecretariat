@@ -65,7 +65,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.currentZoom = settingsManager.settings.zoom })
 
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
-            if (!event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
+            if (settingsManager.settings.keyboardShortcuts && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
                 if (gameManager.stateManager.keyboardSelecting) {
                     if (event.key === 'Escape' || event.key === 's' || event.key === 'w') {
                         gameManager.stateManager.keyboardSelect = -1;
@@ -280,7 +280,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         })
 
         this.keyup = window.addEventListener('keyup', (event: KeyboardEvent) => {
-            if (this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+' || event.key === 'ArrowDown' || event.key === '-')) {
+            if (settingsManager.settings.keyboardShortcuts && this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+' || event.key === 'ArrowDown' || event.key === '-')) {
                 clearInterval(this.zoomInterval);
                 this.zoomInterval = null;
                 if (settingsManager.settings.zoom != this.currentZoom) {

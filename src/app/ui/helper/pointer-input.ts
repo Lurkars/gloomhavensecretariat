@@ -153,13 +153,13 @@ export class PointerInputService {
     });
 
     window.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (this.active && event.key === 'Shift') {
+      if (settingsManager.settings.keyboardShortcuts && this.active && event.key === 'Shift') {
         this.active.fast = true;
       }
     })
 
     window.addEventListener('keyup', (event: KeyboardEvent) => {
-      if (this.active && event.key === 'Shift') {
+      if (settingsManager.settings.keyboardShortcuts && this.active && event.key === 'Shift') {
         this.active.fast = false;
       }
     })
@@ -234,7 +234,7 @@ export class PointerInputService {
 
 
 @Directive({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-pointer-input, [ghs-pointer-input]'
 })
 export class PointerInputDirective implements OnInit, OnDestroy {

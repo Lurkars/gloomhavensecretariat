@@ -2310,6 +2310,10 @@
       "hint": "Apply certain highlighted abilities, such as summons or elemental actions, directly by clicking on the appropriate area of the ability card."
     },
     "interface": "Interface",
+    "keyboardShortcuts": {
+      ".":"Keyboard Shortcuts enabled",
+      "hint": "Enables the listed Keyboard Shortcuts."
+    },
     "levelAdjustment": {
       ".": "Scenario level adjustment"
     },

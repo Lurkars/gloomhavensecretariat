@@ -12,7 +12,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { HiddenScenarioFigureRuleTypes, ScenarioFigureRule, ScenarioFigureRuleIdentifier, ScenarioRule, ScenarioRuleIdentifier } from "src/app/game/model/data/ScenarioRule";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-scenario-rule',
     templateUrl: './scenario-rule.html',
     styleUrls: ['./scenario-rule.scss']
@@ -29,7 +29,9 @@ export class ScenarioRuleComponent implements OnInit {
     ngOnInit(): void {
         if (this.rule.figures) {
             this.rule.figures.forEach((figureRule) => {
-                figureRule.value = '' + figureRule.value;
+                if (figureRule.value) {
+                    figureRule.value = '' + figureRule.value;
+                }
             })
         }
     }

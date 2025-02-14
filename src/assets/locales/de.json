@@ -2310,6 +2310,10 @@
       "hint": "Bestimmte hervorgehobene Fähigkeiten, wie Beschwörungen oder Elementaktionen, durch Klicken auf den entsprechenden Bereich der Fähigkeitskarte automatisch anwenden."
     },
     "interface": "Oberfläche",
+    "keyboardShortcuts": {
+      ".":"Tastenkürzel aktiviert",
+      "hint": "Aktiviert die aufgelisteten Tastenkürzel."
+    },
     "levelAdjustment": {
       ".": "Anpassung Szenariostufe"
     },
