@@ -3,12 +3,12 @@
     ".": "소개",
     "forceUpdate": "강제 갱신",
     "ip": "글룸헤이븐과 관련된 모든 속성, 이미지, 텍스트는 {0}의 소유입니다.",
-    "license": "{0} 라이센스",
+    "license": "{0} 라이센스.",
     "sourceCode": "소스 코드",
     "support": "개발 지원",
     "version": {
       "latest": "최신",
-      "unknown": "최신 버전을 가져올 수 없습니다.",
+      "unknown": "최신 버전을 가져올 수 없습니다",
       "update": "최신 버전: <a target=\"_blank\" href=\"{1}\">{0}</a>"
     }
   },
@@ -39,12 +39,16 @@
     "party": "파티/캠페인 기록지",
     "sheet": "전역 캠페인 관리 기록지",
     "trials": {
-      ".": "평가판"
+      ".": "평가판",
+      "automation": "이 카드의 효과를 자동 적용 했습니다!"
     }
   },
   "cancel": "취소",
   "challenges": {
     ".": "도전",
+    "automation": {
+      "hint": "이 카드의 효과를 자동 적용 했습니다!"
+    },
     "deck": {
       "clear": {
         ".": "뽑은 도전 카드 버리기",
@@ -72,6 +76,26 @@
   },
   "character": {
     ".": "캐릭터",
+    "abilities": {
+      "currentDeck": "덱",
+      "deckWarning": "덱에 카드가 너무 많아서 카드를 선택할 수 없습니다!",
+      "forceDeck": "카드를 덱에 추가하려면 더블클릭 하세요",
+      "levelWarning": "캐릭터 레벨보다 레벨이 높은 카드가 덱에 있습니다!",
+      "pickCard": "{0} 레벨 카드를 선택하세요",
+      "removeFromDeck": "덱에서 제거 할 카드를 더블클릭 하세요",
+      "show": "모든 능력 카드 보기",
+      "showDeck": "현재 캐릭터 덱 보기",
+      "sort": {
+        "cardId": "카드 번호로 정렬",
+        "level-deck": "덱의 카드 레벨로 정렬",
+        "level-name": "레벨과 이름으로 정렬",
+        "name": "이름으로 정렬"
+      },
+      "undoLastPick": {
+        ".": "{0} 레벨 카드 선택 취소",
+        "hint": "더블클릭으로 선택한 카드를 전부 리셋"
+      }
+    },
     "absent": "부재",
     "add": "캐릭터 추가",
     "class": {
@@ -161,7 +185,7 @@
       "retirement": {
         ".": "캐릭터 은퇴",
         "additionalPQ": {
-          ".": "영감 15점을 사용하면 개인 퀘스트를 추가로 받을 수 있습니다.",
+          ".": "영감 15점을 사용하면 개인 퀘스트를 추가로 받을 수 있습니다",
           "cancel": "추가 개인 퀘스트 취소",
           "inspiration": "영감 -15점"
         },
@@ -229,7 +253,9 @@
         },
         "uploadUrlMethod": {
           ".": "메소드",
-          "hint": "업로드할 HTTP 메소드"
+          "get": "가져오기",
+          "hint": "업로드할 HTTP 메소드",
+          "post": "보내기"
         },
         "uploadUrlPassword": {
           ".": "비밀번호",
@@ -264,6 +290,10 @@
     "exportGame": "파일로 게임 내보내기",
     "exportSettings": "파일로 설정 내보내기",
     "importDataDump": "데이터 덤프 가져오기",
+    "importFile": {
+      ".": "파일추가",
+      "hint": "게임, 백업, 데이터덤프 또는 설정과 같은 내보낸 파일을 가져옵니다. 한번 더 클릭하여 가져옵니다!"
+    },
     "importGame": "파일에서 게임 가져오기",
     "importSettings": "파일에서 설정 가져오기",
     "removeAllSpoilers": "모두 삭제하기",
@@ -419,6 +449,7 @@
       "element": "원소",
       "elementHalf": "원소 절반",
       "fly": "비행",
+      "grant": "승인",
       "grid": "[범위]",
       "heal": "치료",
       "jump": "도약",
@@ -516,6 +547,7 @@
       "chosen": "%game.characterIconColored.{0}% {1}의 전투 목표",
       "drawCard": "다른 카드 뽑기",
       "drawCards": "카드 다시 뽑기",
+      "drawUnavailable": "전투 목표 카드가 모두 소진됐습니다!",
       "edition": "%data.edition.{0}% 카드",
       "setup": {
         ".": "전투 목표 설정",
@@ -562,7 +594,7 @@
       },
       "bless": {
         ".": "축복",
-        "hint": "%game.conditionIcon.bless% 축복: 공격 보정 덱에 %game.attackmodifier.bless% 카드를 섞어넣음."
+        "hint": "%game.conditionIcon.bless% 축복: 공격 보정 덱에 %game.attackmodifier.bless% 카드를 섞어넣음"
       },
       "brittle": {
         ".": "취약",
@@ -574,19 +606,22 @@
       },
       "curse": {
         ".": "저주",
-        "hint": "%game.conditionIcon.curse% 저주: 공격 보정 덱에 %game.attackmodifier.curse% 카드를 섞어넣음."
+        "hint": "%game.conditionIcon.curse% 저주: 공격 보정 덱에 %game.attackmodifier.curse% 카드를 섞어넣음"
       },
       "disarm": {
         ".": "무장해제",
         "hint": "%game.conditionIcon.disarm% 무장해제: 공격할 수 없음. 다음 차례 끝에 제거."
       },
       "dodge": {
+        ".": "회피",
         "hint": "%game.conditionIcon.dodge% Dodge: Discard or lose a card to prevent an attack. 그런 다음, 제거."
       },
       "empower": {
+        ".": "강화",
         "hint": "%game.conditionIcon.empower% Empower: 공격 보정 덱에 EMPOWER 카드를 섞어 넣음."
       },
       "enfeeble": {
+        ".": "약화",
         "hint": "%game.conditionIcon.enfeeble% Enfeeble: 공격 보정 덱에 ENFEEBLE 카드를 섞어 넣음."
       },
       "heal": {
@@ -602,6 +637,7 @@
         "hint": "상태에 면역"
       },
       "impair": {
+        ".": "감소",
         "hint": "%game.conditionIcon.impair% Impair: 아이템을 사용할 수 없음. 다음 차례 끝에 제거."
       },
       "infect": {
@@ -616,6 +652,10 @@
         ".": "혼란",
         "hint": "%game.conditionIcon.muddle% 혼란: 모든 공격에 불이익. 다음 차례 끝에 제거."
       },
+      "permanent": {
+        ".": "영속",
+        "hint": "영구적인 상태"
+      },
       "poison": {
         ".": "중독",
         "hint": "%game.conditionIcon.poison% 중독: 모든 공격자는 +1 %game.action.attack% 얻음. 치료를 방해함. 치료될 때 제거."
@@ -629,6 +669,7 @@
         "hint": "%game.conditionIcon.regenerate% 재생: 차례 시작에 %game.action.heal% 1. 피해를 받을 때 제거."
       },
       "rupture": {
+        ".": "파열",
         "hint": "%game.conditionIcon.rupture% Rupture: On move suffer %game.damage:1%. 치료될 때 제거."
       },
       "strengthen": {
@@ -658,7 +699,13 @@
       "instead": "대신",
       "math": {
         "ceil": "(소수점 이하 올림)",
-        "floor": "(소수점 이하 내림)"
+        "floor": "(소수점 이하 내림)",
+        "max": ", 최대 %game.number.{0}%",
+        "maxCeil": "(올림), 최대 %game.number.{0}%",
+        "maxFloor": "(버림), 최대%game.number.{0}%",
+        "min": ", 최소 %game.number.{0}%",
+        "minCeil": "(올림), 최소 %game.number.{0}%",
+        "minFloor": "(버림), 최소 %game.number.{0}%"
       },
       "ondeath": "사망 시:",
       "perks": {
@@ -782,6 +829,8 @@
         "brewFor": "{0}의 물약 추출",
         "brewed": "{2}의 %game.itemFh.{0}% 물약 {1}병 추출",
         "brewedOther": "{2}의 {3}에 대해 %game.itemFh.{0}% 물약 {1}병 추출",
+        "disabled": "포션을 제작할 수 없습니다, 우선 '%data.buildings.alchemist%' (35) 를 재건하세요",
+        "item": "{1} %game.itemFh.{0}%",
         "noChar": "모든 캐릭터가 이미 물약을 소유하고 있습니다!",
         "selectCharacter": "추출할 캐릭터 선택:"
       },
@@ -811,7 +860,7 @@
       },
       "unlock": "해금 아이템",
       "unlocked": "아이템 해금됨",
-      "wip": "%wip%! %data.edition.{0}%의 아이템은 아직 완료되지 않음"
+      "wip": "%wip%! %data.edition.{0}%의 아이템은 아직 완료되지 않음."
     },
     "level": {
       ".": "레벨",
@@ -871,6 +920,7 @@
       "special": "특수",
       "special1": "특수 카드 1 (#1418)",
       "special2": "특수 카드 2 (#1419)",
+      "toggleSpecial": "%game.loot.{0}%",
       "treasures": {
         ".": "보물",
         "rewards": {
@@ -1024,6 +1074,7 @@
     "setStandees": "%game.monsterType.{0}% 말을 {1}번으로 설정하기",
     "showBoss": "보스 몬스터 보기",
     "showHidden": "숨겨진 몬스터 보기",
+    "skipInteractiveActions": "상호작용 건너뛰기",
     "statEffect": {
       ".": "다음 변경점에 대한 특별 규칙 적용:",
       "deck": "수정된 능력 사용:<br>\"{0}\""
@@ -1142,6 +1193,7 @@
           },
           "rewards": {
             "action": "레벨 {0}",
+            "defense": "",
             "items": "아이템 보급에 %game.itemFh.{0}% 아이템을 %game.itemFh.{1}%에 추가",
             "loseMorale": "사기 -{0}점",
             "prosperity": "번영도 +{0}점",

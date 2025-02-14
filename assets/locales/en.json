@@ -1400,7 +1400,7 @@
       "empty": "Please add monsters and characters before round.",
       "failed": "All characters seems exhausted. Do you want to restart the scenario?",
       "finish": "There are no monsters left. Did you successfully finish the scenario?",
-      "missingInitiative": "Initiative must be set for all figures!."
+      "missingInitiative": "Initiative must be set for all figures!"
     },
     "next": "Next Round"
   },
@@ -1892,7 +1892,7 @@
         }
       },
       "hint": {
-        ".": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to lose 1 extra HP ",
+        ".": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to lose 1 extra HP",
         "brittle": "On suffering damage, ask to apply %game.condition.brittle% and increase damage.",
         "heal": "No condition, but helper if %game.action.heal% should be applied when increasing hitpoints.",
         "poison": "On suffering damage, ask to apply %game.action.attack% +1 from %game.condition.poison% (including %game.attackmodifier.double%).",
@@ -2310,6 +2310,10 @@
       "hint": "Apply certain highlighted abilities, such as summons or elemental actions, directly by clicking on the appropriate area of the ability card."
     },
     "interface": "Interface",
+    "keyboardShortcuts": {
+      ".":"Keyboard Shortcuts enabled",
+      "hint": "Enables the listed Keyboard Shortcuts."
+    },
     "levelAdjustment": {
       ".": "Scenario level adjustment"
     },
@@ -3108,8 +3112,8 @@
         "hpDec": "Dec. current HP",
         "hpInc": "Inc. current HP",
         "kill": "Kill / Exhaust",
-        "lootDec": "Dec. Monoeytokens",
-        "lootInc": "Inc. Monoeytokens",
+        "lootDec": "Dec. Moneytokens",
+        "lootInc": "Inc. Moneytokens",
         "maxHpDec": "Dec. max. HP",
         "maxHpInc": "Inc. max. HP",
         "toggleAbsent": "Toggle Character absent",
