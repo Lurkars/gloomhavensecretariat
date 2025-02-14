@@ -1,1 +1,9 @@
-{}
+{
+  "custom": {
+    "fc": {
+      "flowChartGroup": {
+        "diviner": "Adivina"
+      }
+    }
+  }
+}

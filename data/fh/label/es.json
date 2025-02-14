@@ -1,11 +1,166 @@
 {
   "buildings": {
+    "alchemist": {
+      "1": "Los personajes no pueden usar pociones",
+      "2": "Elabora pociones de 2 hierbas",
+      "3": "Elaborar y destilar pociones de 2 hierbas",
+      "4": "Elaborar y destilar pociones de 2 y 3 hierbas",
+      "5": "Elaborar pociones",
+      "6": "Elaborar y destilar pociones",
+      "7": "Elaborar y destilar pociones"
+    },
+    "barracks": {
+      ".": "Barracones",
+      "1": "De forma colectiva entrena hasta 1 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 4<br><i>Efecto:</i> ventaja y %game.action.attack% -5",
+      "2": "De forma colectiva entrena hasta 1 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 6<br><i>Efecto:</i> ventaja y %game.action.attack% -15",
+      "3": "De forma colectiva entrena hasta 2 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 8<br><i>Efecto:</i> ventaja y %game.action.attack% -25",
+      "4": "De forma colectiva entrena hasta 2 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 10<br><i>Efecto:</i> ventaja y %game.action.attack% -35",
+      "5": "Desventaja en todas las resoluciones de eventos de ataque.<br>No se pueden usar soldados.",
+      "soldiers": "Entrena a 1 soldado"
+    },
+    "carpenter": {
+      ".": "Carpintero",
+      "1": "Reducir todos los costes de construcción en 1 recurso",
+      "2": "Reduce todos los costes de construcción en 1 recurso y el coste extra de construcción de 1 moral",
+      "3": "Perder 1 recurso colectivo cualquiera"
+    },
+    "climbing-gear": {
+      ".": "Equipamiento de escalada"
+    },
+    "craftsman": {
+      ".": "Artesano",
+      "1": "Pierdes 1 %game.resource.hide% colectivo",
+      "2": "Pierdes 2 %game.resource.hide% colectivos",
+      "3": "Pierdes 2 %game.resource.hide% colectivos",
+      "4": "Objetos de artesanía"
+    },
+    "enhancer": {
+      "1": "Reduce todos los costes de mejora en 10 de oro",
+      "2": "Reduce todos los costes de mejora en 10 de oro y las penalizaciones de nivel por 10 de oro por nivel",
+      "3": "Reduce todos los costes de mejora en 10 de oro, las penalizaciones de nivel por 10 de oro por nivel y las penalizaciones de repetición en 25 de oro por mejora",
+      "4": "Cada personaje comienza el siguiente escenario con %game.condition.disarm%"
+    },
+    "garden": {
+      ".": "Jardín",
+      "1": "Planta hierbas, gira esta carta 180° y luego para - Gana 1 hierba de cada parcela plantada, luego gira esta carta 180° y luego para",
+      "2": "Gana 1 hierba colectiva por cada parcela plantada, después planta hierbas",
+      "plots": {
+        ".": "Gestionar el jardín",
+        "automated": {
+          ".": "Cosecha automática",
+          "hint": "Cosecha el jardín automáticamente cuando pasa una semana. Esta opción se desactiva de forma automática cuando <i>%settings.automaticPassTime%</i> no está activado."
+        },
+        "harvest": "Cosecha manual",
+        "interaction": "Plantar/cosechar hierbas",
+        "state": {
+          "both": "Cosechar el jardín y plantar hierbas",
+          "harvest": "El jardín está girado, esta semana solamente se puede cosechar",
+          "plant": "Plantar hierbas"
+        }
+      }
+    },
+    "hall-of-revelry": {
+      "3": "Pierde 1 moral"
+    },
+    "hide-depot": {
+      "1": "Vende colectivamente hasta 1 %game.resource.hide% por 5 de oro",
+      "2": "Vende colectivamente hasta 2 %game.resource.hide% por 5 de oro cada una",
+      "3": "Pierde 2 %game.resource.hide% colectivo"
+    },
+    "hunting-lodge": {
+      "1": "Compra colectivamente hasta 1 %game.resource.hide% por 2 de oro",
+      "2": "Compra colectivamente hasta 2 %game.resource.hide% por 2 de oro",
+      "3": "Compra colectivamente hasta 3 %game.resource.hide% por 2 de oro",
+      "4": "Compra colectivamente hasta 4 %game.resource.hide% por 2 de oro"
+    },
+    "inn": {
+      ".": "Posada",
+      "1": "Compra colectivamente hasta 1 recurso por 2 de oro",
+      "2": "Compra colectivamente hasta 2 recursos diferentes por 2 de oro cada uno",
+      "3": "Compra colectivamente hasta 3 recursos diferentes por 2 de oro cada uno"
+    },
+    "jeweler": {
+      ".": "Joyería",
+      "1": "Daña cualquier edificio"
+    },
+    "library": {
+      ".": "Biblioteca",
+      "1": "Pierde 1 inspiración"
+    },
+    "logging-camp": {
+      ".": "Campamento maderero",
+      "1": "Compra colectivamente hasta 1 %game.resource.lumber% por 2 de oro",
+      "2": "Compra colectivamente hasta 2 %game.resource.lumber% por 2 de oro",
+      "3": "Compra colectivamente hasta 3 %game.resource.lumber% por 2 de oro",
+      "4": "Compra colectivamente hasta 4 %game.resource.lumber% por 2 de oro"
+    },
+    "lumber-depot": {
+      ".": "Almacén de madera",
+      "1": "Vende colectivamente hasta 1 %game.resource.lumber% por 5 de oro",
+      "2": "Vende colectivamente hasta 2 %game.resource.lumber% por 5 de oro cada uno",
+      "3": "Pierde colectivamente 2 %game.resource.lumber%"
+    },
+    "metal-depot": {
+      ".": "Almacén de metal",
+      "1": "Vende colectivamente hasta 1 %game.resource.metal% por 5 de oro",
+      "2": "Vende colectivamente hasta 2 %game.resource.metal% por 5 de oro cada uno",
+      "3": "Pierde colectivamente 2 %game.resource.metal%"
+    },
+    "mining-camp": {
+      ".": "Campamento minero",
+      "1": "Compra colectivamente hasta 1 %game.resource.metal% por 2 de oro",
+      "2": "Compra colectivamente hasta 2 %game.resource.metal% por 2 de oro",
+      "3": "Compra colectivamente hasta 3 %game.resource.metal% por 2 de oro",
+      "4": "Compra colectivamente hasta 4 %game.resource.metal% por 2 de oro"
+    },
+    "stables": {
+      ".": "Establos",
+      "1": "Lleva una mascota a cada escenario.<br><i>Capacidad:</i> 4",
+      "2": "Lleva una mascota a cada escenario.<br><i>Capacidad:</i> 8",
+      "3": "Lleva dos mascotas a cada escenario.<br><i>Capacidad:</i> 8",
+      "4": "Lleva dos mascotas a cada escenario.<br><i>Capacidad:</i> 12",
+      "5": "Los personajes no pueden usar mascotas",
+      "pets": {
+        ".": "Mascotas",
+        "add": "Añadir mascota",
+        "catch": "Capturar mascota",
+        "confirmAdd": "Haz clic de nuevo para añadir la mascota a los Establos",
+        "edit": "Editar mascotas",
+        "empty": "Actualmente no hay mascotas en los Establos",
+        "interaction": "Gestionar mascotas",
+        "name": "Nombre",
+        "showAll": "Mostrar todo"
+      }
+    },
+    "tavern": {
+      ".": "Taberna",
+      "1": "Pierde 1 moral"
+    },
+    "temple": {
+      ".": "Templo del Gran Roble",
+      "1": "Cada personaje puede perder 5 de oro para comenzar el siguiente escenario con %game.condition.bless% x2",
+      "2": "Cada personaje comienza el siguiente escenario con %game.condition.curse%"
+    },
+    "town-hall": {
+      ".": "Ayuntamiento",
+      "1": "Roba un desafío y quédate con uno. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
+      "2": "Roba dos desafíos y quédate con uno. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
+      "3": "Roba tres desafíos y quédate con hasta dos. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
+      "4": "No se pueden completar desafíos"
+    },
     "trading-post": {
+      ".": "Puesto comercial",
       "1": "Pierde 5 de oro colectivo",
       "2": "Pierde 10 de oro colectivo",
       "3": "Pierde 15 de oro colectivo",
-      "4": "Pierde 20 de oro colectivo"
+      "4": "Pierde 20 de oro colectivo",
+      "5": "Compra hasta un objeto",
+      "6": "Compra hasta dos objetos",
+      "7": "Compra hasta tres objetos",
+      "8": "Compra hasta cuatro objetos",
+      "9": "Comprar objetos"
     },
+    "wall-effect": "Defensa +5",
     "wall-j": {
       ".": "Muralla J"
     },
@@ -20,7 +175,14 @@
     },
     "wall-n": {
       ".": "Muralla N"
+    },
+    "workshop": {
+      ".": "Taller",
+      "1": "Pierde 1 %game.resource.lumber% colectivo"
     }
+  },
+  "campaignSticker": {
+    "statue": "Estatua"
   },
   "character": {
     "banner-spear": "Estandarte",
@@ -46,6 +208,9 @@
   },
   "custom": {
     "fh": {
+      "algox-icespeaker": {
+        "2": "Todos los enemigos adyacentes al<br>obstáculo creado sufren daño por terreno peligroso."
+      },
       "algox-snowspeaker": {
         "1": "Todos los enemigos a <br>%game.action.range:3% sufren %game.damage:2%"
       },
@@ -53,6 +218,7 @@
         "1": "Crea terreno peligroso, todos los enemigos que ocupen terreno peligroso o estén adyacentes a él sufren daño."
       },
       "ancient-artillery": {
+        "1": "Centra la atención al<br>enemigo más alejado a %game.action.range:7%",
         "2": "Todos los enemigos adyacentes<br>al objetivo sufren %game.damage:2%."
       },
       "archer": {
@@ -60,19 +226,80 @@
       },
       "banner-spear": {
         "1": "Todos los aliados a %game.range:2% añaden %game.action.attack% +1 a uno de sus ataques cada turno.",
-        "10": "Ataca al menos a tres enemigos con cada una de las tres habilidades de ataque de área de efecto distintas"
+        "10": "Ataca al menos a tres enemigos con cada una de las tres habilidades de ataque de área de efecto distintas",
+        "11": "Realiza una habilidad de invocación de estandarte en tu primer turno, mantén el estandarte vivo y dentro de %game.action.range:3% de ti durante todo el escenario",
+        "2": "Al inicio de su turno, otorga a los aliados que se encuentren a %game.range:3%:",
+        "3": "Todos los aliados adyacentes obtienen %game.shield% 1.",
+        "4": "Anula la primera fuente de %game.damage% de un aliado adyacente en cada ronda",
+        "5": "Todos los enemigos a %game.action.range% 4 sufren %game.damage:1% al inicio de sus turnos.",
+        "6": "Añade %game.action.attack% +1 por cada aliado adyacente al objetivo",
+        "7": "Al final de cada uno de tus descansos largos, otorga a un aliado a %game.action.range:3%: %game.action.move% 2",
+        "8": "Siempre que abras una puerta con una habilidad de movimiento, obtén %game.action.move% +3",
+        "9": "Una vez en cada escenario, durante tu turno, obtén %game.action.shield% 2 para esa ronda"
+      },
+      "belara": {
+        "1": "Todos los aliados y enemigos<br>adyacentes al objetivo sufren %game.damage:2%",
+        "2": "Todos los enemigos a %game.action.range:4% sufren %game.damage:2%."
+      },
+      "black-imp": {
+        "1": "%game.custom.disadvantage%"
       },
       "blinkblade": {
+        "1": "En tu próximo ataque, descarta esta carta para obtener %game.action.attack%+2 .<br>%game.card.persistent%",
+        "2": "Coloca esta carta en tu área activa. En tu próximo ataque, descarta esta carta para obtener %game.action.attack% +2",
         "3": "Obtén 1 %data.characterToken.blinkblade.time%",
-        "4": "Obtén 1 %data.action.custom.fh-hourglass%"
+        "4": "Obtén 1 %data.action.custom.fh-hourglass%",
+        "5": "Siempre que realices un descanso corto, puedes gastar un objeto %game.card.spent% no gastado sin aplicar su efecto para %game.card.recover% un objeto distinto",
+        "6": "Al comienzo de tu primer turno en cada escenario, puedes realizar %game.action.move% 3",
+        "7": "Siempre que obtengas %game.condition.immobilize%, preven ese estado",
+        "8": "Declarara Rápido durante siete rondas consecutivas",
+        "9": "No ser nunca objetivo de un ataque"
+      },
+      "boneshaper": {
+        "1": "Obtén %game.action.attack% +1 por cada ficha en esta carta.",
+        "2": "Mata a la invocación atacante para obtener %game.attackmodifier.plus4%",
+        "3": "Inmediatamente antes de cada uno de tus descansos, puedes matar a una de tus invocaciones para obtener %game.condition.bless%, personal",
+        "4": "Una vez por escenario, cuando cualquier personaje aliado fuera a quedar agotado por sufrir %game.damage%, puedes sufrir %game.damage:2% para, en vez de eso, reducir su valor de puntos de vida a 1",
+        "5": "Al comienzo de cada escenario, puedes jugar una carta de nivel 1 de tu mano para realizar una acción de invocación de esa carta",
+        "6": "Mata al menos a quince de tus invocaciones",
+        "7": "Juega una acción de invocación en tu primer turno, haz que la invocación mate al menos a seis enemigos y mantenla con vida durante todo el escenario"
       },
       "burrowing-blade": {
         "1": "Todos los enemigos adyacentes sufren %game.damage:2%.",
         "2": "Todos los enemigos a %game.action.range:2% sufren %game.damage:2%."
       },
+      "chaos-demon": {
+        "1": "%game.custom.advantage%"
+      },
+      "chaos-lieutenant": {
+        "1": "Al final de la ronda, realiza:",
+        "2": "donde X es (RxN)/2 (redondeado hacia abajo), y R es el número de Máquinas Ruinosas actualmente en juego"
+      },
+      "chaos-spark": {
+        "2": "donde T es el número de fichas de daño en la tarjeta de personaje del personaje objetivo",
+        "3": "No puede centrar su atención en las invocaciones de personajes."
+      },
+      "city-guard-scenario-1": {
+        "1": "No realiza un turno."
+      },
+      "deathwalker": {
+        "1": "Siempre que hagas un descanso largo, puedes moverte un %data.action.custom.fh-shadow% hasta tres hexágonos",
+        "2": "Siempre que realices un descanses corto, puedes %game.element.consume.dark% para realizar %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% como si estuvieras ocupando un hexágono con un %data.action.custom.fh-shadow%",
+        "3": "Mientras ocupes un hexágono con una %data.action.custom.fh-shadow%, todos los ataques en los que seas objetivo obtienen desventaja",
+        "4": "Elimina siete %data.action.custom.fh-shadow% en una ronda",
+        "5": "Coloca o elimina al menos un %data.action.custom.fh-shadow% cada ronda"
+      },
       "deep-terror": {
         "1": "Si se realizó la habilidad de ataque",
         "2": "en un hexágono vacío adyacente al<br>objetivo del ataque"
+      },
+      "drifter": {
+        "1": "Mueve una de tus fichas de personaje una casilla hacia atrás",
+        "2": "Cada vez que hagas un descanso largo, puedes mover una ficha de tu personaje una casilla hacia atrás",
+        "3": "Puedes llevar un objeto %game.items.slots.onehand% adicional a cada escenario",
+        "4": "Al final de cada escenario puedes descartar hasta dos cartas de botín, excepto Objeto aleatorio, para robar esa misma cantidad de cartas de botín",
+        "5": "Termina un escenario con tus fichas de personaje en la última casillas de cuatro habilidades persistentes",
+        "6": "No realices en ningún momento una habilidad de movimiento o ataque con un valor inferior a 4, y realiza al menos una habilidad de movimiento o ataque en cada ronda"
       },
       "elder-ooze": {
         "1": "El objetivo pierde un objeto."
@@ -108,11 +335,21 @@
         "2": "%game.damage:1%",
         "3": "Todos los enemigos<br>adyacentes sufren %game.damage:2%"
       },
+      "flaming-bladespinner": {
+        "1": "Todos los enemigos a<br>%game.action.range:2% sufren %game.damage:2%.",
+        "2": "Todos los enemigos a %game.action.range:2% sufren %game.damage:1%."
+      },
       "flowChartGroup": {
         "algox-1": "Algox",
         "algox-2": "Algox",
         "algox-3": "Algox",
-        "lurker": "Acechador"
+        "intro": "Intro",
+        "job-postings": "Ofertas de empleo",
+        "lurker": "Acechadores",
+        "other": "Otros",
+        "personal-quests": "Misiones personales",
+        "puzzle-book": "Libro de puzzles",
+        "random-scenarios": "Escenarios aleatorios"
       },
       "frost-demon": {
         "1": "%game.damage:1%"
@@ -123,32 +360,120 @@
       "frozen-corpse-scenario-32": {
         "1": "Mira las reglas especiales del escenario"
       },
+      "geminate": {
+        "1": "Siempre que realices un descanso corto, puedes eliminar un estado negativo de un aliado a %game.action.range:3%",
+        "2": "Una vez en cada escenario, cuando fueras a obtener un estado negativo, evita ese estado",
+        "3": "Siempre que realices una acción con un icono de perdida, puedes descartar una carta para %game.card.recover% recuperar una carta de tu pila de descartes de nivel igual o inferior",
+        "4": "Cambia de forma en cada ronda",
+        "5": "Pierde al menos una carta de habilidad cada ronda"
+      },
+      "giant-piranha-pig-boss": {
+        "1": "Nada",
+        "2": "Mueve todas las fichas de agua 2 hexágonos a la derecha",
+        "3": "Mueve todas las fichas de agua 1 hexágono a la derecha."
+      },
+      "harbinger-of-shadow": {
+        "1": "El %data.monster.harbinger-of-shadow-1% no actúa.",
+        "2": "El %data.monster.harbinger-of-shadow-2% no actúa."
+      },
       "harrower-infester": {
         "1": "Realiza \"%game.action.heal% X, personal\" donde X <br>es el doble del número de<br>enemigos que han sido objetivo del ataque."
       },
       "hound": {
         "1": "Añade %game.action.attack% +2 si el objeto está<br>adyacente a cualquier aliado del sabueso."
       },
+      "laser-spires": {
+        "1": "Rota cada rayo láser en el sentido de las agujas del reloj (si es posible)",
+        "2": "Rota cada rayo láser en el sentido contrario de las agujas del reloj (si es posible)",
+        "3": "Todos los personajes e invocaciones de personajes adyacentes a un rayo láser sufren daño por terreno peligroso"
+      },
+      "lightning-eel": {
+        "1": "Trata los hexágonos de agua como corredores y los hexágonos que no son de agua como obstáculos"
+      },
       "living-doom": {
         "1": "Invoca X Perdición<br>viviente normal",
         "2": "<br>donde X es el valor de<br>PV actuales de la Perdición<br>viviente dividido entre 5 (redondeado<br>hacia abajo),<br>hasta un máximo de 3."
+      },
+      "lord-of-chaos": {
+        "1": "Obliga a todos los enemigos a moverse un hexágono hacia el hexágono de pasillo vacío más cercano."
       },
       "lurker-clawcrusher": {
         "1": "El objetivo sufre %game.damage:X%, donde X<br>es su valor de %game.action.shield% para este ataque.",
         "2": "X es el doble de su valor de %game.action.shield%."
       },
+      "lurker-mindsnipper": {
+        "1": "Controla todos los objetivos de la<br>habilidad de ataque en orden de iniciativa:"
+      },
       "lurker-soldier": {
         "1": "%game.action.target% todos los enemigos a 2 hexágonos"
+      },
+      "lurker-wavethrower": {
+        "1": "Centra su atención<br>al enemigo más alejado a %game.action.range:6%",
+        "2": "Crea una ficha de agua de 1 hexágono en un hexágono vacío adyacente.",
+        "3": "en un hexágono adyacente<br>vacío con una ficha de agua."
+      },
+      "lurker-wavethrower-scenario-128": {
+        "1": "Centra su atención<br>al enemigo más alejado a %game.action.range:6%",
+        "2": "Crea una ficha de agua de 1 hexágono en un hexágono vacío adyacente."
+      },
+      "lurker-wavethrower-scenario-131": {
+        "1": "Centra su atención<br>al enemigo más alejado a %game.action.range:6%",
+        "2": "Crea una ficha de agua de 1<br>hexágono en un hexágono vacío adyacente.",
+        "3": "al hexágono vacío situado más a la izquierda si es impar o más a la derecha si es par"
       },
       "night-demon": {
         "1": "Todos los aliados y<br>enemigos adyacentes sufren %game.damage:1%.",
         "2": "%game.custom.disadvantage%"
       },
+      "prince-of-frost": {
+        "1": "Un personaje %game.card.recover% una carta perdida.",
+        "2": "Un personaje pierde una carta."
+      },
+      "program-director": {
+        "1": "a un hexágono vacío más cercano a su centro de atención",
+        "2": "Aliado de todos los monstruos esta ronda",
+        "3": "Centra su atención en el enemigo más cercano",
+        "4": "a cualquier hexágono vacío que sea<br>el más cercano de su centro de atención"
+      },
+      "ruined-machine": {
+        "1": "Si realizó la habilidad de movimiento,",
+        "2": "Si realizó la habilidad de ataque,",
+        "3": "Si realizó la habilidad de ataque,<br> todos los enemigos adyacentes sufren daño de trampa<br>y la Máquina Ruinosa muere."
+      },
+      "savvas-icestorm": {
+        "1": "Concede a todos los aliados a %game.action.range:2% y personal:"
+      },
+      "savvas-lavaflow": {
+        "1": "Todos los aliados y enemigos<br>adyacentes al objetivo sufren %game.damage:2%",
+        "2": "Todos los enemigos a %game.action.range:4% sufren %game.damage:2%."
+      },
+      "seeker-of-the-abyss": {
+        "1": "Todos los objetivos pierden una carta.",
+        "2": "Crea una trampa %game.condition.immobilize% en un hexágono vacío adyacente.",
+        "3": "Todos los aliados obtienen %game.action.attack% +1 a todos sus ataques esta ronda."
+      },
+      "shrike-fiend": {
+        "1": "Todos los enemigos a %game.action.range:3% sufren %game.damage:2%."
+      },
       "steel-automaton": {
         "1": "Todos los enemigos adyacentes sufren %game.damage:1%",
         "2": "Todos los enemigos adyacentes<br>sufren daño de terreno peligroso."
+      },
+      "sun-demon": {
+        "1": "%game.custom.advantage%"
+      },
+      "tormentor": {
+        "1": "Crea terreno peligroso de 1 hexágono en todos los hexágonos sin rasgos adyacentes al objetivo, los enemigos en estos hexágonos sufren",
+        "2": "Crea 1 hexágono de terreno helado en todos los hexágonos sin rasgos adyacentes a los objetivos del ataque"
+      },
+      "vestige-of-the-imprisoned-god": {
+        "1": "Modifica el terreno.",
+        "2": "Todos los personajes que no atacaron sufren daño de trampa al final de la ronda."
       }
     }
+  },
+  "edition": {
+    "fh": "Frosthaven"
   },
   "monster": {
     "abael-herder": "Pastor abael",
@@ -196,12 +521,39 @@
     "A Town in Flames": "Una ciudad en llamas",
     "Algox Scouting": "Vigilando a los Algox",
     "Howling in the Snow": "Aullidos en la nieve",
+    "group": {
+      "randomMonsterCard": "Cartas de monstruos aleatorias"
+    },
     "rules": {
       "fh": {
         "0": "No coloques el mazo de habilidades del monstruo Sabueso. En lugar de eso, cada ronda tienen una iniciativa de 26, todos los Sabuesos realizan, %game.action.move% 2; %game.action.attack% 2.",
         "1": "Los Guardias de la ciudad no realizan turnos pero obtienen %game.action.shield% 1 adicional (con un total %game.action.shield% 2 a nivel 1) y %game.action.retaliate% 2, tienen una iniciativa de 50 a efectos de centro de atención.",
         "112": "Los dos sabuesos tienen el doble de sus valores máximos de puntos de vida.",
-        "129": "Todos los guardias de la ciudad usan cartas de habilidad de monstruo Arquero en lugar de las suyas."
+        "128": {
+          "1": "Todos los Autómatas de acero usan el mazo de habilidades de monstruo Duende."
+        },
+        "129": "Todos los guardias de la ciudad usan cartas de habilidad de monstruo Arquero en lugar de las suyas.",
+        "134": "El autómata de acero tiene HxP/2 puntos de vida (redondeado hacia arriba).",
+        "60": "Los seis acechadores de las losetas 13-B y 13-D son tenientes fracturados y obtienen %game.action.attack% +1 en todos sus ataques.",
+        "65": "Todos los monstruos obtienen %game.action.push% 1 en todos sus ataques. Si el nivel del escenario es 4 o superior, aumenta a %game.action.push% 2.",
+        "76": "Divide el valor máximo de puntos de vida del Rey Pez entre 2 (redondeado hacia abajo). El Rey Pez no actúa, no puede ser objetivo de habilidades de curación, es inmune a todos los estados y tiene una iniciativa de 01 a efectos de Atención.",
+        "77": {
+          "1": "El Rey Pez no puede realizar ninguna habilidad de movimiento y es inmune al movimiento forzado. (¡También se han ajustado los Especiales de Jefe!)",
+          "2": "Inmune al movimiento forzado"
+        },
+        "97": "Para añadir habilidades de monstruo a la mano de un personaje, abre el menú de Cartas de Habilidad y quita las cartas del mazo. Para jugar esa carta, basta con volver a añadirla en el menú Edición."
+      }
+    }
+  },
+  "section": {
+    "rules": {
+      "fh": {
+        "21-1": {
+          "1": "en cualquier hexágono inicial vacío"
+        },
+        "65-3": {
+          "1": "Abre todas las puertas %game.mapMarker.1%. Coloca a todos los personajes e invocaciones de personajes, por orden de iniciativa, en el hexágono vacío más cercano de la loseta 16-A y, a continuación, elimina todas las puertas y la loseta 13-A del mapa."
+        }
       }
     }
   }

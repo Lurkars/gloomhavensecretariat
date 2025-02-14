@@ -70,7 +70,7 @@
       "1": "장애물이 생성되는 행동 중, 추가로 장애물을 하나 더 생성하고 해당 행동의 모든 효과를 추가 장애물에도 적용."
     },
     "solo-139": {
-      "1": "%data.characterColored.mindthief:증강% 행동을 수행할 때마다, 해당 행동 전체에 +1 %game.action.attack% 추가."
+      "1": "%data.characterColored.mindthief:Augment% 행동을 수행할 때마다, 해당 행동 전체에 +1 %game.action.attack% 추가."
     },
     "solo-140": {
       "1": "공격에 의해 피해를 입게 될 때, %game.element.consume.light% 를 통해 해당 공격에 대해 %game.action.shield% 3 획득 가능."
@@ -91,10 +91,10 @@
       "1": "체력이 정확히 1인 상태에서 근접 공격을 수행할 때마다, 해당 공격에 +2 %game.action.attack% 추가."
     },
     "solo-146": {
-      "1": "매번 %data.characterColored.music-note:노래% 행동 수행 후, 즉시 %game.action.attack% 2 행동 또는 %game.action.move% 2 행동 수행."
+      "1": "매번 %data.characterColored.music-note:Song% 행동 수행 후, 즉시 %game.action.attack% 2 행동 또는 %game.action.move% 2 행동 수행."
     },
     "solo-147": {
-      "1": "%data.characterColored.angry-face:파멸% 행동을 수행할 때마다, %data.characterColored.angry-face:파멸% 대상에게 %game.condition.muddle% 적용."
+      "1": "%data.characterColored.angry-face:Doom% 행동을 수행할 때마다, %data.characterColored.angry-face:Doom% 대상에게 %game.condition.muddle% 적용."
     },
     "solo-148": {
       "1": "아군이 “의료품 꾸러미” 또는 “큰 의료품 꾸러미” 행동을 수행할 때마다, 해당 치료에 +1 %game.action.heal% 추가."
@@ -103,7 +103,7 @@
       "1": "차례 중 5칸 이상을 이동한 경우, 아무 원소나 1개 생성."
     },
     "solo-150": {
-      "1": "%data.characterColored.two-mini:명령% 행동 수행 후, 손에 있는 카드 1장을 플레이하고 즉시 해당 카드에서 해당 %data.characterColored.two-mini:명령% 과 동일한 부분(상단 또는 하단) 행동 수행."
+      "1": "%data.characterColored.two-mini:Command% 행동 수행 후, 손에 있는 카드 1장을 플레이하고 즉시 해당 카드에서 해당 %data.characterColored.two-mini:Command% 과 동일한 부분(상단 또는 하단) 행동 수행."
     },
     "solo-151": {
       "1": "근접 공격 중, 해당 공격 행동 전체에 %game.condition.poison% 및 %game.condition.wound% 추가."

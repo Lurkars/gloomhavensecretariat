@@ -134,7 +134,7 @@
       ".": "Demoledora",
       "mech": {
         ".": "Armadura mecanizada",
-        "hint": "Tu valor máximo de puntos de vida aumenta en 5. Curación %game.action.heal% 10, Personal."
+        "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
       }
     },
     "hatchet": "Ejecutor",
