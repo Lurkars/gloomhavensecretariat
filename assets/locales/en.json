@@ -2327,7 +2327,8 @@
       "es": "Spanish (Español)",
       "fr": "French (Français)",
       "help": "Help translating!",
-      "ko": "Korean (한국어)"
+      "ko": "Korean (한국어)",
+      "zh_Hans": "Simplified Chinese (简体中文)"
     },
     "lootDeck": {
       ".": "Loot Deck",
