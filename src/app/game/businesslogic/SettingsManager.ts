@@ -23,7 +23,7 @@ export class SettingsManager {
 
   settings: Settings = new Settings();
   label: any = {};
-  locales: string[] = ["en", "de", "fr", "ko", "es"];
+  locales: string[] = ["en", "de", "fr", "ko", "es", "zh_Hans"];
   developent: boolean = false;
   debugManager: DebugManager = debugManager;
 

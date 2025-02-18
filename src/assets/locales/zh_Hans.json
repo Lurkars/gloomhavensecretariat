@@ -1994,12 +1994,13 @@
     },
     "locale": {
       ".": "语言",
-      "de": "德语(Deutsch)",
-      "en": "英语",
-      "es": "西班牙语(Español)",
-      "fr": "法语(Français)",
+      "de": "德语 (Deutsch)",
+      "en": "英语 (English)",
+      "es": "西班牙语 (Español)",
+      "fr": "法语 (Français)",
       "help": "翻译求助!",
-      "ko": "韩语(한국어)"
+      "ko": "韩语 (한국어)",
+      "zh_Hans": "简体中文"
     },
     "lootDeck": {
       ".": "拾取物牌堆",

@@ -2327,7 +2327,8 @@
       "es": "Spanisch (Español)",
       "fr": "Französisch (Français)",
       "help": "Bei der Übersetzung helfen!",
-      "ko": "Koreanisch (한국어)"
+      "ko": "Koreanisch (한국어)",
+      "zh_Hans": "Vereinfachtes Chinesisch (简体中文)"
     },
     "lootDeck": {
       ".": "Beute Deck",
