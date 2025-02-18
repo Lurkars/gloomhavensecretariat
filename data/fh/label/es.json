@@ -252,8 +252,8 @@
         "5": "Siempre que realices un descanso corto, puedes gastar un objeto %game.card.spent% no gastado sin aplicar su efecto para %game.card.recover% un objeto distinto",
         "6": "Al comienzo de tu primer turno en cada escenario, puedes realizar %game.action.move% 3",
         "7": "Siempre que obtengas %game.condition.immobilize%, preven ese estado",
-        "8": "Declarara Rápido durante siete rondas consecutivas",
-        "9": "No ser nunca objetivo de un ataque"
+        "8": "Declara Rápido durante siete rondas consecutivas",
+        "9": "No seas nunca objetivo de un ataque"
       },
       "boneshaper": {
         "1": "Obtén %game.action.attack% +1 por cada ficha en esta carta.",

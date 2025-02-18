@@ -167,6 +167,10 @@
       ".": "Robuster Beinpanzer",
       "1": "Füge zu Beginn deines Zugs allen deinen Bewegungsfertigkeiten -2 %game.action.move% hinzu, um in dieser Runden %game.action.shield% zu erhalten. "
     },
+    "fh-233": {
+      ".": "Toter Rabe",
+      "1": "Füge während der Fernkampf-Angriffsfertigkeit eines Verbündeten einem Angriff %game.condition.muddle% und %game.condition.curse% hinzu."
+    },
     "fh-24": {
       ".": "Verdorbene Klinge",
       "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.condition.wound%, %game.condition.poison%, und %game.condition.muddle% hinzu."

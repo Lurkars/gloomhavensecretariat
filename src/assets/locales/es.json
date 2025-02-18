@@ -140,7 +140,7 @@
     "progress": {
       ".": "Hoja de Personaje",
       "donate": "Donar",
-      "donations": "Donaciones al Santuario del Gran Roble: {0}",
+      "donations": "Donaciones totales: {0}",
       "export": "Exportar",
       "fh": {
         "disable": "Ir a la hoja de personaje de Gloomhaven",

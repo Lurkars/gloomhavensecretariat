@@ -1,1 +1,147 @@
-{}
+{
+  "battleGoals": {
+    "458": {
+      "text": "手牌中总共有五张或更多牌，并在场景结束时弃牌。"
+    },
+    "459": {
+      "text": "在这个场景中，获得七点或更少的经验值。"
+    },
+    "460": {
+      ".": "工坊",
+      "text": "在这个场景中，获得十三点或更多的经验值。"
+    },
+    "461": {
+      ".": "狂热者"
+    },
+    "462": {
+      "text": "在场景结束时，你的生命值必须小于等于二。"
+    },
+    "463": {
+      ".": "快速治疗者",
+      "text": "在场景结束时，你的生命值必须是满的。"
+    },
+    "466": {
+      ".": "保卫者",
+      "text": "在场景结束时，没有任何队友精疲力竭。"
+    },
+    "467": {
+      ".": "探索者",
+      "text": "在你的回合开门揭示一个房间。"
+    },
+    "470": {
+      ".": "和平主义者",
+      "text": "在这个场景中，不杀死超过三个怪物。"
+    },
+    "471": {
+      "text": "在这个场景中，杀死超过五个怪物。"
+    },
+    "472": {
+      ".": "猎人",
+      "text": "在这个场景中，杀掉一个或更多的精英。"
+    },
+    "473": {
+      ".": "专家"
+    },
+    "474": {
+      ".": "侵略者"
+    },
+    "476": {
+      "text": "不使用任何装备，完成这个场景。"
+    },
+    "477": {
+      "text": "第一个消灭怪物。"
+    },
+    "478": {
+      "text": "在这个场景中，生命值全程不低于上限的一半（向上取整）。"
+    },
+    "479": {
+      ".": "处决者",
+      "text": "一击杀死一个满血的怪物。"
+    },
+    "480": {
+      "text": "只进行长休。"
+    },
+    "481": {
+      "text": "只进行短休。"
+    }
+  },
+  "custom": {
+    "gh": {
+      "bandit-commander": {
+        "1": "移动到下一扇门前，并揭露这个房间"
+      },
+      "captain-of-the-guard": {
+        "1": "本回合，所有友军获得 +1 %game.action.attack% 攻击加成"
+      },
+      "deep-terror": {
+        "1": "在一个目标的相邻格"
+      },
+      "flame-demon": {
+        "1": "所有临近敌人受到%game.damage:2%。"
+      },
+      "flowChartGroup": {
+        "city-events": "城市事件",
+        "dragons": "巨龙",
+        "personal-quests": "个人任务",
+        "random-scenarios": "随机场景",
+        "road-events": "道中事件",
+        "sewers": "裁缝",
+        "the-merchant": "商人",
+        "under-oceans": "大洋之下",
+        "voice": "声音"
+      }
+    }
+  },
+  "deck": {
+    "archer": "弓箭手",
+    "boss": "头目",
+    "guard": "守卫"
+  },
+  "edition": {
+    "gh": "幽港迷城"
+  },
+  "globalAchievements": {
+    "Ancient Technology": "古代科技",
+    "City Rule: Demonic": "城市规则：恶魔",
+    "City Rule: Economic": "城市规则：经济",
+    "City Rule: Militaristic": "城市规则：军事",
+    "End of Corruption": "腐化终结",
+    "End of the Invasion": "入侵结束",
+    "The Edge of Darkness": "黑暗边界",
+    "The Merchant Flees": "商人逃离"
+  },
+  "monster": {
+    "arcane-golem": "符文魔像",
+    "cave-bear": "洞穴熊",
+    "city-archer": "城市弓箭手",
+    "city-guard": "城市守卫",
+    "cultist": "邪教徒",
+    "deep-terror": "深度恐惧",
+    "flame-demon": "眼魔",
+    "frost-demon": "霜魔",
+    "giant-viper": "巨型毒蛇",
+    "night-demon": "夜魔",
+    "prime-demon": "至高恶魔",
+    "siege-cannon": "攻城炮",
+    "stone-golem": "石魔像",
+    "the-colorless": "无色者"
+  },
+  "partyAchievements": {
+    "A Map to Treasure": "藏宝图",
+    "Bad Business": "坏生意",
+    "Debt Collection": "讨债",
+    "First Steps": "第一步"
+  },
+  "personalQuest": {
+    "527": "血神狂热者",
+    "533": "完美毒药"
+  },
+  "scenario": {
+    "Alchemy Lab": "化学实验室",
+    "Ancient Defense Network": "远古防御网络",
+    "Arcane Library": "符文图书馆",
+    "Ghost Fortress": "鬼魂森林",
+    "Lost Island": "失落岛屿",
+    "Lost Temple": "失落寺庙"
+  }
+}

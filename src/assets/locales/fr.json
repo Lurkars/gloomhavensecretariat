@@ -5,7 +5,12 @@
     "ip": "Gloomhaven et toutes les propriétés, images et textes associés sont la propriété de {0}.",
     "license": "Sous licence {0}.",
     "sourceCode": "Code Source",
-    "support": "Soutenir les développeurs"
+    "support": "Soutenir les développeurs",
+    "version": {
+      "latest": "Dernières nouveautés",
+      "unknown": "Impossible de récupérer la dernière version",
+      "update": "Dernière version <a target=\"_blank\" href=\"{1}\">{0}</a>"
+    }
   },
   "and": "et",
   "app": {
@@ -22,15 +27,37 @@
       ".": "Gérer la campagne",
       "add": "Ajouter une campagne",
       "hint": "La modification de la campagne actuelle ou la création d'une nouvelle campagne est désactivée pendant un scénario. Terminez ou annulez le scénario en cours pour modifier la campagne actuelle ou en créer une nouvelle.",
-      "name": "Nom de la campagne {0}"
+      "name": "Nom de la campagne {0}",
+      "reset": "Réinitialisation de la Campagne"
     },
     "character": "Feuilles de personnage",
     "items": "Aperçu des cartes d'objets",
-    "map": "Carte mondiale",
+    "map": {
+      ".": "Carte Globale",
+      "highlighting": "Mise en évidence"
+    },
     "party": "Fiche de groupe/campagne",
-    "sheet": "Feuille de gestion de campagne globale"
+    "resources": "Tableau récapitulatif des ressources",
+    "sheet": "Feuille de gestion de campagne globale",
+    "trials": {
+      ".": "Essais",
+      "automation": "L'effet de cette carte est automatiquement appliqué!"
+    }
   },
   "cancel": "Annuler",
+  "challenges": {
+    ".": "Défis",
+    "automation": {
+      "hint": "L'effet de cette carte est automatiquement appliqué!"
+    },
+    "deck": {
+      "clear": {
+        ".": "Rejeter le défi pioché",
+        "multiple": "Rejeter les défis piochés"
+      },
+      "current": "Actuel"
+    }
+  },
   "character": {
     ".": "Personnage",
     "absent": "Absent",
@@ -909,6 +936,7 @@
       "elite": "Générer un monstre d'élite",
       "normal": "Générer un monstre normal"
     },
+    "applyInteractiveActions": "Appliquer les capacités mises en évidence pour",
     "boss": "Boss",
     "cancelNumberpicker": "Annuler",
     "changeStandee": "Changer %game.monsterType.{0}% figurine #{1}",
@@ -921,6 +949,7 @@
     "normal": "Normal",
     "remove": "Retirer un monstre",
     "removeAll": "Retirer tout",
+    "removeUnused": "Retirer les inutilisés",
     "selectStandees": {
       "all": "Sélectionner tous les Figurines",
       "boss": "Sélectionnez tous les Figurines Boss",
@@ -931,7 +960,7 @@
     "showBoss": "Voir les monstres boss",
     "showHidden": "Voir les monstres cachés",
     "toggleAllied": {
-      "off": "Désactivez <span class=\"monster-allied-off\">Allié</span>.",
+      "off": "Désactivez l'<span class=\"monster-allied-off\">Allié</span>",
       "on": "Tournez <span class=\"monster-allied-on\">Allié</span> sur"
     },
     "toggleAlly": {
