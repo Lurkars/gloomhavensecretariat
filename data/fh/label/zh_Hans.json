@@ -1,7 +1,7 @@
 {
   "battleGoals": {
     "1301": {
-      ".": "精算师",
+      ".": "军需官",
       "text": "每次休息时手牌为0。"
     },
     "1302": {
@@ -298,8 +298,16 @@
           ".": "自动收割",
           "hint": "每周结束后自动收割.当<i>%settings.automaticPassTime%</i>时不激活。"
         },
-        "harvest": "手动收割"
+        "harvest": "手动收割",
+        "interaction": "种植/收获草药",
+        "state": {
+          "both": "收割花园和种植草药",
+          "plant": "种植草药"
+        }
       }
+    },
+    "hall-of-revelry": {
+      ".": "狂欢大厅"
     }
   }
 }

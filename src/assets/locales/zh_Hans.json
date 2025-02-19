@@ -689,6 +689,10 @@
         ".": "再生",
         "hint": "%game.conditionIcon.regenerate% 再生：回合开始时执行治疗%game.action.heal%1。受到伤害时移除。"
       },
+      "rupture": {
+        ".": "断裂",
+        "hint": "%game.conditionIcon.rupture% 断裂: 每当移动时承受 %game.damage:1%. 当被治疗时移除."
+      },
       "strengthen": {
         ".": "强化",
         "hint": "%game.conditionIcon.strengthen% 强壮：所有攻击获得优势。下回合结束时移除。"
@@ -1864,19 +1868,152 @@
   "settings": {
     ".": "设置",
     "abilities": {
-      ".": "技能卡"
+      ".": "技能卡",
+      "hint": "为怪物抽取能力卡牌.如果不勾选的话,怪物的行动顺序必须手动拖拽才能排序."
+    },
+    "abilityNumbers": {
+      ".": "显示能力卡牌编号",
+      "hint": "显示能力卡牌上的卡牌编号"
+    },
+    "abilityReveal": {
+      ".": "直接揭示能力",
+      "hint": "如果不勾选的话,怪物能力直到它的回合开始才会揭示"
     },
     "activeApplyConditions": {
+      ".": "确认适用的状态",
       "auto": {
-        ".": "自动确认"
+        ".": "自动确认",
+        "hint": {
+          ".": "无需询问是否确认而直接自动应用这些状态.<br><br>请谨慎选择启用该项功能!",
+          "brittle": "当承受伤害时, 自动应用 %game.condition.brittle% 并增加伤害.<br><br>此功能并不能与 %game.condition.poison% 效果自动相互作用!",
+          "heal": "当血量增加时自动应用 %game.action.heal% 并移除相关的状态.",
+          "shield": "当承受伤害时, 自动应用 %game.action.shield% 并降低伤害.",
+          "ward": "当承受伤害时, 自动应用 %game.condition.ward% 并降低伤害.<br><br>该功能并不能与 %game.condition.poison% 效果自动相互作用!"
+        }
+      },
+      "hint": {
+        ".": "某些状态需要确认以进行应用,例如当具有中毒状态的个体血量减少时确认是否丢失1点额外的生命值",
+        "brittle": "当承受伤害时, 询问应用 %game.condition.brittle% 并增加伤害.",
+        "heal": "无状态,但当血量值增加时如果 %game.action.heal% 应该被应用,会显示帮助信息.",
+        "poison": "当承受伤害时, 询问是否从 %game.condition.poison% 中应用 %game.action.attack% +1 (包括 %game.attackmodifier.double%).",
+        "poison_x": "当承受伤害时,询问是否从 %game.condition.poison_x:X% (包括 %game.attackmodifier.double%) 中应用 %game.action.attack% +X.",
+        "shield": "无状态,但当承受伤害时如果 %game.action.shield% 应该被应用并降低所受伤害,会显示帮助信息.",
+        "ward": "当承受伤害时,询问是否应用 %game.condition.ward% 并降低所受伤害."
       }
     },
+    "activeStandees": {
+      ".": "激活的立牌",
+      "hint": "在怪物的回合中,每个立牌均拥有独立的一个激活状态,双击立牌以标记其回合结束"
+    },
     "activeSummons": {
-      ".": "激活的召唤物"
+      ".": "激活的召唤物",
+      "hint": "在角色回合开始时,召唤物会以其时序值被激活,双击以切换激活状态."
+    },
+    "addAllMonsters": {
+      ".": "添加所有房间/段落文本",
+      "hint": "这将自动添加在当前剧本中出现的所有怪物.请谨慎考虑因为这样有可能会剧透未被揭示房间/段落的相关信息."
     },
     "additional": "额外游玩",
+    "allyAttackModifierDeck": {
+      ".": "盟友的攻击修正牌堆",
+      "hint": "启用可供盟友使用的攻击修正牌堆"
+    },
+    "alwaysAllyAttackModifierDeck": {
+      ".": "始终启用盟友的攻击修正牌堆",
+      "hint": "始终显示可供盟友使用的攻击修正牌堆"
+    },
+    "alwaysFhAdvantage": {
+      ".": "始终使用霜港迷城优势/劣势攻击的规则",
+      "hint": "始终应用霜港迷城中优势攻击或劣势攻击时抽取攻击修正卡牌的规则 (当游玩霜港迷城时此功能将自动启用)"
+    },
     "alwaysFhSolo": {
-      ".": "总是启用霜港迷城单人游玩规则"
+      ".": "始终启用霜港迷城单人游玩规则",
+      "hint": "始终应用霜港迷城中单人模式等级计算的规则 (当游玩霜港迷城时此功能将自动启用)"
+    },
+    "alwaysHazardousTerrain": {
+      ".": "始终启用危险地形伤害计算",
+      "hint": "始终应用霜港迷城中危险地形伤害计算的规则 (当游玩霜港迷城时此功能将自动启用)"
+    },
+    "alwaysLootApplyDialog": {
+      ".": "始终显示拾取物归属对话框",
+      "hint": "始终显示对话框以选择角色来获得抽取的拾取卡牌,而并非由当前激活角色直接获取"
+    },
+    "alwaysLootDeck": {
+      ".": "始终使用拾取牌堆",
+      "hint": "每个剧本都显示拾取牌堆 (当游玩霜港迷城时此功能将自动启用)"
+    },
+    "amAdvantage": {
+      ".": "以优势/劣势抽取攻击修正牌堆",
+      "hint": "添加优势和劣势按钮以及键盘快捷键来抽取攻击修正牌堆."
+    },
+    "amAdvantageHouseRule": {
+      ".": "优势/劣势连抽村规",
+      "hint": "在第二次抽取时并不无视连抽符号,而是同样继续抽取攻击修正直到抽到非连抽符号的卡牌为止."
+    },
+    "animations": {
+      ".": "动画效果",
+      "hint": "禁用所有动画效果以提高性能"
+    },
+    "applyBuildingRewards": {
+      ".": "应用建筑物奖励",
+      "hint": "在建造或升级建筑物时,应用相应的奖励并打开对话框(如果存在的话)."
+    },
+    "applyConditions": {
+      ".": "状态自动生效",
+      "hint": {
+        ".": "相应的状态在回合前后自动生效,例如当个体有负伤状态时,它将在其回合开始时损失1点生命值",
+        "bane": "在回合结束时自动生效 %game.condition.bane% 伤害.",
+        "regenerate": "在回合开始时自动生效 %game.condition.regenerate%.",
+        "wound": "在回合开始时自动生效 %game.condition.wound% 伤害.",
+        "wound_x": "在回合开始时自动生效 %game.condition.wound_x:X% 伤害."
+      }
+    },
+    "applyLongRest": {
+      ".": "应用长休",
+      "hint": "当处于长休时,在角色回合结束自动执行 %game.action.heal% 2"
+    },
+    "applyLoot": {
+      ".": "应用角色拾取归属",
+      "hint": "当拾取卡牌被抽取后,自动将拾取物添加给当前激活/被选中的角色"
+    },
+    "applyLootRandomItem": {
+      ".": "拾取物中抽取随机物品",
+      "hint": "当随机物品拾取卡牌被抽取时,自动抽取一个新的随机物品并将其装备给当前激活/被选中的角色."
+    },
+    "applyRetirement": {
+      ".": "应用退休奖励",
+      "hint": "以优势/劣势抽取攻击修正牌堆."
+    },
+    "artwork": {
+      ".": "插图",
+      "hint": "怪物及角色使用立绘插图"
+    },
+    "automaticAttackModifierFullscreen": {
+      ".": "攻击修正牌堆自动全屏",
+      "hint": "当使用小型设备操作时,以全屏模式打开攻击修正牌堆(同样适用于拾取牌堆)."
+    },
+    "automaticGameClock": {
+      ".": "自动游戏时钟",
+      "hint": "当GHS窗口打开或关闭时自动开始/结束游戏时钟."
+    },
+    "automaticGameClockFocus": {
+      ".": "自动游戏时钟聚焦",
+      "hint": "当窗口被聚焦或失去聚焦时同样自动开始/结束游戏时钟."
+    },
+    "automaticPassTime": {
+      ".": "时间自动流逝",
+      "hint": "当完成一个剧本之后自动向日历中添加一周以表明时间流逝.此功能也会自动添加这周日历上段落文本的效果."
+    },
+    "automaticStandees": {
+      ".": "自动立牌",
+      "hint": "自动添加立牌."
+    },
+    "automaticStandeesDialog": {
+      ".": "自动立牌对话框",
+      "hint": "为所有新立牌自动打开立牌数字对话框."
+    },
+    "automaticTheme": {
+      ".": "自动主题"
     },
     "feedbackErrors": {
       "clear": "清除忽略的自动反馈错误",
