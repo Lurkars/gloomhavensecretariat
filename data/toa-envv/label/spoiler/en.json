@@ -12,7 +12,7 @@
   },
   "items": {
     "toa-131": {
-      ".": "Predator's Wristblade",
+      "": "Predator's Wristblade",
       "1": "After you kill an enemy during your turn, gain two \"Rage\" %game.characterIcon.envv% cards."
     }
   }

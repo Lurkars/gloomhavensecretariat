@@ -1,99 +1,99 @@
 {
   "battleGoals": {
     "458": {
-      ".": "Sparsam",
+      "": "Sparsam",
       "text": "Habe am Ende des Szenarios insgesamt mindestens 5 Karten in der Hand und dem Abwurfstapel."
     },
     "459": {
-      ".": "Müßiggang",
+      "": "Müßiggang",
       "text": "Erhalte während des Szenarios höchstens 7 Erfahrungspunkte."
     },
     "460": {
-      ".": "Arbeitstier",
+      "": "Arbeitstier",
       "text": "Erhalte während des Szenarios mindestens 13 Erfahrungspunkte."
     },
     "461": {
-      ".": "Voller Eifer",
+      "": "Voller Eifer",
       "text": "Habe am Ende des Szenarios noch insgesamt höchstens 3 Karten in der Hand und dem Abwurfstapel."
     },
     "462": {
-      ".": "Masochistisch",
+      "": "Masochistisch",
       "text": "Dein aktueller Trefferpunkte-Wert am Ende des Szenarios darf höchstens 2 betragen."
     },
     "463": {
-      ".": "Heilfleisch",
+      "": "Heilfleisch",
       "text": "Dein aktueller TP-Wert am Ende des Szenarios muss deinem maximalen TP-Wert entsprechen."
     },
     "464": {
-      ".": "Entschärfend",
+      "": "Entschärfend",
       "text": "Sorge dafür, dass während des Szenarios in deinem Zug oder dem deiner Beschworenen eine Falle ausgelöst oder entschärft wird."
     },
     "465": {
-      ".": "Beutegier",
+      "": "Beutegier",
       "text": "Erbeute während des Szenarios einen Schatzaufleger."
     },
     "466": {
-      ".": "Schutzschild",
+      "": "Schutzschild",
       "text": "Lass nicht zu, dass verbündete Charaktere während des Szenarios erschöpft werden."
     },
     "467": {
-      ".": "Forscherdrang",
+      "": "Forscherdrang",
       "text": "Erkunde während des Szenarios einen Raum, indem du in deinem Zug eine Tür öffnest."
     },
     "468": {
-      ".": "Raffzahn",
+      "": "Raffzahn",
       "text": "Erbeute während des Szenarios mindestens 5 Münzmarker."
     },
     "469": {
-      ".": "Mittelos",
+      "": "Mittelos",
       "text": "Erbeute während des Szenarios keine Münzmarker oder Schatzaufleger."
     },
     "470": {
-      ".": "Pazifistisch",
+      "": "Pazifistisch",
       "text": "Töte während des Szenarios höchstens 3 Monster."
     },
     "471": {
-      ".": "Sadistisch",
+      "": "Sadistisch",
       "text": "Töte während des Szenarios mindestens 3 Monster."
     },
     "472": {
-      ".": "Jagdkunst",
+      "": "Jagdkunst",
       "text": "Töte während des Szenarios mindestens ein Elite-Monster."
     },
     "473": {
-      ".": "Professionell",
+      "": "Professionell",
       "text": "Setze während des Szenarios deine ausgerüsteten Gegenstände mindestens so oft ein, wie deine Stufe plus 2 ergibt."
     },
     "474": {
-      ".": "Aggressionen",
+      "": "Aggressionen",
       "text": "Sorge dafür, dass während des Szenarios zu Beginn jeder Runde mindestens ein Monster auf der Karte ist."
     },
     "475": {
-      ".": "Übertrieben",
+      "": "Übertrieben",
       "text": "Töte während des Szenarios ein Monster und verursache dabei mindestens 4 Schaden mehr als notwendig."
     },
     "476": {
-      ".": "Puristisch",
+      "": "Puristisch",
       "text": "Benutze während des Szenarios keine Gegenstände."
     },
     "477": {
-      ".": "Erstschlag",
+      "": "Erstschlag",
       "text": "Das erste getötete Monster im Szenario muss durch deine Hand sterben."
     },
     "478": {
-      ".": "Zäher Hund",
+      "": "Zäher Hund",
       "text": "Lass nicht zu, dass während des Szenarios dein aktueller TP-Wert unter die Hälfte deines maximalen TP-Werts (aufgerundet) sinkt."
     },
     "479": {
-      ".": "Volltreffer",
+      "": "Volltreffer",
       "text": "Töte während des Szenarios ein unverletztes Monster mit einem einzigen Angriff."
     },
     "480": {
-      ".": "Schlusslicht",
+      "": "Schlusslicht",
       "text": "Mach während des Szenarios nur lange Rasten."
     },
     "481": {
-      ".": "Ruhelos",
+      "": "Ruhelos",
       "text": "Mach während des Szenarios nur kurze Rasten."
     }
   },

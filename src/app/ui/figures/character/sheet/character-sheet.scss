@@ -14,7 +14,7 @@
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
-    padding-left: calc(var(--ghs-unit) * 1.2 * var(--ghs-dialog-factor));
+    padding-left: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
 
     .compact-separator {
       display: none;
@@ -28,11 +28,11 @@
         flex-direction: column;
 
         &.column-left {
-          width: calc(var(--ghs-unit) * 32 * var(--ghs-dialog-factor));
+          width: calc(var(--ghs-unit) * 33 * var(--ghs-dialog-factor));
         }
 
         &.column-right {
-          margin-left: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+          margin-left: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
           width: calc(var(--ghs-unit) * 25 * var(--ghs-dialog-factor));
         }
 
@@ -829,6 +829,7 @@
       margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       display: flex;
       flex-direction: column;
+      overflow: auto;
 
       .mastery {
         display: flex;

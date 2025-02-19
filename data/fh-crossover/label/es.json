@@ -3,9 +3,9 @@
     "brute": "Salvaje",
     "cragheart": "Corazón Hueco",
     "demolitionist": {
-      ".": "Demoledora",
+      "": "Demoledora",
       "mech": {
-        ".": "Armadura mecanizada"
+        "": "Armadura mecanizada"
       }
     },
     "diviner": "Adivina",

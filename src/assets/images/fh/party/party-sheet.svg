@@ -7,7 +7,7 @@
    viewBox="0 0 206.21533 170.38249"
    version="1.1"
    id="svg994"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="party-sheet.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -29,15 +29,17 @@
      fit-margin-bottom="0"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="1.9704154"
-     inkscape:cx="160.62603"
-     inkscape:cy="473.75798"
-     inkscape:window-width="1846"
-     inkscape:window-height="1016"
+     inkscape:zoom="3.9408308"
+     inkscape:cx="121.4211"
+     inkscape:cy="214.80242"
+     inkscape:window-width="1854"
+     inkscape:window-height="1043"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs991">
     <clipPath
@@ -1537,16 +1539,16 @@
     </g>
     <g
        id="g7505"
-       transform="matrix(0.35277777,0,0,-0.35277777,20.777362,58.554626)"
-       style="stroke:#000000;stroke-opacity:1">
+       transform="matrix(0.35277777,0,0,-0.35277777,25.010698,58.554626)"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">
       <path
          d="M 0,0 V -8.096 L 4.157,-3.94 Z"
-         style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-opacity:1"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-opacity:1"
          id="path7507" />
     </g>
     <g
        id="g7509"
-       transform="matrix(0.35277777,0,0,-0.35277777,20.926094,63.745751)"
+       transform="matrix(0.35277777,0,0,-0.35277777,25.15943,63.745751)"
        style="stroke:#000000;stroke-opacity:1">
       <path
          d="M 0,0 V 2.712 L 3.626,6.618 V 2.241"
@@ -1555,7 +1557,7 @@
     </g>
     <g
        id="g7513"
-       transform="matrix(0.35277777,0,0,-0.35277777,20.926094,56.170553)"
+       transform="matrix(0.35277777,0,0,-0.35277777,25.15943,56.170553)"
        style="stroke:#000000;stroke-opacity:1">
       <path
          d="m 0,0 v -2.742 l 3.626,-3.906 v 4.22"

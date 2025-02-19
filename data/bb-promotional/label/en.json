@@ -4,27 +4,27 @@
   },
   "items": {
     "bb-41": {
-      ".": "Beetle's Carapace",
+      "": "Beetle's Carapace",
       "1": "If you move 1 or fewer hexes on your turn, gain %game.action.shield%1 for the round."
     },
     "bb-42": {
-      ".": "Rodent's Fang",
+      "": "Rodent's Fang",
       "1": "After moving 4 or more hexes, add +1%game.action.attack% to all your attacks this turn."
     },
     "bb-43": {
-      ".": "Piercing Silver Arrow",
+      "": "Piercing Silver Arrow",
       "1": "During your ranged attack, add %game.action.pierce%5."
     },
     "bb-44": {
-      ".": "Shrunken Short Sword",
+      "": "Shrunken Short Sword",
       "1": "The default top action of your abilitiy cards is %game.action.attack%2 instead of %game.action.attack%2."
     },
     "bb-45": {
-      ".": "Everchill Sunflake",
+      "": "Everchill Sunflake",
       "1": "During your attack, %game.elementHalf.consume:ice|light% to add advantage or %game.condition.muddle%."
     },
     "bb-46": {
-      ".": "Drop of Cure Potion",
+      "": "Drop of Cure Potion",
       "1": "During your turn, remove all negative conditions and %game.action.heal%2 self."
     }
   },

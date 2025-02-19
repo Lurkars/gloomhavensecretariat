@@ -3,9 +3,9 @@
     "brute": "Barbar",
     "cragheart": "Felsenherz",
     "demolitionist": {
-      ".": "Sprengmeisterin",
+      "": "Sprengmeisterin",
       "mech": {
-        ".": "Mechanikanzug",
+        "": "Mechanikanzug",
         "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
       }
     },

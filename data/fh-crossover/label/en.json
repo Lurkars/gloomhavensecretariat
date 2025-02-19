@@ -3,9 +3,9 @@
     "brute": "Brute",
     "cragheart": "Cragheart",
     "demolitionist": {
-      ".": "Demolitionist",
+      "": "Demolitionist",
       "mech": {
-        ".": "Mech Suit",
+        "": "Mech Suit",
         "hint": "Your maximum hit point value is increased by 5. Heal %game.action.heal% 10, self."
       }
     },

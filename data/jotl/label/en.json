@@ -70,139 +70,139 @@
   },
   "battleGoals": {
     "286": {
-      ".": "Acrobatic",
+      "": "Acrobatic",
       "text": "Lose a card to negate 5 or more damage."
     },
     "287": {
-      ".": "Agoraphobe",
+      "": "Agoraphobe",
       "text": "End each of your turns adjacent to a wall or obstacle."
     },
     "288": {
-      ".": "Altruist",
+      "": "Altruist",
       "text": "Collect fewer money tokens than any other character."
     },
     "289": {
-      ".": "Assistant",
+      "": "Assistant",
       "text": "Kill a monster attacked by an ally earlier in the round."
     },
     "290": {
-      ".": "Challenger",
+      "": "Challenger",
       "text": "Never leave a hex adjacent to a monster."
     },
     "291": {
-      ".": "Closer",
+      "": "Closer",
       "text": "Kill the last monster to die in the scenario."
     },
     "292": {
-      ".": "Conservator",
+      "": "Conservator",
       "text": "Never lose a card to negate suffering damage."
     },
     "293": {
-      ".": "Diehard",
+      "": "Diehard",
       "text": "Never allow your hit points to drop below half your maximum hit point value (rounded up)."
     },
     "294": {
-      ".": "Egoist",
+      "": "Egoist",
       "text": "Collect more money tokens than any other character."
     },
     "295": {
-      ".": "Fast Healer",
+      "": "Fast Healer",
       "text": "End the scenario with hit points equal to your maximum hit point value."
     },
     "296": {
-      ".": "Gambler",
+      "": "Gambler",
       "text": "Kill a monster with an attack that has Disadvantage."
     },
     "297": {
-      ".": "Hothead",
+      "": "Hothead",
       "text": "Perform two actions with Lost icons before your first rest."
     },
     "298": {
-      ".": "Insomniac",
+      "": "Insomniac",
       "text": "Suffer damage from an attack in the same round you long rest."
     },
     "299": {
-      ".": "Masochist",
+      "": "Masochist",
       "text": "End the scenario with 3 or fewer hit points."
     },
     "300": {
-      ".": "Mugger",
+      "": "Mugger",
       "text": "Kill a monster and loot the money token it drops in the same turn."
     },
     "301": {
-      ".": "Opener",
+      "": "Opener",
       "text": "Kill the first monster to die in the scenario."
     },
     "302": {
-      ".": "Pacifist",
+      "": "Pacifist",
       "text": "Kill three or fewer monsters."
     },
     "303": {
-      ".": "Pickpocket",
+      "": "Pickpocket",
       "text": "Collect one or more money tokens by performing a Loot action while you are adjacent to two or more monsters."
     },
     "304": {
-      ".": "Pincushion",
+      "": "Pincushion",
       "text": "Be targeted by attacks from three or more monsters in the same round."
     },
     "305": {
-      ".": "Plebeian",
+      "": "Plebeian",
       "text": "Never kill an elite monster or boss."
     },
     "306": {
-      ".": "Prohibitionist",
+      "": "Prohibitionist",
       "text": "Never use a potion."
     },
     "307": {
-      ".": "Ravager",
+      "": "Ravager",
       "text": "Perform two actions with Lost icons in the same turn."
     },
     "308": {
-      ".": "Recluse",
+      "": "Recluse",
       "text": "Never end your turn adjacent to any of your allies."
     },
     "309": {
-      ".": "Sadist",
+      "": "Sadist",
       "text": "Kill five or more monsters."
     },
     "310": {
-      ".": "Scrambler",
+      "": "Scrambler",
       "text": "Never long rest."
     },
     "311": {
-      ".": "Shadow",
+      "": "Shadow",
       "text": "End each of your turns adjacent to any of your allies."
     },
     "312": {
-      ".": "Shirker",
+      "": "Shirker",
       "text": "Kill a monster not adjacent to you while you are adjacent to another monster."
     },
     "313": {
-      ".": "Specialist",
+      "": "Specialist",
       "text": "Never perform a basic action."
     },
     "314": {
-      ".": "Straggler",
+      "": "Straggler",
       "text": "Never short rest."
     },
     "315": {
-      ".": "Trailblazer",
+      "": "Trailblazer",
       "text": "Open a door and end your same turn in the revealed room."
     },
     "316": {
-      ".": "Transmitter",
+      "": "Transmitter",
       "text": "Apply any negative condition to a monster while you have any negative condition."
     },
     "317": {
-      ".": "Weakling",
+      "": "Weakling",
       "text": "Become exhausted before any other character."
     }
   },
   "character": {
     "demolitionist": {
-      ".": "Demolitionist",
+      "": "Demolitionist",
       "mech": {
-        ".": "Mech Suit",
+        "": "Mech Suit",
         "hint": "Your maximum hit point value is increased by 5. Heal %game.action.heal% 10, self."
       }
     },

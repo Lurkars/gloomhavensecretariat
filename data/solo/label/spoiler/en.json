@@ -1,157 +1,157 @@
 {
   "items": {
     "cs-103": {
-      ".": "Steelsilk Spinneret"
+      "": "Steelsilk Spinneret"
     },
     "cs-109": {
-      ".": "Auscudec of the Makers"
+      "": "Auscudec of the Makers"
     },
     "cs-114": {
-      ".": "Rite of Ruin"
+      "": "Rite of Ruin"
     },
     "cs-34": {
-      ".": "Claw Trap"
+      "": "Claw Trap"
     },
     "cs-40": {
-      ".": "Moonleather Boots"
+      "": "Moonleather Boots"
     },
     "cs-41": {
-      ".": "Spirit Libation"
+      "": "Spirit Libation"
     },
     "cs-42": {
-      ".": "Robe of Soothing"
+      "": "Robe of Soothing"
     },
     "cs-45": {
-      ".": "Chain Cannon"
+      "": "Chain Cannon"
     },
     "cs-47": {
-      ".": "Nature Armlets"
+      "": "Nature Armlets"
     },
     "cs-48": {
-      ".": "Test Tube"
+      "": "Test Tube"
     },
     "cs-50": {
-      ".": "Luminous Carapace"
+      "": "Luminous Carapace"
     },
     "cs-51": {
-      ".": "Flaming Armor"
+      "": "Flaming Armor"
     },
     "cs-53": {
-      ".": "Field Mortar"
+      "": "Field Mortar"
     },
     "cs-56": {
-      ".": "Clamp Trap"
+      "": "Clamp Trap"
     },
     "cs-57": {
-      ".": "Cleansed Voidheart"
+      "": "Cleansed Voidheart"
     },
     "fc-164": {
-      ".": "Basin of Prophecy"
+      "": "Basin of Prophecy"
     },
     "fh-248": {
-      ".": "Wanderer's Club"
+      "": "Wanderer's Club"
     },
     "fh-249": {
-      ".": "Recalibration Trigger"
+      "": "Recalibration Trigger"
     },
     "fh-250": {
-      ".": "Spear of Justice"
+      "": "Spear of Justice"
     },
     "fh-251": {
-      ".": "Soul Urn"
+      "": "Soul Urn"
     },
     "fh-252": {
-      ".": "Black Earth Codex"
+      "": "Black Earth Codex"
     },
     "fh-253": {
-      ".": "Mask of Duality"
+      "": "Mask of Duality"
     },
     "fh-254": {
-      ".": "Ancestral Blade"
+      "": "Ancestral Blade"
     },
     "fh-255": {
-      ".": "Mountain's Heart"
+      "": "Mountain's Heart"
     },
     "fh-256": {
-      ".": "Sonorous Shard"
+      "": "Sonorous Shard"
     },
     "fh-257": {
-      ".": "Sly Camouflage"
+      "": "Sly Camouflage"
     },
     "fh-258": {
-      ".": "Skull of Agony"
+      "": "Skull of Agony"
     },
     "fh-259": {
-      ".": "Storm Carving"
+      "": "Storm Carving"
     },
     "fh-260": {
-      ".": "Freezing Orb"
+      "": "Freezing Orb"
     },
     "fh-261": {
-      ".": "Energized Module"
+      "": "Energized Module"
     },
     "fh-262": {
-      ".": "Exhaust Boots"
+      "": "Exhaust Boots"
     },
     "fh-263": {
-      ".": "Warlord's Skull"
+      "": "Warlord's Skull"
     },
     "fh-264": {
-      ".": "Spiraled Medallion"
+      "": "Spiraled Medallion"
     },
     "gh-134": {
-      ".": "Imposing Blade"
+      "": "Imposing Blade"
     },
     "gh-135": {
-      ".": "Focusing Ray"
+      "": "Focusing Ray"
     },
     "gh-136": {
-      ".": "Volatile Elixir"
+      "": "Volatile Elixir"
     },
     "gh-137": {
-      ".": "Silent Stiletto"
+      "": "Silent Stiletto"
     },
     "gh-138": {
-      ".": "Stone Charm"
+      "": "Stone Charm"
     },
     "gh-139": {
-      ".": "Psychic Knife"
+      "": "Psychic Knife"
     },
     "gh-140": {
-      ".": "Sun Shield"
+      "": "Sun Shield"
     },
     "gh-141": {
-      ".": "Utility Belt"
+      "": "Utility Belt"
     },
     "gh-142": {
-      ".": "Phasing Idol"
+      "": "Phasing Idol"
     },
     "gh-143": {
-      ".": "Smoke Elixir"
+      "": "Smoke Elixir"
     },
     "gh-144": {
-      ".": "Pendant of the Plague"
+      "": "Pendant of the Plague"
     },
     "gh-145": {
-      ".": "Mask of Death"
+      "": "Mask of Death"
     },
     "gh-146": {
-      ".": "Master's Lute"
+      "": "Master's Lute"
     },
     "gh-147": {
-      ".": "Cloak of the Hunter"
+      "": "Cloak of the Hunter"
     },
     "gh-148": {
-      ".": "Doctor's Coat"
+      "": "Doctor's Coat"
     },
     "gh-149": {
-      ".": "Elemental Boots"
+      "": "Elemental Boots"
     },
     "gh-150": {
-      ".": "Staff of Command"
+      "": "Staff of Command"
     },
     "gh-envx-151": {
-      ".": "Sword of the Sands"
+      "": "Sword of the Sands"
     },
     "solo-103": {
       "1": "The next two times an enemy suffers damage from attacking you, that enemy gains %game.condition.immobilize%."
@@ -330,19 +330,19 @@
       "1": "You are immune to %game.condition.muddle%. At the end of each round, if you have %game.condition.wound% gain %game.condition.regenerate%."
     },
     "toa-119": {
-      ".": "Thrice-Souled Warsword"
+      "": "Thrice-Souled Warsword"
     },
     "toa-120": {
-      ".": "Rekindled Core"
+      "": "Rekindled Core"
     },
     "toa-121": {
-      ".": "Crystal Catalyst"
+      "": "Crystal Catalyst"
     },
     "toa-123": {
-      ".": "Arclight Cladding"
+      "": "Arclight Cladding"
     },
     "toa-128": {
-      ".": "Barbed Whip"
+      "": "Barbed Whip"
     }
   },
   "scenario": {

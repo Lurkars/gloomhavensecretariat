@@ -5,9 +5,9 @@
     "eclipse": "Sudario Nocturno",
     "envx": "Enjambre de cuchillas",
     "lightning": {
-      ".": "Berserker",
+      "": "Berserker",
       "blood-pact": {
-        ".": "Pacto de Sangre",
+        "": "Pacto de Sangre",
         "hint": "Sufres %game.damage:1% al inicio de cada uno de tus turnos."
       },
       "careless-charge": {
@@ -18,9 +18,9 @@
       }
     },
     "music-note": {
-      ".": "Melodiosa",
+      "": "Melodiosa",
       "song_active": {
-        ".": "%game.characterIconColored.music-note% Canción Activa",
+        "": "%game.characterIconColored.music-note% Canción Activa",
         "hint": "Obtén 1 Exp al inicio de cada uno de sus turnos."
       }
     },

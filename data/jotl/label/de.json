@@ -70,139 +70,139 @@
   },
   "battleGoals": {
     "286": {
-      ".": "Akrobatisch",
+      "": "Akrobatisch",
       "text": "Verliere eine Karte um 5 oder mehr Schaden zu negieren."
     },
     "287": {
-      ".": "Platzangst",
+      "": "Platzangst",
       "text": "Beende deine Züge immer angrenzend an eine Wand oder ein Hindernis."
     },
     "288": {
-      ".": "Wohltätig",
+      "": "Wohltätig",
       "text": "Sammle weniger Münzmarker als jeder andere Charakter."
     },
     "289": {
-      ".": "Hilfsbereit",
+      "": "Hilfsbereit",
       "text": "Töte ein Monster das in derselben Runde bereits von einem Verbündeten angegriffen wurde."
     },
     "290": {
-      ".": "Provokant",
+      "": "Provokant",
       "text": "Verlasse nie ein an ein Monster angrenzendes Feld."
     },
     "291": {
-      ".": "Aufräumen",
+      "": "Aufräumen",
       "text": "Töte das letzte Monster während des Szenarios."
     },
     "292": {
-      ".": "Genügsam",
+      "": "Genügsam",
       "text": "Verliere nie eine Karte, um Schaden zu negieren."
     },
     "293": {
-      ".": "Zäher Hund",
+      "": "Zäher Hund",
       "text": "Lass nicht zu, dass dein TP-Wert unter die Hälfte deines maximalen TP-Wertes (aufgerundet) sinkt."
     },
     "294": {
-      ".": "Egoistisch",
+      "": "Egoistisch",
       "text": "Sammle mehr Münzmarker als jeder andere Charakter."
     },
     "295": {
-      ".": "Heilfleisch",
+      "": "Heilfleisch",
       "text": "Beende das Szenario mit deinem maximalen TP-Wert."
     },
     "296": {
-      ".": "Volles Risiko",
+      "": "Volles Risiko",
       "text": "Töte ein Monster durch einen Angriff, während du Nachteil hast."
     },
     "297": {
-      ".": "Heißsporn",
+      "": "Heißsporn",
       "text": "Führe vor deiner ersten Rast 2 Aktionen mit Verloren-Symbol aus."
     },
     "298": {
-      ".": "Schlaflos",
+      "": "Schlaflos",
       "text": "Erleide in einer Runde, in der du eine lange Rase machst, Schaden durch einen Angriff."
     },
     "299": {
-      ".": "Masochistisch",
+      "": "Masochistisch",
       "text": "Beende das Szenario mit 3 oder weniger TP."
     },
     "300": {
-      ".": "Ausgenommen",
+      "": "Ausgenommen",
       "text": "Töte ein Monster und erbeute in demselben Zug den fallengelassenen Münzmarker."
     },
     "301": {
-      ".": "Erstschlag",
+      "": "Erstschlag",
       "text": "Töte das erste Monster während des Szenarios."
     },
     "302": {
-      ".": "Pazifistisch",
+      "": "Pazifistisch",
       "text": "Töte 3 oder weniger Monster."
     },
     "303": {
-      ".": "Profitorientiert",
+      "": "Profitorientiert",
       "text": "Erbeute 1 oder mehr Münzmarker mir einer Beute-Aktion während du an 2 oder mehr Monster angrenzt."
     },
     "304": {
-      ".": "Nadelkissen",
+      "": "Nadelkissen",
       "text": "Werde in einer Runde zum Angriffsziel von 3 oder mehr Monstern."
     },
     "305": {
-      ".": "Fußvolk",
+      "": "Fußvolk",
       "text": "Töte niemals ein Elite-Monster oder einen Boss."
     },
     "306": {
-      ".": "Trocken",
+      "": "Trocken",
       "text": "Benutze niemals Tränke."
     },
     "307": {
-      ".": "Verwüstung",
+      "": "Verwüstung",
       "text": "Führe 2 Aktionen mit Verlorenen-Symbol in demselben Zug aus."
     },
     "308": {
-      ".": "Unabhängig",
+      "": "Unabhängig",
       "text": "Beende deinen Zug niemals angrenzend an einen Verbündeten."
     },
     "309": {
-      ".": "Sadistisch",
+      "": "Sadistisch",
       "text": "Töte 5 oder mehr Monster."
     },
     "310": {
-      ".": "Ruhelos",
+      "": "Ruhelos",
       "text": "Mache keine lange Rast."
     },
     "311": {
-      ".": "Schatten",
+      "": "Schatten",
       "text": "Beende deinen Zug immer angrenzend an einen Verbündeten."
     },
     "312": {
-      ".": "Um die Ecke",
+      "": "Um die Ecke",
       "text": "Töte, während du an ein Monster angrenzt, ein anderes Monster, das nicht an dich angrenzt."
     },
     "313": {
-      ".": "Spezialisiert",
+      "": "Spezialisiert",
       "text": "Führe keine Standardaktion aus."
     },
     "314": {
-      ".": "Schlusslicht",
+      "": "Schlusslicht",
       "text": "Mache keine kurze Rast."
     },
     "315": {
-      ".": "Hereingeplatzt",
+      "": "Hereingeplatzt",
       "text": "Öffne eine Tür und beende denselben Zug in dem so aufgedeckten Raum."
     },
     "316": {
-      ".": "Ansteckend",
+      "": "Ansteckend",
       "text": "Wende einen negativen Zustand auf ein Monster an, während du unter einem negativen Zustand leidest."
     },
     "317": {
-      ".": "Ausgebrannt",
+      "": "Ausgebrannt",
       "text": "Werde als erster Charakter erschöpft."
     }
   },
   "character": {
     "demolitionist": {
-      ".": "Sprengmeisterin",
+      "": "Sprengmeisterin",
       "mech": {
-        ".": "Mechanikanzug",
+        "": "Mechanikanzug",
         "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
       }
     },

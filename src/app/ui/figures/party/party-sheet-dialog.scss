@@ -741,7 +741,12 @@
           align-items: center;
 
           label {
-            width: calc(var(--ghs-unit) * 5.5 * var(--ghs-dialog-factor));
+            width: calc(var(--ghs-unit) * 7.5 * var(--ghs-dialog-factor));
+            justify-content: flex-end;
+
+            span {
+              text-align: center;
+            }
           }
 
           input {

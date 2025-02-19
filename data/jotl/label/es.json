@@ -1,139 +1,139 @@
 {
   "battleGoals": {
     "286": {
-      ".": "Acróbata",
+      "": "Acróbata",
       "text": "Pierde 1 carta para prevenir 5 de daño o más."
     },
     "287": {
-      ".": "Agorafóbico",
+      "": "Agorafóbico",
       "text": "Termina todos tus turnos adyacente a una pared u obstáculo."
     },
     "288": {
-      ".": "Altruista",
+      "": "Altruista",
       "text": "Recoge menos fichas de Dinero que cualquiera de los otros personajes."
     },
     "289": {
-      ".": "Asistente",
+      "": "Asistente",
       "text": "Mata a un monstruo al que haya atacado cualquiera de tus aliados antes en la misma ronda."
     },
     "290": {
-      ".": "Duelista",
+      "": "Duelista",
       "text": "No abandones nunca un hexágono adyacente a un monstruo."
     },
     "291": {
-      ".": "Rematador",
+      "": "Rematador",
       "text": "Mata al último monstruo que muera en el escenario."
     },
     "292": {
-      ".": "Conservador",
+      "": "Conservador",
       "text": "No pierdas nunca una carta para prevenir daño."
     },
     "293": {
-      ".": "Duro de pelar",
+      "": "Duro de pelar",
       "text": "No permitas que tus puntos de vida desciendan por debajo de la mitad de tu valor máximo (redondeando hacia arriba)."
     },
     "294": {
-      ".": "Egoísta",
+      "": "Egoísta",
       "text": "Recoge más fichas de Dinero que cualquiera de los otros personajes."
     },
     "295": {
-      ".": "Salud de hierro",
+      "": "Salud de hierro",
       "text": "Termina el escenario con una cantidad de puntos de vida igual a tu valor máximo."
     },
     "296": {
-      ".": "Apostador",
+      "": "Apostador",
       "text": "Mata a un monstruo con un ataque tenga Desventaja."
     },
     "297": {
-      ".": "Atolondrado",
+      "": "Atolondrado",
       "text": "Realiza 2 acciones con iconos de carta perdida antes de tu primer descanso."
     },
     "298": {
-      ".": "Insomne",
+      "": "Insomne",
       "text": "Sufre daño de un ataque en la misma ronda que haces un descanso largo."
     },
     "299": {
-      ".": "Masoquista",
+      "": "Masoquista",
       "text": "Termina el escenario con 3 puntos de vida o menos."
     },
     "300": {
-      ".": "Atracador",
+      "": "Atracador",
       "text": "Mata a un monstruo y saquea la ficha de Dinero que deje en el mismo turno."
     },
     "301": {
-      ".": "Primera sangre",
+      "": "Primera sangre",
       "text": "Sé el primero en matar a un monstruo durante el escenario."
     },
     "302": {
-      ".": "Pacifista",
+      "": "Pacifista",
       "text": "Mata a 3 monstruos o menos."
     },
     "303": {
-      ".": "Carterista",
+      "": "Carterista",
       "text": "Recoge 1 o más fichas de Dinero realizando una acción de Saqueo mientras estás adyacente a 2 o más monstruos."
     },
     "304": {
-      ".": "Alfiletero",
+      "": "Alfiletero",
       "text": "Sé el objetivo de los ataques de 3 o más monstruos en la misma ronda."
     },
     "305": {
-      ".": "Plebe",
+      "": "Plebe",
       "text": "No mates nunca a un monstruo de élite o a un jefe."
     },
     "306": {
-      ".": "Sobrio",
+      "": "Sobrio",
       "text": "No uses nunca una poción."
     },
     "307": {
-      ".": "Arrasador",
+      "": "Arrasador",
       "text": "Realiza 2 acciones con iconos de perdida en el mismo turno."
     },
     "308": {
-      ".": "Recluso",
+      "": "Recluso",
       "text": "No termines nunca tu turno adyacente a ninguno de tus aliados."
     },
     "309": {
-      ".": "Sádico",
+      "": "Sádico",
       "text": "Mata a 5 o más monstruos."
     },
     "310": {
-      ".": "Impaciente",
+      "": "Impaciente",
       "text": "No realices ningún descanso largo."
     },
     "311": {
-      ".": "Sombra",
+      "": "Sombra",
       "text": "Termina todos tus turnos adyacente a cualquiera de tus aliados."
     },
     "312": {
-      ".": "Despeciado",
+      "": "Despeciado",
       "text": "Mata a un monstruo que no esté adyacente a ti mientras tú estás adyacente a otro monstruo."
     },
     "313": {
-      ".": "Especialista",
+      "": "Especialista",
       "text": "No realices nunca una acción básica."
     },
     "314": {
-      ".": "Rezagado",
+      "": "Rezagado",
       "text": "No realices ningún descanso corto."
     },
     "315": {
-      ".": "Pionero",
+      "": "Pionero",
       "text": "En el mismo turno, abre una puerta y termina en la sala revelada."
     },
     "316": {
-      ".": "Contagiador",
+      "": "Contagiador",
       "text": "Aplica cualquier estado negativo a un monstruo mientras tengas cualquier estado negativo."
     },
     "317": {
-      ".": "Debilucho",
+      "": "Debilucho",
       "text": "Acaba agotado antes de ninún otro personaje."
     }
   },
   "character": {
     "demolitionist": {
-      ".": "Demoledora",
+      "": "Demoledora",
       "mech": {
-        ".": "Armadura mecanizada",
+        "": "Armadura mecanizada",
         "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
       }
     },

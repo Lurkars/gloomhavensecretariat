@@ -1,40 +1,40 @@
 {
   "items": {
     "gh-135": {
-      ".": "Focusing Ray"
+      "": "Focusing Ray"
     },
     "gh-137": {
-      ".": "Silent Stiletto"
+      "": "Silent Stiletto"
     },
     "gh-138": {
-      ".": "Stone Charm"
+      "": "Stone Charm"
     },
     "gh-139": {
-      ".": "Psychic Knife"
+      "": "Psychic Knife"
     },
     "gh-140": {
-      ".": "Sun Shield"
+      "": "Sun Shield"
     },
     "gh-143": {
-      ".": "Smoke Elixir"
+      "": "Smoke Elixir"
     },
     "gh-144": {
-      ".": "Pendant of the Plague"
+      "": "Pendant of the Plague"
     },
     "gh-146": {
-      ".": "Master's Lute"
+      "": "Master's Lute"
     },
     "gh-147": {
-      ".": "Cloak of the Hunter"
+      "": "Cloak of the Hunter"
     },
     "gh-148": {
-      ".": "Doctor's Coat"
+      "": "Doctor's Coat"
     },
     "gh-149": {
-      ".": "Elemental Boots"
+      "": "Elemental Boots"
     },
     "gh-150": {
-      ".": "Staff of Command"
+      "": "Staff of Command"
     },
     "solo-digital-135": {
       "1": "During your Heal ability targeting an ally, add +1 %game.action.heal% and %game.condition.strengthen%."

@@ -1,7 +1,7 @@
 {
   "character": {
     "demolitionist": {
-      ".": "철거전문가",
+      "": "철거전문가",
       "mech": "기계 강화복"
     },
     "hatchet": "도끼투척수",

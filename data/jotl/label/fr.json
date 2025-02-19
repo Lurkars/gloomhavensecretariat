@@ -70,7 +70,7 @@
   },
   "character": {
     "demolitionist": {
-      ".": "Artificier",
+      "": "Artificier",
       "mech": "Mech Suit"
     },
     "hatchet": "Lanceur de hache",

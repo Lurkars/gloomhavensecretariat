@@ -606,7 +606,7 @@ export class SettingsManager {
                 if (!result[key]) {
                   result[key] = {};
                 } else if (!this.isObject(result[key])) {
-                  result[key] = { '.': result[key] };
+                  result[key] = { "": result[key] };
                 }
                 this.merge(result[key], overwrite, elm[key]);
               } else {
@@ -750,8 +750,8 @@ export class SettingsManager {
       return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
     } else if (from[key]) {
       if (typeof from[key] === 'object') {
-        if (from[key]["."]) {
-          return this.insertLabelArguments(from[key]["."], args, argLabel);
+        if (from[key][""]) {
+          return this.insertLabelArguments(from[key][""], args, argLabel);
         }
         return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
       }

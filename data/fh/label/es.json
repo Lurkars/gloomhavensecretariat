@@ -10,7 +10,7 @@
       "7": "Elaborar y destilar pociones"
     },
     "barracks": {
-      ".": "Barracones",
+      "": "Barracones",
       "1": "De forma colectiva entrena hasta 1 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 4<br><i>Efecto:</i> ventaja y %game.action.attack% -5",
       "2": "De forma colectiva entrena hasta 1 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 6<br><i>Efecto:</i> ventaja y %game.action.attack% -15",
       "3": "De forma colectiva entrena hasta 2 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 8<br><i>Efecto:</i> ventaja y %game.action.attack% -25",
@@ -19,16 +19,16 @@
       "soldiers": "Entrena a 1 soldado"
     },
     "carpenter": {
-      ".": "Carpintero",
+      "": "Carpintero",
       "1": "Reducir todos los costes de construcción en 1 recurso",
       "2": "Reduce todos los costes de construcción en 1 recurso y el coste extra de construcción de 1 moral",
       "3": "Perder 1 recurso colectivo cualquiera"
     },
     "climbing-gear": {
-      ".": "Equipamiento de escalada"
+      "": "Equipamiento de escalada"
     },
     "craftsman": {
-      ".": "Artesano",
+      "": "Artesano",
       "1": "Pierdes 1 %game.resource.hide% colectivo",
       "2": "Pierdes 2 %game.resource.hide% colectivos",
       "3": "Pierdes 2 %game.resource.hide% colectivos",
@@ -41,13 +41,13 @@
       "4": "Cada personaje comienza el siguiente escenario con %game.condition.disarm%"
     },
     "garden": {
-      ".": "Jardín",
+      "": "Jardín",
       "1": "Planta hierbas, gira esta carta 180° y luego para - Gana 1 hierba de cada parcela plantada, luego gira esta carta 180° y luego para",
       "2": "Gana 1 hierba colectiva por cada parcela plantada, después planta hierbas",
       "plots": {
-        ".": "Gestionar el jardín",
+        "": "Gestionar el jardín",
         "automated": {
-          ".": "Cosecha automática",
+          "": "Cosecha automática",
           "hint": "Cosecha el jardín automáticamente cuando pasa una semana. Esta opción se desactiva de forma automática cuando <i>%settings.automaticPassTime%</i> no está activado."
         },
         "harvest": "Cosecha manual",
@@ -74,54 +74,54 @@
       "4": "Compra colectivamente hasta 4 %game.resource.hide% por 2 de oro"
     },
     "inn": {
-      ".": "Posada",
+      "": "Posada",
       "1": "Compra colectivamente hasta 1 recurso por 2 de oro",
       "2": "Compra colectivamente hasta 2 recursos diferentes por 2 de oro cada uno",
       "3": "Compra colectivamente hasta 3 recursos diferentes por 2 de oro cada uno"
     },
     "jeweler": {
-      ".": "Joyería",
+      "": "Joyería",
       "1": "Daña cualquier edificio"
     },
     "library": {
-      ".": "Biblioteca",
+      "": "Biblioteca",
       "1": "Pierde 1 inspiración"
     },
     "logging-camp": {
-      ".": "Campamento maderero",
+      "": "Campamento maderero",
       "1": "Compra colectivamente hasta 1 %game.resource.lumber% por 2 de oro",
       "2": "Compra colectivamente hasta 2 %game.resource.lumber% por 2 de oro",
       "3": "Compra colectivamente hasta 3 %game.resource.lumber% por 2 de oro",
       "4": "Compra colectivamente hasta 4 %game.resource.lumber% por 2 de oro"
     },
     "lumber-depot": {
-      ".": "Almacén de madera",
+      "": "Almacén de madera",
       "1": "Vende colectivamente hasta 1 %game.resource.lumber% por 5 de oro",
       "2": "Vende colectivamente hasta 2 %game.resource.lumber% por 5 de oro cada uno",
       "3": "Pierde colectivamente 2 %game.resource.lumber%"
     },
     "metal-depot": {
-      ".": "Almacén de metal",
+      "": "Almacén de metal",
       "1": "Vende colectivamente hasta 1 %game.resource.metal% por 5 de oro",
       "2": "Vende colectivamente hasta 2 %game.resource.metal% por 5 de oro cada uno",
       "3": "Pierde colectivamente 2 %game.resource.metal%"
     },
     "mining-camp": {
-      ".": "Campamento minero",
+      "": "Campamento minero",
       "1": "Compra colectivamente hasta 1 %game.resource.metal% por 2 de oro",
       "2": "Compra colectivamente hasta 2 %game.resource.metal% por 2 de oro",
       "3": "Compra colectivamente hasta 3 %game.resource.metal% por 2 de oro",
       "4": "Compra colectivamente hasta 4 %game.resource.metal% por 2 de oro"
     },
     "stables": {
-      ".": "Establos",
+      "": "Establos",
       "1": "Lleva una mascota a cada escenario.<br><i>Capacidad:</i> 4",
       "2": "Lleva una mascota a cada escenario.<br><i>Capacidad:</i> 8",
       "3": "Lleva dos mascotas a cada escenario.<br><i>Capacidad:</i> 8",
       "4": "Lleva dos mascotas a cada escenario.<br><i>Capacidad:</i> 12",
       "5": "Los personajes no pueden usar mascotas",
       "pets": {
-        ".": "Mascotas",
+        "": "Mascotas",
         "add": "Añadir mascota",
         "catch": "Capturar mascota",
         "confirmAdd": "Haz clic de nuevo para añadir la mascota a los Establos",
@@ -133,23 +133,23 @@
       }
     },
     "tavern": {
-      ".": "Taberna",
+      "": "Taberna",
       "1": "Pierde 1 moral"
     },
     "temple": {
-      ".": "Templo del Gran Roble",
+      "": "Templo del Gran Roble",
       "1": "Cada personaje puede perder 5 de oro para comenzar el siguiente escenario con %game.condition.bless% x2",
       "2": "Cada personaje comienza el siguiente escenario con %game.condition.curse%"
     },
     "town-hall": {
-      ".": "Ayuntamiento",
+      "": "Ayuntamiento",
       "1": "Roba un desafío y quédate con uno. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
       "2": "Roba dos desafíos y quédate con uno. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
       "3": "Roba tres desafíos y quédate con hasta dos. Cuando el mazo de retos esté completo, lee %data.section:190.1%",
       "4": "No se pueden completar desafíos"
     },
     "trading-post": {
-      ".": "Puesto comercial",
+      "": "Puesto comercial",
       "1": "Pierde 5 de oro colectivo",
       "2": "Pierde 10 de oro colectivo",
       "3": "Pierde 15 de oro colectivo",
@@ -162,22 +162,22 @@
     },
     "wall-effect": "Defensa +5",
     "wall-j": {
-      ".": "Muralla J"
+      "": "Muralla J"
     },
     "wall-k": {
-      ".": "Muralla K"
+      "": "Muralla K"
     },
     "wall-l": {
-      ".": "Muralla L"
+      "": "Muralla L"
     },
     "wall-m": {
-      ".": "Muralla M"
+      "": "Muralla M"
     },
     "wall-n": {
-      ".": "Muralla N"
+      "": "Muralla N"
     },
     "workshop": {
-      ".": "Taller",
+      "": "Taller",
       "1": "Pierde 1 %game.resource.lumber% colectivo"
     }
   },
@@ -187,21 +187,21 @@
   "character": {
     "banner-spear": "Estandarte",
     "blinkblade": {
-      ".": "Dagacentella",
+      "": "Dagacentella",
       "fast": "Rápido",
       "slow": "Lento",
       "time_tokens": {
-        ".": "Fichas de tiempo",
+        "": "Fichas de tiempo",
         "hint": "Añadir/eliminar de forma automática fichas de tiempo al inicio de la ronda tras definir lento/rápido"
       }
     },
     "boneshaper": {
-      ".": "Nigromante"
+      "": "Nigromante"
     },
     "deathwalker": "Guía de ánimas",
     "drifter": "Errante",
     "geminate": {
-      ".": "Geminado",
+      "": "Geminado",
       "melee": "Cuerpo a cuerpo",
       "range": "A distancia"
     }

@@ -1,99 +1,99 @@
 {
   "battleGoals": {
     "458": {
-      ".": "Optimizador",
+      "": "Optimizador",
       "text": "Ten 5 o más cartas en total en la mano y en la pila de descartes al final del escenario."
     },
     "459": {
-      ".": "Haragán",
+      "": "Haragán",
       "text": "Obtén 7 o menos puntos de experiencia durante el escenario."
     },
     "460": {
-      ".": "Trabajador",
+      "": "Trabajador",
       "text": "Obtén 13 o más puntos de experiencia durante el escenario."
     },
     "461": {
-      ".": "Fanático",
+      "": "Fanático",
       "text": "Ten 3 o menos cartas en total en la mano y en la pila de descartes al final del escenario."
     },
     "462": {
-      ".": "Masoquista",
+      "": "Masoquista",
       "text": "Tu valor actual de puntos de vida debe ser 2 o menos al final del escenario."
     },
     "463": {
-      ".": "Salud de hierro",
+      "": "Salud de hierro",
       "text": "Tu valor actual de puntos de vida debe ser igual a tu valor máximo de puntos de vida al final del escenario."
     },
     "464": {
-      ".": "Neutralizador",
+      "": "Neutralizador",
       "text": "Haz que una trampa se active o desactive en tu turno o en el turno de una de tus invocaciones durante el escenario."
     },
     "465": {
-      ".": "Saqueador",
+      "": "Saqueador",
       "text": "Saquea una pieza de Tesoro durante el escenario."
     },
     "466": {
-      ".": "Protector",
+      "": "Protector",
       "text": "No permitas que ninguno de tus aliados quede agotado durante el escenario."
     },
     "467": {
-      ".": "Explorador",
+      "": "Explorador",
       "text": "Revela una sala abriendo una puerta en tu turno durante el escenario."
     },
     "468": {
-      ".": "Avaro",
+      "": "Avaro",
       "text": "Saquea 5 fichas de Dinero o más durante el escenario."
     },
     "469": {
-      ".": "Indigente",
+      "": "Indigente",
       "text": "No saquees ninguna ficha de Dinero ni pieza de Tesoro durante el escenario."
     },
     "470": {
-      ".": "Pacifista",
+      "": "Pacifista",
       "text": "Mata a 3 o menos monstruos durante el escenario."
     },
     "471": {
-      ".": "Sadico",
+      "": "Sadico",
       "text": "Mata a 5 o más monstruos durante el escenario."
     },
     "472": {
-      ".": "Cazador",
+      "": "Cazador",
       "text": "Mata a 1 o más monstruos de élite durante el escenario."
     },
     "473": {
-      ".": "Profesional",
+      "": "Profesional",
       "text": "Usa tus objetos equipados un número de veces igual o mayor que tu nivel más 2 durante el escenario."
     },
     "474": {
-      ".": "Agresivo",
+      "": "Agresivo",
       "text": "Consigue que siempre haya 1 o más monstruos presentes en el mapa al principio de todas las rondas durante el escenario."
     },
     "475": {
-      ".": "Apisonadora",
+      "": "Apisonadora",
       "text": "Mata a un monstruo infligiéndole al menos 4 puntos de daño más de los necesarios durante el escenario."
     },
     "476": {
-      ".": "Purista",
+      "": "Purista",
       "text": "No uses objetos durante el escenario."
     },
     "477": {
-      ".": "Primera Sangre",
+      "": "Primera Sangre",
       "text": "Sé el primero en matar a un monstruo durante el escenario."
     },
     "478": {
-      ".": "Duro de pelar",
+      "": "Duro de pelar",
       "text": "No permitas que tus puntos de vida desciendan por debajo de la mitad de tu valor máximo (redondeando hacia arriba) durante el escenario."
     },
     "479": {
-      ".": "Ejecutor",
+      "": "Ejecutor",
       "text": "Mata a un monstruo sin daño con un solo ataque durante el escenario."
     },
     "480": {
-      ".": "Rezagado",
+      "": "Rezagado",
       "text": "Realiza únicamente descansos largos durante el escenario."
     },
     "481": {
-      ".": "Impaciente",
+      "": "Impaciente",
       "text": "Realiza únicamente descansos cortos durante el escenario."
     }
   },

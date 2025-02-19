@@ -7,58 +7,58 @@
   },
   "items": {
     "ir-1": {
-      ".": "Liquid Courage"
+      "": "Liquid Courage"
     },
     "ir-10": {
-      ".": "Flaming Arrow",
+      "": "Flaming Arrow",
       "1": "Add %game.condition.wound% to your next ranged attack."
     },
     "ir-11": {
-      ".": "Reverse Engineering Kit",
+      "": "Reverse Engineering Kit",
       "1": "Disarm all adjacent traps and apply their effects to one enemy in %game.action.range% 3"
     },
     "ir-12": {
-      ".": "Chroma Parasite",
+      "": "Chroma Parasite",
       "1": "After attack"
     },
     "ir-13": {
-      ".": "Dazing Toxin",
+      "": "Dazing Toxin",
       "1": "Remove %game.condition.poison% from any number of enemies. One enemy in %game.action.range% 3 suffers damage equal to the number of %game.condition.poison% conditions removed."
     },
     "ir-14": {
-      ".": "Selective Boots",
+      "": "Selective Boots",
       "1": "After your movement, you may look at the top card of your attack modifier deck and either put it back on top or - if it is a non-%game.card.shuffle% card - remove it from your deck."
     },
     "ir-2": {
-      ".": "Coat of Arms",
+      "": "Coat of Arms",
       "1": "All adjacent allies add +1 %game.action.attack% to all their attacks this round."
     },
     "ir-3": {
-      ".": "Lava Hammer",
+      "": "Lava Hammer",
       "1": "During your attack targeting a Frost Demon or Wind Demon, add +5 %game.action.attack% to a single attack."
     },
     "ir-4": {
-      ".": "Lava Shield",
+      "": "Lava Shield",
       "1": "You are immune to all %game.action.retaliate% damage."
     },
     "ir-5": {
-      ".": "Robes of Inversion",
+      "": "Robes of Inversion",
       "1": "After the attack modifier card for an attack targeting you has been revealed, you may activate the Robes Of Inversion to invert the outcome of that attack modifier card.(+ becomes - and x2 becomes null)"
     },
     "ir-6": {
-      ".": "Spiked Boots",
+      "": "Spiked Boots",
       "1": "During your turn, perform a %game.action.move% 4, %game.action.jump% action. %game.condition.wound% all enemies moved through."
     },
     "ir-7": {
-      ".": "Orb of Visions",
+      "": "Orb of Visions",
       "1": "Use at the start of a round. First reveal all enemy ability cards, then players choose their ability cards. All characters add one %game.condition.curse% card to their attack modifier deck."
     },
     "ir-8": {
-      ".": "Orb of Manipulation",
+      "": "Orb of Manipulation",
       "1": "Use before being attacked. The enemy draws three attack modifier cards. You choose which one to apply."
     },
     "ir-9": {
-      ".": "Lucky Charm",
+      "": "Lucky Charm",
       "1": "Add two %game.condition.bless% cards to your attack modifier deck."
     }
   },

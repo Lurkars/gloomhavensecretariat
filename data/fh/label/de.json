@@ -1,336 +1,336 @@
 {
   "battleGoals": {
     "1301": {
-      ".": "Buchführung",
+      "": "Buchführung",
       "text": "Habe bei jeder Rast genau 0 Karten in der Hand."
     },
     "1302": {
-      ".": "Akrobatisch",
+      "": "Akrobatisch",
       "text": "Verliere eine Karte, um 5 oder mehr Schaden zu negieren."
     },
     "1303": {
-      ".": "Asketisch",
+      "": "Asketisch",
       "text": "Sammle weniger Beutemarker als jeder andere Charakter."
     },
     "1304": {
-      ".": "Hilfsbereit",
+      "": "Hilfsbereit",
       "text": "Töte einen Gegner, der in derselben Runde bereits von einem Verbündeten angegriffen wurde."
     },
     "1305": {
-      ".": "Bastion",
+      "": "Bastion",
       "text": "Besetze am Ende einer Runde ein Türfeld, das an mindestens 2 Gegner angrenzt."
     },
     "1306": {
-      ".": "Mobbing",
+      "": "Mobbing",
       "text": "Töte einen Gegner, der mindestens 2 negative Zustände hat."
     },
     "1307": {
-      ".": "Ordentlich",
+      "": "Ordentlich",
       "text": "Sammle mindestens 3 Beutemarker im selben Zugt."
     },
     "1308": {
-      ".": "Aufräumen",
+      "": "Aufräumen",
       "text": "Töte den letzten Gegner, der im Szenario stirbt."
     },
     "1309": {
-      ".": "Genügsam",
+      "": "Genügsam",
       "text": "Führe nie eine Aktion mit Verloren-Symbol aus."
     },
     "1310": {
-      ".": "Zäher Hund",
+      "": "Zäher Hund",
       "text": "Lass nicht zu, dass dein TP-Wert unter die Hälfte deines maximalen TP-Werts (aufgerundet) sinkt."
     },
     "1311": {
-      ".": "Übertrieben",
+      "": "Übertrieben",
       "text": "Töte einen Gegner mit einem Angriff, der mindestens 4 Schadenspunkte mehr als nötig verursacht hätte."
     },
     "1312": {
-      ".": "Egoistisch",
+      "": "Egoistisch",
       "text": "Sammle mehr Beutemarker als jeder andere Charakter."
     },
     "1313": {
-      ".": "Volltrefer",
+      "": "Volltrefer",
       "text": "Töte einen unverletzten Gegner mit einer einzigen Angriffsaktion."
     },
     "1314": {
-      ".": "Volles Risiko",
+      "": "Volles Risiko",
       "text": "Töte einen Gegner durch einen Angriff, der Nachteil hat."
     },
     "1315": {
-      ".": "Jagdkunst",
+      "": "Jagdkunst",
       "text": "Töte mindestens einen (bei 4 Charakteren 2) Elite-Gegner."
     },
     "1316": {
-      ".": "Schlaflos",
+      "": "Schlaflos",
       "text": "Erleide in einer Runde, in der du eine lange Rast machst, Schaden durch einen Angriff."
     },
     "1317": {
-      ".": "Masochistisch",
+      "": "Masochistisch",
       "text": "Beende das Szenario mit einem TP-Wert von 3 oder weniger."
     },
     "1318": {
-      ".": "Ausgenommen",
+      "": "Ausgenommen",
       "text": "Töte einen Gegner und erbeute in derselben Runde den fallengelassenen Beutemarker."
     },
     "1319": {
-      ".": "Erstschlag",
+      "": "Erstschlag",
       "text": "Töte den ersten Gegner, der im Szenario stirbt."
     },
     "1320": {
-      ".": "Optimistisch",
+      "": "Optimistisch",
       "text": "Entferne mindestens 2-mal einen negativen Zustand von dir selbst oder einem Verbündeten."
     },
     "1321": {
-      ".": "Pazifistisch",
+      "": "Pazifistisch",
       "text": "Töte höchstens 3 Gegner."
     },
     "1322": {
-      ".": "Bettelarm",
+      "": "Bettelarm",
       "text": "Sammle beim Erbeuten am Zugende niemals einen Beutemarker ein."
     },
     "1323": {
-      ".": "Kontaktscheu",
+      "": "Kontaktscheu",
       "text": "Betritt niemals ein Feld, das von einem Verbündeten, Gegner, Zielobjekt oder Hindernis besetzt ist."
     },
     "1324": {
-      ".": "Perfektionistisch",
+      "": "Perfektionistisch",
       "text": "Beende das Szenario mit deinem maximalen TP-Wert."
     },
     "1325": {
-      ".": "Profitorientiert",
+      "": "Profitorientiert",
       "text": "Sammle mindestens 2 Beutemarker mit einer Beutefertigkeit ein, während du an mindestens einen Gegner angrenzt."
     },
     "1326": {
-      ".": "Nadelkiasen",
+      "": "Nadelkiasen",
       "text": "Werde in einer Runde zum Angriffsziel von mindestens 3 Gegenern."
     },
     "1327": {
-      ".": "Fußvolk",
+      "": "Fußvolk",
       "text": "Töte niemals einen Elite-Gegner, einen benannten Gegner oder einen Boss."
     },
     "1328": {
-      ".": "Trocken",
+      "": "Trocken",
       "text": "Benutze niemals Tränke."
     },
     "1329": {
-      ".": "Anfeuern",
+      "": "Anfeuern",
       "text": "Führe vor deiner 1. Rast und zwischen allen weiteren eine Fertigkeit aus, die einen Verbündeten anvisiert."
     },
     "1330": {
-      ".": "Auf Achse",
+      "": "Auf Achse",
       "text": "Beende maximal 3 deiner Züge auf dem Feld, auf dem sie begannen, außer bei langen Rasten."
     },
     "1331": {
-      ".": "Verwüstung",
+      "": "Verwüstung",
       "text": "Führe im selben Zug 2 Aktionen mit Verloren-Symbol aus."
     },
     "1332": {
-      ".": "Unabhängig",
+      "": "Unabhängig",
       "text": "Beende deinen Zug niemals an einen anderen Charakter angrenzend (erhalte bei 4 Charakteren ein zusätzliches %game.checkmark%)."
     },
     "1333": {
-      ".": "Rituell",
+      "": "Rituell",
       "text": "Töte einen Gegner während mindestens 3 Elemente stark oder schwindend sind."
     },
     "1334": {
-      ".": "Sadistisch",
+      "": "Sadistisch",
       "text": "Töte mindestens 5 Gegner."
     },
     "1335": {
-      ".": "Ruhelos",
+      "": "Ruhelos",
       "text": "Mache niemals eine lange Rast."
     },
     "1336": {
-      ".": "Um die Ecke",
+      "": "Um die Ecke",
       "text": "Töte, während du an einen Gegner angrenzt, einen anderen Gegner, der nicht an dich angrenzt."
     },
     "1337": {
-      ".": "Verschlafen",
+      "": "Verschlafen",
       "text": "Habe bei jeder Rast mindestens 1 Karte in der Hand."
     },
     "1338": {
-      ".": "Faulpelz",
+      "": "Faulpelz",
       "text": "Mache eine lange Rast mit maximalem TP-Wert, nachdem du zuvor Schaden erlitten hast."
     },
     "1339": {
-      ".": "Schlusslicht",
+      "": "Schlusslicht",
       "text": "Mache niemals eine kurze Rast."
     },
     "1340": {
-      ".": "Sparsam",
+      "": "Sparsam",
       "text": "Habe am Ende des Szenarios insgesamt mindestens 5 Karten in der Hand und dem Abwurfstapel."
     },
     "1341": {
-      ".": "Schikane",
+      "": "Schikane",
       "text": "Füge einem Gegner, der mindestens einen negativen Zustand hat, einen anderen negativen Zustand hinzu."
     },
     "1342": {
-      ".": "Verschwendung",
+      "": "Verschwendung",
       "text": "Verliere eine Karte, um maximal 2 Schadenspunkte eines Angriffs zu negieren."
     },
     "1343": {
-      ".": "Ausgebrannt",
+      "": "Ausgebrannt",
       "text": "Werde vor allen anderen Charakteren erschöpft."
     },
     "1344": {
-      ".": "Arbeitstier",
+      "": "Arbeitstier",
       "text": "Erhalte mindestens 13 Erfahrungspunkte vor etwaiger Bonuserfahrung für das Szenario."
     },
     "1345": {
-      ".": "Voller Eifer",
+      "": "Voller Eifer",
       "text": "Habe am Ende des Szenarios insgesamt höchstens 3 Karten in der Hand und dem Abwurfstapel und sei nicht erschöpft."
     },
     "1346": {
-      ".": "Meucheln",
+      "": "Meucheln",
       "text": "Töte einen Gegner noch vor seinem ersten Zug."
     },
     "1347": {
-      ".": "Verwegen",
+      "": "Verwegen",
       "text": "Füge vor deiner ersten Rast 2 Karten zum Verloren-Stapel hinzu."
     },
     "1348": {
-      ".": "Trantüte",
+      "": "Trantüte",
       "text": "Wähle niemals die Karte mit der niedrigeren Initiative als deine initiative-Karte."
     },
     "1349": {
-      ".": "Klette",
+      "": "Klette",
       "text": "Verlasse niemals ein an einen Gegner angrenzendes Feld, außer durch erzwungene Bewegung."
     },
     "1350": {
-      ".": "Aussieben",
+      "": "Aussieben",
       "text": "Töte mindestens einen Gegner jedes Monstertyps, der in dem Szenario vorkommt."
     },
     "1351": {
-      ".": "Müßiggang",
+      "": "Müßiggang",
       "text": "Erhalte höchstens 7 Erfahrung vor etwaiger Bonuserfahrung für das Szenario."
     },
     "1352": {
-      ".": "Geizig",
+      "": "Geizig",
       "text": "Verlasse niemals einen Raum, in dem noch Beutemarker sind."
     },
     "1353": {
-      ".": "Übereifrig",
+      "": "Übereifrig",
       "text": "Töte einen Gegner und öffne im selben Zug eine Tür in beliebiger Reihenfolge."
     },
     "1354": {
-      ".": "Friedensstiftend",
+      "": "Friedensstiftend",
       "text": "Töte keinen einzigen Gegner."
     },
     "1355": {
-      ".": "Vorbereitet",
+      "": "Vorbereitet",
       "text": "Führe in den ersten 3 Runden keine Angriffsfertigkeiten aus."
     },
     "1356": {
-      ".": "Tilgung",
+      "": "Tilgung",
       "text": "Töte mindestens 2 Gegner in derselben Runde."
     },
     "1357": {
-      ".": "Lahm",
+      "": "Lahm",
       "text": "Bewege dich in jedem Zug maximal 2 Felder weit."
     },
     "1358": {
-      ".": "Spezialisiert",
+      "": "Spezialisiert",
       "text": "Führe keine Standardaktion aus."
     },
     "1359": {
-      ".": "Vorhut",
+      "": "Vorhut",
       "text": "Greife niemals einen Gegner an, der in dieser Runde schon eine Aktion ausgeführt hat."
     },
     "1360": {
-      ".": "Mauerblümchen",
+      "": "Mauerblümchen",
       "text": "Beende deine Züge immer angrenzend an einer Wand, ein Hindernis oder ein Zielobjekt."
     }
   },
   "buildings": {
     "alchemist": {
-      ".": "Alchemist"
+      "": "Alchemist"
     },
     "barracks": {
-      ".": "Kaserne"
+      "": "Kaserne"
     },
     "boat": {
-      ".": "Schiff"
+      "": "Schiff"
     },
     "carpenter": {
-      ".": "Zimmermann"
+      "": "Zimmermann"
     },
     "climbing-gear": {
-      ".": "Kletterausrüstung"
+      "": "Kletterausrüstung"
     },
     "craftsman": {
-      ".": "Handwerker"
+      "": "Handwerker"
     },
     "enhancer": {
-      ".": "Verbesserer"
+      "": "Verbesserer"
     },
     "garden": {
-      ".": "Garten"
+      "": "Garten"
     },
     "hall-of-revelry": {
-      ".": "Festhalle"
+      "": "Festhalle"
     },
     "hide-depot": {
-      ".": "Lederdepot"
+      "": "Lederdepot"
     },
     "hunting-lodge": {
-      ".": "Jagdhütte"
+      "": "Jagdhütte"
     },
     "inn": {
-      ".": "Gasthof"
+      "": "Gasthof"
     },
     "jeweler": {
-      ".": "Juwelier"
+      "": "Juwelier"
     },
     "library": {
-      ".": "Bibliothek"
+      "": "Bibliothek"
     },
     "logging-camp": {
-      ".": "Holzfällerlager"
+      "": "Holzfällerlager"
     },
     "lumber-depot": {
-      ".": "Holzdepot"
+      "": "Holzdepot"
     },
     "metal-depot": {
-      ".": "Metalldepot"
+      "": "Metalldepot"
     },
     "mining-camp": {
-      ".": "Bergbaulager"
+      "": "Bergbaulager"
     },
     "sled": {
-      ".": "Schlitten"
+      "": "Schlitten"
     },
     "stables": {
-      ".": "Stall"
+      "": "Stall"
     },
     "tavern": {
-      ".": "Schenke"
+      "": "Schenke"
     },
     "temple": {
-      ".": "Tempel der Großen Eiche"
+      "": "Tempel der Großen Eiche"
     },
     "town-hall": {
-      ".": "Rathaus"
+      "": "Rathaus"
     },
     "trading-post": {
-      ".": "Handelsposten"
+      "": "Handelsposten"
     },
     "wall-j": {
-      ".": "Verteidigung J"
+      "": "Verteidigung J"
     },
     "wall-k": {
-      ".": "Verteidigung K"
+      "": "Verteidigung K"
     },
     "wall-l": {
-      ".": "Verteidigung L"
+      "": "Verteidigung L"
     },
     "wall-m": {
-      ".": "Verteidigung M"
+      "": "Verteidigung M"
     },
     "wall-n": {
-      ".": "Verteidigung N"
+      "": "Verteidigung N"
     },
     "workshop": {
-      ".": "Werkstatt"
+      "": "Werkstatt"
     }
   },
   "campaignSticker": {
@@ -357,7 +357,7 @@
   "character": {
     "banner-spear": "Bannerspeer",
     "blinkblade": {
-      ".": "Blitzklinge",
+      "": "Blitzklinge",
       "fast": "Schnell",
       "slow": "Langsam",
       "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
@@ -366,7 +366,7 @@
     "deathwalker": "Todeswandlerin",
     "drifter": "Wanderer",
     "geminate": {
-      ".": "Doppelseele",
+      "": "Doppelseele",
       "melee": "Nahkampf",
       "range": "Fernkampf"
     },
