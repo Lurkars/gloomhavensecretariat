@@ -4,8 +4,12 @@
     "circles": "Ruferin",
     "eclipse": "Nachtschleier",
     "envx": "Klingenschwarm",
-    "lightning": "Berserkerin",
-    "music-note": "Wahrsängerin",
+    "lightning": {
+      "": "Berserkerin"
+    },
+    "music-note": {
+      "": "Wahrsängerin"
+    },
     "saw": "Knochenflicker",
     "squidface": "Seuchenbringer",
     "sun": "Sonnenhüterin",

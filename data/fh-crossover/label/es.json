@@ -5,7 +5,8 @@
     "demolitionist": {
       "": "Demoledora",
       "mech": {
-        "": "Armadura mecanizada"
+        "": "Armadura mecanizada",
+        "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
       }
     },
     "diviner": "Adivina",
@@ -25,7 +26,7 @@
         "3": "A lo largo de tres rondas consecutivas, juega seis cartas de habilidad diferentes y haz que los enemigos sufran al menos %game.damage:6% en cada uno de tus turnos"
       },
       "cragheart": {
-        "1": "<b>Terremotos</b> Siempre que se revele una nueva sala, controla a todos los enemigos de la sala recién revelada: %game.action.move% 1, este movimiento debe terminar en un hexágono vacío",
+        "1": "<b>Terremoto:</b> Siempre que se revele una nueva sala, controla a todos los enemigos de la sala recién revelada: %game.action.move% 1, este movimiento debe terminar en un hexágono vacío",
         "2": "Ataca solamente a enemigos adyacentes a obstáculos o paredes",
         "3": "Daña o cura al menos a un aliado cada ronda"
       },

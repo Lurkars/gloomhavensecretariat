@@ -75,10 +75,27 @@
       "4": "공동으로 금화 20개를 잃음"
     }
   },
+  "character": {
+    "banner-spear": "창기수",
+    "blinkblade": {
+      "": "점멸칼날"
+    },
+    "boneshaper": {
+      "": "뼈 조각사"
+    },
+    "deathwalker": "죽음보행자",
+    "drifter": "표류자",
+    "geminate": {
+      "": "쌍생자"
+    }
+  },
   "custom": {
     "fh": {
       "archer": {
         "1": "적과 가장 가까운 빈칸에 %game.damage:3% 피해를 주는 함정 하나를 생성."
+      },
+      "banner-spear": {
+        "3": "모든 인접한 아군은 %game.shield% 1 획득."
       },
       "flame-demon": {
         "1": "적과 가장 가까운 인접한 칸 하나에 %game.damage:4% 피해의 함정을 생성"
@@ -121,6 +138,9 @@
     "vermling-scout": "버믈링 정찰병",
     "wind-demon": "바람 악마",
     "yoglang": "Yoglang"
+  },
+  "personalQuest": {
+    "519": "영원한 방랑자"
   },
   "scenario": {
     "group": {
