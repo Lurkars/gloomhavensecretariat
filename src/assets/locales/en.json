@@ -71,6 +71,7 @@
           "multiple": "Toggle active Challenges"
         }
       },
+      "removed": "Removed",
       "upcoming": "Upcoming"
     },
     "disabled": "No challenges set for scenario!"
@@ -2630,6 +2631,17 @@
       },
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
       "cancelScenario": "Cancel Scenario #{0} {1} ({2})",
+      "challengeDeck": {
+        "clear": "Discard drawn Challenges",
+        "draw": "Draw Challenge",
+        "hide": "Hide Challenge deck",
+        "reorder": "Reorder Challenge deck",
+        "removeCard": "Remove card from Challenge deck",
+        "restoreCard": "Restore card {0} of Challenge deck",
+        "show": "Show Challenge deck",
+        "shuffle": "Shuffle Challenge deck",
+        "toggle": "Toggle active Challenge"
+      },
       "changeBuildingState": "State of building '%data.buildings.{1}%' ({0}) to %party.campaign.sheet.buildings.state.{2}%",
       "changeCustomScenario": "Name '{0}' for custom scenario",
       "changeEntityHp": "HP {3} for {1} standee {2} of {0}",

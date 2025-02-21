@@ -18,9 +18,9 @@ export class LootDeckChange {
 
     deck: LootDeck;
     type: string;
-    values: string[];
+    values: (string | number | boolean)[];
 
-    constructor(deck: LootDeck, type: string, ...values: string[]) {
+    constructor(deck: LootDeck, type: string, ...values: (string | number | boolean)[]) {
         this.deck = deck;
         this.type = type;
         this.values = values;

@@ -296,13 +296,13 @@ export class LootDeckDialogComponent implements OnInit, OnDestroy {
   }
 
   remove(index: number) {
-    this.before.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', "" + index));
+    this.before.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', index));
     if (index <= this.deck.current) {
       this.deck.current--;
       this.current = this.deck.current;
     }
     this.deck.cards.splice(index, 1);
-    this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', "" + index));
+    this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', index));
     this.update();
   }
 

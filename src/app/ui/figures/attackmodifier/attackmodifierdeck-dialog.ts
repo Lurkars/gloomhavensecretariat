@@ -211,20 +211,20 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
   }
 
   remove(index: number) {
-    this.before.emit(new AttackModiferDeckChange(this.deck, "removeCard", "" + index));
+    this.before.emit(new AttackModiferDeckChange(this.deck, "removeCard", index));
     if (index <= this.deck.current) {
       this.deck.current--;
       this.currentAttackModifier = this.deck.current;
     }
     this.deck.cards.splice(index, 1);
-    this.after.emit(new AttackModiferDeckChange(this.deck, "removeCard", "" + index));
+    this.after.emit(new AttackModiferDeckChange(this.deck, "removeCard", index));
     this.update();
   }
 
   restore(index: number) {
-    this.before.emit(new AttackModiferDeckChange(this.deck, "restoreCard", "" + index));
+    this.before.emit(new AttackModiferDeckChange(this.deck, "restoreCard", index));
     this.deck.cards.splice(this.deck.current + 1, 0, this.deletedCards[index]);
-    this.after.emit(new AttackModiferDeckChange(this.deck, "restoreCard", "" + index));
+    this.after.emit(new AttackModiferDeckChange(this.deck, "restoreCard", index));
     this.update();
   }
 

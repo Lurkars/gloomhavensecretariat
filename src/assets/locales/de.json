@@ -71,6 +71,7 @@
           "multiple": "Aktive Herausforderungen umschalten"
         }
       },
+      "removed": "Entfernte",
       "upcoming": "Kommende"
     },
     "disabled": "Keine Herausforderungen für das Szenario ausgewählt!"
@@ -2630,6 +2631,17 @@
       },
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
       "cancelScenario": "Szenario #{0} {1} ({2}) abbrechen",
+      "challengeDeck": {
+        "clear": "Gezogene Herausforderungen verwerfen",
+        "draw": "Herausforderung ziehen",
+        "hide": "Herausforderungsdeck ausblenden",
+        "reorder": "Herausforderungsdeck neu anordnen",
+        "removeCard": "Karte vom Herausforderungsdeck entfernen",
+        "restoreCard": "Karte {0} des Herausforderungsdecks wiederherstellen",
+        "show": "Herausforderungsdeck einblenden",
+        "shuffle": "Herausforderungsdeck mischen",
+        "toggle": "Aktive Herarusforderung umschalten"
+      },
       "changeBuildingState": "Zustand von Gebäude '%data.buildings.{1}%' ({0}) zu %party.campaign.sheet.buildings.state.{2}%",
       "changeCustomScenario": "Namen '{0}' für benutzerdefiniertes Szenario",
       "changeEntityHp": "TP {1} für Aufsteller {2} von {0}: {3}",

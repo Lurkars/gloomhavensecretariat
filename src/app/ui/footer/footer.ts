@@ -312,8 +312,8 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   toggleChallengeDeck() {
-    this.beforeChallengeDeck(new ChallengeDeckChange(gameManager.game.challengeDeck, gameManager.game.challengeDeck.active ? 'challengeDeckHide' : 'challengeDeckShow'));
+    this.beforeChallengeDeck(new ChallengeDeckChange(gameManager.game.challengeDeck, gameManager.game.challengeDeck.active ? 'challengeDeck.hide' : 'challengeDeck.show'));
     gameManager.game.challengeDeck.active = !gameManager.game.challengeDeck.active;
-    this.afterChallengeDeck(new ChallengeDeckChange(gameManager.game.challengeDeck, !gameManager.game.challengeDeck.active ? 'challengeDeckHide' : 'challengeDeckShow'));
+    this.afterChallengeDeck(new ChallengeDeckChange(gameManager.game.challengeDeck, !gameManager.game.challengeDeck.active ? 'challengeDeck.hide' : 'challengeDeck.show'));
   }
 }

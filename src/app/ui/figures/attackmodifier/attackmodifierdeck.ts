@@ -14,10 +14,10 @@ export class AttackModiferDeckChange {
 
   deck: AttackModifierDeck;
   type: string;
-  values: string[];
+  values: (string | number | boolean)[];
 
   constructor(deck: AttackModifierDeck,
-    type: string, ...values: string[]) {
+    type: string, ...values: (string | number | boolean)[]) {
     this.deck = deck;
     this.type = type;
     this.values = values;
@@ -316,9 +316,9 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
     if (!this.drawing || index > this.current) {
       const am: AttackModifier = this.deck.cards[index];
       if (am.active && this.deck.discarded.indexOf(index) == -1) {
-        this.before.emit(new AttackModiferDeckChange(this.deck, "discard", "" + index));
+        this.before.emit(new AttackModiferDeckChange(this.deck, "discard", index));
         this.deck.discarded.push(index);
-        this.after.emit(new AttackModiferDeckChange(this.deck, "discard", "" + index));
+        this.after.emit(new AttackModiferDeckChange(this.deck, "discard", index));
       } else {
         this.open(event);
       }
