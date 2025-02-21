@@ -30,25 +30,25 @@
       "name": "活动名称 {0}",
       "reset": "重置战役"
     },
-    "character": "角色信息表",
-    "items": "物品卡片概览",
+    "character": "角色记录纸",
+    "items": "物品卡牌概览",
     "map": {
       "": "世界地图",
       "highlighting": "突出"
     },
-    "party": "团队 / 活动资料表",
+    "party": "团队 / 活动记录纸",
     "resources": "资源总览表",
-    "sheet": "全球活动管理表",
+    "sheet": "整体战役管理记录纸",
     "trials": {
       "": "考验",
-      "automation": "此卡片效果自动生效！"
+      "automation": "此卡牌效果自动生效！"
     }
   },
   "cancel": "取消",
   "challenges": {
     "": "挑战",
     "automation": {
-      "hint": "此卡片效果自动生效！"
+      "hint": "此卡牌效果自动生效！"
     },
     "deck": {
       "clear": {
@@ -67,30 +67,30 @@
           "multiple": "抽取所有挑战（卡）"
         },
         "select": {
-          "": "切换激活挑战",
-          "multiple": "切换激活所有挑战"
+          "": "切换生效的挑战卡牌",
+          "multiple": "切换所有生效的挑战卡牌"
         }
       },
-      "upcoming": "即将来临的"
+      "upcoming": "即将抽取的"
     },
-    "disabled": "该场景未设置任何挑战！"
+    "disabled": "该剧本未设置任何挑战！"
   },
   "character": {
     "": "角色",
     "abilities": {
       "currentDeck": "当前牌组",
-      "deckWarning": "由于牌组中的牌太多，无法做出正确的选牌操作！",
-      "forceDeck": "双击以将卡片添加到牌组",
-      "levelWarning": "牌组无效，因为部分卡片的等级高于角色等级！",
-      "pickCard": "挑选你的等级为 {0} 的卡片",
-      "removeFromDeck": "双击以从牌组中移除卡片",
-      "show": "查看所有技能卡牌",
-      "showDeck": "查看当前角色卡池",
+      "deckWarning": "由于牌堆中的牌太多,无法做出正确的选牌操作!",
+      "forceDeck": "双击以将卡牌添加到牌堆中",
+      "levelWarning": "牌堆无效,因为部分卡牌的等级高于角色等级!",
+      "pickCard": "挑选你的等级为 {0} 的卡牌",
+      "removeFromDeck": "双击以将卡牌从牌堆中移除",
+      "show": "显示所有技能卡牌",
+      "showDeck": "显示当前角色卡池",
       "sort": {
         "cardId": "以卡牌编号整理",
-        "level-deck": "按牌组中的卡牌排序",
-        "level-name": "以等级和名称整理",
-        "name": "以名称整理"
+        "level-deck": "按牌堆中卡牌的等级排序",
+        "level-name": "以等级和名称排序",
+        "name": "以名称排序"
       },
       "undoLastPick": {
         "": "不选择等级 {0}",
@@ -98,7 +98,7 @@
       },
       "wip": "<i>%制作中%</i>"
     },
-    "absent": "缺席",
+    "absent": "不在场",
     "add": "添加角色",
     "class": {
       "aesther": "以太灵",
@@ -154,19 +154,19 @@
     "playerNumber": "玩家#",
     "present": "在线",
     "progress": {
-      "": "角色表",
+      "": "角色记录纸",
       "donate": "捐赠",
       "donations": "向圣橡树捐赠: {0}",
       "export": "导出",
       "fh": {
-        "disable": "前往幽港迷城角色卡",
-        "enable": "前往霜港迷城角色卡"
+        "disable": "前往幽港迷城角色记录纸",
+        "enable": "前往霜港迷城角色记录纸"
       },
       "gold": "金币",
       "gold-notes": "金币记录",
       "import": "导入",
       "level": "等级",
-      "lock": "将角色表锁定以免误触.",
+      "lock": "将角色记录纸锁定以免误触编辑.",
       "masteries": "巅峰战绩",
       "name": "名称",
       "notes": "记录",
@@ -180,9 +180,9 @@
         "openEnvelope": {
           "": "打开信封 %game.fhIcon:envelope% {0}",
           "alt": "打开信封 %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
-          "building": "打开信封 %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
+          "building": "解锁建筑物 '%data.buildings.{1}%' ({0})",
           "inspiration": "获得+1激励值",
-          "itemBlueprint": "获得 \"%data.items.{1}-{0}%\" 设计图纸 (Item {0})",
+          "itemBlueprint": "获得 \"%data.items.{1}-{0}%\" 设计蓝图 (Item {0})",
           "randomScenario": "查看 %data.section:{0}%, 解锁 %data.scenarioNumber:{1}%"
         },
         "unlockCharacter": {
@@ -212,7 +212,7 @@
       },
       "retirements": "退休",
       "title": "{1} {0}",
-      "trial": "特性",
+      "trial": "试炼",
       "xp": "经验值"
     },
     "remove": "移除角色",
@@ -261,19 +261,19 @@
           "hint": "无需下载自动备份文件，可设置 URL 将数据上传至指定位置。{FILENAME} 可用作文件名的占位符。（此功能需要正确配置 CORS 设置才能正常工作！）"
         },
         "uploadUrlAuthorization": {
-          "": "Authorization头",
-          "hint": "用作上传请求的'Authorization'头"
+          "": "授权标题",
+          "hint": "用作上传请求的'授权'标题"
         },
         "uploadUrlFileUpload": {
-          "": "上传为文件",
-          "hint": "创建要上传的文件对象。如果未勾选，将发送原始 JSON 字符串数据。"
+          "": "以文件形式上传",
+          "hint": "创建要上传的文件对象.如果未勾选,将发送原始 JSON 字符串数据."
         },
         "uploadUrlMethod": {
           "": "方法",
-          "get": "GET 请求",
+          "get": "获得",
           "hint": "用于上传的 HTTP 方法",
-          "post": "POST 请求",
-          "put": "PUT 请求"
+          "post": "邮件",
+          "put": "放置"
         },
         "uploadUrlPassword": {
           "": "密码",
@@ -288,13 +288,13 @@
       "download": {
         "": "立即下载备份文件",
         "hint": {
-          "": "定期备份游戏以防止数据丢失。",
+          "": "定期备份游戏以防止数据丢失.",
           "hide": "不再显示",
-          "text": "您的整个处理过程都存储在浏览器存储中。虽然正常情况下浏览器不应意外删除这些数据，但仍有极少数此类事件的报告。无论这些事件是否由使用错误引起，为了安全起见，创建备份都是一个好主意。"
+          "text": "您的整个处理过程都存储在浏览器存储中.虽然正常情况下浏览器不应意外删除这些数据,但仍有极少数此类事件的报告.无论这些事件是否由使用错误引起,为了安全起见,创建备份都是一个好主意."
         },
         "onFinish": "完成剧本后自动备份"
       },
-      "latest": "下载最近的游戏备份"
+      "latest": "下载最新的游戏备份"
     },
     "clearAll": "重置所有数据",
     "editionDataUrls": {
@@ -310,7 +310,7 @@
     "importDataDump": "导入数据转储",
     "importFile": {
       "": "导入文件",
-      "hint": "导入任何已导出的文件，包括游戏、备份、数据转储或设置。双击确认导入！"
+      "hint": "导入任何已导出的文件,包括游戏、备份、数据转储或设置.双击确认导入!"
     },
     "importGame": "从文件导入游戏",
     "importSettings": "从文件导入设置",
@@ -372,10 +372,10 @@
       "": "角色编辑器",
       "data": {
         "": "角色数据",
-        "deck": "行动牌库名称",
+        "deck": "能力牌堆名称",
         "hp": {
-          "-1": "自定义配置",
           "": "生命",
+          "-1": "自定义配置",
           "0": "低配置",
           "1": "中配置",
           "2": "高配置"
@@ -389,7 +389,7 @@
       "new": "新角色"
     },
     "deck": {
-      "": "能力牌库编辑器",
+      "": "能力牌堆编辑器",
       "abilityName": "能力名称",
       "addAbility": "添加能力",
       "character": "角色牌库",
@@ -409,13 +409,13 @@
         "remove": "移除角色"
       },
       "conditions": {
-        "": "可供状态",
+        "": "可用状态",
         "allHint": "反选所有状态",
         "allSelected": "选择全部状态"
       },
       "decks": {
-        "": "添加能力牌库文件",
-        "remove": "移除能力牌库"
+        "": "添加能力牌堆文件",
+        "remove": "移除能力牌堆"
       },
       "edition": "版本名称",
       "extensions": "扩展版本",
@@ -437,8 +437,8 @@
         "allLevel": "所有等级",
         "applyAll": "应用于所有等级",
         "boss": "头目",
-        "count": "立板计数",
-        "deck": "能力牌库名称",
+        "count": "立牌计数",
+        "deck": "能力牌堆名称",
         "flying": "飞行",
         "hidden": "隐身",
         "json": {
@@ -2013,9 +2013,196 @@
       "hint": "为所有新立牌自动打开立牌数字对话框."
     },
     "automaticTheme": {
-      "": "自动主题"
+      "": "自动主题",
+      "hint": "当游戏版本更改时自动调整主题和霜港迷城风格.当切换霜港迷城风格时同样调整主题.<br>(在新式风格中主题调整功能禁用)"
+    },
+    "automaticUnlocking": {
+      "": "自动解锁角色",
+      "hint": "从剧本奖励中自动解锁角色."
+    },
+    "autoscroll": {
+      "": "自动滚屏",
+      "hint": "自动滚屏至下一个行动单位"
+    },
+    "backupHint": {
+      "": "显示备份提示",
+      "hint": "当没有剧本进行时显示备份提醒."
+    },
+    "barsize": {
+      "": "人物条尺寸",
+      "dec": "缩小人物条尺寸",
+      "hint": "设置页眉和页脚的大小",
+      "inc": "增大人物条尺寸",
+      "reset": "重置人物条尺寸"
+    },
+    "battleGoals": {
+      "": "战斗目标",
+      "hint": "在剧本第一轮开始前启用抽取并选择战斗目标功能."
+    },
+    "battleGoalsCharacter": {
+      "": "始终显示战斗目标",
+      "hint": "始终在角色面板上显示战斗目标菜单.如果角色攻击修正牌堆功能被禁用,此功能将自动启用以确保仍然能够访问战斗目标菜单."
+    },
+    "battleGoalsFh": {
+      "": "始终抽取3张战斗目标",
+      "hint": "始终应用霜港迷城规则抽取3张战斗目标.(当游玩霜港迷城时此功能将自动启用)"
+    },
+    "battleGoalsReminder": {
+      "": "战斗目标提醒",
+      "hint": "如果第一轮开始前并非所有角色均已选择他们的战斗目标时,会显示相关提醒."
+    },
+    "bbAm": {
+      "": "以投骰子的方式决定攻击修正",
+      "hint": "以投骰子的方式决定下一张攻击修正.如果禁用此功能,会使用常规攻击修正混洗的牌堆."
+    },
+    "bbChars": {
+      "": "角色限制",
+      "hint": "常规单人模式只允许1名角色游玩.如果禁用此功能,允许添加多名角色."
+    },
+    "bbRules": "纽扣&虫子规则",
+    "bbStandeeLimit": {
+      "": "怪物立牌上限",
+      "hint": "所有怪物使用默认4个立牌上限规则.如果禁用此功能最多可以添加10个立牌."
+    },
+    "bonusAdjustment": {
+      "": "等级奖励调整"
+    },
+    "browserNavigation": {
+      "": "使用指引撤销/恢复",
+      "hint": "%尚在开发中%"
+    },
+    "calculate": {
+      "": "显示计算之后的数据",
+      "hint": "能力数值是经过计算之后得出的数据,因此当基础属性中的攻击值为3时,显示的不是攻击+1,而是攻击4"
+    },
+    "calculateShieldStats": {
+      "": "添加护盾及反击至能力中",
+      "hint": "将默认的 %game.action.shield% 以及 %game.action.retaliate% 数值添加至能力卡牌中 %game.action.shield% 以及 %game.action.retaliate% 的行动中, 因此显示的是完整的总值."
+    },
+    "calculateStats": {
+      "": "添加属性数值至能力中",
+      "hint": "添加基础属性数值至能力值中,例如射程范围数值会自动添加至攻击能力中"
+    },
+    "character": "角色",
+    "characterAttackModifierAnimate": {
+      "": "角色攻击修正牌堆抽取的动画效果",
+      "hint": "如果攻击修正卡牌是从角色未公开的攻击修正牌堆中抽取出的,则会显示抽取动画."
+    },
+    "characterAttackModifierDeck": {
+      "": "角色攻击修正牌堆",
+      "hint": "启用角色的攻击修正牌堆功能.角色表必须被启用才能使用角色专长卡牌."
+    },
+    "characterAttackModifierDeckPermanent": {
+      "": "始终使用角色攻击修正牌堆",
+      "hint": "始终在角色面板下方显示攻击修正牌堆."
+    },
+    "characterAttackModifierDeckPermanentActive": {
+      "": "自动应用行动者的攻击修正牌堆",
+      "hint": "为当前行动的角色自动切换攻击修正牌堆."
+    },
+    "characterCompact": {
+      "": "紧凑型角色面板",
+      "hint": "显示较狭窄的角色面板.(目前在现代主题中不支持该功能)"
+    },
+    "characterHandSize": {
+      "": "显示手牌上限及等级",
+      "hint": "在角色面板上显示手牌上限以及等级."
+    },
+    "characterIdentities": {
+      "": "角色形态",
+      "hint": "通过点击角色名称旁的角色形态图标来切换角色形态."
+    },
+    "characterIdentityHint": {
+      "": "形态提示",
+      "hint": "在角色名称旁显示角色当前所处形态."
+    },
+    "characterItems": {
+      "": "角色物品",
+      "hint": "在剧本中允许管理物品的状态."
+    },
+    "characterItemsApply": {
+      "": "应用物品效果",
+      "hint": "当使用相关物品时,应用所有作用于自身的行动效果,例如 %game.action.heal%, 状态, 召唤物等."
+    },
+    "characterItemsPermanent": {
+      "": "始终显示角色物品",
+      "hint": "始终在角色面板下方显示物品."
+    },
+    "characterItemsPermanentActive": {
+      "": "自动激活物品",
+      "hint": "自动根据行动角色的切换来显示角色对应的物品."
+    },
+    "characterSheet": {
+      "": "角色记录纸",
+      "hint": "启用角色记录纸功能.点击角色面板右侧的大图标以打开记录纸."
+    },
+    "characterSheetCompact": {
+      "": "小型角色记录纸(%尚在开发中%)",
+      "hint": "以更紧凑的小型角色记录纸显示而不是原始的角色记录纸."
+    },
+    "characterShieldRetaliate": {
+      "": "护盾和反击",
+      "hint": "跟踪记录角色的 %game.action.shield% 以及 %game.action.retaliate% 数值."
+    },
+    "characterSortIndex": {
+      "": "根据角色编号#排序",
+      "hint": "在轮次之间按照角色#序号数字将角色进行排序整理."
+    },
+    "characterTraits": {
+      "": "显示特性",
+      "hint": "显示角色人物面板上的特性."
+    },
+    "columns": {
+      "": "列布局",
+      "hint": "如果缩放和空间合适,则启用列布局"
+    },
+    "columnsForce": {
+      "": "使用所有可用的列",
+      "hint": "始终将个体分布在所有可用的列中."
+    },
+    "combineInteractiveAbilities": {
+      "": "整合互动能力",
+      "hint": "同时为所有立牌执行互动能力."
+    },
+    "conditions": "状态/元素",
+    "damageHP": {
+      "": "改血量为伤害",
+      "hint": "显示已造成的伤害而不是所剩余的生命值"
+    },
+    "damageHPToggle": {
+      "": "在角色面板上切换伤害/血量",
+      "hint": "双击角色面板上的血量显示,可以在伤害和血量之间切换."
+    },
+    "debug": {
+      "": "调试设置/工具",
+      "logServerMessages": "日志服务器消息",
+      "rightClick": "始终启用右键"
+    },
+    "dragFigures": {
+      "": "拖放个体",
+      "hint": "拖放个体列表.警告,如果禁用并且没有开启时序值必要功能的话,则无法手动重新排序."
+    },
+    "dragValues": {
+      "": "拖动时序值/ 生命值 / 经验值 /拾取物",
+      "hint": "支持拖动更改数值.要更改时序值,请拖动角色肖像.对于生命值,经验值和拾取物直接在数值上拖动"
+    },
+    "eliteFirst": {
+      "": "精英立牌优先",
+      "hint": "当立牌排序时,优先显示精英立牌"
+    },
+    "errata": {
+      "": "显示勘误提示",
+      "hint": "显示剧本、段落等的已知勘误信息.在GHS数据本身中,所有这些勘误应已被修正,这些提示旨在让人更容易理解勘误前后的差异."
+    },
+    "expireConditions": {
+      "": "状态自动失效",
+      "hint": "相应的条件会在人物回合结束自动移除,例如:强化会在回合结束时移除"
+    },
+    "feedback": {
+      "": "禁用反馈按钮"
     },
     "feedbackErrors": {
+      "": "自动反馈",
       "clear": "清除忽略的自动反馈错误",
       "hint": "通过反馈对话框自动报告错误"
     },
@@ -2123,6 +2310,10 @@
       "hint": "通过点击能力卡牌的相应区域,直接应用某些突出显示的能力,例如召唤或元素行动."
     },
     "interface": "界面",
+    "keyboardShortcuts": {
+      "": "启用键盘快捷键",
+      "hint": "启用列出的键盘快捷键."
+    },
     "levelAdjustment": {
       "": "剧本等级调整"
     },

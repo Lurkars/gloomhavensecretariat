@@ -358,8 +358,8 @@
         "": "Datos de personaje",
         "deck": "Nombre mazo de habilidades",
         "hp": {
-          "-1": "Perfil personalizado",
           "": "Puntos de vida",
+          "-1": "Perfil personalizado",
           "0": "Perfil bajo",
           "1": "Perfil medio",
           "2": "Perfil alto"
@@ -2212,8 +2212,8 @@
     },
     "fhRules": "Reglas de Frosthaven",
     "fhSecondEdition": {
-      "": "2a Edición",
-      "hint": "Algunos cambios entre la primera y la segunda impresión de Frosthaven no pueden establecerse automáticamente. Por lo tanto, compruébalo si utilizas la segunda impresión de Frosthaven."
+      "": "2a Impresión",
+      "hint": "Algunos cambios entre la primera y la segunda impresión de Frosthaven no pueden establecerse automáticamente. Por lo tanto, comprueba si utilizas la segunda impresión de Frosthaven. (Elige esta opción para jugar con la edición Española)."
     },
     "fhStyle": {
       "": "Estilo Frosthaven",
