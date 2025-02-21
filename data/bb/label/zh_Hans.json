@@ -12,46 +12,60 @@
   },
   "items": {
     "bb-1": {
-      "": "玫刺刀"
+      "": "玫刺刀",
+      "1": "在你的攻击行动中， %game.elementHalf.consume:ice|earth% 来增加%game.action.pierce% 1"
     },
     "bb-10": {
-      "": "藤蔓鞭"
+      "": "藤蔓鞭",
+      "1": "在你的攻击行动中， %game.elementHalf.consume:earth|light% 增加 %game.condition.immobilize%"
     },
     "bb-11": {
-      "": "强磁指针"
+      "": "强磁指针",
+      "1": "在你的回合中，控制一名在 %game.action.range% 5里的敌人执行%game.action.move% 2."
     },
     "bb-12": {
-      "": "残羹冷炙"
+      "": "残羹冷炙",
+      "1": "在你的回合中以自己为目标执行%game.action.heal% 1。"
     },
     "bb-13": {
-      "": "侠盗羽箭"
+      "": "侠盗羽箭",
+      "1": "当你进行单次远程攻击时， %game.elementHalf.consume:fire|air%附加 +1 %game.action.range%和%game.action.pierce% 1."
     },
     "bb-14": {
-      "": "龙葵粉"
+      "": "龙葵粉",
+      "1": "在一个敌人攻击后，%game.elementHalf.consume:earth|dark%为其添加%game.condition.poison%。"
     },
     "bb-15": {
-      "": "生命滴露"
+      "": "生命滴露",
+      "1": "在你的回合中以自己为目标执行%game.action.heal%。"
     },
     "bb-16": {
-      "": "挥发粉末"
+      "": "挥发粉末",
+      "1": "当你进行单次远程攻击时，附加："
     },
     "bb-17": {
-      "": "鱼钩和鱼线"
+      "": "鱼钩和鱼线",
+      "1": "当你进行远程攻击时附加%game.action.pierce% 2， %game.action.pull% 2."
     },
     "bb-18": {
-      "": "栗壳盾"
+      "": "栗壳盾",
+      "1": "当你收到敌人攻击时，获得%game.action.shield% 1 和 %game.action.retaliate% 1."
     },
     "bb-19": {
-      "": "黄铜齿轮"
+      "": "黄铜齿轮",
+      "1": "在确定时序值后，为你的时序值增加或减少10。"
     },
     "bb-2": {
-      "": "毒牙"
+      "": "毒牙",
+      "1": "当你进行近战攻击时附加%game.condition.poison%。"
     },
     "bb-20": {
-      "": "润滑油"
+      "": "润滑油",
+      "1": "在你执行移动行动时增加+2 %game.action.move%。"
     },
     "bb-21": {
-      "": "元素药水"
+      "": "元素药水",
+      "1": "在你的回合中创造%game.element.wild%"
     },
     "bb-22": {
       "": "精力药水"
