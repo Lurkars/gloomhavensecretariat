@@ -27,7 +27,7 @@
       "": "管理战役",
       "add": "添加战役",
       "hint": "在游玩剧本时不能更改当前战役或创建新的战役.请完成或取消游玩当前剧本来更改当前战役或创建新的战役.",
-      "name": "活动名称 {0}",
+      "name": "战役名称 {0}",
       "reset": "重置战役"
     },
     "character": "角色记录纸",
@@ -71,6 +71,7 @@
           "multiple": "切换所有生效的挑战卡牌"
         }
       },
+      "removed": "移除的",
       "upcoming": "即将抽取的"
     },
     "disabled": "该剧本未设置任何挑战！"
@@ -346,21 +347,21 @@
   "edition": {
     "": "设置版本",
     "all": "所有版本",
-    "conditions": "可供状态"
+    "conditions": "可用状态"
   },
   "editor": {
     "": "编辑器 [剧透！]",
     "action": {
       "add": "添加行动",
-      "addBottom": "添加下行动",
+      "addBottom": "添加底部行动",
       "addSubAction": "添加子行动",
       "remove": "移除行动",
       "removeSubAction": "移除子行动",
       "small": "更小",
       "type": "行动类型",
-      "value": "行动值",
+      "value": "行动数值",
       "valueType": {
-        "": "值类型",
+        "": "数值类型",
         "add": "添加",
         "fixed": "固定",
         "minus": "减",
@@ -372,7 +373,7 @@
       "": "角色编辑器",
       "data": {
         "": "角色数据",
-        "deck": "能力牌堆名称",
+        "deck": "能力牌库名称",
         "hp": {
           "": "生命",
           "-1": "自定义配置",
@@ -414,8 +415,8 @@
         "allSelected": "选择全部状态"
       },
       "decks": {
-        "": "添加能力牌堆文件",
-        "remove": "移除能力牌堆"
+        "": "添加能力牌库文件",
+        "remove": "移除能力牌库"
       },
       "edition": "版本名称",
       "extensions": "扩展版本",
@@ -451,8 +452,8 @@
   },
   "errata": "勘误",
   "escort": {
-    "": "守卫",
-    "add": "添加守卫"
+    "": "护送者",
+    "add": "添加护送者"
   },
   "game": {
     "action": {
@@ -465,7 +466,7 @@
       "custom": "自定义",
       "damage": "伤害",
       "element": "元素",
-      "elementHalf": "元素减半",
+      "elementHalf": "元素衰退",
       "fly": "飞行",
       "grant": "赋予",
       "grid": "[坐标]",
@@ -476,10 +477,10 @@
       "move": "移动",
       "nonCalc": "普通行动",
       "pierce": "穿刺",
-      "pull": "拖拽",
-      "push": "推斥",
+      "pull": "拉近",
+      "push": "推远",
       "range": "射程",
-      "refreshItem": "回收一件物品",
+      "refreshItem": "刷新一件物品",
       "retaliate": "反击",
       "shield": "护盾",
       "spawn": "生成",
@@ -489,18 +490,18 @@
       "summon": "召唤",
       "swing": "交换",
       "target": "目标",
-      "targets": "目标",
+      "targets": "目标们",
       "teleport": "传送",
-      "trigger": "触动"
+      "trigger": "触发"
     },
     "affect": "作用",
     "allied": "盟友",
     "ally": {
       "": "盟友",
       "addEntity": {
-        "boss": "生成头目盟友",
-        "elite": "生成精英盟友",
-        "normal": "生成普通盟友"
+        "boss": "生成头目型盟友",
+        "elite": "生成精英型盟友",
+        "normal": "生成普通型盟友"
       }
     },
     "attackModifiers": {
@@ -513,7 +514,7 @@
       "effects": {
         "refreshSpentItem": "横置"
       },
-      "openDialog": "展示攻击修正牌库",
+      "openDialog": "显示攻击修正牌库",
       "perks": {
         "": "专长",
         "additional": "{0}和{1}",
@@ -529,9 +530,9 @@
         },
         "effects": {
           "recoverRandomDiscard": "从你的弃牌堆随机回收%game.card.recover%一张卡牌",
-          "refreshItem": "回收一件物品",
+          "refreshItem": "刷新一件物品",
           "refreshItemFh": "%game.card.recover%一件物品",
-          "refreshSpentItem": "回收一件横置物品"
+          "refreshSpentItem": "刷新一件横置物品"
         },
         "type": {
           "add": "添加{0}",
@@ -539,7 +540,7 @@
           "replace": "将{0}替换为{1}"
         },
         "warning": "专长超出可供选择上限！",
-        "wip": "%wip%! 专长并未完成。"
+        "wip": "%尚在开发中%! 专长并未完成."
       },
       "types": {
         "bless": "祝福",
@@ -549,7 +550,7 @@
         "minus": "减",
         "minus1": "减1",
         "minus2": "减2",
-        "null": "空",
+        "null": "归0",
         "plus": "加",
         "plus0": "加0",
         "plus1": "加1",
@@ -563,11 +564,11 @@
       "all": "当前的卡牌",
       "cancel": "取消",
       "choose": "选择战斗目标 %game.characterIconColored.{0}% {1}",
-      "chooseCard": "选择卡牌",
+      "chooseCard": "选择已被选取的卡牌",
       "chosen": "战斗目标%game.characterIconColored.{0}% {1}",
       "drawCard": "再抽一张卡牌",
       "drawCards": "重新抽牌",
-      "drawUnavailable": "已抽完战斗目标！",
+      "drawUnavailable": "已抽完所有战斗目标！",
       "edition": "%data.edition.{0}% 卡牌",
       "setup": {
         "": "设置战斗目标",
@@ -589,13 +590,13 @@
       "coverAll": "覆盖全部",
       "defaultSort": "整理",
       "draw": "抽取",
-      "drawAdvantage": "优势抽取",
-      "drawAnother": "再抽",
-      "drawDisadvantage": "劣势抽取",
-      "drawExtra": "连翻",
+      "drawAdvantage": "以优势攻击抽取卡牌",
+      "drawAnother": "再抽一张",
+      "drawDisadvantage": "以劣势攻击抽取卡牌",
+      "drawExtra": "连抽",
       "edit": {
         "": "编辑",
-        "toggleBB": "显示为 BB 表格"
+        "toggleBB": "以 BB 表格形式显示"
       },
       "fullscreen": "全屏显示",
       "openDialog": "显示所有卡牌",
@@ -611,31 +612,31 @@
     "condition": {
       "bane": {
         "": "灾祸",
-        "hint": "%game.conditionIcon.bane% 灾祸：下回合结束时承受 %game.damage:10% 点伤害，然后移除。如果受到治疗，也移除之。"
+        "hint": "%game.conditionIcon.bane% 灾祸:下回合结束时承受 %game.damage:10% 点伤害,然后移除.如果受到治疗,也移除之."
       },
       "bless": {
         "": "祝福",
-        "hint": "%game.conditionIcon.bless% 祝福：混洗 一张 %game.attackmodifier.bless% 卡牌入攻击修正牌库"
+        "hint": "%game.conditionIcon.bless% 祝福:混洗 一张 %game.attackmodifier.bless% 卡牌入攻击修正牌库"
       },
       "brittle": {
         "": "脆弱",
-        "hint": "%game.conditionIcon.brittle% 脆弱：下次受到的伤害%game.damage%翻倍，然后移除。如果受到治疗，也移除之。"
+        "hint": "%game.conditionIcon.brittle% 脆弱:下次受到的伤害%game.damage%翻倍,然后移除.如果受到治疗,也移除之."
       },
       "chill": {
         "": "冰冷",
-        "hint": "%game.conditionIcon.chill% 冰冷: 每个移动和攻击算子-1。在下回合结束时减少一层。"
+        "hint": "%game.conditionIcon.chill% 冰冷: 每有1个指示物移动和攻击获得-1.在下回合结束时减少1个指示物."
       },
       "curse": {
         "": "诅咒",
-        "hint": "%game.conditionIcon.curse% 诅咒：混洗一张 %game.attackmodifier.curse% 卡牌入攻击修正牌库"
+        "hint": "%game.conditionIcon.curse% 诅咒:混洗一张 %game.attackmodifier.curse% 卡牌入攻击修正牌库"
       },
       "disarm": {
         "": "缴械",
-        "hint": "%game.conditionIcon.disarm% 缴械：不能执行攻击。下回合结束时移除。"
+        "hint": "%game.conditionIcon.disarm% 缴械:不能执行攻击.下回合结束时移除."
       },
       "dodge": {
         "": "闪避",
-        "hint": "%game.conditionIcon.dodge% 闪避：丢弃或移除一张卡来避免一次伤害，然后移除。"
+        "hint": "%game.conditionIcon.dodge% 闪避:丢弃或移除一张卡来避免一次伤害,然后移除."
       },
       "empower": {
         "": "增强",
@@ -643,15 +644,15 @@
       },
       "enfeeble": {
         "": "衰弱",
-        "hint": "%game.conditionIcon.enfeeble% 衰弱: 将 %game.attackmodifier.enfeeble% 卡牌混洗进攻击修正牌堆中."
+        "hint": "%game.conditionIcon.enfeeble% 衰弱: 将 %game.attackmodifier.enfeeble% 卡牌混洗进攻击修正牌库中."
       },
       "heal": {
         "": "治疗",
-        "hint": "无状态, 但当血量增长时, 应该应用 %game.action.heal% 作为帮助."
+        "hint": "无状态, 但当血量增长时应被应用 %game.action.heal% 时会有帮助提醒."
       },
       "immobilize": {
         "": "禁足",
-        "hint": "%game.conditionIcon.immobilize% 禁足：不能执行移动。下回合结束时移除。"
+        "hint": "%game.conditionIcon.immobilize% 禁足:不能执行移动.下回合结束时移除."
       },
       "immune": {
         "": "免疫",
@@ -659,19 +660,19 @@
       },
       "impair": {
         "": "破损",
-        "hint": "%game.conditionIcon.impair% 破损：不能使用物品。下回合结束时移除。"
+        "hint": "%game.conditionIcon.impair% 破损:不能使用物品.下回合结束时移除."
       },
       "infect": {
         "": "感染",
-        "hint": "%game.conditionIcon.infect% 感染: 无法获得护盾. 被治愈后消除."
+        "hint": "%game.conditionIcon.infect% 感染: 无法获得护盾. 被治疗后移除."
       },
       "invisible": {
         "": "隐身",
-        "hint": "%game.conditionIcon.invisible% 隐身：无法成为焦点和目标。下回合结束时移除。"
+        "hint": "%game.conditionIcon.invisible% 隐身:无法成为指向性能力的目标.下回合结束时移除."
       },
       "muddle": {
         "": "迷茫",
-        "hint": "%game.conditionIcon.muddle% 迷茫：所有攻击获得劣势。下回合结束时移除。"
+        "hint": "%game.conditionIcon.muddle% 迷茫:所有攻击获得劣势.下回合结束时移除."
       },
       "permanent": {
         "": "持续型",
@@ -679,39 +680,39 @@
       },
       "poison": {
         "": "中毒",
-        "hint": "%game.conditionIcon.poison% 中毒：所有攻击者获得 +1 %game.action.attack%。受到治疗时移除该状态，但不会加血。"
+        "hint": "%game.conditionIcon.poison% 中毒:所有攻击者获得 +1 %game.action.attack%.受到治疗时移除该状态,但不会加血."
       },
       "poison_x": {
-        "": "中毒{0}",
-        "hint": "%game.conditionIcon.poison_x:X% 中毒X：所有攻击者获得 +X %game.action.attack%。受到治疗时移除该状态，但不会加血。"
+        "": "中毒 {0}",
+        "hint": "%game.conditionIcon.poison_x:X% 中毒X:所有攻击者获得 +X %game.action.attack%.受到治疗时移除该状态,但血量不会增加."
       },
       "regenerate": {
         "": "再生",
-        "hint": "%game.conditionIcon.regenerate% 再生：回合开始时执行治疗%game.action.heal%1。受到伤害时移除。"
+        "hint": "%game.conditionIcon.regenerate% 再生:回合开始时执行治疗%game.action.heal%1.受到伤害时移除."
       },
       "rupture": {
         "": "断裂",
         "hint": "%game.conditionIcon.rupture% 断裂: 每当移动时承受 %game.damage:1%. 当被治疗时移除."
       },
       "strengthen": {
-        "": "强化",
-        "hint": "%game.conditionIcon.strengthen% 强壮：所有攻击获得优势。下回合结束时移除。"
+        "": "强壮",
+        "hint": "%game.conditionIcon.strengthen% 强壮:所有攻击获得优势.下回合结束时移除."
       },
       "stun": {
         "": "晕眩",
-        "hint": "%game.conditionIcon.stun% 晕眩：不能执行能力和触发物品。下回合结束时移除。"
+        "hint": "%game.conditionIcon.stun% 晕眩:不能执行能力和触发物品.下回合结束时移除."
       },
       "ward": {
         "": "界护",
-        "hint": "%game.conditionIcon.ward% 界护：下次受到的伤害减至一半（向下取整），然后移除。"
+        "hint": "%game.conditionIcon.ward% 界护:下次受到的伤害减至一半(向下取整),然后移除."
       },
       "wound": {
         "": "负伤",
-        "hint": "%game.conditionIcon.wound% 负伤：每回合开始时受到 %game.damage:1%点伤害。受到治疗时移除。"
+        "hint": "%game.conditionIcon.wound% 负伤:每回合开始时受到 %game.damage:1%点伤害.受到治疗时移除."
       },
       "wound_x": {
         "": "负伤{0}",
-        "hint": "%game.conditionIcon.wound_x:X% 负伤X：每回合开始时受到 %game.damage:X%点伤害。受到治疗时移除。"
+        "hint": "%game.conditionIcon.wound_x:X% 负伤X:每回合开始时受到 %game.damage:X%点伤害.受到治疗时移除."
       }
     },
     "custom": {
@@ -719,20 +720,20 @@
       "disadvantage": "攻击者获得劣势",
       "instead": "改为",
       "math": {
-        "ceil": "（向上取整）",
-        "floor": "（向下取整）",
-        "max": "，增加到最多%game.number.{0}%",
-        "maxCeil": "（向上取整），增加到最多%game.number.{0}%",
-        "maxFloor": "（向下取整），增加到最多%game.number.{0}%",
-        "min": "，但至少%game.number.{0}%",
-        "minCeil": "（向上取整），但至少%game.number.{0}%",
-        "minFloor": "（向下取整），但至少%game.number.{0}%"
+        "ceil": "(向上取整)",
+        "floor": "(向下取整)",
+        "max": ",增加到最多%game.number.{0}%",
+        "maxCeil": "(向上取整),增加到最多%game.number.{0}%",
+        "maxFloor": "(向下取整),增加到最多%game.number.{0}%",
+        "min": ",但至少%game.number.{0}%",
+        "minCeil": "(向上取整),但至少%game.number.{0}%",
+        "minFloor": "(向下取整),但至少%game.number.{0}%"
       },
-      "ondeath": "死亡时：",
+      "ondeath": "死亡时:",
       "perks": {
         "addTarget": "添加目标",
         "addTargets": "添加{0}目标",
-        "ignoreNegativeItem": "忽略负面物品效果",
+        "ignoreNegativeItem": "忽略物品负面效果",
         "ignoreNegativeItemFh": "忽略物品 %game.card.minus1% 效果",
         "ignoreNegativeScenario": "忽略负面剧本效果",
         "ignoreScenario": "忽略剧本效果"
@@ -749,7 +750,7 @@
       "ice": "寒冰",
       "light": "光明",
       "state": {
-        "always": "总是",
+        "always": "始终",
         "consumed": "消耗",
         "inert": "惰性",
         "new": "强烈",
@@ -761,9 +762,9 @@
     "enemy": "敌人",
     "events": {
       "conditions": {
-        "otherwise": "否则：",
-        "payCollectiveGold": "共同支付{0}金币：",
-        "payCollectiveGoldConditional": "共同支付{0} ({1})或者{2} ({3})金币：",
+        "otherwise": "否则:",
+        "payCollectiveGold": "共同支付{0}金币:",
+        "payCollectiveGoldConditional": "共同支付{0} ({1})或者{2} ({3})金币:",
         "reputationGT": "声望> {0}:",
         "reputationLT": "声望< {0}:"
       },
@@ -774,31 +775,31 @@
         "3": "C"
       },
       "rewards": {
-        "additionalGold": "每人获得额外{0}金币。",
-        "collectiveGold": "共同获得{0}金币。",
-        "collectiveItem": "共同获得{2}件\"%data.items.{1}-{0}%\"(物品{0})。",
-        "consumeCollectiveItem": "共同消耗{0}件%game.itemSlot:{1}%物品。",
-        "consumeItem": "每人消耗{0}件%game.itemSlot:{1}%物品。",
-        "discard": "每人弃{0}张牌。",
-        "event": "添加%game.events.type.{0}%事件{1}到牌库中。",
-        "experience": "每人获得{0}点经验。",
-        "globalAchievement": "战役成就：\"{0}\"。",
-        "gold": "每人获得{0}金币。",
-        "itemDesign": "获得\"%data.items.{1}-{0}%\"设计图纸(道具{0})。",
-        "loseBattleGoal": "每人失去{0} %game.checkmark%。",
-        "loseCollectiveGold": "共同失去{0}金币。",
-        "loseGold": "每人失去{0}金币。",
-        "loseReputation": "失去{0}点声望。",
-        "noEffect": "没有效果。",
-        "outcome": "阅读结果%game.events.option.{0}%。",
-        "partyAchievement": "团队成就: \"{0}\"。",
-        "prosperity": "获得{0}点繁荣。",
-        "randomItemDesign": "获得随机物品设计图纸。",
-        "reputation": "获得{0}点声望。",
-        "scenario": "解锁\"{1}\" %data.scenarioNumber:{0}%。",
-        "scenarioCondition": "剧本开始时全部角色%game.condition.{0}%。",
-        "scenarioDamage": "剧本开始时全部角色受到{0}点伤害。",
-        "scenarioSingleMinus1": "剧本开始时一名角色获得%game.attackmodifier.minus1% x{0}。"
+        "additionalGold": "每人额外获得{0}金币.",
+        "collectiveGold": "共同获得{0}金币.",
+        "collectiveItem": "共同获得{2}件\"%data.items.{1}-{0}%\"(物品{0}).",
+        "consumeCollectiveItem": "共同消耗{0}件%game.itemSlot:{1}%物品.",
+        "consumeItem": "每人消耗{0}件%game.itemSlot:{1}%物品.",
+        "discard": "每人弃{0}张牌.",
+        "event": "添加%game.events.type.{0}%事件{1}到牌库中.",
+        "experience": "每人获得{0}点经验.",
+        "globalAchievement": "世界成就:\"{0}\".",
+        "gold": "每人获得{0}金币.",
+        "itemDesign": "获得\"%data.items.{1}-{0}%\"设计图纸(道具{0}).",
+        "loseBattleGoal": "每人失去{0} %game.checkmark%.",
+        "loseCollectiveGold": "共同失去{0}金币.",
+        "loseGold": "每人失去{0}金币.",
+        "loseReputation": "失去{0}点声望.",
+        "noEffect": "没有效果.",
+        "outcome": "阅读结果%game.events.option.{0}%.",
+        "partyAchievement": "团队成就: \"{0}\".",
+        "prosperity": "获得{0}点繁荣.",
+        "randomItemDesign": "获得随机物品设计图纸.",
+        "reputation": "获得{0}点声望.",
+        "scenario": "解锁\"{1}\" %data.scenarioNumber:{0}%.",
+        "scenarioCondition": "剧本开始时所有角色获得%game.condition.{0}%.",
+        "scenarioDamage": "剧本开始时所有角色受到 {0} 点伤害.",
+        "scenarioSingleMinus1": "剧本开始时一名角色获得%game.attackmodifier.minus1% x{0}."
       },
       "type": {
         "city": "城镇",
@@ -812,36 +813,36 @@
       "error": {
         "deck": {
           "": "牌库丢失",
-          "hint": "%{0}% '%data.{0}.{1}%'无能力牌库！请检查牌库数据（版本：%data.edition.{2}%）。"
+          "hint": "%{0}% '%data.{0}.{1}%'无能力牌库!请检查牌库数据(版本:%data.edition.{2}%)."
         },
         "monsterEdition": {
           "": "怪物版本错误",
-          "hint": "版本'%data.edition.{2}%'无怪物'%data.{0}.{1}%'（改为版本'%data.edition.{3}%'）！请检查版本%data.edition.{2}%的怪物数据。"
+          "hint": "版本'%data.edition.{2}%'无怪物'%data.{0}.{1}%'(改为版本'%data.edition.{3}%')!请检查版本%data.edition.{2}%的怪物数据."
         },
         "monsterType": {
           "": "怪物类型丢失",
-          "hint": "'%data.{0}.{1}%'无当前怪物类型！请检查怪物数据（版本%data.edition.{2}%）。"
+          "hint": "'%data.{0}.{1}%'无当前怪物类型!请检查怪物数据(版本%data.edition.{2}%)."
         },
         "stat": {
           "": "属性丢失",
-          "hint": "%{0}% '%data.{0}.{1}%'等级{4}的{3}属性丢失！请检查个体数据（版本：%data.edition.{2}%）。"
+          "hint": "%{0}% '%data.{0}.{1}%'等级{4}的{3}属性丢失!请检查个体数据(版本:%data.edition.{2}%)."
         },
         "unknown": {
           "": "未知个体",
-          "hint": "%{0}% '%data.{0}.{1}%'无数据！请检查版本数据（版本：%data.edition.{2}%）。"
+          "hint": "%{0}% '%data.{0}.{1}%'无数据!请检查版本数据(版本:%data.edition.{2}%)."
         }
       },
-      "longRest": "宣布充分休息",
-      "longRestOff": "取消充分休息",
-      "setInitiative": "设置先攻值",
+      "longRest": "设置长休",
+      "longRestOff": "取消长休",
+      "setInitiative": "设置时序值",
       "startTurn": "回合开始"
     },
-    "health": "生命",
+    "health": "生命值",
     "hp": "HP",
-    "initiative": "先攻值",
+    "initiative": "时序值",
     "item": "物品",
     "items": {
-      "": "物品",
+      "": "物品们",
       "add": "添加'{0}'",
       "anyResource": "任意%game.loot.{0}%",
       "brewing": {
@@ -850,10 +851,10 @@
         "brewFor": "酿造{0}",
         "brewed": "{2}酿造{1} %game.itemFh.{0}%",
         "brewedOther": "{2} 为 {3} 酿造药水 {1} %game.itemFh.{0}%",
-        "disabled": "无法酿造药水，请先重建'%data.buildings.alchemist%' (35)",
+        "disabled": "无法酿造药水,请先重建'%data.buildings.alchemist%' (35)",
         "item": "{1} %game.itemFh.{0}%",
         "noChar": "药水已被每名角色持有！",
-        "selectCharacter": "选择获得酿造的角色："
+        "selectCharacter": "选择获得酿造的角色:"
       },
       "buy": "花费{1}金币购买'{0}'",
       "character": {
@@ -888,7 +889,7 @@
       },
       "unlock": "解锁物品",
       "unlocked": "已解锁物品",
-      "wip": "%wip%! %data.edition.{0}% 的物品尚未完成."
+      "wip": "%尚在开发中%! %data.edition.{0}% 的物品尚未完成."
     },
     "level": {
       "": "等级",
@@ -933,11 +934,11 @@
       "hide": "隐藏",
       "keep": "继续 %data.character.{0}%",
       "lootTreasure": {
-        "": "{0} 拾取宝箱 {1}?",
+        "": "{0} 拾取财宝 {1}?",
         "confirm": "确认",
         "looted": "{0} 拾取:",
-        "selectCharacter": "选择角色获得宝箱 {0}",
-        "selectTreasure": "选择宝箱给 {0}"
+        "selectCharacter": "选择角色获得财宝 {0}",
+        "selectTreasure": "选择财宝给 {0}"
       },
       "lumber": "木材",
       "material_resources": "材料",
@@ -956,7 +957,7 @@
       "special2": "特殊卡牌 2 (#1419)",
       "toggleSpecial": "%game.loot.{0}%",
       "treasures": {
-        "": "宝箱",
+        "": "财宝",
         "rewards": {
           "battleGoal": "获得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
           "calendarSection": "添加 %data.section:{0}% 至 %number.{1}% 周",
@@ -975,7 +976,7 @@
           "goldFh": "获得 {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "执行 \"治疗 {0}, 自身\"",
           "item": "获得 {1} ({0})",
-          "itemBlueprint": "获得 {1} 设计图纸 %game.itemFh.{0}%",
+          "itemBlueprint": "获得 {1} 设计蓝图 %game.itemFh.{0}%",
           "itemDesign": "获得 {1} 设计图纸 ({0})",
           "itemFh": "获得 {1} %game.itemFh.{0}%",
           "loot": "获得 {0} 金钱指示物",
@@ -986,8 +987,8 @@
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
-            "": "随机物品设计图纸",
-            "result": ": {1} 设计图纸 ({0})"
+            "": "随机物品设计蓝图",
+            "result": ": {1} 设计蓝图 ({0})"
           },
           "randomItemDesign": {
             "": "随机物品设计图纸",
@@ -1007,7 +1008,7 @@
       }
     },
     "maxHealth": "最大生命值",
-    "solo": "单人游玩",
+    "solo": "Solo",
     "specialTarget": {
       "allies": "%game.target% 所有盟友",
       "alliesAdjacent": "%game.target% 所有相邻盟友",
@@ -1063,8 +1064,8 @@
   "help": "求助",
   "hints": {
     "active": "轮流",
-    "active-full": "依次点击每个单位图片",
-    "addAdditionalContent": "添加额外的目录",
+    "active-full": "轮流依次点击每个个体图片",
+    "addAdditionalContent": "添加额外的内容",
     "addCharacters": "%character.add%",
     "addMonsterEntities": "使用 \"+\" 按钮来生成怪物.",
     "addMonsters": "%monster.add%",
@@ -1086,7 +1087,7 @@
       "elite": "生成精英怪物",
       "normal": "生成普通怪物"
     },
-    "applyInteractiveActions": "应用突出能力于",
+    "applyInteractiveActions": "突出能力生效于",
     "boss": "头目",
     "cancelNumberpicker": "取消",
     "changeStandee": "更改 %game.monsterType.{0}% 立牌 #{1}",
@@ -1205,7 +1206,7 @@
         "unlock": "解锁剧本"
       },
       "sheet": {
-        "": "战役表",
+        "": "战役记录纸",
         "buildings": {
           "": "建筑物",
           "action": "行动",
@@ -1264,14 +1265,14 @@
         },
         "campaignStickers": {
           "": "战役贴纸",
-          "empty": "为搜索到匹配的战役贴纸"
+          "empty": "未搜索到匹配的战役贴纸"
         },
-        "defense": "防御",
-        "disable": "前往幽港迷城团队表",
-        "enable": "前往霜港迷城战役表",
+        "defense": "防御值",
+        "disable": "前往幽港迷城团队记录纸",
+        "enable": "前往霜港迷城战役记录纸",
         "name": "团队名称",
         "nextWeek": "下周(新日历)",
-        "soldierLevel": "等级",
+        "soldierLevel": "Lvl",
         "soldiers": "士兵",
         "summer": "夏季",
         "supply": {
@@ -1297,10 +1298,10 @@
       "townGuard": "城镇守卫",
       "townGuardDeck": "城镇守卫牌堆",
       "treasures": {
-        "": "宝箱",
+        "": "财宝",
         "applySelect": "应用选择",
         "batchSelect": "多重选择",
-        "loot": "拾取宝箱"
+        "loot": "拾取财宝"
       }
     },
     "campaignMode": "战役模式",
@@ -1325,8 +1326,8 @@
       }
     },
     "remove": "移除团队",
-    "reputation": "名誉",
-    "sheet": "团队表",
+    "reputation": "声望",
+    "sheet": "团队记录纸",
     "shop": {
       "": "商店价格修正",
       "none": "无"
@@ -1339,12 +1340,12 @@
       "hint": "也可以创建新的许可!之后不能更改!"
     },
     "attackModifiers": {
-      "": "攻击修正牌堆",
-      "hint": "抽取并编辑怪物和盟友的攻击修正牌堆"
+      "": "攻击修正牌库",
+      "hint": "抽取并编辑怪物和盟友的攻击修正牌库"
     },
     "characters": {
       "": "所有角色",
-      "hint": "升级并更改所有角色以及目标点."
+      "hint": "更新并更改所有角色以及目标点."
     },
     "code": {
       "": "新的游戏许可密码"
@@ -1364,8 +1365,8 @@
       "hint": "更改剧本等级"
     },
     "lootDeck": {
-      "": "拾取牌堆",
-      "hint": "抽取并编辑拾取牌堆"
+      "": "拾取牌库",
+      "hint": "抽取并编辑拾取牌库"
     },
     "monsters": {
       "": "所有怪物",
@@ -1397,10 +1398,10 @@
       "confirmTurns": "确认不结束回合!",
       "continueDraw": "抽牌并继续",
       "continueNext": "开始下一轮并继续",
-      "empty": "请在轮次前添加怪物和角色。",
-      "failed": "似乎所有角色都已筋疲力尽。是否重启剧本？",
-      "finish": "已无怪物。剧本是否成功？",
-      "missingInitiative": "必须为所有个体设置先攻值！"
+      "empty": "请在轮次前添加怪物和角色.",
+      "failed": "似乎所有角色都已筋疲力尽.是否重启剧本?",
+      "finish": "已无怪物.剧本是否成功?",
+      "missingInitiative": "必须为所有个体设置时序值!"
     },
     "next": "下一轮"
   },
@@ -1479,7 +1480,7 @@
       "campaignStickersMissing": "'{0}'（战役贴纸）未完成",
       "cancel": "取消",
       "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' 出席",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' 缺席",
+      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' 不在场",
       "global": "'{0}'（战役）完成",
       "globalCount": "'{0}' （战役）x{2} 完成（获得{1}）",
       "globalMissing": "'{0}'（战役）未完成",
@@ -1526,7 +1527,7 @@
         "winter-road": "添加事件{0}到冬季道路牌库"
       },
       "experience": "每人{0}点经验",
-      "globalAchievements": "战役成就",
+      "globalAchievements": "世界成就",
       "gold": "每人{0}金币",
       "inspiration": "{0}点激励",
       "item": "\"{1}\" （物品 {0}）",
@@ -1538,11 +1539,11 @@
       "items": "{2} \"{1}\" （物品 {0}）",
       "location": "新地点",
       "locations": "新地点",
-      "lootDeckCard": "添加拾取卡 {0} 到每个剧本的常规拾取牌库中。",
+      "lootDeckCard": "添加拾取卡 {0} 到每个剧本的常规拾取牌库中.",
       "lostPartyAchievements": "失去团队成就",
       "morale": "{0}点士气",
       "overlayCampaignSticker": "放置\"%data.campaignSticker.{0}%\"战役贴纸到城镇地图的位置{1}",
-      "overlaySticker": "放置地图覆盖贴纸{0}到地图的位置{0} ({1})。",
+      "overlaySticker": "放置地图覆盖贴纸{0}到地图的位置{0} ({1}).",
       "partyAchievements": "团队成就",
       "perks": "每人获得{0}专长",
       "pet": "添加 %data.pets.{1}-{0}% (Pet {0}) 至兽栏中.这会超过兽栏的容量.",
@@ -1704,7 +1705,7 @@
         "": "击杀"
       },
       "max": {
-        "": "最大值。"
+        "": "最大值."
       },
       "maxDamage": {
         "": "%game.damage:{0}%",
@@ -1856,7 +1857,7 @@
     "reconnect": "重新连接",
     "settings": {
       "": "同步设置",
-      "hint": "除了游戏外,还可以使用此选项同步所有客户端的设置.当然,<b>而不是</b>所有设置都会同步,就像视觉效果或界面的一些选项一样."
+      "hint": "除了游戏外,还可以使用此选项同步所有客户端的设置.当然,<b>并不是</b>所有设置都会同步,就像视觉效果或界面的一些选项一样."
     },
     "undefined": "未指定连接",
     "url": "主机",
@@ -1913,7 +1914,7 @@
       "": "添加所有房间/段落文本",
       "hint": "这将自动添加在当前剧本中出现的所有怪物.请谨慎考虑因为这样有可能会剧透未被揭示房间/段落的相关信息."
     },
-    "additional": "额外游玩",
+    "additional": "额外的游戏玩法",
     "allyAttackModifierDeck": {
       "": "盟友的攻击修正牌堆",
       "hint": "启用可供盟友使用的攻击修正牌堆"
@@ -1982,7 +1983,7 @@
     },
     "applyRetirement": {
       "": "应用退休奖励",
-      "hint": "以优势/劣势抽取攻击修正牌堆."
+      "hint": "退休时,打开对话框以使退休奖励生效.通过勾选角色记录纸上的个人使命来执行退休."
     },
     "artwork": {
       "": "插图",
@@ -2229,7 +2230,7 @@
     "fhRules": "霜港迷城规则",
     "fhSecondEdition": {
       "": "2刷版本",
-      "hint": "霜港迷城的1刷和2刷版本之间的某些更改无法自动设置.因此,如果您正在使用霜港迷城的2刷版本,请检查此项."
+      "hint": "霜港迷城的1刷和2刷版本之间的某些更改无法自动设置.因此,如果您正在使用霜港迷城的2刷版本,请勾选此项."
     },
     "fhStyle": {
       "": "霜港迷城风格",
@@ -2303,7 +2304,7 @@
     },
     "initiativeRequired": {
       "": "要求有时序值",
-      "hint": "如果未核实,则必须通过拖拽手动设置实体的顺序"
+      "hint": "如果未勾选,则必须通过拖拽手动设置实体的顺序"
     },
     "interactiveAbilities": {
       "": "互动能力",
@@ -2355,8 +2356,8 @@
       "hint": "元素状态在每轮之前自动更改"
     },
     "partySheet": {
-      "": "团队表",
-      "hint": "启用团队表以及战役表.战役表位于团队表的 <i>backside</i>."
+      "": "团队记录纸",
+      "hint": "启用团队记录纸以及战役记录纸.战役记录纸位于团队表的 <i>背面</i>."
     },
     "pinchZoom": {
       "": "手势缩放",
@@ -2403,8 +2404,8 @@
       "hint": "显示有关剧本特殊规则的弹出窗口,并可选择应用它们"
     },
     "scenarioRulesAutoapply": {
-      "": "应用自动剧本规则",
-      "hint": "无需确认即可直接应用自动剧本规则"
+      "": "自动应用剧本规则",
+      "hint": "无需确认即可直接自动应用剧本规则"
     },
     "scenarioStats": {
       "": "剧本统计",
@@ -2630,6 +2631,17 @@
       },
       "buyItem": "为 {0} 购买物品 {1} (%data.edition.{2}%)",
       "cancelScenario": "取消剧本 #{0} {1} ({2})",
+      "challengeDeck": {
+        "clear": "弃置已抽取的挑战卡牌",
+        "draw": "抽取挑战卡牌",
+        "hide": "隐藏挑战卡牌牌堆",
+        "removeCard": "将卡牌从挑战卡牌牌堆中移除",
+        "reorder": "对挑战卡牌牌堆重新排序",
+        "restoreCard": "恢复挑战卡牌牌库中的卡牌 {0}",
+        "show": "显示挑战卡牌牌库",
+        "shuffle": "混洗挑战卡牌牌库",
+        "toggle": "切换生效的挑战卡牌"
+      },
       "changeBuildingState": "建筑物 '%data.buildings.{1}%' ({0}) to %party.campaign.sheet.buildings.state.{2}% 状态",
       "changeCustomScenario": "为自定义剧本命名 '{0}'",
       "changeEntityHp": "为 {0} 的 {1} 立牌 {2} 更改血量 {3}",
@@ -2875,7 +2887,7 @@
       "sellItem": "将 {0} 的物品 \"%data.items.{2}-{1}%\" 出售",
       "serverSync": "服务器: {0}",
       "serverSyncEmpty": "服务器同步",
-      "setAbsent": "{0} 缺席",
+      "setAbsent": "{0} 不在场",
       "setActive": "开始 {0} 的回合",
       "setAllied": "将 {0} 视作盟友",
       "setAlly": "将 {0} 视作盟友",
@@ -3117,7 +3129,7 @@
         "lootInc": "增加金钱指示物",
         "maxHpDec": "减少最大生命值",
         "maxHpInc": "增加最大生命值",
-        "toggleAbsent": "切换角色至缺席",
+        "toggleAbsent": "切换角色至不在场",
         "toggleCondition": "切换状态/状态调整",
         "xpDec": "减少经验值",
         "xpInc": "增加经验值"
@@ -3146,7 +3158,7 @@
       "space": "SPACE",
       "tab": "↹",
       "toggelTab": "当抽牌后切换行动个体 / 当索敌确定后切换时序值",
-      "toggleAbsent": "切换 <i>隐藏缺席个体</i>",
+      "toggleAbsent": "切换 <i>隐藏不在场个体</i>",
       "toggleDamageHP": "切换 <i>%settings.damageHP%</i>",
       "toggleElements": "切换元素状态",
       "toggleHandSize": "切换 <i>展示手牌数量及等级</i>",
@@ -3166,7 +3178,7 @@
     "orChooseCharacters": "或者直接添加角色以开始一场休闲模式游戏",
     "settings": {
       "": "设置",
-      "text": "使用不同的设置以适当设置所有内容:"
+      "text": "使用多样化的调整来将所有内容进行合理的设置:"
     }
   },
   "wip": "仍在开发中"

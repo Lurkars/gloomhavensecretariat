@@ -71,6 +71,7 @@
           "multiple": "Fijar desafíos activos"
         }
       },
+      "removed": "Eliminado",
       "upcoming": "Próximamente"
     },
     "disabled": "¡No hay ningún desafío fijado para el escenario!"
@@ -81,6 +82,7 @@
       "currentDeck": "Mazo actual",
       "deckWarning": "¡No es posible seleccionar la carta porque hay demasiadas cartas en la baraja!",
       "forceDeck": "Doble clic para añadir la carta al Mazo",
+      "levelWarning": "¡Mazo inválido ya que algunas cartas son de nivel superior al personaje!",
       "pickCard": "Coge tu carta de nivel {0} .",
       "removeFromDeck": "Doble clic para eliminar la carta del mazo",
       "show": "Mostrar todas las cartas de habilidad",
@@ -101,14 +103,19 @@
     "add": "Añadir Personaje",
     "class": {
       "aesther": "Etérida",
+      "algox": "Algox",
       "f": {
         "aesther": "Etérida",
+        "algox": "Algox",
+        "harrower": "Harrower",
         "human": "Humano",
         "inox": "Inox",
+        "lurker": "Lurker",
         "orchid": "Orquídea",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
-        "valrath": "Valrath"
+        "valrath": "Valrath",
+        "vermling": ""
       },
       "human": "Humano",
       "inox": "Inox",
@@ -2294,6 +2301,10 @@
       "hint": "Aplica directamente ciertas habilidades resaltadas, como las invocaciones o las acciones elementales, haciendo clic en la zona correspondiente de la carta de habilidad."
     },
     "interface": "Interfaz",
+    "keyboardShortcuts": {
+      "": "Atajos de teclado activados",
+      "hint": "Activa los atajos de teclado de la lista."
+    },
     "levelAdjustment": {
       "": "Cambiar el nivel del escenario"
     },
@@ -2307,7 +2318,8 @@
       "es": "Español",
       "fr": "Francés (Français)",
       "help": "¡Ayuda con la traducción!",
-      "ko": "Coreano (한국어)"
+      "ko": "Coreano (한국어)",
+      "zh_Hans": "Chino simplificado (简体中文)"
     },
     "lootDeck": {
       "": "Mazo de botín",
@@ -2609,6 +2621,17 @@
       },
       "buyItem": "Comprar Objeto {1} (%data.edition.{2}%) por {0}",
       "cancelScenario": "Cancelar Escenario #{0} {1} ({2})",
+      "challengeDeck": {
+        "clear": "Descarta desafíos robados",
+        "draw": "Robar desafío",
+        "hide": "Ocultar mazo de desafíos",
+        "removeCard": "Eliminar carta del mazo de desafíos",
+        "reorder": "Reordenar mazo de desafíos",
+        "restoreCard": "Restaurar la carta {0} del mazo de desafíos",
+        "show": "Mostrar mazo de desafíos",
+        "shuffle": "Barajar mazo de desafíos",
+        "toggle": "Fijar desafío activo"
+      },
       "changeBuildingState": "Estado del edificio '%data.buildings.{1}%' ({0}) para %party.campaign.sheet.buildings.state.{2}%",
       "changeCustomScenario": "Nombre'{0}' para escenario personalizado",
       "changeEntityHp": "PV {3} para {1} peana {2} de {0}",
