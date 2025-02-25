@@ -457,7 +457,7 @@
     "shard-seeker": "碎片搜索者",
     "sled": "雪橇",
     "statue": "雕像",
-    "uncharged-core": "不带电的核心",
+    "uncharged-core": "未充电核心",
     "unfettered-allies": "自由机盟友",
     "unfettered-deactivated": "自由机失活"
   },
@@ -519,6 +519,13 @@
         "8": "每当你使用移动能力打开房门时，增加+3 %game.action.move%",
         "9": "每个剧本一次，在你的回合期间使用，本轮获得%game.action.shield% 2"
       },
+      "belara": {
+        "1": "与<br>目标相邻的所有盟友和敌人承受 %game.damage:2%",
+        "2": "在 %game.action.range:4% 内的所有敌人承受 %game.damage:2%."
+      },
+      "black-imp": {
+        "1": "%game.custom.disadvantage%"
+      },
       "blinkblade": {
         "1": "你下次攻击时，弃掉本卡牌来增加+2 %game.action.attack%.<br>%game.card.persistent%",
         "2": "将本卡牌放入你的激活区域。你下次攻击时，弃掉本卡牌来增加+2 %game.action.attack%",
@@ -553,6 +560,11 @@
         "4": "在每个剧本结束时，你可以弃掉最多2张除随机物品以外的拾取卡牌，以此来抽取同等数量的新拾取卡牌",
         "5": "剧本结束时，4个持续型能力的最后一个槽位有你的角色标记",
         "6": "从不执行数值小于4的移动和攻击能力，且每轮执行至少1次移动或攻击能力"
+      },
+      "errata": {
+        "env24": "1刷版本:建筑物24 应该罗列的是贴纸 10",
+        "env37": "1刷版本:信封 37 应该罗列的是贴纸 11 和贴纸 13",
+        "env44": "1刷版本:信封 44 应该罗列的是贴纸 12 和贴纸 14"
       },
       "flowChartGroup": {
         "lurker": "潜伏蟹"
