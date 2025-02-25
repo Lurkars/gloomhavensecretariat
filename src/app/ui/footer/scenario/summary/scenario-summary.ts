@@ -208,19 +208,19 @@ export class ScenarioSummaryComponent implements OnDestroy {
             const finish = gameManager.game.finish;
             this.conclusion = finish.conclusion ? gameManager.sectionData(finish.conclusion.edition).find((sectionData) => finish.conclusion && sectionData.index == finish.conclusion.index && sectionData.group == finish.conclusion.group && sectionData.conclusion) : undefined;
             this.success = finish.success;
-            this.battleGoals = finish.battleGoals;
+            this.battleGoals = finish.battleGoals || [];
             this.challenges = finish.challenges;
             this.chooseLocation = finish.chooseLocation;
             this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
-            this.collectiveGold = finish.collectiveGold;
+            this.collectiveGold = finish.collectiveGold || [];
             this.collectiveResources = finish.collectiveResources || [];
             this.items = finish.items;
             this.calendarSectionManual = finish.calendarSectionManual || finish.calenderSectionManual;
             this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(finish.randomItem.name, finish.randomItem.edition, true) : undefined;
             this.randomItemIndex = finish.randomItemIndex;
             this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(item.name, item.edition, true) : undefined) : [];
-            this.randomItemBlueprints = finish.randomItemBlueprints;
-            this.trials = finish.trials;
+            this.randomItemBlueprints = finish.randomItemBlueprints || [];
+            this.trials = finish.trials || [];
             this.updateState();
         }
     }
