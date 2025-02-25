@@ -7,7 +7,7 @@
     "sourceCode": "Code Source",
     "support": "Soutenir les développeurs",
     "version": {
-      "latest": "Dernières nouveautés",
+      "latest": "Dernière version",
       "unknown": "Impossible de récupérer la dernière version",
       "update": "Dernière version <a target=\"_blank\" href=\"{1}\">{0}</a>"
     }
@@ -55,11 +55,37 @@
         "": "Rejeter le défi pioché",
         "multiple": "Rejeter les défis piochés"
       },
-      "current": "Actuel"
-    }
+      "current": "Actuel",
+      "finished": "Terminé",
+      "hint": {
+        "current": {
+          "": "Défi actif Actuel",
+          "multiple": "Défis actifs Actuels"
+        },
+        "select": {
+          "": "Basculer le Défi actif",
+          "multiple": "Basculer les Défis actifs"
+        }
+      },
+      "removed": "Supprimé",
+      "upcoming": "Prochain"
+    },
+    "disabled": "Aucun défi n'est fixé pour le scénario !"
   },
   "character": {
     "": "Personnage",
+    "abilities": {
+      "currentDeck": "Deck actuel",
+      "deckWarning": "Aucune sélection correcte des cartes n'est possible car il y a trop de cartes dans le paquet !",
+      "forceDeck": "Double-cliquez pour ajouter la Carte au Paquet",
+      "levelWarning": "Paquet invalide car certaines cartes sont de niveau supérieur au personnage !",
+      "pickCard": "Choisissez votre carte de niveau {0}",
+      "removeFromDeck": "Double-cliquez pour retirer la Carte du Paquet",
+      "show": "Afficher toutes les Cartes d'Aptitude",
+      "undoLastPick": {
+        "hint": "Double clic pour réinitialiser tous les choix"
+      }
+    },
     "absent": "Absent",
     "add": "Ajouter un personnage",
     "class": {
@@ -287,8 +313,8 @@
         "": "Données sur les personnages",
         "deck": "Nom du deck de capacité",
         "hp": {
-          "-1": "Profil personnalisé",
           "": "Points de vie",
+          "-1": "Profil personnalisé",
           "0": "Profil bas",
           "1": "Profil intermédiaire",
           "2": "Profil élevé"
