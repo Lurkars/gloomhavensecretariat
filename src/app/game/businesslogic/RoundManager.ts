@@ -613,6 +613,10 @@ export class RoundManager {
 
         figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire));
 
+        if (figure.defaultIdentity != undefined) {
+          figure.identity = figure.defaultIdentity;
+        }
+
         if (figure.name == 'blinkblade' && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
           figure.tokenValues[0] += 1;
         }

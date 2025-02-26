@@ -383,22 +383,6 @@
         </div>
       </ng-container>
 
-      <div class="marker-container" *ngIf="!bb">
-        <a class="summon"
-          *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal) && gameManager.isMonsterEntity(data.entity)"
-          [ngClass]="{'active' : gameManager.toMonsterEntity(data.entity).summon == SummonState.true, 'new' : gameManager.toMonsterEntity(data.entity).summon == SummonState.new }"
-          tabclick (click)="toggleSummon()">
-          <img src="./assets/images/summons/{{gameManager.toMonster(data.figure).summonColor}}.png">
-        </a>
-        <span *ngFor="let marker of markers()">
-          <a class="item" [ngClass]="{'active' : hasMarker(marker)}" (click)="toggleMarker(marker)">
-            <span class="condition marker">
-              <img [src]="gameManager.characterManager.characterIcon(marker)" />
-            </span>
-          </a>
-        </span>
-      </div>
-
       <ng-container *ngIf="data.entity && gameManager.isCharacter(data.entity)">
         <span class="item" [ghs-label]="'game.exhausted'" [ghs-label-attribute]="'title'"
           [ngClass]="{'active' : gameManager.toCharacter(data.entity).exhausted}">
@@ -423,17 +407,6 @@
           </a>
         </span>
       </ng-container>
-
-      <div class="identities-container"
-        *ngIf="data.entity && gameManager.isCharacter(data.entity) && settingsManager.settings.characterIdentities && gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1">
-        <a class="item" *ngFor="let identity of [] | ghsRange:gameManager.toCharacter(data.entity).identities.length"
-          (click)="setIdentity(identity)"
-          [ghs-tooltip]="'data.character.' + gameManager.toCharacter(data.entity).name + '.' +  gameManager.toCharacter(data.entity).identities[identity]"
-          [ngClass]="{'disabled': gameManager.toCharacter(data.entity).identity == identity}">
-          <img
-            [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name, identity)" />
-        </a>
-      </div>
 
       <ng-container *ngIf="data.entity && gameManager.isSummon(data.entity)">
         <span class="item" [ghs-label]="'game.dead'" [ghs-label-attribute]="'title'">
@@ -492,6 +465,22 @@
           </ghs-pointer-input>
         </span>
       </ng-container>
+
+      <div class="marker-container" *ngIf="!bb">
+        <a class="summon"
+          *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal) && gameManager.isMonsterEntity(data.entity)"
+          [ngClass]="{'active' : gameManager.toMonsterEntity(data.entity).summon == SummonState.true, 'new' : gameManager.toMonsterEntity(data.entity).summon == SummonState.new }"
+          tabclick (click)="toggleSummon()">
+          <img src="./assets/images/summons/{{gameManager.toMonster(data.figure).summonColor}}.png">
+        </a>
+        <span *ngFor="let marker of markers()">
+          <a class="item" [ngClass]="{'active' : hasMarker(marker)}" (click)="toggleMarker(marker)">
+            <span class="condition marker">
+              <img [src]="gameManager.characterManager.characterIcon(marker)" />
+            </span>
+          </a>
+        </span>
+      </div>
     </div>
 
     <ng-container
@@ -604,6 +593,19 @@
       </ng-container>
 
     </div>
+  </div>
+
+  <hr class="character-special" *ngIf="data.entity && gameManager.isCharacter(data.entity) && (settingsManager.settings.characterIdentities && gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1 || gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0)" />
+
+  <div class="identities-container"
+    *ngIf="data.entity && gameManager.isCharacter(data.entity) && settingsManager.settings.characterIdentities && gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1">
+    <a class="item" *ngFor="let identity of [] | ghsRange:gameManager.toCharacter(data.entity).identities.length"
+      (click)="setIdentity(identity)"
+      [ghs-tooltip]="'data.character.' + gameManager.toCharacter(data.entity).name + '.' +  gameManager.toCharacter(data.entity).identities[identity]"
+      [ngClass]="{'deactivated': gameManager.toCharacter(data.entity).identity == identity}">
+      <img
+        [src]="gameManager.characterManager.characterIdentityIcon(gameManager.toCharacter(data.entity).name, identity)" />
+    </a>
   </div>
 
   <div

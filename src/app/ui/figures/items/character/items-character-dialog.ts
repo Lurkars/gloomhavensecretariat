@@ -74,11 +74,11 @@ export class ItemsCharacterDialogComponent {
     }
 
     openShop() {
+        this.dialogRef.close();
         this.dialog.open(ItemsDialogComponent, {
             panelClass: ['dialog'],
             data: { edition: gameManager.game.edition, select: this.character, affordable: true }
         })
-        this.close();
     }
 
     close() {

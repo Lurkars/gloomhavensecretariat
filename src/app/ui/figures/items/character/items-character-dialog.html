@@ -2,8 +2,9 @@
     [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <div class="scroll-container">
         <div class="header">
-            <span class="title" [ghs-label]="'game.items.character'"
-                [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></span>
+            <span (click)="openShop()" class="title" [ghs-label]="'game.items.character'"
+                [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
+                [ghs-tooltip]="'game.items.character.shop'"></span>
         </div>
 
         <div class="menu">

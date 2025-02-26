@@ -110,7 +110,7 @@ export class ItemManager {
     }
 
     canAdd(item: ItemData, character: Character): boolean {
-        return item.count && this.countAvailable(item) > 0 && !character.progress.items.find((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition) || false;
+        return item.count && this.countAvailable(item) > 0 && !character.progress.items.find((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition) && (!item.solo || item.edition == character.edition && item.solo == character.name) || false;
     }
 
     canBuy(item: ItemData, character: Character, cost: number = 0): boolean {
