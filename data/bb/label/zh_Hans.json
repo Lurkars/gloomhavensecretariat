@@ -13,7 +13,7 @@
   "items": {
     "bb-1": {
       "": "玫刺刀",
-      "1": "在你的攻击行动中， %game.elementHalf.consume:ice|earth% 来增加%game.action.pierce% 1"
+      "1": "在你的攻击行动中， %game.elementHalf.consume:ice|earth% 来增加%game.action.pierce% 1。"
     },
     "bb-10": {
       "": "藤蔓鞭",
