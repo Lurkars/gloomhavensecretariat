@@ -506,6 +506,14 @@
   },
   "custom": {
     "fh": {
+      "abael-herder": {
+        "1": "赋予%game.action.range:4%内最近的<br>食人鱼豚：",
+        "2": "赋予%game.action.range:3%内所有食人鱼豚：",
+        "3": "食人鱼豚承受%game.damage:1%。",
+        "4": "赋予%game.action.range:4%内最近的<br>食人鱼豚：",
+        "5": "如果本次赋予能力没有目标<br>食人鱼豚：",
+        "6": "其中X为地图上食人鱼豚的数量。"
+      },
       "banner-spear": {
         "1": "%game.range:2%内的所有盟友每个回合的一次攻击增加+1%game.action.attack%。",
         "10": "使用3次不同的效果区域攻击能力，每次攻击至少3个敌人",
