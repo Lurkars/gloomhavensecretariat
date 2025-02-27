@@ -107,22 +107,27 @@
       "f": {
         "aesther": "Etérida",
         "algox": "Algox",
-        "harrower": "Harrower",
+        "harrower": "Atormentador",
         "human": "Humano",
         "inox": "Inox",
-        "lurker": "Lurker",
+        "lurker": "Acechador",
         "orchid": "Orquídea",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
         "valrath": "Valrath",
-        "vermling": ""
+        "vermling": "Infestor"
       },
+      "harrower": "Atormentador",
       "human": "Humano",
       "inox": "Inox",
+      "lurker": "Acechador",
       "m": {
         "aesther": "Etérida",
+        "algox": "Algox",
+        "harrower": "Atormentador",
         "human": "Humano",
         "inox": "Inox",
+        "lurker": "Acechador",
         "orchid": "Orquídea",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
@@ -901,8 +906,8 @@
     "loot": {
       "": "Botín",
       "apply": "Añade a %data.character.{0}%",
-      "arrowvine": "Arrowvine",
-      "axenut": "Axenut",
+      "arrowvine": "Enredaflecha",
+      "axenut": "Bellota filosa",
       "chooseCharacter": "Selecciona persona para +{0} {1}",
       "config": {
         "": "Tabla de botín",
@@ -912,14 +917,14 @@
         "hide": "Ocultar Tabla de botín",
         "show": "Mostrar Tabla de botín"
       },
-      "corpsecap": "Corpsecap",
+      "corpsecap": "Gorro de muerto",
       "deck": "Mazo de botín",
       "enhancements": {
         "": "Mejoras",
         "add": "Añadir mejora",
         "remove": "Eliminar mejora"
       },
-      "flamefruit": "Flamefruit",
+      "flamefruit": "Pitallama",
       "herb_resources": "hierba",
       "hide": "Piel",
       "keep": "Continua %data.character.{0}%",
@@ -941,7 +946,7 @@
       },
       "remove": "Eliminar de %data.character.{0}%",
       "rockroot": "Raíz de roca",
-      "snowthistle": "Cardo de las nieves",
+      "snowthistle": "Cardo de nieve",
       "special": "Especial",
       "special1": "Carta especial 1 (#1418)",
       "special2": "Carta especial 2 (#1419)",
@@ -1206,7 +1211,7 @@
             "hint": "Contruir (forzar con doble-clic)"
           },
           "costs": "Costes",
-          "discount": "-1 recurso",
+          "discount": "-1 recurso de material",
           "effects": "Efectos",
           "id": "Número",
           "interactions": "Interacciones",
@@ -1263,7 +1268,7 @@
         "name": "Nombre",
         "nextWeek": "Siguiente semana (nuevo calendario)",
         "soldierLevel": "Nivel",
-        "soldiers": "SOLDADOS",
+        "soldiers": "Soldados",
         "summer": "Verano",
         "supply": {
           "": "Suministros de Frosthaven",

@@ -1632,7 +1632,7 @@
         "discarded": "废弃剧本规则"
       },
       "spawn": "生成{2}%game.monsterType.{1}% %data.monster.{0}%",
-      "spawnMarker": "在{2}%game.monsterType.{1}% %data.monster.{0}%生成{2}%game.monsterType.{1}% %data.monster.{0}%",
+      "spawnMarker": "在%game.mapMarker.{3}%生成{2}%game.monsterType.{1}% %data.monster.{0}%",
       "spawnObjective": "生成目标点'{0}'",
       "spawnObjectiveEscort": "生成守卫'{0}'",
       "spawnObjectiveEscortMarker": "在%game.mapMarker.{2}%生成守卫'{0}'",
