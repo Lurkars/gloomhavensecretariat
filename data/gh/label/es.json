@@ -342,6 +342,7 @@
     "533": "El veneno perfecto"
   },
   "scenario": {
+    "Random Dungeon": "Mazmorra aleatoria",
     "group": {
       "randomDungeon": "%scenario.random%",
       "randomMonsterCard": "Cartas de monstruos aleatorias"
