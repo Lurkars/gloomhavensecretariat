@@ -1,4 +1,92 @@
 {
+  "character": {
+    "astral": "灌注使",
+    "coral": "崩潮卫士",
+    "drill": {
+      "": "金属拼杂体",
+      "high": "高压",
+      "low": "低压",
+      "over": "超压",
+      "regular": "常压"
+    },
+    "fist": {
+      "": "冰封拳师",
+      "gift-of-the-mountain": {
+        "": "山脉馈赠",
+        "hint": "在你每个回合结束时，执行：%game.action.heal% 2，自己"
+      },
+      "one-with-the-mountain": {
+        "": "融身山脉",
+        "hint": "每当你没有%game.condition.regenerate%时，获得%game.condition.regenerate%。"
+      }
+    },
+    "kelp": {
+      "": "深海缚灵",
+      "trophy_tokens": {
+        "": "Perk 11",
+        "hint": "%data.custom.fh.kelp.4%"
+      }
+    },
+    "meteor": "炎浆使",
+    "prism": {
+      "": "虫巢",
+      "prism_mode": "%data.characterToken.prism.mode% 模式标记",
+      "repair_mode": {
+        "": "再建援助",
+        "hint": "%data.characterToken.prism.mode%修理无人机模块：在你每个回合开始时，执行：%game.action.heal%2，自己"
+      }
+    },
+    "shackles": "痛苦通导者",
+    "shards": {
+      "": "碎裂歌手",
+      "extra_resonance_tokens": {
+        "": "Perk 10",
+        "hint": "%data.custom.fh.shards.5%"
+      },
+      "resonance_tokens": {
+        "": "%data.characterToken.shards.resonance%共鸣标记",
+        "hint": "在你每个回合结束时，你获得1个%data.characterToken.shards.resonance%"
+      }
+    },
+    "snowflake": {
+      "": "雪舞者",
+      "muddle-monster": {
+        "": "Perk 9",
+        "hint": "%data.custom.fh.snowflake.4%"
+      }
+    },
+    "trap": "陷阱师"
+  },
+  "custom": {
+    "fh": {
+      "astral": {
+        "1": "将任意1个衰退元素移动到强烈",
+        "2": "每有一对激活的%game.action.custom.fh-infusion%，+1%game.action.attack%",
+        "3": "每当你筋疲力尽时，保留场上你所有的激活奖励，每轮你的召唤物按99的先攻行动",
+        "4": "每当你短暂休息时，你可以%game.element.consume.wild%来%game.card.recover%1个横置的%game.items.slots.onehand%或%game.items.slots.twohand%物品",
+        "5": "每个剧本一次，在决定先攻顺序期间，所有能力卡牌翻开之后，%game.element.wild%",
+        "6": "拥有5个激活的%game.action.custom.fh-infusion%奖励",
+        "7": "消灭至少4个敌人，但从不攻击"
+      },
+      "coral": {
+        "1": "如果你本轮执行过%data.action.custom.fh-tides%，改为%game.attackmodifier.plus2%",
+        "2": "每当你将要获得%game.condition.impair%时，防止该状态",
+        "3": "每当你在选择卡牌期间宣布了充分休息时，当轮获得%game.action.shield:1%",
+        "4": "当你占据水域格，或目标敌人占据水域格的情况下，你执行的所有攻击获得优势",
+        "5": "从未承受攻击伤害，且成为至少5次攻击的目标",
+        "6": "在你每次休息开始时，激活的%game.action.custom.fh-tides%卡牌数量大于你弃牌堆的卡牌数量"
+      },
+      "drill": {
+        "1": "%game.action.custom.fh-pressure-up%或%game.action.custom.fh-pressure-down%",
+        "2": "目标和所有与其相邻的敌人承受%game.damage:1%",
+        "3": "每当你充分休息时，你可以%game.action.custom.fh-pressure-up%或%game.action.custom.fh-pressure-down%",
+        "4": "每当你将要获得%game.condition.poison%时，你可以承受%game.damage:1%来防止该状态",
+        "5": "每个剧本一次，当你将要筋疲力尽时，改为获得%game.condition.stun%和%game.condition.invisible%，遗失你所有的卡牌，%game.card.recover%4张遗失卡牌，随后弃掉回收的卡牌",
+        "6": "从不攻击",
+        "7": "连续4轮，压力计量表从当轮起始位置上移或下移3个等级(%game.action.custom.fh-pressure-low%到%game.action.custom.fh-pressure-over%或%game.action.custom.fh-pressure-over%到%game.action.custom.fh-pressure-low%)"
+      }
+    }
+  },
   "items": {
     "fh-1": {
       "": "单筒望远镜",
@@ -8,9 +96,89 @@
       "": "简陋盾",
       "1": "当有敌人将要对你施加负面状态时，防止该状态"
     },
+    "fh-100": {
+      "": "强效耐力药水",
+      "1": "在你回合期间，%game.card.recover%你弃牌堆中1张卡牌。"
+    },
+    "fh-101": {
+      "": "强效威力药水",
+      "1": "在你回合期间，你所有攻击增加+2%game.action.attack%。"
+    },
+    "fh-102": {
+      "": "强效元素药水",
+      "1": "在你回合期间，%game.element.wild% %game.element.wild%"
+    },
+    "fh-103": {
+      "": "强效治愈药水",
+      "1": "在你回合期间，移除你所有负面状态。在你带有%game.condition.impair%或%game.condition.stun%的情况下，本物品也可以使用。"
+    },
+    "fh-104": {
+      "": "迅捷药水",
+      "1": "在你移动能力期间，增加+3%game.action.move%和%game.action.jump%。"
+    },
+    "fh-105": {
+      "": "强效火盾药水",
+      "1": "在你回合期间，执行 %game.action.retaliate% 2 %game.action.range:3%"
+    },
+    "fh-106": {
+      "": "石壁药水",
+      "1": "在你回合期间，执行 %game.condition.ward% %game.action.target% 2个相邻的盟友和自己"
+    },
+    "fh-107": {
+      "": "活力药水",
+      "1": "在你回合期间，执行 %game.condition.strengthen% %game.action.target% 2个相邻的盟友和自己"
+    },
+    "fh-108": {
+      "": "圣雨",
+      "1": "在你回合期间，执行 %game.condition.bless% %game.action.target% 2个相邻的盟友和自己"
+    },
+    "fh-109": {
+      "": "强效复元药水",
+      "1": "在你回合期间，%game.card.recover%最多1个你遗失的2草药的药水。"
+    },
     "fh-11": {
       "": "简易咒符",
       "1": "在剧本开始时，将1张%game.attackmodifier.minus1%攻击修正卡牌从你的攻击修正牌库移除。"
+    },
+    "fh-110": {
+      "": "精准药水",
+      "1": "当你从你的攻击修正牌库翻开%game.attackmodifier.null%攻击修正卡牌时，改为将其视为%game.attackmodifier.plus2%。"
+    },
+    "fh-111": {
+      "": "强效狂乱药水",
+      "1": "在你回合期间，执行："
+    },
+    "fh-112": {
+      "": "锤子药水",
+      "1": "在你回合期间，承受%game.damage%10。"
+    },
+    "fh-113": {
+      "": "专精药水",
+      "1": "在你回合开始时，弃掉1张你打出的卡牌来执行你另一张打出卡牌上半部分和下半部分的行动。最多只能使用一个触发%game.card.lost%图标的行动。"
+    },
+    "fh-114": {
+      "": "先见药水",
+      "1": "在你回合期间，翻开1套怪物能力牌库顶的1张卡牌。你可以将该卡牌放到该牌库底。"
+    },
+    "fh-115": {
+      "": "灌注药水",
+      "1": "在你回合期间，忽略你打出的1个行动上的1个元素消耗符号，并获得其效果。"
+    },
+    "fh-116": {
+      "": "瘟疫烧瓶",
+      "1": "在你回合期间执行："
+    },
+    "fh-117": {
+      "": "狱火烧瓶",
+      "1": "在你回合期间执行："
+    },
+    "fh-118": {
+      "": "爆闪烧瓶",
+      "1": "在你回合期间，%game.action.range:2%内的1个敌人承受%game.damage%4。"
+    },
+    "fh-119": {
+      "": "致死混合物",
+      "1": "在你回合期间，执行："
     },
     "fh-12": {
       "": "简陋链甲",
@@ -162,7 +330,243 @@
       "1": "在你回合期间，执行："
     },
     "fh-46": {
-      "": "双筒目镜"
+      "": "双筒目镜",
+      "1": "在你攻击能力期间，所有攻击获得优势，并将所有%game.attackmodifier.plus0%和%game.attackmodifier.minus1%攻击修正卡牌改为视作%game.attackmodifier.plus1%。"
+    },
+    "fh-47": {
+      "": "末日长袍",
+      "1": "之后2次以你为目标的攻击%game.damage%源中，承受%game.damage%3来给予攻击者%game.condition.brittle%。"
+    },
+    "fh-48": {
+      "": "活化鞋",
+      "1": "在盟友以你为目标的治疗能力结束之后，执行："
+    },
+    "fh-49": {
+      "": "残酷匕首",
+      "1": "在你近战攻击能力期间，1次攻击增加+1%game.action.attack%和%game.condition.wound%。"
+    },
+    "fh-5": {
+      "": "简陋靴",
+      "1": "在你移动能力期间，增加+1%game.action.move%"
+    },
+    "fh-50": {
+      "": "互惠盾",
+      "1": "当你承受攻击%game.damage%时，在该次攻击中获得%game.action.shield:1%并将本卡牌翻面。",
+      "2": "在你近战攻击能力期间，1次攻击增加%game.action.pierce%1，并将本卡牌翻面。"
+    },
+    "fh-51": {
+      "": "尖刺项圈",
+      "1": "在你回合期间，执行%game.condition.wound%自己"
+    },
+    "fh-52": {
+      "": "激光透镜",
+      "1": "在你回合期间，%game.element.consume.fire%来使%game.action.range:4%内最多2个敌人各承受%game.damage%1。"
+    },
+    "fh-53": {
+      "": "平头钉靴",
+      "1": "在你回合期间，你移动的格子大于等于4格之后，你在本轮中获得%game.action,retaliate%1。"
+    },
+    "fh-54": {
+      "": "休憩便鞋",
+      "1": "在你短暂休息期间，不随机遗失你弃牌堆中的1张卡牌，改为从你的弃牌堆抽取3张卡牌并选择遗失其中一张。"
+    },
+    "fh-55": {
+      "": "撕咬护手",
+      "1": "当你受到相邻敌人攻击时，在该次攻击中获得%game.action,retaliate%2。"
+    },
+    "fh-56": {
+      "": "拾荒者磁铁",
+      "1": "在你回合期间，%game.element.consume.earth%来拾取1个相邻的拾取标记。"
+    },
+    "fh-57": {
+      "": "铲子",
+      "1": "在你回合期间，摧毁1个相邻的障碍物、有害地形、困难地形、冰冻地形或陷阱板块。"
+    },
+    "fh-58": {
+      "": "滑手剑",
+      "1": "在你近战攻击能力期间，1次攻击增加+2%game.action.attack%。在该次能力结束后，获得%game.condition.disarm%。"
+    },
+    "fh-59": {
+      "": "专精咒符",
+      "1": "在剧本开始时，获得1个你角色卡上尚未获得的1记号的专长，仅限本次剧本。"
+    },
+    "fh-6": {
+      "": "柔韧便鞋",
+      "1": "在你回合结束的拾取期间，不拾取你占据格，改为拾取1个你的相邻格。"
+    },
+    "fh-60": {
+      "": "多袋披风",
+      "1": "在剧本开始时，额外携带最多2个%game.items.slots.small%物品。"
+    },
+    "fh-61": {
+      "": "尖刺壳甲",
+      "1": "在你受到相邻敌人攻击之后，该敌人立即承受%game.damage%X，其中X为该次攻击中你的%game.action.shield%数值。"
+    },
+    "fh-62": {
+      "": "恒久靴",
+      "1": "在你移动能力期间，增加+1%game.action.move%并获得%game.condition.regenerate%"
+    },
+    "fh-63": {
+      "": "暗影重踏靴",
+      "1": "在你移动能力期间，%game.element.consume.dark%来增加+2%game.action.move%"
+    },
+    "fh-64": {
+      "": "雷管",
+      "1": "当你的召唤物被消灭时，所有与其相邻的敌人承受%game.damage%2并获得%game.condition.wound%。"
+    },
+    "fh-65": {
+      "": "铁华粉",
+      "1": "在你回合期间，将1个角色标记放到%game.action.range:3%内的1个普通或精英敌人上。本次剧本中，该敌人获得-1%game.action.shield%。"
+    },
+    "fh-66": {
+      "": "永恒生命项链",
+      "1": "在你开始休息时，执行："
+    },
+    "fh-67": {
+      "": "会聚透镜",
+      "1": "当你受到攻击时，不抽取攻击修正卡牌，改为该次攻击增加+1%game.action.attack%并将本卡牌翻面。",
+      "2": "在你攻击能力期间，1次攻击不抽取攻击修正卡牌，改为该次攻击增加+1%game.action.attack%并将本卡牌翻面。"
+    },
+    "fh-68": {
+      "": "鳞甲",
+      "1": "之后3次，你将要承受的%game.damage%源小于等于2时，抵消该%game.damage%。"
+    },
+    "fh-69": {
+      "": "轻羽披风",
+      "1": "当你承受攻击%game.damage%时，%game.element.consume.air%来在本次攻击中获得%game.action.shield:3%。"
+    },
+    "fh-7": {
+      "": "简陋弓",
+      "1": "在你回合期间，你的1次远程攻击增加+1%game.action.range%。"
+    },
+    "fh-70": {
+      "": "以太灵长袍",
+      "1": "每当你承受%game.action.retaliate%的%game.damage%时，将该%game.damage%减少至1。如果%game.damage%已经是1，改为减少至0。"
+    },
+    "fh-71": {
+      "": "白骨靴",
+      "1": "在你的能力消灭了敌人之后，执行："
+    },
+    "fh-72": {
+      "": "橡树法杖",
+      "1": "在你回合期间，%game.element.consume.light%来执行："
+    },
+    "fh-73": {
+      "": "供能指挥棒",
+      "1": "当你对1个盟友施加1个正面状态时，%game.action.range:3%内的另一个盟友获得同样的状态。"
+    },
+    "fh-74": {
+      "": "电击手雷",
+      "1": "在你回合期间，执行："
+    },
+    "fh-75": {
+      "": "玫瑰护手",
+      "1": "在%game.action.range:2%内的盟友承受攻击%game.damage%的之后，移除该盟友所有的负面状态，随后执行："
+    },
+    "fh-76": {
+      "": "律令号角",
+      "1": "在你1个召唤物的回合期间，由你决定它如何执行能力。"
+    },
+    "fh-77": {
+      "": "混乱手炮",
+      "1": "在你回合期间，将%game.action.range:2%内未被占据格子中的1块1格的障碍物、有害地形、困难地形或冰冻地形板块替换为以上列出的另一种类型的板块。"
+    },
+    "fh-78": {
+      "": "天平",
+      "1": "每个回合1次，在你攻击能力期间，1次攻击获得优势，随后在你回合结束时，将本卡牌翻面。",
+      "2": "每个回合一次，在你攻击能力期间，1次攻击获得劣势，随后在你回合结束时，将本卡牌翻面。"
+    },
+    "fh-79": {
+      "": "炙烤禽肉",
+      "1": "在你回合期间，你所有攻击增加+1%game.action.attack%并执行："
+    },
+    "fh-8": {
+      "": "简陋矛",
+      "1": "在你回合期间，你的1次单目标近战攻击能力的目标可以是1个2格远的敌人。"
+    },
+    "fh-80": {
+      "": "活化石",
+      "1": "当你将要承受的攻击%game.damage%小于等于4时，抵消该%game.damage%并执行：%game.action.heal% X 自己 其中X为你将要承受的伤害数量。"
+    },
+    "fh-81": {
+      "": "痛苦假偶",
+      "1": "当你承受的攻击%game.damage%小于等于5时，%game.action.range:2%内的1格敌人也承受同等数量的%game.damage%。"
+    },
+    "fh-82": {
+      "": "机械立方体",
+      "1": "在你移动能力期间，你进入任何一格之后，给予所有相邻敌人%game.condition.immobilize%。"
+    },
+    "fh-83": {
+      "": "治疗药水",
+      "1": "在你回合期间，执行%game.action.heal% 3 自己"
+    },
+    "fh-84": {
+      "": "耐力药水",
+      "1": "在你回合期间，%game.card.recover%你弃牌堆中1张等级1的卡牌。"
+    },
+    "fh-85": {
+      "": "威力药水",
+      "1": "在你回合期间，你所有攻击增加+1%game.action.attack%。"
+    },
+    "fh-86": {
+      "": "元素药水",
+      "1": "在你回合期间，%game.element.wild%"
+    },
+    "fh-87": {
+      "": "治愈药水",
+      "1": "在你回合期间，移除你的1个负面状态。在你带有%game.condition.impair%或%game.condition.stun%的情况下，本物品也可以使用。"
+    },
+    "fh-88": {
+      "": "火盾药水",
+      "1": "在你回合期间执行%game.action,retaliate% 1 %game.action.range:3% "
+    },
+    "fh-89": {
+      "": "石肤药水",
+      "1": "在你回合期间，执行%game.condition.ward% 自己"
+    },
+    "fh-9": {
+      "": "防护权杖",
+      "1": "在你回合期间，赋予%game.action.range:2%内的1个盟友："
+    },
+    "fh-90": {
+      "": "肌肉药水",
+      "1": "在你回合期间，执行%game.condition.strengthen% 自己"
+    },
+    "fh-91": {
+      "": "圣水",
+      "1": "在你回合期间，执行%game.condition.bless% 自己"
+    },
+    "fh-92": {
+      "": "复元药水",
+      "1": "在你回合期间，%game.card.recover%最多2个你横置的物品。"
+    },
+    "fh-93": {
+      "": "斜击药水",
+      "1": "当你从你的攻击修正牌库翻开%game.attackmodifier.null%攻击修正卡牌时，改为将其视为%game.attackmodifier.plus0%。"
+    },
+    "fh-94": {
+      "": "狂乱药水",
+      "1": "在你回合期间，执行："
+    },
+    "fh-95": {
+      "": "毒素药瓶",
+      "1": "在你回合期间，执行 %game.condition.poison% %game.action.range:1%"
+    },
+    "fh-96": {
+      "": "烈焰药瓶",
+      "1": "在你回合期间，执行 %game.condition.wound% %game.action.range:1%"
+    },
+    "fh-97": {
+      "": "爆裂药瓶",
+      "1": "在你回合期间，%game.action.range:2%内的1个敌人承受%game.damage%2。"
+    },
+    "fh-98": {
+      "": "致病混合物",
+      "1": "在你回合期间，执行 %game.condition.wound%, %game.condition.poison% 自己"
+    },
+    "fh-99": {
+      "": "强效治疗药水",
+      "1": "在你回合期间，执行 %game.action.heal% 6 自己"
     }
   }
 }
