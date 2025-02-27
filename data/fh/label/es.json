@@ -1,31 +1,277 @@
 {
+  "battleGoals": {
+    "1301": {
+      "": "Contable",
+      "text": "Ten 0 carta en la mano cada vez que descanses."
+    },
+    "1302": {
+      "": "Acróbata",
+      "text": "Pierde 1 carta para prevenir 5 de daño o más."
+    },
+    "1303": {
+      "": "Asceta",
+      "text": "Recoge menos fichas de Botín que cualquiera de los otros personajes."
+    },
+    "1304": {
+      "": "Asistente",
+      "text": "Mata a un enemigo al que haya atacado cualquiera de tus aliados antes en la misma ronda."
+    },
+    "1305": {
+      "": "Bastión",
+      "text": "Ocupa un hexágono de puerta adyacente a 2 o más enemigos al final de una ronda."
+    },
+    "1306": {
+      "": "Abusón",
+      "text": "Mata a un enemigo que tenga 2 o más estados negativos."
+    },
+    "1307": {
+      "": "Limpiador",
+      "text": "Recoge 3 o más fichas de Botín en el mismo turno."
+    },
+    "1308": {
+      "": "Rematador",
+      "text": "Mata al último enemigo que muera en el escenario."
+    },
+    "1309": {
+      "": "Conservador",
+      "text": "Nunca realices una acción con un símbolo de perder."
+    },
+    "1310": {
+      "": "Duro de pelar",
+      "text": "No permitas que tus puntos de vida desciendan por debajo de la mitad de tu valor máximo (redondeando hacia arriba)."
+    },
+    "1311": {
+      "": "Apisonadora",
+      "text": "Mata a un enemigo con un ataque que inflija al menos 4 puntos de daño más de los necesarios."
+    },
+    "1312": {
+      "": "Egoísta",
+      "text": "Recoge más fichas de Botín que cualquiera de los otros personajes."
+    },
+    "1313": {
+      "": "Ejecutor",
+      "text": "Mata a un enemigo que no tuviera daño con una sola acción de ataque."
+    },
+    "1314": {
+      "": "Apostador",
+      "text": "Mata a un enemigo con un ataque tenga Desventaja."
+    },
+    "1315": {
+      "": "Cazador",
+      "text": "Mata a 1 o más enemigos de élite, o a 2 o más si juegan 4 personajes."
+    },
+    "1316": {
+      "": "Insomne",
+      "text": "Sufre daño de un ataque en la misma ronda en la que haces un descanso largo."
+    },
+    "1317": {
+      "": "Masoquista",
+      "text": "Termina el escenario con 3 puntos de vida o menos."
+    },
+    "1318": {
+      "": "Atracador",
+      "text": "Mata a un enemigo y saquea la ficha de Botín que deje en la misma ronda."
+    },
+    "1319": {
+      "": "Primera sangre",
+      "text": "Sé el primero en matar a un enemigo durante el escenario."
+    },
+    "1320": {
+      "": "Optimista",
+      "text": "Retira un estado negativo tuyo o de un aliado 2 o más veces."
+    },
+    "1321": {
+      "": "Pacifista",
+      "text": "Mata a 3 enemigos o menos."
+    },
+    "1322": {
+      "": "Voto de pobreza",
+      "text": "No recojas nunca una ficha de Botín con el saqueo del final del turno."
+    },
+    "1323": {
+      "": "Seguridad vial",
+      "text": "Nunca entres en un hexágono ocupado por un aliado, enemigo, elemento de misión u obstáculo."
+    },
+    "1324": {
+      "": "Perfeccionista",
+      "text": "Termina el escenario con un valor de puntos de vida igual a tu valor máximo de puntos de vida."
+    },
+    "1325": {
+      "": "Carterista",
+      "text": "Recoge 2 o más fichas de Botín realizado una capacidad de Saqueo mientras estás adyacente a 1 o más enemigos."
+    },
+    "1326": {
+      "": "Alfiletero",
+      "text": "Sé el objetivo de los ataques de 3 o más enemigos en la misma ronda."
+    },
+    "1327": {
+      "": "Plebe",
+      "text": "No mates nunca a un enemigo élite, o aun enemigo con nombre o a un Jefe."
+    },
+    "1328": {
+      "": "Sobrio",
+      "text": "No uses nunca una poción."
+    },
+    "1329": {
+      "": "Promotor",
+      "text": "Realiza una capacidad que tome como objetivo a un aliado antes de tu primer descanso y entre cada uno de tus descansos."
+    },
+    "1330": {
+      "": "Vagabundo",
+      "text": "No termines más de 3 de tus turnos en el hexágono en el que empezaste el turno, excepto cuando realices un descanso largo."
+    },
+    "1331": {
+      "": "Arrasador",
+      "text": "Realiza 2 acciones con símbolos de perder en el mismo turno."
+    },
+    "1332": {
+      "": "Recluso",
+      "text": "No termines nunca tu turno adyacente a ningún otro personaje (obtén 1%game.checkmark% adicional si juegan 4 personajes)."
+    },
+    "1333": {
+      "": "Ritualista",
+      "text": "Mata a un enemigo mientras 3 o más elementos estén en la columna Fuerte o Menguante."
+    },
+    "1334": {
+      "": "Sádico",
+      "text": "Mata a 5 o más enemigos."
+    },
+    "1335": {
+      "": "Impaciente",
+      "text": "No realices ningún descanso largo."
+    },
+    "1336": {
+      "": "Despreciativo",
+      "text": "Mata a un enemigo que no esté adyacente a ti mientras tú estás adyacente a otro enemigo."
+    },
+    "1337": {
+      "": "Dormilón",
+      "text": "Ten 1 o más cartas en la mano cada vez que descanses."
+    },
+    "1338": {
+      "": "Haragán",
+      "text": "Realiza un descanso largo mientras tienes tu valor máximo de puntos de vida, después de haber sufrido daño."
+    },
+    "1339": {
+      "": "Rezagado",
+      "text": "No realices ningún descanso corto."
+    },
+    "1340": {
+      "": "Optimizador",
+      "text": "Ten 5 o más cartas en total en la mano y en la pila de descartes al final del escenario."
+    },
+    "1341": {
+      "": "Torturador",
+      "text": "Aplica un estado negativo diferente a un enemigo que ya tenga uno o más estados negativos."
+    },
+    "1342": {
+      "": "Manirroto",
+      "text": "Pierde una carta para prevenir 2 o menos puntos de daño de un ataque."
+    },
+    "1343": {
+      "": "Debilucho",
+      "text": "Acaba agotado antes que ningún otro personaje."
+    },
+    "1344": {
+      "": "Trabajador",
+      "text": "Obtén 13 o más puntos de experiencia en un escenario (contados antes de calcular la bonificación de experiencia del escenario)."
+    },
+    "1345": {
+      "": "Fanático",
+      "text": "Ten 3 o menos cartas en total en la mano y en la pila de descartes al final del escenario."
+    },
+    "1346": {
+      "": "Asesino",
+      "text": "Mata a un enemigo antes de que realice su primer turno."
+    },
+    "1347": {
+      "": "Temerario",
+      "text": "Añade 2 cartas a tu pila de pérdida antes de tu primer descanso."
+    },
+    "1348": {
+      "": "Arrastrado",
+      "text": "No uses nunca tu carta jugada con iniciativa más baja como carta principal."
+    },
+    "1349": {
+      "": "Duelista",
+      "text": "No salgas nunca de un hexágono adyacente a un enemigo a no ser que sea por movimiento obligado."
+    },
+    "1350": {
+      "": "Exterminador",
+      "text": "Mata a 1 o más enemigos de cada tipo de monstruo que aparezca en el escenario."
+    },
+    "1351": {
+      "": "Relajado",
+      "text": "Obtén 7 o menos puntos de experiencia en un escenario (contados antes de calcular la bonificación de experiencia del escenario)"
+    },
+    "1352": {
+      "": "Avaro",
+      "text": "No salgas nunca de una sala en la que haya fichas de Botín."
+    },
+    "1353": {
+      "": "Competente",
+      "text": "Mata a un enemigo y abre una puerta en el mismo turno, en cualquier orden."
+    },
+    "1354": {
+      "": "Pacificador",
+      "text": "No mates nunca a un enemigo."
+    },
+    "1355": {
+      "": "Preparador",
+      "text": "No realices ninguna capacidad de Ataque en las 3 primeras rondas."
+    },
+    "1356": {
+      "": "Aniquilador",
+      "text": "Mata a 2 o más enemigos en la misma ronda."
+    },
+    "1357": {
+      "": "Caracol",
+      "text": "No te muevas más de 2 hexágonos en cada turno."
+    },
+    "1358": {
+      "": "Especialista",
+      "text": "No realices nunca una acción básica."
+    },
+    "1359": {
+      "": "Vanguardia",
+      "text": "No ataques nunca a un enemigo que ya haya actuado en la ronda."
+    },
+    "1360": {
+      "": "Tímido",
+      "text": "Termina cada uno de tus turnos adyacente a un muro, obstáculo o elemento de misión."
+    }
+  },
   "buildings": {
     "alchemist": {
+      "": "Alquimista",
       "1": "Los personajes no pueden usar pociones",
-      "2": "Elabora pociones de 2 hierbas",
-      "3": "Elaborar y destilar pociones de 2 hierbas",
-      "4": "Elaborar y destilar pociones de 2 y 3 hierbas",
-      "5": "Elaborar pociones",
-      "6": "Elaborar y destilar pociones",
-      "7": "Elaborar y destilar pociones"
+      "2": "Prepara pociones de 2 plantas",
+      "3": "Prepara y destila pociones de 2 plantas",
+      "4": "Prepara y destila pociones de 2 y 3 plantas",
+      "5": "Preparar pociones",
+      "6": "Preparar y destilar pociones",
+      "7": "Preparar y destilar pociones"
     },
     "barracks": {
-      "": "Barracones",
-      "1": "De forma colectiva entrena hasta 1 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 4<br><i>Efecto:</i> ventaja y %game.action.attack% -5",
-      "2": "De forma colectiva entrena hasta 1 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 6<br><i>Efecto:</i> ventaja y %game.action.attack% -15",
-      "3": "De forma colectiva entrena hasta 2 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 8<br><i>Efecto:</i> ventaja y %game.action.attack% -25",
-      "4": "De forma colectiva entrena hasta 2 soldado por 3 de oro y 1 recurso material<br><br><i>Capacidad:</i> 10<br><i>Efecto:</i> ventaja y %game.action.attack% -35",
-      "5": "Desventaja en todas las resoluciones de eventos de ataque.<br>No se pueden usar soldados.",
-      "soldiers": "Entrena a 1 soldado"
+      "": "Cuartel",
+      "1": "Adiestra de forma colectiva hasta 1 soldado por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 4<br><i>Efecto:</i> Ventaja y %game.action.attack% -5",
+      "2": "Adiestra de forma colectiva hasta 1 soldado por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 6<br><i>Efecto:</i> Ventaja y %game.action.attack% -15",
+      "3": "Adiestra de forma colectiva hasta 2 soldados por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 8<br><i>Efecto:</i> Ventaja y %game.action.attack% -25",
+      "4": "Adiestra de forma colectiva hasta 2 soldados por 3 de oro y 1 recurso de materiales<br><br><i>Capacidad:</i> 10<br><i>Efecto:</i> Ventaja y %game.action.attack% -35",
+      "5": "Desventaja en todas las resoluciones de eventos de ataque.<br>No podéis usar soldados.",
+      "soldiers": "Adiestra a 1 soldado"
+    },
+    "boat": {
+      "": "Barco"
     },
     "carpenter": {
       "": "Carpintero",
-      "1": "Reducir todos los costes de construcción en 1 recurso",
-      "2": "Reduce todos los costes de construcción en 1 recurso y el coste extra de construcción de 1 moral",
+      "1": "Reducir todos los costes de construcción en 1 recurso de materiales",
+      "2": "Reduce todos los costes de construcción en 1 recurso de materiales y el coste extra de construcción de 1 moral",
       "3": "Perder 1 recurso colectivo cualquiera"
     },
     "climbing-gear": {
-      "": "Equipamiento de escalada"
+      "": "Equipo de escalada"
     },
     "craftsman": {
       "": "Artesano",
@@ -68,16 +314,17 @@
       "3": "Pierde 2 %game.resource.hide% colectivo"
     },
     "hunting-lodge": {
-      "1": "Compra colectivamente hasta 1 %game.resource.hide% por 2 de oro",
-      "2": "Compra colectivamente hasta 2 %game.resource.hide% por 2 de oro",
-      "3": "Compra colectivamente hasta 3 %game.resource.hide% por 2 de oro",
-      "4": "Compra colectivamente hasta 4 %game.resource.hide% por 2 de oro"
+      "": "Pabellón de caza",
+      "1": "Compra de forma colectiva hasta 1 %game.resource.hide% por 2 de oro",
+      "2": "Compra de forma colectiva hasta 2 %game.resource.hide% por 2 de oro",
+      "3": "Compra de forma colectiva hasta 3 %game.resource.hide% por 2 de oro",
+      "4": "Compra de forma colectiva hasta 4 %game.resource.hide% por 2 de oro"
     },
     "inn": {
       "": "Posada",
-      "1": "Compra colectivamente hasta 1 recurso por 2 de oro",
-      "2": "Compra colectivamente hasta 2 recursos diferentes por 2 de oro cada uno",
-      "3": "Compra colectivamente hasta 3 recursos diferentes por 2 de oro cada uno"
+      "1": "Compra de forma colectiva hasta 1 recurso de materiales por 2 de oro",
+      "2": "Compra de forma colectiva hasta 2 recursos materiales diferentes por 2 de oro cada uno",
+      "3": "Compra de forma colectiva hasta 3 recursos materiales diferentes por 2 de oro cada uno"
     },
     "jeweler": {
       "": "Joyería",
@@ -88,17 +335,17 @@
       "1": "Pierde 1 inspiración"
     },
     "logging-camp": {
-      "": "Campamento maderero",
-      "1": "Compra colectivamente hasta 1 %game.resource.lumber% por 2 de oro",
-      "2": "Compra colectivamente hasta 2 %game.resource.lumber% por 2 de oro",
-      "3": "Compra colectivamente hasta 3 %game.resource.lumber% por 2 de oro",
-      "4": "Compra colectivamente hasta 4 %game.resource.lumber% por 2 de oro"
+      "": "Campamento de leñadores",
+      "1": "Compra de forma colectiva hasta 1 %game.resource.lumber% por 2 de oro",
+      "2": "Compra de forma colectiva hasta 2 %game.resource.lumber% por 2 de oro",
+      "3": "Compra de forma colectiva hasta 3 %game.resource.lumber% por 2 de oro",
+      "4": "Compra de forma colectiva hasta 4 %game.resource.lumber% por 2 de oro"
     },
     "lumber-depot": {
       "": "Almacén de madera",
       "1": "Vende colectivamente hasta 1 %game.resource.lumber% por 5 de oro",
       "2": "Vende colectivamente hasta 2 %game.resource.lumber% por 5 de oro cada uno",
-      "3": "Pierde colectivamente 2 %game.resource.lumber%"
+      "3": "Pierde de forma colectiva 2 %game.resource.lumber%"
     },
     "metal-depot": {
       "": "Almacén de metal",
@@ -108,10 +355,13 @@
     },
     "mining-camp": {
       "": "Campamento minero",
-      "1": "Compra colectivamente hasta 1 %game.resource.metal% por 2 de oro",
-      "2": "Compra colectivamente hasta 2 %game.resource.metal% por 2 de oro",
-      "3": "Compra colectivamente hasta 3 %game.resource.metal% por 2 de oro",
-      "4": "Compra colectivamente hasta 4 %game.resource.metal% por 2 de oro"
+      "1": "Compra de forma colectiva hasta 1 %game.resource.metal% por 2 de oro",
+      "2": "Compra de forma colectiva hasta 2 %game.resource.metal% por 2 de oro",
+      "3": "Compra de forma colectiva hasta 3 %game.resource.metal% por 2 de oro",
+      "4": "Compra de forma colectiva hasta 4 %game.resource.metal% por 2 de oro"
+    },
+    "sled": {
+      "": "Trineo"
     },
     "stables": {
       "": "Establos",
@@ -178,10 +428,12 @@
     },
     "workshop": {
       "": "Taller",
-      "1": "Pierde 1 %game.resource.lumber% colectivo"
+      "1": "Perdéis 1 %game.resource.lumber% colectiva"
     }
   },
   "campaignSticker": {
+    "boat": "Barco",
+    "sled": "Trineo",
     "statue": "Estatua"
   },
   "character": {
@@ -204,10 +456,26 @@
       "": "Geminado",
       "melee": "Cuerpo a cuerpo",
       "range": "A distancia"
+    },
+    "traits": {
+      "arcane": "Arcano",
+      "armored": "Acorazado",
+      "chaotic": "Caótico",
+      "educated": "Educado",
+      "intimidating": "Intimidantes",
+      "nimble": "Ágil",
+      "outcast": "Paria",
+      "persuasive": "Persuasivo",
+      "resourceful": "Inventivo",
+      "strong": "Fuerte"
     }
   },
   "custom": {
     "fh": {
+      "abael-herder": {
+        "3": "El cerdo piraña sufre %game.damage:1%.",
+        "6": "donde X es el número de<br>Cerdos pirañas en el mapa."
+      },
       "algox-icespeaker": {
         "2": "Todos los enemigos adyacentes al<br>obstáculo creado sufren daño por terreno peligroso."
       },
@@ -246,14 +514,14 @@
       },
       "blinkblade": {
         "1": "En tu próximo ataque, descarta esta carta para obtener %game.action.attack%+2 .<br>%game.card.persistent%",
-        "2": "Coloca esta carta en tu área activa. En tu próximo ataque, descarta esta carta para obtener %game.action.attack% +2",
+        "2": "Pon esta carta en tu zona activa. En tu próximo ataque, descarta esta carta para añadir %game.action.attack% +2",
         "3": "Obtén 1 %data.characterToken.blinkblade.time%",
         "4": "Obtén 1 %data.action.custom.fh-hourglass%",
-        "5": "Siempre que realices un descanso corto, puedes gastar un objeto %game.card.spent% no gastado sin aplicar su efecto para %game.card.recover% un objeto distinto",
-        "6": "Al comienzo de tu primer turno en cada escenario, puedes realizar %game.action.move% 3",
-        "7": "Siempre que obtengas %game.condition.immobilize%, preven ese estado",
-        "8": "Declara Rápido durante siete rondas consecutivas",
-        "9": "No seas nunca objetivo de un ataque"
+        "5": "Siempre que realices un descanso corto, puedes gastar un Objeto %game.card.spent% no gastado sin activar sus efectos para %game.card.recover% un Objeto gastado",
+        "6": "Al comienzo de tu primer turno de cada escenario, puedes realizar %game.action.move% 3",
+        "7": "Siempre que vayas a obtener %game.condition.immobilize%, evítalo",
+        "8": "Declara Rápido durante 7 rondas consecutivas",
+        "9": "Consigue que nunca te tomen como objetivo de un ataque"
       },
       "boneshaper": {
         "1": "Obtén %game.action.attack% +1 por cada ficha en esta carta.",
@@ -294,15 +562,16 @@
         "2": "en un hexágono vacío adyacente al<br>objetivo del ataque"
       },
       "drifter": {
-        "1": "Mueve una de tus fichas de personaje una casilla hacia atrás",
-        "2": "Cada vez que hagas un descanso largo, puedes mover una ficha de tu personaje una casilla hacia atrás",
-        "3": "Puedes llevar un objeto %game.items.slots.onehand% adicional a cada escenario",
-        "4": "Al final de cada escenario puedes descartar hasta dos cartas de botín, excepto Objeto aleatorio, para robar esa misma cantidad de cartas de botín",
-        "5": "Termina un escenario con tus fichas de personaje en la última casillas de cuatro habilidades persistentes",
-        "6": "No realices en ningún momento una habilidad de movimiento o ataque con un valor inferior a 4, y realiza al menos una habilidad de movimiento o ataque en cada ronda"
+        "1": "Mueve 1 de tus fichas de Personaje 1 espacio hacia atrás",
+        "2": "Cada vez que realices un descanso largo, puedes mover 1 de tus fichas de Personaje 1 espacio hacia atrás",
+        "3": "Puedes llevar 1 Objeto %game.items.slots.onehand% adicional a cada escenario",
+        "4": "Al final de cada escenario, puedes descartar hasta 2 cartas de Botín, excepto la de Objeto aleatorio, para robar ese mismo número de cartas de Botín nuevas",
+        "5": "Termina un escenario con tus fichas de Personaje en los últimos espacios de 4 capacidades continuas",
+        "6": "Nunca realices una capacidad de Movimiento o Ataque con un valor inferior a 4, y realiza al menos 1 capacidad de Movimiento o Ataque cada ronda"
       },
       "elder-ooze": {
-        "1": "El objetivo pierde un objeto."
+        "1": "El objetivo pierde un objeto.",
+        "2": "Todos los personajes adyacentes obtienen 1 limo."
       },
       "errata": {
         "env24": "1ª Impresión (Edición en Inglés): El sobre 24 debería incluir la pegatina 10",
@@ -329,6 +598,12 @@
         "section197-1": "1ª Impresión (Edición en Inglés): La sección 197.1 tiene descripciones y nombres obsoletos de algunas cartas.",
         "section25-3": "1ª Impresión (Edición en Inglés): Sección 25.3 - en lugar de Puerta 3 que abre la Sección 62.3, debe decir Puerta 1. (¡Corregido en GHS!)",
         "tavern3": "1ª Impresión (Edición en Inglés): Esto debería tener un requisito de construcción de tener 3 monedas."
+      },
+      "fish-king-scenario-76": {
+        "1": "El Rey del Mar no actúa."
+      },
+      "fish-king-scenario-77": {
+        "1": "Mata al cerdo piraña más cercano<br>Todos los enemigos adyacentes sufren daño de trampa."
       },
       "flame-demon": {
         "1": "Crea una trampa %game.damage:4% en un hexágono<br>vacío adyacente al enemigo más cercano",
@@ -425,8 +700,17 @@
         "1": "Todos los aliados y<br>enemigos adyacentes sufren %game.damage:1%.",
         "2": "%game.custom.disadvantage%"
       },
+      "orphan": {
+        "1": "Personal u orbe brillante"
+      },
+      "piranha-pig": {
+        "1": "Gana +1 %game.action.attack% si el objetivo está adyacente<br>a cualquier aliado del Cerdo Piraña.",
+        "2": "Gana +2 %game.action.attack% si el objetivo tiene %game.condition.wound%.",
+        "3": "Gana +1 %game.action.attack% si el objetivo está en <br>una loseta de agua.",
+        "4": "donde X es la cantidad de<br>daño sufrido por el<br>objetivo de la habilidad de ataque."
+      },
       "prince-of-frost": {
-        "1": "Un personaje %game.card.recover% una carta perdida.",
+        "1": "Un personaje %game.card.recover% 1 carta perdida.",
         "2": "Un personaje pierde una carta."
       },
       "program-director": {
@@ -434,6 +718,10 @@
         "2": "Aliado de todos los monstruos esta ronda",
         "3": "Centra su atención en el enemigo más cercano",
         "4": "a cualquier hexágono vacío que sea<br>el más cercano de su centro de atención"
+      },
+      "render": {
+        "1": "a la talla más lejana y la destruye.",
+        "2": "Destruye todas las tallas adyacentes."
       },
       "ruined-machine": {
         "1": "Si realizó la habilidad de movimiento,",
@@ -448,9 +736,9 @@
         "2": "Todos los enemigos a %game.action.range:4% sufren %game.damage:2%."
       },
       "seeker-of-the-abyss": {
-        "1": "Todos los objetivos pierden una carta.",
-        "2": "Crea una trampa %game.condition.immobilize% en un hexágono vacío adyacente.",
-        "3": "Todos los aliados obtienen %game.action.attack% +1 a todos sus ataques esta ronda."
+        "1": "Todos los objetivos pierden 1 carta.",
+        "2": "Crea 1 trampa %game.condition.immobilize% en un hexágono vacío adyacente.",
+        "3": "Todos los aliados suman %game.action.attack% +1 a todos sus ataques esta ronda."
       },
       "shrike-fiend": {
         "1": "Todos los enemigos a %game.action.range:3% sufren %game.damage:2%."
@@ -486,41 +774,217 @@
     "algox-snowspeaker": "Voz de la nieve algox",
     "ancient-artillery": "Artilleria Antigua",
     "black-imp": "Duende negro",
+    "burrowing-blade": "Filo tunelador",
     "chaos-demon": "Demonio de caos",
     "city-guard": "Guardia de la ciudad",
     "deep-terror": "Terror de las Profundidades",
     "earth-demon": "Demonio de Tierra",
+    "elder-ooze": "Cieno Antiguo",
+    "fish-king": "Rey del Mar",
     "flame-demon": "Demonio de Fuego",
+    "flaming-bladespinner": "Girafilos llameante",
     "forest-imp": "Duende del bosque",
+    "fracture-of-the-deep": "Fractura de las profundidades",
     "frost-demon": "Demonio de Hielo",
     "frozen-corpse": "Cadáver helado",
+    "frozen-fist": "Puño helado",
+    "giant-piranha-pig": "Cerdo piraña gigante",
+    "harbinger-of-shadow": "Heraldo de la Sombra",
+    "harbinger-of-shadow-1": "Heraldo de la Sombra %game.mapMarker.1%",
+    "harbinger-of-shadow-2": "Heraldo de la Sombra %game.mapMarker.2%",
     "harrower-infester": "Putrefactor atormentador",
     "hound": "Sabueso",
+    "ice-wraith": "Espectro de hielo",
     "lightning-eel": "Anguila relámpago",
     "living-bones": "Huesos vivientes",
     "living-doom": "Perdición viviente",
     "living-spirit": "Espíritu viviente",
+    "lord-of-chaos": "Señor del Caos",
     "lurker-clawcrusher": "Triturador acechador",
     "lurker-mindsnipper": "Rebanamentes acechador",
     "lurker-soldier": "Soldado acechador",
+    "lurker-wavethrower": "Lanzaolas acechador",
     "night-demon": "Demonio de Noche",
     "ooze": "Cieno",
+    "orphan": "Huérfano",
+    "piranha-pig": "Cerdo piraña",
     "polar-bear": "Oso polar",
+    "prince-of-frost": "Príncipe de la Escarcha",
+    "program-director": "Director de Programación",
+    "render": "Desgarrador",
     "rending-drake": "Draco desgarrador",
+    "robotic-boltshooter": "Lanzarrayos robótico",
     "ruined-machine": "Maquina ruinosa",
     "savvas-icestorm": "Cellisca Savvas",
     "savvas-lavaflow": "Rio de lava Savvas",
+    "seeker-of-the-abyss": "Buscador del Abismo",
+    "shrike-fiend": "Legión de verdugos",
+    "snow-imp": "Duende de la nieve",
+    "snowdancer": "Danzanieves",
     "spitting-drake": "Draco escupidor",
     "steel-automaton": "Autómata de acero",
     "sun-demon": "Demonio de Sol",
+    "the-collector": "El Coleccionista",
+    "the-relic": "La Reliquia",
     "vermling-priest": "Sacerdote infestor",
     "vermling-scout": "Explorador infestor",
+    "vestige-of-the-imprisoned-god": "Vestigio del Dios Encarcelado",
     "wind-demon": "Demonio de Viento"
   },
+  "personalQuest": {
+    "581": "El estudio de las plantas",
+    "582": "En busca del Roble",
+    "583": "Vocación comercial",
+    "584": "¿Qué hay de malo en ahorrar?",
+    "585": "Construir, no destruir",
+    "586": "Animal social",
+    "587": "Avanzada etérida",
+    "588": "Juego peligroso",
+    "589": "Lecciones de vida",
+    "590": "Explorar los confines"
+  },
   "scenario": {
+    "A Contained Fire": "Un incendio contenido",
+    "A Giant Block of Ice": "Un bloque de hielo gigantesco",
+    "A Grand View": "Un paisaje majestuoso",
+    "A Growing Problem": "Un problema creciente",
+    "A Strong Foundation": "Sólidos fundamentos",
+    "A Tall Drunken Tale": "Un cuento de borrachos",
     "A Town in Flames": "Una ciudad en llamas",
-    "Algox Scouting": "Vigilando a los Algox",
+    "A Waiting Game": "Una cuestión de paciencia",
+    "Abandoned Hideout": "Escondite abandonado",
+    "Algox Offensive": "Ofensiva algox",
+    "Algox Scouting": "Vigilando a los algox",
+    "Among the Wreckage": "Entre las ruinas",
+    "Ancient Spire": "La antigua torre",
+    "And Then, a Stream": "Y entonces, pájaros",
+    "Apotheosis": "Apoteosis",
+    "Automaton Uprising": "El levantamiento de los autómatas",
+    "Avalanche": "Avalancha",
+    "Belara's Keep": "La fortaleza de Belara",
+    "Beneath Sea and Stone": "Bajo el mar y la piedra",
+    "Black Memories": "Recuerdos negros",
+    "Blizzard Island": "La isla de las Ventiscas",
+    "Bolt": "Rayo",
+    "Buried Ducts": "Conductos enterrados",
+    "Call of the Harbinger": "La llamada del Heraldo",
+    "Caravan Guards": "Guardias de caravana",
+    "Carrion Ridge": "Camino de carroña",
+    "Change of Heart": "Cambio de opinión",
+    "Collapsing Vent": "Conducto de ventilación peligroso",
+    "Collection's Capstone": "El toque final de la colección",
+    "Core Attunement": "Sintonía con el núcleo",
+    "Corrupted Camp": "Campamento corrupto",
+    "Crackling Tunnel": "Túnel crepitante",
+    "Crystal Enclosure": "Trampa de cristal",
+    "Crystal Fields": "Campos de Cristal",
+    "Crystal Trench": "Trinchera de Cristal",
+    "Dead Pass": "El Paso Muerto",
+    "Deadly Pastimes": "Pasatiempos letales",
+    "Depths of Delirium": "Las profundidades del delirio",
+    "Derelict Elevator": "Ascensor abandonado",
+    "Derelict Freighter": "Carguero abandonado",
+    "Edge of the World": "El filo del mundo",
+    "Elemental Cores": "Núcleos elementales",
+    "Expedition North": "Expedición al norte",
+    "Explosive Descent": "Descenso explosivo",
+    "Fish King's Ascension": "La ascensión del Rey del Mar",
+    "Fleeting Permanence": "Permanencia efímera",
+    "Flotsam": "Naufragio",
+    "Frozen Crypt": "La cripta helada",
+    "Frozen Fjord": "Fiordo congelado",
+    "Frozen Treasure": "Tesoro congelado",
+    "Furious Factory": "Fábrica furiosa",
+    "Gaps in the Road A": "Camino accidentado A",
+    "Gaps in the Road B": "Camino accidentado B",
+    "Glowing Catacombs": "Catacumbas brillantes",
+    "Guardian's Temple": "El templo del guardián",
+    "Harrower Library": "Biblioteca atormentadora",
+    "Haunted Vault": "La cámara encantada",
+    "Heart of Ice A": "Corazón de hielo A",
+    "Heart of Ice B": "Corazón de hielo B",
+    "Here There Be Oozes": "A partir de aquí hay cienos",
+    "How to Lay an Ambush": "Cómo preparar una emboscada",
     "Howling in the Snow": "Aullidos en la nieve",
+    "Ice Cave": "Cueva de hielo",
+    "Ice Floes": "Hielo flotante",
+    "Infiltrating the Lair": "Infiltrándose en la guarida del Rey del Mar",
+    "Inside the Swarm": "Dentro del enjambre",
+    "Into the Black": "Adentrándose en la oscuridad",
+    "Invasion of the Dock": "La invasión del puerto",
+    "Jagged Shoals": "Bajíos escabrosos",
+    "Joseph the Lion": "Joseph el León",
+    "Life and Death": "Vida y muerte",
+    "Living Glacier": "Glaciar viviente",
+    "Lurker Necromancy": "Nigromancia acechadora",
+    "Lush Grotto": "Gruta encantada",
+    "Lustrous Pit": "Cueva ilustrada",
+    "Midwinter Brawl A": "Refriega en pleno invierno A",
+    "Midwinter Brawl B": "Refriega en pleno invierno B",
+    "My Private Empire": "Mi imperio privado",
+    "Nerve Center": "Centro neurálgico",
+    "Orphan's Core": "El corazón del Huérfano",
+    "Orphan's Halls": "Los salones del Huérfano",
+    "Overrun Barricade": "Superando la barricada",
+    "Pirate Queen's Haul": "El botín de la Reina Pirata",
+    "Prison Break": "Fuga",
+    "Program Control Nexus": "Nexo de control de programación",
+    "Pylon Problems": "Problemas de puntales",
+    "Quatryl Library": "Biblioteca quatryl",
+    "Radiant Dust": "Polvo radiante",
+    "Raised by Wolves": "Criado por lobos",
+    "Ravens' Roost": "El nido de los cuervos",
+    "Realm of Endless Frost": "El Reino de la Escarcha Perpetua",
+    "Relic": "Reliquia",
+    "Relic Renewed": "La Reliquia renovada",
+    "Relief Effort": "Operación de ayuda",
+    "Rising Brine": "Océano creciente",
+    "Ruinous Research Lab": "Laboratorio de investigación en ruinas",
+    "Ruins of the Equinox": "Ruinas del equinoccio",
+    "Ruins of the Solstice": "Ruinas del solsticio",
+    "Rusted Tunnels": "Túneles oxidados",
+    "Sacred Soil": "Suelo sagrado",
+    "Sanctuary of Snow": "Santuario de nieve",
+    "Scrap Pit": "Foso de chatarra",
+    "Shoreline Scramble": "Desbandada en la costa",
+    "Sinking Ship": "El barco se hunde",
+    "Skyhall": "Salón celeste",
+    "Snowscorn Peak": "En la cima de la Montaña del Desprecio Nevado",
+    "Spire Basement": "Sótano de la torre",
+    "Summit Meeting": "Encuentro en la cumbre",
+    "Sunless Trench": "La fosa marina sin sol",
+    "Temple Entrance": "Entrada del templo",
+    "Temple of Feline Power": "El Templo del Poder Felino",
+    "Temple of Liberation": "El Templo de la liberación",
+    "Thawed Wood": "Árboles descongelados",
+    "The Collection": "La colección",
+    "The Dancing Iceberg": "El iceberg bailarín",
+    "The Dead Mile": "La Lengua Muerta",
+    "The Eternal Crave": "El hambre eterna",
+    "The Face of Torment": "La faz del tormento",
+    "The Frosthaven Seal": "El sello de Frosthaven",
+    "The Lady in White": "La Dama de Blanco",
+    "The Lead Door": "La trampilla de plomo",
+    "The Longest Second": "El segundo más largo",
+    "The Lurker Problem": "El problema de los acechadores",
+    "The Savvas Seal": "El sello savvas",
+    "The Tempus Forge": "La forja Tempus",
+    "The Titan": "El titán",
+    "The True Oak": "El Roble Verdadero",
+    "The Unfettered Seal": "El sello de los Desencadenados",
+    "The Way Forward": "El camino a seguir",
+    "To Bury the Dead": "Enterrar a los muertos",
+    "Top of the Spire": "El nivel superior de la torre",
+    "Tower of Knowledge": "La Torre del Conocimiento",
+    "Under the Influence": "Reyerta controlada",
+    "Underground Station": "Estación subterranea",
+    "Underwater Throne": "El trono submarino",
+    "Unfettered Shard": "La esquirla de los Desencadenados",
+    "Uniting the Crown": "La unión de la corona",
+    "Upper Spire": "Subiendo la torre",
+    "War of the Spire A": "La Guerra de la Columna Cristalina A",
+    "War of the Spire B": "La Guerra de la Columna Cristalina B",
+    "Work Freeze": "Trabajo explosivo",
     "group": {
       "randomMonsterCard": "Cartas de monstruos aleatorias"
     },
@@ -536,9 +1000,9 @@
         "134": "El autómata de acero tiene HxP/2 puntos de vida (redondeado hacia arriba).",
         "60": "Los seis acechadores de las losetas 13-B y 13-D son tenientes fracturados y obtienen %game.action.attack% +1 en todos sus ataques.",
         "65": "Todos los monstruos obtienen %game.action.push% 1 en todos sus ataques. Si el nivel del escenario es 4 o superior, aumenta a %game.action.push% 2.",
-        "76": "Divide el valor máximo de puntos de vida del Rey Pez entre 2 (redondeado hacia abajo). El Rey Pez no actúa, no puede ser objetivo de habilidades de curación, es inmune a todos los estados y tiene una iniciativa de 01 a efectos de Atención.",
+        "76": "Divide el valor máximo de puntos de vida del Rey del Mar entre 2 (redondeado hacia abajo). El Rey Pez no actúa, no puede ser objetivo de habilidades de curación, es inmune a todos los estados y tiene una iniciativa de 01 a efectos de Atención.",
         "77": {
-          "1": "El Rey Pez no puede realizar ninguna habilidad de movimiento y es inmune al movimiento forzado. (¡También se han ajustado los Especiales de Jefe!)",
+          "1": "El Rey del Mar no puede realizar ninguna habilidad de movimiento y es inmune al movimiento forzado. (¡También se han ajustado los Especiales de Jefe!)",
           "2": "Inmune al movimiento forzado"
         },
         "97": "Para añadir habilidades de monstruo a la mano de un personaje, abre el menú de Cartas de Habilidad y quita las cartas del mazo. Para jugar esa carta, basta con volver a añadirla en el menú Edición."
