@@ -462,7 +462,8 @@
       "armored": "Acorazado",
       "chaotic": "Caótico",
       "educated": "Educado",
-      "intimidating": "Intimidantes",
+      "intimidating": "Intimidante",
+      "night": "Nocturno",
       "nimble": "Ágil",
       "outcast": "Paria",
       "persuasive": "Persuasivo",
@@ -477,6 +478,7 @@
         "6": "donde X es el número de<br>Cerdos pirañas en el mapa."
       },
       "algox-icespeaker": {
+        "1": "Crea un obstáculo de 1<br>hexágono en el hexágono vacío adyacente<br> más cercano a un enemigo.",
         "2": "Todos los enemigos adyacentes al<br>obstáculo creado sufren daño por terreno peligroso."
       },
       "algox-snowspeaker": {
