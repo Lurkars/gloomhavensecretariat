@@ -465,8 +465,8 @@
     "banner-spear": "旗矛手",
     "blinkblade": {
       "": "烁刃客",
-      "fast": "快速状态",
-      "slow": "慢速状态",
+      "fast": "快速",
+      "slow": "慢速",
       "time_tokens": {
         "": "%data.characterToken.blinkblade.time% 时间指示物",
         "hint": "在轮次开始时且在决定慢速/快速之后自动添加/移除时间指示物"
@@ -487,8 +487,8 @@
     "drifter": "漂泊者",
     "geminate": {
       "": "双生体",
-      "melee": "近战形态",
-      "range": "远程形态"
+      "melee": "近战",
+      "range": "远程"
     },
     "traits": {
       "arcane": "奥术",
