@@ -1,4 +1,5 @@
 import { gameManager } from "../businesslogic/GameManager";
+import { EntityValueFunction } from "./Entity";
 import { Figure } from "./Figure";
 import { GameMonsterEntityModel, MonsterEntity } from "./MonsterEntity";
 import { SummonColor } from "./Summon";
@@ -23,12 +24,16 @@ export class Monster extends MonsterData implements Figure {
     const ability: Ability | undefined = gameManager.monsterManager.getAbility(this);
     let initiative = gameManager.gameplayFigure(this) && ability && ability.initiative || 100;
 
-    // apply Challenge #1501
-    if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1501, 'fh') && !this.isAlly) {
-      return initiative > 10 ? initiative - 10 : 1;
+    if (this.statEffect && this.statEffect.initiative) {
+      initiative = this.statEffect.absolute ? EntityValueFunction(this.statEffect.initiative) : initiative + EntityValueFunction(this.statEffect.initiative);
     }
 
-    return initiative;
+    // apply Challenge #1501
+    if (gameManager.challengesManager.apply && gameManager.challengesManager.isActive(1501, 'fh') && !this.isAlly) {
+      initiative -= 10;
+    }
+
+    return Math.min(Math.max(initiative, 1), 100);
   }
 
   // Monster

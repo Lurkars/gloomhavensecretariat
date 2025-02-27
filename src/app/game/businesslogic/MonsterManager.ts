@@ -85,6 +85,7 @@ export class MonsterManager {
       statEffect.movement = typeof monster.statEffect.movement === 'string' ? monster.statEffect.movement.replaceAll('M', '' + stat.movement).replace('[', '').replace(']', '') : monster.statEffect.movement;
       statEffect.attack = typeof monster.statEffect.attack === 'string' ? monster.statEffect.attack.replaceAll('A', '' + stat.attack).replace('[', '').replace(']', '') : monster.statEffect.attack;
       statEffect.range = typeof monster.statEffect.range === 'string' ? monster.statEffect.range.replaceAll('R', '' + stat.range).replace('[', '').replace(']', '') : monster.statEffect.range;
+      statEffect.initiative = monster.statEffect.initiative;
       statEffect.flying = monster.statEffect.flying;
       statEffect.actions = monster.statEffect.actions;
       statEffect.special = monster.statEffect.special;

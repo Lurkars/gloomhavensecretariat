@@ -1011,7 +1011,7 @@
     },
     "fh-236": {
       "": "Cracked Mirror",
-      "1": "During your turn, lose one card from your hand to %game.card.recover% one card from your loot pile of equal of lower level."
+      "1": "During your turn, lose one card from your hand to %game.card.recover% one card from your lost pile of equal of lower level."
     },
     "fh-237": {
       "": "Mesmerizing Seashell",

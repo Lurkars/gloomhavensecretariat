@@ -9,6 +9,46 @@
     "bandit-guard",
     "spitting-drake"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "marker": "a",
+            "name": "Ship"
+          },
+          "type": "damage",
+          "value": "1"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "marker": "b",
+            "name": "Ship"
+          },
+          "type": "damage",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fc",
+          "scenario": "98",
+          "index": 0,
+          "section": false
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 3,
