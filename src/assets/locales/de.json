@@ -375,8 +375,8 @@
         "": "Charakterdaten",
         "deck": "Name des Fertigkeitendecks",
         "hp": {
-          "-1": "Individuelles Profil",
           "": "Trefferpunkte",
+          "-1": "Individuelles Profil",
           "0": "Unteres Profil",
           "1": "Mittleres Profil",
           "2": "Starkes Profil"
@@ -2640,8 +2640,8 @@
         "clear": "Gezogene Herausforderungen verwerfen",
         "draw": "Herausforderung ziehen",
         "hide": "Herausforderungsdeck ausblenden",
-        "reorder": "Herausforderungsdeck neu anordnen",
         "removeCard": "Karte vom Herausforderungsdeck entfernen",
+        "reorder": "Herausforderungsdeck neu anordnen",
         "restoreCard": "Karte {0} des Herausforderungsdecks wiederherstellen",
         "show": "Herausforderungsdeck einblenden",
         "shuffle": "Herausforderungsdeck mischen",
