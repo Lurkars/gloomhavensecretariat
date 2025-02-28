@@ -490,7 +490,7 @@
     },
     "fh-81": {
       "": "痛苦假偶",
-      "1": "当你承受的攻击%game.damage%小于等于5时，%game.action.range:2%内的1格敌人也承受同等数量的%game.damage%。"
+      "1": "当你承受的攻击%game.damage%小于等于5时，%game.action.range:2%内的1个敌人也承受同等数量的%game.damage%。"
     },
     "fh-82": {
       "": "机械立方体",
