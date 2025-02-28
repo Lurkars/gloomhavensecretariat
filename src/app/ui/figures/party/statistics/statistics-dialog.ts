@@ -82,7 +82,7 @@ export class StatisticsDialogComponent implements OnInit {
         scenarioStats.bossKills = damageStats.bossKills;
         scenarioStats.exhausts = damageStats.exhausts;
         scenarioStats.maxDealtDamage = damageStats.maxDealtDamage;
-        scenarioStats.maxDealtDamage = damageStats.maxDealtDamage;
+        scenarioStats.maxDamage = damageStats.maxDamage;
 
         if (stats.length) {
             scenarioStats.gold = stats.map((stat) => stat.gold).reduce((a, b) => a + b);

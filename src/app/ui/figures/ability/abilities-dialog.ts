@@ -167,7 +167,7 @@ export class AbiltiesDialogComponent implements OnInit, OnDestroy {
 
   abilityLabel(ability: Ability): string {
     let label = 'data.monster.' + this.monster.name;
-    if (ability?.name) {
+    if (ability && ability.name) {
       label = 'data.ability.' + ability.name;
     } else if (this.monster.deck != this.monster.name) {
       label = 'data.deck.' + this.monster.deck;

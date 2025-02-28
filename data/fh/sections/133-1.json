@@ -1,12 +1,5 @@
 {
   "index": "133.1",
   "name": "Aesther Enhancements",
-  "edition": "fh",
-  "conclusion": true,
-  "rewards": {
-    "gold": 50,
-    "hints": {
-      "gold": "This gold must immediately be spent on enhancements"
-    }
-  }
+  "edition": "fh"
 }

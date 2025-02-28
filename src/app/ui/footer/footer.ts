@@ -186,7 +186,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     if (gameManager.game.scenario) {
       const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
         if (gameManager.game.scenario) {
-          return sectionData.edition == gameManager.game.scenario.edition && sectionData.parent == gameManager.game.scenario.index && sectionData.group == gameManager.game.scenario.group && sectionData.conclusion;
+          return sectionData.edition == gameManager.game.scenario.edition && sectionData.parent == gameManager.game.scenario.index && sectionData.group == gameManager.game.scenario.group && sectionData.conclusion && gameManager.scenarioManager.getRequirements(sectionData).length == 0;
         }
         return false;
       });

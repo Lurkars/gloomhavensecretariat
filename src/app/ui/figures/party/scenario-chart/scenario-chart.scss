@@ -51,7 +51,7 @@
         border-top-right-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
         a,
-        label {
+        .checkbox-container {
             cursor: pointer;
             display: flex;
             align-items: center;

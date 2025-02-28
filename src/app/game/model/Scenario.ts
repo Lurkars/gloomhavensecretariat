@@ -49,6 +49,7 @@ export class ScenarioMissingRequirements {
   campaignStickersMissing: string[] = [];
   buildings: string[] = [];
   buildingsLevel: { name: string, level: number }[] = [];
+  buildingsLevelMissing: { name: string, level: number }[] = [];
   buildingsMissing: string[] = [];
   characters: string[] = [];
   charactersMissing: string[] = [];

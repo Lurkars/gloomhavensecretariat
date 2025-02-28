@@ -226,10 +226,7 @@ export class LootManager {
         if (reward.value && typeof reward.value === 'string' && reward.value.split('-').length > 1) {
           const section = reward.value.split('-')[0];
           const week = gameManager.game.party.weeks + (+reward.value.split('-')[1]);
-          if (!gameManager.game.party.weekSections[week]) {
-            gameManager.game.party.weekSections[week] = [];
-          }
-          gameManager.game.party.weekSections[week]?.push(section);
+          gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
         }
         break;
       case TreasureRewardType.campaignSticker:

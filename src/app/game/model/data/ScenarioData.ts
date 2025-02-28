@@ -42,6 +42,7 @@ export class ScenarioData implements Editional, Spoilable {
   rewards: ScenarioRewards | undefined;
   retirement: string = "";
   conclusion: boolean = false;
+  repeatable: boolean = false;
   named: boolean = false;
   hideIndex: boolean = false;
   complexity: number = 0;
@@ -86,6 +87,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.rewards = scenarioData.rewards;
       this.retirement = scenarioData.retirement;
       this.conclusion = scenarioData.conclusion;
+      this.repeatable = scenarioData.repeatable;
       this.edition = scenarioData.edition;
       this.spoiler = scenarioData.spoiler;
       this.named = scenarioData.named;

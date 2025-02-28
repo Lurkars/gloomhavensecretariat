@@ -20,7 +20,7 @@ import { TrialDialogComponent } from "src/app/ui/figures/trials/dialog/trial-dia
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-scenario-summary',
     templateUrl: './scenario-summary.html',
     styleUrls: ['./scenario-summary.scss']
@@ -86,6 +86,9 @@ export class ScenarioSummaryComponent implements OnDestroy {
         if (this.conclusionOnly) {
             this.conclusion = this.scenario;
             this.success = true;
+            if (this.conclusion.repeatable || gameManager.game.party.conclusions.find((conclusion) => conclusion.index == this.scenario.index && conclusion.edition == this.scenario.edition && conclusion.group == this.scenario.group)) {
+                this.rewardsOnly = true;
+            }
         }
         this.conclusionWarning = this.success && !this.conclusion && gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.edition == this.scenario.edition && sectionData.conclusion) != undefined;
 
@@ -397,7 +400,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 + this.battleGoals[index]) / 3);
             this.perksUp[index] = newPerks > currentPerks;
 
-            if (settingsManager.settings.scenarioStats) {
+            if (settingsManager.settings.scenarioStats && !character.absent) {
                 gameManager.scenarioStatsManager.applyScenarioStats(character, this.scenario, this.success);
             }
         })
@@ -799,10 +802,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 this.rewards.calendarSectionManual.forEach((sectionManual, index) => {
                     if (this.calendarSectionManual[index] >= 0) {
                         const week = gameManager.game.party.weeks + this.calendarSectionManual[index];
-                        if (!gameManager.game.party.weekSections[week]) {
-                            gameManager.game.party.weekSections[week] = [];
-                        }
-                        gameManager.game.party.weekSections[week]?.push(sectionManual.section);
+                        gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), sectionManual.section];
                     }
                 })
             }
