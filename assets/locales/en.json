@@ -220,7 +220,7 @@
     "removeAll": "Remove All",
     "replay": {
       "": "Replay character",
-      "hint": "Doubleclick to replay character"
+      "hint": "Double click to replay character"
     },
     "setAside": "Set character aside",
     "summon": {
@@ -332,10 +332,10 @@
       "clockIn": "Clock in to the Game Clock",
       "clockOut": "Clock out from the Game Clock",
       "current": "Current: {0}",
-      "off": "Game Clock paused! Doubleclick to clock in.",
-      "paused": "Game Clock paused! Doubleclick to clock in.<br>Total: {0}",
-      "running": "Game Clock running! Doubleclick to clock out.<br>Current: {1}",
-      "runningTotal": "Game Clock running! Doubleclick to clock out.<br>Current: {1}<br>Total: {0}",
+      "off": "Game Clock paused! Double click to clock in.",
+      "paused": "Game Clock paused! Double click to clock in.<br>Total: {0}",
+      "running": "Game Clock running! Double click to clock out.<br>Current: {1}",
+      "runningTotal": "Game Clock running! Double click to clock out.<br>Current: {1}<br>Total: {0}",
       "timestamp": "Run from {0} for {1}",
       "total": "Total: {0}"
     },
@@ -606,7 +606,7 @@
       "revealAllConfirm": "Reveal All!",
       "shuffle": {
         "": "Shuffle",
-        "upcomingHint": "Doubleclick to shuffle only upcoming cards!"
+        "upcomingHint": "Double click to shuffle only upcoming cards!"
       }
     },
     "condition": {
@@ -871,7 +871,7 @@
         "distill": "Distill for 1 %game.loot.{0}%",
         "select": "Select Resource"
       },
-      "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Double-click to force equipping.",
+      "effect": "If the item is equipped, it's effect is automatically applied. To equip an item, just click it's name. Equipping items is only allowed before and between scenarios. Double click to force equipping.",
       "empty": "No items found",
       "filter": {
         "": "Search…",
@@ -1213,7 +1213,7 @@
           "build": {
             "": "Build",
             "action": "Build",
-            "hint": "Build (force with double-click)"
+            "hint": "Build (force with double click)"
           },
           "costs": "Costs",
           "discount": "-1 material resource",
@@ -1222,19 +1222,19 @@
           "interactions": "Interactions",
           "level": {
             "": "Level",
-            "hint": "Show bonuses (downgrade level with double-click)"
+            "hint": "Show bonuses (downgrade level with double click)"
           },
           "name": "Name",
           "rebuild": {
             "": "Rebuild",
             "action": "Rebuild",
-            "hint": "Rebuild (force with double-click)"
+            "hint": "Rebuild (force with double click)"
           },
           "repair": {
             "": "Repair building",
             "action": "Repair building",
             "costs": "Any {0}",
-            "hint": "Repair building (force with double-click)"
+            "hint": "Repair building (force with double click)"
           },
           "rewards": {
             "action": "Level {0}",
@@ -1260,7 +1260,7 @@
           "upgrade": {
             "": "Upgrade Building",
             "action": "Upgrade Building to level {0}",
-            "hint": "Upgrade Building (force with double-click)"
+            "hint": "Upgrade Building (force with double click)"
           }
         },
         "campaignStickers": {
@@ -1287,8 +1287,8 @@
           "": "Set Sections for week {0}",
           "addSection": "Add Section to week",
           "calc": "{0} weeks from current week",
-          "hint": "Double-click to set/edit sections for week",
-          "lock": "Lock the calendar to avoid accidental edits. Doubleclick to make a permissive lock, allowing to add or remove exactly one week.",
+          "hint": "Double click to set/edit sections for week",
+          "lock": "Lock the calendar to avoid accidental edits. Double click to make a permissive lock, allowing to add or remove exactly one week.",
           "openConclusion": "Select continuing section",
           "section": "Section"
         },
@@ -1411,6 +1411,11 @@
     "cancel": "Cancel Scenario",
     "chart": {
       "": "Scenario Flow Chart",
+      "campaign": {
+        "": "Campaign Mode",
+        "back": "Back to Campaign Mode",
+        "force": "Double click to force showing the complete flow chart including spoilers."
+      },
       "setup": "Show Scenario Setup",
       "start": "Start Scenario",
       "success": "Mark as completed",
@@ -2371,8 +2376,8 @@
       "hint": "Optimization of Portrait-Mode for smaller screens."
     },
     "pressDoubleClick": {
-      "": "Long press for double-click (Touch)",
-      "hint": "On touchscreens, trigger double-click with long press instead. (Recommended to avoid ghost clicks)"
+      "": "Long press for double click (Touch)",
+      "hint": "On touchscreens, trigger double click with long press instead. (Recommended to avoid ghost clicks)"
     },
     "randomStandees": {
       "": "Random standees",

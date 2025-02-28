@@ -1411,6 +1411,11 @@
     "cancel": "Szenario abbrechen",
     "chart": {
       "": "Szenario Flussdiagramm",
+      "campaign": {
+        "": "Kampagnenmodus",
+        "back": "Zurück zum Kampagnenmodus",
+        "force": "Doppelklick um das komplette Flussdiagramm inkl. Spoiler anzuzeigen."
+      },
       "setup": "Zeige Szenario Setup",
       "start": "Szenario starten",
       "success": "Als erfolgreich markieren",
