@@ -281,10 +281,12 @@
       "4": "Objetos de artesanía"
     },
     "enhancer": {
+      "": "Potenciador",
       "1": "Reduce todos los costes de mejora en 10 de oro",
       "2": "Reduce todos los costes de mejora en 10 de oro y las penalizaciones de nivel por 10 de oro por nivel",
       "3": "Reduce todos los costes de mejora en 10 de oro, las penalizaciones de nivel por 10 de oro por nivel y las penalizaciones de repetición en 25 de oro por mejora",
-      "4": "Cada personaje comienza el siguiente escenario con %game.condition.disarm%"
+      "4": "Cada personaje comienza el siguiente escenario con %game.condition.disarm%",
+      "5": "Comprar potenciadores"
     },
     "garden": {
       "": "Huerto",
@@ -306,9 +308,13 @@
       }
     },
     "hall-of-revelry": {
+      "": "Salón de festejos",
+      "1": "Cuando el mazo de pruebas esté completado, lee %data.section:187.1%",
+      "2": "Acceso a los favores de Tholos",
       "3": "Pierde 1 moral"
     },
     "hide-depot": {
+      "": "Almacén de pieles",
       "1": "Vende colectivamente hasta 1 %game.resource.hide% por 5 de oro",
       "2": "Vende colectivamente hasta 2 %game.resource.hide% por 5 de oro cada una",
       "3": "Pierde 2 %game.resource.hide% colectivo"
@@ -433,14 +439,27 @@
   },
   "campaignSticker": {
     "boat": "Barco",
+    "brummix": "Brummix",
     "bug-in-a-jar": "Frasco con bicho",
     "charged-core": "Núcleo cargado",
     "climbing-gear": "Equipo de escalada",
     "coral-shard": "Esquirla de Coral",
-    "crown-united": "Corona Unida",
+    "crown-united": "La corona reunida",
     "destroyer-of-the-icespeakers": "Destructor de los Voz de Hielo",
+    "destroyer-of-the-snowspeakers": "Destructor de los Voz de Nieve",
+    "empty-jar": "Frasco vacío",
+    "firepepper": "Pimiento de fuego",
+    "friend-of-the-fish-king": "Amistad del Rey del Mar",
+    "friend-of-the-frostspeakers": "Amistad de los Voz de Escarcha",
+    "friend-of-the-icespeakers": "Amistad de los Voz de Hielo",
+    "friend-of-the-snowspeakers": "Amistad de los Voz de Nieve",
+    "into-the-forest": "Adentrándose en el bosque",
+    "shard-seeker": "Buscadores de la esquirla",
     "sled": "Trineo",
-    "statue": "Estatua"
+    "statue": "Estatua",
+    "uncharged-core": "Núcleo descargado",
+    "unfettered-allies": "Aliados desencadenados",
+    "unfettered-deactivated": "Desencadenados desactivados"
   },
   "character": {
     "banner-spear": "Estandarte",
@@ -454,7 +473,15 @@
       }
     },
     "boneshaper": {
-      "": "Esculpehuesos"
+      "": "Esculpehuesos",
+      "solid-bones": {
+        "": "Huesos sólidos",
+        "hint": "Todos los Esqueletos tambaleantes tienen +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+      },
+      "unholy-prowess": {
+        "": "Poderío impío",
+        "hint": "Todos los Esqueletos tambaleantes tienen +1 %game.action.heal%."
+      }
     },
     "deathwalker": "Guía de ánimas",
     "drifter": "Errante",
@@ -501,17 +528,17 @@
         "1": "Crea una trampa %game.damage:3% en el hexágono <br>adyacente más cercano a un enemigo."
       },
       "banner-spear": {
-        "1": "Todos los aliados a %game.range:2% añaden %game.action.attack% +1 a uno de sus ataques cada turno.",
-        "10": "Ataca al menos a tres enemigos con cada una de las tres habilidades de ataque de área de efecto distintas",
-        "11": "Realiza una habilidad de invocación de estandarte en tu primer turno, mantén el estandarte vivo y dentro de %game.action.range:3% de ti durante todo el escenario",
-        "2": "Al inicio de su turno, otorga a los aliados que se encuentren a %game.range:3%:",
+        "1": "Todos los aliados a %game.range:2% o menos añaden %game.action.attack% +1 a 1 de sus ataques cada turno.",
+        "10": "Ataca al menos a 3 enemigos con 3 capacidades distintas de ataque con efecto de zona",
+        "11": "Realiza una capacidad de invocación de Bandera en tu primer turno y mantén la Bandera viva y a %game.action.range:3% o menos de ti durante todo el escenario",
+        "2": "Al inicio de sus turnos, otorga a los aliados a %game.range:3% o menos:",
         "3": "Todos los aliados adyacentes obtienen %game.shield% 1.",
-        "4": "Anula la primera fuente de %game.damage% de un aliado adyacente en cada ronda",
-        "5": "Todos los enemigos a %game.action.range% 4 sufren %game.damage:1% al inicio de sus turnos.",
+        "4": "Prevén la primera fuente de %game.damage% a un aliado adyacente en cada ronda",
+        "5": "Todos los enemigos a 4 %game.action.range% o menos sufren %game.damage:1% al inicio de sus turnos.",
         "6": "Añade %game.action.attack% +1 por cada aliado adyacente al objetivo",
-        "7": "Al final de cada uno de tus descansos largos, otorga a un aliado a %game.action.range:3%: %game.action.move% 2",
-        "8": "Siempre que abras una puerta con una habilidad de movimiento, obtén %game.action.move% +3",
-        "9": "Una vez en cada escenario, durante tu turno, obtén %game.action.shield% 2 para esa ronda"
+        "7": "Al final de cada uno de tus descansos largos, otorga a un aliado a %game.action.range:3% o menos: %game.action.move% 2",
+        "8": "Siempre que abras una puerta con una capacidad de Movimiento, añade %game.action.move% +3",
+        "9": "Una vez por escenario, durante tu turno, obtén %game.action.shield% 2 durante la ronda en curso"
       },
       "belara": {
         "1": "Todos los aliados y enemigos<br>adyacentes al objetivo sufren %game.damage:2%",
@@ -533,12 +560,12 @@
       },
       "boneshaper": {
         "1": "Obtén %game.action.attack% +1 por cada ficha en esta carta.",
-        "2": "Mata a la invocación atacante para obtener %game.attackmodifier.plus4%",
-        "3": "Inmediatamente antes de cada uno de tus descansos, puedes matar a una de tus invocaciones para obtener %game.condition.bless%, personal",
-        "4": "Una vez por escenario, cuando cualquier personaje aliado fuera a quedar agotado por sufrir %game.damage%, puedes sufrir %game.damage:2% para, en vez de eso, reducir su valor de puntos de vida a 1",
-        "5": "Al comienzo de cada escenario, puedes jugar una carta de nivel 1 de tu mano para realizar una acción de invocación de esa carta",
-        "6": "Mata al menos a quince de tus invocaciones",
-        "7": "Juega una acción de invocación en tu primer turno, haz que la invocación mate al menos a seis enemigos y mantenla con vida durante todo el escenario"
+        "2": "Mata a la invocación atacante para añadir en vez de lo anterior %game.attackmodifier.plus4%",
+        "3": "Justo antes de cada uno de tus descansos, puedes matar a 1 de tus invocaciones para realizar %game.condition.bless%, Personal",
+        "4": "Una vez por escenario, cuando cualquier personaje aliado vaya a quedar agotado por sufrir %game.damage%, puedes sufrir tú %game.damage:2% para reducir su valor de puntos de vida a 1 en su lugar",
+        "5": "Al comienzo de cada escenario, puedes jugar 1 carta de nivel 1 de tu mano para realizar 1 acción de invocación de la carta",
+        "6": "Mata al menos a 15 de tus invocaciones",
+        "7": "Juega una acción de invocación en tu primer turno, consigue que la invocación mate al menos a 6 enemigos y mantenla con vida durante todo el escenario"
       },
       "burrowing-blade": {
         "1": "Todos los enemigos adyacentes sufren %game.damage:2%.",
@@ -559,11 +586,11 @@
         "1": "No realiza un turno."
       },
       "deathwalker": {
-        "1": "Siempre que hagas un descanso largo, puedes moverte un %data.action.custom.fh-shadow% hasta tres hexágonos",
-        "2": "Siempre que realices un descanses corto, puedes %game.element.consume.dark% para realizar %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% como si estuvieras ocupando un hexágono con un %data.action.custom.fh-shadow%",
-        "3": "Mientras ocupes un hexágono con una %data.action.custom.fh-shadow%, todos los ataques en los que seas objetivo obtienen desventaja",
-        "4": "Elimina siete %data.action.custom.fh-shadow% en una ronda",
-        "5": "Coloca o elimina al menos un %data.action.custom.fh-shadow% cada ronda"
+        "1": "Siempre que realices un descanso largo, puedes moverte 1 %data.action.custom.fh-shadow% hasta 3 hexágonos",
+        "2": "Siempre que realices un descanses corto, puedes %game.element.consume.dark% para realizar %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% como si estuvieras ocupando un hexágono con %data.action.custom.fh-shadow%",
+        "3": "Mientras estés ocupando un hexágono con %data.action.custom.fh-shadow%, todos los ataques que te tomen como objetivo sufren Desventaja",
+        "4": "Retira 7 %data.action.custom.fh-shadow% en una sola ronda",
+        "5": "Pon o retira al menos 1 %data.action.custom.fh-shadow% cada ronda"
       },
       "deep-terror": {
         "1": "Si se realizó la habilidad de ataque",
@@ -632,7 +659,8 @@
         "other": "Otros",
         "personal-quests": "Misiones personales",
         "puzzle-book": "Libro de puzzles",
-        "random-scenarios": "Escenarios aleatorios"
+        "random-scenarios": "Escenarios aleatorios",
+        "unfettered": "Desencadenados"
       },
       "frost-demon": {
         "1": "%game.damage:1%"
@@ -644,11 +672,11 @@
         "1": "Mira las reglas especiales del escenario"
       },
       "geminate": {
-        "1": "Siempre que realices un descanso corto, puedes eliminar un estado negativo de un aliado a %game.action.range:3%",
-        "2": "Una vez en cada escenario, cuando fueras a obtener un estado negativo, evita ese estado",
-        "3": "Siempre que realices una acción con un icono de perdida, puedes descartar una carta para %game.card.recover% recuperar una carta de tu pila de descartes de nivel igual o inferior",
-        "4": "Cambia de forma en cada ronda",
-        "5": "Pierde al menos una carta de habilidad cada ronda"
+        "1": "Siempre que realices un descanso corto, puedes retirar 1 estado negativo de un aliado a %game.action.range:3% o menos",
+        "2": "Una vez por escenario, cuando te vayas a aplicar a ti un estado negativo, evítalo",
+        "3": "Siempre que realices una acción con un símbolo de perder, puedes descartar 1 carta para %game.card.recover% 1 carta de tu pila de descartes de nivel igual o inferior",
+        "4": "Cambia de forma en todas las rondas",
+        "5": "Pierde al menos 1 carta de Capacidad cada ronda"
       },
       "giant-piranha-pig-boss": {
         "1": "Nada",
@@ -1002,9 +1030,11 @@
         "1": "Los Guardias de la ciudad no realizan turnos pero obtienen %game.action.shield% 1 adicional (con un total %game.action.shield% 2 a nivel 1) y %game.action.retaliate% 2, tienen una iniciativa de 50 a efectos de centro de atención.",
         "112": "Los dos sabuesos tienen el doble de sus valores máximos de puntos de vida.",
         "128": {
-          "1": "Todos los Autómatas de acero usan el mazo de habilidades de monstruo Duende."
+          "1": "Todos los Autómatas de acero usan el mazo de habilidades de monstruo Duende.",
+          "2": "Cuando cualquier Lanzaolas acechador fuera a invocar a una Anguila relámpago, en vez de eso, invoca un Explorador infestor con un valor de PV de 1."
         },
         "129": "Todos los guardias de la ciudad usan cartas de habilidad de monstruo Arquero en lugar de las suyas.",
+        "131": "Los Lanzaolas acechador obtienen +1 %game.action.attack% a todos sus ataques y no invocan Anguilas relámpago. En vez de eso, siempre que tenga lugar \"Aid from Below\" (Ayuda desde abajo), todos los Lanzaolas acechador realizan: \" %game.action.attack% +1, %game.action.range% 4; %game.action.teleport% al hexágono vacío más a la izquierda si es una ronda impar o más a la derecha si es par. Si hay varios hexágonos válidos a los que teletransportarse, elige el hexágono más alejado de cualquier personaje.\"",
         "134": "El autómata de acero tiene HxP/2 puntos de vida (redondeado hacia arriba).",
         "60": "Los seis acechadores de las losetas 13-B y 13-D son tenientes fracturados y obtienen %game.action.attack% +1 en todos sus ataques.",
         "65": "Todos los monstruos obtienen %game.action.push% 1 en todos sus ataques. Si el nivel del escenario es 4 o superior, aumenta a %game.action.push% 2.",
