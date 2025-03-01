@@ -507,7 +507,11 @@
   "custom": {
     "fh": {
       "abael-herder": {
+        "1": "Concede al Cerdo piraña más cercano<br>a %game.action.range:4%:",
+        "2": "Concede a todos los Cerdo piraña a %game.action.range:3%:",
         "3": "El cerdo piraña sufre %game.damage:1%.",
+        "4": "Concede al Cerdo piraña<br>más cercano a %game.action.range:4%:",
+        "5": "Si ningún Cerdo piraña a sido objetivo<br>de la capacidad Concesión:",
         "6": "donde X es el número de<br>Cerdos pirañas en el mapa."
       },
       "algox-icespeaker": {
@@ -680,8 +684,8 @@
       },
       "giant-piranha-pig-boss": {
         "1": "Nada",
-        "2": "Mueve todas las fichas de agua 2 hexágonos a la derecha",
-        "3": "Mueve todas las fichas de agua 1 hexágono a la derecha."
+        "2": "Mueve todas las piezas de terreno de agua 2 hexágonos a la derecha",
+        "3": "Mueve todas las piezas de terreno de agua 1 hexágono a la derecha."
       },
       "harbinger-of-shadow": {
         "1": "El %data.monster.harbinger-of-shadow-1% no actúa.",
@@ -720,16 +724,16 @@
       },
       "lurker-wavethrower": {
         "1": "Centra su atención<br>al enemigo más alejado a %game.action.range:6%",
-        "2": "Crea una ficha de agua de 1 hexágono en un hexágono vacío adyacente.",
-        "3": "en un hexágono adyacente<br>vacío con una ficha de agua."
+        "2": "Crea una pieza de terreno de agua de 1 hexágono en un hexágono vacío adyacente.",
+        "3": "en un hexágono adyacente<br>vacío con una pieza de terreno de agua."
       },
       "lurker-wavethrower-scenario-128": {
         "1": "Centra su atención<br>al enemigo más alejado a %game.action.range:6%",
-        "2": "Crea una ficha de agua de 1 hexágono en un hexágono vacío adyacente."
+        "2": "Crea una pieza de terreno de agua de 1 hexágono en un hexágono vacío adyacente."
       },
       "lurker-wavethrower-scenario-131": {
         "1": "Centra su atención<br>al enemigo más alejado a %game.action.range:6%",
-        "2": "Crea una ficha de agua de 1<br>hexágono en un hexágono vacío adyacente.",
+        "2": "Crea una pieza de terreno de agua de 1<br>hexágono en un hexágono vacío adyacente.",
         "3": "al hexágono vacío situado más a la izquierda si es impar o más a la derecha si es par"
       },
       "night-demon": {
@@ -742,7 +746,7 @@
       "piranha-pig": {
         "1": "Gana +1 %game.action.attack% si el objetivo está adyacente<br>a cualquier aliado del Cerdo Piraña.",
         "2": "Gana +2 %game.action.attack% si el objetivo tiene %game.condition.wound%.",
-        "3": "Gana +1 %game.action.attack% si el objetivo está en <br>una loseta de agua.",
+        "3": "Gana +1 %game.action.attack% si el objetivo está en <br>una pieza de terreno de agua.",
         "4": "donde X es la cantidad de<br>daño sufrido por el<br>objetivo de la habilidad de ataque."
       },
       "prince-of-frost": {
@@ -810,6 +814,7 @@
     "algox-snowspeaker": "Voz de la nieve algox",
     "ancient-artillery": "Artilleria Antigua",
     "black-imp": "Duende negro",
+    "blacksmith": "Herrero",
     "burrowing-blade": "Filo tunelador",
     "chaos-demon": "Demonio de caos",
     "city-guard": "Guardia de la ciudad",
@@ -825,6 +830,7 @@
     "frozen-corpse": "Cadáver helado",
     "frozen-fist": "Puño helado",
     "giant-piranha-pig": "Cerdo piraña gigante",
+    "giant-piranha-pig-boss": "Mazo de Jefe Extra nº 83",
     "harbinger-of-shadow": "Heraldo de la Sombra",
     "harbinger-of-shadow-1": "Heraldo de la Sombra %game.mapMarker.1%",
     "harbinger-of-shadow-2": "Heraldo de la Sombra %game.mapMarker.2%",
