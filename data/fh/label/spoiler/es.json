@@ -1,10 +1,131 @@
 {
+  "campaignSticker": {
+    "42-temple": "Templo"
+  },
   "character": {
     "fist": {
-      "": "Puño helado"
+      "": "Puño helado",
+      "gift-of-the-mountain": {
+        "": "Don de la montaña",
+        "hint": "Al final de cada uno de tus turnos, realiza: %game.action.heal% 2, Personal"
+      },
+      "one-with-the-mountain": {
+        "": "Uno con la montaña",
+        "hint": "Siempre que no tengas %game.condition.regenerate%, obtén %game.condition.regenerate%."
+      }
     },
     "snowflake": {
-      "": "Danzanieves"
+      "": "Danzanieves",
+      "muddle-monster": {
+        "": "Perícia 9",
+        "hint": "%data.custom.fh.snowflake.4%"
+      }
+    }
+  },
+  "custom": {
+    "fh": {
+      "fist": {
+        "1": "Crea 1 pieza de terreno helado de 1 hexágono en un hexágono sin accesorios adyacente",
+        "2": "y, siempre que entres en terreno helado con una capacidad de Movimiento, puedes ignorar el efecto para sumar %game.action.move% +1",
+        "3": "Siempre que te cures con un descanso largo, puedes %game.elementHalf.consume:ice|earth% para añadir %game.action.heal%+2",
+        "4": "Una vez por escenario, cuando vayas a sufrir %game.damage%, puedes prevenir ese %game.damage%,",
+        "5": "%game.card.recover% al menos 1 carta de tu pila de descartes cada ronda",
+        "6": "En el mismo turno, entra en al menos 10 hexágonos diferentes con una capacidad de Movimiento y luego haz que un enemigo sufra al menos %game.damage:10% con una capacidad de Ataque"
+      },
+      "snowflake": {
+        "1": "Si esta acción obliga al objetivo a moverse, este sufre %game.damage:1%",
+        "2": "Siempre que realices un descanso largo, puedes %game.elementHalf:ice|air%",
+        "3": "Siempre que realices un descanso corto, puedes %game.element.consume.ice% para realizar %game.condition.regenerate%, %game.action.range:3% y %game.element.consume.air% para realizar %game.condition.ward%, %game.action.range:3%",
+        "4": "Al comienzo de cada escenario, todos los enemigos sufren %game.condition.muddle%; cada vez que se revele una nueva sala, todos los enemigos de la nueva sala sufren %game.condition.muddle%",
+        "5": "Haz que al menos un aliado o enemigo se mueva en cada ronda",
+        "6": "Asegúrate de que el primer aliado que sufra %game.damage% en cada ronda tenga al menos un estado que tú hayas aplicado justo antes de sufrir el %game.damage%"
+      }
+    }
+  },
+  "items": {
+    "fh-1": {
+      "": "Catalejo",
+      "1": "Durante tu capacidad de Ataque, obtén Ventaja en 1 ataque."
+    },
+    "fh-10": {
+      "": "Escudo tosco",
+      "1": "Cuando un enemigo vaya a aplicarte un estado negativo, evita sufrir ese estado"
+    },
+    "fh-120": {
+      "": "Amuleto de vida",
+      "1": "Durante tu turno, realiza:"
+    },
+    "fh-121": {
+      "": "Diadema de los elementos",
+      "1": "Durante tu turno, realiza:"
+    },
+    "fh-122": {
+      "": "Túnica de centinela",
+      "1": "Cuando una de tus invocaciones sufre %game.damage% por un ataque, dicha invocación obtiene %game.action.shield:2% para dicho ataque."
+    },
+    "fh-123": {
+      "": "Armadura de cuero",
+      "1": "Cuando te ataquen, ates de robar una carta de Modificador de ataque, el atacante sufre Desventaja en el ataque."
+    },
+    "fh-124": {
+      "": "Zapatos alados",
+      "1": "Durante tu turno, añade %game.action.jump%a todas tus capacidades de Movimiento."
+    },
+    "fh-125": {
+      "": "Zapatos de velocidad",
+      "1": "Al determinar la iniciativa, después de que todas las cartas de Capacidad hayan sido reveladas, aumenta o disminuye tu iniciativa en 10."
+    },
+    "fh-126": {
+      "": "Red contrapesada",
+      "1": "Durante tu capacidad de Ataque a distancia, añade %game.condition.immobilize% a 1 ataque."
+    },
+    "fh-127": {
+      "": "Daga envenenada",
+      "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, añade %game.condition.poison% a 1 ataque."
+    },
+    "fh-128": {
+      "": "Escudo gótico",
+      "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:1%para dicho ataque."
+    },
+    "fh-2": {
+      "": "Casco tosco",
+      "1": "Cuando te ataquen, trata cualquier carta de Modificador de ataque %game.attackmodifier.double% que robe el enemigo como %game.attackmodifier.plus1% en su lugar."
+    },
+    "fh-3": {
+      "": "Capa de viaje",
+      "1": "Al inicio del escenario, aumenta tu valor máximo de puntos de vida en 1."
+    },
+    "fh-4": {
+      "": "Armadura de piel tosca",
+      "1": "Para los 2 próximos ataques que te tomen como objetivo, el atacante sufre Desventaja."
+    },
+    "fh-5": {
+      "": "Botas toscas",
+      "1": "Durante tu capacidad de Movimiento, añade +1 %game.action.move%"
+    },
+    "fh-6": {
+      "": "Botines flexibles",
+      "1": "Durante tu saqueo del final del turno, saquea 1 hexágono adyacente en lugar del hexágono que ocupas."
+    },
+    "fh-7": {
+      "": "Arco tosco",
+      "1": "Durante tu turno, añade %game.action.range% +1 a 1 de tus ataques a distancia."
+    },
+    "fh-76": {
+      "": "Cuerno de mando",
+      "1": "Durante el turno de una de tus invocaciones, decide cómo realiza sus capacidades."
+    },
+    "fh-8": {
+      "": "Lanza tosca",
+      "1": "Durante tu turno, 1 de tus capacidades de Ataque cuerpo a cuerpo con un solo objetivo puede tener como objetivo a un enemigo situado a 2 hexágonos de distancia."
+    },
+    "fh-9": {
+      "": "Cetro protector",
+      "1": "Durante tu turno, otorga a 1 aliado a 2 %game.action.range:2% o menos:"
+    },
+    "fh-98": {
+      "": "Mejunje insalubre",
+      "1": "Durante tu turno, realiza: %game.condition.wound%, %game.condition.poison% Personal"
     }
   }
 }
