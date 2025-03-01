@@ -1,13 +1,14 @@
 {
   "edition": {
-    "sits": "Skulls in the Snow &lt;%wip%(!)&gt;"
+    "sits": "Skulls in the Snow"
   },
   "scenario": {
     "rules": {
       "sits": {
         "1": "City Guards act on initiative 50 each round, performing %game.action.move% +0 %game.action.attack% +0 controlled by you. They double the bonuses for occupying stair hexes.",
         "2": "The Vermling Scout is the Frenzied Sniper. They have HxC hit points and %game.action.shield% 1.",
-        "3": "All elite Harrower Infesters add +1 %game.action.move% to all their moves."
+        "3": "All elite Harrower Infesters add +1 %game.action.move% to all their moves.",
+        "7": "adjacent to Debris %game.mapMarker.b%"
       }
     }
   }

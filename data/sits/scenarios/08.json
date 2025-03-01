@@ -1,50 +1,47 @@
 {
-  "index": "146",
-  "name": "Remnants",
+  "index": "148",
+  "name": "The Great Bug Race",
   "edition": "sits",
   "unlocks": [
-    "147"
+    "149"
   ],
   "rewards": {
-    "experience": 20,
-    "battleGoals": 1,
-    "items": [
-      "77-fh",
-      "183-fh"
-    ],
+    "experience": 35,
     "ignoredBonus": [
       "inspiration"
     ],
     "calendarIgnore": true
   },
   "monsters": [
-    "burrowing-blade",
-    "deep-terror",
-    "frozen-corpse"
+    "harrower-infester",
+    "hound",
+    "living-bones",
+    "ooze"
   ],
   "objectives": [
     {
-      "name": "Gidyen",
+      "name": "trio",
       "escort": true,
-      "health": "6+(Lx3)",
-      "initiative": 99,
+      "allyDeck": true,
+      "health": "5+(3xC)",
+      "initiative": 1,
       "marker": "a",
       "actions": [
         {
           "type": "move",
-          "value": 3
+          "value": "2"
         }
       ]
     }
   ],
   "lootDeckConfig": {
-    "money": 6,
-    "lumber": 3,
-    "metal": 4,
-    "hide": 4,
-    "rockroot": 1,
+    "money": 8,
+    "lumber": 2,
+    "metal": 3,
+    "hide": 2,
+    "snowthistle": 1,
     "corpsecap": 1,
-    "arrowvine": 1
+    "rockroot": 2
   },
   "rules": [
     {
@@ -56,50 +53,73 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Gidyen"
+            "name": "trio"
           },
           "type": "dead"
         }
       ],
       "finish": "lost"
+    },
+    {
+      "round": "R > 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "elite"
+          }
+        }
+      ]
     }
   ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "06-A",
+      "ref": "03-D",
       "initial": true,
       "monster": [
         {
-          "name": "burrowing-blade",
+          "name": "harrower-infester",
           "type": "elite"
         },
         {
-          "name": "deep-terror",
+          "name": "harrower-infester",
           "type": "elite"
         },
         {
-          "name": "deep-terror",
+          "name": "harrower-infester",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "deep-terror",
+          "name": "harrower-infester",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "frozen-corpse",
+          "name": "living-bones",
           "type": "normal"
         },
         {
-          "name": "frozen-corpse",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "living-bones",
+          "type": "elite"
         },
         {
-          "name": "frozen-corpse",
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
           "player4": "normal"
         }
       ],

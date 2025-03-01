@@ -1,0 +1,47 @@
+{
+  "index": "146.2",
+  "name": "Remnants",
+  "edition": "sits",
+  "parent": "146",
+  "parentSections": [
+    [
+      "146.1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "burrowing-blade",
+    "deep-terror",
+    "frozen-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "01-G",
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}
