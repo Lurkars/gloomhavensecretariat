@@ -258,7 +258,7 @@
       "2": "共同训练最多1个士兵，费用为3金币和1个材料资源<br><br><i>容量:</i> 6<br><i>效果:</i> 优势 并 -15 %game.action.attack%",
       "3": "共同训练最多2个士兵，费用为3金币和1个材料资源<br><br><i>容量:</i> 8<br><i>效果:</i> 优势 并 -25 %game.action.attack%",
       "4": "共同训练最多2个士兵，费用为3金币和1个材料资源<br><br><i>容量:</i> 10<br><i>效果:</i> 优势 并 -35 %game.action.attack%",
-      "5": "所有攻击事件的结算具有劣势。<br>不能 使用 士兵。",
+      "5": "所有攻击事件的结算具有劣势。<br>不能使用士兵。",
       "soldiers": "训练1士兵"
     },
     "boat": {
@@ -308,7 +308,7 @@
       }
     },
     "hall-of-revelry": {
-      "": "狂欢大厅",
+      "": "狂宴礼堂",
       "1": "当试炼牌库全部完成时,阅读 %data.section:187.1%",
       "2": "获得Tholos的恩惠",
       "3": "失去 1 士气值"
@@ -433,33 +433,33 @@
       "": "城墙 N"
     },
     "workshop": {
-      "": "作坊",
+      "": "工场",
       "1": "集体失去 1 个%game.resource.lumber%"
     }
   },
   "campaignSticker": {
     "boat": "船只",
     "brummix": "星足兽",
-    "bug-in-a-jar": "罐子中的虫",
-    "charged-core": "带电核心",
+    "bug-in-a-jar": "虫罐",
+    "charged-core": "充能核心",
     "climbing-gear": "登山装备",
     "coral-shard": "珊瑚碎片",
-    "crown-united": "重组皇冠",
-    "destroyer-of-the-icespeakers": "冰语者的灭亡",
-    "destroyer-of-the-snowspeakers": "雪语者的灭亡",
-    "empty-jar": "空罐子",
-    "firepepper": "火辣椒",
-    "friend-of-the-fish-king": "鱼王的朋友",
-    "friend-of-the-frostspeakers": "霜语者的朋友",
-    "friend-of-the-icespeakers": "冰语者的朋友",
-    "friend-of-the-snowspeakers": "雪语者的朋友",
-    "into-the-forest": "深入森林",
-    "shard-seeker": "碎片搜索者",
+    "crown-united": "珊瑚皇冠",
+    "destroyer-of-the-icespeakers": "冰语者毁灭者",
+    "destroyer-of-the-snowspeakers": "雪语者毁灭者",
+    "empty-jar": "空罐",
+    "firepepper": "火椒",
+    "friend-of-the-fish-king": "鱼王之友",
+    "friend-of-the-frostspeakers": "霜语者之友",
+    "friend-of-the-icespeakers": "冰语者之友",
+    "friend-of-the-snowspeakers": "雪语者之友",
+    "into-the-forest": "进入森林",
+    "shard-seeker": "碎片探寻者",
     "sled": "雪橇",
     "statue": "雕像",
-    "uncharged-core": "未充电核心",
+    "uncharged-core": "未充能核心",
     "unfettered-allies": "自由机盟友",
-    "unfettered-deactivated": "自由机失活"
+    "unfettered-deactivated": "自由机关闭"
   },
   "character": {
     "banner-spear": "旗矛手",
