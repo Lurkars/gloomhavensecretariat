@@ -64,6 +64,8 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | supports Envelope X                                                             | ✅[^3]    | ✅         | ⛔        | ✅       | ✅       |
 | supports Frosthaven Crossover Characters                                        | ✅[^3]    | ➖[^19]    | ➖[^19]   | ✅       | ➖[^19]  |
 | support Satire's Extended Battle Goals                                          | ✅[^3.1]  | ⛔         | ⛔        | ✅       | ⛔       |
+| Skulls in the Snow (FH Mini Campaign)                                           | ✅[^3]    | ⛔         | ⛔        | ⛔       | ⛔       |
+| Button & Bugs - Promotional Content                                             | ✅[^3]    | ⛔         | ⛔        | ⛔       | ⛔       |
 |                                                                                 |          |           |          |         |         |
 | **Additional Features**                                                         | *GHS*    | *XHA*     | *FOC*    | *GHFS*  | *GHH*   |
 | Synchronize multiple clients                                                    | ✅[^4]    | ✅         | ✅        | ✅       | ✅       |

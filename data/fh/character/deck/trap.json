@@ -4,7 +4,7 @@
   "character": true,
   "abilities": [
     {
-      "name": "caltrops",
+      "name": "Caltrops",
       "cardId": 273,
       "level": 1,
       "initiative": 25,
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "name": "furry facade",
+      "name": "Furry facade",
       "cardId": 274,
       "level": 1,
       "initiative": 85,
@@ -148,7 +148,7 @@
       ]
     },
     {
-      "name": "of nails",
+      "name": "Flurry of Nails",
       "cardId": 281,
       "level": 1,
       "initiative": 68,
@@ -454,7 +454,7 @@
       ]
     },
     {
-      "name": "magnetic Shards",
+      "name": "Magnetic Shards",
       "cardId": 298,
       "level": 8,
       "initiative": 37,

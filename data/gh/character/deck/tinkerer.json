@@ -4,7 +4,7 @@
   "character": true,
   "abilities": [
     {
-      "name": "proximity Iline",
+      "name": "Proximity Mine",
       "cardId": 30,
       "level": 1,
       "initiative": 62,
@@ -526,7 +526,7 @@
       ]
     },
     {
-      "name": "lethal Injection",
+      "name": "Lethal Injection",
       "cardId": 59,
       "level": 9,
       "initiative": 85,
