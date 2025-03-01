@@ -287,21 +287,21 @@
       "4": "Cada personaje comienza el siguiente escenario con %game.condition.disarm%"
     },
     "garden": {
-      "": "Jardín",
-      "1": "Planta hierbas, gira esta carta 180° y luego para - Gana 1 hierba de cada parcela plantada, luego gira esta carta 180° y luego para",
-      "2": "Gana 1 hierba colectiva por cada parcela plantada, después planta hierbas",
+      "": "Huerto",
+      "1": "Siembra plantas, gira esta carta 180° y luego para - Gana 1 planta de cada parcela plantada, luego gira esta carta 180° y luego para",
+      "2": "Gana 1 planta de forma colectiva por cada parcela plantada, después siembra plantas",
       "plots": {
-        "": "Gestionar el jardín",
+        "": "Gestionar el huerto",
         "automated": {
           "": "Cosecha automática",
-          "hint": "Cosecha el jardín automáticamente cuando pasa una semana. Esta opción se desactiva de forma automática cuando <i>%settings.automaticPassTime%</i> no está activado."
+          "hint": "Cosecha el huerto automáticamente cuando pasa una semana. Esta opción se desactiva de forma automática cuando <i>%settings.automaticPassTime%</i> no está activado."
         },
         "harvest": "Cosecha manual",
-        "interaction": "Plantar/cosechar hierbas",
+        "interaction": "Sembrar/cosechar plantas",
         "state": {
-          "both": "Cosechar el jardín y plantar hierbas",
-          "harvest": "El jardín está girado, esta semana solamente se puede cosechar",
-          "plant": "Plantar hierbas"
+          "both": "Cosechar el huerto y sembrar plantas",
+          "harvest": "El huerto está girado, esta semana solamente se puede cosechar",
+          "plant": "Sembrar plantas"
         }
       }
     },
@@ -433,6 +433,12 @@
   },
   "campaignSticker": {
     "boat": "Barco",
+    "bug-in-a-jar": "Frasco con bicho",
+    "charged-core": "Núcleo cargado",
+    "climbing-gear": "Equipo de escalada",
+    "coral-shard": "Esquirla de Coral",
+    "crown-united": "Corona Unida",
+    "destroyer-of-the-icespeakers": "Destructor de los Voz de Hielo",
     "sled": "Trineo",
     "statue": "Estatua"
   },
