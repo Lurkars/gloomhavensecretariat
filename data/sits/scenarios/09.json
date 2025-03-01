@@ -1,0 +1,77 @@
+{
+  "index": "149",
+  "name": "Downhill",
+  "edition": "sits",
+  "unlocks": [
+    "150"
+  ],
+  "rewards": {
+    "experience": 20,
+    "battleGoals": 2,
+    "ignoredBonus": [
+      "inspiration"
+    ],
+    "calendarIgnore": true
+  },
+  "monsters": [
+    "frost-demon",
+    "living-bones",
+    "snow-imp",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 1,
+    "metal": 4,
+    "hide": 1,
+    "snowthistle": 2,
+    "axenut": 1,
+    "arrowvine": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "07-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "index": "142.1",
+  "name": "Gateway to Radiance",
+  "edition": "sits",
+  "parent": "142",
+  "marker": "1",
+  "monsters": [
+    "burrowing-blade",
+    "ice-wraith"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "11-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player4": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

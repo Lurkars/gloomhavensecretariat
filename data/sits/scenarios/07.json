@@ -1,0 +1,107 @@
+{
+  "index": "147",
+  "name": "Under Pressure",
+  "edition": "sits",
+  "unlocks": [
+    "148"
+  ],
+  "rewards": {
+    "experience": 10,
+    "battleGoals": 2,
+    "custom": "Gain any 1 herb resources each",
+    "ignoredBonus": [
+      "inspiration"
+    ],
+    "calendarIgnore": true
+  },
+  "monsters": [
+    "black-imp",
+    "burrowing-blade",
+    "harrower-infester"
+  ],
+  "objectives": [
+    {
+      "name": "Debris",
+      "health": "60+(5xC)",
+      "marker": "b"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 2,
+    "flamefruit": 1,
+    "corpsecap": 1,
+    "arrowvine": 2
+  },
+  "rules": [
+    {
+      "round": "R % 1 == 0",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Debris"
+          },
+          "type": "damage",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Debris"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost"
+    },
+    {
+      "round": "R == 4 || R == 7 || R == 10",
+      "start": true,
+      "note": "%data.scenario.rules.sits.7%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "11-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

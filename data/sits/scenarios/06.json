@@ -1,0 +1,111 @@
+{
+  "index": "146",
+  "name": "Remnants",
+  "edition": "sits",
+  "unlocks": [
+    "147"
+  ],
+  "rewards": {
+    "experience": 20,
+    "battleGoals": 1,
+    "items": [
+      "77-fh",
+      "183-fh"
+    ],
+    "ignoredBonus": [
+      "inspiration"
+    ],
+    "calendarIgnore": true
+  },
+  "monsters": [
+    "burrowing-blade",
+    "deep-terror",
+    "frozen-corpse"
+  ],
+  "objectives": [
+    {
+      "name": "Gidyen",
+      "escort": true,
+      "health": "6+(Lx3)",
+      "initiative": 99,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        }
+      ]
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 3,
+    "metal": 4,
+    "hide": 4,
+    "rockroot": 1,
+    "corpsecap": 1,
+    "arrowvine": 1
+  },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Gidyen"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "06-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

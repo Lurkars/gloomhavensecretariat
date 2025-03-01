@@ -1,0 +1,56 @@
+{
+  "index": "148.1",
+  "name": "The Great Bug Race",
+  "edition": "sits",
+  "parent": "148",
+  "marker": "1",
+  "monsters": [
+    "harrower-infester",
+    "living-bones",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "07-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}
