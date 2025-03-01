@@ -29,7 +29,7 @@ export class ScenarioManager {
   }
 
   getScenario(index: string, edition: string, group: string | undefined): ScenarioData | undefined {
-    return gameManager.scenarioData().find((scenarioData) => scenarioData.index == index && scenarioData.edition == edition && scenarioData.group == group);
+    return gameManager.scenarioData(edition).find((scenarioData) => scenarioData.index == index && scenarioData.edition == edition && scenarioData.group == group);
   }
 
   setScenario(scenario: Scenario | undefined) {
@@ -246,10 +246,7 @@ export class ScenarioManager {
                   }
 
                   if (week != -1) {
-                    if (!gameManager.game.party.weekSections[week]) {
-                      gameManager.game.party.weekSections[week] = [];
-                    }
-                    gameManager.game.party.weekSections[week]?.push(section);
+                    gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
                   }
                 }
               })
@@ -282,13 +279,13 @@ export class ScenarioManager {
           this.game.party.inspiration += 4 - gameManager.characterManager.characterCount();
         }
 
-        if (conclusionSection && !this.game.party.conclusions.find((conclusion) => conclusion.index == conclusionSection.index && conclusion.edition == conclusionSection.edition && conclusion.group == conclusionSection.group)) {
+        if (conclusionSection && !conclusionSection.repeatable && !this.game.party.conclusions.find((conclusion) => conclusion.index == conclusionSection.index && conclusion.edition == conclusionSection.edition && conclusion.group == conclusionSection.group)) {
           this.game.party.conclusions.push(new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group));
         }
 
         if (gameManager.game.party.campaignMode && gainRewards) {
           if (scenario.conclusion) {
-            if (!this.game.party.conclusions.find((conclusion) => conclusion.index == scenario.index && conclusion.edition == scenario.edition && conclusion.group == scenario.group)) {
+            if (!scenario.repeatable && !this.game.party.conclusions.find((conclusion) => conclusion.index == scenario.index && conclusion.edition == scenario.edition && conclusion.group == scenario.group)) {
               this.game.party.conclusions.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group));
             }
           } else if (!scenario.hideIndex) {
@@ -630,6 +627,14 @@ export class ScenarioManager {
         }
       }
     }
+    if (monster && monster.bb) {
+      if (entities.length && entities.every((entity) => entity.type == MonsterType.elite) && monster.tags.indexOf('bb-elite') == -1) {
+        monster.tags.push('bb-elite');
+      } else {
+        monster.tags = monster.tags.filter((tag) => tag != 'bb-elite');
+      }
+    }
+
     return entities;
   }
 
@@ -802,8 +807,9 @@ export class ScenarioManager {
         if (requirement.global) {
           requirement.global.forEach((achievement) => {
             if (achievement.startsWith('!')) {
-              if (all || gameManager.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
-                missingRequirement.globalAchievementsMissing.push(achievement.substring(1, achievement.length));
+              achievement = achievement.substring(1, achievement.length);
+              if (all || gameManager.game.party.globalAchievementsList.find((globalAchievement) => globalAchievement.toLowerCase().trim() == achievement.toLowerCase().trim())) {
+                missingRequirement.globalAchievementsMissing.push(achievement);
                 add = true;
               }
             } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
@@ -827,8 +833,9 @@ export class ScenarioManager {
         if (requirement.party) {
           requirement.party.forEach((achievement) => {
             if (achievement.startsWith('!')) {
-              if (all || gameManager.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
-                missingRequirement.partyAchievementsMissing.push(achievement.substring(1, achievement.length));
+              achievement = achievement.substring(1, achievement.length);
+              if (all || gameManager.game.party.achievementsList.find((partyAchievement) => partyAchievement.toLowerCase().trim() == achievement.toLowerCase().trim())) {
+                missingRequirement.partyAchievementsMissing.push(achievement);
                 add = true;
               }
             } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
@@ -852,8 +859,9 @@ export class ScenarioManager {
         if (requirement.campaignSticker) {
           requirement.campaignSticker.forEach((achievement) => {
             if (achievement.startsWith('!')) {
-              if (all || gameManager.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim())) {
-                missingRequirement.campaignStickersMissing.push(achievement.substring(1, achievement.length));
+              achievement = achievement.substring(1, achievement.length);
+              if (all || gameManager.game.party.campaignStickers.find((campaignSticker) => campaignSticker.toLowerCase().trim() == achievement.toLowerCase().trim())) {
+                missingRequirement.campaignStickersMissing.push(achievement);
                 add = true;
               }
             } else if (achievement.indexOf(':') != -1 && (!isNaN(+achievement.split(':')[1]))) {
@@ -875,20 +883,27 @@ export class ScenarioManager {
         }
 
         if (requirement.buildings) {
-          requirement.buildings.forEach((achievement) => {
-            if (achievement.startsWith('!')) {
-              if (all || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.substring(1, achievement.length).toLowerCase().trim() && buildingModel.level > 0)) {
-                missingRequirement.buildingsMissing.push(achievement.substring(1, achievement.length));
+          requirement.buildings.forEach((building) => {
+            if (building.startsWith('!')) {
+              building = building.substring(1, building.length);
+              if (building.indexOf(':') != -1) {
+                let level = +building.split(':')[1];
+                if (all || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.split(':')[0].toLowerCase().trim() && buildingModel.level >= level)) {
+                  missingRequirement.buildingsLevel.push({ name: building.split(':')[0], level: level });
+                  add = true;
+                }
+              } else if (all || gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.toLowerCase().trim() && buildingModel.level > 0)) {
+                missingRequirement.buildingsMissing.push(building);
                 add = true;
               }
-            } else if (achievement.indexOf(':') != -1) {
-              let level = +achievement.split(':')[1];
-              if (all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.split(':')[0].toLowerCase().trim() && buildingModel.level >= level)) {
-                missingRequirement.buildingsLevel.push({ name: achievement.split(':')[0], level: level });
+            } else if (building.indexOf(':') != -1) {
+              let level = +building.split(':')[1];
+              if (all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.split(':')[0].toLowerCase().trim() && buildingModel.level >= level)) {
+                missingRequirement.buildingsLevel.push({ name: building.split(':')[0], level: level });
                 add = true;
               }
-            } else if (all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == achievement.toLowerCase().trim() && buildingModel.level > 0)) {
-              missingRequirement.buildings.push(achievement);
+            } else if (all || !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name.toLowerCase().trim() == building.toLowerCase().trim() && buildingModel.level > 0)) {
+              missingRequirement.buildings.push(building);
               add = true;
             }
           })
@@ -897,8 +912,9 @@ export class ScenarioManager {
         if (requirement.characters) {
           requirement.characters.forEach((character) => {
             if (character.startsWith('!')) {
-              if (all || gameManager.game.figures.find((figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.substring(1, character.length).toLowerCase().trim())) {
-                missingRequirement.charactersMissing.push(character.substring(1, character.length));
+              character = character.substring(1, character.length);
+              if (all || gameManager.game.figures.find((figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.toLowerCase().trim())) {
+                missingRequirement.charactersMissing.push(character);
                 add = true;
               }
             } else if (all || !gameManager.game.figures.find((figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.toLowerCase().trim())) {

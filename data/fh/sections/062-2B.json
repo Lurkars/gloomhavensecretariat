@@ -1,0 +1,21 @@
+{
+  "index": "62.2B",
+  "name": "Bathysphere Plans",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "62.2"
+    ]
+  ],
+  "conclusion": true,
+  "unlocks": [
+    "33"
+  ],
+  "requirements": [
+    {
+      "buildings": [
+        "craftsman:3"
+      ]
+    }
+  ]
+}

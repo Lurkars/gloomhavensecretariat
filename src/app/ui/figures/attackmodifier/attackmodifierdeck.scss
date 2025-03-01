@@ -350,7 +350,7 @@
     z-index: 1;
   }
 
-  .disgarded,
+  .discarded,
   .last {
     position: absolute;
     top: 16.5%;
@@ -358,7 +358,7 @@
     transform: rotate(25deg);
     z-index: 0;
 
-    &.disgarded:hover {
+    &.discarded:hover {
       z-index: 100 !important;
     }
 
@@ -367,7 +367,7 @@
     }
   }
 
-  .disgard-active {
+  .discard-active {
     filter: grayscale(0.3);
   }
 
@@ -458,7 +458,7 @@
     z-index: 1;
   }
 
-  .disgarded,
+  .discarded,
   .last {
     position: absolute;
     top: 0;

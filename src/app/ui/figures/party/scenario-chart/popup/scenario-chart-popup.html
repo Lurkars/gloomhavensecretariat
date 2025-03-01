@@ -28,15 +28,18 @@
             <div class="hint-container" *ngFor="let treasure of treasures;">
                 <div class="treasure hint-trigger" (click)="openTreasureDialog(+treasure.split(':')[0])"
                     [ngClass]="{'looted' : lootedTreasures.indexOf(+treasure.split(':')[0]) != -1}">
-                    <span *ngIf="+treasure.split(':')[0] < 10">0</span>
-                    {{+treasure.split(':')[0]}}
+                    <span *ngIf="('' + treasure).startsWith('G') || +(''+treasure).split(':')[0] >= 0">
+                        <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10 && +treasure >= 0">0</span>
+                        {{('' + treasure).startsWith('G-') ? 'G' : (''+treasure).split(':')[0]}}
+                    </span>
+                    <span *ngIf="!('' + treasure).startsWith('G') && +(''+treasure).split(':')[0] < 0">???</span>
                     <img class="overlay check" src="./assets/images/check.svg">
                 </div>
-                <span class="hint center">
-                    <ghs-treasure-label class="text placeholder text-white" [edition]="scenario.edition"
-                        [index]="+treasure.split(':')[0] -1"
-                        [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"></ghs-treasure-label>
-                </span>
+                <span class="hint above center">
+                    <ghs-treasure-label class="text placeholder text-white" *ngIf="!('' + treasure).startsWith('G-')"
+                        [edition]="scenario.edition" [index]="+(''
+                +treasure).split(':')[0] -1"
+                        [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"></ghs-treasure-label></span>
             </div>
         </div>
 

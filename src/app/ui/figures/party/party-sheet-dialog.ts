@@ -32,7 +32,7 @@ import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { WorldMapComponent } from "./world-map/world-map";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-party-sheet-dialog',
   templateUrl: 'party-sheet-dialog.html',
   styleUrls: ['./party-sheet-dialog.scss']
@@ -155,6 +155,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         if (this.party != gameManager.game.party) {
           this.party = gameManager.game.party;
           this.update();
+        } else {
+          this.updateAlways();
         }
 
         if (server && this.townGuardDeck && this.party.townGuardDeck) {
@@ -181,7 +183,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keydown', ['$event'])
   keyboardShortcuts(event: KeyboardEvent) {
-    if (!this.disableShortcuts && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
+    if (settingsManager.settings.keyboardShortcuts && !this.disableShortcuts && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
       if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && this.worldMap) {
         this.openMap();
         event.stopPropagation();
@@ -533,7 +535,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   addSuccess(scenarioData: ScenarioData, force: boolean = false) {
     if (!gameManager.scenarioManager.isBlocked(scenarioData) && !gameManager.scenarioManager.isLocked(scenarioData) || force) {
       const conclusions = gameManager.sectionData(scenarioData.edition).filter((sectionData) =>
-        sectionData.edition == scenarioData.edition && sectionData.parent == scenarioData.index && sectionData.group == scenarioData.group && sectionData.conclusion);
+        sectionData.edition == scenarioData.edition && sectionData.parent == scenarioData.index && sectionData.group == scenarioData.group && sectionData.conclusion && gameManager.scenarioManager.getRequirements(sectionData).length == 0);
       if (conclusions.length == 0) {
         this.addSuccessIntern(scenarioData);
       } else {
@@ -717,8 +719,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
       if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].globalAchievements) {
         this.globalAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)));
-      } else if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
-        this.globalAchievements.push(...Object.keys(editionData.label['en'].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)));
+      }
+
+      if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
+        Object.keys(editionData.label['en'].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)).forEach((item) => {
+          if (this.globalAchievements.every((other) => item.value != other.value)) {
+            this.globalAchievements.push(item);
+          }
+        })
       }
 
       if (editionData.campaign && editionData.campaign.campaignStickers) {
@@ -744,13 +752,6 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.items = this.itemIdentifier.map((identifier) => gameManager.itemManager.getItem(identifier.name, identifier.edition, true));
     this.summer = Math.max(this.party.weeks - 1, 0) % 20 < 10;
 
-
-    this.availableCharacters = [];
-    this.party.availableCharacters.forEach((characterModel) => {
-      this.availableCharacters[characterModel.number - 1] = this.availableCharacters[characterModel.number - 1] || [];
-      this.availableCharacters[characterModel.number - 1].push(characterModel);
-    })
-
     if (campaign) {
       if (campaign.lowMorale && campaign.lowMorale.length) {
         this.lowMoraleSolved = 0;
@@ -766,6 +767,15 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         }
       }
     }
+    this.updateAlways();
+  }
+
+  updateAlways() {
+    this.availableCharacters = [];
+    this.party.availableCharacters.forEach((characterModel) => {
+      this.availableCharacters[characterModel.number - 1] = this.availableCharacters[characterModel.number - 1] || [];
+      this.availableCharacters[characterModel.number - 1].push(characterModel);
+    })
   }
 
   characterIcon(name: string): string {
@@ -907,7 +917,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   openConclusions(section: string, week: number = -1) {
-    let conclusions: ScenarioData[] = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1)).map((conclusion) => {
+    let conclusions: ScenarioData[] = gameManager.sectionData(gameManager.game.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section) != -1) && gameManager.scenarioManager.getRequirements(sectionData).length == 0).map((conclusion) => {
       return conclusion;
     });
 
@@ -922,8 +932,9 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
             if (week != -1) {
               gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
               gameManager.scenarioManager.finishScenario(scenario, true, scenario, false, undefined, false, gameManager.game.party.campaignMode, true);
-              this.party.weekSections[week] = this.party.weekSections[week] || [];
-              this.party.weekSections[week]?.push(scenario.index);
+              if (!scenario.repeatable) {
+                this.party.weekSections[week] = [...(this.party.weekSections[week] || []), scenario.index];
+              }
               gameManager.stateManager.after();
 
               this.dialog.open(ScenarioSummaryComponent, {
@@ -998,20 +1009,20 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     let conclusions: string[] = [];
     for (let week = this.party.weeks; week < value; week++) {
       this.sectionsForWeekFixed(week).forEach((section) => {
-        if (this.hasConclusions(section)) {
+        if (this.hasConclusions(section) && conclusions.indexOf(section) == -1) {
           conclusions.push(section);
         }
       })
       this.sectionsForWeek(week).forEach((section) => {
-        if (this.hasConclusions(section)) {
+        if (this.hasConclusions(section) && conclusions.indexOf(section) == -1) {
           conclusions.push(section);
         }
       })
-
-      conclusions.forEach((conclusion) => {
-        this.openConclusions(conclusion, value);
-      })
     }
+
+    conclusions.forEach((conclusion) => {
+      this.openConclusions(conclusion, value);
+    })
 
     gameManager.stateManager.before("setPartyWeeks", "" + value);
     for (let week = this.party.weeks; week < value; week++) {

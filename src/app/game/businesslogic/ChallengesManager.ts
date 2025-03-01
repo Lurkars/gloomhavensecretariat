@@ -232,7 +232,8 @@ export class ChallengesManager {
         if (card.edition == 'fh') {
             switch (card.cardId) {
                 case 1526:
-                    if (this.game.figures.filter((figure) => figure instanceof Monster).map((monster) => monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length).reduce((a, b) => a + b) < gameManager.characterManager.characterCount()) {
+                    const entities = this.game.figures.filter((figure) => figure instanceof Monster).map((monster) => monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length);
+                    if (entities.length && entities.reduce((a, b) => a + b) < gameManager.characterManager.characterCount()) {
                         this.game.figures.forEach((figure) => {
                             if (figure instanceof Monster) {
                                 figure.entities.forEach((entity) => {

@@ -1,0 +1,767 @@
+{
+  "character": {
+    "angry-face": "Doomstalker",
+    "circles": "Summoner",
+    "eclipse": "Nightshroud",
+    "lightning": {
+      "": "Berserker",
+      "blood-pact": {
+        "": "Blood Pact",
+        "hint": "Suffer %game.damage:1% at the start of each of your turns."
+      },
+      "careless-charge": {
+        "": "Careless Charge",
+        "hint": "You are immune to all negative conditions."
+      },
+      "unbridled-power": {
+        "": "Unbridled Power",
+        "hint": "You may overheal to a maximum of 26 hit points, but your maximum hit point value."
+      }
+    },
+    "music-note": {
+      "": "Soothsinger",
+      "song_active": {
+        "": "%game.characterIconColored.music-note% Song Active",
+        "hint": "Gain 1 XP at start of each of your turns."
+      }
+    },
+    "saw": "Sawbones",
+    "squidface": "Plagueherald",
+    "sun": "Sunkeeper",
+    "three-spears": "Quartermaster",
+    "triangles": "Elementalist",
+    "two-mini": "Beast Tyrant"
+  },
+  "custom": {
+    "gh": {
+      "circles": {
+        "1": "when %game.action.attack% performed",
+        "2": "at end of turn"
+      },
+      "triangles": {
+        "1": "You may perform Attack actions as if you occupy the summon's hex.",
+        "2": "when %game.action.attack% performed"
+      },
+      "two-mini": {
+        "1": "All adjacent allies add +2 %game.action.attack% to all their attacks."
+      }
+    }
+  },
+  "events": {
+    "gh": {
+      "city": {
+        "1": {
+          "options": {
+            "1": {
+              "choice": "Join the fray! These insults will not go unanswered!",
+              "outcome": "Nothing like busting some drunken skulls to lift one's spirits. It turns out to be a great way to unwind. Unfortunately, the proprietor of the Sleeping Lion doesn't exactly see it that way, and he sullenly asks for compensation for the damage you caused."
+            },
+            "2": {
+              "choice": "Do your best to stop the fighting. This is a respectable establishment.",
+              "outcome": "After restraining the enraged Inox and offering to replace the drinks of a few of the more belligerent patrons, you calm the place down a bit. Some of the non-human patrons are understandably on edge, but the proprietor thanks you for your efforts and reimburses you for the drinks."
+            }
+          },
+          "text": "You decide to unwind at the Sleeping Lion, but just as you are starting to relax, a bear of a man crashes into your table, scattering your drinks across the floor.<br><br>Towering over him is a massive Inox. \"What did you say about my horns?\" the Inox shouts.<br><br>The man stands up and brushes shards of glass from his tunic. \"I said the sight of them makes me want to vomit!\"<br><br>The Inox roars and charges headlong into the man, crashing through more tables in the process. At this, the entire tavern erupts into violence. After all, when a man is deep into his drink, the last thing you want to do is knock that drink over."
+        },
+        "2": {
+          "options": {
+            "1": {
+              "choice": "Pay for the thing. You never know.",
+              "effects": {
+                "1": {
+                  "1": "You hand over the gold and take hold of the piece of garbage. Amidst troubling brown smears you see a lot of meaningless scratches likely made by rats and bugs. Oh well. Sometimes the long shot doesn't pay off.",
+                  "2": "\"Bah! You don't have enough. Come back when you do!\""
+                }
+              }
+            },
+            "2": {
+              "choice": "Refuse to pay. Never trust a Vermling.",
+              "outcome": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just...foul."
+            }
+          },
+          "text": "As the daylight fades, you find yourselves wandering through a half-crowded market street, browsing wares.<br><br>\"Hey! Over here!\" You turn in the direction of the voice to see a filthy Vermling gesturing from a dark alley. \"Yeah, you grim-looking chaps. I have something you might be interested in.\"<br><br>The Vermling holds out a piece of metal covered in sludge. \"Found this in the sewer. Writing on it I don't understand, but I know it's valuable. You can have it for ten gold!\""
+        },
+        "3": {
+          "options": {
+            "1": {
+              "choice": "Pay for the thing. You never know.",
+              "effects": {
+                "1": {
+                  "1": "You hand over the gold and take hold of the metal. You wipe off the grime and slop to discover a foreign contraption made of large gears and many moving parts. If you can figure out what it is, this device might actually be of some worth.",
+                  "2": "\"Bah! You don't have enough. Come back when you do!\""
+                }
+              }
+            },
+            "2": {
+              "choice": "Refuse to pay. Never trust a Vermling.",
+              "outcome": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just..foul."
+            }
+          },
+          "text": "As the daylight fades, you find yourselves wandering through a half-crowded market street, browsing wares.<br><br>\"Hey! Over here!\" You turn in the direction a of the voice to see a filthy Vermling gesturing from a dark alley \"Yeah, you grim-looking chaps. I have something you might be interested in.\"<br><br>The Vermling holds out a piece of metal covered in sludge. Found this in the sewer. Writing on it I don't understand, but I know its valuable. You can have it for ten gold!\""
+        },
+        "4": {
+          "options": {
+            "1": {
+              "choice": "Find a cat? You have more important things to do.",
+              "outcome": "You shake your head and direct the boy to go find his mother. With any luck she will knock some sense into him so that he stops troubling strangers with such trivial matters."
+            },
+            "2": {
+              "choice": "Reassure the boy and go find the cat.",
+              "outcome": "You approach the foreboding house full of heroic bravado. There's certainly nothing otherworldly about the structure, but its fallen beams and piles of rubble do make it difficult to look around. By the time you find the cat hiding under a burned-out bed frame, you are utterly exhausted. At least the boy is ecstatic his cat has been found."
+            }
+          },
+          "text": "Having recently returned from your latest adventure, you are approached by a ratty-looking boy in tears.<br><br>\"Please, sirs, could you please help me with my cat? He went over there, and I'm afraid.\" The boy points a dirty finger at a decrepit, abandoned building. \"I don't know what else to do.\""
+        },
+        "5": {
+          "options": {
+            "1": {
+              "choice": "Go help lay the foundation.",
+              "outcome": "Amidst a great deal of revelry, you put all you have into laying the foundation of the sanctuary. Surely much good will be done here healing the sick and wounded. After all your exhaustive efforts, though, you might end up being their first patients."
+            },
+            "2": {
+              "choice": "Take the opportunity to steal some valuables in the area while people are distracted.",
+              "outcome": "You head to the prosperous east side of town, not to help lay down the foundation, but to steal some goods from shopkeepers too silly to lock up their wares during the festivities. You make off with a good deal of money and the distracted guards are none the wiser."
+            }
+          },
+          "text": "After resting for the evening, you start out your day noticing a great number of prominent, commanding posters around the city. Reading one, you learn that the Sanctuary of the Great Oak is laying down the foundation for a new building on the east side of Gloomhaven. Everyone is encouraged to come and help. This could be an important community event."
+        },
+        "6": {
+          "options": {
+            "1": {
+              "choice": "Go aid in the defense of the city.",
+              "outcome": "You rush toward the West Gate, eager to fight back the invaders. As you approach, you see a mass of Vermlings climbing over the wall and attacking the guards with daggers and arrows. You yell and charge into the battle. It is a rough fight, but you emerge victorious, covered in fur and blood. The citizens of Gloomhaven remain safe, and the town is free to grow and prosper."
+            },
+            "2": {
+              "choice": "If the guards are distracted by an attacking force, now would be the perfect time to steal some valuables.",
+              "outcome": "The town erupts into chaos with panicked cries of \"Vermlings!\" — a perfect opportunity to collect some valuables. Slinking around to an abandoned shop, you find a way in and pilfer the safe. In the morning, the devastation from the assault is noticeable. Downtrodden looks greet you as you passr and you wonder if your presence was missed along the walls."
+            }
+          },
+          "text": "You awake in the middle of the night to the sound of alarms ringing in the west. You recognize them as the warning clangs of an attack on the wall.<br><br>Any force bold enough to assault the defenses of Gloomhaven can't be good, For a moment you are grateful for the prolific number of guards defending the city. But still, there is always the possibility that the guards may not be enough."
+        },
+        "7": {
+          "options": {
+            "1": {
+              "choice": "Help the captain load his ship.",
+              "outcome": "What was advertised as a few minutes turns out to be an hour or two as you lug large crates full of some foul-smelling liquid from a nearby warehouse into the hold of the ship, At least the captain is relieved that he'll be able to set sail on time, though. He gratefully pays you, but you can't help, but think that such menial labor might be beneath you."
+            },
+            "2": {
+              "choice": "Move on with your business. You don't have the time or inclination for such things.",
+              "outcome": "Unwilling to be bothered by such trivial matters, you continue on your way amidst curses from the ship's captain. \"Blast it all! You'll get nowhere in life with that sort of attitude!\""
+            }
+          },
+          "text": "Occasionally your dealings in town lead you past the bustling docks. All conversation gets drowned out by the constant din of loading and unloading cargo and crew. This makes it all the more surprising when you hear a voice above the noise directed straight at you.<br><br>\"Oi! You with the hard looks and big arms! I desperately need some help o'er here! Spare a few minutes to help make sure I get out of port on time? Otherwise I'll be stuck here until tomorrow!\""
+        },
+        "8": {
+          "options": {
+            "1": {
+              "choice": "The map does look valuable. Decide to bargain for it.",
+              "effects": {
+                "1": {
+                  "1": "After some amount of haggling back and forth, you settle on a price and pay for the map. You recognize some of the landmarks and should be able to find this place of \"untold treasure \"by hiring a ship.",
+                  "2": "Despite your valiant efforts, you cannot get the merchant to lower his price to something you can afford."
+                }
+              }
+            },
+            "2": {
+              "choice": "Refuse to deal with the merchant.",
+              "outcome": "Wary of the merchant's overly exuberant nature, you politely decline his offer and go about your intended business."
+            }
+          },
+          "text": "On a trip to the New Market, you see a curious sea chart prominently displayed in a Valrath merchants stall.<br><br>\"Ah. I see this interests you!\" he says while holding it up, taking great care not to damage it. \"I've been told this map will lead you to a location of untold riches! Wondrous beyond anything you have seen before!\"<br><br>The Valrath gestures grandly with his free hand and his smile grows wide. \"How can you say no to this? Just make me an offer!\""
+        },
+        "9": {
+          "options": {
+            "1": {
+              "choice": "Sell the goods.",
+              "outcome": "Using a few less-than-savory contacts, you're able to unload the goods for a respectable price. Who knew drunken strolls could prove so profitable?"
+            },
+            "2": {
+              "choice": "Donate the goods to the city.",
+              "outcome": "You sleep off the previous nights revelries and approach the Captain of the Guard. \"This is wonderful news! With attacks on the city becoming ever more frequent our blacksmiths are having trouble keeping up with our demands. And the food should help considerably if we ever find ourselves under siege. This is truly a big help to the city."
+            }
+          },
+          "text": "After a night of heavy drinking, you get turned around while navigating the back alleys and find yourself standing before a collapsed section of bricked road that leads down into an underground tunnel.<br><br>Fueled by curiosity and a bit of liquid courage, you descend in search of adventure. Stumbling around in the vast network of tunnels proves rather fruitless, however, until a well-concealed passage leads you to a long-forgotten stash of weaponry and dried food.<br><br>The stuff could fetch a decent price at the Sunken Market, or you could turn it over to the city guard, which is always in need arms and rations."
+        }
+      }
+    }
+  },
+  "items": {
+    "gh-1": {
+      "": "Boots of Striding",
+      "1": "During your movement, add +2 %game.action.move% to the movement."
+    },
+    "gh-10": {
+      "": "War Hammer",
+      "1": "During your melee attack, add %game.condition.stun% to the entire Attack action."
+    },
+    "gh-100": {
+      "": "Robes of Summoning",
+      "1": "During your turn, perform a \"%game.action.heal% 2, target any summoned ally\" action."
+    },
+    "gh-101": {
+      "": "Second Skin",
+      "1": "Remove two %game.attackmodifier.minus1% from your attack modifier deck."
+    },
+    "gh-102": {
+      "": "Sacrificial Robes",
+      "1": "During your ranged attack, suffer 3 damage to add +1 %game.action.attack% to the entire Attack action."
+    },
+    "gh-103": {
+      "": "Drakescale Armor",
+      "1": "You are immune to %game.condition.poison% and %game.condition.wound%."
+    },
+    "gh-104": {
+      "": "Steam Armor",
+      "1": "On the next five sources of damage from attacks targeting you, gain %game.action.shield% 1."
+    },
+    "gh-105": {
+      "": "Flea-Bitten Shawl",
+      "1": "You are considered to have an initiative of 99 for the purpose of enemy focusing."
+    },
+    "gh-106": {
+      "": "Necklace of Teeth",
+      "1": "Any time you kill an enemy during your turn, perform a \"%game.action.heal% 1, Self\" action."
+    },
+    "gh-107": {
+      "": "Horned Helm",
+      "1": "After moving 4 or more hexes on your turn, add +1 %game.action.attack% to your next melee attack this turn."
+    },
+    "gh-108": {
+      "": "Drakescale Helm",
+      "1": "Whenever you gain %game.condition.muddle%, gain %game.condition.strengthen% instead."
+    },
+    "gh-109": {
+      "": "Thief's Hood",
+      "1": "During your \"%game.action.loot% 1\" ability, perform a \"%game.action.loot% 2\" ability instead."
+    },
+    "gh-11": {
+      "": "Poison Dagger",
+      "1": "During your melee attack, add %game.condition.poison% to a single attack."
+    },
+    "gh-110": {
+      "": "Helm of the Mountain",
+      "1": "When attacked, if %game.element.earth% is Strong, %game.condition.immobilize% the attacker."
+    },
+    "gh-111": {
+      "": "Wave Crest",
+      "1": "When attacked, if %game.element.ice% is Strong, perform a \"%game.action.push% 2\" action targeting the attacker."
+    },
+    "gh-112": {
+      "": "Ancient Drill",
+      "1": "During your melee attack, add +2 %game.action.attack% and %game.action.pierce% 2 to the entire Attack action"
+    },
+    "gh-113": {
+      "": "Skullbane Axe",
+      "1": "During your melee attack targeting a Living Corpse, Living Spirit, or Living Bones, add +5 %game.action.attack% to a single attack."
+    },
+    "gh-114": {
+      "": "Staff of Xorn",
+      "1": "During your ranged attack, add %game.condition.poison% and %game.condition.muddle% to the entire Attack action"
+    },
+    "gh-115": {
+      "": "Mountain Hammer"
+    },
+    "gh-116": {
+      "": "Fueled Falchion",
+      "1": "During your single-target melee attack, the target and all enemies adjacent to the target suffer 1 damage"
+    },
+    "gh-117": {
+      "": "Bloody Axe",
+      "1": "During your melee attack, suffer 2 damage to add +1 %game.action.attack% to the entire Attack action."
+    },
+    "gh-118": {
+      "": "Staff of Elements",
+      "1": "During your turn, create any element."
+    },
+    "gh-119": {
+      "": "Skull of Hatred",
+      "1": "During your turn, %game.condition.curse% all adjacent enemies."
+    },
+    "gh-12": {
+      "": "Minor Healing Potion",
+      "1": "During your turn, perform a \"%game.action.heal% 3, self\" action."
+    },
+    "gh-120": {
+      "": "Staff of Summoning",
+      "1": "During your turn, a summoned ally within %game.action.range:3% performs a \"%game.action.move% 3\" action with you controlling the action."
+    },
+    "gh-121": {
+      "": "Orb of Dawn",
+      "1": "During your turn, %game.element.consume.dark% to create Light."
+    },
+    "gh-122": {
+      "": "Orb of Twilight",
+      "1": "During your turn, %game.element.consume.light% to create Dark."
+    },
+    "gh-123": {
+      "": "Ring of Skulls"
+    },
+    "gh-124": {
+      "": "Doomed Compass",
+      "1": "During your turn, force an enemy within %game.action.range:5% to perform a \"%game.action.move% 2\" action with you controlling the action."
+    },
+    "gh-125": {
+      "": "Curious Gear",
+      "1": "During your turn, disarm all traps within %game.action.range:2%."
+    },
+    "gh-126": {
+      "": "Remote Spider",
+      "1": "During your turn, %game.condition.poison% all adjacent enemies."
+    },
+    "gh-127": {
+      "": "Giant Remote Spider",
+      "1": "During your turn, perform a \"%game.action.loot% 1\" action."
+    },
+    "gh-128": {
+      "": "Black Censer",
+      "1": "During your turn, %game.condition.muddle% all enemies with %game.action.range:2%."
+    },
+    "gh-129": {
+      "": "Black Card",
+      "1": "During your turn, place a character token on an adjacent normal or elite enemy. You add +1 %game.action.attack% to all your attacks targeting this enemy."
+    },
+    "gh-13": {
+      "": "Minor Stamina Potion",
+      "1": "During your turn, Recover %game.card.recover% up to two of your discarded cards."
+    },
+    "gh-130": {
+      "": "Helix Ring",
+      "1": "During your turn,",
+      "3": "to perform a \"%game.action.heal% 25, Self\" action"
+    },
+    "gh-131": {
+      "": "Heart of the Betrayer",
+      "1": "When attacked by an adjacent normal enemy, force the enemy to attack one of its allies within its range instead."
+    },
+    "gh-132": {
+      "": "Power Core"
+    },
+    "gh-133": {
+      "": "Resonant Crystal",
+      "1": "During your turn, destroy an adjacent obstacle."
+    },
+    "gh-14": {
+      "": "Minor Power Potion",
+      "1": "During your attack, add +1 %game.action.attack% to your entire Attack action."
+    },
+    "gh-15": {
+      "": "Boots of Speed",
+      "1": "At the beginning of a round, after all ability cards have been revealed, increase or decrease your leading initiative value by 10."
+    },
+    "gh-16": {
+      "": "Cloak of Pockets",
+      "1": "You can carry two additional %game.items.slots.small% items."
+    },
+    "gh-17": {
+      "": "Empowering Talisman",
+      "1": "During your turn, Refresh %game.card.refresh% one of your consumed %game.items.slots.small% items."
+    },
+    "gh-18": {
+      "": "Battle-Axe",
+      "1": "During your single-target melee attack action, turn the attack into the following:"
+    },
+    "gh-19": {
+      "": "Weighted Net",
+      "1": "During your ranged attack, add %game.condition.immobilize% to a single attack."
+    },
+    "gh-2": {
+      "": "Winged Shoes",
+      "1": "During your movement, add %game.action.jump% to the movement."
+    },
+    "gh-20": {
+      "": "Minor Mana Potion",
+      "1": "During your turn, create any element."
+    },
+    "gh-21": {
+      "": "Stun Powder",
+      "1": "During your attack, add %game.condition.stun% to a single attack."
+    },
+    "gh-22": {
+      "": "Heavy Greaves",
+      "1": "You are immune to all forced movement caused by enemies or scenario effects."
+    },
+    "gh-23": {
+      "": "Chainmail",
+      "1": "On the next three sources of damage to you from attacks, gain %game.action.shield% 1."
+    },
+    "gh-24": {
+      "": "Amulet of Life",
+      "1": "During your turn, perform a \"%game.action.heal% 1, Self\" action."
+    },
+    "gh-25": {
+      "": "Jagged Sword",
+      "1": "During your melee attack, add %game.condition.wound% to a single attack."
+    },
+    "gh-26": {
+      "": "Long Spear",
+      "1": "Turn a single-target melee attack into the following:"
+    },
+    "gh-27": {
+      "": "Major Healing Potion",
+      "1": "During your turn, perform a \"%game.action.heal% 5, self\" action."
+    },
+    "gh-28": {
+      "": "Moon Earring",
+      "1": "During your turn, Refresh %game.card.refresh% all of your spent items."
+    },
+    "gh-29": {
+      "": "Comfortable Shoes",
+      "1": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action."
+    },
+    "gh-3": {
+      "": "Hide Armor",
+      "1": "On the next two sources of damage from attacks targeting you, gain %game.action.shield% 1."
+    },
+    "gh-30": {
+      "": "Studded Leather",
+      "1": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack."
+    },
+    "gh-31": {
+      "": "Hawk Helm",
+      "1": "During your ranged attack, add +1 %game.action.range% to your entire Attack action."
+    },
+    "gh-32": {
+      "": "Tower Shield",
+      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack."
+    },
+    "gh-33": {
+      "": "Volatile Bomb",
+      "1": "During your single-target ranged attack action, turn the attack into the following:"
+    },
+    "gh-34": {
+      "": "Major Stamina Potion",
+      "1": "During your turn, Recover %game.card.recover% up to three of your discarded cards."
+    },
+    "gh-35": {
+      "": "Falcon Figurine"
+    },
+    "gh-36": {
+      "": "Boots of Dashing",
+      "1": "During your movement, add +3 %game.action.move% to the movement."
+    },
+    "gh-37": {
+      "": "Robes of Evocation",
+      "1": "During your attack, %game.element.consume.wild%  to add +1 %game.action.attack% to the entire Attack action."
+    },
+    "gh-38": {
+      "": "Heavy Basinet",
+      "1": "You are immune to %game.condition.stun% and %game.condition.muddle%."
+    },
+    "gh-39": {
+      "": "Hooked Chain",
+      "1": "During your ranged attack, add %game.action.pull% 2 to the entire Attack action."
+    },
+    "gh-4": {
+      "": "Leather Armor",
+      "1": "When attacked, the attacker gains Disadvantage on the attack."
+    },
+    "gh-40": {
+      "": "Versatile Dagger",
+      "1": "Whenever you use the default top of an ability card, perform an \"%game.action.attack% 3\" action instead of an \"%game.action.attack% 2\" action."
+    },
+    "gh-41": {
+      "": "Major Power Potion",
+      "1": "During your attack, add +2 %game.action.attack% to your entire Attack action."
+    },
+    "gh-42": {
+      "": "Ring of Haste",
+      "1": "At the end of your turn, play one card from your hand and immediately perform the bottom action of the card."
+    },
+    "gh-43": {
+      "": "Boots of Quickness",
+      "1": "At the beginning of a round, after all ability cards have been revealed, increase or decrease your leading initiative value by 20."
+    },
+    "gh-44": {
+      "": "Splintmail",
+      "1": "On the next four sources of damage to you from attacks, gain %game.action.shield% 1."
+    },
+    "gh-45": {
+      "": "Pendant of Dark Pacts",
+      "1": "During your turn, Refresh %game.card.refresh% two of your consumed %game.items.slots.small% items. Gain %game.condition.curse%."
+    },
+    "gh-46": {
+      "": "Spiked Shield",
+      "1": "When damaged by an attack, gain %game.action.shield% 1 and %game.action.retaliate% 2 for the attack."
+    },
+    "gh-47": {
+      "": "Reaping Scythe",
+      "1": "During your single-target melee attack action, turn the attack into the following:"
+    },
+    "gh-48": {
+      "": "Major Mana Potion",
+      "1": "During your turn, create any two elements."
+    },
+    "gh-49": {
+      "": "Sun Earring",
+      "1": "During your turn, Refresh %game.card.refresh% all of your spent items and \"%game.action.heal% 3, Self\" action."
+    },
+    "gh-5": {
+      "": "Cloak of Invisibility",
+      "1": "During your turn, gain %game.condition.invisible%."
+    },
+    "gh-50": {
+      "": "Steel Sabatons",
+      "1": "If you move 1 or fewer hexes on your turn, gain %game.action.shield% 1 for the round."
+    },
+    "gh-51": {
+      "": "Shadow Armor",
+      "1": "When you are damaged by an attack, suffer no damage instead."
+    },
+    "gh-52": {
+      "": "Protective Charm",
+      "1": "You are immune to %game.condition.poison% and %game.condition.wound%."
+    },
+    "gh-53": {
+      "": "Black Knife",
+      "1": "During your melee attack, add %game.condition.curse% to a single attack."
+    },
+    "gh-54": {
+      "": "Staff of Eminence",
+      "1": "During your ranged attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
+    },
+    "gh-55": {
+      "": "Super Healing Potion",
+      "1": "During your turn, perform a \"%game.action.heal% 7, self\" action."
+    },
+    "gh-56": {
+      "": "Ring of Brutality",
+      "1": "At the end of your turn, play one card from your hand and immediately perform the top action of the card."
+    },
+    "gh-57": {
+      "": "Serene Sandals",
+      "1": "Whenever you use the default bottom of an ability card perform a \"%game.action.move% 4\" action instead of a \"%game.action.move% 2\" action."
+    },
+    "gh-58": {
+      "": "Cloak of Phasing",
+      "1": "Gain %game.action.fly%.",
+      "2": "While occupying an obstacle hex, you are considered %game.condition.invisible% and cannot attack."
+    },
+    "gh-59": {
+      "": "Telescopic Lens",
+      "1": "During your ranged attack, add +2 %game.action.range% to your entire Attack action"
+    },
+    "gh-6": {
+      "": "Eagle-Eye Goggles",
+      "1": "During your attack, gain Advantage on the entire Attack action."
+    },
+    "gh-60": {
+      "": "Unstable Explosives",
+      "1": "Turn a single target ranged attack into the following:",
+      "3": "All allies in the attack area suffer 3 damage."
+    },
+    "gh-61": {
+      "": "Wall Shield",
+      "1": "When damaged by an attack, gain %game.action.shield% 4 for the attack."
+    },
+    "gh-62": {
+      "": "Doom Powder",
+      "1": "During your attack, add %game.condition.stun%, %game.condition.poison%, and %game.condition.curse% to a single attack."
+    },
+    "gh-63": {
+      "": "Lucky Eye",
+      "1": "During your turn, %game.condition.strengthen% yourself and all adjacent allies."
+    },
+    "gh-64": {
+      "": "Boots of Sprinting",
+      "1": "During your movement, add +4 %game.action.move% to the movement."
+    },
+    "gh-65": {
+      "": "Platemail",
+      "1": "On the next five sources of damage to you from attacks, gain %game.action.shield% 1."
+    },
+    "gh-66": {
+      "": "Mask of Terror",
+      "1": "During your melee attack, add %game.action.push% 1."
+    },
+    "gh-67": {
+      "": "Balanced Blade",
+      "1": "Whenever you use the default top of an ability card, perform an \"%game.action.attack% 4\" instead of an \"%game.action.attack% 2\" action."
+    },
+    "gh-68": {
+      "": "Halberd",
+      "1": "During your single target melee attack, you can attack any single enemy within 2 hexes."
+    },
+    "gh-69": {
+      "": "Star Earring",
+      "1": "During your turn, Refresh %game.card.refresh% all of your spent items, \"%game.action.heal% 3, Self\" action, and Recover %game.card.recover% up to two of your discarded cards."
+    },
+    "gh-7": {
+      "": "Iron Helmet",
+      "1": "When attacked, consider any %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead."
+    },
+    "gh-70": {
+      "": "Second Chance Ring",
+      "1": "At the end of your turn, play two cards from your hand and perform an additional turn this round based on your new leading initiative (which must be later than your previous initiative)."
+    },
+    "gh-71": {
+      "": "Boots of Levitation",
+      "1": "Gain %game.action.fly%"
+    },
+    "gh-72": {
+      "": "Shoes of Happiness",
+      "1": "If you move 6 or more hexes on your turn, gain %game.card.experience:1%."
+    },
+    "gh-73": {
+      "": "Blinking Cape",
+      "1": "During your turn, perform a \"%game.action.move% 4, %game.action.jump%\" action"
+    },
+    "gh-74": {
+      "": "Swordedge Armor",
+      "1": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 1, %game.action.retaliate% 1"
+    },
+    "gh-75": {
+      "": "Circlet of Elements",
+      "1": "During your turn, %game.element.consume.wild% to create any element."
+    },
+    "gh-76": {
+      "": "Chain Hood",
+      "1": "While you are adjacent to three or more monsters, gain %game.action.shield% 1"
+    },
+    "gh-77": {
+      "": "Frigid Blade",
+      "1": "During your melee attack, %game.element.consume.ice% to add +2 %game.action.attack% to a single attack."
+    },
+    "gh-78": {
+      "": "Storm Blade",
+      "1": "During your melee attack, %game.element.consume.air% to add +2 %game.action.attack% to a single attack."
+    },
+    "gh-79": {
+      "": "Inferno Blade",
+      "1": "During your melee attack, %game.element.consume.fire% to add +2 %game.action.attack% to a single attack."
+    },
+    "gh-8": {
+      "": "Heater Shield",
+      "1": "When damaged by an attack, gain %game.action.shield% 1 for the attack."
+    },
+    "gh-80": {
+      "": "Tremor Blade",
+      "1": "During your melee attack, %game.element.consume.earth% to add +2 %game.action.attack% to a single attack."
+    },
+    "gh-81": {
+      "": "Brilliant Blade",
+      "1": "During your melee attack, %game.element.consume.light% to add +2 %game.action.attack% to a single attack."
+    },
+    "gh-82": {
+      "": "Night Blade",
+      "1": "During your melee attack, %game.element.consume.dark% to add +2 %game.action.attack% to a single attack."
+    },
+    "gh-83": {
+      "": "Wand of Frost",
+      "1": "During your turn, create Ice."
+    },
+    "gh-84": {
+      "": "Wand of Storms",
+      "1": "During your turn, create Air."
+    },
+    "gh-85": {
+      "": "Wand of Infernos",
+      "1": "During your turn, create Fire."
+    },
+    "gh-86": {
+      "": "Wand of Tremors",
+      "1": "During your turn, create Earth."
+    },
+    "gh-87": {
+      "": "Wand of Brilliance",
+      "1": "During your turn, create Light."
+    },
+    "gh-88": {
+      "": "Wand of Darkness",
+      "1": "During your turn, create Dark."
+    },
+    "gh-89": {
+      "": "Minor Cure Potion",
+      "1": "During your turn, remove one negative condition on yourself. This can be used while you have %game.condition.stun%."
+    },
+    "gh-9": {
+      "": "Piercing Bow",
+      "1": "During your ranged attack, ignore all Shield values for the entire Attack action."
+    },
+    "gh-90": {
+      "": "Major Cure Potion",
+      "1": "During your turn, remove all negative conditions on yourself. This can be used while you have %game.condition.stun%."
+    },
+    "gh-91": {
+      "": "Steel Ring",
+      "1": "When damaged by an attack targeting you, gain %game.action.shield% 4 for the attack."
+    },
+    "gh-92": {
+      "": "Dampening Ring",
+      "1": "Before an enemy would consume an element, consume that element instead for no effect"
+    },
+    "gh-93": {
+      "": "Scroll of Power",
+      "1": "During an ally's attack, add +1 %game.action.attack% to their entire attack action"
+    },
+    "gh-94": {
+      "": "Scroll of Healing",
+      "1": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action"
+    },
+    "gh-95": {
+      "": "Scroll of Stamina",
+      "1": "During your turn, an ally within %game.action.range:5% may Recover %game.card.recover% up to two of their discarded cards"
+    },
+    "gh-96": {
+      "": "Rocket Boots",
+      "1": "During your movement, add +3 %game.action.move% and %game.action.jump% to a single movement"
+    },
+    "gh-97": {
+      "": "Endurance Footwraps",
+      "1": "If you move 4 or more hexes on your turn, perform a \"\"%game.action.heal% 1, Self\"\" action."
+    },
+    "gh-98": {
+      "": "Drakescale Boots",
+      "1": "You are unaffected by difficult and hazardous terrain."
+    },
+    "gh-99": {
+      "": "Magma Waders",
+      "1": "Ignore the damaging effects of hazardous terrain and perform a \"%game.action.heal% 2, Self\" action on any turn in which you have entered a hazardous terrain hex."
+    }
+  },
+  "summon": {
+    "bat-swarm": "Bat Swarm",
+    "battle-boar": "Battle Boar",
+    "battle-bot": "Battle Bot",
+    "black-unicorn": "Black Unicorn",
+    "burning-avatar": "Burning Avatar",
+    "decoy": "Decoy",
+    "doppelganger": "Doppelganger",
+    "giant-toad": "Giant Toad",
+    "green-adder": "Green Adder",
+    "healing-sprite": "Healing Sprite",
+    "iron-beast": "Iron Beast",
+    "jade-falcon": "Jade Falcon",
+    "kill-bot": "Kill Bot",
+    "lava-golem": "Lava Golem",
+    "living-bomb": "Living Bomb",
+    "mana-sphere": "Mana Sphere",
+    "monolith": "Monolith",
+    "monstrous-rat": "Monstrous Rat",
+    "mystic-ally": "Mystic Ally",
+    "nail-sphere": "Nail Sphere",
+    "rat-king": "Rat King",
+    "rat-swarm": "Rat Swarm",
+    "red-falcon": "Red Falcon",
+    "rock-colossus": "Rock Colossus",
+    "shadow-wolf": "Shadow wolf",
+    "skeleton": "Skeleton",
+    "slime-spirit": "Slime Spirit",
+    "spirit-banner": "Spirit Banner",
+    "spitting-cobra": "Spitting Cobra",
+    "steel-construct": "Steel Construct",
+    "swamp-alligator": "Swamp Alligator",
+    "tattered-wolf": "Tattered Wolf",
+    "thorn-shooter": "Thorn Shooter",
+    "two-mini": "Bear",
+    "vicious-jackal": "Vicious Jackal",
+    "void-eater": "Void Eater",
+    "war-hawk": "War Hawk",
+    "warrior-spirit": "Warrior Spirit",
+    "wind-totem": "Wind Totem"
+  },
+  "treasures": {
+    "gh": {
+      "75": "Cryptogram Found (See scenario book page 121)"
+    }
+  }
+}

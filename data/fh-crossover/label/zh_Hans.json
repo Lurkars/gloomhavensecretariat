@@ -1,0 +1,25 @@
+{
+  "character": {
+    "brute": "蛮子",
+    "mindthief": "乱心贼",
+    "red-guard": "赤红守卫",
+    "scoundrel": "凶徒",
+    "spellweaver": "织魔师",
+    "tinkerer": "修补匠",
+    "voidwarden": "虚空守望者"
+  },
+  "custom": {
+    "fh": {
+      "brute": {
+        "1": "<b>Rested and Ready:</b> 每当你进行长休时，在下一个回合为你的第一次移动能力增加1 %game.action.move%",
+        "2": "使敌人在单轮攻击中受到总共12点或更多的反伤伤害",
+        "3": "在连续的3个回合中，使用6张不同的持续牌并且每回合对敌人至少造成%game.damage:6%"
+      },
+      "cragheart": {
+        "1": "<b>Earthquakes</b>每当一个新房间被揭示时，控制该房间中所有敌人执行 %game.action.move% 1， 该行动能力必须最后停止在空格",
+        "2": "只攻击临近物体或墙壁的敌人",
+        "3": "每回合至少对一个盟友造成伤害或治疗"
+      }
+    }
+  }
+}

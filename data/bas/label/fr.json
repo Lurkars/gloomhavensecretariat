@@ -1,19 +1,4 @@
 {
-  "edition": {
-    "bas": "Sang et sable"
-  },
-  "monster": {
-    "desiccated-corpse": "Cadavre desséché",
-    "dust-demon": "Démon de poussière",
-    "giant-scorpion": "Scorpion géant",
-    "horned-lizard": "Lézard cornu",
-    "jackal": "Chacal",
-    "sand-spider": "Araignée de sable"
-  },
-  "scenario": {
-    "All Over the Map": "Partout sur la carte",
-    "Troubled Waters": "Eaux troubles"
-  },
   "custom": {
     "bas": {
       "desiccated-corpse": {
@@ -32,5 +17,20 @@
         "3": "Créez un piège %game.condition.immobilize% sur un terrain adjacent le plus proche d'un adversaire."
       }
     }
+  },
+  "edition": {
+    "bas": "Sang et sable"
+  },
+  "monster": {
+    "desiccated-corpse": "Cadavre desséché",
+    "dust-demon": "Démon de poussière",
+    "giant-scorpion": "Scorpion géant",
+    "horned-lizard": "Lézard cornu",
+    "jackal": "Chacal",
+    "sand-spider": "Araignée de sable"
+  },
+  "scenario": {
+    "All Over the Map": "Partout sur la carte",
+    "Troubled Waters": "Eaux troubles"
   }
 }

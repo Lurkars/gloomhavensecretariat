@@ -2,15 +2,15 @@
     <h2 [ghs-label]="'scenario.rules.show.applied'" *ngIf="appliedScenarioRules.length"></h2>
     <div class="applied" >
         <ghs-scenario-rule *ngFor="let ruleModel of appliedScenarioRules" [rule]="ruleModel.rule"
-            [identifier]="ruleModel.identifier" (click)="disgardScenarioRule(ruleModel)"></ghs-scenario-rule>
+            [identifier]="ruleModel.identifier" (click)="discardScenarioRule(ruleModel)"></ghs-scenario-rule>
     </div>
     <h2 [ghs-label]="'scenario.rules.show.discarded'"></h2>
     <div class="discarded">
-        <ghs-scenario-rule *ngFor="let ruleModel of disgardedScenarioRules" [rule]="ruleModel.rule"
+        <ghs-scenario-rule *ngFor="let ruleModel of discardedScenarioRules" [rule]="ruleModel.rule"
             [identifier]="ruleModel.identifier"></ghs-scenario-rule>
     </div>
     <div class="menu">
-        <a *ngIf="disgardedScenarioRules.length" [ghs-label]="'scenario.rules.clearDiscarded'"
+        <a *ngIf="discardedScenarioRules.length" [ghs-label]="'scenario.rules.clearDiscarded'"
             (click)="clearDiscardedScenarioRules()"></a>
     </div>
 </div>

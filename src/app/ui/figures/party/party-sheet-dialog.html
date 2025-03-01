@@ -155,6 +155,9 @@
           <img *ngIf="worldMap" (click)="openMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.campaign.map'">
         </span>
 
+        <span class="next" *ngIf="party.weeks == (80 + 80*calendarSheet)" (click)="setWeek(party.weeks+1)"><span
+          [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"></span>
+
         <div class="weeks">
           <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
             [ghs-tooltip]="'party.campaign.sheet.weekSections.hint'" (singleClick)="setWeek(index+1 + 80*calendarSheet)"
@@ -171,12 +174,10 @@
               {{section}}
             </div>
           </div>
-          <span class="next" *ngIf="party.weeks == (80 + 80*calendarSheet)" (click)="setWeek(party.weeks+1)"><span
-              [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"></span>
         </div>
 
         <div class="name">
-          <label><span [ghs-label]="'party.campaign.sheet.name'"></span>:</label>
+          <label><span [ghs-label]="'party.campaign.sheet.name'"></span></label>
           <input type="text" [value]="party.name" (change)="setName($event)" [ghs-label]="'party.campaign.sheet.name'"
             [ghs-label-attribute]="'placeholder'">
 
@@ -586,11 +587,20 @@
         </div>
 
         <div class="prosperity" *ngIf="gameManager.fhRules() || gameManager.editionRules('gh')"
-          [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
-          <div class="legend" (click)="setProsperity(0)">
-            <div class="level"><span [ghs-label]="'party.prosperity'"></span> <img
-                *ngIf="settingsManager.settings.fhStyle" src="./assets/images/fh/prosperity.svg">:</div>
-            <div class="check" *ngIf="!settingsManager.settings.fhStyle">
+          [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'wrapped': settingsManager.settings.wrapProsperity}">
+          <div class="legend">
+            <div class="level">
+              <span [ghs-label]="'party.prosperity'" [ghs-tooltip]="'party.prosperity.reset'"
+                (click)="setProsperity(0)"></span>
+              <img *ngIf="settingsManager.settings.fhStyle" [ghs-tooltip]="'party.prosperity.reset'"
+                src="./assets/images/fh/prosperity.svg" (click)="setProsperity(0)">
+              <span>:</span>
+              <img class="toggle-wrapped" (click)="settingsManager.toggle('wrapProsperity')"
+                [ghs-tooltip]="'party.prosperity.wrap.' + (settingsManager.settings.wrapProsperity ? 'shrink' : 'expand')"
+                [src]="'./assets/images/' + (settingsManager.settings.wrapProsperity ? 'shrink' : 'expand') + '.svg'">
+            </div>
+            <div class="check" *ngIf="!settingsManager.settings.fhStyle" [ghs-tooltip]="'party.prosperity.reset'"
+              (click)="setProsperity(0)">
               <span class="checkbox checked disabled"></span><span>:</span>
             </div>
           </div>
@@ -764,7 +774,7 @@
                 <div class="available-characters" *ngIf="availableCharacters[index]">
                   <a class="available-character" *ngFor="let characterModel of availableCharacters[index]"
                     ghs-pointer-input (singleClick)="openCharacterSheet(characterModel)"
-                    (doubleClick)="replayCharacter(characterModel)" [ghs-tooltip]="'character.replay'">
+                    (doubleClick)="replayCharacter(characterModel)" [ghs-tooltip]="'character.replay.hint'">
                     <img
                       [src]="'./assets/images/character/icons/' + characterModel.edition + '-' + characterModel.name + '.svg'" />
                   </a>

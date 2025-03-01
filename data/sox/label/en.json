@@ -6,5 +6,10 @@
     "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",
     "tormented-soul": "Tormented Soul",
     "water-eel": "Water Eel"
+  },
+  "scenario": {
+    "Crypt of the Ancients": "Crypt of the Ancients",
+    "Flooded Crypt": "Flooded Crypt",
+    "Nobles' Crypt": "Nobles' Crypt"
   }
 }

@@ -16,6 +16,8 @@
         [ghs-label]="'data.monster.' + (monster.statEffect && monster.statEffect.name ? monster.statEffect.name : monster.name)"></span>
       <span *ngIf="monster.statEffect && monster.statEffect.name">&nbsp;(<span
           [ghs-label]="'data.monster.' + monster.name"></span>)</span>
+      <span class="elite" *ngIf="monster.tags.indexOf('bb-elite') != -1">&nbsp;<span
+          [ghs-label]="'%game.monsterType.elite%'"></span></span>
       <span *ngIf="monster.statEffect" class="stat-effect">*</span>
       <span class="ally" *ngIf="monster.isAlly"><span [ghs-label]="'game.ally'"></span></span>
       <span class="allied" *ngIf="monster.isAllied"><span [ghs-label]="'game.allied'"></span></span>

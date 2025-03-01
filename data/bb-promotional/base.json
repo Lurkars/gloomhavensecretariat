@@ -1,0 +1,7 @@
+{
+  "edition": "bb-promotional",
+  "additional": true,
+  "extensions": [
+    "bb"
+  ]
+}

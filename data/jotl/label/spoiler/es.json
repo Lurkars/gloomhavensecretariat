@@ -1,0 +1,148 @@
+{
+  "items": {
+    "jotl-1": {
+      "": "Lentes ojo de águila",
+      "1": "Durante tu ataque, gana Ventaja en la acción de ataque entera."
+    },
+    "jotl-10": {
+      "": "Lanza de hierro",
+      "1": "Durante tu Capacidad de ataque cuerpo a cuerpo con un solo objetivo, ataca a cualquier enemigo a 2 hexágonos o menos,"
+    },
+    "jotl-11": {
+      "": "Poción curativa",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.heal% 3, Personal\"."
+    },
+    "jotl-12": {
+      "": "Poción de resistencia",
+      "1": "Durante tu turno, devuelve 1 de tus cartas descartadas a tu mano."
+    },
+    "jotl-13": {
+      "": "Poción de poder",
+      "1": "Durante tu ataque, añade %game.action.attack% +1 a tu acción de Ataque entera."
+    },
+    "jotl-14": {
+      "": "Poción de maná",
+      "1": "Durante tu turno, imbuye 1 elemento cualquiera."
+    },
+    "jotl-15": {
+      "": "Amuleto de vida",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.heal% 1, Personal\"."
+    },
+    "jotl-16": {
+      "": "Túnica de evocación",
+      "1": "Durante tu ataque, %game.element.consume.wild% para añadir %game.action.attack% +1a la acción de ataque entera."
+    },
+    "jotl-17": {
+      "": "Zapatos cómodos",
+      "1": "Siempre que uses la acción básica de la mitad inferior de una carta de Capacidad, realiza una acción de \"%game.action.move% 3\" en lugar de \"%game.action.move% 2\"."
+    },
+    "jotl-18": {
+      "": "Hacha de batalla",
+      "1": "Durante tu Capacidad de ataque cuerpo a cuerpo con un solo objetivo, convierte el ataque en:"
+    },
+    "jotl-19": {
+      "": "Vela negra",
+      "1": "Durante tu ataque a distancia, añade %game.condition.curse% a un único ataque."
+    },
+    "jotl-2": {
+      "": "Yelmo de hierro",
+      "1": "Cuando te ataquen, cualquier carta de Modificador de ataque %game.attackmodifier.double% attack que robe el enemigo se considera un %game.attackmodifier.plus0%."
+    },
+    "jotl-20": {
+      "": "Polvo aturdidor",
+      "1": "Durante tu ataque, añade %game.condition.stun% a un único ataque."
+    },
+    "jotl-21": {
+      "": "Yelmo de haclón",
+      "1": "Durante tu ataque a distancia, añade %game.action.range% +1 a la acción de ataque entera."
+    },
+    "jotl-22": {
+      "": "Armadura filosa",
+      "1": "Cuando sufras daño por un ataque, obten %game.action.shield% 2 contra el ataque y el atacante sufre 2 de daño."
+    },
+    "jotl-23": {
+      "": "Botas de zancadas",
+      "1": "Durante tu movimiento, añade %game.action.move% +2 a un solo movimiento."
+    },
+    "jotl-24": {
+      "": "Bomba volátil",
+      "1": "Durante tu Capacidad de ataque a distancia con un solo objetivo, convierte el ataque en:"
+    },
+    "jotl-25": {
+      "": "Cadena espinosa",
+      "1": "Durante tu ataque a distancia, añade %game.action.pull% 2 a un único ataque."
+    },
+    "jotl-26": {
+      "": "Amuleto del Roble",
+      "1": "Durante tu turno, realiza una acción de \"%game.condition.bless%, %game.action.range:5%\"."
+    },
+    "jotl-27": {
+      "": "Brújula funesta",
+      "1": "Durante tu runo, obliga a un enemigo a %game.action.range:3% a realizar una acción de \"%game.action.move% 2\" controlada por ti."
+    },
+    "jotl-28": {
+      "": "Mantón pulgoso",
+      "1": "Se considera que tienes iniciativa 99 a efectos de atención de los enemigos."
+    },
+    "jotl-29": {
+      "": "Pavés",
+      "1": "Cuando sufras daño por un ataque, obten %game.action.shield% 2 contra ese ataque."
+    },
+    "jotl-3": {
+      "": "Armadura de malla",
+      "1": "Durante tu turno, obtén %game.action.shield% 1 para el resto de la ronda"
+    },
+    "jotl-30": {
+      "": "Anillo de premura",
+      "1": "Al final de tu turno, juega 1 carta de tu mano y realiza de inmediato la acción inferior de la carta."
+    },
+    "jotl-31": {
+      "": "Anillo de fuerza",
+      "1": "Durante tu turno, obten %game.condition.strengthen%."
+    },
+    "jotl-32": {
+      "": "Anillo de recuperación",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.heal% 3, %game.action.range:5%\"."
+    },
+    "jotl-33": {
+      "": "Anillo de acero",
+      "1": "Cuando sufras daño por un Ataque, obtén %game.action.shield% 4 contra ese ataque."
+    },
+    "jotl-34": {
+      "": "Hacha dentada",
+      "1": "Durante tu atque, añade %game.condition.wound% a la acción de ataque entera."
+    },
+    "jotl-35": {
+      "": "Túnica de mando",
+      "1": "Durante tu turno, un aliado adyacente puede realizar una acción de \"%game.action.attack% 2\"."
+    },
+    "jotl-36": {
+      "": "Botas a reacción",
+      "1": "Durante tu movimiento añade %game.action.move% +1 y %game.action.jump% a un único movimiento."
+    },
+    "jotl-4": {
+      "": "Cuero tachonado",
+      "1": "Cuando te ataquen, antes de robar una carta de Modificador de ataque, el atacante sufre Desventaja y tu obtienes %game.action.shield% 1 contra el ataque."
+    },
+    "jotl-5": {
+      "": "Botas gastadas",
+      "1": "Durante tu movimiento, añade %game.action.move% +1 a un solo movimiento."
+    },
+    "jotl-6": {
+      "": "Botas aladas",
+      "1": "Durante tu movimiento añade %game.action.jump% a la acción de Movimiento entera."
+    },
+    "jotl-7": {
+      "": "Escudo triangular",
+      "1": "Cuando sufras daño por un ataque, obten %game.action.shield% 1 contra ese ataque."
+    },
+    "jotl-8": {
+      "": "Martillo arrojadizo",
+      "1": "Durante tu ataque a distancia, añade %game.condition.stun% a un único ataque"
+    },
+    "jotl-9": {
+      "": "Daga envenenada",
+      "1": "Durante tu ataque cuerpo a cuerpo, añade %game.condition.poison% a un único ataque."
+    }
+  }
+}

@@ -3,8 +3,10 @@
     "brute": "Brute",
     "cragheart": "Cœur de Roche",
     "demolitionist": {
-      ".": "Artificier",
-      "mech": "Mech Suit"
+      "": "Artificier",
+      "mech": {
+        "": "Mech Suit"
+      }
     },
     "diviner": "Devineresse",
     "hatchet": "Lanceur de hache",

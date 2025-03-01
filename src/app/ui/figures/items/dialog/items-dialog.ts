@@ -10,6 +10,7 @@ import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
 import { ghsDialogClosingHelper, ghsTextSearch } from "src/app/ui/helper/Static";
 import { ItemsBrewDialog } from "../brew/brew";
 import { ItemDistillDialogComponent } from "../character/item-distill";
+import { ItemsCharacterDialogComponent } from "../character/items-character-dialog";
 
 @Component({
     standalone: false,
@@ -332,6 +333,16 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
             gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', gameManager.characterManager.characterName(this.character), itemData.name, itemData.edition)
             gameManager.itemManager.toggleEquippedItem(itemData, this.character, force)
             gameManager.stateManager.after();
+        }
+    }
+
+    openItems(): void {
+        if (this.character && this.character.progress.items && this.character.progress.items.length) {
+            this.dialogRef.close();
+            this.dialog.open(ItemsCharacterDialogComponent, {
+                panelClass: ['dialog'],
+                data: this.character
+            });
         }
     }
 

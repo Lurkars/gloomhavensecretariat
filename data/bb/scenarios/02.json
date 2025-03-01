@@ -4,6 +4,7 @@
   "edition": "bb",
   "level": 1,
   "unlocks": [
+    "2.5",
     "3",
     "4"
   ],

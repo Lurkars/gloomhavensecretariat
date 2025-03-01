@@ -12,6 +12,7 @@ import { ItemsBrewDialog } from "./brew/brew";
 import { ItemDistillDialogComponent } from "./character/item-distill";
 import { ItemDialogComponent } from "./dialog/item-dialog";
 import { ItemsDialogComponent } from "./dialog/items-dialog";
+import { ConfirmDialogComponent } from "../../helper/confirm/confirm";
 
 
 @Component({
@@ -277,34 +278,58 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     openItem(itemData: ItemData) {
         this.dialog.open(ItemDialogComponent, {
             panelClass: ['fullscreen-panel'],
-            data: { character: this.character, item: itemData, setup: gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound }
+            data: { character: settingsManager.settings.characterItems ? this.character : undefined, item: itemData, setup: gameManager.game.state == GameState.draw && gameManager.roundManager.firstRound }
         })
     }
 
     removeItem(itemData: ItemData) {
         const item = this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (item) {
-            const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("removeItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
-            this.character.progress.items.splice(index, 1);
-            this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
-            this.items.splice(index, 1);
-            gameManager.stateManager.after();
-            this.itemChange();
+            this.dialog.open(ConfirmDialogComponent, {
+                panelClass: ['dialog'],
+                data: {
+                    label: 'game.items.remove',
+                    args: ['data.items.' + item.edition + '-' + itemData.id]
+                }
+            }).closed.subscribe({
+                next: (result) => {
+                    if (result) {
+                        const index = this.character.progress.items.indexOf(item)
+                        gameManager.stateManager.before("removeItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
+                        this.character.progress.items.splice(index, 1);
+                        this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
+                        this.items.splice(index, 1);
+                        gameManager.stateManager.after();
+                        this.itemChange();
+                    }
+                }
+            })
         }
     }
 
     sellItem(itemData: ItemData) {
         const item = this.character.progress.items.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition);
         if (item && gameManager.itemManager.itemSellValue(itemData)) {
-            const index = this.character.progress.items.indexOf(item)
-            gameManager.stateManager.before("sellItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
-            this.character.progress.gold += gameManager.itemManager.itemSellValue(itemData);
-            this.character.progress.items.splice(index, 1);
-            this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
-            this.items.splice(index, 1);
-            gameManager.stateManager.after();
-            this.itemChange();
+            this.dialog.open(ConfirmDialogComponent, {
+                panelClass: ['dialog'],
+                data: {
+                    label: 'game.items.sell',
+                    args: ['data.items.' + item.edition + '-' + itemData.id, gameManager.itemManager.itemSellValue(itemData)]
+                }
+            }).closed.subscribe({
+                next: (result) => {
+                    if (result) {
+                        const index = this.character.progress.items.indexOf(item)
+                        gameManager.stateManager.before("sellItem", gameManager.characterManager.characterName(this.character), this.character.progress.items[index].name, this.character.progress.items[index].edition);
+                        this.character.progress.gold += gameManager.itemManager.itemSellValue(itemData);
+                        this.character.progress.items.splice(index, 1);
+                        this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != '' + itemData.id || identifier.edition != itemData.edition);
+                        this.items.splice(index, 1);
+                        gameManager.stateManager.after();
+                        this.itemChange();
+                    }
+                }
+            })
         }
     }
 

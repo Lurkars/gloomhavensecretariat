@@ -1,17 +1,21 @@
 {
+  "custom": {
+    "gh": {
+      "ghost-wolf": {
+        "1": "매번 라운드 시작에:"
+      }
+    },
+    "solo": {
+      "char-am-deck": "캐릭터 공격 보정 덱 사용"
+    }
+  },
   "edition": {
     "solo": "1인용 시나리오"
   },
   "monster": {
-    "abael-warlord": "Abael Warlord",
-    "algox-icespeaker-shards-solo": "Algox Icespeaker (Solo)",
-    "algox-snowspeaker-trap-solo": "Algox Snowspeaker (Solo)",
     "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.music-note% %solo%)",
     "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.music-note% %solo%)",
-    "black-imp-deathwalker-solo": "Black Imp (Solo)",
     "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.circles% %solo%)",
-    "chief-of-spikes": "Chief of Spikes",
-    "city-guard-banner-spear-solo": "City Guard (Solo)",
     "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.saw% %solo%)",
     "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.scoundrel% %solo%)",
     "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.sun% %solo%)",
@@ -22,59 +26,34 @@
     "ghost-wolf": "유령 늑대",
     "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.angry-face% %solo%)",
     "high-flame": "높은 화염",
-    "hollow-scholar": "Hollow Scholar",
-    "incarnation-of-ancestors": "Incarnation of Ancestors",
     "inox-necromancer": "이녹스 강령술사",
     "lieutenant": "장교",
-    "lost-in-seaweed": "Lost in Seaweed",
-    "mountains-heart": "Mountain's Heart",
-    "night-demon-deathwalker-solo": "Night Demon (Solo)",
-    "plea-for-help-without-answer": "Plea for Help Without Answer",
-    "shape-blocks-out-the-sun": "Shape Blocks Out the Sun",
     "song-of-the-deep": "심연의 노래",
     "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.scoundrel% %solo%)",
     "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
   },
   "scenario": {
-    "group": {
-      "solo": "1인용 시나리오"
-    },
-    "Return to the Black Barrow": "검은 무덤",
+    "Aftermath": "재앙의 여파",
     "An Unfortunate Intrusion": "유감스러운 침입",
-    "Corrupted Laboratory": "타락한 실험실",
     "Armory Heist": "무기고 털이",
-    "Stone Defense": "바위 수호",
-    "Rodent Liberation": "설치류 해방",
+    "Battle of the Bards": "음유시인 대결",
     "Caravan Escort": "상단 호위",
-    "Storage Fees": "보관료",
-    "Plane of Wild Beasts": "야생동물의 차원",
+    "Corrupted Hunt": "타락자 사냥",
+    "Corrupted Laboratory": "타락한 실험실",
+    "Elemental Secrets": "원소의 비밀",
+    "Forecast of the Inevitable": "피할 수 없는 예측",
     "Harvesting the Night": "어둠 수확",
     "Plagued Crypt": "병든 묘지",
-    "Unnatural Insults": "자연을 거스르는 모욕",
-    "Battle of the Bards": "음유시인 대결",
-    "Corrupted Hunt": "타락자 사냥",
-    "Aftermath": "재앙의 여파",
-    "Elemental Secrets": "원소의 비밀",
+    "Plane of Wild Beasts": "야생동물의 차원",
+    "Return to the Black Barrow": "검은 무덤",
+    "Rodent Liberation": "설치류 해방",
+    "Stone Defense": "바위 수호",
+    "Storage Fees": "보관료",
     "The Caged Bear": "우리에 갇힌 곰",
     "The Sands of Time": "시간의 모래",
-    "Forecast of the Inevitable": "피할 수 없는 예측"
-  },
-  "custom": {
-    "solo": {
-      "char-am-deck": "캐릭터 공격 보정 덱 사용"
-    },
-    "gh": {
-      "city-guard-saw-solo": {
-        "1": "Suffer %game.damage:1% at end of round until fully healed"
-      },
-      "ghost-wolf": {
-        "1": "매번 라운드 시작에:"
-      }
-    },
-    "fh": {
-      "errata": {
-        "solo28": "Special rules: \"Snowspeaker\" should be \"Icespeaker\""
-      }
+    "Unnatural Insults": "자연을 거스르는 모욕",
+    "group": {
+      "solo": "1인용 시나리오"
     }
   }
 }

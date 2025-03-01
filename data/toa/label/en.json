@@ -1,4 +1,7 @@
 {
+  "deck": {
+    "scavenger": "Scavenger"
+  },
   "edition": {
     "toa": "Trail Of Ashes"
   },
@@ -27,9 +30,6 @@
     "valrath-vanquisher-2": "Valrath Vanquisher 2",
     "vermling-scavenger": "Vermling Scavenger",
     "volt-demon": "Volt Demon"
-  },
-  "deck": {
-    "scavenger": "Scavenger"
   },
   "personalQuest": {
     "641": "Grave Robber",

@@ -7,7 +7,7 @@ import { AdditionalIdentifier } from "src/app/game/model/data/Identifier";
 import { ItemData, ItemFlags, ItemSlot } from "src/app/game/model/data/ItemData";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-character-item',
     templateUrl: './item-character.html',
     styleUrls: ['./item-character.scss']
@@ -18,6 +18,7 @@ export class CharacterItemComponent {
     @Input() item!: ItemData;
     @Input() flipped: boolean = true;
     @Input() setup: boolean = false;
+    @Input() dialog: boolean = false;
 
     gameManager: GameManager = gameManager;
     settingsManager: SettingsManager = settingsManager;
@@ -71,7 +72,7 @@ export class CharacterItemComponent {
 
         if (!this.setup && gameManager.game.state == GameState.next || force) {
             const equipped = this.equipped();
-            if (equipped) {
+            if (equipped && (gameManager.itemManager.itemUsable(this.item) || force)) {
                 equipped.tags = equipped.tags || [];
                 gameManager.stateManager.before((equipped.tags.indexOf(flag) == -1 ? 'characterItemApply.' : 'characterItemUnapply.') + flag, gameManager.characterManager.characterName(this.character), this.item.id, this.item.edition, this.item.name)
                 if (equipped.tags.indexOf(flag) == -1) {

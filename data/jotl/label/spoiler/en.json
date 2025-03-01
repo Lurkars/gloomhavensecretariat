@@ -1,0 +1,148 @@
+{
+  "items": {
+    "jotl-1": {
+      "": "Eagle-Eye Goggles",
+      "1": "During your attack, gain Advantage on the entire Attack action."
+    },
+    "jotl-10": {
+      "": "Iron Spear",
+      "1": "During your single-target melee Attack ability, attack any one enemy within 2 hexes"
+    },
+    "jotl-11": {
+      "": "Healing Potion",
+      "1": "During your turn, perform a \"%game.action.heal% 3, Self\" action."
+    },
+    "jotl-12": {
+      "": "Stamina Potion",
+      "1": "During your turn, return one of your discarded cards to your hand."
+    },
+    "jotl-13": {
+      "": "Power Potion",
+      "1": "During your attack, add +1 %game.action.attack% to your entire Attack action."
+    },
+    "jotl-14": {
+      "": "Mana Potion",
+      "1": "During your turn, infuse any one element."
+    },
+    "jotl-15": {
+      "": "Amulet of Life",
+      "1": "During your turn, \"%game.action.heal% 1, Self\" action."
+    },
+    "jotl-16": {
+      "": "Robes of Evocation",
+      "1": "During your attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
+    },
+    "jotl-17": {
+      "": "Comfortable Shoes",
+      "1": "Whenever you use the default bottom of an ability card, perform a \"%game.action.move% 3\" action instead of a \"%game.action.move% 2\" action."
+    },
+    "jotl-18": {
+      "": "Battle-Axe",
+      "1": "During your single-target melee attack action, turn the attack into the following:"
+    },
+    "jotl-19": {
+      "": "Black Candle",
+      "1": "During your ranged attack, add %game.condition.curse% to a single attack."
+    },
+    "jotl-2": {
+      "": "Iron Helmet",
+      "1": "When attacked, consider any %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead."
+    },
+    "jotl-20": {
+      "": "Stun Powder",
+      "1": "During your attack, add %game.condition.stun% to a single attack."
+    },
+    "jotl-21": {
+      "": "Hawk Helm",
+      "1": "During your ranged attack, add +1 %game.action.range% to your entire Attack action."
+    },
+    "jotl-22": {
+      "": "Bladed Armor",
+      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack and the attacker suffers 2 damage."
+    },
+    "jotl-23": {
+      "": "Boots of Striding",
+      "1": "During your movement, add +2 %game.action.move% to a single movement."
+    },
+    "jotl-24": {
+      "": "Volatile Bomb",
+      "1": "During your single-target ranged attack action, turn the attack into the following:"
+    },
+    "jotl-25": {
+      "": "Barbed Chain",
+      "1": "During your ranged attack, add %game.action.pull% 2 to a single attack."
+    },
+    "jotl-26": {
+      "": "Oak Charm",
+      "1": "During your turn, perform a \"%game.condition.bless%, %game.action.range:5%\" action."
+    },
+    "jotl-27": {
+      "": "Fateful Compass",
+      "1": "During your turn, force one enemy within %game.action.range:3% to perform a \"%game.action.move% 2\" action with you controlling the action."
+    },
+    "jotl-28": {
+      "": "Flea-Bitten Shawl",
+      "1": "You are considered to have an initiative of 99 for the purpose of enemy focusing."
+    },
+    "jotl-29": {
+      "": "Tower Shield",
+      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack."
+    },
+    "jotl-3": {
+      "": "Chain Armor",
+      "1": "During your turn gain %game.action.shield% 1 for the rest of the round"
+    },
+    "jotl-30": {
+      "": "Ring of Haste",
+      "1": "At the end of your turn, play one card from your hand and immediately perform the bottom action of that card."
+    },
+    "jotl-31": {
+      "": "Ring of Strength",
+      "1": "During your turn, gain %game.condition.strengthen%."
+    },
+    "jotl-32": {
+      "": "Ring of Restoration",
+      "1": "During your turn, perform a \"%game.action.heal% 3, %game.action.range:5%\" action."
+    },
+    "jotl-33": {
+      "": "Steel Ring",
+      "1": "When damaged by an attack, gain %game.action.shield% 4 for the attack."
+    },
+    "jotl-34": {
+      "": "Barbed Axe",
+      "1": "During your attack, add %game.condition.wound% to the entire Attack Action."
+    },
+    "jotl-35": {
+      "": "Robes of Command",
+      "1": "During your turn, one adjacent ally may perform and \"%game.action.attack% 2\" Action."
+    },
+    "jotl-36": {
+      "": "Jet Boots",
+      "1": "During your movement, add +1 %game.action.move% and %game.action.jump% to a single movement."
+    },
+    "jotl-4": {
+      "": "Studded Leather",
+      "1": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack."
+    },
+    "jotl-5": {
+      "": "Weathered Boots",
+      "1": "During your movement add +1 %game.action.move% to a single movement."
+    },
+    "jotl-6": {
+      "": "Winged Shoes",
+      "1": "During your movement, add %game.action.jump% to the entire Move Action."
+    },
+    "jotl-7": {
+      "": "Heater Shield",
+      "1": "When damaged by an attack, gain %game.action.shield% 1 for the attack."
+    },
+    "jotl-8": {
+      "": "Throwing Hammer",
+      "1": "During your ranged attack, add %game.condition.stun% to a single attack"
+    },
+    "jotl-9": {
+      "": "Poison Dagger",
+      "1": "During your melee attack, add %game.condition.poison% to a single attack."
+    }
+  }
+}

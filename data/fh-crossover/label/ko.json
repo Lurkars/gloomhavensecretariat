@@ -3,8 +3,10 @@
     "brute": "야만인",
     "cragheart": "바위심장",
     "demolitionist": {
-      ".": "철거전문가",
-      "mech": "기계 강화복"
+      "": "철거전문가",
+      "mech": {
+        "": "기계 강화복"
+      }
     },
     "diviner": "점술가",
     "hatchet": "도끼투척수",
@@ -17,65 +19,5 @@
   },
   "edition": {
     "fh-crossover": "프로스트헤이븐 크로스오버 캐릭터"
-  },
-  "custom": {
-    "fh": {
-      "brute": {
-        "1": "<b>Rested and Ready:</b> Whenever you long rest, add +1 %game.action.move% to your first move ability the following round",
-        "2": "Cause enemies to suffer a total of 12 or more Retaliate damage during attacks targeting you in a single round",
-        "3": "Accross three consecutive rounds, play six different ability cards and cause enemies to suffer at least %game.damage:6% on each of your turns"
-      },
-      "cragheart": {
-        "1": "<b>Earthquakes</b> Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty hex",
-        "2": "Only attack enemies adjacent to obstacles or walls",
-        "3": "Damage or heal at least one ally each round"
-      },
-      "demolitionist": {
-        "1": "<b>Remodeling</b> Whenever you rest while adjacent to a wall or obstacle, you may place an obstalce in an empty hex within %game.action.range% 2 (of you)",
-        "2": "Deal 10 or more damage with each of three different attack actions",
-        "3": "Destroy at least six obstacles. End the scenario with no obstacles on the map other than ones placed by allies"
-      },
-      "diviner": {
-        "1": "<b>Tip the Scales</b> Whenever you rest, you may look at the top card of one attack modifier deck, then you may %game.elementHalf.consume:dark|light% to place one card on the bottom of the deck",
-        "2": "During one round, have at least four monsters move into four different Rifts that affect those monsters",
-        "3": "Reveal at least one card from at least one ability card deck or attack modifier deck each round"
-      },
-      "hatchet": {
-        "1": "<b>Hasty Pick-up:</b> Once each scenario, during your turn, if the Favourite is in a hex on the map, you may %game.element.consume.air% to return it to it's ability card",
-        "2": "%game.element.air% or %game.element.consume.air% during each of your turns",
-        "3": "During each round in which there is at least one enemy on the map at the start of your turn, either place one of your tokens on an ability card of yours or on an enemy"
-      },
-      "mindthief": {
-        "1": "X is half the rat's current hit point value (rounded up).",
-        "2": "<b>Lying Low:</b> You are considered to be last in initiative order when determining monster focus",
-        "3": "Trigger the on-attack effect of four different Augments thrice each",
-        "4": "Never be targeted by an attack"
-      },
-      "red-guard": {
-        "1": "<b>Brilliant Aegis:</b> Whenever you are attacked, you may %game.element.consume.light% to gain %game.action.shield% 1 for the attack and have the attacker gain disadvantage for the attack",
-        "2": "Kill at least five enemies during their turns",
-        "3": "Force each enemy in the scenario to move at least one hex, forcing at least six enemies to move"
-      },
-      "scoundrel": {
-        "1": "<b>Cloak of Invisibility:</b> Once each scenario, during your turn, perform \"%game.condition.invisible%, self\"",
-        "2": "Kill at least six enemies that are adjacent to at least on of your allies",
-        "3": "Kill at least six enemies that are adjacent to none of your allies"
-      },
-      "spellweaver": {
-        "1": "<b>Etheric Bound:</b> Whenever you short rest, if <i>Reviving Ether</i> is in your discard pile, first return it to your hand",
-        "2": "Infuse and consume all six elements",
-        "3": "Perform four different loss actions twice each"
-      },
-      "tinkerer": {
-        "1": "<b>Rejuvenating Vapor:</b> Whenever you long rest, you may perform \"%game.action.heal%, %game.action.range% 3\"",
-        "2": "Heal an ally or apply a negative condition to an enemy each turn",
-        "3": "Perform two actions with lost icons before your first rest and then only rest after having played at least two actions with lost icons since your previous rest"
-      },
-      "voidwarden": {
-        "1": "<b>Grave Defense:</b> Whenever you rest, you may %game.elementHalf.consume:ice|dark% to give %game.condition.ward% to one ally who has %game.condition.poison%",
-        "2": "Cause enemies to suffer 20 or more damage in a single turn with granted or commanded attacks",
-        "3": "Give at least one ally or enemy %game.condition.poison%, %game.condition.strengthen%, %game.condition.bless%, or %game.condition.ward% each round"
-      }
-    }
   }
 }

@@ -12,7 +12,7 @@ import { CharacterInitiativeDialogComponent } from "./initiative-dialog";
 
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-character-initiative',
   templateUrl: 'initiative.html',
   styleUrls: ['./initiative.scss']
@@ -43,36 +43,39 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     if (this.initiativeInput) {
       this.initiativeInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
-        const tabindex = this.tabindex();
-        if (event.key === 'Tab' && gameManager.game.state == GameState.draw) {
-          let nextIndex = event.shiftKey ? tabindex - 1 : tabindex + 1;
-          let next = document.getElementById('initiative-input-' + nextIndex);
-          if (!next && tabindex > 0) {
-            next = document.getElementById('initiative-input-0');
-          } else if (nextIndex < 0) {
-            nextIndex = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && (figure.initiativeVisible || !figure.initiative)).length - 1;
-            next = document.getElementById('initiative-input-' + nextIndex);
-            while (!next && nextIndex > 0) {
-              nextIndex--;
+
+        if (settingsManager.settings.keyboardShortcuts) {
+          const tabindex = this.tabindex();
+          if (event.key === 'Tab' && gameManager.game.state == GameState.draw) {
+            let nextIndex = event.shiftKey ? tabindex - 1 : tabindex + 1;
+            let next = document.getElementById('initiative-input-' + nextIndex);
+            if (!next && tabindex > 0) {
+              next = document.getElementById('initiative-input-0');
+            } else if (nextIndex < 0) {
+              nextIndex = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && (figure.initiativeVisible || !figure.initiative)).length - 1;
               next = document.getElementById('initiative-input-' + nextIndex);
+              while (!next && nextIndex > 0) {
+                nextIndex--;
+                next = document.getElementById('initiative-input-' + nextIndex);
+              }
             }
-          }
-          if (next) {
-            next.focus();
-          }
-          event.preventDefault();
-          event.stopPropagation();
-        } else if (event.key === 'Escape') {
-          const current = document.getElementById('initiative-input-' + tabindex);
-          if (current && document.activeElement == current) {
-            current.blur();
+            if (next) {
+              next.focus();
+            }
             event.preventDefault();
             event.stopPropagation();
-          }
-        } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'n') {
-          const current = document.getElementById('initiative-input-' + tabindex);
-          if (current && document.activeElement == current) {
-            current.blur();
+          } else if (event.key === 'Escape') {
+            const current = document.getElementById('initiative-input-' + tabindex);
+            if (current && document.activeElement == current) {
+              current.blur();
+              event.preventDefault();
+              event.stopPropagation();
+            }
+          } else if (!event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'n') {
+            const current = document.getElementById('initiative-input-' + tabindex);
+            if (current && document.activeElement == current) {
+              current.blur();
+            }
           }
         }
       })

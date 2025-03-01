@@ -1,502 +1,444 @@
 {
-    "character": {
-        "brute": "야만인",
-        "cragheart": "바위심장",
-        "mindthief": "정신도둑",
-        "scoundrel": "무법자",
-        "spellweaver": "주문직인",
-        "tinkerer": "땜장이"
+  "battleGoals": {
+    "458": {
+      "": "능률주의자",
+      "text": "시나리오 종료 시 손에 든 카드와 버린 카드가 총 5장 이상."
     },
-    "edition": {
-        "gh": "글룸헤이븐"
+    "459": {
+      "": "게으름뱅이",
+      "text": "시나리오 진행 중 획득한 경험치가 7 이하."
     },
-    "monster": {
-        "ancient-artillery": "고대 대포",
-        "arcane-golem": "신비한 골렘",
-        "bandit-archer": "강도 궁수",
-        "bandit-commander": "강도 두목",
-        "bandit-guard": "강도 경비병",
-        "black-imp": "검은 임프",
-        "bloated-regent": "부어오른 섭정",
-        "captain-of-the-guard": "경비대장",
-        "cave-bear": "동굴 곰",
-        "city-archer": "도시 궁수",
-        "city-guard": "도시 경비병",
-        "cultist": "광신도",
-        "dark-rider": "어둠의 기수",
-        "deep-terror": "심연의 공포",
-        "earth-demon": "대지 악마",
-        "elder-drake": "장로 드레이크",
-        "flame-demon": "화염 악마",
-        "forest-imp": "숲 임프",
-        "frost-demon": "서리 악마",
-        "giant-ooze": "거대 점액",
-        "giant-viper": "거대 독사",
-        "harrower-infester": "해로어 확산자",
-        "hound": "사냥개",
-        "hungry-soul": "굶주린 영혼",
-        "infiltrator": "첩자",
-        "inox-archer": "이녹스 궁수",
-        "inox-bodyguard": "이녹스 경호원",
-        "inox-guard": "이녹스 경비병",
-        "inox-shaman": "이녹스 주술사",
-        "jekserah": "젝세라",
-        "living-bones": "살아있는 뼈",
-        "living-corpse": "살아있는 시체",
-        "living-spirit": "살아있는 영혼",
-        "lurker": "잠복자",
-        "lurker-king": "잠복자 왕",
-        "merciless-overseer": "무자비한 감독관",
-        "night-demon": "밤 악마",
-        "ooze": "점액",
-        "prime-demon": "악마 군주",
-        "prime-lieutenant": "악마 부관",
-        "rending-drake": "발톱 드레이크",
-        "savvas-icestorm": "사바스 얼음폭풍",
-        "savvas-lavaflow": "사바스 용암류",
-        "siege-cannon": "공성포",
-        "spitting-drake": "분비액 드레이크",
-        "stone-golem": "돌 골렘",
-        "sun-demon": "태양 악마",
-        "the-betrayer": "변절자",
-        "the-colorless": "색이 없는 자",
-        "the-gloom": "암영의 존재",
-        "the-harvester": "수확자",
-        "the-sightless-eye": "보이지 않는 눈",
-        "vermling-scout": "버믈링 정찰병",
-        "vermling-shaman": "버믈링 주술사",
-        "wind-demon": "바람 악마",
-        "winged-horror": "날개 달린 공포"
+    "460": {
+      "": "일벌레",
+      "text": "시나리오 진행 중 획득한 경험치가 13 이하."
     },
-    "objective": {
-        "zephyr": "제피르"
+    "461": {
+      "": "열성분자",
+      "text": "시나리오 종료 시 손에 든 카드와 버린 카드가 총 3장 이하."
     },
-    "deck": {
-        "archer": "궁수",
-        "boss": "보스",
-        "guard": "경비병",
-        "imp": "임프",
-        "scout": "정찰병",
-        "shaman": "주술사"
+    "462": {
+      "": "피학성애자",
+      "text": "시나리오 종료 시 남은 체력이 2 이하."
     },
-    "ability": {},
-    "scenario": {
-        "group": {
-            "randomDungeon": "%scenario.random%",
-            "randomMonsterCard": "무작위 몬스터 카드"
-        },
-        "Black Barrow": "검은 무덤",
-        "Barrow Lair": "무덤 속 은신처",
-        "Inox Encampment": "이녹스 야영지",
-        "Crypt of the Damned": "저주받은 자의 묘지",
-        "Ruinous Crypt": "폐허가 된 묘지",
-        "Decaying Crypt": "썩어가는 묘지",
-        "Vibrant Grotto": "생명력의 동굴",
-        "Gloomhaven Warehouse": "글룸헤이븐 창고",
-        "Diamond Mine": "다이아몬드 광산",
-        "Plane of Elemental Power": "원소력의 차원",
-        "Gloomhaven Square A": "글룸헤이븐 광장 A",
-        "Gloomhaven Square B": "글룸헤이븐 광장 B",
-        "Temple of the Seer": "선지자의 신전",
-        "Frozen Hollow": "얼어붙은 동굴",
-        "Shrine of Strength": "힘의 사원",
-        "Mountain Pass": "산길",
-        "Lost Island": "잊힌 섬",
-        "Abandoned Sewers": "버려진 하수구",
-        "Forgotten Crypt": "망각된 묘지",
-        "Necromancer's Sanctum": "강령술사의 성소",
-        "Infernal Throne": "지옥의 왕좌",
-        "Temple of the Elements": "원소의 신전",
-        "Deep Ruins": "지하 폐허",
-        "Echo Chamber": "메아리의 방",
-        "Icecrag Ascent": "얼음바위 오르막",
-        "Ancient Cistern": "고대 저수조",
-        "Ruinous Rift": "폐허 속 균열",
-        "Outer Ritual Chamber": "교회 의례실",
-        "Sanctuary of Gloom": "암영의 성지",
-        "Shrine of the Depths": "해저 사원",
-        "Plane of the Night": "밤의 차원",
-        "Decrepit Wood": "쇠락한 숲",
-        "Savvas Armory": "사바스 무기고",
-        "Scorched Summit": "그을린 산꼭대기",
-        "Gloomhaven Battlements A": "글룸헤이븐 흉벽 A",
-        "Gloomhaven Battlements B": "글룸헤이븐 흉벽 B",
-        "Doom Trench": "죽음의 해구",
-        "Slave Pens": "노예 수용소",
-        "Treacherous Divide": "위험천만한 협곡",
-        "Ancient Defense Network": "고대 방어망",
-        "Timeworn Tomb": "오래된 무덤",
-        "Realm of the Voice": "목소리의 영역",
-        "Drake Nest": "드레이크 둥지",
-        "Tribal Assault": "부족 습격 현장",
-        "Rebel Swamp": "반군 습지",
-        "Nightmare Peak": "악몽의 봉우리",
-        "Lair of the Unseeing Eye": "보이지 않는 눈의 은신처",
-        "Shadow Weald": "그늘진 숲",
-        "Rebel's Stand": "반군 거점",
-        "Ghost Fortress": "유령 요새",
-        "The Void": "공허",
-        "Noxious Cellar": "유독한 지하실",
-        "Crypt Basement": "묘지 지하",
-        "Palace of Ice": "얼음 궁전",
-        "Foggy Thicket": "안개 낀 덤불숲",
-        "Bandit's Wood": "강도단의 숲",
-        "Investigation": "조사",
-        "Bloody Shack": "핏빛 오두막",
-        "Forgotten Grove": "망각된 숲",
-        "Alchemy Lab": "연금술 실험실",
-        "Fading Lighthouse": "사라지는 등대",
-        "Pit of Souls": "영혼 구덩이",
-        "Magma Pit": "용암 구덩이",
-        "Underwater Lagoon": "해저 석호",
-        "Sulfur Mine": "유황 광산",
-        "Clockwork Cove": "시계태엽 만",
-        "Arcane Library": "신비한 서고",
-        "Toxic Moor": "유독한 황야",
-        "Well of the Unfortunate": "불운한 이들의 우물",
-        "Chained Isle": "속박의 섬",
-        "Windswept Highlands": "바람부는 고원",
-        "Oozing Grove": "점액질 과수원",
-        "Rockslide Ridge": "낙석 고개",
-        "Merchant Ship": "상선",
-        "Overgrown Graveyard": "잡초가 무성한 무덤",
-        "Harrower Hive": "해로어 군락",
-        "Vault of Secrets": "비밀 금고실",
-        "Sacrifice Pit": "제물 구덩이",
-        "Lost Temple": "잊힌 신전",
-        "Vigil Keep": "철야 성채",
-        "Temple of the Eclipse": "일식의 신전",
-        "Burning Mountain": "불타는 산",
-        "Shadows Within": "그늘진 안쪽",
-        "Crystalline Cave": "수정 동굴",
-        "Sun Temple": "태양 신전",
-        "Harried Village": "곤경에 빠진 마을",
-        "Corrupted Cove": "오염된 만",
-        "Plane of Water": "물의 차원",
-        "Syndicate Hideout": "조직 은신처",
-        "Demonic Rift": "악마의 균열",
-        "Wild Melee": "야생의 난전",
-        "Back Alley Brawl": "뒷골목 난투",
-        "Sunken Vessel": "침몰선",
-        "Vermling Nest": "버믈링 소굴",
-        "Payment Due": "상환일",
-        "rules": {
-            "gh": {
-                "19": {
-                    "1": "towards the altar %game.mapMarker.b%"
-                },
-                "22": {
-                    "1": "For each altar that isn't destroyed, regardless of whether it has been revealed, the maximum hit point and attack values of all demons is increased by 1 and their movement and range values are increased by 0.5 (rounded up). Melee attacks do not increase in range."
-                },
-                "36": {
-                    "1": "The Prime Demon starts the scenario with twice the number of hit points indicated on its stat card."
-                },
-                "38": {
-                    "1": "towards the shaman on the D tile"
-                },
-                "42": {
-                    "1": "All monsters add +1 %game.action.attack% to all their attacks",
-                    "2": "All monsters gain Advantage on all their attacks",
-                    "3": "All monsters heal 1 hit point at the start of each of their turns",
-                    "4": "All characters and character summons suffer 1 damage at the start of each of their turns.",
-                    "5": "All characters and character summons gain Disadvantage on all their attacks.",
-                    "6": "All characters and character summons deduct -1 Attack from all their attacks."
-                },
-                "54": {
-                    "1": "All Cave Bears add %game.condition.poison% to all their attacks."
-                },
-                "67": {
-                    "1": "The elite Stone Golem is one level higher than the scenario level, up to a maximum of 7, and it has HxC hit points, where H is an elite Stone Golem's regular hit point value. This is the Arcane Golem. It cannot enter or pass through door %game.mapMarker.2%."
-                },
-                "71": {
-                    "1": "Move left",
-                    "2": "Move up",
-                    "3": "Move right",
-                    "4": "Move down"
-                },
-                "73": {
-                    "1": "Roll boulders down."
-                },
-                "74": {
-                    "1": "Add water tile."
-                },
-                "78": {
-                    "1": "The two Cultists %game.mapMarker.b%, as well as the victim %game.mapMarker.a%, are immune to forced movement, %game.condition.immobilize%, and %game.condition.stun%, and can also open doors.",
-                    "2": "Immune to forced movement",
-                    "3": "Can open doors"
-                },
-                "79": {
-                    "1": "Move to starting location, if moved off, then perform"
-                },
-                "86": {
-                    "1": "towards the end of the docks %game.mapMarker.b%"
-                },
-                "89": {
-                    "1": "All Cultists summon elite Giant Vipers instead of normal Living Bones."
-                }
-            }
-        }
+    "463": {
+      "": "신속 치료자",
+      "text": "시나리오 종료 시 남은 체력이 최대 체력과 동일."
     },
-    "partyAchievements": {
-        "A Demon's Errand": "악마의 심부름",
-        "A Map to Treasure": "보물 지도",
-        "Across the Divide": "협곡 횡단",
-        "An Invitation": "초대",
-        "Bad Business": "손해 보는 장사",
-        "Dark Bounty": "어둠의 보상",
-        "Debt Collection": "채무 징수",
-        "First Steps": "첫 걸음",
-        "Fish's Aid": "물고기의 도움",
-        "Following Clues": "단서 추적",
-        "Grave Job": "무덤 도굴",
-        "High Sea Escort": "외양 호위",
-        "Jekserah's Plans": "젝세라의 계획",
-        "Redthorn's Aid": "레드쏜의 도움",
-        "Sin-Ra": "신-라",
-        "Stonebreaker's Censer": "스톤브레이커의 향로",
-        "Sun-Blessed": "태양의 축복",
-        "The Drake's Command": "드레이크의 지시",
-        "The Drake's Treasure": "드레이크의 보물",
-        "The Poison's Source": "독의 근원",
-        "The Scepter and the Voice": "홀과 목소리",
-        "The Voice's Command": "목소리의 지시",
-        "The Voice's Treasure": "목소리의 보물",
-        "Through the Nest": "소굴 통과",
-        "Through the Ruins": "폐허 통과",
-        "Through the Trench": "해구 통과",
-        "Tremors": "지진",
-        "Water Staff": "물의 지팡이"
+    "464": {
+      "": "위험제거반",
+      "text": "시나리오 진행 중 본인 또는 본인 소유의 소환물의 차례에 함정을 발동 또는 해제."
     },
-    "globalAchievements": {
-        "Ancient Technology": "고대 기술",
-        "Annihilation of Order": "조직 섬멸",
-        "Artifact: Cleansed": "유물: 정화",
-        "Artifact: Lost": "유물: 상실",
-        "Artifact: Recovered": "유물: 회수",
-        "City Rule: Demonic": "도시 통치: 악마",
-        "City Rule: Economic": "도시 통치: 상인",
-        "City Rule: Militaristic": "도시 통치: 군부",
-        "End of Corruption": "오염 종식",
-        "End of Gloom": "암영의 최후",
-        "End of the Invasion": "침입의 결말",
-        "The Dead Invade": "망자 침입",
-        "The Drake Aided": "드레이크를 돕다",
-        "The Drake Slain": "드레이크를 죽이다",
-        "The Edge of Darkness": "어둠의 가장자리",
-        "The Merchant Flees": "상인 도주",
-        "The Power of Enhancement": "향상의 위력",
-        "The Rift Neutralized": "균열 무력화",
-        "The Voice Freed": "목소리를 풀어주다",
-        "The Voice Silenced": "목소리를 잠재우다",
-        "Water-Breathing": "수중 호흡"
+    "465": {
+      "": "약탈자",
+      "text": "시나리오 진행 중 보물 타일 노획."
     },
-    "battleGoals": {
-        "458": {
-            ".": "능률주의자",
-            "text": "시나리오 종료 시 손에 든 카드와 버린 카드가 총 5장 이상."
-        },
-        "459": {
-            ".": "게으름뱅이",
-            "text": "시나리오 진행 중 획득한 경험치가 7 이하."
-        },
-        "460": {
-            ".": "일벌레",
-            "text": "시나리오 진행 중 획득한 경험치가 13 이하."
-        },
-        "461": {
-            ".": "열성분자",
-            "text": "시나리오 종료 시 손에 든 카드와 버린 카드가 총 3장 이하."
-        },
-        "462": {
-            ".": "피학성애자",
-            "text": "시나리오 종료 시 남은 체력이 2 이하."
-        },
-        "463": {
-            ".": "신속 치료자",
-            "text": "시나리오 종료 시 남은 체력이 최대 체력과 동일."
-        },
-        "464": {
-            ".": "위험제거반",
-            "text": "시나리오 진행 중 본인 또는 본인 소유의 소환물의 차례에 함정을 발동 또는 해제."
-        },
-        "465": {
-            ".": "약탈자",
-            "text": "시나리오 진행 중 보물 타일 노획."
-        },
-        "466": {
-            ".": "수호자",
-            "text": "시나리오 진행 중 아군 캐릭터가 아무도 탈진하지 않음."
-        },
-        "467": {
-            ".": "탐험가",
-            "text": "시나리오 진행 중 본인 차례에 몬을 열어 방 타일 공개."
-        },
-        "468": {
-            ".": "수집광",
-            "text": "시나리오 진행 중 노획한 돈 토큰이 5개 이상."
-        },
-        "469": {
-            ".": "극빈층",
-            "text": "시나리오 진행 중 노획한 돈 토큰이나 보물 타일 없음."
-        },
-        "470": {
-            ".": "평화주의자",
-            "text": "시나리오 진행 중 죽인 몬스터가 셋 이하."
-        },
-        "471": {
-            ".": "가학성애자",
-            "text": "시나리오 진행 중 죽인 몬스터가 다섯 이상."
-        },
-        "472": {
-            ".": "사냥꾼",
-            "text": "시나리오 진행 중 죽인 정예 몬스터가 하나 이상."
-        },
-        "473": {
-            ".": "전문가",
-            "text": "시나리오 진행 중 장착한 아이템 사용 횟수가 본인 레벨에 2를 더한 값 이상."
-        },
-        "474": {
-            ".": "침략자",
-            "text": "시나리오 진행 중 매 라운드 시작 시 게임판에 몬스터가 하나 이상 존재."
-        },
-        "475": {
-            ".": "천하장사",
-            "text": "시나리오 진행 중 필요한 것보다 4점 이상 많은 피해를 입혀 몬스터를 죽임."
-        },
-        "476": {
-            ".": "순수주의자",
-            "text": "시나리오 진행 중 장착한 것을 포함하여 어떠한 아이템도 전혀 사용하지 않음."
-        },
-        "477": {
-            ".": "개시자",
-            "text": "시나리오 진행 중 가장 먼저 몬스터를 죽임."
-        },
-        "478": {
-            ".": "안전주의자",
-            "text": "시나리오 진행 중 체력이 최대 체력의 절반(올림) 밑으로 한 번도 내려가지 않음."
-        },
-        "479": {
-            ".": "사형집행인",
-            "text": "시나리오 진행 중 피해를 입지 않은 상태였던 몬스터를 한 번의 공격으로 죽임."
-        },
-        "480": {
-            ".": "낙오자",
-            "text": "시나리오 진행 중 휴식을 취할 때 긴 휴식만을 취함."
-        },
-        "481": {
-            ".": "선도자",
-            "text": "시나리오 진행 중 휴식을 취할 때 짧은 휴식만을 취함."
-        }
+    "466": {
+      "": "수호자",
+      "text": "시나리오 진행 중 아군 캐릭터가 아무도 탈진하지 않음."
     },
-    "personalQuest": {
-        "510": "조른의 구도자",
-        "511": "상인 계급",
-        "512": "탐욕은 좋은 것",
-        "513": "치료제 찾기",
-        "514": "해부학 연구",
-        "515": "법의 수호자",
-        "516": "가혹한 대가",
-        "517": "전리품 사냥",
-        "518": "영원한 방랑자",
-        "519": "전장의 전설",
-        "520": "빛의 집행자",
-        "521": "숲 탈환",
-        "522": "얇은 공간",
-        "523": "특별한 살해자",
-        "524": "두려움 없는 저항",
-        "525": "신앙이 최우선",
-        "526": "복수",
-        "527": "피의 신 광신도",
-        "528": "거인을 쓰러트린 자",
-        "529": "인류의 몰락",
-        "530": "능력 증강",
-        "531": "원소 표본",
-        "532": "도움의 손길",
-        "533": "완벽한 독약"
+    "467": {
+      "": "탐험가",
+      "text": "시나리오 진행 중 본인 차례에 몬을 열어 방 타일 공개."
     },
-    "custom": {
-        "gh": {
-            "ancient-artillery": {
-                "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다."
-            },
-            "archer": {
-                "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에 피해 %game.damage:3%점짜리 함정을 생성한다."
-            },
-            "deep-terror": {
-                "1": "대상의 인접한 칸 하나에 %monster.normal% %data.monster.deep-terror% %game.action.summon%"
-            },
-            "elder-drake": {
-                "1": "Fly to next perch of boulders"
-            },
-            "flame-demon": {
-                "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다.",
-                "2": "인접한 빈칸 중 적과 가장 가까운 칸에 피해 %game.damage:4%점짜리 함정을 생성한다."
-            },
-            "giant-viper": {
-                "1": "대상이 %data.monster.giant-viper%의 아군에 인접해 있다면 +2 %game.action.attack% 추가",
-                "2": "이번 라운드 중 %data.monster.giant-viper%를 대상으로 하는 모든 공격이 불이익을 받는다."
-            },
-            "harrower-infester": {
-                "1": "피해를 입은 대상 하나당 \"%game.action.heal% 2, %game.specialTarget.self%\" 수행"
-            },
-            "hound": {
-                "1": "대상이 %data.monster.hound%의 아군에 인접해 있다면 +2 %game.action.attack% 추가."
-            },
-            "mindthief": {
-                "1": "X is half the rat's current hit point value (rounded up).",
-                "augment": "증강 %game.characterIconColoredBg.mindthief%",
-                "augments": "증강 %game.characterIconColoredBg.mindthief%"
-            },
-            "night-demon": {
-                "1": "인접한 모든 적과 아군이 피해 %game.damage:1%점을 입는다."
-            },
-            "ooze": {
-                "1": "%data.monster.ooze%의 현재 체력과 동일한 체력을 가진 %monster.normal% %data.monster.ooze% %game.action.summon% (단, 일반 %data.monster.ooze%의 정해진 최대 체력은 초과 불가)"
-            },
-            "savvas-lavaflow": {
-                "1": "대상에 인접한 모든 아군과 적이 피해 %game.damage:2%점을 입는다.",
-                "2": "모든 적이 피해 %game.damage:2%점을 입는다."
-            },
-            "bandit-commander": {
-                "1": "다음 문 위로 이동해서 문과 연결된 방을 공개"
-            },
-            "captain-of-the-guard": {
-                "1": "모든 아군이 이번 라운드 중 모든 공격에 +1 %game.action.attack% 추가"
-            },
-            "merciless-overseer": {
-                "1": "모든 버믈링 정찰병이 즉시 추가 차례를 진행",
-                "2": "V = 버믈링 정찰병의 수"
-            },
-            "prime-demon": {
-                "1": "제단 이동"
-            },
-            "winged-horror": {
-                "1": "알 부화",
-                "2": "알 %game.action.summon% [C]"
-            },
-            "dark-rider": {
-                "1": "X = 이동한 칸 수"
-            },
-            "the-betrayer": {
-                "1": "정신 지배"
-            },
-            "flowChartGroup": {
-                "intro": "서막",
-                "sealed": "봉인",
-                "the-merchant": "상인",
-                "demon-and-rift": "악마와 균열",
-                "sewers": "하수구",
-                "voice": "목소리",
-                "dragons": "용",
-                "through-jungles": "끔찍한 밀림",
-                "atop-mountains": "산 꼭대기",
-                "rebellion-rises": "반란이 일어나다",
-                "under-oceans": "바다 아래서",
-                "personal-quests": "개인 퀘스트",
-                "random-scenarios": "무작위 시나리오",
-                "city-events": "도시 이벤트",
-                "road-events": "여로 이벤트"
-            }
-        }
+    "468": {
+      "": "수집광",
+      "text": "시나리오 진행 중 노획한 돈 토큰이 5개 이상."
+    },
+    "469": {
+      "": "극빈층",
+      "text": "시나리오 진행 중 노획한 돈 토큰이나 보물 타일 없음."
+    },
+    "470": {
+      "": "평화주의자",
+      "text": "시나리오 진행 중 죽인 몬스터가 셋 이하."
+    },
+    "471": {
+      "": "가학성애자",
+      "text": "시나리오 진행 중 죽인 몬스터가 다섯 이상."
+    },
+    "472": {
+      "": "사냥꾼",
+      "text": "시나리오 진행 중 죽인 정예 몬스터가 하나 이상."
+    },
+    "473": {
+      "": "전문가",
+      "text": "시나리오 진행 중 장착한 아이템 사용 횟수가 본인 레벨에 2를 더한 값 이상."
+    },
+    "474": {
+      "": "침략자",
+      "text": "시나리오 진행 중 매 라운드 시작 시 게임판에 몬스터가 하나 이상 존재."
+    },
+    "475": {
+      "": "천하장사",
+      "text": "시나리오 진행 중 필요한 것보다 4점 이상 많은 피해를 입혀 몬스터를 죽임."
+    },
+    "476": {
+      "": "순수주의자",
+      "text": "시나리오 진행 중 장착한 것을 포함하여 어떠한 아이템도 전혀 사용하지 않음."
+    },
+    "477": {
+      "": "개시자",
+      "text": "시나리오 진행 중 가장 먼저 몬스터를 죽임."
+    },
+    "478": {
+      "": "안전주의자",
+      "text": "시나리오 진행 중 체력이 최대 체력의 절반(올림) 밑으로 한 번도 내려가지 않음."
+    },
+    "479": {
+      "": "사형집행인",
+      "text": "시나리오 진행 중 피해를 입지 않은 상태였던 몬스터를 한 번의 공격으로 죽임."
+    },
+    "480": {
+      "": "낙오자",
+      "text": "시나리오 진행 중 휴식을 취할 때 긴 휴식만을 취함."
+    },
+    "481": {
+      "": "선도자",
+      "text": "시나리오 진행 중 휴식을 취할 때 짧은 휴식만을 취함."
     }
+  },
+  "character": {
+    "brute": "야만인",
+    "cragheart": "바위심장",
+    "mindthief": "정신도둑",
+    "scoundrel": "무법자",
+    "spellweaver": "주문직인",
+    "tinkerer": "땜장이"
+  },
+  "custom": {
+    "gh": {
+      "ancient-artillery": {
+        "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다."
+      },
+      "archer": {
+        "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에 피해 %game.damage:3%점짜리 함정을 생성한다."
+      },
+      "bandit-commander": {
+        "1": "다음 문 위로 이동해서 문과 연결된 방을 공개"
+      },
+      "captain-of-the-guard": {
+        "1": "모든 아군이 이번 라운드 중 모든 공격에 +1 %game.action.attack% 추가"
+      },
+      "dark-rider": {
+        "1": "X = 이동한 칸 수"
+      },
+      "deep-terror": {
+        "1": "대상의 인접한 칸 하나에 %monster.normal% %data.monster.deep-terror% %game.action.summon%"
+      },
+      "elder-drake": {
+        "1": "Fly to next perch of boulders"
+      },
+      "flame-demon": {
+        "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다.",
+        "2": "인접한 빈칸 중 적과 가장 가까운 칸에 피해 %game.damage:4%점짜리 함정을 생성한다."
+      },
+      "flowChartGroup": {
+        "atop-mountains": "산 꼭대기",
+        "city-events": "도시 이벤트",
+        "demon-and-rift": "악마와 균열",
+        "dragons": "용",
+        "intro": "서막",
+        "personal-quests": "개인 퀘스트",
+        "random-scenarios": "무작위 시나리오",
+        "rebellion-rises": "반란이 일어나다",
+        "road-events": "여로 이벤트",
+        "sealed": "봉인",
+        "sewers": "하수구",
+        "the-merchant": "상인",
+        "through-jungles": "끔찍한 밀림",
+        "under-oceans": "바다 아래서",
+        "voice": "목소리"
+      },
+      "giant-viper": {
+        "1": "대상이 %data.monster.giant-viper%의 아군에 인접해 있다면 +2 %game.action.attack% 추가",
+        "2": "이번 라운드 중 %data.monster.giant-viper%를 대상으로 하는 모든 공격이 불이익을 받는다."
+      },
+      "harrower-infester": {
+        "1": "피해를 입은 대상 하나당 \"%game.action.heal% 2, %game.specialTarget.self%\" 수행"
+      },
+      "hound": {
+        "1": "대상이 %data.monster.hound%의 아군에 인접해 있다면 +2 %game.action.attack% 추가."
+      },
+      "merciless-overseer": {
+        "1": "모든 버믈링 정찰병이 즉시 추가 차례를 진행",
+        "2": "V = 버믈링 정찰병의 수"
+      },
+      "mindthief": {
+        "augment": "증강 %game.characterIconColoredBg.mindthief%",
+        "augments": "증강 %game.characterIconColoredBg.mindthief%"
+      },
+      "night-demon": {
+        "1": "인접한 모든 적과 아군이 피해 %game.damage:1%점을 입는다."
+      },
+      "ooze": {
+        "1": "%data.monster.ooze%의 현재 체력과 동일한 체력을 가진 %monster.normal% %data.monster.ooze% %game.action.summon% (단, 일반 %data.monster.ooze%의 정해진 최대 체력은 초과 불가)"
+      },
+      "prime-demon": {
+        "1": "제단 이동"
+      },
+      "savvas-lavaflow": {
+        "1": "대상에 인접한 모든 아군과 적이 피해 %game.damage:2%점을 입는다.",
+        "2": "모든 적이 피해 %game.damage:2%점을 입는다."
+      },
+      "the-betrayer": {
+        "1": "정신 지배"
+      },
+      "winged-horror": {
+        "1": "알 부화",
+        "2": "알 %game.action.summon% [C]"
+      }
+    }
+  },
+  "deck": {
+    "archer": "궁수",
+    "boss": "보스",
+    "guard": "경비병",
+    "imp": "임프",
+    "scout": "정찰병",
+    "shaman": "주술사"
+  },
+  "edition": {
+    "gh": "글룸헤이븐"
+  },
+  "globalAchievements": {
+    "Ancient Technology": "고대 기술",
+    "Annihilation of Order": "조직 섬멸",
+    "Artifact: Cleansed": "유물: 정화",
+    "Artifact: Lost": "유물: 상실",
+    "Artifact: Recovered": "유물: 회수",
+    "City Rule: Demonic": "도시 통치: 악마",
+    "City Rule: Economic": "도시 통치: 상인",
+    "City Rule: Militaristic": "도시 통치: 군부",
+    "End of Corruption": "오염 종식",
+    "End of Gloom": "암영의 최후",
+    "End of the Invasion": "침입의 결말",
+    "The Dead Invade": "망자 침입",
+    "The Drake Aided": "드레이크를 돕다",
+    "The Drake Slain": "드레이크를 죽이다",
+    "The Edge of Darkness": "어둠의 가장자리",
+    "The Merchant Flees": "상인 도주",
+    "The Power of Enhancement": "향상의 위력",
+    "The Rift Neutralized": "균열 무력화",
+    "The Voice Freed": "목소리를 풀어주다",
+    "The Voice Silenced": "목소리를 잠재우다",
+    "Water-Breathing": "수중 호흡"
+  },
+  "monster": {
+    "ancient-artillery": "고대 대포",
+    "arcane-golem": "신비한 골렘",
+    "bandit-archer": "강도 궁수",
+    "bandit-commander": "강도 두목",
+    "bandit-guard": "강도 경비병",
+    "black-imp": "검은 임프",
+    "bloated-regent": "부어오른 섭정",
+    "captain-of-the-guard": "경비대장",
+    "cave-bear": "동굴 곰",
+    "city-archer": "도시 궁수",
+    "city-guard": "도시 경비병",
+    "cultist": "광신도",
+    "dark-rider": "어둠의 기수",
+    "deep-terror": "심연의 공포",
+    "earth-demon": "대지 악마",
+    "elder-drake": "장로 드레이크",
+    "flame-demon": "화염 악마",
+    "forest-imp": "숲 임프",
+    "frost-demon": "서리 악마",
+    "giant-ooze": "거대 점액",
+    "giant-viper": "거대 독사",
+    "harrower-infester": "해로어 확산자",
+    "hound": "사냥개",
+    "hungry-soul": "굶주린 영혼",
+    "infiltrator": "첩자",
+    "inox-archer": "이녹스 궁수",
+    "inox-bodyguard": "이녹스 경호원",
+    "inox-guard": "이녹스 경비병",
+    "inox-shaman": "이녹스 주술사",
+    "jekserah": "젝세라",
+    "living-bones": "살아있는 뼈",
+    "living-corpse": "살아있는 시체",
+    "living-spirit": "살아있는 영혼",
+    "lurker": "잠복자",
+    "lurker-king": "잠복자 왕",
+    "merciless-overseer": "무자비한 감독관",
+    "night-demon": "밤 악마",
+    "ooze": "점액",
+    "prime-demon": "악마 군주",
+    "prime-lieutenant": "악마 부관",
+    "rending-drake": "발톱 드레이크",
+    "savvas-icestorm": "사바스 얼음폭풍",
+    "savvas-lavaflow": "사바스 용암류",
+    "siege-cannon": "공성포",
+    "spitting-drake": "분비액 드레이크",
+    "stone-golem": "돌 골렘",
+    "sun-demon": "태양 악마",
+    "the-betrayer": "변절자",
+    "the-colorless": "색이 없는 자",
+    "the-gloom": "암영의 존재",
+    "the-harvester": "수확자",
+    "the-sightless-eye": "보이지 않는 눈",
+    "vermling-scout": "버믈링 정찰병",
+    "vermling-shaman": "버믈링 주술사",
+    "wind-demon": "바람 악마",
+    "winged-horror": "날개 달린 공포"
+  },
+  "objective": {
+    "zephyr": "제피르"
+  },
+  "partyAchievements": {
+    "A Demon's Errand": "악마의 심부름",
+    "A Map to Treasure": "보물 지도",
+    "Across the Divide": "협곡 횡단",
+    "An Invitation": "초대",
+    "Bad Business": "손해 보는 장사",
+    "Dark Bounty": "어둠의 보상",
+    "Debt Collection": "채무 징수",
+    "First Steps": "첫 걸음",
+    "Fish's Aid": "물고기의 도움",
+    "Following Clues": "단서 추적",
+    "Grave Job": "무덤 도굴",
+    "High Sea Escort": "외양 호위",
+    "Jekserah's Plans": "젝세라의 계획",
+    "Redthorn's Aid": "레드쏜의 도움",
+    "Sin-Ra": "신-라",
+    "Stonebreaker's Censer": "스톤브레이커의 향로",
+    "Sun-Blessed": "태양의 축복",
+    "The Drake's Command": "드레이크의 지시",
+    "The Drake's Treasure": "드레이크의 보물",
+    "The Poison's Source": "독의 근원",
+    "The Scepter and the Voice": "홀과 목소리",
+    "The Voice's Command": "목소리의 지시",
+    "The Voice's Treasure": "목소리의 보물",
+    "Through the Nest": "소굴 통과",
+    "Through the Ruins": "폐허 통과",
+    "Through the Trench": "해구 통과",
+    "Tremors": "지진",
+    "Water Staff": "물의 지팡이"
+  },
+  "personalQuest": {
+    "510": "조른의 구도자",
+    "511": "상인 계급",
+    "512": "탐욕은 좋은 것",
+    "513": "치료제 찾기",
+    "514": "해부학 연구",
+    "515": "법의 수호자",
+    "516": "가혹한 대가",
+    "517": "전리품 사냥",
+    "518": "영원한 방랑자",
+    "519": "전장의 전설",
+    "520": "빛의 집행자",
+    "521": "숲 탈환",
+    "522": "얇은 공간",
+    "523": "특별한 살해자",
+    "524": "두려움 없는 저항",
+    "525": "신앙이 최우선",
+    "526": "복수",
+    "527": "피의 신 광신도",
+    "528": "거인을 쓰러트린 자",
+    "529": "인류의 몰락",
+    "530": "능력 증강",
+    "531": "원소 표본",
+    "532": "도움의 손길",
+    "533": "완벽한 독약"
+  },
+  "scenario": {
+    "Abandoned Sewers": "버려진 하수구",
+    "Alchemy Lab": "연금술 실험실",
+    "Ancient Cistern": "고대 저수조",
+    "Ancient Defense Network": "고대 방어망",
+    "Arcane Library": "신비한 서고",
+    "Back Alley Brawl": "뒷골목 난투",
+    "Bandit's Wood": "강도단의 숲",
+    "Barrow Lair": "무덤 속 은신처",
+    "Black Barrow": "검은 무덤",
+    "Bloody Shack": "핏빛 오두막",
+    "Burning Mountain": "불타는 산",
+    "Chained Isle": "속박의 섬",
+    "Clockwork Cove": "시계태엽 만",
+    "Corrupted Cove": "오염된 만",
+    "Crypt Basement": "묘지 지하",
+    "Crypt of the Damned": "저주받은 자의 묘지",
+    "Crystalline Cave": "수정 동굴",
+    "Decaying Crypt": "썩어가는 묘지",
+    "Decrepit Wood": "쇠락한 숲",
+    "Deep Ruins": "지하 폐허",
+    "Demonic Rift": "악마의 균열",
+    "Diamond Mine": "다이아몬드 광산",
+    "Doom Trench": "죽음의 해구",
+    "Drake Nest": "드레이크 둥지",
+    "Echo Chamber": "메아리의 방",
+    "Fading Lighthouse": "사라지는 등대",
+    "Foggy Thicket": "안개 낀 덤불숲",
+    "Forgotten Crypt": "망각된 묘지",
+    "Forgotten Grove": "망각된 숲",
+    "Frozen Hollow": "얼어붙은 동굴",
+    "Ghost Fortress": "유령 요새",
+    "Gloomhaven Battlements A": "글룸헤이븐 흉벽 A",
+    "Gloomhaven Battlements B": "글룸헤이븐 흉벽 B",
+    "Gloomhaven Square A": "글룸헤이븐 광장 A",
+    "Gloomhaven Square B": "글룸헤이븐 광장 B",
+    "Gloomhaven Warehouse": "글룸헤이븐 창고",
+    "Harried Village": "곤경에 빠진 마을",
+    "Harrower Hive": "해로어 군락",
+    "Icecrag Ascent": "얼음바위 오르막",
+    "Infernal Throne": "지옥의 왕좌",
+    "Inox Encampment": "이녹스 야영지",
+    "Investigation": "조사",
+    "Lair of the Unseeing Eye": "보이지 않는 눈의 은신처",
+    "Lost Island": "잊힌 섬",
+    "Lost Temple": "잊힌 신전",
+    "Magma Pit": "용암 구덩이",
+    "Merchant Ship": "상선",
+    "Mountain Pass": "산길",
+    "Necromancer's Sanctum": "강령술사의 성소",
+    "Nightmare Peak": "악몽의 봉우리",
+    "Noxious Cellar": "유독한 지하실",
+    "Oozing Grove": "점액질 과수원",
+    "Outer Ritual Chamber": "교회 의례실",
+    "Overgrown Graveyard": "잡초가 무성한 무덤",
+    "Palace of Ice": "얼음 궁전",
+    "Payment Due": "상환일",
+    "Pit of Souls": "영혼 구덩이",
+    "Plane of Elemental Power": "원소력의 차원",
+    "Plane of Water": "물의 차원",
+    "Plane of the Night": "밤의 차원",
+    "Realm of the Voice": "목소리의 영역",
+    "Rebel Swamp": "반군 습지",
+    "Rebel's Stand": "반군 거점",
+    "Rockslide Ridge": "낙석 고개",
+    "Ruinous Crypt": "폐허가 된 묘지",
+    "Ruinous Rift": "폐허 속 균열",
+    "Sacrifice Pit": "제물 구덩이",
+    "Sanctuary of Gloom": "암영의 성지",
+    "Savvas Armory": "사바스 무기고",
+    "Scorched Summit": "그을린 산꼭대기",
+    "Shadow Weald": "그늘진 숲",
+    "Shadows Within": "그늘진 안쪽",
+    "Shrine of Strength": "힘의 사원",
+    "Shrine of the Depths": "해저 사원",
+    "Slave Pens": "노예 수용소",
+    "Sulfur Mine": "유황 광산",
+    "Sun Temple": "태양 신전",
+    "Sunken Vessel": "침몰선",
+    "Syndicate Hideout": "조직 은신처",
+    "Temple of the Eclipse": "일식의 신전",
+    "Temple of the Elements": "원소의 신전",
+    "Temple of the Seer": "선지자의 신전",
+    "The Void": "공허",
+    "Timeworn Tomb": "오래된 무덤",
+    "Toxic Moor": "유독한 황야",
+    "Treacherous Divide": "위험천만한 협곡",
+    "Tribal Assault": "부족 습격 현장",
+    "Underwater Lagoon": "해저 석호",
+    "Vault of Secrets": "비밀 금고실",
+    "Vermling Nest": "버믈링 소굴",
+    "Vibrant Grotto": "생명력의 동굴",
+    "Vigil Keep": "철야 성채",
+    "Well of the Unfortunate": "불운한 이들의 우물",
+    "Wild Melee": "야생의 난전",
+    "Windswept Highlands": "바람부는 고원",
+    "group": {
+      "randomDungeon": "%scenario.random%",
+      "randomMonsterCard": "무작위 몬스터 카드"
+    }
+  }
 }

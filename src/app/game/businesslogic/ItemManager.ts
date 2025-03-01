@@ -110,7 +110,7 @@ export class ItemManager {
     }
 
     canAdd(item: ItemData, character: Character): boolean {
-        return item.count && this.countAvailable(item) > 0 && !character.progress.items.find((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition) || false;
+        return item.count && this.countAvailable(item) > 0 && !character.progress.items.find((identifier) => item && identifier.name == '' + item.id && identifier.edition == item.edition) && (!item.solo || item.edition == character.edition && item.solo == character.name) || false;
     }
 
     canBuy(item: ItemData, character: Character, cost: number = 0): boolean {
@@ -184,6 +184,13 @@ export class ItemManager {
 
     brewingDisabled(): boolean {
         return gameManager.fhRules() && gameManager.game.party.campaignMode && gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == 'alchemist' && buildingModel.level > 0 && buildingModel.state == "wrecked") != undefined;
+    }
+
+    itemUsable(itemData: ItemData) {
+        if (itemData.requiredBuilding == 'alchemist' && this.brewingDisabled()) {
+            return false;
+        }
+        return true;
     }
 
     itemSellValue(itemData: ItemData): number {
@@ -333,7 +340,7 @@ export class ItemManager {
         return character.progress.equippedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition) != undefined;
     }
 
-    toggleEquippedItem(item: ItemData, character: Character, force: boolean) {
+    toggleEquippedItem(item: ItemData, character: Character, force: boolean = false) {
         let equippedItems: ItemData[] = character.progress.equippedItems.map((identifier) => this.getItem(identifier.name, identifier.edition, true)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
         const equipIndex = equippedItems.indexOf(item);
         if (force && equipIndex == -1) {
@@ -397,6 +404,7 @@ export class ItemManager {
                     equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.onehand);
                 }
             } else {
+                equippedItems.filter((equipped) => equipped.slot == item.slot).forEach((equipped) => this.toggleEquippedItem(equipped, character));
                 equippedItems = equippedItems.filter((equipped) => equipped.slot != item.slot);
             }
 

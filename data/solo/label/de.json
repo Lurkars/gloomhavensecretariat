@@ -1,4 +1,17 @@
 {
+  "custom": {
+    "gh": {
+      "city-guard-saw-solo": {
+        "1": "Erleidet %game.damage:1% am Ende der Runde solange nicht vollständig geheilt"
+      },
+      "ghost-wolf": {
+        "1": "Zum Beginn jeder Runde:"
+      }
+    },
+    "solo": {
+      "char-am-deck": "Verwendet die Charakter AM Karten"
+    }
+  },
   "edition": {
     "solo": "Solo Szenarien (alle Editionen)"
   },
@@ -25,19 +38,6 @@
   "scenario": {
     "group": {
       "solo": "Solo Szenarien"
-    }
-  },
-  "custom": {
-    "solo": {
-      "char-am-deck": "Verwendet die Charakter AM Karten"
-    },
-    "gh": {
-      "city-guard-saw-solo": {
-        "1": "Erleidet %game.damage:1% am Ende der Runde solange nicht vollständig geheilt."
-      },
-      "ghost-wolf": {
-        "1": "Zum Beginn jeder Runde:"
-      }
     }
   }
 }

@@ -1,19 +1,4 @@
 {
-  "edition": {
-    "bas": "Blut und Sand"
-  },
-  "monster": {
-    "desiccated-corpse": "Ausgetrocknete Leiche",
-    "dust-demon": "Staubdämon",
-    "giant-scorpion": "Riesenskorpion",
-    "horned-lizard": "Krötenechse",
-    "jackal": "Schakal",
-    "sand-spider": "Sandspinne"
-  },
-  "scenario": {
-    "All Over the Map": "Über die ganze Karte verteilt",
-    "Troubled Waters": "Unruhige Gewässer"
-  },
   "custom": {
     "bas": {
       "desiccated-corpse": {
@@ -32,5 +17,20 @@
         "3": "Erstelle eine %game.condition.immobilize% Falle auf einem angrenzenden Feld, das einem Gegner am nächsten ist."
       }
     }
+  },
+  "edition": {
+    "bas": "Blut und Sand"
+  },
+  "monster": {
+    "desiccated-corpse": "Ausgetrocknete Leiche",
+    "dust-demon": "Staubdämon",
+    "giant-scorpion": "Riesenskorpion",
+    "horned-lizard": "Krötenechse",
+    "jackal": "Schakal",
+    "sand-spider": "Sandspinne"
+  },
+  "scenario": {
+    "All Over the Map": "Über die ganze Karte verteilt",
+    "Troubled Waters": "Unruhige Gewässer"
   }
 }

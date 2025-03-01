@@ -3,8 +3,9 @@
     <div class="scroll-container">
         <div class="header">
             <span class="title" *ngIf="!character" [ghs-label]="'game.items.shop'"></span>
-            <span class="title" *ngIf="character" [ghs-label]="'game.items.shop.character'"
-                [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></span>
+            <span (click)="openItems()" class="title" *ngIf="character" [ghs-label]="'game.items.shop.character'"
+                [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
+                [ngClass]="{'management' : character.progress.items &&  character.progress.items.length}"></span>
             <div *ngIf="character" class="resources">
                 <span class="resource gold"><img
                         [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'">{{character.progress.gold}}</span>

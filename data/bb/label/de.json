@@ -1,0 +1,16 @@
+{
+  "character": {
+    "cragheart": "Felsenherz",
+    "mindthief": "Gedankendiebin",
+    "spellweaver": "Spruchweberin",
+    "tinkerer": "Tüftler"
+  },
+  "monster": {
+    "bandit-archer": "Banditen Schützin",
+    "bandit-guard": "Banditen-Wache",
+    "earth-demon": "Erddämon",
+    "flame-demon": "Flammendämon",
+    "frost-demon": "Frostdämon",
+    "wind-demon": "Winddämon"
+  }
+}

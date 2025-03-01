@@ -1,0 +1,161 @@
+{
+  "character": {
+    "bruiser": "拳击手",
+    "cragheart": "裂心石人",
+    "mindthief": "乱心贼",
+    "silent-knife": "沉默之刃",
+    "spellweaver": "织魔师",
+    "tinkerer": "修补匠"
+  },
+  "edition": {
+    "bb": "问题反馈"
+  },
+  "items": {
+    "bb-1": {
+      "": "玫刺刀",
+      "1": "在你的攻击行动中， %game.elementHalf.consume:ice|earth% 来增加%game.action.pierce% 1。"
+    },
+    "bb-10": {
+      "": "藤蔓鞭",
+      "1": "在你的攻击行动中， %game.elementHalf.consume:earth|light% 增加 %game.condition.immobilize%"
+    },
+    "bb-11": {
+      "": "强磁指针",
+      "1": "在你的回合中，控制一名在 %game.action.range% 5里的敌人执行%game.action.move% 2."
+    },
+    "bb-12": {
+      "": "残羹冷炙",
+      "1": "在你的回合中以自己为目标执行%game.action.heal% 1。"
+    },
+    "bb-13": {
+      "": "侠盗羽箭",
+      "1": "当你进行单次远程攻击时， %game.elementHalf.consume:fire|air%附加 +1 %game.action.range%和%game.action.pierce% 1."
+    },
+    "bb-14": {
+      "": "龙葵粉",
+      "1": "在一个敌人攻击后，%game.elementHalf.consume:earth|dark%为其添加%game.condition.poison%。"
+    },
+    "bb-15": {
+      "": "生命滴露",
+      "1": "在你的回合中以自己为目标执行%game.action.heal%。"
+    },
+    "bb-16": {
+      "": "挥发粉末",
+      "1": "当你进行单次远程攻击时，附加："
+    },
+    "bb-17": {
+      "": "鱼钩和鱼线",
+      "1": "当你进行远程攻击时附加%game.action.pierce% 2， %game.action.pull% 2."
+    },
+    "bb-18": {
+      "": "栗壳盾",
+      "1": "当你收到敌人攻击时，获得%game.action.shield% 1 和 %game.action.retaliate% 1."
+    },
+    "bb-19": {
+      "": "黄铜齿轮",
+      "1": "在确定时序值后，为你的时序值增加或减少10。"
+    },
+    "bb-2": {
+      "": "毒牙",
+      "1": "当你进行近战攻击时附加%game.condition.poison%。"
+    },
+    "bb-20": {
+      "": "润滑油",
+      "1": "在你执行移动行动时增加+2 %game.action.move%。"
+    },
+    "bb-21": {
+      "": "元素药水",
+      "1": "在你的回合中创造%game.element.wild%。"
+    },
+    "bb-22": {
+      "": "精力药水"
+    },
+    "bb-23": {
+      "": "厄运粉"
+    },
+    "bb-24": {
+      "": "缝衣针"
+    },
+    "bb-25": {
+      "": "尖锐铅笔"
+    },
+    "bb-26": {
+      "": "硬币盾"
+    },
+    "bb-27": {
+      "": "干瘪长弓"
+    },
+    "bb-28": {
+      "": "干瘪长剑"
+    },
+    "bb-29": {
+      "": "余烬"
+    },
+    "bb-3": {
+      "": "风蚀长靴"
+    },
+    "bb-30": {
+      "": "幸运猫眼石"
+    },
+    "bb-31": {
+      "": "碎片玻璃"
+    },
+    "bb-32": {
+      "": "护盾扑克"
+    },
+    "bb-33": {
+      "": "速度灵药"
+    },
+    "bb-34": {
+      "": "精力灵药"
+    },
+    "bb-35": {
+      "": "棱镜宝石"
+    },
+    "bb-36": {
+      "": "强化药水"
+    },
+    "bb-37": {
+      "": "黄昏宝石"
+    },
+    "bb-38": {
+      "": "明媚宝石"
+    },
+    "bb-39": {
+      "": "彩贝盾"
+    },
+    "bb-4": {
+      "": "旧弹簧"
+    },
+    "bb-40": {
+      "": "折叠刀"
+    },
+    "bb-5": {
+      "": "力量药水"
+    },
+    "bb-6": {
+      "": "净化药水"
+    },
+    "bb-7": {
+      "": "弹簧锤"
+    },
+    "bb-8": {
+      "": "纽扣盾"
+    },
+    "bb-9": {
+      "": "钢钉"
+    }
+  },
+  "monster": {
+    "arena-sorcerer": "竞技场巫师",
+    "bandit-archer": "强盗弓箭手",
+    "bandit-guard": "强盗卫兵",
+    "demon-prince": "恶魔王子",
+    "earth-demon": "大地恶魔",
+    "flame-demon": "火焰恶魔",
+    "frost-demon": "冰霜恶魔",
+    "gloomtoad": "幽暗蟾蜍",
+    "goring-beetle": "尖角甲虫",
+    "harrowing-infestation": "恐怖感染"
+  }
+}

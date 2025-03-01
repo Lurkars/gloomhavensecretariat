@@ -1,0 +1,38 @@
+{
+  "index": "5.5",
+  "name": "Arena Challenge",
+  "edition": "bb",
+  "level": 3,
+  "links": [
+    "8"
+  ],
+  "monsters": [
+    "bandit-archer",
+    "king-button",
+    "mouse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "number": 2
+        },
+        {
+          "name": "king-button",
+          "number": 1
+        },
+        {
+          "name": "mouse",
+          "number": 3
+        },
+        {
+          "name": "mouse",
+          "number": 4
+        }
+      ]
+    }
+  ]
+}

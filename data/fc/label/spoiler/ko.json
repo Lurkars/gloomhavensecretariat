@@ -1,0 +1,44 @@
+{
+  "items": {
+    "fc-152": {
+      "1": "능력 카드를 상단 행동으로 사용한 후, 동일 카드의 하단 행동 수행. 두 행동 모두가 소실 기호 %game.card.lost% 를 작동시킨다면 사용할 수 없음."
+    },
+    "fc-153": {
+      "1": "앞으로 3회 동안, 장착자에게 %game.condition.poison%이 적용될 때, 그것을 방지."
+    },
+    "fc-154": {
+      "1": "앞으로 5회 동안, 장착자에게 %game.condition.poison%이 적용될 때, 그것을 방지."
+    },
+    "fc-155": {
+      "1": "%game.condition.curse% 면역. 이는 이 아이템이 소모되어도 유효. 앞으로 3회 동안, 장착자를 대상으로 하는 공격으로 인한 피해 원천에 대해, %game.action.shield% 1 획득."
+    },
+    "fc-156": {
+      "1": "근접 공격 중, %game.element.consume.wild% 를 통해 한 번의 공격에 +2 %game.action.attack% 추가."
+    },
+    "fc-157": {
+      "1": "원거리 공격 중, 한 번의 공격에 +2 %game.action.attack%, %game.condition.curse%, %game.condition.wound% 추가."
+    },
+    "fc-158": {
+      "1": "이동 중, 한 번의 이동에 +2 %game.action.move% 추가 및 %game.condition.regenerate% 획득."
+    },
+    "fc-159": {
+      "1": "아군 한 명의 이동 중, 한 번의 이동에 +2 %game.action.move% 추가."
+    },
+    "fc-160": {
+      "1": "차례 중 적을 죽였을 때, 돈 토큰 1개 획득."
+    },
+    "fc-161": {
+      "1": "단일 대상 근접 공격 중, 해당 공격에 %game.action.range:3% 추가."
+    },
+    "fc-162": {
+      "1": "차례 중, 장착자로부터 4칸 이내 점유되지 않은 칸으로 %game.action.teleport%."
+    },
+    "fc-163": {
+      "1": "장착자가 긴 휴식이나 짧은 휴식을 할 때, %game.condition.strengthen% 획득."
+    }
+  },
+  "summon": {
+    "ghost-falcon": "영혼 매",
+    "twilight-archon": "황혼의 집정관"
+  }
+}

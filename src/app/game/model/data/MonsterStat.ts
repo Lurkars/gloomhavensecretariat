@@ -45,6 +45,7 @@ export class MonsterStatEffect {
   movement: number | string = 0;
   attack: number | string = 0;
   range: number | string = 0;
+  initiative: number | string = 0;
   flying: boolean | 'disabled' = false;
   actions: Action[] | undefined = undefined;
   immunities: ConditionName[] | undefined = undefined;

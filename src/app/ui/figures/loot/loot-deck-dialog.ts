@@ -1,21 +1,22 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Inject, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { enhancableLootTypes, Loot, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/data/Loot";
-import { LootDeckChange } from "./loot-deck";
 import { ghsDialogClosingHelper } from "../../helper/Static";
+import { LootDeckChange } from "./loot-deck";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-loot-deck-dialog',
   templateUrl: './loot-deck-dialog.html',
   styleUrls: ['./loot-deck-dialog.scss',]
 })
-export class LootDeckDialogComponent implements OnInit {
+export class LootDeckDialogComponent implements OnInit, OnDestroy {
 
   @ViewChild('menu') menuElement!: ElementRef;
   gameManager: GameManager = gameManager;
@@ -41,7 +42,7 @@ export class LootDeckDialogComponent implements OnInit {
   characters: boolean = true;
 
   upcomingCards: Loot[] = [];
-  disgardedCards: Loot[] = [];
+  discardedCards: Loot[] = [];
   enhancementDeck: Loot[] = [];
 
   constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange>, apply: boolean }, public dialogRef: DialogRef) {
@@ -79,12 +80,20 @@ export class LootDeckDialogComponent implements OnInit {
 
     this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.indexOf(loot.type) != -1).sort((a, b) => a.cardId - b.cardId);
     this.update();
-    gameManager.uiChange.subscribe({ next: () => this.update() });
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   update() {
     this.upcomingCards = this.deck.cards.filter((loot, index) => index > this.deck.current);
-    this.disgardedCards = this.deck.cards.filter((loot, index) => index <= this.deck.current).reverse();
+    this.discardedCards = this.deck.cards.filter((loot, index) => index <= this.deck.current).reverse();
   }
 
   enhanceCard(loot: Loot) {
@@ -250,7 +259,7 @@ export class LootDeckDialogComponent implements OnInit {
     this.update();
   }
 
-  dropDisgarded(event: CdkDragDrop<Loot[]>) {
+  dropDiscarded(event: CdkDragDrop<Loot[]>) {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
     let offset = 0;
     let prev = 0;
@@ -287,13 +296,13 @@ export class LootDeckDialogComponent implements OnInit {
   }
 
   remove(index: number) {
-    this.before.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', "" + index));
+    this.before.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', index));
     if (index <= this.deck.current) {
       this.deck.current--;
       this.current = this.deck.current;
     }
     this.deck.cards.splice(index, 1);
-    this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', "" + index));
+    this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveCard', index));
     this.update();
   }
 

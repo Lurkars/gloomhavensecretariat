@@ -18,7 +18,7 @@ export class LootManager {
     this.game = game;
   }
 
-  drawCard(deck: LootDeck, character: Character | undefined): ItemData | undefined {
+  drawCard(deck: LootDeck, character: Character | undefined = undefined): ItemData | undefined {
     let result: ItemData | undefined = undefined;
     deck.current++;
     if (deck.current >= deck.cards.length) {
@@ -226,10 +226,7 @@ export class LootManager {
         if (reward.value && typeof reward.value === 'string' && reward.value.split('-').length > 1) {
           const section = reward.value.split('-')[0];
           const week = gameManager.game.party.weeks + (+reward.value.split('-')[1]);
-          if (!gameManager.game.party.weekSections[week]) {
-            gameManager.game.party.weekSections[week] = [];
-          }
-          gameManager.game.party.weekSections[week]?.push(section);
+          gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
         }
         break;
       case TreasureRewardType.campaignSticker:
@@ -246,7 +243,7 @@ export class LootManager {
         if (typeof reward.value === 'number') {
           gameManager.game.lootDeck.active = true;
           for (let i = 0; i < reward.value; i++) {
-            this.drawCard(gameManager.game.lootDeck, character);
+            this.drawCard(gameManager.game.lootDeck);
           }
           gameManager.uiChange.emit();
         }

@@ -1,0 +1,41 @@
+{
+  "edition": {
+    "bb-promotional": "纽扣 & 虫子 - 拓展内容"
+  },
+  "items": {
+    "bb-41": {
+      "": "甲壳",
+      "1": "如果你在你的回合中移动 1 格或更少，则在该回合中获得 %game.action.shield%1。"
+    },
+    "bb-42": {
+      "": "啮齿动物的尖牙",
+      "1": "移动 4 个以上格后，本回合的所有攻击增加1%game.action.attack%。"
+    },
+    "bb-43": {
+      "": "穿刺银箭",
+      "1": "在你的远程攻击期间，添加 %game.action.pierce%5。"
+    },
+    "bb-44": {
+      "": "缩小短剑",
+      "1": "你的能力卡牌的默认顶部动作是 %game.action.attack%2 而不是 %game.action.attack%2。"
+    },
+    "bb-45": {
+      "": "冰火两重眼",
+      "1": "攻击时，%game.elementHalf.consume：ice|light% 来增加优势，或 %game.condition.muddle%。"
+    },
+    "bb-46": {
+      "": "治疗药滴",
+      "1": "你的回合里，移除所有负面并 %game.action.heal%2 自身。"
+    }
+  },
+  "scenario": {
+    "rules": {
+      "bb": {
+        "20-5": {
+          "1": "竞技场巫师有十四点生命值。",
+          "2": "尖刺甲虫有十三点生命值。"
+        }
+      }
+    }
+  }
+}

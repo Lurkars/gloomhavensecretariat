@@ -82,7 +82,7 @@
 
     <div class="loot-deck-container" *ngIf="!configuration && !enhancements" [style.maxHeight]="maxHeight">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
-        [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
+        [cdkDropListConnectedTo]="discardedList" (cdkDropListDropped)="dropUpcoming($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty" *ngIf="upcomingCards.length == 0"></div>
         <div class="loot-container" *ngFor="let loot of upcomingCards let index = index" cdkDrag>
@@ -95,12 +95,12 @@
         </div>
       </div>
 
-      <div class="disgarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
-        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
+      <div class="discarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #discardedList="cdkDropList"
+        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDiscarded($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
 
-        <div class="loot-container" *ngFor="let loot of disgardedCards; let index = index" cdkDrag>
+        <div class="loot-container" *ngFor="let loot of discardedCards; let index = index" cdkDrag>
           <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [index]="deck.current - index"
             [character]="getCharacter(deck.current - index)" [edit]="edit" [looted]="true" [apply]="apply"></ghs-loot>
           <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">

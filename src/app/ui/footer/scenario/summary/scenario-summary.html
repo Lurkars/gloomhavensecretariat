@@ -5,7 +5,8 @@
         [ghs-label]="conclusionOnly ? 'scenario.conclusion' : (rewardsOnly ? 'scenario.summary.rewards' : 'scenario.summary')"></span>
       <span class="name">
         <span *ngIf="scenario.index && !scenario.hideIndex">#{{scenario.index}}&nbsp;</span>
-        <span class="text-white" [ghs-label]="'data.scenario.' + scenario.name"></span></span>
+        <span class="text-white" [ghs-label]="'data.scenario.' + scenario.name"></span>
+      </span>
     </span>
     <span *ngIf="success && !conclusionOnly && !rewardsOnly" class="success"><span
         [ghs-label]="'scenario.finish.success'"></span></span>
@@ -115,8 +116,9 @@
         <span *ngIf="!character.absent">
           <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
             collectiveGold[index] : 0) + (character.loot *
-            gameManager.levelManager.loot()) + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
-            ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0)  | ghsValueSign}}</span>
+            gameManager.levelManager.loot()) + (gameManager.trialsManager.favorsEnabled &&
+            gameManager.trialsManager.apply
+            ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0) | ghsValueSign}}</span>
           ({{character.progress.gold + (success && rewards && rewards.gold ? rewards.gold : 0)+ (collectiveGold[index] ?
           collectiveGold[index] : 0) + character.loot *
           gameManager.levelManager.loot() + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
@@ -230,22 +232,21 @@
         <span class="treasures" *ngFor="let character of characters; let index = index;">
           <div class="hint-container" *ngFor="let treasure of character.treasures || []">
             <span class="treasure hint-trigger">
-              <span *ngIf="('' + treasure).startsWith('G') || +treasure >= 0">
-                <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10">0</span>{{('' +
-                treasure).startsWith('G-') ? 'G' : ('' +treasure).split(':')[0]}}</span>
-              <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 0">???</span>
+              <span *ngIf="('' + treasure).startsWith('G') || +('' +treasure).split(':')[0] >= 0">
+                <span *ngIf="!('' + treasure).startsWith('G') && +('' +treasure).split(':')[0] < 10">0</span>
+                {{('' + treasure).startsWith('G-') ? 'G' : ('' +treasure).split(':')[0]}}</span>
+              <span *ngIf="!('' + treasure).startsWith('G') && +('' +treasure).split(':')[0] < 0">???</span>
             </span>
             <span class="hint above center">
               <ghs-treasure-label class="text placeholder text-white" *ngIf="!('' + treasure).startsWith('G-')"
-                [edition]="scenario.edition" [index]="+(''
-            +treasure).split(':')[0] -1"
-                [rewardResults]="treasureRewardsFromString('' + treasure)"></ghs-treasure-label></span>
+                [edition]="scenario.edition" [index]="+(''+treasure).split(':')[0] -1"
+                [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"></ghs-treasure-label></span>
           </div>
         </span>
       </ng-container>
 
       <ng-container *ngFor="let itemData of rewardItems; let itemIndex = index;">
-        <span class="head-col"><span [ghs-label]="'scenario.summary.item'"
+        <span (click)="openItemDialog(itemData)" class="head-col"><span [ghs-label]="'scenario.summary.item'"
             [ghs-label-args]="[itemData.name]"></span></span>
         <span *ngFor="let character of characters; let index = index;">
           <ghs-item *ngIf="items[index] && items[index].indexOf(itemIndex) != -1" (click)="openItemDialog(itemData)"
@@ -445,11 +446,14 @@
             'scenario.rewards.locations' :
             'scenario.rewards.location')"></span></label>
           <div class="list" *ngIf="scenario.unlocks">
-            <div class="item location" *ngFor="let location of scenario.unlocks; let i = index;">
-              <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
+            <ng-container *ngFor="let location of scenario.unlocks; let i = index;">
+              <div class="item location" *ngIf="gameManager.scenarioManager.getScenario(location,scenario.edition,
+              scenario.group)">
+                <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
               scenario.group)?.name"></span> <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
-              <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
-            </div>
+                <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
+              </div>
+            </ng-container>
           </div>
           <div class="list" *ngIf="rewards && rewards.chooseLocation">
             <div class="item"><span [ghs-label]="'scenario.rewards.chooseLocation'"></span>:</div>
@@ -467,11 +471,14 @@
           <label><span [ghs-label]="(conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' :
             'scenario.rewards.location')"></span></label>
           <div class="list">
-            <div class="item location" *ngFor="let location of conclusion.unlocks; let i = index;">
-              <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,conclusion.edition,
+            <ng-container *ngFor="let location of conclusion.unlocks; let i = index;">
+              <div class="item location" *ngIf="gameManager.scenarioManager.getScenario(location,conclusion.edition,
+              conclusion.group)">
+                <span [ghs-label]="'data.scenario.' + gameManager.scenarioManager.getScenario(location,conclusion.edition,
               conclusion.group)?.name"></span> <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
-              <span *ngIf="conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1">,</span>
-            </div>
+                <span *ngIf="conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1">,</span>
+              </div>
+            </ng-container>
           </div>
         </div>
         <div class="reward achievements"
@@ -758,8 +765,7 @@
               <span *ngIf="rewards.hints && rewards.hints.pet" class="placeholder text-white hint"
                 [ghs-label]="rewards.hints.pet"></span>
               <span *ngIf="!rewards.hints || !rewards.hints.pet" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.pet'"
-                [ghs-label-args]="[rewards.pet, scenario.edition]"></span>
+                [ghs-label]="'scenario.rewards.pet'" [ghs-label-args]="[rewards.pet, scenario.edition]"></span>
             </div>
 
             <div class="list-inline unlock-character"

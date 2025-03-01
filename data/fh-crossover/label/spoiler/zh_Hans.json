@@ -1,0 +1,35 @@
+{
+  "character": {
+    "angry-face": "末日行者",
+    "circles": "召唤师",
+    "eclipse": "胧夜客",
+    "lightning": {
+      "": "狂战士",
+      "blood-pact": {
+        "": "血之契约",
+        "hint": "你的每个行动轮开始时自身承受 %game.damage:1% 。"
+      },
+      "careless-charge": {
+        "": "鲁莽冲锋",
+        "hint": "你免疫所有负面状态。"
+      },
+      "unbridled-power": {
+        "": "放纵蛮力",
+        "hint": "对你的治疗可以超出当前生命最大值，最多可达到26点，但是所有技能卡所描述的最大生命值仍然按照你当前等级所对应的最大生命值计算。"
+      }
+    },
+    "music-note": {
+      "": "畅歌者",
+      "song_active": {
+        "": "%game.characterIconColored.music-note% 战歌",
+        "hint": "在你的每个行动轮开始时获得 1 经验。"
+      }
+    },
+    "saw": "锯骨医者",
+    "squidface": "瘟疫使者",
+    "sun": "执日者",
+    "three-spears": "军需官",
+    "triangles": "元素大师",
+    "two-mini": "暴兽领主"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "character": {
+    "brute": "Salvaje",
+    "cragheart": "Corazón Hueco",
+    "demolitionist": {
+      "": "Demoledora",
+      "mech": {
+        "": "Armadura mecanizada",
+        "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
+      }
+    },
+    "diviner": "Adivina",
+    "hatchet": "Ejecutor",
+    "mindthief": "Ladrona Mental",
+    "red-guard": "Guardia rojo",
+    "scoundrel": "Pícara",
+    "spellweaver": "Tejedora de Hechizos",
+    "tinkerer": "Manitas",
+    "voidwarden": "Centinela del Vacío"
+  },
+  "custom": {
+    "fh": {
+      "brute": {
+        "1": "<b>Descansado y listo:</b> Siempre que realices un descanses largo, obtén %game.action.move% +1 a tu primera habilidad de movimiento de la siguiente ronda",
+        "2": "Provoca que los enemigos sufran un total de 12 o más de daño de Represalia durante los ataques que te tengan como objetivo en una sola ronda",
+        "3": "A lo largo de tres rondas consecutivas, juega seis cartas de habilidad diferentes y haz que los enemigos sufran al menos %game.damage:6% en cada uno de tus turnos"
+      },
+      "cragheart": {
+        "1": "<b>Terremoto:</b> Siempre que se revele una nueva sala, controla a todos los enemigos de la sala recién revelada: %game.action.move% 1, este movimiento debe terminar en un hexágono vacío",
+        "2": "Ataca solamente a enemigos adyacentes a obstáculos o paredes",
+        "3": "Daña o cura al menos a un aliado cada ronda"
+      },
+      "demolitionist": {
+        "1": "<b>Remodelación</b> Siempre que descanses mientras estés adyacente a un muro u obstáculo, puedes colocar un obstáculo en un hexágono vacío dentro de %game.action.range% 2 (de ti)",
+        "2": "Inflige 10 o más daño con tres acciones de ataque diferentes",
+        "3": "Destruye al menos seis obstáculos. Termina el escenario sin otros obstáculos en el mapa que los colocados por los aliados"
+      },
+      "diviner": {
+        "1": "<b>Inclinar la balanza</b> Siempre que descanses, puedes mirar la carta superior de un mazo de modificadores de ataque, después puedes %game.elementHalf.consume:dark|light% para colocar una carta en la parte inferior del mazo",
+        "2": "Durante una ronda, haz que al menos cuatro monstruos se muevan a cuatro Fisuras diferentes que afecten a esos monstruos",
+        "3": "Revela al menos una carta de al menos un mazo de cartas de habilidad o de modificador de ataque cada ronda"
+      },
+      "hatchet": {
+        "1": "<b>Recogida apresurada:</b> Una vez en cada escenario, durante tu turno, si el Favorito está en un hexágono del mapa, puedes %game.element.consume.air% devolverlo a su carta de habilidad",
+        "2": "%game.element.air% o %game.element.consume.air% durante cada uno de tus turnos",
+        "3": "Durante cada ronda en la que haya al menos un enemigo en el mapa al comienzo de tu turno, coloca una de tus fichas en una carta de habilidad tuya o en una carta de habilidad enemiga"
+      },
+      "mindthief": {
+        "1": "X es la mitad del valor actual de puntos de vida de la rata (redondeado hacia arriba).",
+        "2": "<b>Pasar inadvertido:</b> Se considera que eres el último en orden de iniciativa al determinar la atención de los monstruos",
+        "3": "Activa el efecto de ataque de cuatro mejoras diferentes tres veces cada una",
+        "4": "Nunca ser el objetivo de un ataque"
+      },
+      "red-guard": {
+        "1": "<b>Egida brillante:</b> Siempre que te ataquen, puedes %game.element.consume.light% para obtener %game.action.shield% 1 para ese ataque y hacer que el atacante obtenga desventaja",
+        "2": "Mata al menos a cinco enemigos durante sus turnos",
+        "3": "Obliga a cada enemigo del escenario a moverse al menos un hexágono, forzando al menos a seis enemigos a moverse"
+      },
+      "scoundrel": {
+        "1": "<b>Capa de invisibilidad:</b> Una vez en cada escenario, durante tu turno, realiza «%game.condition.invisible%, personal»",
+        "2": "Mata al menos a seis enemigos que estén adyacentes a al menos uno de tus aliados",
+        "3": "Mata al menos a seis enemigos que no estén adyacentes a ninguno de tus aliados"
+      },
+      "spellweaver": {
+        "1": "<b>Vínculo Etéreo:</b> Siempre que realizes un descanso corto, si <i>Éter revitalizante</i> está en tu pila de descartes, devuélvelo a tu mano",
+        "2": "Infunde y consume los seis elementos",
+        "3": "Realiza cuatro acciones de pérdida diferentes dos veces cada una"
+      },
+      "tinkerer": {
+        "1": "<b>Vapor rejuvenecedor:</b> Siempre que realices un descanses largo, puedes realizar «%game.action.heal%, %game.action.range% 3»",
+        "2": "Cura a un aliado o aplica una condición negativa a un enemigo cada turno",
+        "3": "Realiza dos acciones con iconos de perdida antes de tu primer descanso y después descansa sólo tras haber jugado al menos dos acciones con iconos de perdida desde tu descanso anterior"
+      },
+      "voidwarden": {
+        "1": "<b>Protección Funeraria:</b> Siempre que descanses, puedes %game.elementHalf.consume:ice|dark% para dar %game.condition.ward% a un aliado que tenga %game.condition.poison%",
+        "2": "Causa a los enemigos 20 o más de daño en un solo turno con ataques concedidos o comandados",
+        "3": "Da al menos a un aliado o enemigo %game.condition.poison%, %game.condition.strengthen%, %game.condition.bless% o %game.condition.ward% en cada ronda"
+      }
+    }
+  },
+  "edition": {
+    "fh-crossover": "Personajes transferidos a Frosthaven"
+  }
+}

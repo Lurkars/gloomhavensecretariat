@@ -36,9 +36,14 @@
     align-items: center;
 
     &.small {
+      justify-content: center;
       margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) 0;
       font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-dialog-factor));
+
+      a {
+        min-width: auto;
+      }
     }
 
     a {
@@ -64,6 +69,10 @@
         pointer-events: none;
         color: var(--ghs-color-darkgray);
       }
+    }
+
+    .empty-hint {
+      color: var(--ghs-color-yellow);
     }
   }
 

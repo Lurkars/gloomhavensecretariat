@@ -188,6 +188,23 @@ export class DebugManager {
             }
         })
     }
+
+    checkCharacterCardIds() {
+        gameManager.decksData().filter((deckData) => {
+            if (deckData.character) {
+                for (let i = 0; i < deckData.abilities.length - 1; i++) {
+                    const a = deckData.abilities[i];
+                    const b = deckData.abilities[i + 1];
+                    if (a.cardId == undefined) {
+                        console.warn(deckData.edition, deckData.name, i, a.name);
+                    } else if (a.cardId != undefined && b.cardId != undefined && a.cardId + 1 != b.cardId) {
+                        console.warn(deckData.edition, deckData.name, i, a.cardId, a.name, i + 1, b.cardId, b.name);
+                        break;
+                    }
+                }
+            }
+        })
+    }
 }
 
 

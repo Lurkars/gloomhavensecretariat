@@ -1,0 +1,39 @@
+{
+  "index": "12.5",
+  "name": "The Beast Tamer",
+  "edition": "bb",
+  "level": 4,
+  "links": [
+    "13"
+  ],
+  "monsters": [
+    "bandit-guard",
+    "mouse",
+    "sewer-rat"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "type": "elite",
+          "number": 4
+        },
+        {
+          "name": "mouse",
+          "number": 1
+        },
+        {
+          "name": "mouse",
+          "number": 2
+        },
+        {
+          "name": "sewer-rat",
+          "number": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "items": {
+    "fc-152": {
+      "": "Ring der Dualität",
+      "1": "Nachdem du die obere Aktion einer Fertigkeitskarte ausgeführt hast, darfst du sofort die untere Aktion derselben Karte ausführen. Kann nicht verwendet werden, wenn beide Aktionen das Symbol zum Verlieren %game.card.lost% der Karte zeigen."
+    },
+    "fc-153": {
+      "": "Kleines Gegengift",
+      "1": "Die nächsten 3 Male, wenn du GIFT %game.condition.poison% erhalten würdest, wird es nicht angewendet."
+    },
+    "fc-154": {
+      "": "Großes Gegengift",
+      "1": "Die nächsten 5 Male, wenn du GIFT %game.condition.poison% erhalten würdest, wird es nicht angewendet."
+    },
+    "fc-155": {
+      "": "Fluchschutzrüstung",
+      "1": "Du bist immun gegen FLUCH %game.condition.curse%, selbst wenn dieser Gegenstand abgenutzt ist. Erhalte gegen die nächsten 3 Schadensquellen bei Angriffen die dich anvisieren, Schild %game.action.shield% 1."
+    },
+    "fc-156": {
+      "": "Elementarschwert",
+      "1": "%game.element.consume.wild% während deines Nahkampfangriffs für +2 Angriff %game.action.attack% bei einem Einzelangriff."
+    },
+    "fc-157": {
+      "": "Antiker Bogen",
+      "1": "Füge bei deinem Fernangriff einen Einzelangriff +2 Angriff %game.action.attack%, FLUCH %game.condition.curse% und WUNDE %game.condition.wound% hinzu."
+    },
+    "fc-158": {
+      "": "Erfrischende Beinpanzer",
+      "1": "Füge deiner Bewegung +2 Bewegung %game.action.move% hinzu und erhalte REGENERATION %game.condition.regenerate%."
+    },
+    "fc-159": {
+      "": "Schrift der Eile",
+      "1": "Füge der Bewegung eines beliebigen Verbündeten +2 Bewegung %game.action.move% hinzu."
+    },
+    "fc-160": {
+      "": "Beutelschneider",
+      "1": "Wenn du während deines Zugs ein Monster tötest, erhältst du einen Münzmarker."
+    },
+    "fc-161": {
+      "": "Wurfaxt",
+      "1": "Füge während deiner Einzelziel-Nahkampfangriffsaktion Reichweite %game.action.range:3% hinzu."
+    },
+    "fc-162": {
+      "": "Riss-Apparat",
+      "1": "Teleportiere %game.action.teleport% während deines Zugs auf ein beliebiges unbesetztes Feld im Umkreis von 4 Feldern um dich."
+    },
+    "fc-163": {
+      "": "Kristalldiadem",
+      "1": "Wenn du eine lange oder kurze Rast machst, erhältst du STÄRKUNG %game.condition.strengthen%."
+    },
+    "fc-165": {
+      "": "Lebende Rüstung",
+      "1": "Du bist immun gegen GIFT und !enchantment-circle!. Wenn du durch einen Angriff Schaden erleidest, erhältst du für den Angriff Schild %game.action.shield% 0 !enchantment-circle! ."
+    }
+  },
+  "summon": {
+    "ghost-falcon": "Geisterfalke",
+    "twilight-archon": "Archon Dämmerung"
+  },
+  "treasures": {
+    "fc": {
+      "86": "Schalte Prophetin Solo-Szenario \"Ausblick auf das Unausweichliche\" frei",
+      "90": "Lies Abschnitt 75 auf Seite 49",
+      "96": "Kryptogram gefunden (Siehe Szenariobuch Seite 43)"
+    }
+  }
+}

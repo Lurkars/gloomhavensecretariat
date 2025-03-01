@@ -1,5 +1,5 @@
 <div class="objective"
-  [ngClass]="{'off' : objective.off, 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
+  [ngClass]="{'off' : objective.off, 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters, 'compact': compact, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'}">
   <a class="image-container" [ngClass]="{'entity' : entity}">
     <ng-container *ngIf="entity">
       <span *ngIf="entity.marker" class="map-marker"

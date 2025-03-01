@@ -7,9 +7,6 @@
     "spellweaver": "Spellweaver",
     "tinkerer": "Tinkerer"
   },
-  "edition": {
-    "gh2e": "Gloomhaven Second Edition (%wip%)"
-  },
   "custom": {
     "gh2e": {
       "bruiser": {
@@ -63,5 +60,8 @@
         "5": "Perform 11 different %game.card.lost% actions"
       }
     }
+  },
+  "edition": {
+    "gh2e": "Gloomhaven Second Edition (%wip%)"
   }
 }

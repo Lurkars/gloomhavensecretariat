@@ -3,9 +3,9 @@
     "brute": "Brute",
     "cragheart": "Cragheart",
     "demolitionist": {
-      ".": "Demolitionist",
+      "": "Demolitionist",
       "mech": {
-        ".": "Mech Suit",
+        "": "Mech Suit",
         "hint": "Your maximum hit point value is increased by 5. Heal %game.action.heal% 10, self."
       }
     },
@@ -17,9 +17,6 @@
     "spellweaver": "Spellweaver",
     "tinkerer": "Tinkerer",
     "voidwarden": "Voidwarden"
-  },
-  "edition": {
-    "fh-crossover": "Frosthaven Crossover Characters"
   },
   "custom": {
     "fh": {
@@ -80,5 +77,8 @@
         "3": "Give at least one ally or enemy %game.condition.poison%, %game.condition.strengthen%, %game.condition.bless%, or %game.condition.ward% each round"
       }
     }
+  },
+  "edition": {
+    "fh-crossover": "Frosthaven Crossover Characters"
   }
 }

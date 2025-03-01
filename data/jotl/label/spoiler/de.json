@@ -1,0 +1,148 @@
+{
+  "items": {
+    "jotl-1": {
+      "": "Adleraugenbrille",
+      "1": "Erhalte während deiner gesamten Angriffsaktion Vorteil."
+    },
+    "jotl-10": {
+      "": "Eisenspeer",
+      "1": "Greife während deiner Einzelziel-Nahkampf-Angriffsfertigkeit einen beliebigen Gegner im Umkreis von 2 Feldern an"
+    },
+    "jotl-11": {
+      "": "Heiltrank",
+      "1": "Wende während deines Zugs \"%game.action.heal% 3\" bei dir an."
+    },
+    "jotl-12": {
+      "": "Ausdauertrank",
+      "1": "Nimm während deines Zugs eine deiner abgeworfenen Karten zurück auf die Hand."
+    },
+    "jotl-13": {
+      "": "Krafttrank",
+      "1": "Füge bei deinem Angriff der gesamten Aktion +1 %game.action.attack% hinzu."
+    },
+    "jotl-14": {
+      "": "Manatrank",
+      "1": "Reichere das Schlachtfeld während deines Zugs mit einem beliebigen Element an."
+    },
+    "jotl-15": {
+      "": "Amulett des Lebens",
+      "1": "Wende während deines Zugs \"%game.action.heal% 1\" bei dir an."
+    },
+    "jotl-16": {
+      "": "Robe der Anrufung",
+      "1": "%game.element.consume.wild% bei deinem Angriff, um der gesamten Aktion +1 %game.action.attack% hinzuzufügen."
+    },
+    "jotl-17": {
+      "": "Bequeme Schuhe",
+      "1": "Die untere Standardaktion einer Fertigkeitskarte gilt als \"%game.action.move% 3\" statt \"%game.action.move% 2\"."
+    },
+    "jotl-18": {
+      "": "Streitaxt",
+      "1": "Verwandle deine nächste Einzelziel-Nahkampf-Angriffsfertigkeit in folgendes:"
+    },
+    "jotl-19": {
+      "": "Schwarze Kerze",
+      "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.condition.curse% hinzu."
+    },
+    "jotl-2": {
+      "": "Eisenhelm",
+      "1": "Wenn du angegriffen wirst, gilt jeder gezogene %game.attackmodifier.double% Angriffsmodifikator des Gegners stattdessen als %game.attackmodifier.plus0%."
+    },
+    "jotl-20": {
+      "": "Betäubungspulver",
+      "1": "Füge bei deinem Angriff einem Einzelangriff %game.condition.stun% hinzu."
+    },
+    "jotl-21": {
+      "": "Falkenhelm",
+      "1": "Füge bei deinem Fernangriff der gesamten Aktion +1 %game.action.range% hinzu."
+    },
+    "jotl-22": {
+      "": "Klingenrüstung",
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du%game.action.shield% 2 für den Angriff und der Angreifer erleidet 2 Schaden."
+    },
+    "jotl-23": {
+      "": "Wanderstiefel",
+      "1": "Füge einer deiner Einzelbewegungen +2 %game.action.move% hinzu."
+    },
+    "jotl-24": {
+      "": "Wurfbombe",
+      "1": "Verwandle deine nächste Einzelziel-Fernkampf-Angriffsfertigkeit in Folgendes:"
+    },
+    "jotl-25": {
+      "": "Hakenkette",
+      "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.action.pull% 2 hinzu."
+    },
+    "jotl-26": {
+      "": "Eichenamulett",
+      "1": "Wende während deines Zugs \"%game.condition.bless%, %game.action.range:5%\" an."
+    },
+    "jotl-27": {
+      "": "Schicksalskompass",
+      "1": "Zwinge während deines Zugs einen Gegner in %game.action.range:3%, nach deinem Wunsch \"%game.action.move% 2\" anzuwenden."
+    },
+    "jotl-28": {
+      "": "Schäbiges Schultertuch",
+      "1": "Für die Berechnung des Gegnerfokus ist dein Initiative-Wert 99."
+    },
+    "jotl-29": {
+      "": "Turmschild",
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 2 für den Angriff."
+    },
+    "jotl-3": {
+      "": "Kettenrüstung",
+      "1": "Erhalte während deines Zugs %game.action.shield% 1 für den Rest der Runde"
+    },
+    "jotl-30": {
+      "": "Ring der Eile",
+      "1": "Spiele am Ende deines Zugs eine Handkarte aus und wende die untere Aktion sofort an."
+    },
+    "jotl-31": {
+      "": "Ring der Stärke",
+      "1": "Erhalte während deines Zugs %game.condition.strengthen%."
+    },
+    "jotl-32": {
+      "": "Ring der Erholung",
+      "1": "Wende während deines Zugs \"%game.action.heal% 3, %game.action.range:5%\" an."
+    },
+    "jotl-33": {
+      "": "Stahlring",
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 4 für den Angriff."
+    },
+    "jotl-34": {
+      "": "Zackenaxt",
+      "1": "Füge bei deinem Angriff der gesamten Aktion %game.condition.wound% hinzu."
+    },
+    "jotl-35": {
+      "": "Befehlsrobe",
+      "1": "Während deines Zugs darf ein angrenzender Verbündeter \"%game.action.attack% 2\" ausführen."
+    },
+    "jotl-36": {
+      "": "Raketenstiefel",
+      "1": "Füge einer deiner Einzelbewegungen +1 %game.action.move% und %game.action.jump% hinzu."
+    },
+    "jotl-4": {
+      "": "Nietenrüstung",
+      "1": "Wenn du angegriffen wirst, erhältst du, bevor Angriffsmodifikator-Karten gezogen werden, für diesen Angriff %game.action.shield% 1 und der Angreifer Nachteil."
+    },
+    "jotl-5": {
+      "": "Abgewetzte Stiefel",
+      "1": "Füge einer deiner Einzelbewegungen +1 %game.action.move% hinzu."
+    },
+    "jotl-6": {
+      "": "Flügelschuhe",
+      "1": "Füge während deiner gesamten Bewegungsaktion %game.action.jump% hinzu."
+    },
+    "jotl-7": {
+      "": "Dreieckschild",
+      "1": "Wenn du durch einen Angriff Schaden erleidest, erhältst du %game.action.shield% 1 für den Angriff."
+    },
+    "jotl-8": {
+      "": "Wurfhammer",
+      "1": "Füge bei deinem Fernangriff einem Einzelangriff %game.condition.stun% hinzu"
+    },
+    "jotl-9": {
+      "": "Giftdolch",
+      "1": "Füge bei deinem Nahkampfangriff einem Einzelangriff %game.condition.poison% hinzu."
+    }
+  }
+}

@@ -2,214 +2,26 @@
   "character": {
     "diviner": "점술가"
   },
+  "custom": {
+    "fc": {
+      "flowChartGroup": {
+        "citizens": "글룸헤이븐 시민",
+        "corruption": "부패",
+        "diviner": "점술가",
+        "orchid-society": "오키드 사회",
+        "tainted-crypt": "오염된 묘지",
+        "the-rift": "균열 장치"
+      }
+    }
+  },
+  "deck": {
+    "ashblade": "잿빛칼날"
+  },
   "edition": {
     "fc": "잊힌 비술"
   },
   "monster": {
     "aesther-ashblade": "에스더 잿빛칼날",
-    "aesther-scout": "에스더 정찰병",
-    "avatar-of-ashtar": "Avatar of Ashtar",
-    "avatar-of-thelija": "Avatar of Thelija",
-    "bear-drake-abomination": "Bear-Drake Abomination",
-    "elham": "Elham",
-    "guardian-of-the-firmament": "Guardian of the Firmament",
-    "human-commander": "Human Commander",
-    "manifestation-of-corruption": "Manifestation Of Corruption",
-    "naaret": "Naaret",
-    "selah-naberis": "Selah Naberis",
-    "sraka-the-wise": "Sraka The Wise",
-    "the-husk": "The Husk",
-    "the-steel-lion": "The Steel Lion",
-    "uyart-ikkuma": "Uyart Ikkuma",
-    "valrath-commander": "Valrath Commander",
-    "valrath-savage": "Valrath Savage",
-    "valrath-tracker": "Valrath Tracker",
-    "warden": "Warden",
-    "wolf-viper-abomination": "Wolf-Viper Abomination"
-  },
-  "deck": {
-    "ashblade": "잿빛칼날",
-    "savage": "Savage",
-    "tracker": "Tracker"
-  },
-  "ability": {},
-  "scenario": {
-    "rules": {
-      "fc": {
-        "98": {
-          "1": "Place 1 damage token to both ships %game.mapMarker.a% and %game.mapMarker.b%."
-        },
-        "101": {
-          "1": "if adjacent Spitting Drake is alive and without %game.condition.stun%."
-        },
-        "104": {
-          "1": "towards portal %game.mapMarker.1%",
-          "2": "towards portal %game.mapMarker.2%",
-          "3": "towards portal %game.mapMarker.3%",
-          "4": "towards portal %game.mapMarker.4%"
-        },
-        "105": {
-          "1": "Only apply if Dimensional Equilibrium (Party) is incomplete:"
-        },
-        "106": {
-          "1": "All characters must discard one card from their hand or lose one at random from their discard pile."
-        },
-        "110": {
-          "1": "The Valrath Tracker is Selah Naberis and has hit points equal to an elite Valrath Tracker'sr egular hit point value. He adds \"%game.target% C\" and \"%game.action.pierce% 10\" to all his attacks.",
-          "2": "The Vermling Shaman is Sraka the Wise and has CxH/2 (rounded up) hit points, where H is an elite Vermling Shaman's regular hit point value. The value of all her heals are doubled, and all %game.condition.curse% and %game.condition.bless% conditions she applies are applied twice. Any time she performs a Heal action, if the City Guard is within range and is damaged, she will prioritize healing him.",
-          "3": "The City Guard is The Steel Lion and has CxH/2 (rounded up) hit points, where H is an elite City Guard's regular hit point value. He adds +1 to all his Move actions. As long as he is alive, all his allies gain \"%game.action.shield% X\", where X is the shield value printed on his stat card. The first C times he suffers 6 or more damage from a single source, he suffers no damage instead. All attacks targeting his allies when they are adjacent to him, target him instead, regardless of range.",
-          "4": "The Savvas Lavaflow is Uyart Ikkuma and has CxH/2 (rounded up) hit points, where H is an elite Savvas Lavaflow's regular hit point value. All its summons are elite for three or four characters. Any consume element effects on its ability cards are applied if the element's corresponding demon is present on the map."
-        },
-        "111": {
-          "1": "The elite Aesther Ashblade is the Husk. It has HxC hit points, where H is an elite Aesther Ashblade's regular hit point value, and is immune to %game.condition.stun%, %game.condition.disarm%, %game.condition.immobilize%, and all forced movement",
-          "2": "Immune to forced movement",
-          "3": "The Husk is now considered to have %game.action.shield% 1 and adds +1 %game.action.attack% to all its attacks.",
-          "4": "The Husk is now considered to have %game.action.shield% 2 and adds +3 %game.action.attack% to all its attacks."
-        },
-        "113": "The Stone Golem is the Warden. It cannot be damaged in any way.",
-        "115": {
-          "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
-          "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
-          "3": "at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it",
-          "4": "at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens."
-        }
-      }
-    }
-  },
-  "section": {
-    "rules": {
-      "fc": {
-        "5": {
-          "1": "Flip over the numbered tokens on doors %game.mapMarker.3%, %game.mapMarker.5%, %game.mapMarker.8% and %game.mapMarker.11%",
-          "2": "Move the six iron walls to positions: %game.mapMarker.p%, %game.mapMarker.t%, %game.mapMarker.s%, %game.mapMarker.a1%, %game.mapMarker.a5% and %game.mapMarker.a6%"
-        },
-        "6": "All Hounds are Wolf-Viper Abominations. They have H+3 hit points, where H is a Hound's regular hit point value.<br><br>Instead of using all the Hound ability cards, use only those with initiative values of 06, 72, and both 19s. Shuffle these together with the Giant Viper ability cards with initiative values of 23, both 43s, and the one 58 with \"Move+1, Jump\". All references to Hounds or Giant Vipers apply to Wolf-Viper Abominations.",
-        "10": {
-          "1": "Flip over the numbered tokens on doors %game.mapMarker.3%, %game.mapMarker.8%, %game.mapMarker.9% and %game.mapMarker.10%",
-          "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.n%, %game.mapMarker.r%, %game.mapMarker.t%, %game.mapMarker.a4% and %game.mapMarker.a6%"
-        },
-        "13": "The Savvas Lavaflow is the Avatar of Ashtar.",
-        "19": {
-          "1": "Flip over the numbered tokens on doors %game.mapMarker.1%, %game.mapMarker.6%, %game.mapMarker.7% and %game.mapMarker.10%",
-          "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.p%, %game.mapMarker.t%, %game.mapMarker.a1%, %game.mapMarker.a2% and %game.mapMarker.a6%"
-        },
-        "28": "The elite Cave Bear is the Bear-Drake Abomination. It has (HxC)/2 hit points (rounded up), where H is an elite Cave Bear's regular hit point value, and it is immune to %game.condition.immobilize%, %game.condition.disarm% and %game.condition.stun%. Additionally, it is considered to have %game.action.fly%.<br><br>Instead of using all the Cave Bear ability cards, use only those with initiative values of 03, 14, 61, and 80. Shuffle these together with the Rending Drake ability cards with initiative values of 12, 13, 25, and 59.",
-        "31": {
-          "1": "Flip over the numbered tokens on doors %game.mapMarker.2%, %game.mapMarker.3%, %game.mapMarker.4% and %game.mapMarker.9%",
-          "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.o%, %game.mapMarker.r%, %game.mapMarker.t%, %game.mapMarker.a4% and %game.mapMarker.a6%"
-        },
-        "35": "The Savvas Icestorm is the Avatar of Thelija.",
-        "43": {
-          "1": "Flip over the numbered tokens on doors %game.mapMarker.4%, %game.mapMarker.6%, %game.mapMarker.8% and %game.mapMarker.9%",
-          "2": "Move the six iron walls to positions: %game.mapMarker.m%, %game.mapMarker.s%, %game.mapMarker.p%, %game.mapMarker.a2%, %game.mapMarker.a4% and %game.mapMarker.a6%"
-        },
-        "56": {
-          "1": "Flip over the numbered tokens on doors %game.mapMarker.1%, %game.mapMarker.2%, %game.mapMarker.5% and %game.mapMarker.7%",
-          "2": "Move the six iron walls to positions: %game.mapMarker.m%, %game.mapMarker.q%, %game.mapMarker.s%, %game.mapMarker.a2%, %game.mapMarker.a4% and %game.mapMarker.a5%"
-        },
-        "64": {
-          "1": "Both barrels move two hexes along the water tiles towards water tile %game.mapMarker.9%"
-        },
-        "66": {
-          "1": "%game.action.teleport% %data.monster.the-husk% to %game.mapMarker.b%"
-        },
-        "72": {
-          "1": "adjacent and to the right of any door %game.mapMarker.3%"
-        },
-        "123": {
-          "1": "adjacent and to the right of any door %game.mapMarker.4%"
-        },
-        "128": {
-          "1": "%game.action.teleport% %data.monster.the-husk% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
-        },
-        "132": {
-          "1": "Immediately resolve it!",
-          "2": "After ability is resolved:"
-        },
-        "133": {
-          "1": "The Ancient Artillery has %game.action.shield% 2 and is immune to all forced movement.",
-          "2": "Immune to all forced movement"
-        }
-      }
-    }
-  },
-  "partyAchievements": {
-    "A Strongbox": "A Strongbox",
-    "Angels of Death": "Angels of Death",
-    "Beauty in Freedom": "Beauty in Freedom",
-    "Custodians": "Custodians",
-    "Diamara's Aid": "Diamara's Aid",
-    "Dimensional Equilibrium": "Dimensional Equilibrium",
-    "Guard Detail": "Guard Detail",
-    "Hunted Prey": "Hunted Prey",
-    "Hunting the Hunter": "Hunting the Hunter",
-    "Opportunists": "Opportunists",
-    "Xangroth's Aid": "Xangroth's Aid"
-  },
-  "globalAchievements": {
-    "A Peril Averted": "A Peril Averted",
-    "Knowledge is Power": "Knowledge is Power",
-    "Mechanical Splendor": "Mechanical Splendor",
-    "Pieces of an Artifact": "Pieces of an Artifact",
-    "Severed Ties": "Severed Ties",
-    "Through the Portal": "Through the Portal"
-  },
-  "custom": {
-    "fc": {
-      "ashblade": {
-        "1": "Focus on the enemy with the highest initiative.",
-        "2": "%game.action.teleport% to the closest unoccupied hex adjacent to the focus."
-      },
-      "manifestation-of-corruption": {
-        "1": "Play top two cards, using the first card as initiative. Perform the bottom action of the first card, then the top action of the second card",
-        "2": "Perform this action immediately when revealed, not in normal initiative order.",
-        "3": "The character with the highest initiative is forced to act as if their enemies were allies and their allies were enemies this round. On their turn, they will perform \"%game.action.move%2\" and then the top action of their leading initiative card. Afterwards, they discard both played cards, regardless of wherever the cards would normally be lost.",
-        "4": "All attackers targeting you gain %game.condition.curse% this round.",
-        "5": "Summon one %data.monster.flame-demon%: normal for two or three characters, elite for four characters.<br>Summon one %data.monster.night-demon%: normal for two characters, elite for three or four characters.",
-        "7": "Summon one additional %data.monster.night-demon%",
-        "8": "Summon one additional %data.monster.flame-demon%",
-        "9": "Summon one %data.monster.valrath-tracker%: normal for two characters, elite for three or four characters.",
-        "10": "Summon two %data.monster.black-imp%s: both normal for two characters; one normal, one elite for three characters; both elite for four characters.",
-        "11": "Summon one additional elite %data.monster.black-imp%",
-        "12": "Target all enemies within %game.action.range%4",
-        "13": "All adjacent enemies suffer %game.damage:3%.",
-        "14": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 3.",
-        "15": "Create one %game.condition.disarm% and %game.condition.poison% trap in each adjacent empty hex.",
-        "16": "%game.action.teleport% to the hex occupied by the farthest enemy within %game.action.range%+1 and simultaneously %game.action.teleport% that enemy to the hex you occupy.",
-        "17": "Summon one normal %data.monster.valrath-savage% adjacent to each enemy character within %game.action.range%5.",
-        "18": "All attackers targeting you gain %game.condition.curse%.",
-        "19": "All attackers targeting you gain Disadvantage for the attack.",
-        "20": "%game.action.attack%-1 on a new enemy within %game.action.range%4 of the first target, then %game.action.attack%-2 on a third enemy within %game.action.range%3 of the second target.",
-        "21": "Summon one %game.monster.aesther-scout%: normal for two or three characters, elite for four characters.",
-        "22": "On the next three sources of damage to you, suffer no damage instead."
-      },
-      "sraka-the-wise": {
-        "1": "Double all Heal values. Heals target The Steel Lion if able",
-        "2": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
-      },
-      "the-steel-lion": {
-        "1": "Attacks targeting adjacent allies, target you instead",
-        "2": "The first [C] times you suffer 6 or more damage, suffer no damage instead"
-      },
-      "tracker": {
-        "1": "Create one %game.condition.disarm% trap in any adjacent empty hex closest to an enemy.",
-        "2": "Focus on the enemy with the lowest current hit point value."
-      },
-      "uyart-ikkuma": {
-        "1": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
-      },
-      "valrath-savage": {
-        "1": "All adjacent allies add +1 %game.action.attack% to all attacks",
-        "2": "All adjacent allies add +2 %game.action.attack% to all attacks"
-      },
-      "flowChartGroup": {
-        "diviner": "점술가",
-        "orchid-society": "오키드 사회",
-        "citizens": "글룸헤이븐 시민",
-        "the-rift": "균열 장치",
-        "tainted-crypt": "오염된 묘지",
-        "corruption": "부패"
-      }
-    }
+    "aesther-scout": "에스더 정찰병"
   }
 }

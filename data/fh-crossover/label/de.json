@@ -3,14 +3,17 @@
     "brute": "Barbar",
     "cragheart": "Felsenherz",
     "demolitionist": {
-      ".": "Sprengmeisterin",
-      "mech": "Mech Suit"
+      "": "Sprengmeisterin",
+      "mech": {
+        "": "Mechanikanzug",
+        "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
+      }
     },
     "diviner": "Prophetin",
     "hatchet": "Axtwerfer",
     "mindthief": "Gedankendiebin",
     "red-guard": "Rotgardist",
-    "scoundrel": "Schürkin",
+    "scoundrel": "Schurkin",
     "spellweaver": "Spruchweberin",
     "tinkerer": "Tüftler",
     "voidwarden": "Leerehüterin"

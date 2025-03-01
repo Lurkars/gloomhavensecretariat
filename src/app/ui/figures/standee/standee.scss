@@ -179,6 +179,12 @@
       background-color: var(--ghs-color-black);
       filter: var(--ghs-filter-outline);
 
+      &.bb-elite .number {
+        border: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) solid var(--ghs-color-yellow);
+        border-top: none;
+        border-left: none;
+      }
+
       .background-image-container {
         position: absolute;
         top: 0;

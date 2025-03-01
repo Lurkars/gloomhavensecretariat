@@ -1,0 +1,34 @@
+{
+  "character": {
+    "angry-face": "Cazador Silencioso",
+    "circles": "Invocadora",
+    "eclipse": "Sudario Nocturno",
+    "envx": "Enjambre de cuchillas",
+    "lightning": {
+      "": "Berserker",
+      "blood-pact": {
+        "": "Pacto de Sangre",
+        "hint": "Sufres %game.damage:1% al inicio de cada uno de tus turnos."
+      },
+      "careless-charge": {
+        "hint": "Eres inmune a todas los estados negativos."
+      },
+      "unbridled-power": {
+        "hint": "Puedes sobrecalentarte hasta un máximo de 26 puntos de vida, pero tu valor máximo de puntos de golpe."
+      }
+    },
+    "music-note": {
+      "": "Melodiosa",
+      "song_active": {
+        "": "%game.characterIconColored.music-note% Canción Activa",
+        "hint": "Obtén 1 Exp al inicio de cada uno de sus turnos."
+      }
+    },
+    "saw": "Matasanos",
+    "squidface": "Heraldo de la Plaga",
+    "sun": "Guardiana del Sol",
+    "three-spears": "Intendente",
+    "triangles": "Elementalista",
+    "two-mini": "Señor de las Bestias"
+  }
+}

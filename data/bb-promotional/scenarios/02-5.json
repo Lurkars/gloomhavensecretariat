@@ -1,0 +1,43 @@
+{
+  "index": "2.5",
+  "name": "Narrow Escape",
+  "edition": "bb",
+  "level": 2,
+  "links": [
+    "5"
+  ],
+  "monsters": [
+    "bandit-archer",
+    "venomous-centipede"
+  ],
+  "objectives": [
+    {
+      "name": "Barricade",
+      "marker": "A",
+      "health": "12"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "number": 2
+        },
+        {
+          "name": "bandit-archer",
+          "number": 3
+        },
+        {
+          "name": "venomous-centipede",
+          "number": 1
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

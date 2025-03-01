@@ -16,7 +16,7 @@ export class ScenarioRulesDialogComponent implements OnInit, OnDestroy {
     gameManager: GameManager = gameManager;
 
     appliedScenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
-    disgardedScenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
+    discardedScenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
 
     constructor(private dialogRef: DialogRef) { }
 
@@ -48,19 +48,19 @@ export class ScenarioRulesDialogComponent implements OnInit, OnDestroy {
                 }
             }
         })
-        this.disgardedScenarioRules = [];
-        gameManager.game.disgardedScenarioRules.forEach((identifier) => {
+        this.discardedScenarioRules = [];
+        gameManager.game.discardedScenarioRules.forEach((identifier) => {
             const scenario = gameManager.scenarioRulesManager.getScenarioForRule((identifier)).scenario;
             if (scenario) {
                 if (scenario.rules && scenario.rules.length > identifier.index && identifier.index >= 0) {
                     if (scenario.rules[identifier.index].spawns) {
                         scenario.rules[identifier.index].spawns.forEach((spawn) => { if (spawn.manual && !spawn.count) { spawn.count = "1"; } });
                     }
-                    this.disgardedScenarioRules.push({ identifier: identifier, rule: scenario.rules[identifier.index] });
+                    this.discardedScenarioRules.push({ identifier: identifier, rule: scenario.rules[identifier.index] });
                 }
             }
         })
-        if (!this.appliedScenarioRules.length && !this.disgardedScenarioRules.length) {
+        if (!this.appliedScenarioRules.length && !this.discardedScenarioRules.length) {
             ghsDialogClosingHelper(this.dialogRef);
         }
     }
@@ -68,15 +68,15 @@ export class ScenarioRulesDialogComponent implements OnInit, OnDestroy {
 
     clearDiscardedScenarioRules() {
         gameManager.stateManager.before("clearDiscardedScenarioRules");
-        gameManager.game.disgardedScenarioRules = [];
+        gameManager.game.discardedScenarioRules = [];
         gameManager.stateManager.after();
     }
 
-    disgardScenarioRule(ruleModel: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }) {
+    discardScenarioRule(ruleModel: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }) {
         gameManager.stateManager.before("removeScenarioRule");
         gameManager.game.appliedScenarioRules.splice(gameManager.game.appliedScenarioRules.indexOf(ruleModel.identifier), 1);
         if (ruleModel.rule.once || ruleModel.rule.alwaysApplyTurn) {
-            gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
+            gameManager.game.discardedScenarioRules.push(ruleModel.identifier);
         }
         gameManager.stateManager.after();
     }

@@ -3,7 +3,7 @@
   [entityAnimation]="entity.dead">
   <div class="entity" [ngClass]="gameManager.isMonsterEntity(entity) ? gameManager.toMonsterEntity(entity).type : ''">
     <div #standee class="standee"
-      [ngClass]="{'monster-standee' : gameManager.isMonsterEntity(entity), 'objective-standee' : gameManager.isObjectiveEntity(entity), 'summon-standee' : gameManager.isSummon(entity)}">
+      [ngClass]="{'monster-standee' : gameManager.isMonsterEntity(entity), 'objective-standee' : gameManager.isObjectiveEntity(entity), 'summon-standee' : gameManager.isSummon(entity), 'bb-elite': gameManager.isMonster(figure) && gameManager.toMonster(figure).bb &&  gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).type == MonsterType.elite}">
 
       <div class="sheet" *ngIf="gameManager.isSummon(entity) && gameManager.toSummon(entity).active">
         <ghs-summon-sheet [summon]="gameManager.toSummon(entity)"></ghs-summon-sheet>

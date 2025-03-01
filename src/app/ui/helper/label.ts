@@ -293,7 +293,7 @@ export const applyValueCalc = function (value: string, relative: boolean): strin
 }
 
 @Directive({
-	standalone: false,
+  standalone: false,
   selector: '[ghs-label]'
 })
 export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
@@ -322,19 +322,18 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnInit(): void {
-    this.uiChangeSubscription =
-      gameManager.uiChange.subscribe({
-        next: () => {
-          if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
-            this.C = Math.max(2, gameManager.characterManager.characterCount());
-            this.L = gameManager.game.level;
-            this.locale = settingsManager.settings.locale;
-            this.calc = settingsManager.settings.calculate;
-            this.fhStyle = settingsManager.settings.fhStyle;
-            this.apply();
-          }
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+      next: () => {
+        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
+          this.C = Math.max(2, gameManager.characterManager.characterCount());
+          this.L = gameManager.game.level;
+          this.locale = settingsManager.settings.locale;
+          this.calc = settingsManager.settings.calculate;
+          this.fhStyle = settingsManager.settings.fhStyle;
+          this.apply();
         }
-      });
+      }
+    });
     this.apply();
   }
 
@@ -369,7 +368,7 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
 }
 
 @Directive({
-	standalone: false,
+  standalone: false,
   selector: '[ghs-label-element]'
 })
 export class GhsLabelElementDirective implements OnInit {
@@ -395,7 +394,7 @@ export class GhsLabelElementDirective implements OnInit {
 }
 
 @Directive({
-	standalone: false,
+  standalone: false,
   selector: '[ghs-placeholder]'
 })
 export class GhsPlaceholderDirective implements OnInit, OnChanges {

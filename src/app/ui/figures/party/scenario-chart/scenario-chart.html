@@ -7,5 +7,12 @@
         <a *ngIf="!gameManager.bbRules()" (click)="openCampaignSheet()" [ghs-tooltip]="'party.campaign.manage'">
             <img src="./assets/images/sheet.svg">
         </a>
+        <div *ngIf="gameManager.game.party.campaignMode" class="checkbox-container"
+            [ghs-tooltip]="'scenario.chart.campaign.' + (campaignMode ? 'force' : 'back')" [originY]="'top'"
+            [overlayY]="'bottom'" ghs-pointer-input (singleClick)="toggleCampaignMode($event)"
+            (doubleClick)="toggleCampaignMode($event, true)">
+            <input type="checkbox" [checked]="campaignMode">
+            <span [ghs-label]="'scenario.chart.campaign'"></span>
+        </div>
     </div>
 </div>

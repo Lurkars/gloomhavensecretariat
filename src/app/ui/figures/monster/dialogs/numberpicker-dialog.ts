@@ -1,4 +1,4 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, HostListener, Inject, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -52,43 +52,45 @@ export class MonsterNumberPickerDialog implements OnInit {
 
     @HostListener('document:keydown', ['$event'])
     onKeyPress(event: KeyboardEvent) {
-        if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
-            if (this.timeout) {
-                clearTimeout(this.timeout);
-                this.timeout = undefined;
-                const combined: number = +event.key + 10;
-                const thisKey: number = +event.key;
-                if (combined <= this.max) {
-                    this.pickNumber(combined);
+        if (settingsManager.settings.keyboardShortcuts) {
+            if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+                if (this.timeout) {
+                    clearTimeout(this.timeout);
+                    this.timeout = undefined;
+                    const combined: number = +event.key + 10;
+                    const thisKey: number = +event.key;
+                    if (combined <= this.max) {
+                        this.pickNumber(combined);
+                    } else {
+                        this.pickNumber(1);
+                        this.pickNumber(thisKey);
+                    }
+
+                } else if (event.key === '1' && this.range.filter((number) => number > 10).some((number) => !this.hasNumber(number))) {
+                    this.timeout = setTimeout(() => {
+                        this.pickNumber(+event.key);
+                        this.timeout = undefined;
+                    }, 1000);
+                } else if (event.key === '0' && this.max > 9) {
+                    this.pickNumber(10);
                 } else {
-                    this.pickNumber(1);
-                    this.pickNumber(thisKey);
+                    this.pickNumber(+event.key);
                 }
 
-            } else if (event.key === '1' && this.range.filter((number) => number > 10).some((number) => !this.hasNumber(number))) {
-                this.timeout = setTimeout(() => {
-                    this.pickNumber(+event.key);
-                    this.timeout = undefined;
-                }, 1000);
-            } else if (event.key === '0' && this.max > 9) {
-                this.pickNumber(10);
-            } else {
-                this.pickNumber(+event.key);
-            }
+                event.preventDefault();
+                event.stopPropagation();
+            } else if (event.key === 's' && !this.entity) {
+                this.summon = !this.summon;
+            } else if (event.key === 't') {
+                if (this.entity) {
+                    this.toggleMonsterType();
+                }
 
-            event.preventDefault();
-            event.stopPropagation();
-        } else if (event.key === 's' && !this.entity) {
-            this.summon = !this.summon;
-        } else if (event.key === 't') {
-            if (this.entity) {
-                this.toggleMonsterType();
-            }
-
-            if (this.type == MonsterType.normal) {
-                this.type = MonsterType.elite;
-            } else if (this.type == MonsterType.elite) {
-                this.type = MonsterType.normal;
+                if (this.type == MonsterType.normal) {
+                    this.type = MonsterType.elite;
+                } else if (this.type == MonsterType.elite) {
+                    this.type = MonsterType.normal;
+                }
             }
         }
     }
@@ -191,12 +193,8 @@ export class MonsterNumberPickerDialog implements OnInit {
 
     toggleMonsterType() {
         if (this.entity && (this.entity.type == MonsterType.normal || this.entity.type == MonsterType.elite)) {
-            const normalStat = this.monster.stats.find((stat) => {
-                return stat.level == this.monster.level && stat.type == MonsterType.normal;
-            });
-            const eliteStat = this.monster.stats.find((stat) => {
-                return stat.level == this.monster.level && stat.type == MonsterType.elite;
-            });
+            const normalStat = gameManager.monsterManager.getStat(this.monster, MonsterType.normal);
+            const eliteStat = gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
             if (normalStat && eliteStat) {
                 gameManager.stateManager.before("changeMonsterType", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal);
                 this.entity.type = this.entity.type == MonsterType.normal ? MonsterType.elite : MonsterType.normal;
@@ -206,6 +204,17 @@ export class MonsterNumberPickerDialog implements OnInit {
                 } else if (this.entity.health < this.entity.maxHealth && this.entity.health == EntityValueFunction(this.entity.type == MonsterType.normal ? eliteStat.health : normalStat.health, this.monster.level)) {
                     this.entity.health = this.entity.maxHealth;
                 }
+
+                if (this.monster.bb) {
+                    if (this.monster.entities.every((entity) => entity.type == MonsterType.elite)) {
+                        if (this.monster.tags.indexOf('bb-elite') == -1) {
+                            this.monster.tags.push('bb-elite');
+                        }
+                    } else if (this.monster.tags.indexOf('bb-elite') != -1) {
+                        this.monster.tags = this.monster.tags.filter((tag) => tag != 'bb-elite');
+                    }
+                }
+
                 gameManager.stateManager.after();
             } else {
                 console.warn("Missing stats!", this.monster);

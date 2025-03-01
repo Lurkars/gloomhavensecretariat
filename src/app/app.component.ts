@@ -1,15 +1,16 @@
-import { Component, isDevMode, OnInit } from '@angular/core';
+import { Component, isDevMode, OnDestroy, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
 import { gameManager } from './game/businesslogic/GameManager';
 import { settingsManager } from './game/businesslogic/SettingsManager';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'gloomhavensecretariat';
 
   theme: string = '';
@@ -18,12 +19,20 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.applyStyle();
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.applyStyle();
         this.applyAnimations();
       }
     })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   applyStyle() {

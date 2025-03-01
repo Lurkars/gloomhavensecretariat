@@ -1,0 +1,24 @@
+{
+  "index": "133.1A",
+  "name": "Aesther Enhancements",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "133.1"
+    ]
+  ],
+  "conclusion": true,
+  "repeatable": true,
+  "requirements": [
+    {
+      "buildings": [
+        "!enhancer"
+      ]
+    }
+  ],
+  "rewards": {
+    "calendarSection": [
+      "133.1-3"
+    ]
+  }
+}

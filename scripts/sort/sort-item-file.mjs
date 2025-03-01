@@ -4,7 +4,7 @@ import { sortObjectKeys } from './sorter/sort-helper.mjs';
 
 export const sortItemFile = function (dataDirectory) {
     let changedFiles = [];
-    if (fs.existsSync(dataDirectory) && fs.lstatSync(dataDirectory).isDirectory) {
+    if (fs.existsSync(dataDirectory) && fs.lstatSync(dataDirectory).isDirectory()) {
         for (let editionDirectory of fs.readdirSync(dataDirectory)) {
             const itemFile = path.join(dataDirectory, editionDirectory, 'items.json');
             if (fs.existsSync(itemFile) && fs.lstatSync(itemFile).isFile()) {

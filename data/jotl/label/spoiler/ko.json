@@ -1,0 +1,148 @@
+{
+  "items": {
+    "jotl-1": {
+      "": "독수리 눈 고글",
+      "1": "During your attack, gain Advantage on the entire Attack action."
+    },
+    "jotl-10": {
+      "": "강철 창",
+      "1": "During your single-target melee Attack ability, attack any one enemy within 2 hexes"
+    },
+    "jotl-11": {
+      "": "치료 물약",
+      "1": "During your turn, perform a “%game.action.heal% 3, Self” action."
+    },
+    "jotl-12": {
+      "": "활력 물약",
+      "1": "During your turn, return one of your discarded cards to your hand."
+    },
+    "jotl-13": {
+      "": "힘 물약",
+      "1": "During your attack, add +1 %game.action.attack% to your entire Attack action."
+    },
+    "jotl-14": {
+      "": "마나 물약",
+      "1": "During your turn, infuse any one element."
+    },
+    "jotl-15": {
+      "": "생명의 부적",
+      "1": "During your turn, “%game.action.heal% 1, Self” action."
+    },
+    "jotl-16": {
+      "": "초혼의 로브",
+      "1": "During your attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
+    },
+    "jotl-17": {
+      "": "편안한 신발",
+      "1": "Whenever you use the default bottom of an ability card, perform a “%game.action.move% 3” action instead of a “%game.action.move% 2” action."
+    },
+    "jotl-18": {
+      "": "전투 도끼",
+      "1": "During your single-target melee attack action, turn the attack into the following:"
+    },
+    "jotl-19": {
+      "": "검은 양초",
+      "1": "During your ranged attack, add %game.condition.curse% to a single attack."
+    },
+    "jotl-2": {
+      "": "철투구",
+      "1": "When attacked, consider any %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead."
+    },
+    "jotl-20": {
+      "": "기절 가루",
+      "1": "During your attack, add %game.condition.stun% to a single attack."
+    },
+    "jotl-21": {
+      "": "송골매 투구",
+      "1": "During your ranged attack, add +1 %game.action.range% to your entire Attack action."
+    },
+    "jotl-22": {
+      "": "날붙이 갑옷",
+      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack and the attacker suffers 2 damage."
+    },
+    "jotl-23": {
+      "": "활보의 장화",
+      "1": "During your movement, add +2 %game.action.move% to a single movement."
+    },
+    "jotl-24": {
+      "": "휘발성 폭탄",
+      "1": "During your single-target ranged attack action, turn the attack into the following:"
+    },
+    "jotl-25": {
+      "": "가시 돋친 사슬",
+      "1": "During your ranged attack, add %game.action.pull% 2 to a single attack."
+    },
+    "jotl-26": {
+      "": "떡갈나무 부적",
+      "1": "During your turn, perform a “%game.condition.bless%, %game.action.range:5%” action."
+    },
+    "jotl-27": {
+      "": "운명 나침반",
+      "1": "During your turn, force one enemy within %game.action.range:3% to perform a “%game.action.move% 2” action with you controlling the action."
+    },
+    "jotl-28": {
+      "": "벼룩투성이 숄",
+      "1": "You are considered to have an initiative of 99 for the purpose of enemy focusing."
+    },
+    "jotl-29": {
+      "": "대형 방패",
+      "1": "When damaged by an attack, gain %game.action.shield% 2 for the attack."
+    },
+    "jotl-3": {
+      "": "쇠사슬 갑옷",
+      "1": "During your turn gain %game.action.shield% 1 for the rest of the round"
+    },
+    "jotl-30": {
+      "": "신속의 반지",
+      "1": "At the end of your turn, play one card from your hand and immediately perform the bottom action of that card."
+    },
+    "jotl-31": {
+      "": "힘의 반지",
+      "1": "During your turn, gain %game.condition.strengthen%."
+    },
+    "jotl-32": {
+      "": "회복의 반지",
+      "1": "During your turn, perform a “%game.action.heal% 3, %game.action.range:5%” action."
+    },
+    "jotl-33": {
+      "": "강철 반지",
+      "1": "When damaged by an attack, gain %game.action.shield% 4 for the attack."
+    },
+    "jotl-34": {
+      "": "가시 돋친 도끼",
+      "1": "During your attack, add %game.condition.wound% to the entire Attack Action."
+    },
+    "jotl-35": {
+      "": "명령의 로브",
+      "1": "During your turn, one adjacent ally may perform and “%game.action.attack% 2” Action."
+    },
+    "jotl-36": {
+      "": "제트 장화",
+      "1": "During your movement, add +1 %game.action.move% and %game.action.jump% to a single movement."
+    },
+    "jotl-4": {
+      "": "징 박은 가죽 갑옷",
+      "1": "When attacked, the attacker gains Disadvantage on the attack and you gain %game.action.shield% 1 for the attack."
+    },
+    "jotl-5": {
+      "": "낡은 장화",
+      "1": "During your movement add +1 %game.action.move% to a single movement."
+    },
+    "jotl-6": {
+      "": "날개달린 신발",
+      "1": "During your movement, add %game.action.jump% to the entire Move Action."
+    },
+    "jotl-7": {
+      "": "다리미꼴 방패",
+      "1": "When damaged by an attack, gain %game.action.shield% 1 for the attack."
+    },
+    "jotl-8": {
+      "": "투척용 망치",
+      "1": "During your ranged attack, add %game.condition.stun% to a single attack"
+    },
+    "jotl-9": {
+      "": "독 단검",
+      "1": "During your melee attack, add %game.condition.poison% to a single attack."
+    }
+  }
+}

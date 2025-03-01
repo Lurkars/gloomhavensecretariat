@@ -3,11 +3,12 @@
   "characterClass": "unfettered",
   "edition": "fh",
   "identities": [
+    "low",
     "regular",
     "high",
-    "over",
-    "low"
+    "over"
   ],
+  "defaultIdentity": 1,
   "handSize": 9,
   "traits": [
     "armored",

@@ -120,7 +120,7 @@ export class BuildingUpgradeDialog implements OnInit {
         const section = gameManager.sectionData(edition || gameManager.currentEdition()).find((sectionData) => sectionData.index == index);
         if (this.rewardsOnly && section) {
             const conclusion = gameManager.buildingsManager.rewardSection(section);
-            const conclusions = gameManager.sectionData(section.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section.index) != -1));
+            const conclusions = gameManager.sectionData(section.edition).filter((sectionData) => sectionData.conclusion && !sectionData.parent && sectionData.parentSections && sectionData.parentSections.find((parentSections) => parentSections.length == 1 && parentSections.indexOf(section.index) != -1) && gameManager.scenarioManager.getRequirements(sectionData).length == 0);
 
             if (conclusion || conclusions.length == 0) {
                 const scenario = new Scenario(conclusion || section);

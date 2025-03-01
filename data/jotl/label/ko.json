@@ -1,12 +1,89 @@
 {
   "character": {
     "demolitionist": {
-      ".": "철거전문가",
+      "": "철거전문가",
       "mech": "기계 강화복"
     },
     "hatchet": "도끼투척수",
     "red-guard": "적위병",
     "voidwarden": "공허감시자"
+  },
+  "custom": {
+    "jotl": {
+      "basic-vermling-raider": {
+        "1": "라운드 종료 시 이 덱을 섞음.",
+        "2": "버믈링 강습병은 주목한 적에게 인접하지 않을 때까지 이동.",
+        "3": "이번 라운드에 버믈링 강습병은 이동하지 않음.",
+        "4": "이 행동은 지난 시나리오에 버믈링 강습병이 행동했던 방식과 같음."
+      },
+      "black-sludge": {
+        "1": "사정거리에 관계없이 시야 내에 있는 가장 가까운 적이 [1+L/2{$math.ceil}] %game.damage%."
+      },
+      "blood-horror": {
+        "1": "가장 멀리 있는 죽은 %data.monster.zealot%에게 도약 또는, 가장 멀리 있는 적에게 도약 후 %game.action.attack% +0",
+        "2": "같은 방에 죽은 모든 %data.monster.zealot%들을 부활."
+      },
+      "blood-monstrosity": {
+        "1": "죽을때, 인접한 모든 피규어에 %game.damage:1%점."
+      },
+      "chaos-demon": {
+        "1": "이번 라운드 중 피규어가 %data.monster.chaos-demon%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음.",
+        "2": "대상에게 인접한 모든 적이 %game.damage:1%점을 입음."
+      },
+      "demolitionist": {
+        "1": "인접한 모든 적이 피해 %game.damage:1%점을 입음."
+      },
+      "first-of-the-order": {
+        "1": "%game.action.range:2%내 모든 적이 %game.damage:2%점을 입음.",
+        "2": "대상의 %game.action.range:2% 내에서"
+      },
+      "flowChartGroup": {
+        "characters": "캐릭터",
+        "city-events": "도시 이벤트",
+        "intro": "서막",
+        "main": "주 무대"
+      },
+      "giant-viper": {
+        "1": "이번 라운드 중 %data.monster.giant-viper%를 대상으로 하는 모든 공격이 불이익.",
+        "2": "대상이 %data.monster.giant-viper%의 아군에게 인접해 있다면 +2 %game.action.attack%추가."
+      },
+      "giant-viper-scenario-21": {
+        "1": "Each time after any figure attacks a Giant Viper, that figure suffers %game.damage:L%"
+      },
+      "living-corpse": {
+        "1": "대상이 %game.damage:2%점도 입음.",
+        "2": "이 이동이 수행되면, %data.monster.living-corpse%가 스스로 %game.damage:1%점을 입음.",
+        "3": "이 공격이 수행되면, %data.monster.living-corpse%가 스스로 %game.damage:1%점을 입음."
+      },
+      "monstrosity": {
+        "1": "이 공격이 수행되면, %data.monster.monstrosity%가 스스로 %game.damage:1%점을 입음.",
+        "2": "대상이 %data.monster.monstrosity%의 아군에게 인접해 있다면 +1 %game.action.attack% 추가.",
+        "3": "이번 라운드 중 피규어가 %data.monster.monstrosity%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음.",
+        "4": "%data.monster.monstrosity%가 스스로 %game.damage:1%점을 입음"
+      },
+      "rat-monstrosity": {
+        "1": "사망 시, 인접한 모든 피규어가 %game.damage:1%점 입음.",
+        "2": "사망 시, 인접한 모든 피규어가 %game.damage:2%점 입음.",
+        "3": "사망 시, 인접한 모든 피규어가 %game.damage:3%점 입음.",
+        "4": "사망 시, 인접한 모든 피규어가 %game.damage:4%점 입음."
+      },
+      "stone-golem": {
+        "1": "이번 라운드 중 피규어가 %data.monster.stone-golem%을 공격할 때마다, 해당 피규어가 %game.damage:3%점을 입음.",
+        "2": "이동 능력이 수행되었다면, %data.monster.stone-golem%이 스스로 %game.damage:1%점을 입음.",
+        "3": "이 공격이 수행되면, the %data.monster.stone-golem%이 스스로 %game.damage:2%점을 입음."
+      },
+      "vermling-raider": {
+        "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에 3-%game.damage% 함정을 생성."
+      },
+      "zealot": {
+        "1": "여기에서 X는 공격의 대상이 공격을 통해 입은 %game.damage%"
+      }
+    }
+  },
+  "deck": {
+    "boss": "보스",
+    "imp": "임프",
+    "monstrosity": "변이체"
   },
   "edition": {
     "jotl": "사자의 턱"
@@ -34,262 +111,31 @@
     "vermling-scout": "버믈링 정찰병",
     "zealot": "추종자"
   },
-  "deck": {
-    "boss": "보스",
-    "monstrosity": "변이체",
-    "imp": "임프"
-  },
-  "ability": {},
   "scenario": {
-    "Roadside Ambush": "길가의 매복",
-    "A Hole in the Wall": "벽에 난 구멍",
-    "The Black Ship": "검은 함선",
-    "A Ritual in Stone": "돌로 이루는 의식",
     "A Deeper Understanding": "깊어진 이해",
-    "Corrupted Research": "오염된 연구",
-    "Sunken Tumor": "침전한 종양",
-    "Hidden Tumor": "숨겨진 종양",
-    "Explosive Evolution": "폭발적인 진화",
-    "The Gauntlet": "시련의 장 ",
-    "Defiled Sewers": "부정한 하수구",
+    "A Hole in the Wall": "벽에 난 구멍",
+    "A Ritual in Stone": "돌로 이루는 의식",
+    "Agents of Chaos": "혼돈의 대리인",
     "Beguiling Sewers": "매혹적인 하수구",
-    "Vile Harvest": "불쾌한 수확",
-    "Toxic Harvest": "유독한 수확",
-    "Tainted Blood": "오염된 피",
+    "Corrupted Research": "오염된 연구",
+    "Defiled Sewers": "부정한 하수구",
+    "Den of Thieves": "도둑들의 소굴",
+    "Explosive Evolution": "폭발적인 진화",
+    "Hidden Tumor": "숨겨진 종양",
+    "Misplaced Goods": "빼돌려진 화물",
     "Mixed Results": "양가적인 결과",
     "Red Twilight": "붉은 황혼",
-    "The Heist": "강도 사건",
-    "Den of Thieves": "도둑들의 소굴",
-    "Misplaced Goods": "빼돌려진 화물",
-    "Agents of Chaos": "혼돈의 대리인",
-    "Unfriendly Message": "적대적인 전언",
+    "Roadside Ambush": "길가의 매복",
+    "Sunken Tumor": "침전한 종양",
+    "Tainted Blood": "오염된 피",
     "The Best of the Best": "왕중왕전",
-    "Warding the Void": " 공허 감시",
+    "The Black Ship": "검은 함선",
+    "The Gauntlet": "시련의 장 ",
     "The Greatest Job in the World": "세계 최고의 직업",
-    "rules": {
-      "jotl": {
-        "10": {
-          "1": "Move traps in %game.mapMarker.1% one hex downward",
-          "2": "Move traps in %game.mapMarker.2% one hex closer to nearest character"
-        },
-        "14": {
-          "1": "one for every normal Giant Viper and two for every elite Giant Viper adjacent to a Zealot, the Giant Viper dies"
-        },
-        "15": {
-          "1": "one for every Black Imp within Range 3 of a Zealot which then gain %game.condition.stun%"
-        },
-        "20": {
-          "1": "Loot is represented with Objectives, after looting exhaust corresponding Objective to find good",
-          "2": "Find 1 good",
-          "3": "Find Ring of Restoration (Item 32)"
-        },
-        "21": {
-          "1": "in any hex the last objective was destroyed",
-          "2": "Characters suffer %game.damage:[L/2{$math.floor}]% for each hex they enter in room of Chaos Demon %game.mapMarker.A%"
-        }
-      }
-    }
-  },
-  "battleGoals": {
-    "286": {
-      ".": "Acrobatic",
-      "text": "Lose a card to negate 5 or more damage."
-    },
-    "287": {
-      ".": "Agoraphobe",
-      "text": "End each of your turns adjacent to a wall or obstacle."
-    },
-    "288": {
-      ".": "Altruist",
-      "text": "Collect fewer money tokens than any other character."
-    },
-    "289": {
-      ".": "Assistant",
-      "text": "Kill a monster attacked by an ally earlier in the round."
-    },
-    "290": {
-      ".": "Challenger",
-      "text": "Never leave a hex adjacent to a monster."
-    },
-    "291": {
-      ".": "Closer",
-      "text": "Kill the last monster to die in the scenario."
-    },
-    "292": {
-      ".": "Conservator",
-      "text": "Never lose a card to negate suffering damage."
-    },
-    "293": {
-      ".": "Diehard",
-      "text": "Never allow your hit points to drop below half your maximum hit point value (rounded up)."
-    },
-    "294": {
-      ".": "Egoist",
-      "text": "Collect more money tokens than any other character."
-    },
-    "295": {
-      ".": "Fast Healer",
-      "text": "End the scenario with hit points equal to your maximum hit point value."
-    },
-    "296": {
-      ".": "Gambler",
-      "text": "Kill a monster with an attack that has Disadvantage."
-    },
-    "297": {
-      ".": "Hothead",
-      "text": "Perform two actions with Lost icons before your first rest."
-    },
-    "298": {
-      ".": "Insomniac",
-      "text": "Suffer damage from an attack in the same round you long rest."
-    },
-    "299": {
-      ".": "Masochist",
-      "text": "End the scenario with 3 or fewer hit points."
-    },
-    "300": {
-      ".": "Mugger",
-      "text": "Kill a monster and loot the money token it drops in the same turn."
-    },
-    "301": {
-      ".": "Opener",
-      "text": "Kill the first monster to die in the scenario."
-    },
-    "302": {
-      ".": "Pacifist",
-      "text": "Kill three or fewer monsters."
-    },
-    "303": {
-      ".": "Pickpocket",
-      "text": "Collect one or more money tokens by performing a Loot action while you are adjacent to two or more monsters."
-    },
-    "304": {
-      ".": "Pincushion",
-      "text": "Be targeted by attacks from three or more monsters in the same round."
-    },
-    "305": {
-      ".": "Plebeian",
-      "text": "Never kill an elite monster or boss."
-    },
-    "306": {
-      ".": "Prohibitionist",
-      "text": "Never use a potion."
-    },
-    "307": {
-      ".": "Ravager",
-      "text": "Perform two actions with Lost icons in the same turn."
-    },
-    "308": {
-      ".": "Recluse",
-      "text": "Never end your turn adjacent to any of your allies."
-    },
-    "309": {
-      ".": "Sadist",
-      "text": "Kill five or more monsters."
-    },
-    "310": {
-      ".": "Scrambler",
-      "text": "Never long rest."
-    },
-    "311": {
-      ".": "Shadow",
-      "text": "End each of your turns adjacent to any of your allies."
-    },
-    "312": {
-      ".": "Shirker",
-      "text": "Kill a monster not adjacent to you while you are adjacent to another monster."
-    },
-    "313": {
-      ".": "Specialist",
-      "text": "Never perform a basic action."
-    },
-    "314": {
-      ".": "Straggler",
-      "text": "Never short rest."
-    },
-    "315": {
-      ".": "Trailblazer",
-      "text": "Open a door and end your same turn in the revealed room."
-    },
-    "316": {
-      ".": "Transmitter",
-      "text": "Apply any negative condition to a monster while you have any negative condition."
-    },
-    "317": {
-      ".": "Weakling",
-      "text": "Become exhausted before any other character."
-    }
-  },
-  "custom": {
-    "jotl": {
-      "giant-viper": {
-        "1": "이번 라운드 중 %data.monster.giant-viper%를 대상으로 하는 모든 공격이 불이익.",
-        "2": "대상이 %data.monster.giant-viper%의 아군에게 인접해 있다면 +2 %game.action.attack%추가."
-      },
-      "giant-viper-scenario-21": {
-        "1": "Each time after any figure attacks a Giant Viper, that figure suffers %game.damage:L%"
-      },
-      "black-sludge": {
-        "1": "사정거리에 관계없이 시야 내에 있는 가장 가까운 적이 [1+L/2{$math.ceil}] %game.damage%."
-      },
-      "chaos-demon": {
-        "1": "이번 라운드 중 피규어가 %data.monster.chaos-demon%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음.",
-        "2": "대상에게 인접한 모든 적이 %game.damage:1%점을 입음."
-      },
-      "living-corpse": {
-        "1": "대상이 %game.damage:2%점도 입음.",
-        "2": "이 이동이 수행되면, %data.monster.living-corpse%가 스스로 %game.damage:1%점을 입음.",
-        "3": "이 공격이 수행되면, %data.monster.living-corpse%가 스스로 %game.damage:1%점을 입음."
-      },
-      "monstrosity": {
-        "1": "이 공격이 수행되면, %data.monster.monstrosity%가 스스로 %game.damage:1%점을 입음.",
-        "2": "대상이 %data.monster.monstrosity%의 아군에게 인접해 있다면 +1 %game.action.attack% 추가.",
-        "3": "이번 라운드 중 피규어가 %data.monster.monstrosity%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음.",
-        "4": "%data.monster.monstrosity%가 스스로 %game.damage:1%점을 입음"
-      },
-      "stone-golem": {
-        "1": "이번 라운드 중 피규어가 %data.monster.stone-golem%을 공격할 때마다, 해당 피규어가 %game.damage:3%점을 입음.",
-        "2": "이동 능력이 수행되었다면, %data.monster.stone-golem%이 스스로 %game.damage:1%점을 입음.",
-        "3": "이 공격이 수행되면, the %data.monster.stone-golem%이 스스로 %game.damage:2%점을 입음."
-      },
-      "vermling-raider": {
-        "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에 3-%game.damage% 함정을 생성."
-      },
-      "zealot": {
-        "1": "여기에서 X는 공격의 대상이 공격을 통해 입은 %game.damage%"
-      },
-      "blood-horror": {
-        "1": "가장 멀리 있는 죽은 %data.monster.zealot%에게 도약 또는, 가장 멀리 있는 적에게 도약 후 %game.action.attack% +0",
-        "2": "같은 방에 죽은 모든 %data.monster.zealot%들을 부활."
-      },
-      "blood-monstrosity": {
-        "1": "죽을때, 인접한 모든 피규어에 %game.damage:1%점."
-      },
-      "first-of-the-order": {
-        "1": "%game.action.range:2%내 모든 적이 %game.damage:2%점을 입음.",
-        "2": "대상의 %game.action.range:2% 내에서"
-      },
-      "rat-monstrosity": {
-        "1": "사망 시, 인접한 모든 피규어가 %game.damage:1%점 입음.",
-        "2": "사망 시, 인접한 모든 피규어가 %game.damage:2%점 입음.",
-        "3": "사망 시, 인접한 모든 피규어가 %game.damage:3%점 입음.",
-        "4": "사망 시, 인접한 모든 피규어가 %game.damage:4%점 입음."
-      },
-      "basic-vermling-raider": {
-        "1": "라운드 종료 시 이 덱을 섞음.",
-        "2": "버믈링 강습병은 주목한 적에게 인접하지 않을 때까지 이동.",
-        "3": "이번 라운드에 버믈링 강습병은 이동하지 않음.",
-        "4": "이 행동은 지난 시나리오에 버믈링 강습병이 행동했던 방식과 같음."
-      },
-      "demolitionist": {
-        "1": "인접한 모든 적이 피해 %game.damage:1%점을 입음."
-      },
-      "flowChartGroup": {
-        "intro": "서막",
-        "main": "주 무대",
-        "city-events": "도시 이벤트",
-        "characters": "캐릭터"
-      }
-    }
+    "The Heist": "강도 사건",
+    "Toxic Harvest": "유독한 수확",
+    "Unfriendly Message": "적대적인 전언",
+    "Vile Harvest": "불쾌한 수확",
+    "Warding the Void": " 공허 감시"
   }
 }

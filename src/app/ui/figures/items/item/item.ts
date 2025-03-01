@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType } from "src/app/game/model/data/Action";
@@ -6,12 +7,12 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-item',
     templateUrl: './item.html',
     styleUrls: ['./item.scss']
 })
-export class ItemComponent implements OnInit, AfterViewInit {
+export class ItemComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @ViewChild('container') containerElement!: ElementRef;
     @Input() item!: ItemData | undefined;
@@ -36,6 +37,7 @@ export class ItemComponent implements OnInit, AfterViewInit {
     slots: Action[] = [];
     slotsBack: Action[] = [];
     idNumber: boolean = false;
+    usable: boolean = true;
 
     settingsManager: SettingsManager = settingsManager;
     gameManager: GameManager = gameManager;
@@ -80,13 +82,25 @@ export class ItemComponent implements OnInit, AfterViewInit {
             }
 
             this.idNumber = typeof this.item.id === 'number';
+            this.usable = gameManager.itemManager.itemUsable(this.item);
         }
 
-        gameManager.uiChange.subscribe({
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
-                this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';;
+                this.fontsize = (this.containerElement.nativeElement.offsetWidth * 0.072) + 'px';
+                if (this.item) {
+                    this.usable = gameManager.itemManager.itemUsable(this.item);
+                }
             }
         })
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     ngAfterViewInit(): void {

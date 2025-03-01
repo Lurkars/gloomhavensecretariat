@@ -1,0 +1,146 @@
+{
+  "character": {
+    "angry-face": "파멸사냥꾼",
+    "circles": "소환사",
+    "eclipse": "어둠장막",
+    "envx": "칼날군주",
+    "lightning": {
+      "": "광전사",
+      "careless-charge": {
+        "": "Careless Charge",
+        "hint": "모든 부정적 상태에 면역"
+      },
+      "unbridled-power": {
+        "": "Unbridled Power",
+        "hint": "최대 26까지 Hp 회복 가능"
+      }
+    },
+    "music-note": {
+      "": "위무음악가",
+      "song_active": {
+        "": "노래 활성화"
+      }
+    },
+    "saw": "의무관",
+    "squidface": "역병전령",
+    "sun": "태양지기",
+    "three-spears": "보급관",
+    "triangles": "원소술사",
+    "two-mini": "야수군주"
+  },
+  "custom": {
+    "fh": {
+      "angry-face": {
+        "1": "<b>Marked for the Hunt:</b> At the beginning of each round in which you long rest, you may choose one ally to gain the benefits of any of your active Dooms as if the Dooms were in that ally's active area for the round",
+        "2": "Never perform a Doom action that you have already performed in the scenario",
+        "3": "Kill three Doomed enemies during one of your turn"
+      },
+      "beetle": {
+        "1": "<b>Heart of Swarm:</b> Once per scenario on your turn, play a card from your discard pile to perform Cultivate %data.action.custom.cs-cultivate% action of that card. You and all allies adjacent to you are considered to be adjecent to every colony type this round",
+        "2": "For an entire scenario, have the persistent effect of a Cultivate %data.action.custom.cs-cultivate% ability trigger each round (only count gaining %game.action.shield% or %game.action.retaliate% if attacked)",
+        "3": "In a single round, cause 15 or more damage with retaliate (including retailiate you grant)"
+      },
+      "bleeding-claw": {
+        "1": "<b>Lull in Hunger:</b> Once each scenario, become %game.action.custom.cs-sated% after collecting your fifth loot token",
+        "2": "<b>Andrenaline Rush:</b> Become %game.action.custom.cs-sated% each time you lose a card to negate suffering %game.action.damage%",
+        "3": "<b>Follow the Scent:</b> Whenever one of your abilities causes at least one enemy to gain %game.condition.rupture%, immiditiately after the ability, perform %game.action.move%",
+        "4": "For an entire scenario, be %game.action.custom.cs-sated% at the start or end of each of your turns",
+        "5": "%game.action.push% one enemy 7 or more hexes with a single attack"
+      },
+      "chain-helmet": {
+        "1": "<b>Unyielding Jailer:</b> You may have an additional enemy Shackled %data.characterIcon.chain-helmet% at any time",
+        "2": "Shackle %data.characterIcon.chain-helmet% 30 different enemies accross any number of scenarios",
+        "3": "Deal %game.damage:20% to Shackled %data.characterIcon.chain-helmet% enemies in a single round"
+      },
+      "circles": {
+        "1": "when %game.action.attack% performed",
+        "2": "Performs",
+        "3": "at end of turn",
+        "4": "<b>Phase Out:</b> Once each scenario during ordering of initiative, after all ability cards haven been revealed, all your summons gain %game.condition.invisible%",
+        "5": "Summon the Lava Golem on your first turn and keep it alive for the entire scenario",
+        "6": "Perform the summon action of five different ability cards"
+      },
+      "crescent-sun": {
+        "1": "<b>Ignited Power:</b> Whenever you perform an action with a %game.card.lost% icon, you may immiditately play a card from your hand to perform an action that has a Glow %data.characterIcon.crescent-sun% ability",
+        "2": "For an entire scenario, on each of your turns except the first, perform at least one Glow %data.characterIcon.crescent-sun% ability",
+        "3": "In a single scenario, generate 4 different elements in a single turn and consume 4 different elements in a single turn"
+      },
+      "eclipse": {
+        "1": "<b>Empowering Night</b> At the start of the scenario, you may discard two cards to add a card with an action containing a persistent symbol from your pool to your hand and immediately play it, performing that action",
+        "2": "Have %game.condition.invisible% at the start or end of each of your turns",
+        "3": "%game.element.dark% or %game.element.consume.dark% during each of your turns"
+      },
+      "envx": {
+        "1": "All adjacent allies may perform \"%game.action.move%1\" at end of turn.",
+        "10": "Perform two different summon actions on your first turn and keep all summons from those actions alive for the entire scenario.",
+        "11": "Perform three different non-summon persistent loss actions before your first rest.",
+        "2": "All adjacent allies and enemies suffer %game.damage:2% ad end of turn.",
+        "3": "All adjacent allies gain %game.action.shield% 1.",
+        "4": "X is the number of adjacent figures.",
+        "5": "All adjacent enemies deduct -1 %game.action.attack% from all their attacks.",
+        "6": "All adjacent summoned allies add +1 %game.action.attack% to all their attacks",
+        "7": "Add +2 %game.action.attack% when the target is adjacent to any of your allies",
+        "8": "Add %game.condition.disarm% when the target is affected by a negative condition.",
+        "9": "<b>Spinning Up:</b> At the start of your first turn each scenario, you may play one card from your hand to perform a persistent loss action of that card."
+      },
+      "flask": {
+        "1": "<b>Spark of Inspiration:</b> Whenever you long rest, after you revocer your cards from your discard pile, you may play one card from your hand to perform all persistent abilities on either the top or bottom action of the card",
+        "2": "For an entire scenario, generate or consume an element on each of your turns",
+        "3": "In a single scenario, move your character token off of the last slot of 6 different persistent abilities"
+      },
+      "lightning": {
+        "1": "<b>Rapid Recovery:</b> Whenever you heal from a long rest, add +1 %game.action.heal%",
+        "2": "Lose at least one hit point during each of your turns, without ever performing the bottom action of <i>Blood Pact</i>",
+        "3": "Have exactly one hit point at the end of each of your turns"
+      },
+      "music-note": {
+        "1": "<b>Storyteller:</b> At the end of each scenario, each character in that scenario gains 8 experience if you successfully completed your battle goal",
+        "2": "On your first turn of the scenario and the turn after each of your rests, perform one Song action that you have not yet performed this scenario",
+        "3": "Havel all 10 monster %game.condition.curse% cards and all 10 %game.condition.bless% cards in modifier decks at the same time"
+      },
+      "saw": {
+        "1": "<b>Revitalizing Medicine:</b> Whenever an ally performs the Heal ability of <i>Medical Pack</i> or <i>Large Medical Pack</i>, that character may first remove one negative condition",
+        "2": "On each of your turns, give an ally an ability card, target an ally with a heal ability, grant an ally shield, or place an ability card in an ally's active area",
+        "3": "Deal at least %game.damage:20% with a single attack ability"
+      },
+      "squidface": {
+        "1": "<b>Xorn's Boon:</b> Once each scenario, during your turn, cause each enemy that has %game.condition.poison% to duffer %game.damage:1% and gain %game.condition.muddle% and each ally who has %game.condition.poison% to suffer %game.damage:1% to gain %game.condition.strengthen%",
+        "2": "Kill at least five enemies with non-attack abilities",
+        "3": "Perform three different attack abilities that target at least four enemies each"
+      },
+      "sun": {
+        "1": "<b>Shielding Light:</b> Whenever one of your heals would cause an ally's current hit point value to increase beyond their maximum hit point value, that ally gains %game.condition.ward%",
+        "2": "Reduce attacks targeting you by a total of 20 or more through Shield effects in a single round",
+        "3": "%game.element.light% or %game.element.consume.light% during each of your turns"
+      },
+      "target": {
+        "1": "<b>Emergency Emplacement:</b> Whenever you short rest, you may gain Immobilize to immiditially resolve any of your active Projectile abilities.",
+        "2": "In a single scenario, successfully resolve 4 different Projectile abilities twice each",
+        "3": "For an entire scenario, deal more damage with retaliate than you suffer whenever you are attacked, and be targeted by at least 5 attacks"
+      },
+      "three-spears": {
+        "1": "<b>Well Supplied:</b> Once each scenario, during your turn, if you have a persistend Quartermaster ability card in your active area, you may recover up to four cards from your discard pile",
+        "2": "Spend, lose, or refresh one or more items on each of your turns without ever performing the top action of <i>Reinforced Steel</i>",
+        "3": "Loot six or more loot tokens in a single turn"
+      },
+      "tools": {
+        "1": "<b>Spare Parts:</b> At the start of each scenario, you may lose one %game.itemSlot:head%, %game.itemSlot:legs%, %game.itemSlot:onehand%, or %game.itemSlot:twohand% item for no effect to gain 2 %data.action.custom.cs-tool%",
+        "2": "In a single scenario, gain or spend at least 1 %data.action.custom.cs-tool% each round",
+        "3": "In a signle scenario, lose 12 %game.itemSlot:head%, %game.itemSlot:legs%, %game.itemSlot:onehand%, and %game.itemSlot:twohand% items"
+      },
+      "triangles": {
+        "1": "You may perform Attack actions as if you occupy the summon's hex.",
+        "2": "when %game.action.attack% performed",
+        "3": "<b>Elemental Proficiency:</b> At the start of each scenario and whenever you long rest, %game.element.wild%",
+        "4": "Consume at least two different elements with each of four different attack abilities without ever performing the bottom action of <i>Formless Power of Shaping in Ether</i>",
+        "5": "Infuse five or more elements during one of your turns, then consume five or more elements during your following turn"
+      },
+      "two-mini": {
+        "1": "All adjacent allies add +2 %game.action.attack% to all their attacks.",
+        "2": "<b>Bear Treat:</b> During each round in which you long rest, at initiative 99, you may skip the bear's normal turn to Command: \"%game.action.move%3; %game.action.loot%1; If the loot ability was performed: %gamae.action.heal%3, self\"",
+        "3": "Have your bear summon deal 10 or more damage in three consecutive rounds",
+        "4": "You or your summons must apply a negative condition to at least 10 different enemies"
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GardenModel } from "src/app/game/model/Building";
 import { Character } from "src/app/game/model/Character";
 import { herbResourceLootTypes, LootType } from "src/app/game/model/data/Loot";
@@ -11,7 +13,7 @@ import { herbResourceLootTypes, LootType } from "src/app/game/model/data/Loot";
     templateUrl: 'garden.html',
     styleUrls: ['./garden.scss'],
 })
-export class GardenComponent {
+export class GardenComponent implements OnInit, OnDestroy {
 
     level: number = 0;
     slots: number = 0;
@@ -25,9 +27,19 @@ export class GardenComponent {
     currentSource: number = -1;
     harvested: boolean = false;
 
-    constructor() {
+    settingsManager: SettingsManager = settingsManager;
+
+    ngOnInit(): void {
         this.update();
-        gameManager.uiChange.subscribe({ next: () => this.update() })
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() })
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     update() {
@@ -130,10 +142,12 @@ export class GardenComponent {
     }
 
     toggleAutomation() {
-        gameManager.stateManager.before('buildings.garden.' + (this.garden.automated ? 'automationOff' : 'automationOn'));
-        this.garden.automated = !this.garden.automated;
-        gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
-        gameManager.stateManager.after();
+        if (settingsManager.settings.automaticPassTime) {
+            gameManager.stateManager.before('buildings.garden.' + (this.garden.automated ? 'automationOff' : 'automationOn'));
+            this.garden.automated = !this.garden.automated;
+            gameManager.game.party.garden = Object.assign(new GardenModel(), this.garden);
+            gameManager.stateManager.after();
+        }
     }
 
     harvest() {

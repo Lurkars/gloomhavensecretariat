@@ -1,6 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
@@ -14,12 +15,12 @@ import { MonsterStatDialogComponent } from './stat-dialog';
 import { MonsterStatsDialogComponent } from './stats-dialog';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-monster-stats',
   templateUrl: './stats.html',
   styleUrls: ['./stats.scss']
 })
-export class MonsterStatsComponent implements OnInit {
+export class MonsterStatsComponent implements OnInit, OnDestroy {
 
   @Input() monster!: Monster;
   @Input() forceStats: boolean = false;
@@ -50,7 +51,15 @@ export class MonsterStatsComponent implements OnInit {
   ngOnInit(): void {
     this.monsterCopy = JSON.parse(JSON.stringify(this.monster));
     this.update();
-    gameManager.uiChange.subscribe({ next: () => { this.update(); } });
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => { this.update(); } });
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   update() {
@@ -71,8 +80,9 @@ export class MonsterStatsComponent implements OnInit {
       this.stats = gameManager.monsterManager.getStat(this.monster, MonsterType.boss);
       this.hideStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.boss);
     } else {
-      this.stats = gameManager.monsterManager.getStat(this.monster, MonsterType.normal);
-      this.hideStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.normal);
+      const statsType = !this.monster.bb || this.monster.tags.indexOf('bb-elite') == -1 ? MonsterType.normal : MonsterType.elite;
+      this.stats = gameManager.monsterManager.getStat(this.monster, statsType);
+      this.hideStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != statsType);
       if (!this.monster.bb) {
         this.eliteStats = gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
         this.hideEliteStats = !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != MonsterType.elite);

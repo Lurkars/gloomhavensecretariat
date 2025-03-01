@@ -1,4 +1,5 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Entity } from "src/app/game/model/Entity";
@@ -14,7 +15,7 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
   templateUrl: './conditions.html',
   styleUrls: ['./conditions.scss']
 })
-export class ConditionsComponent implements OnInit {
+export class ConditionsComponent implements OnInit, OnDestroy {
 
   @Input() entityConditions!: EntityCondition[];
   @Input() immunities!: ConditionName[];
@@ -41,14 +42,6 @@ export class ConditionsComponent implements OnInit {
   timeout: any;
   numberStore: number = 0;
 
-  constructor() {
-    gameManager.uiChange.subscribe({
-      next: () => {
-        this.initializeConditions();
-      }
-    })
-  }
-
   ngOnInit(): void {
     this.initializeConditions();
     if (this.entities) {
@@ -57,11 +50,24 @@ export class ConditionsComponent implements OnInit {
         this.monsterType = types[0];
       }
     }
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+      next: () => {
+        this.initializeConditions();
+      }
+    })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   @HostListener('document:keydown', ['$event'])
   onKeyPress(event: KeyboardEvent) {
-    if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+    if (settingsManager.settings.keyboardShortcuts && event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
       const keyNumber = +event.key;
       if (this.timeout) {
         clearTimeout(this.timeout);

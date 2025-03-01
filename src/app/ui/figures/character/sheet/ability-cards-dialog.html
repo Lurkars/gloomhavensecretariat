@@ -1,14 +1,49 @@
 <div class="ability-cards-dialog">
     <div class="menu">
-        <a class="level" *ngFor="let l of [] | ghsRange:9" (click)="setLevel(l + 1)"
-            [ngClass]="{'active' : level == l +1}">{{l + 1}}</a>
+        <p class="title" *ngIf="levelToPick" [ghs-label]="'character.abilities.pickCard'"
+            [ghs-label-args]="[levelToPick]"></p>
+        <a *ngIf="character.progress.deck.length && deck" ghs-pointer-input (singleClick)="undoLastCard()"
+            (doubleClick)="resetDeck()" [ghs-label]="'character.abilities.undoLastPick'"
+            [ghs-label-args]="[levelToPick ? levelToPick-1 : character.level]"
+            [ghs-tooltip]="'character.abilities.undoLastPick.hint'"></a>
+        <div class="levels" *ngIf="!levelToPick">
+            <a class="level" *ngFor="let l of additionalLevels" ghs-pointer-input (singleClick)="setLevel(l)"
+                (doubleClick)="setLevel(l,true)" [ngClass]="{'active' : level == l, 'exclusive': exclusiveLevel == l}"
+                [ghs-label]="l"></a>
+            <span class="separator" *ngIf="additionalLevels.length">|</span>
+            <a class="level" *ngFor="let l of [] | ghsRange:(deck ? maxLevel : 9)" ghs-pointer-input (singleClick)="setLevel(l+1)"
+                (doubleClick)="setLevel(l+1,true)"
+                [ngClass]="{'active' : level == l+1, 'exclusive': exclusiveLevel == l+1}">{{l+1}}</a>
+        </div>
+        <select [(ngModel)]="sort" (change)="update()" *ngIf="!levelToPick">
+            <option *ngFor="let value of sorts" [value]="value" [ghs-label]="'character.abilities.sort.' + value">
+            </option>
+        </select>
+        <a [ghs-label]="deck ? 'character.abilities.show' : 'character.abilities.showDeck'" (click)="togglePick()"></a>
+        <p class="warning" *ngIf="character.progress.deck.length > character.level -1"
+            [ghs-label]="'character.abilities.deckWarning'"></p>
+        <p class="warning" *ngIf="maxLevel > character.level" [ghs-label]="'character.abilities.levelWarning'">
+        </p>
     </div>
     <div class="scroll-container">
-        <div class="container">
-            <ghs-ability [character]="character"></ghs-ability>
+        <div class="abilities">
+            <div class="container" *ngIf="!exclusiveLevel && !levelToPick">
+                <ghs-ability [character]="character"></ghs-ability>
+            </div>
+            <div class="container ability" *ngFor="let ability of visibleAbilities"
+                [ngClass]="{'pick': levelToPick, 'in-deck': ability.level == 1 || ability.level == 'X' || character.progress.deck.indexOf(abilities.indexOf(ability)) != -1,'always': ability.level == 1 || ability.level == 'X',  'disabled': character.progress.deck.indexOf(abilities.indexOf(ability)) == -1 && (levelToPick < +ability.level || cardsToPick < 1)}">
+                <ghs-ability [ability]="ability" [character]="character" [flipped]="true" ghs-pointer-input
+                    (singleClick)="clickAbility(ability)" (doubleClick)="openDialog(ability)"></ghs-ability>
+                <img *ngIf="!deck" class="deck" src="./assets/images/character/deck.svg" ghs-pointer-input
+                    (doubleClick)="toggleDeck(ability,true)"
+                    [ghs-tooltip]="character.progress.deck.indexOf(abilities.indexOf(ability)) != -1 ? 'character.abilities.removeFromDeck' : 'character.abilities.forceDeck'">
+            </div>
         </div>
-        <div class="container ability" *ngFor="let ability of abilities" (click)="openDialog(ability)">
-            <ghs-ability [ability]="ability" [character]="character" [flipped]="true"></ghs-ability>
+        <p class="title" *ngIf="smallAbilities.length" [ghs-label]="'character.abilities.currentDeck'"></p>
+        <div class="abilities" *ngIf="smallAbilities.length">
+            <div class="container small ability" *ngFor="let ability of smallAbilities" (click)="openDialog(ability)">
+                <ghs-ability [ability]=" ability" [character]="character" [flipped]="true"></ghs-ability>
+            </div>
         </div>
     </div>
 </div>

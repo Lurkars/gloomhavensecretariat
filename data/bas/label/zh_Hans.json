@@ -1,0 +1,36 @@
+{
+  "custom": {
+    "bas": {
+      "desiccated-corpse": {
+        "1": "变干",
+        "2": "摧毁相邻敌人携带的所有水。"
+      },
+      "dust-demon": {
+        "1": "%data.monster.dust-demon% 会穿过尽可能多的敌人。"
+      },
+      "jackal": {
+        "1": "包"
+      },
+      "sand-spider": {
+        "1": "如果目标是 %game.condition.immobilize%，则添加 +3 %game.action.attack%。",
+        "2": "本轮所有针对 %data.monster.sand-spider% 的攻击都会获得劣势检定。",
+        "3": "在一个临近敌人的空格放置%game.condition.immobilize%陷阱。"
+      }
+    }
+  },
+  "edition": {
+    "bas": "血与沙"
+  },
+  "monster": {
+    "desiccated-corpse": "干燥的尸体",
+    "dust-demon": "尘魔",
+    "giant-scorpion": "巨蝎",
+    "horned-lizard": "角蜥",
+    "jackal": "豺狼",
+    "sand-spider": "沙漠蜘蛛"
+  },
+  "scenario": {
+    "All Over the Map": "全图",
+    "Troubled Waters": "浑水"
+  }
+}

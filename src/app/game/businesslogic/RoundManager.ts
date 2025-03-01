@@ -179,6 +179,13 @@ export class RoundManager {
     if (next) {
       this.afterTurn(toggleFigure);
       figure = figures.find((other, otherIndex) => gameManager.gameplayFigure(other) && !other.off && otherIndex != index);
+
+      if (!toggleFigure.off && toggleFigure instanceof Monster && toggleFigure.bb && toggleFigure.tags.indexOf('bb-elite') != -1) {
+        if (!figure || figure.getInitiative() > toggleFigure.getInitiative()) {
+          figure = toggleFigure;
+        }
+        gameManager.sortFigures();
+      }
     }
 
     if (skipObjectives) {
@@ -518,6 +525,15 @@ export class RoundManager {
 
     figure.off = true;
     figure.active = false;
+
+    if (figure instanceof Monster && figure.bb && figure.tags.indexOf('bb-elite') != -1 && figure.tags.indexOf('roundAction-bb-elite') == -1) {
+      figure.tags.push('roundAction-bb-elite');
+      figure.ability += 1;
+      if (figure.ability >= figure.abilities.length) {
+        figure.ability = 0;
+      }
+      figure.off = false;
+    }
   }
 
   resetScenario() {
@@ -529,7 +545,7 @@ export class RoundManager {
     }
     this.game.scenarioRules = [];
     this.game.appliedScenarioRules = [];
-    this.game.disgardedScenarioRules = [];
+    this.game.discardedScenarioRules = [];
     this.game.round = 0;
     this.game.roundResets = [];
     this.game.roundResetsHidden = [];
@@ -596,6 +612,10 @@ export class RoundManager {
         }
 
         figure.tags = figure.tags.filter((tag) => tag != 'new-character' && !figure.specialActions.find((specialAction) => specialAction.name == tag && specialAction.expire));
+
+        if (figure.defaultIdentity != undefined) {
+          figure.identity = figure.defaultIdentity;
+        }
 
         if (figure.name == 'blinkblade' && figure.tags.find((tag) => tag === 'time_tokens') && figure.primaryToken == 0) {
           figure.tokenValues[0] += 1;

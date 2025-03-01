@@ -11,7 +11,7 @@
     <a class="toggle-allied" [ghs-label]="'monster.toggleAllied.' + (monster.isAllied ? 'off' : 'on')"
       (click)="toggleallied()"></a>
   </div>
-  
+
   <div class="stat-effect" *ngIf="monster.statEffect"
     [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <div class="title" [ghs-label]="'monster.statEffect'"></div>
@@ -81,6 +81,7 @@
     </div>
     <span class="deck text-white" (click)="openAbilities()" *ngIf="monster.statEffect.deck"
       [ghs-label]="'monster.statEffect.deck'" [ghs-label-args]="[monster.statEffect.note]"></span>
+    <span class="deck text-white" *ngIf="monster.statEffect.initiative" [ghs-label]="monster.statEffect.note"></span>
   </div>
 
   <div class="stats-container">

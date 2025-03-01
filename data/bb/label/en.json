@@ -10,6 +10,168 @@
   "edition": {
     "bb": "Button & Bugs"
   },
+  "items": {
+    "bb-1": {
+      "": "Rosethorn Knife",
+      "1": "During your attack, %game.elementHalf.consume:ice|earth% to add %game.action.pierce% 1."
+    },
+    "bb-10": {
+      "": "Tanglevine Whip",
+      "1": "During your attack, %game.elementHalf.consume:earth|light% to add %game.condition.immobilize%"
+    },
+    "bb-11": {
+      "": "Magnetic Needle",
+      "1": "During your turn, control one enemey within %game.action.range% 5: %game.action.move% 2."
+    },
+    "bb-12": {
+      "": "Leftover Table Scraps",
+      "1": "During your turn, %game.action.heal% 1 self."
+    },
+    "bb-13": {
+      "": "Robin's Feather Arrows",
+      "1": "During your single-target range attack, %game.elementHalf.consume:fire|air% to add +1 %game.action.range%, %game.action.pierce% 1."
+    },
+    "bb-14": {
+      "": "Nightshade Pollen",
+      "1": "After an enemy's attack, %game.elementHalf.consume:earth|dark% to %game.condition.poison% that enemy."
+    },
+    "bb-15": {
+      "": "Drop of Healing Potion",
+      "1": "During your turn, %game.action.heal% 3 self."
+    },
+    "bb-16": {
+      "": "Volatile Powder",
+      "1": "During your single-target ranged attack, add:"
+    },
+    "bb-17": {
+      "": "Fishing Hook and Line",
+      "1": "During your ranged attack, add %game.action.pierce% 2, %game.action.pull% 2."
+    },
+    "bb-18": {
+      "": "Chestnut Shelll Shield",
+      "1": "During and enemy's attack, gain %game.action.shield% 1 and %game.action.retaliate% 1."
+    },
+    "bb-19": {
+      "": "Brass Cog",
+      "1": "After determining initiative, increase or decrease your initiative by 10."
+    },
+    "bb-2": {
+      "": "Venomous Fang",
+      "1": "During your melee attack, add %game.condition.poison%."
+    },
+    "bb-20": {
+      "": "Lubricating Oil",
+      "1": "During your movement, add +2 %game.action.move%."
+    },
+    "bb-21": {
+      "": "Drop of Element Potion",
+      "1": "During your turn, create %game.element.wild% %game.element.wild%."
+    },
+    "bb-22": {
+      "": "Drop of Stamina Potion",
+      "1": "During your turn, %game.card.recover% one level 1 card from your hand or discard pile to its A-side."
+    },
+    "bb-23": {
+      "": "Pinch of Doom Powder",
+      "1": "During your attack, add %game.condition.disarm%, %game.condition.poison%."
+    },
+    "bb-24": {
+      "": "Sewing Needles",
+      "1": "During your attack, add %game.action.pierce% 1."
+    },
+    "bb-25": {
+      "": "Sharpened Pencil",
+      "1": "During yoursingle-target melee attack, add:"
+    },
+    "bb-26": {
+      "": "Coin Shield",
+      "1": "During an enemy's attack, gain %game.action.shield% 2."
+    },
+    "bb-27": {
+      "": "Shrunken Longbow",
+      "1": "During your ranged attack, add +1 %game.action.attack%, %game.action.pierce% 1."
+    },
+    "bb-28": {
+      "": "Shrunken Longsword",
+      "1": "During your melee attack, add +1 %game.action.attack%."
+    },
+    "bb-29": {
+      "": "Embernettle",
+      "1": "After an enemy's attack, %game.elementHalf.consume:fire|earth% to %game.condition.wound% that enemy."
+    },
+    "bb-3": {
+      "": "Shrunken Weathered Boots",
+      "1": "During your movement, add +1 %game.action.move%."
+    },
+    "bb-30": {
+      "": "Lucky Cat's-Eye Marble",
+      "1": "During your attack, treat your %game.bbAm.0% attack modifier as a %game.bbAm.1% attack modifier."
+    },
+    "bb-31": {
+      "": "Shard of Glass",
+      "1": "During your melee attack, add %game.condition.wound%."
+    },
+    "bb-32": {
+      "": "Playing Card Shield",
+      "1": "During an enemy's attack, gain %game.action.shield% 4."
+    },
+    "bb-33": {
+      "": "Drop of Haste Elixir",
+      "1": "After performing the top action of an ability card, also perform its bottom action."
+    },
+    "bb-34": {
+      "": "Drop of Stamina Elixir",
+      "1": "During your turn, %game.card.recover% one card from your hand or discard pile to its A-side."
+    },
+    "bb-35": {
+      "": "Prismatic Gem",
+      "1": "During your attack, %game.element.consume.wild% to add 1 %game.action.attack%."
+    },
+    "bb-36": {
+      "": "Drop of Strengthen Potion",
+      "1": "During your turn, %game.condition.strengthen% self."
+    },
+    "bb-37": {
+      "": "Duskhaze Gem",
+      "1": "During an enemy's attack, %game.elementHalf.consume:air|dark% to gain %game.action.shield% 1 and %game.condition.muddle% that enemy."
+    },
+    "bb-38": {
+      "": "Brightlure Gem",
+      "1": "After your attack, %game.elementHalf.consume:air|light% to control the target of the attack: %game.action.move% 1."
+    },
+    "bb-39": {
+      "": "Iridescent Shell Shield",
+      "1": "During your turn, gain %game.action.shield% 1 for the round. Create %game.element.wild%."
+    },
+    "bb-4": {
+      "": "Old Spring",
+      "1": "During your turn, add %game.action.jump% to all your movement."
+    },
+    "bb-40": {
+      "": "Pocket Knife",
+      "1": "During your melee attack, add +1 %game.action.attack%, %game.action.pierce% 2, %game.condition.wound%."
+    },
+    "bb-5": {
+      "": "Drop of Power Potion",
+      "1": "Durin your turn, add +1 %game.action.attack% to all your attacks."
+    },
+    "bb-6": {
+      "": "Drop of Clear Water",
+      "1": "During your turn, %game.elementHalf.consume:ice|air% to remove one negative condition."
+    },
+    "bb-7": {
+      "": "Spring Hammer",
+      "1": "During your melee attack, add %game.action.push% 2."
+    },
+    "bb-8": {
+      "": "Button Shield",
+      "1": "During an enemy's attack, gain %game.action.shield% 1."
+    },
+    "bb-9": {
+      "": "Iron Nail",
+      "1": "During your turn, add %game.action.pierce% 2 to all your melee attacks."
+    }
+  },
   "monster": {
     "arena-sorcerer": "Arena Sorcerer",
     "bandit-archer": "Bandit Archer",
@@ -37,168 +199,6 @@
       "bb": {
         "15": "Flip all of your abilitiy cards to their B-Site."
       }
-    }
-  },
-  "items": {
-    "bb-1": {
-      ".": "Rosethorn Knife",
-      "1": "During your attack, %game.elementHalf.consume:ice|earth% to add %game.action.pierce% 1."
-    },
-    "bb-2": {
-      ".": "Venomous Fang",
-      "1": "During your melee attack, add %game.condition.poison%."
-    },
-    "bb-3": {
-      ".": "Shrunken Weathered Boots",
-      "1": "During your movement, add +1 %game.action.move%."
-    },
-    "bb-4": {
-      ".": "Old Spring",
-      "1": "During your turn, add %game.action.jump% to all your movement."
-    },
-    "bb-5": {
-      ".": "Drop of Power Potion",
-      "1": "Durin your turn, add +1 %game.action.attack% to all your attacks."
-    },
-    "bb-6": {
-      ".": "Drop of Clear Water",
-      "1": "During your turn, %game.elementHalf.consume:ice|air% to remove one negative condition."
-    },
-    "bb-7": {
-      ".": "Spring Hammer",
-      "1": "During your melee attack, add %game.action.push% 2."
-    },
-    "bb-8": {
-      ".": "Button Shield",
-      "1": "During an enemy's attack, gain %game.action.shield% 1."
-    },
-    "bb-9": {
-      ".": "Iron Nail",
-      "1": "During your turn, add %game.action.pierce% 2 to all your melee attacks."
-    },
-    "bb-10": {
-      ".": "Tanglevine Whip",
-      "1": "During your attack, %game.elementHalf.consume:earth|light% to add %game.condition.immobilize%"
-    },
-    "bb-11": {
-      ".": "Magnetic Needle",
-      "1": "During your turn, control one enemey within %game.action.range% 5: %game.action.move% 2."
-    },
-    "bb-12": {
-      ".": "Leftover Table Scraps",
-      "1": "During your turn, %game.action.heal% 1 self."
-    },
-    "bb-13": {
-      ".": "Robin's Feather Arrows",
-      "1": "During your single-target range attack, %game.elementHalf.consume:fire|air% to add +1 %game.action.range%, %game.action.pierce% 1."
-    },
-    "bb-14": {
-      ".": "Nightshade Pollen",
-      "1": "After an enemy's attack, %game.elementHalf.consume:earth|dark% to %game.condition.poison% that enemy."
-    },
-    "bb-15": {
-      ".": "Drop of Healing Potion",
-      "1": "During your turn, %game.action.heal% 3 self."
-    },
-    "bb-16": {
-      ".": "Volatile Powder",
-      "1": "During your single-target ranged attack, add:"
-    },
-    "bb-17": {
-      ".": "Fishing Hook and Line",
-      "1": "During your ranged attack, add %game.action.pierce% 2, %game.action.pull% 2."
-    },
-    "bb-18": {
-      ".": "Chestnut Shelll Shield",
-      "1": "During and enemy's attack, gain %game.action.shield% 1 and %game.action.retaliate% 1."
-    },
-    "bb-19": {
-      ".": "Brass Cog",
-      "1": "After determining initiative, increase or decrease your initiative by 10."
-    },
-    "bb-20": {
-      ".": "Lubricating Oil",
-      "1": "During your movement, add +2 %game.action.move%."
-    },
-    "bb-21": {
-      ".": "Drop of Element Potion",
-      "1": "During your turn, create %game.element.wild% %game.element.wild%."
-    },
-    "bb-22": {
-      ".": "Drop of Stamina Potion",
-      "1": "During your turn, %game.card.recover% one level 1 card from your hand or discard pile to its A-side."
-    },
-    "bb-23": {
-      ".": "Pinch of Doom Powder",
-      "1": "During your attack, add %game.condition.disarm%, %game.condition.poison%."
-    },
-    "bb-24": {
-      ".": "Sewing Needles",
-      "1": "During your attack, add %game.action.pierce% 1."
-    },
-    "bb-25": {
-      ".": "Sharpened Pencil",
-      "1": "During yoursingle-target melee attack, add:"
-    },
-    "bb-26": {
-      ".": "Coin Shield",
-      "1": "During an enemy's attack, gain %game.action.shield% 2."
-    },
-    "bb-27": {
-      ".": "Shrunken Longbow",
-      "1": "During your ranged attack, add +1 %game.action.attack%, %game.action.pierce% 1."
-    },
-    "bb-28": {
-      ".": "Shrunken Longsword",
-      "1": "During your melee attack, add +1 %game.action.attack%."
-    },
-    "bb-29": {
-      ".": "Embernettle",
-      "1": "After an enemy's attack, %game.elementHalf.consume:fire|earth% to %game.condition.wound% that enemy."
-    },
-    "bb-30": {
-      ".": "Lucky Cat's-Eye Marble",
-      "1": "During your attack, treat your %game.bbAm.0% attack modifier as a %game.bbAm.1% attack modifier."
-    },
-    "bb-31": {
-      ".": "Shard of Glass",
-      "1": "During your melee attack, add %game.condition.wound%."
-    },
-    "bb-32": {
-      ".": "Playing Card Shield",
-      "1": "During an enemy's attack, gain %game.action.shield% 4."
-    },
-    "bb-33": {
-      ".": "Drop of Haste Elixir",
-      "1": "After performing the top action of an ability card, also perform its bottom action."
-    },
-    "bb-34": {
-      ".": "Drop of Stamina Elixir",
-      "1": "During your turn, %game.card.recover% one card from your hand or discard pile to its A-side."
-    },
-    "bb-35": {
-      ".": "Prismatic Gem",
-      "1": "During your attack, %game.element.consume.wild% to add 1 %game.action.attack%."
-    },
-    "bb-36": {
-      ".": "Drop of Strengthen Potion",
-      "1": "During your turn, %game.condition.strengthen% self."
-    },
-    "bb-37": {
-      ".": "Duskhaze Gem",
-      "1": "During an enemy's attack, %game.elementHalf.consume:air|dark% to gain %game.action.shield% 1 and %game.condition.muddle% that enemy."
-    },
-    "bb-38": {
-      ".": "Brightlure Gem",
-      "1": "After your attack, %game.elementHalf.consume:air|light% to control the target of the attack: %game.action.move% 1."
-    },
-    "bb-39": {
-      ".": "Iridescent Shell Shield",
-      "1": "During your turn, gain %game.action.shield% 1 for the round. Create %game.element.wild%."
-    },
-    "bb-40": {
-      ".": "Pocket Knife",
-      "1": "During your melee attack, add +1 %game.action.attack%, %game.action.pierce% 2, %game.condition.wound%."
     }
   }
 }

@@ -100,9 +100,14 @@
     width: calc(var(--ghs-unit) * 90 * var(--ghs-dialog-factor));
     overflow: auto;
 
+    &.has-removed {
+      width: calc(var(--ghs-unit) * 120 * var(--ghs-dialog-factor));
+    }
+
     .upcoming,
-    .disgarded,
-    .finished {
+    .discarded,
+    .finished,
+    .removed {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -133,7 +138,8 @@
       }
 
       &.upcoming,
-      &.finished {
+      &.finished,
+      &.removed {
         display: none;
 
         &.edit {
@@ -141,7 +147,7 @@
         }
       }
 
-      &.disgarded {
+      &.discarded {
         flex-direction: row;
         flex-wrap: wrap;
         width: calc(var(--ghs-unit) * 90 * var(--ghs-dialog-factor));
@@ -206,7 +212,8 @@
         border-radius: 5%;
       }
 
-      .button-remove {
+      .button-remove,
+      .button-restore {
         z-index: 1;
         position: absolute;
         display: flex;
@@ -224,12 +231,16 @@
           filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
 
-        &:hover .ghs-svg {
+        &.button-remove:hover .ghs-svg {
           filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
+        }
+
+        &.button-restore:hover .ghs-svg {
+          filter: var(--ghs-filter-green) var(--ghs-filter-shadow);
         }
       }
 
-      &.disgarded .challenge-container.active {
+      &.discarded .challenge-container.active {
         cursor: pointer;
       }
 
@@ -251,8 +262,9 @@
     &.fh {
 
       .upcoming,
-      .disgarded,
-      .finished {
+      .discarded,
+      .finished,
+      .removed {
 
         .title {
           background-image: url('~src/assets/images/fh/dialog_background_fh.png');
@@ -263,8 +275,9 @@
     &.modern {
 
       .upcoming,
-      .disgarded,
-      .finished {
+      .discarded,
+      .finished,
+      .removed {
 
         .title {
           background-image: url('~src/assets/images/modern/dialog_background_modern.png');

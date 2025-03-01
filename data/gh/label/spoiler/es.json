@@ -1,0 +1,723 @@
+{
+  "character": {
+    "angry-face": "Cazador Silencioso",
+    "circles": "Invocadora",
+    "eclipse": "Sudario Nocturno",
+    "lightning": {
+      "": "Berserker",
+      "blood-pact": {
+        "": "Pacto de Sangre",
+        "hint": "Sufres %game.damage:1% al inicio de cada uno de tus turnos."
+      }
+    },
+    "music-note": {
+      "": "Melodiosa",
+      "song_active": {
+        "": "%game.characterIconColored.music-note% Canción Activa",
+        "hint": "Obtiene 1 Exp al inicio de cada uno de sus turnos."
+      }
+    },
+    "saw": "Matasanos",
+    "squidface": "Heraldo de la Plaga",
+    "sun": "Guardiana del Sol",
+    "three-spears": "Intendente",
+    "triangles": "Elementalista",
+    "two-mini": "Señor de las Bestias"
+  },
+  "custom": {
+    "gh": {
+      "circles": {
+        "1": "cuando realice un %game.action.attack%",
+        "2": "al final del turno"
+      },
+      "triangles": {
+        "1": "Puedes realizar acciones de Ataque como si ocuparas el hexágono de la invocación.",
+        "2": "cuando se realice %game.action.attack%"
+      },
+      "two-mini": {
+        "1": "Todos los aliados adyacentes añaden +2 %game.action.attack% a todos sus ataques."
+      }
+    }
+  },
+  "events": {
+    "gh": {
+      "city": {
+        "1": {
+          "options": {
+            "1": {
+              "choice": "Os unís a la pelea. ¡Esos insultos no quedarán impunes!",
+              "outcome": "Nada como reventar un par de cráneos de borrachos para levantar el ánimo. Resulta ser una buena forma de despejarse. Por desgracia, el propietario del León Durmiente no lo ve como vosotros y, resentido, os pide una compensación por los daños que habéis causado."
+            },
+            "2": {
+              "choice": "Hacéis todo lo posible por detener la pelea. Éste es un establecimiento respetable.",
+              "outcome": "Tras frenar al enfurecido Inox y ofreceros a reponer las bebidas de algunos de los clientes más agresivos, conseguís que la calma vuelva al lugar.<br><br>Como cabría esperar, algunos de los clientes de raza no humana siguen algo nerviosos, pero el propietario os agradece vuestros esfuerzos y os reembolsa las bebidas."
+            }
+          },
+          "text": "Decidís despejaros un poco en el León Durmiente, pero justo cuando empezáis a relajaros, un hombre de gran tamaño se estrella contra vuestra mesa, derramando vuestras bebidas por el suelo.<br><br>Sobre él hay un enorme inox.<br><br>—¡¿Qué has dicho de mis cuernos?! - grita el inox.<br><br>—¡He dicho que verlos me da ganas de vomitar! - grita el hombre mientras se levanta y se quita trozos de cristal de la túnica.<br><br>El inox ruge y se lanza contra el hombre, derribando más mesas. Toda la taberna estalla en una vorágine de violencia. Después de todo, cuando un hombre está bebiendo, lo último que quiere es que le derramen la bebida."
+        },
+        "2": {
+          "options": {
+            "1": {
+              "choice": "Pagáis por el objeto. Nunca se sabe.",
+              "effects": {
+                "1": {
+                  "1": "Le entregáis el oro y cogéis el trozo de chatarra. Entre todas las manchas marrones veis varios arañazos sin sentido que probablemente hayan hecho las ratas y los insectos. Lástima, en ocasiones no merece la pena arriesgar.",
+                  "2": "—¡Bah! No tenéis suficiente dinero. ¡Volved cuando tengáis más!"
+                }
+              }
+            },
+            "2": {
+              "choice": "Rechazáis pagar por ello. Nunca confíes en un infestor.",
+              "outcome": "Os reís y le hacéis un gesto al infestor indicándole que se vaya. Reconocéis a un estafador de poca monta cuando lo veis. Y ese trozo de metal... no era más que basura."
+            }
+          },
+          "text": "A medida que la luz del día desaparece, os encontráis deambulando por una calle del mercado medio llena de gente mirando la mercancía.<br><br>—¡Eh! ¡Vosotros! -Os giráis en dirección a la voz y veis un sucio infestor haciéndoos gestos en un callejón oscuro—.<br><br>Sí, vosotros, chicos de aspecto sombrío.<br><br>Tengo cosa que puede interesaros.<br><br>El infestor os enseña un trozo de metal cubierto de lodo.<br><br>-Encontré esto en alcantarillas. Lo que pone no entiendo, pero sé que es valioso.<br><br>¡Os doy por diez monedas de oro!"
+        },
+        "3": {
+          "options": {
+            "1": {
+              "choice": "Pagáis por el objeto. Nunca se sabe.",
+              "effects": {
+                "1": {
+                  "1": "Le entregáis el oro y cogéis la pieza de metal. Quitáis el lodo y la porquería y descubrís un extraño artilugio hecho de grandes engranajes y piezas móviles. Si lográis averiguar qué es este artefacto, tal vez pueda seros de utilidad.",
+                  "2": "-¡Bah! No tenéis suficiente dinero. ¡Volved cuando tengáis más!"
+                }
+              }
+            },
+            "2": {
+              "choice": "Rechazáis pagar por ello. Nunca confíes en un infestor.",
+              "outcome": "Os reís y le hacéis un gesto al infestor indicándole que se vaya. Reconocéis a un estafador de poca monta cuando lo veis. Y ese trozo de metal... no era más que basura."
+            }
+          },
+          "text": "A medida que la luz del día desaparece, os encontráis deambulando por una calle del mercado medio llena de gente mirando la mercancía.<br><br>—¡Eh! ¡Vosotros! —Os giráis en dirección a la voz y veis un sucio infestor haciéndoos gestos en un callejón oscuro—.<br><br>Sí, vosotros, chicos de aspecto sombrío. Tengo cosa que puede interesaros.<br><br>El infestor os enseña un trozo de metal cubierto de lodo.<br><br>-Encontré esto en alcantarillas. Lo que pone no entiendo, pero sé que es valioso. ¡Os doy por diez monedas de oro!"
+        },
+        "4": {
+          "options": {
+            "1": {
+              "choice": "¿Buscar un gato? Tenéis cosas más importantes que hacer.",
+              "outcome": "Sacudís la cabeza y le decís al chico que vaya a buscar a su madre. Con un poco de suerte ella podrá hacerle entrar en razón y enseñarle que no se debe molestar a los extraños con asuntos tan triviales."
+            },
+            "2": {
+              "choice": "Tranquilizáis al muchacho y vais en busca del gato.",
+              "outcome": "Os acercáis valientemente a la inquietante casa. Lo cierto es que no hay nada de sobrenatural en su estructura, pero las vigas caídas y las pilas de escombros dificultan la búsqueda. Para cuando encontráis al gato escondido bajo un somier quemado, ya estáis totalmente agotados. Al menos el niño está eufórico porque habéis encontrado a su gato."
+            }
+          },
+          "text": "Habéis regresado hace poco de vuestra última aventura cuando se os acerca un chico de aspecto andrajoso que está llorando.<br><br>—Por favor, señores, ¿podrían ayudarme a buscar a mi gato? Se ha ido por allí, pero tengo miedo —dice el chico mientras señala con el sucio dedo hacia un edificio abandonado de aspecto decrépito—. No sé qué hacer."
+        },
+        "5": {
+          "options": {
+            "1": {
+              "choice": "Ayudáis a colocar los cimientos.",
+              "outcome": "En medio de un gran jolgorio, ponéis todas vuestras fuerzas para colocar los cimientos del santuario. Seguramente se haga mucho bien aquí curando a heridos y enfermos. Sin embargo, tanto esfuerzo resulta agotador, podríais acabar siendo sus primeros pacientes."
+            },
+            "2": {
+              "choice": "Aprovecháis la oportunidad para robar objetos de valor en la zona mientras la gente está distraída.",
+              "outcome": "Os dirigís hacia el próspero lado este de la ciudad, no para ayudar a colocar los cimientos sino para robar algunas mercancías a los tenderos demasiado atolondrados para cerrar sus tiendas durante las fiestas. Os hacéis con una buena cantidad de dinero sin que los distraídos guardias se enteren de nada."
+            }
+          },
+          "text": "Tras descansar toda la noche, empezáis vuestro día percatándoos del gran número de prominentes y llamativos carteles que hay por toda la ciudad.<br><br>Al leer uno, descubrís que el Santuario del Gran Roble está colocando los cimientos de un nuevo edificio en el lado este de Gloomhaven y animan a todo el mundo a venir y ayudar. Puede que éste sea un evento importante para la comunidad."
+        },
+        "6": {
+          "options": {
+            "1": {
+              "choice": "Vais hasta allí y ayudáis a defender la ciudad.",
+              "outcome": "Corréis hacia la Puerta Oeste ansiosos por contraatacar a los invasores. A medida que os acercáis, veis una masa de infestores escalando las murallas y atacando a los guardias con dagas y flechas. Gritáis y os metéis en la batalla. La lucha es dura, pero lográis salir victoriosos y cubiertos de pelos y sangre. Los ciudadanos de Gloomhaven permanecen a salvo y la ciudad es libre de crecer y prosperar."
+            },
+            "2": {
+              "choice": "Ahora que la fuerza agresora tiene distraídos a los guardias, sería el momento perfecto para robar algunos objetos de valor.",
+              "outcome": "La ciudad se convierte en un caos entre gritos asustados de \"'infestores!\"; una oportunidad pertecta para sustraer algunos objetos de valor. Os deslizáis hacia una tienda abandonada y encontráis la forma de abrir la caja fuerte. A la mañana siguiente, la devastación del asalto es evidente. Los ciudadanos os saludan con miradas de desamparo cuando pasan a vuestro lado, lo que os hace preguntaros si os echarían de menos en las murallas."
+            }
+          },
+          "text": "El ruido de las alarmas del oeste os despierta en mitad de la noche. Reconocéis los tañidos de alarma de un ataque a las murallas.<br><brCualquier fuerza lo suficientemente atrevida como para asaltar las defensas de Gloomhaven no puede ser buena. Por un instante, os sentís agradecidos por la prolífica cantidad de guardias que defienden la ciudad. Pero, aun así, siempre existe la posibilidad de que no sean suficientes."
+        },
+        "7": {
+          "options": {
+            "1": {
+              "choice": "Ayudáis al capitán a cargar el barco.",
+              "outcome": "Lo que os dijeron que serían unos minutos acaban convirtiéndose en una o dos horas mientras lleváis grandes cajas llenas de algún tipo de líquido maloliente de un almacén cercano a la bodega del barco. Al menos el capitán se siente aliviado de poder zarpar a tiempo. Os paga con gratitud, pero no podéis evitar pensar que estáis por encima de este tipo de trabajos."
+            },
+            "2": {
+              "choice": "Seguís con vuestros asuntos. No tenéis ganas ni tiempo para este tipo de cosas.",
+              "outcome": "No tenéis ni la más mínima intención de que os molesten con asuntos tan triviales, así que continuáis con vuestras cosas mientras el capitán del barco os maldice.<br><br>—¡Malditos seáis! ¡No llegaréis muy lejos en la vida con esa actitud!"
+            }
+          },
+          "text": "En ocasiones, vuestros tratos en la ciudad os llevan cerca de los bulliciosos muelles. Toda conversación queda ahogada por el constante ruido de los trabajadores cargando y descargando mercancías. Y es por ese motivo por el que os sorprendéis cuando escucháis una voz dirigida a vosotros por encima de todo el ruido.<br><br>—¡Eh! ¡Vosotros! ¡Los de mirada dura y brazos grandes! ¡Necesito que me ayudéis aquí! ¿Podríais ayudarme unos minutos? Así me aseguraría de salir del puerto a tiempo. ;Si no tendré que quedarme aquí hasta mañana!"
+        },
+        "8": {
+          "options": {
+            "1": {
+              "choice": "El mapa parece muy valioso. Decidís negociar por él.",
+              "effects": {
+                "1": {
+                  "1": "Tras un rato regateando, establecéis un precio y pagáis por el mapa. Reconocéis algunos de los puntos de referencia, así que no deberíais tener problemas para encontrar ese lugar de \"incontables riquezas\" alquilando un barco.",
+                  "2": "A pesar de todos vuestros esfuerzos, no conseguís que el comerciante baje el precio a una cantidad que podáis pagar."
+                }
+              }
+            },
+            "2": {
+              "choice": "Os negáis a negociar con el comerciante.",
+              "outcome": "Desconfiáis de la naturaleza excesivamente exuberante del comerciante, así que rechazáis educadamente su oferta y seguís con vuestros asuntos."
+            }
+          },
+          "text": "De camino al Mercado Nuevo, veis una curiosa carta náutica expuesta llamativamente en el puesto de un comerciante valrath.<br><br>—¡Vaya! Veo que estáis interesados — dice mientras la sostiene en alto con mucho cuidado de no dañarla— .¡Se dice que este mapa lleva a un lugar de incontables riquezas más allá de todo lo que hayáis visto antes! —El valrath gesticula mucho con la mano que le queda libre y sonrie ampliamente—. ¿Cómo se puede decir que no a algo así? Simplemente hacedme una oferta."
+        },
+        "9": {
+          "options": {
+            "1": {
+              "choice": "Vendéis los bienes.",
+              "outcome": "Hablando con algunos contactos no demasiado legales, conseguís un precio más que decente por la mercancía. ¿Quién hubiera dicho que pasearse borracho podría saliros tan rentable?"
+            },
+            "2": {
+              "choice": "Donáis los bienes a la ciudad.",
+              "outcome": "Tras descansar de la juerga de la noche anterior, os acercáis al capitán de la guardia.<br>—¡Grandes noticias! Con el aumento de la frecuencia de los ataques a la ciudad, los herreros están teniendo problemas para satisfacer nuestras demandas. Y la comida debería ser útil si en algún momento nos encontramos bajo asedio. Será de gran ayuda para la ciudad."
+            }
+          },
+          "text": "Tras una intensa noche bebiendo, os perdéis mientras andáis por los callejones y os encontráis ante un tramo destrozado del camino de adoquines que conduce a un túnel subterráneo.<br><br>Movidos por la curiosidad y la valentía líquida, descendéis en busca de aventuras. Sin embargo, dar tumbos por un enorme sistema de túneles resulta infructuoso hasta que un pasadizo oculto os lleva a un alijo de armas y alimentos deshidratados que, por lo que parece, fue olvidado hace años.<br><br>Podríais sacar una buena cantidad de dinero por todo ese material en el Mercado Zozobrante, o podríais entregarlo a la guardia de la ciudad, que siempre necesita armas y raciones."
+        }
+      }
+    }
+  },
+  "items": {
+    "gh-1": {
+      "": "Botas de zancadas",
+      "1": "Durante tu movimiento, añade +2 %game.action.move% a un solo movimiento."
+    },
+    "gh-10": {
+      "": "Martillo de guerra",
+      "1": "Durante tu ataque cuerpo a cuerpo, añade %game.condition.stun% a la acción de ataque entera."
+    },
+    "gh-100": {
+      "": "Túnica de invocación",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.heal% 2, con cualquier aliado invocado como objetivo\"."
+    },
+    "gh-101": {
+      "": "Segunda piel",
+      "1": "Retira 2 %game.attackmodifier.minus1% de tu mazo de Modificadores de ataque."
+    },
+    "gh-102": {
+      "": "Túnica de sacrificio",
+      "1": "Durante tu ataque a distancia, sufre 3 de daño para añadir %game.action.attack% +1 a la acción de ataque entera."
+    },
+    "gh-103": {
+      "": "Armadura de escamas de draco",
+      "1": "Eres inmune a %game.condition.poison% y %game.condition.wound%."
+    },
+    "gh-104": {
+      "": "Armadura a vapor",
+      "1": "Para las 5 próximas fuentes de daño de ataque que te tomen como objetivo, obtén %game.action.shield% 1."
+    },
+    "gh-105": {
+      "": "Mantón pulgoso",
+      "1": "Se considera que tienes Iniciativa 99 a efectos de atención de los enemigos."
+    },
+    "gh-106": {
+      "": "Collar de dientes",
+      "1": "Siempre que mates a un enemigo durante tu turno, realiza una acción de\"%game.action.heal% 1, Self\"."
+    },
+    "gh-107": {
+      "": "Yelmo con cuernos",
+      "1": "Después de mover 4 hexágonos o más en tu turno, añade %game.action.attack% +1 a tu siguiente ataque cuerpo a cuerpo de este turno."
+    },
+    "gh-108": {
+      "": "Yelmo de escamas de draco",
+      "1": "Cuando vayas a sufrir %game.condition.muddle%, obtén %game.condition.strengthen% en su lugar."
+    },
+    "gh-109": {
+      "": "Capucha de ladrón",
+      "1": "Al realizar una capacidad de\"%game.action.loot% 1\" ability, realiza un \"%game.action.loot% 2\" en su lugar."
+    },
+    "gh-11": {
+      "": "Daga envenenada",
+      "1": "Durante tu ataque cuerpo a cuerpo, añade %game.condition.poison% to a un único ataque."
+    },
+    "gh-110": {
+      "": "Yelmo de la montaña",
+      "1": "Cuando te ataquen, si %game.element.earth% está en la columna Fuerte, el atacante sufre, %game.condition.immobilize%."
+    },
+    "gh-111": {
+      "": "Collar de las mareas",
+      "1": "Cuando te ataquen, si %game.element.ice% está en la columna Fuerte, realiza una acción de \"%game.action.push% 2\" con el atacante como objetivo."
+    },
+    "gh-112": {
+      "": "Berbiquí antiguo",
+      "1": "Durante tu ataque cuerpo a cuerpo, añade +2 %game.action.attack% y %game.action.pierce% 2 a la acción de ataque entera."
+    },
+    "gh-113": {
+      "": "Hacha rompecráneos",
+      "1": "Durante tu ataque cuerpo a cuerpo que tenga como objetivo a un Cadáver viviente, Espíritu viviente o Huesos vivientes, añade %game.action.attack% +5 a un único ataque."
+    },
+    "gh-114": {
+      "": "Báculo de Xorn",
+      "1": "Durante tu ataque a distancia, añade %game.condition.poison% y %game.condition.muddle% a la acción de ataque entera."
+    },
+    "gh-115": {
+      "": "Martillo de la montaña"
+    },
+    "gh-116": {
+      "": "Alfanje de combustión",
+      "1": "Durante un ataque cuerpo a cuerpo que tenga un único objetivo, el objetivo y todos los enemigos adyacentes a él sufren 1 de daño."
+    },
+    "gh-117": {
+      "": "Hacha sanguinaria",
+      "1": "Durante tu ataque cuerpo a cuerpo, sufre 2 de daño para añadir %game.action.attack% +1 a tu acción de ataque entera."
+    },
+    "gh-118": {
+      "": "Báculo de los elementos",
+      "1": "Durante tu turno, crea cualquier elemento."
+    },
+    "gh-119": {
+      "": "Cráneo del odio",
+      "1": "Durante tu turno, inflige %game.condition.curse% a todos los enemigos adyacentes."
+    },
+    "gh-12": {
+      "": "Poción curativa menor",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.heal% 3, self\"."
+    },
+    "gh-120": {
+      "": "Báculo de invocación",
+      "1": "Durante tu turno, un aliado invocado a %game.action.range:3% realiza una acción de \"%game.action.move% 3\" controlada por ti."
+    },
+    "gh-121": {
+      "": "Orbe del Alba",
+      "1": "Durante tu turno, %game.element.consume.dark% para crear Luz."
+    },
+    "gh-122": {
+      "": "Orbe del Crepúsculo",
+      "1": "Durante tu turno, %game.element.consume.light% para crear Oscuridad."
+    },
+    "gh-123": {
+      "": "Anillo de cráneos"
+    },
+    "gh-124": {
+      "": "Brújula maldita",
+      "1": "Durante tu turno, obliga a un enemigo a %game.action.range:5% a realizar una acción de \"%game.action.move% 2\" controlada por ti."
+    },
+    "gh-125": {
+      "": "Engranaje enigmático",
+      "1": "Durante tu turno, desactiva todas las trampas a %game.action.range:2%."
+    },
+    "gh-126": {
+      "": "Araña mecánica",
+      "1": "Durante tu turno, inflige %game.condition.poison% a todos los enemigos adyacentes."
+    },
+    "gh-127": {
+      "": "Araña mecánica gigante",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.loot% 1\"."
+    },
+    "gh-128": {
+      "": "Incensario negro",
+      "1": "Durante tu turno, inflige %game.condition.muddle% a todos los enemigos a %game.action.range:2%."
+    },
+    "gh-129": {
+      "": "Carta negra",
+      "1": "Durante tu turno, coloca una ficha de Personaje sobre un enemigo normal o de élite adyacente. Añade %game.action.attack% +1 a todos tus ataques que tengan como objetivo este enemigo."
+    },
+    "gh-13": {
+      "": "Poción de resistencia menor",
+      "1": "Durante tu turno, recupera %game.card.recover% hasta 2 de tus cartas descartadas."
+    },
+    "gh-130": {
+      "": "Anillo helicoidal",
+      "1": "Durante tu turno,",
+      "3": "para realizar una acción de \"%game.action.heal% 25, Self\"."
+    },
+    "gh-131": {
+      "": "Corazón del Traidor",
+      "1": "Cuando te ataque un enemigo adyacente normal, obliga al enemigo a atacar a uno de sus aliados a su alcance en su lugar."
+    },
+    "gh-132": {
+      "": "Núcleo de energía"
+    },
+    "gh-133": {
+      "": "Cristal resonante",
+      "1": "Durante tu turno, destruye un obstáculo adyacente."
+    },
+    "gh-14": {
+      "": "Poción de poder menor",
+      "1": "Durante tu ataque, añade +1 %game.action.attack% a tu acción de ataque entera."
+    },
+    "gh-15": {
+      "": "Botas de velocidad",
+      "1": "Al comienzo de una ronda, después de que se hayan revelado todas las cartas de Capacidad, aumenta o disminuye el valor de iniciativa de tu carta principal en 10."
+    },
+    "gh-16": {
+      "": "Capa de bolsillos",
+      "1": "Puedes llevar 2 objetos %game.items.slots.small% adicionales."
+    },
+    "gh-17": {
+      "": "Talismán revitalizador",
+      "1": "Durante tu turno, repón %game.card.refresh% uno de tus objetos %game.items.slots.small% consumidos."
+    },
+    "gh-18": {
+      "": "Hacha de batalla",
+      "1": "Durante tu ataque cuerpo a cuerpo con un solo objetivo, convierte el ataque en:"
+    },
+    "gh-19": {
+      "": "Red contrapesada",
+      "1": "Durante tu ataque a distancia, añade %game.condition.immobilize% a un único ataque."
+    },
+    "gh-2": {
+      "": "Zapatos alados",
+      "1": "Durante tu movimiento, añade %game.action.jump% al movimiento."
+    },
+    "gh-20": {
+      "": "Poción de maná menor",
+      "1": "Durante tu turno, crea cualquier elemento."
+    },
+    "gh-21": {
+      "": "Polvo aturdidor",
+      "1": "Durante tu ataque, añade %game.condition.stun% a un único ataque."
+    },
+    "gh-22": {
+      "": "Grebas pesadas",
+      "1": "Eres inmune a los movimientos forzados por los enemigos o por las mecánicas del escenario."
+    },
+    "gh-23": {
+      "": "Cota de malla",
+      "1": "Para las 3 próximas fuentes de daño de ataque que te tomen como objetivo, obtén %game.action.shield% 1."
+    },
+    "gh-24": {
+      "": "Amuleto de vida",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.heal% 1, Self\"."
+    },
+    "gh-25": {
+      "": "Espada aserrada",
+      "1": "Durante tu ataque cuerpo a cuerpo, añade %game.condition.wound% a un único ataque."
+    },
+    "gh-26": {
+      "": "Lanza larga",
+      "1": "Durante tu ataque cuerpo a cuerpo con un solo objetivo, convierte el ataque en:"
+    },
+    "gh-27": {
+      "": "Poción curativa mayor",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.heal% 5, self\"."
+    },
+    "gh-28": {
+      "": "Pendiente de luna",
+      "1": "Durante tu turno, repón %game.card.refresh% todos tus objetos gastados."
+    },
+    "gh-29": {
+      "": "Zapatos cómodos",
+      "1": "Siempre que uses el efecto alternativo de la mitad inferior de una carta de Capacidad, realiza una acción de \"%game.action.move% 3\" en lugar de \"%game.action.move% 2\"."
+    },
+    "gh-3": {
+      "": "Armadura de piel",
+      "1": "Para las 2 próximas fuentes de daño de ataque que te tomen como objetivo, obtén %game.action.shield% 1."
+    },
+    "gh-30": {
+      "": "Cuero tachonado",
+      "1": "Cuando te ataquen, el atacante sufre Desventaja y tú obtienes %game.action.shield% 1 contra el ataque."
+    },
+    "gh-31": {
+      "": "Yelmo de halcón",
+      "1": "Durante tu ataque a distancia, añade +1 %game.action.range% a la acción de ataque entera."
+    },
+    "gh-32": {
+      "": "Pavés",
+      "1": "Cuando sufras daño por un ataque, obtén %game.action.shield% 2 contra ese ataque."
+    },
+    "gh-33": {
+      "": "Bomba volátil",
+      "1": "Durante tu ataque a distancia con un solo objetivo, convierte el ataque en:"
+    },
+    "gh-34": {
+      "": "Poción de resistencia mayor",
+      "1": "Durante tu turno, recupera %game.card.recover% hasta 3 de tus cartas descartadas."
+    },
+    "gh-35": {
+      "": "Figura de halcón"
+    },
+    "gh-36": {
+      "": "Botas de carrera",
+      "1": "Durante tu movimiento, añade %game.action.move% +3 a un solo movimiento."
+    },
+    "gh-37": {
+      "": "Túnica de evocación",
+      "1": "Durante tu ataque, %game.element.consume.wild% para añadir %game.action.attack% +1 a la acción de ataque entera."
+    },
+    "gh-38": {
+      "": "Bacinete pesado",
+      "1": "Eres inmune a %game.condition.stun% y %game.condition.muddle%."
+    },
+    "gh-39": {
+      "": "Cadena con garfio",
+      "1": "Durante tu ataque a distancia, añade %game.action.pull% 2 a la acción de ataque entera."
+    },
+    "gh-4": {
+      "": "Armadura de cuero",
+      "1": "Cuando te ataquen, el atacante sufre Desventaja en el ataque."
+    },
+    "gh-40": {
+      "": "Daga versatil",
+      "1": "Siempre que uses el efecto alternativo de la mitad superior de una carta de Capacidad, realiza una acción de \"%game.action.attack% 3\" en lugar de \"%game.action.attack% 2\"."
+    },
+    "gh-41": {
+      "": "Poción de poder mayor",
+      "1": "Durante tu ataque, añade +2 %game.action.attack% a tu acción de ataque entera."
+    },
+    "gh-42": {
+      "": "Anillo de premura",
+      "1": "Al final de tu turno, juega 1 carta de tu mano y realiza de inmediato la acción inferior de la carta."
+    },
+    "gh-43": {
+      "": "Botas de aceleración",
+      "1": "Al comienzo de una ronda, después de que se hayan revelado todas las cartas de Capacidad, aumenta o disminuye el valor de iniciativa de tu carta principal en 20."
+    },
+    "gh-44": {
+      "": "Loriga de láminas",
+      "1": "Para las 4 próximas fuentes de daño de ataque que te tomen como objetivo, obtén %game.action.shield% 1."
+    },
+    "gh-45": {
+      "": "Colgante de Pactos siniestros",
+      "1": "Durante tu turno, repón %game.card.refresh% 2 de tus objetos %game.items.slots.small% consumidos. Obten %game.condition.curse%."
+    },
+    "gh-46": {
+      "": "Escudo erizo",
+      "1": "Cuando sufras daño por un ataque, obtén %game.action.shield% 1 y %game.action.retaliate% 2 contra ese ataque."
+    },
+    "gh-47": {
+      "": "Guadaña de segador",
+      "1": "Durante tu ataque cuerpo a cuerpo con un solo objetivo, convierte el ataque en:"
+    },
+    "gh-48": {
+      "": "Poción de mana mayor",
+      "1": "Durante tu turno, crea 2 elementos cualquiera."
+    },
+    "gh-49": {
+      "": "Pendiente de sol",
+      "1": "Durante tu turno, repón %game.card.refresh%todos tus objetos gastados y realiza una acción de \"%game.action.heal% 3, Self\"."
+    },
+    "gh-5": {
+      "": "Capa de invisibilidad",
+      "1": "Durante tu turno, obtén %game.condition.invisible%."
+    },
+    "gh-50": {
+      "": "Escarpes de acero",
+      "1": "Si te mueves 1 hexágono o menos en tu turno, obtén %game.action.shield% 1 para el resto de la ronda."
+    },
+    "gh-51": {
+      "": "Armadura sombría",
+      "1": "Cuando sufras daño por un ataque que te tome como objetivo, no sufres ningún daño en su lugar."
+    },
+    "gh-52": {
+      "": "Amuleto protector",
+      "1": "Eres inmune a %game.condition.poison% y %game.condition.wound%."
+    },
+    "gh-53": {
+      "": "Cuchillo negro",
+      "1": "Durante tu ataque cuerpo a cuerpo, añade %game.condition.curse% a un único ataque."
+    },
+    "gh-54": {
+      "": "Bastón de eminencia",
+      "1": "Durante tu ataque a distancia,, %game.element.consume.wild%para añadir %game.action.attack% +1 a tu acción de ataque entera."
+    },
+    "gh-55": {
+      "": "Poción curativa suprema",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.heal% 7, self\"."
+    },
+    "gh-56": {
+      "": "Anillo de salvajismo",
+      "1": "Al final de tu turno, juega una carta de tu mano y realiza de inmediato la acción superior de dicha carta."
+    },
+    "gh-57": {
+      "": "Sandalias de serenidad",
+      "1": "Siempre que uses el efecto alternativo de la mitad inferior de una carta de Capacidad, realiza una acción de \"%game.action.move% 4\" en lugar de \"%game.action.move% 2\"."
+    },
+    "gh-58": {
+      "": "Capa de fase",
+      "1": "Obtén %game.action.fly%.",
+      "2": "Mientras ocupes un hexágono de obstáculo, se considera que tienes %game.condition.invisible% y no puedes atacar."
+    },
+    "gh-59": {
+      "": "Gafas telescópicas",
+      "1": "Durante tu ataque a distancia, añade %game.action.range% +2 a la acción de ataque entera."
+    },
+    "gh-6": {
+      "": "Lentes ojo de águila",
+      "1": "Durante tu ataque, gana Ventaja en la acción de ataque entera."
+    },
+    "gh-60": {
+      "": "Explosivos inestables",
+      "1": "Durante tu ataque a distancia con un solo objetivo, convierte el ataque en:",
+      "3": "Todos los aliados en la zona de ataque sufren 3 de daño."
+    },
+    "gh-61": {
+      "": "Scutum",
+      "1": "Cuando sufras daño por un ataque, obtén %game.action.shield% 4 contra ese ataque."
+    },
+    "gh-62": {
+      "": "Polvo de mal de ojo",
+      "1": "Durante tu ataque, añade %game.condition.stun%, %game.condition.poison%, y %game.condition.curse% a un único ataque."
+    },
+    "gh-63": {
+      "": "Ojo de la suerte",
+      "1": "Durante tu turno, tú y todos tus aliados adyacentes obtenéis %game.condition.strengthen%."
+    },
+    "gh-64": {
+      "": "Botas de centella",
+      "1": "Durante tu movimiento, añade +4 %game.action.move% a un solo movimiento."
+    },
+    "gh-65": {
+      "": "Arnes",
+      "1": "Para las 5 próximas fuentes de daño de ataque que te tomen como objetivo, obtén %game.action.shield% 1."
+    },
+    "gh-66": {
+      "": "Máscara del terror",
+      "1": "Durante tu ataque cuerpo a cuerpo, añade %game.action.push% 1."
+    },
+    "gh-67": {
+      "": "Espada equilibrada",
+      "1": "Siempre que uses el efecto alternativo de la mitad superior de una carta de Capacidad, realiza una acción de \"%game.action.attack% 4\" en lugar de \"%game.action.attack% 2\"."
+    },
+    "gh-68": {
+      "": "Alabarda",
+      "1": "Durante tu ataque cuerpo a cuerpo con un solo objetivo, puedes atacar a un único enemigo cualquiera a 2 hexágonos o menos."
+    },
+    "gh-69": {
+      "": "Pendiente de estrella",
+      "1": "Durante tu turno, repón %game.card.refresh% todos tus objetos gastados, realiza una acción de \"%game.action.heal% 3, Self\" y recupera %game.card.recover% hasta 2 de tus cartas descartadas."
+    },
+    "gh-7": {
+      "": "Yelmo de hierro",
+      "1": "Cuando te ataquen, cualquier carta de Modificador de ataque %game.attackmodifier.double% que robe el enemigo se considera un %game.attackmodifier.plus0%."
+    },
+    "gh-70": {
+      "": "Anillo de segunda oportunidad",
+      "1": "Al final de tu turno, juega 2 cartas de tu mano y realiza un turno adicional durante esta ronda según la iniciativa de tu nueva carta principal (que debe ser posterior a tu iniciativa actual)."
+    },
+    "gh-71": {
+      "": "Botas de levitacion",
+      "1": "Obtén %game.action.fly%"
+    },
+    "gh-72": {
+      "": "Zapatos de felicidad",
+      "1": "Si te mueves 6 hexágonos o más en tu turno, obtén 1 %game.card.experience:1%."
+    },
+    "gh-73": {
+      "": "Capa de reaparición",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.move% 4, %game.action.jump%\"."
+    },
+    "gh-74": {
+      "": "Armadura filosa",
+      "1": "Para las 3 próximas fuentes de daño de ataque que te tomen como objetivo, obtén %game.action.shield% 1 y %game.action.retaliate% 1"
+    },
+    "gh-75": {
+      "": "Diadema de los elementos",
+      "1": "Durante tu turno, %game.element.consume.wild% para crear cualquier elemento. "
+    },
+    "gh-76": {
+      "": "Almófar",
+      "1": "Mientras estés adyacente a 3 o más monstruos, obtén %game.action.shield% 1"
+    },
+    "gh-77": {
+      "": "Espada gelida",
+      "1": "Durante tu ataque cuerpo a cuerpo, %game.element.consume.ice% para añadir %game.action.attack% +2 a un único ataque."
+    },
+    "gh-78": {
+      "": "Espada tormentosa",
+      "1": "Durante tu ataque cuerpo a cuerpo, %game.element.consume.air% para añadir %game.action.attack% +2 a un único ataque."
+    },
+    "gh-79": {
+      "": "Espada incineradora",
+      "1": "Durante tu ataque cuerpo a cuerpo, %game.element.consume.fire% para añadir %game.action.attack% +2 a un único ataque."
+    },
+    "gh-8": {
+      "": "Escudo triangular",
+      "1": "Cuando sufras daño por un ataque, obtén %game.action.shield% 1 contra ese ataque."
+    },
+    "gh-80": {
+      "": "Espada sísmica",
+      "1": "Durante tu ataque cuerpo a cuerpo, %game.element.consume.earth% para añadir %game.action.attack% +2 a un único ataque."
+    },
+    "gh-81": {
+      "": "Espada brillante",
+      "1": "Durante tu ataque cuerpo a cuerpo, %game.element.consume.light% para añadir %game.action.attack% +2 a un único ataque."
+    },
+    "gh-82": {
+      "": "Espada nocturna",
+      "1": "Durante tu ataque cuerpo a cuerpo, %game.element.consume.dark% para añadir %game.action.attack% +2 a un único ataque."
+    },
+    "gh-83": {
+      "": "Varita de escarcha",
+      "1": "Durante tu turno, crea Hielo."
+    },
+    "gh-84": {
+      "": "Varita de tormenta",
+      "1": "Durante tu turno, crea Aire."
+    },
+    "gh-85": {
+      "": "Varita de incendio",
+      "1": "Durante tu turno, crea Fuego."
+    },
+    "gh-86": {
+      "": "Varita de terremoto",
+      "1": "Durante tu turno, crea Tierra."
+    },
+    "gh-87": {
+      "": "Varita de fulgor",
+      "1": "Durante tu turno, crea Luz."
+    },
+    "gh-88": {
+      "": "Varita de oscuridad",
+      "1": "Durante tu turno, crea Oscuridad."
+    },
+    "gh-89": {
+      "": "Poción de remedio menor",
+      "1": "Durante tu turno, elimina un estado negativo que sufras. Puedes usarla incluso mientras sufres %game.condition.stun%."
+    },
+    "gh-9": {
+      "": "Arco perforante",
+      "1": "Durante tu ataque a distancia, ignora todos los valores de Escudo en la acción de ataque entera."
+    },
+    "gh-90": {
+      "": "Poción de remedio mayor",
+      "1": "Durante tu turno, elimina todos los estados negativos que sufras. Puedes usarla incluso mientras sufres %game.condition.stun%."
+    },
+    "gh-91": {
+      "": "Anillo de acero",
+      "1": "Cuando sufras daño por un Ataque que te tome como objetivo, obtén %game.action.shield% 4 contra ese ataque."
+    },
+    "gh-92": {
+      "": "Anillo atenuador",
+      "1": "Antes de que un enemigo consuma un elemento, lo consumes tú sin que se produzca ningún efecto."
+    },
+    "gh-93": {
+      "": "Pergamino de poder",
+      "1": "Durante el ataque de un aliado, añade %game.action.attack% +1 a la acción de ataque entera."
+    },
+    "gh-94": {
+      "": "Pergamino de curación",
+      "1": "Durante tu turno, realiza una acción de \"%game.action.heal% 3, %game.action.range:5%\""
+    },
+    "gh-95": {
+      "": "Pergamino de resistencia",
+      "1": "Durante tu turno, un aliado a %game.action.range:5% puede recuperar %game.card.recover% hasta 2 de sus cartas descartadas."
+    },
+    "gh-96": {
+      "": "Botas cohete",
+      "1": "Durante tu movimiento, añade %game.action.move% +3 y %game.action.jump% a un único movimiento."
+    },
+    "gh-97": {
+      "": "Sandalias de robustez",
+      "1": "Si te mueves 4 hexágonos o más en tu turno, realiza una acción de \"\"%game.action.heal% 1, Self\"\"."
+    },
+    "gh-98": {
+      "": "Botas de escamas de draco",
+      "1": "No te afectan las piezas de terreno impracticable y peligroso."
+    },
+    "gh-99": {
+      "": "Botas de magma",
+      "1": "Ignora los efectos de daño del terreno peligroso y realiza una acción de \"%game.action.heal% 2, Self\" en cualquier turno en el que hayas entrado en un hexágono de terreno peligroso."
+    }
+  },
+  "summon": {
+    "bat-swarm": "Túnica de invocación",
+    "jade-falcon": "Halcón de jade",
+    "lava-golem": "Golem de Lava"
+  },
+  "treasures": {
+    "gh": {
+      "75": "Criptograma encontrado (Ve el libro de escenarios página 121)"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "index": "20.5",
+  "name": "Another Tale",
+  "edition": "bb",
+  "level": 5,
+  "monsters": [
+    "arena-sorcerer",
+    "goring-beetle",
+    "king-button"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "bb",
+            "name": "arena-sorcerer"
+          },
+          "statEffect": {
+            "health": 14,
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.bb.20-5.1%"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "bb",
+            "name": "goring-beetle"
+          },
+          "statEffect": {
+            "health": 13,
+            "absolute": true
+          },
+          "note": "%data.scenario.rules.bb.20-5.2%"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "arena-sorcerer",
+          "number": 2
+        },
+        {
+          "name": "goring-beetle",
+          "number": 3
+        },
+        {
+          "name": "king-button",
+          "type": "elite",
+          "number": 1
+        }
+      ]
+    }
+  ]
+}

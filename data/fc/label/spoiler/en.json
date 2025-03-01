@@ -1,0 +1,67 @@
+{
+  "items": {
+    "fc-152": {
+      "": "Ring of Duality",
+      "1": "After performing the top action of any ability card, you may immediately perform the bottom action of the same card. This item cannot be used if both actions trigger a lost card icon %game.card.lost%."
+    },
+    "fc-153": {
+      "": "Minor Antidote",
+      "1": "The next three times you would gain %game.condition.poison% prevent the condition."
+    },
+    "fc-154": {
+      "": "Major Antidote",
+      "1": "The next five times you would gain %game.condition.poison% prevent the condition."
+    },
+    "fc-155": {
+      "": "Curseward Armor",
+      "1": "You are immune to %game.condition.curse%, even if the item is spent. On the next three sources of damage from attacks targeting you gain %game.action.shield% 1."
+    },
+    "fc-156": {
+      "": "Elemental Claymore",
+      "1": "During your melee attack, %game.element.consume.wild% to add +2 %game.action.attack% to a single attack."
+    },
+    "fc-157": {
+      "": "Ancient Bow",
+      "1": "During your ranged attack, add +2 %game.action.attack%, %game.condition.curse%, and %game.condition.wound% to a single attack."
+    },
+    "fc-158": {
+      "": "Rejuvenation Greaves",
+      "1": "During your movement, add +2 %game.action.move% to the movement and gain %game.condition.regenerate%."
+    },
+    "fc-159": {
+      "": "Scroll of Haste",
+      "1": "During any one ally's movement, add +2 %game.action.move% to the movement."
+    },
+    "fc-160": {
+      "": "Cutpurse Dagger",
+      "1": "When you kill a monster during your turn, gain one money token."
+    },
+    "fc-161": {
+      "": "Throwing Axe",
+      "1": "During your single-target melee attack action, add %game.action.range:3% to the attack."
+    },
+    "fc-162": {
+      "": "Rift Device",
+      "1": "During your turn, %game.action.teleport% to any unoccupied hex within 4 hexes of you."
+    },
+    "fc-163": {
+      "": "Crystal Tiara",
+      "1": "When you perform a long or short rest, gain %game.condition.strengthen%."
+    },
+    "fc-165": {
+      "": "Living Armor",
+      "1": "You are immune to POISON and !enchantment-circle!. When damage by an attack, gain %game.action.shield% 0 !enchantment-circle! for the attack."
+    }
+  },
+  "summon": {
+    "ghost-falcon": "Ghost Falcon",
+    "twilight-archon": "Twilight Archon"
+  },
+  "treasures": {
+    "fc": {
+      "86": "Unlock Diviner Solo Scenario \"Forecast of the Inevitable\"",
+      "90": "Read section 75 on page 49",
+      "96": "Cryptogram Found (See section book page 43)"
+    }
+  }
+}

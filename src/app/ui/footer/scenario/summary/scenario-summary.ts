@@ -20,7 +20,7 @@ import { TrialDialogComponent } from "src/app/ui/figures/trials/dialog/trial-dia
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-scenario-summary',
     templateUrl: './scenario-summary.html',
     styleUrls: ['./scenario-summary.scss']
@@ -86,6 +86,9 @@ export class ScenarioSummaryComponent implements OnDestroy {
         if (this.conclusionOnly) {
             this.conclusion = this.scenario;
             this.success = true;
+            if (this.conclusion.repeatable || gameManager.game.party.conclusions.find((conclusion) => conclusion.index == this.scenario.index && conclusion.edition == this.scenario.edition && conclusion.group == this.scenario.group)) {
+                this.rewardsOnly = true;
+            }
         }
         this.conclusionWarning = this.success && !this.conclusion && gameManager.sectionData(this.scenario.edition).find((sectionData) => sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.edition == this.scenario.edition && sectionData.conclusion) != undefined;
 
@@ -208,19 +211,19 @@ export class ScenarioSummaryComponent implements OnDestroy {
             const finish = gameManager.game.finish;
             this.conclusion = finish.conclusion ? gameManager.sectionData(finish.conclusion.edition).find((sectionData) => finish.conclusion && sectionData.index == finish.conclusion.index && sectionData.group == finish.conclusion.group && sectionData.conclusion) : undefined;
             this.success = finish.success;
-            this.battleGoals = finish.battleGoals;
+            this.battleGoals = finish.battleGoals || [];
             this.challenges = finish.challenges;
             this.chooseLocation = finish.chooseLocation;
             this.chooseUnlockCharacter = finish.chooseUnlockCharacter;
-            this.collectiveGold = finish.collectiveGold;
+            this.collectiveGold = finish.collectiveGold || [];
             this.collectiveResources = finish.collectiveResources || [];
             this.items = finish.items;
             this.calendarSectionManual = finish.calendarSectionManual || finish.calenderSectionManual;
             this.randomItem = finish.randomItem ? gameManager.itemManager.getItem(finish.randomItem.name, finish.randomItem.edition, true) : undefined;
             this.randomItemIndex = finish.randomItemIndex;
             this.randomItems = finish.randomItems ? finish.randomItems.map((item) => item ? gameManager.itemManager.getItem(item.name, item.edition, true) : undefined) : [];
-            this.randomItemBlueprints = finish.randomItemBlueprints;
-            this.trials = finish.trials;
+            this.randomItemBlueprints = finish.randomItemBlueprints || [];
+            this.trials = finish.trials || [];
             this.updateState();
         }
     }
@@ -397,7 +400,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 + this.battleGoals[index]) / 3);
             this.perksUp[index] = newPerks > currentPerks;
 
-            if (settingsManager.settings.scenarioStats) {
+            if (settingsManager.settings.scenarioStats && !character.absent) {
                 gameManager.scenarioStatsManager.applyScenarioStats(character, this.scenario, this.success);
             }
         })
@@ -476,14 +479,6 @@ export class ScenarioSummaryComponent implements OnDestroy {
         }
 
         return value;
-    }
-
-    treasureRewardsFromString(treasure: string): string[][] {
-        if (treasure.split(':').length < 2) {
-            return [];
-        } else {
-            return treasure.split(':')[1].split('|').map((value) => value.split('+'));
-        }
     }
 
     toggleBattleGoal(event: any, index: number, value: number) {
@@ -807,10 +802,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 this.rewards.calendarSectionManual.forEach((sectionManual, index) => {
                     if (this.calendarSectionManual[index] >= 0) {
                         const week = gameManager.game.party.weeks + this.calendarSectionManual[index];
-                        if (!gameManager.game.party.weekSections[week]) {
-                            gameManager.game.party.weekSections[week] = [];
-                        }
-                        gameManager.game.party.weekSections[week]?.push(sectionManual.section);
+                        gameManager.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), sectionManual.section];
                     }
                 })
             }

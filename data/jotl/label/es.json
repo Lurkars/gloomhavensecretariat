@@ -1,0 +1,300 @@
+{
+  "battleGoals": {
+    "286": {
+      "": "Acróbata",
+      "text": "Pierde 1 carta para prevenir 5 de daño o más."
+    },
+    "287": {
+      "": "Agorafóbico",
+      "text": "Termina todos tus turnos adyacente a una pared u obstáculo."
+    },
+    "288": {
+      "": "Altruista",
+      "text": "Recoge menos fichas de Dinero que cualquiera de los otros personajes."
+    },
+    "289": {
+      "": "Asistente",
+      "text": "Mata a un monstruo al que haya atacado cualquiera de tus aliados antes en la misma ronda."
+    },
+    "290": {
+      "": "Duelista",
+      "text": "No abandones nunca un hexágono adyacente a un monstruo."
+    },
+    "291": {
+      "": "Rematador",
+      "text": "Mata al último monstruo que muera en el escenario."
+    },
+    "292": {
+      "": "Conservador",
+      "text": "No pierdas nunca una carta para prevenir daño."
+    },
+    "293": {
+      "": "Duro de pelar",
+      "text": "No permitas que tus puntos de vida desciendan por debajo de la mitad de tu valor máximo (redondeando hacia arriba)."
+    },
+    "294": {
+      "": "Egoísta",
+      "text": "Recoge más fichas de Dinero que cualquiera de los otros personajes."
+    },
+    "295": {
+      "": "Salud de hierro",
+      "text": "Termina el escenario con una cantidad de puntos de vida igual a tu valor máximo."
+    },
+    "296": {
+      "": "Apostador",
+      "text": "Mata a un monstruo con un ataque tenga Desventaja."
+    },
+    "297": {
+      "": "Atolondrado",
+      "text": "Realiza 2 acciones con iconos de carta perdida antes de tu primer descanso."
+    },
+    "298": {
+      "": "Insomne",
+      "text": "Sufre daño de un ataque en la misma ronda que haces un descanso largo."
+    },
+    "299": {
+      "": "Masoquista",
+      "text": "Termina el escenario con 3 puntos de vida o menos."
+    },
+    "300": {
+      "": "Atracador",
+      "text": "Mata a un monstruo y saquea la ficha de Dinero que deje en el mismo turno."
+    },
+    "301": {
+      "": "Primera sangre",
+      "text": "Sé el primero en matar a un monstruo durante el escenario."
+    },
+    "302": {
+      "": "Pacifista",
+      "text": "Mata a 3 monstruos o menos."
+    },
+    "303": {
+      "": "Carterista",
+      "text": "Recoge 1 o más fichas de Dinero realizando una acción de Saqueo mientras estás adyacente a 2 o más monstruos."
+    },
+    "304": {
+      "": "Alfiletero",
+      "text": "Sé el objetivo de los ataques de 3 o más monstruos en la misma ronda."
+    },
+    "305": {
+      "": "Plebe",
+      "text": "No mates nunca a un monstruo de élite o a un jefe."
+    },
+    "306": {
+      "": "Sobrio",
+      "text": "No uses nunca una poción."
+    },
+    "307": {
+      "": "Arrasador",
+      "text": "Realiza 2 acciones con iconos de perdida en el mismo turno."
+    },
+    "308": {
+      "": "Recluso",
+      "text": "No termines nunca tu turno adyacente a ninguno de tus aliados."
+    },
+    "309": {
+      "": "Sádico",
+      "text": "Mata a 5 o más monstruos."
+    },
+    "310": {
+      "": "Impaciente",
+      "text": "No realices ningún descanso largo."
+    },
+    "311": {
+      "": "Sombra",
+      "text": "Termina todos tus turnos adyacente a cualquiera de tus aliados."
+    },
+    "312": {
+      "": "Despeciado",
+      "text": "Mata a un monstruo que no esté adyacente a ti mientras tú estás adyacente a otro monstruo."
+    },
+    "313": {
+      "": "Especialista",
+      "text": "No realices nunca una acción básica."
+    },
+    "314": {
+      "": "Rezagado",
+      "text": "No realices ningún descanso corto."
+    },
+    "315": {
+      "": "Pionero",
+      "text": "En el mismo turno, abre una puerta y termina en la sala revelada."
+    },
+    "316": {
+      "": "Contagiador",
+      "text": "Aplica cualquier estado negativo a un monstruo mientras tengas cualquier estado negativo."
+    },
+    "317": {
+      "": "Debilucho",
+      "text": "Acaba agotado antes de ninún otro personaje."
+    }
+  },
+  "character": {
+    "demolitionist": {
+      "": "Demoledora",
+      "mech": {
+        "": "Armadura mecanizada",
+        "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
+      }
+    },
+    "hatchet": "Ejecutor",
+    "red-guard": "Guardia rojo",
+    "voidwarden": "Centinela del Vacío"
+  },
+  "custom": {
+    "jotl": {
+      "basic-vermling-raider": {
+        "1": "Añade esta carta al mazo al final de la ronda y luego baraja el mazo.",
+        "2": "Se moverán para evitar estar adyacentes a su centro de atención.",
+        "3": "No se mueven durante esta ronda.",
+        "4": "Esta fue exactamente su forma de actuar en el anterior escenario."
+      },
+      "black-sludge": {
+        "1": "El enemigo más cercano dentro de la línea de visión, sin importar el Alcance, sufre [1+L/2{$math.ceil}] %game.damage%"
+      },
+      "blood-horror": {
+        "1": "Salta hasta el %data.monster.zealot% muerto más lejano y lo revive o Salta hasta el personaje más lejano y %game.action.attack%+0",
+        "2": "Revive a todos los %data.monster.zealot% muertos de la sala"
+      },
+      "blood-monstrosity": {
+        "1": "Al morir, todas las figuras adyacentes sufren %game.damage:1%"
+      },
+      "chaos-demon": {
+        "1": "Cada vez que una figura ataque al %data.monster.chaos-demon% esta ronda, esa figura sufre %game.damage:2%",
+        "2": "Todos los enemigos adyacentes al objetivo sufren %game.damage:1%"
+      },
+      "demolitionist": {
+        "1": "Todos los enemigos adyacentes sufren %game.damage:1%"
+      },
+      "first-of-the-order": {
+        "1": "Todos los enemigos a %game.action.range:2% sufren %game.damage:2%",
+        "2": "a %game.action.range:2% del objetivo"
+      },
+      "flowChartGroup": {
+        "characters": "Personajes",
+        "city-events": "Eventos de Ciudad",
+        "intro": "Tutorial",
+        "main": "Principal"
+      },
+      "giant-viper": {
+        "1": "Todos los ataques que tomen como objetivo a la %data.monster.giant-viper% sufren Desventaja durante esta ronda.",
+        "2": "Añade %game.action.attack% +2 si el objetivo está adyacente a cualquiera de los aliados de la %data.monster.giant-viper%."
+      },
+      "giant-viper-scenario-21": {
+        "1": "Cada vez que cualquier figura ataque a la Víbora gigante, esa figura sufre %game.damage:L%"
+      },
+      "living-corpse": {
+        "1": "Además, el objetivo sufre %game.damage:2%.",
+        "2": "Si el %data.monster.living-corpse% realiza este movimiento, sufre %game.damage:1%.",
+        "3": "Si el %data.monster.living-corpse% realiza este ataque, sufre %game.damage:1%."
+      },
+      "monstrosity": {
+        "1": "Si la %data.monster.monstrosity% realiza este ataque, sufre %game.damage:1%.",
+        "2": "Añade %game.action.attack% +1 si el objetivo está adyacente a cualquiera de los aliados de la %data.monster.monstrosity%.",
+        "3": "Cada vez que una figura ataque a la %data.monster.monstrosity% esta ronda, dicha figura sufre %game.damage:2%.",
+        "4": "La %data.monster.monstrosity% sufre %game.damage:1%"
+      },
+      "rat-monstrosity": {
+        "1": "todas las figuras adyacentes sufren %game.damage:1%",
+        "2": "todas las figuras adyacentes sufren %game.damage:2%",
+        "3": "todas las figuras adyacentes sufren %game.damage:3%",
+        "4": "todas las figuras adyacentes sufren %game.damage:4%"
+      },
+      "rat-monstrosity-16-2": {
+        "1": "Si cualquier figura muere o queda agotada devido al daño"
+      },
+      "stone-golem": {
+        "1": "Cada vez que una figura ataque al %data.monster.stone-golem% durante esta ronda, dicha figura sufre %game.damage:3%.",
+        "2": "Si el %data.monster.stone-golem% ha realizado la Capacidad de Movimiento, sufre %game.damage:1%.",
+        "3": "Si el %data.monster.stone-golem% realiza este ataque sufre %game.damage:2%."
+      },
+      "vermling-raider": {
+        "1": "Cre una trampa de %game.damage% 3 en el hexágono adyacente vacío más cercano a un enemigo."
+      },
+      "zealot": {
+        "1": "X es el %game.damage% sufrido por el objetivo del ataque"
+      }
+    }
+  },
+  "deck": {
+    "boss": "Jefe",
+    "imp": "Duende",
+    "monstrosity": "Monstruosidad"
+  },
+  "edition": {
+    "jotl": "Fauces del León"
+  },
+  "monster": {
+    "basic-giant-viper": "Víbora gigante básica",
+    "basic-vermling-raider": "Asaltante infestor básico",
+    "basic-zealot": "Fanático básico",
+    "black-imp": "Duende negro",
+    "black-sludge": "Lodo negro",
+    "blood-horror": "Horror sangriento",
+    "blood-imp": "Duende sangriento",
+    "blood-monstrosity": "Monstruosidad sangrienta",
+    "blood-tumor": "Tumor sangriento",
+    "chaos-demon": "Demonio de caos",
+    "common-vermling-raider": "Asaltante infestor común",
+    "first-of-the-order": "Primero de la Orden",
+    "giant-viper": "Víbora gigante",
+    "living-corpse": "Cadáver viviente",
+    "living-spirit": "Espíritu viviente",
+    "monstrosity": "Monstruosidad",
+    "rat-monstrosity": "Monstruosidad roedora",
+    "stone-golem": "Gólem de piedra",
+    "vermling-raider": "Asaltante infestor",
+    "vermling-scout": "Explorador infestor",
+    "zealot": "Fanático"
+  },
+  "scenario": {
+    "A Deeper Understanding": "Profundizando en la investigación",
+    "A Hole in the Wall": "Un agujero en la pared",
+    "A Ritual in Stone": "Ritual de piedras",
+    "Agents of Chaos": "Agentes del caos",
+    "Beguiling Sewers": "Alcantarillas cautivadoras",
+    "Corrupted Research": "Investigación corrupta",
+    "Defiled Sewers": "Alcantarillas contaminadas",
+    "Den of Thieves": "Guarida de ladrones",
+    "Explosive Evolution": "Evolución explosiva",
+    "Hidden Tumor": "Tumor oculto",
+    "Misplaced Goods": "Mercancías extraviadas",
+    "Mixed Results": "Resultados irregulares",
+    "Red Twilight": "Ocaso rojo",
+    "Roadside Ambush": "Emboscada en el camino",
+    "Sunken Tumor": "Tumor hundido",
+    "Tainted Blood": "Sangre contaminada",
+    "The Best of the Best": "Lo mejor de lo mejor",
+    "The Black Ship": "El Barco Negro",
+    "The Gauntlet": "Las pruebas de los héroes",
+    "The Greatest Job in the World": "El mejor trabajo del mundo",
+    "The Heist": "El golpe",
+    "Toxic Harvest": "Cosecha tóxica",
+    "Unfriendly Message": "Un mensaje desagradable",
+    "Vile Harvest": "Cosecha perversa",
+    "Warding the Void": "Vigilar el Vacío",
+    "rules": {
+      "jotl": {
+        "10": {
+          "1": "Mueve trampas en %game.mapMarker.1% un hex hacia abajo",
+          "2": "Mueve las trampas en %game.mapMarker.2% un hexágono hacia el personaje más cercano"
+        },
+        "14": {
+          "1": "uno por cada Víbora gigante normal y dos por cada Víbora gigante Elite adyacente a un Fanático, la Víbora gigante muere"
+        },
+        "15": {
+          "1": "uno por cada Duende negro a Alcance 3 de un Fanático el cual obtiene %game.condition.stun%"
+        },
+        "20": {
+          "1": "El botín se representa como Objetivos, después de saquear agotar el Objetivo correspondiente para encontrar el botín",
+          "2": "Encuentra 1 mercancía",
+          "3": "Encuentras el Anillo de recuperación (objeto 32)"
+        },
+        "21": {
+          "1": "en cualquier hexágono en el que el último objetivo fue derrotado",
+          "2": "Los personajes sufren %game.damage:[L/2{$math.floor}]% por cada hexágono en el que entran de la sala hasta que muera el Demonio de Caos %game.mapMarker.A%"
+        }
+      }
+    }
+  }
+}

@@ -43,7 +43,7 @@ export class ScenarioDialogComponent {
     finishScenario(success: boolean) {
         this.close();
         const conclusions = gameManager.scenarioManager.availableSections(true).filter((sectionData) =>
-            sectionData.edition == this.scenario.edition && sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.conclusion);
+            sectionData.edition == this.scenario.edition && sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.conclusion && gameManager.scenarioManager.getRequirements(sectionData).length == 0);
         if (conclusions.length < 2 || !success) {
             this.dialog.open(ScenarioSummaryComponent, {
                 panelClass: ['dialog'],

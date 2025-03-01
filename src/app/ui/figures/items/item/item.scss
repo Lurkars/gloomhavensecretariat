@@ -255,10 +255,14 @@
         }
 
         .interactive {
-            cursor: pointer;
+            cursor: not-allowed;
 
-            &:hover {
-                opacity: 0.6;
+            &.usable {
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.6;
+                }
             }
         }
 

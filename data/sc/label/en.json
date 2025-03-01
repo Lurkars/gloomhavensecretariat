@@ -1,223 +1,223 @@
 {
-  "edition": {
-    "sc": "Satire's Extended Battle Goals"
-  },
   "battleGoals": {
     "sc-1": {
-      ".": "Acrobatic",
+      "": "Acrobatic",
       "text": "Lose a card to negate 5 or more damage."
     },
-    "sc-2": {
-      ".": "Ambusher",
-      "text": "Open a door and end your move action adjacent to a monster in the revealed room."
-    },
-    "sc-3": {
-      ".": "Assassin",
-      "text": "Kill a monster before it takes any actions in the scenario."
-    },
-    "sc-4": {
-      ".": "Assistant",
-      "text": "Kill a monster attacked by an ally earlier in the round."
-    },
-    "sc-5": {
-      ".": "Bastion",
-      "text": "Be adjacent to at least two monsters while standing on a door hex."
-    },
-    "sc-6": {
-      ".": "Bully",
-      "text": "Kill a monster afflicted by a negative condition."
-    },
-    "sc-7": {
-      ".": "Contagious",
-      "text": "While afflicted by a negative condition, apply any negative condition to a monster."
-    },
-    "sc-8": {
-      ".": "Covetous",
-      "text": "Never collect a money token from end-of-turn looting."
-    },
-    "sc-9": {
-      ".": "Cuddler",
-      "text": "Take a rest only on rounds in which an ally is also taking a long or short rest."
-    },
     "sc-10": {
-      ".": "Discriminating",
+      "": "Discriminating",
       "text": "Kill no elite monsters or bosses during the scenario."
     },
     "sc-11": {
-      ".": "Distracted",
+      "": "Distracted",
       "text": "Kill a monster you are not adjacent to while adjacent to another monster."
     },
     "sc-12": {
-      ".": "Drowsy",
+      "": "Drowsy",
       "text": "Declare a long rest while at your maximum hit point value."
     },
     "sc-13": {
-      ".": "Elitist",
+      "": "Elitist",
       "text": "Kill only elite monsters."
     },
     "sc-14": {
-      ".": "Exterminator",
+      "": "Exterminator",
       "text": "Kill three monsters in the same round."
     },
     "sc-15": {
-      ".": "Fearful",
+      "": "Fearful",
       "text": "Never end your turn adjacent to a monster."
     },
     "sc-16": {
-      ".": "Feeble",
+      "": "Feeble",
       "text": "Be the first player to become exhausted."
     },
     "sc-17": {
-      ".": "Feral",
+      "": "Feral",
       "text": "Have the most cards in your lost pile at the end of the scenario."
     },
     "sc-18": {
-      ".": "Finisher",
+      "": "Finisher",
       "text": "Kill the last monster to die in the scenario."
     },
     "sc-19": {
-      ".": "Hesitant",
+      "": "Hesitant",
       "text": "Never go first in a round's initiative."
     },
+    "sc-2": {
+      "": "Ambusher",
+      "text": "Open a door and end your move action adjacent to a monster in the revealed room."
+    },
     "sc-20": {
-      ".": "Hothead",
+      "": "Hothead",
       "text": "Add two cards to your lost pile before your first rest."
     },
     "sc-21": {
-      ".": "Instigator",
+      "": "Instigator",
       "text": "Except when long resting, never go last in a round's initiative."
     },
     "sc-22": {
-      ".": "Insulting",
+      "": "Insulting",
       "text": "Apply another negative condition to a monster already afflicted by one."
     },
     "sc-23": {
-      ".": "Limping",
+      "": "Limping",
       "text": "Move using only basic move actions."
     },
     "sc-24": {
-      ".": "Lucky",
+      "": "Lucky",
       "text": "Kill a monster with an attack with disadvantage."
     },
     "sc-25": {
-      ".": "Marksman",
+      "": "Marksman",
       "text": "Kill a monster three or more hexes away from you."
     },
     "sc-26": {
-      ".": "Miser",
+      "": "Miser",
       "text": "Never exit a room while money tokens remain in it."
     },
     "sc-27": {
-      ".": "Mugger",
+      "": "Mugger",
       "text": "Kill a monster and loot its money token on the same turn."
     },
     "sc-28": {
-      ".": "Multitasker",
+      "": "Multitasker",
       "text": "Kill a monster and open a door on the same round."
     },
     "sc-29": {
-      ".": "Paranoid",
+      "": "Paranoid",
       "text": "End each of your turns adjacent to a wall or obstacle."
     },
+    "sc-3": {
+      "": "Assassin",
+      "text": "Kill a monster before it takes any actions in the scenario."
+    },
     "sc-30": {
-      ".": "Peacemonger",
+      "": "Peacemonger",
       "text": "Never deal the killing blow to a monster."
     },
     "sc-31": {
-      ".": "Perforated",
+      "": "Perforated",
       "text": "Lose 6 or more hit points in a single round."
     },
     "sc-32": {
-      ".": "Pickpocket",
+      "": "Pickpocket",
       "text": "Perform a loot action while adjacent to at least two monsters."
     },
     "sc-33": {
-      ".": "Pincushion",
+      "": "Pincushion",
       "text": "Get attacked by three or more monsters in the same round."
     },
     "sc-34": {
-      ".": "Prosperous",
+      "": "Prosperous",
       "text": "Collect three or more money tokens in the same turn."
     },
     "sc-35": {
-      ".": "Ravager",
+      "": "Ravager",
       "text": "Play two cards for their lost actions on the same turn."
     },
     "sc-36": {
-      ".": "Recluse",
+      "": "Recluse",
       "text": "Never end your turn adjacent to an ally."
     },
     "sc-37": {
-      ".": "Reserved",
+      "": "Reserved",
       "text": "Have the fewest cards in your lost pile at the end of the scenario."
     },
     "sc-38": {
-      ".": "Restless",
+      "": "Restless",
       "text": "Move at least one hex on each of your turns (except when long resting)."
     },
     "sc-39": {
-      ".": "Retaliator",
+      "": "Retaliator",
       "text": "Don't make any attacks in the scenario until after you've taken damage for the first time."
     },
+    "sc-4": {
+      "": "Assistant",
+      "text": "Kill a monster attacked by an ally earlier in the round."
+    },
     "sc-40": {
-      ".": "Ritualistic",
+      "": "Ritualistic",
       "text": "Kill a monster when two or more elements are strong or waning."
     },
     "sc-41": {
-      ".": "Scavenger",
+      "": "Scavenger",
       "text": "Collect more money tokens than any other player."
     },
     "sc-42": {
-      ".": "Shadow",
+      "": "Shadow",
       "text": "End each of your turns adjacent to an ally."
     },
     "sc-43": {
-      ".": "Sharpshooter",
+      "": "Sharpshooter",
       "text": "Kill a monster in a different room (neither of you may be on a doorway tile)."
     },
     "sc-44": {
-      ".": "Slayer",
+      "": "Slayer",
       "text": "Kill two monsters in the same round."
     },
     "sc-45": {
-      ".": "Sleepless",
+      "": "Sleepless",
       "text": "Take damage during the same round you take a long rest."
     },
     "sc-46": {
-      ".": "Sober",
+      "": "Sober",
       "text": "Use no potions during the scenario."
     },
     "sc-47": {
-      ".": "Sociable",
+      "": "Sociable",
       "text": "Never leave a room with a character ally remaining in it."
     },
     "sc-48": {
-      ".": "Specialized",
+      "": "Specialized",
       "text": "Don't use any basic actions."
     },
     "sc-49": {
-      ".": "Stalwart",
+      "": "Stalwart",
       "text": "Never leave a hex adjacent to a monster."
     },
+    "sc-5": {
+      "": "Bastion",
+      "text": "Be adjacent to at least two monsters while standing on a door hex."
+    },
     "sc-50": {
-      ".": "Stubborn",
+      "": "Stubborn",
       "text": "Do not lose any cards to negate damage during the scenario."
     },
     "sc-51": {
-      ".": "Thorough",
+      "": "Thorough",
       "text": "Never exit a room with monsters remaining in it."
     },
     "sc-52": {
-      ".": "Untouchable",
+      "": "Untouchable",
       "text": "Take no damage."
     },
     "sc-53": {
-      ".": "Wasteful",
+      "": "Wasteful",
       "text": "Lose a card to negate 2 or less damage from an attack."
     },
     "sc-54": {
-      ".": "Winded",
+      "": "Winded",
       "text": "Never have fewer than one card in your hand."
+    },
+    "sc-6": {
+      "": "Bully",
+      "text": "Kill a monster afflicted by a negative condition."
+    },
+    "sc-7": {
+      "": "Contagious",
+      "text": "While afflicted by a negative condition, apply any negative condition to a monster."
+    },
+    "sc-8": {
+      "": "Covetous",
+      "text": "Never collect a money token from end-of-turn looting."
+    },
+    "sc-9": {
+      "": "Cuddler",
+      "text": "Take a rest only on rounds in which an ally is also taking a long or short rest."
     }
+  },
+  "edition": {
+    "sc": "Satire's Extended Battle Goals"
   }
 }

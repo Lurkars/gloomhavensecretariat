@@ -1,0 +1,5 @@
+{
+  "monster": {
+    "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.diviner% %solo%)"
+  }
+}

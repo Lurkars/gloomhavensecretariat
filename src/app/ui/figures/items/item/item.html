@@ -9,7 +9,8 @@
                 <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
                 <div class="id">
                     <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span
-                        *ngIf="idNumber && +item.id < 100">0</span><span *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
+                        *ngIf="idNumber && +item.id < 100">0</span><span
+                        *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
                 </div>
             </div>
             <div class="card-back front" *ngIf="item.actionsBack && item.actionsBack.length > 0">
@@ -23,7 +24,7 @@
                     </div>
                     <div class="actions slot-actions" *ngIf="slotsBack.length > 0">
                         <span class="slot-action" *ngFor="let slot of slotsBack; let i = index;"
-                            [ngClass]="{'interactive' : clickedSlotBack.observed}" ghs-pointer-input
+                            [ngClass]="{'interactive' : clickedSlotBack.observed, 'usable' : usable}" ghs-pointer-input
                             (singleClick)="clickedSlotBack.emit(i)">
                             <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
                             <span class="marker" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
@@ -39,7 +40,8 @@
                 </div>
                 <div class="id">
                     <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span
-                        *ngIf="idNumber && +item.id < 100">0</span><span *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
+                        *ngIf="idNumber && +item.id < 100">0</span><span
+                        *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
                 </div>
                 <div class="solo" [ngClass]="{'fh' : settingsManager.settings.fhStyle}" *ngIf="item.solo">
                     <span [ghs-label]="'%game.characterToken.' + item.solo + '%'"></span>
@@ -57,7 +59,7 @@
                     </div>
                     <div class="actions slot-actions" *ngIf="slots.length > 0">
                         <span class="slot-action" *ngFor="let slot of slots let i = index;"
-                            [ngClass]="{'interactive' : clickedSlot.observed}" ghs-pointer-input
+                            [ngClass]="{'interactive' : clickedSlot.observed,  'usable' : usable}" ghs-pointer-input
                             (singleClick)="clickedSlot.emit(i)">
                             <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
                             <span class="marker" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
@@ -87,21 +89,23 @@
                     </ng-container>
                 </div>
                 <div class="costs" *ngIf="item.cost && !item.solo"><span class="value">{{item.cost}}</span></div>
-                <div class="consumed" *ngIf="item.consumed" [ngClass]="{'interactive' :  clickedConsumed.observed}"
-                    ghs-pointer-input (singleClick)="clickedConsumed.emit()" (doubleClick)="clickedConsumed.emit(true)">
+                <div class="consumed" *ngIf="item.consumed"
+                    [ngClass]="{'interactive' :  clickedConsumed.observed, 'usable' : usable}" ghs-pointer-input
+                    (singleClick)="clickedConsumed.emit()" (doubleClick)="clickedConsumed.emit(true)">
                     <span class="placeholder text-white" [ghs-label]="'%game.card.lost%'"></span>
                 </div>
-                <div class="spent" *ngIf="item.spent" [ngClass]="{'interactive' :  clickedSpent.observed}"
-                    ghs-pointer-input (singleClick)="clickedSpent.emit()" (doubleClick)="clickedSpent.emit(true)">
+                <div class="spent" *ngIf="item.spent"
+                    [ngClass]="{'interactive' :  clickedSpent.observed, 'usable' : usable}" ghs-pointer-input
+                    (singleClick)="clickedSpent.emit()" (doubleClick)="clickedSpent.emit(true)">
                     <span class="placeholder text-white" [ghs-label]="'%game.card.spent%'"></span>
                 </div>
                 <div class="flip" *ngIf="item.actionsBack && item.actionsBack.length > 0"
-                    [ngClass]="{'interactive' : clickedFlip.observed}" ghs-pointer-input
+                    [ngClass]="{'interactive' : clickedFlip.observed, 'usable' : usable}" ghs-pointer-input
                     (singleClick)="flipped = !flipped; clickedFlip.emit()" (doubleClick)="clickedFlip.emit(true)">
                     <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>
                 </div>
                 <div class="persistent" *ngIf="item.persistent"
-                    [ngClass]="{'interactive' :  clickedPersistent.observed}" ghs-pointer-input
+                    [ngClass]="{'interactive' :  clickedPersistent.observed, 'usable' : usable}" ghs-pointer-input
                     (singleClick)="clickedPersistent.emit()" (doubleClick)="clickedPersistent.emit(true)">
                     <span class="placeholder text-white" [ghs-label]="'%game.card.persistent%'"></span>
                 </div>
@@ -123,7 +127,8 @@
                 </div>
                 <div class="id">
                     <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span
-                        *ngIf="idNumber && +item.id < 100">0</span><span *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
+                        *ngIf="idNumber && +item.id < 100">0</span><span
+                        *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
                 </div>
                 <div class="solo" [ngClass]="{'fh' : settingsManager.settings.fhStyle}" *ngIf="item.solo">
                     <span [ghs-label]="'%game.characterToken.' + item.solo + '%'"></span>

@@ -22,7 +22,7 @@
     <div class="abilities-container" [style.maxHeight]="maxHeight"
       [ngClass]="{'has-deleted' : edit && deletedCards.length}">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
-        [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
+        [cdkDropListConnectedTo]="discardedList" (cdkDropListDropped)="dropUpcoming($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty" *ngIf="upcomingCards.length == 0"></div>
         <ng-container *ngFor="let ability of upcomingCards;let index = index;">
@@ -39,17 +39,17 @@
         </ng-container>
       </div>
 
-      <div class="disgarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
-        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
+      <div class="discarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #discardedList="cdkDropList"
+        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDiscarded($event)"
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
-        <ng-container *ngFor="let ability of disgardedCards; let index = index;">
+        <ng-container *ngFor="let ability of discardedCards; let index = index;">
           <div class="container drag-hidden" cdkDrag
             [ngClass]="{'expanded-ability': settingsManager.settings.showExpandedAbilityCard, 'bottom-actions' : gameManager.hasBottomAbility(ability)}">
             <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true">
             </ghs-ability>
             <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
-            <a class="button-remove" *ngIf="edit" (click)="remove(disgardedCards.length - index - 1)">
+            <a class="button-remove" *ngIf="edit" (click)="remove(discardedCards.length - index - 1)">
               <img class="ghs-svg" src="./assets/images/minus.svg"></a>
           </div>
         </ng-container>

@@ -24,13 +24,11 @@
             <div class="treasures">
                 <div class="hint-container" *ngFor="let treasure of char.treasures;">
                     <div class="treasure hint-trigger" ghs-pointer-input (doubleClick)="removeTreasure(char,treasure)">
-                        <span *ngIf="('' + treasure).startsWith('G') || +treasure >= 0">
-                            <span
-                                *ngIf="!('' + treasure).startsWith('G') && +treasure < 10 && +treasure >= 0">0</span>{{(''
-                            + treasure).startsWith('G-') ? 'G' : (''
-                            +treasure).split(':')[0]}}
+                        <span *ngIf="('' + treasure).startsWith('G') || +(''+treasure).split(':')[0] >= 0">
+                            <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 10 && +treasure >= 0">0</span>
+                            {{('' + treasure).startsWith('G-') ? 'G' : (''+treasure).split(':')[0]}}
                         </span>
-                        <span *ngIf="!('' + treasure).startsWith('G') && +treasure < 0">???</span>
+                        <span *ngIf="!('' + treasure).startsWith('G') && +(''+treasure).split(':')[0] < 0">???</span>
                     </div>
                     <span class="hint center">
                         <ghs-treasure-label class="text placeholder text-white"

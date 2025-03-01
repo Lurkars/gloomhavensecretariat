@@ -54,20 +54,25 @@ export class MonsterManager {
   }
 
   getStat(monster: Monster, type: MonsterType): MonsterStat {
-    if (monster.bb) {
-      return Object.assign(new MonsterStat(type), monster.baseStat);
-    }
-
     let stat = monster.stats.find((monsterStat) => {
       return monsterStat.level == monster.level && monsterStat.type == type;
     });
+
+    if (monster.bb) {
+      if (type == MonsterType.elite && monster.stats[0] && monster.stats[0].type == MonsterType.elite) {
+        stat = monster.stats[0];
+      } else {
+        stat = Object.assign(new MonsterStat(type), monster.baseStat);
+      }
+    }
+
     if (!stat) {
       monster.errors = monster.errors || [];
       if (!monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
         console.error("Could not find '" + type + "' stats for monster: " + monster.name + " level: " + monster.level);
         monster.errors.push(new FigureError(FigureErrorType.stat, "monster", monster.name, monster.edition, type, "" + monster.level));
       }
-      return new MonsterStat(type, monster.level);
+      stat = new MonsterStat(type, monster.level);
     }
 
     stat = JSON.parse(JSON.stringify(stat)) as MonsterStat;
@@ -80,6 +85,7 @@ export class MonsterManager {
       statEffect.movement = typeof monster.statEffect.movement === 'string' ? monster.statEffect.movement.replaceAll('M', '' + stat.movement).replace('[', '').replace(']', '') : monster.statEffect.movement;
       statEffect.attack = typeof monster.statEffect.attack === 'string' ? monster.statEffect.attack.replaceAll('A', '' + stat.attack).replace('[', '').replace(']', '') : monster.statEffect.attack;
       statEffect.range = typeof monster.statEffect.range === 'string' ? monster.statEffect.range.replaceAll('R', '' + stat.range).replace('[', '').replace(']', '') : monster.statEffect.range;
+      statEffect.initiative = monster.statEffect.initiative;
       statEffect.flying = monster.statEffect.flying;
       statEffect.actions = monster.statEffect.actions;
       statEffect.special = monster.statEffect.special;
@@ -332,7 +338,6 @@ export class MonsterManager {
   }
 
   monsterStandeeShared(monster: Monster, list: Monster[]): Monster[] {
-
     if (monster.bb) {
       this.game.figures.forEach((figure) => {
         if (figure instanceof Monster && figure.bb && list.indexOf(figure) == -1) {
@@ -668,11 +673,7 @@ export class MonsterManager {
 
         figure.entities.forEach((entity) => {
           if (entity.tags) {
-            let roundAction = entity.tags.find((tag) => tag.startsWith('roundAction-'));
-            while (roundAction) {
-              entity.tags.splice(entity.tags.indexOf(roundAction), 1);
-              roundAction = entity.tags.find((tag) => tag.startsWith('roundAction-'));
-            }
+            entity.tags = entity.tags.filter((tag) => !tag.startsWith('roundAction-'));
           }
 
           if (entity.summon == SummonState.new) {
@@ -688,6 +689,8 @@ export class MonsterManager {
             }
           })
         })
+
+        figure.tags = figure.tags.filter((tag) => !tag.startsWith('roundAction-'));
 
         figure.off = figure.entities.length == 0;
       }
@@ -707,6 +710,19 @@ export class MonsterManager {
 
           if (figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);
+          }
+
+          if (figure.bb && figure.tags.indexOf('bb-elite') != -1) {
+            let nextAbility = figure.ability + 1;
+            if (nextAbility >= figure.abilities.length) {
+              nextAbility = 0;
+            }
+            const abilities = gameManager.deckData(figure).abilities;
+            if (abilities[figure.abilities[nextAbility]].initiative < abilities[figure.abilities[figure.ability]].initiative) {
+              const swap = figure.abilities[figure.ability];
+              figure.abilities[figure.ability] = figure.abilities[nextAbility];
+              figure.abilities[nextAbility] = swap;
+            }
           }
         }
       }

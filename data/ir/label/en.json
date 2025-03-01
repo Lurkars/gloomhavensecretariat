@@ -1,4 +1,11 @@
 {
+  "custom": {
+    "ir": {
+      "thrax": {
+        "1": "Performs no actions"
+      }
+    }
+  },
   "edition": {
     "ir": "Ice Rift &lt;%wip%(!)&gt;"
   },
@@ -17,12 +24,5 @@
     "D2": "The cog and the wheel",
     "LF1": "Now you see me...",
     "LF2": "Chroma flux"
-  },
-  "custom": {
-    "ir": {
-      "thrax": {
-        "1": "Performs no actions"
-      }
-    }
   }
 }

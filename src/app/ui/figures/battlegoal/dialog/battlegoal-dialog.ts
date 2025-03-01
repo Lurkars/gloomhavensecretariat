@@ -1,16 +1,16 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, Inject, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { BattleGoal } from "src/app/game/model/data/BattleGoal";
-import { BattleGoalSetupDialog } from "../setup/battlegoal-setup";
-import { Subscription } from "rxjs";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { BattleGoalSetupDialog } from "../setup/battlegoal-setup";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-character-battlegoals',
   templateUrl: './battlegoal-dialog.html',
   styleUrls: ['./battlegoal-dialog.scss']
@@ -22,6 +22,8 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   revealed: number[] = [];
   character: Character;
   selected: number;
+  available: number = 0;
+  redrawAvailable: number = 0;
   cardOnly: boolean = false;
   trial349: boolean = false;
   trial356: boolean = false;
@@ -35,7 +37,9 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
         panelClass: ['dialog']
       }).closed.subscribe({
         next: () => {
-          if (gameManager.battleGoalManager.getBattleGoals().length > (gameManager.fhRules() || settingsManager.settings.battleGoalsFh ? 2 : 1) && data.draw) {
+          this.available = gameManager.battleGoalManager.getUnrevealedBattleGoals().length;
+          this.redrawAvailable = gameManager.battleGoalManager.getUnrevealedBattleGoals(this.character).length;
+          if (this.redrawAvailable > (gameManager.fhRules() || settingsManager.settings.battleGoalsFh ? 2 : 1) && data.draw) {
             this.drawCards();
           }
           else {
@@ -44,6 +48,8 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
         }
       })
     } else if (data.draw) {
+      this.available = gameManager.battleGoalManager.getUnrevealedBattleGoals().length;
+      this.redrawAvailable = gameManager.battleGoalManager.getUnrevealedBattleGoals(this.character).length;
       this.drawCards();
     } else {
       this.update();
@@ -72,7 +78,7 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   }
 
   drawCards() {
-    if (gameManager.battleGoalManager.getBattleGoals().length > (gameManager.fhRules() || settingsManager.settings.battleGoalsFh ? 2 : 1)) {
+    if (this.redrawAvailable) {
       gameManager.stateManager.before("battleGoals.drawCards", gameManager.characterManager.characterName(this.character));
       this.character.battleGoals = [];
       this.character.battleGoal = false;
@@ -89,6 +95,8 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   }
 
   update() {
+    this.available = gameManager.battleGoalManager.getUnrevealedBattleGoals().length;
+    this.redrawAvailable = gameManager.battleGoalManager.getUnrevealedBattleGoals(this.character).length;
     this.battleGoals = this.character.battleGoals.map((identifier) => gameManager.battleGoalManager.getBattleGoal(identifier)).filter((battleGoal) => battleGoal).map((battleGoal) => battleGoal as BattleGoal);
 
     if (this.character.battleGoal && this.revealed.indexOf(0) == -1) {
@@ -99,10 +107,11 @@ export class CharacterBattleGoalsDialog implements OnDestroy {
   }
 
   drawCard() {
-    gameManager.stateManager.before("battleGoals.drawCard", gameManager.characterManager.characterName(this.character));
-    gameManager.battleGoalManager.drawBattleGoal(this.character, this.trial356);
-    gameManager.stateManager.after();
-
+    if (this.available) {
+      gameManager.stateManager.before("battleGoals.drawCard", gameManager.characterManager.characterName(this.character));
+      gameManager.battleGoalManager.drawBattleGoal(this.character, this.trial356);
+      gameManager.stateManager.after();
+    }
     this.update();
   }
 

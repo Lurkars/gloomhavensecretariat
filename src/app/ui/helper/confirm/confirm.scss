@@ -1,0 +1,29 @@
+.confirm-dialog {
+  position: relative;
+  color: var(--ghs-color-white);
+
+  .title {
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+      cursor: pointer;
+      font-size: 2em;
+      padding: 0.3em;
+
+      &.cancel {
+        color: var(--ghs-color-red);
+      }
+
+      &.confirm {
+        color: var(--ghs-color-green);
+      }
+    }
+  }
+}

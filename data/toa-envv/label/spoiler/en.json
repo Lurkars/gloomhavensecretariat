@@ -1,0 +1,19 @@
+{
+  "character": {
+    "envv": "Vanquisher"
+  },
+  "custom": {
+    "perks": {
+      "envv": {
+        "1": "Gain one %data.characterIcon.envv%",
+        "2": "instead if you suffer 1 damage"
+      }
+    }
+  },
+  "items": {
+    "toa-131": {
+      "": "Predator's Wristblade",
+      "1": "After you kill an enemy during your turn, gain two \"Rage\" %game.characterIcon.envv% cards."
+    }
+  }
+}

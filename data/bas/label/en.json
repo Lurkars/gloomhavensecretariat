@@ -1,16 +1,4 @@
 {
-  "edition": {
-    "bas": "Blood and Sand"
-  },
-  "monster": {
-    "desiccated-corpse": "Desiccated Corpse",
-    "dust-demon": "Dust Demon",
-    "giant-scorpion": "Giant Scorpion",
-    "horned-lizard": "Horned Lizard",
-    "jackal": "Jackal",
-    "sand-spider": "Sand Spider"
-  },
-  "scenario": {},
   "custom": {
     "bas": {
       "desiccated-corpse": {
@@ -29,5 +17,20 @@
         "3": "Create a %game.condition.immobilize% trap in an adjacent empty hex closest to an enemy."
       }
     }
+  },
+  "edition": {
+    "bas": "Blood and Sand"
+  },
+  "monster": {
+    "desiccated-corpse": "Desiccated Corpse",
+    "dust-demon": "Dust Demon",
+    "giant-scorpion": "Giant Scorpion",
+    "horned-lizard": "Horned Lizard",
+    "jackal": "Jackal",
+    "sand-spider": "Sand Spider"
+  },
+  "scenario": {
+    "All Over the Map": "All Over the Map",
+    "Troubled Waters": "Troubled Waters"
   }
 }

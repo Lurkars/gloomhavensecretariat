@@ -40,7 +40,7 @@ export class HintDialogComponent {
         if (gameManager.game.scenario) {
             const conclusions = gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => {
                 if (gameManager.game.scenario) {
-                    return sectionData.edition == gameManager.game.scenario.edition && sectionData.parent == gameManager.game.scenario.index && sectionData.group == gameManager.game.scenario.group && sectionData.conclusion;
+                    return sectionData.edition == gameManager.game.scenario.edition && sectionData.parent == gameManager.game.scenario.index && sectionData.group == gameManager.game.scenario.group && sectionData.conclusion && gameManager.scenarioManager.getRequirements(sectionData).length == 0;
                 }
                 return false;
             });
@@ -110,7 +110,7 @@ export class HintDialogComponent {
 
     @HostListener('document:keydown', ['$event'])
     onKeyEnter(event: KeyboardEvent) {
-        if (event.key === 'Enter') {
+        if (settingsManager.settings.keyboardShortcuts && event.key === 'Enter') {
             if (this.active()) {
                 this.confirm();
             } else if (this.finish()) {

@@ -14,5 +14,17 @@
         "value": 3
       }
     ]
-  }
+  },
+  "stats": [
+    {
+      "type": "elite",
+      "health": 9,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    }
+  ]
 }

@@ -124,7 +124,7 @@ export class ScenarioChartPopupDialog {
 
     addSuccess() {
         const conclusions = gameManager.sectionData(this.scenario.edition).filter((sectionData) =>
-            sectionData.edition == this.scenario.edition && sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.conclusion);
+            sectionData.edition == this.scenario.edition && sectionData.parent == this.scenario.index && sectionData.group == this.scenario.group && sectionData.conclusion && gameManager.scenarioManager.getRequirements(sectionData).length == 0);
         if (conclusions.length == 0) {
             this.addSuccessIntern();
         } else {

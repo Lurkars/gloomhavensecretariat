@@ -4,26 +4,6 @@
     "wildborn": "Wildborn",
     "woebound": "Woebound"
   },
-  "edition": {
-    "cc": "Custom Content Unity Guild"
-  },
-  "items": {
-    "fh-cc-core": {
-      ".": "Absorption Shield",
-      "1": "When you suffer %game.damage% from an attack, gain %game.action.shield% 1 for the attack, then flip this card.",
-      "2": "At the start of your turn, gain %game.condition.wound%",
-      "3": "When %game.condition.wound% is removed from you, flip this card."
-    },
-    "fh-wb01": {
-      ".": "Shards of Oblivion",
-      "1": "When you would grant an ally an ability, control an enemy to perform that ability instead. Use your attack modifier deck for any attacks controlled this way."
-    },
-    "fh-wb02": {
-      ".": "Chaos Sickle",
-      "1": "Add +2 %game.action.attack% to your next melee attack targeting an enemy adjacent to none of its allies, then flip this card over at the end of your turn.",
-      "2": "If you consumed four or more elements during your turn, flip this card over at the end of your turn."
-    }
-  },
   "custom": {
     "perks": {
       "core": {
@@ -53,6 +33,26 @@
         "5": "Consume at least three elements on each of your turns after the first round, without exhausting",
         "6": "Have %game.action.shield% 2 on each attack targeting you that would cause you to suffer damage, and be attacked at least 15 times."
       }
+    }
+  },
+  "edition": {
+    "cc": "Custom Content Unity Guild"
+  },
+  "items": {
+    "fh-cc-core": {
+      "": "Absorption Shield",
+      "1": "When you suffer %game.damage% from an attack, gain %game.action.shield% 1 for the attack, then flip this card.",
+      "2": "At the start of your turn, gain %game.condition.wound%",
+      "3": "When %game.condition.wound% is removed from you, flip this card."
+    },
+    "fh-wb01": {
+      "": "Shards of Oblivion",
+      "1": "When you would grant an ally an ability, control an enemy to perform that ability instead. Use your attack modifier deck for any attacks controlled this way."
+    },
+    "fh-wb02": {
+      "": "Chaos Sickle",
+      "1": "Add +2 %game.action.attack% to your next melee attack targeting an enemy adjacent to none of its allies, then flip this card over at the end of your turn.",
+      "2": "If you consumed four or more elements during your turn, flip this card over at the end of your turn."
     }
   }
 }

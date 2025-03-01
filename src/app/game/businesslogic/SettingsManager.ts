@@ -7,7 +7,7 @@ import { Settings } from "../model/Settings";
 import { BuildingData } from "../model/data/BuildingData";
 import { EditionData } from "../model/data/EditionData";
 import { Spoilable } from "../model/data/Spoilable";
-import { debugManager } from "./DebugManager";
+import { DebugManager, debugManager } from "./DebugManager";
 import { gameManager } from "./GameManager";
 import { storageManager } from "./StorageManager";
 
@@ -19,12 +19,14 @@ export class SettingsManager {
 
   defaultLocale: string = 'en';
   defaultEditions: string[] = ["gh", "fh", "jotl", "fc", "cs", "toa", "bb", "solo"];
+
   defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/toa.json", "./assets/data/bb.json", "./assets/data/solo.json", "./assets/data/fh-crossover.json", "./assets/data/gh-envx.json", "./assets/data/toa-envv.json", "./assets/data/sc.json", "./assets/data/gh-solo-items.json", "./assets/data/sox.json", "./assets/data/bas.json", "./assets/data/cc.json", "./assets/data/gh2e.json", "./assets/data/ir.json", "./assets/data/r100kc.json", "./assets/data/sits.json"];
 
   settings: Settings = new Settings();
   label: any = {};
-  locales: string[] = ["en", "de", "fr", "ko"];
+  locales: string[] = ["en", "de", "fr", "ko", "es", "zh_Hans"];
   developent: boolean = false;
+  debugManager: DebugManager = debugManager;
 
 
   async init(developent: boolean) {
@@ -605,7 +607,7 @@ export class SettingsManager {
                 if (!result[key]) {
                   result[key] = {};
                 } else if (!this.isObject(result[key])) {
-                  result[key] = { '.': result[key] };
+                  result[key] = { "": result[key] };
                 }
                 this.merge(result[key], overwrite, elm[key]);
               } else {
@@ -749,8 +751,8 @@ export class SettingsManager {
       return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
     } else if (from[key]) {
       if (typeof from[key] === 'object') {
-        if (from[key]["."]) {
-          return this.insertLabelArguments(from[key]["."], args, argLabel);
+        if (from[key][""]) {
+          return this.insertLabelArguments(from[key][""], args, argLabel);
         }
         return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
       }

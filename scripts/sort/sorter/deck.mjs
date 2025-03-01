@@ -10,6 +10,12 @@ export const sortDeck = function (deck) {
                 return a.cardId - b.cardId;
             }
 
+            if (a.cardId && !b.cardId) {
+                return 1;
+            } else if (!a.cardId && b.cardId) {
+                return -1;
+            }
+
             if (a.level && b.level) {
                 return a.level - b.level;
             }

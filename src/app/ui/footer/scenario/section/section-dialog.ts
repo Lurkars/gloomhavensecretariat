@@ -1,12 +1,13 @@
-import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { Dialog, DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, HostListener, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { ScenarioSummaryComponent } from "../summary/scenario-summary"
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
+import { ScenarioSummaryComponent } from "../summary/scenario-summary";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-section-dialog',
     templateUrl: './section-dialog.html',
     styleUrls: ['./section-dialog.scss']
@@ -42,7 +43,7 @@ export class SectionDialogComponent {
 
     @HostListener('document:keydown', ['$event'])
     confirm(event: KeyboardEvent) {
-        if (event.key === 'Enter') {
+        if (settingsManager.settings.keyboardShortcuts && event.key === 'Enter') {
             this.addSection();
             event.preventDefault();
             event.stopPropagation();

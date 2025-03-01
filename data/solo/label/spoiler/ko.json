@@ -1,0 +1,115 @@
+{
+  "items": {
+    "gh-134": {
+      "": "위풍당당한 검"
+    },
+    "gh-135": {
+      "": "집중 치료 광선"
+    },
+    "gh-136": {
+      "": "불안정한 영약"
+    },
+    "gh-137": {
+      "": "침묵의 단검"
+    },
+    "gh-138": {
+      "": "돌 부적"
+    },
+    "gh-139": {
+      "": "심령술 칼"
+    },
+    "gh-140": {
+      "": "태양 방패"
+    },
+    "gh-141": {
+      "": "만능 허리띠"
+    },
+    "gh-142": {
+      "": "상 변이 조각상"
+    },
+    "gh-143": {
+      "": "연기 영약"
+    },
+    "gh-144": {
+      "": "역병 브로치"
+    },
+    "gh-145": {
+      "": "죽음의 가면"
+    },
+    "gh-146": {
+      "": "명인의 류트"
+    },
+    "gh-147": {
+      "": "사냥꾼의 망토"
+    },
+    "gh-148": {
+      "": "의사 가운"
+    },
+    "gh-149": {
+      "": "원소 장화"
+    },
+    "gh-150": {
+      "": "명령 지팡이"
+    },
+    "gh-envx-151": {
+      "": "모래 칼날"
+    },
+    "solo-134": {
+      "1": "차례 중 적을 죽일 때마다, 해당 라운드 동안 %game.action.shield% 1 획득."
+    },
+    "solo-135": {
+      "1": "치료 행동 중, 해당 치료 수치가 2배로 증가."
+    },
+    "solo-136": {
+      "1": "원거리 공격 중, 해당 공격 행동 전체에 +2 %game.action.attack% 추가 및 이익을 받음. 단, 그러한 공격 각각에 대해 피해 2점 입음."
+    },
+    "solo-137": {
+      "1": "근접 공격을 수행할 때마다, 해당 공격에 %game.action.pierce% 1 추가."
+    },
+    "solo-138": {
+      "1": "장애물이 생성되는 행동 중, 추가로 장애물을 하나 더 생성하고 해당 행동의 모든 효과를 추가 장애물에도 적용."
+    },
+    "solo-139": {
+      "1": "%data.characterColored.mindthief:Augment% 행동을 수행할 때마다, 해당 행동 전체에 +1 %game.action.attack% 추가."
+    },
+    "solo-140": {
+      "1": "공격에 의해 피해를 입게 될 때, %game.element.consume.light% 를 통해 해당 공격에 대해 %game.action.shield% 3 획득 가능."
+    },
+    "solo-141": {
+      "1": "차례 중, 장착자 본인 또는 아군 하나가 자신의 소모되거나 고갈된 아이템 1개 %game.card.refresh% 가능."
+    },
+    "solo-142": {
+      "1": "장착자 소유 소환물이 공격에 의해 피해를 입게 될 때, 피해를 입지 않음."
+    },
+    "solo-143": {
+      "1": "차례 중, %game.condition.invisible% 획득 및 어둠 원소 생성.<br>%game.element.dark%"
+    },
+    "solo-144": {
+      "1": "차례 중, %game.action.range:3% 내에 있는 적 하나에게 %game.condition.poison% 및 %game.condition.curse% 적용."
+    },
+    "solo-145": {
+      "1": "체력이 정확히 1인 상태에서 근접 공격을 수행할 때마다, 해당 공격에 +2 %game.action.attack% 추가."
+    },
+    "solo-146": {
+      "1": "매번 %data.characterColored.music-note:Song% 행동 수행 후, 즉시 %game.action.attack% 2 행동 또는 %game.action.move% 2 행동 수행."
+    },
+    "solo-147": {
+      "1": "%data.characterColored.angry-face:Doom% 행동을 수행할 때마다, %data.characterColored.angry-face:Doom% 대상에게 %game.condition.muddle% 적용."
+    },
+    "solo-148": {
+      "1": "아군이 “의료품 꾸러미” 또는 “큰 의료품 꾸러미” 행동을 수행할 때마다, 해당 치료에 +1 %game.action.heal% 추가."
+    },
+    "solo-149": {
+      "1": "차례 중 5칸 이상을 이동한 경우, 아무 원소나 1개 생성."
+    },
+    "solo-150": {
+      "1": "%data.characterColored.two-mini:Command% 행동 수행 후, 손에 있는 카드 1장을 플레이하고 즉시 해당 카드에서 해당 %data.characterColored.two-mini:Command% 과 동일한 부분(상단 또는 하단) 행동 수행."
+    },
+    "solo-151": {
+      "1": "근접 공격 중, 해당 공격 행동 전체에 %game.condition.poison% 및 %game.condition.wound% 추가."
+    },
+    "solo-164": {
+      "1": "장착자가 아무 덱에서나 카드를 공개할 때마다, 카드 한 장을 추가로 공개."
+    }
+  }
+}

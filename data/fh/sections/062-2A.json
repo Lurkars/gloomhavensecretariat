@@ -1,0 +1,24 @@
+{
+  "index": "62.2A",
+  "name": "Bathysphere Plans",
+  "edition": "fh",
+  "parentSections": [
+    [
+      "62.2"
+    ]
+  ],
+  "conclusion": true,
+  "repeatable": true,
+  "requirements": [
+    {
+      "buildings": [
+        "!craftsman:3"
+      ]
+    }
+  ],
+  "rewards": {
+    "calendarSection": [
+      "62.2-3"
+    ]
+  }
+}

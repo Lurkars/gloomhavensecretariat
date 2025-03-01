@@ -34,7 +34,7 @@
 
         <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0 || character">
           <span class="level">
-            <span class="text">{{ability.level || 0}}</span>
+            <span class="text" [ghs-label]="ability.level || 0"></span>
           </span>
           <div class="ability-actions-container">
             <div class="ability-actions ability-bottom-actions">

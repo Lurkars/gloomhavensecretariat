@@ -1,5 +1,6 @@
 import { Dialog, DialogRef } from "@angular/cdk/dialog";
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
@@ -25,7 +26,7 @@ import { CharacterRetirementDialog } from "./retirement-dialog";
   styleUrls: ['./character-sheet.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class CharacterSheetComponent implements OnInit, AfterViewInit {
+export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() character!: Character;
   @Input() editable: boolean = true;
@@ -49,6 +50,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
 
   goldTimeout: any = null;
   xpTimeout: any = null;
+  replayable: boolean = false;
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
@@ -124,8 +126,9 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     }
 
     this.hasAbilities = gameManager.deckData(this.character, true).abilities.length > 0;
+    this.replayable = !gameManager.game.scenario && gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == this.character.name && figure.number == this.character.number) == undefined;
 
-    gameManager.uiChange.subscribe({
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
 
@@ -134,7 +137,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
             this.character.progress.perks[i] = 0;
           }
         }
-        
+
         this.retireEnabled = false;
         if (!gameManager.game.scenario) {
           if (this.personalQuest) {
@@ -143,9 +146,17 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
             this.retireEnabled = true;
           }
         }
-    
+
       }
     })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
   }
 
   applyValues() {
@@ -517,12 +528,30 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit {
     }
   }
 
+  replay() {
+    if (this.replayable) {
+      gameManager.stateManager.before("characterReplay", gameManager.characterManager.characterName(this.character, true, true), gameManager.game.party.players[this.character.number - 1] ? gameManager.game.party.players[this.character.number - 1] : '' + this.character.number);
+      gameManager.game.party.availableCharacters = gameManager.game.party.availableCharacters.filter((availableCharacter) => availableCharacter.name != this.character.name || availableCharacter.edition != this.character.edition || availableCharacter.number != this.character.number);
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character && figure.number == this.character.number) {
+          gameManager.game.party.availableCharacters.push(figure.toModel());
+          gameManager.characterManager.removeCharacter(figure);
+        }
+      })
+      gameManager.game.figures.push(this.character);
+      gameManager.stateManager.after();
+      if (this.dialogRef) {
+        ghsDialogClosingHelper(this.dialogRef);
+      }
+    }
+  }
+
   toggleFhSheet() {
     this.fhSheet = !this.fhSheet;
     this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
   }
 
-  openGhCards() {
+  openAbilityCards() {
     this.dialog.open(AbilityCardsDialogComponent, {
       panelClass: ['dialog'],
       data: { character: this.character }

@@ -1,15 +1,294 @@
 {
+  "ability": {
+    "Accelerated Power": "Accelerated Power",
+    "Angry Howl": "Angry Howl",
+    "Black Hex": "Black Hex",
+    "Black Tendrils": "Black Tendrils",
+    "Boil Blood": "Boil Blood",
+    "Booming Scream": "Booming Scream",
+    "Calculated Strike": "Calculated Strike",
+    "Careful Throw": "Careful Throw",
+    "Chilling Breath": "Chilling Breath",
+    "Constrict": "Constrict",
+    "Coupled Chain": "Coupled Chain",
+    "Cripple": "Cripple",
+    "Dark Charm": "Dark Charm",
+    "Defensive Strike": "Defensive Strike",
+    "Drain Life": "Drain Life",
+    "Dual Daggers": "Dual Daggers",
+    "Explosive Blisters": "Explosive Blisters",
+    "Feed": "Feed",
+    "Find Cover": "Find Cover",
+    "Flashing Claws": "Flashing Claws",
+    "Greed": "Greed",
+    "Ground Pound": "Ground Pound",
+    "Hasty Assault": "Hasty Assault",
+    "Heat Blast": "Heat Blast",
+    "Hex Whip": "Hex Whip",
+    "Hungry Maw": "Hungry Maw",
+    "Icy Glare": "Icy Glare",
+    "Leech Warmth": "Leech Warmth",
+    "Lingering Strenth": "Lingering Strenth",
+    "Mana Explosion": "Mana Explosion",
+    "Nothing Special": "Nothing Special",
+    "Noxious Blade": "Noxious Blade",
+    "Parry": "Parry",
+    "Patch Wounds": "Patch Wounds",
+    "Phase Out": "Phase Out",
+    "Plasma Ward": "Plasma Ward",
+    "Rancid Arrow": "Rancid Arrow",
+    "Rapid Bolts": "Rapid Bolts",
+    "Reckless Charge": "Reckless Charge",
+    "Release Gas": "Release Gas",
+    "Restoration": "Restoration",
+    "Rotting Embrace": "Rotting Embrace",
+    "Runic Draw": "Runic Draw",
+    "Runic Feedback": "Runic Feedback",
+    "Sacrificial Hurl": "Sacrificial Hurl",
+    "Sap Strength": "Sap Strength",
+    "Screaming Shot": "Screaming Shot",
+    "Seismic Punch": "Seismic Punch",
+    "Septic Hex": "Septic Hex",
+    "Short Bow": "Short Bow",
+    "Spiked Pit": "Spiked Pit",
+    "Surround": "Surround",
+    "Swarm": "Swarm",
+    "Swift Fangs": "Swift Fangs",
+    "Taxing Advance": "Taxing Advance",
+    "Tip The Scales": "Tip The Scales",
+    "Toxic Explosion": "Toxic Explosion",
+    "Toxic Frenzy": "Toxic Frenzy",
+    "Twin Missiles": "Twin Missiles",
+    "Unholy Flame": "Unholy Flame",
+    "Unstable Frenzy": "Unstable Frenzy",
+    "Unstable Scratch": "Unstable Scratch",
+    "Vicious Spear": "Vicious Spear",
+    "Vile Scourge": "Vile Scourge",
+    "Violent Slam": "Violent Slam",
+    "Weakening Bite": "Weakening Bite",
+    "Whirlwind": "Whirlwind"
+  },
+  "battleGoals": {
+    "286": {
+      "": "Acrobatic",
+      "text": "Lose a card to negate 5 or more damage."
+    },
+    "287": {
+      "": "Agoraphobe",
+      "text": "End each of your turns adjacent to a wall or obstacle."
+    },
+    "288": {
+      "": "Altruist",
+      "text": "Collect fewer money tokens than any other character."
+    },
+    "289": {
+      "": "Assistant",
+      "text": "Kill a monster attacked by an ally earlier in the round."
+    },
+    "290": {
+      "": "Challenger",
+      "text": "Never leave a hex adjacent to a monster."
+    },
+    "291": {
+      "": "Closer",
+      "text": "Kill the last monster to die in the scenario."
+    },
+    "292": {
+      "": "Conservator",
+      "text": "Never lose a card to negate suffering damage."
+    },
+    "293": {
+      "": "Diehard",
+      "text": "Never allow your hit points to drop below half your maximum hit point value (rounded up)."
+    },
+    "294": {
+      "": "Egoist",
+      "text": "Collect more money tokens than any other character."
+    },
+    "295": {
+      "": "Fast Healer",
+      "text": "End the scenario with hit points equal to your maximum hit point value."
+    },
+    "296": {
+      "": "Gambler",
+      "text": "Kill a monster with an attack that has Disadvantage."
+    },
+    "297": {
+      "": "Hothead",
+      "text": "Perform two actions with Lost icons before your first rest."
+    },
+    "298": {
+      "": "Insomniac",
+      "text": "Suffer damage from an attack in the same round you long rest."
+    },
+    "299": {
+      "": "Masochist",
+      "text": "End the scenario with 3 or fewer hit points."
+    },
+    "300": {
+      "": "Mugger",
+      "text": "Kill a monster and loot the money token it drops in the same turn."
+    },
+    "301": {
+      "": "Opener",
+      "text": "Kill the first monster to die in the scenario."
+    },
+    "302": {
+      "": "Pacifist",
+      "text": "Kill three or fewer monsters."
+    },
+    "303": {
+      "": "Pickpocket",
+      "text": "Collect one or more money tokens by performing a Loot action while you are adjacent to two or more monsters."
+    },
+    "304": {
+      "": "Pincushion",
+      "text": "Be targeted by attacks from three or more monsters in the same round."
+    },
+    "305": {
+      "": "Plebeian",
+      "text": "Never kill an elite monster or boss."
+    },
+    "306": {
+      "": "Prohibitionist",
+      "text": "Never use a potion."
+    },
+    "307": {
+      "": "Ravager",
+      "text": "Perform two actions with Lost icons in the same turn."
+    },
+    "308": {
+      "": "Recluse",
+      "text": "Never end your turn adjacent to any of your allies."
+    },
+    "309": {
+      "": "Sadist",
+      "text": "Kill five or more monsters."
+    },
+    "310": {
+      "": "Scrambler",
+      "text": "Never long rest."
+    },
+    "311": {
+      "": "Shadow",
+      "text": "End each of your turns adjacent to any of your allies."
+    },
+    "312": {
+      "": "Shirker",
+      "text": "Kill a monster not adjacent to you while you are adjacent to another monster."
+    },
+    "313": {
+      "": "Specialist",
+      "text": "Never perform a basic action."
+    },
+    "314": {
+      "": "Straggler",
+      "text": "Never short rest."
+    },
+    "315": {
+      "": "Trailblazer",
+      "text": "Open a door and end your same turn in the revealed room."
+    },
+    "316": {
+      "": "Transmitter",
+      "text": "Apply any negative condition to a monster while you have any negative condition."
+    },
+    "317": {
+      "": "Weakling",
+      "text": "Become exhausted before any other character."
+    }
+  },
   "character": {
     "demolitionist": {
-      ".": "Demolitionist",
+      "": "Demolitionist",
       "mech": {
-        ".": "Mech Suit",
+        "": "Mech Suit",
         "hint": "Your maximum hit point value is increased by 5. Heal %game.action.heal% 10, self."
       }
     },
     "hatchet": "Hatchet",
     "red-guard": "Red Guard",
     "voidwarden": "Voidwarden"
+  },
+  "custom": {
+    "jotl": {
+      "basic-vermling-raider": {
+        "1": "Shuffle this deck at the end of the round.",
+        "2": "They will move to avoid being adjacent to their focus.",
+        "3": "They are not moving this round.",
+        "4": "This is exactly how they acted last scenario."
+      },
+      "black-sludge": {
+        "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{$math.ceil}] %game.damage%"
+      },
+      "blood-horror": {
+        "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
+        "2": "Revive all dead %data.monster.zealot% in room"
+      },
+      "blood-monstrosity": {
+        "1": "On death, all adjacent figures suffer %game.damage:1%"
+      },
+      "chaos-demon": {
+        "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer %game.damage:2%",
+        "2": "All enemies adjacent to the target suffer %game.damage:1%"
+      },
+      "demolitionist": {
+        "1": "All adjacent enemies suffer %game.damage:1%"
+      },
+      "first-of-the-order": {
+        "1": "All enemies within %game.action.range:2% suffer %game.damage:2%",
+        "2": "within %game.action.range:2% of target"
+      },
+      "flowChartGroup": {
+        "characters": "Characters",
+        "city-events": "City Events",
+        "intro": "Intro",
+        "main": "Main"
+      },
+      "giant-viper": {
+        "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
+        "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
+      },
+      "giant-viper-scenario-21": {
+        "1": "Each time after any figure attacks a Giant Viper, that figure suffers %game.damage:L%"
+      },
+      "living-corpse": {
+        "1": "The target also suffers %game.damage:2%.",
+        "2": "If this movement is performed, the %data.monster.living-corpse% suffers %game.damage:1%.",
+        "3": "If this attack is performed, the %data.monster.living-corpse% suffers %game.damage:1%."
+      },
+      "monstrosity": {
+        "1": "If this attack is performed, the %data.monster.monstrosity% suffers %game.damage:1%.",
+        "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
+        "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers %game.damage:2%.",
+        "4": "%data.monster.monstrosity% suffers %game.damage:1%"
+      },
+      "rat-monstrosity": {
+        "1": "all adjacent figures suffer %game.damage:1%",
+        "2": "all adjacent figures suffer %game.damage:2%",
+        "3": "all adjacent figures suffer %game.damage:3%",
+        "4": "all adjacent figures suffer %game.damage:4%"
+      },
+      "rat-monstrosity-16-2": {
+        "1": "If any figure dies or become exhausted due to the damage"
+      },
+      "stone-golem": {
+        "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers %game.damage:3%.",
+        "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers %game.damage:1%.",
+        "3": "If this attack is performed, the %data.monster.stone-golem% suffers %game.damage:2%."
+      },
+      "vermling-raider": {
+        "1": "Create one 3-%game.damage% trap in an adjacent empty hex closest to an enemy."
+      },
+      "zealot": {
+        "1": "X is %game.damage% suffered by target of attack"
+      }
+    }
+  },
+  "deck": {
+    "boss": "Boss",
+    "imp": "Imp",
+    "monstrosity": "Monstrosity"
   },
   "edition": {
     "jotl": "Jaws Of The Lion"
@@ -37,13 +316,32 @@
     "vermling-scout": "Vermling Scout",
     "zealot": "Zealot"
   },
-  "deck": {
-    "boss": "Boss",
-    "monstrosity": "Monstrosity",
-    "imp": "Imp"
-  },
-  "ability": {},
   "scenario": {
+    "A Deeper Understanding": "A Deeper Understanding",
+    "A Hole in the Wall": "A Hole in the Wall",
+    "A Ritual in Stone": "A Ritual in Stone",
+    "Agents of Chaos": "Agents of Chaos",
+    "Beguiling Sewers": "Beguiling Sewers",
+    "Corrupted Research": "Corrupted Research",
+    "Defiled Sewers": "Defiled Sewers",
+    "Den of Thieves": "Den of Thieves",
+    "Explosive Evolution": "Explosive Evolution",
+    "Hidden Tumor": "Hidden Tumor",
+    "Misplaced Goods": "Misplaced Goods",
+    "Mixed Results": "Mixed Results",
+    "Red Twilight": "Red Twilight",
+    "Roadside Ambush": "Roadside Ambush",
+    "Sunken Tumor": "Sunken Tumor",
+    "Tainted Blood": "Tainted Blood",
+    "The Best of the Best": "The Best of the Best",
+    "The Black Ship": "The Black Ship",
+    "The Gauntlet": "The Gauntlet",
+    "The Greatest Job in the World": "The Greatest Job in the World",
+    "The Heist": "The Heist",
+    "Toxic Harvest": "Toxic Harvest",
+    "Unfriendly Message": "Unfriendly Message",
+    "Vile Harvest": "Vile Harvest",
+    "Warding the Void": "Warding the Void",
     "rules": {
       "jotl": {
         "10": {
@@ -65,211 +363,6 @@
           "1": "in any hex the last objective was destroyed",
           "2": "Characters suffer %game.damage:[L/2{$math.floor}]% for each hex they enter in room of Chaos Demon %game.mapMarker.A%"
         }
-      }
-    }
-  },
-  "battleGoals": {
-    "286": {
-      ".": "Acrobatic",
-      "text": "Lose a card to negate 5 or more damage."
-    },
-    "287": {
-      ".": "Agoraphobe",
-      "text": "End each of your turns adjacent to a wall or obstacle."
-    },
-    "288": {
-      ".": "Altruist",
-      "text": "Collect fewer money tokens than any other character."
-    },
-    "289": {
-      ".": "Assistant",
-      "text": "Kill a monster attacked by an ally earlier in the round."
-    },
-    "290": {
-      ".": "Challenger",
-      "text": "Never leave a hex adjacent to a monster."
-    },
-    "291": {
-      ".": "Closer",
-      "text": "Kill the last monster to die in the scenario."
-    },
-    "292": {
-      ".": "Conservator",
-      "text": "Never lose a card to negate suffering damage."
-    },
-    "293": {
-      ".": "Diehard",
-      "text": "Never allow your hit points to drop below half your maximum hit point value (rounded up)."
-    },
-    "294": {
-      ".": "Egoist",
-      "text": "Collect more money tokens than any other character."
-    },
-    "295": {
-      ".": "Fast Healer",
-      "text": "End the scenario with hit points equal to your maximum hit point value."
-    },
-    "296": {
-      ".": "Gambler",
-      "text": "Kill a monster with an attack that has Disadvantage."
-    },
-    "297": {
-      ".": "Hothead",
-      "text": "Perform two actions with Lost icons before your first rest."
-    },
-    "298": {
-      ".": "Insomniac",
-      "text": "Suffer damage from an attack in the same round you long rest."
-    },
-    "299": {
-      ".": "Masochist",
-      "text": "End the scenario with 3 or fewer hit points."
-    },
-    "300": {
-      ".": "Mugger",
-      "text": "Kill a monster and loot the money token it drops in the same turn."
-    },
-    "301": {
-      ".": "Opener",
-      "text": "Kill the first monster to die in the scenario."
-    },
-    "302": {
-      ".": "Pacifist",
-      "text": "Kill three or fewer monsters."
-    },
-    "303": {
-      ".": "Pickpocket",
-      "text": "Collect one or more money tokens by performing a Loot action while you are adjacent to two or more monsters."
-    },
-    "304": {
-      ".": "Pincushion",
-      "text": "Be targeted by attacks from three or more monsters in the same round."
-    },
-    "305": {
-      ".": "Plebeian",
-      "text": "Never kill an elite monster or boss."
-    },
-    "306": {
-      ".": "Prohibitionist",
-      "text": "Never use a potion."
-    },
-    "307": {
-      ".": "Ravager",
-      "text": "Perform two actions with Lost icons in the same turn."
-    },
-    "308": {
-      ".": "Recluse",
-      "text": "Never end your turn adjacent to any of your allies."
-    },
-    "309": {
-      ".": "Sadist",
-      "text": "Kill five or more monsters."
-    },
-    "310": {
-      ".": "Scrambler",
-      "text": "Never long rest."
-    },
-    "311": {
-      ".": "Shadow",
-      "text": "End each of your turns adjacent to any of your allies."
-    },
-    "312": {
-      ".": "Shirker",
-      "text": "Kill a monster not adjacent to you while you are adjacent to another monster."
-    },
-    "313": {
-      ".": "Specialist",
-      "text": "Never perform a basic action."
-    },
-    "314": {
-      ".": "Straggler",
-      "text": "Never short rest."
-    },
-    "315": {
-      ".": "Trailblazer",
-      "text": "Open a door and end your same turn in the revealed room."
-    },
-    "316": {
-      ".": "Transmitter",
-      "text": "Apply any negative condition to a monster while you have any negative condition."
-    },
-    "317": {
-      ".": "Weakling",
-      "text": "Become exhausted before any other character."
-    }
-  },
-  "custom": {
-    "jotl": {
-      "giant-viper": {
-        "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
-        "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
-      },
-      "giant-viper-scenario-21": {
-        "1": "Each time after any figure attacks a Giant Viper, that figure suffers %game.damage:L%"
-      },
-      "black-sludge": {
-        "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{$math.ceil}] %game.damage%"
-      },
-      "chaos-demon": {
-        "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer %game.damage:2%",
-        "2": "All enemies adjacent to the target suffer %game.damage:1%"
-      },
-      "living-corpse": {
-        "1": "The target also suffers %game.damage:2%.",
-        "2": "If this movement is performed, the %data.monster.living-corpse% suffers %game.damage:1%.",
-        "3": "If this attack is performed, the %data.monster.living-corpse% suffers %game.damage:1%."
-      },
-      "monstrosity": {
-        "1": "If this attack is performed, the %data.monster.monstrosity% suffers %game.damage:1%.",
-        "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
-        "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers %game.damage:2%.",
-        "4": "%data.monster.monstrosity% suffers %game.damage:1%"
-      },
-      "stone-golem": {
-        "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers %game.damage:3%.",
-        "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers %game.damage:1%.",
-        "3": "If this attack is performed, the %data.monster.stone-golem% suffers %game.damage:2%."
-      },
-      "vermling-raider": {
-        "1": "Create one 3-%game.damage% trap in an adjacent empty hex closest to an enemy."
-      },
-      "zealot": {
-        "1": "X is %game.damage% suffered by target of attack"
-      },
-      "blood-horror": {
-        "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
-        "2": "Revive all dead %data.monster.zealot% in room"
-      },
-      "blood-monstrosity": {
-        "1": "On death, all adjacent figures suffer %game.damage:1%"
-      },
-      "first-of-the-order": {
-        "1": "All enemies within %game.action.range:2% suffer %game.damage:2%",
-        "2": "within %game.action.range:2% of target"
-      },
-      "rat-monstrosity": {
-        "1": "all adjacent figures suffer %game.damage:1%",
-        "2": "all adjacent figures suffer %game.damage:2%",
-        "3": "all adjacent figures suffer %game.damage:3%",
-        "4": "all adjacent figures suffer %game.damage:4%"
-      },
-      "rat-monstrosity-16-2": {
-        "1": "If any figure dies or become exhausted due to the damage"
-      },
-      "basic-vermling-raider": {
-        "1": "Shuffle this deck at the end of the round.",
-        "2": "They will move to avoid being adjacent to their focus.",
-        "3": "They are not moving this round.",
-        "4": "This is exactly how they acted last scenario."
-      },
-      "demolitionist": {
-        "1": "All adjacent enemies suffer %game.damage:1%"
-      },
-      "flowChartGroup": {
-        "intro": "Intro",
-        "main": "Main",
-        "city-events": "City Events",
-        "characters": "Characters"
       }
     }
   }
