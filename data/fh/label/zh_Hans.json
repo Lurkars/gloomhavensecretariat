@@ -532,17 +532,17 @@
         "1": "在离敌人最近的相邻空格<br>中创造1个%game.damage:3%陷阱。"
       },
       "banner-spear": {
-        "1": "%game.range:2%内的所有盟友每个回合的一次攻击增加+1%game.action.attack%。",
-        "10": "使用3次不同的效果区域攻击能力，每次攻击至少3个敌人",
-        "11": "在你第一个回合中执行旗帜召唤能力，且整个剧本中保证该旗帜在场并在你的%game.action.range:3%内",
-        "2": "在%game.range:3%内的盟友的回合开始时，赋予该盟友：",
-        "3": "所有相邻的盟友获得%game.shield% 1。",
+        "1": "在 %game.range:2% 内的所有盟友每个回合的一次攻击+1%game.action.attack%.",
+        "10": "使用3次不同的效果区域攻击能力,每次攻击至少3个敌人",
+        "11": "在你第一个回合中执行旗帜召唤能力,且整个剧本中保证该旗帜在场并在你的%game.action.range:3%内",
+        "2": "在%game.range:3%内的盟友的回合开始时,赋予该盟友:",
+        "3": "所有相邻的盟友获得%game.shield% 1.",
         "4": "抵消1个相邻的盟友每轮第一次受到的%game.damage%源",
-        "5": "在%game.action.range%4内的敌人的回合开始时，该敌人承受%game.damage:1%。",
-        "6": "每有一个与目标相邻的盟友，增加+1%game.action.attack%",
-        "7": "在每次你充分休息结束时，赋予%game.action.range:3%内的1个盟友： %game.action.move% 2",
-        "8": "每当你使用移动能力打开房门时，增加+3 %game.action.move%",
-        "9": "每个剧本一次，在你的回合期间使用，本轮获得%game.action.shield% 2"
+        "5": "在 %game.action.range% 4内的敌人的回合开始时,该敌人承受 %game.damage:1%.",
+        "6": "每有一个与目标相邻的盟友,+1 %game.action.attack%",
+        "7": "在每次你充分休息结束时,赋予 %game.action.range:3% 内的1个盟友: %game.action.move% 2",
+        "8": "每当你使用移动能力打开房门时, +3 %game.action.move%",
+        "9": "每个剧本一次,在你的回合期间使用,本轮获得 %game.action.shield% 2"
       },
       "belara": {
         "1": "与<br>目标相邻的所有盟友和敌人承受 %game.damage:2%",
@@ -552,28 +552,28 @@
         "1": "%game.custom.disadvantage%"
       },
       "blinkblade": {
-        "1": "你下次攻击时，弃掉本卡牌来增加+2 %game.action.attack%.<br>%game.card.persistent%",
-        "2": "将本卡牌放入你的激活区域。你下次攻击时，弃掉本卡牌来增加+2 %game.action.attack%",
-        "3": "获得1 %data.characterToken.blinkblade.time%",
-        "4": "获得1 %data.action.custom.fh-hourglass%",
-        "5": "每当你短暂休息时，你可以花费1个未横置的%game.card.spent%物品但不产生效果，以此来%game.card.recover%1个不同的横置物品",
-        "6": "在每次剧本你的第一个回合开始时，你可以执行%game.action.move% 3",
-        "7": "每当你将要获得%game.condition.immobilize%时，防止该状态",
+        "1": "你下次攻击时,弃掉本卡牌来+2 %game.action.attack%.<br>%game.card.persistent%",
+        "2": "将本卡牌放入你的激活区域.你下次攻击时,弃掉本卡牌来+2 %game.action.attack%",
+        "3": "获得 1 %data.characterToken.blinkblade.time%",
+        "4": "获得 1 %data.action.custom.fh-hourglass%",
+        "5": "每当你短暂休息时,你可以花费1个未横置的 %game.card.spent% 物品但不产生效果,以此来 %game.card.recover% 1个不同的横置物品",
+        "6": "在每次剧本你的第一个回合开始时,你可以执行%game.action.move% 3",
+        "7": "每当你将要获得 %game.condition.immobilize% 时,防止该状态",
         "8": "连续7轮宣布快速",
         "9": "从未成为攻击目标"
       },
       "boneshaper": {
-        "1": "本卡牌上每有一个标记，+1 %game.action.attack%。",
-        "2": "消灭正在进行攻击的召唤物来改为增加%game.attackmodifier.plus4%",
-        "3": "在你每次休息之前，你可以立即消灭1个你的召唤物来执行%game.condition.bless%，自己",
-        "4": "每个剧本一次，当任何角色盟友将要因为承受%game.damage%而筋疲力尽时，你可以承受%game.damage:2%来改为将其生命值降到1",
-        "5": "在每次剧本开始时，你可以打出1张等级1的手牌来执行该卡牌上的一个召唤行动",
+        "1": "本卡牌上每有一个标记,+1 %game.action.attack%.",
+        "2": "消灭正在进行攻击的召唤物以改为 %game.attackmodifier.plus4%",
+        "3": "在你每次休息之前,你可以立即消灭1个你的召唤物来执行 %game.condition.bless%,自身",
+        "4": "每个剧本一次,当任何角色盟友将要因为承受 %game.damage% 而筋疲力尽时,你可以承受 %game.damage:2% 来改为将其生命值降到1",
+        "5": "在每次剧本开始时,你可以打出1张等级1的手牌来执行该卡牌上的一个召唤行动",
         "6": "消灭至少15个你的召唤物",
-        "7": "在你第一个回合中执行召唤行动，使该召唤物消灭至少6个敌人，且整个剧本中保证该召唤物存活"
+        "7": "在你第一个回合中执行召唤行动,使该召唤物消灭至少6个敌人,且整个剧本中保证该召唤物存活"
       },
       "brother": {
-        "1": "1个兄弟执行：",
-        "2": "兄弟%game.mapMarker.b%执行："
+        "1": "1个兄弟执行:",
+        "2": "兄弟 %game.mapMarker.b% 执行:"
       },
       "burrowing-blade": {
         "1": "所有相邻的敌人各承受%game.damage:2%。",

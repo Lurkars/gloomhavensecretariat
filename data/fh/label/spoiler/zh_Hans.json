@@ -190,7 +190,7 @@
     },
     "fh-14": {
       "": "重型剑",
-      "1": "在你近战攻击能力期间，1次攻击增加+1%game.action.attack% to one attack。"
+      "1": "在你近战攻击能力期间，1次攻击增加+1%game.action.attack%。"
     },
     "fh-15": {
       "": "加固盾",
@@ -518,7 +518,7 @@
     },
     "fh-88": {
       "": "火盾药水",
-      "1": "在你回合期间执行%game.action,retaliate% 1 %game.action.range:3% "
+      "1": "在你回合期间执行%game.action.retaliate% 1 %game.action.range:3% "
     },
     "fh-89": {
       "": "石肤药水",
