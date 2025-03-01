@@ -1,0 +1,63 @@
+{
+  "index": "149.1",
+  "name": "Downhill",
+  "edition": "sits",
+  "parent": "149",
+  "marker": "1",
+  "monsters": [
+    "frost-demon",
+    "living-bones",
+    "snow-imp",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "12-B",
+      "initial": true,
+      "treasures": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

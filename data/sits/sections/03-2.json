@@ -1,0 +1,142 @@
+{
+  "index": "143.2",
+  "name": "Rotten Revelation",
+  "edition": "sits",
+  "parent": "143",
+  "marker": "2",
+  "monsters": [
+    "frozen-corpse",
+    "harrower-infester",
+    "ooze"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "harrower-infester"
+          },
+          "statEffect": {
+            "actions": [
+              {
+                "type": "move",
+                "value": 1,
+                "valueType": "plus"
+              }
+            ]
+          },
+          "note": "%data.scenario.rules.sits.3%"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "harrower-infester"
+          },
+          "type": "dead",
+          "value": "3"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "type": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "07-D",
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "11-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "eilte",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "14-B",
+      "initial": true,
+      "treasures": [
+        1
+      ],
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ],
+  "parent-sections": [
+    "143.1"
+  ]
+}

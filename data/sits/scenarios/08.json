@@ -1,0 +1,131 @@
+{
+  "index": "148",
+  "name": "The Great Bug Race",
+  "edition": "sits",
+  "unlocks": [
+    "149"
+  ],
+  "rewards": {
+    "experience": 35,
+    "ignoredBonus": [
+      "inspiration"
+    ],
+    "calendarIgnore": true
+  },
+  "monsters": [
+    "harrower-infester",
+    "hound",
+    "living-bones",
+    "ooze"
+  ],
+  "objectives": [
+    {
+      "name": "trio",
+      "escort": true,
+      "allyDeck": true,
+      "health": "5+(3xC)",
+      "initiative": 1,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": "2"
+        }
+      ]
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 3,
+    "hide": 2,
+    "snowthistle": 1,
+    "corpsecap": 1,
+    "rockroot": 2
+  },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "trio"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost"
+    },
+    {
+      "round": "R > 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "type": "elite"
+          }
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "03-D",
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

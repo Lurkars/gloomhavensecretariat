@@ -1,0 +1,172 @@
+{
+  "index": "141",
+  "name": "Skulls at the Gates",
+  "edition": "sits",
+  "initial": true,
+  "unlocks": [
+    "142"
+  ],
+  "rewards": {
+    "gold": 10,
+    "experience": 10,
+    "battleGoals": 1,
+    "ignoredBonus": [
+      "inspiration"
+    ],
+    "calendarIgnore": true
+  },
+  "monsters": [
+    "city-guard",
+    "frozen-corpse",
+    "living-bones",
+    "living-spirit"
+  ],
+  "allies": [
+    "city-guard"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 5,
+    "metal": 3,
+    "hide": 3,
+    "rockroot": 1,
+    "corpsecap": 1
+  },
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "alwaysApply": true,
+      "statEffects": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "city-guard"
+          },
+          "statEffect": {
+            "deck": "city-guard-sits-scenario-1"
+          },
+          "note": "%data.scenario.rules.sits.1%"
+        }
+      ]
+    },
+    {
+      "round": "R == 2 || R == 5 || R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "frozen-corpse",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "frozen-corpse",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "R == 3 || R == 6 || R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 4 || R == 7 || R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "type": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "type": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "07-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-guard",
+          "player2": "elite",
+          "player3": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

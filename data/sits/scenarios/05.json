@@ -1,0 +1,126 @@
+{
+  "index": "145",
+  "name": "Temple of the Order",
+  "edition": "sits",
+  "unlocks": [
+    "146"
+  ],
+  "rewards": {
+    "experience": 30,
+    "ignoredBonus": [
+      "inspiration"
+    ],
+    "calendarIgnore": true
+  },
+  "monsters": [
+    "hound",
+    "living-doom",
+    "living-spirit",
+    "ruined-machine"
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 2,
+    "metal": 4,
+    "hide": 2,
+    "rockroot": 1,
+    "corpsecap": 2
+  },
+  "rules": [
+    {
+      "round": "R > 1",
+      "start": true,
+      "note": "at any starting hex",
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R > 1 && R % 2 == 0",
+      "start": true,
+      "note": "at any starting hex",
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "player3": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R > 1 && R % 2 == 1",
+      "start": true,
+      "note": "at any starting hex",
+      "spawns": [
+        {
+          "monster": {
+            "name": "hound",
+            "player3": "elite"
+          }
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-F",
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-doom",
+          "type": "elite"
+        },
+        {
+          "name": "living-doom",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

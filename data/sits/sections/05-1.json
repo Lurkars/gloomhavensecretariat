@@ -1,0 +1,45 @@
+{
+  "index": "145.1",
+  "name": "Temple of the Order",
+  "edition": "sits",
+  "parent": "145",
+  "marker": "1",
+  "monsters": [
+    "living-doom",
+    "ruined-machine"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "01-F",
+      "initial": true,
+      "treasures": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "living-doom",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

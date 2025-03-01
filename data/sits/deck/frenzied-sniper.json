@@ -1,0 +1,37 @@
+{
+  "name": "frenzied-sniper",
+  "edition": "sits",
+  "abilities": [
+    {
+      "name": "Nothing Special",
+      "cardId": 772,
+      "initiative": 40,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "health": "HxC"
+}
