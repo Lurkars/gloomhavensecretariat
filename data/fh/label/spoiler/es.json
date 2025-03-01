@@ -1,1 +1,10 @@
-{}
+{
+  "character": {
+    "fist": {
+      "": "Puño helado"
+    },
+    "snowflake": {
+      "": "Danzanieves"
+    }
+  }
+}
