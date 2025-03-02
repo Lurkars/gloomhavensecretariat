@@ -1,4 +1,261 @@
 {
+  "ability": {
+    "Accelerated Power": "Poder acelerado",
+    "Advancing Horde": "Horda en movimiento",
+    "Aid from Below": "Ayuda del abismo",
+    "Angry Bulwark": "Baluarte de furia",
+    "Angry Cloud": "Nube violenta",
+    "Angry Hex": "Maldición furiosa",
+    "Angry Howl": "Aullido de ira",
+    "Arcane Explosion": "Explosión arcana",
+    "Arresting Advance": "Avance obstaculizado",
+    "Aura of Fear": "Aura de miedo",
+    "Ballista Bolt": "Virote de ballesta",
+    "Bared Teeth": "Dientes al descubierto",
+    "Beam of Annihilation": "Rayo de aniquilación",
+    "Beguiling Thoughts": "Pensamientos seductores",
+    "Berserk Rage": "Furia asesina",
+    "Birds of Prey": "Aves rapaces",
+    "Biting Gnats": "Mosquitos mordedores",
+    "Black Tendrils": "Zarcillos negros",
+    "Black Thorns": "Espinas negras",
+    "Blast of Air": "Ráfaga de aire",
+    "Blinding Vortex": "Vórtice cegador",
+    "Blistering Assault": "Asalto despedazador",
+    "Bloodthirst": "Sed se sangre",
+    "Body Block": "Bloqueo corporal",
+    "Booming Scream": "Grito retumbante",
+    "Boulder Throw": "Lanzamiento de roca",
+    "Brilliant Aura": "Aura brillante",
+    "Briny Bristles": "Púas de salitre",
+    "Burning Gaze": "Mirada ardiente",
+    "Calculated Shot": "Tiro calculado",
+    "Calculated Strike": "Golpe calculado",
+    "Call For Souls": "Invocación de almas",
+    "Call to the Earth": "Convocar a la tierra",
+    "Call to the Flame": "Convocar a la llama",
+    "Call to the Frost": "Convocar a la escarcha",
+    "Call to the Wind": "Convocar al viento",
+    "Centipede Strike": "Golpe de ciempiés",
+    "Chilled to the Bone": "Helar la sangre",
+    "Chilling Aura": "Aura escalofriante",
+    "Chilling Breath": "Aliento helador",
+    "Circle of Fire": "Círculo de fuego",
+    "Claw Guard": "Guardia con garras",
+    "Claw Swipes": "Golpes de garra",
+    "Clobber": "Paliza",
+    "Close In": "Acercamiento",
+    "Clouds of Hate": "Nubes de odio",
+    "Cold Claws": "Garras heladas",
+    "Cold Snap": "Ola de frío",
+    "Cold Winds": "Vientos fríos",
+    "Concentrated Blast": "Bandada concentrada",
+    "Concussive Burst": "Detonación aturdidora",
+    "Cone of Cold": "Cono de frío",
+    "Consume All Hope": "Consumir toda esperanza",
+    "Coupled Chain": "Cadena doble",
+    "Crashing Blow": "Golpe aplastante",
+    "Crippling Claw": "Garra mutiladora",
+    "Cruel Bow": "Arco cruel",
+    "Crush Armor": "Aplastar armadura",
+    "Crushing Crest": "Cresta aplastante",
+    "Cutting Blast": "Soplo cortante",
+    "Cyclone": "Ciclón",
+    "Dangerous Fury": "Furia amenazadora",
+    "Dark Charm": "Encanto oscuro",
+    "Darken the Skies": "Oscurecer los cielos",
+    "Death's Embrace": "Abrazo de la muerte",
+    "Defensive Blades": "Cuchillas defensivas",
+    "Defensive Claws": "Garras defensivas",
+    "Defensive Ordinance": "Andanada defensiva",
+    "Descend": "Descenso",
+    "Desperate Herd": "Rebaño desesperado",
+    "Devastating Tackle": "Placaje devastador",
+    "Disruptive Frenzy": "Frenesí disruptivo",
+    "Distant Wave": "Ola lejana",
+    "Dive Bombs": "Ataque en picado",
+    "Divine Energy": "Energía divina",
+    "Drain Life": "Drenar la vida",
+    "Drain Speed": "Drenar velocidad",
+    "Drain Strength": "Drenar fuerza",
+    "Earthen Blow": "Golpe terrestre",
+    "Earthen Eruption": "Erupción terrestre",
+    "Easy Prey": "Presa fácil",
+    "Electric Pulse": "Pulso eléctrico",
+    "Empowering Rest": "Descanso renovador",
+    "Empowring Rest": "Descanso renovador",
+    "Eternal Life": "Vida eterna",
+    "Exploding Ammunition": "Munición explosiva",
+    "Explosive Ascent": "Ascenso explosivo",
+    "Explosive Blast": "Detonación explosiva",
+    "Explosive Vomit": "Vómito explosivo",
+    "Eye of the Storm": "Ojo de la tormenta",
+    "Face of Darkness": "Rostro de la oscuridad",
+    "Fade Out": "Desvanecimiento",
+    "Feast": "Festín",
+    "Feed": "Devorar",
+    "Fiendish Charge": "Carga diabólica",
+    "Fire Bolts": "Saetas de fuego",
+    "Fire Spout": "Chorro de fuego",
+    "Firestorm": "Tormenta de fuego",
+    "Fish Net": "Red de pesca",
+    "Flame Jets": "Chorros de llama",
+    "Flowing Magma": "Río de magma",
+    "Focus Fire": "Concentrar los disparos",
+    "Focused Stabs": "Puñaladas concentradas",
+    "Focused Strikes": "Golpes concentrados",
+    "Forceful Gust": "Ráfaga irresistible",
+    "Frantic Swipes": "Golpes frenéticos",
+    "Freezing Embrace": "Abrazo helador",
+    "Freezing Winds": "Vientos helados",
+    "Frost Breath": "Aliento de escarcha",
+    "Frozen Debris": "Escombros congelados",
+    "Frozen Shards": "Esquirlas congeladas",
+    "Frozen Shell": "Coraza congelada",
+    "Fuel Leak": "Fuga de combustible",
+    "Full Force": "Fuerza total",
+    "Gather the Flock": "Reunir a la bandada",
+    "Gather the Frost": "Invocar la helada",
+    "Glowing Sweep": "Barrido resplandenciente",
+    "Greed": "Codicia",
+    "Grenade": "Granada",
+    "Gripping Teeth": "Presa de dientes",
+    "Ground Slam": "Golpetazo en el suelo",
+    "Guide the School": "Guiar a la piara",
+    "Hail": "Granizo",
+    "Hardened Frost": "Hielo endurecido",
+    "Hardened by Frost": "Dureza de la helada",
+    "Hasty Assault": "Asalto precipitado",
+    "Hasty Assualt": "Asalto precipitado",
+    "Hateful Spikes": "Púas de odio",
+    "Heat Aura": "Aura de calor",
+    "Heat Blast": "Ráfaga de calor",
+    "Heated Sweep": "Barrido de calor",
+    "Heavy Footfalls": "Pisotones",
+    "Heavy Shot": "Cañonazo",
+    "Heed the Pigs": "Liderar a la piara",
+    "Hibernate": "Hibernar",
+    "Horrible Glare": "Mirada aterradora",
+    "Horrowing Howl": "Aullido desgarrador",
+    "Ice Barrier": "Barrera de hielo",
+    "Ice Wall": "Pared de hielo",
+    "Icy Glare": "Mirada heladora",
+    "Icy Swipe": "Barrido helado",
+    "Immovable Object": "Objeto inamovible",
+    "Impale": "Empalar",
+    "Increase Momentum": "Aumentar el impulso",
+    "Instill Fear": "Infundir miedo",
+    "Intense Torch": "Antorcha intensa",
+    "Into Darkness": "En la oscuridad",
+    "Into Thin Air": "Esfumarse en el aire",
+    "Knockout Punch": "Puñetazo aturdidor",
+    "Latch On": "Engancharse",
+    "Leaping Dive": "Salto de inmersión",
+    "Leech Warmth": "Absorber calor",
+    "Lingering Strength": "Fuerza persistente",
+    "Long Shot": "Tiro largo",
+    "Low Slash": "Tajo inferior",
+    "Massive Blast": "Gran explosión",
+    "Massive Swell": "Oleaje abrumador",
+    "Mortar Shell": "Obús",
+    "Mortar Shells": "Obuses",
+    "No Escape": "Sin escape",
+    "Nothing Special": "Nada especial",
+    "Noxious Blade": "Hoja tóxica",
+    "One with the Earth": "Uno con la tierra",
+    "One with the Mountain": "Uno con la montaña",
+    "Pack Hunting": "Caza en manada",
+    "Paralyze": "Paralizar",
+    "Paralyzing Bite": "Mordedura paralizante",
+    "Parry and Thrust": "Parada y estocada",
+    "Phase Out": "Cambio de fase",
+    "Piercing Paracite": "Parásitos perforadores",
+    "Pig Parade": "Desfile de cerdos",
+    "Plasma Ward": "Aluvión plasmático",
+    "Power Shot": "Tiro potente",
+    "Power Slash": "Tajo impulsivo",
+    "Powerful Claw": "Garra poderosa",
+    "Psych Up": "Mentalizarse",
+    "Psychic Shock": "Choque psíquico",
+    "Pull of the Grave": "Atracción de la tumba",
+    "Raging Blaze": "Incendio abrasador",
+    "Rampage": "Destrucción desenfrenada",
+    "Rancid Arrow": "Flecha ponzoñosa",
+    "Rapid Bolts": "Ráfaga de saetas",
+    "Ray of Hate": "Rayo de odio",
+    "Ray of Warmth": "Rayo de calor",
+    "Reckless Charge": "Carga temeraria",
+    "Renewed Aggression": "Agresión renovada",
+    "Repair Drones": "Drones de reparación",
+    "Repulsive Torrent": "Torrente repulsor",
+    "Restoration": "Restauración",
+    "Restore Essence": "Restaurar esencia",
+    "Restore the Swarm": "Restaurar el enjambre",
+    "Retracted Assault": "Asalto replegado",
+    "Rock Bomb": "Bomba de rocas",
+    "Rocky Thrust": "Empellón rocoso",
+    "Rooted Fear": "Miedo arraigado",
+    "Rotten Sting": "Aguijón podrido",
+    "Safety Valve": "Válvula de seguridad",
+    "Sap Strength": "Minar las fuerzas",
+    "Schooling": "La fuerza del grupo",
+    "Seismic Punch": "Puñetazo sísmico",
+    "Self-Destruct": "Autodestrucción",
+    "Set Trap": "Montar trampa",
+    "Shard Strike": "Golpe de esquirlas",
+    "Sharp Fangs": "Colmillos afilados",
+    "Sharpshooter": "Francotirador",
+    "Shift Form": "Cambio de forma",
+    "Shining Orb": "Orbe brillante",
+    "Shocking Voltage": "Electrocución",
+    "Signal Jam": "Interferencia",
+    "Sleet": "Cellisca",
+    "Smash Armor": "Hundir armadura",
+    "Snow Drifts": "Ventisqueros",
+    "Snowstorm": "Tormenta de nieve",
+    "Soaring Strikes": "Golpes desde las alturas",
+    "Spiked Mandibles": "Mandíbulas aserradas",
+    "Spinning Charge": "Carga giratoria",
+    "Splashing Bile": "Escupitajo de bilis",
+    "Split": "Dividir",
+    "Star Strike": "Golpe estelar",
+    "Stone Spikes": "Púas de piedra",
+    "Strength of the Deep": "Fuerza de las profundidades",
+    "Strength of the Mountain": "Fortaleza de la montaña",
+    "Strong Growth": "Crecimiento acelerado",
+    "Subduing Spit": "Saliva aturdidora",
+    "Sunless Abyss": "Abismo sin sol",
+    "Supernova": "Supernova",
+    "Swift Claws": "Garras veloces",
+    "Tailwind": "Viento de cola",
+    "Take Hostage": "Rehenes",
+    "Tend to the Clan": "Atender al clan",
+    "Terrible Growth": "Crecimiento terrible",
+    "Terrifying Growl": "Gruñido aterrador",
+    "Thawed Strike": "Golpe descongelado",
+    "The Night Feeds": "Noche devoradora",
+    "Thrashing in the Water": "Latigazos en el agua",
+    "Throwing Axe": "Hacha arrojadiza",
+    "Tip the Scales": "Inclinar la balanza",
+    "Toxic Explosion": "Explosión tóxica",
+    "Tsunami": "Tsunami",
+    "Tunneling Slices": "Túnel cortante",
+    "Turn the Weak": "Someter a los débiles",
+    "Twin Bolts": "Doble saeta",
+    "Twin Claws": "Garras gemelas",
+    "Twin Shots": "Disparo gemelo",
+    "Two-Fisted Strike": "Golpe con dos puños",
+    "Unending Frenzy": "Frensí incansable",
+    "Unholy Strength": "Fuerza impía",
+    "Unstoppable Force": "Fuerza imparable",
+    "Venom Glands": "Glándulas de veneno",
+    "Venom Shiv": "Navaja venenosa",
+    "Vicious Opportunity": "Arrebato de violencia",
+    "Warding Swipe": "Golpe de barrera",
+    "Whirlwind": "Torbellino",
+    "Whirlwinds": "Torbellinos",
+    "White Claws": "Garras blancas"
+  },
   "battleGoals": {
     "1301": {
       "": "Contable",
@@ -507,15 +764,15 @@
   "custom": {
     "fh": {
       "abael-herder": {
-        "1": "Concede al Cerdo piraña más cercano<br>a %game.action.range:4%:",
-        "2": "Concede a todos los Cerdo piraña a %game.action.range:3%:",
+        "1": "Otorga al Cerdo piraña más cercano<br>a %game.action.range:4% o menos:",
+        "2": "Otorga a todos los Cerdos piraña a %game.action.range:3% o menos:",
         "3": "El cerdo piraña sufre %game.damage:1%.",
-        "4": "Concede al Cerdo piraña<br>más cercano a %game.action.range:4%:",
-        "5": "Si ningún Cerdo piraña a sido objetivo<br>de la capacidad Concesión:",
-        "6": "donde X es el número de<br>Cerdos pirañas en el mapa."
+        "4": "Otorga al Cerdo piraña más<br>cercano a %game.action.range:4% o menos:",
+        "5": "Si ningún Cerdo piraña ha sido objetivo<br>de la anterior capacidad para otorgar,",
+        "6": "donde X es el número de Cerdos<br>piraña que hay en el tablero."
       },
       "algox-icespeaker": {
-        "1": "Crea un obstáculo de 1<br>hexágono en el hexágono vacío adyacente<br> más cercano a un enemigo.",
+        "1": "Crea 1 pieza de obstáculo de<br>1 hexágono en un hexágono vacío<br>adyacente más cercano a un enemigo.",
         "2": "Todos los enemigos adyacentes al<br>obstáculo creado sufren daño por terreno peligroso."
       },
       "algox-snowspeaker": {
@@ -525,11 +782,11 @@
         "1": "Crea terreno peligroso, todos los enemigos que ocupen terreno peligroso o estén adyacentes a él sufren daño."
       },
       "ancient-artillery": {
-        "1": "Centra la atención al<br>enemigo más alejado a %game.action.range:7%",
+        "1": "Centra su atención en el<br>enemigo más lejano a %game.action.range:7% o menos",
         "2": "Todos los enemigos adyacentes<br>al objetivo sufren %game.damage:2%."
       },
       "archer": {
-        "1": "Crea una trampa %game.damage:3% en el hexágono <br>adyacente más cercano a un enemigo."
+        "1": "Crea 1 trampa %game.damage:3% en el hexágono vacío<br>adyacente más cercano a un enemigo."
       },
       "banner-spear": {
         "1": "Todos los aliados a %game.range:2% o menos añaden %game.action.attack% +1 a 1 de sus ataques cada turno.",
@@ -597,8 +854,8 @@
         "5": "Pon o retira al menos 1 %data.action.custom.fh-shadow% cada ronda"
       },
       "deep-terror": {
-        "1": "Si se realizó la habilidad de ataque",
-        "2": "en un hexágono vacío adyacente al<br>objetivo del ataque"
+        "1": "Si se ha realizado la capacidad de Ataque,",
+        "2": "en un hexágono vacío adyacente<br>al objetivo de la capacidad de Ataque"
       },
       "drifter": {
         "1": "Mueve 1 de tus fichas de Personaje 1 espacio hacia atrás",
@@ -645,7 +902,7 @@
         "1": "Mata al cerdo piraña más cercano<br>Todos los enemigos adyacentes sufren daño de trampa."
       },
       "flame-demon": {
-        "1": "Crea una trampa %game.damage:4% en un hexágono<br>vacío adyacente al enemigo más cercano",
+        "1": "Crea 1 trampa %game.damage:4% en el hexágono vacío<br>adyacente más cercano a un enemigo",
         "2": "%game.damage:1%",
         "3": "Todos los enemigos<br>adyacentes sufren %game.damage:2%"
       },
@@ -670,7 +927,7 @@
         "1": "%game.damage:1%"
       },
       "frozen-corpse": {
-        "1": "Si el elemento es consumido por<br>el Cadáver helado durante<br>su movimiento, sufre %game.damage:2%."
+        "1": "Si el Cadáver helado consume el<br>elemento durante la capacidad<br>de Movimiento, sufre %game.damage:2%."
       },
       "frozen-corpse-scenario-32": {
         "1": "Mira las reglas especiales del escenario"
@@ -684,18 +941,18 @@
       },
       "giant-piranha-pig-boss": {
         "1": "Nada",
-        "2": "Mueve todas las piezas de terreno de agua 2 hexágonos a la derecha",
-        "3": "Mueve todas las piezas de terreno de agua 1 hexágono a la derecha."
+        "2": "Mueve todas las piezas de agua 2 hexágonos a la derecha",
+        "3": "Mueve todas las piezas de agua 1 hexágono a la derecha."
       },
       "harbinger-of-shadow": {
         "1": "El %data.monster.harbinger-of-shadow-1% no actúa.",
         "2": "El %data.monster.harbinger-of-shadow-2% no actúa."
       },
       "harrower-infester": {
-        "1": "Realiza \"%game.action.heal% X, personal\" donde X <br>es el doble del número de<br>enemigos que han sido objetivo del ataque."
+        "1": "Realiza \"%game.action.heal% X, personal\", donde X es<br>el doble del número de enemigos<br>objetivo de la capacidad de Ataque."
       },
       "hound": {
-        "1": "Añade %game.action.attack% +2 si el objeto está<br>adyacente a cualquier aliado del sabueso."
+        "1": "Suma %game.action.attack% +2 si el objetivo está<br>adyacente a cualquiera de los aliado del Sabueso."
       },
       "laser-spires": {
         "1": "Rota cada rayo láser en el sentido de las agujas del reloj (si es posible)",
@@ -714,40 +971,43 @@
       },
       "lurker-clawcrusher": {
         "1": "El objetivo sufre %game.damage:X%, donde X<br>es su valor de %game.action.shield% para este ataque.",
-        "2": "X es el doble de su valor de %game.action.shield%."
+        "2": "En vez de lo anterior,<br>X es el doble de su valor de %game.action.shield%."
       },
       "lurker-mindsnipper": {
-        "1": "Controla todos los objetivos de la<br>habilidad de ataque en orden de iniciativa:"
+        "1": "Controla a todos los objetivos de la<br>capacidad de Ataque por orden de iniciativa:"
       },
       "lurker-soldier": {
         "1": "%game.action.target% todos los enemigos a 2 hexágonos"
       },
       "lurker-wavethrower": {
-        "1": "Centra su atención<br>al enemigo más alejado a %game.action.range:6%",
-        "2": "Crea una pieza de terreno de agua de 1 hexágono en un hexágono vacío adyacente.",
-        "3": "en un hexágono adyacente<br>vacío con una pieza de terreno de agua."
+        "1": "Centra su atención en el<br>enemigo más lejano a %game.action.range:6%",
+        "2": "Crea 1 pieza de agua de<br>1 hexágono en un hexágono<br>vacío adyacente.",
+        "3": "en un hexágono adyacente desocupado<br>con una pieza de agua."
       },
       "lurker-wavethrower-scenario-128": {
-        "1": "Centra su atención<br>al enemigo más alejado a %game.action.range:6%",
-        "2": "Crea una pieza de terreno de agua de 1 hexágono en un hexágono vacío adyacente."
+        "1": "Centra su atención en el<br>enemigo más lejano a %game.action.range:6%",
+        "2": "Crea 1 pieza de agua de<br>1 hexágono en un hexágono<br>vacío adyacente."
       },
       "lurker-wavethrower-scenario-131": {
-        "1": "Centra su atención<br>al enemigo más alejado a %game.action.range:6%",
-        "2": "Crea una pieza de terreno de agua de 1<br>hexágono en un hexágono vacío adyacente.",
+        "1": "Centra su atención en el <br>enemigo más lejano a %game.action.range:6%",
+        "2": "Crea 1 pieza de agua de<br>1 hexágono en un hexágono<br>vacío adyacente.",
         "3": "al hexágono vacío situado más a la izquierda si es impar o más a la derecha si es par"
       },
       "night-demon": {
         "1": "Todos los aliados y<br>enemigos adyacentes sufren %game.damage:1%.",
         "2": "%game.custom.disadvantage%"
       },
+      "ooze": {
+        "1": "H es el valor de puntos<br>de vida igual al valor actual de<br>puntos de vida del Cieno que lo invoca<br>(limitado por el valor<br>máximo de puntos de vida de un Cieno normal)."
+      },
       "orphan": {
         "1": "Personal u orbe brillante"
       },
       "piranha-pig": {
-        "1": "Gana +1 %game.action.attack% si el objetivo está adyacente<br>a cualquier aliado del Cerdo Piraña.",
-        "2": "Gana +2 %game.action.attack% si el objetivo tiene %game.condition.wound%.",
-        "3": "Gana +1 %game.action.attack% si el objetivo está en <br>una pieza de terreno de agua.",
-        "4": "donde X es la cantidad de<br>daño sufrido por el<br>objetivo de la habilidad de ataque."
+        "1": "Suma %game.action.attack% +1 si el objetivo está<br>adyacente a cualquiera de los<br>aliados del Cerdo piraña.",
+        "2": "Añade %game.action.attack% +2 si el objetivo tiene %game.condition.wound%.",
+        "3": "Añade %game.action.attack% +1 si el objetivo ocupa un <br>hexágono con una pieza de agua.",
+        "4": "donde X es la cantidad de daño<br>que ha sufrido el objetivo de<br>la capacidad de Ataque."
       },
       "prince-of-frost": {
         "1": "Un personaje %game.card.recover% 1 carta perdida.",
@@ -764,9 +1024,9 @@
         "2": "Destruye todas las tallas adyacentes."
       },
       "ruined-machine": {
-        "1": "Si realizó la habilidad de movimiento,",
-        "2": "Si realizó la habilidad de ataque,",
-        "3": "Si realizó la habilidad de ataque,<br> todos los enemigos adyacentes sufren daño de trampa<br>y la Máquina Ruinosa muere."
+        "1": "Si se ha realizado la capacidad de Movimiento,",
+        "2": "Si se ha realizado la capacidad de Ataque,",
+        "3": "Si se ha realizado la capacidad de Ataque,<br> todos los enemigos adyacentes sufren daño de trampa<br>y la Máquina Ruinosa muere."
       },
       "savvas-icestorm": {
         "1": "Concede a todos los aliados a %game.action.range:2% y personal:"
@@ -808,10 +1068,10 @@
     "abael-scout": "Explorador abael",
     "algox-archer": "Arquero algox",
     "algox-guard": "Guardia algox",
-    "algox-icespeaker": "Voz del hielo algox",
+    "algox-icespeaker": "Voz del Hielo algox",
     "algox-priest": "Sacerdote algox",
     "algox-scout": "Explorador algox",
-    "algox-snowspeaker": "Voz de la nieve algox",
+    "algox-snowspeaker": "Voz de la Nieve algox",
     "ancient-artillery": "Artilleria Antigua",
     "black-imp": "Duende negro",
     "blacksmith": "Herrero",
@@ -836,6 +1096,7 @@
     "harbinger-of-shadow-2": "Heraldo de la Sombra %game.mapMarker.2%",
     "harrower-infester": "Putrefactor atormentador",
     "hound": "Sabueso",
+    "hungry-maw": "Fauces hambrientas",
     "ice-wraith": "Espectro de hielo",
     "lightning-eel": "Anguila relámpago",
     "living-bones": "Huesos vivientes",
@@ -1040,7 +1301,7 @@
           "2": "Cuando cualquier Lanzaolas acechador fuera a invocar a una Anguila relámpago, en vez de eso, invoca un Explorador infestor con un valor de PV de 1."
         },
         "129": "Todos los guardias de la ciudad usan cartas de habilidad de monstruo Arquero en lugar de las suyas.",
-        "131": "Los Lanzaolas acechador obtienen +1 %game.action.attack% a todos sus ataques y no invocan Anguilas relámpago. En vez de eso, siempre que tenga lugar \"Aid from Below\" (Ayuda desde abajo), todos los Lanzaolas acechador realizan: \" %game.action.attack% +1, %game.action.range% 4; %game.action.teleport% al hexágono vacío más a la izquierda si es una ronda impar o más a la derecha si es par. Si hay varios hexágonos válidos a los que teletransportarse, elige el hexágono más alejado de cualquier personaje.\"",
+        "131": "Los Lanzaolas acechador obtienen +1 %game.action.attack% a todos sus ataques y no invocan Anguilas relámpago. En vez de eso, siempre que tenga lugar \"Ayuda del abismo\", todos los Lanzaolas acechador realizan: \"%game.action.attack% +1, %game.action.range% 4; %game.action.teleport% al hexágono vacío más a la izquierda si es una ronda impar o más a la derecha si es par. Si hay varios hexágonos válidos a los que teletransportarse, elige el hexágono más alejado de cualquier personaje.\"",
         "134": "El autómata de acero tiene HxP/2 puntos de vida (redondeado hacia arriba).",
         "60": "Los seis acechadores de las losetas 13-B y 13-D son tenientes fracturados y obtienen %game.action.attack% +1 en todos sus ataques.",
         "65": "Todos los monstruos obtienen %game.action.push% 1 en todos sus ataques. Si el nivel del escenario es 4 o superior, aumenta a %game.action.push% 2.",
@@ -1056,8 +1317,17 @@
   "section": {
     "rules": {
       "fh": {
+        "180-3": {
+          "1": "Obtén 1 de Piel"
+        },
+        "192-1": {
+          "1": "Obtén 1 de Metal"
+        },
         "21-1": {
           "1": "en cualquier hexágono inicial vacío"
+        },
+        "41-1": {
+          "1": "Obtén 1 de Madera"
         },
         "65-3": {
           "1": "Abre todas las puertas %game.mapMarker.1%. Coloca a todos los personajes e invocaciones de personajes, por orden de iniciativa, en el hexágono vacío más cercano de la loseta 16-A y, a continuación, elimina todas las puertas y la loseta 13-A del mapa."
