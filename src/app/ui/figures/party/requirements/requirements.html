@@ -52,8 +52,8 @@
       </div>
       <div class="buildings">
         <div class="achievement" *ngFor="let achievement of requirement.buildingsLevel"
-          [ghs-label]="'scenario.requirements.buildingsLevel'"
-          [ghs-label-args]="[achievement.name, achievement.level]"></div>
+          [ghs-label]="'scenario.requirements.buildingsLevel'" [ghs-label-args]="[achievement.name, achievement.level]">
+        </div>
       </div>
       <div class="buildings">
         <div class="achievement" *ngFor="let achievement of requirement.buildingsMissing"
@@ -66,6 +66,22 @@
       <div class="characters">
         <div class="characters" *ngFor="let character of requirement.charactersMissing"
           [ghs-label]="'scenario.requirements.charactersMissing'" [ghs-label-args]="[character]"></div>
+      </div>
+      <div class="scenarios" *ngIf="requirement.scenarios.length">
+        <div class="requires" [ghs-label]="'scenario.requirements.scenarios'"></div>
+        <ng-container *ngFor="let requires of requirement.scenarios; let i = index;">
+          <div class="scenarios">
+            <ng-container *ngFor="let scenario of requires; let j = index;">
+              <div class="scenario" [ghs-label]="'scenario.requirements.scenarios.scenario'"
+                [ghs-label-args]="[scenario, scenarioData.edition]">
+              </div>
+              <div class="separator" *ngIf="requires.length > 1 && j < requires.length -1"
+                [ghs-label]="'scenario.requirements.scenarios.and'"></div>
+            </ng-container>
+          </div>
+          <div class="separator" *ngIf="requirement.scenarios.length > 1 && i < requirement.scenarios.length -1"
+            [ghs-label]="'scenario.requirements.scenarios.or'"></div>
+        </ng-container>
       </div>
     </div>
     <span *ngIf="i < requirements.length -1" class="separator"><span [ghs-label]="'or'"></span></span>

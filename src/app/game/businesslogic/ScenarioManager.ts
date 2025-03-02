@@ -794,7 +794,8 @@ export class ScenarioManager {
           } else {
             return !gameManager.game.figures.find((figure) => figure instanceof Character && figure.name.toLowerCase().trim() == character.toLowerCase().trim());
           }
-        })) ||
+        }) || requirement.scenarios && requirement.scenarios.every((scenarios) =>
+          scenarios.some((index) => this.game.party.scenarios.find((model) => model.index == index && model.edition == scenarioData.edition && model.group == scenarioData.group) == undefined))) ||
       scenarioData.solo && !this.game.figures.find((figure) => figure instanceof Character && figure.name == scenarioData.solo && (gameManager.bbRules() || figure.level >= 5)) || false;
   }
 
@@ -922,6 +923,23 @@ export class ScenarioManager {
               add = true;
             }
           })
+        }
+
+        if (requirement.scenarios && requirement.scenarios.length) {
+          let missingScenarios: string[][] = [];
+          requirement.scenarios.forEach((scenarios, i) => {
+            scenarios.forEach((index) => {
+              if (this.game.party.scenarios.find((model) => model.index == index && model.edition == scenarioData.edition && model.group == scenarioData.group) == undefined || all) {
+                missingScenarios[i] = missingScenarios[i] || [];
+                missingScenarios[i].push(index);
+              }
+            })
+          })
+
+          if (all || missingScenarios.length == scenarioData.requires.length && missingScenarios.every((value) => value.length)) {
+            missingRequirement.scenarios = missingScenarios;
+            add = true;
+          }
         }
 
         if (add) {

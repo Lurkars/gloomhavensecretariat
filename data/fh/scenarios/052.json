@@ -20,6 +20,16 @@
       "46"
     ]
   ],
+  "requirements": [
+    {
+      "scenarios": [
+        [
+          "45",
+          "46"
+        ]
+      ]
+    }
+  ],
   "rewards": {
     "morale": 1,
     "inspiration": 1

@@ -106,6 +106,7 @@ export class ScenarioRequirement {
   campaignSticker: string[] | undefined;
   puzzle: string[] | undefined;
   characters: string[] | undefined;
+  scenarios: string[][] | undefined;
 
 }
 

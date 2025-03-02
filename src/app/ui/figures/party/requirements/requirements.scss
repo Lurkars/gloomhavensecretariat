@@ -20,4 +20,22 @@
         color: var(--ghs-color-gray);
         font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
     }
+
+    .scenarios {
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .requires {
+            text-align: center;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .separator {
+            margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        }
+    }
 }

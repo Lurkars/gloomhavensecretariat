@@ -1,5 +1,8 @@
 {
   "index": "62.2",
   "name": "Bathysphere Plans",
-  "edition": "fh"
+  "edition": "fh",
+  "unlocks": [
+    "33"
+  ]
 }
