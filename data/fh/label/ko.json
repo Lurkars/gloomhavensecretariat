@@ -107,6 +107,16 @@
         "personal-quests": "개인 퀘스트",
         "puzzle-book": "퍼즐 책",
         "random-scenarios": "무작위 시나리오"
+      },
+      "frozen-corpse-scenario-32": {
+        "1": "시나리오 특수규칙을 참조"
+      },
+      "geminate": {
+        "1": "당신이 짧은 휴식을 취할 때마다, 사정거리 %game.action.range:3% 이내의 아군의 부정적인 상태를 제거 가능",
+        "2": "시나리오당 한 번, 자신에게 부정적인 상태를 부여할 때, 해당 상태가 되지 않음"
+      },
+      "hound": {
+        "1": "대상이 사냥개의 아군에 인접해 있다면 공격 +2 %game.action.attack% 추가."
       }
     }
   },
@@ -145,6 +155,11 @@
   "scenario": {
     "group": {
       "randomMonsterCard": "무작위 몬스터 카드"
+    },
+    "rules": {
+      "fh": {
+        "0": "사냥개의 몬스터 능력덱을 사용하지 않음. 그 대신, 매 라운드마다 모든 사냥개들은 26의 주도권으로 %game.action.move% 2; %game.action.attack% 2를 수행."
+      }
     }
   }
 }

@@ -1,4 +1,7 @@
 {
+  "ability": {
+    "Focused Stabs": "Fokussierte Stiche"
+  },
   "battleGoals": {
     "1301": {
       "": "Buchführung",
@@ -273,7 +276,11 @@
       "": "Lederdepot"
     },
     "hunting-lodge": {
-      "": "Jagdhütte"
+      "": "Jagdhütte",
+      "1": "Kauft insgesamt bis zu 1 %game.resource.hide% für 2 Gold",
+      "2": "Kauft insgesamt bis zu 2 %game.resource.hide% für 2 Gold",
+      "3": "Kauft insgesamt bis zu 3 %game.resource.hide% für 2 Gold",
+      "4": "Kauft insgesamt bis zu 4 %game.resource.hide% für 2 Gold"
     },
     "inn": {
       "": "Gasthof"
@@ -285,7 +292,11 @@
       "": "Bibliothek"
     },
     "logging-camp": {
-      "": "Holzfällerlager"
+      "": "Holzfällerlager",
+      "1": "Kauft insgesamt bis zu 1 %game.resource.lumber% für 2 Gold",
+      "2": "Kauft insgesamt bis zu 2 %game.resource.lumber% für 2 Gold",
+      "3": "Kauft insgesamt bis zu 3 %game.resource.lumber% für 2 Gold",
+      "4": "Kauft insgesamt bis zu 4 %game.resource.lumber% für 2 Gold"
     },
     "lumber-depot": {
       "": "Holzdepot"
@@ -294,7 +305,11 @@
       "": "Metalldepot"
     },
     "mining-camp": {
-      "": "Bergbaulager"
+      "": "Bergbaulager",
+      "1": "Kauft insgesamt bis zu 1 %game.resource.metal% für 2 Gold",
+      "2": "Kauft insgesamt bis zu 2 %game.resource.metal% für 2 Gold",
+      "3": "Kauft insgesamt bis zu 3 %game.resource.metal% für 2 Gold",
+      "4": "Kauft insgesamt bis zu 4 %game.resource.metal% für 2 Gold"
     },
     "sled": {
       "": "Schlitten"

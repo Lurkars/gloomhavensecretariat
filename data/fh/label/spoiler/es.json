@@ -20,7 +20,8 @@
         "": "Perícia 9",
         "hint": "%data.custom.fh.snowflake.4%"
       }
-    }
+    },
+    "trap": "Trampero"
   },
   "custom": {
     "fh": {
@@ -39,6 +40,18 @@
         "4": "Al comienzo de cada escenario, todos los enemigos sufren %game.condition.muddle%; cada vez que se revele una nueva sala, todos los enemigos de la nueva sala sufren %game.condition.muddle%",
         "5": "Haz que al menos un aliado o enemigo se mueva en cada ronda",
         "6": "Asegúrate de que el primer aliado que sufra %game.damage% en cada ronda tenga al menos un estado que tú hayas aplicado justo antes de sufrir el %game.damage%"
+      },
+      "trap": {
+        "1": "Crea 1 trampa %game.damage:2% en un hexágono adyacente vacío al final del turno.",
+        "10": "Mueve a enemigos por 7 o más trampas con una misma capacidad",
+        "2": "Crea 1 trampa %game.action.heal% 2 en un hexágono vacío adyacente al objetivo",
+        "3": "Crea 1 trampa %game.damage:1% en 1 hexágono vacío adyacente al objetivo",
+        "4": "Añade %game.damage:2% o %game.action.heal% 2 a una trampa a %game.action.range:2% o menos de ti",
+        "5": "Añade %game.action.push% 2 o %game.action.pull% 2",
+        "6": "Cada vez que realices un descanso largo, puedes crear 1 trampa %game.damage:1% en un hexágono vacío adyacente",
+        "7": "Siempre que entres en un hexágono con una trampa, puedes elegir no activarla",
+        "8": "Al comienzo de cada escenario, puedes crear 1 trampa %game.damage:2% en un hexágono vacío adyacente",
+        "9": "Ten 1 trampa %game.action.heal% en el tablero con un valor de al menos 20 (%game.damage:20% en la edición española)"
       }
     }
   },
@@ -127,5 +140,29 @@
       "": "Mejunje insalubre",
       "1": "Durante tu turno, realiza: %game.condition.wound%, %game.condition.poison% Personal"
     }
+  },
+  "summon": {
+    "banner-of-courage": "Bandera de coraje",
+    "banner-of-doom": "Bandera de condena",
+    "banner-of-hope": "Bandera de esperanza",
+    "banner-of-strength": "Bandera de fuerza",
+    "banner-of-valor": "Bandera de valor",
+    "bone-horde": "Horda de huesos",
+    "defense-grid": "Matriz defensiva",
+    "longbowman": "Arquero",
+    "polar-cat": "Gato polar",
+    "raging-corpse": "Cadáver enfurecido",
+    "reinforcements": "Refuerzo",
+    "shadow-beast": "Bestia de sombras",
+    "shadow-horror": "Horror de sombras",
+    "shaggy-lure": "Señuelo desgreñado",
+    "shambling-skeleton": "Esqueleto tambaleante",
+    "skeleton-sorcerer": "Hechicero esqueleto",
+    "snow-fox": "Zorro de las nieves",
+    "stitched-atrocity": "Atrocidad cosida",
+    "torch-bearer": "Portador de antorcha",
+    "trained-falcon": "Halcón adiestrado",
+    "white-owl": "Búho blanco",
+    "wraith": "Espectro"
   }
 }

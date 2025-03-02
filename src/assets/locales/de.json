@@ -1030,7 +1030,7 @@
       "enemiesRangeExact": "%game.target% alle Gegner genau in %game.action.range% {0} an",
       "enemy": "%game.target% einen Gegner an",
       "enemyAdjacent": "%game.target% einen angrenzenden Gegner an",
-      "enemyOneAll": "%game.target% einen Gegner für alle Angriffe an",
+      "enemyOneAll": "%game.target% 1 Gegner mit allen Angriffen",
       "enemyRange": "%game.target% einen Gegner genau in %game.action.range% {0} an",
       "figures": "%game.target% alle Figuren an",
       "figuresAdjacent": "%game.target% alle angrenzenden Figuren an",

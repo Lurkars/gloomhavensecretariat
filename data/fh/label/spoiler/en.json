@@ -944,7 +944,7 @@
     },
     "fh-221": {
       "": "Ice Shiv",
-      "1": "During your melee attack ability, %game.element.consume.ice% to add %game.action.pierce% to one attack."
+      "1": "During your melee attack ability, %game.element.consume.ice% to add %game.action.pierce% 3 to one attack."
     },
     "fh-222": {
       "": "Black Box",
