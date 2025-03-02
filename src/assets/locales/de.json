@@ -1492,6 +1492,12 @@
       "party": "'{0}' (Gruppe) VOLLSTÄNDIG",
       "partyCount": "'{0}' (Gruppe)x{2} VOLLSTÄNDIG  (hat {1})",
       "partyMissing": "'{0}' (Gruppe) NICHT VOLLSTÄNDIG",
+      "scenarios": {
+        "": "Folgende Szenarien müssen abgeschlossen sein",
+        "and": "und",
+        "or": "oder",
+        "scenario": "%data.scenarioNumber:{0}%"
+      },
       "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Level 5 oder höher",
       "start": "Szenario trotzdem starten"
     },
