@@ -234,7 +234,7 @@
     <div class="line" ghs-setting-menu="alwaysFhAdvantage" [disabled]="gameManager.fhRules()"
       [requires]="['amAdvantage']" [checked]="settingsManager.settings.amAdvantage && gameManager.fhRules()"></div>
     <div *ngIf="settingsManager.settings.amAdvantage" class="line" ghs-setting-menu="amAdvantageHouseRule"
-      [disabled]="!gameManager.fhRules()" [requires]="['alwaysFhAdvantage']"></div>
+      [requires]="['amAdvantage', 'alwaysFhAdvantage']"></div>
     <div *ngIf="gameManager.challengesManager.available" class="line" ghs-setting-menu="fhChallengesApply"
       [disabled]="!gameManager.fhRules()" [requires]="['fhChallenges']"></div>
     <div *ngIf="gameManager.trialsManager.available" class="line" ghs-setting-menu="fhTrialsApply"

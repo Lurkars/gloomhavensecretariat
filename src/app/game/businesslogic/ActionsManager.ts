@@ -227,14 +227,15 @@ export class ActionsManager {
     }
 
     isInteractiveAction(action: Action): boolean {
-        const selfSubAction = action.subActions && action.subActions.length == 1 && action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self')) != undefined || false;
+        const selfSubAction = action.subActions && action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && ('' + subAction.value).startsWith('self'));
+        const hasSelfSubAction = selfSubAction != undefined;
         switch (action.type) {
             case ActionType.heal:
-                return selfSubAction;
+                return hasSelfSubAction && action.subActions.every((subAction) => subAction == selfSubAction || subAction.type == ActionType.condition);
             case ActionType.condition:
-                return selfSubAction;
+                return hasSelfSubAction && action.subActions.length == 1;
             case ActionType.sufferDamage:
-                return !action.subActions || action.subActions.length == 0 || selfSubAction;
+                return !action.subActions || action.subActions.length == 0 || hasSelfSubAction && action.subActions.length == 1;
             case ActionType.switchType:
             case ActionType.element:
                 return true;
@@ -346,6 +347,11 @@ export class ActionsManager {
                 const heal = EntityValueFunction(action.value, figure.level);
                 entity.health += heal;
                 gameManager.entityManager.addCondition(entity, figure, new Condition(ConditionName.heal, heal));
+                if (action.subActions) {
+                    action.subActions.filter((subAction) => subAction.type == ActionType.condition).forEach((subAction) => {
+                        gameManager.entityManager.addCondition(entity, figure, new Condition('' + subAction.value));
+                    })
+                }
                 gameManager.entityManager.applyCondition(entity, figure, ConditionName.heal, true);
                 break;
             case ActionType.condition:
