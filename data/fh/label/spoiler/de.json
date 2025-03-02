@@ -163,6 +163,10 @@
       "": "Schwere Kettenrüstung",
       "1": "Wenn du durch einen Angriff %game.damage% erleidest, erhältst du für den Angriff %game.action.shield:3%."
     },
+    "fh-221": {
+      "": "Eisklinge",
+      "1": "%game.element.consume.ice% bei deiner Nahkampf-Angriffsfertigkeit, um einem Angriff %game.action.pierce% 3 hinzuzufügen."
+    },
     "fh-23": {
       "": "Robuster Beinpanzer",
       "1": "Füge zu Beginn deines Zugs allen deinen Bewegungsfertigkeiten -2 %game.action.move% hinzu, um in dieser Runden %game.action.shield% zu erhalten. "
