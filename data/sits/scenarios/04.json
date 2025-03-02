@@ -92,7 +92,7 @@
       ]
     },
     {
-      "round": "R == 7 && R == 22",
+      "round": "R == 7 || R == 22",
       "start": true,
       "spawns": [
         {
@@ -129,7 +129,7 @@
       ]
     },
     {
-      "round": "R == 10 && R == 25",
+      "round": "R == 10 || R == 25",
       "start": true,
       "spawns": [
         {
@@ -166,7 +166,7 @@
       ]
     },
     {
-      "round": "R == 13 && R == 28",
+      "round": "R == 13 || R == 28",
       "start": true,
       "spawns": [
         {
@@ -204,7 +204,7 @@
       ]
     },
     {
-      "round": "R == 16 && R == 31",
+      "round": "R == 16 || R == 31",
       "start": true,
       "spawns": [
         {
