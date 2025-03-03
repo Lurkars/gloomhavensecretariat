@@ -1480,9 +1480,9 @@
       "buildings": "'%data.buildings.{0}%' (Building) BUILD",
       "buildingsLevel": "'%data.buildings.{0}%' (Building) Level {1} BUILD",
       "buildingsMissing": "'%data.buildings.{0}%' (Building) NOT BUILD",
-      "campaignStickers": "'{0}' (Campaign Sticker) COMPLETE",
-      "campaignStickersCount": "'{0}' (Campaign Sticker) x{2} COMPLETE  (got {1})",
-      "campaignStickersMissing": "'{0}' (Campaign Sticker) INCOMPLETE",
+      "campaignStickers": "'%data.campaignSticker.{0}%' (Campaign Sticker) COMPLETE",
+      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Campaign Sticker) x{2} COMPLETE  (got {1})",
+      "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Campaign Sticker) INCOMPLETE",
       "cancel": "Cancel",
       "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' present",
       "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' absent",
@@ -1492,6 +1492,12 @@
       "party": "'{0}' (Party) COMPLETE",
       "partyCount": "'{0}' (Party)x{2} COMPLETE  (got {1})",
       "partyMissing": "'{0}' (Party) INCOMPLETE",
+      "scenarios": {
+        "": "Requires following Scenarios to be finished",
+        "and": "and",
+        "or": "or",
+        "scenario": "%data.scenarioNumber:{0}%"
+      },
       "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Level 5 or higher",
       "start": "Start Scenario anyway"
     },
