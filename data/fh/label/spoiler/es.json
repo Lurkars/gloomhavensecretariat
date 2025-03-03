@@ -64,6 +64,14 @@
       "": "Escudo tosco",
       "1": "Cuando un enemigo vaya a aplicarte un estado negativo, evita sufrir ese estado"
     },
+    "fh-11": {
+      "": "Amuleto sencillo",
+      "1": "Al inicio del escenario, retira 1 carta de Modificador de ataque %game.attackmodifier.minus1% de tu mazo de Modificadores de ataque."
+    },
+    "fh-12": {
+      "": "Cota de malla tosca",
+      "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:2% para dicho ataque."
+    },
     "fh-120": {
       "": "Amuleto de vida",
       "1": "Durante tu turno, realiza:"
@@ -100,6 +108,26 @@
       "": "Escudo gótico",
       "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:1%para dicho ataque."
     },
+    "fh-13": {
+      "": "Zapatillas de baile",
+      "1": "Después de sufrir %game.damage% por un ataque, realiza:"
+    },
+    "fh-14": {
+      "": "Espada pesada",
+      "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, añade %game.action.attack% +1 a 1 ataque."
+    },
+    "fh-15": {
+      "": "Escudo reforzado",
+      "1": "Cuando un enemigo vaya a aplicarte un estado negativo, evita sufrir ese estado."
+    },
+    "fh-180": {
+      "": "Botas de avaricia",
+      "1": "Siempre que saquees 2 o más fichas de Botín a la vez, realiza: %game.condition.bless% Personal."
+    },
+    "fh-188": {
+      "": "Cristal congelate",
+      "1": "Durante tu turno, crea 1 pieza de 1 hexágono de terreno peligroso, terreno helado o agua en un hexágono sin accesorios adyacente."
+    },
     "fh-2": {
       "": "Casco tosco",
       "1": "Cuando te ataquen, trata cualquier carta de Modificador de ataque %game.attackmodifier.double% que robe el enemigo como %game.attackmodifier.plus1% en su lugar."
@@ -132,9 +160,21 @@
       "": "Lanza tosca",
       "1": "Durante tu turno, 1 de tus capacidades de Ataque cuerpo a cuerpo con un solo objetivo puede tener como objetivo a un enemigo situado a 2 hexágonos de distancia."
     },
+    "fh-87": {
+      "": "Poción de remedio",
+      "1": "Durante tu turno, retira 1 estado negativo que sufras.<br>Puedes usarla incluso si sufres %game.condition.impair% o %game.condition.stun%."
+    },
+    "fh-89": {
+      "": "Poción de piel pétrea",
+      "1": "Durante tu turno, realiza %game.condition.ward% Personal"
+    },
     "fh-9": {
       "": "Cetro protector",
       "1": "Durante tu turno, otorga a 1 aliado a 2 %game.action.range:2% o menos:"
+    },
+    "fh-97": {
+      "": "Frasco explosivo",
+      "1": "Durante tu turno, 1 enemigo a %game.action.range:2% o menos sufre %game.damage% 2."
     },
     "fh-98": {
       "": "Mejunje insalubre",

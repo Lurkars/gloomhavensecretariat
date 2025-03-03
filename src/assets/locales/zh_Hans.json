@@ -1492,6 +1492,12 @@
       "party": "'{0}'（团队）完成",
       "partyCount": "'{0}'（团队）x{2} 完成（获得{1}）",
       "partyMissing": "'{0}'（团队）未完成",
+      "scenarios": {
+        "": "需要完成以下剧本",
+        "and": "和",
+        "or": "或",
+        "scenario": "%data.scenarioNumber:{0}%"
+      },
       "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' 等级大于等于5",
       "start": "无论如何，开始剧本"
     },
