@@ -199,25 +199,25 @@
               "type": "range",
               "value": 6,
               "small": true
-            }
-          ]
-        },
-        {
-          "type": "summon",
-          "value": "monsterStandee",
-          "valueObject": [
+            },
             {
-              "monster": {
-                "name": "deep-terror",
-                "type": "normal"
-              }
-            }
-          ],
-          "small": true,
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.gh.deep-terror.1%"
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "deep-terror",
+                    "type": "normal"
+                  }
+                }
+              ],
+              "small": true,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh.deep-terror.1%"
+                }
+              ]
             }
           ]
         }
