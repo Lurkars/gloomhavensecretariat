@@ -31,6 +31,15 @@
         "04": "Minus 10 gold for each further upgrade to the ship.",
         "05": "Minus 10 gold for each further upgrade to the ship. If you spend at least 20 gold each for upgrades, +1 reputation instead."
       }
+    },
+    "title": {
+      "ir": {
+        "1": "The Stray Otter",
+        "2": "Unusual Customs",
+        "3": "A Ship Besieged",
+        "4": "Gloomhaven Secure Storage",
+        "5": "Gloomhaven Secure Storage"
+      }
     }
   }
 }

@@ -5,10 +5,11 @@
         class="index">#{{gameManager.game.scenario.index}}</span>
       <span *ngIf="gameManager.game.scenario" class="name">
         <span
-          [ghs-label]="(gameManager.game.scenario.name ? 'data.scenario.' + gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario.set'))"></span>
+          [ghs-label]="(gameManager.game.scenario.name ? gameManager.scenarioManager.scenarioTitle(gameManager.game.scenario) : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario.set'))"></span>
       </span>
       <span *ngIf="gameManager.game.scenario.level" class="scenario-level-container">
-        <span class="scenario-level" [ghs-label]="'scenario.level'" [ghs-label-args]="[gameManager.game.scenario.level + '']"
+        <span class="scenario-level" [ghs-label]="'scenario.level'"
+          [ghs-label-args]="[gameManager.game.scenario.level + '']"
           [ngClass]="'level-' +  gameManager.game.scenario.level"></span>
       </span>
       <span class="treasures" (click)="openTreasures($event)"
@@ -17,7 +18,8 @@
         <img class="ghs-svg" src="./assets/images/scenario/treasure.svg">
       </span>
     </div>
-    <div class="event-effects" *ngIf="!gameManager.bbRules() && !gameManager.game.scenario && gameManager.characterManager.characterCount() > 0">
+    <div class="event-effects"
+      *ngIf="!gameManager.bbRules() && !gameManager.game.scenario && gameManager.characterManager.characterCount() > 0">
       <img class="ghs-svg" src="./assets/images/event.svg"> <span [ghs-label]="'scenario.eventEffects'"></span>
     </div>
   </div>
@@ -34,7 +36,7 @@
       <img class="ghs-svg" src="./assets/images/lock-open.svg">
       <span *ngIf="!section.hideIndex">#{{section.index}}</span>
       <span *ngIf="!gameManager.game.scenario || section.name != gameManager.game.scenario.name" class="name">
-        &nbsp;<span [ghs-label]="'data.section.' + section.name"></span>
+        &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section,true)"></span>
       </span>
       <span class="marker" *ngIf="section.marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
     </span>
@@ -55,7 +57,7 @@
       <span *ngIf="(!section.conclusion || !section.name) && !section.hideIndex">#{{section.index}}</span>
       <span class="marker" *ngIf="section.marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
       <span *ngIf="(section.conclusion || section.named) && section.name" class="name">
-        &nbsp;<span [ghs-label]="'data.section.' + section.name"></span>
+        &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section,true)"></span>
       </span>
     </span>
   </div>

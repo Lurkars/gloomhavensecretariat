@@ -46,9 +46,9 @@
         <img class="ghs-svg" src="./assets/images/lock.svg">
         <span class="text-white" *ngIf="!sectionData.conclusion"
           [ghs-label]="(sectionData.marker ? 'scenario.rules.addSectionMarker' : 'scenario.rules.addSection') + (sectionData.hideIndex ? '' : 'Index')"
-          [ghs-label-args]="[sectionData.index, 'data.section.' + sectionData.name, sectionData.marker || '']"></span>
+          [ghs-label-args]="[sectionData.index, gameManager.scenarioManager.scenarioTitle(sectionData,true), sectionData.marker || '']"></span>
         <span class="text-white" *ngIf="sectionData.conclusion" [ghs-label]=" 'scenario.rules.finishWithConclusion'"
-          [ghs-label-args]="[sectionData.index, 'data.section.' + sectionData.name, sectionData.marker || '']"></span>
+          [ghs-label-args]="[sectionData.index, gameManager.scenarioManager.scenarioTitle(sectionData,true), sectionData.marker || '']"></span>
       </span>
     </ng-container>
   </div>

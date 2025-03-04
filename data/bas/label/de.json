@@ -30,7 +30,11 @@
     "sand-spider": "Sandspinne"
   },
   "scenario": {
-    "All Over the Map": "Über die ganze Karte verteilt",
-    "Troubled Waters": "Unruhige Gewässer"
+    "title": {
+      "bas": {
+        "1": "Über die ganze Karte verteilt",
+        "2": "Unruhige Gewässer"
+      }
+    }
   }
 }

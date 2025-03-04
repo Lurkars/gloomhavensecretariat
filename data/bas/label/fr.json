@@ -30,7 +30,11 @@
     "sand-spider": "Araignée de sable"
   },
   "scenario": {
-    "All Over the Map": "Partout sur la carte",
-    "Troubled Waters": "Eaux troubles"
+    "title": {
+      "bas": {
+        "1": "Partout sur la carte",
+        "2": "Eaux troubles"
+      }
+    }
   }
 }

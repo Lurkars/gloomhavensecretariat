@@ -15,6 +15,39 @@
         "3": "All elite Harrower Infesters add +1 %game.action.move% to all their moves.",
         "7": "adjacent to Debris %game.mapMarker.b%"
       }
+    },
+    "title": {
+      "sits": {
+        "141": "Skulls at the Gates",
+        "142": "Gateway to Radiance",
+        "143": "Rotten Revelation",
+        "144": "The Healing Swarm",
+        "145": "Temple of the Order",
+        "146": "Remnants",
+        "147": "Under Pressure",
+        "148": "The Great Bug Race",
+        "149": "Downhill",
+        "150": "The Hive"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "sits": {
+        "142-1": "Gateway to Radiance",
+        "142-2": "Gateway to Radiance",
+        "143-1": "Rotten Revelation",
+        "143-2": "Rotten Revelation",
+        "145-1": "Temple of the Order",
+        "145-2": "Temple of the Order",
+        "146-1": "Remnants",
+        "146-2": "Remnants",
+        "146-3": "Remnants",
+        "148-1": "The Great Bug Race",
+        "148-2": "The Great Bug Race",
+        "149-1": "Downhill",
+        "149-2": "Downhill"
+      }
     }
   }
 }

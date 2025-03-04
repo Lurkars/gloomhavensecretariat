@@ -1183,7 +1183,12 @@ export class ScenarioManager {
       return ["", "", ""];
     }
 
-    return [scenario.index, "data.scenario." + scenario.name, scenario.custom ? 'scenario.custom' : 'data.edition.' + scenario.edition];
+    return [scenario.index, this.scenarioTitle(scenario), scenario.custom ? 'scenario.custom' : 'data.edition.' + scenario.edition];
+  }
+
+  scenarioTitle(scenarioData: ScenarioData | undefined, section: boolean = false): string {
+    return scenarioData ? 'data.' + (section ? 'section.title.' : 'scenario.title.') + scenarioData.edition
+      + '.' + (scenarioData.group ? scenarioData.group + '-' : '') + scenarioData.index.replaceAll('.', '-') : (section ? 'section' : 'scenario');
   }
 
   scenarioDataForModel(model: GameScenarioModel): ScenarioData | undefined {

@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 import { ScenarioSummaryComponent } from './summary/scenario-summary';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-scenario',
   templateUrl: './scenario.html',
   styleUrls: ['./scenario.scss']
@@ -96,7 +96,7 @@ export class ScenarioComponent implements OnInit, OnDestroy {
           console.error("Could not find edition data!");
           return;
         }
-        gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", scenario.index, "data.scenario." + scenario.name, roomData.ref, roomData.marker || '');
+        gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", scenario.index, gameManager.scenarioManager.scenarioTitle(scenario), roomData.ref, roomData.marker || '');
         gameManager.scenarioManager.openRoom(roomData, scenario, false);
         gameManager.stateManager.after();
       }

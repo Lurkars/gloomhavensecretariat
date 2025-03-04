@@ -204,6 +204,22 @@
       "toa": {
         "73": "Each character gains X gold, where X is 3 times the number of money tokens remaining on the Stone Golem's statistic card."
       }
+    },
+    "title": {
+      "toa": {
+        "67": "The Dark Valley",
+        "68": "Rival Explorers",
+        "69": "Shaman Chaperone",
+        "70": "Spirits Rising",
+        "71": "Embers of Corruption",
+        "72": "Inox Salvation",
+        "73": "Lootpalooza",
+        "74": "Song of the Harrower",
+        "75": "Sunken Temple",
+        "76": "Untold Woe",
+        "77": "Rat Traps",
+        "78": "Ternion Tomb"
+      }
     }
   },
   "section": {
@@ -213,6 +229,40 @@
         "36C-1": "\"Grave Robber\" quest complete",
         "36C-2": "\"Grave Robber\" quest complete",
         "51A": "To view your reward, visit <a href=\"https://www.thecrimsonscales.com/reveal\" target=\"_blank\">thecrimsonscales.com/reveal</a><br>Password: ashes"
+      }
+    },
+    "title": {
+      "toa": {
+        "11A": "The Dark Valley",
+        "11B": "The Dark Valley",
+        "14A": "Rival Explorers",
+        "14C": "Shaman Chaperone",
+        "14D": "Shaman Chaperone",
+        "17A": "Spirits Rising",
+        "17B": "Spirits Rising",
+        "19A": "Embers of Corruption",
+        "19B": "Embers of Corruption",
+        "21A": "Inox Salvation",
+        "21B": "Inox Salvation",
+        "22B": "Lootpalooza",
+        "22C": "Lootpalooza",
+        "24B": "Song of the Harrower",
+        "24C": "Song of the Harrower",
+        "26B": "Sunken Temple",
+        "26C": "Sunken Temple",
+        "30C": "Untold Woe",
+        "32B": "Rat Traps",
+        "32C": "Rat Traps",
+        "32D": "Rat Traps",
+        "33A": "Rat Traps",
+        "33B": "Looted less than two treasure tiles",
+        "33C": "Looted two or more treasure tiles",
+        "35A": "Ternion Tomb",
+        "35B": "Ternion Tomb",
+        "36A": "Ternion Tomb",
+        "36C-1": "One named Inox killed",
+        "36C-2": "All named Inox killed",
+        "51-A": "Inevitable (%game.characterIconColored.gemstone% Retires)"
       }
     }
   }

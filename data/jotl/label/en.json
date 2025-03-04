@@ -433,31 +433,6 @@
     "zealot": "Zealot"
   },
   "scenario": {
-    "A Deeper Understanding": "A Deeper Understanding",
-    "A Hole in the Wall": "A Hole in the Wall",
-    "A Ritual in Stone": "A Ritual in Stone",
-    "Agents of Chaos": "Agents of Chaos",
-    "Beguiling Sewers": "Beguiling Sewers",
-    "Corrupted Research": "Corrupted Research",
-    "Defiled Sewers": "Defiled Sewers",
-    "Den of Thieves": "Den of Thieves",
-    "Explosive Evolution": "Explosive Evolution",
-    "Hidden Tumor": "Hidden Tumor",
-    "Misplaced Goods": "Misplaced Goods",
-    "Mixed Results": "Mixed Results",
-    "Red Twilight": "Red Twilight",
-    "Roadside Ambush": "Roadside Ambush",
-    "Sunken Tumor": "Sunken Tumor",
-    "Tainted Blood": "Tainted Blood",
-    "The Best of the Best": "The Best of the Best",
-    "The Black Ship": "The Black Ship",
-    "The Gauntlet": "The Gauntlet",
-    "The Greatest Job in the World": "The Greatest Job in the World",
-    "The Heist": "The Heist",
-    "Toxic Harvest": "Toxic Harvest",
-    "Unfriendly Message": "Unfriendly Message",
-    "Vile Harvest": "Vile Harvest",
-    "Warding the Void": "Warding the Void",
     "rules": {
       "jotl": {
         "10": {
@@ -479,6 +454,43 @@
           "1": "in any hex the last objective was destroyed",
           "2": "Characters suffer %game.damage:[L/2{$math.floor}]% for each hex they enter in room of Chaos Demon %game.mapMarker.A%"
         }
+      }
+    },
+    "title": {
+      "jotl": {
+        "1": "Roadside Ambush",
+        "10": "The Gauntlet",
+        "11": "Defiled Sewers",
+        "12": "Beguiling Sewers",
+        "13": "Vile Harvest",
+        "14": "Toxic Harvest",
+        "15": "Tainted Blood",
+        "16": "Mixed Results",
+        "17": "Red Twilight",
+        "18": "The Heist",
+        "19": "Den of Thieves",
+        "2": "A Hole in the Wall",
+        "20": "Misplaced Goods",
+        "21": "Agents of Chaos",
+        "22": "Unfriendly Message",
+        "23": "The Best of the Best",
+        "24": "Warding the Void",
+        "25": "The Greatest Job in the World",
+        "3": "The Black Ship",
+        "4": "A Ritual in Stone",
+        "5": "A Deeper Understanding",
+        "6": "Corrupted Research",
+        "7": "Sunken Tumor",
+        "8": "Hidden Tumor",
+        "9": "Explosive Evolution"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "jotl": {
+        "9-7": "Sunken Tumor",
+        "9-8": "Hidden Tumor"
       }
     }
   }

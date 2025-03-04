@@ -30,7 +30,11 @@
     "sand-spider": "Sand Spider"
   },
   "scenario": {
-    "All Over the Map": "All Over the Map",
-    "Troubled Waters": "Troubled Waters"
+    "title": {
+      "bas": {
+        "1": "All Over the Map",
+        "2": "Troubled Waters"
+      }
+    }
   }
 }

@@ -20,7 +20,7 @@
     <div class="line sections" *ngIf="sections(group).length > 0">
       <span tabclick *ngFor="let section of sections(group)" class="section"
         [ngClass]="{'disabled' : section.isLocked , 'available': settingsManager.settings.showAllSections && section.parent && gameManager.game.scenario && section.parent == gameManager.game.scenario.index && section.group == gameManager.game.scenario.group && section.edition == gameManager.game.scenario.edition}"
-        [ghs-tooltip]="'scenario.tooltip'" [ghs-label-args]="['data.section.' + section.name]"
+        [ghs-tooltip]="'scenario.tooltip'" [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(section,true)]"
         (click)="addSection(section)">
         <span *ngIf="maxSection() > 2 && section.index.length < 3">0</span>
         <span *ngIf="maxSection() > 1 && section.index.length < 2">0</span>

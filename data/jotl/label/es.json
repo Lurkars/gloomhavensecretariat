@@ -248,31 +248,6 @@
     "zealot": "Fanático"
   },
   "scenario": {
-    "A Deeper Understanding": "Profundizando en la investigación",
-    "A Hole in the Wall": "Un agujero en la pared",
-    "A Ritual in Stone": "Ritual de piedras",
-    "Agents of Chaos": "Agentes del caos",
-    "Beguiling Sewers": "Alcantarillas cautivadoras",
-    "Corrupted Research": "Investigación corrupta",
-    "Defiled Sewers": "Alcantarillas contaminadas",
-    "Den of Thieves": "Guarida de ladrones",
-    "Explosive Evolution": "Evolución explosiva",
-    "Hidden Tumor": "Tumor oculto",
-    "Misplaced Goods": "Mercancías extraviadas",
-    "Mixed Results": "Resultados irregulares",
-    "Red Twilight": "Ocaso rojo",
-    "Roadside Ambush": "Emboscada en el camino",
-    "Sunken Tumor": "Tumor hundido",
-    "Tainted Blood": "Sangre contaminada",
-    "The Best of the Best": "Lo mejor de lo mejor",
-    "The Black Ship": "El Barco Negro",
-    "The Gauntlet": "Las pruebas de los héroes",
-    "The Greatest Job in the World": "El mejor trabajo del mundo",
-    "The Heist": "El golpe",
-    "Toxic Harvest": "Cosecha tóxica",
-    "Unfriendly Message": "Un mensaje desagradable",
-    "Vile Harvest": "Cosecha perversa",
-    "Warding the Void": "Vigilar el Vacío",
     "rules": {
       "jotl": {
         "10": {
@@ -294,6 +269,35 @@
           "1": "en cualquier hexágono en el que el último objetivo fue derrotado",
           "2": "Los personajes sufren %game.damage:[L/2{$math.floor}]% por cada hexágono en el que entran de la sala hasta que muera el Demonio de Caos %game.mapMarker.A%"
         }
+      }
+    },
+    "title": {
+      "jotl": {
+        "1": "Emboscada en el camino",
+        "10": "Las pruebas de los héroes",
+        "11": "Alcantarillas contaminadas",
+        "12": "Alcantarillas cautivadoras",
+        "13": "Cosecha perversa",
+        "14": "Cosecha tóxica",
+        "15": "Sangre contaminada",
+        "16": "Resultados irregulares",
+        "17": "Ocaso rojo",
+        "18": "El golpe",
+        "19": "Guarida de ladrones",
+        "2": "Un agujero en la pared",
+        "20": "Mercancías extraviadas",
+        "21": "Agentes del caos",
+        "22": "Un mensaje desagradable",
+        "23": "Lo mejor de lo mejor",
+        "24": "Vigilar el Vacío",
+        "25": "El mejor trabajo del mundo",
+        "3": "El Barco Negro",
+        "4": "Ritual de piedras",
+        "5": "Profundizando en la investigación",
+        "6": "Investigación corrupta",
+        "7": "Tumor hundido",
+        "8": "Tumor oculto",
+        "9": "Evolución explosiva"
       }
     }
   }

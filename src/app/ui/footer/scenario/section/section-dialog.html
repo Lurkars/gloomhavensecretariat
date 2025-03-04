@@ -5,10 +5,8 @@
         [ghs-label-args]="[sectionData.index,  sectionData.marker || '']">
     </p>
 
-    <p *ngIf="sectionData.conclusion"
-        [ghs-label]="'scenario.section.conclusion'"
-        [ghs-label-args]="[sectionData.name ? 'data.section.' + sectionData.name : '%scenario.section% #' + sectionData.index]"
-       >
+    <p *ngIf="sectionData.conclusion" [ghs-label]="'scenario.section.conclusion'"
+        [ghs-label-args]="[sectionData.name ? gameManager.scenarioManager.scenarioTitle(sectionData,true)  : '%scenario.section% #' + sectionData.index]">
     </p>
 
     <div class="buttons">

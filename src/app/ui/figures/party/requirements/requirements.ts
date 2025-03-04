@@ -7,7 +7,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-requirements',
     templateUrl: 'requirements.html',
     styleUrls: ['./requirements.scss']
@@ -47,12 +47,14 @@ export class ScenarioRequirementsComponent implements OnInit, OnChanges {
 }
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-requirements-dialog',
     templateUrl: 'requirements-dialog.html',
     styleUrls: ['./requirements-dialog.scss']
 })
 export class ScenarioRequirementsDialogComponent {
+
+    gameManager: GameManager = gameManager;
 
     constructor(@Inject(DIALOG_DATA) public data: { scenarioData: ScenarioData, hideMenu: boolean }, private dialogRef: DialogRef) {
     }

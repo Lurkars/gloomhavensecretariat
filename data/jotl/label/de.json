@@ -317,31 +317,6 @@
     "zealot": "Fanatiker"
   },
   "scenario": {
-    "A Deeper Understanding": "Tieferes Verständnis",
-    "A Hole in the Wall": "Mauerloch",
-    "A Ritual in Stone": "Ritual der Steine",
-    "Agents of Chaos": "Handlanger des Chaos",
-    "Beguiling Sewers": "Trügerische Kanalisation",
-    "Corrupted Research": "Verdorbene Forschung",
-    "Defiled Sewers": "Geschändete Kanalisation",
-    "Den of Thieves": "Diebesnest",
-    "Explosive Evolution": "Explosive Evolution",
-    "Hidden Tumor": "Verstecktes Geschwür",
-    "Misplaced Goods": "Warenverkehr",
-    "Mixed Results": "Testergebnisse",
-    "Red Twilight": "Rotes Zwielicht",
-    "Roadside Ambush": "Straßenraub",
-    "Sunken Tumor": "Versunkenes Geschwür",
-    "Tainted Blood": "Beflecktes Blut",
-    "The Best of the Best": "Einsame Spitze",
-    "The Black Ship": "Das schwarze Schiff",
-    "The Gauntlet": "Das Wagnis",
-    "The Greatest Job in the World": "Der beste Beruf der Welt",
-    "The Heist": "Der Raubzug",
-    "Toxic Harvest": "Giftige Ernte",
-    "Unfriendly Message": "Eindeutige Botschaft",
-    "Vile Harvest": "Abscheuliche Ernte",
-    "Warding the Void": "Hüter der Leere",
     "rules": {
       "jotl": {
         "10": {
@@ -362,6 +337,35 @@
           "1": "auf einem Feld des zuletzt zerstörten Zielobjekts",
           "2": "Charaktere erleiden %game.damage:[L/2{$math.floor}]% für jedes Feld, das sie in diesem Raum betreten, bis der Chaosdämon %game.mapMarker.A% getötet wurde"
         }
+      }
+    },
+    "title": {
+      "jotl": {
+        "1": "Straßenraub",
+        "10": "Das Wagnis",
+        "11": "Geschändete Kanalisation",
+        "12": "Trügerische Kanalisation",
+        "13": "Abscheuliche Ernte",
+        "14": "Giftige Ernte",
+        "15": "Beflecktes Blut",
+        "16": "Testergebnisse",
+        "17": "Rotes Zwielicht",
+        "18": "Der Raubzug",
+        "19": "Diebesnest",
+        "2": "Mauerloch",
+        "20": "Warenverkehr",
+        "21": "Handlanger des Chaos",
+        "22": "Eindeutige Botschaft",
+        "23": "Einsame Spitze",
+        "24": "Hüter der Leere",
+        "25": "Der beste Beruf der Welt",
+        "3": "Das schwarze Schiff",
+        "4": "Ritual der Steine",
+        "5": "Tieferes Verständnis",
+        "6": "Verdorbene Forschung",
+        "7": "Versunkenes Geschwür",
+        "8": "Verstecktes Geschwür",
+        "9": "Explosive Evolution"
       }
     }
   }

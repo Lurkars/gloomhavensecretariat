@@ -156,7 +156,7 @@
         </span>
 
         <span class="next" *ngIf="party.weeks == (80 + 80*calendarSheet)" (click)="setWeek(party.weeks+1)"><span
-          [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"></span>
+            [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"></span>
 
         <div class="weeks">
           <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
@@ -480,7 +480,7 @@
                 [ghs-tooltip]="scenarioData.isBlocked ? 'scenario.blocked' : (scenarioData.isLocked ? 'scenario.locked'  : '')"
                 [toggable]="false" (click)="scenarioRequirements(scenarioData)">
                 <img *ngIf="scenarioData.isBlocked || scenarioData.isLocked" src="./assets/images/close.svg">
-                <span [ghs-label]="'data.scenario.' + scenarioData.name"></span>
+                <span [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
               </span>
               <span>
                 <span class="spacer"></span>
@@ -555,7 +555,8 @@
                     <span *ngIf="scenarioData.group" [ghs-label]="'data.scenario.group.' + scenarioData.group"></span>
                   </span>
                   <span class="scenario-title">
-                    <span *ngIf="scenarioData.named" [ghs-label]="'data.scenario.' + scenarioData.name"></span>
+                    <span *ngIf="scenarioData.named"
+                      [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
                     <span *ngIf="scenarioData.parent"
                       [ghs-label]="'%data.scenarioNumber:' + scenarioData.parent + '%'"></span>
                   </span>

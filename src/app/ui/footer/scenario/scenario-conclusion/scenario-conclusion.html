@@ -8,7 +8,7 @@
     <div class="conclusions">
         <span class="placeholder text-white conclusion" *ngFor="let sectionData of data.conclusions"
             [ghs-label]="'scenario.section.conclusion' + (data.parent.conclusion ? '.continue' :  '') + (sectionData.named ? '.named' : '')"
-            [ghs-label-args]="['%data.section:' + sectionData.index + '%', sectionData.named ? 'data.section.' + sectionData.name : '']"
+            [ghs-label-args]="['%data.section:' + sectionData.index + '%', sectionData.named ? gameManager.scenarioManager.scenarioTitle(sectionData,true) : '']"
             (click)="close(sectionData)">
         </span>
     </div>

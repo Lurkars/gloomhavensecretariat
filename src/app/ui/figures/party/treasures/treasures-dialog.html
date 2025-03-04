@@ -14,7 +14,7 @@
         <div class="scenario" *ngFor="let scenario of scenarios">
             <div class="title">
                 <span class="text-white" [ghs-label]="'%data.scenarioNumber:' + scenario.index + '%'"></span>
-                <span class="text-white" [ghs-label]="'data.scenario.' + scenario.name"></span>
+                <span class="text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario)"></span>
             </div>
             <div class="treasures">
                 <div class="hint-container" *ngFor="let treasure of treasures[scenario.index];">

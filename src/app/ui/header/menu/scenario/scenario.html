@@ -54,7 +54,7 @@
       <span tabclick (click)="setScenario(scenario)" class="scenario"
         [ngClass]="{'current' : gameManager.scenarioManager.isCurrent(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
         [ghs-tooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
-        [ghs-label-args]="['data.scenario.' + scenario.name]"
+        [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(scenario)]"
         *ngFor="let scenario of scenarios(group, gameManager.game.party.campaignMode && settingsManager.settings.showOnlyUnfinishedScenarios) | ghsScenarioSearch:search.value">
         <ng-container *ngIf="!scenario.solo">
           <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span

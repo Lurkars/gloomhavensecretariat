@@ -7,7 +7,7 @@ import { GameState } from "src/app/game/model/Game";
 import { ScenarioCache } from "src/app/game/model/Scenario";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-section-menu',
   templateUrl: 'section.html',
   styleUrls: ['../menu.scss', 'section.scss']
@@ -99,7 +99,7 @@ export class SectionMenuComponent implements OnInit, OnDestroy {
   }
 
   addSection(sectionData: ScenarioData) {
-    gameManager.stateManager.before("addSection", sectionData.index, "data.scenario." + sectionData.name, "data.edition." + sectionData.edition);
+    gameManager.stateManager.before("addSection", sectionData.index, gameManager.scenarioManager.scenarioTitle(sectionData, true), "data.edition." + sectionData.edition);
     gameManager.scenarioManager.addSection(sectionData);
     gameManager.stateManager.after();
   }

@@ -4,8 +4,9 @@
     <span class="title" [ghs-label]="'scenario.eventEffects.drawRandomScenario'"></span>
 
     <div class="scenario">
-      <span class="text-white" [ghs-label]="'scenario.eventEffects.drawRandomScenario.' + (section ? 'section' : 'scenario')"
-        [ghs-label-args]="[scenario.index, 'data.' + (section ? 'section.' : 'scenario.') + scenario.name, unlocks]"></span>
+      <span class="text-white"
+        [ghs-label]="'scenario.eventEffects.drawRandomScenario.' + (section ? 'section' : 'scenario')"
+        [ghs-label-args]="[scenario.index, gameManager.scenarioManager.scenarioTitle(scenario, section), unlocks]"></span>
     </div>
 
     <div class="menu">

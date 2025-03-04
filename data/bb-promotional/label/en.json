@@ -36,6 +36,14 @@
           "2": "The goring beetle has 13 hit points."
         }
       }
+    },
+    "title": {
+      "bb": {
+        "12-5": "The Beast Tamer",
+        "2-5": "Narrow Escape",
+        "20-5": "Another Tale",
+        "5-5": "Arena Challenge"
+      }
     }
   }
 }

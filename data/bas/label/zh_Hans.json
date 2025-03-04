@@ -30,7 +30,11 @@
     "sand-spider": "沙漠蜘蛛"
   },
   "scenario": {
-    "All Over the Map": "全图",
-    "Troubled Waters": "浑水"
+    "title": {
+      "bas": {
+        "1": "全图",
+        "2": "浑水"
+      }
+    }
   }
 }

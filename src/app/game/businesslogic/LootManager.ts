@@ -261,7 +261,7 @@ export class LootManager {
           let scenarioData = gameManager.scenarioManager.drawRandomScenario(edition);
           if (scenarioData) {
             gameManager.game.party.manualScenarios.push(new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group));
-            result.push(scenarioData.index, 'data.scenario.' + scenarioData.name);
+            result.push(scenarioData.index, gameManager.scenarioManager.scenarioTitle(scenarioData));
           }
         }
         break;
@@ -270,7 +270,7 @@ export class LootManager {
           let sectionData = gameManager.scenarioManager.drawRandomScenarioSection(edition);
           if (sectionData) {
             gameManager.game.party.conclusions.push(new GameScenarioModel('' + sectionData.index, sectionData.edition, sectionData.group));
-            result.push(sectionData.index, 'data.section.' + sectionData.name, sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : '');
+            result.push(sectionData.index, gameManager.scenarioManager.scenarioTitle(sectionData, true), sectionData.unlocks ? sectionData.unlocks.map((unlock) => '%data.scenarioNumber:' + unlock + '%').join(', ') : '');
           }
         }
         break;

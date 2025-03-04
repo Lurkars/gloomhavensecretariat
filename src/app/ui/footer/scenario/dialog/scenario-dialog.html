@@ -4,8 +4,8 @@
     <div class="title">
       <span *ngIf="scenario.index && !scenario.hideIndex" class="index">#{{scenario.index}}</span>
       <span class="name">
-        <span [ghs-label]="(scenario.name ? 'data.scenario.' +
-      scenario.name : (scenario.custom ? 'scenario.custom' : 'scenario'))"></span>
+        <span
+          [ghs-label]="(scenario.name ? gameManager.scenarioManager.scenarioTitle(scenario) : (scenario.custom ? 'scenario.custom' : 'scenario'))"></span>
       </span>
       <span *ngIf="scenario.level" class="scenario-level-container">
         <span class="scenario-level" [ghs-label]="'scenario.level'" [ghs-label-args]="[scenario.level + '']"
@@ -20,7 +20,8 @@
     <ghs-scenario-setup #setupComponent [scenario]="scenario"
       *ngIf="setup || gameManager.game.round < 1"></ghs-scenario-setup>
 
-    <a class="favors" *ngIf="gameManager.game.round < 1 && gameManager.trialsManager.favorsEnabled" (click)="openFavors()">
+    <a class="favors" *ngIf="gameManager.game.round < 1 && gameManager.trialsManager.favorsEnabled"
+      (click)="openFavors()">
       <span [ghs-label]="'scenario.favors'"></span>
     </a>
 
@@ -34,7 +35,7 @@
       <span class="section" *ngFor="let section of gameManager.game.sections;">
         #{{section.index}}
         <span *ngIf="!scenario || section.name != scenario.name">
-          &nbsp;<span [ghs-label]="'data.section.' + section.name"></span>
+          &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section,true)"></span>
         </span>
         <span class="marker" *ngIf="section.marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
       </span>
@@ -52,7 +53,7 @@
         <span *ngIf="!section.conclusion || !section.name">#{{section.index}}</span>
         <span class="marker" *ngIf="section.marker" [ghs-label]="'%game.mapMarker.' + section.marker +'%'"></span>
         <span *ngIf="section.conclusion && section.name" class="name">
-          &nbsp;<span [ghs-label]="'data.section.' + section.name"></span>
+          &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section,true)"></span>
         </span>
       </span>
     </div>
@@ -62,7 +63,8 @@
         [ghs-label]="'scenario.setup'"></span>
     </label>
 
-    <a class="favors" *ngIf="gameManager.game.round > 0 && gameManager.trialsManager.favorsEnabled" (click)="openFavors()">
+    <a class="favors" *ngIf="gameManager.game.round > 0 && gameManager.trialsManager.favorsEnabled"
+      (click)="openFavors()">
       <span [ghs-label]="'scenario.favors'"></span>
     </a>
 

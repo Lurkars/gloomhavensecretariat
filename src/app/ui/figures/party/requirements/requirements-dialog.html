@@ -3,7 +3,7 @@
     <span class="title">
       <span [ghs-label]="'scenario.requirements'"></span>
       <span class="name">#{{data.scenarioData.index}} <span
-          [ghs-label]="'data.scenario.' + data.scenarioData.name"></span></span>
+          [ghs-label]="gameManager.scenarioManager.scenarioTitle(data.scenarioData)"></span></span>
     </span>
   </div>
 

@@ -126,27 +126,6 @@
     "Xangroth's Aid": "Xangroths Hilfe"
   },
   "scenario": {
-    "A Circular Solution": "Eine runde Sache",
-    "A Gaping Wound": "Klaffende Wunde",
-    "Aftershocks": "Nachbeben",
-    "Bazaar of Knowledge": "Basar des Wissens",
-    "Epilogue of a War": "Epilog eines Krieges",
-    "Future Uncertain": "Ungewisse Zukunft",
-    "Ink Not Yet Dry": "In der Schwebe",
-    "Intricate Work": "Komplexitäten",
-    "Lore Untold": "Neuigkeiten",
-    "Mechanical Genius": "Mechanisches Genie",
-    "Monstrosities of a Cult": "Kultische Monstrositäten",
-    "Past In Flames": "Flammenmeer",
-    "Prologue to the End": "Prolog des Endes",
-    "Shifting Gears": "Getrieberaum",
-    "Shrouded Crypt": "Verhüllte Krypta",
-    "The Bottom of It": "Auf den Grund",
-    "The Lost Thread": "Verlorener Faden",
-    "The Shackles Loosen": "Gelockerte Fesseln",
-    "Tower to the Stars": "Turm zu den Sternen",
-    "Unexpected Visitors": "Unerwarteter Besuch",
-    "Where It Is Needed": "Wo Bedarf ist",
     "rules": {
       "fc": {
         "101": {
@@ -173,6 +152,30 @@
         "98": {
           "1": "Platziere 1 Schadenstoken auf beiden Schiffen %game.mapMarker.a% and %game.mapMarker.b%."
         }
+      }
+    },
+    "title": {
+      "fc": {
+        "100": "Getrieberaum",
+        "101": "Verhüllte Krypta",
+        "102": "Basar des Wissens",
+        "103": "Wo Bedarf ist",
+        "104": "Klaffende Wunde",
+        "105": "Kultische Monstrositäten",
+        "106": "Komplexitäten",
+        "107": "Mechanisches Genie",
+        "108": "Prolog des Endes",
+        "109": "Epilog eines Krieges",
+        "110": "Eine runde Sache",
+        "111": "Gelockerte Fesseln",
+        "112": "Auf den Grund",
+        "113": "Verlorener Faden",
+        "114": "In der Schwebe",
+        "115": "Ungewisse Zukunft",
+        "96": "Unerwarteter Besuch",
+        "97": "Neuigkeiten",
+        "98": "Flammenmeer",
+        "99": "Nachbeben"
       }
     }
   },
@@ -223,6 +226,9 @@
           "1": "auf einen rechts an den Türen %game.mapMarker.3% angrenzenden Feld"
         }
       }
+    },
+    "title": {
+      "fc": {}
     }
   }
 }

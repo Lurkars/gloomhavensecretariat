@@ -30,7 +30,7 @@ export class SectionDialogComponent {
             })
             this.close(true);
         } else {
-            gameManager.stateManager.before("addSection", this.sectionData.index, "data.section." + this.sectionData.name, "data.edition." + this.sectionData.edition);
+            gameManager.stateManager.before("addSection", this.sectionData.index, gameManager.scenarioManager.scenarioTitle(this.sectionData, true), "data.edition." + this.sectionData.edition);
             gameManager.scenarioManager.addSection(this.sectionData);
             gameManager.stateManager.after();
             this.close(true);

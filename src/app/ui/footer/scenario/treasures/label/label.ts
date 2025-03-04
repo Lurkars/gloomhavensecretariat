@@ -7,7 +7,7 @@ import { TreasureData, TreasureReward, TreasureRewardType } from "src/app/game/m
 import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-treasure-label',
     templateUrl: './label.html',
     styleUrls: ['./label.scss'],
@@ -166,7 +166,7 @@ export class TreasureLabelComponent implements OnInit {
             case TreasureRewardType.scenario:
                 const scenarioData = gameManager.scenarioManager.getScenario(value, this.edition, undefined);
                 if (scenarioData) {
-                    return [this.labelPrefix + reward.type, scenarioData.index, 'data.scenario.' + scenarioData.name];
+                    return [this.labelPrefix + reward.type, scenarioData.index, gameManager.scenarioManager.scenarioTitle(scenarioData)];
                 } else {
                     console.warn("Invalid Scenario '" + value + "' on treasure " + this.index + "' for Edition " + this.edition);
                     return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="./assets/images/warning.svg"> %scenario%'];

@@ -4,7 +4,7 @@
             [ghs-label]="'data.custom.' + scenario.edition + '.flowChartGroup.' + scenario.flowChartGroup"></span>
         <span class="title">
             <span class="number text-white" [ghs-label]="'%game.scenarioNumber:' + scenario.index+ '%'"></span>
-            <span class="name text-white" [ghs-label]="'data.scenario.' + scenario.name"></span>
+            <span class="name text-white" [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
         </span>
     </div>
 

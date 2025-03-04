@@ -2323,7 +2323,7 @@
     },
     "interface": "Interface",
     "keyboardShortcuts": {
-      "":"Keyboard Shortcuts enabled",
+      "": "Keyboard Shortcuts enabled",
       "hint": "Enables the listed Keyboard Shortcuts."
     },
     "levelAdjustment": {
@@ -2646,8 +2646,8 @@
         "clear": "Discard drawn Challenges",
         "draw": "Draw Challenge",
         "hide": "Hide Challenge deck",
-        "reorder": "Reorder Challenge deck",
         "removeCard": "Remove card from Challenge deck",
+        "reorder": "Reorder Challenge deck",
         "restoreCard": "Restore card {0} of Challenge deck",
         "show": "Show Challenge deck",
         "shuffle": "Shuffle Challenge deck",
