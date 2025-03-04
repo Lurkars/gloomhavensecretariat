@@ -195,7 +195,7 @@
       "resources": {
         "": "Ressourcen",
         "apply": "Ressourcen verschieben",
-        "move": "Zum Vorrat verschieben"
+        "move": "Zum Frosthaven-Vorrat verschieben"
       },
       "retired": "Ruhestand",
       "retirement": {
@@ -736,7 +736,7 @@
         "ignoreNegativeItem": "negative Zustände von Gegenständen ignorieren",
         "ignoreNegativeItemFh": "ignoriere %game.card.minus1% Zustände von Gegenständen",
         "ignoreNegativeScenario": "negative Szenario Zustände ignorieren",
-        "ignoreScenario": "Szenario Zustände ignorieren"
+        "ignoreScenario": "Ignoriere Szenarioeffekte"
       },
       "scenarioBook": "Im Szenariobuch nachschlagen"
     },
@@ -1021,7 +1021,7 @@
       "allyAffectRange": "%game.target% einen Verbündeten in %game.action.range% {0}an",
       "allyShort": "Verbündeter",
       "enemies": "%game.target% alle Gegner an",
-      "enemiesAdjacent": "%game.target% alle angrenzenden Gegner an",
+      "enemiesAdjacent": "%game.target% alle angrenzenden Gegner",
       "enemiesMovedThrough": "%game.target% alle durchquerten Gegner an",
       "enemiesMovedThroughAdjacent": "%game.target% alle Gegner auf besetzten oder angrenzenden<br>durchquerten Feldern der Bewegungsfertigkeit",
       "enemiesRange": "%game.target% alle Gegner in %game.action.range% {0} an",
