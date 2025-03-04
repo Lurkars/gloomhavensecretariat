@@ -1,0 +1,14 @@
+{
+  "index": "1",
+  "name": "All Over the Map",
+  "edition": "bas",
+  "initial": true,
+  "unlocks": [
+    "2"
+  ],
+  "monsters": [
+    "dust-demon",
+    "sand-spider",
+    "stone-golem"
+  ]
+}
