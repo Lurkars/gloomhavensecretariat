@@ -136,6 +136,10 @@
       "": "Capa de viaje",
       "1": "Al inicio del escenario, aumenta tu valor máximo de puntos de vida en 1."
     },
+    "fh-31": {
+      "": "Amuleto contra la muerte",
+      "1": "Cuando vayas a sufrir %game.damage% de cualquier fuente, prevén el %game.damage%."
+    },
     "fh-4": {
       "": "Armadura de piel tosca",
       "1": "Para los 2 próximos ataques que te tomen como objetivo, el atacante sufre Desventaja."
@@ -143,6 +147,10 @@
     "fh-5": {
       "": "Botas toscas",
       "1": "Durante tu capacidad de Movimiento, añade +1 %game.action.move%"
+    },
+    "fh-57": {
+      "": "Pala",
+      "1": "Durante tu turno, destruye una pieza adyacente de obstáculo, terreno peligroso, terreno impracticable, terreno helado o trampa."
     },
     "fh-6": {
       "": "Botines flexibles",

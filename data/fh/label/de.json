@@ -1,6 +1,21 @@
 {
   "ability": {
-    "Focused Stabs": "Fokussierte Stiche"
+    "Call to the Flame": "Ruf der Flamme",
+    "Circle of Fire": "Feuerkreis",
+    "Fire Bolts": "Feuerbolzen",
+    "Flowing Magma": "Magmafluss",
+    "Focused Stabs": "Fokussierte Stiche",
+    "Frozen Debris": "Gefrorene Trümmer",
+    "Ice Wall": "Eismauer",
+    "Knockout Punch": "K.-o.-Schlag",
+    "One with the Earth": "Eins mit der Natur",
+    "Rock Bomb": "Felsbombe",
+    "Split": "Teilung",
+    "Stone Spikes": "Steinstacheln",
+    "Strength of the Mountain": "Stärke der Berge",
+    "Terrifying Growl": "Schreckliches Knurren",
+    "Two-Fisted Strike": "Doppelte Fäuste",
+    "Warding Swipe": "Schützender Hieb"
   },
   "battleGoals": {
     "1301": {
@@ -104,7 +119,7 @@
       "text": "Sammle mindestens 2 Beutemarker mit einer Beutefertigkeit ein, während du an mindestens einen Gegner angrenzt."
     },
     "1326": {
-      "": "Nadelkiasen",
+      "": "Nadelkissen",
       "text": "Werde in einer Runde zum Angriffsziel von mindestens 3 Gegenern."
     },
     "1327": {
@@ -861,7 +876,7 @@
         "27": "Tiefen des Wahns",
         "28": "Gipfeltreffen",
         "29": "Kampf um den Turm A",
-        "3": "Aglox-Angriff",
+        "3": "Algox-Angriff",
         "30": "Kampf um den Turm B",
         "31": "Knisternder Tunnel",
         "32": "Rabenhorst",
@@ -954,9 +969,6 @@
           "1": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte."
         }
       }
-    },
-    "title": {
-      "fh": {}
     }
   }
 }

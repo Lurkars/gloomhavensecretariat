@@ -283,7 +283,7 @@
     },
     "fh-47": {
       "": "Robe des Schicksals",
-      "1": "OErleide bei den nächsten beiden %game.damage% Quellen bei Angriffen, die dich anvisieren, %game.damage% 3, damit der Angreifer %game.condition.brittle% erhält."
+      "1": "Erleide bei den nächsten beiden %game.damage% Quellen bei Angriffen, die dich anvisieren, %game.damage% 3, damit der Angreifer %game.condition.brittle% erhält."
     },
     "fh-48": {
       "": "Lebende Schuhe",
