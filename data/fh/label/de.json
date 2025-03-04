@@ -1,6 +1,21 @@
 {
   "ability": {
-    "Focused Stabs": "Fokussierte Stiche"
+    "Call to the Flame": "Ruf der Flamme",
+    "Circle of Fire": "Feuerkreis",
+    "Fire Bolts": "Feuerbolzen",
+    "Flowing Magma": "Magmafluss",
+    "Focused Stabs": "Fokussierte Stiche",
+    "Frozen Debris": "Gefrorene Trümmer",
+    "Ice Wall": "Eismauer",
+    "Knockout Punch": "K.-o.-Schlag",
+    "One with the Earth": "Eins mit der Natur",
+    "Rock Bomb": "Felsbombe",
+    "Split": "Teilung",
+    "Stone Spikes": "Steinstacheln",
+    "Strength of the Mountain": "Stärke der Berge",
+    "Terrifying Growl": "Schreckliches Knurren",
+    "Two-Fisted Strike": "Doppelte Fäuste",
+    "Warding Swipe": "Schützender Hieb"
   },
   "battleGoals": {
     "1301": {
@@ -104,7 +119,7 @@
       "text": "Sammle mindestens 2 Beutemarker mit einer Beutefertigkeit ein, während du an mindestens einen Gegner angrenzt."
     },
     "1326": {
-      "": "Nadelkiasen",
+      "": "Nadelkissen",
       "text": "Werde in einer Runde zum Angriffsziel von mindestens 3 Gegenern."
     },
     "1327": {
@@ -796,7 +811,7 @@
     "A Town in Flames": "Stadt in Flammen",
     "A Waiting Game": "Geduldsprobe",
     "Abandoned Hideout": "Verlassenes Versteck",
-    "Algox Offensive": "Aglox-Angriff",
+    "Algox Offensive": "Algox-Angriff",
     "Algox Scouting": "Algox-Erkundung",
     "Among the Wreckage": "Unter Trümmern",
     "Ancient Spire": "Alter Turm",
