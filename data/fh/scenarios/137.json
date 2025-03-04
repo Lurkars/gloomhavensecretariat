@@ -21,7 +21,7 @@
   "rewards": {
     "gold": 30,
     "prosperity": 2,
-    "custom": "Add one +1 sticker to a money loot card (the card gives one extra money token when resolved)",
+    "custom": "%data.scenario.rewards.fh.137%",
     "morale": 3
   },
   "monsters": [

@@ -12,7 +12,7 @@
   "edition": "fh",
   "complexity": 1,
   "rewards": {
-    "custom": "Gain any 4 collective herb resources"
+    "custom": "%data.scenario.rewards.fh.113%"
   },
   "monsters": [
     "chaos-demon",

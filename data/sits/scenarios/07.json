@@ -8,7 +8,7 @@
   "rewards": {
     "experience": 10,
     "battleGoals": 2,
-    "custom": "Gain any 1 herb resources each",
+    "custom": "%data.scenario.rewards.sits.herb1%",
     "ignoredBonus": [
       "inspiration"
     ],

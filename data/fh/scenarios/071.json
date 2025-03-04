@@ -14,7 +14,7 @@
   "allyDeck": true,
   "rewards": {
     "experience": 10,
-    "custom": "Damage any one even building between 71 and 89",
+    "custom": "%data.scenario.rewards.fh.071%",
     "calendarSection": [
       "149.5-5"
     ]

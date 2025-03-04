@@ -4,7 +4,7 @@
   "flowChartGroup": "intro",
   "edition": "cs",
   "rewards": {
-    "custom": "Each character gains +2 gold and 2 experience for each money token looted"
+    "custom": "%data.scenario.rewards.cs.22%"
   },
   "monsters": [
     "black-imp",

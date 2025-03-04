@@ -15,7 +15,7 @@
       "X"
     ],
     "reputation": 2,
-    "custom": "\"Vengeance\" quest complete"
+    "custom": "%data.scenario.rewards.gh.58%"
   },
   "monsters": [
     "black-imp",

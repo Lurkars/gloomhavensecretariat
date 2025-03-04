@@ -13,6 +13,6 @@
   "rewards": {
     "collectiveGold": -10,
     "battleGoals": 1,
-    "custom": "Each character gains 10 gold for each numbered token they looted"
+    "custom": "%data.section.rewards.fh.132-3%"
   }
 }

@@ -20,7 +20,7 @@
     "reputation": 1,
     "prosperity": 1,
     "battleGoals": 1,
-    "custom": "minus 10 gold for each further upgrade to the ship."
+    "custom": "%data.scenario.rewards.ir.04%"
   },
   "monsters": [],
   "rooms": [

@@ -6,7 +6,7 @@
   "named": true,
   "rewards": {
     "prosperity": -2,
-    "custom": "<b>%wip%!</b> manually apply:<br>Rebuild all wrecked buildings for free.",
+    "custom": "%data.section.rewards.fh.175-2%",
     "morale": 5
   }
 }

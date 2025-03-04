@@ -18,7 +18,7 @@
     "88"
   ],
   "rewards": {
-    "custom": "Or 2 inspiration if both brothers survived",
+    "custom": "%data.scenario.rewards.fh.087%",
     "inspiration": 1
   },
   "monsters": [

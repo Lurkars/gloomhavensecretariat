@@ -5,7 +5,7 @@
   "edition": "cs",
   "rewards": {
     "gold": 10,
-    "custom": "One character gains one +1 enhancement to any Level 1 or X card"
+    "custom": "%data.scenario.rewards.cs.16%"
   },
   "monsters": [
     "flame-demon",

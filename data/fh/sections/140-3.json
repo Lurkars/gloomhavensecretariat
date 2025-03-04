@@ -4,6 +4,6 @@
   "edition": "fh",
   "conclusion": true,
   "rewards": {
-    "custom": "Do not turn to the next page in the puzzle book. Instead write the solution to the next puzzle on the same page"
+    "custom": "%data.section.rewards.fh.140-3%"
   }
 }

@@ -5,6 +5,6 @@
   "parent": "130",
   "conclusion": true,
   "rewards": {
-    "custom": "Gain 5 collective gold for each token carried"
+    "custom": "%data.section.rewards.fh.182-1%"
   }
 }

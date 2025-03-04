@@ -4,6 +4,6 @@
   "edition": "fh",
   "conclusion": true,
   "rewards": {
-    "custom": "If building 88 is built, read %data.section:135.4% now.<br>Otherwise, read %data.section:33.1% now."
+    "custom": "%data.section.rewards.fh.181-2%"
   }
 }

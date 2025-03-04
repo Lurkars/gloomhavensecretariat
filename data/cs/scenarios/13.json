@@ -5,7 +5,7 @@
   "edition": "cs",
   "rewards": {
     "prosperity": 1,
-    "custom": "Each character gains one of the following:<br><br>\"Major Stamina Potion\" (Item 34) <br>\"Major Power Potion\" (Item 41) <br>\"Major Mana Potion\" (Item 48) <br>If there are none of these available in the shop, gain 20 gold instead"
+    "custom": "%data.scenario.rewards.cs.13%"
   },
   "monsters": [
     "living-corpse-scenario-13",

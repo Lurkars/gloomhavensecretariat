@@ -11,7 +11,7 @@
       "112",
       "113"
     ],
-    "custom": "\"Apex Predator\" quest complete"
+    "custom": "%data.scenario.rewards.cs.RM4%"
   },
   "monsters": [
     "gnashing-drake",

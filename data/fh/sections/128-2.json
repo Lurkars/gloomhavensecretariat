@@ -7,6 +7,6 @@
     "35"
   ],
   "rewards": {
-    "custom": "Open the Puzzle Book to the first page"
+    "custom": "%data.section.rewards.fh.128-2%"
   }
 }

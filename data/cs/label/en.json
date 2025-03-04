@@ -731,6 +731,26 @@
     "RM2": "Apex Predator"
   },
   "scenario": {
+    "rewards": {
+      "cs": {
+        "random-orb": "Each character gains one random \"Orb\" item (1-10)",
+        "random-stone": "Gain one random \"Stone\" item (94-100)",
+        "13": "Each character gains one of the following:<br><br>\"Major Stamina Potion\" (Item 34) <br>\"Major Power Potion\" (Item 41) <br>\"Major Mana Potion\" (Item 48) <br>If there are none of these available in the shop, gain 20 gold instead",
+        "16": "One character gains one +1 enhancement to any Level 1 or X card",
+        "18": "Gain 100 gold each.<br>This money must be immediately spent on enhancements.",
+        "22": "Each character gains +2 gold and 2 experience for each money token looted",
+        "32": "Read %data.section:75% <br>Password: Water Hydra",
+        "34": "All characters add one %game.condition.bless% card to their attack modifier deck for the next scenario",
+        "39": "Remove the top 5 cards from the City Event deck and shuffle City Event 57 into them. Place the remaining City Event cards aside until City Event 57 is resolved. <br>Any additional card that would be added to the City Event deck during this time is added after City Event 57 is resolved and the remaining cards are combined with the original deck. <br>\"An Adder Divides\" quest is not yet complete.",
+        "49": "During the next visit to Gloomhaven, donations to the Sanctuary cost 0 gold.",
+        "AA1": "\"At All Costs\" quest complete",
+        "AA2": "\"The Weight of Failure\" quest complete",
+        "QA1": "\"Ingenious Inventor\" quest complete",
+        "QA2": "\"Scrap Diver\" quest complete <br><br>15xA gold each (Where A is the number of Ancient Scrap recovered) <br> Add City Event QA-03 to the deck",
+        "RM2": "\"Brutal Enforcer\" quest complete",
+        "RM4": "\"Apex Predator\" quest complete"
+      }
+    },
     "rules": {
       "cs": {
         "11": {

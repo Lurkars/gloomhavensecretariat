@@ -17,7 +17,7 @@
     "3"
   ],
   "rewards": {
-    "custom": "<b>%wip%!</b> manually apply:<br>Gain 2+X morale, where X is the number of City Guards still on the map."
+    "custom": "%data.scenario.rewards.fh.001%"
   },
   "monsters": [
     "algox-archer",

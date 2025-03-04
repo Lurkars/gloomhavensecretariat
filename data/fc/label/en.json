@@ -183,6 +183,11 @@
     "Tower to the Stars": "Tower to the Stars",
     "Unexpected Visitors": "Unexpected Visitors",
     "Where It Is Needed": "Where It Is Needed",
+    "rewards": {
+      "fc": {
+        "challenge1": "All characters may add one new card of their class to their active card pool. The card selected must have a level equal or less then the character's level minus 2."
+      }
+    },
     "rules": {
       "fc": {
         "101": {

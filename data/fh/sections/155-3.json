@@ -6,7 +6,7 @@
   "named": true,
   "rewards": {
     "prosperity": -2,
-    "custom": "<b>%wip%!</b> manually apply:<br>Collectively gain any 6 material resources.",
+    "custom": "%data.section.rewards.fh.155-3%",
     "morale": 5
   }
 }

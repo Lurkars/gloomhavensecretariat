@@ -13,6 +13,6 @@
     "116.1"
   ],
   "rewards": {
-    "custom": "Gain any X collective material resources, where X is the number of episodes overcome"
+    "custom": "%data.section.rewards.fh.177-5%"
   }
 }

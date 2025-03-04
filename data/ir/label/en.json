@@ -24,5 +24,13 @@
     "D2": "The cog and the wheel",
     "LF1": "Now you see me...",
     "LF2": "Chroma flux"
+  },
+  "scenario": {
+    "rewards": {
+      "ir": {
+        "04": "Minus 10 gold for each further upgrade to the ship.",
+        "05": "Minus 10 gold for each further upgrade to the ship. If you spend at least 20 gold each for upgrades, +1 reputation instead."
+      }
+    }
   }
 }

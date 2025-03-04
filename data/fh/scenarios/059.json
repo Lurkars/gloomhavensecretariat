@@ -23,7 +23,7 @@
       "summer-outpost:SO-49",
       "winter-outpost:WO-63"
     ],
-    "custom": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks",
+    "custom": "%data.scenario.rewards.fh.remove-unfettered%",
     "morale": 2,
     "campaignSticker": [
       "unfettered-allies"

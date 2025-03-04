@@ -14,7 +14,7 @@
   "complexity": 1,
   "rewards": {
     "prosperity": 1,
-    "custom": "\"The True Oak\" quest complete"
+    "custom": "%data.scenario.rewards.fh.070%"
   },
   "monsters": [
     "city-guard",

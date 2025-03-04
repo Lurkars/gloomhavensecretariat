@@ -11,7 +11,7 @@
     "items": [
       "101"
     ],
-    "custom": "\"At All Costs\" quest complete"
+    "custom": "%data.scenario.rewards.cs.AA1%"
   },
   "monsters": [
     "bandit-archer",

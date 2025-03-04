@@ -20,7 +20,7 @@
     "reputation": -1,
     "prosperity": 1,
     "battleGoals": 1,
-    "custom": "minus 10 gold for each further upgrade to the ship. If you spend at least 20 gold each for upgrades, +1 reputation instead."
+    "custom": "%data.scenario.rewards.ir.05%"
   },
   "monsters": [],
   "rooms": [

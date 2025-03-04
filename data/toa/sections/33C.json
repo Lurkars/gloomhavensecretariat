@@ -6,6 +6,6 @@
   "conclusion": true,
   "rewards": {
     "collectiveGold": -1,
-    "custom": "Each character loses 1 %game.items.slots.legs% item"
+    "custom": "%data.section.rewards.toa.33C%"
   }
 }

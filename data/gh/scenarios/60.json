@@ -15,7 +15,7 @@
       "X"
     ],
     "prosperity": 1,
-    "custom": "\"Finding the Cure\" quest complete"
+    "custom": "%data.scenario.rewards.gh.60%"
   },
   "monsters": [
     "giant-viper",

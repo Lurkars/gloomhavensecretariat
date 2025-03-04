@@ -11,7 +11,7 @@
     }
   ],
   "rewards": {
-    "custom": "Read %data.section:75% <br>Password: Water Hydra"
+    "custom": "%data.scenario.rewards.cs.32%"
   },
   "monsters": [
     "inox-archer",

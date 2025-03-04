@@ -15,7 +15,7 @@
     "items": [
       "212"
     ],
-    "custom": "Note the corresponding elements of the four doors that were opened",
+    "custom": "%data.scenario.rewards.fh.066%",
     "calendarSection": [
       "29.3-6"
     ]

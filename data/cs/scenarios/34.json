@@ -8,7 +8,7 @@
       "%data.characterIcon.target%"
     ],
     "reputation": 2,
-    "custom": "All characters add one %game.condition.bless% card to their attack modifier deck for the next scenario"
+    "custom": "%data.scenario.rewards.cs.34%"
   },
   "monsters": [
     "inox-archer",

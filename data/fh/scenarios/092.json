@@ -19,7 +19,7 @@
     }
   ],
   "rewards": {
-    "custom": "Collectively lose 5xC/2 loot tokens (rounded down), first taken from HE-RO-IC-S' pile, then taken as evenly as possible from the characters' collected loot tokens. If any loot tokens remain in the HE-RO-IC-S pile, distribute them as evenly as possible to all characters. Loot tokens are then traded in for loot cards",
+    "custom": "%data.scenario.rewards.fh.092%",
     "calendarSection": [
       "181.2-1"
     ]

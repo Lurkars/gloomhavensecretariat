@@ -8,7 +8,7 @@
     "envelopes": [
       "%data.characterIcon.tools%"
     ],
-    "custom": "\"Scrap Diver\" quest complete <br><br>15xA gold each (Where A is the number of Ancient Scrap recovered) <br> Add City Event QA-03 to the deck"
+    "custom": "%data.scenario.rewards.cs.QA2%"
   },
   "monsters": [
     "giant-viper",

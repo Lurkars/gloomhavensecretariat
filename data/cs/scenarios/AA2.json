@@ -11,7 +11,7 @@
     "items": [
       "102"
     ],
-    "custom": "\"The Weight of Failure\" quest complete"
+    "custom": "%data.scenario.rewards.cs.AA2%"
   },
   "monsters": [
     "giant-viper",

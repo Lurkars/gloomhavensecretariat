@@ -3,7 +3,7 @@
   "name": "Lootpalooza",
   "edition": "toa",
   "rewards": {
-    "custom": "Each character gains X gold, where X is 3 times the number of money tokens remaining on the Stone Golem's statistic card."
+    "custom": "%data.scenario.rewards.toa.73%"
   },
   "monsters": [
     "bandit-guard",

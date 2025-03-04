@@ -10,7 +10,7 @@
     "38"
   ],
   "rewards": {
-    "custom": "Gain one random \"Stone\" item (94-100)",
+    "custom": "%data.scenario.rewards.cs.random-stone%",
     "randomItem": "94-100"
   },
   "monsters": [

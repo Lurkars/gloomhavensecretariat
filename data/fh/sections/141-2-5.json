@@ -7,7 +7,7 @@
   "rewards": {
     "experience": 10,
     "prosperity": 1,
-    "custom": "Gain any 2 material resources each",
+    "custom": "%data.section.rewards.fh.material2%",
     "morale": 3,
     "collectiveResources": [
       {

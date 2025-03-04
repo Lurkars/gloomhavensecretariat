@@ -17,6 +17,6 @@
       "summer-road:SR-51",
       "winter-road:WR-40"
     ],
-    "custom": "Open the trials deck now. Do not shuffle it. Each player draws one trial and reads it secretly.<br>Once read by a player, a trial cannot be returned to the deck and must be completed by that player. Some trials may take several scenarios to complete, and should be kept secret by the player until completed. If and when a trial is completed by a player, that player may reveal the trial to other players for the first time, then remove it from the game and draw a new trial off the top of the trials deck."
+    "custom": "%data.section.rewards.fh.145-2%"
   }
 }

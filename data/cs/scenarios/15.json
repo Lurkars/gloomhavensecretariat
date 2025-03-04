@@ -8,7 +8,7 @@
   ],
   "rewards": {
     "gold": 15,
-    "custom": "Each character gains one random \"Orb\" item (1-10)"
+    "custom": "%data.scenario.rewards.cs.random-orb%"
   },
   "monsters": [
     "cave-bear",

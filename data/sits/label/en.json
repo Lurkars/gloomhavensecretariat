@@ -3,6 +3,11 @@
     "sits": "Skulls in the Snow"
   },
   "scenario": {
+    "rewards": {
+      "sits": {
+        "herb1": "Gain any 1 herb resources each"
+      }
+    },
     "rules": {
       "sits": {
         "1": "City Guards act on initiative 50 each round, performing %game.action.move% +0 %game.action.attack% +0 controlled by you. They double the bonuses for occupying stair hexes.",

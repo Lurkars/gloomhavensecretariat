@@ -9,6 +9,6 @@
       "%data.characterIcon.three-eyes%"
     ],
     "battleGoals": 1,
-    "custom": "\"Grave Robber\" quest complete"
+    "custom": "%data.section.rewards.toa.36C-1%"
   }
 }

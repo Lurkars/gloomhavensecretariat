@@ -4,6 +4,6 @@
   "edition": "fh",
   "conclusion": true,
   "rewards": {
-    "custom": "See Section Book"
+    "custom": "%data.section.rewards.fh.165-4%"
   }
 }

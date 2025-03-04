@@ -1837,6 +1837,32 @@
     "group": {
       "randomMonsterCard": "Random Monster Cards"
     },
+    "rewards": {
+      "fh": {
+        "000": "You should now be ready to take on scenario 1 on the following page in the Scenario Book. Do not perform an Outpost Phase until you have completed scenario 1.",
+        "001": "<b>%wip%!</b> manually apply:<br>Gain 2+X morale, where X is the number of City Guards still on the map.",
+        "022": "Lose 1 collective %game.resource.lumber% for each set of five hexes with water tiles on tile 7-G",
+        "033": "Gain 5 experience for each unrevealed dowsing rune",
+        "041": "Read %data.section:36.7% now",
+        "066": "Note the corresponding elements of the four doors that were opened",
+        "068": "\"Aesther Outpost\" quest complete",
+        "070": "\"The True Oak\" quest complete",
+        "071": "Damage any one even building between 71 and 89",
+        "077": "\"Threat from the Deep\" quest complete",
+        "082": "Add the following Forgotten Circles items to the Frosthaven supply: 153, 159, and 161",
+        "087": "Or 2 inspiration if both brothers survived",
+        "092": "Collectively lose 5xC/2 loot tokens (rounded down), first taken from HE-RO-IC-S' pile, then taken as evenly as possible from the characters' collected loot tokens. If any loot tokens remain in the HE-RO-IC-S pile, distribute them as evenly as possible to all characters. Loot tokens are then traded in for loot cards",
+        "113": "Gain any 4 collective herb resources",
+        "118": "Trade all numbered and lettered tokens in for loot cards",
+        "119": "Spend any remaining dust to gain the following: <br><br> Spend seven (once only): Scepter of Control Item #203 <br>Spend one: Any 1 material resource <br>Spend two: Any 1 herb resource",
+        "129": "Note the amount of remaining sun agates",
+        "137": "Add one +1 sticker to a money loot card (the card gives one extra money token when resolved)",
+        "gain2loot": "Gain 2 additional loot cards each",
+        "remove-algox": "Remove all %game.action.custom.fh-algox% events from all outpost event decks",
+        "remove-lurkers": "Remove all %game.action.custom.fh-lurkers% events from all outpost event decks",
+        "remove-unfettered": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks"
+      }
+    },
     "rules": {
       "fh": {
         "0": "Do not set up the Hound monster ability deck. Instead, each round on initiative 26, all Hounds perform %game.action.move% 2; %game.action.attack% 2.",
@@ -1861,6 +1887,35 @@
     }
   },
   "section": {
+    "rewairds": {
+      "fh": {
+        "056-3": "Manual (%wip%):Add any of the following items you have unlocked from <i>Forgotten Circles</i> to the available item supply:<br>154, 155, 157, and 163.",
+        "094-4": "Do not resolve an outpost event this week.",
+        "096-3": "\"Threat from the Deep\" quest complete",
+        "126-1": "<b>%wip%!</b> manually apply:<br>Collectively gain any 6 material resources.",
+        "128-2": "Open the Puzzle Book to the first page",
+        "132-3": "Each character gains 10 gold for each numbered token they looted",
+        "139-2": "You may now play scenarios with the %game.fhIcon:boat% requirement. Name your boat, then write it on the sticker and the front of B-01 and B-02 in the blanks.<br>Shuffle events B-01 to 13 together and use them to create the boat event deck. Store this deck in envelope B when not in use and use the card divider to separate the boat event deck from the other boat event cards.",
+        "140-3": "Do not turn to the next page in the puzzle book. Instead write the solution to the next puzzle on the same page",
+        "145-2": "Open the trials deck now. Do not shuffle it. Each player draws one trial and reads it secretly.<br>Once read by a player, a trial cannot be returned to the deck and must be completed by that player. Some trials may take several scenarios to complete, and should be kept secret by the player until completed. If and when a trial is completed by a player, that player may reveal the trial to other players for the first time, then remove it from the game and draw a new trial off the top of the trials deck.",
+        "146-2": "Each character gains 10 gold for each numbered token they looted <br>All characters start the next scenario with %game.condition.muddle% and %game.condition.curse%",
+        "155-3": "<b>%wip%!</b> manually apply:<br>Collectively gain any 6 material resources.",
+        "155-4": "Unlock Personal Quest 23. Any character may abandon all progress on their current personal quest to take it now, otherwise add it to the personal quest deck.",
+        "161-1": "You may now play scenarios with the %game.fhIcon:climbing-gear% requirement.",
+        "165-4": "See Section Book",
+        "168-2": "Do not resolve an outpost event this week.",
+        "169-2": "You may now play scenarios with the %game.fhIcon:sled% requirement.",
+        "169-3": "Open the Puzzle Book to the first page",
+        "171-5": "Gain 10 collective gold for each token carried",
+        "175-2": "<b>%wip%!</b> manually apply:<br>Rebuild all wrecked buildings for free.",
+        "177-5": "Gain any X collective material resources, where X is the number of episodes overcome",
+        "181-2": "If building 88 is built, read %data.section:135.4% now.<br>Otherwise, read %data.section:33.1% now.",
+        "182-1": "Gain 5 collective gold for each token carried",
+        "188-3": "Gain any 5 collective material resources",
+        "loot-gold": "The looting character gains X gold, where X is how much gold one money token is worth at L+1 (= [2 + [(L+1)/2{$math.floor}]] gold).",
+        "material2": "Gain any 2 material resources each"
+      }
+    },
     "rules": {
       "fh": {
         "21-1": {

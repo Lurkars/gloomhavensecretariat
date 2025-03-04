@@ -7,7 +7,7 @@
   "initial": true,
   "solo": "chain-helmet",
   "rewards": {
-    "custom": "Gain one of the following as an item and the other as an item design: <br>\"Claw Trap\" (Item 34) <br>\"Clamp Trap\" (Item 56)"
+    "custom": "%data.scenario.rewards.solo.58%"
   },
   "monsters": [
     "bandit-archer",

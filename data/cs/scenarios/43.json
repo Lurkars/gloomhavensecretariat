@@ -5,7 +5,7 @@
   "edition": "cs",
   "rewards": {
     "prosperity": 1,
-    "custom": "Each character gains one random \"Orb\" item (1-10)"
+    "custom": "%data.scenario.rewards.cs.random-orb%"
   },
   "monsters": [
     "ancient-artillery",

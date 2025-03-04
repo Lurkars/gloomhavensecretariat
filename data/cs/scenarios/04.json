@@ -8,7 +8,7 @@
     "6"
   ],
   "rewards": {
-    "custom": "Each character gains one random \"Orb\" item (1-10)",
+    "custom": "%data.scenario.rewards.cs.random-orb%",
     "randomItems": "1-10"
   },
   "monsters": [

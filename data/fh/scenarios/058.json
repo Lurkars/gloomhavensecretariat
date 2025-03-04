@@ -22,7 +22,7 @@
       "winter-outpost:WO-64",
       "winter-outpost:WO-65"
     ],
-    "custom": "Remove all %game.action.custom.fh-unfettered% events from all outpost event decks",
+    "custom": "%data.scenario.rewards.fh.remove-unfettered%",
     "morale": 1,
     "collectiveResources": [
       {

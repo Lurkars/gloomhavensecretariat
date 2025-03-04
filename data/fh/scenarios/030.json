@@ -18,7 +18,7 @@
     "events": [
       "winter-outpost:WO-69"
     ],
-    "custom": "Remove all %game.action.custom.fh-algox% events from all outpost event decks",
+    "custom": "%data.scenario.rewards.fh.remove-algox%",
     "morale": 3,
     "campaignSticker": [
       "destroyer-of-the-snowspeakers"

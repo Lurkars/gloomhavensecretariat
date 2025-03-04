@@ -13,7 +13,7 @@
   "rewards": {
     "gold": 10,
     "reputation": 2,
-    "custom": "\"Take Back the Trees\" quest complete",
+    "custom": "%data.scenario.rewards.gh.56%",
     "unlockCharacter": "angry-face"
   },
   "monsters": [

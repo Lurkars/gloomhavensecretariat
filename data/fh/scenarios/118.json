@@ -19,7 +19,7 @@
     }
   ],
   "rewards": {
-    "custom": "Trade all numbered and lettered tokens in for loot cards",
+    "custom": "%data.scenario.rewards.fh.118%",
     "itemBlueprints": [
       "66"
     ]

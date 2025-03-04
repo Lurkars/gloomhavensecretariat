@@ -5,7 +5,7 @@
   "edition": "cs",
   "rewards": {
     "experience": 10,
-    "custom": "Remove the top 5 cards from the City Event deck and shuffle City Event 57 into them. Place the remaining City Event cards aside until City Event 57 is resolved. <br>Any additional card that would be added to the City Event deck during this time is added after City Event 57 is resolved and the remaining cards are combined with the original deck. <br>\"An Adder Divides\" quest is not yet complete."
+    "custom": "%data.scenario.rewards.cs.39%"
   },
   "monsters": [
     "earth-demon",

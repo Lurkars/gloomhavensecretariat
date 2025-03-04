@@ -17,7 +17,7 @@
     "1"
   ],
   "rewards": {
-    "custom": "You should now be ready to take on scenario 1 on the following page in the Scenario Book. Do not perform an Outpost Phase until you have completed scenario 1.",
+    "custom": "%data.scenario.rewards.fh.000%",
     "ignoredBonus": [
       "inspiration"
     ],

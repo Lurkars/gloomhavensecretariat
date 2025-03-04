@@ -76,6 +76,12 @@
     "Unnatural Insults": "Unnatural Insults",
     "group": {
       "solo": "Solo Scenarios"
+    },
+    "rewards": {
+      "solo": {
+        "58": "Gain one of the following as an item and the other as an item design: <br>\"Claw Trap\" (Item 34) <br>\"Clamp Trap\" (Item 56)",
+        "rm6": "If at least three Vermlings were alive at the end of the eighth round: 5 gold <br>If at least five Vermlings were alive at the end of the eighth round: +1 Battle Goal"
+      }
     }
   }
 }

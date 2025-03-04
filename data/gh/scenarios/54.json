@@ -15,7 +15,7 @@
       "city:59",
       "road:59"
     ],
-    "custom": "Immediately retire the Seeker of Xorn. City and Road events instead of normal retirement events for the class",
+    "custom": "%data.scenario.rewards.gh.54%",
     "unlockCharacter": "squidface"
   },
   "monsters": [

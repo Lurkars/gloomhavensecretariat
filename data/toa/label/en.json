@@ -198,5 +198,22 @@
     "646": "Resourceful",
     "647": "Close to Nature",
     "648": "In Good Time"
+  },
+  "scenario": {
+    "rewards": {
+      "toa": {
+        "73": "Each character gains X gold, where X is 3 times the number of money tokens remaining on the Stone Golem's statistic card."
+      }
+    }
+  },
+  "section": {
+    "rewards": {
+      "toa": {
+        "33C": "Each character loses 1 %game.items.slots.legs% item",
+        "36C-1": "\"Grave Robber\" quest complete",
+        "36C-2": "\"Grave Robber\" quest complete",
+        "51A": "To view your reward, visit <a href=\"https://www.thecrimsonscales.com/reveal\" target=\"_blank\">thecrimsonscales.com/reveal</a><br>Password: ashes"
+      }
+    }
   }
 }

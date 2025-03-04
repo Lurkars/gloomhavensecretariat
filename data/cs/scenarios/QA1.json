@@ -12,7 +12,7 @@
       "105",
       "106"
     ],
-    "custom": "\"Ingenious Inventor\" quest complete"
+    "custom": "%data.scenario.rewards.cs.QA1%"
   },
   "monsters": [
     "clockwork-railcaster",

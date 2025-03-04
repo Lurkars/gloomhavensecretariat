@@ -20,7 +20,7 @@
   ],
   "rewards": {
     "experience": 15,
-    "custom": "Lose 1 collective %game.resource.lumber% for each set of five hexes with water tiles on tile 7-G",
+    "custom": "%data.scenario.rewards.fh.022%",
     "calendarSection": [
       "62.2-2"
     ]

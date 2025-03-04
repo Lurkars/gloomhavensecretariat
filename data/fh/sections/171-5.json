@@ -6,7 +6,7 @@
   "conclusion": true,
   "rewards": {
     "prosperity": 1,
-    "custom": "Gain 10 collective gold for each token carried",
+    "custom": "%data.section.rewards.fh.171-5%",
     "morale": -3
   }
 }

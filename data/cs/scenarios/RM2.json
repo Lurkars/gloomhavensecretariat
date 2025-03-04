@@ -9,7 +9,7 @@
       "%data.characterIcon.bleeding-claw%"
     ],
     "prosperity": 1,
-    "custom": "\"Brutal Enforcer\" quest complete"
+    "custom": "%data.scenario.rewards.cs.RM2%"
   },
   "monsters": [
     "bandit-guard",

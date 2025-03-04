@@ -9,7 +9,7 @@
     ],
     "gold": 15,
     "battleGoals": 1,
-    "custom": "All characters may add one new card of their class to their active card pool. The card selected must have a level equal or less then the character's level minus 2."
+    "custom": "%data.scenario.rewards.fc.challenge1%"
   },
   "monsters": [
     "ancient-artillery",

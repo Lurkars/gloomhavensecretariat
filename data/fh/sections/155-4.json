@@ -16,6 +16,6 @@
     "events": [
       "winter-road:WR-40"
     ],
-    "custom": "Unlock Personal Quest 23. Any character may abandon all progress on their current personal quest to take it now, otherwise add it to the personal quest deck."
+    "custom": "%data.section.rewards.fh.155-4%"
   }
 }

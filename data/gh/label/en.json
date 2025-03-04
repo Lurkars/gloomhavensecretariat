@@ -939,6 +939,15 @@
       "randomDungeon": "%scenario.random%",
       "randomMonsterCard": "Random Monster Cards"
     },
+    "rewards": {
+      "gh": {
+        "54": "Immediately retire the Seeker of Xorn. City and Road events instead of normal retirement events for the class",
+        "56": "\"Take Back the Trees\" quest complete",
+        "58": "\"Vengeance\" quest complete",
+        "60": "\"Finding the Cure\" quest complete",
+        "62": "\"The Fall of Man\" quest complete"
+      }
+    },
     "rules": {
       "gh": {
         "19": {

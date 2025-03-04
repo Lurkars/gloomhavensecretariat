@@ -12,7 +12,7 @@
   "edition": "gh",
   "rewards": {
     "experience": 10,
-    "custom": "\"The Fall of Man\" quest complete",
+    "custom": "%data.scenario.rewards.gh.62%",
     "unlockCharacter": "eclipse"
   },
   "monsters": [

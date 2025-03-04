@@ -6,7 +6,7 @@
   "conclusion": true,
   "rewards": {
     "experience": 10,
-    "custom": "Gain any 2 material resources each",
+    "custom": "%data.section.rewards.fh.material2%",
     "morale": 1,
     "collectiveResources": [
       {

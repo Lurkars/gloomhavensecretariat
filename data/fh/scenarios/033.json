@@ -22,7 +22,7 @@
     "items": [
       "244"
     ],
-    "custom": "Gain 5 experience for each unrevealed dowsing rune",
+    "custom": "%data.scenario.rewards.fh.033%",
     "calendarSection": [
       "135.1-3"
     ]

@@ -10,7 +10,7 @@
     "items": [
       "114"
     ],
-    "custom": "If at least three Vermlings were alive at the end of the eighth round: 5 gold <br>If at least five Vermlings were alive at the end of the eighth round: +1 Battle Goal"
+    "custom": "%data.scenario.rewards.solo.rm6%"
   },
   "monsters": [
     "gnashing-drake",

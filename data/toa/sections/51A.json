@@ -4,7 +4,7 @@
   "edition": "toa",
   "conclusion": true,
   "rewards": {
-    "custom": "To view your reward, visit <a href=\"https://www.thecrimsonscales.com/reveal\" target=\"_blank\">thecrimsonscales.com/reveal</a><br>Password: ashes"
+    "custom": "%data.section.rewards.toa.51A%"
   },
   "retirement": "gemstone"
 }

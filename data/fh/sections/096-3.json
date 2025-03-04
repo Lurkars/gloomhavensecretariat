@@ -16,6 +16,6 @@
     "events": [
       "boat:B-18"
     ],
-    "custom": "\"Threat from the Deep\" quest complete"
+    "custom": "%data.section.rewards.fh.096-3%"
   }
 }

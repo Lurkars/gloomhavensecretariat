@@ -13,6 +13,6 @@
   "rewards": {
     "collectiveGold": -5,
     "battleGoals": 1,
-    "custom": "Each character gains 10 gold for each numbered token they looted <br>All characters start the next scenario with %game.condition.muddle% and %game.condition.curse%"
+    "custom": "%data.section.rewards.fh.146-2%"
   }
 }

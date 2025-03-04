@@ -8,7 +8,7 @@
     "21"
   ],
   "rewards": {
-    "custom": "Gain 100 gold each.<br>This money must be immediately spent on enhancements."
+    "custom": "%data.scenario.rewards.cs.18%"
   },
   "monsters": [
     "deep-terror"

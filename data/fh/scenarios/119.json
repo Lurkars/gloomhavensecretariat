@@ -19,7 +19,7 @@
     }
   ],
   "rewards": {
-    "custom": "Spend any remaining dust to gain the following: <br><br> Spend seven (once only): Scepter of Control Item #203 <br>Spend one: Any 1 material resource <br>Spend two: Any 1 herb resource"
+    "custom": "%data.scenario.rewards.fh.119%"
   },
   "monsters": [
     "burrowing-blade",

@@ -25,7 +25,7 @@
     "events": [
       "boat:B-19"
     ],
-    "custom": "\"Threat from the Deep\" quest complete"
+    "custom": "%data.scenario.rewards.fh.077%"
   },
   "monsters": [
     "fish-king",
