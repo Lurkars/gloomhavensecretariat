@@ -208,17 +208,17 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "%game.custom.perks.ignoreNegativeItem% and at the start of each scenario, you may play a level 1 card from your hand to perform a Crystallize %game.characterIconColoredBg.gemstone% action of the card."
+      "custom": "%game.custom.perks.ignoreNegativeItem% %data.custom.toa.gemstone.1%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Once each scenario, when you would suffer damage from an attack, gain \"%game.action.shield% 3\" fo that attack"
+      "custom": "%data.custom.toa.gemstone.2%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Each time you long rest, perform \"%game.condition.regenerate%, Self\""
+      "custom": "%data.custom.toa.gemstone.3%"
     }
   ]
 }

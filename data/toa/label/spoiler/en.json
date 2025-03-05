@@ -6,6 +6,31 @@
     "spiked-ring": "Thornreaper",
     "three-eyes": "Incarnate"
   },
+  "custom": {
+    "toa": {
+      "gemstone": {
+        "1": "and at the start of each scenario, you may play a level 1 card from your hand to perform a Crystallize %game.characterIconColoredBg.gemstone% action of the card.",
+        "2": "Once each scenario, when you would suffer damage from an attack, gain \"%game.action.shield% 3\" fo that attack",
+        "3": "Each time you long rest, perform \"%game.condition.regenerate%, Self\""
+      },
+      "ice-meteor": {
+        "1": "At the start of each scenario, you may either gain %game.condition.wound% to generate %game.element.fire% or gain %game.condition.chill% to generate %game.element.ice%"
+      },
+      "lightning-ball": {
+        "1": "Whenever you dodge an attack, gain one Spark %game.characterIconColoredBg.lightning-ball%",
+        "2": "Whenever you long rest, you may gain %game.condition.dodge%",
+        "3": "Whenever you short rest, you may spent one Spark %game.characterIconColoredBg.lightning-ball%. If you do, one enemety within %game.action.range% 2 suffers one damage."
+      },
+      "spiked-ring": {
+        "1": "Gain %game.action.shield% 1 while you occupy hazardous terrain"
+      },
+      "three-eyes": {
+        "1": "Each time you long rest, perform: %game.coloredToken.5cac66.toa-reaver% %game.coloredToken.c7386a.toa-ritualist% %game.coloredToken.336fa2.toa-conquerer%",
+        "2": "You may bring one additional %game.items.slots.onehand% item into each scenario",
+        "3": "Each time you short rest, Refresh %game.card.recover% one spent %game.items.slots.onehand%"
+      }
+    }
+  },
   "items": {
     "toa-101": {
       "": "Runic Visard",

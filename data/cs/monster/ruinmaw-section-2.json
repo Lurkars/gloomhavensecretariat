@@ -60,7 +60,7 @@
         },
         {
           "type": "custom",
-          "value": "First enemy that ends turn adjacent to the Ruinmaw, perform:",
+          "value": "%data.custom.cs.ruinmaw-section-2.1%",
           "small": true
         },
         {
@@ -75,14 +75,14 @@
             },
             {
               "type": "custom",
-              "value": "Remove %game.condition.invisible%",
+              "value": "%data.custom.cs.ruinmaw-section-2.2%",
               "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "At end of round, if %game.condition.invisible% perform:",
+          "value": "%data.custom.cs.ruinmaw-section-2.3%",
           "small": true
         },
         {
@@ -102,7 +102,7 @@
             },
             {
               "type": "custom",
-              "value": "Remove %game.condition.invisible%",
+              "value": "%data.custom.cs.ruinmaw-section-2.2%",
               "small": true
             }
           ]

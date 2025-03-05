@@ -26,29 +26,29 @@
       [
         {
           "type": "custom",
-          "value": "All characters and character summons gain %game.condition.muddle%",
+          "value": "%data.custom.cs.morphling.2%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "Move all characters to the hexes %game.mapMarker.a% <br>Move the Morphling to hex %game.mapMarker.b%",
+          "value": "%data.custom.cs.morphling.3%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "Draw 1 card from the Sputting Drake deck, the Morphling gains the traits of an elite Spitting Drake and performs the abilities on that card",
+          "value": "%data.custom.cs.morphling.4%",
           "small": true
         }
       ],
       [
         {
           "type": "custom",
-          "value": "All characters and character summons occupying a water tile suffer 1 damage",
+          "value": "%data.custom.cs.morphling.5%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "Draw 1 card from the Lurker deck, the Morphling gains the traits of an elite Lurker and performs the abilities on that card",
+          "value": "%data.custom.cs.morphling.6%",
           "small": true
         }
       ]

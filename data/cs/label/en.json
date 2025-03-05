@@ -431,6 +431,10 @@
   },
   "custom": {
     "cs": {
+      "ancient-artillery-scenario-32": {
+        "1": "Target all enemies at %game.action.range%2 or higher",
+        "2": "where X is the number of hexes between the Artillery and the target"
+      },
       "blood-ooze": {
         "1": "in a hex adjacent to the target with H equal to the summoning %data.monster.blood-ooze%'s current hit point value minus 2 (limited by a normal %data.monster.blood-ooze%'s specific maximum hit point value)",
         "2": "Hit point value equal to three instead",
@@ -474,6 +478,10 @@
       "gelatinous-giant": {
         "1": "All %data.monster.blood-ooze% perform:"
       },
+      "ghost-viper": {
+        "1": "+1 %game.action.attack% on each attack targeting a figure with %game.condition.poison%",
+        "extra": "Even numbered Ghost Vipers act according to the first drawn ability card and odd numbered Ghost Vipers act according to the second drawn ability card."
+      },
       "gnashing-drake": {
         "1": "Add +1 %game.action.attack% if the target's current hit point value is less than maximum."
       },
@@ -505,11 +513,20 @@
         "2": "All enemies adjacent to the target suffer %game.damage:1%",
         "3": "Gain %game.action.range:3% on all %game.action.retaliate% abilities."
       },
+      "inox-bodyguard-scenario-32": {
+        "1": "Then focus on a new target and repeat these abilities until there are no new targets",
+        "2": "If no other Inox alive:"
+      },
       "land-leviathan": {
         "1": "Increase the %data.monster.land-leviathan%'s maximum hit point value by 2."
       },
       "morphling": {
-        "1": "Shield only applies before its turn."
+        "1": "Shield only applies before its turn.",
+        "2": "All characters and character summons gain %game.condition.muddle%",
+        "3": "Move all characters to the hexes %game.mapMarker.a% <br>Move the Morphling to hex %game.mapMarker.b%",
+        "4": "Draw 1 card from the Sputting Drake deck, the Morphling gains the traits of an elite Spitting Drake and performs the abilities on that card",
+        "5": "All characters and character summons occupying a water tile suffer 1 damage",
+        "6": "Draw 1 card from the Lurker deck, the Morphling gains the traits of an elite Lurker and performs the abilities on that card"
       },
       "ravenous-gharial": {
         "1": "Unaffected by water hexes",
@@ -527,6 +544,11 @@
         "1": "where X is equal to the number of Void Pit obstacles",
         "2": "Jump to an empty hex adjacent to a Void Pit obstacle furthest away from a character within %game.action.range:4%.",
         "3": "All enemies adjacent to a Void Pit obstacle suffer %game.damage:2%."
+      },
+      "ruinmaw-section-2": {
+        "1": "First enemy that ends turn adjacent to the Ruinmaw, perform:",
+        "2": "Remove %game.condition.invisible%",
+        "3": "At end of round, if %game.condition.invisible% perform:"
       },
       "terrible-two-archer": {
         "1": "Create a %game.damage:3% trap in an adjacent empty hex closest to an enemy"
@@ -701,34 +723,133 @@
     "Take the Money": "Take the Money"
   },
   "personalQuest": {
-    "330": "Protect and Serve",
-    "331": "Weapon Specialist",
-    "332": "Experimentation",
-    "333": "Thrill Seeker",
-    "334": "Trap Setter",
-    "335": "Bandit Banisher",
-    "336": "Creatures in the Night",
-    "337": "Experienced Leader",
-    "338": "Adrenaline Spike",
-    "339": "Mutual Support",
-    "340": "Thy be Blessed",
-    "341": "Spiritual Gains",
-    "342": "The Path of Agony",
-    "343": "Cruel Dominion",
-    "344": "Natural Selection",
-    "345": "Predator and Prey",
-    "346": "An Adder Divides",
-    "347": "Field Research",
-    "348": "Conjurers Hand",
-    "349": "No Rest for the Wicked",
-    "350": "Health First",
-    "351": "Limitless Searching",
-    "AA1": "At All Costs",
-    "AA2": "The Weight of Failure",
-    "QA1": "Ingenious Inventor",
-    "QA2": "Scrap Diver",
-    "RM1": "Brutal Enforcer",
-    "RM2": "Apex Predator"
+    "cs": {
+      "330": {
+        "": "Protect and Serve",
+        "1": "Follow \"Siege Tower\" (Scenario 33) to a conclusion"
+      },
+      "331": {
+        "": "Weapon Specialist",
+        "1": "%game.items.slots.onehand% or %game.items.slots.twohand% items consumed"
+      },
+      "332": {
+        "": "Experimentation",
+        "1": "Lost cards played"
+      },
+      "333": {
+        "": "Thrill Seeker",
+        "1": "Rooms revealed"
+      },
+      "334": {
+        "": "Trap Setter",
+        "1": "Traps disarmed or sprung"
+      },
+      "335": {
+        "": "Bandit Banisher",
+        "1": "Guards or Archers killed",
+        "2": "Follow \"Prison Riot\" (Scenario 35) to a conclusion"
+      },
+      "336": {
+        "": "Creatures in the Night",
+        "1": "Oozes, Forest Imps or Black Imps killed"
+      },
+      "337": {
+        "": "Experienced Leader",
+        "1": "Scenarios completed with ≥ 12 experience"
+      },
+      "338": {
+        "": "Adrenaline Spike",
+        "1": "Enemies killed and money token looted"
+      },
+      "339": {
+        "": "Mutual Support",
+        "1": "Enemies killed adjacent to allies"
+      },
+      "340": {
+        "": "Thy be Blessed",
+        "1": "%game.attackmodifier.bless% drawn"
+      },
+      "341": {
+        "": "Spiritual Gains",
+        "1": "Gold spend on enhancements"
+      },
+      "342": {
+        "": "The Path of Agony",
+        "1": "Allies became exhausted during their turn"
+      },
+      "343": {
+        "": "Cruel Dominion",
+        "1": "Scenaries completed where enemy killed with negative condition"
+      },
+      "344": {
+        "": "Natural Selection",
+        "1": "%game.element.fire% generated",
+        "2": "%game.element.ice% generated",
+        "3": "%game.element.light% generated",
+        "4": "%game.element.dark% generated",
+        "5": "Follow \"Burning Stones\" (Scenario 37) to a conclusion"
+      },
+      "345": {
+        "": "Predator and Prey",
+        "1": "Two or more enemies killed in same turn"
+      },
+      "346": {
+        "": "An Adder Divides",
+        "1": "Difficult terrain occupied in different scenarios",
+        "2": "Follow \"Festering Mire\" (Scenario 39) to a conclusion"
+      },
+      "347": {
+        "": "Field Research",
+        "1": "Different types of monsters poisoned"
+      },
+      "348": {
+        "": "Conjurers Hand",
+        "1": "Summoned monsters killed"
+      },
+      "349": {
+        "": "No Rest for the Wicked",
+        "1": "Scenarios completed with one type of rest (long or short)"
+      },
+      "350": {
+        "": "Health First",
+        "1": "Scenarios completed with full health"
+      },
+      "351": {
+        "": "Limitless Searching",
+        "1": "Money tokens looted"
+      },
+      "AA1": {
+        "": "At All Costs",
+        "1": "Scenarios with negating damage by loosing a card while adjacent to ally",
+        "2": "Follow \"The Riches of the Steelsilk\" (Scenario AA1) to a conclusion"
+      },
+      "AA2": {
+        "": "The Weight of Failure",
+        "1": "Scenarios completed without exhausting and 2 or less HP",
+        "2": "Follow \"Malign Echoes\" (Scenario AA2) to a conclusion"
+      },
+      "QA1": {
+        "": "Ingenious Inventor",
+        "1": "Enemies killed with Power Modulator (Item QA-01)",
+        "2": "Follow \"Capstone Test\" (Scenario QA1) to a conclusion"
+      },
+      "QA2": {
+        "": "Scrap Diver",
+        "1": "Two or more money tokens looted in single action",
+        "2": "Treasure tiles looted",
+        "3": "Follow \"Mother Lode\" (Scenario QA2) to a conclusion"
+      },
+      "RM1": {
+        "": "Brutal Enforcer",
+        "1": "Enemies with %game.condition.wound% or %game.condition.rupture% applied",
+        "2": "Follow \"Mind Your Manners\" (Scenario RM1) to a conclusion"
+      },
+      "RM2": {
+        "": "Apex Predator",
+        "1": "Rounds where enemy died during or after perform %game.card.lost% action",
+        "2": "Follow \"Ruined Colony\" (Scenario RM3) to a conclusion"
+      }
+    }
   },
   "scenario": {
     "rewards": {

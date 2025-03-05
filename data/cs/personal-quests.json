@@ -7,7 +7,7 @@
                 "counter": 10
             },
             {
-                "name": "Follow \"Siege Tower\" (Scenario 33) to a conclusion",
+                "name": "%data.personalQuest.cs.330.1%",
                 "counter": 1,
                 "autotrack": "scenario:33|34",
                 "requires": [
@@ -21,7 +21,7 @@
         "cardId": "331",
         "requirements": [
             {
-                "name": "%game.items.slots.onehand% or %game.items.slots.twohand% items consumed",
+                "name": "%data.personalQuest.cs.331.1%",
                 "counter": 15,
                 "autotrack": "itemConsumed:onehand|twohand"
             }
@@ -32,7 +32,7 @@
         "cardId": "332",
         "requirements": [
             {
-                "name": "Lost cards played",
+                "name": "%data.personalQuest.cs.332.1%",
                 "counter": 30
             }
         ],
@@ -42,7 +42,7 @@
         "cardId": "333",
         "requirements": [
             {
-                "name": "Rooms revealed",
+                "name": "%data.personalQuest.cs.333.1%",
                 "counter": 20
             }
         ],
@@ -52,7 +52,7 @@
         "cardId": "334",
         "requirements": [
             {
-                "name": "Traps disarmed or sprung",
+                "name": "%data.personalQuest.cs.334.1%",
                 "counter": 15
             }
         ],
@@ -62,11 +62,11 @@
         "cardId": "335",
         "requirements": [
             {
-                "name": "Guards or Archers killed",
+                "name": "%data.personalQuest.cs.335.1%",
                 "counter": 10
             },
             {
-                "name": "Follow \"Prison Riot\" (Scenario 35) to a conclusion",
+                "name": "%data.personalQuest.cs.335.2%",
                 "counter": 1,
                 "autotrack": "scenario:35|36",
                 "requires": [
@@ -80,7 +80,7 @@
         "cardId": "336",
         "requirements": [
             {
-                "name": "Oozes, Forest Imps or Black Imps killed",
+                "name": "%data.personalQuest.cs.336.1%",
                 "counter": 20
             }
         ],
@@ -90,7 +90,7 @@
         "cardId": "337",
         "requirements": [
             {
-                "name": "Scenarios completed with ≥ 12 experience",
+                "name": "%data.personalQuest.cs.337.1%",
                 "counter": 12,
                 "autotrack": "scenarioXP"
             }
@@ -101,7 +101,7 @@
         "cardId": "338",
         "requirements": [
             {
-                "name": "Enemies killed and money token looted",
+                "name": "%data.personalQuest.cs.338.1%",
                 "counter": 15
             }
         ],
@@ -111,7 +111,7 @@
         "cardId": "339",
         "requirements": [
             {
-                "name": "Enemies killed adjacent to allies",
+                "name": "%data.personalQuest.cs.339.1%",
                 "counter": 15
             }
         ],
@@ -121,7 +121,7 @@
         "cardId": "340",
         "requirements": [
             {
-                "name": "%game.attackmodifier.bless% drawn",
+                "name": "%data.personalQuest.cs.340.1%",
                 "counter": 12,
                 "autotrack": "blessDrawn"
             }
@@ -132,7 +132,7 @@
         "cardId": "341",
         "requirements": [
             {
-                "name": "Gold spend on enhancements",
+                "name": "%data.personalQuest.cs.341.1%",
                 "counter": 200
             }
         ],
@@ -142,7 +142,7 @@
         "cardId": "342",
         "requirements": [
             {
-                "name": "Allies became exhausted during their turn",
+                "name": "%data.personalQuest.cs.342.1%",
                 "counter": 13,
                 "autotrack": "exhaustedCharsTurn"
             }
@@ -153,7 +153,7 @@
         "cardId": "343",
         "requirements": [
             {
-                "name": "Scenaries completed where enemy killed with negative condition",
+                "name": "%data.personalQuest.cs.343.1%",
                 "counter": 10
             }
         ],
@@ -163,27 +163,27 @@
         "cardId": "344",
         "requirements": [
             {
-                "name": "%game.element.fire% generated",
+                "name": "%data.personalQuest.cs.344.1%",
                 "counter": 2,
                 "autotrack": "element:fire"
             },
             {
-                "name": "%game.element.ice% generated",
+                "name": "%data.personalQuest.cs.344.2%",
                 "counter": 2,
                 "autotrack": "element:ice"
             },
             {
-                "name": "%game.element.light% generated",
+                "name": "%data.personalQuest.cs.344.3%",
                 "counter": 2,
                 "autotrack": "element:light"
             },
             {
-                "name": "%game.element.dark% generated",
+                "name": "%data.personalQuest.cs.344.4%",
                 "counter": 2,
                 "autotrack": "element:dark"
             },
             {
-                "name": "Follow \"Burning Stones\" (Scenario 37) to a conclusion",
+                "name": "%data.personalQuest.cs.344.5%",
                 "counter": 1,
                 "autotrack": "scenario:37|38",
                 "requires": [
@@ -200,7 +200,7 @@
         "cardId": "345",
         "requirements": [
             {
-                "name": "Two or more enemies killed in same turn",
+                "name": "%data.personalQuest.cs.345.1%",
                 "counter": 15
             }
         ],
@@ -210,11 +210,11 @@
         "cardId": "346",
         "requirements": [
             {
-                "name": "Difficult terrain occupied in different scenarios",
+                "name": "%data.personalQuest.cs.346.1%",
                 "counter": 6
             },
             {
-                "name": "Follow \"Festering Mire\" (Scenario 39) to a conclusion",
+                "name": "%data.personalQuest.cs.346.2%",
                 "counter": 1,
                 "autotrack": "scenario:39|40",
                 "requires": [
@@ -228,7 +228,7 @@
         "cardId": "347",
         "requirements": [
             {
-                "name": "Different types of monsters poisoned",
+                "name": "%data.personalQuest.cs.347.1%",
                 "counter": 20
             }
         ],
@@ -238,7 +238,7 @@
         "cardId": "348",
         "requirements": [
             {
-                "name": "Summoned monsters killed",
+                "name": "%data.personalQuest.cs.348.1%",
                 "counter": 10
             }
         ],
@@ -248,7 +248,7 @@
         "cardId": "349",
         "requirements": [
             {
-                "name": "Scenarios completed with one type of rest (long or short)",
+                "name": "%data.personalQuest.cs.349.1%",
                 "counter": 10
             }
         ],
@@ -258,7 +258,7 @@
         "cardId": "350",
         "requirements": [
             {
-                "name": "Scenarios completed with full health",
+                "name": "%data.personalQuest.cs.350.1%",
                 "counter": 7,
                 "autotrack": "completedHighHP"
             }
@@ -269,7 +269,7 @@
         "cardId": "351",
         "requirements": [
             {
-                "name": "Money tokens looted",
+                "name": "%data.personalQuest.cs.351.1%",
                 "counter": 30,
                 "autotrack": "looted:gold"
             }
@@ -280,11 +280,11 @@
         "cardId": "AA1",
         "requirements": [
             {
-                "name": "Scenarios with negating damage by loosing a card while adjacent to ally",
+                "name": "%data.personalQuest.cs.AA1.1%",
                 "counter": 8
             },
             {
-                "name": "Follow \"The Riches of the Steelsilk\" (Scenario AA1) to a conclusion",
+                "name": "%data.personalQuest.cs.AA1.2%",
                 "counter": 1,
                 "autotrack": "scenario:AA1",
                 "requires": [
@@ -298,12 +298,12 @@
         "cardId": "AA2",
         "requirements": [
             {
-                "name": "Scenarios completed without exhausting and 2 or less HP",
+                "name": "%data.personalQuest.cs.AA2.1%",
                 "counter": 8,
                 "autotrack": "completedLowHP"
             },
             {
-                "name": "Follow \"Malign Echoes\" (Scenario AA2) to a conclusion",
+                "name": "%data.personalQuest.cs.AA2.2%",
                 "counter": 1,
                 "autotrack": "scenario:AA2",
                 "requires": [
@@ -317,11 +317,11 @@
         "cardId": "QA1",
         "requirements": [
             {
-                "name": "Enemies killed with Power Modulator (Item QA-01)",
+                "name": "%data.personalQuest.cs.QA1.1%",
                 "counter": 8
             },
             {
-                "name": "Follow \"Capstone Test\" (Scenario QA1) to a conclusion",
+                "name": "%data.personalQuest.cs.QA1.2%",
                 "counter": 1,
                 "autotrack": "scenario:QA1",
                 "requires": [
@@ -335,16 +335,16 @@
         "cardId": "QA2",
         "requirements": [
             {
-                "name": "Two or more money tokens looted in single action",
+                "name": "%data.personalQuest.cs.QA2.1%",
                 "counter": 8
             },
             {
-                "name": "Treasure tiles looted",
+                "name": "%data.personalQuest.cs.QA2.2%",
                 "counter": 2,
                 "autotrack": "treasures"
             },
             {
-                "name": "Follow \"Mother Lode\" (Scenario QA2) to a conclusion",
+                "name": "%data.personalQuest.cs.QA2.3%",
                 "counter": 1,
                 "autotrack": "QA2",
                 "requires": [
@@ -359,11 +359,11 @@
         "cardId": "RM1",
         "requirements": [
             {
-                "name": "Enemies with %game.condition.wound% or %game.condition.rupture% applied",
+                "name": "%data.personalQuest.cs.RM1.1%",
                 "counter": 13
             },
             {
-                "name": "Follow \"Mind Your Manners\" (Scenario RM1) to a conclusion",
+                "name": "%data.personalQuest.cs.RM1.2%",
                 "counter": 1,
                 "autotrack": "RM1",
                 "requires": [
@@ -377,11 +377,11 @@
         "cardId": "RM2",
         "requirements": [
             {
-                "name": "Rounds where enemy died during or after perform %game.card.lost% action",
+                "name": "%data.personalQuest.cs.RM2.1%",
                 "counter": 20
             },
             {
-                "name": "Follow \"Ruined Colony\" (Scenario RM3) to a conclusion",
+                "name": "%data.personalQuest.cs.RM2.2%",
                 "counter": 1,
                 "autotrack": "RM3",
                 "requires": [

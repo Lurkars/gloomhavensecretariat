@@ -193,7 +193,7 @@
     },
     {
       "type": "custom",
-      "custom": "You may increase the number of canisters in your hand to five",
+      "custom": "%data.custom.ir.dynamite.1%",
       "count": 1
     },
     {

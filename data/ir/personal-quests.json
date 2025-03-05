@@ -3,7 +3,7 @@
         "cardId": "LF1",
         "requirements": [
             {
-                "name": "Killing blow dealed to enemies before they took turn",
+                "name": "%data.custom.personalQuest.ir.LF1.1%",
                 "counter": 10
             }
         ],
@@ -13,7 +13,7 @@
         "cardId": "LF2",
         "requirements": [
             {
-                "name": "Scenarios with Sun or Night Demons completed",
+                "name": "%data.custom.personalQuest.ir.LF2.1%",
                 "counter": 5
             }
         ],
@@ -23,7 +23,7 @@
         "cardId": "A1",
         "requirements": [
             {
-                "name": "Became poisoned",
+                "name": "%data.custom.personalQuest.ir.A1.1%",
                 "counter": 10
             }
         ],
@@ -33,7 +33,7 @@
         "cardId": "A2",
         "requirements": [
             {
-                "name": "Witnessed creatures being summoned by enemies",
+                "name": "%data.custom.personalQuest.ir.A2.1%",
                 "counter": 15
             }
         ],
@@ -43,11 +43,11 @@
         "cardId": "D1",
         "requirements": [
             {
-                "name": "Frost Demons killed",
+                "name": "%data.custom.personalQuest.ir.D1.1%",
                 "counter": 5
             },
             {
-                "name": "Flame Demons killed",
+                "name": "%data.custom.personalQuest.ir.D1.2%",
                 "counter": 5
             }
         ],
@@ -57,7 +57,7 @@
         "cardId": "D2",
         "requirements": [
             {
-                "name": "Traps sprung or disarmed",
+                "name": "%data.custom.personalQuest.ir.D2.1%",
                 "counter": 10
             }
         ],
@@ -67,7 +67,7 @@
         "cardId": "B1",
         "requirements": [
             {
-                "name": "Correctly guessed battle goal completions",
+                "name": "%data.custom.personalQuest.ir.B1.1%",
                 "counter": 6
             }
         ],
@@ -77,7 +77,7 @@
         "cardId": "B2",
         "requirements": [
             {
-                "name": "Scenarios on hard difficulty completed",
+                "name": "%data.custom.personalQuest.ir.B2.1%",
                 "counter": 4
             }
         ],

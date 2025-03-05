@@ -1463,6 +1463,9 @@
       "hound": {
         "1": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies."
       },
+      "ice-wraith": {
+        "1": "All elite Ice Wraiths<br> become normal, and all<br> normal Ice Wraiths become elite."
+      },
       "laser-spires": {
         "1": "Rotate each laser spire clockwise (if able)",
         "2": "Rotate each laser spire counterclockwise (if able)",
@@ -1668,29 +1671,111 @@
     "yoglang": "Yoglang"
   },
   "personalQuest": {
-    "505": "Refined Tastes",
-    "509": "Threat from the Deep",
-    "513": "End the Trickery",
-    "519": "Eternal Wanderer",
-    "523": "Continued Prosperity",
-    "527": "Prepared for the Worst",
-    "538": "Battle Legend",
-    "542": "Let Them Be",
-    "543": "The Choosen One",
-    "545": "Quiet the Dead Places",
-    "549": "Return to Simplicity",
-    "552": "The Study of Life",
-    "557": "The Greatest Challenge",
-    "581": "The Study of Plants",
-    "582": "Searching for the Oak",
-    "583": "Merchant Class",
-    "584": "Greed is Good",
-    "585": "Build, not Destroy",
-    "586": "Team Building",
-    "587": "Aesther Outpost",
-    "588": "Dangerous Game",
-    "589": "Life Lessons",
-    "590": "Explore the Reaches"
+    "fh": {
+      "505": {
+        "": "Refined Tastes",
+        "1": "Items craftable with own items costs"
+      },
+      "509": {
+        "": "Threat from the Deep",
+        "1": "Follow \"Invasion of the Docks\" %game.scenarioNumber:71% to a conclusion"
+      },
+      "514": {
+        "": "End the Trickery",
+        "1": "Imps killed"
+      },
+      "519": {
+        "": "Eternal Wanderer",
+        "1": "Completed scenario in Whitefire Wood",
+        "2": "Completed scenario in Copperneck Mountains",
+        "3": "Completed scenario in Radiant Forest",
+        "4": "Completed scenario in Crystal Fields",
+        "5": "Completed scenario in Biting Sea"
+      },
+      "523": {
+        "": "Continued Prosperity",
+        "1": "Gold donated to the Temple of the Great Oak"
+      },
+      "527": {
+        "": "Prepared for the Worst",
+        "1": "Enhancements purchased"
+      },
+      "538": {
+        "": "Battle Legend",
+        "1": "Earned %game.checkmark% from completed battle goals"
+      },
+      "542": {
+        "": "Let Them Be",
+        "1": "Side scenarios (numbered 65 or higher) completed"
+      },
+      "543": {
+        "": "The Choosen One",
+        "1": "Allies exhausted during scenarios you otherwise complete"
+      },
+      "545": {
+        "": "Quiet the Dead Places",
+        "1": "Gain Abyss Axe blueprint %game.itemFh.39%",
+        "2": "Frozen Corpses, Ice Wraiths, and/or Living Dooms killed with it"
+      },
+      "549": {
+        "": "Return to Simplicity",
+        "1": "Ruined Machines killed"
+      },
+      "552": {
+        "": "The Study of Life",
+        "1": "Enemies captured"
+      },
+      "557": {
+        "": "The Greatest Challenge",
+        "1": "Challenges completed"
+      },
+      "581": {
+        "": "The Study of Plants",
+        "1": "Different types of herbs looted"
+      },
+      "582": {
+        "": "Searching for the Oak",
+        "1": "Lumber cards looted",
+        "2": "Follow \"Sacred Soil\" %game.scenarioNumber:69% to a conclusion"
+      },
+      "583": {
+        "": "Merchant Class",
+        "1": "%game.items.slots.head% items",
+        "2": "%game.items.slots.body% items",
+        "3": "%game.items.slots.legs% items",
+        "4": "%game.items.slots.onehand% or %game.items.slots.twohand% items",
+        "5": "%game.items.slots.small% items"
+      },
+      "584": {
+        "": "Greed is Good"
+      },
+      "585": {
+        "": "Build, not Destroy",
+        "1": "Buildings constructed or upgraded"
+      },
+      "586": {
+        "": "Team Building",
+        "1": "Person's name read in different outpost phases"
+      },
+      "587": {
+        "": "Aesther Outpost",
+        "1": "Follow \"A Strong Foundation\" %game.scenarioNumber:65% to a conclusion"
+      },
+      "588": {
+        "": "Dangerous Game",
+        "1": "Algox Guards killed",
+        "2": "Lurker Clawcrushers killed",
+        "3": "Robotic Boltshooters killed"
+      },
+      "589": {
+        "": "Life Lessons",
+        "1": "Experience gained from ability cards"
+      },
+      "590": {
+        "": "Explore the Reaches",
+        "1": "Scenarios completed with %game.fhIcon:boat%, %game.fhIcon:climbing-gear%, or %game.fhIcon:sled% requirement "
+      }
+    }
   },
   "scenario": {
     "group": {
@@ -1923,8 +2008,19 @@
     },
     "rules": {
       "fh": {
+        "130-3": {
+          "1": "Gain Advantage on this target"
+        },
         "180-3": {
           "1": "Gain one Hide"
+        },
+        "17-2": {
+          "1": "+2 material resource",
+          "2": "Gain any two material resources"
+        },
+        "19-2": {
+          "1": "+1 material resource",
+          "2": "Gain any one material resource"
         },
         "192-1": {
           "1": "Gain one Metal"

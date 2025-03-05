@@ -274,17 +274,17 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Each time you long rest, perform: %game.coloredToken.5cac66.toa-reaver% %game.coloredToken.c7386a.toa-ritualist% %game.coloredToken.336fa2.toa-conquerer%"
+      "custom": "%data.custom.toa.three-eyes.1%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "You may bring one additional %game.items.slots.onehand% item into each scenario"
+      "custom": "%data.custom.toa.three-eyes.2%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Each time you short rest, Refresh %game.card.recover% one spent %game.items.slots.onehand%"
+      "custom": "%data.custom.toa.three-eyes.3%"
     },
     {
       "type": "remove",

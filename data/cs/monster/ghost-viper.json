@@ -13,7 +13,7 @@
       },
       {
         "type": "custom",
-        "value": "+1 %game.action.attack% on each attack targeting a figure with %game.condition.poison%",
+        "value": "%data.custom.cs.ghost-viper.1%",
         "small": true
       }
     ]

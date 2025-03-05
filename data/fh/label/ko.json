@@ -150,7 +150,11 @@
     "yoglang": "Yoglang"
   },
   "personalQuest": {
-    "519": "영원한 방랑자"
+    "fh": {
+      "519": {
+        "": "영원한 방랑자"
+      }
+    }
   },
   "scenario": {
     "group": {

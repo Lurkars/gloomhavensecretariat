@@ -16,14 +16,41 @@
     "thrax": "Thrax"
   },
   "personalQuest": {
-    "A1": "Addictive Intoxication",
-    "A2": "The origin of the species",
-    "B1": "I see the future",
-    "B2": "Against the odds",
-    "D1": "Essential fuel",
-    "D2": "The cog and the wheel",
-    "LF1": "Now you see me...",
-    "LF2": "Chroma flux"
+    "ir": {
+      "A1": {
+        "": "Addictive Intoxication",
+        "1": "Became poisoned"
+      },
+      "A2": {
+        "": "The origin of the species",
+        "1": "Witnessed creatures being summoned by enemies"
+      },
+      "B1": {
+        "": "I see the future",
+        "1": "Correctly guessed battle goal completions"
+      },
+      "B2": {
+        "": "Against the odds",
+        "1": "Scenarios on hard difficulty completed"
+      },
+      "D1": {
+        "": "Essential fuel",
+        "1": "Frost Demons killed",
+        "2": "Flame Demons killed"
+      },
+      "D2": {
+        "": "The cog and the wheel",
+        "1": "Traps sprung or disarmed"
+      },
+      "LF1": {
+        "": "Now you see me...",
+        "1": "Killing blow dealed to enemies before they took turn"
+      },
+      "LF2": {
+        "": "Chroma flux",
+        "1": "Scenarios with Sun or Night Demons completed"
+      }
+    }
   },
   "scenario": {
     "rewards": {

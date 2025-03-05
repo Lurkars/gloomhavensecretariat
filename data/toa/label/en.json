@@ -190,14 +190,42 @@
     "volt-demon": "Volt Demon"
   },
   "personalQuest": {
-    "641": "Grave Robber",
-    "642": "Stand as One",
-    "643": "False Dichotomies",
-    "644": "Shared Suffering",
-    "645": "Speed is King",
-    "646": "Resourceful",
-    "647": "Close to Nature",
-    "648": "In Good Time"
+    "toa": {
+      "641": {
+        "": "Grave Robber",
+        "1": "Money tokes looted in scenarios with Living Bons, Living Corpses, or Living Spritits",
+        "2": "Follow \"Ternion Tomb\" (Scenario 67) to a conclusion"
+      },
+      "642": {
+        "": "Stand as One",
+        "1": "Enemies killed with \"Battle Standard\" (Item 115) by allies with abilities granted by you"
+      },
+      "643": {
+        "": "False Dichotomies",
+        "1": "Option A choosed on an event",
+        "2": "Option B choosed on an event"
+      },
+      "644": {
+        "": "Shared Suffering",
+        "1": "Enemies killed while they're adjacent to one or more of their allies"
+      },
+      "645": {
+        "": "Speed is King",
+        "1": "Enemies with initiative at least 20 slower than yours killed"
+      },
+      "646": {
+        "": "Resourceful",
+        "1": "Different scenarios where twice performed a loot action adjacent to an enemy"
+      },
+      "647": {
+        "": "Close to Nature",
+        "1": "Scenarios completed used at least one Bush, Tree, or Thorns overlay"
+      },
+      "648": {
+        "": "In Good Time",
+        "1": "Long rests perfomred while an enemy is in the same room"
+      }
+    }
   },
   "scenario": {
     "rewards": {

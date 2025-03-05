@@ -10,7 +10,7 @@
       "actions": [
         {
           "type": "switchType",
-          "value": "All elite Ice Wraiths<br> become normal, and all<br> normal Ice Wraiths become elite.",
+          "value": "%data.custom.fh.ice-wraith.1%",
           "small": true
         },
         {

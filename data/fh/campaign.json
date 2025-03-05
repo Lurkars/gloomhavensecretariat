@@ -85,8 +85,8 @@
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "+1 material resource",
-                                    "hint": "Gain any one material resource"
+                                    "value": "%data.section.rules.fh.19-2.1%",
+                                    "hint": "%data.section.rules.fh.19-2.1%"
                                 }
                             ]
                         }
@@ -127,8 +127,8 @@
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "+2 material resource",
-                                    "hint": "Gain any two material resources"
+                                    "value": "%data.section.rules.fh.17-2.1%",
+                                    "hint": "%data.section.rules.fh.17-2.2%"
                                 }
                             ]
                         }
@@ -217,7 +217,7 @@
                                 {
                                     "type": "custom",
                                     "value": "advantage",
-                                    "hint": "Gain Advantage on this target"
+                                    "hint": "%data.section.rules.fh.130-3.1%"
                                 }
                             ]
                         }

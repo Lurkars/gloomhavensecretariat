@@ -3,11 +3,11 @@
         "cardId": "641",
         "requirements": [
             {
-                "name": "Money tokes looted in scenarios with Living Bons, Living Corpses, or Living Spritits",
+                "name": "%data.custom.personalQuest.ir.641.1%",
                 "counter": 15
             },
             {
-                "name": "Follow \"Ternion Tomb\" (Scenario 67) to a conclusion",
+                "name": "%data.custom.personalQuest.ir.641.2%",
                 "counter": 1,
                 "requires": [
                     1
@@ -20,7 +20,7 @@
         "cardId": "642",
         "requirements": [
             {
-                "name": "Enemies killed with \"Battle Standard\" (Item 115) by allies with abilities granted by you",
+                "name": "%data.custom.personalQuest.ir.642.1%",
                 "counter": 12
             }
         ],
@@ -30,11 +30,11 @@
         "cardId": "643",
         "requirements": [
             {
-                "name": "Option A choosed on an event",
+                "name": "%data.custom.personalQuest.ir.643.1%",
                 "counter": 8
             },
             {
-                "name": "Option B choosed on an event",
+                "name": "%data.custom.personalQuest.ir.643.2%",
                 "counter": 8
             }
         ],
@@ -44,7 +44,7 @@
         "cardId": "644",
         "requirements": [
             {
-                "name": "Enemies killed while they're adjacent to one or more of their allies",
+                "name": "%data.custom.personalQuest.ir.644.1%",
                 "counter": 13
             }
         ],
@@ -54,7 +54,7 @@
         "cardId": "645",
         "requirements": [
             {
-                "name": "Enemies with initiative at least 20 slower than yours killed",
+                "name": "%data.custom.personalQuest.ir.645.1%",
                 "counter": 20
             }
         ],
@@ -64,7 +64,7 @@
         "cardId": "646",
         "requirements": [
             {
-                "name": "Different scenarios where twice performed a loot action adjacent to an enemy",
+                "name": "%data.custom.personalQuest.ir.646.1%",
                 "counter": 10
             }
         ],
@@ -74,7 +74,7 @@
         "cardId": "647",
         "requirements": [
             {
-                "name": "Scenarios completed used at least one Bush, Tree, or Thorns overlay",
+                "name": "%data.custom.personalQuest.ir.647.1%",
                 "counter": 4
             }
         ],
@@ -84,7 +84,7 @@
         "cardId": "648",
         "requirements": [
             {
-                "name": "Long rests perfomred while an enemy is in the same room",
+                "name": "%data.custom.personalQuest.ir.648.1%",
                 "counter": 13
             }
         ],

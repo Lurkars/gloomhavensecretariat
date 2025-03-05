@@ -59,12 +59,12 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "Target all enemies at %game.action.range%2 or higher",
+              "value": "%data.custom.cs.ancient-artillery-scenario-32.1%",
               "small": true
             },
             {
               "type": "custom",
-              "value": "where X is the number of hexes between the Artillery and the target",
+              "value": "%data.custom.cs.ancient-artillery-scenario-32.2%",
               "small": true
             }
           ]

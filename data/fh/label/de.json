@@ -790,16 +790,38 @@
     "yoglang": "Yoglang"
   },
   "personalQuest": {
-    "581": "Pflanzenstudien",
-    "582": "Suche nach der Eiche",
-    "583": "Kaufmannsgilde",
-    "584": "Gute Gier",
-    "585": "Aufbau statt Zerstörung",
-    "586": "Gruppengefühl",
-    "587": "Aesther-Außenposten",
-    "588": "Gefährliches Spiel",
-    "589": "Lebenserfahrung",
-    "590": "Erkundung der Weite"
+    "fh": {
+      "581": {
+        "": "Pflanzenstudien"
+      },
+      "582": {
+        "": "Suche nach der Eiche"
+      },
+      "583": {
+        "": "Kaufmannsgilde"
+      },
+      "584": {
+        "": "Gute Gier"
+      },
+      "585": {
+        "": "Aufbau statt Zerstörung"
+      },
+      "586": {
+        "": "Gruppengefühl"
+      },
+      "587": {
+        "": "Aesther-Außenposten"
+      },
+      "588": {
+        "": "Gefährliches Spiel"
+      },
+      "589": {
+        "": "Lebenserfahrung"
+      },
+      "590": {
+        "": "Erkundung der Weite"
+      }
+    }
   },
   "scenario": {
     "group": {

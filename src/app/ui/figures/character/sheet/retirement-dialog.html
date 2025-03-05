@@ -92,7 +92,7 @@
             <input class="card-id" *ngIf="additional" [value]="additionalPQ && additionalPQ.cardId || ''" type="text"
                 (change)="changeAdditionalPQ($event)">
             <span *ngIf="additionalPQ" class="personal-quest-name">
-                <span [ghs-label]="'data.personalQuest.' + additionalPQ.cardId"></span>
+                <span [ghs-label]="'data.personalQuest.' + additionalPQ.edition + '.' + additionalPQ.cardId"></span>
                 <span *ngIf="additionalPQ.altId">&nbsp;({{additionalPQ.altId}})</span>
             </span>
         </div>

@@ -837,6 +837,10 @@
       filter: none !important;
     }
 
+    .special-target-value {
+      display: block;
+    }
+
     .main-action,
     .subactions,
     .condition-subactions {
@@ -1121,6 +1125,7 @@
     }
 
     &.text-black {
+
       .subactions,
       .condition-subactions,
       .monster-type-subactions,

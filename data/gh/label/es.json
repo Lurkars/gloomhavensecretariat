@@ -316,30 +316,80 @@
     "Water Staff": "Personal del agua"
   },
   "personalQuest": {
-    "510": "Buscador de Xorn",
-    "511": "Clase comerciante",
-    "512": "la codicia es buena",
-    "513": "Hallar la cura",
-    "514": "GH: Estudios de anatomía FH: Acabar con las jugarretas",
-    "515": "Defensor de la ley",
-    "516": "Tributo de sangre",
-    "517": "Trofeo de caza",
-    "518": "Eterno viajero",
-    "519": "Leyenda de las batallas",
-    "520": "Instrumento de la luz",
-    "521": "Recupera los árboles",
-    "522": "lugares enrarecidos",
-    "523": "Cazador de aberraciones",
-    "524": "Actitud intrépida",
-    "525": "Devoción por todas las cosas",
-    "526": "Venganza",
-    "527": "Fanático del dios de la sangre",
-    "528": "Vencedor de Goliat",
-    "529": "la caída del hombre",
-    "530": "Capacidades aumentadas",
-    "531": "Muestras elementales",
-    "532": "Una mano amiga",
-    "533": "El veneno perfecto"
+    "gh": {
+      "510": {
+        "": "Buscador de Xorn"
+      },
+      "511": {
+        "": "Clase comerciante"
+      },
+      "512": {
+        "": "la codicia es buena"
+      },
+      "513": {
+        "": "Hallar la cura"
+      },
+      "514": {
+        "": "GH: Estudios de anatomía FH: Acabar con las jugarretas"
+      },
+      "515": {
+        "": "Defensor de la ley"
+      },
+      "516": {
+        "": "Tributo de sangre"
+      },
+      "517": {
+        "": "Trofeo de caza"
+      },
+      "518": {
+        "": "Eterno viajero"
+      },
+      "519": {
+        "": "Leyenda de las batallas"
+      },
+      "520": {
+        "": "Instrumento de la luz"
+      },
+      "521": {
+        "": "Recupera los árboles"
+      },
+      "522": {
+        "": "lugares enrarecidos"
+      },
+      "523": {
+        "": "Cazador de aberraciones"
+      },
+      "524": {
+        "": "Actitud intrépida"
+      },
+      "525": {
+        "": "Devoción por todas las cosas"
+      },
+      "526": {
+        "": "Venganza"
+      },
+      "527": {
+        "": "Fanático del dios de la sangre"
+      },
+      "528": {
+        "": "Vencedor de Goliat"
+      },
+      "529": {
+        "": "la caída del hombre"
+      },
+      "530": {
+        "": "Capacidades aumentadas"
+      },
+      "531": {
+        "": "Muestras elementales"
+      },
+      "532": {
+        "": "Una mano amiga"
+      },
+      "533": {
+        "": "El veneno perfecto"
+      }
+    }
   },
   "scenario": {
     "Random Dungeon": "Mazmorra aleatoria",

@@ -1135,17 +1135,41 @@
     "wind-demon": "Demonio de Viento"
   },
   "personalQuest": {
-    "549": "Regreso a lo básico",
-    "581": "El estudio de las plantas",
-    "582": "En busca del Roble",
-    "583": "Vocación comercial",
-    "584": "¿Qué hay de malo en ahorrar?",
-    "585": "Construir, no destruir",
-    "586": "Animal social",
-    "587": "Avanzada etérida",
-    "588": "Juego peligroso",
-    "589": "Lecciones de vida",
-    "590": "Explorar los confines"
+    "fh": {
+      "549": {
+        "": "Regreso a lo básico"
+      },
+      "581": {
+        "": "El estudio de las plantas"
+      },
+      "582": {
+        "": "En busca del Roble"
+      },
+      "583": {
+        "": "Vocación comercial"
+      },
+      "584": {
+        "": "¿Qué hay de malo en ahorrar?"
+      },
+      "585": {
+        "": "Construir, no destruir"
+      },
+      "586": {
+        "": "Animal social"
+      },
+      "587": {
+        "": "Avanzada etérida"
+      },
+      "588": {
+        "": "Juego peligroso"
+      },
+      "589": {
+        "": "Lecciones de vida"
+      },
+      "590": {
+        "": "Explorar los confines"
+      }
+    }
   },
   "scenario": {
     "group": {

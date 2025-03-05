@@ -252,7 +252,7 @@
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "Gain %game.action.shield% 1 while you occupy hazardous terrain"
+      "custom": "%data.custom.toa.spiked-ring.1%"
     }
   ]
 }

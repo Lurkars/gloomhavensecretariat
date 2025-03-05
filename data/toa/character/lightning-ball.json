@@ -249,18 +249,18 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you dodge an attack, gain one Spark %game.characterIconColoredBg.lightning-ball%"
+      "custom": "%data.custom.toa.lightning-ball.1%"
     },
     {
       "type": "custom",
       "count": 2,
       "combined": true,
-      "custom": "Whenever you long rest, you may gain %game.condition.dodge%"
+      "custom": "%data.custom.toa.lightning-ball.2%"
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you short rest, you may spent one Spark %game.characterIconColoredBg.lightning-ball%. If you do, one enemety within %game.action.range% 2 suffers one damage."
+      "custom": "%data.custom.toa.lightning-ball.3%"
     }
   ]
 }

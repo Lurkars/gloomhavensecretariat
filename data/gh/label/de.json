@@ -282,25 +282,65 @@
     "Water Staff": "Wasserstab"
   },
   "personalQuest": {
-    "510": "Suche nach Xorn",
-    "511": "Kaufmannsgilde",
-    "513": "Suche nach Heilung",
-    "514": "Anatomische Studien",
-    "516": "Wehrhaftes Fleisch",
-    "518": "Ewige Wanderschaft",
-    "519": "Kampflegende",
-    "520": "Werkzeug des Lichts",
-    "521": "Rückeroberung des Waldes",
-    "522": "Hauchdünn",
-    "523": "Tilgung des Unnatürlichen",
-    "524": "Unerschrocken",
-    "525": "Voller Frömmigkeit",
-    "526": "Rachefeldzug",
-    "527": "Für den Blutgott",
-    "528": "Sturz der Giganten",
-    "529": "Vergangene Zivilisation",
-    "530": "Verbesserte Fähigkeiten",
-    "533": "Das perfekte Gift"
+    "gh": {
+      "510": {
+        "": "Suche nach Xorn"
+      },
+      "511": {
+        "": "Kaufmannsgilde"
+      },
+      "513": {
+        "": "Suche nach Heilung"
+      },
+      "514": {
+        "": "Anatomische Studien"
+      },
+      "516": {
+        "": "Wehrhaftes Fleisch"
+      },
+      "518": {
+        "": "Ewige Wanderschaft"
+      },
+      "519": {
+        "": "Kampflegende"
+      },
+      "520": {
+        "": "Werkzeug des Lichts"
+      },
+      "521": {
+        "": "Rückeroberung des Waldes"
+      },
+      "522": {
+        "": "Hauchdünn"
+      },
+      "523": {
+        "": "Tilgung des Unnatürlichen"
+      },
+      "524": {
+        "": "Unerschrocken"
+      },
+      "525": {
+        "": "Voller Frömmigkeit"
+      },
+      "526": {
+        "": "Rachefeldzug"
+      },
+      "527": {
+        "": "Für den Blutgott"
+      },
+      "528": {
+        "": "Sturz der Giganten"
+      },
+      "529": {
+        "": "Vergangene Zivilisation"
+      },
+      "530": {
+        "": "Verbesserte Fähigkeiten"
+      },
+      "533": {
+        "": "Das perfekte Gift"
+      }
+    }
   },
   "scenario": {
     "Random Dungeon": "Zufallsabenteuer",

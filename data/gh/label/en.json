@@ -813,30 +813,123 @@
     "Water Staff": "Water Staff"
   },
   "personalQuest": {
-    "510": "Seeker of Xorn",
-    "511": "Merchant Class",
-    "512": "Greed Is Gold",
-    "513": "Finding the Cure",
-    "514": "A Study of Anatomy",
-    "515": "Law Bringer",
-    "516": "Pounds of Flesh",
-    "517": "Trophy Hunt",
-    "518": "Eternal Wanderer",
-    "519": "Battle Legend",
-    "520": "Implement of Light",
-    "521": "Take Back the Trees",
-    "522": "The Thin Places",
-    "523": "Aberrant Slayer",
-    "524": "Fearless Stand",
-    "525": "Piety in All Things",
-    "526": "Vengeance",
-    "527": "Zealot of the Blood Good",
-    "528": "Goliath Toppler",
-    "529": "The Fall of Man",
-    "530": "Augmented Abilities",
-    "531": "Elemental Samples",
-    "532": "A Helping Hand",
-    "533": "The Perfect Poison"
+    "gh": {
+      "510": {
+        "": "Seeker of Xorn",
+        "1": "\"Crypt\" Scenarios",
+        "2": "Follow \"Noxious Cellar\" (Scenario 52) to a conclusion"
+      },
+      "511": {
+        "": "Merchant Class",
+        "1": "%game.items.slots.head% items",
+        "2": "%game.items.slots.body% items",
+        "3": "%game.items.slots.legs% items",
+        "4": "%game.items.slots.onehand% or %game.items.slots.twohand% items",
+        "5": "%game.items.slots.small% items"
+      },
+      "512": {
+        "": "Greed Is Gold"
+      },
+      "513": {
+        "": "Finding the Cure",
+        "1": "Forest Imps killed",
+        "2": "Follow \"Forgotten Grove\" (Scenario 59) to a conclusion"
+      },
+      "514": {
+        "": "A Study of Anatomy",
+        "1": "Exhausted Party Members"
+      },
+      "515": {
+        "": "Law Bringer",
+        "1": "Bandits or Cultists killed"
+      },
+      "516": {
+        "": "Pounds of Flesh",
+        "1": "Vermlings killed"
+      },
+      "517": {
+        "": "Trophy Hunt",
+        "1": "Different types of monsters killed"
+      },
+      "518": {
+        "": "Eternal Wanderer",
+        "1": "Different scenarios completed"
+      },
+      "519": {
+        "": "Battle Legend",
+        "1": "Earned %game.checkmark% from completed battle goals"
+      },
+      "520": {
+        "": "Implement of Light",
+        "1": "Living Bones, Living Corpses, or Living Spirits killed with Skullbane Axe"
+      },
+      "521": {
+        "": "Take Back the Trees",
+        "1": "Completed scenarios in Dagger Forest",
+        "2": "Follow \"Foggy Thicket\" (Scenario 55) to a conclusion"
+      },
+      "522": {
+        "": "The Thin Places",
+        "1": "Completed side scenarios (scenario number > 51)"
+      },
+      "523": {
+        "": "Aberrant Slayer",
+        "1": "Flame Demon killed",
+        "2": "Frost Demon killed",
+        "3": "Wind Demon killed",
+        "4": "Earth Demon killed",
+        "5": "Night Demon killed",
+        "6": "Sun Demon killed"
+      },
+      "524": {
+        "": "Fearless Stand",
+        "1": "Elite monsters killed"
+      },
+      "525": {
+        "": "Piety in All Things",
+        "1": "Gold donated to the Sanctuary of the Great Oak"
+      },
+      "526": {
+        "": "Vengeance",
+        "1": "Completed scenarios in Gloomhaven",
+        "2": "Follow \"Investigation\" (Scenario 57) to a conclusion"
+      },
+      "527": {
+        "": "Zealot of the Blood Good"
+      },
+      "528": {
+        "": "Goliath Toppler",
+        "1": "Completed boss sceanrios"
+      },
+      "529": {
+        "": "The Fall of Man",
+        "1": "Completed scenarios in Lingering Swarm",
+        "2": "Follow \"Fading Lighthouse\" (Scenario 61) to a conclusion"
+      },
+      "530": {
+        "": "Augmented Abilities",
+        "1": "Enhancements"
+      },
+      "531": {
+        "": "Elemental Samples",
+        "1": "Completed scenario in Gloomhaven",
+        "2": "Completed scenario in Dagger Forest",
+        "3": "Completed scenario in Lingering Swamp",
+        "4": "Completed scenario in Watcher Mountains",
+        "5": "Completed scenario in Copperneck Mountains",
+        "6": "Completed scenario in Misty Sea"
+      },
+      "532": {
+        "": "A Helping Hand",
+        "1": "Personal quests achieved"
+      },
+      "533": {
+        "": "The Perfect Poison",
+        "1": "Oozes killed",
+        "2": "Lurkers killed",
+        "3": "Spitting Drakes killed"
+      }
+    }
   },
   "scenario": {
     "group": {

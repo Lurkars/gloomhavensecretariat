@@ -29,7 +29,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Then focus on a new target and repeat these abilities until there are no new targets",
+              "value": "%data.custom.cs.inox-bodyguard-scenario-32.1%",
               "small": true
             }
           ]
@@ -63,7 +63,7 @@
         },
         {
           "type": "custom",
-          "value": "If no other Inox alive:",
+          "value": "%data.custom.cs.inox-bodyguard-scenario-32.2%",
           "small": true,
           "subActions": [
             {

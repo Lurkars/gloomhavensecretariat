@@ -13,7 +13,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Even numbered Ghost Vipers act according to the first drawn ability card and odd numbered Ghost Vipers act according to the second drawn ability card."
+        "value": "%data.custom.cs.ghost-viper.extra%"
       }
     ],
     "special": []
