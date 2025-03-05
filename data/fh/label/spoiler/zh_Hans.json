@@ -1443,6 +1443,25 @@
       "1": "在选择卡牌期间，在角色选择卡牌之前，为本轮翻开每个激活的怪物组别能力牌库顶的1张卡牌。"
     }
   },
+  "summon": {
+    "armored-tank": "装甲坦克",
+    "banner-of-courage": "英勇旗帜",
+    "banner-of-doom": "末日旗帜",
+    "banner-of-hope": "希望旗帜",
+    "banner-of-strength": "力量旗帜",
+    "banner-of-valor": "勇气旗帜",
+    "bone-horde": "白骨聚合体",
+    "longbowman": "长弓手",
+    "raging-corpse": "暴走尸体",
+    "reinforcements": "援军",
+    "shadow-beast": "暗影野兽",
+    "shadow-horror": "暗影骇物",
+    "shambling-skeleton": "蹒跚骷髅",
+    "skeleton-sorcerer": "骷髅术士",
+    "torch-bearer": "火炬手",
+    "trained-falcon": "受训猎鹰",
+    "wraith": "缚灵"
+  },
   "trials": {
     "fh": {
       "348": {

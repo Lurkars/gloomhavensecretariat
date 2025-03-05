@@ -189,6 +189,11 @@
       "1": "Durante tu turno, realiza: %game.condition.wound%, %game.condition.poison% Personal"
     }
   },
+  "pets": {
+    "fh-05": {
+      "1": "En orden de iniciativa, todos los personajes de forma inmediata realizan:"
+    }
+  },
   "summon": {
     "banner-of-courage": "Bandera de coraje",
     "banner-of-doom": "Bandera de condena",
@@ -212,5 +217,13 @@
     "trained-falcon": "Halcón adiestrado",
     "white-owl": "Búho blanco",
     "wraith": "Espectro"
+  },
+  "treasures": {
+    "fh": {
+      "51": "Lee %data.section:78.1%",
+      "54": "¿El cofre del tesoro? No había ningún cofre del tesoro allí Tal vez deberías ir más despacio con la bebida.",
+      "57": "¿Qué es esto? Un cofre vacío con una trampilla de plomo en la parte inferior. Anotas la ubicación para poder volver con la ayuda de Gem más tarde.",
+      "62": "Ganas el diseño del cubo mecánico %game.itemFh.82% cuando encuentres la otra mitad de este plano."
+    }
   }
 }

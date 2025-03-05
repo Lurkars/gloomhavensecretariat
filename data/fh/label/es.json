@@ -78,6 +78,7 @@
     "Drain Life": "Drenar la vida",
     "Drain Speed": "Drenar velocidad",
     "Drain Strength": "Drenar fuerza",
+    "Drain the Essence": "Drenar la esencia",
     "Earthen Blow": "Golpe terrestre",
     "Earthen Eruption": "Erupción terrestre",
     "Easy Prey": "Presa fácil",
@@ -137,6 +138,7 @@
     "Hibernate": "Hibernar",
     "Horrible Glare": "Mirada aterradora",
     "Horrowing Howl": "Aullido desgarrador",
+    "Hungry Maw": "Fauces hambrientas",
     "Ice Barrier": "Barrera de hielo",
     "Ice Wall": "Pared de hielo",
     "Icy Glare": "Mirada heladora",
@@ -208,6 +210,7 @@
     "Shift Form": "Cambio de forma",
     "Shining Orb": "Orbe brillante",
     "Shocking Voltage": "Electrocución",
+    "Shoot Foot": "Disparo al pie",
     "Signal Jam": "Interferencia",
     "Sleet": "Cellisca",
     "Smash Armor": "Hundir armadura",
@@ -725,7 +728,7 @@
       "fast": "Rápido",
       "slow": "Lento",
       "time_tokens": {
-        "": "Fichas de tiempo",
+        "": "%data.characterToken.blinkblade.time% Fichas de tiempo",
         "hint": "Añadir/eliminar de forma automática fichas de tiempo al inicio de la ronda tras definir lento/rápido"
       }
     },
@@ -1175,6 +1178,26 @@
     "group": {
       "randomMonsterCard": "Cartas de monstruos aleatorias"
     },
+    "rewards": {
+      "fh": {
+        "000": "Ahora deberías estar listo para enfrentarse al escenario 1 en la siguiente página del Libro de Escenarios. No realices una fase de Puesto Fronterizo hasta que hayas completado el escenario 1.",
+        "001": "<b>%wip%!</b> Aplica de forma manual:<br>Gana 2+X moral, donde X es el número de Guardias de la Ciudad que siguen en el mapa.",
+        "022": "Perdéis 1 %game.resource.lumber% colectivo por cada grupo de cinco hexágonos con fichas de agua en la pieza 7-G",
+        "033": "Gana 5 de experiencia por cada runa de radiestesia no revelada",
+        "041": "Lee %data.section:36.7% ahora",
+        "066": "Apunta los elementos correspondientes a las cuatro puertas que se abrieron",
+        "071": "Daña cualquier edificio incluso entre 71 y 89",
+        "082": "Añade los siguientes objetos de Círculos Olvidados al suministro de Frosthaven: 153, 159 y 161",
+        "087": "O 2 inspiración si ambos hermanos sobrevivieron",
+        "113": "Obtén 4 recursos de plantas colectivas cualesquiera",
+        "118": "Cambia todas las fichas numeradas y con letras por cartas de botín",
+        "137": "Añade una pegatina +1 a una carta de botín de dinero (la carta da una ficha de dinero extra cuando se resuelve)",
+        "gain2loot": "Gana 2 cartas de botín adicionales cada uno",
+        "remove-algox": "Elimina todos los eventos %game.action.custom.fh-algox% de todos los mazos de eventos de los Puestos Fronterizo",
+        "remove-lurkers": "Elimina todos los eventos %game.action.custom.fh-lurkers% de todos los mazos de eventos de los Puestos Fronterizo",
+        "remove-unfettered": "Elimina todos los eventos %game.action.custom.fh-unfettered% de todos los mazos de eventos de los Puestos Fronterizo"
+      }
+    },
     "rules": {
       "fh": {
         "0": "No coloques el mazo de habilidades del monstruo Sabueso. En lugar de eso, cada ronda tienen una iniciativa de 26, todos los Sabuesos realizan, %game.action.move% 2; %game.action.attack% 2.",
@@ -1339,11 +1362,40 @@
         "96": "Estación subterranea",
         "97": "Nexo de control de programación",
         "98": "Conducto de ventilación peligroso",
-        "99": "Fuga"
+        "99": "Fuga",
+        "randomDungeon-rnd": "Mazmorra aleatoria"
       }
     }
   },
   "section": {
+    "rewards": {
+      "fh": {
+        "056-3": "Manual (%wip%): Añade los que desees de los siguientes objetos que ya tienes desbloqueándose en <i>Circulos Olvifsfos</i> a los objetos disponibles:<br>154, 155, 157, y 163.",
+        "094-4": "No resuelvas un evento de Puesto Fronterizo esta semana.",
+        "126-1": "<b>%wip%!</b> Añade de forma manual:<br>Gana 6 recursos materiales de forma colectiva.",
+        "128-2": "Abre el libro de puzzles por la primera página",
+        "132-3": "Cada personaje gana 10 de oro por cada ficha numerada que haya saqueado",
+        "139-2": "Ahora puedes jugar a los escenarios con el requisito %game.fhIcon:boat%. Pon un nombre a tu barco, escríbelo en la pegatina y en la parte delantera de B-01 y B-02<br>Baraja los eventos B-01 a 13 juntos y úsalos para crear el mazo de barco activo. Guarda este mazo en el sobre B cuando no esté en uso y emplea el separador para separar las cartas activas de las otras.",
+        "140-3": "No pases a la página siguiente del libro de puzzles. En su lugar, escribe la solución del siguiente puzzle en la misma página",
+        "145-2": "Abre el mazo de pruebas ahora. No lo barajes. Cada jugador roba una carta del mazo y la lee en secreto.<br>Una vez leído por el jugador, la carta no puede ser devuelta al mazo y debe ser completada por ese jugador. Algunas pruebas pueden llevar varios escenarios en completarse, y deben ser mantenidas en secreto por el jugador hasta que se complete. Cuando un jugador completa una prueba, puede revelarla a otros jugadores por primera vez, retirarla del juego y robar una nueva prueba de la parte superior del mazo de pruebas.",
+        "146-2": "Cada personaje gana 10 de oro por cada ficha numerada que haya saqueado <br>Todos los personajes comienzan el siguiente escenario con %game.condition.muddle% y %game.condition.curse%",
+        "155-3": "<b>%wip%!</b> Añade de forma manual:<br>De forma colectiva gana 6 recursos materiales cualquiera.",
+        "155-4": "Desbloquea la misión personal 23. Cualquier personaje puede abandonar todo progreso en su Misión Personal actual para quedársela ahora, de lo contrario agrégala al mazo de Misiones Personales.",
+        "161-1": "Ya puedes jugar a los escenarios con el requisito %game.fhIcon:climbing-gear%.",
+        "165-4": "Mira el Libro de Secciones",
+        "168-2": "No resuelvas un evento de Puesto Fronterizo esta semana.",
+        "169-2": "Ahora ya puedes jugar a escenarios con el requisito %game.fhIcon:sled%.",
+        "169-3": "Abre el libro de puzzles por la primera página",
+        "171-5": "Gana 10 de oro colectivo por cada ficha transportada",
+        "175-2": "<b>%wip%!</b> Aplica de forma manual:<br> Reconstruye gratis todos los edificios arrasados.",
+        "177-5": "Ganar X recursos materiales colectivos cualesquiera, siendo X el número de episodios superados",
+        "181-2": "Si el edificio 88 está construido, lee %data.section:135.4% ahora.<br>En caso contrario, lee %data.section:33.1% ahora.",
+        "182-1": "Gana 5 de oro colectivo por cada ficha transportada",
+        "188-3": "Obtener 5 recursos materiales colectivos cualesquiera",
+        "loot-gold": "El personaje que haya saqueado gana X oro, donde X es cuánto oro vale una ficha de dinero en N+1 (= [2 + [(L+1)/2{$math.floor}]] gold).",
+        "material2": "Ganar 2 recursos materiales cualesquiera cada uno"
+      }
+    },
     "rules": {
       "fh": {
         "180-3": {
@@ -1361,6 +1413,11 @@
         "65-3": {
           "1": "Abre todas las puertas %game.mapMarker.1%. Coloca a todos los personajes e invocaciones de personajes, por orden de iniciativa, en el hexágono vacío más cercano de la loseta 16-A y, a continuación, elimina todas las puertas y la loseta 13-A del mapa."
         }
+      }
+    },
+    "title": {
+      "fh": {
+        "60-2": "%game.characterIconColored.blinkblade% Se retira"
       }
     }
   }
