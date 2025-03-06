@@ -26,7 +26,7 @@
       },
       {
         "type": "custom",
-        "value": "Where X is the number of Vermling Shamans alive",
+        "value": "%data.custom.cs.ruinmaw-section-4.1%",
         "small": true
       }
     ],
@@ -74,7 +74,7 @@
         },
         {
           "type": "custom",
-          "value": "Sated: %game.action.push%2, +1 %game.action.attack%, %game.action.pierce%2",
+          "value": "%data.custom.cs.ruinmaw-section-4.2%",
           "small": true
         }
       ],
@@ -91,7 +91,7 @@
         },
         {
           "type": "custom",
-          "value": "Sated: +2 %game.action.move%, +2 %game.action.attack%, Advantage, %game.condition.empower%",
+          "value": "%data.custom.cs.ruinmaw-section-4.3%",
           "small": true
         }
       ]

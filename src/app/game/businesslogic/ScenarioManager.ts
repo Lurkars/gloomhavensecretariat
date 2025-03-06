@@ -1054,13 +1054,13 @@ export class ScenarioManager {
     }
   }
 
-  getMonsters(scenario: Scenario, custom: boolean = false): MonsterData[] {
+  getMonsters(scenario: Scenario, sections: boolean = false, custom: boolean = false): MonsterData[] {
     let monsters: MonsterData[] = [];
     if (custom) {
       monsters.push(...gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => new MonsterData(figure as Monster)));
     } else {
-      monsters.push(...this.getScenarioMonster(scenario, true));
-      monsters.push(...this.getRuleMonster(scenario, true));
+      monsters.push(...this.getScenarioMonster(scenario, sections));
+      monsters.push(...this.getRuleMonster(scenario, sections));
     }
     monsters.push(...gameManager.monsterManager.getSpawnMonsters(monsters));
     return monsters;

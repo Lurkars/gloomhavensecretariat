@@ -10,7 +10,7 @@ import { StatsListComponent } from "../dialog/stats-list/stats-list";
 import { StatEffectRule } from "src/app/game/model/data/ScenarioRule";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-scenario-setup',
     templateUrl: './scenario-setup.html',
     styleUrls: ['./scenario-setup.scss']
@@ -50,8 +50,11 @@ export class ScenarioSetupComponent implements OnInit {
 
     updateMonster() {
         this.monsters = [];
-        this.hasSpoiler = false;
-        gameManager.scenarioManager.getMonsters(this.scenario, this.scenario.custom).forEach((monsterData) => {
+        const cs = gameManager.editionRules('cs');
+        const monsterDefault = gameManager.scenarioManager.getMonsters(this.scenario, false, this.scenario.custom);
+        const monsterSpoiler = gameManager.scenarioManager.getMonsters(this.scenario, true, this.scenario.custom);
+        this.hasSpoiler = !cs && monsterDefault.length != monsterSpoiler.length;
+        (this.spoiler || cs ? monsterSpoiler : monsterDefault).forEach((monsterData) => {
             let monster: Monster = new Monster(monsterData, gameManager.game.level);
             if (this.spoiler || !monster.standeeShare || gameManager.scenarioManager.openRooms().find((room) => room.initial && room.monster.find((standee) => standee.name.split(':')[0] == monster.name)) || gameManager.game.figures.some((figure) => figure instanceof Monster && figure.name == monster.name && figure.edition == monster.edition)) {
                 if (!this.monsters.find((m) => m.edition == monster.edition && m.name == monster.name)) {
@@ -63,7 +66,7 @@ export class ScenarioSetupComponent implements OnInit {
                 if (standee) {
                     const changedStandee = new Monster(JSON.parse(JSON.stringify(standee)) as MonsterData);
                     changedStandee.tags = changedStandee.tags || [];
-                    if (gameManager.editionRules('cs')) {
+                    if (cs) {
                         if (monster.boss) {
                             changedStandee.tags.push('boss');
                         }
@@ -73,7 +76,7 @@ export class ScenarioSetupComponent implements OnInit {
                     if (!otherStandee) {
                         this.hasSpoiler = true;
                         this.monsters.push(changedStandee);
-                    } else if (!this.spoiler && gameManager.editionRules('cs')) {
+                    } else if (!this.spoiler && cs) {
                         otherStandee.tags = otherStandee.tags || [];
                         if (monster.boss) {
                             this.hasSpoiler = true;

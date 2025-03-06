@@ -28,14 +28,14 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "towards the %game.mapMarker.b% hex",
+              "value": "%data.custom.cs.selandre.1%",
               "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "See Ancient Artillery"
+          "value": "%data.custom.cs.selandre.2%"
         }
       ],
       [
@@ -52,7 +52,7 @@
         },
         {
           "type": "custom",
-          "value": "See Ancient Artillery"
+          "value": "%data.custom.cs.selandre.2%"
         }
       ]
     ]

@@ -80,7 +80,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "game.custom.instead",
+                      "value": "%game.custom.instead%",
                       "small": true
                     }
                   ]

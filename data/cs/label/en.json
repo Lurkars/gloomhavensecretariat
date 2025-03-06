@@ -526,7 +526,10 @@
         "3": "Move all characters to the hexes %game.mapMarker.a% <br>Move the Morphling to hex %game.mapMarker.b%",
         "4": "Draw 1 card from the Sputting Drake deck, the Morphling gains the traits of an elite Spitting Drake and performs the abilities on that card",
         "5": "All characters and character summons occupying a water tile suffer 1 damage",
-        "6": "Draw 1 card from the Lurker deck, the Morphling gains the traits of an elite Lurker and performs the abilities on that card"
+        "6": "Draw 1 card from the Lurker deck, the Morphling gains the traits of an elite Lurker and performs the abilities on that card",
+        "7": "Use Water Spirit traits and last drawn ability card",
+        "8": "Use Spitting Drake traits and last drawn ability card",
+        "9": "Use Lurker traits and last drawn ability card"
       },
       "ravenous-gharial": {
         "1": "Unaffected by water hexes",
@@ -545,10 +548,25 @@
         "2": "Jump to an empty hex adjacent to a Void Pit obstacle furthest away from a character within %game.action.range:4%.",
         "3": "All enemies adjacent to a Void Pit obstacle suffer %game.damage:2%."
       },
+      "ruinmaw": {
+        "1": "Focus on the nearest enemy that does not have %game.condition.rupture%:"
+      },
       "ruinmaw-section-2": {
         "1": "First enemy that ends turn adjacent to the Ruinmaw, perform:",
         "2": "Remove %game.condition.invisible%",
         "3": "At end of round, if %game.condition.invisible% perform:"
+      },
+      "ruinmaw-section-4": {
+        "1": "Where X is the number of Vermling Shamans alive",
+        "2": "%game.action.custom.cs-sated%: %game.action.push%2, +1 %game.action.attack%, %game.action.pierce%2",
+        "3": "%game.action.custom.cs-sated%: +2 %game.action.move%, +2 %game.action.attack%, Advantage, %game.condition.empower%"
+      },
+      "savvas-icebound": {
+        "1": "If occupying tile A2b, jump to %game.mapMarker.e% <br>If occupying tile A3a, jump to %game.mapMarker.d%"
+      },
+      "selandre": {
+        "1": "towards the %game.mapMarker.b% hex",
+        "2": "See Ancient Artillery"
       },
       "terrible-two-archer": {
         "1": "Create a %game.damage:3% trap in an adjacent empty hex closest to an enemy"

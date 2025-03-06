@@ -381,20 +381,20 @@
         </div>
 
         <div class="campaign-stickers">
-          <form class="header" (submit)="addCampaignSticker(campaignSticker)">
+          <form class="header" (submit)="addCampaignSticker(campaignStickerEl)">
             <label><span [ghs-label]="'party.campaign.sheet.campaignStickers'"></span></label>
-            <input type="text" #campaignSticker [autocomplete]="campaignStickers"
+            <input type="text" #campaignStickerEl [autocomplete]="campaignStickers"
               [emptyLabel]="'party.campaign.sheet.campaignStickers.empty'"
               [ghs-label]="'party.campaign.sheet.campaignStickers'" [ghs-label-attribute]="'placeholder'"
-              (keyup.enter)="addCampaignSticker(campaignSticker)">
-            <img src="./assets/images/plus.svg" (click)="addCampaignSticker(campaignSticker)">
+              (keyup.enter)="addCampaignSticker(campaignStickerEl)">
+            <img src="./assets/images/plus.svg" (click)="addCampaignSticker(campaignStickerEl)">
           </form>
           <div class="stickers ignore-denied"
             [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
             <div class="sticker" *ngFor="let sticker of party.campaignStickers; let index = index">
-              <span class="text" *ngIf="!campaignStickerImage(sticker,index)">{{sticker}}</span>
+              <span class="text" *ngIf="!campaignStickerImage(sticker,index)" [ghs-label]="'data.campaignSticker.' + sticker"></span>
               <img *ngIf="campaignStickerImage(sticker,index)" class="image" [src]="campaignStickerImage(sticker,index)"
-                [title]="sticker">
+              [ghs-tooltip]="'data.campaignSticker.' + sticker">
               <img class="remove" src="./assets/images/minus.svg" (click)="removeCampaignSticker(sticker)">
             </div>
           </div>

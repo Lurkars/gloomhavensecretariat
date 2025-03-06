@@ -8,7 +8,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Use Water Spirit traits and last drawn ability card"
+          "value": "%data.custom.cs.morphling.7%"
         }
       ]
     },
@@ -18,7 +18,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Use Spitting Drake traits and last drawn ability card"
+          "value": "%data.custom.cs.morphling.8%"
         }
       ]
     },
@@ -28,7 +28,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Use Water Spirit traits and last drawn ability card"
+          "value": "%data.custom.cs.morphling.7%"
         }
       ]
     },
@@ -38,7 +38,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Use Lurker traits and last drawn ability card"
+          "value": "%data.custom.cs.morphling.9%"
         }
       ]
     },

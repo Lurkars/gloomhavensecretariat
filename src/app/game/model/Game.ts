@@ -225,7 +225,16 @@ export class Game {
     }
 
     if (this.party.campaignStickers) {
-      this.party.campaignStickers = this.party.campaignStickers.filter((item) => item);
+      this.party.campaignStickers = this.party.campaignStickers.filter((item) => item).map((value) => {
+        let sticker = value;
+        Object.keys(settingsManager.label.data.campaignSticker).forEach((key) => {
+          if (settingsManager.label.data.campaignSticker[key] == sticker) {
+            sticker = key;
+            return;
+          }
+        })
+        return sticker;
+      })
     }
 
     // migrate randomScenarios to randomScenariosFh

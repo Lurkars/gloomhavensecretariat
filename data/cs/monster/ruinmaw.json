@@ -18,7 +18,7 @@
       [
         {
           "type": "custom",
-          "value": "Focus on the nearest enemy that does not have %game.condition.rupture%:",
+          "value": "%data.custom.cs.ruinmaw.1%",
           "small": true
         },
         {

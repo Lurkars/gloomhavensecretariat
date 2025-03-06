@@ -92,7 +92,7 @@
         },
         {
           "type": "custom",
-          "value": "If occupying tile A2b, jump to %game.mapMarker.e% <br>If occupying tile A3a, jump to %game.mapMarker.d%",
+          "value": "%data.custom.cs.savvas-icebound.1%",
           "small": true
         },
         {

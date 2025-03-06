@@ -58,6 +58,24 @@
           "note": "%data.scenario.rules.fc.99.1%"
         }
       ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "sections": [
+        "8"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "escort",
+            "name": "Civilian"
+          },
+          "type": "killed"
+        }
+      ]
     }
   ],
   "rooms": [

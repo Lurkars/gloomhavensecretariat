@@ -119,28 +119,23 @@
   &.short {
     width: calc(var(--ghs-unit) * 57);
 
-    &.short-stats {
-      ghs-monster-numberpicker {
-
-        &.normal,
-        &.boss {
-          left: calc(var(--ghs-unit) * 17.5);
-        }
-      }
-    }
-
     &.short-abilities {
-      ghs-monster-numberpicker {
-        bottom: calc(var(--ghs-unit) * 0.5);
+      .stats-container {
+        position: absolute;
+        left: 0;
 
-        &.normal,
-        &.boss {
-          left: calc(var(--ghs-unit) * 0);
-        }
+        ghs-monster-numberpicker {
+          bottom: calc(var(--ghs-unit) * 0.5);
 
-        &.elite {
-          left: calc(var(--ghs-unit) * 11);
-          right: initial
+          &.normal,
+          &.boss {
+            left: calc(var(--ghs-unit) * 0);
+          }
+
+          &.elite {
+            left: calc(var(--ghs-unit) * 11);
+            right: initial
+          }
         }
       }
     }

@@ -1208,24 +1208,27 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   }
 
   addCampaignSticker(campaignStickerElement: HTMLInputElement) {
-    const sticker = campaignStickerElement.value;
+
+    const stickerLabel = campaignStickerElement.value;
+    const sticker = this.campaignStickers.find((item) => item.label == stickerLabel);
+
     if (sticker) {
       this.party.campaignStickers = this.party.campaignStickers || [];
 
       let total = 1;
       const campaign = gameManager.campaignData();
       if (campaign.campaignStickers) {
-        const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker.toLowerCase().replaceAll(' ', '-') + ':'));
+        const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker.value));
         if (campaignSticker) {
           total = +(campaignSticker.split(':')[1]);
         }
       }
 
-      const count = this.party.campaignStickers.filter((campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-') == sticker.toLowerCase().replaceAll(' ', '-')).length;
+      const count = this.party.campaignStickers.filter((campaignSticker) => campaignSticker.toLowerCase() == sticker.value).length;
 
       if (count < total) {
-        gameManager.stateManager.before("addCampaignSticker", sticker);
-        this.party.campaignStickers.push(sticker);
+        gameManager.stateManager.before("addCampaignSticker", sticker.label);
+        this.party.campaignStickers.push(sticker.value);
         campaignStickerElement.value = "";
         gameManager.stateManager.after();
         this.update();
@@ -1243,9 +1246,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  campaignStickerImage(stringValue: string, stickerIndex: number): string | undefined {
+  campaignStickerImage(sticker: string, stickerIndex: number): string | undefined {
     const campaign = gameManager.campaignData();
-    const sticker = stringValue.toLowerCase().replaceAll(' ', '-');
 
     let total = 0;
     if (campaign.campaignStickers) {
