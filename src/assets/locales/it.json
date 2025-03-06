@@ -84,7 +84,70 @@
       "forceDeck": "Doppio clic per aggiungere la carta al mazzo",
       "levelWarning": "Mazzo non valido perchè alcune carte sono di livello superiore al personaggio!",
       "pickCard": "Scegli la tua carta di livello {0}",
-      "removeFromDeck": "Fare doppio clic per rimuovere la carta dal mazzo"
+      "removeFromDeck": "Fare doppio clic per rimuovere la carta dal mazzo",
+      "show": "Mostra tutte le carte abilità",
+      "showDeck": "Mostra il mazzo del personaggio attuale",
+      "sort": {
+        "cardId": "Ordina per numero di carta",
+        "level-deck": "Ordina per le carte nel mazzo",
+        "level-name": "Ordina per livello e nome",
+        "name": "Ordina per nome"
+      },
+      "undoLastPick": {
+        "": "Annulla scelta per il livello {0}",
+        "hint": "Doppio clic per reimpostare tutte le scelte"
+      },
+      "wip": "<i>%wip%</i>"
+    },
+    "absent": "Assente",
+    "add": "Aggiungi personaggio",
+    "class": {
+      "human": "Umano",
+      "m": {
+        "human": "Umano"
+      }
+    },
+    "filter": {
+      "": "Filtro personaggio",
+      "allEditions": "Tutte le edizioni",
+      "noResult": "Nessun risultato"
+    },
+    "lootCards": {
+      "drawn": "Ordina per tempo estratto",
+      "sort": "Ordina per tipo"
+    },
+    "playerNumber": "Giocatore #",
+    "present": "Presente",
+    "progress": {
+      "": "Foglio personaggio",
+      "donate": "Dona",
+      "export": "Esporta",
+      "fh": {
+        "disable": "Vai al foglio del personaggio di Gloomhaven",
+        "enable": "Vai al foglio del personaggio di Frosthaven"
+      },
+      "gold": "Oro",
+      "gold-notes": "Note d'oro",
+      "import": "Importa",
+      "level": "Livello",
+      "lock": "Blocca il foglio dei personaggi per evitare modifiche accidentali.",
+      "masteries": "Maestrie",
+      "name": "Nome",
+      "notes": "Note",
+      "perks": {
+        "": "Benefici",
+        "extra": "Benefici extra"
+      },
+      "personalQuest": {
+        "": "Missione personale",
+        "counter": "Contatore",
+        "openEnvelope": {
+          "": "Apri la busta %game.fhIcon:envelope% {0}",
+          "alt": "Apri la busta %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
+          "building": "Sblocca l'edificio '%data.buildings.{1}%' ({0})",
+          "inspiration": "Guadagna +1 ispirazione"
+        }
+      }
     }
   }
 }
