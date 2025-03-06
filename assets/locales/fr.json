@@ -62,6 +62,10 @@
           "": "Défi actif Actuel",
           "multiple": "Défis actifs Actuels"
         },
+        "drawAvailable": {
+          "": "Tirage au sort",
+          "multiple": "Tirages au sort"
+        },
         "select": {
           "": "Basculer le Défi actif",
           "multiple": "Basculer les Défis actifs"
@@ -82,6 +86,13 @@
       "pickCard": "Choisissez votre carte de niveau {0}",
       "removeFromDeck": "Double-cliquez pour retirer la Carte du Paquet",
       "show": "Afficher toutes les Cartes d'Aptitude",
+      "showDeck": "Afficher le paquet du joueur actuel",
+      "sort": {
+        "cardId": "Trier par numéro de carte",
+        "level-deck": "Trier par carte dans le paquet",
+        "level-name": "Trier par niveau et nom",
+        "name": "Trier par nom"
+      },
       "undoLastPick": {
         "hint": "Double clic pour réinitialiser tous les choix"
       }

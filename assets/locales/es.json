@@ -114,6 +114,7 @@
         "orchid": "Orquídea",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
+        "unfettered": "Desencadenados",
         "valrath": "Valrath",
         "vermling": "Infestor"
       },
@@ -131,12 +132,16 @@
         "orchid": "Orquídea",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
-        "valrath": "Valrath"
+        "unfettered": "Desencadenados",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
       },
       "orchid": "Orquídea",
       "quatryl": "Quatryl",
       "savvas": "Savvas",
-      "valrath": "Valrath"
+      "unfettered": "Desencadenado",
+      "valrath": "Valrath",
+      "vermling": "Vermling"
     },
     "filter": {
       "": "Filtrar Personajes",
@@ -1406,6 +1411,11 @@
     "cancel": "Cancelar Escenario",
     "chart": {
       "": "Diagrama de flujo",
+      "campaign": {
+        "": "Modo campaña",
+        "back": "Volver al modo campaña",
+        "force": "Haz doble clic para forzar la visualización del diagrama de flujo completo, incluidos los spoilers."
+      },
       "setup": "Mostrar Configuración del Escenario",
       "start": "Iniciar Escenario",
       "success": "Marcar como completado",
@@ -1482,6 +1492,12 @@
       "party": "'{0}' (Grupo) COMPLETADO",
       "partyCount": "'{0}' (Grupo)x{2} COMPLETADO  (obtén{1})",
       "partyMissing": "'{0}' (Grupo) NO COMPLETADO",
+      "scenarios": {
+        "": "Requiere la finalización de los siguientes escenarios",
+        "and": "y",
+        "or": "o",
+        "scenario": "%data.scenarioNumber:{0}%"
+      },
       "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Nivel 5 o superior",
       "start": "Empezar igualmente"
     },
@@ -2323,6 +2339,7 @@
       "es": "Español",
       "fr": "Francés (Français)",
       "help": "¡Ayuda con la traducción!",
+      "it": "Italiano",
       "ko": "Coreano (한국어)",
       "zh_Hans": "Chino simplificado (简体中文)"
     },

@@ -1,0 +1,153 @@
+{
+  "about": {
+    "": "A proposito",
+    "forceUpdate": "Forza aggiornamento",
+    "ip": "Gloomhaven e tutte le proprietà, le immagini e il testo correlate sono di proprietà di {0}.",
+    "license": "Concesso in licenza {0}.",
+    "sourceCode": "Codice sorgente",
+    "support": "Supporta l'autore",
+    "version": {
+      "latest": "Più recente",
+      "unknown": "Impossibile recuperare l'ultima versione",
+      "update": "Ultima versione <a target=\"_blank\" href=\"{1}\">{0}</a>"
+    }
+  },
+  "and": "e",
+  "app": {
+    "install": "Installa come app",
+    "loading": {
+      "": "Caricamento…",
+      "cancel": "Annulla caricamento?"
+    }
+  },
+  "campaign": {
+    "": "Gestione Campagna/Personaggio",
+    "battleGoals": "Configurazione obiettivo battaglia",
+    "campaignManagement": {
+      "": "Gestisci la Campagna",
+      "add": "Aggiungi Campagna",
+      "hint": "La modifica della campagna attuale o la creazione di una nuova campagna sono disabilitati durante uno scenario. Termina o annulla lo scenario corrente per modificare la campagna attuale o crearne una nuova.",
+      "name": "Nome per la Campagna {0}",
+      "reset": "Ricomincia Campagna"
+    },
+    "character": "Fogli del personaggio",
+    "items": "Panoramica carte oggetto",
+    "map": {
+      "": "Mappa Globale",
+      "highlighting": "Evidenza"
+    },
+    "party": "Foglio Gruppo/Campagna",
+    "resources": "Tabella panoramica delle risorse",
+    "sheet": "Foglio di gestione della campagna globale",
+    "trials": {
+      "": "Prove",
+      "automation": "L'effetto di questa carta viene automaticamente applicato!"
+    }
+  },
+  "cancel": "Annulla",
+  "challenges": {
+    "": "Sfide",
+    "automation": {
+      "hint": "L'effetto di questa carta viene automaticamente applicato!"
+    },
+    "deck": {
+      "clear": {
+        "": "Scarta la sfida pescata",
+        "multiple": "Scarta le sfide pescate"
+      },
+      "current": "Attuale",
+      "finished": "Finito",
+      "hint": {
+        "current": {
+          "": "Sfida attiva attuale",
+          "multiple": "Sfide attive attuali"
+        },
+        "drawAvailable": {
+          "": "Pesca sfida",
+          "multiple": "Pesca sfide"
+        },
+        "select": {
+          "": "Imposta sfida attiva",
+          "multiple": "Imposta sfide attive"
+        }
+      },
+      "removed": "Eliminato",
+      "upcoming": "In arrivo"
+    },
+    "disabled": "Nessuna sfida fissata per lo scenario!"
+  },
+  "character": {
+    "": "Personaggio",
+    "abilities": {
+      "currentDeck": "Mazzo attuale",
+      "deckWarning": "Non è possibile selezionare la carta corretta perchè ci sono troppe carte nel mazzo!",
+      "forceDeck": "Doppio clic per aggiungere la carta al mazzo",
+      "levelWarning": "Mazzo non valido perchè alcune carte sono di livello superiore al personaggio!",
+      "pickCard": "Scegli la tua carta di livello {0}",
+      "removeFromDeck": "Fare doppio clic per rimuovere la carta dal mazzo",
+      "show": "Mostra tutte le carte abilità",
+      "showDeck": "Mostra il mazzo del personaggio attuale",
+      "sort": {
+        "cardId": "Ordina per numero di carta",
+        "level-deck": "Ordina per le carte nel mazzo",
+        "level-name": "Ordina per livello e nome",
+        "name": "Ordina per nome"
+      },
+      "undoLastPick": {
+        "": "Annulla scelta per il livello {0}",
+        "hint": "Doppio clic per reimpostare tutte le scelte"
+      },
+      "wip": "<i>%wip%</i>"
+    },
+    "absent": "Assente",
+    "add": "Aggiungi personaggio",
+    "class": {
+      "human": "Umano",
+      "m": {
+        "human": "Umano"
+      }
+    },
+    "filter": {
+      "": "Filtro personaggio",
+      "allEditions": "Tutte le edizioni",
+      "noResult": "Nessun risultato"
+    },
+    "lootCards": {
+      "drawn": "Ordina per tempo estratto",
+      "sort": "Ordina per tipo"
+    },
+    "playerNumber": "Giocatore #",
+    "present": "Presente",
+    "progress": {
+      "": "Foglio personaggio",
+      "donate": "Dona",
+      "export": "Esporta",
+      "fh": {
+        "disable": "Vai al foglio del personaggio di Gloomhaven",
+        "enable": "Vai al foglio del personaggio di Frosthaven"
+      },
+      "gold": "Oro",
+      "gold-notes": "Note d'oro",
+      "import": "Importa",
+      "level": "Livello",
+      "lock": "Blocca il foglio dei personaggi per evitare modifiche accidentali.",
+      "masteries": "Maestrie",
+      "name": "Nome",
+      "notes": "Note",
+      "perks": {
+        "": "Benefici",
+        "extra": "Benefici extra"
+      },
+      "personalQuest": {
+        "": "Missione personale",
+        "counter": "Contatore",
+        "openEnvelope": {
+          "": "Apri la busta %game.fhIcon:envelope% {0}",
+          "alt": "Apri la busta %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
+          "building": "Sblocca l'edificio '%data.buildings.{1}%' ({0})",
+          "inspiration": "Guadagna +1 ispirazione"
+        }
+      }
+    }
+  }
+}
