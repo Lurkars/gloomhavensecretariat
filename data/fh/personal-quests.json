@@ -4,7 +4,7 @@
         "altId": "01",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.581.1%",
+                "name": "%data.personalQuest.fh.581.1%",
                 "counter": 5,
                 "autotrack": "differentHerbs"
             }
@@ -17,12 +17,12 @@
         "altId": "02",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.582.1%",
+                "name": "%data.personalQuest.fh.582.1%",
                 "counter": 8,
                 "autotrack": "looted:lumber"
             },
             {
-                "name": "%data.custom.personalQuest.fh.582.2%",
+                "name": "%data.personalQuest.fh.582.2%",
                 "counter": 1,
                 "autotrack": "scenario:69|70",
                 "requires": [
@@ -38,27 +38,27 @@
         "altId": "03",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.583.1%",
+                "name": "%data.personalQuest.fh.583.1%",
                 "counter": 3,
                 "autotrack": "itemType:head"
             },
             {
-                "name": "%data.custom.personalQuest.fh.583.2%",
+                "name": "%data.personalQuest.fh.583.2%",
                 "counter": 3,
                 "autotrack": "itemType:body"
             },
             {
-                "name": "%data.custom.personalQuest.fh.583.3%",
+                "name": "%data.personalQuest.fh.583.3%",
                 "counter": 3,
                 "autotrack": "itemType:legs"
             },
             {
-                "name": "%data.custom.personalQuest.fh.583.4%",
+                "name": "%data.personalQuest.fh.583.4%",
                 "counter": 3,
                 "autotrack": "itemType:onehand|twohand"
             },
             {
-                "name": "%data.custom.personalQuest.fh.583.5%",
+                "name": "%data.personalQuest.fh.583.5%",
                 "counter": 4,
                 "autotrack": "itemType:small"
             }
@@ -84,7 +84,7 @@
         "altId": "05",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.585.1%",
+                "name": "%data.personalQuest.fh.585.1%",
                 "counter": 12,
                 "autotrack": "buildings"
             }
@@ -97,7 +97,7 @@
         "altId": "06",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.586.1%",
+                "name": "%data.personalQuest.fh.586.1%",
                 "counter": 8
             }
         ],
@@ -109,7 +109,7 @@
         "altId": "07",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.587.1%",
+                "name": "%data.personalQuest.fh.587.1%",
                 "counter": 1,
                 "autotrack": "scenario:65|66"
             }
@@ -122,15 +122,15 @@
         "altId": "08",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.588.1%",
+                "name": "%data.personalQuest.fh.588.1%",
                 "counter": 2
             },
             {
-                "name": "%data.custom.personalQuest.fh.588.2%",
+                "name": "%data.personalQuest.fh.588.2%",
                 "counter": 2
             },
             {
-                "name": "%data.custom.personalQuest.fh.588.3%",
+                "name": "%data.personalQuest.fh.588.3%",
                 "counter": 2
             }
         ],
@@ -142,7 +142,7 @@
         "altId": "09",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.589.1%",
+                "name": "%data.personalQuest.fh.589.1%",
                 "counter": 150,
                 "autotrack": "abilityXP"
             }
@@ -155,7 +155,7 @@
         "altId": "10",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.590.1%",
+                "name": "%data.personalQuest.fh.590.1%",
                 "counter": 5,
                 "autotrack": "scenarioRequirements:board|climbing-gear|sled"
             }
@@ -168,7 +168,7 @@
         "altId": "11",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.505.1%",
+                "name": "%data.personalQuest.fh.505.1%",
                 "counter": 15,
                 "autotrack": "craftableItems"
             }
@@ -180,7 +180,7 @@
         "altId": "12",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.509.1%",
+                "name": "%data.personalQuest.fh.509.1%",
                 "counter": 1,
                 "autotrack": "scenario:71|72"
             }
@@ -192,7 +192,7 @@
         "altId": "13",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.514.1%",
+                "name": "%data.personalQuest.fh.514.1%",
                 "counter": 15
             }
         ],
@@ -203,23 +203,23 @@
         "altId": "14",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.519.1%",
+                "name": "%data.personalQuest.fh.519.1%",
                 "counter": 1
             },
             {
-                "name": "%data.custom.personalQuest.fh.519.2%",
+                "name": "%data.personalQuest.fh.519.2%",
                 "counter": 1
             },
             {
-                "name": "%data.custom.personalQuest.fh.519.3%",
+                "name": "%data.personalQuest.fh.519.3%",
                 "counter": 1
             },
             {
-                "name": "%data.custom.personalQuest.fh.519.4%",
+                "name": "%data.personalQuest.fh.519.4%",
                 "counter": 1
             },
             {
-                "name": "%data.custom.personalQuest.fh.519.5%",
+                "name": "%data.personalQuest.fh.519.5%",
                 "counter": 1
             }
         ],
@@ -230,7 +230,7 @@
         "altId": "15",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.523.1%",
+                "name": "%data.personalQuest.fh.523.1%",
                 "counter": 70,
                 "autotrack": "donatedGold"
             }
@@ -242,7 +242,7 @@
         "altId": "16",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.527.1%",
+                "name": "%data.personalQuest.fh.527.1%",
                 "counter": 5
             }
         ],
@@ -253,7 +253,7 @@
         "altId": "17",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.538.1%",
+                "name": "%data.personalQuest.fh.538.1%",
                 "counter": 16,
                 "autotrack": "battleGoals"
             }
@@ -266,7 +266,7 @@
         "altId": "18",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.542.1%",
+                "name": "%data.personalQuest.fh.542.1%",
                 "counter": 8,
                 "autotrack": "scenario:65|66"
             }
@@ -278,12 +278,12 @@
         "altId": "19",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.545.1%",
+                "name": "%data.personalQuest.fh.545.1%",
                 "counter": 1,
                 "autotrack": "item:39"
             },
             {
-                "name": "%data.custom.personalQuest.fh.545.2%",
+                "name": "%data.personalQuest.fh.545.2%",
                 "counter": 10,
                 "requires": [
                     1
@@ -298,7 +298,7 @@
         "altId": "20",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.549.1%",
+                "name": "%data.personalQuest.fh.549.1%",
                 "counter": 15
             }
         ],
@@ -309,7 +309,7 @@
         "altId": "21",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.552.1%",
+                "name": "%data.personalQuest.fh.552.1%",
                 "counter": 8
             }
         ],
@@ -320,7 +320,7 @@
         "altId": "22",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.557.1%",
+                "name": "%data.personalQuest.fh.557.1%",
                 "counter": 12
             }
         ],
@@ -333,7 +333,7 @@
         "spoiler": true,
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.fh.543.1%",
+                "name": "%data.personalQuest.fh.543.1%",
                 "counter": 10,
                 "autotrack": "exchaustedChars"
             }

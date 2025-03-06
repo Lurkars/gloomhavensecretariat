@@ -3,11 +3,11 @@
         "cardId": "641",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.ir.641.1%",
+                "name": "%data.personalQuest.ir.641.1%",
                 "counter": 15
             },
             {
-                "name": "%data.custom.personalQuest.ir.641.2%",
+                "name": "%data.personalQuest.ir.641.2%",
                 "counter": 1,
                 "requires": [
                     1
@@ -20,7 +20,7 @@
         "cardId": "642",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.ir.642.1%",
+                "name": "%data.personalQuest.ir.642.1%",
                 "counter": 12
             }
         ],
@@ -30,11 +30,11 @@
         "cardId": "643",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.ir.643.1%",
+                "name": "%data.personalQuest.ir.643.1%",
                 "counter": 8
             },
             {
-                "name": "%data.custom.personalQuest.ir.643.2%",
+                "name": "%data.personalQuest.ir.643.2%",
                 "counter": 8
             }
         ],
@@ -44,7 +44,7 @@
         "cardId": "644",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.ir.644.1%",
+                "name": "%data.personalQuest.ir.644.1%",
                 "counter": 13
             }
         ],
@@ -54,7 +54,7 @@
         "cardId": "645",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.ir.645.1%",
+                "name": "%data.personalQuest.ir.645.1%",
                 "counter": 20
             }
         ],
@@ -64,7 +64,7 @@
         "cardId": "646",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.ir.646.1%",
+                "name": "%data.personalQuest.ir.646.1%",
                 "counter": 10
             }
         ],
@@ -74,7 +74,7 @@
         "cardId": "647",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.ir.647.1%",
+                "name": "%data.personalQuest.ir.647.1%",
                 "counter": 4
             }
         ],
@@ -84,7 +84,7 @@
         "cardId": "648",
         "requirements": [
             {
-                "name": "%data.custom.personalQuest.ir.648.1%",
+                "name": "%data.personalQuest.ir.648.1%",
                 "counter": 13
             }
         ],
