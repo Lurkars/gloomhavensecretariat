@@ -64,16 +64,14 @@
       "initial": true,
       "rooms": [
         2
-      ],
-      "monster": []
+      ]
     },
     {
       "roomNumber": 2,
       "ref": "I1a",
       "treasures": [
         "G"
-      ],
-      "monster": []
+      ]
     }
   ]
 }

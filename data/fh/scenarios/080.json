@@ -42,12 +42,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The Relic gains:",
+          "value": "%data.scenario.rules.fh.80.1%",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "Add %game.condition.immobilize% to all attacks targeting the primary focus",
+              "value": "%data.scenario.rules.fh.80.2%",
               "small": true
             }
           ]
@@ -61,7 +61,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The Relic gains:",
+          "value": "%data.scenario.rules.fh.80.1%",
           "small": true,
           "subActions": [
             {
@@ -80,12 +80,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Change The Relic's Special 1 to:",
+          "value": "%data.scenario.rules.fh.80.3%",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "Focus on the farthest attackable enemy and perform:",
+              "value": "%data.scenario.rules.fh.80.4%",
               "small": true,
               "subActions": [
                 {
@@ -95,7 +95,7 @@
                 },
                 {
                   "type": "custom",
-                  "value": "%game.action.attack%+0, %game.action.target% focus (if adjacent) and all enemies in or adjacent to hexes entered during the movement",
+                  "value": "%data.scenario.rules.fh.80.5%",
                   "small": true
                 }
               ]
@@ -111,7 +111,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Change The Relic's Special 2 to:",
+          "value": "%data.scenario.rules.fh.80.6%",
           "small": true,
           "subActions": [
             {

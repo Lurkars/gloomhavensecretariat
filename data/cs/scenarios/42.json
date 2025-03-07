@@ -12,8 +12,7 @@
     {
       "roomNumber": 1,
       "ref": "G1a",
-      "initial": true,
-      "monster": []
+      "initial": true
     }
   ]
 }

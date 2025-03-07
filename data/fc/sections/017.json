@@ -24,13 +24,13 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "towards cabinet %game.mapMarker.b%"
+              "value": "%data.section.rules.fc.114%"
             }
           ]
         },
         {
           "type": "custom",
-          "value": "Unaffected by difficult terrain"
+          "value": "%data.section.rules.fc.117%"
         }
       ]
     }

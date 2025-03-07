@@ -144,13 +144,14 @@
       cursor: pointer;
       position: relative;
       width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
-      min-height: calc(var(--ghs-unit) * 21.5 * var(--ghs-dialog-factor));
+      height: auto;
       margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       z-index: 1;
     }
 
     ghs-monster-stats {
-      position: absolute;
+      display: block;
+      position: relative;
       top: 0;
       left: 0;
       width: 100%;

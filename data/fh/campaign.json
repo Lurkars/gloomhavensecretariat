@@ -216,7 +216,7 @@
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "advantage",
+                                    "value": "%advantage%",
                                     "hint": "%data.section.rules.fh.130-3.1%"
                                 }
                             ]

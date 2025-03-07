@@ -44,7 +44,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "When destroyed, reveal one numbered token and spawn the indicated monster",
+          "value": "%data.scenario.rules.fh.54%",
           "small": true
         }
       ]
@@ -58,7 +58,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "When destroyed, reveal one numbered token and spawn the indicated monster",
+          "value": "%data.scenario.rules.fh.54%",
           "small": true
         }
       ]
@@ -152,7 +152,6 @@
     {
       "roomNumber": 1,
       "initial": true,
-      "monster": [],
       "objectives": [
         1,
         1,

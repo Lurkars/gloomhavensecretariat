@@ -38,7 +38,7 @@
             },
             {
               "type": "custom",
-              "value": "When this attack is performed, on the next round at initiative 99 instead perform:",
+              "value": "%data.section.rules.fh.146-3%",
               "small": true,
               "subActions": [
                 {

@@ -39,8 +39,7 @@
     {
       "roomNumber": 1,
       "ref": "B4a",
-      "initial": true,
-      "monster": []
+      "initial": true
     }
   ]
 }

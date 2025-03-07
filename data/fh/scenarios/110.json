@@ -37,7 +37,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Can only be destoyed when a Ruined Machine dies in an adjacent hex"
+          "value": "%data.scenario.rules.fh.110%"
         }
       ]
     },
@@ -47,7 +47,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Can only be destoyed when a Ruined Machine dies in an adjacent hex"
+          "value": "%data.scenario.rules.fh.110%"
         }
       ]
     },
@@ -57,7 +57,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Can only be destoyed when a Ruined Machine dies in an adjacent hex"
+          "value": "%data.scenario.rules.fh.110%"
         }
       ]
     }

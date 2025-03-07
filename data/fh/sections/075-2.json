@@ -6,24 +6,29 @@
   "monsters": [],
   "objectives": [
     {
-      "name": "Altar 1",
-      "health": "Cx(L+2)"
+      "name": "Altar",
+      "health": "Cx(L+2)",
+      "marker": "1"
     },
     {
-      "name": "Altar 2",
-      "health": "Cx(L+2)"
+      "name": "Altar",
+      "health": "Cx(L+2)",
+      "marker": "2"
     },
     {
-      "name": "Altar 3",
-      "health": "Cx(L+2)"
+      "name": "Altar",
+      "health": "Cx(L+2)",
+      "marker": "3"
     },
     {
-      "name": "Altar 4",
-      "health": "Cx(L+2)"
+      "name": "Altar",
+      "health": "Cx(L+2)",
+      "marker": "4"
     },
     {
-      "name": "Altar 5",
-      "health": "Cx(L+2)"
+      "name": "Altar",
+      "health": "Cx(L+2)",
+      "marker": "5"
     },
     {
       "name": "Dark Fog",
@@ -45,7 +50,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Altar 1"
+            "name": "Altar",
+            "marker": "1"
           },
           "type": "dead"
         }
@@ -68,7 +74,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Altar 2"
+            "name": "Altar",
+            "marker": "2"
           },
           "type": "dead"
         }
@@ -91,7 +98,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Altar 3"
+            "name": "Altar",
+            "marker": "3"
           },
           "type": "dead"
         }
@@ -114,7 +122,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Altar 4"
+            "name": "Altar",
+            "marker": "4"
           },
           "type": "dead"
         }
@@ -137,7 +146,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Altar 5"
+            "name": "Altar",
+            "marker": "5"
           },
           "type": "dead"
         }
@@ -157,7 +167,6 @@
       "roomNumber": 1,
       "ref": "16-B",
       "initial": true,
-      "monster": [],
       "objectives": [
         1,
         2,

@@ -148,6 +148,18 @@
     "warden": "Warden",
     "wolf-viper-abomination": "Wolf-Viper Abomination"
   },
+  "objective": {
+    "Altar": "Altar",
+    "Altar of Blizzards": "Altar of Blizzards",
+    "Altar of Rot": "Altar of Rot",
+    "Altar of Wildfire": "Altar of Wildfire",
+    "Civilian": "Civilian",
+    "Hail": "Hail",
+    "Naaret": "Naaret",
+    "Orchid Caravan": "Orchid Caravan",
+    "Seal": "Seal",
+    "Ship": "Ship"
+  },
   "partyAchievements": {
     "A Strongbox": "A Strongbox",
     "Angels of Death": "Angels of Death",
@@ -245,6 +257,7 @@
           "1": "Flip over the numbered tokens on doors %game.mapMarker.3%, %game.mapMarker.8%, %game.mapMarker.9% and %game.mapMarker.10%",
           "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.n%, %game.mapMarker.r%, %game.mapMarker.t%, %game.mapMarker.a4% and %game.mapMarker.a6%"
         },
+        "114": "towards cabinet %game.mapMarker.b%",
         "123": {
           "1": "adjacent and to the right of any door %game.mapMarker.4%"
         },
@@ -260,6 +273,7 @@
           "1": "The Ancient Artillery has %game.action.shield% 2 and is immune to all forced movement.",
           "2": "Immune to all forced movement"
         },
+        "17": "Unaffected by difficult terrain",
         "19": {
           "1": "Flip over the numbered tokens on doors %game.mapMarker.1%, %game.mapMarker.6%, %game.mapMarker.7% and %game.mapMarker.10%",
           "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.p%, %game.mapMarker.t%, %game.mapMarker.a1%, %game.mapMarker.a2% and %game.mapMarker.a6%"

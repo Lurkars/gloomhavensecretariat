@@ -33,7 +33,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Focus on moving towards %game.mapMarker.b%"
+              "value": "%data.scenario.rules.fh.116%"
             }
           ]
         }

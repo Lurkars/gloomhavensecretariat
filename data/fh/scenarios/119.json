@@ -41,17 +41,17 @@
         },
         {
           "type": "custom",
-          "value": "At end of turn, spend dust to:",
+          "value": "%data.scenario.rules.fh.119.1%",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "Spend 1: %game.action.move%2",
+              "value": "%data.scenario.rules.fh.119.2%",
               "small": true
             },
             {
               "type": "custom",
-              "value": "Spend 2:",
+              "value": "%data.scenario.rules.fh.119.3%",
               "small": true,
               "subActions": [
                 {
@@ -70,7 +70,7 @@
             },
             {
               "type": "custom",
-              "value": "Spend 5: Convert monster within %game.action.range%2",
+              "value": "%data.scenario.rules.fh.119.4%",
               "small": true
             }
           ]

@@ -39,7 +39,6 @@
     {
       "roomNumber": 3,
       "initial": true,
-      "monster": [],
       "objectives": [
         1
       ]

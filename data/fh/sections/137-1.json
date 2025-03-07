@@ -15,8 +15,9 @@
   ],
   "objectives": [
     {
-      "name": "Door 2",
-      "health": "(L+2)xC"
+      "name": "Door",
+      "health": "(L+2)xC",
+      "marker": "2"
     }
   ],
   "rooms": [

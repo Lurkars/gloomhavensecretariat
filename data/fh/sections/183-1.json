@@ -9,8 +9,9 @@
   ],
   "objectives": [
     {
-      "name": "Altar 4",
-      "health": "[(L+2)xC/2{$math.floor}]"
+      "name": "Altar",
+      "health": "[(L+2)xC/2{$math.floor}]",
+      "marker": "4"
     }
   ],
   "rules": [
@@ -23,7 +24,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Altar 4"
+            "name": "Altar",
+            "marker": "4"
           }
         }
       ]

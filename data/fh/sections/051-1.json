@@ -14,7 +14,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Whenever it suffers damage, all characters and monsters suffer %game.damage:2%"
+          "value": "%data.section.rules.fh.51-1%"
         }
       ]
     }

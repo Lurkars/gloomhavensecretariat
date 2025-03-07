@@ -432,6 +432,17 @@
     "vermling-scout": "Vermling Scout",
     "zealot": "Zealot"
   },
+  "objective": {
+    "Growth": "Growth",
+    "Loot": "Loot",
+    "Nest": "Nest",
+    "Pillar": "Pillar",
+    "Pillar left": "Pillar left",
+    "Pillar right": "Pillar right",
+    "Summoning Stone": "Summoning Stone",
+    "Table": "Table",
+    "Ward": "Ward"
+  },
   "scenario": {
     "rules": {
       "jotl": {

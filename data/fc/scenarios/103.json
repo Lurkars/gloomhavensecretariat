@@ -31,7 +31,7 @@
   },
   "objectives": [
     {
-      "name": "Orchid caravan",
+      "name": "Orchid Caravan",
       "escort": true,
       "health": "2x(C+L)+3",
       "marker": "a"

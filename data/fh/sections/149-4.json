@@ -12,8 +12,7 @@
   "rooms": [
     {
       "roomNumber": 5,
-      "initial": true,
-      "monster": []
+      "initial": true
     }
   ]
 }

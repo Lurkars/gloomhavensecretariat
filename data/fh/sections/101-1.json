@@ -10,7 +10,7 @@
   ],
   "objectives": [
     {
-      "name": "Door 2",
+      "name": "Door",
       "health": "(L+1)xC",
       "marker": "2"
     }
@@ -53,7 +53,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door 2"
+            "name": "Door",
+            "marker": "2"
           },
           "type": "dead"
         }

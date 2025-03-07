@@ -10,8 +10,9 @@
   ],
   "objectives": [
     {
-      "name": "Large Debris 2",
-      "health": "(L+2)xC"
+      "name": "Large Debris",
+      "health": "(L+2)xC",
+      "marker": "2"
     }
   ],
   "rules": [
@@ -24,7 +25,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Large Debris 2"
+            "name": "Large Debris",
+            "marker": "2"
           }
         }
       ],

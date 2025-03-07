@@ -32,7 +32,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "When destroyed, replace with rubble and all figures in adjacent hexes suffer trap damage",
+          "value": "%data.scenario.rules.fh.115%",
           "small": true
         }
       ]

@@ -26,7 +26,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "When suffering damage but not destroyed:",
+          "value": "%data.scenario.rules.fh.86%",
           "subActions": [
             {
               "type": "summon",

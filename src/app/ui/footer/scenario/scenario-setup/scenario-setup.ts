@@ -51,10 +51,13 @@ export class ScenarioSetupComponent implements OnInit {
     updateMonster() {
         this.monsters = [];
         const cs = gameManager.editionRules('cs');
-        const monsterDefault = gameManager.scenarioManager.getMonsters(this.scenario, false, this.scenario.custom);
-        const monsterSpoiler = gameManager.scenarioManager.getMonsters(this.scenario, true, this.scenario.custom);
-        this.hasSpoiler = !cs && monsterDefault.length != monsterSpoiler.length;
-        (this.spoiler || cs ? monsterSpoiler : monsterDefault).forEach((monsterData) => {
+        const sections = !gameManager.editionRules('fc') || this.spoiler;
+        this.hasSpoiler = false;
+        if (!sections && gameManager.scenarioManager.getMonsters(this.scenario, false, this.scenario.custom).length != gameManager.scenarioManager.getMonsters(this.scenario, true, this.scenario.custom).length) {
+            this.hasSpoiler = true;
+        }
+
+        gameManager.scenarioManager.getMonsters(this.scenario, sections, this.scenario.custom).forEach((monsterData) => {
             let monster: Monster = new Monster(monsterData, gameManager.game.level);
             if (this.spoiler || !monster.standeeShare || gameManager.scenarioManager.openRooms().find((room) => room.initial && room.monster.find((standee) => standee.name.split(':')[0] == monster.name)) || gameManager.game.figures.some((figure) => figure instanceof Monster && figure.name == monster.name && figure.edition == monster.edition)) {
                 if (!this.monsters.find((m) => m.edition == monster.edition && m.name == monster.name)) {

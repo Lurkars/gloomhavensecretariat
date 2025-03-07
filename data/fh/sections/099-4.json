@@ -15,8 +15,9 @@
   ],
   "objectives": [
     {
-      "name": "Altar 2",
-      "health": "(L+1)xC"
+      "name": "Altar",
+      "health": "(L+1)xC",
+      "marker": "2"
     }
   ],
   "rules": [
@@ -30,7 +31,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Altar 2"
+            "name": "Altar",
+            "marker": "2"
           },
           "type": "dead"
         }

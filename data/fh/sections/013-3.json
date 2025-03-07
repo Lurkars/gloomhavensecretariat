@@ -11,8 +11,12 @@
   "marker": "2",
   "objectives": [
     {
-      "name": "Large Cave Rock 4-A",
-      "health": "[(L+1)xC/2{$math.floor}]"
+      "name": "Large Cave Rock",
+      "health": "[(L+1)xC/2{$math.floor}]",
+      "marker": "3",
+      "tags": [
+        "4-A"
+      ]
     }
   ],
   "rules": [
@@ -28,7 +32,10 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Large Cave Rock 4-A"
+            "name": "Large Cave Rock",
+            "tags": [
+              "4-A"
+            ]
           },
           "type": "dead"
         }
@@ -39,7 +46,6 @@
     {
       "roomNumber": 2,
       "initial": true,
-      "monster": [],
       "objectives": [
         1
       ]

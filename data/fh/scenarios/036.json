@@ -43,22 +43,22 @@
   ],
   "objectives": [
     {
-      "name": "Door a",
+      "name": "Door",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
       "marker": "a"
     },
     {
-      "name": "Door b",
+      "name": "Door",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
       "marker": "b"
     },
     {
-      "name": "Door c",
+      "name": "Door",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
       "marker": "c"
     },
     {
-      "name": "Door d",
+      "name": "Door",
       "health": "[((C-1)/2)x(L+3){$math.floor}]",
       "marker": "d"
     }
@@ -94,7 +94,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door a"
+            "name": "Door",
+            "marker": "a"
           },
           "type": "present"
         }
@@ -126,7 +127,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door b"
+            "name": "Door",
+            "marker": "b"
           },
           "type": "present"
         }
@@ -151,7 +153,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door c"
+            "name": "Door",
+            "marker": "c"
           },
           "type": "present"
         }
@@ -183,7 +186,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door d"
+            "name": "Door",
+            "marker": "d"
           },
           "type": "present"
         }
@@ -215,7 +219,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door a"
+            "name": "Door",
+            "marker": "a"
           },
           "type": "present"
         }
@@ -240,7 +245,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door b"
+            "name": "Door",
+            "marker": "b"
           },
           "type": "present"
         }
@@ -272,7 +278,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door c"
+            "name": "Door",
+            "marker": "c"
           },
           "type": "present"
         }
@@ -304,7 +311,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door d"
+            "name": "Door",
+            "marker": "d"
           },
           "type": "present"
         }
@@ -329,7 +337,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door a"
+            "name": "Door",
+            "marker": "a"
           },
           "type": "present"
         }
@@ -361,7 +370,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door b"
+            "name": "Door",
+            "marker": "b"
           },
           "type": "present"
         }
@@ -393,7 +403,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door c"
+            "name": "Door",
+            "marker": "c"
           },
           "type": "present"
         }
@@ -418,7 +429,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Door d"
+            "name": "Door",
+            "marker": "d"
           },
           "type": "present"
         }

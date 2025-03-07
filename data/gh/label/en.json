@@ -780,6 +780,22 @@
     "winged-horror": "Winged Horror"
   },
   "objective": {
+    "Altar": "Altar",
+    "Bone Pile": "Bone Pile",
+    "Captive Orchid": "Captive Orchid",
+    "Door": "Door",
+    "Fish": "Fish",
+    "Grave": "Grave",
+    "Hail": "Hail",
+    "Orchid": "Orchid",
+    "Redthorn": "Redthorn",
+    "Rock Column": "Rock Column",
+    "The Crystal": "The Crystal",
+    "Totem": "Totem",
+    "Tree": "Tree",
+    "Villager": "Villager",
+    "Vocal Cord": "Vocal Cord",
+    "Water Pump": "Water Pump",
     "zephyr": "Zephyr"
   },
   "partyAchievements": {

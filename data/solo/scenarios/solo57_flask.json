@@ -18,8 +18,7 @@
     {
       "roomNumber": 1,
       "ref": "I2b",
-      "initial": true,
-      "monster": []
+      "initial": true
     }
   ]
 }
