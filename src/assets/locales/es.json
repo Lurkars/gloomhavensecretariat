@@ -332,10 +332,10 @@
       "clockIn": "Reloj en el reloj del juego",
       "clockOut": "Salir del Reloj de Juego",
       "current": "Actual: {0}",
-      "off": "Reloj del juego en pausa Haz doble clic para iniciar.",
+      "off": "Reloj del juego en pausa. Haz doble clic para iniciar.",
       "paused": "Reloj de juego pausado! Doble clic para iniciar.<br>Total: {0}",
-      "running": "¡Reloj de juego en marca! Doble clic para parar.<br>Actual: {1}",
-      "runningTotal": "¡Reloj de juego en marca! Doble clic para parar.<br>Actual: {1}<br>Total: {0}",
+      "running": "¡Reloj de juego en macha! Doble clic para parar.<br>Actual: {1}",
+      "runningTotal": "¡Reloj de juego en macha! Doble clic para parar.<br>Actual: {1}<br>Total: {0}",
       "timestamp": "Ejecutar de {0} a {1}",
       "total": "Total: {0}"
     },
@@ -875,9 +875,9 @@
       "empty": "No se han encontrado objetos",
       "filter": {
         "": "Buscar…",
-        "affordable": "Sólo artículos de precio asequible",
-        "all": "Mostrar todos los items",
-        "sorted": "Ordenado"
+        "affordable": "Sólo objetos comprables",
+        "all": "Mostrar todos los objetos",
+        "sorted": "Ordenar"
       },
       "remove": "Elimina '{0}'",
       "sell": "Vender '{0}' por {1} oro",
@@ -1252,9 +1252,9 @@
             "confirm": "Confirmar"
           },
           "state": {
-            "damaged": "Dañado",
+            "damaged": "dañado",
             "normal": "normal",
-            "wrecked": "destrozado"
+            "wrecked": "arrasado"
           },
           "unlock": "Desbloquear edificio",
           "upgrade": {
@@ -1287,8 +1287,8 @@
           "": "Establecer Secciones para la semana {0}",
           "addSection": "Añadir sección a la semana",
           "calc": "{0} semanas desde la semana actual",
-          "hint": "Doble clic para fijar/editar las secciones de la semana",
-          "lock": "Bloquea el calendario para evitar editarlo por accidente. Doble clic para un bloqueo un bloqueo permisivo, permite añadir o eliminar una sola semana.",
+          "hint": "Doble clic para añadir/editar secciones de la semana",
+          "lock": "Bloquea el calendario para evitar editarlo de forma accidental. Doble clic para un bloqueo permisivo, permite añadir o eliminar una sola semana.",
           "openConclusion": "Seleccionar sección continua",
           "section": "Sección"
         },
@@ -1401,7 +1401,7 @@
       "empty": "Por favor, añade monstruos y personajes antes de la ronda.",
       "failed": "Todos los personajes parecen agotados. ¿Quieres reiniciar el escenario?",
       "finish": "No quedan monstruos. Has superado con éxito el escenario?",
-      "missingInitiative": "¡Introduce la iniciativa de todas las figuras!"
+      "missingInitiative": "¡Debes indicar la iniciativa de todas las figuras!"
     },
     "next": "Siguiente Ronda"
   },
@@ -1481,7 +1481,7 @@
       "buildingsLevel": "'%data.buildings.{0}%' (Edificio) Nivel {1} CONSTRUIR",
       "buildingsMissing": "'%data.buildings.{0}%' (Edificio) NO CONSTRUIR",
       "campaignStickers": "'{0}' (Pegatina de Campaña) COMPLETADO",
-      "campaignStickersCount": "'{0}' (Pegatina de Campaña) x{2} COMPLETADO  (obtén{1})",
+      "campaignStickersCount": "'{0}' (Pegatina de Campaña) x{2} COMPLETADO (obtén{1})",
       "campaignStickersMissing": "'{0}' (Pegatina de Campaña) NO COMPLETADO",
       "cancel": "Cancelar",
       "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' presente",
@@ -2241,7 +2241,7 @@
     "fhRules": "Reglas de Frosthaven",
     "fhSecondEdition": {
       "": "2a Impresión",
-      "hint": "Algunos cambios entre la primera y la segunda impresión de Frosthaven no pueden establecerse automáticamente. Por lo tanto, comprueba si utilizas la segunda impresión de Frosthaven. (Elige esta opción para jugar con la edición Española)."
+      "hint": "Algunos cambios entre la primera y la segunda impresión de Frosthaven no pueden establecerse automáticamente. Por lo tanto, comprueba si utilizas la segunda impresión de Frosthaven. (NO actives esta opción para jugar con la edición Española)."
     },
     "fhStyle": {
       "": "Estilo Frosthaven",
@@ -3064,6 +3064,7 @@
         "download": "Descargar volcado de datos",
         "errorHint": "Se ha producido un problema de software.<br>Puedes ayudar a mejorar el software informando de este error al desarrollador.<br>Por favor, adjunta un volcado de datos si es posible. ¡Gracias!",
         "errorIgnore": "No volver a enviar este error de nuevo automáticamente.",
+        "errorText": "Pila de ERRORES:\n\n{0}\n\n{1}",
         "mail": "Tenga en cuenta que Microsoft quiere utilizar su poder de mercado para bloquear los pequeños servidores privados de correo electrónico. Como resultado, puedo recibir correos electrónicos de outlook.com, hotmail.com u otros servicios de Microsoft, pero no puedo responder a ellos.",
         "send": "Enviar fallo (correo electrónico)",
         "specify": "Especifique los detalles en el texto.<br>Si no está seguro de cuál es exactamente el problema, descargue y adjunte el volcado de datos a continuación!",
@@ -3113,7 +3114,7 @@
         "name": "Nombre del Escenario",
         "notes": {
           "": "Notas adicionales",
-          "hint": "Por ejemplo, reglas especiales de escenario como ajustes de nivel de monstruos, eventos de rondas o cálculos de PV..."
+          "hint": "Por ejemplo, reglas especiales de escenario como ajustes de nivel de monstruos, eventos de rondas o cálculos de PV."
         },
         "send": "Enviar Escenario"
       }
@@ -3136,8 +3137,8 @@
         "hpDec": "Disminuir PV actuales",
         "hpInc": "Aumentar PV actuales",
         "kill": "Muerto / Agotado",
-        "lootDec": "Disminuir Monoeytokens",
-        "lootInc": "Aumentar Monoeytokens",
+        "lootDec": "Disminuir fichas de monedas",
+        "lootInc": "Aumentar fichas de monedas",
         "maxHpDec": "Disminuir PV Máx.",
         "maxHpInc": "Aumentar PV máx.",
         "toggleAbsent": "Fijar personaje ausente",

@@ -14,6 +14,7 @@
         "hint": "Siempre que no tengas %game.condition.regenerate%, obtén %game.condition.regenerate%."
       }
     },
+    "meteor": "Piroclasto",
     "snowflake": {
       "": "Danzanieves",
       "muddle-monster": {
@@ -32,6 +33,14 @@
         "4": "Una vez por escenario, cuando vayas a sufrir %game.damage%, puedes prevenir ese %game.damage%,",
         "5": "%game.card.recover% al menos 1 carta de tu pila de descartes cada ronda",
         "6": "En el mismo turno, entra en al menos 10 hexágonos diferentes con una capacidad de Movimiento y luego haz que un enemigo sufra al menos %game.damage:10% con una capacidad de Ataque"
+      },
+      "meteor": {
+        "1": "Crea una pieza de terreno peligroso de 1 hexágono en un hexágono sin accesorios adyacente al objetivo",
+        "2": "Siempre que realices un descanso largo, puedes destruir un obstáculo adyacente para obtener %game.condition.ward%",
+        "3": "Siempre que realices un descanso corto, puedes %game.element.consume.fire% para realizar %game.condition.wound%, %game.action.target:1% enemigo que ocupe o esté adyacente a terreno peligroso",
+        "4": "A ti y a todos los aliados no os afecta el terreno peligroso que tú creas",
+        "5": "Crea o destruye al menos 1 pieza de obstáculo o terreno peligroso en cada ronda",
+        "6": "Mueve a enemigos por 6 hexágonos diferentes de terreno peligroso creados por ti en un mismo turno"
       },
       "snowflake": {
         "1": "Si esta acción obliga al objetivo a moverse, este sufre %game.damage:1%",
@@ -148,6 +157,10 @@
       "": "Botas toscas",
       "1": "Durante tu capacidad de Movimiento, añade +1 %game.action.move%"
     },
+    "fh-53": {
+      "": "Botas de clavos",
+      "1": "Después de moverte 4 o más hexágonos durante tu turno, obtén %game.action,retaliate% 1 durante esta ronda."
+    },
     "fh-57": {
       "": "Pala",
       "1": "Durante tu turno, destruye una pieza adyacente de obstáculo, terreno peligroso, terreno impracticable, terreno helado o trampa."
@@ -179,6 +192,10 @@
     "fh-9": {
       "": "Cetro protector",
       "1": "Durante tu turno, otorga a 1 aliado a 2 %game.action.range:2% o menos:"
+    },
+    "fh-93": {
+      "": "Poción de observación",
+      "1": "Cuando reveles una carta de Modificador de ataque %game.attackmodifier.null% de tu mazo de Modificadores de ataque, trátala en su lugar como %game.attackmodifier.plus0%."
     },
     "fh-97": {
       "": "Frasco explosivo",

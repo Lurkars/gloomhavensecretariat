@@ -959,7 +959,7 @@
         "1": "Suma %game.action.attack% +2 si el objetivo está<br>adyacente a cualquiera de los aliado del Sabueso."
       },
       "ice-wraith": {
-        "1": "Todos los Espectros de hielo de élito se<br>vuelven normales, y todos los Espectros<br>de hielo normales se vuelven de élite."
+        "1": "Todos los Espectros de hielo de élite se<br>vuelven normales, y todos los Espectros<br>de hielo normales se vuelven de élite."
       },
       "laser-spires": {
         "1": "Rota cada rayo láser en el sentido de las agujas del reloj (si es posible)",
@@ -1085,6 +1085,7 @@
     "burrowing-blade": "Filo tunelador",
     "chaos-demon": "Demonio de caos",
     "city-guard": "Guardia de la ciudad",
+    "coral-corpse": "Cadáver de coral",
     "deep-terror": "Terror de las Profundidades",
     "earth-demon": "Demonio de Tierra",
     "elder-ooze": "Cieno Antiguo",
