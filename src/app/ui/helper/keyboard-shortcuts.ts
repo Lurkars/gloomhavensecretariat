@@ -18,7 +18,7 @@ import { HeaderComponent } from '../header/header';
 import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP" | "activeCharacter";
 
 @Directive({
     standalone: false,
@@ -65,7 +65,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.currentZoom = settingsManager.settings.zoom })
 
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
-            if (settingsManager.settings.keyboardShortcuts && !event.altKey && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
+            if (settingsManager.settings.keyboardShortcuts && !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA')) {
                 if (gameManager.stateManager.keyboardSelecting) {
                     if (event.key === 'Escape' || event.key === 's' || event.key === 'w') {
                         gameManager.stateManager.keyboardSelect = -1;
@@ -94,32 +94,32 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     }
                     event.preventDefault();
                     event.stopPropagation();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'z') {
                     gameManager.stateManager.undo();
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.shiftKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('undo') != -1) && event.ctrlKey && !event.altKey && !event.shiftKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
                     gameManager.stateManager.redo();
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('zoom') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+')) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('zoom') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+')) {
                     this.zoom(-1);
                     this.zoomInterval = setInterval(() => {
                         this.zoom(-1);
                     }, 30);
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('zoom') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowDown' || event.key === '-')) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('zoom') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && !this.zoomInterval && (event.key === 'ArrowDown' || event.key === '-')) {
                     this.zoom(1);
                     this.zoomInterval = setInterval(() => {
                         this.zoom(1);
                     }, 30);
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('zoom') != -1) && event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'r') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('zoom') != -1) && event.ctrlKey && !event.altKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'r') {
                     this.currentZoom = 100;
                     settingsManager.setZoom(this.currentZoom);
                     document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('round') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'n') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('round') != -1) && this.footer && !event.ctrlKey && !event.altKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'n') {
                     this.footer.next();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && gameManager.game.state == GameState.next && (event.key.toLowerCase() === 'm' || settingsManager.settings.amAdvantage && (event.key.toLowerCase() === 'a' || event.key.toLowerCase() === 'd'))) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('am') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && !this.zoomInterval && gameManager.game.state == GameState.next && (event.key.toLowerCase() === 'm' || settingsManager.settings.amAdvantage && (event.key.toLowerCase() === 'a' || event.key.toLowerCase() === 'd'))) {
                     const activeFigure = gameManager.game.figures.find((figure) => figure.active);
                     let deck: AttackModifierDeck | undefined = undefined;
                     const state: 'advantage' | 'disadvantage' | undefined = settingsManager.settings.amAdvantage && event.key.toLowerCase() === 'a' ? 'advantage' : (settingsManager.settings.amAdvantage && event.key.toLowerCase() === 'd' ? 'disadvantage' : undefined);
@@ -171,13 +171,13 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                         gameManager.stateManager.after();
                     }
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('loot') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'l' && settingsManager.settings.lootDeck && gameManager.game.lootDeck.cards.length > 0 && this.footer && this.footer.lootDeck) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('loot') != -1) && gameManager.game.state == GameState.next && !event.ctrlKey && !event.altKey && !event.shiftKey && !this.zoomInterval && event.key.toLowerCase() === 'l' && settingsManager.settings.lootDeck && gameManager.game.lootDeck.cards.length > 0 && this.footer && this.footer.lootDeck) {
                     if (!this.footer.lootDeck.deck.active) {
                         this.footer.toggleLootDeck();
                     }
                     this.footer.lootDeck.draw(event, true);
                     event.preventDefault();
-                } else if (!this.dialogOpen && !event.ctrlKey && event.key === 'Tab' && gameManager.game.figures.length > 0) {
+                } else if (!this.dialogOpen && !event.ctrlKey && !event.altKey && event.key === 'Tab' && gameManager.game.figures.length > 0) {
                     if (gameManager.game.state == GameState.next) {
                         this.toggleEntity(event.shiftKey);
                     } else {
@@ -197,24 +197,24 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                         event.stopPropagation();
                     }
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'x' && this.footer.ghsLevel) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('level') != -1) && this.footer && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'x' && this.footer.ghsLevel) {
                     this.footer.ghsLevel.open();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'e') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'e') {
                     if (gameManager.game.scenario && this.header) {
                         this.header.openEventEffects();
                     } else if (!gameManager.game.scenario && this.footer && this.footer.ghsScenario) {
                         this.footer.ghsScenario.open(event);
                     }
-                } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'f' && this.footer.ghsScenario && gameManager.game.scenario) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'f' && this.footer.ghsScenario && gameManager.game.scenario) {
                     this.footer.ghsScenario.open(event);
-                } else if ((!this.dialogOpen || this.allowed.indexOf('party') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'p' && settingsManager.settings.partySheet) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('party') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'p' && settingsManager.settings.partySheet) {
                     this.dialog.open(PartySheetDialogComponent, {
                         panelClass: ['dialog-invert'],
                         data: { partySheet: true }
                     });
                     event.stopPropagation();
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('map') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'g' && gameManager.game.edition) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('map') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'g' && gameManager.game.edition) {
                     const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.game.edition);
                     if (editionData) {
                         if (editionData.worldMap || editionData.extendWorldMap) {
@@ -230,7 +230,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                             event.preventDefault();
                         }
                     }
-                } else if ((!this.dialogOpen || this.allowed.indexOf('chart') != -1) && !event.ctrlKey && !event.shiftKey && event.key.toLowerCase() === 'c' && gameManager.game.edition) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('chart') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'c' && gameManager.game.edition) {
                     if (this.dialogOpen) {
                         this.dialog.closeAll();
                     }
@@ -243,11 +243,11 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     })
                     event.stopPropagation();
                     event.preventDefault();
-                } else if (!this.dialogOpen && !event.ctrlKey && this.header && event.key === 'Escape') {
+                } else if (!this.dialogOpen && !event.ctrlKey && !event.altKey && this.header && event.key === 'Escape') {
                     this.header.openMenu();
                     event.stopPropagation();
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('element') != -1) && !event.ctrlKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6'].indexOf(event.key) != -1) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('element') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && ['1', '2', '3', '4', '5', '6'].indexOf(event.key) != -1) {
                     const index: number = +event.key - 1;
                     const element = gameManager.game.elementBoard[index];
                     const elementState = gameManager.nextElementState(element, false, true);
@@ -255,26 +255,56 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     element.state = elementState;
                     gameManager.stateManager.after();
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('absent') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 'h') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('absent') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key === 'h') {
                     settingsManager.toggle('hideAbsent');
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('handSize') != -1) && !event.ctrlKey && event.shiftKey && event.key === 'H') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('handSize') != -1) && !event.ctrlKey && !event.altKey && event.shiftKey && event.key === 'H') {
                     settingsManager.toggle('characterHandSize');
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('traits') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 't') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('traits') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key === 't') {
                     settingsManager.toggle('characterTraits');
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('damageHP') != -1) && !event.ctrlKey && !event.shiftKey && event.key === 'i') {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('damageHP') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key === 'i') {
                     settingsManager.toggle('damageHP');
                     event.preventDefault();
-                } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.shiftKey && (event.key === 's' || event.key === 'w')) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('select') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && (event.key === 's' || event.key === 'w')) {
                     gameManager.stateManager.keyboardSelecting = event.key;
                     gameManager.uiChange.emit();
-                } else if (!this.dialogOpen && !event.ctrlKey && event.key === '?') {
+                } else if (!this.dialogOpen && !event.ctrlKey && !event.altKey && event.key === '?') {
                     this.dialog.open(KeyboardShortcutsComponent, {
                         panelClass: ['dialog'],
                     });
                     event.preventDefault();
+                } else if (!this.dialogOpen && !event.ctrlKey && (event.altKey && event.key === 'x' || event.shiftKey && event.key === 'X')) {
+                    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
+                    if (character) {
+                        switch (event.key) {
+                            case 'x':
+                                character.experience++;
+                                break;
+                            case 'X':
+                                character.experience--;
+                                if (character.experience < 0) {
+                                    character.experience = 0;
+                                }
+                                break;
+                        }
+                    }
+                } else if (!this.dialogOpen && !event.ctrlKey && (event.key === 'l' || event.shiftKey && event.key === 'L')) {
+                    const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) as Character;
+                    if (character && !gameManager.fhRules()) {
+                        switch (event.key) {
+                            case 'l':
+                                character.loot++;
+                                break;
+                            case 'L':
+                                character.loot--;
+                                if (character.loot < 0) {
+                                    character.loot = 0;
+                                }
+                                break;
+                        }
+                    }
                 }
             }
         })

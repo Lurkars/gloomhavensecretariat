@@ -207,7 +207,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%data.custom.perks.demolitionist.1%"
+                "value": "%data.custom.jotl.demolitionist.1%"
               }
             ]
           }

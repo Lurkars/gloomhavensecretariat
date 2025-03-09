@@ -916,10 +916,10 @@ export class GameManager {
     this.game.battleGoalEditions = this.game.party.battleGoalEditions || [];
     this.game.filteredBattleGoals = this.game.party.filteredBattleGoals || [];
     this.game.unlockedCharacters = this.game.party.unlockedCharacters || [];
-    this.game.level = this.game.party.level || this.game.level;
+    this.game.level = this.game.party.level == 0 ? 0 : this.game.party.level || this.game.level;
     this.game.levelCalculation = this.game.party.levelCalculation == false ? false : this.game.party.levelCalculation || this.game.levelCalculation;
-    this.game.levelAdjustment = this.game.party.levelAdjustment || this.game.levelAdjustment;
-    this.game.bonusAdjustment = this.game.party.bonusAdjustment || this.game.bonusAdjustment;
+    this.game.levelAdjustment = this.game.party.levelAdjustment == 0 ? 0 : this.game.party.levelAdjustment || this.game.levelAdjustment;
+    this.game.bonusAdjustment = this.game.party.bonusAdjustment == 0 ? 0 : this.game.party.bonusAdjustment || this.game.bonusAdjustment;
     this.game.ge5Player = this.game.party.ge5Player == false ? false : this.game.party.ge5Player || this.game.ge5Player;
     this.game.playerCount = this.game.party.playerCount || this.game.playerCount;
     this.game.solo = this.game.party.solo == false ? false : this.game.party.solo || this.game.solo;

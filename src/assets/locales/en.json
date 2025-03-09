@@ -3121,6 +3121,13 @@
     },
     "keyboard": {
       "": "Keyboard Shortcuts",
+      "activeCharacter": {
+        "lootDec": "Dec. Moneytokens for active Character",
+        "lootInc": "Inc. Moneytokens for active Character",
+        "xpDec": "Dec. XP for active Character",
+        "xpInc": "Inc. XP for active Character"
+      },
+      "alt": "ALT",
       "am": "Draw AM card (deck depending on active figure, monster deck when not active, disabled when <b>Draw</b>)",
       "amAdvantage": "Same like <kbd><span>m</span></kbd>, but draw with Advantage if enabled",
       "amDisadvantage": "like <kbd><span>m</span></kbd>, but draw with Disadvantage if enabled",
