@@ -94,8 +94,10 @@
         "name": "Trier par nom"
       },
       "undoLastPick": {
+        "": "Annuler la sélection pour le niveau {0}",
         "hint": "Double clic pour réinitialiser tous les choix"
-      }
+      },
+      "wip": "<i>%wip%</i>"
     },
     "absent": "Absent",
     "add": "Ajouter un personnage",
@@ -161,6 +163,7 @@
       "gold-notes": "Notes (Or)",
       "import": "Importer",
       "level": "Niveau",
+      "lock": "Verrouiller la feuille de personnage pour éviter les modifications accidentelles.",
       "masteries": "Maîtrises",
       "name": "Nom",
       "notes": "Notes",
@@ -173,7 +176,9 @@
         "counter": "Compteur",
         "openEnvelope": {
           "": "Ouvrir l'enveloppe %game.fhIcon:envelope% {0}",
-          "alt": "Ouvrir l'enveloppe %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})"
+          "alt": "Ouvrir l'enveloppe %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
+          "building": "Déverrouille la construction '%data.buildings.{1}%' ({0})",
+          "inspiration": "Gagner +1 Inspiration"
         },
         "unlockCharacter": "Boîte ouverte %game.characterIcon.{0}%"
       },
@@ -547,16 +552,16 @@
     },
     "condition": {
       "bane": {
-        "": "Fléau",
-        "hint": "%game.conditionIcon.bane% Fléau : Subit %game.damage:10% à la fin du prochain tour, puis se retire. Se retire également lorsqu'il est soigné."
+        "": "Plaie",
+        "hint": "%game.conditionIcon.bane% Plaie : Subit %game.damage:10% à la fin du prochain tour, puis se retire. Se retire également lorsqu'il est soigné."
       },
       "bless": {
-        "": "Bénir",
-        "hint": "%game.conditionIcon.bless% Bénir : Mélanger la carte %game.attackmodifier.bless% dans le paquet de modificateurs d'attaque."
+        "": "Bénédiction",
+        "hint": "%game.conditionIcon.bless% Bénédiction : Mélanger la carte %game.attackmodifier.bless% dans le paquet de modificateurs d'attaque."
       },
       "brittle": {
-        "": "Cassant",
-        "hint": "%game.conditionIcon.brittle% Cassant: Double la source suivante de %game.damage%, puis la supprime. Se retire également lorsqu'il est soigné."
+        "": "Faiblesse",
+        "hint": "%game.conditionIcon.brittle% Faiblesse: Double la prochaine source d'%game.damage%, puis la supprime. Se retire également lorsqu'il est soigné."
       },
       "chill": {
         "": "Découragement",
@@ -579,7 +584,7 @@
         "hint": "%game.conditionIcon.empower% Renforcement: Mélangez la carte %game.attackmodifier.empower% dans la pioche des modificateurs d'attaque."
       },
       "enfeeble": {
-        "": "Affaiblir",
+        "": "Incapacité",
         "hint": "%game.conditionIcon.enfeeble% Affaiblir: Mélangez la carte %game.attackmodifier.enfeeble% dans la pioche des modificateurs d'attaque."
       },
       "heal": {
@@ -591,15 +596,15 @@
       },
       "impair": {
         "": "Affaiblir",
-        "hint": "%game.conditionIcon.impair% Affaiblir: Ne peut pas utiliser d'objets. Retiré à la fin du tour suivant."
+        "hint": "%game.conditionIcon.impair% Incapacité: Ne peut pas utiliser d'objets. Retiré à la fin du tour suivant."
       },
       "infect": {
         "": "Infection",
         "hint": "%game.conditionIcon.infect% Infection: Ne peut pas gagner de bouclier. Retiré en cas de guérison."
       },
       "invisible": {
-        "": "Invisible",
-        "hint": "%game.conditionIcon.invisible% Invisible: Ne peut être ciblé. Retiré à la fin du prochain tour."
+        "": "Invisibilité",
+        "hint": "%game.conditionIcon.invisible% Invisibilité: Ne peut être ciblé. Retiré à la fin du prochain tour."
       },
       "muddle": {
         "": "Confusion",
@@ -630,8 +635,8 @@
         "hint": "%game.conditionIcon.stun% Étourdissement: Impossible d'exécuter des capacités, d'utiliser ou de déclencher des objets. Retiré à la fin du tour suivant."
       },
       "ward": {
-        "": "Pavillon",
-        "hint": "%game.conditionIcon.ward% Pavillon: divise par deux (arrondir à l'inférieur) la prochaine source de %game.damage%, puis la supprime."
+        "": "Protection",
+        "hint": "%game.conditionIcon.ward% Protection: divise par deux (arrondir à l'inférieur) la prochaine source de %game.damage%, puis la supprime."
       },
       "wound": {
         "": "Blessure",
@@ -870,7 +875,7 @@
           "goldFh": "gagner {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "effectuer \"Guérir {0}, Soi-même\"",
           "item": "gagner {1} ({0})",
-          "itemBlueprint": "gagner {1} modèle %game.itemFh.{0}%",
+          "itemBlueprint": "gagner {1} plan %game.itemFh.{0}%",
           "itemFh": "gagner {1} %game.itemFh.{0}%",
           "loot": "gagner {0} pions monnaie",
           "lootCards": "gagner %number.{0}% cartes de butin",
@@ -1275,8 +1280,9 @@
       "": "Effets de l'événement",
       "campaign": "Affecte la campagne",
       "drawRandomItem": {
+        "": "Piocher un Modèle d'Objet Aléatoire",
         "apply": "Appliquer",
-        "blueprint": "Dessiner le plan d'un objet aléatoire"
+        "blueprint": "Piocher un Plan d'Objet aléatoire"
       },
       "drawRandomScenario": {
         "": "Scénario aléatoire",
@@ -1360,7 +1366,7 @@
       "gold": "{0} or chacun",
       "inspiration": "{0} inspiration",
       "item": "\"{1}\" (Objet {0})",
-      "itemBlueprint": "Gagner \"{1}\" %game.itemFh.{0}% schéma",
+      "itemBlueprint": "Gagner \"{1}\" %game.itemFh.{0}% plan",
       "itemBlueprintRange": "Ajouter les objets %game.itemFh.{0}% à %game.itemFh.{1}% à la réserve d'objets disponibles.",
       "items": "{2} \"{1}\" (Objet {0})",
       "location": "Nouvelle localisation",
@@ -1371,8 +1377,8 @@
       "partyAchievements": "Hauts Faits de Compagnie",
       "perks": "Gagnez {0} par bénéfice",
       "prosperity": "{0} prosperité",
-      "randomItemBlueprint": "Gagner un modèle d'objet aléatoire",
-      "randomItemBlueprints": "Ajouter les objets %game.itemFh.{0}% à %game.itemFh.{1}% au modèle d'objets aléatoires du deck.",
+      "randomItemBlueprint": "Gagner un plan d'objet aléatoire",
+      "randomItemBlueprints": "Ajouter les objets %game.itemFh.{0}% à %game.itemFh.{1}% au plan d'objets aléatoires du deck.",
       "randomItems": "Chaque personnage gagne un objet aléatoire ({0}-{1})",
       "removeEvent": {
         "boat": "Retirer l'événement {0} du paquet des bateaux",
@@ -1729,7 +1735,7 @@
     },
     "battleGoals": {
       "": "Objectifs de bataille",
-      "hint": "Permet de dessiner et de sélectionner les objectifs de bataille avant le premier tour d'un scénario."
+      "hint": "Permet de piocher et de sélectionner les objectifs de bataille avant le premier tour d'un scénario."
     },
     "battleGoalsCharacter": {
       "": "Toujours afficher les objectifs de bataille",
@@ -2229,6 +2235,7 @@
         "changeCharacterHP": "{0} PV pour {1}",
         "changeCharacterResource": "{1} %game.resource.{0}% pour {2}",
         "changeCharacterXP": "{0} PV pour {1}",
+        "drawRandomItemBlueprint": "Piocher un Plan d'Objet aléatoire {0} \"{2}\" (%data.edition.{1}%)",
         "inspiration": "{0} Inspiration",
         "morale": "{0} Moral",
         "prosperity": "{0} Prosperité",

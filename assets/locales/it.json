@@ -30,13 +30,13 @@
       "name": "Nome per la Campagna {0}",
       "reset": "Ricomincia Campagna"
     },
-    "character": "Fogli del personaggio",
+    "character": "Schede del personaggio",
     "items": "Panoramica carte oggetto",
     "map": {
       "": "Mappa Globale",
       "highlighting": "Evidenza"
     },
-    "party": "Foglio Gruppo/Campagna",
+    "party": "Scheda Gruppo/Campagna",
     "resources": "Tabella panoramica delle risorse",
     "sheet": "Foglio di gestione della campagna globale",
     "trials": {
@@ -102,13 +102,23 @@
     "absent": "Assente",
     "add": "Aggiungi personaggio",
     "class": {
+      "aesther": "Aesther",
+      "algox": "Algox",
+      "f": {
+        "aesther": "Aesther",
+        "algox": "Algox",
+        "human": "Umana",
+        "inox": "Inox"
+      },
       "human": "Umano",
       "m": {
+        "aesther": "Aesther",
+        "algox": "Algox",
         "human": "Umano"
       }
     },
     "filter": {
-      "": "Filtro personaggio",
+      "": "Filtra per personaggio",
       "allEditions": "Tutte le edizioni",
       "noResult": "Nessun risultato"
     },
@@ -119,24 +129,24 @@
     "playerNumber": "Giocatore #",
     "present": "Presente",
     "progress": {
-      "": "Foglio personaggio",
+      "": "Scheda personaggio",
       "donate": "Dona",
       "export": "Esporta",
       "fh": {
-        "disable": "Vai al foglio del personaggio di Gloomhaven",
-        "enable": "Vai al foglio del personaggio di Frosthaven"
+        "disable": "Vai alla scheda del personaggio di Gloomhaven",
+        "enable": "Vai alla scheda del personaggio di Frosthaven"
       },
       "gold": "Oro",
       "gold-notes": "Note d'oro",
       "import": "Importa",
       "level": "Livello",
-      "lock": "Blocca il foglio dei personaggi per evitare modifiche accidentali.",
+      "lock": "Blocca la scheda del personaggio per evitare modifiche accidentali.",
       "masteries": "Maestrie",
       "name": "Nome",
       "notes": "Note",
       "perks": {
-        "": "Benefici",
-        "extra": "Benefici extra"
+        "": "Talenti",
+        "extra": "Talenti extra"
       },
       "personalQuest": {
         "": "Missione personale",
@@ -145,8 +155,209 @@
           "": "Apri la busta %game.fhIcon:envelope% {0}",
           "alt": "Apri la busta %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
           "building": "Sblocca l'edificio '%data.buildings.{1}%' ({0})",
-          "inspiration": "Guadagna +1 ispirazione"
+          "inspiration": "Ottieni +1 ispirazione",
+          "itemBlueprint": "Ottieni il progetto di \"%data.items.{1}-{0}%\" (Item {0})",
+          "randomScenario": "Apri %data.section:{0}%, sblocca %data.scenarioNumber:{1}%"
+        },
+        "unlockCharacter": {
+          "": "Apri la custodia %game.characterIcon.{0}%",
+          "itemDesign": "Ottieni il piano di \"%data.items.{1}-{0}%\" (Item {0})",
+          "randomScenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%"
         }
+      },
+      "resources": {
+        "": "Risorse",
+        "apply": "Sposta risorse",
+        "move": "Sposta alle forniture di Frosthaven"
+      },
+      "retired": "Ritirato",
+      "retirement": {
+        "": "Ritira personaggio",
+        "additionalPQ": {
+          "": "Spendi 15 di ispirazione per ulteriore MP",
+          "cancel": "Annulla MP aggiuntiva",
+          "inspiration": "-15 ispirazione"
+        },
+        "apply": "Applica",
+        "conclusion": "Apri la sezione %data.section:{0}%",
+        "events": "Aggiungi l'evento di strada {0} e l'evento di città {0} al mazzo",
+        "moveSupply": "Sposta le risorse nel magazzino di Frosthaven",
+        "prosperity": "+{0} prosperità"
+      },
+      "retirements": "Ritiri",
+      "title": "{1} {0}",
+      "trial": "Prova",
+      "xp": "XP"
+    },
+    "remove": "Rimuovi personaggio",
+    "removeAll": "Rimuovi tutti",
+    "replay": {
+      "": "Rigioca personaggio",
+      "hint": "Doppio click per rigiocare il personaggio"
+    },
+    "setAside": "Metti da parte il personaggio",
+    "summon": {
+      "level": "(Level {0})"
+    },
+    "token": "Segnalino personaggio",
+    "traits": "Capacità",
+    "unlock": {
+      "": "Sbloccare?",
+      "confirm": "Sblocca!"
+    },
+    "unlockAll": {
+      "": "Sbloccare tutti?",
+      "confirm": "Sblocca tutti!"
+    }
+  },
+  "close": "Chiudi",
+  "confirm": "Conferma",
+  "datamanagement": {
+    "": "Gestione dati",
+    "addEditionDataUrl": "Aggiungi URL con i dati di edizione",
+    "addSpoiler": "Aggiungi spoiler",
+    "addUnlock": "Sblocca",
+    "backup": {
+      "": "Backup di gioco",
+      "all": "Scarica tutti i backup del gioco ({0})",
+      "auto": {
+        "": "Backup automatici",
+        "count": "Ogni (x) azioni",
+        "countHint": "Numero di azioni tra backup automatici",
+        "onFinish": "Dopo aver terminato lo scenario",
+        "uploadUrl": {
+          "": "Carica URL",
+          "error": {
+            "": "ATTENZIONE: backup automatico non riuscito",
+            "status": "Backup automatico non riuscito con il codice di risposta '{0}'. Dai un'occhiata alla console del browser per maggiori dettagli.",
+            "unknown": "Backup automatico non riuscito per causa sconosciuta. Si prega di dare un'occhiata alla console del browser per maggiori dettagli."
+          },
+          "hint": "Invece di scaricare il file di backup automatico, imposta un URL per caricare i dati. {FILENAME} può essere utilizzato come segnaposto per il nome file. (Ciò richiede le impostazioni corrette CORS per funzionare!)"
+        },
+        "uploadUrlAuthorization": {
+          "": "Intestazione di autorizzazione",
+          "hint": "Utilizzato come intestazione di 'autorizzazione' per la richiesta di caricamento"
+        },
+        "uploadUrlFileUpload": {
+          "": "Carica come file",
+          "hint": "Crea un oggetto file da caricare. Se non controllati, verranno inviati i dati di stringa JSON grezzi."
+        },
+        "uploadUrlMethod": {
+          "": "Metodo",
+          "get": "GET",
+          "hint": "Metodo HTTP per il caricamento",
+          "post": "POST",
+          "put": "PUT"
+        },
+        "uploadUrlPassword": {
+          "": "Password",
+          "hint": "Password utilizzata per la richiesta di caricamento"
+        },
+        "uploadUrlUsername": {
+          "": "Nome utente",
+          "hint": "Nome utente usato per la richiesta di caricamento"
+        }
+      },
+      "delete": "Elimina i backup del gioco",
+      "download": {
+        "": "Scarica ora il file di backup",
+        "hint": {
+          "": "Eseguire il backup del gioco regolarmente per prevenire la perdita di dati.",
+          "hide": "Non mostrare più",
+          "text": "L'intero processo è archiviato nella memoria del browser. Sebbene nessun browser dovrebbe eliminare accidentalmente questi dati, ci sono ancora pochissimi di questi casi fortuiti. Indipendentemente dal fatto che questi incidenti siano causati da errori di utilizzo, per esserne sicuri, è una buona idea creare un backup."
+        },
+        "onFinish": "Backup automatico dopo aver terminato uno scenario"
+      },
+      "latest": "Scarica l'ultimo backup del gioco"
+    },
+    "clearAll": "Ripristina tutti i dati",
+    "editionDataUrls": {
+      "": "Gestisci i dati dell'edizione",
+      "custom": "Dati aggiuntivi dell'edizione",
+      "disable": "Disabilita Edizione",
+      "enable": "Abilita edizione",
+      "remove": "Rimuovi i dati dell'edizione"
+    },
+    "exportDataDump": "Dump di dati di esportazione",
+    "exportGame": "Esporta partita su file",
+    "exportSettings": "Esporta impostazioni su file",
+    "importDataDump": "Importa dump di dati",
+    "importFile": {
+      "": "Importa file",
+      "hint": "Importa qualsiasi file esportato come partita, backup, datadump o impostazioni. Conferma l'importazione con il secondo clic!"
+    },
+    "importGame": "Importa partita dal file",
+    "importSettings": "Importa impostazioni dal file",
+    "removeAllSpoilers": "Rimuovi tutto",
+    "removeAllUnlocks": "Rimuovi tutto",
+    "removeSpoiler": "Rimuovi spoiler",
+    "removeUnlock": "Rimuovi sblocco",
+    "resetGame": "Resetta la partita",
+    "resetSettings": "Ripristina le impostazioni",
+    "restoreEditionDataUrls": "Ripristina i valori predefiniti",
+    "spoilers": "Gestisci spoiler",
+    "unlocks": "Gestisci gli sblocchi"
+  },
+  "duration": {
+    "days": "{3} giorni, {2} ore, {1} minuti e {0} secondi",
+    "gameClock": {
+      "": "Tempo di gioco",
+      "clockIn": "Far partire il tempo di gioco",
+      "clockOut": "Fermare il tempo di gioco",
+      "current": "Corrente: {0}",
+      "off": "Il tempo di gioco si è fermato! Doppio clic per ripartire.",
+      "paused": "Il tempo di gioco si è fermato! Doppio clic per ripartire. <br>Totale: {0}",
+      "running": "Il tempo di gioco è in esecuzione! Doppio click per interromperlo. <br>Corrente: {1}",
+      "runningTotal": "Il tempo di gioco è in esecuzione! Doppio click per interromperlo. <br>Corrente: {1}<br>Totale: {0}",
+      "timestamp": "Vai da {0} a {1}",
+      "total": "Totale: {0}"
+    },
+    "hours": "{2} ore, {1} minuti e {0} secondi",
+    "minutes": "{1} minuti e {0} secondi",
+    "seconds": "{0} secondi",
+    "totalHours": "{0}, circa {1} ore"
+  },
+  "edition": {
+    "": "Scegli edizione",
+    "all": "Tutte le edizioni",
+    "conditions": "Condizioni disponibili"
+  },
+  "editor": {
+    "": "Editore [Spoiler!]",
+    "action": {
+      "add": "Aggiungi azione",
+      "addBottom": "Aggiungi l'azione inferiore",
+      "addSubAction": "Aggiungi sotto-azione",
+      "remove": "Rimuovi l'azione",
+      "removeSubAction": "Rimuovi la sotto-azione",
+      "small": "Minore",
+      "type": "Tipo di azione",
+      "value": "Valore d'azione",
+      "valueType": {
+        "": "Tipo di valore",
+        "add": "Aggiungi",
+        "fixed": "Fisso",
+        "minus": "Meno",
+        "plus": "Più",
+        "subtract": "Sottrai"
+      }
+    },
+    "character": {
+      "": "Editor dei personaggi",
+      "data": {
+        "": "Dati dei personaggi"
+      }
+    }
+  },
+  "party": {
+    "": "Gruppo",
+    "campaign": {
+      "donations": "Donazioni al santuario della Grande Quercia",
+      "envelopeB": "Busta B",
+      "items": "Oggetti sbloccati",
+      "map": "Mappa",
+      "players": {
+        "": "Nomi dei giocatori"
       }
     }
   }
