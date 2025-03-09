@@ -117,9 +117,45 @@
       "": "Escudo gótico",
       "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:1%para dicho ataque."
     },
+    "fh-129": {
+      "": "Lentes ojo de águila",
+      "1": "Durante tu capacidad de Ataque, obtén Ventaja en todos los ataques."
+    },
     "fh-13": {
       "": "Zapatillas de baile",
       "1": "Después de sufrir %game.damage% por un ataque, realiza:"
+    },
+    "fh-130": {
+      "": "Yelmo de hierro",
+      "1": "Cuando te ataquen, trata cualquier carta de Modificador de ataque %game.attackmodifier.double% que robe el enemigo como %game.attackmodifier.plus0% en su lugar."
+    },
+    "fh-131": {
+      "": "Cota de malla",
+      "1": "Para las 3 próximas fuentes de %game.damage% de ataques que te tomen como objetivo, obtén %game.action.shield:1% para dichos ataques."
+    },
+    "fh-132": {
+      "": "Capa de bolsillos",
+      "1": "Al inicio del escenario, lleva 1 objeto %game.items.slots.small% adicional."
+    },
+    "fh-133": {
+      "": "Perneras de ligereza",
+      "1": "Cuando un aliado adyacente vaya a ser el objetivo de un ataque, en su lugar te toma como objetivo a ti, independientemente del alcance y de la línea de visión."
+    },
+    "fh-134": {
+      "": "Zapatos cómodos",
+      "1": "Cuando uses la acción inferior básica de una carta de Capacidad, realiza %game.action.move% 3 en lugar de %game.action.move% 2."
+    },
+    "fh-135": {
+      "": "Arco rompearmaduras",
+      "1": "Durante tu turno, añade %game.action.pierce% a todos tus ataques a distancia."
+    },
+    "fh-136": {
+      "": "Hacha de batalla",
+      "1": "Durante tu capacidad de Ataque cuerpo a cuerpo con un solo objetivo, cambia el objetivo de la capacidad a:"
+    },
+    "fh-137": {
+      "": "Pavés",
+      "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:2% para dicho ataque."
     },
     "fh-14": {
       "": "Espada pesada",
@@ -133,6 +169,10 @@
       "": "Botas de avaricia",
       "1": "Siempre que saquees 2 o más fichas de Botín a la vez, realiza: %game.condition.bless% Personal."
     },
+    "fh-183": {
+      "": "Jarra de nieblas",
+      "1": "Durante tu turno, todas las figuras sufren Desventaja y %game.action.range%-1 en todos sus ataques a distancia de esta ronda. "
+    },
     "fh-188": {
       "": "Cristal congelate",
       "1": "Durante tu turno, crea 1 pieza de 1 hexágono de terreno peligroso, terreno helado o agua en un hexágono sin accesorios adyacente."
@@ -140,6 +180,19 @@
     "fh-2": {
       "": "Casco tosco",
       "1": "Cuando te ataquen, trata cualquier carta de Modificador de ataque %game.attackmodifier.double% que robe el enemigo como %game.attackmodifier.plus1% en su lugar."
+    },
+    "fh-225": {
+      "": "Figura algox",
+      "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, %game.element.consume.earth% para añadir %game.action.attack% +1 a 1 ataque, y luego dale la vuelta a esta carta.",
+      "2": "Durante tu capacidad de Ataque, %game.element.consume.air% para añadir %game.action.push% 2 a 1 ataque, y luego dale la vuelta a esta carta."
+    },
+    "fh-231": {
+      "": "Cuchillo de desollar",
+      "1": "Cuando obtengas una ficha de Botín, obtén 3 Pieles en lugar de robar una carta de Botín."
+    },
+    "fh-24": {
+      "": "Filo corrupto",
+      "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, añade %game.condition.wound%, %game.condition.poison%, y %game.condition.muddle% a 1 ataque."
     },
     "fh-3": {
       "": "Capa de viaje",
@@ -153,6 +206,10 @@
       "": "Armadura de piel tosca",
       "1": "Para los 2 próximos ataques que te tomen como objetivo, el atacante sufre Desventaja."
     },
+    "fh-47": {
+      "": "Túnica de condena",
+      "1": "Para las 2 próximas fuentes de %game.damage% de ataques que te tomen como objetivo, sufre %game.damage% 3 para aplicar %game.condition.brittle% al atacante."
+    },
     "fh-5": {
       "": "Botas toscas",
       "1": "Durante tu capacidad de Movimiento, añade +1 %game.action.move%"
@@ -160,6 +217,10 @@
     "fh-53": {
       "": "Botas de clavos",
       "1": "Después de moverte 4 o más hexágonos durante tu turno, obtén %game.action,retaliate% 1 durante esta ronda."
+    },
+    "fh-56": {
+      "": "Imán de rapiñador",
+      "1": "Durante tu turno, %game.element.consume.earth% para saquear una ficha de Botín adyacente."
     },
     "fh-57": {
       "": "Pala",
@@ -181,6 +242,14 @@
       "": "Lanza tosca",
       "1": "Durante tu turno, 1 de tus capacidades de Ataque cuerpo a cuerpo con un solo objetivo puede tener como objetivo a un enemigo situado a 2 hexágonos de distancia."
     },
+    "fh-83": {
+      "": "Poción curativa",
+      "1": "Durantu tu turno, realiza:<br>%game.action.heal% 3 Personal"
+    },
+    "fh-85": {
+      "": "Poción de poder",
+      "1": "Durante tu turno, añade %game.action.attack% +1 a todos tus ataques."
+    },
     "fh-87": {
       "": "Poción de remedio",
       "1": "Durante tu turno, retira 1 estado negativo que sufras.<br>Puedes usarla incluso si sufres %game.condition.impair% o %game.condition.stun%."
@@ -196,6 +265,14 @@
     "fh-93": {
       "": "Poción de observación",
       "1": "Cuando reveles una carta de Modificador de ataque %game.attackmodifier.null% de tu mazo de Modificadores de ataque, trátala en su lugar como %game.attackmodifier.plus0%."
+    },
+    "fh-94": {
+      "": "Poción de frenesí",
+      "1": "Durante tu turno, realiza:"
+    },
+    "fh-95": {
+      "": "Frasco de veneno",
+      "1": "Durante tu turno, realiza: %game.condition.poison% %game.action.range:1%"
     },
     "fh-97": {
       "": "Frasco explosivo",
@@ -241,6 +318,62 @@
       "54": "¿El cofre del tesoro? No había ningún cofre del tesoro allí Tal vez deberías ir más despacio con la bebida.",
       "57": "¿Qué es esto? Un cofre vacío con una trampilla de plomo en la parte inferior. Anotas la ubicación para poder volver con la ayuda de Gem más tarde.",
       "62": "Ganas el diseño del cubo mecánico %game.itemFh.82% cuando encuentres la otra mitad de este plano."
+    }
+  },
+  "trials": {
+    "fh": {
+      "348": {
+        "": "Debilidad",
+        "text": "Al inicio de cada escenario, devuelve tu mazo de Modificadores de ataque a su estado inicial, como si no hubieras conseguido pericias, y, a continuación, retira todos los modificadores positivos (incluido %game.attackmodifier.double%).<br>Superas esta prueba cuando completes un escenario<br> Devuelve tu mazo a su estado correcto cuando lo superes"
+      },
+      "349": {
+        "": "Estrategia",
+        "text": "Al inicio de cada escenario, no descartes ningún Objetivo de batalla. Si sacas dos excluyentes, descarta uno y saca otro para reemplazarlo.<br>Habrás superado esta prueba cuando completes un escenario habiendo conseguido todos los Objetivos de batalla robados."
+      },
+      "350": {
+        "": "Manipulación",
+        "text": "Convence al grupo para que tome elecciones de las cartas de Evento según el siguiente plan:<br>%game.eventCheckbox:A% %game.eventCheckbox:B% %game.eventCheckbox:B% %game.eventCheckbox:A%<br>Cuando el grupo haga una elección que coincida con la casilla sin marcar situada más a la Izquierda, márcala.<br>Superas esta prueba cuando todas las casillas están marcadas."
+      },
+      "351": {
+        "": "Pobreza",
+        "text": "Durante cada escenario, siempre que un aliado saquee una ficha de Botín, sufre%game.damage:N/3% (redondeado hacia arriba).<br>Superas esta prueba cuando completes un escenario."
+      },
+      "352": {
+        "": "Censura",
+        "text": "Durante cada escenario, no puedes decir las palabras \"atacar\", \"coger\" o \"dañar\" ni sus variantes (como los sustantivos \"ataque\" o \"daño). Siempre que lo hagas, sufres %game.damage:N/2% (redondeado hacia arriba).<br>Superas esta prueba cuando completes un escenario."
+      },
+      "353": {
+        "": "Orden",
+        "text": "Durante cada escenario, todas tus capacidades de Ataque deben tener como objetivo la figura con el número más bajo del tablero.<br>Superas esta prueba cuando completes un escenario."
+      },
+      "354": {
+        "": "Predicción",
+        "text": "Al inicio de cada escenario, predice el número de rondas que harán falta para completar el escenario colando esa mismo número de fichas de Daño delante de ti.<br>Habrás superado esta prueba cuando completes un escenario en el número de rondas predicho o 1 menos."
+      },
+      "355": {
+        "": "Inquisición",
+        "text": "Durante cualquier escenario, adivina públicamente el Objetivo de batalla de otro personaje (el nombre o el efecto) antes de que se revele. No puedes intentarlo más de una vez por personaje y escenario.<br>Has superado esta prueba cuando adivines correctamente un Objetivo de batalla."
+      },
+      "356": {
+        "": "Pruebas",
+        "text": "Durante cada escenario, roba 1 Objetivo de batalla adicional al final de cada ronda en la que hayas sufrido daño. En lo tocante a las condiciones de cada Objetivo de batalla recién robado, haz como si el escenario acabara de empezar. Solo obtienes marcas por 1 Objetivo de batalla completado en cada escenario.<br>Habrás superado esta prueba cuando completes un escenario habiendo conseguido al menos la mitad de los Objetivos de batalla robados."
+      },
+      "357": {
+        "": "Engaño",
+        "text": "Completa un escenario durante el cual tu personaje quede agotado.<br>Superas esta prueba cuando, antes de comenzar el siguiente escenario, convenzas a otro jugador de que tu prueba es imposible de superar y de que te debe permitir revelarla."
+      },
+      "358": {
+        "": "Expresión",
+        "text": "Al principio de cada escenario, selecciona un sustantivo. Si tu sustantivo seleccionado no es pronunciado en voz alta por otro jugador durante cada ronda, sufre %game.damage:N/2% (redondeado hacia arriba) al final de la ronda. El sustantivo seleccionado no puede ser \"carta\", \"ataque\", \"daño\", \"puerta\", \"monstruo\", \"hexágono\" o \"iniciativa\".<br>Superas esta prueba cuando completes un escenario."
+      },
+      "359": {
+        "": "Paciencia",
+        "text": "Superas esta prueba cuando el mazo de pruebas se agote y seas el último personaje con una prueba sin superar."
+      },
+      "360": {
+        "": "Victoria",
+        "text": "Al inicio de cada escenario, en lugar de que los personajes roben Objetivos de batalla de forma habitual, roba P+1 Objetivos de batalla de dos marcas y asigna 1 de ellos a cada personaje.<br>Habrás superado esta prueba cuando completes un escenario y todos los personajes hayan conseguido sus Objetivos de batalla."
+      }
     }
   }
 }

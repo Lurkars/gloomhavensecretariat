@@ -31,7 +31,7 @@
         "3": "Daña o cura al menos a un aliado cada ronda"
       },
       "demolitionist": {
-        "1": "<b>Remodelación</b> Siempre que descanses mientras estés adyacente a un muro u obstáculo, puedes colocar un obstáculo en un hexágono vacío dentro de %game.action.range% 2 (de ti)",
+        "1": "<b>Remodelación:</b> Siempre que realices un descanso mientras estás adyacente a una pared u obstáculo, puedes colocar un obstáculo en un hexágono vacío a %game.action.range% 2 de ti",
         "2": "Inflige 10 o más daño con tres acciones de ataque diferentes",
         "3": "Destruye al menos seis obstáculos. Termina el escenario sin otros obstáculos en el mapa que los colocados por los aliados"
       },
@@ -73,7 +73,7 @@
       },
       "voidwarden": {
         "1": "<b>Protección Funeraria:</b> Siempre que descanses, puedes %game.elementHalf.consume:ice|dark% para dar %game.condition.ward% a un aliado que tenga %game.condition.poison%",
-        "2": "Causa a los enemigos 20 o más de daño en un solo turno con ataques concedidos o comandados",
+        "2": "Inflige a los enemigos 20 o más puntos de daño en un solo turno con ataques concedidos u otorgados",
         "3": "Da al menos a un aliado o enemigo %game.condition.poison%, %game.condition.strengthen%, %game.condition.bless% o %game.condition.ward% en cada ronda"
       }
     }

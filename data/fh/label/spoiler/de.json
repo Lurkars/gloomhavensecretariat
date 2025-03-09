@@ -1,4 +1,190 @@
 {
+  "challenges": {
+    "fh": {
+      "1482": {
+        "": "Rüstungstest",
+        "text": "Wann immer ein Charakter durch einen Angriff %game.damage% erleidet, der nicht durch ein %game.action.shield% reduziert wird, wird dem Angriff %game.action.push%2 hinzugefügt."
+      },
+      "1483": {
+        "": "Empathie",
+        "text": "Wann immer ein Gegner %game.damage% erleidet, erhalten alle anderen Gegner in der Runde Vorteil bei allen ihren Angriffen."
+      },
+      "1484": {
+        "": "Optimismus",
+        "text": "Wann immer eine negative oder %game.attackmodifier.null% Karte vom Monster-Angriffsmodifikator-Deck aufgedeckt wird, gilt sie stattdessen als %game.attackmodifier.plus0%."
+      },
+      "1485": {
+        "": "Pechsträhne",
+        "text": "Wann immer eine %game.attackmodifier.minus2% Karte vom Monster-Angriffsmodifikator-Deck aufgedeckt wird, gilt sie stattdessen als %game.attackmodifier.double%."
+      },
+      "1486": {
+        "": "Göttlicher Eingriff",
+        "text": "Fügt dem Monster-Angriffsmodifikator-Deck zu Beginn des Szenarios 3 %game.attackmodifier.bless% Angriffsmodifikatoren hinzu."
+      },
+      "1487": {
+        "": "Hypochondrie",
+        "text": "Wann immer ein Charakter einen negativen Zustand erhält, erhält er auch %game.condition.wound%."
+      },
+      "1488": {
+        "": "Gegenwind",
+        "text": "Alle gegnerischen Fernangriffe haben +1%game.action.range%. Fügt allen gegnerischen Bewegungsfertigkeiten +1%game.action.move% hinzu."
+      },
+      "1489": {
+        "": "Schlafstörung",
+        "text": "Wann immer ein Charakter eine kurze oder lange Rast macht, erleiden alle angrenzenden Verbündeten Schaden durch gefährliches Gelände."
+      },
+      "1490": {
+        "": "Gute Gier",
+        "text": "Alle Gegner führen am Ende ihres Zugs jeweils %game.action.loot%1 aus. Wann immer ein Gegner einen Beutemarker erbeutet, erhält er %game.condition.strengthen%. Zieht in Szenarien ohne Beutedeck eine neue Herausforderung und legt diese Karte unter das Deck."
+      },
+      "1491": {
+        "": "Taktikwechsel",
+        "text": "Bestimmt die Initiative in allen Runden in umgekehrter Reihenfolge, sodass der höchste Wert beginnt."
+      },
+      "1492": {
+        "": "Wehrhaft",
+        "text": "Alle unverletzten Gegner haben %game.action.retaliate%2."
+      },
+      "1493": {
+        "": "Abgehärtet",
+        "text": "Alle Gegner fügen St/2 (aufgerundet) zu ihrem maximalen TP-Wert hinzu."
+      },
+      "1494": {
+        "": "Wachsam",
+        "text": "Eure Angriffe, die einen Gegner anvisieren, der in dieser Runde noch nicht agiert hat, erhalten Nachteil. Eure Angriffe, die einen Gegner anvisieren, der in dieser Runde bereits agiert hat, erhalten Vorteil."
+      },
+      "1495": {
+        "": "Toxisches Ende",
+        "text": "Wann immer in einer Runde erstmals ein Gegner stirbt, erhält jeder an in angrenzende Charakter %game.condition.poison%."
+      },
+      "1496": {
+        "": "Alles oder nichts",
+        "text": "Entfernt zu Beginn des Szenarios alle %game.attackmodifier.plus0% Karten aus dem Monster-Angriffsmodifikator-Deck. Alle Gegner sind immun gegen %game.condition.curse%."
+      },
+      "1497": {
+        "": "Brennbar",
+        "text": "Wann immer ein Gegner stirbt, erleidet ein Charakter, der ihm am nächste ist, %game.damage:1% (bei Szenariostufe 4-7 stattdessen %game.damage:2%)."
+      },
+      "1498": {
+        "": "Verführerische Macht",
+        "text": "Alle gegnerischen Fernangriffe haben %game.action.push%1."
+      },
+      "1499": {
+        "": "Auffällige Ablenkung",
+        "text": "Wann immer am Ende einer Runde mindestens 3 Beutemarker aufgedeckt sind, erhalten alle Charaktere %game.condition.impair%. Zieht in Szenarien ohne Beutedeck eine neue Herausforderung und legt diese Karte unter das Deck."
+      },
+      "1500": {
+        "": "Steigende Aggression",
+        "text": "Wann immer eine %game.attackmodifier.minus1% oder %game.attackmodifier.minus2% Karte vom Monster-Angriffsmodifikator-Deck gezogen wird, entfernt sie nach dem Angriff bis zum Ende des Szenarios aus dem Deck."
+      },
+      "1501": {
+        "": "Rasche Reflexe",
+        "text": "Verringert die Initiative-Werte alle Gegner um 10."
+      },
+      "1502": {
+        "": "Wie betäubt",
+        "text": "Charaktere können keine %game.itemSlot:small% Gegenstände verwenden."
+      },
+      "1503": {
+        "": "Nachahmung",
+        "hint": "Aus Implementierungsgründen wird der Charakter zufällig gewählt!",
+        "text": "Fügt dem Monster-Angriffsmodifikator-Deck 5 zufällige Angriffsmodifikator-Karten aus dem Verbesserungsdeck eines beliebigen freigeschalteten Frosthaven-Charakter hinzu, der nicht am Szenario teilnimmt."
+      },
+      "1504": {
+        "": "Narrengold",
+        "text": "Wann immer ein Charakter mindestens einen Beutemarker erbeutet, erh#lt er %game.condition.curse%. Zieht in Szenarien ohne Beutedeck eine neue Herausforderung und legt diese Karte unter das Deck."
+      },
+      "1505": {
+        "": "Katerstimmung",
+        "text": "Erhöht die Initiative-Werte aller Charaktere um 10."
+      },
+      "1506": {
+        "": "Geschlossene Formation",
+        "text": "Fügt allen Angriffen von Charakteren, die nicht an mindestens einen Verbündeten angrenzen 1%game.action.attack% hinzu."
+      },
+      "1507": {
+        "": "Miese Qualität",
+        "text": "Abgenutzte Gegenstände gelten stattdessen als verloren."
+      },
+      "1508": {
+        "": "Staffelformation",
+        "text": "Am Ende des Zugs jedes Charakter erleiden alle angrenzenden Charaktere je %game.damage:1%."
+      },
+      "1509": {
+        "": "Rationierung",
+        "text": "Wann immer ein Charakter rastet, erhält er %game.condition.curse%."
+      },
+      "1510": {
+        "": "Immer gemeinsam",
+        "text": "Wann immer sich am Ende des Zugs eines Charakters im Umkreis von C Feldern keine anderen Charaktere befinden, erhält er %game.condition.muddle%."
+      },
+      "1511": {
+        "": "Dichter Nebel",
+        "text": "Alle Charakter-Bewegungsfertigkeiten mit einem Wert von mindestens 4 werden um 1 reduziert."
+      },
+      "1512": {
+        "": "Stachelrüstung",
+        "text": "Alle Charaktere erhalten %game.action.retaliate%X,%game.action.range%3. X ist der %game.action.shield% Wert des Charakters. Fügt allen Angriffen von Charakteren -1%game.action.attack% hinzu."
+      },
+      "1513": {
+        "": "Fairer Kampf",
+        "text": "Wann immer ein Charakter einen Gegner tötet, erhält dieser Charakter alle negativen Zustände, die der Gegner beim Tod hatte."
+      },
+      "1514": {
+        "": "Phalanx",
+        "text": "Jeder Gegner erhält %game.action.shield%1, während er an mindestens einen seiner Verbündeten angrenzt."
+      },
+      "1515": {
+        "": "Vorbildwirkung",
+        "text": "Wann immer ein Elite-Gegner auf der Karte ist, erhalten alle normalen Gegner desselben Typs %game.action.shield%1."
+      },
+      "1516": {
+        "": "Arkane Taktiken",
+        "text": "Wann immer bei Rundenende mindestens ein Element von \"Schwindend\" zu \"Inaktiv\" verschoben wird, erleidet ein Charakter Schaden durch gefährliches Gelände."
+      },
+      "1517": {
+        "": "Aufwärmen",
+        "text": "Wann immer der TP-Wert eines Charakters mindestens seinem halben maximalen TP-Wert (abgerundet) entspricht, erhält dieser Charakter Nachteil bei seinen Angriffen."
+      },
+      "1518": {
+        "": "Blutsverbindung",
+        "text": "Wann immer in einer Runde erstmals ein Gegner %game.damage% erleidet, wendet ein anderer verletzter Gegner \"%game.action.heal%X, selbst\" an, wobei X dem erlittenen Schaden entspricht."
+      },
+      "1519": {
+        "": "Krähenfüße",
+        "text": "Charaktere und ihre Verbündete behandeln alle Felder mit Beutemarkern als gefährliches Gelände. Gegner sind davon nicht betroffen."
+      },
+      "1520": {
+        "": "Geteiltes Leid",
+        "text": "Wann immer ein Charakter durch einen Gegner %game.damage% erleidet, erleidet ein anderer Charakter %game.damage:1%."
+      },
+      "1521": {
+        "": "Schwarmtaktik",
+        "text": "Alle Gegner fügen ihren Bewegungsfertigkeiten %game.action.jump% hinzu."
+      },
+      "1522": {
+        "": "Angriffsstreuung",
+        "hint": "Wird nur bei Monstern angewendet!",
+        "text": "Alle Figuren fügen ihren Einzelziel-Angriffsfertigkeiten -1%game.action.attack% und +1%game.action.target% hinzu."
+      },
+      "1523": {
+        "": "Im Rudel",
+        "text": "Zu Beginn der 3. Runde steigen auf beliebigen Startfeldern insgesamt C normale Grimmwölfe ein. Wenn es im Szenario 6 oder mehr Monstertypen (abgesehen von Grimmwölfen) oder im 1. Raum Grimmwölfe gibt, zieht eine neue Herausforderung und legt diese Karte unter das Deck."
+      },
+      "1524": {
+        "": "Voller Elan",
+        "text": "Jeder Gegner erhält %game.action.shield%1, solange er keine negativen Zustände hat. Wann immer ein Gegner am Ende seines Zugs mindestens einen negativen Zustand verliert, erleidet er %game.damage:1%."
+      },
+      "1525": {
+        "": "Schadenfroh",
+        "text": "Wann immer ein negativer Zustand von einem Gegner entfernt wird, erhält er %game.condition.strengthen%."
+      },
+      "1526": {
+        "": "Niederkauern",
+        "text": "Wann immer in einer Runde beim Bestimmen der Initiative weniger Monster als Charaktere auf der Karte sind, erhalten alle Monster %game.condition.ward.%."
+      }
+    }
+  },
   "character": {
     "coral": "Gezeitenbruch"
   },

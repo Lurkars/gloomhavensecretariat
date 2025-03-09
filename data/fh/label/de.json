@@ -339,7 +339,10 @@
       "": "Tempel der Großen Eiche"
     },
     "town-hall": {
-      "": "Rathaus"
+      "": "Rathaus",
+      "1": "Zieht 1 Herausforderungskarte und behaltet maximal 1. Lest %data.section:190.1%, sobald das Herausforderungsdeck abgeschlossen ist.",
+      "2": "Zieht 2 Herausforderungskarten und behaltet maximal 1. Lest %data.section:190.1%, sobald das Herausforderungsdeck abgeschlossen ist.",
+      "3": "Zieht 3 Herausforderungskarten und behaltet maximal 2. Lest %data.section:190.1%, sobald das Herausforderungsdeck abgeschlossen ist."
     },
     "trading-post": {
       "": "Handelsposten"
@@ -406,7 +409,7 @@
       "chaotic": "Chaotisch",
       "educated": "Gelehrt",
       "intimidating": "Einschüchternd",
-      "night": "Night",
+      "night": "",
       "nimble": "Flink",
       "outcast": "Ausgestoßen",
       "persuasive": "Überzeugend",
@@ -707,7 +710,7 @@
     "augmented-mindthief": "Verbesserte Gedankendiebin",
     "belara": "Belara",
     "black-imp": "Schwarzwicht",
-    "blacksmith": "Blacksmith",
+    "blacksmith": "",
     "brother": "Bruder",
     "burrowing-blade": "Klingengräber",
     "chaos-demon": "Chaosdämon",
@@ -789,6 +792,10 @@
     "wind-demon": "Winddämon",
     "yoglang": "Yoglang"
   },
+  "objective": {
+    "Door": "Tür",
+    "Scenario": "Szenario"
+  },
   "personalQuest": {
     "fh": {
       "581": {
@@ -813,7 +820,10 @@
         "": "Aesther-Außenposten"
       },
       "588": {
-        "": "Gefährliches Spiel"
+        "": "Gefährliches Spiel",
+        "1": "Algox-Wachen getötet",
+        "2": "Pirscher-Schmetterscheren getötet",
+        "3": "Bolzenschussroboter getötet"
       },
       "589": {
         "": "Lebenserfahrung"
@@ -826,6 +836,14 @@
   "scenario": {
     "group": {
       "randomMonsterCard": "Zufällige Monster Karten"
+    },
+    "rewards": {
+      "fh": {
+        "000": "Ihr solltet jetzt bereit für Szenario 1 auf der nächsten Seite des Szenariobuchs sein. Führt keine Außenposten-Phase durch, bis ihr Szenario 1 abgeschlossen habt.",
+        "022": "Verliert insgesamt X/5 %game.resource.lumber% (abgerundet). X ist die Anzahl der Wasseraufleger auf Element 07-G.",
+        "033": "Erhaltet je 5 Erfahrung für jede nicht aufgedeckte Wünschelrute",
+        "041": "Lest jetzt %data.section:36.7%"
+      }
     },
     "rules": {
       "fh": {
@@ -982,6 +1000,13 @@
     }
   },
   "section": {
+    "rewards": {
+      "fh": {
+        "128-2": "Schlagt die erste Seite des Rätselbuchs auf",
+        "140-3": "Schlagt nicht die nächste Seite im Rätselbuch auf. Schreibt stattdessen die Lösung des nächsten Rätsels auf die aktuelle Seite",
+        "169-3": "Schlagt die erste Seite des Rätselbuchs auf"
+      }
+    },
     "rules": {
       "fh": {
         "21-1": {
@@ -990,6 +1015,19 @@
         "65-3": {
           "1": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte."
         }
+      }
+    },
+    "title": {
+      "fh": {
+        "124-1": "Rätsellösung",
+        "127-1": "Rätsellösung",
+        "17-4": "Rätsellösung",
+        "29-1": "Alte Münze",
+        "29-2": "Die Temporalschmiede",
+        "29-3": "Aesther-Außenposten",
+        "29-4": "Vergängliche Beständigkeit",
+        "64-3": "Rätsellösung",
+        "79-4": "Rätsellösung"
       }
     }
   }
