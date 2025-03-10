@@ -1195,11 +1195,17 @@
     "algox-priest": "Sacerdote algox",
     "algox-scout": "Explorador algox",
     "algox-snowspeaker": "Voz de la Nieve algox",
+    "algox-stormcaller": "Invocatormentas algox",
     "ancient-artillery": "Artilleria Antigua",
+    "augmented-mindthief": "Ladrón mental aumentado",
+    "belara": "Belara",
     "black-imp": "Duende negro",
     "blacksmith": "Herrero",
+    "brother": "Hermano",
     "burrowing-blade": "Filo tunelador",
     "chaos-demon": "Demonio de caos",
+    "chaos-lieutenant": "Teniente del caos",
+    "chaos-spark": "Chispa del caos",
     "city-guard": "Guardia de la ciudad",
     "coral-corpse": "Cadáver de coral",
     "deep-terror": "Terror de las Profundidades",
@@ -1208,6 +1214,7 @@
     "fish-king": "Rey del Mar",
     "flame-demon": "Demonio de Fuego",
     "flaming-bladespinner": "Girafilos llameante",
+    "flaming-sword-of-justice": "Espada flamígera de la justicia",
     "forest-imp": "Duende del bosque",
     "fracture-of-the-deep": "Fractura de las profundidades",
     "frost-demon": "Demonio de Hielo",
@@ -1236,8 +1243,10 @@
     "orphan": "Huérfano",
     "piranha-pig": "Cerdo piraña",
     "polar-bear": "Oso polar",
+    "power-core": "Núcleo de poder",
     "prince-of-frost": "Príncipe de la Escarcha",
     "program-director": "Director de Programación",
+    "reluctant-ghost": "Fantasma reacio",
     "render": "Desgarrador",
     "rending-drake": "Draco desgarrador",
     "robotic-boltshooter": "Lanzarrayos robótico",
@@ -1253,10 +1262,47 @@
     "sun-demon": "Demonio de Sol",
     "the-collector": "El Coleccionista",
     "the-relic": "La Reliquia",
+    "vanjal": "Vanjal",
     "vermling-priest": "Sacerdote infestor",
     "vermling-scout": "Explorador infestor",
     "vestige-of-the-imprisoned-god": "Vestigio del Dios Encarcelado",
     "wind-demon": "Demonio de Viento"
+  },
+  "objective": {
+    "Altar": "Altar",
+    "Barrel": "Barril",
+    "Barricade": "Barricada",
+    "Bookshelf": "Estantería",
+    "Cabinet": "Armario",
+    "Caravan Wagon": "Vagón de la caravana",
+    "Dark Fog": "Niebla oscura",
+    "Door": "Puerta",
+    "Elemental Anchor": "Ancla elemental",
+    "Elemental Core": "Núcleo elemental",
+    "Emissary": "Emisario",
+    "Faye": "Faye",
+    "Glowing Orb": "Orbe luminoso",
+    "Helper": "Ayudante",
+    "Ice Core": "Núcleo de hielo",
+    "Ice Pillar": "Pilar de hielo",
+    "Ice Sheet": "Placa de hielo",
+    "Large Cave Rock": "Roca grande de la cueva",
+    "Large Ice Crystal": "Cristal de hielo grande",
+    "Metal Cabinet": "Armario de metal",
+    "Militia": "Milicia",
+    "Moonshard": "Fragmento de luna",
+    "Orphan": "Huérfano",
+    "Pulse Emitter": "Emisor de pulsos",
+    "Raven Nest": "Nido de cuervo",
+    "Scenario": "Escenario",
+    "Small Tree": "Árbol pequeño",
+    "Snow Rock": "Roca nevada",
+    "Snowdrift": "Ventisquero",
+    "Spectral Helper": "Ayudante Espectral",
+    "Stalagmites": "Estalagmita",
+    "Switch": "Interruptor",
+    "The Great Oak": "El Gran Roble",
+    "Tree": "Árbol"
   },
   "personalQuest": {
     "fh": {
@@ -1349,10 +1395,14 @@
         "068": "Misión \"Puesto fronterizo etérido\" completada",
         "070": "Misión \"El Roble Verdadero\" completada",
         "071": "Daña cualquier edificio incluso entre 71 y 89",
+        "077": "Misión “La amenaza de las profundidades” completada",
         "082": "Añade los siguientes objetos de Círculos Olvidados al suministro de Frosthaven: 153, 159 y 161",
         "087": "O 2 inspiración si ambos hermanos sobrevivieron",
+        "092": "De forma colectiva perdéis 5xP/2 fichas de botín (redondeado hacia abajo), primero de la pila A-MA-ME, a continuación, de la forma más uniforme posible, de las fichas de botín de los personajes. Si queda alguna ficha de botín en la pila A-MA-ME, distribuirlas lo más equitativamente posible entre todos los personajes. Las fichas de botín se canjean por cartas de botín",
         "113": "Obtén 4 recursos de plantas colectivas cualesquiera",
         "118": "Cambia todas las fichas numeradas y con letras por cartas de botín",
+        "119": "Gasta el polvo que te quede para obtener lo siguiente: <br><br> Gasta 7 (solo una vez): Scepter of Control Item #203 <br>Gasta 1: 1 material de recurso cualquiera <br>Gasta 2: 1 planta cualquiera",
+        "129": "Anota la cantidad de ágatas solares restantes",
         "137": "Añade una pegatina +1 a una carta de botín de dinero (la carta da una ficha de dinero extra cuando se resuelve)",
         "gain2loot": "Obtenéis 2 cartas de botín adicionales cada uno",
         "remove-algox": "Elimina todos los eventos %game.action.custom.fh-algox% de todos los mazos de eventos de los Puestos Fronterizo",
@@ -1364,7 +1414,16 @@
       "fh": {
         "0": "No coloques el mazo de habilidades del monstruo Sabueso. En lugar de eso, cada ronda tienen una iniciativa de 26, todos los Sabuesos realizan, %game.action.move% 2; %game.action.attack% 2.",
         "1": "Los Guardias de la ciudad no realizan turnos pero obtienen %game.action.shield% 1 adicional (con un total %game.action.shield% 2 a nivel 1) y %game.action.retaliate% 2, tienen una iniciativa de 50 a efectos de centro de atención.",
+        "110": "Sólo puede ser destruido cuando muere una Máquina ruinosa en un hexágono adyacente",
         "112": "Los dos sabuesos tienen el doble de sus valores máximos de puntos de vida.",
+        "115": "Cuando se destruye, se reemplaza con escombros y todas las figuras en hexágonos adyacentes sufren daño de trampa",
+        "116": "Centra su atención en moverse hacia %game.mapMarker.b%",
+        "119": {
+          "1": "Al final del turno, gasta polvo para:",
+          "2": "Gasta 1: %game.action.move%2",
+          "3": "Gasta 2:",
+          "4": "Gasta 5: Convertir monstruo a %game.action.range%2"
+        },
         "128": {
           "1": "Todos los Autómatas de acero usan el mazo de habilidades de monstruo Duende.",
           "2": "Cuando cualquier Lanzaolas acechador fuera a invocar a una Anguila relámpago, en vez de eso, invoca un Explorador infestor con un valor de PV de 1."
@@ -1372,6 +1431,9 @@
         "129": "Todos los guardias de la ciudad usan cartas de habilidad de monstruo Arquero en lugar de las suyas.",
         "131": "Los Lanzaolas acechador obtienen +1 %game.action.attack% a todos sus ataques y no invocan Anguilas relámpago. En vez de eso, siempre que tenga lugar \"Ayuda del abismo\", todos los Lanzaolas acechador realizan: \"%game.action.attack% +1, %game.action.range% 4; %game.action.teleport% al hexágono vacío más a la izquierda si es una ronda impar o más a la derecha si es par. Si hay varios hexágonos válidos a los que teletransportarse, elige el hexágono más alejado de cualquier personaje.\"",
         "134": "El autómata de acero tiene HxP/2 puntos de vida (redondeado hacia arriba).",
+        "27": "Cuando sea destruido, el personaje que lo destruye puede devolver todas las cartas tomadas a su mano",
+        "44": "Cuando sea destruido, todos los monstruos a %game.action.range%2 sufren daño de trampa",
+        "54": "Cuando sea destruido, revela una ficha numerada y haz aparecer el monstruo indicado",
         "60": "Los seis acechadores de las losetas 13-B y 13-D son tenientes fracturados y obtienen %game.action.attack% +1 en todos sus ataques.",
         "65": "Todos los monstruos obtienen %game.action.push% 1 en todos sus ataques. Si el nivel del escenario es 4 o superior, aumenta a %game.action.push% 2.",
         "76": "Divide el valor máximo de puntos de vida del Rey del Mar entre 2 (redondeado hacia abajo). El Rey Pez no actúa, no puede ser objetivo de habilidades de curación, es inmune a todos los estados y tiene una iniciativa de 01 a efectos de Atención.",
@@ -1379,6 +1441,15 @@
           "1": "El Rey del Mar no puede realizar ninguna habilidad de movimiento y es inmune al movimiento forzado. (¡También se han ajustado los Especiales de Jefe!)",
           "2": "Inmune al movimiento forzado"
         },
+        "80": {
+          "1": "La Reliquia obtiene:",
+          "2": "Añade %game.condition.immobilize% a todos los ataques dirigidos al objetivo principal",
+          "3": "Cambia el Especial 1 de la Reliquia a:",
+          "4": "Centra su atención en el enemigo atacable más lejano y realiza:",
+          "5": "%game.action.attack%+0, %game.action.target% su centro de atención (si está adyacente) y todos los enemigos en o adyacentes de los hexágonos que ha entrado durante la capacidad de Movimiento",
+          "6": "Cambia el Especial 2 de la Reliquia a:"
+        },
+        "86": "Cuando sufre daño pero no está destruido:",
         "97": "Para añadir habilidades de monstruo a la mano de un personaje, abre el menú de Cartas de Habilidad y quita las cartas del mazo. Para jugar esa carta, basta con volver a añadirla en el menú Edición."
       }
     },
@@ -1534,6 +1605,7 @@
       "fh": {
         "056-3": "Manual (%wip%): Añade los que desees de los siguientes objetos que ya tienes desbloqueándose en <i>Circulos Olvifsfos</i> a los objetos disponibles:<br>154, 155, 157, y 163.",
         "094-4": "No resuelvas un evento de Puesto Fronterizo esta semana.",
+        "096-3": "Misión “La amenaza de las profundidades” completada",
         "126-1": "<b>%wip%!</b> Añade de forma manual:<br>Obtén 6 recursos materiales de forma colectiva.",
         "128-2": "Abre el libro de puzzles por la primera página",
         "132-3": "Cada personaje obtiene 10 de oro por cada ficha numerada que haya saqueado",
@@ -1563,13 +1635,16 @@
         "130-3": {
           "1": "Obtén Ventaja contra este objetivo"
         },
+        "146-3": "Cuando se realiza esta capacidad de Ataque, en la siguiente ronda, en vez de lo que fuera hacer, la iniciativa será 99 y realiza:",
         "17-2": {
+          "1": "+2 recursos de materiales",
           "2": "Obtén 2 recursos de materiales cualquiera"
         },
         "180-3": {
           "1": "Obtén 1 de Piel"
         },
         "19-2": {
+          "1": "+1 recurso de material",
           "2": "Obtén un recurso de materiales cualquiera"
         },
         "192-1": {
@@ -1581,6 +1656,7 @@
         "41-1": {
           "1": "Obtén 1 de Madera"
         },
+        "51-1": "Cada vez que sufre daño, todos los personajes y monstruos sufren %game.damage:2%",
         "65-3": {
           "1": "Abre todas las puertas %game.mapMarker.1%. Coloca a todos los personajes e invocaciones de personajes, por orden de iniciativa, en el hexágono vacío más cercano de la loseta 16-A y, a continuación, elimina todas las puertas y la loseta 13-A del mapa."
         }
@@ -1749,6 +1825,7 @@
         "153-1": "Carguero abandonado",
         "153-2": "Construcción del salón de festejos; si %game.trait:aesther%",
         "153-4": "Monedas viejas",
+        "154-1": "Gruta encantada",
         "154-2": "Cómo tender una emboscada",
         "154-4": "La Torre del Conocimiento",
         "155-1": "Mi imperio privado",
@@ -1776,12 +1853,17 @@
         "162-1": "Fábrica furiosa",
         "162-4": "Núcleos elementales",
         "163-2": "Infiltrándose en la guarida del Rey del Mar",
+        "164-1": "Camino accidentado A",
+        "164-2": "Biblioteca construida: si %game.trait:educated%",
+        "164-3": "Ruinas del solsticio",
+        "165-2": "La ascensión del Rey del Mar",
         "165-3": "Monedas viejas",
         "165-4": "Carta de %game.characterIconColored.drill%",
         "165-5": "Cueva ilustrada",
         "166-2": "Un cuento de borrachos",
         "166-3": "Fábrica furiosa",
         "166-4": "Oferta de trabajo",
+        "166-5": "Destruye al autómata y transmite la tecnología Infestora",
         "167-1": "Entre las ruinas",
         "167-2": "Oferta de trabajo",
         "167-3": "Infiltrándose en la guarida del Rey del Mar",

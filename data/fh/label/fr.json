@@ -1,4 +1,43 @@
 {
+  "ability": {
+    "Angry Hex": "Malédiction Colérique",
+    "Arresting Advance": "Blocage de l'Audace",
+    "Berserk Rage": "Folie Furieuse",
+    "Calculated Shot": "",
+    "Calculated Strike": "Coup Calculé",
+    "Call For Souls": "Appel aux Âmes",
+    "Chilling Aura": "Aura Glacée",
+    "Close In": "Encerclement",
+    "Defensive Blades": "Lames Défensives",
+    "Defensive Claws": "Griffes Défensives",
+    "Divine Energy": "Énergie Divine",
+    "Drain Speed": "Drain de Célérité",
+    "Drain Strength": "Drain de force",
+    "Face of Darkness": "Visage des Ténèbres",
+    "Firestorm": "Tempête de Feu",
+    "Flame Jets": "Jets de Flamme",
+    "Focused Strikes": "Frappes Ciblées",
+    "Hardened by Frost": "Durci par le Gel",
+    "Hasty Assault": "Assaut Précipité",
+    "Hateful Spikes": "Pointes Haineuses",
+    "Heated Sweep": "Balayage Thermique",
+    "Increase Momentum": "Élan Redoublé",
+    "Nothing": "Rien",
+    "Nothing Special": "Rien de Particulier",
+    "Parry and Thrust": "Surin Empoisonnée",
+    "Power Shot": "Tir Puissant",
+    "Psych Up": "Motivation",
+    "Pull of the Grave": "Attrait de la Tombe",
+    "Set Trap": "Pose de Piège",
+    "Shoot Foot": "Dans les Pieds",
+    "Spinning Charge": "Charge Tournoyante",
+    "Strength of the Deep": "Force des Profondeurs",
+    "Sunless Abyss": "Sombres Abysses",
+    "Tend to the Clan": "Soins au Clan",
+    "Throwing Axe": "Jet de Hache",
+    "Twin Bolts": "Carreaux Jumeaux",
+    "Venom Shiv": "Parade et Fente"
+  },
   "battleGoals": {
     "1301": {
       "": "Expert-comptable",
@@ -241,6 +280,101 @@
       "text": "Terminer tous vos tours adjacent à un mur, un obstacle ou un objectif."
     }
   },
+  "buildings": {
+    "alchemist": {
+      "": "Alchimiste",
+      "1": "Les aventuriers ne peuvent pas utiliser de potions",
+      "2": "Préparer des potions à 2 plantes",
+      "3": "Préparer et distiller des potions à 2 ingrédients",
+      "4": "Préparer et distiller des potions à 2 et 3 ingrédients",
+      "5": "Préparer des potions",
+      "6": "Préparer et distiller des potions",
+      "7": "Préparer et distiller des potions"
+    },
+    "barracks": {
+      "": "Caserne",
+      "1": "Entraînez collectivement jusqu'à 1 soldat en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 4<br><i>Effet:</i> Avantage et -5 %game.action.attack%",
+      "2": "Entraînez collectivement jusqu'à 1 soldat en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 6<br><i>Effet:</i> Avantage et -15 %game.action.attack%",
+      "3": "Entraînez collectivement jusqu'à 2 soldats en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 8<br><i>Effet:</i> Avantage et -25 %game.action.attack%",
+      "4": "Entraînez collectivement jusqu'à 2 soldats en payant 3 pièces d'or et 1 ressource matérielle.<br><br><i>Places:</i> 10<br><i>Effet:</i> Avantage et -35 %game.action.attack%",
+      "5": "Désavantage pour toutes les résolutions d'événements d'assaut.<br>Utilisation de soldats impossible.",
+      "soldiers": "Former 1 Soldat"
+    },
+    "boat": {
+      "": "Bateau"
+    },
+    "climbing-gear": {
+      "": "Matériel d'Escalade"
+    },
+    "craftsman": {
+      "": "Fabricant",
+      "1": "Perdez collectivement 1 %game.resource.hide%",
+      "2": "Perdez collectivement 2 %game.resource.hide%",
+      "3": "Perdez collectivement 2 %game.resource.hide%",
+      "4": "Fabriquer des objets"
+    },
+    "garden": {
+      "": "Jardin"
+    },
+    "hunting-lodge": {
+      "": "Pavillon de Chasse",
+      "1": "Achetez collectivement jusqu'à 1 %game.resource.hide% en payant 2 pièces d'or",
+      "2": "Achetez collectivement jusqu'à 2 %game.resource.hide% en payant 2 pièces d'or",
+      "3": "Achetez collectivement jusqu'à 3 %game.resource.hide% en payant 2 pièces d'or",
+      "4": "Achetez collectivement jusqu'à 4 %game.resource.hide% en payant 2 pièces d'or"
+    },
+    "logging-camp": {
+      "": "Camp des Bûcherons",
+      "1": "Achetez collectivement jusqu'à 1 %game.resource.lumber% en payant 2 pièces d'or",
+      "2": "Achetez collectivement jusqu'à 2 %game.resource.lumber% en payant 2 pièces d'or",
+      "3": "Achetez collectivement jusqu'à 3 %game.resource.lumber% en payant 2 pièces d'or",
+      "4": "Achetez collectivement jusqu'à 4 %game.resource.lumber% en payant 2 pièces d'or"
+    },
+    "mining-camp": {
+      "": "Camp des Mineurs",
+      "1": "Achetez collectivement jusqu'à 1 %game.resource.metal% en payant 2 pièces d'or",
+      "2": "Achetez collectivement jusqu'à 2 %game.resource.metal% en payant 2 pièces d'or",
+      "3": "Achetez collectivement jusqu'à 3 %game.resource.metal% en payant 2 pièces d'or",
+      "4": "Achetez collectivement jusqu'à 4 %game.resource.metal% en payant 2 pièces d'or"
+    },
+    "sled": {
+      "": "Traîneau"
+    },
+    "stables": {
+      "": "Écuries",
+      "pets": {
+        "": "Animaux de compagnie"
+      }
+    },
+    "tavern": {
+      "": "Taverne"
+    },
+    "trading-post": {
+      "": "Comptoir Commercial"
+    },
+    "wall-j": {
+      "": "Mur J"
+    },
+    "wall-k": {
+      "": "Mur K"
+    },
+    "wall-l": {
+      "": "Mur L"
+    },
+    "wall-m": {
+      "": "Mur M"
+    },
+    "wall-n": {
+      "": "Mur N"
+    },
+    "workshop": {
+      "": "Atelier",
+      "1": "Perdez collectivement 1 %game.resource.lumber%"
+    }
+  },
+  "campaignSticker": {
+    "boat": "Bateau"
+  },
   "character": {
     "banner-spear": "Porte-Bannière",
     "blinkblade": {
@@ -266,6 +400,41 @@
     "drifter": "Vagabond",
     "geminate": {
       "": "Persécuteur"
+    }
+  },
+  "custom": {
+    "fh": {
+      "blinkblade": {
+        "1": "Lors de votre prochaine attaque, défaussez cette carte pour ajouter +2 %game.action.attack%.<br>%game.card.persistent%",
+        "2": "Placez cette carte dans votre zone active. À votre prochaine attaque, défaussez-vous de cette carte pour ajouter +2 %game.action.attack%",
+        "3": "Gagner 1 %data.characterToken.blinkblade.time%",
+        "4": "Gagner 1 %data.action.custom.fh-hourglass%",
+        "5": "Lors de vos repos courts, pouvoir dépenser un objet non dépensé %game.card.spent% sans déclencher son effet pour %game.card.recover% un autre objet dépensé",
+        "6": "À chaque scénario, au début de votre premier tour, pouvoir effectuer : %game.action.move% 3",
+        "7": "Lorsque vous devriez gagner %game.condition.immobilize%, bloquer cet état",
+        "8": "Déclarer Rapide pendant sept tours consécutifs",
+        "9": "Ne jamais être la cible d’une attaque"
+      },
+      "flaming-bladespinner": {
+        "1": "Tous les Adversaires à<br>%game.action.range:2% ou moins subissent %game.damage:2%.",
+        "2": "Tous les adversaires à %game.action.range:2% ou moins subissent %game.damage:1%."
+      },
+      "flowChartGroup": {
+        "algox-1": "Algox",
+        "algox-2": "Algox",
+        "algox-3": "Algox",
+        "intro": "Introduction"
+      },
+      "giant-piranha-pig-boss": {
+        "1": "Rien"
+      },
+      "living-doom": {
+        "1": "Invoque X Esprits Réanimés<br>normaux",
+        "2": "<br>où X est le nombre de points de vie<br>actuels du Fléau Réanimé divisé<br>par 5 (arrondissez à l'intérieur) ,<br>avec un maximum de trois."
+      },
+      "lurker-soldier": {
+        "1": "%game.action.target% adversaires à 2 hexagones ou moins"
+      }
     }
   },
   "monster": {
