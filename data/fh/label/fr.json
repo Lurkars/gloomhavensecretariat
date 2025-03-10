@@ -399,7 +399,22 @@
     "deathwalker": "Arpenteuse des Ombres",
     "drifter": "Vagabond",
     "geminate": {
-      "": "Persécuteur"
+      "": "Persécuteur",
+      "melee": "Mêlée",
+      "range": "À distance"
+    },
+    "traits": {
+      "arcane": "Mystique",
+      "armored": "Cuirassé",
+      "chaotic": "Chaotique",
+      "educated": "Instruit",
+      "intimidating": "Intimidant",
+      "night": "Nuit",
+      "nimble": "Agile",
+      "outcast": "Marginal",
+      "persuasive": "Éloquent",
+      "resourceful": "Ingénieux",
+      "strong": "Puissant"
     }
   },
   "custom": {
@@ -423,7 +438,14 @@
         "algox-1": "Algox",
         "algox-2": "Algox",
         "algox-3": "Algox",
-        "intro": "Introduction"
+        "intro": "Introduction",
+        "other": "Autres",
+        "personal-quests": "Quêtes Personnelles",
+        "puzzle-book": "Livret des Énigmes",
+        "random-scenarios": "Scénarios Aléatoire"
+      },
+      "frost-demon": {
+        "1": "%game.damage:1%"
       },
       "giant-piranha-pig-boss": {
         "1": "Rien"
