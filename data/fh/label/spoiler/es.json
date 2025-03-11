@@ -165,6 +165,10 @@
       "": "Escudo reforzado",
       "1": "Cuando un enemigo vaya a aplicarte un estado negativo, evita sufrir ese estado."
     },
+    "fh-167": {
+      "": "Brazalete de atracción",
+      "1": "Al inicio del turno de un enemigo, antes de que centre su atención, realiza:"
+    },
     "fh-180": {
       "": "Botas de avaricia",
       "1": "Siempre que saquees 2 o más fichas de Botín a la vez, realiza: %game.condition.bless% Personal."
@@ -193,6 +197,9 @@
     "fh-24": {
       "": "Filo corrupto",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, añade %game.condition.wound%, %game.condition.poison%, y %game.condition.muddle% a 1 ataque."
+    },
+    "fh-245": {
+      "": "Moneda antigua"
     },
     "fh-3": {
       "": "Capa de viaje",
