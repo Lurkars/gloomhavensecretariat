@@ -1078,9 +1078,10 @@
         "1": "Todos los Espectros de hielo de élite se<br>vuelven normales, y todos los Espectros<br>de hielo normales se vuelven de élite."
       },
       "laser-spires": {
-        "1": "Rota cada rayo láser en el sentido de las agujas del reloj (si es posible)",
-        "2": "Rota cada rayo láser en el sentido contrario de las agujas del reloj (si es posible)",
-        "3": "Todos los personajes e invocaciones de personajes adyacentes a un rayo láser sufren daño por terreno peligroso"
+        "1": "Gira cada rayo láser en el sentido de las agujas del reloj (si es posible)",
+        "2": "Gira cada rayo láser en el sentido contrario de las agujas del reloj (si es posible)",
+        "3": "Todos los personajes e invocaciones de personajes adyacentes a una barrera láser sufren daño por terreno peligroso",
+        "4": "Emisión láser, comienza en %game.mapMarker.a%"
       },
       "lightning-eel": {
         "1": "Trata los hexágonos de agua como corredores y los hexágonos que no son de agua como obstáculos"
@@ -1229,6 +1230,7 @@
     "hound": "Sabueso",
     "hungry-maw": "Hambre Eterna",
     "ice-wraith": "Espectro de hielo",
+    "laser-spires": "Barrera láser",
     "lightning-eel": "Anguila relámpago",
     "living-bones": "Huesos vivientes",
     "living-doom": "Perdición viviente",
