@@ -1472,7 +1472,7 @@ export class EntityMenuDialogComponent {
       this.entityConditions.forEach((condition) => {
         if (this.data.entity) {
           const entityCondition = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
-          if (entityCondition && entityCondition.value != condition.value) {
+          if ((condition.types.indexOf(ConditionType.stack) != -1 || condition.types.indexOf(ConditionType.upgrade) != -1) && entityCondition && entityCondition.value != condition.value) {
             gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "setConditionValue"), condition.name, "" + condition.value, this.data.entity instanceof MonsterEntity ? 'monster.' + (this.data.entity as MonsterEntity).type + ' ' : '');
             entityCondition.value = condition.value;
             gameManager.stateManager.after();
