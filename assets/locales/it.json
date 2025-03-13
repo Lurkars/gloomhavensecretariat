@@ -131,6 +131,7 @@
     "progress": {
       "": "Scheda personaggio",
       "donate": "Dona",
+      "donations": "Donazioni al Santuario della Grande Quercia: {0}",
       "export": "Esporta",
       "fh": {
         "disable": "Vai alla scheda del personaggio di Gloomhaven",
@@ -345,7 +346,291 @@
     "character": {
       "": "Editor dei personaggi",
       "data": {
-        "": "Dati dei personaggi"
+        "": "Dati dei personaggi",
+        "deck": "Nome del mazzo delle abilità",
+        "hp": {
+          "": "Punti vita",
+          "-1": "Profilo personalizzato",
+          "0": "Profilo basso",
+          "1": "Profilo medio",
+          "2": "Profilo alto"
+        },
+        "json": {
+          "": "Dati del personaggio in formato JSON",
+          "download": "Scarica dati del personaggio come file JSON"
+        }
+      },
+      "edition": "Edizione",
+      "new": "Nuovo personaggio"
+    },
+    "deck": {
+      "": "Edito del mazzo delle abilità",
+      "abilityName": "Nome abilità",
+      "addAbility": "Aggiungi abilità",
+      "character": "Mazzo del personaggio",
+      "json": {
+        "": "Mazzo delle abilità in formato JSON",
+        "download": "Scarica il mazzo delle abilità come file JSON"
+      },
+      "name": "Nome del mazzo",
+      "new": "Nuovo mazzo delle abilità",
+      "removeAbility": "Rimuovi abilità"
+    },
+    "edition": {
+      "": "Editor dell'edizione",
+      "base": "Dati base",
+      "character": {
+        "": "Aggiungi files personaggio",
+        "remove": "Rimuovi personaggio"
+      },
+      "conditions": {
+        "": "Condizioni disponibili",
+        "allHint": "Deseleziona tutte le condizioni",
+        "allSelected": "Seleziona tutte le condizioni"
+      },
+      "decks": {
+        "": "Aggiungi files mazzo delle abilità",
+        "remove": "Rimuovi mazzo delle abilità"
+      },
+      "edition": "Nome edizione",
+      "extensions": "Edizioni da ampliare",
+      "json": {
+        "": "Dati edizione in formato JSON",
+        "download": "Scarica dati edizione come file JSON"
+      },
+      "monster": {
+        "": "Aggiungi files dei mostri",
+        "remove": "Rimuovi mostro"
+      }
+    },
+    "monster": {
+      "": "Editor dei mostri",
+      "new": "Nuovo mostro",
+      "stats": {
+        "": "Statistiche mostro",
+        "addSpecial": "Aggiungi speciale",
+        "allLevel": "Tutti i livelli",
+        "applyAll": "Applica a tutti i livelli",
+        "boss": "E' il Boss",
+        "count": "Numero delle pedine",
+        "deck": "Nome del mazzo delle abilità",
+        "flying": "Sta volando",
+        "hidden": "E' nascosto",
+        "json": {
+          "": "Statistiche dei mostri in formato JSON",
+          "download": "Scarica statistiche dei mostri come file JSON"
+        },
+        "levelSelect": "Seleziona livello"
+      }
+    }
+  },
+  "errata": "Errata",
+  "escort": {
+    "": "Scorta",
+    "add": "Aggiungi scorta"
+  },
+  "game": {
+    "action": {
+      "area": "Effetto ad area",
+      "attack": "Attacco",
+      "box": "[Custodia]",
+      "card": "Carta",
+      "concatenation": "[Concatenazione]",
+      "condition": "Condizione",
+      "custom": "Personalizzato",
+      "damage": "Danno",
+      "element": "Elemento",
+      "elementHalf": "Mezzo elemento",
+      "fly": "Volo",
+      "grant": "Accordo",
+      "grid": "[Griglia]",
+      "heal": "Cura",
+      "jump": "Salto",
+      "loot": "Bottino",
+      "monsterType": "Tipo di mostro",
+      "move": "Mossa",
+      "nonCalc": "org. Azione",
+      "pierce": "Perfora",
+      "pull": "Tira",
+      "push": "Spingi",
+      "range": "Portata",
+      "refreshItem": "Aggiorna un articolo",
+      "retaliate": "Rivendica",
+      "shield": "Scudo",
+      "spawn": "Genera",
+      "special": "Speciale",
+      "specialTarget": "Obiettivo speciale",
+      "sufferDamage": "Subisci danno",
+      "summon": "Evoca",
+      "swing": "Oscilla",
+      "target": "Obiettivo",
+      "targets": "Obiettivi",
+      "teleport": "Teletrasporta",
+      "trigger": "Innesca"
+    },
+    "affect": "Interessa",
+    "allied": "Alleato",
+    "ally": {
+      "": "Alleato",
+      "addEntity": {
+        "boss": "Genera un alleato Boss",
+        "elite": "Genera un alleato elite",
+        "normal": "Genera un alleato normale"
+      }
+    },
+    "attackModifiers": {
+      "": "Mazzo modificatori attacco",
+      "additional": {
+        "apply": "Usa il mazzo di {0}",
+        "dialog": "Seleziona il mazzo del personaggio per applicare %game.condition. {0} %",
+        "select": "Seleziona personaggio"
+      },
+      "effects": {
+        "refreshSpentItem": "Consumato"
+      },
+      "openDialog": "Mostra il mazzo modificatori di attacco",
+      "perks": {
+        "": "Talenti",
+        "additional": "{0} e {1}",
+        "card": "carta",
+        "cardLabel": "{0}{1} {2}",
+        "cards": {
+          "": "carte",
+          "1": "%number.1%",
+          "2": "%number.2%",
+          "3": "%number.3%",
+          "4": "%number.4%",
+          "5": "%number.5%"
+        },
+        "effects": {
+          "recoverRandomDiscard": "Recupera %game.card.recover% una carta casuale dalla pila di scarto",
+          "refreshItem": "Aggiorna un articolo",
+          "refreshItemFh": "%game.card.recover% un articolo",
+          "refreshSpentItem": "Aggiorna un oggetto esaurito"
+        },
+        "type": {
+          "add": "Aggiungi {0}",
+          "remove": "rimuovi {0}",
+          "replace": "sostituisci {0} con {1}"
+        },
+        "warning": "Più talenti selezionati di quelli disponibili!",
+        "wip": "%wip%! Talenti non ancora completati."
+      },
+      "types": {
+        "bless": "Benedizione",
+        "curse": "Maledizione",
+        "double": "Doppio",
+        "invalid": "Non valido",
+        "minus": "Meno",
+        "minus1": "Meno 1",
+        "minus2": "Meno 2",
+        "null": "Nullo",
+        "plus": "Più",
+        "plus0": "Più 0",
+        "plus1": "Più 1",
+        "plus2": "Più 2",
+        "plus3": "Più 3",
+        "plus4": "Più 4"
+      }
+    },
+    "battleGoals": {
+      "": "Obiettivi di battaglia",
+      "all": "Carte attuali",
+      "cancel": "Annulla",
+      "choose": "Scegli obiettivo di battaglia per %game.characterIconColored.{0}% {1}",
+      "chooseCard": "Scegli carta selezionata",
+      "chosen": "Obiettivo di battaglia per %game.characterIconColored.{0}% {1}",
+      "drawCard": "Pesca un'altra carta",
+      "drawCards": "Ripesca carte",
+      "drawUnavailable": "Tutti gli obiettivi di battaglia sono stati pescati!",
+      "edition": "Carte %data.edition.{0}%",
+      "setup": {
+        "": "Configura obiettivi battaglia",
+        "empty": "Nessuna carta obiettivi battaglia selezionata."
+      }
+    },
+    "card": {
+      "experience": "X Esperienza",
+      "lost": "Perso",
+      "persistent": "Bonus persistente",
+      "recover": "Recupera",
+      "refresh": "Aggiorna",
+      "round": "Turno bonus",
+      "slot": "Usa spazio",
+      "slotXp": "Usa spazio X Esperienza"
+    },
+    "cards": {
+      "confirmReveal": "Clicca di nuovo per rivelare!",
+      "coverAll": "Copri tutto",
+      "defaultSort": "Ordina",
+      "draw": "Pesca",
+      "drawAdvantage": "Pesca con vantaggio",
+      "drawAnother": "Pesca un'altra",
+      "drawDisadvantage": "Pesca con svantaggio",
+      "drawExtra": "Pesca extra",
+      "edit": {
+        "": "Modifica",
+        "toggleBB": "Mostra come tavola BB"
+      },
+      "fullscreen": "Mostra a schermo intero",
+      "openDialog": "Mostra tutte le carte",
+      "removeDrawnDiscards": "Rimuovi pila degli scarti",
+      "restore": "Ripristina predefiniti",
+      "revealAll": "Rivela tutto?",
+      "revealAllConfirm": "Rivela tutto!",
+      "shuffle": {
+        "": "Mescola",
+        "upcomingHint": "Doppio clic per mischiare solo le prossime carte!"
+      }
+    },
+    "condition": {
+      "bane": {
+        "": "Anatema",
+        "hint": "%game.conditionIcon.bane% Anatema: soffri %game.damage:10% alla fine del turno successivo, quindi rimuovila. Rimuovila anche quando guarito."
+      },
+      "bless": {
+        "": "Benedizione",
+        "hint": "%game.conditionIcon.bless% Benedizione: mescola una carta %game.attackmodifier.bless% nel mazzo modificatori attacco"
+      },
+      "brittle": {
+        "": "Fragile",
+        "hint": "%game.conditionIcon.brittle% Fragile: raddoppia la prossima fonte di %game.damage%, quindi rimuovila. Rimuovila anche quando guarito."
+      },
+      "chill": {
+        "": "Gelo",
+        "hint": "%game.conditionIcon.chill% Gelo: ottieni -1 su tutti i movimenti e gli attacchi per ogni gettone. Rimuovine uno alla fine del prossimo turno."
+      },
+      "curse": {
+        "": "Maledizione",
+        "hint": "%game.conditionIcon.curse% Maledizione: mescola la carta %game.attackmodifier.curse% nel mazzo modificatori attacco"
+      },
+      "disarm": {
+        "": "Disarmare",
+        "hint": "%game.conditionIcon.disarm% Disarmare: non puoi attaccare. Rimuovi alla fine del turno successivo."
+      },
+      "dodge": {
+        "": "Schivare",
+        "hint": "%game.conditionIcon.dodge% Schivare: scarta o perdi una carta per prevenire un attacco, quindi rimuovila."
+      },
+      "empower": {
+        "": "Rinforzo",
+        "hint": "%game.conditionIcon.empower% Rinforzo: mescola la carta %game.attackmodifier.empower% nerl mazzo modificatori attacco."
+      },
+      "enfeeble": {
+        "": "Indebolire",
+        "hint": "%game.conditionIcon.enfeeble% Indebolire: mescola la carta %game.attackmodifier.enfeeble% nel mazzo modificatori attacco."
+      },
+      "heal": {
+        "": "Curare",
+        "hint": "Non è una condizione, ma aiuta se devi applicare %game.action.heal% per aumentare i punti ferita."
+      },
+      "immobilize": {
+        "": "Immobilizzare",
+        "hint": "%game.conditionIcon.immobilize% Immobilizzare: Non ti puoi muovere. Rimuovi alla fine del turno successivo."
+      },
+      "immune": {
+        "": "Immune",
+        "hint": "Immune alla condizione"
       }
     }
   },

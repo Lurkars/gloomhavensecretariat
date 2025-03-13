@@ -202,9 +202,15 @@
     },
     "remove": "Retirer un personnage",
     "removeAll": "Retirer tout",
+    "replay": {
+      "": "Rejouer le personnage",
+      "hint": "Double cliquer pour rejouer le personnage"
+    },
+    "setAside": "Mettre de côté le personnage",
     "summon": {
       "level": "(Level {0})"
     },
+    "token": "Jeton de Personnage",
     "traits": "Caractéristiques",
     "unlock": {
       "": "Débloquer?",
@@ -286,6 +292,10 @@
     "exportGame": "Exporter la partie vers un fichier",
     "exportSettings": "Exporter les paramètres vers un fichier",
     "importDataDump": "Importation de données",
+    "importFile": {
+      "": "Importer le Fichier",
+      "hint": "Importez n’importe quel fichier exporté comme Jeu, Sauvegarde, Sauvegarde de données ou Paramètres. Confirmez l’importation avec un deuxième clic!"
+    },
     "importGame": "Importer une partie depuis un fichier",
     "importSettings": "Importer les paramètres depuis un fichier",
     "removeAllSpoilers": "Tout supprimer",
@@ -297,6 +307,19 @@
     "restoreEditionDataUrls": "Remettre par défaut",
     "spoilers": "Gérer les Spoilers",
     "unlocks": "Gérer les déverrouillages"
+  },
+  "duration": {
+    "days": "{3} jours, {2} heures, {1} minutes et {0} secondes",
+    "gameClock": {
+      "": "Heure du Jeu",
+      "clockIn": "Horloge dans l’horloge de jeu",
+      "clockOut": "Quitter l’horloge du jeu",
+      "current": "Actuel: {0}"
+    },
+    "hours": "{2} heures, {1} minutes et {0} secondes",
+    "minutes": "{1} minutes et {0} secondes",
+    "seconds": "{0} secondes",
+    "totalHours": "{0}, approx.{1} heures"
   },
   "edition": {
     "": "Choisir l'édition",
@@ -817,6 +840,8 @@
     "loot": {
       "": "Pillage",
       "apply": "Ajouter à %data.character.{0}%",
+      "arrowvine": "Jasmin-archer",
+      "axenut": "Glandache",
       "chooseCharacter": "Choisir un personnage pour +{0} {1}",
       "config": {
         "": "Tableau de butin",
@@ -826,13 +851,15 @@
         "hide": "Cacher le tableau de butin",
         "show": "Afficher le tableau de butin"
       },
+      "corpsecap": "Capuchon-des-morts",
       "deck": "Coffre à butin",
       "enhancements": {
         "": "Améliorations",
         "add": "Ajouter Amélioration",
         "remove": "Supprimer Amélioration"
       },
-      "hide": "Cacher",
+      "flamefruit": "Fruit-de-feu",
+      "hide": "Peau",
       "keep": "Continuer %data.character.{0}%",
       "lootTreasure": {
         "": "{0} pille le trésor {1}?",
@@ -841,7 +868,7 @@
         "selectCharacter": "Sélectionner le personnage pour le trésor {0}",
         "selectTreasure": "Sélectionner le trésor pour {0}"
       },
-      "lumber": "Bois de construction",
+      "lumber": "Bois",
       "material_resources": "matériel",
       "metal": "Métal",
       "money": "Monnaie",
@@ -851,6 +878,8 @@
         "draw": "Objet aléatoire pour %game.characterIconColored.{0}% {1}"
       },
       "remove": "Supprimer de %data.character.{0}%",
+      "rockroot": "Pierrhizome",
+      "snowthistle": "Chardoneige",
       "special": "spécial",
       "special1": "Carte spéciale 1 (#1418)",
       "special2": "Carte spéciale 1 (#1419)",
@@ -1012,7 +1041,7 @@
   },
   "number": {
     "0": "zéro",
-    "1": "un/e",
+    "1": "une",
     "2": "deux",
     "3": "trois",
     "4": "quatre",
@@ -1154,26 +1183,31 @@
         "summer": "Été",
         "supply": {
           "": "Approvisionnement de Frosthaven",
+          "apply": "Appliquer les changements",
+          "edit": "Éditer",
           "total": "Total"
         },
-        "totalDefense": "Défense totale",
+        "totalDefense": "Valeur de Défense Totale",
         "townGuardPerks": "Bénéfices des gardes de ville",
         "weekSections": {
           "": "Définir les sections pour la semaine {0}",
           "addSection": "Ajouter une section à la semaine",
           "calc": "{0} semaines à partir de la semaine en cours",
           "hint": "Double-cliquez pour définir/modifier les sections de la semaine",
+          "lock": "Verrouiller le calendrier pour éviter les modifications accidentelles. Double-cliquez pour faire un verrouillage permissif, permettant d’ajouter ou de supprimer exactement une semaine.",
           "openConclusion": "Sélectionner la section continue",
           "section": "Section"
         },
         "winter": "Hiver"
       },
+      "totalTime": "Temps joué dans les scénarios : {0}",
       "townGuard": "Garde de la ville",
       "townGuardDeck": "Paquet des gardes de la ville",
       "treasures": {
         "": "Trésors",
         "applySelect": "Appliquer la sélection",
-        "batchSelect": "Multi-sélection"
+        "batchSelect": "Multi-sélection",
+        "loot": "Pillage du trésor"
       }
     },
     "campaignMode": "Mode Campagne",
@@ -1189,7 +1223,14 @@
       "hint": "Pendant un scénario, la création d'une nouvelle campagne est désactivée. Termine ou annule le scénario en cours pour créer une nouvelle campagne."
     },
     "notes": "Notes",
-    "prosperity": "Prosperité",
+    "prosperity": {
+      "": "Prospérité",
+      "reset": "Réinitialiser la Prospérité",
+      "wrap": {
+        "expand": "Étendre",
+        "shrink": "Rétrécir"
+      }
+    },
     "remove": "Retirer la campagne",
     "reputation": "Réputation",
     "sheet": "Fiche de campagne",
@@ -1274,6 +1315,21 @@
     "": "Scénario",
     "blocked": "Bloqué",
     "cancel": "Annuler le scénario",
+    "chart": {
+      "": "Organigramme des Scénarios",
+      "campaign": {
+        "": "Mode Campagne",
+        "back": "Retour au mode campagne",
+        "force": "Double-cliquez pour forcer l’affichage de l'organigramme, y compris les spoilers."
+      },
+      "setup": "Afficher la configuration du scénario",
+      "start": "Démarrer un Scénario",
+      "success": "Marquer comme terminé",
+      "treasures": {
+        "": "Montrer les trésors (le cas échéant)",
+        "empty": "Pas de trésors"
+      }
+    },
     "conclusion": "Conclusion",
     "custom": "Personnalisé",
     "eventEffects": {
@@ -1292,6 +1348,9 @@
       },
       "hint": "Appliquer à tous les personnages sélectionnés",
       "progress": "Affecte la progression du personnage"
+    },
+    "favors": {
+      "apply": "Appliquer"
     },
     "filter": {
       "": "Filtre par Scénario",
