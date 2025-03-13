@@ -97,7 +97,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
       this.undoOffset = (gameManager.game.revision
         - (gameManager.game.revisionOffset || 0)) - (undos[undos.length - 1].revision - (undos[undos.length - 1].revisionOffset || 0)) - 1;
       if (this.undoInfo && this.undoInfo.length > 1 && this.undoInfo[0] == "serverSync") {
-        if (this.undoInfo[1] == "setInitiative" && this.undoInfo.length > 3) {
+        if (gameManager.game.state == GameState.draw && this.undoInfo[1] == "setInitiative" && this.undoInfo.length > 3) {
           this.undoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[1], [this.undoInfo[2], ""])];
         } else {
           this.undoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[1], this.undoInfo.slice(2))];
