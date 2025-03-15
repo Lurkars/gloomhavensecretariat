@@ -159,7 +159,7 @@
       "import": "가져오기",
       "level": "레벨",
       "lock": "실수로 편집하지 않도록 캐릭터 시트를 잠급니다.",
-      "masteries": "숙련",
+      "masteries": "마스터리",
       "name": "이름",
       "notes": "메모",
       "perks": {
@@ -1140,7 +1140,7 @@
         "character": "캐릭터",
         "class": "클래스",
         "level": "레벨",
-        "masteries": "숙련",
+        "masteries": "마스터리",
         "perks": "특혜",
         "player": "플레이어",
         "reactivate": "재활성 캐릭터"
@@ -2261,7 +2261,7 @@
       },
       "addItem": "{0}에게 {1} (%data.edition.{2}%) 아이템 추가",
       "addManualScenario": "시나리오 해금 #{0} {1} ({2})",
-      "addMastery": "{0}에게 숙련 {1} 체크",
+      "addMastery": "{0}에게 마스터리 {1} 체크",
       "addMonster": "{0} 몬스터 추가",
       "addNextStandee": "{1} {0} 몬스터 말 추가",
       "addObjective": {

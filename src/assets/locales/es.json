@@ -3121,6 +3121,13 @@
     },
     "keyboard": {
       "": "Atajos de teclado",
+      "activeCharacter": {
+        "lootDec": "Reduce las fichas de dinero del personaje activo",
+        "lootInc": "Aumenta las fichas de dinero del personaje activo",
+        "xpDec": "Reduce la Exp. del personaje activo",
+        "xpInc": "Aumenta la Exp. del personaje activo"
+      },
+      "alt": "ALT",
       "am": "Robar carta MA (mazo en función de la figura activa, mazo monstruo cuando no está activo, desactivado cuando <b>Robas</b>)",
       "amAdvantage": "como<kbd><span>m</span></kbd>, pero robas con Ventaja si está activado",
       "amDisadvantage": "como <kbd><span>m</span></kbd>, pero robado con Desventaja si esta activado",

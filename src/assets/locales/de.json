@@ -3121,6 +3121,13 @@
     },
     "keyboard": {
       "": "Tastenkürzel",
+      "activeCharacter": {
+        "lootDec": "dek. Münzmarker für aktiven Charakter",
+        "lootInc": "ink. Münzmarker für aktiven Charakter",
+        "xpDec": "dek. EP für aktiven Charakter",
+        "xpInc": "ink. EP für aktiven Charakter"
+      },
+      "alt": "ALT",
       "am": "AM Karte ziehen (Kartendeck abhängig von aktiver Figur, Deck für Monster wenn keine Figur aktiv, deaktiviert während <b>Ziehen</b>)",
       "amAdvantage": "wie <kbd><span>m</span></kbd>, aber mit Vorteil ziehen wenn eingeschaltet",
       "amDisadvantage": "wie <kbd><span>m</span></kbd>, aber mit Nachteil ziehen wenn eingeschaltet",

@@ -165,9 +165,21 @@
       "": "Escudo reforzado",
       "1": "Cuando un enemigo vaya a aplicarte un estado negativo, evita sufrir ese estado."
     },
+    "fh-16": {
+      "": "Casco inspirador",
+      "1": "Durante tu turno, otorga a todos los aliados adyacentes: %game.action.move% 2"
+    },
     "fh-167": {
       "": "Brazalete de atracción",
       "1": "Al inicio del turno de un enemigo, antes de que centre su atención, realiza:"
+    },
+    "fh-17": {
+      "": "Armadura de cuero curtido",
+      "1": "Para los 2 próximos ataques que te tomen como objetivo, el atacante sufre Desventaja."
+    },
+    "fh-18": {
+      "": "Botas humildes",
+      "1": "Durante tu turno, añade %game.action.move% +1 a todas sus capacidades de Movimiento."
     },
     "fh-180": {
       "": "Botas de avaricia",
@@ -181,18 +193,46 @@
       "": "Cristal congelate",
       "1": "Durante tu turno, crea 1 pieza de 1 hexágono de terreno peligroso, terreno helado o agua en un hexágono sin accesorios adyacente."
     },
+    "fh-19": {
+      "": "Martillo tintineate",
+      "1": "Durante tu capacidad de Ataque, añade %game.condition.muddle% a todos tus ataques."
+    },
+    "fh-195": {
+      "": "Tricornio",
+      "1": "Durante tu turno, añade %game.action.range% +1 y %game.action.pierce% a 1 de tus ataques a distancia."
+    },
     "fh-2": {
       "": "Casco tosco",
       "1": "Cuando te ataquen, trata cualquier carta de Modificador de ataque %game.attackmodifier.double% que robe el enemigo como %game.attackmodifier.plus1% en su lugar."
+    },
+    "fh-20": {
+      "": "Arco bien tensado",
+      "1": "Durante tu turno, añade %game.action.range% +1 a todos tus ataques a distancia."
+    },
+    "fh-21": {
+      "": "Almófar",
+      "1": "Mientras estés adyacente a 3 o más enemigos, obtén %game.action.shield:1%."
+    },
+    "fh-22": {
+      "": "Cota de malla pesada",
+      "1": "Cuando sufras %game.damage% por un ataque, obtén %game.action.shield:3% para dicho ataque."
     },
     "fh-225": {
       "": "Figura algox",
       "1": "Durante tu capacidad de Ataque cuerpo a cuerpo, %game.element.consume.earth% para añadir %game.action.attack% +1 a 1 ataque, y luego dale la vuelta a esta carta.",
       "2": "Durante tu capacidad de Ataque, %game.element.consume.air% para añadir %game.action.push% 2 a 1 ataque, y luego dale la vuelta a esta carta."
     },
+    "fh-23": {
+      "": "Grebas robustas",
+      "1": "Al inicio de tu turno, añade %game.action.move% -2 a todas tus capacidades de Movimiento para obtener %game.action.shield% durante esta ronda. "
+    },
     "fh-231": {
       "": "Cuchillo de desollar",
       "1": "Cuando obtengas una ficha de Botín, obtén 3 Pieles en lugar de robar una carta de Botín."
+    },
+    "fh-233": {
+      "": "Cuervo muerto",
+      "1": "Durante la capacidad de Ataque a distancia de un aliado, aplica %game.condition.muddle% y %game.condition.curse% a 1 ataque."
     },
     "fh-24": {
       "": "Filo corrupto",
@@ -200,6 +240,10 @@
     },
     "fh-245": {
       "": "Moneda antigua"
+    },
+    "fh-25": {
+      "": "Centro sosegante",
+      "1": "Durante tu turno, realiza: %game.condition.regenerate% %game.action.target% 1 aliado, %game.action.range:2%"
     },
     "fh-3": {
       "": "Capa de viaje",
@@ -237,9 +281,17 @@
       "": "Botines flexibles",
       "1": "Durante tu saqueo del final del turno, saquea 1 hexágono adyacente en lugar del hexágono que ocupas."
     },
+    "fh-69": {
+      "": "Capa emplumada",
+      "1": "Cuando sufras %game.damage% por un ataque, %game.element.consume.air% para obtener %game.action.shield:3% para dicho ataque."
+    },
     "fh-7": {
       "": "Arco tosco",
       "1": "Durante tu turno, añade %game.action.range% +1 a 1 de tus ataques a distancia."
+    },
+    "fh-71": {
+      "": "Botas de hueso",
+      "1": "Después de tu capacidad con la que mates a un enemigo, realiza:"
     },
     "fh-76": {
       "": "Cuerno de mando",
@@ -257,9 +309,17 @@
       "": "Poción de poder",
       "1": "Durante tu turno, añade %game.action.attack% +1 a todos tus ataques."
     },
+    "fh-86": {
+      "": "Poción elemental",
+      "1": "Durante tu turno, %game.element.wild%"
+    },
     "fh-87": {
       "": "Poción de remedio",
       "1": "Durante tu turno, retira 1 estado negativo que sufras.<br>Puedes usarla incluso si sufres %game.condition.impair% o %game.condition.stun%."
+    },
+    "fh-88": {
+      "": "Poción de piroescudo",
+      "1": "Durante tu turno, realiza: %game.action,retaliate% 1 %game.action.range:3% "
     },
     "fh-89": {
       "": "Poción de piel pétrea",
@@ -268,6 +328,10 @@
     "fh-9": {
       "": "Cetro protector",
       "1": "Durante tu turno, otorga a 1 aliado a 2 %game.action.range:2% o menos:"
+    },
+    "fh-91": {
+      "": "Agua bendita",
+      "1": "Durante tu turno, realiza: %game.condition.bless% Personal"
     },
     "fh-93": {
       "": "Poción de observación",
@@ -280,6 +344,10 @@
     "fh-95": {
       "": "Frasco de veneno",
       "1": "Durante tu turno, realiza: %game.condition.poison% %game.action.range:1%"
+    },
+    "fh-96": {
+      "": "Frasco de llama",
+      "1": "Durante tu turno, realiza: %game.condition.wound% %game.action.range:1%"
     },
     "fh-97": {
       "": "Frasco explosivo",
