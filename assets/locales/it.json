@@ -631,6 +631,9 @@
       "immune": {
         "": "Immune",
         "hint": "Immune alla condizione"
+      },
+      "impair": {
+        "": "Compromettere"
       }
     }
   },

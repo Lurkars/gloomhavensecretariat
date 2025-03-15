@@ -2378,6 +2378,10 @@
     "playerCount": {
       "": "Manuelle Charakter Anzahl"
     },
+    "playerNumber": {
+      "": "Spielernummer anzeigen",
+      "hint": "Zeige die Spielernummer auf dem Charakterboard an."
+    },
     "portraitMode": {
       "": "Portraitmodus Optimierungen",
       "hint": "Optimierung des Portraitmodus für kleine Displays."
@@ -3121,6 +3125,13 @@
     },
     "keyboard": {
       "": "Tastenkürzel",
+      "activeCharacter": {
+        "lootDec": "dek. Münzmarker für aktiven Charakter",
+        "lootInc": "ink. Münzmarker für aktiven Charakter",
+        "xpDec": "dek. EP für aktiven Charakter",
+        "xpInc": "ink. EP für aktiven Charakter"
+      },
+      "alt": "ALT",
       "am": "AM Karte ziehen (Kartendeck abhängig von aktiver Figur, Deck für Monster wenn keine Figur aktiv, deaktiviert während <b>Ziehen</b>)",
       "amAdvantage": "wie <kbd><span>m</span></kbd>, aber mit Vorteil ziehen wenn eingeschaltet",
       "amDisadvantage": "wie <kbd><span>m</span></kbd>, aber mit Nachteil ziehen wenn eingeschaltet",
@@ -3174,6 +3185,7 @@
       "toggleDamageHP": "<i>%settings.damageHP%</i> umschalten",
       "toggleElements": "Elementen Status durchschalten",
       "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen</i> umschalten",
+      "togglePlayerNumber": "<i>Spielernummer anzeigen</i> umschalten",
       "toggleTraits": "<i>Eigenschaften anzeigen</i> umschalten",
       "undo": "Rückgängig",
       "zoomIn": "Reinzoomen",

@@ -375,8 +375,8 @@
         "": "Character Data",
         "deck": "Ability Deck Name",
         "hp": {
-          "-1": "Custom Profile",
           "": "Hit Points",
+          "-1": "Custom Profile",
           "0": "Low Profile",
           "1": "Middle Profile",
           "2": "High Profile"
@@ -1401,6 +1401,7 @@
       "empty": "Please add monsters and characters before round.",
       "failed": "All characters seems exhausted. Do you want to restart the scenario?",
       "finish": "There are no monsters left. Did you successfully finish the scenario?",
+      "initiativeRoundConfirm": "All initiatives are set. Start next round?",
       "missingInitiative": "Initiative must be set for all figures!"
     },
     "next": "Next Round"
@@ -2317,6 +2318,10 @@
       "": "Initiative is required",
       "hint": "If unchecked, the order of the entities must be set manually with drag&drop"
     },
+    "initiativeRoundConfirm": {
+      "": "Initiative set dialog",
+      "hint": "Show a dialog to start next round when all initiatives are set."
+    },
     "interactiveAbilities": {
       "": "Interactive Abilities",
       "hint": "Apply certain highlighted abilities, such as summons or elemental actions, directly by clicking on the appropriate area of the ability card."
@@ -2377,6 +2382,10 @@
     },
     "playerCount": {
       "": "Manual character count"
+    },
+    "playerNumber": {
+      "": "Display player number",
+      "hint": "Display the player number on the character's board."
     },
     "portraitMode": {
       "": "Portrait-Mode Optimization",
@@ -3181,6 +3190,7 @@
       "toggleDamageHP": "Toggle <i>%settings.damageHP%</i>",
       "toggleElements": "Toggle through element state",
       "toggleHandSize": "Toggle <i>Display hand size and level</i>",
+      "togglePlayerNumber": "Toggle <i>Display player number</i>",
       "toggleTraits": "Toggle <i>Display traits</i>",
       "undo": "Undo",
       "zoomIn": "Zoom-in",
