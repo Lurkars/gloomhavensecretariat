@@ -10,11 +10,11 @@ import { LootDeckConfig, LootType, fullLootDeck } from "../model/data/Loot";
 import { MonsterData } from "../model/data/MonsterData";
 import { MonsterType } from "../model/data/MonsterType";
 import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
+import { PetIdentifier } from "../model/data/PetCard";
 import { MonsterStandeeData, RoomData } from "../model/data/RoomData";
 import { ScenarioData, ScenarioRewards } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { PetIdentifier } from "../model/data/PetCard";
 
 export class ScenarioManager {
 
@@ -1066,16 +1066,14 @@ export class ScenarioManager {
     return monsters;
   }
 
-  getScenarioMonster(scenario: Scenario, sections: boolean = false): MonsterData[] {
+  getScenarioMonster(scenario: Scenario, allSections: boolean = false): MonsterData[] {
     let data: ScenarioData[] = [];
 
     data.push(scenario);
-    if (sections) {
-      data.push(...gameManager.sectionData(scenario.edition).filter((sectionData) => sectionData.group == scenario.group && sectionData.parent == scenario.index));
+    data.push(...gameManager.sectionData(scenario.edition).filter((sectionData) => sectionData.group == scenario.group && sectionData.parent == scenario.index && (allSections || this.game.sections.find((section) => section.edition == sectionData.edition && section.group == sectionData.group && section.index == sectionData.index) != undefined)));
 
-      if (scenario.additionalSections) {
-        data.push(...gameManager.sectionData(scenario.edition, true).filter((sectionData) => scenario.additionalSections.indexOf(sectionData.index) != -1));
-      }
+    if (scenario.additionalSections) {
+      data.push(...gameManager.sectionData(scenario.edition, true).filter((sectionData) => scenario.additionalSections.indexOf(sectionData.index) != -1 && (allSections || this.game.sections.find((section) => section.edition == sectionData.edition && section.group == sectionData.group && section.index == sectionData.index) != undefined)));
     }
 
     let monsters: MonsterData[] = [];

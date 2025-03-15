@@ -12,7 +12,7 @@
     <a *ngIf="failed()" (click)="resetScenario()"><span [ghs-label]="'round.hint.confirmReset'"></span></a>
     <a *ngIf="finish() || failed()" (click)="confirm()"><span [ghs-label]="(gameManager.game.state == GameState.next ?
       'round.hint.continueNext' : 'round.hint.continueDraw')"></span></a>
-      <p *ngIf="battleGoals()"><span [ghs-label]="'round.hint.battleGoals'"></span></p>
-      <a *ngIf="battleGoals()" (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
+    <p *ngIf="battleGoals()"><span [ghs-label]="'round.hint.battleGoals'"></span></p>
+    <a *ngIf="battleGoals()" (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
   </div>
 </div>

@@ -4,13 +4,13 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
-import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
-import { ScenarioConclusionComponent } from "../scenario/scenario-conclusion/scenario-conclusion";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { ghsDialogClosingHelper } from "../../helper/Static";
+import { ScenarioConclusionComponent } from "../scenario/scenario-conclusion/scenario-conclusion";
+import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-hint-dialog',
     templateUrl: './hint-dialog.html',
     styleUrls: ['./hint-dialog.scss']

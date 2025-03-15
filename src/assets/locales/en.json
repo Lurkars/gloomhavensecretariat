@@ -1401,6 +1401,7 @@
       "empty": "Please add monsters and characters before round.",
       "failed": "All characters seems exhausted. Do you want to restart the scenario?",
       "finish": "There are no monsters left. Did you successfully finish the scenario?",
+      "initiativeRoundConfirm": "All initiatives are set. Start next round?",
       "missingInitiative": "Initiative must be set for all figures!"
     },
     "next": "Next Round"
@@ -2316,6 +2317,10 @@
     "initiativeRequired": {
       "": "Initiative is required",
       "hint": "If unchecked, the order of the entities must be set manually with drag&drop"
+    },
+    "initiativeRoundConfirm": {
+      "": "Initiative set dialog",
+      "hint": "Show a dialog to start next round when all initiatives are set."
     },
     "interactiveAbilities": {
       "": "Interactive Abilities",

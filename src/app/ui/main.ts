@@ -16,6 +16,7 @@ import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicke
 import { FooterComponent } from './footer/footer';
 import { SubMenu } from './header/menu/menu';
 import { ghsDialogClosingHelper } from './helper/Static';
+import { ConfirmDialogComponent } from './helper/confirm/confirm';
 import { PointerInputService } from './helper/pointer-input';
 
 @Component({
@@ -59,6 +60,8 @@ export class MainComponent implements OnInit {
   serverPing: number = 0;
   serverPingInterval: any;
 
+  initiativeSetDialog: DialogRef<unknown, ConfirmDialogComponent> | "discard" | false = false;
+
   @ViewChild('footer') footer!: FooterComponent;
 
   constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog, private pointerInputService: PointerInputService) {
@@ -96,6 +99,36 @@ export class MainComponent implements OnInit {
               }
             }
             this.showBackupHint = settingsManager.settings.backupHint && !this.loading && !gameManager.game.scenario && (gameManager.game.party.scenarios.length > 0 || gameManager.game.party.casualScenarios.length > 0 || gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
+
+            if (settingsManager.settings.initiativeRequired && settingsManager.settings.initiativeRoundConfirm && gameManager.game.state == GameState.draw && gameManager.game.scenario) {
+              if (gameManager.game.figures.every((figure) => !(figure instanceof Character) || gameManager.entityManager.isAlive(figure) && !figure.absent && figure.getInitiative() > 0)) {
+                if (!this.initiativeSetDialog) {
+                  this.initiativeSetDialog = this.dialog.open(ConfirmDialogComponent, {
+                    panelClass: ['dialog'],
+                    data: {
+                      label: 'round.hint.initiativeRoundConfirm'
+                    }
+                  });
+
+                  this.initiativeSetDialog.closed.subscribe({
+                    next: (result) => {
+                      this.initiativeSetDialog = "discard";
+                      if (result) {
+                        this.initiativeSetDialog = false;
+                        this.footer.next();
+                      }
+                    }
+                  })
+                }
+              } else {
+                if (this.initiativeSetDialog instanceof DialogRef) {
+                  this.initiativeSetDialog.close();
+                }
+                this.initiativeSetDialog = false;
+              }
+            } else if (gameManager.game.state == GameState.next) {
+              this.initiativeSetDialog = false;
+            }
           }
         }
 
