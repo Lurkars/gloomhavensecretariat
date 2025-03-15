@@ -375,8 +375,8 @@
         "": "Character Data",
         "deck": "Ability Deck Name",
         "hp": {
-          "-1": "Custom Profile",
           "": "Hit Points",
+          "-1": "Custom Profile",
           "0": "Low Profile",
           "1": "Middle Profile",
           "2": "High Profile"
@@ -2380,7 +2380,7 @@
     },
     "playerNumber": {
       "": "Display player number",
-      "hint": "Display the player number on the character's board"
+      "hint": "Display the player number on the character's board."
     },
     "portraitMode": {
       "": "Portrait-Mode Optimization",

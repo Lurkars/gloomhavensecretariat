@@ -2378,6 +2378,10 @@
     "playerCount": {
       "": "Manuelle Charakter Anzahl"
     },
+    "playerNumber": {
+      "": "Spielernummer anzeigen",
+      "hint": "Zeige die Spielernummer auf dem Charakterboard an."
+    },
     "portraitMode": {
       "": "Portraitmodus Optimierungen",
       "hint": "Optimierung des Portraitmodus für kleine Displays."
@@ -3181,6 +3185,7 @@
       "toggleDamageHP": "<i>%settings.damageHP%</i> umschalten",
       "toggleElements": "Elementen Status durchschalten",
       "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen</i> umschalten",
+      "togglePlayerNumber": "<i>Spielernummer anzeigen</i> umschalten",
       "toggleTraits": "<i>Eigenschaften anzeigen</i> umschalten",
       "undo": "Rückgängig",
       "zoomIn": "Reinzoomen",
