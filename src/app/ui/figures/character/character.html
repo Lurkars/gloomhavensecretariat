@@ -281,6 +281,11 @@
       {{character.level}}
     </div>
 
+    <div *ngIf="!character.bb && settingsManager.settings.playerNumber" class="player-number">
+      #{{character.number}}
+    </div>
+
+
     <div *ngIf="settingsManager.settings.characterTraits && !character.absent && character.traits.length > 0"
       class="character-traits" ghs-pointer-input (singleClick)="openEntityMenu($event)"
       (doubleClick)="compact && openCharacterSheet()">
@@ -300,7 +305,8 @@
         <span class="special-tag text-white" [ghs-label]="'data.character.' + character.name + '.' + specialAction.name"
           ghs-pointer-input (singleClick)="openEntityMenu($event)"
           (doubleClick)="removeSpecialAction(specialAction.name)"
-          [ghs-tooltip]="'data.character.' + character.name + '.' + specialAction.name + '.hint'" [originY]="'top'" [overlayY]="'bottom'" [originX]="'center'" [overlayX]="'center'"></span>
+          [ghs-tooltip]="'data.character.' + character.name + '.' + specialAction.name + '.hint'" [originY]="'top'"
+          [overlayY]="'bottom'" [originX]="'center'" [overlayX]="'center'"></span>
         <span class="separator" *ngIf="i < specialActions.length - 1 && specialActions.length > 1">|</span>
       </ng-container>
     </div>

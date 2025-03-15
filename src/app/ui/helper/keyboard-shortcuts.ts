@@ -18,7 +18,7 @@ import { HeaderComponent } from '../header/header';
 import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP" | "activeCharacter";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP" | "activeCharacter" | "playerNumber";
 
 @Directive({
     standalone: false,
@@ -263,6 +263,9 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('traits') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key === 't') {
                     settingsManager.toggle('characterTraits');
+                    event.preventDefault();
+                } else if ((!this.dialogOpen || this.allowed.indexOf('playerNumber') != -1) && !event.ctrlKey && !event.altKey && event.key === '#') {
+                    settingsManager.toggle('playerNumber');
                     event.preventDefault();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('damageHP') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key === 'i') {
                     settingsManager.toggle('damageHP');

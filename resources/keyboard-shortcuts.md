@@ -29,6 +29,7 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>c</kbd>: open scenario chart
 - <kbd>SHIFT</kbd> + <kbd>H</kbd>: toggle *Display hand size and level*
 - <kbd>t</kbd>: toggle *Display traits*
+- <kbd>#</kbd>: toggle *Display player number*
 - <kbd>i</kbd>: toggle *Damage instead of HP*
 - <kbd>?</kbd>: show keyboard shortcuts
 
