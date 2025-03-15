@@ -73,9 +73,17 @@
       "": "Escudo tosco",
       "1": "Cuando un enemigo vaya a aplicarte un estado negativo, evita sufrir ese estado"
     },
+    "fh-102": {
+      "": "Poción elemental mayor",
+      "1": "Durante tu turno, %game.element.wild% %game.element.wild%"
+    },
     "fh-11": {
       "": "Amuleto sencillo",
       "1": "Al inicio del escenario, retira 1 carta de Modificador de ataque %game.attackmodifier.minus1% de tu mazo de Modificadores de ataque."
+    },
+    "fh-115": {
+      "": "Poción de inducción",
+      "1": "Durante tu turno, ignora un símbolo de consumo elemental en una acción de hayas jugado y obtén su efecto."
     },
     "fh-12": {
       "": "Cota de malla tosca",
@@ -245,9 +253,29 @@
       "": "Centro sosegante",
       "1": "Durante tu turno, realiza: %game.condition.regenerate% %game.action.target% 1 aliado, %game.action.range:2%"
     },
+    "fh-26": {
+      "": "Anteojos de visión",
+      "1": "Durante tu capacidad de Ataque, trata todas las cartas de Modificador negativas y %game.attackmodifier.null% como %game.attackmodifier.plus0% en su lugar."
+    },
+    "fh-27": {
+      "": "Capa de salvaguarda",
+      "1": "Inmediatamente después de que un enemigo termine su capacidad de Movimiento adyacente a ti, realiza: %game.action.push% %game.action.target% el enemigo"
+    },
+    "fh-28": {
+      "": "Botas robustas",
+      "1": "Durante tu turno, añade %game.action.move% +1 a todas tus capacidades de Movimiento e ignora el terreno impracticable."
+    },
+    "fh-29": {
+      "": "Hacha de verdugo",
+      "1": "Después de tu ataque cuerpo a cuerpo, un enemigo adyacente al objetivo sufre %game.damage% 2."
+    },
     "fh-3": {
       "": "Capa de viaje",
       "1": "Al inicio del escenario, aumenta tu valor máximo de puntos de vida en 1."
+    },
+    "fh-30": {
+      "": "Guantelete de parada",
+      "1": "Inmediatamente después de que un enemigo termine su capacidad de Movimiento adyacente a ti, realiza: %game.action.attack% 3 %game.action.target% el enemigo"
     },
     "fh-31": {
       "": "Amuleto contra la muerte",
@@ -328,6 +356,10 @@
     "fh-9": {
       "": "Cetro protector",
       "1": "Durante tu turno, otorga a 1 aliado a 2 %game.action.range:2% o menos:"
+    },
+    "fh-90": {
+      "": "Poción de músculo",
+      "1": "Durante tu turno, realiza: %game.condition.strengthen% Personal"
     },
     "fh-91": {
       "": "Agua bendita",

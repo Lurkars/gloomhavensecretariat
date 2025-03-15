@@ -1239,7 +1239,7 @@
           "rewards": {
             "action": "Nivel {0}",
             "defense": "+{0} defensa",
-            "items": "Añade %game.itemFh.{0}% a %game.itemFh.{1}% los objetos disponibles",
+            "items": "Añade las cartas de la %game.itemFh.{0}% a la %game.itemFh.{1}% a la reserva de objetos",
             "loseMorale": "-{0} moral",
             "plot": "+{0} parcela",
             "plots": "+{0} parcelas",
@@ -1543,7 +1543,7 @@
       "inspiration": "{0} inspiración",
       "item": "\"{1}\" (Objeto {0})",
       "itemBlueprint": "Obtén \"{1}\" %game.itemFh.{0}% diseño",
-      "itemBlueprintRange": "Añade los objetos del %game.itemFh.{0}% a %game.itemFh.{1}% a la reserva de objetos disponibles.",
+      "itemBlueprintRange": "Añade las cartas de objetos de la %game.itemFh.{0}% a la %game.itemFh.{1}% a la reserva de objetos disponibles.",
       "itemDesign": "\"{1}\" diseño (Objeto {0})",
       "itemDesignEdition": "\"{1}\" diseño (Objeto {0} %data.edition.{2}%)",
       "itemDesignRange": "Todos los diseños de Objetos {0}",
