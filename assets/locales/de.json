@@ -1401,6 +1401,7 @@
       "empty": "Vor der Runde bitte Charaktere und Monster hinzufügen.",
       "failed": "Alle Charaktere scheinen erschöpft. Das Szenario von vorne beginnen?",
       "finish": "Es sind keine Monster mehr übriges. Das Szenario erfolgreich beenden?",
+      "initiativeRoundConfirm": "Alle Initiativen wurden festgelegt. Nächste Runde beginnen?",
       "missingInitiative": "Die Initiative für alle Figuren muss gesetzt sein!"
     },
     "next": "Nächste Runde"
@@ -2316,6 +2317,10 @@
     "initiativeRequired": {
       "": "Initiative muss gesetzt werden",
       "hint": "Wenn nicht ausgewählt muss die Reihenfolge der Figuren manuell über drag&drop festgelegt werden"
+    },
+    "initiativeRoundConfirm": {
+      "": "Initiativen gesetzt Hinweis",
+      "hint": "Zeige einen Hinweise wenn alle Initiativen gesetzt sind um die nächste Runde zu beginnen."
     },
     "interactiveAbilities": {
       "": "Interaktive Fertigkeitskarten",

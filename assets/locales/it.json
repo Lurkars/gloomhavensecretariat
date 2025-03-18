@@ -107,15 +107,41 @@
       "f": {
         "aesther": "Aesther",
         "algox": "Algox",
+        "harrower": "Harrower",
         "human": "Umana",
-        "inox": "Inox"
+        "inox": "Inox",
+        "lurker": "Lurker",
+        "orchid": "Orchid",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "unfettered": "Unfettered",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
       },
+      "harrower": "Harrower",
       "human": "Umano",
+      "inox": "Inox",
+      "lurker": "Lurker",
       "m": {
         "aesther": "Aesther",
         "algox": "Algox",
-        "human": "Umano"
-      }
+        "harrower": "Harrower",
+        "human": "Umano",
+        "inox": "Inox",
+        "lurker": "Lurker",
+        "orchid": "Orchid",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "unfettered": "Unfettered",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
+      },
+      "orchid": "Orchid",
+      "quatryl": "Quatryl",
+      "savvas": "Savvas",
+      "unfettered": "Unfettered",
+      "valrath": "Valrath",
+      "vermling": "Vermling"
     },
     "filter": {
       "": "Filtra per personaggio",
@@ -138,7 +164,7 @@
         "enable": "Vai alla scheda del personaggio di Frosthaven"
       },
       "gold": "Oro",
-      "gold-notes": "Note d'oro",
+      "gold-notes": "Monete d'oro",
       "import": "Importa",
       "level": "Livello",
       "lock": "Blocca la scheda del personaggio per evitare modifiche accidentali.",
@@ -448,7 +474,7 @@
       "jump": "Salto",
       "loot": "Bottino",
       "monsterType": "Tipo di mostro",
-      "move": "Mossa",
+      "move": "Movimento",
       "nonCalc": "org. Azione",
       "pierce": "Perfora",
       "pull": "Tira",
@@ -598,7 +624,7 @@
       },
       "chill": {
         "": "Gelo",
-        "hint": "%game.conditionIcon.chill% Gelo: ottieni -1 su tutti i movimenti e gli attacchi per ogni gettone. Rimuovine uno alla fine del prossimo turno."
+        "hint": "%game.conditionIcon.chill% Gelo: ottieni -1 su tutti i movimenti e gli attacchi per ogni segnalino. Rimuovine uno alla fine del prossimo turno."
       },
       "curse": {
         "": "Maledizione",
@@ -613,8 +639,8 @@
         "hint": "%game.conditionIcon.dodge% Schivare: scarta o perdi una carta per prevenire un attacco, quindi rimuovila."
       },
       "empower": {
-        "": "Rinforzo",
-        "hint": "%game.conditionIcon.empower% Rinforzo: mescola la carta %game.attackmodifier.empower% nerl mazzo modificatori attacco."
+        "": "Potenziare",
+        "hint": "%game.conditionIcon.empower% Potenziare: mescola la carta %game.attackmodifier.empower% nel mazzo modificatori attacco."
       },
       "enfeeble": {
         "": "Indebolire",
@@ -633,7 +659,132 @@
         "hint": "Immune alla condizione"
       },
       "impair": {
-        "": "Compromettere"
+        "": "Compromettere",
+        "hint": "%game.conditionIcon.impair% Compromettere: Non è possibile usare oggetti. Rimuovi alla fine del turno successivo."
+      },
+      "infect": {
+        "": "Infezione",
+        "hint": "%game.conditionIcon.infect% Infezione: Non puoi ottenere scudo. Rimuovi quando guarito."
+      },
+      "invisible": {
+        "": "Invisibile",
+        "hint": "%game.conditionIcon.invisible% Invisibile: Non può essere preso di mira. Rimuovi alla fine del turno successivo."
+      },
+      "muddle": {
+        "": "Confondere",
+        "hint": "%game.conditionIcon.muddle% Confondere: Svantaggio su tutti gli attacchi. Rimuovi alla fine del prossimo turno."
+      },
+      "permanent": {
+        "": "Permanente",
+        "hint": "Condizione permanente"
+      },
+      "poison": {
+        "": "Veleno",
+        "hint": "%game.conditionIcon.poison% Veleno: Tutti gli attaccanti ottengono +1 %game.action.attack%. Impedisce la guarigione. Rimuovi quando guarito."
+      },
+      "poison_x": {
+        "": "Veleno {0}",
+        "hint": "%game.conditionIcon.poison_x:X% Veleno X:Tutti gli attaccanti ottengono +X %game.action.attack%. Impedisce la guarigione. Rimuovi quando guarito."
+      },
+      "regenerate": {
+        "": "Rigenerazione",
+        "hint": "%game.conditionIcon.regenerate% Rigenerazione: %game.action.heal% 1 all'inizio del turno. Rimuovi quando ricevi danno."
+      },
+      "rupture": {
+        "": "Frattura",
+        "hint": "%game.conditionIcon.rupture% Frattura: Ad ogni movimento subisci %game.damage:1%. Rimuovi quando guarito."
+      },
+      "strengthen": {
+        "": "Rinforzo",
+        "hint": "%game.conditionIcon.strengthen% Rinforzo: Vantaggio ad ogni attacco. Rimuovi alla fine del prossimo turno."
+      },
+      "stun": {
+        "": "Stordire",
+        "hint": "%game.conditionIcon.stun% Stordire: Non è possibile eseguire abilità o utilizzare o attivare oggetti. Rimuovi alla fine del turno successivo."
+      },
+      "ward": {
+        "": "Interdizione",
+        "hint": "%game.conditionIcon.ward% Interdizione: Dimezza (per difetto) la prossima fonte di %game.damage%, quindi rimuovila."
+      },
+      "wound": {
+        "": "Ferita",
+        "hint": "%game.conditionIcon.wound% Ferita: Subisci %game.damage:1% all'inizio di ogni turno. Rimuovi quando guarito."
+      },
+      "wound_x": {
+        "": "Ferita {0}",
+        "hint": "%game.conditionIcon.wound_x:X% Ferita X: Subisci %game.damage:X% all'inizio di ogni turno. Rimuovi quando guarito."
+      }
+    },
+    "custom": {
+      "advantage": "Vantaggio",
+      "disadvantage": "Gli attaccanti ottengono svantaggio",
+      "instead": "Al posto di",
+      "math": {
+        "ceil": "(arrotondato per eccesso)",
+        "floor": "(arrotondato per difetto)",
+        "max": ", fino ad un massimo di %game.number.{0}%",
+        "maxCeil": "(arrotondato per eccesso), fino ad un massimo di %game.number.{0}%",
+        "maxFloor": "(arrotondato per difetto), fino ad un massimo di %game.number.{0}%",
+        "min": ", ma almeno %game.number.{0}%",
+        "minCeil": "(arrotondato per eccesso), ma almeno %game.number.{0}%",
+        "minFloor": "(arrotondato per difetto), ma almeno di %game.number.{0}%"
+      },
+      "ondeath": "Alla morte:",
+      "perks": {
+        "addTarget": "Aggiungi bersaglio",
+        "addTargets": "Aggiungi {0} bersagli",
+        "ignoreNegativeItem": "Ignora gli effetti negativi degli oggetti",
+        "ignoreNegativeItemFh": "Ignora gli effetti %game.card.minus1% dell'oggetto",
+        "ignoreNegativeScenario": "Ignora gli effetti negativi dello scenario",
+        "ignoreScenario": "Ignora gli effetti dello scenario"
+      },
+      "scenarioBook": "Fare riferimento al libro degli scenari"
+    },
+    "damage": "{0} danno",
+    "dead": "Morto",
+    "element": {
+      "air": "Aria",
+      "dark": "Oscurità",
+      "earth": "Terra",
+      "fire": "Fuoco",
+      "ice": "Ghiaccio",
+      "light": "Luce",
+      "state": {
+        "always": "sempre",
+        "consumed": "consumato",
+        "inert": "inerte",
+        "new": "forte",
+        "strong": "forte",
+        "waning": "debolezza"
+      },
+      "wild": "Selvaggio"
+    },
+    "enemy": "Nemico",
+    "events": {
+      "conditions": {
+        "otherwise": "Altrimenti:",
+        "payCollectiveGold": "Paga {0} oro collettivo:",
+        "payCollectiveGoldConditional": "Paga {0} ({1}) o {2} ({3}) oro collettivo:",
+        "reputationGT": "Reputazione > {0}:",
+        "reputationLT": "Reputazione < {0}:"
+      },
+      "option": {
+        "": "Opzione {0}:",
+        "1": "A",
+        "2": "B",
+        "3": "C"
+      },
+      "rewards": {
+        "additionalGold": "Ciascuno ottiene {0} di oro aggiuntivo.",
+        "collectiveGold": "Ottieni {0} di oro collettivo.",
+        "collectiveItem": "Ottieni {2}\"%data.items.{1}-{0}%\" (Oggetto {0}) collettivo.",
+        "consumeCollectiveItem": "Consuma {0} oggetto %game.itemSlot:{1}% collettivo.",
+        "consumeItem": "Ognuno consuma {0} oggetto %game.itemSlot:{1}%.",
+        "discard": "Ognuno scarta {0} carte.",
+        "event": "Aggiungi l'evento %game.events.type.{0}% {1} al mazzo.",
+        "experience": "Ciascuno ottiene {0} di esperienza.",
+        "globalAchievement": "Risultato globale: \"{0}\".",
+        "gold": "Ognuno ottiene {0} di oro."
       }
     }
   },

@@ -1401,6 +1401,7 @@
       "empty": "Por favor, añade monstruos y personajes antes de la ronda.",
       "failed": "Todos los personajes parecen agotados. ¿Quieres reiniciar el escenario?",
       "finish": "No quedan monstruos. Has superado con éxito el escenario?",
+      "initiativeRoundConfirm": "Iniciativa fijada para todos los personajes. ¿Empezar ronda?",
       "missingInitiative": "¡Debes indicar la iniciativa de todas las figuras!"
     },
     "next": "Siguiente Ronda"
@@ -2317,6 +2318,10 @@
       "": "Requerir Iniciativa",
       "hint": "Si no está marcada, el orden de la ronda debe establecerse manualmente mediante arrastrar y soltar"
     },
+    "initiativeRoundConfirm": {
+      "": "Ventana de iniciativa",
+      "hint": "Muestra una ventana para iniciar la siguiente ronda cuando todas las iniciativas estén fijadas."
+    },
     "interactiveAbilities": {
       "": "Habilidades interactivas",
       "hint": "Aplica directamente ciertas habilidades resaltadas, como las invocaciones o las acciones elementales, haciendo clic en la zona correspondiente de la carta de habilidad."
@@ -2377,6 +2382,10 @@
     },
     "playerCount": {
       "": "Recuento manual de personajes"
+    },
+    "playerNumber": {
+      "": "Mostrar número de jugador",
+      "hint": "Muestra el número de jugador en el tablón del personaje."
     },
     "portraitMode": {
       "": "Optimización del modo Portrait",
@@ -3181,6 +3190,7 @@
       "toggleDamageHP": "Fijar <i>%settings.damageHP%</i>",
       "toggleElements": "Fijar el estado de los elementos",
       "toggleHandSize": "Fijar <i>Mostar tamaño de mano y nivel</i>",
+      "togglePlayerNumber": "Fijar <i>Mostrar número de personaje</i>",
       "toggleTraits": "Fijar <i>Mostrar rasgos</i>",
       "undo": "Deshacer",
       "zoomIn": "Ampliar",
