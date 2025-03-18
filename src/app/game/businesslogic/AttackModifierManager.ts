@@ -253,6 +253,7 @@ export class AttackModifierManager {
 
   drawBB(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage' | undefined) {
     let row = Math.floor(attackModifierDeck.current / 3) + 1;
+    attackModifierDeck.state = state;
     if (row >= Math.floor(attackModifierDeck.cards.length / 3)) {
       attackModifierDeck.current = -1;
       attackModifierDeck.lastVisible = -1;
