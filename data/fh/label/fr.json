@@ -399,7 +399,7 @@
     "deathwalker": "Arpenteuse des Ombres",
     "drifter": "Vagabond",
     "geminate": {
-      "": "Persécuteur",
+      "": "Géminé",
       "melee": "Mêlée",
       "range": "À distance"
     },
@@ -419,6 +419,14 @@
   },
   "custom": {
     "fh": {
+      "banner-spear": {
+        "10": "Attaquer au moins trois adversaires avec trois différentes capacités d'attaque à zone d'effet",
+        "11": "Effectuer une capacité d'invocation de Bannière lors de votre premier tour, garder la Bannière en vie et à %game.action.range:3% ou moins de vous jusqu'à la fin du scénario",
+        "6": "Ajouter +1 %game.action.attack% par allié adjacent à la cible",
+        "7": "À la fin de chacun de vos repos long octroyer à un allié à %game.action.range:3% ou moins : %game.action.move% 2",
+        "8": "Quand vous ouvrez une porte avec une capacité de déplacement, ajouter +3 %game.action.move%",
+        "9": "Une fois par scénario, pendant votre tour, gagner %game.action.shield% 2 pour le round"
+      },
       "blinkblade": {
         "1": "Lors de votre prochaine attaque, défaussez cette carte pour ajouter +2 %game.action.attack%.<br>%game.card.persistent%",
         "2": "Placez cette carte dans votre zone active. À votre prochaine attaque, défaussez-vous de cette carte pour ajouter +2 %game.action.attack%",
@@ -427,8 +435,27 @@
         "5": "Lors de vos repos courts, pouvoir dépenser un objet non dépensé %game.card.spent% sans déclencher son effet pour %game.card.recover% un autre objet dépensé",
         "6": "À chaque scénario, au début de votre premier tour, pouvoir effectuer : %game.action.move% 3",
         "7": "Lorsque vous devriez gagner %game.condition.immobilize%, bloquer cet état",
-        "8": "Déclarer Rapide pendant sept tours consécutifs",
-        "9": "Ne jamais être la cible d’une attaque"
+        "8": "Vous déclarer Rapide pour sept rounds consécutifs",
+        "9": "Ne jamais être ciblé par une attaque"
+      },
+      "boneshaper": {
+        "3": "Juste avant chacun de vos repos, pouvoir éliminer une de vos invocations pour effectuer %game.condition.bless%, sur vous-même",
+        "6": "Éliminer au moins quinze de vos invocation",
+        "7": "Jouer une action d'invocation lors de votre premier tour, faire éliminer au moins six adversaires par cette invocation et la garder en vie jusqu'à la fin du scénario"
+      },
+      "deathwalker": {
+        "1": "Lorsque vous prenez un repos long, pouvoir déplacer une %data.action.custom.fh-shadow% jusqu'à trois hexagones",
+        "2": "Lors de vos repos courts, pouvoir %game.element.consume.dark% pour effectuer %game.condition.muddle%, %game.condition.curse%, %game.action.range:2% comme si vous occupiez un hexagone avec une %data.action.custom.fh-shadow%",
+        "3": "Tant que vous occupez un hexagone avec une %data.action.custom.fh-shadow%, toutes les attaques vous ciblant gagnent Désavantage",
+        "4": "Retirer sept %data.action.custom.fh-shadow% en un round",
+        "5": "Placer ou retirer au moins une %data.action.custom.fh-shadow% chaque round"
+      },
+      "drifter": {
+        "2": "Lors de vos repos longs, pouvoir reculer un de vos pions Aventurier d'un emplacement",
+        "3": "Pouvoir emporter un objet %game.items.slots.onehand% supplémentaire dans chaque main",
+        "4": "À la fin de chaque scénario, pouvoir défausser jusqu'à deux cartes Butin, excepté Objet Aléatoire, pour piocher autant de nouvelles cartes Butin",
+        "5": "Finir un scénario avec vos pions Aventurier sur les derniers emplacements d'un moins quatre capacités persistantes",
+        "6": "Ne jamais effectuer une capacité de déplacement ou d'attaque d'une valeur inférieure à 4, et effectuer au moins une capacité de déplacement ou d'attaque chaque round"
       },
       "flaming-bladespinner": {
         "1": "Tous les Adversaires à<br>%game.action.range:2% ou moins subissent %game.damage:2%.",
@@ -446,6 +473,13 @@
       },
       "frost-demon": {
         "1": "%game.damage:1%"
+      },
+      "geminate": {
+        "1": "Lorsque vous prenez un repos court, pouvoir retirer un état négatif d'un allié à %game.action.range:3% ou moins",
+        "2": "Une fois par scénario, quand vous devriez vous donner un état négatif, bloquer cet état",
+        "3": "Lorsque vous effectuez une action avec une icône « Perdue », pouvoir défausser une carte pour %game.card.recover% une carte de niveau inférieur ou égal de votre défausse",
+        "4": "Changer de forme chaque round",
+        "5": "Perdre au moins une carte Capacité chaque round"
       },
       "giant-piranha-pig-boss": {
         "1": "Rien"
@@ -678,6 +712,29 @@
     }
   },
   "section": {
+    "rules": {
+      "fh": {
+        "130-3": {
+          "1": "Avantage"
+        },
+        "17-2": {
+          "1": "+2 ressources matérielles",
+          "2": "Gagner deux ressources matérielles"
+        },
+        "180-3": {
+          "1": "Gagner 1 Peau"
+        },
+        "19-2": {
+          "1": "+1 ressource matérielle"
+        },
+        "192-1": {
+          "1": "Gagner 1 Métal"
+        },
+        "41-1": {
+          "1": "Gagner 1 Bois"
+        }
+      }
+    },
     "title": {
       "fh": {
         "100-3": "Proposition de Travail",

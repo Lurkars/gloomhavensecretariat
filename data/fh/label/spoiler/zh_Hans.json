@@ -407,7 +407,7 @@
     },
     "fh-101": {
       "": "强效威力药水",
-      "1": "在你回合期间，你所有攻击+2game.action.attack%。"
+      "1": "在你回合期间，你所有攻击+2%game.action.attack%。"
     },
     "fh-102": {
       "": "强效元素药水",
@@ -1444,23 +1444,55 @@
     }
   },
   "summon": {
+    "animated-claymore": "活体大剑",
+    "arcing-generator": "电弧发电机",
     "armored-tank": "装甲坦克",
     "banner-of-courage": "英勇旗帜",
     "banner-of-doom": "末日旗帜",
     "banner-of-hope": "希望旗帜",
     "banner-of-strength": "力量旗帜",
     "banner-of-valor": "勇气旗帜",
+    "bombardier": "轰炸车",
     "bone-horde": "白骨聚合体",
+    "dampening-unit": "抗震单元",
+    "defense-grid": "防御网格",
+    "flesh-bomb": "血肉炸弹",
+    "flesh-fiend": "血肉邪魔",
+    "jackal-mech": "豺狼机甲",
+    "leaper": "飞踏者",
     "longbowman": "长弓手",
+    "machine-bolter": "机械矢炮",
+    "polar-cat": "雪豹",
     "raging-corpse": "暴走尸体",
     "reinforcements": "援军",
+    "repair-drone": "修理无人机",
     "shadow-beast": "暗影野兽",
     "shadow-horror": "暗影骇物",
+    "shaggy-lure": "蓬毛诱饵",
     "shambling-skeleton": "蹒跚骷髅",
+    "shield-spider": "护盾蜘蛛",
     "skeleton-sorcerer": "骷髅术士",
+    "sledge-driver": "大锤打桩器",
+    "sniper-turret": "狙击炮台",
+    "snow-fox": "雪狐",
+    "spiritbound-falchion": "灵缚弯刃",
+    "stitched-atrocity": "缝合暴行尸",
+    "sword-propeller": "利剑推进器",
     "torch-bearer": "火炬手",
+    "toxin-distributor": "剧毒播撒器",
     "trained-falcon": "受训猎鹰",
+    "trapping-unit": "诱捕单元",
+    "white-owl": "雪鸮",
     "wraith": "缚灵"
+  },
+  "treasures": {
+    "fh": {
+      "12": "你找到了卡蜜拉的尸骨和她的遗作，画上画着一头雄壮的带角生物。",
+      "51": "阅读%data.section:78.1%",
+      "54": "宝箱？哪儿来的宝箱？我看你们也应该少喝点。",
+      "57": "这是什么？这个空的宝箱底部居然有一道铅做的活板门。你记下了这个位置，你们可以之后让宝石带你们再回来看看。",
+      "62": "当你们找到本蓝图的另一半时，获得机械立方体蓝图%game.itemFh.82%。"
+    }
   },
   "trials": {
     "fh": {

@@ -1,1 +1,8 @@
-{}
+{
+  "character": {
+    "cragheart": "Cuore di Roccia",
+    "mindthief": "Ladro Mentale",
+    "spellweaver": "Tessimagie",
+    "tinkerer": "Inventore"
+  }
+}

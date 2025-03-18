@@ -660,10 +660,10 @@
     "enhancer": {
       "": "Potenciador",
       "1": "Reduce todos los costes de mejora en 10 de oro",
-      "2": "Reduce todos los costes de mejora en 10 de oro y las penalizaciones de nivel por 10 de oro por nivel",
-      "3": "Reduce todos los costes de mejora en 10 de oro, las penalizaciones de nivel por 10 de oro por nivel y las penalizaciones de repetición en 25 de oro por mejora",
+      "2": "Reduce todos los costes de mejora en 10 de oro y el coste añadido por nivel en 10 de oro por nivel",
+      "3": "Reduce todos los costes de mejora en 10 de oro, el coste añadido por nivel en 10 de oro por nivel y el coste añadido por cada mejora que ya tuviera la acción en 25 de oro por mejora",
       "4": "Cada personaje comienza el siguiente escenario con %game.condition.disarm%",
-      "5": "Comprar potenciadores"
+      "5": "Comprar mejoras"
     },
     "garden": {
       "": "Huerto",
@@ -1215,7 +1215,7 @@
     "fish-king": "Rey del Mar",
     "flame-demon": "Demonio de Fuego",
     "flaming-bladespinner": "Girafilos llameante",
-    "flaming-sword-of-justice": "Espada flamígera de la justicia",
+    "flaming-sword-of-justice": "Ígnea Espada de la Justicia",
     "forest-imp": "Duende del bosque",
     "fracture-of-the-deep": "Fractura de las profundidades",
     "frost-demon": "Demonio de Hielo",
@@ -1264,6 +1264,7 @@
     "sun-demon": "Demonio de Sol",
     "the-collector": "El Coleccionista",
     "the-relic": "La Reliquia",
+    "the-shimmer": "El Resplandeciente",
     "vanjal": "Vanjal",
     "vermling-priest": "Sacerdote infestor",
     "vermling-scout": "Explorador infestor",
@@ -1309,6 +1310,7 @@
   "personalQuest": {
     "fh": {
       "509": {
+        "": "Amenaza de las profundidades",
         "1": "Sigue \"La invasión del puerto\" %game.scenarioNumber:71% hasta el final"
       },
       "514": {
@@ -1317,6 +1319,10 @@
       },
       "519": {
         "4": "Escenario completado en los Campos de Cristal"
+      },
+      "527": {
+        "": "Prepararse para lo peor",
+        "1": "Mejoras compradas"
       },
       "538": {
         "": "Leyenda de la batalla",
