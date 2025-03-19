@@ -16,6 +16,7 @@ import { WorldMapComponent } from '../figures/party/world-map/world-map';
 import { FooterComponent } from '../footer/footer';
 import { HeaderComponent } from '../header/header';
 import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
+import { ghsValueSign } from './Static';
 
 
 export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP" | "activeCharacter" | "playerNumber";
@@ -283,13 +284,17 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     if (character) {
                         switch (event.key) {
                             case 'x':
-                                character.experience++;
+                                gameManager.stateManager.before("changeXP", gameManager.characterManager.characterName(character), ghsValueSign(1));
+                                character.experience += 1;
+                                gameManager.stateManager.after();
                                 break;
                             case 'X':
-                                character.experience--;
+                                gameManager.stateManager.before("changeXP", gameManager.characterManager.characterName(character), ghsValueSign(-1));
+                                character.experience -= 1;
                                 if (character.experience < 0) {
                                     character.experience = 0;
                                 }
+                                gameManager.stateManager.after();
                                 break;
                         }
                     }
@@ -298,13 +303,17 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     if (character && !gameManager.fhRules()) {
                         switch (event.key) {
                             case 'l':
-                                character.loot++;
+                                gameManager.stateManager.before("changeLoot", gameManager.characterManager.characterName(character), ghsValueSign(1));
+                                character.loot += 1;
+                                gameManager.stateManager.after();
                                 break;
                             case 'L':
-                                character.loot--;
+                                gameManager.stateManager.before("changeLoot", gameManager.characterManager.characterName(character), ghsValueSign(-1));
+                                character.loot -= 1;
                                 if (character.loot < 0) {
                                     character.loot = 0;
                                 }
+                                gameManager.stateManager.after();
                                 break;
                         }
                     }
