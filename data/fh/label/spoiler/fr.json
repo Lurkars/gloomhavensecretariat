@@ -1,1 +1,20 @@
-{}
+{
+  "items": {
+    "fh-120": {
+      "": "Amulette de Vie",
+      "1": "Pendant votre tour, effectuez :"
+    },
+    "fh-121": {
+      "": "Bandeau des Éléments",
+      "1": "Pendant votre tour, effectuez :"
+    },
+    "fh-122": {
+      "": "Robe de Gardien",
+      "1": "Quand une de vos invocations subit des %game.damage% d'une attaque, elle gagne %game.action.shield:2% pour l'attaque."
+    },
+    "fh-123": {
+      "": "Armure de Cuir",
+      "1": "Quand vous êtes attaqué, avant de piocher une carte Modificateur d'attaque, l'attaquant gagne Désavantage pour l'attaque."
+    }
+  }
+}
