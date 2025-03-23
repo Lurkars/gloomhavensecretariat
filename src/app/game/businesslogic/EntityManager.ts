@@ -282,7 +282,7 @@ export class EntityManager {
               if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsAuto.indexOf(shieldRetaliateCondition) != -1) {
                 this.applyCondition(entity, figure, shieldRetaliateCondition, true, true);
               }
-            } else if (shieldRetaliateCondition == ConditionName.retaliate) {
+            } else if (shieldRetaliateCondition == ConditionName.retaliate && shieldRetaliate.value) {
               shieldRetaliate.expired = false;
               shieldRetaliate.highlight = true;
               this.applyCondition(entity, figure, shieldRetaliateCondition, true, true);
