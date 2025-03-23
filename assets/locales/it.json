@@ -188,7 +188,7 @@
         },
         "unlockCharacter": {
           "": "Apri la custodia %game.characterIcon.{0}%",
-          "itemDesign": "Ottieni il piano di \"%data.items.{1}-{0}%\" (Item {0})",
+          "itemDesign": "Ottieni il modello di \"%data.items.{1}-{0}%\" (Oggetto{0})",
           "randomScenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%"
         }
       },
@@ -333,9 +333,9 @@
       "clockOut": "Fermare il tempo di gioco",
       "current": "Corrente: {0}",
       "off": "Il tempo di gioco si è fermato! Doppio clic per ripartire.",
-      "paused": "Il tempo di gioco si è fermato! Doppio clic per ripartire. <br>Totale: {0}",
-      "running": "Il tempo di gioco è in esecuzione! Doppio click per interromperlo. <br>Corrente: {1}",
-      "runningTotal": "Il tempo di gioco è in esecuzione! Doppio click per interromperlo. <br>Corrente: {1}<br>Totale: {0}",
+      "paused": "Il tempo di gioco si è fermato! Doppio clic per ripartire.<br>Totale: {0}",
+      "running": "Il tempo di gioco è in esecuzione! Doppio click per interromperlo.<br>Corrente: {1}",
+      "runningTotal": "Il tempo di gioco è in esecuzione! Doppio click per interromperlo.<br>Corrente: {1}<br>Totale: {0}",
       "timestamp": "Vai da {0} a {1}",
       "total": "Totale: {0}"
     },
@@ -485,17 +485,17 @@
       "shield": "Scudo",
       "spawn": "Genera",
       "special": "Speciale",
-      "specialTarget": "Obiettivo speciale",
+      "specialTarget": "Bersaglio speciale",
       "sufferDamage": "Subisci danno",
       "summon": "Evoca",
       "swing": "Oscilla",
-      "target": "Obiettivo",
+      "target": "Bersaglio",
       "targets": "Obiettivi",
       "teleport": "Teletrasporta",
       "trigger": "Innesca"
     },
     "affect": "Interessa",
-    "allied": "Alleato",
+    "allied": "Compagno",
     "ally": {
       "": "Alleato",
       "addEntity": {
@@ -563,7 +563,7 @@
       "": "Obiettivi di battaglia",
       "all": "Carte attuali",
       "cancel": "Annulla",
-      "choose": "Scegli obiettivo di battaglia per %game.characterIconColored.{0}% {1}",
+      "choose": "Scegli l'obiettivo di battaglia per %game.characterIconColored.{0}% {1}",
       "chooseCard": "Scegli carta selezionata",
       "chosen": "Obiettivo di battaglia per %game.characterIconColored.{0}% {1}",
       "drawCard": "Pesca un'altra carta",
@@ -784,20 +784,525 @@
         "event": "Aggiungi l'evento %game.events.type.{0}% {1} al mazzo.",
         "experience": "Ciascuno ottiene {0} di esperienza.",
         "globalAchievement": "Risultato globale: \"{0}\".",
-        "gold": "Ognuno ottiene {0} di oro."
+        "gold": "Ognuno ottiene {0} di oro.",
+        "itemDesign": "Ottieni il modello \"%data.items.{1}-{0}%\" (Oggetto {0}).",
+        "loseBattleGoal": "Ognuno perde {0} %game.checkmark%.",
+        "loseCollectiveGold": "Perdi {0} oro collettivo.",
+        "loseGold": "Ognuno perde {0} oro.",
+        "loseReputation": "Perdi {0} reputazione.",
+        "noEffect": "Nessun effetto.",
+        "outcome": "Leggi la conclusione %game.events.option.{0}%.",
+        "partyAchievement": "Risultato di gruppo: \"{0}\".",
+        "prosperity": "Ottieni {0} prosperità.",
+        "randomItemDesign": "Ottieni un modello di oggetto casuale.",
+        "reputation": "Ottieni {0} reputazione.",
+        "scenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%.",
+        "scenarioCondition": "Tutti iniziano lo scenario con %game.condition.{0}%.",
+        "scenarioDamage": "Tutti iniziano lo scenario con {0} danno.",
+        "scenarioSingleMinus1": "Uno inizia lo scenario con %game.attackmodifier.minus1% x{0}."
+      },
+      "type": {
+        "city": "Città",
+        "road": "Strada"
       }
+    },
+    "exhausted": "Esausto",
+    "experience": "Esperienza",
+    "figure": {
+      "endTurn": "Fine del turno",
+      "error": {
+        "deck": {
+          "": "Mazzo mancante",
+          "hint": "Nessun mazzo abilità trovato per %{0}% '%data.{0}.{1}%'! Si prega di controllare i dati del mazzo (Edizione: %data.edition.{2}%)."
+        },
+        "monsterEdition": {
+          "": "Edizione del mostro errata",
+          "hint": "Nessun mostro '%data.{0}.{1}%' trovato per l'edizione '%data.edition.{2}%' (Edizione usata invece '%data.edition.{3}%')! Controlla i dati di mostro per l'edizione: %data.edition.{2}%."
+        },
+        "monsterType": {
+          "": "Tipo di mostro mancante",
+          "hint": "Tipo di mostro attuale {3} non trovato per '%data.{0}.{1}%'! Per favore controlla i dati del mostro (Edizione: %data.edition.{2}%)."
+        },
+        "stat": {
+          "": "Attributo mancante",
+          "hint": "Gli attributi per {3} livello {4} mancano per %{0}% '%data.{0}.{1}%'! Per favore controlla i dati (Edizione: %data.edition.{2}%)."
+        },
+        "unknown": {
+          "": "Figura sconosciuta",
+          "hint": "Non sono stati trovati dati per %{0}% '%data.{0}.{1}%'! Per favore controlla i dati dell'edizione (Edizione: %data.edition.{2}%)."
+        }
+      },
+      "longRest": "Effettua un riposo lungo",
+      "longRestOff": "Disabilita il riposo lungo",
+      "setInitiative": "Imposta iniziativa",
+      "startTurn": "Inizia il turno"
+    },
+    "health": "Punti vita",
+    "hp": "PV",
+    "initiative": "Iniziativa",
+    "item": "Oggetto",
+    "items": {
+      "": "Oggetti",
+      "add": "Aggiungi '{0}'",
+      "anyResource": "Qualsiasi %game.loot.{0}%",
+      "brewing": {
+        "": "Prepara le pozioni",
+        "brew": "Prepara",
+        "brewFor": "Prepara per {0}",
+        "brewed": "{2} ha preparato {1} %game.itemFh.{0}%",
+        "brewedOther": "{2} ha preparato {1} %game.itemFh.{0}% per {3}",
+        "disabled": "Impossibile preparare le pozioni, ricostruire prima%dati.buildings.alchemist%'(35)",
+        "item": "{1} %game.itemFh.{0}%",
+        "noChar": "Pozione già posseduta da ogni personaggio!",
+        "selectCharacter": "Seleziona il personaggio con il quale preparare:"
+      },
+      "buy": "Compra '{0}' per {1} oro",
+      "character": {
+        "": "Carte oggetto per %game.characterIconColored.{0}% {1}",
+        "empty": "Nessun oggetto",
+        "shop": "Negozio",
+        "toggleEquipped": "Solo gli oggetti equipaggiati",
+        "toggleSorted": "Ordina gli oggetti"
+      },
+      "choose": "Seleziona oggetto",
+      "craft": "Crea '{0}'",
+      "distilling": {
+        "": "Distilla '{0}'",
+        "distill": "Distilla per 1 %game.loot.{0}%",
+        "select": "Seleziona risorsa"
+      },
+      "effect": "Se l'oggetto è equipaggiato, il suo effetto viene automaticamente applicato. Per equipaggiare un oggetto, fai clic sul nome. L'equipaggiamento degli oggetti è consentito solo prima e tra gli scenari. Doppio clic per forzare l'equipaggiamento.",
+      "empty": "Nessun oggetto trovato",
+      "filter": {
+        "": "Cerca…",
+        "affordable": "Solo articoli acquistabili",
+        "all": "Mostra tutti gli oggetti",
+        "sorted": "Ordinati"
+      },
+      "remove": "Rimuovi '{0}'",
+      "sell": "Vendi '{0}' per {1} oro",
+      "shop": {
+        "": "Carte oggetto",
+        "buyingDisabled": "Impossibile acquistare articoli, ricostruisci prima '%data.buildings.Trading-Post%' (37)",
+        "character": "Negozio per %game.characterIconColored.{0}% {1}",
+        "craftingDisabled": "Non è possibile creare oggetti, ricostruisci prima '%data.buildings.craftsman%' (34)"
+      },
+      "unlock": "Sblocca oggetto",
+      "unlocked": "Oggetto sbloccato",
+      "wip": "%wip%! Oggetti per %data.edition.{0}% non ancora completati."
+    },
+    "level": {
+      "": "Livello",
+      "bb": {
+        "monsterDifficulty": {
+          "": "Modificatore difficoltà mostro",
+          "0": "Molto facile",
+          "1": "Facile",
+          "2": "Normale",
+          "3": "Difficile",
+          "4": "Molto difficile"
+        }
+      },
+      "experience": "Bonus esperienza",
+      "hazardousTerrain": "Danno per terreno pericoloso",
+      "loot": "Conversione in oro",
+      "trap": "Danno da trappola"
+    },
+    "loot": {
+      "": "Bottino",
+      "apply": "Aggiungi a %data.character.{0}%",
+      "chooseCharacter": "Seleziona personaggio per +{0} {1}",
+      "config": {
+        "": "Tabella del bottino",
+        "apply": "Applica la tabella del bottino",
+        "create": "Crea una tabella del bottino",
+        "discard": "Annulla i cambiamenti",
+        "hide": "Nascondi la tabella del bottino",
+        "show": "Mostra la tabella del bottino"
+      },
+      "deck": "Mazzo del bottino",
+      "enhancements": {
+        "": "Miglioramenti",
+        "add": "Aggiungi miglioramento",
+        "remove": "Rimuovi miglioramento"
+      },
+      "herb_resources": "erba",
+      "hide": "Pelle",
+      "keep": "Continua con %data.character.{0}%",
+      "lootTreasure": {
+        "": "{0} saccheggia il tesoro{1}?",
+        "confirm": "Conferma",
+        "looted": "{0} saccheggia:",
+        "selectCharacter": "Seleziona il personaggio per il tesoro {0}",
+        "selectTreasure": "Seleziona il tesoro per {0}"
+      },
+      "lumber": "Legname",
+      "material_resources": "materiale",
+      "metal": "Metallo",
+      "money": "Denaro",
+      "random_item": {
+        "": "Oggetto casuale",
+        "apply": "Seleziona e equipaggia",
+        "draw": "Oggetto casuale per %game.characterIconColored.{0}% {1}"
+      },
+      "remove": "Rimuovi da %data.character.{0}%",
+      "special": "speciale",
+      "special1": "Carta speciale 1(#1418)",
+      "special2": "Carta speciale 2 (#1419)",
+      "toggleSpecial": "%game.loot.{0}%",
+      "treasures": {
+        "": "Tesori",
+        "rewards": {
+          "battleGoal": "ottieni {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "calendarSection": "aggiungi %data.section:{0}% tra %number.{1}% settimane",
+          "campaignSticker": "ottieni l'adesivo campagna \"{0}\"",
+          "condition": "ottieni {0}",
+          "damage": "subisci {0}",
+          "event": {
+            "city": "aggiungi l'evento di città {0} al mazzo",
+            "rift": "aggiungi l'evento Rift {0} al mazzo",
+            "road": "aggiungi l'evento di strada {0} al mazzo"
+          },
+          "experience": "ottieni {0} esperienza",
+          "experienceFh": "ottieni {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "goal": "Obiettivo",
+          "gold": "ottieni {0} oro",
+          "goldFh": "ottieni {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "heal": "effettua \"Cura {0}, se stesso\"",
+          "item": "ottieni {1} ({0})",
+          "itemBlueprint": "ottieni {1} progetto %game.itemFh.{0}%",
+          "itemDesign": "ottieni {1} modello ({0}",
+          "itemFh": "ottieni {1} %game.itemFh.{0}%",
+          "loot": "ottieni {0} segnalini denaro",
+          "lootCards": "ottieni %number.{0}% carte bottino",
+          "partyAchievement": "Risultato di gruppo: \"{0}\"",
+          "randomItem": {
+            "": "Ottieni un oggetto casuale (oggetti {0})",
+            "result": ": {1} ({0})"
+          },
+          "randomItemBlueprint": {
+            "": "Progetto di un oggetto casuale",
+            "result": ": {1} progetto ({0})"
+          },
+          "randomItemDesign": {
+            "": "Modello di oggetto casuale",
+            "result": ": {1} modello ({0})"
+          },
+          "randomScenario": {
+            "": "Scenario secondario casuale",
+            "result": ": {1} %data.scenarioNumber:{0}%"
+          },
+          "randomScenarioFh": {
+            "": "Scenario secondario casuale",
+            "result": ": Aprire %data.section:{0}%, sblocca {2}"
+          },
+          "resource": "ottieni {0}",
+          "scenario": "Nuovo scenario: {1} %data.scenarioNumber:{0}%"
+        }
+      }
+    },
+    "maxHealth": "Punti vita massimi",
+    "solo": "In solitario",
+    "specialTarget": {
+      "allies": "%game.target% tutti gli alleati",
+      "alliesAdjacent": "%game.target% tutti gli alleati adiacenti",
+      "alliesAdjacentAffect": "%game.affect% tutti gli alleati adiacenti",
+      "alliesRange": "%game.target% tutti gli alleati entro %game.action.range% {0}",
+      "alliesRangeAffect": "%game.affect% tutti gli alleati entro %game.action.range% {0}",
+      "ally": "%game.target% 1 alleato",
+      "allyAdjacent": "%game.target% un alleato adiacente",
+      "allyAffect": "%game.affect% ogni alleato",
+      "allyAffectRange": "%game.affect% un alleato entro %game.action.range% {0}",
+      "allyShort": "Alleato",
+      "enemies": "%game.target% tutti i nemici",
+      "enemiesAdjacent": "%game.target% tutti i nemici adiacenti",
+      "enemiesMovedThrough": "%game.target% tutti i nemici attraversati",
+      "enemiesMovedThroughAdjacent": "%game.target% tutti i nemici che occupano o sono adiacenti a<br>esagoni attraversati durante l'abilità di spostamento",
+      "enemiesRange": "%game.target% tutti i nemici entro %game.action.range% {0}",
+      "enemiesRangeAffect": "%game.affect% tutti i nemici entro %game.action.range% {0}",
+      "enemiesRangeAffectExact": "%game.affect% tutti i nemici esattamente a %game.action.range% {0}",
+      "enemiesRangeExact": "%game.target% tutti i nemici esattamente a %game.action.range% {0}",
+      "enemy": "%game.target% un nemico",
+      "enemyAdjacent": "%game.target% un nemico adiacente",
+      "enemyOneAll": "%game.target% un nemico con tutti gli attacchi",
+      "enemyRange": "%game.target% un nemico esattamente a %game.action.range% {0}",
+      "figures": "%game.target% tutte le unità",
+      "figuresAdjacent": "%game.target% tutte le unità adiacenti",
+      "figuresRange": "%game.target% tutte le unità a %game.action.range% {0}",
+      "focusEnemyFarthest": "Concentrati sul nemico<br>più lontano.",
+      "self": "Se stesso",
+      "selfAllies": "Se stesso e gli alleati",
+      "selfAlliesAdjacentAffect": "%game.affect%se stesso e tutti gli alleati adiacenti",
+      "selfAlliesAffect": "%game.affect% se stesso e tutti gli alleati",
+      "selfAlliesRange": "%game.target% se stesso e tutti gli alleati entro %game.action.range% {0}",
+      "selfOrAlly": "Se stesso o un alleato",
+      "targets": "Tutti i bersagli"
+    },
+    "sufferDamage": "{0} subisce %game.damage:{1}%",
+    "summon": {
+      "player2-3": "%game.monsterType.{0}% per due o tre personaggi o %game.monsterType.{1}% per quattro personaggi",
+      "player3-4": "%game.monsterType.{0}% per due o %game.monsterType.{1}% per tre o quattro personaggi",
+      "playerAll": "%game.monsterType.{0}% per tutti i personaggi",
+      "spawn": "{1} %data.monster.{0}%",
+      "spawnMarker": "{1} %data.monster.{0}% a %game.mapMarker.{2}%",
+      "spawnObjective": "{1} %data.objective.{0}%",
+      "spawnObjectiveMarker": "{1} %data.objective.{0}% a %game.mapMarker.{2}%",
+      "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
+      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% a %game.mapMarker.{3}%"
+    },
+    "target": {
+      "": "Bersaglio",
+      "all": "tutti"
     }
   },
+  "help": "Aiuto",
+  "hints": {
+    "active": "A turno",
+    "active-full": "A turno, clicca su ogni immagine del personaggio",
+    "addAdditionalContent": "Aggiungi contenuto addizionale",
+    "addCharacters": "%character.add%",
+    "addMonsterEntities": "Usa i pulsanti \"+\" per generare mostri.",
+    "addMonsters": "%monster.add%",
+    "draw": "Fai clic su \"%round.draw%\"",
+    "draw-full": "Scegli le carte di abilità del personaggio, imposta l'iniziativa, fai clic su \"%round.draw%\".",
+    "draw-short": "Imposta l'iniziativa, fai clic su \"%round.draw%\"",
+    "next": "Fai clic su \"%round.next%\"",
+    "setScenario": "%scenario.set%"
+  },
+  "menu": {
+    "backToMain": "Torna a %menu.main%",
+    "main": "Menu principale"
+  },
+  "monster": {
+    "": "Mostro",
+    "add": "Aggiungi mostro",
+    "addEntity": {
+      "boss": "Genera mostro boss",
+      "elite": "Genera mostro elite",
+      "normal": "Genera mostro normale"
+    },
+    "applyInteractiveActions": "Applica abilità evidenziate per",
+    "boss": "Boss",
+    "cancelNumberpicker": "Annulla",
+    "changeStandee": "Cambia %game.monsterType.{0}% segnalino #{1}",
+    "changeType": "Cambia tipologia da %game.monsterType.{0}% a %game.monsterType.{1}%",
+    "elite": "Elite",
+    "filter": {
+      "": "Filtra mostro",
+      "noResult": "Nessun risultato"
+    },
+    "normal": "Normale",
+    "remove": "Rimuovi mostro",
+    "removeAll": "Rimuovi tutti",
+    "removeUnused": "Rimuovi inutilizzato",
+    "selectStandees": {
+      "all": "Seleziona tutti i segnalini",
+      "boss": "Seleziona tutti i segnalini Boss",
+      "elite": "Seleziona tutti i segnalini Elite",
+      "normal": "Seleziona tutti i segnalini normali"
+    },
+    "setStandees": "Imposta i segnalini {1} %game.monsterType.{0}%",
+    "showBoss": "Mostra mostro Boss",
+    "showHidden": "Mostra mostro nascosto",
+    "skipInteractiveActions": "Salta le abilità interattive per",
+    "statEffect": {
+      "": "Regole speciali applicano le seguenti modifiche:",
+      "deck": "Usa abilità modificate:<br>\"{0}\""
+    },
+    "toggleAction": "Attiva/disattiva la capacità applicabile",
+    "toggleAllied": {
+      "off": "Disattiva <span class=\"monster-allied-off\">alleato</span>",
+      "on": "Attiva<span class=\"monster-allied-on\">Alleato</span>"
+    },
+    "toggleAlly": {
+      "off": "Torna a <span class=\"monster-ally-off\">Nemico</span>",
+      "on": "Passa a<span class=\"monster-ally-on\">Alleato</span>"
+    }
+  },
+  "number": {
+    "0": "zero",
+    "1": "uno",
+    "2": "due",
+    "3": "tre",
+    "4": "quattro",
+    "5": "cinque",
+    "6": "sei",
+    "7": "sette",
+    "8": "otto",
+    "9": "nove"
+  },
+  "numbered": {
+    "1": "primo",
+    "10": "decimo",
+    "2": "secondo",
+    "3": "terzo",
+    "4": "quarto",
+    "5": "quinto",
+    "6": "sesto",
+    "7": "settimo",
+    "8": "ottavo",
+    "9": "nono"
+  },
+  "objective": {
+    "": "Obiettivo",
+    "add": "Aggiungi obiettivo",
+    "addContainer": "Aggiungi contenitore obiettivo (%wip%)",
+    "remove": "Rimuovi obiettivo",
+    "removeAll": "Rimuovi tutti"
+  },
+  "or": "oppure",
   "party": {
     "": "Gruppo",
+    "achievements": "Risultati",
+    "addGlobalAchievement": {
+      "": "Aggiungi risultato globale",
+      "empty": "Nessun risultato globale corrispondente trovato"
+    },
+    "addPartyAchievement": {
+      "": "Aggiungi risultato di gruppo",
+      "empty": "Nessun risultato di gruppo corrispondente trovato"
+    },
     "campaign": {
+      "": "Campagna",
+      "achievements": "Risultati globali",
       "donations": "Donazioni al santuario della Grande Quercia",
       "envelopeB": "Busta B",
       "items": "Oggetti sbloccati",
+      "manage": "Gestione campagna globale",
       "map": "Mappa",
       "players": {
-        "": "Nomi dei giocatori"
+        "": "Nomi dei giocatori",
+        "add": "Aggiungi giocatore"
+      },
+      "retirements": {
+        "": "Personaggi ritirati",
+        "character": "Personaggio",
+        "class": "Classe",
+        "level": "Livello",
+        "masteries": "Maestrie",
+        "perks": "Talenti",
+        "player": "Giocatore",
+        "reactivate": "Riattiva personaggio"
+      },
+      "scenarios": {
+        "": "Scenari",
+        "addConclusion": "Aggiungi conclusione",
+        "addSuccess": "Segna come terminato",
+        "conclusions": "Conclusioni",
+        "edition": "Edizione",
+        "finished": "Terminato",
+        "group": "Gruppo",
+        "index": "#",
+        "name": "Nome",
+        "removeManual": "Segna come non sbloccato",
+        "removeSuccess": "Segna come non terminato",
+        "removeSuccessCasual": "Rimuovi dagli scenari casuali completati",
+        "unlock": "Sblocca scenario"
+      },
+      "sheet": {
+        "": "Scheda campagna",
+        "buildings": {
+          "": "Edifici",
+          "action": "Azione",
+          "build": {
+            "": "Costruisci",
+            "action": "Costruisci",
+            "hint": "Costruisci (forza con doppio clic)"
+          },
+          "costs": "Costi",
+          "discount": "-1 risorsa materiale",
+          "effects": "Effetti",
+          "id": "Numero",
+          "interactions": "Interazioni",
+          "level": {
+            "": "Livello",
+            "hint": "Mostra bonus (abbassa livello con doppio clic)"
+          },
+          "name": "Nome",
+          "rebuild": {
+            "": "Ricostruisci",
+            "action": "Ricostruisci",
+            "hint": "Ricostruisci (forza con doppio clic)"
+          },
+          "repair": {
+            "": "Ripara edificio",
+            "action": "Ripara edificio",
+            "costs": "Ogni {0}",
+            "hint": "Ripara edificio (forza con doppio clic)"
+          },
+          "rewards": {
+            "action": "Livello {0}",
+            "defense": "+{0} difesa",
+            "items": "Aggiungi %game.itemFh.{0}% a %game.itemFh.{1}% al rifornimento oggetti",
+            "loseMorale": "-{0} morale",
+            "plot": "+{0} trama",
+            "plots": "+{0} trame",
+            "prosperity": "+{0} prosperità",
+            "section": "%data.section:{0}%",
+            "soldiers": "+{0} soldati"
+          },
+          "selectResources": {
+            "": "Seleziona risorse",
+            "confirm": "Conferma"
+          },
+          "state": {
+            "damaged": "danneggiato",
+            "normal": "normale",
+            "wrecked": "distrutto"
+          },
+          "unlock": "Sblocca edificio",
+          "upgrade": {
+            "": "Aggiorna edificio",
+            "action": "Aggiorna l'edificio al livello {0}",
+            "hint": "Aggiorna edificio (forza con doppio clic)"
+          }
+        },
+        "campaignStickers": {
+          "": "Adesivi campagna",
+          "empty": "Nessun adesivo corrispondente trovato per la campagna"
+        },
+        "defense": "Difesa",
+        "disable": "Vai alla scheda gruppo di Gloomhaven",
+        "enable": "Vai alla scheda campagna di Frosthaven",
+        "name": "Nome gruppo",
+        "nextWeek": "Prossima settimana (nuovo calendario)",
+        "soldierLevel": "Liv",
+        "soldiers": "Soldati",
+        "summer": "Estate",
+        "supply": {
+          "": "Scorta di Frosthaven",
+          "apply": "Applica cambiamenti",
+          "edit": "Modifica",
+          "total": "Totale"
+        },
+        "totalDefense": "Difesa totale",
+        "townGuardPerks": "Talenti della guardia cittadina",
+        "weekSections": {
+          "": "Imposta sezioni per settimana {0}",
+          "addSection": "Aggiungi sezione alla settimana",
+          "calc": "{0} settimane dalla settimana corrente",
+          "hint": "Fare doppio clic per impostare/modificare le sezioni per la settimana",
+          "lock": "Blocca il calendario per evitare modifiche accidentali. Doppio clic per creare un blocco permissivo, consentendo di aggiungere o rimuovere esattamente una settimana.",
+          "openConclusion": "Seleziona la sezione continua",
+          "section": "Sezione"
+        },
+        "winter": "Inverno"
+      },
+      "totalTime": "Tempo giocato in scenari: {0}",
+      "townGuard": "Guardia cittadina",
+      "townGuardDeck": "Mazzo della guardia cittadina",
+      "treasures": {
+        "": "Tesori",
+        "applySelect": "Applica selezione",
+        "batchSelect": "Selezione multipla"
       }
+    }
+  },
+  "scenario": {
+    "rewards": {
+      "globalAchievements": "Risultati globali",
+      "lostPartyAchievements": "Risultati del gruppo perduto",
+      "partyAchievements": "Risultati del gruppo"
     }
   }
 }

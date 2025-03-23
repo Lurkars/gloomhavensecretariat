@@ -1425,7 +1425,7 @@
       "": "Effets de l'événement",
       "campaign": "Affecte la campagne",
       "drawRandomItem": {
-        "": "Piocher un Modèle d'Objet Aléatoire",
+        "": "Piocher un Objet Aléatoire",
         "apply": "Appliquer",
         "blueprint": "Piocher un Plan d'Objet aléatoire"
       },
@@ -1947,7 +1947,7 @@
       "hint": "Afficher un rappel avant le premier tour si tous les personnages n'ont pas choisi leur Objectif de la bataille."
     },
     "bonusAdjustment": {
-      "": "Level bonuses adjustment"
+      "": "Ajuster les bonus du niveau"
     },
     "browserNavigation": {
       "": "Défaire/Refaire par la navigation"
