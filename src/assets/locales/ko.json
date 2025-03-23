@@ -37,6 +37,7 @@
       "highlighting": "강조"
     },
     "party": "파티/캠페인 기록지",
+    "resources": "전투 개요 표",
     "sheet": "전역 캠페인 관리 기록지",
     "trials": {
       "": "평가판",
@@ -70,6 +71,7 @@
           "multiple": "활성화 도전 카드 전환"
         }
       },
+      "removed": "제거됨",
       "upcoming": "예정"
     },
     "disabled": "시나리오에 준비된 도전 카드가 없음!"
@@ -94,14 +96,17 @@
       "undoLastPick": {
         "": "{0} 레벨 카드 선택 취소",
         "hint": "더블클릭으로 선택한 카드를 전부 리셋"
-      }
+      },
+      "wip": "<i>%작업중%</i>"
     },
     "absent": "부재",
     "add": "캐릭터 추가",
     "class": {
       "aesther": "에스더",
+      "algox": "알곡스",
       "f": {
         "aesther": "에스더",
+        "algox": "알곡스",
         "harrower": "해로어",
         "human": "인간",
         "inox": "이녹스",
@@ -109,6 +114,7 @@
         "orchid": "오키드",
         "quatryl": "쿼트릴",
         "savvas": "사바스",
+        "unfettered": "해금",
         "valrath": "발라스",
         "vermling": "버믈링"
       },
@@ -118,6 +124,7 @@
       "lurker": "잠복자",
       "m": {
         "aesther": "에스더",
+        "algox": "알곡스",
         "harrower": "해로어",
         "human": "인간",
         "inox": "이녹스",
@@ -125,12 +132,14 @@
         "orchid": "오키드",
         "quatryl": "쿼트릴",
         "savvas": "사바스",
+        "unfettered": "해금",
         "valrath": "발라스",
         "vermling": "버믈링"
       },
       "orchid": "오키드",
       "quatryl": "쿼트릴",
       "savvas": "사바스",
+      "unfettered": "해금",
       "valrath": "발라스",
       "vermling": "버믈링"
     },
@@ -172,9 +181,16 @@
         "openEnvelope": {
           "": "봉투 %game.fhIcon:envelope% {0} 열기",
           "alt": "봉투 %game.fhIcon:envelope% {0} 열기<br>(또는: %game.fhIcon:envelope% {1})",
-          "building": "'%data.buildings.{1}%' ({0}) 건물 해금"
+          "building": "'%data.buildings.{1}%' ({0}) 건물 해금",
+          "inspiration": "영감 1 획득",
+          "itemBlueprint": "\"%data.items.{1}-{0}%\" ({0}) 설계도 획득",
+          "randomScenario": "%data.section:{0}% 열기, %data.scenarioNumber:{1}% 해제"
         },
-        "unlockCharacter": "%game.characterIcon.{0}% 상자 열기"
+        "unlockCharacter": {
+          "": "%game.characterIcon.{0}% 박스 열기",
+          "itemDesign": "\"%data.items.{1}-{0}%\" ({0}) 설계도 획득",
+          "randomScenario": "\"{1}\" %data.scenarioNumber:{0}% 해제"
+        }
       },
       "resources": {
         "": "자원",
@@ -255,7 +271,8 @@
           "": "메소드",
           "get": "가져오기",
           "hint": "업로드할 HTTP 메소드",
-          "post": "보내기"
+          "post": "보내기",
+          "put": "받기"
         },
         "uploadUrlPassword": {
           "": "비밀번호",
@@ -456,6 +473,7 @@
       "loot": "노획",
       "monsterType": "몬스터 유형",
       "move": "이동",
+      "nonCalc": "행동",
       "pierce": "관통",
       "pull": "당기기",
       "push": "밀기",
@@ -475,6 +493,7 @@
       "trigger": "조건"
     },
     "affect": "효과",
+    "allied": "동맹",
     "ally": {
       "": "아군",
       "addEntity": {
@@ -1570,6 +1589,58 @@
       "stats": "몬스터 능력치"
     },
     "showAllSections": "모든 섹션 보기",
+    "stats": {
+      "": "시나리오 통계",
+      "damage": {
+        "": "피해"
+      },
+      "dealtDamage": {
+        "hint": "입힌 피해"
+      },
+      "eliteKills": {
+        "hint": "%game.monsterType.elite% 죽인 몬스터의 수"
+      },
+      "gold": {
+        "hint": "노획한 돈 토큰의 수"
+      },
+      "heal": {
+        "": "치료"
+      },
+      "healedDamage": {
+        "hint": "받은 치료"
+      },
+      "heals": {
+        "hint": "그 외 치료"
+      },
+      "kills": {
+        "": "죽임"
+      },
+      "max": {
+        "": "최대치"
+      },
+      "maxDamage": {
+        "hint": "가장 높은 단일 피해량"
+      },
+      "maxDealtDamage": {
+        "hint": "가장 높은 단일 피해량"
+      },
+      "monsterDamage": {
+        "hint": "적에게 받은 피해"
+      },
+      "normalKills": {
+        "hint": "%game.monsterType.normal% 몬스터를 죽인 수"
+      },
+      "otherDamage": {
+        "hint": "그 외의 받은 피해량"
+      },
+      "progress": "노획, 경험치",
+      "scenarios": "시나리오",
+      "toggle": {
+        "hide": "시나리오 통계 숨기기",
+        "show": "시나리오 통계 보기"
+      },
+      "total": "종합"
+    },
     "summary": {
       "": "시나리오 요약",
       "alreadyWarning": {

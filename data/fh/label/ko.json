@@ -1,4 +1,765 @@
 {
+  "ability": {
+    "Accelerated Metabolism": "Accelerated Metabolism",
+    "Accelerated Power": "Accelerated Power",
+    "Accurate Strikes": "Accurate Strikes",
+    "Advancing Horde": "Advancing Horde",
+    "Against All Odds": "Against All Odds",
+    "Aid from Below": "Aid from Below",
+    "Aimed Assault": "Aimed Assault",
+    "Air Support": "Air Support",
+    "Alluring Pheromones": "Alluring Pheromones",
+    "Ancient Drill": "Ancient Drill",
+    "Ancient Rites of Power": "Ancient Rites of Power",
+    "Anger of the Dead": "Anger of the Dead",
+    "Angry Bulwark": "Angry Bulwark",
+    "Angry Cloud": "성난 구름",
+    "Angry Hex": "Angry Cloud",
+    "Angry Howl": "Angry Howl",
+    "Angry Spirits": "Angry Spirits",
+    "Approach Oblivion": "Approach Oblivion",
+    "Arcane Explosion": "신비한 폭발",
+    "Arresting Advance": "Arresting Advance",
+    "At All Costs": "At All Costs",
+    "Aura of Fear": "Aura of Fear",
+    "Ballista Bolt": "Ballista Bolt",
+    "Barbaric Yawp": "Barbaric Yawp",
+    "Bared Teeth": "Bared Teeth",
+    "Barricade": "Barricade",
+    "Battle Prowess": "Battle Prowess",
+    "Beam Axe": "Beam Axe",
+    "Beam of Annihilation": "Beam of Annihilation",
+    "Befuddling Bellow": "Befuddling Bellow",
+    "Beguiling Thoughts": "Beguiling Thoughts",
+    "Behold the Shrouded Sun": "Behold the Shrouded Sun",
+    "Berserk Rage": "Berserk Rage",
+    "Birds in a Tempest": "Birds in a Tempest",
+    "Birds of Prey": "맹금류",
+    "Biting Gnats": "Biting Gnats",
+    "Biting frost": "Biting frost",
+    "Black Barrage": "Black Barrage",
+    "Black Lance": "Black Lance",
+    "Black Scythe": "Black Scythe",
+    "Black Tendrils": "암흑 덩굴",
+    "Black Thorns": "Black Thorns",
+    "Black night of the Deep": "Black night of the Deep",
+    "Blast": "Blast",
+    "Blast of Air": "Blast of Air",
+    "Blinding Uortex": "Blinding Uortex",
+    "Blinding Vortex": "Blinding Vortex",
+    "Blistering Assault": "Blistering Assault",
+    "Blizzard": "Blizzard",
+    "Blood Ritual": "Blood Ritual",
+    "Blood in the Water": "Blood in the Water",
+    "Bloodletting": "Bloodletting",
+    "Bloodthirst": "Bloodthirst",
+    "Blurry Jab": "Blurry Jab",
+    "Boar Catcher": "Boar Catcher",
+    "Body Block": "Body Block",
+    "Boldening Blow": "Boldening Blow",
+    "Bolstering Shout": "Bolstering Shout",
+    "Bone": "Bone",
+    "Booming Scream": "Booming Scream",
+    "Boon of the Tempest": "Boon of the Tempest",
+    "Borrowed Time": "Borrowed Time",
+    "Boulder Throw": "Boulder Throw",
+    "Bounty of the Earth": "Bounty of the Earth",
+    "Break Through": "Break Through",
+    "Breakneck Speed": "Breakneck Speed",
+    "Brilliant Aura": "Brilliant Aura",
+    "Bring Down the Mountain": "Bring Down the Mountain",
+    "Briny Bristles": "Briny Bristles",
+    "Bronze Plating": "Bronze Plating",
+    "Burned at Both Ends": "Burned at Both Ends",
+    "Burning Gaze": "Burning Gaze",
+    "Burning Slash": "Burning Slash",
+    "Cage of Thorns": "Cage of Thorns",
+    "Calamitous Yawp": "Calamitous Yawp",
+    "Calamity": "Calamity",
+    "Calculated Shot": "Calculated Shot",
+    "Calculated Strike": "Calculated Strike",
+    "Call For Souls": "Call For Souls",
+    "Call of Doom": "Call of Doom",
+    "Call to the Abyss": "Call to the Abyss",
+    "Call to the Earth": "Call to the Earth",
+    "Call to the Flame": "Call to the Flame",
+    "Call to the Frost": "Call to the Frost",
+    "Call to the Wind": "Call to the Wind",
+    "Caltrops": "Caltrops",
+    "Caress of the night": "Caress of the night",
+    "Cascading Reaction": "Cascading Reaction",
+    "Centipede Strike": "Centipede Strike",
+    "Chained by Despair": "Chained by Despair",
+    "Chained by Spite": "Chained by Spite",
+    "Changeling's Boon": "Changeling's Boon",
+    "Chaotic Refraction": "Chaotic Refraction",
+    "Chilled to the Bone": "Chilled to the Bone",
+    "Chilling Aura": "Chilling Aura",
+    "Chilling Breath": "혹한의 숨결",
+    "Chilling Impact": "Chilling Impact",
+    "Chitinous Horde": "Chitinous Horde",
+    "Chunk of Flesh": "Chunk of Flesh",
+    "Cinder Lance": "Cinder Lance",
+    "Circle of Fire": "Circle of Fire",
+    "Claw Guard": "Claw Guard",
+    "Claw Swipes": "Claw Swipes",
+    "Claw of Doom": "Claw of Doom",
+    "Clean Sweep": "Clean Sweep",
+    "Cleansing Fire": "Cleansing Fire",
+    "Cleansing Swell": "Cleansing Swell",
+    "Cloaking Refraction": "Cloaking Refraction",
+    "Clobber": "Clobber",
+    "Close In": "Close In",
+    "Cloud of Ash": "Cloud of Ash",
+    "Clouds of Hate": "Clouds of Hate",
+    "Coalescing Darkness": "Coalescing Darkness",
+    "Code Geminate": "Code Geminate",
+    "Coiled Limbs": "Coiled Limbs",
+    "Cold": "Cold",
+    "Cold Boulder": "Cold Boulder",
+    "Cold Claws": "Cold Claws",
+    "Cold Snap": "Cold Snap",
+    "Cold Winds": "Cold Winds",
+    "Combined Effort": "Combined Effort",
+    "Command the Wretched": "Command the Wretched",
+    "Concentrated Blast": "Concentrated Blast",
+    "Concentrated Flock": "무리 집중",
+    "Concussive Burst": "Concussive Burst",
+    "Cone of Cold": "Cone of Cold",
+    "Consume All Hope": "Consume All Hope",
+    "Consume Stamina": "Consume Stamina",
+    "Consume the Helpless": "Consume the Helpless",
+    "Continuous Health": "Continuous Health",
+    "Cooling": "Cooling",
+    "Corrosive Acids": "Corrosive Acids",
+    "Coupled Chain": "Coupled Chain",
+    "Crashing Blow": "Crashing Blow",
+    "Crashing Surge": "Crashing Surge",
+    "Cresting Force": "Cresting Force",
+    "Crippling Claw": "Crippling Claw",
+    "Crippling Terror": "Crippling Terror",
+    "Critical Failure": "Critical Failure",
+    "Cross Winds": "Cross Winds",
+    "Cruel Bow": "Cruel Bow",
+    "Crush Armor": "Crush Armor",
+    "Crushing Crest": "Crushing Crest",
+    "Crushing Crystals": "Crushing Crystals",
+    "Crushing Darkness": "Crushing Darkness",
+    "Crushing Weight": "Crushing Weight",
+    "Cryogenic Hibernation": "Cryogenic Hibernation",
+    "Crystalline Aegis": "Crystalline Aegis",
+    "Curious Gear": "Curious Gear",
+    "Curious Machinery": "Curious Machinery",
+    "Cutting Blast": "Cutting Blast",
+    "Cyclone": "Cyclone",
+    "Damned Horde": "Damned Horde",
+    "Dangerous Cargo": "Dangerous Cargo",
+    "Dangerous Fury": "Dangerous Fury",
+    "Dangerous Ground": "Dangerous Ground",
+    "Dark": "Dark",
+    "Dark Charm": "Dark Charm",
+    "Dark fog": "Dark fog",
+    "Darken the Skies": "하늘을 가리다",
+    "Dature's Breath": "Dature's Breath",
+    "Dead Bolt": "Dead Bolt",
+    "Deadly Shot": "Deadly Shot",
+    "Death Spiral": "Death Spiral",
+    "Death on All Sides": "Death on All Sides",
+    "Death's Embrace": "Death's Embrace",
+    "Decaying Will": "Decaying Will",
+    "Deep": "Deep",
+    "Deepening Despair": "Deepening Despair",
+    "Defensive Blades": "Defensive Blades",
+    "Defensive Claws": "Defensive Claws",
+    "Defensive Ordinance": "Defensive Ordinance",
+    "Deflecting Maneuver": "Deflecting Maneuver",
+    "Delayed Malady": "Delayed Malady",
+    "Descend": "Descend",
+    "Desperate Herd": "Desperate Herd",
+    "Desperate Throw": "Desperate Throw",
+    "Destructive Fury": "Destructive Fury",
+    "Det Dispersal": "Det Dispersal",
+    "Devastating Shout": "Devastating Shout",
+    "Devastating Tackle": "Devastating Tackle",
+    "Diamondization": "Diamondization",
+    "Din of Battle": "Din of Battle",
+    "Dire frenzy": "Dire frenzy",
+    "Disassemble": "Disassemble",
+    "Dismantle": "Dismantle",
+    "Disruptive Frenzy": "Disruptive Frenzy",
+    "Distant Wave": "Distant Wave",
+    "Dive Bombs": "낙하 폭탄",
+    "Divergent Destruction": "Divergent Destruction",
+    "Divine Energy": "Divine Energy",
+    "Dominate": "Dominate",
+    "Double Time": "Double Time",
+    "Down to the Depths": "Down to the Depths",
+    "Down to the Dirt": "Down to the Dirt",
+    "Drag Down": "끌어내리기",
+    "Dragonfly Surge": "Dragonfly Surge",
+    "Drain Life": "Drain Life",
+    "Drain Speed": "Drain Speed",
+    "Drain Strength": "Drain Strength",
+    "Drain the Essence": "Drain the Essence",
+    "Draining Arrows": "Draining Arrows",
+    "Draining Pincers": "빨아들이는 집게",
+    "Draw Strength": "Draw Strength",
+    "Draw of the Bedrock": "Draw of the Bedrock",
+    "Drive Recharge": "Drive Recharge",
+    "Driving Inspiration": "Driving Inspiration",
+    "Drown beneath the Wques": "Drown beneath the Wques",
+    "Dual Bow": "Dual Bow",
+    "Earthen Blow": "Earthen Blow",
+    "Earthen Eruption": "Earthen Eruption",
+    "Easy Prey": "Easy Prey",
+    "Ebb and Flow": "Ebb and Flow",
+    "Eclipse": "Eclipse",
+    "Electric Pulse": "Electric Pulse",
+    "Electrical Discharge": "Electrical Discharge",
+    "Electrified net": "Electrified net",
+    "Elemental Pulse": "Elemental Pulse",
+    "Emerald Edge": "Emerald Edge",
+    "Empowering Pulse": "Empowering Pulse",
+    "Empowering Rest": "Empowering Rest",
+    "Empowering note": "Empowering note",
+    "Empowring Rest": "Empowring Rest",
+    "Encased Punch": "Encased Punch",
+    "Endless Cycle": "Endless Cycle",
+    "Endless Iumbers": "Endless Iumbers",
+    "Energy Conuersion": "Energy Conuersion",
+    "Enticing Bait": "Enticing Bait",
+    "Enticing Breeze": "Enticing Breeze",
+    "Erupting Rage": "Erupting Rage",
+    "Eruption": "Eruption",
+    "Eternal Life": "Eternal Life",
+    "Eternal Torment": "Eternal Torment",
+    "Ever Forward": "Ever Forward",
+    "Everlasting": "Everlasting",
+    "Experimental Adjustment": "Experimental Adjustment",
+    "Exploding Ammunition": "Exploding Ammunition",
+    "Exploding Corpse": "Exploding Corpse",
+    "Exploding Decoy": "Exploding Decoy",
+    "Explosive Ascent": "Explosive Ascent",
+    "Explosive Blast": "Explosive Blast",
+    "Explosive Epicenter": "Explosive Epicenter",
+    "Explosive Vomit": "Explosive Vomit",
+    "Explosive Wounds": "Explosive Wounds",
+    "Extra Decoration": "Extra Decoration",
+    "Extra Teeth": "Extra Teeth",
+    "Eye of the Storm": "Eye of the Storm",
+    "Face of Darkness": "Face of Darkness",
+    "Faceless Entity": "Faceless Entity",
+    "Fade Out": "Fade Out",
+    "Fastest Alive": "Fastest Alive",
+    "Feast": "Feast",
+    "Feed": "Feed",
+    "Feed the Beast": "Feed the Beast",
+    "Feedback": "Feedback",
+    "Feeding Frenzy": "Feeding Frenzy",
+    "Fell Remedy": "Fell Remedy",
+    "Fiendish Charge": "악령의 돌진",
+    "Fierce Barrage": "Fierce Barrage",
+    "Fire Bolts": "Fire Bolts",
+    "Fire Spout": "Fire Spout",
+    "Firefly Swarm": "반딧불 무리",
+    "Firestorm": "Firestorm",
+    "Fish Net": "Fish Net",
+    "Flame Jets": "Flame Jets",
+    "Flashing Flurry": "Flashing Flurry",
+    "Flee": "Flee",
+    "Fleeting Dusk": "Fleeting Dusk",
+    "Flesh Shield": "Flesh Shield",
+    "Flow of the Black River": "Flow of the Black River",
+    "Flowing Fire": "Flowing Fire",
+    "Flowing Magma": "Flowing Magma",
+    "Fluid night": "Fluid night",
+    "Flurry of Nails": "Flurry of Nails",
+    "Focus Fire": "Focus Fire",
+    "Focused Stabs": "Focused Stabs",
+    "Focused Strikes": "Focused Strikes",
+    "Force Field": "Force Field",
+    "Force of the Earth": "Force of the Earth",
+    "Forceful Gust": "Forceful Gust",
+    "Forceful Spirits": "Forceful Spirits",
+    "Forceful Uibrations": "Forceful Uibrations",
+    "Foreboding Tremors": "Foreboding Tremors",
+    "Formless Bladestorm": "Formless Bladestorm",
+    "Formless Grace": "Formless Grace",
+    "Fortitude": "Fortitude",
+    "Foxhole": "Foxhole",
+    "Fractured Timeline": "Fractured Timeline",
+    "Frantic Swipes": "Frantic Swipes",
+    "Freezing Embrace": "Freezing Embrace",
+    "Freezing Shell": "Freezing Shell",
+    "Freezing Storm": "Freezing Storm",
+    "Freezing Winds": "Freezing Winds",
+    "Frigid Growth": "Frigid Growth",
+    "Frost Breath": "Frost Breath",
+    "Frost Eruption": "Frost Eruption",
+    "Frozen": "Frozen",
+    "Frozen Brand": "Frozen Brand",
+    "Frozen Debris": "Frozen Debris",
+    "Frozen Shards": "Frozen Shards",
+    "Frozen Shell": "Frozen Shell",
+    "Frozen Spike": "Frozen Spike",
+    "Frozen in Fear": "Frozen in Fear",
+    "Fuel Leak": "Fuel Leak",
+    "Full Force": "Full Force",
+    "Furry facade": "Furry facade",
+    "Fury of the Mountain": "Fury of the Mountain",
+    "Future Sense": "Future Sense",
+    "Gale Barrage": "Gale Barrage",
+    "Gather the Flock": "모여드는 무리",
+    "Gather the Frost": "Gather the Frost",
+    "Gathering Force": "Gathering Force",
+    "Gemstone Resonance": "Gemstone Resonance",
+    "Gift of the Mountain": "Gift of the Mountain",
+    "Gift of the Prey": "Gift of the Prey",
+    "Glacier Slam": "Glacier Slam",
+    "Glowing Sweep": "Glowing Sweep",
+    "Grasping Hazards": "Grasping Hazards",
+    "Grave Digging": "Grave Digging",
+    "Greed": "Greed",
+    "Grenade": "Grenade",
+    "Grim Trophies": "Grim Trophies",
+    "Gripping Teeth": "Gripping Teeth",
+    "Ground Slam": "Ground Slam",
+    "Guide the Flow": "Guide the Flow",
+    "Guide the School": "Guide the School",
+    "Hail": "Hail",
+    "Hail of Spears": "Hail of Spears",
+    "Hail of Thorns": "Hail of Thorns",
+    "Hand of Flame": "Hand of Flame",
+    "Harbinger of Ruin": "Harbinger of Ruin",
+    "Hardened Frost": "Hardened Frost",
+    "Hardened Spike": "Hardened Spike",
+    "Hardened by Frost": "Hardened by Frost",
+    "Harvest the Essence": "Harvest the Essence",
+    "Hasten the End": "Hasten the End",
+    "Hasty Assault": "Hasty Assault",
+    "Hasty Assualt": "Hasty Assualt",
+    "Hateful Spikes": "Hateful Spikes",
+    "Haunting Brutality": "Haunting Brutality",
+    "Head of the Hammer": "Head of the Hammer",
+    "Heartening Harmony": "Heartening Harmony",
+    "Heat Aura": "Heat Aura",
+    "Heat Blast": "맹렬한 불길",
+    "Heat Conduction": "Heat Conduction",
+    "Heat Wque": "Heat Wque",
+    "Heated Drill": "Heated Drill",
+    "Heated Sweep": "Heated Sweep",
+    "Heavy Footfalls": "Heavy Footfalls",
+    "Heavy Shot": "Heavy Shot",
+    "Heavy metal": "Heavy metal",
+    "Heed the Pigs": "Heed the Pigs",
+    "Hibernate": "Hibernate",
+    "High Impact Projectiles": "High Impact Projectiles",
+    "High Tide": "High Tide",
+    "Hijack": "Hijack",
+    "Hirudotherapy": "Hirudotherapy",
+    "Hit and Run": "Hit and Run",
+    "Hold the Line": "Hold the Line",
+    "Hollow Aura": "Hollow Aura",
+    "Honeypot": "Honeypot",
+    "Hopelessness": "Hopelessness",
+    "Hornbeetle Carapace": "Hornbeetle Carapace",
+    "Hornet Stingers": "Hornet Stingers",
+    "Horrible Glare": "Horrible Glare",
+    "Horrowing Howl": "Horrowing Howl",
+    "Hungry Grasps": "Hungry Grasps",
+    "Hungry Maw": "Hungry Maw",
+    "HuntercKiller": "HuntercKiller",
+    "Ice Barrier": "Ice Barrier",
+    "Ice Uppercut": "Ice Uppercut",
+    "Ice Wall": "Ice Wall",
+    "Icebound Quills": "Icebound Quills",
+    "Icy Glare": "Icy Glare",
+    "Icy Swipe": "Icy Swipe",
+    "Igneous Path": "Igneous Path",
+    "Illuminative Tone": "Illuminative Tone",
+    "Imbue with Life": "Imbue with Life",
+    "Immovable Object": "Immovable Object",
+    "Impale": "Impale",
+    "Improvised Improvement": "Improvised Improvement",
+    "In": "In",
+    "Incendiary Throw": "Incendiary Throw",
+    "Increase Momentum": "Increase Momentum",
+    "Inevitable Conclusion": "Inevitable Conclusion",
+    "Infection Purge": "Infection Purge",
+    "Ink Cloud": "Ink Cloud",
+    "Instill Fear": "Instill Fear",
+    "Intense Torch": "Intense Torch",
+    "Interference": "Interference",
+    "Into Darkness": "Into Darkness",
+    "Into My Embrace": "Into My Embrace",
+    "Into Thin Air": "Into Thin Air",
+    "Jauelin": "Jauelin",
+    "Kinetic Transfer": "Kinetic Transfer",
+    "Knockout Punch": "Knockout Punch",
+    "Lacerating Eruption": "Lacerating Eruption",
+    "Lacerating Stabs": "Lacerating Stabs",
+    "Lashing Tendrils": "Lashing Tendrils",
+    "Latch On": "Latch On",
+    "Launch Pod": "Launch Pod",
+    "Lava Bomb": "Lava Bomb",
+    "Lead from Afar": "Lead from Afar",
+    "Leaping Dive": "Leaping Dive",
+    "Leech Warmth": "Leech Warmth",
+    "Let Them Come": "Let Them Come",
+    "Lie in Wait": "Lie in Wait",
+    "Life in Death": "Life in Death",
+    "Lifting Gust": "Lifting Gust",
+    "Lifting Voice": "Lifting Voice",
+    "Like the Wind": "Like the Wind",
+    "Line of Transference": "Line of Transference",
+    "Lingering Rot": "Lingering Rot",
+    "Lingering Strength": "Lingering Strength",
+    "Liquid Stone": "Liquid Stone",
+    "Living Magma": "Living Magma",
+    "Locust Host": "Locust Host",
+    "Long Range Missile": "Long Range Missile",
+    "Long Shot": "Long Shot",
+    "Low Slash": "Low Slash",
+    "Low Tide": "Low Tide",
+    "Luminous Descent": "Luminous Descent",
+    "Lure of the Snare": "Lure of the Snare",
+    "Magma Orbs": "Magma Orbs",
+    "Magnetic Field": "Magnetic Field",
+    "Magnetic Shards": "Magnetic Shards",
+    "Make It Count": "Make It Count",
+    "Malachite Shockwaue": "Malachite Shockwaue",
+    "Malicious Conuersion": "Malicious Conuersion",
+    "Mandible Storm": "Mandible Storm",
+    "Mantle of Dread": "Mantle of Dread",
+    "Massive Blast": "Massive Blast",
+    "Massive Swell": "Massive Swell",
+    "Meat Grinder": "Meat Grinder",
+    "Medium": "Medium",
+    "Melted Armor": "Melted Armor",
+    "Memory Drive": "Memory Drive",
+    "Metamorphic Rock": "Metamorphic Rock",
+    "Mighty Claws": "Mighty Claws",
+    "Mind Spike": "Mind Spike",
+    "Mirrored Misery": "Mirrored Misery—",
+    "Morbid Camouflage": "Morbid Camouflage",
+    "Mortar Shell": "Mortar Shell",
+    "Mortar Shells": "Mortar Shells",
+    "Mother of All Traps": "Mother of All Traps",
+    "No Escape": "No Escape",
+    "No Remorse": "No Remorse",
+    "Nothing": "Nothing",
+    "Nothing Special": "일반 행동",
+    "Noxious Blade": "Noxious Blade",
+    "Obsidian Shield": "Obsidian Shield",
+    "Obsidian Spear": "Obsidian Spear",
+    "One with the Earth": "One with the Earth",
+    "One with the Mountain": "One with the Mountain",
+    "Oscillating Entity": "Oscillating Entity",
+    "Overdrive": "Overdrive",
+    "Pack Hunting": "Pack Hunting",
+    "Packed Solid": "Packed Solid",
+    "Paralyze": "Paralyze",
+    "Paralyzing Bite": "Paralyzing Bite",
+    "Parry and Thrust": "Parry and Thrust",
+    "Path of Pain": "Path of Pain",
+    "Penance": "Penance",
+    "Persistent Pitfalls": "Persistent Pitfalls",
+    "Phantom Limb": "Phantom Limb",
+    "Phase Out": "Phase Out",
+    "Phasing Blades": "Phasing Blades",
+    "Piercing Paracite": "Piercing Paracite",
+    "Piercing Pummel": "Piercing Pummel",
+    "Pig Parade": "Pig Parade",
+    "Pincer Movement": "Pincer Movement",
+    "Pinning Charge": "Pinning Charge",
+    "Pinning Spines": "Pinning Spines",
+    "Piston Barrage": "Piston Barrage",
+    "Plague Protocol": "Plague Protocol",
+    "Plasma Ward": "Plasma Ward",
+    "Plated Defense": "Plated Defense",
+    "Pleasure in Pain": "Pleasure in Pain",
+    "Polar Vortex": "Polar Vortex",
+    "Polarity Shift": "Polarity Shift—",
+    "Pool of Power": "Pool of Power",
+    "Potential Energy": "Potential Energy",
+    "Power Core": "Power Core",
+    "Power Leak": "Power Leak",
+    "Power Shot": "Power Shot",
+    "Power Slash": "Power Slash",
+    "Powerful Claw": "Powerful Claw",
+    "Powerful Pincer": "Powerful Pincer",
+    "Precious Gems": "Precious Gems",
+    "Precision Aim": "Precision Aim",
+    "Precision Timing": "Precision Timing",
+    "Prepare for Deployment": "Prepare for Deployment",
+    "Preserved Fury": "Preserved Fury",
+    "Pressure Build Up": "Pressure Build Up",
+    "Primal Bellow": "Primal Bellow",
+    "Processing": "Processing",
+    "Proficient Hunter": "Proficient Hunter",
+    "Proliferation of the Abyss": "Proliferation of the Abyss",
+    "Propulsive Tailwind": "Propulsive Tailwind",
+    "Prudent Preparation": "Prudent Preparation",
+    "Psych Up": "Psych Up",
+    "Psychic Shock": "Psychic Shock",
+    "Pull of the Grave": "Pull of the Grave",
+    "Pulled Across": "Pulled Across",
+    "Putrid Cloud": "Putrid Cloud",
+    "Pyrotechnics": "Pyrotechnics",
+    "Quantum Uncertainty": "Quantum Uncertainty",
+    "Quenched": "Quenched",
+    "Querwhelming Wave": "Querwhelming Wave",
+    "Radiation": "Radiation",
+    "Raging Blaze": "Raging Blaze",
+    "Rain of Fire": "Rain of Fire",
+    "Rallying Cry": "Rallying Cry",
+    "Rampage": "Rampage",
+    "Rancid Arrow": "Rancid Arrow",
+    "Rancid Brine": "Rancid Brine",
+    "Rapid Bolts": "Rapid Bolts",
+    "Rapid Fire": "Rapid Fire",
+    "Ray of Hate": "Ray of Hate",
+    "Ray of Warmth": "Ray of Warmth",
+    "Reaper Function": "Reaper Function",
+    "Reassemble": "Reassemble",
+    "Recall": "Recall",
+    "Reckless": "Reckless",
+    "Reckless Augmentation": "Reckless Augmentation",
+    "Reckless Charge": "Reckless Charge",
+    "Reconstructive Aid": "Reconstructive Aid",
+    "Recursion": "Recursion",
+    "Recycled Limbs": "Recycled Limbs",
+    "Redemption": "Redemption",
+    "Refreshing flurry": "Refreshing flurry",
+    "Regroup": "Regroup",
+    "Reinforced Riposte": "Reinforced Riposte",
+    "Reject the Gift": "Reject the Gift",
+    "Release Ualue": "Release Ualue",
+    "Relentless": "Relentless",
+    "Remote Control": "Remote Control",
+    "Remote Impact": "Remote Impact",
+    "Renewed Aggression": "Renewed Aggression",
+    "Repair Drones": "Repair Drones",
+    "Reprisal": "Reprisal",
+    "Repulsive Torrent": "Repulsive Torrent",
+    "Reshape the Guise": "Reshape the Guise",
+    "Resolved Courage": "Resolved Courage",
+    "Resonant frequency": "Resonant frequency",
+    "Rest in the Shade": "Rest in the Shade",
+    "Restless Spirits": "Restless Spirits",
+    "Restoration": "Restoration",
+    "Restore Essence": "Restore Essence",
+    "Restore the Swarm": "Restore the Swarm",
+    "Retracted Assault": "Retracted Assault",
+    "Return to the Source": "Return to the Source",
+    "Returned Servant": "Returned Servant",
+    "Reversal of Fate": "Reversal of Fate",
+    "Reverse the Flow": "Reverse the Flow",
+    "Rip from the Bone": "Rip from the Bone",
+    "Rising Momentum": "Rising Momentum",
+    "Rising flood": "Rising flood",
+    "Ritual Sacrifice": "Ritual Sacrifice",
+    "Rock Bomb": "Rock Bomb",
+    "Rocket Boots": "Rocket Boots",
+    "Rocky Thrust": "Rocky Thrust",
+    "Rooted Fear": "Rooted Fear",
+    "Rotten Sting": "Rotten Sting",
+    "Rotting Multitude": "Rotting Multitude",
+    "Rushed to the End": "Rushed to the End",
+    "Safety Valve": "Safety Valve",
+    "Sand in the Hourglass": "Sand in the Hourglass",
+    "Sap Speed": "Sap Speed",
+    "Sap Strength": "Sap Strength",
+    "Scalding Blast": "Scalding Blast",
+    "Scarab flight": "Scarab flight",
+    "Scarred Effigy": "Scarred Effigy",
+    "Schooling": "Schooling",
+    "Searing Smoke": "Searing Smoke",
+    "Seeing Stars": "Seeing Stars",
+    "Seismic Punch": "지진 강타",
+    "Self-Destruct": "Self-Destruct",
+    "Selfless Offering": "Selfless Offering",
+    "Set Trap": "Set Trap",
+    "Set for the": "Set for the",
+    "Shadow": "Shadow",
+    "Shape the Path": "Shape the Path",
+    "Shard Launch": "Shard Launch",
+    "Shard Strike": "Shard Strike",
+    "Shards": "Shards",
+    "Shared Affliction": "Shared Affliction",
+    "Sharp Chitin": "Sharp Chitin",
+    "Sharp Fangs": "Sharp Fangs",
+    "Sharpshooter": "Sharpshooter",
+    "Shattering Blow": "Shattering Blow",
+    "Shift Form": "Shift Form",
+    "Shifting Snow": "Shifting Snow",
+    "Shining Orb": "Shining Orb",
+    "Shocking Pulse": "Shocking Pulse",
+    "Shocking Voltage": "Shocking Voltage",
+    "Shockwave": "Shockwave",
+    "Shoot Foot": "Shoot Foot",
+    "Shrieking Chakram": "Shrieking Chakram",
+    "Shuck": "Shuck",
+    "Signal Jam": "Signal Jam",
+    "Skewer the Flesh": "Skewer the Flesh",
+    "Skitter": "Skitter",
+    "Skull Collection": "Skull Collection",
+    "Sky-Splitting Strike": "Sky-Splitting Strike",
+    "Slashing Cyclone": "Slashing Cyclone",
+    "Sleet": "Sleet",
+    "Slipping into Death": "Slipping into Death",
+    "Smash Armor": "Smash Armor",
+    "Smashing Torrent": "Smashing Torrent",
+    "Smoldering Hatred": "Smoldering Hatred",
+    "Snow Drifts": "Snow Drifts",
+    "Snowball": "Snowball",
+    "Snowblind": "Snowblind",
+    "Snowstorm": "Snowstorm",
+    "Soaring Strikes": "Soaring Strikes",
+    "Sodden Soil": "Sodden Soil",
+    "Soft Flesh": "Soft Flesh",
+    "Soft Spots": "Soft Spots",
+    "Solid Bones": "Solid Bones",
+    "Sonic Shock": "Sonic Shock",
+    "Soul Claim": "Soul Claim",
+    "Soul Hunger": "Soul Hunger",
+    "Sound": "Sound",
+    "Spike Pit": "Spike Pit",
+    "Spike Strip": "Spike Strip",
+    "Spiked Mandibles": "Spiked Mandibles",
+    "Spinning Blades": "Spinning Blades",
+    "Spinning Charge": "Spinning Charge",
+    "Splashing Bile": "Splashing Bile",
+    "Split": "Split",
+    "Spring Loaded": "Spring Loaded",
+    "Stab Them All": "Stab Them All",
+    "Stalker's Spoils": "Stalker's Spoils",
+    "Star Strike": "Star Strike",
+    "Staring into the Abyss": "Staring into the Abyss",
+    "Stealth Vibrations": "Stealth Vibrations",
+    "Steam Armor": "Steam Armor—",
+    "Steam Core": "Steam Core",
+    "Steel Piston": "Steel Piston",
+    "Stoic Vigilance": "Stoic Vigilance",
+    "Stone Armor": "Stone Armor",
+    "Stone Spikes": "Stone Spikes",
+    "Storm Wall": "Storm Wall",
+    "Strength of the Abyss": "Strength of the Abyss",
+    "Strength of the Deep": "Strength of the Deep",
+    "Strength of the Mountain": "Strength of the Mountain",
+    "Stress Uents": "Stress Uents",
+    "Strong Growth": "Strong Growth",
+    "Subduing Spit": "Subduing Spit",
+    "Submerge": "Submerge",
+    "Succumb to Fear": "Succumb to Fear",
+    "Sunless Abyss": "Sunless Abyss",
+    "Sunless Apparition": "Sunless Apparition",
+    "Super Heat Transfer": "Super Heat Transfer",
+    "Supernova": "Supernova",
+    "Surging Blow": "Surging Blow",
+    "Survivalist": "Survivalist",
+    "Sustained Momentum": "Sustained Momentum",
+    "Swarming Bulwark": "Swarming Bulwark",
+    "Sweeping Aid": "Sweeping Aid",
+    "Swelter": "Swelter",
+    "Swift Claws": "Swift Claws",
+    "Swift Pivot": "Swift Pivot",
+    "Swift Uengeance": "Swift Uengeance",
+    "Systems Reboot": "Systems Reboot",
+    "Tailwind": "Tailwind",
+    "Take Hostage": "Take Hostage",
+    "Take no Prisoners": "Take no Prisoners",
+    "Taunting Howl": "Taunting Howl",
+    "Temporal Displacement": "Temporal Displacement",
+    "Tend to the Clan": "Tend to the Clan",
+    "Tendrils": "Tendrils",
+    "Terrible Growth": "Terrible Growth",
+    "Terrifying Growl": "Terrifying Growl",
+    "Thawed Strike": "Thawed Strike",
+    "The Agony of Others": "The Agony of Others",
+    "The End of Everything": "The End of Everything",
+    "The Endless White": "The Endless White",
+    "The Knife's Edge": "The Knife's Edge",
+    "The Mountain s Fist": "The Mountain s Fist",
+    "The Night Feeds": "The Night Feeds",
+    "The Remorseless Deep": "The Remorseless Deep",
+    "The Spirit's Call": "The Spirit's Call",
+    "The night Takes Shape": "The night Takes Shape",
+    "Thick Frost": "Thick Frost",
+    "Thrashing in the Water": "Thrashing in the Water",
+    "Thresh and Flail": "Thresh and Flail",
+    "Throwing Axe": "Throwing Axe",
+    "Tidal Blast": "Tidal Blast",
+    "Tip of the Spear": "Tip of the Spear",
+    "Tip the Scales": "Tip the Scales",
+    "Tornado": "Tornado",
+    "Torrential Cleque": "Torrential Cleque",
+    "Toxic Explosion": "Toxic Explosion",
+    "Transfer of Essence": "Transfer of Essence",
+    "Transferred Injury": "Transferred Injury",
+    "Transparency": "Transparency",
+    "Triage Program": "Triage Program",
+    "TricThrust": "TricThrust",
+    "Tsunami": "Tsunami",
+    "Tumultuous Panic": "Tumultuous Panic",
+    "Tunneling Slices": "Tunneling Slices",
+    "Turn the Weak": "Turn the Weak",
+    "Twilight Grasp": "Twilight Grasp",
+    "Twin Bolts": "Twin Bolts",
+    "Twin Claws": "Twin Claws",
+    "Twin Shots": "Twin Shots",
+    "Twin Strike": "Twin Strike",
+    "Twisted Decree": "Twisted Decree",
+    "Two Pronged Entrapment": "Two Pronged Entrapment",
+    "Two-Fisted Strike": "Two-Fisted Strike",
+    "Ueil of Protection": "Ueil of Protection",
+    "Uengeful Storm": "Uengeful Storm",
+    "Uenomous Barbs": "Uenomous Barbs",
+    "Uile Assault": "Uile Assault",
+    "Uiolent Uibrations": "Uiolent Uibrations",
+    "Unbreakable": "Unbreakable",
+    "Unbreakable Wall": "Unbreakable Wall",
+    "Under Pressure": "Under Pressure",
+    "Undertow": "Undertow",
+    "Unearthed Horror": "Unearthed Horror",
+    "Unending Frenzy": "Unending Frenzy",
+    "Unending Torment": "Unending Torment",
+    "Unending fight": "Unending fight",
+    "Unforgivable methods": "Unforgivable methods",
+    "Unholy Prowess": "Unholy Prowess",
+    "Unholy Strength": "Unholy Strength",
+    "Unquoidable Outcome": "Unquoidable Outcome",
+    "Unrelenting Wail": "Unrelenting Wail",
+    "Unseen Horror": "Unseen Horror",
+    "Unstable Core": "Unstable Core",
+    "Unstable Effigy": "Unstable Effigy",
+    "Unstoppable Force": "Unstoppable Force",
+    "Unstoppable Impulse": "Unstoppable Impulse",
+    "Unsustainable Waue": "Unsustainable Waue",
+    "Untether the Shackles": "Untether the Shackles",
+    "Uoice of Salvation": "Uoice of Salvation",
+    "Use Every Part": "Use Every Part",
+    "Venom Glands": "Venom Glands",
+    "Venom Shiv": "Venom Shiv",
+    "Vicious Opportunity": "Vicious Opportunity",
+    "Violent Inheritance": "Violent Inheritance",
+    "Voice from Below": "Voice from Below",
+    "Wailing from Beyond": "Wailing from Beyond",
+    "Warding Swipe": "Warding Swipe",
+    "Wave of Anguish": "Wave of Anguish",
+    "When Your Time Comes": "When Your Time Comes",
+    "Whipping Gale": "Whipping Gale",
+    "Whirlwind": "소용돌이",
+    "Whirlwinds": "소용돌이",
+    "White Claws": "새하얀 발톱",
+    "White Winds": "White Winds",
+    "Whiteout": "Whiteout",
+    "Wildfire": "Wildfire",
+    "Winds of Change": "Winds of Change",
+    "Wracked with Pain": "Wracked with Pain",
+    "Wrath of the Turned Earth": "Wrath of the Turned Earth",
+    "Zephyr Barrier": "Zephyr Barrier"
+  },
   "battleGoals": {
     "1301": {
       "": "회계사",
@@ -69,52 +830,164 @@
       "text": "3 이하의 체력으로 시나리오 종료."
     },
     "1318": {
-      "": "강도"
+      "": "강도",
+      "text": "적을 죽이고 같은 라운드에 해당 적이 떨어뜨린 노획 토큰을 노획."
+    },
+    "1319": {
+      "": "개시자",
+      "text": "시나리오에서 가장 먼저 적을 죽임."
+    },
+    "1320": {
+      "": "낙천주의자",
+      "text": "자기 스스로나 아군에게서 부정적 상태를 두 번 이상 제거."
     },
     "1321": {
-      "text": "셋 이하의 적을 처치."
+      "": "평화주의자",
+      "text": "죽인 몬스터가 셋 이하"
+    },
+    "1322": {
+      "": "극빈자",
+      "text": "차례 종료 시 노획으로 노획 토큰을 획득하지 않음."
+    },
+    "1323": {
+      "": "산책 전문가",
+      "text": "아군이나 적, 목표물이나 장애물이 점유한 칸에 진입하지 않음."
+    },
+    "1324": {
+      "": "완벽주의자",
+      "text": "현재 체력이 최대 체력과 같은 채로 시나리오 종료."
+    },
+    "1325": {
+      "": "소매치기",
+      "text": "적에게 인접한 채로 노획 행동을 수행하여 노획 토큰을 둘 이상 획득."
+    },
+    "1326": {
+      "": "동네북",
+      "text": "한 라운드에 적 셋 이상에게 공격 대상이 됨."
+    },
+    "1327": {
+      "": "서민",
+      "text": "정예 적, 유명 몬스터, 또는 보스를 하나도 죽이지 않음."
     },
     "1328": {
+      "": "약물공포증",
       "text": "물약을 사용하지 않음."
     },
+    "1329": {
+      "": "홍보 전문가",
+      "text": "첫 번째 휴식 전, 그리고 매번 휴식 사이에 아군을 대상으로 하는 능력을 수행."
+    },
+    "1330": {
+      "": "방랑벽",
+      "text": "긴 휴식을 제외하고, 자신이 차례를 시작한 칸에서 차례를 종료한 횟수가 3번 이하."
+    },
+    "1331": {
+      "": "낭비벽",
+      "text": "같은 차례에 소실 기호가 있는 행동 둘을 수행."
+    },
+    "1332": {
+      "": "은둔자",
+      "text": "다른 캐릭터에 인접한 칸에서 차례를 종료하지 않음(캐릭터가 4명이면 %game.checkmark% 하나를 추가로 획득)."
+    },
+    "1333": {
+      "": "의식수행자",
+      "text": "셋 이상의 원소가 강함 또는 약화 칸에 있는 동안 적을 죽임."
+    },
     "1334": {
+      "": "가학성애자",
       "text": "다섯 이상의 적을 처치."
+    },
+    "1335": {
+      "": "선도자",
+      "text": "긴 휴식을 취하지 않음."
     },
     "1336": {
       "": "주의력 결핍",
       "text": "적에게 인접한 채로 인접하지 않은 다른 적을 죽임."
     },
+    "1337": {
+      "": "잠꾸러기",
+      "text": "매번 휴식할 때마다 손에 카드가 1장 이상 남음."
+    },
+    "1338": {
+      "": "나무늘보",
+      "text": "한번 피해를 입은 다음, 체력이 최대인 동안 긴 휴식을 취함."
+    },
+    "1339": {
+      "": "낙오자",
+      "text": "짧은 휴식을 취하지 않음."
+    },
     "1340": {
       "": "능률주의자",
       "text": "시나리오 종료 시, 손에 든 카드와 버린 더미의 카드가 총 5장 이상."
+    },
+    "1341": {
+      "": "학대자",
+      "text": "이미 부정적 상태가 하나 이상 있는 적에게 또 다른 부정적 상태를 적용."
+    },
+    "1342": {
+      "": "허영덩어리",
+      "text": "공격으로 인한 2점 이하의 피해를 무효화하기 위해 카드를 소실."
+    },
+    "1343": {
+      "": "약골",
+      "text": "다른 어떤 캐릭터보다도 먼저 탈진."
+    },
+    "1344": {
+      "": "열성분자",
+      "text": "시나리오 보너스 경험치를 받기 전에 획득한 경험치가 13 이상."
+    },
+    "1345": {
+      "": "열성분자",
+      "text": "시나리오 종료 시 손에 든 카드와 버린 더미의 카드가 총 3장 이하이면서 탈진하지 않음."
+    },
+    "1346": {
+      "": "암살자",
+      "text": "아직 첫 번째 차례를 진행하지 않은 적을 죽임."
     },
     "1347": {
       "": "무모한 도전자",
       "text": "첫 번째 휴식을 취하기 전에 소실 더미에 카드 2장을 추가."
     },
     "1348": {
-      "text": "가장 낮은 주도권을 가진 카드를 주도권 카드 사용하지 않음."
+      "": "꾸물이",
+      "text": "주도권 수치가 낮은 쪽을 주도권 카드로 사용하지 않음."
     },
     "1349": {
       "": "결투자",
       "text": "강제 이동으로 인한 경우를 제외하고, 적에게 인접한 칸을 벗어나지 않음"
     },
+    "1350": {
+      "": "절멸자",
+      "text": "시나리오에 등장한 모든 몬스터 종류를 하나 이상씩 죽임."
+    },
     "1351": {
-      "text": "시나리오 보너스 경험치를 제외하고, 7 이하의 경험치를 획득."
+      "": "게으름뱅이",
+      "text": "시나리오 보너스 경험치를 제외하고 획득한 경험치가 7 이하."
     },
     "1352": {
       "": "구두쇠",
       "text": "노획 토큰이 있는 방을 벗어나지 않음."
     },
+    "1353": {
+      "": "과잉성취자",
+      "text": "한 차례에 문을 열고 적 하나를 죽임, 순서는 상관 없음."
+    },
     "1354": {
-      "text": "적을 하나도 죽이지 않음."
+      "": "평화사절단",
+      "text": "적을 죽이지 않음."
     },
     "1355": {
+      "": "만반의 준비",
       "text": "첫 세 라운드 동안, 공격 능력을 수행하지 않음."
     },
     "1356": {
       "": "학살자",
       "text": "한 라운드에 둘 이상의 적을 처치."
+    },
+    "1357": {
+      "": "굼뱅이",
+      "text": "매 차례마다 2칸보다 많이 이동하지 않음."
     },
     "1358": {
       "": "전문가",
@@ -131,14 +1004,181 @@
   },
   "buildings": {
     "alchemist": {
-      "": "연금술사"
+      "": "연금술공방",
+      "1": "캐릭터는 물약 사용 불가",
+      "2": "약초 2개짜리 물약을 조제",
+      "3": "약초 2개짜리 물약을 조제 및 증류",
+      "4": "약초 2개 및 3개짜리 물약을 조제 및 증류",
+      "5": "물약을 조제",
+      "6": "물약 조제 및 증류",
+      "7": "물약 조제 및 증류"
+    },
+    "barracks": {
+      "": "병영",
+      "1": "공동으로 병사를 최대 1명까지 훈련 가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i> 4<>br<i>효과:</i> 이익 및 -5 %game.action.attack%",
+      "2": "공동으로 병사를 최대 1명까지 훈련가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i> 6<>br<i>효과:</i> 이익 및 -15 %game.action.attack%",
+      "3": "공동으로 병사를 최대 2명까지 훈련가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i> 8<>br<i>효과:</i> 이익 및 -25 %game.action.attack%",
+      "4": "공동으로 병사를 최대 2명까지 훈련가능.<br>1명당 금화 3개와 원료 자원 1개<br><br><i>수용 인원:</i> 10<>br<i>효과:</i> 이익 및 -35 %game.action.attack%",
+      "5": "모든 공격 이벤트 처리 시 불이익<br>병사 사용 불가",
+      "soldiers": "병사 1명 훈련"
+    },
+    "boat": {
+      "": "보트"
+    },
+    "carpenter": {
+      "": "목공소",
+      "1": "모든 건축 비용이 원료 자원 1개만큼 감소",
+      "2": "모든 건축 비용이 원료 자원 1개만큼, 추가 건축 비용이 사기 1점만큼 감소",
+      "3": "공동으로 아무 원료 자원 1개 잃음"
+    },
+    "climbing-gear": {
+      "": "등반 장비"
+    },
+    "craftsman": {
+      "": "제작공방",
+      "1": "공동으로 %game.resource.hide% 1개 잃음",
+      "2": "공동으로 %game.resource.hide% 2개 잃음",
+      "3": "공동으로 %game.resource.hide% 3개 잃음",
+      "4": "아이템을 제작"
+    },
+    "enhancer": {
+      "": "향상소",
+      "1": "모든 향상 비용이 금화 10개씩 감소",
+      "2": "모든 향상 비용이 금화 10개씩, 레벨로 인한 불이익이 레벨마다 금화 10개씩 감소",
+      "3": "모든 향상 비용이 금화 10개씩, 레벨로 인한 불이익이 레벨마다 금화 10개씩, 반복으로 인한 불이익이 향상마다 금화 25개씩 감소",
+      "4": "각 캐릭터는 다음 시나리오를 %game.condition.disarm%로 시작",
+      "5": "향상 구입"
+    },
+    "garden": {
+      "": "텃밭",
+      "1": "약초를 심고, 이 카드를 180도 회전시킨 다음, 멈춘다.<br>약초가 심겨 있는 밭 하나마다 약초 1개를 얻고, 이 카드를 180도 회전시킨 다음, 멈춘다",
+      "2": "약초가 심겨 있는 밭 하나마다 공동으로 약초 1개를 얻고, 그런 다음 약초를 심는다",
+      "plots": {
+        "": "텃밭 관리",
+        "automated": {
+          "": "자동 수확",
+          "hint": "일주일이 지나면 자동으로 텃밭 수확 활성화 <i>%settings.automaticPassTime%</i>이 활성화되지 않으면 비활성화"
+        },
+        "harvest": "수동 수확",
+        "interaction": "약초 심기/수확",
+        "state": {
+          "both": "텃밭 수확 및 약초 심기",
+          "harvest": "텃밭을 뒤집고, 이번주에만 수확",
+          "plant": "약초 심기"
+        }
+      }
+    },
+    "hall-of-revelry": {
+      "": "환희의 전당",
+      "1": "시련 덱이 모두 완료되면, %data.section:187.1% 읽음",
+      "2": "톨로스의 계시에 따르다",
+      "3": "사기 1점 잃음"
+    },
+    "hide-depot": {
+      "": "가죽 창고",
+      "1": "공동으로 %game.resource.hide%을 최대 1개까지 판매 가능, 개당 금화 5개",
+      "2": "공동으로 %game.resource.hide%을 최대 2개까지 판매 가능, 개당 금화 5개",
+      "3": "공동으로 %game.resource.hide% 2개 잃음"
+    },
+    "hunting-lodge": {
+      "": "사냥꾼 오두막",
+      "1": "공동으로 %game.resource.hide%을 최대 1개까지 구입 가능, 개당 금화 2개",
+      "2": "공동으로 %game.resource.hide%을 최대 2개까지 구입 가능, 개당 금화 2개",
+      "3": "공동으로 %game.resource.hide%을 최대 3개까지 구입 가능, 개당 금화 2개",
+      "4": "공동으로 %game.resource.hide%을 최대 4개까지 구입 가능, 개당 금화 2개"
+    },
+    "inn": {
+      "": "여관",
+      "1": "공동으로 원료 자원을 최대 1개까지 구입 가능, 개당 금화 2개",
+      "2": "공동으로 서로 다른 원료 자원을 최대 2개까지 구입 가능, 개당 금화 2개",
+      "3": "공동으로 서로 다른 원료 자원을 최대 3개까지 구입 가능, 개당 금화 2개"
+    },
+    "jeweler": {
+      "": "보석 세공소",
+      "1": "아무 건물 하나 손상"
+    },
+    "library": {
+      "": "도서관",
+      "1": "영감 1점 잃음"
+    },
+    "logging-camp": {
+      "": "벌목장",
+      "1": "공동으로 %game.resource.lumber%를 최대 1개까지 구입 가능, 개당 금화 2개",
+      "2": "공동으로 %game.resource.lumber%를 최대 2개까지 구입 가능, 개당 금화 2개",
+      "3": "공동으로 %game.resource.lumber%를 최대 3개까지 구입 가능, 개당 금화 2개",
+      "4": "공동으로 %game.resource.lumber%를 최대 4개까지 구입 가능, 개당 금화 2개"
+    },
+    "lumber-depot": {
+      "": "목재 창고",
+      "1": "공동으로 %game.resource.lumber%를 최대 1개까지 판매 가능, 개당 금화 5개",
+      "2": "공동으로 %game.resource.lumber%를 최대 2개까지 판매 가능, 개당 금화 5개",
+      "3": "공동으로 %game.resource.lumber% 2개 잃음"
+    },
+    "metal-depot": {
+      "": "제련소",
+      "1": "공동으로 %game.resource.metal%를 최대 1개까지 판매 가능, 개당 금화 5개",
+      "2": "공동으로 %game.resource.metal%를 최대 2개까지 판매 가능, 개당 금화 5개",
+      "3": "공동으로 %game.resource.metal% 2개를 잃습니다"
+    },
+    "mining-camp": {
+      "": "광산",
+      "1": "공동으로 %game.resource.metal%를 최대 1개까지 구입 가능, 개당 금화 2개",
+      "2": "공동으로 %game.resource.metal%를 최대 2개까지 구입 가능, 개당 금화 2개",
+      "3": "공동으로 %game.resource.metal%를 최대 3개까지 구입 가능, 개당 금화 2개",
+      "4": "공동으로 %game.resource.metal%를 최대 4개까지 구입 가능, 개당 금화 2개"
+    },
+    "sled": {
+      "": "썰매"
+    },
+    "stables": {
+      "": "마구간",
+      "pets": {
+        "name": "이름",
+        "showAll": "전체 보기"
+      }
+    },
+    "tavern": {
+      "1": "사기를 1만큼 잃음"
+    },
+    "town-hall": {
+      "4": "도전할 수 없음"
     },
     "trading-post": {
+      "": "교역소",
       "1": "공동으로 금화 5개를 잃음",
       "2": "공동으로 금화 10개를 잃음",
       "3": "공동으로 금화 15개를 잃음",
-      "4": "공동으로 금화 20개를 잃음"
+      "4": "공동으로 금화 20개를 잃음",
+      "5": "아이템 1개 구입",
+      "6": "아이템 2개 구입",
+      "7": "아이템 3개 구입",
+      "8": "아이템 4개 구입",
+      "9": "아이템 구입"
+    },
+    "wall-effect": "+5 방어",
+    "wall-j": {
+      "": "벽 J"
+    },
+    "wall-k": {
+      "": "벽 K"
+    },
+    "wall-l": {
+      "": "벽 L"
+    },
+    "wall-m": {
+      "": "벽 M"
+    },
+    "wall-n": {
+      "": "벽 N"
+    },
+    "workshop": {
+      "": "제작공방",
+      "1": "공동으로 %game.resource.lumber% 1개를 잃음"
     }
+  },
+  "campaignSticker": {
+    "climbing-gear": "등반 도구",
+    "sled": "썰매"
   },
   "character": {
     "banner-spear": "창기수",
@@ -160,42 +1200,118 @@
       "": "쌍생자",
       "melee": "근접",
       "range": "원거리"
+    },
+    "traits": {
+      "arcane": "아케인",
+      "armored": "중갑",
+      "chaotic": "혼돈",
+      "outcast": "추방자",
+      "persuasive": "설득력",
+      "strong": "완력"
     }
   },
   "custom": {
     "fh": {
+      "abael-herder": {
+        "1": "%game.action.range:4% 내의 가장 가까운<br>피라냐돈 하나에게 다음을 지시:",
+        "2": "%game.action.range:3% 내의 모든 피라냐돈에게 다음을 지시:",
+        "3": "피라냐돈이 스스로 %game.damage:1%점을 입음.",
+        "4": "%game.action.range:4% 내의 가장 가까운<br>피라냐돈 하나에게 다음을 지시:",
+        "5": "지시 능력의 대상이 된 피라냐돈이 하나도 없다면,",
+        "6": "여기에서 X는 게임판에 있는 피라냐돈의 숫자."
+      },
       "algox-icespeaker": {
         "1": "적과 가장 가까운 인접한 칸에 1칸 크기의 장애물 생성.",
-        "2": "장애물과 인접한 모든 적은 위험지형의 피해를 입음."
+        "2": "장애물과 인접한 모든 적이 위험지형의 피해를 입음."
       },
       "algox-snowspeaker": {
-        "1": "사정거리 %game.action.range:3% 이내의 모든 적은 %game.damage:2% 피해를 입음"
+        "1": "%game.action.range:3% 내의 모든 적이 %game.damage:2%점을 입음"
       },
       "algox-stormcaller": {
         "1": "위험지형을 생성하고, 위험지형에 점유하거나 인접하고 있는 모든 적은 위험지형 피해를 입음."
       },
       "ancient-artillery": {
-        "1": "사정거리 %game.action.range:7% 이내의 가장 멀리 있는 적을 주목",
-        "2": "대상에 인접한 모든 적은 %game.damage:2% 피해를 입음."
+        "1": "%game.action.range:7% 내의<br>가장 멀리 있는 적을 주목",
+        "2": "대상에 인접한 모든 적이 %game.damage:2%점을 입음."
       },
       "archer": {
         "1": "적과 가장 가까운 빈칸에 %game.damage:3% 피해를 주는 함정 하나를 생성."
       },
       "banner-spear": {
-        "3": "모든 인접한 아군은 %game.shield% 1 획득."
+        "1": "매번 %game.range:2% 내의 모든 아군의 공격 중 하나에 +1%game.action.attack% 추가.",
+        "10": "서로 별개인 범위 효과 공격 능력 세 번에 걸쳐 매번 적을 셋 이상씩 공격",
+        "11": "자신의 첫 번째 차례에 깃발 소환 능력을 수행하고, 시나리오 내내 그 깃발을 자신과 %game.action.range:3% 내에, 생존한 상태로 유지",
+        "2": "매번 자신의 긴 휴식 종료 시, %game.action.range:3% 내의 아군 하나에게",
+        "3": "모든 인접한 아군은 %game.shield% 1 획득.",
+        "4": "매번 인접한 아군에게 첫 번째 %game.damage% 무효",
+        "5": "%game.action.range%4 내에 있는 모든 적은 차례 시작 시 %game.damage:1%을 얻음.",
+        "6": "대상에 인접한 아군마다 +1%game.action.attack% 추가",
+        "7": "매번 자신의 긴 휴식 종료 시, %game.action.range:3% 내의 아군 하나에게 %game.action.move% 2를 지시",
+        "8": "자신의 이동 능력으로 문을 열 때마다, +3 %game.action.move% 추가",
+        "9": "시나리오마다 한 번, 자신의 차례에, 그 라운드 동안 %game.action.shield% 2를 얻음"
+      },
+      "belara": {
+        "1": "인접한 모든 아군과 적이<br>%game.damage:2%점을 입는다"
+      },
+      "blinkblade": {
+        "1": "자신의 다음 공격에, 이 카드를 버려 +2 %game.action.attack% 추가.<br>%game.card.persistent%",
+        "2": "이 카드를 자신의 활성화 영역에 놓는다. 자신의 다음 공격에, 이 카드를 버려 +2 %game.action.attack% 추가",
+        "3": "%data.characterToken.blinkblade.time% 1 얻음",
+        "4": "%data.action.custom.fh-hourglass% 1 얻음",
+        "5": "자신이 짧은 휴식을 취할 때마다, 소모되지 않은 %game.card.spent% 아이템 하나를 효과 없이 소모하여 소모된 다른 아이템 하나를 %game.card.recover% 할 수 있음",
+        "6": "매번 시나리오의 첫 번째 자기 차례 시작 시, %game.action.move% 3을 수행 가능",
+        "7": "자신이 %game.condition.immobilize% 를 얻으려 할 때마다, 그 상태를 방지",
+        "8": "7라운드 연속으로 고속을 선언",
+        "9": "절대로 공격의 대상이 되지 않음"
+      },
+      "boneshaper": {
+        "1": "이 카드에 있는 토큰 하나당 +1 %game.action.attack%.",
+        "2": "공격 중인 소환물을 죽여 대신 %game.attackmodifier.plus4% 추가",
+        "3": "매번 자신의 휴식 바로 직전에, 자기 소환물을 죽여 %game.condition.bless% , 자신을 수행할 수 있음",
+        "4": "시나리오마다 한 번, 아군 캐릭터가 %game.damage% 를 입어 탈진하려 할 때, 대신 자신이 %game.damage% 2점을 입어 해당 캐릭터의 체력을 1로 줄일 수 있음",
+        "5": "매번 시나리오 시작 시, 자신의 손에서 레벨 1 카드 한 장을 플레이하여 그 카드의 소환 행동을 수행할 수 있음",
+        "6": "자신의 소환물을 적어도 열다섯 이상 죽임",
+        "7": "자신의 첫 번째 차례에 소환 행동을 수행하고, 그 소환물이 적어도 여섯 이상의 적을 죽이게 하고, 전체 시나리오 동안 그 소환물을 생존한 상태로 유지"
       },
       "burrowing-blade": {
-        "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다.",
-        "2": "사정거리 %game.action.range:2% 이내의 모든 적은 피해 %game.damage:2%점을 입음."
+        "1": "인접한 모든 적이 %game.damage:2%점을 입는다.",
+        "2": "%game.action.range:2% 내의 모든 적이 %game.damage:2%점을 입음."
+      },
+      "deathwalker": {
+        "1": "자신이 긴 휴식을 취할 때마다, %data.action.custom.fh-shadow%하나를 세 칸까지 이동시킬 수 있음",
+        "2": "자신이 짧은 휴식을 취할 때마다, %game.element.consume.dark% 를 하여 %game.condition.muddle%, %game.condition.curse%, %game.action.range:2%를 수행할 수 있으며, 이 능력은 자신이 %data.action.custom.fh-shadow% 가 있는 칸 하나를 점유하고 있는 것처럼 수행",
+        "3": "자신이 %data.action.custom.fh-shadow% 가 있는 칸을 점유하고 있는 동안, 자신을 대상으로 하는 모든 공격이 불이익을 받음",
+        "4": "한 라운드에 %data.action.custom.fh-shadow% 7개 제거",
+        "5": "절대로 공격의 대상이 되지 않음"
+      },
+      "deep-terror": {
+        "1": "공격 능력이 수행되었다면,",
+        "2": "공격 능력의 대상에 인접한 빈칸 하나에"
+      },
+      "drifter": {
+        "1": "자신의 캐릭터 토큰 하나를 1칸 후퇴시킬 수 있음",
+        "2": "자신이 긴 휴식을 취할 때마다,",
+        "3": "매 시나리오마다 %game.items.slots.onehand% 아이템 하나를 추가로 가져갈 수 있음",
+        "4": "매번 시나리오 종료 시, 무작위 아이템을 제외한 노획 카드를 2장까지 버려 그만큼 새로운 노획 카드를 뽑을 수 있음",
+        "5": "지속 능력 4개의 마지막 칸에 자신의 캐릭터 토큰을 놓은 채로 시나리오 종료",
+        "6": "수치가 4보다 낮은 이동 능력이나 공격을 전혀 수행하지 않으면서, 라운드마다 이동이나 공격 능력을 한 번 이상 수행"
+      },
+      "errata": {
+        "scenraio104": "1차 인쇄: 특별 규칙의 마지막에서 두 번째 줄: \"얼음 망령\"는 \"사바사 얼음폭풍\"이어야 합니다. (GHS에서 수정!)",
+        "section111-2": "1차 인쇄: 맵: 잠복자 병사는 잠복자 발톱파쇄자로 수정되어야 합니다(GHS에서 수정됨!)",
+        "section14-2": "1차 인쇄: 맵: 얼음 망령은 서리 악마이어야 합니다. (GHS에서 수정!)"
+      },
+      "fish-king-scenario-77": {
+        "1": "가장 가까운 피라냐돈을 죽임.<br>인접한 모든 적은 함정 피해를 입음."
       },
       "flame-demon": {
-        "1": "적과 가장 가까운 인접한 칸 하나에 %game.damage:4% 피해의 함정을 생성",
-        "2": "피해 %game.damage:1%",
-        "3": "모든 인접한 적에게 피해 %game.damage:2%점"
+        "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에<br>%game.damage:4% 함정을 생성한다",
+        "2": "%game.damage:1%",
+        "3": "인접한 모든 적이 %game.damage:2%점을 입음"
       },
       "flaming-bladespinner": {
-        "1": "사정거리 %game.action.range:2% 이내의 모든 적은 피해 %game.damage:2%점을 입음.",
-        "2": "사정거리 %game.action.range:2% 이내의 모든 적은 피해 %game.damage:1%점을 입음."
+        "1": "%game.action.range:2% 내의 모든 적이<br> %game.damage:2%점을 입는다.",
+        "2": "%game.action.range:2% 내의 모든 적이 %game.damage:1%점을 입음."
       },
       "flowChartGroup": {
         "algox-1": "알곡스",
@@ -210,16 +1326,16 @@
         "random-scenarios": "무작위 시나리오"
       },
       "frost-demon": {
-        "1": "피해 %game.damage:1%"
+        "1": "%game.damage:1%"
       },
       "frozen-corpse": {
-        "1": "얼어붙은 시체의 이동 능력동안 원소가 소모되었다면, 피해 %game.damage:2%점을 입음."
+        "1": "이동 능력 중에 얼어붙은 시체가 원소를 소비한 경우,<br>얼어붙은 시체가 스스로 %game.damage:2%점을 입는다."
       },
       "frozen-corpse-scenario-32": {
-        "1": "시나리오 특수규칙을 참조"
+        "1": "시나리오 특수 규칙을 참조"
       },
       "geminate": {
-        "1": "당신이 짧은 휴식을 취할 때마다, 사정거리 %game.action.range:3% 이내의 아군의 부정적인 상태를 제거 가능",
+        "1": "당신이 짧은 휴식을 취할 때마다, %game.action.range:3% 내의 아군의 부정적인 상태를 제거 가능",
         "2": "시나리오당 한 번, 자신에게 부정적인 상태를 부여할 때, 해당 상태가 되지 않음"
       },
       "giant-piranha-pig-boss": {
@@ -237,7 +1353,7 @@
         "1": "대상이 사냥개의 아군에 인접해 있다면 공격 +2 %game.action.attack% 추가."
       },
       "ice-wraith": {
-        "1": "모든 정예 얼음 망령은 일반 적이 되고, 모든 일반 얼음 망령은 정예 적이 됨."
+        "1": "모든 정예 얼음 망령이 일반이 되며,<br>모든 일반 얼음 망령이 정예가 된다."
       },
       "laser-spires": {
         "1": "각 레이저 첨탑은 시계방향으로 회전 (가능하다면)",
@@ -249,34 +1365,63 @@
         "1": "물 지형을 복도로 취급하고, 그 외 지형을 장애물로 취급"
       },
       "living-doom": {
-        "1": "X 일반 살아있는 영혼을 소환",
-        "2": "X는 살아있는 파멸의 체력을 5로 나눈 값 (내림), 최대 3."
+        "1": "일반 살아있는 영혼을<br>X만큼 소환한다",
+        "2": "여기에서 X는 살아있는 파멸의<br>현재 체력을 5로 나눈 값(내림, 최대 3)."
       },
       "lord-of-chaos": {
         "1": "모든 적을 가장 가까운 점유되지 않은 통로 지형으로 한 칸 강제 이동."
       },
       "lurker-clawcrusher": {
-        "1": "대상은 피해 %game.damage:X%를 입음, X는 이 공격에 대한 대상의 %game.action.shield% 값.",
-        "2": "대신 X는 %game.action.shield% 값."
+        "1": "대상은 %game.damage:X%점을 입음.<br>여기에서 X는 이 공격에 대한 대상의 %game.action.shield% 수치.",
+        "2": "대신 X는 대상의%game.action.shield%수치에 2를 곱한 값"
       },
       "lurker-mindsnipper": {
-        "1": "주도권 순서대로 모든 공격 대상을 조종:"
+        "1": "공격 능력의 모든 대상을<br>주도권 순서대로 조종:"
       },
       "lurker-soldier": {
-        "1": "2칸 이내의 적들 %game.action.target%"
+        "1": "%game.action.target% 2칸 내의 적들"
       },
       "lurker-wavethrower": {
-        "1": "사정거리 %game.action.range:6% 이내의 가장 멀리있는 적을 주목",
-        "2": "인접한 빈칸에 1칸 물 지형을 생성.",
+        "1": "%game.action.range:6% 내의 가장 멀리있는 적을 주목",
+        "2": "인접한 빈칸 하나에<br>1칸짜리 물 타일 하나를 생성한다.",
         "3": "인접한 점유되지 않은 물 지형에서."
       },
       "lurker-wavethrower-scenario-128": {
-        "1": "사정거리 %game.action.range:6% 이내의 가장 멀리있는 적을 주목",
-        "2": "인접한 빈칸에 1칸 물 지형을 생성."
+        "1": "%game.action.range:6% 내의 가장 멀리있는 적을 주목",
+        "2": "인접한 빈 칸 하나에<br>1칸짜리 물 타일 하나를 생성한다."
       },
       "lurker-wavethrower-scenario-131": {
-        "1": "사정거리 %game.action.range:6% 이내의 가장 멀리있는 적을 주목",
-        "2": "인접한 빈칸에 1칸 물 지형을 생성."
+        "1": "%game.action.range:6% 내의 가장 멀리있는 적을 주목",
+        "2": "인접한 빈 칸 하나에<br>1칸짜리 물 타일 하나를 생성한다.",
+        "3": "홀수 라운드인 경우 가장 왼쪽의 빈 칸<br>짝수 라운드인 경우 가장 오른쪽의 빈 칸"
+      },
+      "night-demon": {
+        "1": "인접한 모든 아군과 적이<br>%game.damage:1%점을 입는다.",
+        "2": "%game.custom.disadvantage%"
+      },
+      "ooze": {
+        "1": "H에 소환하는 점액의 현재 체력과 동일합니다.<br>(일반 점액의 최대 체력 값을 넘을 수 없습니다)"
+      },
+      "piranha-pig": {
+        "1": "공격 대상이 피라냐돈의 아군에게 인접해 있다면 +1%game.action.attack%추가.",
+        "2": "공격 대상이 부상 상태일 경우 공격 %game.action.attack% +2 추가.",
+        "3": "공격 대상이 물 타일에 인접해있을 경우 공격 %game.action.attack% +1 추가.",
+        "4": "여기에서 X는<br>공격 대상이 입은 피해량."
+      },
+      "ruined-machine": {
+        "1": "이동 행동이 수행되었다면,",
+        "2": "공격 행동이 수행되었다면,",
+        "3": "공격 행동이 수행되었다면, 인접한 모든 적은<br>함정 피해를 입고 망가진 기계는 죽는다."
+      },
+      "savvas-lavaflow": {
+        "1": "인접한 모든 아군과 적이<br>%game.damage:2%점을 입는다"
+      },
+      "shrike-fiend": {
+        "1": "%game.action.range:3% 내의 모든 적이 %game.damage:2% 점을 입는다."
+      },
+      "steel-automaton": {
+        "1": "인접한 모든 적이 %game.damage:1%점을 입는다",
+        "2": "인접한 모든 적이 위험지형 피해를 입는다."
       }
     }
   },
@@ -284,36 +1429,77 @@
     "fh": "프로스트헤이븐"
   },
   "monster": {
+    "abael-herder": "아바엘 목동",
+    "abael-scout": "아바엘 정찰병",
+    "algox-archer": "알곡스 궁수",
+    "algox-guard": "알곡스 경비병",
+    "algox-icespeaker": "알곡스 얼음속삭이",
+    "algox-priest": "알곡스 사제",
+    "algox-scout": "알곡스 정찰병",
+    "algox-snowspeaker": "알곡스 눈속삭이",
     "ancient-artillery": "고대 대포",
     "black-imp": "검은 임프",
     "chaos-demon": "혼돈 악마",
     "city-guard": "도시 경비병",
     "deep-terror": "심연의 공포",
     "earth-demon": "대지 악마",
+    "elder-ooze": "",
     "flame-demon": "화염 악마",
+    "flaming-bladespinner": "타오르는 회전칼날",
     "forest-imp": "숲 임프",
     "frost-demon": "서리 악마",
+    "frozen-corpse": "얼어붙은 시체",
+    "frozen-fist": "빙결주먹",
+    "giant-piranha-pig": "거대 피라냐돈",
     "harrower-infester": "해로어 확산자",
     "hound": "사냥개",
+    "ice-wraith": "얼음 망령",
     "large-vermling-scout": "대형 버믈링 정찰병",
+    "lightning-eel": "번개뱀장어",
     "living-bones": "살아있는 뼈",
-    "living-doom": "살아있는 망령",
+    "living-doom": "살아있는 파멸",
     "living-spirit": "살아있는 영혼",
+    "lurker-clawcrusher": "잠복자 발톱파쇄자",
+    "lurker-mindsnipper": "잠복자 정신절개사",
+    "lurker-soldier": "잠복자 병사",
+    "lurker-wavethrower": "잠복자 파도투척자",
     "night-demon": "밤 악마",
     "ooze": "점액",
+    "piranha-pig": "피라냐돈",
+    "polar-bear": "북극곰",
     "rending-drake": "발톱 드레이크",
+    "robotic-boltshooter": "쇠뇌 발사 로봇",
+    "ruined-machine": "망가진 기계",
     "savvas-icestorm": "사바스 얼음폭풍",
     "savvas-lavaflow": "사바스 용암류",
+    "shrike-fiend": "떼까치 악령",
+    "snow-imp": "눈임프",
+    "snowdancer": "눈의 연무가",
     "spitting-drake": "분비액 드레이크",
+    "steel-automaton": "강철 자동인형",
     "sun-demon": "태양 악마",
+    "vermling-priest": "버믈링 사제",
     "vermling-scout": "버믈링 정찰병",
     "wind-demon": "바람 악마",
     "yoglang": "Yoglang"
+  },
+  "objective": {
+    "Flaming Bladespinner": "타오르는 회전칼날"
   },
   "personalQuest": {
     "fh": {
       "519": {
         "": "영원한 방랑자"
+      },
+      "545": {
+        "2": "얼어붙은 시체, 얼음 망령, 및/또는 살아있는 파멸을 죽임"
+      },
+      "549": {
+        "1": "망가진 기계를 죽임"
+      },
+      "588": {
+        "2": "잠복자 발톱파쇄자를 죽임",
+        "3": "쇠뇌 발사 로봇을 죽임"
       }
     }
   },
@@ -323,7 +1509,26 @@
     },
     "rules": {
       "fh": {
-        "0": "사냥개의 몬스터 능력덱을 사용하지 않음. 그 대신, 매 라운드마다 모든 사냥개들은 26의 주도권으로 %game.action.move% 2; %game.action.attack% 2를 수행."
+        "0": "사냥개의 몬스터 능력덱을 사용하지 않음. 그 대신, 매 라운드마다 모든 사냥개들은 26의 주도권으로 %game.action.move% 2; %game.action.attack% 2를 수행.",
+        "110": "인접한 칸에서 망가진 기계가 죽을 때만 파괴할 수 있습니다",
+        "128": {
+          "1": "모든 강철 자동인형은 임프의 몬스터 능력 덱을 사용한다.",
+          "2": "잠복자 파도투척자가 번개뱀장어를 소환할 때,<br>대신에 현재 체력 값이 1인 버믈링 정찰병 하나를 소환합니다."
+        },
+        "131": "잠복자 파도투척자는 모든 공격에 +1 %game.action.attack%을 추가하고 번개뱀장어를 소환하지 않습니다.<br>대신 아래로부터의 도움를 수행할 때마다 모든 잠복자 파도투척자는 다음을 수행한다.<br>\"%game.action.attack% +1, %game.action.range% 4; 홀수 라운드인 경우 가장 왼쪽 빈 칸으로 %game.action.teleport%,<br>짝수 라운드인 경우 가장 오른쪽 빈 칸으로 %game.action.teleport%.<br>전이 가능한 칸이 여러 개 있는 경우 모든 캐릭터에서 가장 멀리 떨어진 칸으로 전이\"",
+        "134": "강철 자동인형의 체력은 HxC/2(반올림)."
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "fh": {
+        "15-2A": "눈의 연무가 죽음",
+        "15-2B": "눈의 연무가 죽음",
+        "22-1A": "빙결주먹 죽음",
+        "22-1B": "빙결주먹 죽음",
+        "80-2A": "빙결주먹 해금",
+        "80-2B": "눈의 연무가 해금"
       }
     }
   }

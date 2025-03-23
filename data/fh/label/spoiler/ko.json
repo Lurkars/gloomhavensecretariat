@@ -6,6 +6,56 @@
       }
     }
   },
+  "character": {
+    "coral": "파쇄조류",
+    "fist": {
+      "": "빙결주먹"
+    },
+    "snowflake": {
+      "": "눈의 연무가"
+    },
+    "trap": "덫 사냥꾼"
+  },
+  "custom": {
+    "fh": {
+      "coral": {
+        "1": "\"이번 라운드에 %data.action.custom.fh-tides%행동을 수행했다면, 대신 %game.attackmodifier.plus2%\" 카드 2장 추가",
+        "2": "그리고 자신이 %game.condition.impair%을 얻으려 할 때마다, 그 상태를 방지",
+        "3": "자신이 카드 선택 도중 긴 휴식을 선언할 때마다, 그 라운드 동안 %game.action.shield:1% 얻음",
+        "4": "물 칸을 점유하고 있는 적을 대상으로 하거나, 물 칸을 점유하고 있는 동안 수행하는 자신의 모든 공격에 이익을 받음",
+        "5": "공격으로 피해를 전혀 입지 않고, 적어도 다섯 번 이상 공격의 대상이 됨",
+        "6": "매번 자신의 휴식 시작 시, 활성화된 %game.action.custom.fh-tides%가 자신의 버린 카드 더미에 있는 카드보다 많음"
+      },
+      "fist": {
+        "1": "대상에 인접한 특색 없는 칸 하나에 1칸짜리 결빙지형 타일 하나 생성",
+        "2": "그리고 이동 행동을 통해 결빙지형에 진입할 때마다 그 효과를 무시하여 +1 %game.action.move% 을 추가할 수 있음",
+        "3": "긴 휴식으로 치료를 받을 때마다, %game.elementHalf.consume:ice|earth% 를 하여 +2 %game.action.heal% 를 추가할 수 있음",
+        "4": "시나리오마다 한 번, %game.damage%를 입으려 할 때 그 %game.damage% 를 무효화 할 수 있음",
+        "5": "매 라운드 자신의 버린 카드 더미에서 카드 1장 이상씩 %game.card.recover%",
+        "6": "이동 능력 하나로 10개 이상의 서로 다른 칸에 진입, 그런 다음 같은 차례에 공격 능력 하나로 적 하나가 %game.damage:10%점 이상을 입도록 만듦"
+      },
+      "snowflake": {
+        "1": "이 행동이 대상을 강제로 이동시키는 경우, 대상이 %game.damage:1% 점을 입음",
+        "2": "자신이 긴 휴식을 취할 때마다, %game.elementHalf:ice|air% 를 할 수 있음",
+        "3": "자신이 짧은 휴식을 취할 때 마다, %game.element.consume.ice% 로 %game.condition.regenerate%, %game.action.range:3%을, %game.element.consume.air% 로 %game.condition.ward%, %game.action.range:3%을 수행할 수 있음",
+        "4": "매번 시나리오 시작 시, 모든 적이 %game.condition.muddle% 을 얻음,새로운 방이 공개될 때마다, 새로운 방에 있는 모든 적이 %game.condition.muddle% 을 얻음",
+        "5": "매 라운드 아군이나 적 하나 이상을 움직이게 만듦",
+        "6": "매 라운드 %game.damage% 를 입는 첫 번째 아군이, 그 %game.damage% 를 입기 바로 직전을 기준으로 자신이 적용한 상태를 하나 이상 보유"
+      },
+      "trap": {
+        "1": "대상에 인접한 빈칸 하나에 %game.damage:2% 함정 하나 생성",
+        "10": "하나의 능력으로, 함정 일곱 개 이상을 통과하도록 적들을 이동",
+        "2": "대상에 인접한 빈칸 하나에 %game.action.heal% 2 함정 하나 생성",
+        "3": "대상에 인접한 빈칸 하나에 %game.damage:1% 함정 하나 생성",
+        "4": "자신으로부터 %game.action.range:2% 내의 함정 하나에 %game.damage:2% 또는 %game.action.heal% 2 추가",
+        "5": "%game.action.push% 2 또는 %game.action.pull% 2 추가",
+        "6": "자신이 긴 휴식을 취할 때마다, 인접한 빈칸 하나에 %game.damage:1% 함정 하나를 생성할 수 있음",
+        "7": "자신이 함정에 있는 칸에 진입할 때마다, 그 함정이 발동하지 않도록 선택할 수 있음",
+        "8": "시나리오 시작 시, 인접한 빈칸 하나에 %game.damage:2% 함정 하나를 생성할 수 있음",
+        "9": "게임판에 수치가 20 이상인 %game.action.heal% 함정 하나 보유"
+      }
+    }
+  },
   "items": {
     "fh-1": {
       "": "망원경",

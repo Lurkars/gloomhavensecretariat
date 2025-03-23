@@ -1167,7 +1167,7 @@
     },
     "fh-49": {
       "": "残酷匕首",
-      "1": "在你近战攻击能力期间，1次攻击增加+1%game.action.attack%和%game.condition.wound%"
+      "1": "在你近战攻击能力期间，1次攻击增加+1%game.action.attack%和%game.condition.wound% 。"
     },
     "fh-5": {
       "": "简陋靴",
@@ -1208,7 +1208,7 @@
     },
     "fh-58": {
       "": "滑手剑",
-      "1": "在你近战攻击能力期间，1次攻击增加+2%game.action.attack%。在该次能力结束后，获得%game.condition.disarm%"
+      "1": "在你近战攻击能力期间，1次攻击增加+2%game.action.attack%。在该次能力结束后，获得%game.condition.disarm% 。"
     },
     "fh-59": {
       "": "专精咒符",

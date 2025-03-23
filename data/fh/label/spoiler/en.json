@@ -894,7 +894,7 @@
     },
     "fh-210": {
       "": "Tanjo",
-      "1": "During your turn, add +3 %game.action.attack% to all your attacks performed by Lurkers targeting you this round. "
+      "1": "During your turn, add -3 %game.action.attack% to all your attacks performed by Lurkers targeting you this round. "
     },
     "fh-211": {
       "": "Boom Barrel",

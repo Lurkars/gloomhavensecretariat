@@ -2,45 +2,45 @@
   "about": {
     "": "关于",
     "forceUpdate": "强制更新",
-    "ip": "幽港迷城及其所有相关的资产,图片以及文本都归 {0}所有.",
-    "license": "获得{0}许可.",
+    "ip": "幽港迷城及其所有相关产权、图像和文字内容均归 {0} 所有。",
+    "license": "依据 {0} 许可。",
     "sourceCode": "源代码",
     "support": "帮助开发",
     "version": {
-      "latest": "最新的",
+      "latest": "最新版本",
       "unknown": "无法获取到最新版本",
       "update": "最新版本 <a target=\"_blank\" href=\"{1}\">{0}</a>"
     }
   },
   "and": "和",
   "app": {
-    "install": "以app形式安装",
+    "install": "安装为App",
     "loading": {
       "": "载入中…",
-      "cancel": "取消载入?"
+      "cancel": "取消载入？"
     }
   },
   "campaign": {
-    "": "战役/角色管理",
+    "": "征程/角色管理",
     "battleGoals": "战斗目标设置",
     "campaignManagement": {
-      "": "管理战役",
-      "add": "添加战役",
-      "hint": "在游玩剧本时不能更改当前战役或创建新的战役.请完成或取消游玩当前剧本来更改当前战役或创建新的战役.",
-      "name": "战役名称 {0}",
-      "reset": "重置战役"
+      "": "管理征程",
+      "add": "添加征程",
+      "hint": "在场景进行期间，无法切换当前征程或创建新征程。需完成或取消当前场景后，方可切换征程或创建新征程。",
+      "name": "征程名称 {0}",
+      "reset": "重置征程"
     },
-    "character": "角色记录纸",
-    "items": "物品卡牌概览",
+    "character": "角色记录表",
+    "items": "道具卡概览",
     "map": {
       "": "世界地图",
-      "highlighting": "突出"
+      "highlighting": "高亮显示"
     },
-    "party": "团队 / 活动记录纸",
-    "resources": "资源总览表",
-    "sheet": "整体战役管理记录纸",
+    "party": "团队 / 征程记录表",
+    "resources": "资源概览表",
+    "sheet": "全局征程管理记录表",
     "trials": {
-      "": "考验",
+      "": "试炼",
       "automation": "此卡牌效果自动生效！"
     }
   },
@@ -52,49 +52,49 @@
     },
     "deck": {
       "clear": {
-        "": "弃掉抽到的挑战（卡）",
-        "multiple": "弃掉所有已抽取的挑战卡牌"
+        "": "弃掉抽取的挑战",
+        "multiple": "弃掉多个抽取的挑战"
       },
-      "current": "当前的",
-      "finished": "完成的",
+      "current": "当前",
+      "finished": "已完成",
       "hint": {
         "current": {
           "": "当前正在进行的挑战",
           "multiple": "当前正在进行的所有挑战"
         },
         "drawAvailable": {
-          "": "抽取挑战（卡）",
-          "multiple": "抽取所有挑战（卡）"
+          "": "抽取挑战",
+          "multiple": "抽取多个挑战"
         },
         "select": {
-          "": "切换生效的挑战卡牌",
-          "multiple": "切换所有生效的挑战卡牌"
+          "": "切换正在进行的挑战",
+          "multiple": "切换多个正在进行的挑战"
         }
       },
-      "removed": "移除的",
-      "upcoming": "即将抽取的"
+      "removed": "已移除",
+      "upcoming": "即将发生"
     },
-    "disabled": "该剧本未设置任何挑战！"
+    "disabled": "该场景未设置挑战！"
   },
   "character": {
     "": "角色",
     "abilities": {
-      "currentDeck": "当前牌组",
-      "deckWarning": "由于牌堆中的牌太多,无法做出正确的选牌操作!",
-      "forceDeck": "双击以将卡牌添加到牌堆中",
-      "levelWarning": "牌堆无效,因为部分卡牌的等级高于角色等级!",
-      "pickCard": "挑选你的等级为 {0} 的卡牌",
-      "removeFromDeck": "双击以将卡牌从牌堆中移除",
-      "show": "显示所有技能卡牌",
-      "showDeck": "显示当前角色卡池",
+      "currentDeck": "当前牌堆",
+      "deckWarning": "牌堆卡牌数量过多，无法进行正确选牌！",
+      "forceDeck": "双击将卡牌添加到牌堆中",
+      "levelWarning": "牌堆无效，部分卡牌等级高于角色等级！",
+      "pickCard": "选择等级 {0} 卡牌",
+      "removeFromDeck": "双击将卡牌从牌堆中移除",
+      "show": "显示所有技能卡",
+      "showDeck": "显示当前角色牌堆",
       "sort": {
-        "cardId": "以卡牌编号整理",
-        "level-deck": "按牌堆中卡牌的等级排序",
-        "level-name": "以等级和名称排序",
-        "name": "以名称排序"
+        "cardId": "按卡牌编号排序",
+        "level-deck": "按牌堆内卡牌等级排序",
+        "level-name": "按等级和名称排序",
+        "name": "按名称排序"
       },
       "undoLastPick": {
-        "": "不选择等级 {0}",
+        "": "撤销等级 {0} 的选择",
         "hint": "双击重置所有选择"
       },
       "wip": "<i>%制作中%</i>"
@@ -102,46 +102,46 @@
     "absent": "不在场",
     "add": "添加角色",
     "class": {
-      "aesther": "以太灵",
+      "aesther": "行维族",
       "algox": "冰角",
       "f": {
-        "aesther": "以太灵",
+        "aesther": "行维族",
         "algox": "冰角",
         "harrower": "骇虫",
         "human": "人类",
-        "inox": "钢角",
-        "lurker": "潜伏蟹",
-        "orchid": "兰晶",
-        "quatryl": "石晶",
-        "savvas": "萨瓦斯",
+        "inox": "羚牛族",
+        "lurker": "伏击者",
+        "orchid": "花晶族",
+        "quatryl": "智元族",
+        "savvas": "原生族",
         "unfettered": "自由机",
         "valrath": "亡怒者",
-        "vermling": "腐鼠"
+        "vermling": "腐灵族"
       },
       "harrower": "骇虫",
       "human": "人类",
-      "inox": "钢角",
-      "lurker": "潜伏蟹",
+      "inox": "羚牛族",
+      "lurker": "伏击者",
       "m": {
-        "aesther": "以太灵",
+        "aesther": "行维族",
         "algox": "冰角",
         "harrower": "骇虫",
         "human": "人类",
-        "inox": "钢角",
-        "lurker": "潜伏蟹",
-        "orchid": "兰晶",
-        "quatryl": "石晶",
-        "savvas": "萨瓦斯",
+        "inox": "羚牛族",
+        "lurker": "伏击者",
+        "orchid": "花晶族",
+        "quatryl": "智元族",
+        "savvas": "原生族",
         "unfettered": "自由机",
         "valrath": "亡怒者",
-        "vermling": "腐鼠"
+        "vermling": "腐灵族"
       },
-      "orchid": "兰晶",
-      "quatryl": "石晶",
-      "savvas": "萨瓦斯",
+      "orchid": "花晶族",
+      "quatryl": "智元族",
+      "savvas": "原生族",
       "unfettered": "自由机",
       "valrath": "亡怒者",
-      "vermling": "腐鼠"
+      "vermling": "腐灵族"
     },
     "filter": {
       "": "筛选角色",
@@ -149,25 +149,25 @@
       "noResult": "无结果"
     },
     "lootCards": {
-      "drawn": "按抽卡时间排序",
+      "drawn": "按抽取时间排序",
       "sort": "按类型排序"
     },
     "playerNumber": "玩家#",
-    "present": "在线",
+    "present": "在场",
     "progress": {
-      "": "角色记录纸",
+      "": "角色记录表",
       "donate": "捐赠",
-      "donations": "向圣橡树捐赠: {0}",
+      "donations": "向圣橡树庇护所捐赠: {0}",
       "export": "导出",
       "fh": {
-        "disable": "前往幽港迷城角色记录纸",
-        "enable": "前往霜港迷城角色记录纸"
+        "disable": "前往幽港迷城角色记录表",
+        "enable": "前往霜港迷城角色记录表"
       },
       "gold": "金币",
       "gold-notes": "金币记录",
       "import": "导入",
       "level": "等级",
-      "lock": "将角色记录纸锁定以免误触编辑.",
+      "lock": "将角色记录表锁定以免误触编辑.",
       "masteries": "巅峰战绩",
       "name": "名称",
       "notes": "记录",
@@ -176,14 +176,14 @@
         "extra": "额外的专长"
       },
       "personalQuest": {
-        "": "个人使命",
+        "": "个人任务",
         "counter": "计数",
         "openEnvelope": {
           "": "打开信封 %game.fhIcon:envelope% {0}",
           "alt": "打开信封 %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
           "building": "解锁建筑物 '%data.buildings.{1}%' ({0})",
           "inspiration": "获得+1激励值",
-          "itemBlueprint": "获得 \"%data.items.{1}-{0}%\" 设计蓝图 (Item {0})",
+          "itemBlueprint": "获得 \"%data.items.{1}-{0}%\" 设计图 (Item {0})",
           "randomScenario": "查看 %data.section:{0}%, 解锁 %data.scenarioNumber:{1}%"
         },
         "unlockCharacter": {
@@ -197,12 +197,12 @@
         "apply": "挪动资源",
         "move": "挪至寒霜港补给中"
       },
-      "retired": "退休",
+      "retired": "退隐",
       "retirement": {
-        "": "退休角色",
+        "": "退隐角色",
         "additionalPQ": {
           "": "花费15点激励值来完成额外的个人使命",
-          "cancel": "取消额外的个人使命",
+          "cancel": "取消额外的个人任务",
           "inspiration": "-15激励值"
         },
         "apply": "应用",
@@ -211,13 +211,13 @@
         "moveSupply": "将资源挪至寒霜港补给中",
         "prosperity": "+{0} 繁荣度"
       },
-      "retirements": "退休",
+      "retirements": "退隐",
       "title": "{1} {0}",
       "trial": "试炼",
       "xp": "经验值"
     },
     "remove": "移除角色",
-    "removeAll": "移除所有",
+    "removeAll": "全部移除",
     "replay": {
       "": "重新游玩角色",
       "hint": "双击来重玩角色"
@@ -229,12 +229,12 @@
     "token": "角色指示物",
     "traits": "特性",
     "unlock": {
-      "": "解锁?",
+      "": "要解锁吗？",
       "confirm": "解锁!"
     },
     "unlockAll": {
-      "": "解锁所有?",
-      "confirm": "解锁所有!"
+      "": "全部解锁吗？",
+      "confirm": "全部解锁！"
     }
   },
   "close": "关闭",
@@ -589,14 +589,14 @@
       "confirmReveal": "再次点击以揭示!",
       "coverAll": "覆盖全部",
       "defaultSort": "整理",
-      "draw": "抽取",
+      "draw": "抽牌",
       "drawAdvantage": "以优势攻击抽取卡牌",
       "drawAnother": "再抽一张",
       "drawDisadvantage": "以劣势攻击抽取卡牌",
       "drawExtra": "连抽",
       "edit": {
         "": "编辑",
-        "toggleBB": "以 BB 表格形式显示"
+        "toggleBB": "以列表形式显示"
       },
       "fullscreen": "全屏显示",
       "openDialog": "显示所有卡牌",
@@ -1272,7 +1272,7 @@
         "enable": "前往霜港迷城战役记录纸",
         "name": "团队名称",
         "nextWeek": "下周(新日历)",
-        "soldierLevel": "Lvl",
+        "soldierLevel": "等级",
         "soldiers": "士兵",
         "summer": "夏季",
         "supply": {
@@ -1387,9 +1387,9 @@
     }
   },
   "round": {
-    "draw": "抽取",
+    "draw": "抽牌",
     "hint": {
-      "active": "并非所有个体均已完成回合.仍然执意结束轮次?",
+      "active": "仍有生物未完成行动。确认强制结束当前回合？",
       "battleGoals": "并非所有角色均已选择战斗目标.仍然执意开始轮次?",
       "confirm": "确认",
       "confirmFailed": "剧本失败",
@@ -1400,108 +1400,109 @@
       "continueNext": "开始下一轮并继续",
       "empty": "请在轮次前添加怪物和角色.",
       "failed": "似乎所有角色都已筋疲力尽.是否重启剧本?",
-      "finish": "已无怪物.剧本是否成功?",
-      "missingInitiative": "必须为所有个体设置时序值!"
+      "finish": "当前已无剩余怪物。是否确认成功完成场景？",
+      "initiativeRoundConfirm": "所有时序已确认。是否开始下一回合？",
+      "missingInitiative": "所有生物必须设定时序！"
     },
-    "next": "下一轮"
+    "next": "下一回合"
   },
   "scenario": {
-    "": "剧本",
-    "blocked": "封锁",
-    "cancel": "取消剧本",
+    "": "场景",
+    "blocked": "被阻挡",
+    "cancel": "取消场景",
     "chart": {
-      "": "剧本流程图",
+      "": "场景流程图",
       "campaign": {
-        "": "战役模式",
-        "back": "返回战役模式",
-        "force": "双击以强制显示完整的剧本流程图(包括剧透信息)."
+        "": "征程模式",
+        "back": "返回征程模式",
+        "force": "双击以显示完整流程图（含剧透内容）。"
       },
-      "setup": "显示剧本设置",
-      "start": "开始剧本",
+      "setup": "显示场景设置",
+      "start": "开始场景",
       "success": "标记为已完成",
       "treasures": {
-        "": "显示财宝（如有）",
-        "empty": "没有财宝"
+        "": "显示宝箱（若有）",
+        "empty": "没有宝箱"
       }
     },
     "conclusion": "结局",
     "custom": "自定义",
     "eventEffects": {
       "": "事件效果",
-      "campaign": "影响战役",
+      "campaign": "影响征程",
       "drawRandomItem": {
-        "": "抽随机物品设计图纸",
-        "apply": "施加",
-        "blueprint": "抽随机物品蓝图"
+        "": "抽取随机道具设计图",
+        "apply": "添加",
+        "blueprint": "抽取随机道具设计图"
       },
       "drawRandomScenario": {
-        "": "抽随机剧本",
-        "apply": "施加",
+        "": "抽取随机场景",
+        "apply": "添加",
         "scenario": "{1} %data.scenarioNumber:{0}%",
-        "section": "打开 %data.section:{0}%，解锁{2}"
+        "section": "打开 %data.section:{0}%，解锁 {2}"
       },
-      "hint": "施加于选中的角色",
-      "progress": "影响角色发展"
+      "hint": "应用至所有选定角色",
+      "progress": "影响角色成长进度"
     },
     "favors": {
-      "": "附录F：神恩",
-      "apply": "施加",
-      "keep": "为每个剧本保留神恩",
+      "": "附录F：恩惠机制",
+      "apply": "添加",
+      "keep": "所有场景保留恩惠",
       "label": {
         "": "%game.data.favors.{0}.{1}% (1点)",
         "multiple": "%game.data.favors.{0}.{1}% ({2} 点)"
       }
     },
     "filter": {
-      "": "筛选剧本",
+      "": "筛选场景",
       "noResult": "无结果"
     },
-    "filterSuccess": "仅未完成的剧本",
+    "filterSuccess": "仅未完成的场景",
     "finish": {
-      "": "剧本完成",
+      "": "完成场景",
       "failure": "失败",
       "reset": "重置",
       "success": "成功"
     },
-    "level": "等级{0}",
-    "locked": "需求丢失",
+    "level": "等级 {0}",
+    "locked": "未满足条件",
     "manual": {
-      "add": "剧本解锁",
-      "index": "剧本编号，以逗号分隔"
+      "add": "解锁场景",
+      "index": "场景编号，以逗号分隔"
     },
     "openRoom": "开门",
-    "openRoomMarker": "开门 %game.mapMarker.{1}%",
-    "openRoomMarkerRef": "开门 %game.mapMarker.{1}% 放置板块 '{0}'",
-    "openRoomRef": "开门放置板块'{0}'",
-    "random": "随机地城",
+    "openRoomMarker": "打开 %game.mapMarker.{1}% 的门",
+    "openRoomMarkerRef": "打开 %game.mapMarker.{1}% 的门放置板块 '{0}'",
+    "openRoomRef": "开门放置板块 '{0}'",
+    "random": "随机探险地点",
     "requirements": {
-      "": "剧本需求",
-      "all": "显示所有需求（包括已满足的）",
-      "buildings": "'%data.buildings.{0}%' （建筑）建造",
-      "buildingsLevel": "'%data.buildings.{0}%' （建筑）等级 {1} 建造",
-      "buildingsMissing": "'%data.buildings.{0}%' （建筑）未建造",
-      "campaignStickers": "'{0}' （战役贴纸）完成",
-      "campaignStickersCount": "'{0}' （战役贴纸）x{2} 完成（获得{1}）",
-      "campaignStickersMissing": "'{0}'（战役贴纸）未完成",
+      "": "场景条件",
+      "all": "显示所有条件（包括已满足的）",
+      "buildings": "'%data.buildings.{0}%'(Building)构筑",
+      "buildingsLevel": "'%data.buildings.{0}%' (Building) 等级 {1} 构筑",
+      "buildingsMissing": "'%data.buildings.{0}%' (Building) 未构筑",
+      "campaignStickers": "'%data.campaignSticker.{0}%' (Campaign Sticker) 完成",
+      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Campaign Sticker) x{2} 完成  (got {1})",
+      "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Campaign Sticker) 未完成",
       "cancel": "取消",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' 出席",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' 不在场",
-      "global": "'{0}'（战役）完成",
-      "globalCount": "'{0}' （战役）x{2} 完成（获得{1}）",
-      "globalMissing": "'{0}'（战役）未完成",
-      "party": "'{0}'（团队）完成",
-      "partyCount": "'{0}'（团队）x{2} 完成（获得{1}）",
-      "partyMissing": "'{0}'（团队）未完成",
+      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' 在场",
+      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' 离场",
+      "global": "'{0}' (Global) 完成",
+      "globalCount": "'{0}' (Global) x{2} 完成 (got {1})",
+      "globalMissing": "'{0}' (Global) 未完成",
+      "party": "'{0}' (Party) 完成",
+      "partyCount": "'{0}' (Party)x{2} 完成  (got {1})",
+      "partyMissing": "'{0}' (Party) 未完成",
       "scenarios": {
-        "": "需要完成以下剧本",
+        "": "需要完成以下场景",
         "and": "和",
         "or": "或",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' 等级大于等于5",
-      "start": "无论如何，开始剧本"
+      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' 等级 5 或更高",
+      "start": "强制开始场景"
     },
-    "reset": "重启剧本",
+    "reset": "重启场景",
     "rewards": {
       "": "奖励",
       "addWeek": {
@@ -2317,6 +2318,10 @@
       "": "要求有时序值",
       "hint": "如果未勾选,则必须通过拖拽手动设置实体的顺序"
     },
+    "initiativeRoundConfirm": {
+      "": "时序设置对话框",
+      "hint": "当所有时序确定后，弹出对话框以开始下一回合。"
+    },
     "interactiveAbilities": {
       "": "互动能力",
       "hint": "通过点击能力卡牌的相应区域,直接应用某些突出显示的能力,例如召唤或元素行动."
@@ -2339,6 +2344,7 @@
       "es": "西班牙语 (Español)",
       "fr": "法语 (Français)",
       "help": "翻译求助!",
+      "it": "意大利语（Italiano）",
       "ko": "韩语 (한국어)",
       "zh_Hans": "简体中文"
     },
@@ -2376,6 +2382,10 @@
     },
     "playerCount": {
       "": "手动角色计数"
+    },
+    "playerNumber": {
+      "": "显示玩家编号",
+      "hint": "在角色面板上显示玩家编号."
     },
     "portraitMode": {
       "": "立绘模式优化",
@@ -3071,8 +3081,8 @@
         "type": {
           "": "问题类型",
           "abilityCard": {
-            "": "能力卡牌",
-            "hint": "能力卡牌数值错误.",
+            "": "技能卡",
+            "hint": "技能卡数值错误。",
             "subject": "能力卡牌出现问题"
           },
           "artwork": {
@@ -3087,7 +3097,7 @@
           },
           "characterStat": {
             "": "角色属性",
-            "hint": "角色属性数值错误.",
+            "hint": "角色数据数值错误.",
             "subject": "角色属性出现问题"
           },
           "feedback": {
@@ -3096,9 +3106,9 @@
             "subject": "概括性反馈"
           },
           "monsterStat": {
-            "": "怪物属性",
-            "hint": "怪物属性错误.",
-            "subject": "怪物属性出现问题"
+            "": "怪物数据",
+            "hint": "怪物数据数值错误。",
+            "subject": "怪物数据出现问题"
           },
           "software": {
             "": "软件",
@@ -3120,6 +3130,13 @@
     },
     "keyboard": {
       "": "键盘快捷键",
+      "activeCharacter": {
+        "lootDec": "减少当前角色的金钱标记",
+        "lootInc": "增加当前角色的金钱标记",
+        "xpDec": "减少当前角色的经验值",
+        "xpInc": "增加当前角色的经验值"
+      },
+      "alt": "ALT",
       "am": "抽取攻击修正卡牌 (由当前行动单位决定所抽取的牌库, 无行动单位时抽取怪物攻击修正牌堆, 当 <b>Draw</b> 失效)",
       "amAdvantage": "与 <kbd><span>m</span></kbd> 相同,但如果启用将以劣势攻击抽取",
       "amDisadvantage": "与 <kbd><span>m</span></kbd>一样, 但如果启用以劣势攻击抽取",
@@ -3136,8 +3153,8 @@
         "hpDec": "减少当前血量",
         "hpInc": "增加当前血量",
         "kill": "击杀 / 力竭",
-        "lootDec": "减少金钱指示物",
-        "lootInc": "增加金钱指示物",
+        "lootDec": "减少金钱标记",
+        "lootInc": "增加金钱标记",
         "maxHpDec": "减少最大生命值",
         "maxHpInc": "增加最大生命值",
         "toggleAbsent": "切换角色至不在场",
@@ -3172,16 +3189,17 @@
       "toggleAbsent": "切换 <i>隐藏不在场个体</i>",
       "toggleDamageHP": "切换 <i>%settings.damageHP%</i>",
       "toggleElements": "切换元素状态",
-      "toggleHandSize": "切换 <i>展示手牌数量及等级</i>",
-      "toggleTraits": "切换 <i>展示特性</i>",
+      "toggleHandSize": "切换 <i>Display hand size and level</i>",
+      "togglePlayerNumber": "切换 <i>Display player number</i>",
+      "toggleTraits": "切换 <i>Display traits</i>",
       "undo": "撤销",
       "zoomIn": "放大",
       "zoomOut": "缩小",
-      "zoomReset": "重置大小"
+      "zoomReset": "重置缩放"
     },
     "validateEditionData": "确认版本数据"
   },
-  "update": "更新-重新加载",
+  "update": "更新 - 重新加载",
   "welcome": {
     "": "欢迎来到Gloomhaven Secretariat",
     "chooseCharacters": "选择你的角色",
@@ -3192,5 +3210,5 @@
       "text": "使用多样化的调整来将所有内容进行合理的设置:"
     }
   },
-  "wip": "仍在开发中"
+  "wip": "开发中"
 }

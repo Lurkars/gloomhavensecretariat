@@ -101,7 +101,9 @@
     "brute": "蛮子",
     "cragheart": "裂心石人",
     "mindthief": "乱心贼",
-    "scoundrel": "凶徒"
+    "scoundrel": "凶徒",
+    "spellweaver": "织魔师",
+    "tinkerer": "机匠"
   },
   "custom": {
     "gh": {
@@ -184,20 +186,62 @@
     "The Merchant Flees": "商人逃离"
   },
   "monster": {
+    "ancient-artillery": "远古炮台",
     "arcane-golem": "符文魔像",
+    "bandit-archer": "强盗弓箭手",
+    "bandit-commander": "强盗头目",
+    "bandit-guard": "强盗卫兵",
+    "black-imp": "黑暗小妖",
+    "captain-of-the-guard": "卫兵队长",
     "cave-bear": "洞穴熊",
     "city-archer": "城市弓箭手",
-    "city-guard": "城市守卫",
+    "city-guard": "城市卫兵",
     "cultist": "邪教徒",
-    "deep-terror": "深度恐惧",
-    "flame-demon": "眼魔",
-    "frost-demon": "霜魔",
-    "giant-viper": "巨型毒蛇",
-    "night-demon": "夜魔",
-    "prime-demon": "至高恶魔",
+    "dark-rider": "黑暗骑士",
+    "deep-terror": "深恐者",
+    "earth-demon": "大地恶魔",
+    "elder-drake": "上古亚龙",
+    "flame-demon": "烈焰恶魔",
+    "forest-imp": "森林小妖",
+    "frost-demon": "冰霜恶魔",
+    "giant-viper": "巨型蝮蛇",
+    "harrower-infester": "巢灵族寄生者",
+    "hound": "猎犬",
+    "inox-archer": "羚牛族弓箭手",
+    "inox-bodyguard": "羚牛族保镖",
+    "inox-guard": "羚牛族卫兵",
+    "inox-shaman": "羚牛族萨满",
+    "jekserah": "婕克瑟拉",
+    "living-bones": "骷髅",
+    "living-corpse": "行尸",
+    "living-spirit": "怨灵",
+    "lurker": "伏击者",
+    "night-demon": "暗夜恶魔",
+    "ooze": "软泥怪",
+    "prime-demon": "恶魔主宰",
+    "rending-drake": "撕裂亚龙",
+    "savvas-icestorm": "原生族冰风魔人",
+    "savvas-lavaflow": "原生族熔岩魔人",
     "siege-cannon": "攻城炮",
-    "stone-golem": "石魔像",
-    "the-colorless": "无色者"
+    "spitting-drake": "喷吐亚龙",
+    "stone-golem": "岩石魔像",
+    "sun-demon": "旭日恶魔",
+    "the-betrayer": "背叛者",
+    "the-colorless": "苍白者",
+    "the-gloom": "黯",
+    "the-sightless-eye": "漠视之眼",
+    "vermling-scout": "腐灵族哨兵",
+    "vermling-shaman": "腐灵族萨满",
+    "wind-demon": "疾风恶魔",
+    "winged-horror": "翼魔"
+  },
+  "objective": {
+    "Altar": "祭坛",
+    "Door": "门",
+    "Rock Column": "岩石柱",
+    "The Crystal": "水晶",
+    "Totem": "图腾",
+    "Tree": "树木"
   },
   "partyAchievements": {
     "A Map to Treasure": "藏宝图",
@@ -216,6 +260,9 @@
     }
   },
   "scenario": {
+    "group": {
+      "randomMonsterCard": "随机遭遇卡"
+    },
     "rules": {
       "gh": {
         "22": {

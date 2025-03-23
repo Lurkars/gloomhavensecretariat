@@ -186,7 +186,23 @@
     }
   },
   "character": {
-    "coral": "Gezeitenbruch"
+    "coral": "Gezeitenbruch",
+    "prism": {
+      "": "DROHN"
+    }
+  },
+  "custom": {
+    "fh": {
+      "prism": {
+        "10": "Wann immer du %game.condition.wound% erhalten würdest, wird der Zustand verhindert",
+        "11": "%game.action.custom.fh-mode% jede Runde",
+        "12": "%game.action.custom.fh-mode% innerhalb einer Runde in 4 unterschiedliche Beschworene",
+        "6": "Gewähre nach dieser Angriffsfertigkeit einem deiner Beschworenen: %game.action.move:2%",
+        "7": "Nach dieser Angriffsfertigkeit %game.action.custom.fh-mode%",
+        "8": "Du kannst deinen Initiative-Wert bei deiner langen Rast nach Aufdecken aller Fertigkeitskarten selbst bestimmen und entscheiden, wie deine Beschworenen ihre Fertigkeiten in dieser Runde ausführen",
+        "9": "Am Ende deiner kurzen Rast kannst du jedes Mal %game.action.custom.fh-mode%"
+      }
+    }
   },
   "items": {
     "fh-1": {
@@ -289,13 +305,37 @@
       "": "Amulett des Lebens",
       "1": "Führe während deines Zugs aus:"
     },
+    "fh-121": {
+      "": "Reif der Elemente",
+      "1": "Füge während deines Zugs aus:"
+    },
+    "fh-122": {
+      "": "Hüterrobe",
+      "1": "Wenn einer deiner Beschworenen durch einen Angriff %game.damage% erleidet, erhält er %game.action.shield:2% für den Angriff."
+    },
+    "fh-123": {
+      "": "Lederrüstung",
+      "1": "Wenn du angegriffen wirst, erhält der Angreifer vor dem Ziehen des Angriffsmodifikators Nachteil für den Angriff."
+    },
+    "fh-124": {
+      "": "Flügelschuhe",
+      "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten %game.action.jump% hinzu."
+    },
     "fh-125": {
       "": "Schnellläufer",
       "1": "Erhöhe/reduziere nach dem Aufdecken aller Fertigkeitskarten zum Bestimmen der Initiative deinen Initiative-Wert um 10."
     },
+    "fh-126": {
+      "": "Wurfnetz",
+      "1": "Füge bei deiner Fernkampf-Angriffsfertigkeit einem Angriff %game.condition.immobilize% hinzu."
+    },
     "fh-127": {
       "": "Giftdolch",
       "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.condition.poison% hinzu."
+    },
+    "fh-128": {
+      "": "Dreieckschild",
+      "1": "Wenn du durch einen Angriff %game.damage% erleidest, erhältst du für den Angriff %game.action.shield:1%."
     },
     "fh-13": {
       "": "Tanzschuhe",
@@ -313,9 +353,17 @@
       "": "Inspirierender Helm",
       "1": "Gewähre während deines Zugs allen angrenzenden Verbündeten: %game.action.move% 2"
     },
+    "fh-169": {
+      "": "Schicksalsamulett",
+      "1": "Decke während deines Zugs die oberste Karte deines Angriffsmodifikator-Decks auf. Du darfst die Karte unter das Deck legen."
+    },
     "fh-17": {
       "": "Hartlederrüstung",
       "1": "Bei den nächsten 2 Angriffen, die dich anvisieren, erhält der Angreifer Nachteil."
+    },
+    "fh-173": {
+      "": "Bunter Mantel",
+      "1": "%game.element.wild%, wenn du angegriffen wirst."
     },
     "fh-18": {
       "": "Spröde Stiefel",
@@ -352,6 +400,10 @@
     "fh-221": {
       "": "Eisklinge",
       "1": "%game.element.consume.ice% bei deiner Nahkampf-Angriffsfertigkeit, um einem Angriff %game.action.pierce% 3 hinzuzufügen."
+    },
+    "fh-227": {
+      "": "Datenspeicher",
+      "1": "Lege bei deiner kurzen Rast die Hälfte deines Abwurfstapels (abgerundet) auf diesen Gegenstand, verliere wie gewohnt eine der restlichen Karten und ziehe dann die Karten auf diesem Gegenstand."
     },
     "fh-23": {
       "": "Robuster Beinpanzer",

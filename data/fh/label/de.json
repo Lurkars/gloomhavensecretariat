@@ -794,6 +794,7 @@
   },
   "objective": {
     "Door": "Tür",
+    "Orphan": "Waise",
     "Scenario": "Szenario"
   },
   "personalQuest": {
