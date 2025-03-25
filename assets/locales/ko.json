@@ -901,22 +901,26 @@
     "loot": {
       "": "노획",
       "apply": "선택한 캐릭터 추가",
+      "arrowvine": "화살덩굴",
+      "axenut": "도끼토리",
       "chooseCharacter": "캐릭터 선택 for +{0} {1}",
       "config": {
-        "": "노획 표",
-        "apply": "노획 표 적용",
-        "create": "노획 표 생성",
+        "": "노획 덱",
+        "apply": "노획 덱 적용",
+        "create": "노획 덱 생성",
         "discard": "변경사항 취소",
         "hide": "노획 표 숨기기",
         "show": "노획 표 보기"
       },
+      "corpsecap": "시체삿갓",
       "deck": "노획 덱",
       "enhancements": {
         "": "향상",
         "add": "향상 추가",
         "remove": "향상 제거"
       },
-      "herb_resources": "허브",
+      "flamefruit": "화염열매",
+      "herb_resources": "약초",
       "hide": "숨기기",
       "keep": "%data.character.{0}% 캐릭터로 계속 진행하기",
       "lootTreasure": {
@@ -936,6 +940,7 @@
         "draw": "%game.characterIconColored.{0}% {1}의 무작위 아이템"
       },
       "remove": "%data.character.{0}%에게서 제거",
+      "rockroot": "바위뿌리",
       "special": "특수",
       "special1": "특수 카드 1 (#1418)",
       "special2": "특수 카드 2 (#1419)",
@@ -1005,7 +1010,7 @@
       "allyAffectRange": "%game.affect% 사정거리 %game.action.range% {0} 내의 아군 하나에게 영향",
       "allyShort": "아군",
       "enemies": "%game.target% 모든 적 대상",
-      "enemiesAdjacent": "%game.target% 인접한 모든 적 대상",
+      "enemiesAdjacent": "%game.target% 인접한 모든 적",
       "enemiesMovedThrough": "%game.target% 이동 경로에 있는 모든 적 대상",
       "enemiesMovedThroughAdjacent": "%game.target% 이동 능력 동안 들어간 칸을 점유하거나 인접하고 있는 모든 적 대상",
       "enemiesRange": "%game.target% 사정거리 %game.action.range% {0} 내 모든 적 대상",
@@ -1019,7 +1024,7 @@
       "figures": "%game.target% 모든 피규어 대상",
       "figuresAdjacent": "%game.target% 인접한 모든 피규어 대상",
       "figuresRange": "%game.target% 사정거리 %game.action.range% {0} 내의 모든 피규어 대상",
-      "focusEnemyFarthest": "가장 <br>먼 적에게 주목한다.",
+      "focusEnemyFarthest": "가장 멀리 있는 적에 주목.",
       "self": "자신",
       "selfAllies": "자신 및 모든 아군",
       "selfAlliesAdjacentAffect": "%game.affect% 자신 및 인접한 모든 아군에게 영향",
@@ -1252,6 +1257,7 @@
           "addSection": "주에 섹션 추가",
           "calc": "이번 주로부터 {0}주",
           "hint": "두 번 클릭하여 주 별로 섹션 설정/수정하기",
+          "lock": "실수로 편집하는 것을 방지하기 위해 달력을 잠급니다. 더블클릭하여 허용 잠금을 만들어 정확히 한 주를 추가하거나 제거할 수 있습니다.",
           "openConclusion": "섹션 계속 선택",
           "section": "섹션"
         },
@@ -1432,6 +1438,9 @@
       "party": "'{0}' (파티) 달성할 것",
       "partyCount": "'{0}' (파티) {2}회 달성할 것 (현재 {1}회)",
       "partyMissing": "'{0}' (파티) 달성하지 않을 것",
+      "scenarios": {
+        "": "다음 시나리오를 완료해야 합니다"
+      },
       "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' 레벨 5 이상일 것",
       "start": "무시하고 시나리오 시작"
     },
@@ -1785,6 +1794,9 @@
         "hint": {
           "": "특정 상태를 적용하려면 확인이 필요합니다. 예를 들어, 중독 상태에서 체력을 감소시키면 추가로 체력 1을 잃습니다."
         }
+      },
+      "hint": {
+        "": "중독으로 체력을 감소시키는 경우와 같이 특정 조건을 적용하려면 확인이 필요합니다.<br>체력 1 감소 확인"
       }
     },
     "activeStandees": {
@@ -1936,6 +1948,7 @@
       "": "전투 목표 미리 알림",
       "hint": "모든 캐릭터가 전투 목표를 선택하지 않은 경우, 첫 라운드 전에 알림을 미리 표시합니다."
     },
+    "bbRules": "버튼 앤 벅스 규칙",
     "bonusAdjustment": {
       "": "레벨 보너스 조정"
     },
@@ -2013,7 +2026,7 @@
       "hint": "원래의 캐릭터 시트 배치를 사용하지 않고 더 간결한 캐릭터 시트로 표시합니다."
     },
     "characterShieldRetaliate": {
-      "": "방어와 반격",
+      "": "방어 및 반격",
       "hint": "캐릭터의 %game.action.shield% 및 %game.action.retaliate% 값을 추적합니다."
     },
     "characterSortIndex": {
@@ -2031,6 +2044,10 @@
     "columnsForce": {
       "": "사용 가능한 모든 세로 열 사용",
       "hint": "사용 가능한 모든 세로 열에 항상 피규어를 나눠서 배치합니다."
+    },
+    "combineInteractiveAbilities": {
+      "": "상호작용 능력 추적",
+      "hint": "모든 상호작용 능력을 표시."
     },
     "conditions": "상태/원소",
     "damageHP": {
@@ -2073,6 +2090,10 @@
       "hint": "규칙에 명시된 대로 글룸헤이븐 및 잊힌 비술의 아이템을 사용 가능한 보급품에 추가합니다. (활성화된 캐릭터 시트 또는 캐릭터 아이템 한정)"
     },
     "fhRules": "항상 프로스트헤이븐 규칙을 적용",
+    "fhSecondEdition": {
+      "": "2차 인쇄",
+      "hint": "프로스트 헤이븐의 1차 인쇄본과 2차 인쇄본의 일부 변경 사항은 자동으로 적용되지 않습니다. 따라서 2차 인쇄본으로 플레이하는 경우 이 부분을 확인하세요."
+    },
     "fhStyle": {
       "": "프로스트헤이븐 스타일",
       "hint": "프로스트헤이븐 스타일로 변경합니다."
@@ -2201,6 +2222,8 @@
       "": "사용하지 않는 항목 제거",
       "hint": "라운드 끝에 사용하지 않는 모든 몬스터를 자동으로 제거합니다."
     },
+    "requires": "요구사항:",
+    "requiresOne": "다음 중 하나가 필요합니다:",
     "scenarioNumberInput": {
       "": "시나리오 번호 입력"
     },
@@ -2224,6 +2247,10 @@
       "": "시나리오 규칙 자동 적용",
       "hint": "확인 없이 자동으로 시나리오 규칙을 바로 적용합니다."
     },
+    "scenarioStats": {
+      "": "시나리오 통계",
+      "hint": "시나리오 중에 피해, 처치, 전리품, 경험치, 치료에 대한 통계를 저장합니다"
+    },
     "showExpandedAbilityCard": {
       "": "확장된 능력 카드 보기",
       "hint": "능력 카드의 모든 능력을 한 번에 표시합니다. (카드 제목도 자동으로 표시)"
@@ -2235,6 +2262,10 @@
     "sortFigures": {
       "": "피규어 정렬",
       "hint": "피규어를 자동으로 정렬합니다. 비활성화 시, 끌어다 놓기와 같은 방법으로 수동으로 순서를 설정하여야 합니다."
+    },
+    "standeeShieldRetaliate": {
+      "": "방어 및 반격",
+      "hint": "소환물의 %game.action.shield% 및 %game.action.retaliate% 값을 추적합니다."
     },
     "standeeStats": {
       "": "방어와 반격 값 표시",
@@ -2259,6 +2290,7 @@
     "synced": "이러한 설정은 서버와 동기화됩니다!",
     "theme": {
       "": "테마",
+      "bb": "버튼 앤 벅스 (%wip%)",
       "default": "기본값",
       "fh": "프로스트헤이븐",
       "hint": "배경과 막대 및 글씨 유형을 선택합니다.",
