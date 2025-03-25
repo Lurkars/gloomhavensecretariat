@@ -178,7 +178,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                     scenarioData.links.forEach((index) => {
                         let arrow = ' .->|🔗| ';
                         const other = gameManager.scenarioManager.getScenario(index, scenarioData.edition, scenarioData.group);
-                        if (other && links.indexOf(index) == -1) {
+                        if (other && links.indexOf(index) == -1 && scenarios.find((unlocked) => unlocked.edition == other.edition && unlocked.group == other.group && unlocked.index == other.index)) {
                             if (gameManager.scenarioManager.isBlocked(other)) {
                                 arrow = ' .-x|🔗| ';
                             } else if (gameManager.scenarioManager.isLocked(other)) {

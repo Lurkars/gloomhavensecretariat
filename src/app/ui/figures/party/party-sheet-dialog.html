@@ -531,7 +531,7 @@
           </ng-container>
         </div>
 
-        <div class="row scenarios ignore-denied" *ngIf="fhSheet"
+        <div class="row scenarios ignore-denied" *ngIf="manualConclusions"
           [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
           <div class="row scenarios ignore-denied"
             [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">

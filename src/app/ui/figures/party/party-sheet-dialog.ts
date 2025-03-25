@@ -63,6 +63,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   globalAchievements: AutocompleteItem[] = [];
   campaignStickers: AutocompleteItem[] = [];
 
+  manualConclusions: boolean = false;
+
   partyAchievementsList: string[] = [];
   globalAchievementsList: string[] = [];
   availableCharacters: GameCharacterModel[][] = [];
@@ -648,6 +650,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
       this.conclusions[edition] = this.party.conclusions.filter((value) => value.edition == edition).map((value) => gameManager.sectionData(edition).find((sectionData) => sectionData.index == value.index && sectionData.edition == value.edition && sectionData.group == value.group) as ScenarioData).filter((conclusionData) => conclusionData && !this.party.scenarios.find((scenarioModel) => scenarioModel.edition == conclusionData.edition && scenarioModel.group == conclusionData.group && scenarioModel.index == conclusionData.parent));
     });
+
+    this.manualConclusions = this.partyEdition && gameManager.sectionData(this.partyEdition).find((sectionData) => sectionData.conclusion && !sectionData.parent) != undefined || false;
 
     if (this.party.reputation >= 0) {
       this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
