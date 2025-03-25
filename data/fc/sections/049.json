@@ -1,0 +1,16 @@
+{
+  "index": "49",
+  "name": "Pieces of an Artifact 3/3",
+  "edition": "fc",
+  "conclusion": true,
+  "unlocks": [
+    "112"
+  ],
+  "requirements": [
+    {
+      "global": [
+        "Pieces of an Artifact:3"
+      ]
+    }
+  ]
+}
