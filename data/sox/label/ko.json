@@ -1,10 +1,14 @@
 {
   "edition": {
-    "sox": "조른의 탐구자"
+    "sox": "조른의 구도자"
   },
   "monster": {
     "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",
     "tormented-soul": "고통받는 영혼",
     "water-eel": "민물 장어"
+  },
+  "scenario": {
+    "Flooded Crypt": "침수된 지하 납골당",
+    "Nobles' Crypt": "귀족의 지하 납골당"
   }
 }

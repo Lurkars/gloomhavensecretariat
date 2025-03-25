@@ -1,4 +1,14 @@
 {
+  "ability": {
+    "A Moment's Peace": "片刻安宁",
+    "Camouflage": "伪装",
+    "Crashing Wade": "冲击波",
+    "Crippling Bow": "",
+    "Crippling lloose": "致残套索",
+    "Darkened Skies": "遮天蔽日",
+    "Detonation": "爆炸",
+    "Expose": "揭破"
+  },
   "battleGoals": {
     "458": {
       "": "细水长流",

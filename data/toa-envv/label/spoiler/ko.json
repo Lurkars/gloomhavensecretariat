@@ -1,1 +1,19 @@
-{}
+{
+  "character": {
+    "envv": "정복자"
+  },
+  "custom": {
+    "perks": {
+      "envv": {
+        "1": "%data.characterIcon.envv% 획득",
+        "2": "대신에 카드 사용자에게 피해 1 적용"
+      }
+    }
+  },
+  "items": {
+    "toa-131": {
+      "": "포식자의 손목날",
+      "1": "자신의 차례에 적을 처치하면, 격노 %game.characterIcon.envv% 카드 두 장을 획득."
+    }
+  }
+}
