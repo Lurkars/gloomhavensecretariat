@@ -33,6 +33,20 @@
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
     }
 
+    .enhancement {
+        margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        height: auto;
+        filter: var(--ghs-filter-gray);
+        opacity: 1;
+        z-index: 2;
+        cursor: pointer;
+
+        &:hover {
+            filter: var(--ghs-filter-white);
+        }
+    }
+
     .levels {
         display: flex;
         justify-content: center;

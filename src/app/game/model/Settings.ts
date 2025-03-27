@@ -16,6 +16,7 @@ export class Settings {
   allyAttackModifierDeck: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;
   alwaysFhAdvantage: boolean = false;
+  alwaysFhEnhancements: boolean = false;
   alwaysFhSolo: boolean = false;
   alwaysHazardousTerrain: boolean = false;
   alwaysLootApplyDialog = false;
@@ -175,6 +176,7 @@ export class Settings {
   statAnimations: boolean = false;
   stats: boolean = true;
   summons: boolean = true;
+  temporaryEnhancements: boolean = false;
   theme: string = "";
   tooltips: boolean = true;
   treasures: boolean = true;

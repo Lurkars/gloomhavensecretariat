@@ -3,6 +3,7 @@ import { Subscription } from "rxjs";
 import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
@@ -35,6 +36,8 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
   @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
   @Input('index') actionIndex: string = "";
   @Input() style: 'gh' | 'fh' | false = false;
+  @Input() character: Character | undefined;
+  @Input() cardId: number | undefined;
   spawners: Entity[] = [];
   monsters: MonsterSpawnData[] = [];
   objectives: ObjectiveSpawnData[] = [];

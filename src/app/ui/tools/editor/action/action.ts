@@ -11,7 +11,7 @@ import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { SummonData } from "src/app/game/model/data/SummonData";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-editor-action',
   templateUrl: './action.html',
   styleUrls: ['./action.scss']
@@ -19,11 +19,12 @@ import { SummonData } from "src/app/game/model/data/SummonData";
 export class EditorActionComponent implements OnInit {
 
   @Input() action!: Action;
+  @Input() actionTypes: ActionType[] = Object.values(ActionType);
+  @Input() hideValues: boolean = false;
   @Output() actionChange = new EventEmitter<Action>();
+  conditionNames: ConditionName[] = Object.values(ConditionName);
   ActionType = ActionType;
-  ActionTypes: ActionType[] = Object.values(ActionType);
   ActionSpecialTarget: ActionSpecialTarget[] = Object.values(ActionSpecialTarget);
-  ConditionNames: ConditionName[] = Object.values(ConditionName);
   Elements: Element[] = Object.values(Element);
   ActionValueType = ActionValueType;
   ActionValueTypes: ActionValueType[] = Object.values(ActionValueType);
@@ -100,23 +101,28 @@ export class EditorActionComponent implements OnInit {
     this.change();
   }
 
-  changeType() {
+  changeType(event: any) {
+    const oldType = this.action.type;
+    this.action.type = event.target.value as ActionType;
     this.action.valueType = ActionValueType.fixed;
     if (this.action.type == ActionType.area) {
       this.hexAction.value = "(0,0,invisible)";
     } else if (this.action.type == ActionType.condition) {
-      this.value = this.ConditionNames[0];
+      this.value = this.conditionNames[0];
       this.changeCondition();
     } else if (this.action.type == ActionType.element) {
       this.action.value = this.Elements[0];
     } else if (this.action.type == ActionType.card) {
       this.value = this.ActionCardTypes[0];
       this.changeCard();
+    } else if ([ActionType.area, ActionType.condition, ActionType.element, ActionType.card].indexOf(oldType) != -1) {
+      this.action.value = "1";
     }
     this.change();
   }
 
   change() {
+    this.actionChange.emit(this.action);
     gameManager.uiChange.emit();
   }
 
@@ -136,6 +142,9 @@ export class EditorActionComponent implements OnInit {
         hex.type = ActionHexType.conditional;
         break;
       case ActionHexType.conditional:
+        hex.type = ActionHexType.enhance;
+        break;
+      case ActionHexType.enhance:
         hex.type = ActionHexType.invisible;
         break;
       case ActionHexType.invisible:
@@ -346,7 +355,7 @@ export class EditorActionComponent implements OnInit {
 
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-editor-action-dialog',
   templateUrl: './action-dialog.html',
   styleUrls: ['./action-dialog.scss']

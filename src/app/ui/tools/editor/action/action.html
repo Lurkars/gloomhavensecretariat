@@ -1,12 +1,14 @@
 <div class="action">
-  <label class="type"><span [ghs-label]="'editor.action.type'"></span> <input type="checkbox" [(ngModel)]="action.small"
-      (change)="change()"> <span [ghs-label]="'editor.action.small'"></span></label>
-  <select [(ngModel)]="action.type" placeholder="type" (change)="changeType()">
-    <option *ngFor="let actionType of ActionTypes" [value]="actionType"><span
+  <label class="type"><span [ghs-label]="'editor.action.type'"></span> <input *ngIf="!hideValues" type="checkbox"
+      [(ngModel)]="action.small" (change)="change()"> <span *ngIf="!hideValues"
+      [ghs-label]="'editor.action.small'"></span></label>
+  <select placeholder="type" (change)="changeType($event)">
+    <option *ngFor="let actionType of actionTypes" [value]="actionType" [selected]="actionType == action.type"><span
         [ghs-label]="'game.action.' + actionType"></span>
     </option>
   </select>
-  <label *ngIf="[ActionType.jump].indexOf(action.type) == -1"><span [ghs-label]="'editor.action.value'"></span></label>
+  <label *ngIf="!hideValues && [ActionType.jump].indexOf(action.type) == -1"><span
+      [ghs-label]="'editor.action.value'"></span></label>
 
   <ng-container *ngIf="action.type == ActionType.specialTarget">
     <select [(ngModel)]="value" (change)="changeSpecialTarget()">
@@ -20,7 +22,7 @@
   </ng-container>
 
   <input
-    *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.element, ActionType.jump, ActionType.monsterType, ActionType.specialTarget, ActionType.summon].indexOf(action.type) == -1"
+    *ngIf="!hideValues && [ActionType.area, ActionType.card, ActionType.condition, ActionType.element, ActionType.jump, ActionType.monsterType, ActionType.specialTarget, ActionType.summon].indexOf(action.type) == -1"
     type="text" [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
 
   <div class="area-container" *ngIf="action.type == ActionType.area">
@@ -84,7 +86,7 @@
 
   <ng-container *ngIf="action.type == ActionType.condition">
     <select [(ngModel)]="value" (change)="changeCondition()">
-      <option *ngFor="let condition of ConditionNames" [value]="condition">
+      <option *ngFor="let condition of conditionNames" [value]="condition">
         <span [ghs-label]="'game.condition.' + condition" [ghs-label-args]="['X']"></span>
       </option>
     </select>
@@ -105,7 +107,8 @@
   </ng-container>
 
   <select *ngIf="action.type == ActionType.element" [(ngModel)]="action.value" (change)="change()">
-    <option *ngFor="let element of Elements" [value]="element"><span [ghs-label]="'game.element.' + element"></span></option>
+    <option *ngFor="let element of Elements" [value]="element"><span [ghs-label]="'game.element.' + element"></span>
+    </option>
   </select>
 
   <select *ngIf="action.type == ActionType.monsterType" [(ngModel)]="action.value" (change)="change()">
@@ -115,7 +118,7 @@
   </select>
 
   <ng-container
-    *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.concatenation, ActionType.custom, ActionType.grant, ActionType.grid, ActionType.jump,  ActionType.monsterType, ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1">
+    *ngIf="!hideValues && [ActionType.area, ActionType.card, ActionType.condition, ActionType.concatenation, ActionType.custom, ActionType.grant, ActionType.grid, ActionType.jump,  ActionType.monsterType, ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1">
     <label><span [ghs-label]="'editor.action.valueType'"></span></label>
     <select [(ngModel)]="action.valueType" placeholder="valueType" (change)="change()">
       <option *ngFor="let valueType of ActionValueTypes" [value]="valueType"

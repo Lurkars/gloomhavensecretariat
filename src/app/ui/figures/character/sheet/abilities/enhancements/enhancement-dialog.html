@@ -1,0 +1,114 @@
+<div class="enhancement-dialog scroll-container">
+    <div class="header">
+        <div *ngIf="!gameManager.fhRules()" ghs-setting-menu="alwaysFhEnhancements"></div>
+        <div ghs-setting-menu="temporaryEnhancements"></div>
+
+        <div class="action">
+            <ghs-action [action]="action" [relative]="false" [character]="character"></ghs-action>
+            <ghs-editor-action [action]="action" *ngIf="customAction" [actionTypes]="actionTypes" [hideValues]="true"
+                (actionChange)="update()"></ghs-editor-action>
+        </div>
+
+        <div class="levels" *ngIf="customAction">
+            <a class="level" *ngFor="let l of [] | ghsRange:9" (click)="level = l+1"
+                [ngClass]="{'active' : level == l+1}">{{l+1}}</a>
+        </div>
+
+        <div class="card-properties" *ngIf="customAction">
+            <a class="summon" (click)="toggleSpecial('summon')" [ngClass]="{'enabled' :  special == 'summon'}">
+                <img src="./assets/images/summons/red.png">
+            </a>
+
+            <a class="lost" (click)="toggleSpecial('lost')" [ngClass]="{'enabled' :  special == 'lost'}">
+                <img src="./assets/images/action/card/lost.svg">
+                <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+            </a>
+
+            <a class="persistent" (click)="toggleSpecial('persistent')"
+                [ngClass]="{'enabled' : special == 'persistent'}">
+                <img src="./assets/images/action/card/persistent.svg">
+                <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">
+            </a>
+        </div>
+
+        <div class="enhancement-types">
+            <div class="plus1"
+                *ngIf="enhancementType && [EnhancementType.square, EnhancementType.circle, EnhancementType.diamond, EnhancementType.diamond_plus].indexOf(enhancementType) != -1"
+                (click)="setEnhancementAction('plus1')" [ngClass]="{'active': enhancementAction == 'plus1'}">+1</div>
+            <div class="elements"
+                *ngIf="enhancementType && [EnhancementType.circle, EnhancementType.diamond, EnhancementType.diamond_plus].indexOf(enhancementType) != -1">
+                <div class="element" *ngFor="let element of Elements" (click)="setEnhancementAction(element)"
+                    [ngClass]="{'active': enhancementAction == element}">
+                    <span [ghs-label]="'%game.element.' + element + '%'"></span>
+                </div>
+            </div>
+            <div class="conditions" *ngIf="enhancementType && [EnhancementType.diamond].indexOf(enhancementType) != -1">
+                <div class="condition" *ngFor="let condition of gameManager.enhancementsManager.diamondConditions"
+                    (click)="setEnhancementAction(condition)" [ngClass]="{'active': enhancementAction == condition}">
+                    <span [ghs-label]="'%game.conditionIcon.' + condition + '%'"></span>
+                </div>
+            </div>
+            <div class="conditions"
+                *ngIf="enhancementType && [EnhancementType.diamond_plus].indexOf(enhancementType) != -1">
+                <div class="condition" *ngFor="let condition of gameManager.enhancementsManager.diamonPlusConditions"
+                    (click)="setEnhancementAction(condition)" [ngClass]="{'active': enhancementAction == condition}">
+                    <span [ghs-label]="'%game.conditionIcon.' + condition + '%'"></span>
+                </div>
+            </div>
+            <div class="jump text-white"
+                *ngIf="enhancementType && action.type == ActionType.move && special != 'summon'"
+                (click)="setEnhancementAction(ActionType.jump)"
+                [ngClass]="{'active': enhancementAction == ActionType.jump}" [ghs-label]="'%game.actionIcon.jump%'">
+            </div>
+        </div>
+    </div>
+
+    <div class="costs">
+        <table>
+            <tr>
+                <th [ghs-label]="'character.abilities.enhancements.baseCosts'"></th>
+                <td>{{gameManager.enhancementsManager.calculateBaseCosts(enhanceAction,special)}}</td>
+            </tr>
+            <tr *ngIf="gameManager.enhancementsManager.isMultiTarget(enhanceAction)">
+                <th [ghs-label]="'character.abilities.enhancements.multiTarget'"></th>
+                <td class="plus">+{{gameManager.enhancementsManager.calculateBaseCosts(enhanceAction,special)}}</td>
+            </tr>
+            <tr *ngIf="special == 'lost'">
+                <th [ghs-label]="'character.abilities.enhancements.lost'"></th>
+                <td class="minus">-{{gameManager.enhancementsManager.calculateBaseCosts(enhanceAction,special) /
+                    (gameManager.enhancementsManager.isMultiTarget(enhanceAction) ? 1 : 2) | ghsCeil}}
+                </td>
+            </tr>
+            <tr *ngIf="special == 'persistent'">
+                <th [ghs-label]="'character.abilities.enhancements.persistent'"></th>
+                <td class="plus">+{{gameManager.enhancementsManager.calculateBaseCosts(enhanceAction,special) *
+                    (gameManager.enhancementsManager.isMultiTarget(enhanceAction) ? 5 : 2)}}</td>
+            </tr>
+            <tr *ngIf="level > 1">
+                <th [ghs-label]="'character.abilities.enhancements.level'"></th>
+                <td class="plus">+{{gameManager.enhancementsManager.levelCosts(level)}}</td>
+            </tr>
+            <tr *ngIf="enhancements">
+                <th [ghs-label]="'character.abilities.enhancements.enhancements'"></th>
+                <td class="plus">+{{gameManager.enhancementsManager.enhancementCosts(enhancements)}}</td>
+            </tr>
+            <tr *ngIf="gameManager.enhancementsManager.fh && gameManager.enhancementsManager.temporary">
+                <th [ghs-label]="'character.abilities.enhancements.temporary'"></th>
+                <td class="minus">
+                    -{{gameManager.enhancementsManager.calculateCosts(enhanceAction,level,special,enhancements,
+                    true) * 0.2 | ghsCeil}}</td>
+            </tr>
+            <tr *ngIf="gameManager.enhancementsManager.enhancerLevel > 1">
+                <th [ghs-label]="'character.abilities.enhancements.enhancerLevel'"></th>
+                <td class="minus">-10</td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <th [ghs-label]="'character.abilities.enhancements.costs'"></th>
+                    <td>{{gameManager.enhancementsManager.calculateCosts(enhanceAction,level,special,enhancements)}}
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

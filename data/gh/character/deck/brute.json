@@ -16,8 +16,14 @@
             {
               "type": "pierce",
               "value": 2,
-              "small": true
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
@@ -32,6 +38,9 @@
               "value": "",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "circle"
           ]
         },
         {
@@ -43,6 +52,10 @@
               "value": "enemiesMovedThrough",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
           ]
         },
         {
@@ -71,6 +84,9 @@
               "value": "Gain %game.card.experience:1% each time you Retaliate this round.",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond_plus"
           ]
         },
         {
@@ -88,6 +104,10 @@
               "value": 1,
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond_plus",
+            "diamond_plus"
           ]
         },
         {
@@ -108,8 +128,14 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+              "value": "(0,0,enhance)|(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
@@ -127,6 +153,9 @@
               "value": "enemiesAdjacent",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ]
@@ -146,6 +175,9 @@
               "value": "disarm",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
@@ -170,7 +202,11 @@
       "actions": [
         {
           "type": "attack",
-          "value": 6
+          "value": 6,
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
+          ]
         },
         {
           "type": "card",
@@ -191,6 +227,9 @@
               "value": "enemyAdjacent",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ]
@@ -209,7 +248,11 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 4
+          "value": 4,
+          "enhancementTypes": [
+            "circle",
+            "circle"
+          ]
         }
       ]
     },
@@ -226,8 +269,14 @@
             {
               "type": "push",
               "value": 2,
-              "small": true
+              "small": true,
+              "enhancementTypes": [
+                "diamond"
+              ]
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
@@ -292,6 +341,10 @@
               "value": "stun",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
           ]
         },
         {
@@ -309,6 +362,10 @@
               "value": "self",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond_plus",
+            "diamond_plus"
           ]
         },
         {
@@ -329,8 +386,14 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(1,0,target)|(1,1,target)|(0,1,active)"
+              "value": "(1,0,target)|(1,1,target)|(0,1,active)|(1,2,enhance)",
+              "enhancementTypes": [
+                "hex"
+              ]
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         },
         {
@@ -348,6 +411,9 @@
               "value": "",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "circle"
           ]
         },
         {
@@ -371,6 +437,9 @@
               "value": 3,
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         },
         {
@@ -381,7 +450,10 @@
       "bottomActions": [
         {
           "type": "attack",
-          "value": 2
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
         }
       ]
     },
@@ -397,7 +469,10 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(0,2,active)"
+              "value": "(2,0,enhance)|(1,1,target)|(1,2,target)|(0,3,active)",
+              "enhancementTypes": [
+                "hex"
+              ]
             },
             {
               "type": "element",
@@ -417,6 +492,9 @@
                 }
               ]
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         },
         {
@@ -428,7 +506,11 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 6
+          "value": 6,
+          "enhancementTypes": [
+            "circle",
+            "circle"
+          ]
         },
         {
           "type": "card",
@@ -488,6 +570,9 @@
               "value": "self",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond_plus"
           ]
         },
         {
@@ -499,6 +584,9 @@
               "value": "self",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond_plus"
           ]
         },
         {
@@ -545,7 +633,10 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 4
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
         }
       ]
     },
@@ -557,11 +648,17 @@
       "actions": [
         {
           "type": "move",
-          "value": 2
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "attack",
-          "value": 2
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
         }
       ],
       "bottomActions": [
@@ -617,6 +714,10 @@
               "value": 2,
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
           ]
         }
       ],
@@ -655,13 +756,19 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+              "value": "(0,0,enhance)|(0,1,active)|(1,0,target)|(1,1,target)|(0,2,enhance)|(1,2,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
             },
             {
               "type": "condition",
               "value": "muddle",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         },
         {
@@ -683,6 +790,9 @@
               "value": "self",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond_plus"
           ]
         },
         {
@@ -699,7 +809,10 @@
       "actions": [
         {
           "type": "attack",
-          "value": 5
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ]
         },
         {
           "type": "card",
@@ -710,7 +823,10 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 4
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "condition",
@@ -734,7 +850,11 @@
       "actions": [
         {
           "type": "attack",
-          "value": 8
+          "value": 8,
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
+          ]
         },
         {
           "type": "card",
@@ -769,13 +889,19 @@
               "value": "Gain %game.card.experience:1% for each enemy targeted.",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 4
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "push",
@@ -786,6 +912,9 @@
               "value": "enemyAdjacent",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ]
@@ -802,7 +931,10 @@
         },
         {
           "type": "move",
-          "value": 2
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "attack",
@@ -819,6 +951,9 @@
               "value": 3,
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         },
         {
@@ -845,7 +980,10 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 3
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "custom",
@@ -865,7 +1003,10 @@
       "actions": [
         {
           "type": "attack",
-          "value": 4
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ]
         },
         {
           "type": "shield",
@@ -876,6 +1017,9 @@
               "value": "self",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond_plus"
           ]
         },
         {
@@ -913,13 +1057,19 @@
             {
               "type": "target",
               "value": 2,
-              "small": true
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
             },
             {
               "type": "condition",
               "value": "immobilize",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         },
         {
@@ -987,6 +1137,10 @@
               "value": "stun",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
           ]
         },
         {
@@ -997,7 +1151,10 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 3
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "concatenation",
@@ -1032,7 +1189,10 @@
         },
         {
           "type": "attack",
-          "value": 2
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
         },
         {
           "type": "move",
@@ -1040,7 +1200,10 @@
         },
         {
           "type": "attack",
-          "value": 2
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ]
         }
       ],
       "bottomActions": [
@@ -1073,7 +1236,10 @@
       "actions": [
         {
           "type": "move",
-          "value": 1
+          "value": 1,
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "loot",
@@ -1083,7 +1249,10 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 3
+          "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "retaliate",
@@ -1094,6 +1263,9 @@
               "value": "self",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond_plus"
           ]
         },
         {
@@ -1137,6 +1309,10 @@
               "value": "Gain %game.card.experience:1% for each enemy targeted.",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
           ]
         }
       ],
@@ -1150,6 +1326,9 @@
               "value": "self",
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond_plus"
           ]
         }
       ]
@@ -1172,13 +1351,19 @@
             {
               "type": "target",
               "value": 3,
-              "small": true
+              "small": true,
+              "enhancementTypes": [
+                "square"
+              ]
             },
             {
               "type": "pull",
               "value": 3,
               "small": true
             }
+          ],
+          "enhancementTypes": [
+            "diamond"
           ]
         },
         {

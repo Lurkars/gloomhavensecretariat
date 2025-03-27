@@ -65,6 +65,11 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
         image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
         replace = '&nbsp;<span class="placeholder-action">' + (fh ? '&nbsp;' : settingsManager.getLabel(label)) + image + value + '</span>';
+      } else if (type == "actionIcon" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
+        split.splice(0, 1);
+        const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
+        image = '<img  src="./assets/images/' + (fh ? 'fh/action/' : 'action/') + split[split.length - 1] + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
+        replace = '&nbsp;<span class="placeholder-action">&nbsp;' + image + value + '</span>';
       } else if (type == "element") {
         let element = split[2];
         if (element == "consume") {

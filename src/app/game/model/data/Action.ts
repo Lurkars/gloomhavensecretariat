@@ -1,3 +1,5 @@
+import { EnhancementType } from "./Enhancement";
+
 export class Action {
   type: ActionType;
   value: number | string;
@@ -6,6 +8,7 @@ export class Action {
   subActions: Action[];
   small: boolean;
   hidden: boolean;
+  enhancementTypes: EnhancementType[] | undefined;
 
   constructor(type: ActionType,
     value: number | string = "",
@@ -89,7 +92,7 @@ export enum ActionSpecialTarget {
   enemies = "enemies",
   enemiesAdjacent = "enemiesAdjacent",
   enemiesRange = "enemiesRange",
-  enemiesRangeExact = "enemiesRangeExtact",
+  enemiesRangeExact = "enemiesRangeExact",
   enemiesRangeAffect = "enemiesRangeAffect",
   enemiesRangeAffectExact = "enemiesRangeAffectExact",
   enemiesMovedThrough = "enemiesMovedThrough",

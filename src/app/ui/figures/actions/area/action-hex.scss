@@ -23,6 +23,18 @@
       height: auto;
     }
 
+    .enhance {
+      position: absolute;
+      display: block;
+      top: calc(0.6em * var(--ghs-hex-size) * 0.5);
+      left: calc(0.6em * var(--ghs-hex-size) * 0.7);
+      width: calc(0.6em * var(--ghs-hex-size) * 0.6);
+      height: calc(0.6em * var(--ghs-hex-size) * 0.6);
+      background-color: var(--ghs-color-white);
+      opacity: 0.3;
+      border-radius: 100%;
+    }
+
     .condition {
       position: absolute;
       top: calc(0.6em * var(--ghs-hex-size) * -0.2);

@@ -11,8 +11,8 @@
                 (doubleClick)="setLevel(l,true)" [ngClass]="{'active' : level == l, 'exclusive': exclusiveLevel == l}"
                 [ghs-label]="l"></a>
             <span class="separator" *ngIf="additionalLevels.length">|</span>
-            <a class="level" *ngFor="let l of [] | ghsRange:(deck ? maxLevel : 9)" ghs-pointer-input (singleClick)="setLevel(l+1)"
-                (doubleClick)="setLevel(l+1,true)"
+            <a class="level" *ngFor="let l of [] | ghsRange:(deck ? maxLevel : 9)" ghs-pointer-input
+                (singleClick)="setLevel(l+1)" (doubleClick)="setLevel(l+1,true)"
                 [ngClass]="{'active' : level == l+1, 'exclusive': exclusiveLevel == l+1}">{{l+1}}</a>
         </div>
         <select [(ngModel)]="sort" (change)="update()" *ngIf="!levelToPick">
@@ -20,6 +20,8 @@
             </option>
         </select>
         <a [ghs-label]="deck ? 'character.abilities.show' : 'character.abilities.showDeck'" (click)="togglePick()"></a>
+
+        <img class="enhancement" src="./assets/images/character/enhancements.svg" (click)="openEnhancementDialog()">
         <p class="warning" *ngIf="character.progress.deck.length > character.level -1"
             [ghs-label]="'character.abilities.deckWarning'"></p>
         <p class="warning" *ngIf="maxLevel > character.level" [ghs-label]="'character.abilities.levelWarning'">

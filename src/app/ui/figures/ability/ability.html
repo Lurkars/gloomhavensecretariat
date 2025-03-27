@@ -18,9 +18,10 @@
         <span class="name">{{abilityLabel}}</span>
         <div class="ability-actions-container">
           <div class="ability-actions">
-            <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint"
+            <ghs-actions [actions]="ability.actions" [monster]="monster" [character]="character" [hint]="ability.hint"
               [statsCalculation]="statsCalculation" [relative]="relative" [interactiveAbilities]="interactiveAbilities"
-              [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)">
+              [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
+              [cardId]="ability.cardId">
             </ghs-actions>
           </div>
           <div class="bottom-spacer"
@@ -38,10 +39,11 @@
           </span>
           <div class="ability-actions-container">
             <div class="ability-actions ability-bottom-actions">
-              <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hint]="ability.hint"
-                [statsCalculation]="statsCalculation" [relative]="relative"
+              <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [character]="character"
+                [hint]="ability.hint" [statsCalculation]="statsCalculation" [relative]="relative"
                 [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveBottomActions"
-                (interactiveActionsChange)="onInteractiveBottomActionsChange($event)" [index]="'bottom'">
+                (interactiveActionsChange)="onInteractiveBottomActionsChange($event)" [index]="'bottom'"
+                [cardId]="ability.cardId">
               </ghs-actions>
             </div>
           </div>

@@ -30,6 +30,7 @@ import { BattleGoalManager } from "./BattleGoalManager";
 import { BuildingsManager } from "./BuildingsManager";
 import { ChallengesManager } from "./ChallengesManager";
 import { CharacterManager } from "./CharacterManager";
+import { EnhancementsManager } from "./EnhancementsManager";
 import { EntityManager } from "./EntityManager";
 import { EventCardManager } from "./EventCardManager";
 import { ItemManager } from "./ItemManager";
@@ -76,6 +77,7 @@ export class GameManager {
   challengesManager: ChallengesManager;
   scenarioStatsManager: ScenarioStatsManager;
   trialsManager: TrialsManager;
+  enhancementsManager: EnhancementsManager;
 
   uiChange = new EventEmitter<boolean>();
 
@@ -99,6 +101,7 @@ export class GameManager {
     this.challengesManager = new ChallengesManager(this.game);
     this.scenarioStatsManager = new ScenarioStatsManager(this.game);
     this.trialsManager = new TrialsManager(this.game);
+    this.enhancementsManager = new EnhancementsManager(this.game);
     this.uiChange.subscribe({
       next: () => {
         this.checkEntitiesKilled();
@@ -113,6 +116,7 @@ export class GameManager {
         this.buildingsManager.update();
         this.challengesManager.update();
         this.trialsManager.update();
+        this.enhancementsManager.update();
       }
     })
   }

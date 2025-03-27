@@ -1,11 +1,11 @@
 export enum Element {
-  wild = "wild",
   fire = "fire",
   ice = "ice",
   air = "air",
   earth = "earth",
   light = "light",
-  dark = "dark"
+  dark = "dark",
+  wild = "wild"
 }
 
 export enum ElementState {

@@ -1,0 +1,4 @@
+<div class="enhancements" [ngClass]="{'edit': edit}">
+    <div class="slot {{slot}}" *ngFor="let slot of slots;let i = index;" [ngClass]="{'enhanced': enhancements[i]}"
+        ghs-pointer-input (singleClick)="enhance(i,$event)"></div>
+</div>

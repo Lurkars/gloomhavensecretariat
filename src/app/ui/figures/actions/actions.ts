@@ -3,6 +3,7 @@ import { Subscription } from "rxjs";
 import { InteractiveAction } from "src/app/game/businesslogic/ActionsManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
 import { Monster } from "src/app/game/model/Monster";
 import { ObjectiveContainer } from "src/app/game/model/ObjectiveContainer";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
@@ -34,6 +35,8 @@ export class ActionsComponent implements OnInit, OnDestroy {
   @Input('index') actionIndex: string = "";
   @Input() style: 'gh' | 'fh' | false = false;
   @Input() noDivider: boolean = false;
+  @Input() character: Character | undefined;
+  @Input() cardId: number | undefined;
 
   divider: boolean[] = [];
 

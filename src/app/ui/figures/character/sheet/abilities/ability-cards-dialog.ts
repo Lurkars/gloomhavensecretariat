@@ -1,10 +1,11 @@
-import { DIALOG_DATA, Dialog } from "@angular/cdk/dialog";
+import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { Ability } from "src/app/game/model/data/Ability";
-import { AbilityDialogComponent } from "../../ability/ability-dialog";
+import { AbilityDialogComponent } from "../../../ability/ability-dialog";
+import { EnhancementDialogComponent } from "./enhancements/enhancement-dialog";
 
 @Component({
     standalone: false,
@@ -28,13 +29,18 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     deck: boolean = true;
     maxLevel: number = 1;
 
-    constructor(@Inject(DIALOG_DATA) public data: { character: Character }, private dialog: Dialog) {
+    constructor(@Inject(DIALOG_DATA) public data: { character: Character }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.character = data.character;
         this.level = this.character.level;
         this.abilities = gameManager.deckData(this.character).abilities;
         this.abilities.filter((ability) => typeof ability.level === 'string' && ability.level != 'X' || typeof ability.level === 'number' && ability.level > 9).forEach((ability) => {
             if (this.additionalLevels.indexOf(ability.level) == -1) {
                 this.additionalLevels.push(ability.level);
+            }
+        })
+        this.dialogRef.closed.subscribe({
+            next: () => {
+                this.character.tags = this.character.tags.filter((tag) => tag != 'edit-abilities');
             }
         })
     }
@@ -54,6 +60,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
 
     update() {
         this.cardsToPick = this.character.level - this.character.progress.deck.length - 1;
+        this.character.tags = this.character.tags.filter((tag) => tag != 'edit-abilities');
         if (this.cardsToPick < 0) {
             this.cardsToPick = 0;
         }
@@ -77,6 +84,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
 
             if (this.deck) {
                 this.visibleAbilities = this.visibleAbilities.filter((ability) => ability.level == 'X' || ability.level == 1 || this.character.progress.deck.indexOf(this.abilities.indexOf(ability)) != -1);
+                this.character.tags.push('edit-abilities');
             }
 
             if (this.sort == 'cardId') {
@@ -138,7 +146,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
 
     togglePick() {
         this.deck = !this.deck;
-        this.update();
+        gameManager.uiChange.emit();
     }
 
     setLevel(level: number | string, exclusive: boolean = false) {
@@ -193,6 +201,12 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
             panelClass: ['fullscreen-panel'],
             disableClose: true,
             data: { ability: ability, character: this.character }
+        });
+    }
+
+    openEnhancementDialog() {
+        this.dialog.open(EnhancementDialogComponent, {
+            panelClass: ['dialog']
         });
     }
 }

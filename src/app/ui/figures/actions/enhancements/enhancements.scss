@@ -1,0 +1,27 @@
+.enhancements {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: -0.1em;
+
+    .slot {
+        display: block;
+        width: 0.4em;
+        height: 0.4em;
+        border: 0.1em solid var(--ghs-color-white);
+        background-color: var(--ghs-color-white);
+        border-radius: 100%;
+        opacity: 0.5;
+        margin-left: 0.5em;
+        margin-right: 0.3em;
+    }
+
+    &.edit .slot {
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.7);
+            transform-origin: center center;
+        }
+    }
+}

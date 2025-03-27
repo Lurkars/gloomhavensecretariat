@@ -14,7 +14,7 @@ import { PersonalQuest } from "src/app/game/model/data/PersonalQuest";
 import { ghsDialogClosingHelper, ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
 import { StatisticsDialogComponent } from "../../party/statistics/statistics-dialog";
 import { TrialDialogComponent } from "../../trials/dialog/trial-dialog";
-import { AbilityCardsDialogComponent } from "./ability-cards-dialog";
+import { AbilityCardsDialogComponent } from "./abilities/ability-cards-dialog";
 import { CharacterMoveResourcesDialog } from "./move-resources";
 import { CharacterRetirementDialog } from "./retirement-dialog";
 

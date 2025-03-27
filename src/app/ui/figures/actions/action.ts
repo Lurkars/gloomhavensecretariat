@@ -11,6 +11,7 @@ import { Condition, ConditionType } from 'src/app/game/model/data/Condition';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { valueCalc } from '../../helper/valueCalc';
+import { Character } from 'src/app/game/model/Character';
 
 export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.damage, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
@@ -38,6 +39,8 @@ export class ActionComponent implements OnInit, OnDestroy {
   @Input() hexSize!: number;
   @Input('index') actionIndex: string = "";
   @Input() style: 'gh' | 'fh' | false = false;
+  @Input() character: Character | undefined;
+  @Input() cardId: number | undefined;
 
   action!: Action | undefined;
   normalValue: number | string = "";

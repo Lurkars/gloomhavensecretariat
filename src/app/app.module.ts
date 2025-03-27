@@ -16,6 +16,7 @@ import { AbilityDialogComponent } from './ui/figures/ability/ability-dialog';
 import { ActionComponent } from './ui/figures/actions/action';
 import { ActionsComponent } from './ui/figures/actions/actions';
 import { ActionHexComponent } from './ui/figures/actions/area/action-hex';
+import { ActionEnhancementsComponent } from './ui/figures/actions/enhancements/enhancements';
 import { InteractiveActionsComponent } from './ui/figures/actions/interactive/interactive-actions';
 import { ActionSummonComponent } from './ui/figures/actions/summon/action-summon';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -46,7 +47,8 @@ import { EventRandomItemDialogComponent } from './ui/figures/character/event-eff
 import { EventRandomScenarioDialogComponent } from './ui/figures/character/event-effects/random-scenario/random-scenario-dialog';
 import { CharacterFullViewComponent } from './ui/figures/character/fullview/fullview';
 import { CharacterItemListComponent } from './ui/figures/character/item-list/item-list';
-import { AbilityCardsDialogComponent } from './ui/figures/character/sheet/ability-cards-dialog';
+import { AbilityCardsDialogComponent } from './ui/figures/character/sheet/abilities/ability-cards-dialog';
+import { EnhancementDialogComponent } from './ui/figures/character/sheet/abilities/enhancements/enhancement-dialog';
 import { CharacterSheetComponent } from './ui/figures/character/sheet/character-sheet';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/sheet/move-resources';
 import { CharacterRetirementDialog } from './ui/figures/character/sheet/retirement-dialog';
@@ -179,6 +181,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     AbiltiesDialogComponent,
     AboutMenuComponent,
     ActionComponent,
+    ActionEnhancementsComponent,
     ActionHexComponent,
     ActionSummonComponent,
     ActionsComponent,
@@ -232,6 +235,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     EditorActionDialogComponent,
     ElementComponent,
     ElementIconComponent,
+    EnhancementDialogComponent,
     EntitiesMenuDialogComponent,
     EntityAnimationDirective,
     EntityIndexKeyComponent,

@@ -29,7 +29,7 @@
           [statsCalculation]="statsCalculation" [interactiveAbilities]="interactiveAbilities"
           [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
           [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
       </ng-container>
     </div>
@@ -74,7 +74,7 @@
           [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
           [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') +  getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
       </ng-container>
     </div>
@@ -121,7 +121,7 @@
           (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
           [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
       </ng-container>
     </div>
@@ -137,7 +137,7 @@
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [style]="style">
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
   </span>
@@ -155,7 +155,7 @@
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [style]="style">
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
   </span>
@@ -174,7 +174,7 @@
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [style]="style">
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
   </span>
@@ -189,7 +189,7 @@
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [style]="style">
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
   </span>
@@ -203,7 +203,8 @@
         [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="true" [statsCalculation]="false"
-        [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [style]="style">
+        [index]="(actionIndex ? actionIndex + '-' : '') + index" [monsterType]="monsterType" [character]="character"
+        [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
   </span>
@@ -211,7 +212,8 @@
   <span class="action-summon" *ngSwitchCase="ActionType.summon" [ngClass]="{'small' : action.small}">
     <ghs-action-summon [action]="action" [right]="right" [textBlack]="textBlack" [monster]="monster"
       [objective]="objective" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
-      (interactiveActionsChange)="onInteractiveActionsChange($event)" [index]="actionIndex" [monsterType]="monsterType"
+      (interactiveActionsChange)="onInteractiveActionsChange($event)" [index]="actionIndex" [character]="character"
+      [cardId]="cardId" [monsterType]="monsterType" [character]="character" [cardId]="cardId"
       [style]="style"></ghs-action-summon>
     <ng-container *ngIf="subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
@@ -220,7 +222,7 @@
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [style]="style">
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </ng-container>
   </span>
@@ -229,7 +231,8 @@
     <ghs-action-summon [action]="action" [right]="right" [textBlack]="textBlack" [monster]="monster"
       [objective]="objective" [spawn]="true" [interactiveAbilities]="interactiveAbilities"
       [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
-      [index]="actionIndex" [monsterType]="monsterType" [style]="style"></ghs-action-summon>
+      [index]="actionIndex" [character]="character" [cardId]="cardId" [monsterType]="monsterType"
+      [character]="character" [cardId]="cardId" [style]="style"></ghs-action-summon>
     <ng-container *ngIf="subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index" [action]="subAction"
@@ -237,7 +240,7 @@
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [style]="style">
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </ng-container>
   </span>
@@ -252,7 +255,7 @@
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
-        [monsterType]="monsterType" [style]="style">
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </ng-container>
   </span>
@@ -267,7 +270,7 @@
           (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
           [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
         <span
           *ngIf="!inline && (values.length > 1 && +(values[1]) > 0 && index < +(values[1]) - 1 || values.length < 2 && index < subActions.length -1)"
@@ -290,7 +293,7 @@
           (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
           [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
       </ng-container>
     </div>
@@ -306,7 +309,7 @@
           (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
           [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
       </ng-container>
     </span>
@@ -323,7 +326,7 @@
           (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
           [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
       </ng-container>
     </span>
@@ -341,7 +344,7 @@
           (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
           [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
       </ng-container>
     </span>
@@ -359,7 +362,7 @@
           (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
           [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
       </ng-container>
     </span>
@@ -387,7 +390,8 @@
       [inline]="inline" [right]="right" [textBlack]="textBlack" [hexSize]="hexSize"
       [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
       (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-      [statsCalculation]="statsCalculation" [index]="actionIndex" [style]="style">
+      [statsCalculation]="statsCalculation" [index]="actionIndex" [character]="character" [cardId]="cardId"
+      [style]="style">
     </ghs-actions>
   </span>
 
@@ -472,6 +476,10 @@
           [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" class="icon"
           [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
       </ng-container>
+
+      <ghs-action-enhancements
+        *ngIf="origAction.enhancementTypes && origAction.enhancementTypes.length && character && cardId"
+        [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"></ghs-action-enhancements>
     </span>
 
     <div class="subactions"
@@ -485,7 +493,7 @@
           (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
           [statsCalculation]="statsCalculation"
           [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-          [style]="style">
+          [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
       </ng-container>
     </div>
@@ -497,7 +505,8 @@
       [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
       [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
       (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-      [statsCalculation]="statsCalculation" [monsterType]="monsterType" [style]="style">
+      [statsCalculation]="statsCalculation" [monsterType]="monsterType" [character]="character" [cardId]="cardId"
+      [style]="style">
     </ghs-action>
   </div>
 
@@ -509,7 +518,7 @@
         [interactiveActions]="interactiveActions" (interactiveActionsChange)="onInteractiveActionsChange($event)"
         [relative]="relative || forceRelative" [statsCalculation]="statsCalculation"
         [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
-        [style]="style">
+        [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
   </ng-container>
