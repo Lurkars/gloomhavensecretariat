@@ -97,7 +97,7 @@
         "": "撤销等级 {0} 的选择",
         "hint": "双击重置所有选择"
       },
-      "wip": "<i>%制作中%</i>"
+      "wip": "<i>%wip%</i>"
     },
     "absent": "不在场",
     "add": "添加角色",
@@ -540,7 +540,7 @@
           "replace": "将 {0} 替换为 {1}"
         },
         "warning": "专长超出可供选择上限！",
-        "wip": "%开发中%! 专长并未完成。"
+        "wip": "%wip%！专长并未完成。"
       },
       "types": {
         "bless": "祝福",
@@ -889,7 +889,7 @@
       },
       "unlock": "解锁物品",
       "unlocked": "已解锁物品",
-      "wip": "%开发中%！%data.edition.{0}% 的物品尚未完成。"
+      "wip": "%wip%！%data.edition.{0}% 的物品尚未完成。"
     },
     "level": {
       "": "等级",
@@ -1020,11 +1020,11 @@
       "allyAffect": "%game.affect% 的任意盟友",
       "allyAffectRange": "%game.affect% %game.action.range% {0} 格范围内的 1 名盟友",
       "allyShort": "盟友",
-      "enemies": "%game.target% 所有敌人",
-      "enemiesAdjacent": "%game.target% 所有相邻敌人",
+      "enemies": "%game.target% 的所有敌人",
+      "enemiesAdjacent": "%game.target% 的所有相邻敌人",
       "enemiesMovedThrough": "%game.target% 所经过的所有敌人",
       "enemiesMovedThroughAdjacent": "%game.target% 在移动能力中占据所经过的格子或与<br>之相邻的所有敌人",
-      "enemiesRange": "在%game.action.range% {0}范围内的%game.target% 所有敌人",
+      "enemiesRange": "在 %game.action.range% {0} 范围内 %game.target% 的所有敌人",
       "enemiesRangeAffect": "在%game.action.range% {0}范围内的%game.affect% 所有敌人",
       "enemiesRangeAffectExact": "正好在%game.action.range% {0}范围的%game.affect% 所有敌人",
       "enemiesRangeExact": "正好在%game.action.range% {0}范围的%game.target% 所有敌人",
@@ -1035,7 +1035,7 @@
       "figures": "%game.target% 所有个体",
       "figuresAdjacent": "%game.target% 所有相邻个体",
       "figuresRange": "%game.target% 所有 %game.action.range% {0}范围内的个体",
-      "focusEnemyFarthest": "以距离最远的敌人<br>为焦点.",
+      "focusEnemyFarthest": "以距离最远的敌人<br>为焦点。",
       "self": "自身",
       "selfAllies": "自身以及所有盟友",
       "selfAlliesAdjacentAffect": "%game.affect%作用于自身和所有相邻盟友",
@@ -1046,9 +1046,9 @@
     },
     "sufferDamage": "{0} 承受 %game.damage:{1}%",
     "summon": {
-      "player2-3": "2人局或3人局中%game.monsterType.{0}% 或者 4人局中%game.monsterType.{1}%",
-      "player3-4": "2人局中%game.monsterType.{0}% 或者3人局或4人局中%game.monsterType.{1}%",
-      "playerAll": "对所有角色%game.monsterType.{0}%",
+      "player2-3": "%game.monsterType.{0}% 用于三人局 %game.monsterType.{1}% 用于四人局",
+      "player3-4": "%game.monsterType.{0}% 用于两人局或三人局 %game.monsterType.{1}% 用于四人局",
+      "playerAll": "%game.monsterType.{0}% 用于所有角色",
       "spawn": "{1} %data.monster.{0}%",
       "spawnMarker": "{1} %data.monster.{0}% 在 %game.mapMarker.{2}%",
       "spawnObjective": "{1} %data.objective.{0}%",
@@ -1063,11 +1063,11 @@
   },
   "help": "求助",
   "hints": {
-    "active": "轮流",
-    "active-full": "轮流依次点击每个个体图片",
+    "active": "轮流进行",
+    "active-full": "轮流进行，点击每个个体图片",
     "addAdditionalContent": "添加额外的内容",
     "addCharacters": "%character.add%",
-    "addMonsterEntities": "使用 \"+\" 按钮来生成怪物.",
+    "addMonsterEntities": "使用 \"+\" 按钮来生成怪物。",
     "addMonsters": "%monster.add%",
     "draw": "点击 \"%round.draw%\"",
     "draw-full": "选择角色技能卡牌,设置时序值,点击 \"%round.draw%\".",
@@ -1076,14 +1076,14 @@
     "setScenario": "%scenario.set%"
   },
   "menu": {
-    "backToMain": "回到 %menu.main%",
+    "backToMain": "返回 %menu.main%",
     "main": "主菜单"
   },
   "monster": {
     "": "怪物",
     "add": "添加怪物",
     "addEntity": {
-      "boss": "生成Boss类型怪物",
+      "boss": "生成头目怪物",
       "elite": "生成精英怪物",
       "normal": "生成普通怪物"
     },
@@ -1094,7 +1094,7 @@
     "changeType": "从 %game.monsterType.{0}% 更改类型至 %game.monsterType.{1}%",
     "elite": "精英",
     "filter": {
-      "": "怪物筛选",
+      "": "筛选怪物",
       "noResult": "无结果"
     },
     "normal": "普通",
@@ -1112,13 +1112,13 @@
     "showHidden": "查看隐藏怪物",
     "skipInteractiveActions": "跳过互动能力",
     "statEffect": {
-      "": "以下变更适用于特殊规则:",
-      "deck": "使用修正能力:<br>\"{0}\""
+      "": "以下变更适用于特殊规则：",
+      "deck": "使用修正能力：<br>\"{0}\""
     },
     "toggleAction": "切换适用能力",
     "toggleAllied": {
-      "off": "将 <span class=\"monster-allied-off\">盟友</span> 关闭",
-      "on": "将 <span class=\"monster-allied-on\">盟友</span> 打开"
+      "off": "关闭 <span class=\"monster-allied-off\">盟友</span>",
+      "on": "开启 <span class=\"monster-allied-on\">盟友</span>"
     },
     "toggleAlly": {
       "off": "切换回 <span class=\"monster-ally-off\">敌人</span>",
@@ -1152,9 +1152,9 @@
   "objective": {
     "": "目标点",
     "add": "添加目标点",
-    "addContainer": "添加目标点容器 (%wip%)",
+    "addContainer": "添加目标点容器 （%wip%）",
     "remove": "移除目标点",
-    "removeAll": "移除所有"
+    "removeAll": "全部移除"
   },
   "or": "或",
   "party": {
@@ -1166,13 +1166,13 @@
     },
     "addPartyAchievement": {
       "": "添加团队成就",
-      "empty": "为搜索到匹配的团队成就"
+      "empty": "未搜索到匹配的团队成就"
     },
     "campaign": {
       "": "战役",
       "achievements": "世界成就",
-      "donations": "对圣橡树的捐款",
-      "envelopeB": "信封B",
+      "donations": "向圣橡树庇护所的捐赠",
+      "envelopeB": "信封 B",
       "items": "已解锁的物品",
       "manage": "整体战役管理",
       "map": "地图",
@@ -1193,7 +1193,7 @@
       "scenarios": {
         "": "剧本",
         "addConclusion": "添加结局",
-        "addSuccess": "标记为胜利",
+        "addSuccess": "标记为成功",
         "conclusions": "结局",
         "edition": "版本",
         "finished": "已完成",
@@ -1201,7 +1201,7 @@
         "index": "#",
         "name": "名称",
         "removeManual": "从已解锁中移除",
-        "removeSuccess": "从胜利中移除",
+        "removeSuccess": "从成功中移除",
         "removeSuccessCasual": "从已完成的临时剧本中移除",
         "unlock": "解锁剧本"
       },
@@ -1222,7 +1222,7 @@
           "interactions": "相互作用",
           "level": {
             "": "等级",
-            "hint": "查看奖励 (双击以降低等级)"
+            "hint": "查看奖励（双击以降低等级）"
           },
           "name": "名称",
           "rebuild": {
@@ -1260,7 +1260,7 @@
           "upgrade": {
             "": "升级建筑物",
             "action": "升级建筑物至等级 {0}",
-            "hint": "升级建筑物 (双击以强制升级)"
+            "hint": "升级建筑物 （双击以强制升级）"
           }
         },
         "campaignStickers": {
@@ -1995,7 +1995,7 @@
     },
     "applyRetirement": {
       "": "应用退休奖励",
-      "hint": "退休时,打开对话框以使退休奖励生效.通过勾选角色记录纸上的个人使命来执行退休."
+      "hint": "退休时，打开对话框以使退休奖励生效。通过勾选角色记录表上的个人使命来执行退休。"
     },
     "artwork": {
       "": "插图",
@@ -2082,7 +2082,7 @@
     },
     "browserNavigation": {
       "": "使用指引撤销/恢复",
-      "hint": "%尚在开发中%"
+      "hint": "%wip%"
     },
     "calculate": {
       "": "显示计算之后的数据",
@@ -2146,12 +2146,12 @@
       "hint": "自动根据行动角色的切换来显示角色对应的物品."
     },
     "characterSheet": {
-      "": "角色记录纸",
-      "hint": "启用角色记录纸功能.点击角色面板右侧的大图标以打开记录纸."
+      "": "角色记录表",
+      "hint": "启用角色记录表功能。点击角色面板右侧的大图标以打开记录表。"
     },
     "characterSheetCompact": {
-      "": "小型角色记录纸(%尚在开发中%)",
-      "hint": "以更紧凑的小型角色记录纸显示而不是原始的角色记录纸."
+      "": "精简版角色记录表（%wip%）",
+      "hint": "显示精简版角色记录表（非原始布局版本）。"
     },
     "characterShieldRetaliate": {
       "": "护盾和反击",
@@ -2374,7 +2374,7 @@
     },
     "partySheet": {
       "": "团队记录表",
-      "hint": "启用团队记录纸以及战役记录纸.战役记录纸位于团队表的 <i>背面</i>."
+      "hint": "启用团队记录表以及战役记录表。战役记录表位于团队表的 <i>backside</i>。"
     },
     "pinchZoom": {
       "": "手势缩放",

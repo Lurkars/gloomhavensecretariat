@@ -81,6 +81,17 @@
     "abilities": {
       "currentDeck": "Current Deck",
       "deckWarning": "No correct card selection possible as there are too many cards in the deck!",
+      "enhancements": {
+        "baseCosts": "Base Costs",
+        "costs": "Overall",
+        "enhancements": "Previous Enhancements",
+        "enhancerLevel": "Enhancer Bonus",
+        "level": "Level",
+        "lost": "Lost",
+        "multiTarget": "Multiple Targets",
+        "persistent": "Persistent",
+        "temporary": "Temporary"
+      },
       "forceDeck": "Double click to add Card to Deck",
       "levelWarning": "Invalid deck as some cards are higher level than character!",
       "pickCard": "Pick your level {0} card",
@@ -1939,6 +1950,10 @@
       "": "Always Frosthaven Advantage/Disadvantage Rules",
       "hint": "Always apply Frosthaven rules for drawing Attack Modifier with Advantage or Disadvantage (Automatic enabled when playing Frosthaven)"
     },
+    "alwaysFhEnhancements": {
+      "": "Frosthaven Enhancement costs",
+      "hint": "Always use the Frosthaven rules to calculate enhancement costs."
+    },
     "alwaysFhSolo": {
       "": "Always Frosthaven Solo Rules",
       "hint": "Always apply Frosthaven rules for Solo level calculation (Automatic enabled when playing Frosthaven)"
@@ -2469,6 +2484,10 @@
       "hint": "Enable character summons"
     },
     "synced": "These settings are synchronised with the server!",
+    "temporaryEnhancements": {
+      "": "Temporary Enhancements",
+      "hint": "Use Temporary Enhancements to reduce enhancement costs. For Frosthaven rules as stated in the rule book are used, otherwise the Gloomhaven Digital enhancement costs apply."
+    },
     "theme": {
       "": "Theme",
       "bb": "Button & Bugs (%wip%)",

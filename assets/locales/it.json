@@ -38,7 +38,7 @@
     },
     "party": "Scheda Gruppo/Campagna",
     "resources": "Tabella panoramica delle risorse",
-    "sheet": "Foglio di gestione della campagna globale",
+    "sheet": "Scheda di gestione globale della campagna",
     "trials": {
       "": "Prove",
       "automation": "L'effetto di questa carta viene automaticamente applicato!"
@@ -1084,7 +1084,7 @@
     "applyInteractiveActions": "Applica abilità evidenziate per",
     "boss": "Boss",
     "cancelNumberpicker": "Annulla",
-    "changeStandee": "Cambia %game.monsterType.{0}% segnalino #{1}",
+    "changeStandee": "Cambia %game.monsterType.{0}% pedina #{1}",
     "changeType": "Cambia tipologia da %game.monsterType.{0}% a %game.monsterType.{1}%",
     "elite": "Elite",
     "filter": {
@@ -1096,12 +1096,12 @@
     "removeAll": "Rimuovi tutti",
     "removeUnused": "Rimuovi inutilizzato",
     "selectStandees": {
-      "all": "Seleziona tutti i segnalini",
-      "boss": "Seleziona tutti i segnalini Boss",
-      "elite": "Seleziona tutti i segnalini Elite",
-      "normal": "Seleziona tutti i segnalini normali"
+      "all": "Seleziona tutte le pedine",
+      "boss": "Seleziona tutte le pedine Boss",
+      "elite": "Seleziona tutte le pedine Elite",
+      "normal": "Seleziona tutte le pedine normali"
     },
-    "setStandees": "Imposta i segnalini {1} %game.monsterType.{0}%",
+    "setStandees": "Sistema le pedine {1} %game.monsterType.{0}%",
     "showBoss": "Mostra mostro Boss",
     "showHidden": "Mostra mostro nascosto",
     "skipInteractiveActions": "Salta le abilità interattive per",
@@ -1451,7 +1451,7 @@
       "": "Filtra scenario",
       "noResult": "Nessun risultato"
     },
-    "filterSuccess": "Solo scenari incompiuti",
+    "filterSuccess": "Solo scenari non completati",
     "finish": {
       "": "Termina lo scenario",
       "failure": "Fallimento",
@@ -1863,7 +1863,7 @@
     "reconnect": "Riconnetti",
     "settings": {
       "": "Sincronizza le impostazioni",
-      "hint": "Sincronizza oltre al gioco anche le impostazioni per tutti i client che utilizzano questa opzione. Certamente, <b> non</b> tutte le impostazioni saranno sincronizzate, tipo alcune opzioni per la grafica o l'interfaccia."
+      "hint": "Sincronizza oltre al gioco anche le impostazioni per tutti i client che utilizzano questa opzione. Sicuramente<b> non</b> tutte le impostazioni saranno sincronizzate, ad esempio alcune opzioni per la grafica o l'interfaccia."
     },
     "undefined": "Connessione non specificata",
     "url": "Host",
@@ -1901,11 +1901,53 @@
       "hint": {
         "": "Alcune condizioni richiedono la conferma per essere applicate, ad esempio quando si riducono PV con Veleno, conferma la perdita di 1 PV extra",
         "brittle": "Quando subisci danno, chiedi di applicare %game.condition.brittle% e aumenta il danno.",
-        "heal": "Non è uno stato, ma %game.action.heal% deve essere applicato quando si aumentano i punti ferita.",
+        "heal": "Non è uno stato, ma %game.action.heal% potrebbe essere applicato quando aumentano i punti ferita.",
         "poison": "Quando subisci danno, chiedi di applicare %game.action.attack% +1 da %game.condition.poison% (incluso %game.attackmodifier.double%).",
         "poison_x": "Quando subisci danno, chiedi di applicare %game.action.attack% +X da %game.condition.poison_x:X% (incluso %game.attackmodifier.double%).",
-        "shield": "Non è uno stato, ma %game.action.shield% deve essere applicato quando si subiscono danni per ridurli."
+        "shield": "Non è uno stato, ma %game.action.shield% potrebbe essere applicato quando si subiscono danni per ridurli.",
+        "ward": "Quando subisci danno, chiedi di applicare %game.condition.ward% per abbassare il danno."
       }
+    },
+    "activeStandees": {
+      "": "Pedine attive",
+      "hint": "Durante il turno dei mostri, ogni pedina ha uno stato attivo, fai doppio clic sulla pedina per segnarlo come fatto"
+    },
+    "activeSummons": {
+      "": "Evocazioni attive",
+      "hint": "All'inizio del turno dei personaggi, le evocazioni verranno attivate nel loro ordine, fare doppio clic per attivare lo stato attivo."
+    },
+    "addAllMonsters": {
+      "": "Aggiungi per tutte le stanze/sezioni",
+      "hint": "Questo aggiungerà automaticamente tutti i mostri che appaiono nello scenario. Si prega di considerare che potrebbe fare da spoiler a stanze/sezioni non rivelate."
+    },
+    "additional": "Gameplay aggiuntivo",
+    "allyAttackModifierDeck": {
+      "": "Mazzo modificatore di attacco per gli alleati",
+      "hint": "Abilita il mazzo modificatore di attacco per gli alleati"
+    },
+    "alwaysAllyAttackModifierDeck": {
+      "": "Attacca sempre il mazzo modificatore per gli alleati",
+      "hint": "Mostra sempre il mazzo modificatore di attacco per gli alleati"
+    },
+    "alwaysFhAdvantage": {
+      "": "Sempre le regole di vantaggio/svantaggio di Frosthaven",
+      "hint": "Applicare sempre le regole di Frosthaven per pescare il modificatore di attacco con vantaggio o svantaggio (abilitato automaticamente quando si gioca a Frosthaven)"
+    },
+    "alwaysFhSolo": {
+      "": "Sempre le regole in solitario di Frosthaven",
+      "hint": "Applicare sempre le regole di Frosthaven per il calcolo del livello in solitario (abilitato automaticamente quando si gioca a Frosthaven)"
+    },
+    "alwaysHazardousTerrain": {
+      "": "Sempre terreno pericoloso",
+      "hint": "Applicare sempre le regole di Frosthaven per il calcolo del terreno pericoloso (abilitato automaticamente quando si gioca a Frosthaven)"
+    },
+    "alwaysLootApplyDialog": {
+      "": "Mostra sempre la finestra di dialogo Applica bottino",
+      "hint": "Mostra sempre la finestra di dialogo per selezionare il personaggio sulla carta bottino pescata invece di usare il personaggio attivo"
+    },
+    "alwaysLootDeck": {
+      "": "Usa sempre il mazzo bottino",
+      "hint": "Mostra il mazzo bottino per ogni scenario (abilitato automaticamente quando si gioca a Frosthaven)"
     }
   }
 }

@@ -37,7 +37,7 @@
       "highlighting": "강조"
     },
     "party": "파티/캠페인 기록지",
-    "resources": "전투 개요 표",
+    "resources": "자원 개요 표",
     "sheet": "전역 캠페인 관리 기록지",
     "trials": {
       "": "평가판",
@@ -608,8 +608,8 @@
     },
     "condition": {
       "bane": {
-        "": "해악",
-        "hint": "%game.conditionIcon.bane% 해악: 다음 차례 끝에 %game.damage:10% 피해를 받고, 그런 다음 제거됨. 또한 치료될 때 제거."
+        "": "파멸",
+        "hint": "%game.conditionIcon.bane% 파멸: 다음 차례 종료 시 %game.damage:10%점을 입는다. 그런 다음 제거. 치료를 받아도 제거."
       },
       "bless": {
         "": "축복",
@@ -617,11 +617,11 @@
       },
       "brittle": {
         "": "취약",
-        "hint": "%game.conditionIcon.brittle% 취약: 다음 %game.damage% 원천이 두 배가 되고, 그런 다음 제거됨. 또한 치료될 때 제거."
+        "hint": "%game.conditionIcon.brittle% 취약: 다음%game.damage%원천이 두 배가 된다. 그런 다음 제거. 치료를 받아도 제거."
       },
       "chill": {
         "": "냉기",
-        "hint": "%game.conditionIcon.bane% 냉기: 각 냉기 토큰마다 모든 공격 및 이동 능력에 -1. 다음 차례 끝에 하나 제거."
+        "hint": "%game.conditionIcon.chill% 냉기: 각 냉기 토큰마다 모든 공격 및 이동 능력에 -1. 다음 차례 종료 시 토큰 하나 제거."
       },
       "curse": {
         "": "저주",
@@ -629,11 +629,11 @@
       },
       "disarm": {
         "": "무장해제",
-        "hint": "%game.conditionIcon.disarm% 무장해제: 공격할 수 없음. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.disarm% 무장해제: 공격할 수 없다. 다음 차례 종료 시 제거."
       },
       "dodge": {
         "": "회피",
-        "hint": "%game.conditionIcon.dodge% Dodge: Discard or lose a card to prevent an attack. 그런 다음, 제거."
+        "hint": "%game.conditionIcon.dodge% 회피: 공격을 받을 때 카드를 버리거나 잃습니다. 그런 다음 제거."
       },
       "empower": {
         "": "강화",
@@ -649,15 +649,15 @@
       },
       "immobilize": {
         "": "이동불가",
-        "hint": "%game.conditionIcon.immobilize% 이동불가: 이동할 수 없음. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.immobilize% 이동불가: 이동할 수 없다. 다음 차례 종료 시 제거."
       },
       "immune": {
         "": "면역",
         "hint": "상태에 면역"
       },
       "impair": {
-        "": "감소",
-        "hint": "%game.conditionIcon.impair% Impair: 아이템을 사용할 수 없음. 다음 차례 끝에 제거."
+        "": "파손",
+        "hint": "%game.conditionIcon.impair% 파손: 아이템을 사용할 수 없다. 다음 차례 종료 시 제거."
       },
       "infect": {
         "": "감염",
@@ -665,11 +665,11 @@
       },
       "invisible": {
         "": "투명",
-        "hint": "%game.conditionIcon.invisible% 투명: 대상이 될 수 없음. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.invisible% 투명: 공격 대상이 될 수 없음. 다음 차례 끝에 제거."
       },
       "muddle": {
         "": "혼란",
-        "hint": "%game.conditionIcon.muddle% 혼란: 모든 공격에 불이익. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.muddle% 혼란: 모든 공격에 불이익을 받는다. 다음 차례 종료 시 제거."
       },
       "permanent": {
         "": "영속",
@@ -677,19 +677,19 @@
       },
       "poison": {
         "": "중독",
-        "hint": "%game.conditionIcon.poison% 중독: 모든 공격자는 +1 %game.action.attack% 얻음. 치료를 방해함. 치료될 때 제거."
+        "hint": "%game.conditionIcon.poison% 중독: 모든 공격자가 +1 %game.action.attack%을 얻는다. 치료를 막는다. 치료를 받으면 제거."
       },
       "poison_x": {
         "": "중독 {0}",
-        "hint": "%game.conditionIcon.poison_X:X% 중독 X: 모든 공격자는 +X %game.action.attack% 얻음. 치료를 방해함. 치료될 때 제거."
+        "hint": "%game.conditionIcon.poison_X:X% 중독 X: 모든 공격자가 +X %game.action.attack%을 얻는다. 치료를 막는다. 치료를 받으면 제거."
       },
       "regenerate": {
-        "": "재생",
-        "hint": "%game.conditionIcon.regenerate% 재생: 차례 시작에 %game.action.heal% 1. 피해를 받을 때 제거."
+        "": "복원",
+        "hint": "%game.conditionIcon.regenerate% 복원: 자신의 차례 시작 시 %game.action.heal% 1. 피해를 입을 때 제거."
       },
       "rupture": {
         "": "파열",
-        "hint": "%game.conditionIcon.rupture% Rupture: On move suffer %game.damage:1%. 치료될 때 제거."
+        "hint": "%game.conditionIcon.rupture% 파열: 이동 시%game.damage:1%점을 입는다. 치료를 받으면 제거."
       },
       "strengthen": {
         "": "강화",
@@ -697,19 +697,19 @@
       },
       "stun": {
         "": "기절",
-        "hint": "%game.conditionIcon.stun% 기절: 능력을 발동하거나 아이템을 격발 또는 사용할 수 없음. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.stun% 기절: 능력을 수행하거나 아이템을 사용, 또는 발동을 할 수 없다. 다음 차례 종료 시 제거."
       },
       "ward": {
-        "": "보호",
+        "": "가호",
         "hint": "%game.conditionIcon.ward% 보호: 다음 번 %game.damage% 피해 원천에 대해 절반 내림만 받음. 그런 다음, 제거."
       },
       "wound": {
         "": "부상",
-        "hint": "%game.conditionIcon.wound% 부상: 매 차례 시작에 피해 %game.damage:1%점을 받음. 치료될 때 제거."
+        "hint": "%game.conditionIcon.wound% 부상: 매번 차례 시작 시%game.damage:1%점을 입는다. 치료를 받으면 제거."
       },
       "wound_x": {
         "": "부상 {0}",
-        "hint": "%game.conditionIcon.wound_x:X% 부상 X: 매 차례 시작에 피해 %game.damage:X%점을 받음. 치료될 때 제거."
+        "hint": "%game.conditionIcon.wound_x:X% 부상 X: 차례 시작 시 피해 %game.damage:X%점을 입는다. 치료될 때 제거."
       }
     },
     "custom": {
@@ -863,6 +863,11 @@
       },
       "choose": "아이템 선택",
       "craft": "'{0}' 제작",
+      "distilling": {
+        "": "'{0}' 증류",
+        "distill": "%game.loot.{0}% 1개 증류",
+        "select": "자원 선택"
+      },
       "effect": "아이템이 장착되어 있으면 자동으로 효과가 적용됩니다. 아이템을 장착하려면 아이템 이름을 클릭하기만 하면 됩니다. 아이템 장착은 시나리오 시작 전과 시나리오 사이에만 가능합니다. 강제로 장착하려면 두 번 클릭합니다.",
       "empty": "아이템을 찾을 수 없음",
       "filter": {
@@ -969,7 +974,7 @@
           "itemDesign": "{1} 도안 ({0}) 획득",
           "itemFh": "{1} %game.itemFh.{0}% 획득",
           "loot": "돈 토큰 {0}개 획득",
-          "lootCards": "%number.{0}% 노획 카드 획득",
+          "lootCards": "노획 카드 %number.{0}% 획득",
           "partyAchievement": "파티 업적: \"{0}\"",
           "randomItem": {
             "": "무작위 아이템 획득 ({0} 아이템)",
@@ -1002,7 +1007,7 @@
       "allies": "%game.target% 모든 아군 대상",
       "alliesAdjacent": "%game.target% 모든 인접한 아군 대상",
       "alliesAdjacentAffect": "%game.affect% 인접한 모든 아군에게 영향",
-      "alliesRange": "%game.target% 사정거리 %game.action.range% {0} 내 모든 아군 대상",
+      "alliesRange": "%game.target% %game.action.range% {0} 내 모든 아군 대상",
       "alliesRangeAffect": "%game.affect% 사정거리 %game.action.range% {0} 내 모든 아군에게 영향",
       "ally": "%game.target% 아군 하나 대상",
       "allyAdjacent": "%game.target% 인접한 아군 하나 대상",
@@ -1217,7 +1222,7 @@
           },
           "rewards": {
             "action": "레벨 {0}",
-            "defense": "",
+            "defense": "+{0} 방어",
             "items": "아이템 보급에 %game.itemFh.{0}% 아이템을 %game.itemFh.{1}%에 추가",
             "loseMorale": "사기 -{0}점",
             "prosperity": "번영도 +{0}점",
@@ -1238,10 +1243,10 @@
           "": "캠페인 스티커",
           "empty": "맞는 캠페인 스티커를 찾을 수 없음"
         },
-        "defense": "수비",
+        "defense": "방어",
         "disable": "글룸헤이븐 파티 기록지로 이동",
         "enable": "프로스트헤이븐 캠페인 기록지로 이동",
-        "name": "파티 이름",
+        "name": "파티<br>이름",
         "nextWeek": "다음 주 (새 달력)",
         "soldierLevel": "레벨",
         "soldiers": "병사",
@@ -1250,7 +1255,7 @@
           "": "프로스트헤이븐 보급",
           "total": "총합"
         },
-        "totalDefense": "총 수비",
+        "totalDefense": "총 방어",
         "townGuardPerks": "마을 경비병 특혜",
         "weekSections": {
           "": "{0}주차 섹션 설정",
@@ -1796,7 +1801,8 @@
         }
       },
       "hint": {
-        "": "중독으로 체력을 감소시키는 경우와 같이 특정 조건을 적용하려면 확인이 필요합니다.<br>체력 1 감소 확인"
+        "": "중독으로 체력을 감소시키는 경우와 같이 특정 조건을 적용하려면 확인이 필요합니다.<br>체력 1 감소 확인",
+        "brittle": "피해를 입을 때, %game.condition.brittle%을 적용하여 피해를 입습니다."
       }
     },
     "activeStandees": {
@@ -1856,13 +1862,13 @@
       "hint": "건물을 건설하거나 향상할 때, 해당 보너스를 적용하고 섹션 대화 상자가 있으면 엽니다."
     },
     "applyConditions": {
-      "": "상태 자동으로 적용",
+      "": "상태이상 자동으로 적용",
       "hint": {
         "": "해당 상태는 차례 전후에 자동으로 적용됩니다. 예를 들어, 부상 상태인 대상은 라운드 시작 시에 체력 1을 잃습니다.",
-        "bane": "차례 종료에 자동으로 %game.condition.bane% 피해 적용.",
-        "regenerate": "차례 시작에 자동으로 %game.condition.regenerate% 적용.",
-        "wound": "차례 종료에 자동으로 %game.condition.wound% 피해 적용.",
-        "wound_x": "차례 종료에 자동으로 %game.condition.wound_x:X% 피해 적용."
+        "bane": "차례 종료 시, 자동으로%game.condition.bane% 피해 적용.",
+        "regenerate": "차례 시작 시, 자동으로%game.condition.regenerate%적용.",
+        "wound": "차례 시작 시, 자동으로%game.condition.wound%피해 적용.",
+        "wound_x": "차례 시작 시, 자동으로%game.condition.wound_x:X% 피해 적용."
       }
     },
     "applyLongRest": {
@@ -2453,6 +2459,7 @@
       "disableSolo": "단독 레벨 계산 비활성화",
       "disabledGe5Player": "5인 이상 규칙 비활성화",
       "disabledManualPlayerCount": "수동 플레이어 수 비활성화",
+      "distillItem": "",
       "donate": "위대한 떡갈나무 성지에 {0}개 기부",
       "draw": "뽑기",
       "drawAbility": "{0}의 능력 카드 뽑기",
@@ -2576,7 +2583,7 @@
       "setPartyReputation": "{0} 평판",
       "setPartyResource": "프로스트헤이븐 보급을 {1}에서 변경: {2}",
       "setPartySoldiers": "병사 {0}",
-      "setPartyTotalDefense": "수비 {1} 설정",
+      "setPartyTotalDefense": "방어 {1} 설정",
       "setPartyTownGuardPerks": "마을 경비병 특혜 {0} 설정",
       "setPartyWeeks": "{0}주차로 설정",
       "setPerk": "{0}의 {1}번째 특혜 중 {2}번째 칸을 변경함",
