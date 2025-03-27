@@ -1,5 +1,104 @@
 {
+  "campaignSticker": {
+    "42-temple": "Temple"
+  },
   "items": {
+    "fh-1": {
+      "": "Longue-vue",
+      "1": "Pendant votre capacité d'attaque, gagnez Avantage pour une attaque."
+    },
+    "fh-10": {
+      "": "Bouclier Rudimentaire",
+      "1": "Quand un adversaire vous applique un état négatif, bloquez cet état."
+    },
+    "fh-100": {
+      "": "Potion d'Endurance Majeure",
+      "1": "Pendant votre tour, %game.card.recover% une carte de votre défausse."
+    },
+    "fh-101": {
+      "": "Potion de Puissance Majeure",
+      "1": "Pendant votre tour, ajoutez +2 %game.action.attack% à toutes vos attaques."
+    },
+    "fh-102": {
+      "": "Potion Élémentaire Majeure",
+      "1": "Pendant votre tour, %game.element.wild% %game.element.wild%."
+    },
+    "fh-103": {
+      "": "Potion de Guérison Majeure",
+      "1": "Pendant votre tour, retirez tous vos états négatifs. Cet objet peut être utilisé même si vous avez %game.condition.impair% ou %game.condition.stun%."
+    },
+    "fh-104": {
+      "": "Potion de Rapidité",
+      "1": "Pendant votre capacité de déplacement, ajoutez +3 %game.action.move% et %game.action.jump%."
+    },
+    "fh-105": {
+      "": "Potion Bouclier-de-feu Majeure",
+      "1": "Pendant votre tour, effectuez : %game.action.retaliate% 2 %game.action.range:3%"
+    },
+    "fh-106": {
+      "": "Potion Mur-de-pierre",
+      "1": "Pendant votre tour, effectuez : %game.condition.ward% %game.action.target% 2 alliés adjacents et vous-même"
+    },
+    "fh-107": {
+      "": "Potion de Vigueur",
+      "1": "Pendant votre tour, effectuez : %game.condition.strengthen% %game.action.target% 2 alliés adjacents et vous-même"
+    },
+    "fh-108": {
+      "": "Pluie Bénite",
+      "1": "Pendant votre tour, effectuez : %game.condition.bless% %game.action.target% 2 alliés adjacents et vous-même"
+    },
+    "fh-109": {
+      "": "Potion de Renouvellement Majeure",
+      "1": "Pendant votre tour, %game.card.recover% au maximum une de vos potions perdues à 2 ingrédients."
+    },
+    "fh-11": {
+      "": "Charme Simple",
+      "1": "Au début du scénario, retirez une carte %game.attackmodifier.minus1% de votre paquet Modificateur d'attaque."
+    },
+    "fh-110": {
+      "": "Potion de Précision",
+      "1": "Quand vous révélez une carte %game.attackmodifier.null% de votre paquet Modificateur d'attaque, considérez-la à la place comme une carte %game.attackmodifier.plus2%."
+    },
+    "fh-111": {
+      "": "Potion de Frénésie Majeure",
+      "1": "Pendant votre tour, effectuez :"
+    },
+    "fh-112": {
+      "": "Potion Coup-de-marteau",
+      "1": "Pendant votre tour, subissez %game.damage% 10."
+    },
+    "fh-113": {
+      "": "Potion d'Expertise",
+      "1": "Au début de votre tour, défaussez une de vos cartes jouées pour effectuer les actions supérieure et inférieure de votre autre carte jouée. Une seule action peut déclencher une icône %game.card.lost%."
+    },
+    "fh-114": {
+      "": "Potion d'Anticipation",
+      "1": "Pendant votre tour, révélez la carte supérieure d'un paquet Capacité de monstre. Vous pouvez placer cette carte au bas du paquet."
+    },
+    "fh-115": {
+      "": "Potion d'Infusion",
+      "1": "Pendant votre tour, ignorez une icône de consommation élémentaire sur une action que vous avez jouée et gagnez ses effets."
+    },
+    "fh-116": {
+      "": "Flacon Pestilentiel",
+      "1": "Pendant votre tour, effectuez :"
+    },
+    "fh-117": {
+      "": "Flacon de Fournaise",
+      "1": "Pendant votre tour, effectuez :"
+    },
+    "fh-118": {
+      "": "Flacon Détonnant",
+      "1": "Pendant votre tour, un adversaire à %game.action.range:2% ou moins subit %game.damage% 4."
+    },
+    "fh-119": {
+      "": "Mélange Mortel",
+      "1": "Pendant votre tour, effectuez :"
+    },
+    "fh-12": {
+      "": "Cotte de Mailles Rudimentaire",
+      "1": "Quand vous subissez des %game.damage% d'une attaque, gagnez %game.action.shield:2% pour l'attaque."
+    },
     "fh-120": {
       "": "Amulette de Vie",
       "1": "Pendant votre tour, effectuez :"
@@ -15,6 +114,10 @@
     "fh-123": {
       "": "Armure de Cuir",
       "1": "Quand vous êtes attaqué, avant de piocher une carte Modificateur d'attaque, l'attaquant gagne Désavantage pour l'attaque."
+    },
+    "fh-124": {
+      "": "Bottines Ailées",
+      "1": "Pendant votre tour, ajoutez %game.action.jump% à toutes vos capacités de déplacement."
     },
     "fh-125": {
       "": "Bottes de Célérité",
@@ -35,6 +138,10 @@
     "fh-129": {
       "": "Jumelles Oeil-de-Faucon",
       "1": "Pendant votre capacité d'attaque, gagnez Avantage pour toute les attaques."
+    },
+    "fh-13": {
+      "": "Chaussons de Danse",
+      "1": "Après avoir subi des %game.damage% d'une attaque, effectuez :"
     },
     "fh-130": {
       "": "Casque de Fer",
@@ -75,6 +182,10 @@
     "fh-139": {
       "": "Casques à Cornes",
       "1": "Après vous être déplacé d'au moins 4 hexagones pendant votre tour, ajoutez +1 %game.action.attack% à votre prochaine attaque de mêlée ce tour."
+    },
+    "fh-14": {
+      "": "Épée Lourde",
+      "1": "Pendant votre capacité d'attaque de mêlée, ajoutez +1 %game.action.attack% à une attaque."
     },
     "fh-140": {
       "": "Mantel d'Invocation",
@@ -118,6 +229,10 @@
       "": "Armure de Plates",
       "1": "Pour les cinq prochaines sources de %game.damage% provenant d'attaques vous ciblant, gagnez %game.action.shield:1% pour les attaques."
     },
+    "fh-15": {
+      "": "Bouclier Renforcé",
+      "1": "Quand un adversaire vous applique un état négatif, bloquez cet état."
+    },
     "fh-150": {
       "": "Robe du Chêne",
       "1": "Pendant votre tour, effectuez :"
@@ -158,6 +273,10 @@
       "": "Splendide Bracelet",
       "1": "Après votre capacité d'attaque pendant laquelle un adversaire a subi au moins 6 %game.damage%, effectuez :"
     },
+    "fh-16": {
+      "": "Heaume Inspirant",
+      "1": "Pendant votre tour, octroyez à tous vos alliés adjacents : %game.action.move% 2"
+    },
     "fh-160": {
       "": "Boucle d'Oreille Solaire",
       "1": "Lors de votre repos court, %game.card.recover% jusqu'à trous de vos objets dépensés et effectuez :"
@@ -193,6 +312,18 @@
     "fh-168": {
       "": ""
     },
+    "fh-17": {
+      "": "Armure de Cuir Durci",
+      "1": "Pour les deux prochaines attaques vous ciblant, l'attaquant gagne Désavantage."
+    },
+    "fh-18": {
+      "": "Bottes Frustes",
+      "1": "Pendant votre tour, ajoutez +1 %game.action.move% à toutes vos capacités de déplacement."
+    },
+    "fh-19": {
+      "": "Marteau de Sonneur",
+      "1": "Pendant votre capacité d'attaque, ajoutez %game.condition.muddle% à toutes les attaques."
+    },
     "fh-193": {
       "": "Heaume Perce-Esprit",
       "1": "Pendant votre tour, contrôlez un adversaire à %game.action.range:3% ou moins :"
@@ -220,6 +351,14 @@
     "fh-199": {
       "": "Poulaines Luxueuses",
       "1": "Au début du scénario, considérez que vous êtes placé avant vos invocations dans l'ordre d'initiative quand vous déterminez la focalisation des monstres, pour le reste du scénario."
+    },
+    "fh-2": {
+      "": "Casque Rudimentaire",
+      "1": "Quand vous êtes attaqué, considérez toute carte Modificateur d'attaque %game.attackmodifier.double% piochée par l'adversaire comme une carte %game.attackmodifier.plus1% à la place."
+    },
+    "fh-20": {
+      "": "Arc à Corde Souple",
+      "1": "Pendant votre tour, ajoutez +1 %game.action.range% à toutes vos attaques à distance."
     },
     "fh-200": {
       "": "Sceptre du Crépuscule",
@@ -262,6 +401,10 @@
       "": "Épée de Maîtrise",
       "1": "Pendant votre capacité d'attaque, gagnez Avantage pour une attaque. Pour chaque maîtrise que vous avez obtenue, ajoutez également à l'attaque : +1 %game.action.attack%, %game.condition.wound%, ou %game.condition.poison%. "
     },
+    "fh-21": {
+      "": "Coiffe de Mailles",
+      "1": "Tant que vous êtes adjacents à au moins trois adversaires, gagnez %game.action.shield:1%."
+    },
     "fh-210": {
       "": "Tanjo",
       "1": "Pendant votre tour, ajoutez -3 %game.action.attack% à toutes les attaques de Fouineur vous ciblant ce round. "
@@ -303,6 +446,10 @@
     "fh-219": {
       "": "Grimoire de Bataille",
       "1": "Pendant votre tour, tous les personnages gagnent %game.condition.strengthen%. Jusqu'à ce qu'un monstre soit éliminé, la première carte modificateur d'attaque piochée pour chaque attaque est considérée comme Combo."
+    },
+    "fh-22": {
+      "": "Cotte de Mailles Lourde",
+      "1": "Quand vous subissez des %game.damage% d'une attaque, gagnez %game.action.shield:3% pour l'attaque."
     },
     "fh-220": {
       "": "Plume de Belara",
@@ -347,6 +494,10 @@
       "": "Carte Raffinée",
       "1": "Pendant votre tour, octroyez à un allié à %game.action.range:3% ou moins :"
     },
+    "fh-23": {
+      "": "Jambières Robustes",
+      "1": "Au début de votre tour, ajoutez -2 %game.action.move% à toutes vos capacité de déplacement pour gagner %game.action.shield% 1 ce round. "
+    },
     "fh-230": {
       "": "Lampe d'Observation",
       "1": "Après avoir pioché une carte Butin, piochez une carte supplémentaire, gardez une des deux et placez l'autre au sommet ou en bas du paquet Butin."
@@ -388,8 +539,8 @@
       "1": "Pendant votre tour, tous les alliés et adversaires à %game.action.range:2% ou moins subissent %game.damage% 1."
     },
     "fh-24": {
-      "": "",
-      "1": ""
+      "": "Lame Corrompue",
+      "1": "Pendant votre capacité d'attaque de mêlée, ajoutez %game.condition.wound%, %game.condition.poison%, et %game.condition.muddle% à une attaque."
     },
     "fh-240": {
       "": "Gemme du Démon",
@@ -443,7 +594,8 @@
       "1": "Après votre attaque de mêlée, un adversaire adjacent à la cible subit %game.damage% 2."
     },
     "fh-3": {
-      "": ""
+      "": "Cape de Voyage",
+      "1": "Au début du scénario, augmentez votre valeur maximale de points de vie de 1."
     },
     "fh-30": {
       "": "Gantelet de Parade",
@@ -486,6 +638,10 @@
       "": "Hache des Abysses",
       "1": "Pendant votre capacité d'attaque, ajoutez +3 %game.action.attack% et %game.action.pierce% 1 à une attaque ciblant un Cadavre Gelé, un Spectre des Glaces ou un Fléau Réanimé."
     },
+    "fh-4": {
+      "": "Armure de Peau Rudimentaire",
+      "1": "Pour les deux prochaines attaques vous ciblant, l'attaquant gagne Désavantage."
+    },
     "fh-40": {
       "": "Arc Brise-coeur",
       "1": "Pendant votre tour, ajoutez +1 %game.action.attack% et +2 %game.action.range% à une de vos attaques à distance."
@@ -527,7 +683,8 @@
       "1": "Pendant votre capacité d'attaque de mêlée, ajoutez +1 %game.action.attack% et %game.condition.wound% à une attaque."
     },
     "fh-5": {
-      "": ""
+      "": "Bottes Rudimentaires",
+      "1": "Pendant votre capacité de déplacement, ajoutez +1 %game.action.move%"
     },
     "fh-50": {
       "": "Bouclier de Rétorsion",
@@ -545,6 +702,221 @@
     "fh-53": {
       "": "Bottes Ferrées",
       "1": "Après un déplacement d'au moins 4 hexagones pendant votre tour, gagnez %game.action,retaliate% 1 pour le round."
+    },
+    "fh-54": {
+      "": "Pantoufles Reposantes",
+      "1": "Pendant votre repos court, au lieu de perdre une carte au hasard de votre défausse, piochez-y trois cartes au hasard et choisissez celle que vous perdez."
+    },
+    "fh-55": {
+      "": "Gantelet Acéré",
+      "1": "Lorsque vous êtes attaqué par un adversaire adjacent, gagnez %game.action,retaliate% 2 pour l'attaque."
+    },
+    "fh-56": {
+      "": "Aimant du Récupérateur",
+      "1": "Pendant votre tour, %game.element.consume.earth% pour piller un pion Butin adjacent."
+    },
+    "fh-57": {
+      "": "Pelle",
+      "1": "Pendant votre tour, détruisez un obstacle, terrain dangereux, terrain difficile, terrain verglacé ou piège adjacents."
+    },
+    "fh-58": {
+      "": "Épée Traitresse",
+      "1": "Pendant votre capacité d'attaque de mêlée, ajoutez +2 %game.action.attack% à une attaque. Après la capacité, gagnez %game.condition.disarm%."
+    },
+    "fh-59": {
+      "": "Charme d'Expertise",
+      "1": "Au début du scénario et pour le scénario, gagnez un bénéfice à 1 coche de votre fiche d'aventurier que n'avez pas encore gagné."
+    },
+    "fh-6": {
+      "": "Pantoufles Souples",
+      "1": "Pendant votre pillage de fin de tour, pillez un hexagone adjacent à la place de l'hexagone que vous occupez."
+    },
+    "fh-60": {
+      "": "Cape à Poches",
+      "1": "Au début du scénario, emportez jusqu'à deux objets %game.items.slots.small% supplémentaires."
+    },
+    "fh-61": {
+      "": "Carapace à Pointes",
+      "1": "Juste après que vous avez été attaqué par un adversaire adjacent, ce dernier subit %game.damage% X, où X est votre valeur de %game.action.shield% pour l'attaque."
+    },
+    "fh-62": {
+      "": "Bottes Éternelles",
+      "1": "Pendant votre capacité de déplacement, ajoutez +1 %game.action.move% et gagnez %game.condition.regenerate%"
+    },
+    "fh-63": {
+      "": "Sollerets d'Ombre",
+      "1": "Pendant votre capacité de déplacement, %game.element.consume.dark% pour ajouter +2 %game.action.move%"
+    },
+    "fh-64": {
+      "": "Détonateur",
+      "1": "Quand une de vos invocations est éliminée, tous les adversaires qui lui sont adjacents subissent %game.damage% 2 et gagnent %game.condition.wound%."
+    },
+    "fh-65": {
+      "": "Poudre Corrosive",
+      "1": "Pendant votre tour, placez un Aventurier sur un adversaire normal ou d'élite à %game.action.range:3% ou moins. Ce dernier gagne -1 %game.action.shield% pour le scénario."
+    },
+    "fh-66": {
+      "": "Amulette de Vie Éternelle",
+      "1": "Au début de vos repos, effectuez :"
+    },
+    "fh-67": {
+      "": "Lentilles Convergentes",
+      "1": "Quand vous êtes attaqué, ajoutez +1 %game.action.attack% à l'attaque au lieu de piocher une carte Modificateur d'attaque, et retournez cette carte.",
+      "2": "Pendant votre capacité d'Attaque, ajoutez +1 %game.action.attack% à une attaque au lieu de piocher une carte Modificateur d'attaque, et retournez cette carte."
+    },
+    "fh-68": {
+      "": "Armure d'Écailles",
+      "1": "Annulez les %game.damage% des trois prochaines sources de %game.damage% 2 ou moins que devriez subir."
+    },
+    "fh-69": {
+      "": "Cape à Plumes",
+      "1": "Quand vous subissez des %game.damage% d'une attaque, %game.element.consume.air% pour gagner %game.action.shield:3% pour l'attaque."
+    },
+    "fh-7": {
+      "": "Arc Rudimentaire",
+      "1": "Pendant votre tour, ajoutez +1 %game.action.range% à une de vos attaques à distance."
+    },
+    "fh-70": {
+      "": "Robe Esther",
+      "1": "Chaque fois que vous subissez des %game.damage% de %game.action.retaliate%, réduisez-les à 1. S'ils sont déjà égaux à 1, réduisez-les à 0."
+    },
+    "fh-71": {
+      "": "Botte d'Os",
+      "1": "Après une capacité par laquelle vous éliminez un adversaire, effectuez :"
+    },
+    "fh-72": {
+      "": "Bâton de Chêne",
+      "1": "Pendant votre tour, %game.element.consume.light% pour effectuer :"
+    },
+    "fh-73": {
+      "": "Baguette Énergisante",
+      "1": "Quand vous appliquez un état positif à un allié, un allié différent à %game.action.range:3% ou moins gagne le même état."
+    },
+    "fh-74": {
+      "": "Grenade à Choc",
+      "1": "Pendant votre tour, effectuez :"
+    },
+    "fh-75": {
+      "": "Gantelet à la Rose",
+      "1": "Après qu'un allié à %game.action.range:2% ou moins a subi des %game.damage% d'une attaque, retiré tous les états négatifs de cet allié, puis effectuez :"
+    },
+    "fh-76": {
+      "": "Cor de Commandement",
+      "1": "Pendant le tour d'une de vos invocations, vous contrôlez ses capacités."
+    },
+    "fh-77": {
+      "": "Canon Chaotique",
+      "1": "Pendant votre tour, remplacez une tuile Obstacle, Terrain dangereux, Terrain difficile ou Terrain verglacé de 1 hexagone inoccupé à %game.action.range:2% ou moins, par une autre tuile de cette liste."
+    },
+    "fh-78": {
+      "": "Balance Équilibrée",
+      "1": "Une fois par tour, pendant votre capacité d'attaque, gagnez Avantage pour une attaque, puis retournez cette carte à la fin de votre tour.",
+      "2": "Une fois par tour, pendant votre capacité d'attaque, gagnez Désavantage pour une attaque, puis retournez cette carte à la fin de votre tour."
+    },
+    "fh-79": {
+      "": "Volaille Rôtie",
+      "1": "Pendant votre trou, ajoutez +1 %game.action.attack% à toutes vos attaques et effectuez :"
+    },
+    "fh-8": {
+      "": "Lance Rudimentaire",
+      "1": "Pendant votre tour, une de vos capacités d'attaque de mêlée sur une seule cible peut ciblez un adversaire à 2 hexagones ou moins."
+    },
+    "fh-80": {
+      "": "Pierre Animée",
+      "1": "Quand vous devriez subir %game.damage% 4 ou moins d'une attaque, annulez les %game.damage% et effectuez : %game.action.heal% X sur vous-même où X est le montant des dégâts que vous auriez subis."
+    },
+    "fh-81": {
+      "": "Poupée de Magie Noire",
+      "1": "Quand vous subissez %game.damage% 5 ou moins d'une attaque, un adversaire à %game.action.range:2% ou moins subit aussi le même montant de %game.damage%."
+    },
+    "fh-82": {
+      "": "Cube Mécanique",
+      "1": "Pendant votre capacité de déplacement, après que vous êtes entré sur un hexagone, appliquez %game.condition.immobilize% à tous les adversaires adjacents."
+    },
+    "fh-83": {
+      "": "Potion de Soin",
+      "1": "Pendant votre tour, effectuez : %game.action.heal% 3 sur vous-même"
+    },
+    "fh-84": {
+      "": "Potion d'Endurance",
+      "1": "Pendant votre tour, %game.card.recover% une carte de niveau 1 de votre défausse."
+    },
+    "fh-85": {
+      "": "Potion de Puissance",
+      "1": "Pendant votre tour, ajoutez +1 %game.action.attack% à toutes vos attaques."
+    },
+    "fh-86": {
+      "": "Potion Élémentaire",
+      "1": "Pendant votre tour, %game.element.wild%"
+    },
+    "fh-87": {
+      "": "Potion de Guérison",
+      "1": "Pendant votre tour, retirez un de vos états négatifs. Cet objet peut être utilisé même si vous avez %game.condition.impair% ou %game.condition.stun%."
+    },
+    "fh-88": {
+      "": "Potion Bouclier-de-feu",
+      "1": "Pendant votre tour, effectuez : %game.action,retaliate% 1 %game.action.range:3% "
+    },
+    "fh-89": {
+      "": "Potion Peau-de-pierre",
+      "1": "Pendant votre tour, effectuez : %game.condition.ward% sur vous-même"
+    },
+    "fh-9": {
+      "": "Sceptre Protecteur",
+      "1": "Pendant votre tour, octroyez à un allié à %game.action.range:2% ou moins :"
+    },
+    "fh-90": {
+      "": "Potion Gros-bras",
+      "1": "Pendant votre tour, effectuez : %game.condition.strengthen% sur vous-même"
+    },
+    "fh-91": {
+      "": "Eau Bénite",
+      "1": "Pendant votre tour, effectuez : %game.condition.bless% sur vous-même"
+    },
+    "fh-92": {
+      "": "Potion de Renouvellement",
+      "1": "Pendant votre tour, %game.card.recover% jusqu'à deux de vos objets dépensés."
+    },
+    "fh-93": {
+      "": "Potion de Ricochet",
+      "1": "Quand vous révélez une carte %game.attackmodifier.null% de votre paquet Modificateur d'attaque, considérez-la à la place comme une carte %game.attackmodifier.plus0%."
+    },
+    "fh-94": {
+      "": "Potion de Frénésie",
+      "1": "Pendant votre tour, effectuez :"
+    },
+    "fh-95": {
+      "": "Fiole de Poison",
+      "1": "Pendant votre tour, effectuez : %game.condition.poison% %game.action.range:1%"
+    },
+    "fh-96": {
+      "": "Fiole Inflammable",
+      "1": "Pendant votre tour, effectuez : %game.condition.wound% %game.action.range:1"
+    },
+    "fh-97": {
+      "": "Fiole Explosive",
+      "1": "Pendant votre tour, un adversaire à %game.action.range:2% ou moins subit %game.damage% 2."
+    },
+    "fh-98": {
+      "": "Mélange Malsain",
+      "1": "Pendant votre tour, effectuez : %game.condition.wound%, %game.condition.poison% sur vous-même"
+    },
+    "fh-99": {
+      "": "Potion de Soin Majeure",
+      "1": "Pendant votre tour, effectuez : %game.action.heal% 6 sur vous-même"
     }
+  },
+  "pets": {
+    "fh-01": {
+      "": ""
+    }
+  },
+  "summon": {
+    "banner-of-courage": "Bannière du Courage",
+    "banner-of-hope": "Bannière d'Espoir",
+    "banner-of-strength": "Bannière de Force",
+    "banner-of-valor": "Bannière de Valeur",
+    "reinforcements": "Renfort",
+    "torch-bearer": "Porte-Torche"
   }
 }

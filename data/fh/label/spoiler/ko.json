@@ -35,10 +35,10 @@
         "6": "이동 능력 하나로 10개 이상의 서로 다른 칸에 진입, 그런 다음 같은 차례에 공격 능력 하나로 적 하나가 %game.damage:10%점 이상을 입도록 만듦"
       },
       "snowflake": {
-        "1": "이 행동이 대상을 강제로 이동시키는 경우, 대상이 %game.damage:1% 점을 입음",
-        "2": "자신이 긴 휴식을 취할 때마다, %game.elementHalf:ice|air% 를 할 수 있음",
-        "3": "자신이 짧은 휴식을 취할 때 마다, %game.element.consume.ice% 로 %game.condition.regenerate%, %game.action.range:3%을, %game.element.consume.air% 로 %game.condition.ward%, %game.action.range:3%을 수행할 수 있음",
-        "4": "매번 시나리오 시작 시, 모든 적이 %game.condition.muddle% 을 얻음,새로운 방이 공개될 때마다, 새로운 방에 있는 모든 적이 %game.condition.muddle% 을 얻음",
+        "1": "이 행동이 대상을 강제로 이동시키는 경우, 대상이%game.damage:1%점을 입음",
+        "2": "자신이 긴 휴식을 취할 때마다,%game.elementHalf:ice|air%를 할 수 있음",
+        "3": "자신이 짧은 휴식을 취할 때 마다,%game.element.consume.ice%로%game.condition.regenerate%,%game.action.range:3%을,%game.element.consume.air%로%game.condition.ward%,%game.action.range:3%을 수행할 수 있음",
+        "4": "매번 시나리오 시작 시, 모든 적이%game.condition.muddle%을 얻음,새로운 방이 공개될 때마다, 새로운 방에 있는 모든 적이%game.condition.muddle%을 얻음",
         "5": "매 라운드 아군이나 적 하나 이상을 움직이게 만듦",
         "6": "매 라운드 %game.damage% 를 입는 첫 번째 아군이, 그 %game.damage% 를 입기 바로 직전을 기준으로 자신이 적용한 상태를 하나 이상 보유"
       },
@@ -82,7 +82,8 @@
       "1": "차례 중, 장착자 본인의 부정적 상태 모두 제거, 기절 %game.condition.impair% %game.condition.stun% 중에도 사용 가능."
     },
     "fh-109": {
-      "": ""
+      "": "대형 재건 물약",
+      "1": "장착자의 차례 중, 장착자의 고갈된 아이템을 최대 2개까지%game.card.recover%."
     },
     "fh-116": {
       "": "역병 플라스크"
@@ -239,7 +240,8 @@
       "": "신속의 반지"
     },
     "fh-169": {
-      "": "운명의 부적"
+      "": "운명의 부적",
+      "1": "장착자의 차례중,<br>장착자의 공격 보정카드 덱 맨 위 카드를 공개, 장착자는 그 카드를 해당 덱 맨 밑에 놓을 수 있음."
     },
     "fh-170": {
       "": "진실의 눈"
@@ -258,7 +260,7 @@
     },
     "fh-178": {
       "": "평온의 신발",
-      "1": "턴 시작 시, 주도권이 60 이상이고 긴 휴식을 취하지 않는다면, 자기 자신에 %game.action.heal% 1 수행."
+      "1": "턴 시작 시, 주도권이 60 이상이고 긴 휴식을 취하지 않는다면 %game.action.heal% 1, 자신 수행."
     },
     "fh-179": {
       "1": "당신의 이동 행동 동안, +4 %game.action.move% 추가. 이동 행동 이후 %game.condition.immobilize% 상태 획득."
@@ -354,8 +356,8 @@
       "1": "장착자의 차례 중, 장착자의 원거리 공격 한 번에 +1 %game.action.range% 추가."
     },
     "fh-92": {
-      "": "재건의 물약",
-      "1": "차례 중, 소모된 아이템 2개 회복 %game.card.recover%"
+      "": "재건 물약",
+      "1": "장착자의 차례 중,<br>장착자의 소모된 아이템을 최대 2개까지%game.card.recover%"
     }
   }
 }

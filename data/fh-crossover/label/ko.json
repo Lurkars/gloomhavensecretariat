@@ -5,7 +5,8 @@
     "demolitionist": {
       "": "철거전문가",
       "mech": {
-        "": "기계 강화복"
+        "": "기계 강화복",
+        "hint": "최대 체력이 5 증가합니다. %game.action.heal%10, 자신."
       }
     },
     "diviner": "점술가",
@@ -16,6 +17,13 @@
     "spellweaver": "주문직인",
     "tinkerer": "땜장이",
     "voidwarden": "공허감시자"
+  },
+  "custom": {
+    "fh": {
+      "brute": {
+        "1": "<b>휴식 및 준비:</b> 긴 휴식을 취할 때마다 다음 라운드의 첫 번째 이동 능력에 +1 %game.action.move%를 추가합니다"
+      }
+    }
   },
   "edition": {
     "fh-crossover": "프로스트헤이븐 크로스오버 캐릭터"
