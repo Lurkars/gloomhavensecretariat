@@ -183,6 +183,14 @@ export class Character extends CharacterData implements Entity, Figure {
 
     if (model.progress) {
       this.progress = Object.assign(new CharacterProgress(), model.progress);
+
+      if (this.progress.enhancements) {
+        if (!Array.isArray(this.progress.enhancements)) {
+        this.progress.enhancements = [];
+        }
+      }
+      
+      gameManager.characterManager.previousEnhancements(this, gameManager.enhancementsManager.temporary);
     }
 
     this.scenarioStats = new ScenarioStats();

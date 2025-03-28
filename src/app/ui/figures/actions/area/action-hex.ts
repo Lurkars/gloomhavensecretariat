@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from "@angular/core";
-import { ActionHex, ActionHexFromString, ActionHexToString } from "src/app/game/model/ActionHex";
+import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from "src/app/game/model/ActionHex";
+import { Character } from "src/app/game/model/Character";
 import { Action } from "src/app/game/model/data/Action";
 import { ConditionName } from "src/app/game/model/data/Condition";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-action-hex',
   templateUrl: './action-hex.html',
   styleUrls: ['./action-hex.scss']
@@ -14,9 +15,15 @@ export class ActionHexComponent implements OnChanges {
   @Input() action!: Action;
   @Input() value!: string;
   @Input() size!: number;
+  @Input('index') actionIndex: string = "";
+  @Input('cardId') cardId: number | undefined;
+  @Input('character') character: Character | undefined;
   @Output() clickCallback: EventEmitter<ActionHex> = new EventEmitter<ActionHex>();
   @Output() doubleclickCallback: EventEmitter<ActionHex> = new EventEmitter<ActionHex>();
   hexes: ActionHex[] = [];
+  enhanceHexes: ActionHex[] = [];
+  enhancedHexes: ActionHex[] = [];
+  edit: boolean = false;
   ActionHex = ActionHex;
   ActionHexToString = ActionHexToString;
 
@@ -24,6 +31,8 @@ export class ActionHexComponent implements OnChanges {
 
   ngOnChanges(changes: any) {
     this.hexes = [];
+    this.enhanceHexes = [];
+    this.enhancedHexes = [];
     if (!this.value) {
       this.value = '' + this.action.value;
     }
@@ -31,8 +40,16 @@ export class ActionHexComponent implements OnChanges {
       const hex: ActionHex | null = ActionHexFromString(hexValue);
       if (hex != null) {
         this.hexes.push(hex);
+        if (hex.type == ActionHexType.enhance) {
+          this.enhanceHexes.push(hex);
+          if (this.character && this.cardId && this.actionIndex && this.character.progress.enhancements && this.character.progress.enhancements.find((e) => e.cardId == this.cardId && e.actionIndex == this.actionIndex && e.index == this.enhanceHexes.length - 1 && e.action == 'hex')) {
+            this.enhancedHexes.push(hex);
+          }
+        }
       }
     })
+
+    this.edit = this.character && this.character.tags.indexOf('edit-abilities') != -1 || false;
   }
 
   click(hex: ActionHex) {

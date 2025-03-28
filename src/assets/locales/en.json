@@ -82,8 +82,13 @@
       "currentDeck": "Current Deck",
       "deckWarning": "No correct card selection possible as there are too many cards in the deck!",
       "enhancements": {
+        "apply": "Apply",
         "baseCosts": "Base Costs",
         "costs": "Overall",
+        "disabled": {
+          "enhancements": "Maximum number of enhanceable cards ({1}) reached!",
+          "gold": "Not enough gold ({0}/{1}) for enhancement!"
+        },
         "enhancements": "Previous Enhancements",
         "enhancerLevel": "Enhancer Bonus",
         "level": "Level",
@@ -1951,8 +1956,8 @@
       "hint": "Always apply Frosthaven rules for drawing Attack Modifier with Advantage or Disadvantage (Automatic enabled when playing Frosthaven)"
     },
     "alwaysFhEnhancements": {
-      "": "Frosthaven Enhancement costs",
-      "hint": "Always use the Frosthaven rules to calculate enhancement costs."
+      "": "Always Frosthaven Enhancements",
+      "hint": "Always use the Frosthaven rules and costs for enhancements."
     },
     "alwaysFhSolo": {
       "": "Always Frosthaven Solo Rules",

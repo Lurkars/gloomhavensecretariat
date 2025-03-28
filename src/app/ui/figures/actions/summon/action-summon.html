@@ -12,8 +12,7 @@
         [style]="style"></span>
       <span *ngIf="spawn.monster.type == MonsterType.boss"
         [ghs-label]="spawn.marker ? 'game.summon.spawnMarker' : 'game.summon.spawn'"
-        [ghs-label-args]="[spawn.monster.name, spawn.count ? spawn.count : '', spawn.marker]"
-        [style]="style"></span>
+        [ghs-label-args]="[spawn.monster.name, spawn.count ? spawn.count : '', spawn.marker]" [style]="style"></span>
       <span *ngIf="spawn.monster.health">
         (<span [value-calc]="spawn.monster.health"></span>&nbsp;<span [ghs-label]="'game.hp'"
           [style]="style"></span>)&nbsp;
@@ -28,13 +27,13 @@
       [disabled]="!isInteractiveApplicableAction()"
       [ngClass]="{'action-interactive' : isInteractiveApplicableAction(), 'action-interactive-highlight': highlightAction()}">
       <span [ghs-label]="spawn.marker ? 'game.summon.spawnObjectiveMarker' : 'game.summon.spawnObjective'"
-        [ghs-label-args]="[spawn.objective.name, spawn.count ? spawn.count : '', spawn.marker]"
-        [style]="style"></span>
+        [ghs-label-args]="[spawn.objective.name, spawn.count ? spawn.count : '', spawn.marker]" [style]="style"></span>
       <span *ngIf="i < objectives.length - 1 && objectives.length > 1">&nbsp;<span [ghs-label]="'and'"
           [style]="style"></span>&nbsp;</span>
     </span>
   </ng-container>
 </span>
 
-<ghs-summon-sheet *ngIf="summonData" [summon]="getSummon()" [action]="true" [additional]="additional" [right]="right"
-  [item]="action.value == 'summonDataItem'" [style]="style"></ghs-summon-sheet>
+<ghs-summon-sheet *ngIf="summonData" [summon]="getSummon()" [summonData]="summonData" [action]="true" [additional]="additional" [right]="right"
+  [item]="action.value == 'summonDataItem'" [style]="style" [character]="character" [cardId]="cardId"
+  [index]="actionIndex"></ghs-summon-sheet>

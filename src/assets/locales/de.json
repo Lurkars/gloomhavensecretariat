@@ -81,6 +81,22 @@
     "abilities": {
       "currentDeck": "Aktuelles Kartendeck",
       "deckWarning": "Keine korrekte Kartenauswahl möglich, da zu viele Karten im Kartendeck sind!",
+      "enhancements": {
+        "apply": "Anwenden",
+        "baseCosts": "Grundkosten",
+        "costs": "Gesamtkosten",
+        "disabled": {
+          "enhancements": "Maximum an verbesserbaren Karten ({1}) erreicht!",
+          "gold": "Nicht genügend Gold ({0}/{1}) für diese Fertigkeitsverbesserungen!"
+        },
+        "enhancements": "Vorherige Fertigkeitsverbesserungen",
+        "enhancerLevel": "Enhancer Bonus",
+        "level": "Level",
+        "lost": "Verloren",
+        "multiTarget": "Mehrere Ziele",
+        "persistent": "Anhaltend",
+        "temporary": "Temporär"
+      },
       "forceDeck": "Doppelklick um die Karte zum Kartendeck hinzuzufügen",
       "levelWarning": "Ungültiges Kartendeck, da einige Karten ein höheres Level als der Charakter haben!",
       "pickCard": "Wähle deine Karte für Level {0}",
@@ -1939,6 +1955,10 @@
       "": "Immer Frosthaven Vor-/Nachteil Regeln",
       "hint": "Immer Frosthaven Regel für das Ziehen von Angriffsmodifikatoren mit Vor- und Nachteil anwenden (Für Frosthaven automatisch immer aktiviert)"
     },
+    "alwaysFhEnhancements": {
+      "": "Immer Frosthaven Verbesserungen",
+      "hint": "Immer die Frosthaven Regeln und Kosten für Fertigkeitsverbesserungen anwenden."
+    },
     "alwaysFhSolo": {
       "": "Immer Frosthaven Solo Regeln",
       "hint": "Immer Frosthaven Regel für Solo Levelberechnung anwenden (Für Frosthaven automatisch immer aktiviert)"
@@ -2469,6 +2489,10 @@
       "hint": "Aktiviert Beschwörungen von Charakteren"
     },
     "synced": "Diese Einstellungen werden mit dem Server synchronisiert!",
+    "temporaryEnhancements": {
+      "": "Temporäre Fertigkeitsverbesserungen",
+      "hint": "Temporäre Fertigkeitsverbesserungen verwenden um die Kosten für Fertigkeitsverbesserungen zu senken. Für Frosthaven werden die offiziellen Regeln angewendet, werden die verringerten Kosten aus Gloomhaven Digital verwendet."
+    },
     "theme": {
       "": "Thema",
       "bb": "Button & Bugs (%wip%)",

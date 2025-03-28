@@ -18,7 +18,7 @@
               "value": 2,
               "small": true,
               "enhancementTypes": [
-                "square"
+                "diamond"
               ]
             }
           ],
@@ -758,6 +758,7 @@
               "type": "area",
               "value": "(0,0,enhance)|(0,1,active)|(1,0,target)|(1,1,target)|(0,2,enhance)|(1,2,target)",
               "enhancementTypes": [
+                "hex",
                 "hex"
               ]
             },
@@ -1059,7 +1060,7 @@
               "value": 2,
               "small": true,
               "enhancementTypes": [
-                "square"
+                "diamond"
               ]
             },
             {
@@ -1353,7 +1354,7 @@
               "value": 3,
               "small": true,
               "enhancementTypes": [
-                "square"
+                "diamond"
               ]
             },
             {

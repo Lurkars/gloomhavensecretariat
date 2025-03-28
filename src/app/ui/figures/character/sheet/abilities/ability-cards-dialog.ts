@@ -28,6 +28,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     sorts: ('level-deck' | 'cardId' | 'level-name' | 'name')[] = ['level-deck', 'cardId', 'level-name', 'name'];
     deck: boolean = true;
     maxLevel: number = 1;
+    enhanced: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) public data: { character: Character }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.character = data.character;
@@ -61,6 +62,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
     update() {
         this.cardsToPick = this.character.level - this.character.progress.deck.length - 1;
         this.character.tags = this.character.tags.filter((tag) => tag != 'edit-abilities');
+
         if (this.cardsToPick < 0) {
             this.cardsToPick = 0;
         }
@@ -142,6 +144,10 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
                 });
             }
         }
+
+        if (!this.levelToPick && this.enhanced && this.character.progress.enhancements && this.character.progress.enhancements.length) {
+            this.visibleAbilities = this.visibleAbilities.filter((ability) => this.character.progress.enhancements && this.character.progress.enhancements.find((enhancement) => enhancement.cardId == ability.cardId));
+        }
     }
 
     togglePick() {
@@ -202,6 +208,16 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
             disableClose: true,
             data: { ability: ability, character: this.character }
         });
+    }
+
+    toggleEnhanced() {
+        if (this.character.progress.enhancements && this.character.progress.enhancements.length) {
+            this.enhanced = !this.enhanced;
+            gameManager.uiChange.emit();
+        } else {
+            this.enhanced = false;
+            this.openEnhancementDialog();
+        }
     }
 
     openEnhancementDialog() {

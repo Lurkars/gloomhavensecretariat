@@ -7,6 +7,10 @@
     background-repeat: no-repeat;
     text-shadow: none;
 
+    .summon-label {
+        font-family: var(--ghs-font-text);
+    }
+
     .name {
         font-size: 1.3em;
         position: absolute;
@@ -17,6 +21,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        .summon-label {
+            font-family: var(--ghs-font-normal);
+        }
 
         .flying {
             display: flex;
@@ -33,10 +41,6 @@
         }
     }
 
-    .summon-label {
-        font-family: var(--ghs-font-text);
-    }
-
     .grid {
         display: grid;
         grid-template-columns: 45% 25% 30%;
@@ -49,7 +53,7 @@
 
         .item {
             display: grid;
-            grid-template-columns: 1fr 0.5fr 1.5fr;
+            grid-template-columns: 1fr 0.5fr 1.5fr 1.5fr;
             justify-content: flex-start;
             align-items: center;
 
@@ -63,6 +67,14 @@
 
             :nth-child(3) {
                 justify-self: start;
+            }
+
+            :nth-child(4) {
+                justify-self: start;
+            }
+
+            ghs-action-enhancements {
+                margin-left: -25%;
             }
         }
 

@@ -1,11 +1,14 @@
-import { DIALOG_DATA } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
+import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
+import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { Action, ActionType } from "src/app/game/model/data/Action";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
 import { Element } from "src/app/game/model/data/Element";
-import { EnhancementAction, EnhancementType } from "src/app/game/model/data/Enhancement";
+import { Enhancement, EnhancementAction, EnhancementType } from "src/app/game/model/data/Enhancement";
+import { SummonData } from "src/app/game/model/data/SummonData";
+import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
     standalone: false,
@@ -13,7 +16,7 @@ import { EnhancementAction, EnhancementType } from "src/app/game/model/data/Enha
     templateUrl: 'enhancement-dialog.html',
     styleUrls: ['./enhancement-dialog.scss']
 })
-export class EnhancementDialogComponent {
+export class EnhancementDialogComponent implements OnInit, OnDestroy {
 
     gameManager: GameManager = gameManager;
     ActionType = ActionType;
@@ -32,22 +35,74 @@ export class EnhancementDialogComponent {
     enhancementAction: EnhancementAction = "plus1";
     enhancementType: EnhancementType | undefined;
 
-    constructor(@Inject(DIALOG_DATA) private data: { action: Action | undefined, actionIndex: string | undefined, enhancementIndex: number | undefined, cardId: number | undefined, character: Character | undefined }) {
-        this.data = data || {};
-        this.action = this.data.action || new Action(ActionType.attack, 1);
-        this.character = this.data.character;
-        this.customAction = !this.data.action || !this.data.actionIndex || !this.data.cardId || this.data.enhancementIndex == undefined || !this.character;
-        this.enhanceAction = new Action(this.action.type, this.action.value, this.action.valueType, this.action.subActions);
+    enhancedCards: number = 0;
 
-        if (this.data.cardId && this.character) {
-            const ability = gameManager.deckData(this.character).abilities.find((ability) => ability.cardId == this.data.cardId);
+    constructor(@Inject(DIALOG_DATA) public data: { action: Action | undefined, actionIndex: string | undefined, enhancementIndex: number | undefined, cardId: number | undefined, character: Character | undefined, summon: SummonData | undefined }, private dialogRef: DialogRef) {
+        this.data = data || {};
+        this.action = this.data.action ? JSON.parse(JSON.stringify(this.data.action)) : new Action(ActionType.attack, 1);
+        this.action.small = false;
+        this.character = this.data.character ? JSON.parse(JSON.stringify(this.data.character)) : undefined;
+        this.customAction = false;
+        this.enhanceAction = new Action(this.action.type, this.action.value, this.action.valueType, this.action.subActions);
+        if (this.data.summon) {
+            this.action = new Action(ActionType.summon, "summonData");
+            this.action.valueObject = this.data.summon;
+            this.action.enhancementTypes = [EnhancementType.square, EnhancementType.square, EnhancementType.square, EnhancementType.square];
+        }
+    }
+
+    ngOnInit(): void {
+        if (this.data.action && this.data.actionIndex && this.data.cardId && this.data.enhancementIndex != undefined && this.data.character) {
+            const ability = gameManager.deckData(this.data.character).abilities.find((ability) => ability.cardId == this.data.cardId);
+
             if (ability) {
                 this.level = typeof ability.level === 'number' ? ability.level : 1;
-                this.enhancements = this.character.progress.enhancements && this.character.progress.enhancements[this.data.cardId] ? Object.keys(this.character.progress.enhancements[this.data.cardId]).map((key) => this.character && this.data.cardId && this.character.progress.enhancements[this.data.cardId] && this.character.progress.enhancements[this.data.cardId][key].length || 0).reduce((a, b) => a + b) : 0;
+                if (this.data.actionIndex.indexOf('bottom') != -1) {
+                    if (ability.bottomLost || ability.bottomActions.find((action) => action.type == ActionType.card && action.value.toString().indexOf('lost') != -1)) {
+                        this.special = 'lost';
+                    }
+                    if (ability.bottomPersistent || ability.bottomActions.find((action) => action.type == ActionType.card && action.value.toString().indexOf('persistent') != -1)) {
+                        this.special = 'persistent';
+                    }
+                } else {
+                    if (ability.lost || ability.actions.find((action) => action.type == ActionType.card && action.value.toString().indexOf('lost') != -1)) {
+                        this.special = 'lost';
+                    }
+                    if (ability.persistent || ability.actions.find((action) => action.type == ActionType.card && action.value.toString().indexOf('persistent') != -1)) {
+                        this.special = 'persistent';
+                    }
+                }
+
+                if (this.data.summon) {
+                    this.special = 'summon';
+                }
             }
+
+            this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && (!gameManager.enhancementsManager.fh || this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom'))).length || 0;
+
+            this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((e) => e.cardId).filter((cardId, index, self) => index == self.indexOf(cardId)).length;
+        } else {
+            this.customAction = true;
         }
 
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({
+            next: () => {
+                if (this.data.character && this.data.cardId) {
+                    this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && (!gameManager.enhancementsManager.fh || this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom'))).length || 0;
+
+                    this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((enhancement) => enhancement.cardId).filter((cardId, index, self) => index == self.indexOf(cardId)).length;
+                }
+            }
+        })
         this.update();
+    }
+
+    uiChangeSubscription: Subscription | undefined;
+
+    ngOnDestroy(): void {
+        if (this.uiChangeSubscription) {
+            this.uiChangeSubscription.unsubscribe();
+        }
     }
 
     update() {
@@ -55,9 +110,7 @@ export class EnhancementDialogComponent {
 
         if (this.special === 'summon') {
             this.actionTypes = [...gameManager.enhancementsManager.summonActions];
-        }
-
-        if (this.actionTypes.indexOf(this.action.type) == -1) {
+        } else if (this.actionTypes.indexOf(this.action.type) == -1) {
             this.action = new Action(ActionType.attack, 1);
         }
 
@@ -88,8 +141,8 @@ export class EnhancementDialogComponent {
             this.enhancementAction = "plus1";
         }
 
-        if (this.enhancementAction == "plus1") {
-            this.enhanceAction = new Action(this.action.type, this.action.value, this.action.valueType);
+        if (this.data.action && (this.enhancementAction == "plus1" || this.enhancementAction == "hex")) {
+            this.enhanceAction = new Action(this.data.action.type, this.data.action.value, this.data.action.valueType);
         } else if (Object.values(ConditionName).includes(this.enhancementAction as ConditionName)) {
             this.enhanceAction = new Action(ActionType.condition, this.enhancementAction);
         } else if (Object.values(Element).includes(this.enhancementAction as Element)) {
@@ -100,6 +153,19 @@ export class EnhancementDialogComponent {
         if (this.action.subActions) {
             this.enhanceAction.subActions = JSON.parse(JSON.stringify(this.action.subActions));
         }
+
+        if (this.enhancementType == "hex") {
+            this.enhancementAction = "hex";
+        }
+
+        if (this.data.actionIndex && this.data.cardId && this.data.enhancementIndex != undefined && this.character) {
+            this.character.tags = [];
+            this.character.progress.enhancements = this.data.character && this.data.character.progress.enhancements && JSON.parse(JSON.stringify(this.data.character.progress.enhancements)) || [];
+
+            this.character.progress.enhancements.push(new Enhancement(this.data.cardId, this.data.actionIndex, this.data.enhancementIndex, this.enhancementAction));
+        }
+
+        gameManager.uiChange.emit();
     }
 
     setEnhancementAction(enhancementAction: EnhancementAction) {
@@ -114,5 +180,29 @@ export class EnhancementDialogComponent {
             this.special = special;
         }
         this.update();
+    }
+
+    close() {
+        ghsDialogClosingHelper(this.dialogRef);
+    }
+
+    apply(force: boolean = false) {
+        const costs = gameManager.enhancementsManager.calculateCosts(this.enhanceAction, this.level, this.special, this.enhancements);
+        if (this.data.actionIndex && this.data.cardId && this.data.enhancementIndex != undefined && this.data.character && (this.data.character.progress.gold >= costs && (gameManager.enhancementsManager.fh || this.enhancedCards < gameManager.prosperityLevel()) || force)) {
+            gameManager.stateManager.before('enhanceCard', gameManager.characterManager.characterName(this.data.character), this.data.cardId);
+
+            if (!this.data.character.progress.enhancements) {
+                this.data.character.progress.enhancements = [];
+            }
+
+            this.data.character.progress.enhancements.push(new Enhancement(this.data.cardId, this.data.actionIndex, this.data.enhancementIndex, this.enhancementAction));
+
+            if (!force) {
+                this.data.character.progress.gold -= costs;
+            }
+
+            gameManager.stateManager.after();
+            ghsDialogClosingHelper(this.dialogRef);
+        }
     }
 }

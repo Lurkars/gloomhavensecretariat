@@ -210,6 +210,12 @@ export class SettingsManager {
           figure.attackModifierDeck.bb = value || false;
         }
       })
+    } else if (setting === 'temporaryEnhancements') {
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          gameManager.characterManager.previousEnhancements(figure, value);
+        }
+      })
     }
   }
 

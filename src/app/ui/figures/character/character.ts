@@ -8,10 +8,11 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Character } from 'src/app/game/model/Character';
 import { Action, ActionType } from 'src/app/game/model/data/Action';
 import { AttackModifierType } from 'src/app/game/model/data/AttackModifier';
+import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
 import { ConditionType, EntityCondition } from 'src/app/game/model/data/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
-import { SummonState } from 'src/app/game/model/Summon';
+import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { AttackModiferDeckChange } from '../attackmodifier/attackmodifierdeck';
 import { AttackModifierDeckFullscreenComponent } from '../attackmodifier/attackmodifierdeck-fullscreen';
@@ -24,7 +25,6 @@ import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
 import { CharacterSheetDialog } from './dialogs/character-sheet-dialog';
 import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
-import { CharacterSpecialAction } from 'src/app/game/model/data/CharacterStat';
 
 @Component({
   standalone: false,
@@ -59,7 +59,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
   amAnimationDrawing: boolean = false;
   compact: boolean = false;
 
+  summons: Summon[] = [];
+  skullSpirits: Summon[] = [];
   summonCount: number = 0;
+  skullSpiritCount: number = 0;
   activeConditions: EntityCondition[] = [];
   specialActions: CharacterSpecialAction[] = [];
 
@@ -82,7 +85,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
   update(): void {
     this.characterTitle = gameManager.characterManager.characterName(this.character);
-    this.summonCount = this.character.summons.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
+    this.summons = this.character.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') == -1);
+    this.skullSpirits = this.character.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1);
+    this.summonCount = this.summons.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
+    this.skullSpiritCount = this.skullSpirits.filter((summon) => gameManager.entityManager.isAlive(summon)).length;
     this.activeConditions = gameManager.entityManager.activeConditions(this.character);
     this.character.immunities.forEach((immunity) => {
       if (!this.activeConditions.find((entityCondition) => entityCondition.name == immunity)) {

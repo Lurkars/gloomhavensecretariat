@@ -15,11 +15,15 @@ export class SummonData {
   level: number | undefined;
   special: boolean;
   count: number;
+  enhancements: ("heal" | "attack" | "move" | "range")[] = [];
   thumbnail: boolean;
   thumbnailUrl: string | undefined;
   noThumbnail: boolean = false;
 
-  constructor(name: string, cardId: string, edition: string, health: number | string,
+  constructor(name: string,
+    cardId: string,
+    edition: string,
+    health: number | string,
     attack: number | string,
     movement: number | string,
     range: number | string,
@@ -29,6 +33,7 @@ export class SummonData {
     level: number | undefined = undefined,
     special: boolean = false,
     count: number = 1,
+    enhancements: ("heal" | "attack" | "move" | "range")[] = [],
     thumbnail: boolean = false,
     thumbnailUrl: string | undefined = undefined,
     noThumbnail: boolean = false) {
@@ -45,6 +50,7 @@ export class SummonData {
     this.level = level;
     this.special = special;
     this.count = count;
+    this.enhancements = enhancements;
     this.thumbnail = thumbnail;
     this.thumbnail = thumbnail;
     this.thumbnailUrl = thumbnailUrl;

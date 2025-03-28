@@ -7,7 +7,7 @@
     <img class="menu" src="./assets/images/up.svg">
   </span>
   <div class="summons" *ngIf="summonCount">
-    <ghs-standee *ngFor="let summon of character.summons" [figure]="character" [entity]="summon">
+    <ghs-standee *ngFor="let summon of summons" [figure]="character" [entity]="summon">
     </ghs-standee>
   </div>
 </div>
@@ -313,6 +313,20 @@
   </div>
 
   <ghs-figure-errors [figure]="character"></ghs-figure-errors>
+</div>
+
+<div class="summons-container" *ngIf="!character.absent && settingsManager.settings.summons"
+  [ngClass]="{'empty' : skullSpiritCount == 0, 'off' : character.off || character.exhausted || character.health <= 0 }">
+  <span class="spacer"></span>
+  <span class="entities-menu" [ngClass]="{'empty' : skullSpiritCount == 0, 'disabled' : skullSpiritCount < 2}"
+    [entityAnimation]="skullSpiritCount == 0" (click)="openEntitiesMenu($event)">
+    <img class="icon" [src]="character.iconUrl" />
+    <img class="menu" src="./assets/images/up.svg">
+  </span>
+  <div class="summons" *ngIf="skullSpiritCount">
+    <ghs-standee *ngFor="let summon of skullSpirits" [figure]="character" [entity]="summon">
+    </ghs-standee>
+  </div>
 </div>
 
 <div

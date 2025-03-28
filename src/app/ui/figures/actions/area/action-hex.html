@@ -1,12 +1,14 @@
-<div class="hex-grid" [style.--ghs-hex-size]="size" [ngClass]="{'small' : action.small}">
+<div class="hex-grid" [style.--ghs-hex-size]="size" [ngClass]="{'small' : action.small, 'edit': edit}">
   <div class="hex" *ngFor="let hex of hexes" [style.grid-column-start]="hex.x * 2 + 1 + (hex.y % 2)"
     [style.grid-column-end]="hex.x * 2 + 3 + (hex.y % 2)" [style.grid-row-start]="hex.y + 1"
-    [style.grid-row-end]="hex.y + 1" [title]="ActionHexToString(hex)" (click)="click(hex)">
-    <img *ngIf="hex.type != 'enhance'" [src]="'./assets/images/action/hex/' + hex.type + '.svg'" [alt]="action.small">
+    [style.grid-row-end]="hex.y + 1" (click)="click(hex)" [ngClass]="{'enhanced' : enhancedHexes.indexOf(hex) != -1}">
 
-    <span class="enhance" *ngIf="hex.type == 'enhance'"></span>
+    <img class="icon" *ngIf="hex.type != 'enhance' || enhancedHexes.indexOf(hex) != -1"
+      [src]="'./assets/images/action/hex/' + (hex.type == 'enhance' ? 'target': hex.type) + '.svg'">
+    <ghs-action-enhancements *ngIf="hex.type == 'enhance'" class="enhance" [action]="action" [index]="actionIndex"
+      [character]="character" [cardId]="cardId" [slot]="enhanceHexes.indexOf(hex)"></ghs-action-enhancements>
     <span class="condition" *ngIf="hasCondition(hex)">
-      <img [src]="'./assets/images/condition/' + hex.value + '.svg'" [alt]="action.small">
+      <img [src]="'./assets/images/condition/' + hex.value + '.svg'">
     </span>
   </div>
 </div>

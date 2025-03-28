@@ -10,6 +10,7 @@ import { Action, ActionType } from "../model/data/Action";
 import { CharacterData } from "../model/data/CharacterData";
 import { CharacterStat } from "../model/data/CharacterStat";
 import { Condition, ConditionName } from "../model/data/Condition";
+import { Enhancement } from "../model/data/Enhancement";
 import { ItemData } from "../model/data/ItemData";
 import { PersonalQuest } from "../model/data/PersonalQuest";
 import { SummonData } from "../model/data/SummonData";
@@ -146,6 +147,8 @@ export class CharacterManager {
       this.game.figures.push(character);
       gameManager.addEntityCount(character);
 
+      this.previousEnhancements(character, gameManager.enhancementsManager.temporary);
+
       if (this.game.state == GameState.next) {
         gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
       }
@@ -193,6 +196,11 @@ export class CharacterManager {
 
   addSummon(character: Character, summon: Summon) {
     character.summons = character.summons.filter((value) => value.name != summon.name || value.number != summon.number || value.color != summon.color);
+
+    if (character.edition == 'cs' && character.name == 'skull' && summon.cardId && character.availableSummons.find((s) => s.cardId == summon.cardId)) {
+      summon.tags.push('cs-skull-spirit');
+    }
+
     character.summons.push(summon);
 
     if (character.name == 'boneshaper') {
@@ -417,5 +425,26 @@ export class CharacterManager {
 
   personalQuestByCard(edition: string, cardId: string): PersonalQuest | undefined {
     return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.personalQuests).find((pq) => pq.cardId == cardId || pq.altId == cardId || pq.altId == '0' + cardId);
+  }
+
+  previousEnhancements(character: Character, temporary: boolean) {
+    if (character.progress.enhancements) {
+      character.progress.enhancements = character.progress.enhancements.filter((e) => !e.inherited);
+    } else {
+      character.progress.enhancements = [];
+    }
+    if (!temporary) {
+      const previousCharacters = gameManager.game.party.retirements.filter((model) => model.edition == character.edition && model.name == character.name);
+      previousCharacters.forEach((previousCharacter) => {
+        if (previousCharacter && previousCharacter.progress && previousCharacter.progress.enhancements) {
+          character.progress.enhancements.push(...previousCharacter.progress.enhancements.filter((e) => !e.inherited).map((e) => new Enhancement(e.cardId, e.actionIndex, e.index, e.action, true)));
+        }
+      })
+
+      character.progress.enhancements = character.progress.enhancements.filter((e, index, self) => {
+        const first = self.find((o) => o.cardId == e.cardId && o.actionIndex == e.actionIndex && o.index == e.index);
+        return !first || index === self.indexOf(first);
+      });
+    }
   }
 }

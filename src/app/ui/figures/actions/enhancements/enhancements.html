@@ -1,4 +1,26 @@
-<div class="enhancements" [ngClass]="{'edit': edit}">
-    <div class="slot {{slot}}" *ngFor="let slot of slots;let i = index;" [ngClass]="{'enhanced': enhancements[i]}"
-        ghs-pointer-input (singleClick)="enhance(i,$event)"></div>
+<div class="enhancements" [ngClass]="{'edit': edit,  'fh': settingsManager.settings.fhStyle}">
+    <div class="slot {{slot}}" *ngFor="let slot of slots;let i = index;" ghs-pointer-input
+        [ngClass]="{'enhance': !enhancements[slotIndex != undefined ? slotIndex : i]}"
+        (singleClick)="enhance(slotIndex != undefined ? slotIndex : i,$event)"
+        (doubleClick)="removeEnhancement(slotIndex ? slotIndex :  i,$event)">
+
+        <img *ngIf="!enhancements[slotIndex != undefined ? slotIndex : i]" class="type"
+            [src]="gameManager.enhancementsManager.fh ? './assets/images/fh/character/abilities/enhancements/' + slot + '.svg' : './assets/images/character/abilities/enhancements/circle.svg'" />
+
+        <span class="enhancement" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i]">
+            <span class="plus1" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i] == 'plus1'">+1</span>
+            <span class="jump" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i] == 'jump'">
+                <span class="text-white" [ghs-label]="'%game.actionIcon.jump%'"></span>
+            </span>
+            <span class="element" *ngIf="Elements.indexOf(enhancements[slotIndex != undefined ? slotIndex : i]) != -1">
+                <span
+                    [ghs-label]="'%game.element.' + enhancements[slotIndex != undefined ? slotIndex : i] + '%'"></span>
+            </span>
+            <span class="condition"
+                *ngIf="Conditions.indexOf(enhancements[slotIndex != undefined ? slotIndex : i]) != -1">
+                <span
+                    [ghs-label]="'%game.conditionIcon.' + enhancements[slotIndex != undefined ? slotIndex : i] + '%'"></span>
+            </span>
+        </span>
+    </div>
 </div>

@@ -16,7 +16,7 @@ import { MonsterSpawnData, ObjectiveSpawnData } from "src/app/game/model/data/Sc
 import { SummonData } from "src/app/game/model/data/SummonData";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-action-summon',
   templateUrl: './action-summon.html',
   styleUrls: ['./action-summon.scss']

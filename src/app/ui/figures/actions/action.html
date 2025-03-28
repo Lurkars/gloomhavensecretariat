@@ -1,7 +1,8 @@
 <span class="action" *ngIf="action && origAction" [ngSwitch]="action.type"
   [ngClass]="{'highlight' : highlight, 'inline' : inline, 'right' : right, 'text-black' : textBlack || right,  'fh' : fhStyle, 'aoe' : hasAOE}">
   <span class="action-area" *ngSwitchCase="ActionType.area" [ngClass]="{'small' : action.small}">
-    <ghs-action-hex [action]="action" [value]="'' + action.value" [size]="hexSize"></ghs-action-hex>
+    <ghs-action-hex [action]="action" [value]="'' + action.value" [size]="hexSize" [index]="actionIndex"
+      [cardId]="cardId" [character]="character"></ghs-action-hex>
   </span>
 
   <span class="action-condition" *ngSwitchCase="ActionType.condition" [ngClass]="{'small' : action.small}">
@@ -505,8 +506,9 @@
       [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
       [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
       (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-      [statsCalculation]="statsCalculation" [monsterType]="monsterType" [character]="character" [cardId]="cardId"
-      [style]="style">
+      [statsCalculation]="statsCalculation"
+      [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex((statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions)[0])"
+      [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
     </ghs-action>
   </div>
 

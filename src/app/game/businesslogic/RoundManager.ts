@@ -313,7 +313,7 @@ export class RoundManager {
     if (figure instanceof Character && gameManager.entityManager.isAlive(figure)) {
       if (!skipSummons && settingsManager.settings.activeSummons) {
         const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
-        const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1);
+        const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1 && summon.tags.indexOf('cs-skull-spirit') == -1);
 
         figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
           prevSummon.active = false;
@@ -372,7 +372,6 @@ export class RoundManager {
           figure.health -= 1;
           gameManager.entityManager.checkHealth(figure, figure);
         }
-
       }
     }
 
@@ -429,7 +428,7 @@ export class RoundManager {
     }
 
     if (figure instanceof Character && !gameManager.entityManager.isAlive(figure) || figure instanceof Monster && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity)) || figure instanceof ObjectiveContainer && figure.entities.every((entity) => !gameManager.entityManager.isAlive(entity))) {
-      gameManager.roundManager.toggleFigure(figure);
+      this.toggleFigure(figure);
     }
   }
 
@@ -450,19 +449,27 @@ export class RoundManager {
         }
       }
 
-      if (figure instanceof Character && !settingsManager.settings.activeSummons) {
+      if (figure instanceof Character) {
         figure.summons.forEach((summon) => {
-          summon.active = false;
-          if (gameManager.entityManager.isAlive(summon)) {
-            if (settingsManager.settings.expireConditions) {
-              gameManager.entityManager.expireConditions(summon, figure);
-            }
-            if (settingsManager.settings.applyConditions) {
-              gameManager.entityManager.applyConditionsAfter(summon, figure);
+          if (!settingsManager.settings.activeSummons || summon.tags.indexOf('cs-skull-spirit') != -1) {
+            summon.active = false;
+
+            if (summon.tags.indexOf('cs-skull-spirit') != -1) {
+              summon.health -= 1;
+              gameManager.entityManager.checkHealth(summon, figure);
             }
 
-            if (settingsManager.settings.scenarioRules) {
-              gameManager.scenarioRulesManager.applyScenarioRulesTurn(summon, true);
+            if (gameManager.entityManager.isAlive(summon)) {
+              if (settingsManager.settings.expireConditions) {
+                gameManager.entityManager.expireConditions(summon, figure);
+              }
+              if (settingsManager.settings.applyConditions) {
+                gameManager.entityManager.applyConditionsAfter(summon, figure);
+              }
+
+              if (settingsManager.settings.scenarioRules) {
+                gameManager.scenarioRulesManager.applyScenarioRulesTurn(summon, true);
+              }
             }
           }
         })
