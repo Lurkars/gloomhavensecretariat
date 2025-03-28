@@ -347,7 +347,7 @@
   "edition": {
     "": "Scegli edizione",
     "all": "Tutte le edizioni",
-    "conditions": "Condizioni disponibili"
+    "conditions": "Stati disponibili"
   },
   "editor": {
     "": "Editore [Spoiler!]",
@@ -410,9 +410,9 @@
         "remove": "Rimuovi personaggio"
       },
       "conditions": {
-        "": "Condizioni disponibili",
-        "allHint": "Deseleziona tutte le condizioni",
-        "allSelected": "Seleziona tutte le condizioni"
+        "": "Stati disponibili",
+        "allHint": "Deseleziona tutti gli stati",
+        "allSelected": "Seleziona tutti gli stati"
       },
       "decks": {
         "": "Aggiungi files mazzo delle abilità",
@@ -1887,25 +1887,25 @@
       "hint": "Se non selezionato, le abilità dei mostri non vengono rivelate fino al turno"
     },
     "activeApplyConditions": {
-      "": "Conferma le condizioni applicabili",
+      "": "Conferma gli stati applicabili",
       "auto": {
         "": "Conferma automatica",
         "hint": {
-          "": "Non chiedere conferma e applica automaticamente tali condizioni.<br><br>Da abilitare con attenzione!",
+          "": "Non chiedere conferma e applica automaticamente tali stati.<br><br>Da abilitare con attenzione!",
           "brittle": "Quando subisci danno, applica automaticamente %game.condition.brittle% e aumenta il danno.<br><br>Non funziona automaticamente su %game.condition.poison%!",
-          "heal": "Quando aumentano i punti ferita applica automaticamente %game.action.heal% e rimuovi le condizioni corrispondenti.",
+          "heal": "Quando aumentano i punti ferita applica automaticamente %game.action.heal% e rimuovi gli stati corrispondenti.",
           "shield": "Quando subisci danno, applica automaticamnete %game.action.shield% e abbassa il danno.",
           "ward": "Quando subisci danno, applica automaticamente %game.condition.ward% e abbassa il danno.<br><br>Non funziona automaticamente su %game.condition.poison%!"
         }
       },
       "hint": {
-        "": "Alcune condizioni richiedono la conferma per essere applicate, ad esempio quando si riducono PV con Veleno, conferma la perdita di 1 PV extra",
+        "": "Alcuni stati richiedono la conferma per essere applicati, ad esempio quando diminuiscono i PV con il Veleno, conferma per perdere 1 PV extra",
         "brittle": "Quando subisci danno, chiedi di applicare %game.condition.brittle% e aumenta il danno.",
         "heal": "Non è uno stato, ma %game.action.heal% potrebbe essere applicato quando aumentano i punti ferita.",
         "poison": "Quando subisci danno, chiedi di applicare %game.action.attack% +1 da %game.condition.poison% (incluso %game.attackmodifier.double%).",
         "poison_x": "Quando subisci danno, chiedi di applicare %game.action.attack% +X da %game.condition.poison_x:X% (incluso %game.attackmodifier.double%).",
-        "shield": "Non è uno stato, ma %game.action.shield% potrebbe essere applicato quando si subiscono danni per ridurli.",
-        "ward": "Quando subisci danno, chiedi di applicare %game.condition.ward% per abbassare il danno."
+        "shield": "Non è uno stato, ma %game.action.shield% potrebbe essere applicato per ridurre i danni quando se ne subiscono.",
+        "ward": "Quando subisci danno, chiedi di applicare %game.condition.ward% per diminuire il danno."
       }
     },
     "activeStandees": {
@@ -1933,6 +1933,10 @@
       "": "Sempre le regole di vantaggio/svantaggio di Frosthaven",
       "hint": "Applicare sempre le regole di Frosthaven per pescare il modificatore di attacco con vantaggio o svantaggio (abilitato automaticamente quando si gioca a Frosthaven)"
     },
+    "alwaysFhEnhancements": {
+      "": "Costi di miglioramento di Frosthaven",
+      "hint": "Utilizzare sempre le regole di Frosthaven per calcolare i costi di miglioramento."
+    },
     "alwaysFhSolo": {
       "": "Sempre le regole in solitario di Frosthaven",
       "hint": "Applicare sempre le regole di Frosthaven per il calcolo del livello in solitario (abilitato automaticamente quando si gioca a Frosthaven)"
@@ -1948,6 +1952,172 @@
     "alwaysLootDeck": {
       "": "Usa sempre il mazzo bottino",
       "hint": "Mostra il mazzo bottino per ogni scenario (abilitato automaticamente quando si gioca a Frosthaven)"
+    },
+    "amAdvantage": {
+      "": "Mazzo modificatore di attacco con vantaggio/svantaggio",
+      "hint": "Aggiungi i pulsanti di vantaggio e svantaggio e scorciatoie da tastiera per i mazzi modificatore attacco."
+    },
+    "amAdvantageHouseRule": {
+      "": "Regole personalizzate di tiro vantaggio/svantaggio",
+      "hint": "Invece di ignorare il risultato al secondo pescaggio, pesca più carte fino a quando una è estratta senza un modificatore aggiuntivo."
+    },
+    "animations": {
+      "": "Animazioni",
+      "hint": "Disabilita tutte le animazioni per aumentare le prestazioni"
+    },
+    "applyBuildingRewards": {
+      "": "Applica bonus di costruzione",
+      "hint": "In caso di costruzione o aggiornamento di un edificio, applica i bonus corrispondenti e apri la finestra di dialogo sezione, se presente."
+    },
+    "applyConditions": {
+      "": "Applica stati automaticamente",
+      "hint": {
+        "": "Gli stati corrispondenti vengono applicati automaticamente prima e dopo il turno, ad esempio quando l'entità ha una ferita perderà 1 PV all'inizio del suo turno",
+        "bane": "Applica automaticamente il danno da %game.condition.bane% alla fine del turno.",
+        "regenerate": "Applica automaticamente %game.condition.regenerate% all'inizio del turno.",
+        "wound": "Applica automaticamente il danno da %game.condition.wound% alla fine del turno.",
+        "wound_x": "Applica automaticamente il danno da %game.condition.wound_x:X% alla fine del turno."
+      }
+    },
+    "applyLongRest": {
+      "": "Applica riposo lungo",
+      "hint": "Esegui automaticamente %game.action.heal% 2 nel turno del personaggio quando riposa a lungo"
+    },
+    "applyLoot": {
+      "": "Applica bottino al personaggio",
+      "hint": "Aggiungi automaticamente il bottino dopo che la carta è stata pescata dal personaggio attivo/scelto"
+    },
+    "applyLootRandomItem": {
+      "": "Pesca un oggetto casuale nel bottino",
+      "hint": "Pesca ed equipaggia automaticamente un nuovo oggetto casuale del bottino casuale per il personaggio attivo/scelto."
+    },
+    "applyRetirement": {
+      "": "Applica bonus di ritiro",
+      "hint": "Quando si ritira un personaggio, apri la finestra di dialogo per applicare il bonus di ritiro. Il ritiro viene effettuato spuntando la missione personale sulla scheda personaggio."
+    },
+    "artwork": {
+      "": "Illustrazione",
+      "hint": "Illustrazione per mostri e personaggi"
+    },
+    "automaticAttackModifierFullscreen": {
+      "": "Mazzo MA a schermo intero",
+      "hint": "Apri il mazzo modificatori attacco (e anche il mazzo bottino) in modalità a schermo intero quando su piccoli dispositivi."
+    },
+    "automaticGameClock": {
+      "": "Orologio di gioco automatico",
+      "hint": "Avvia e arresta automaticamente l'orologio di gioco quando la finestra si apre o si chiude."
+    },
+    "automaticGameClockFocus": {
+      "": "Orologio di gioco automatico sul focus",
+      "hint": "Fai partire e ferma automaticamente l'orologio di gioco quando la finestra si attiva o si disattiva."
+    },
+    "automaticPassTime": {
+      "": "Avanzamento automatico del tempo sul calendario",
+      "hint": "Fai avanzare il tempo automaticamente aggiungendo una settimana al calendario dopo aver finito uno scenario. Ciò aggiunge automaticamente effetti alle sezioni del calendario in questa settimana."
+    },
+    "automaticStandees": {
+      "": "Pedine automatiche",
+      "hint": "Aggiunta automatica delle pedine."
+    },
+    "automaticStandeesDialog": {
+      "": "Finestre di dialogo delle pedine automatici",
+      "hint": "Apri automaticamente le finestre di dialogo del numero di pedina per tutte le nuove pedine."
+    },
+    "automaticTheme": {
+      "": "Tema automatico",
+      "hint": "Regola automaticamente il tema e lo stile di Frosthaven quando si cambia edizione. Regola anche il tema quando si attiva lo stile Frosthaven.<br>(regolazione del tema disabilitata per il tema moderno)"
+    },
+    "automaticUnlocking": {
+      "": "Sblocco automatico dei personaggi",
+      "hint": "Sblocca automaticamente i personaggi dai premi dello scenario."
+    },
+    "autoscroll": {
+      "": "Scrolling automatico",
+      "hint": "Scorrimento automatico alla figura attiva successiva"
+    },
+    "backupHint": {
+      "": "Mostra il suggerimento di backup",
+      "hint": "Mostra un promemoria di backup quando nessuno scenario è in esecuzione."
+    },
+    "barsize": {
+      "": "Dimensione delle barre",
+      "dec": "Diminuisci la dimensione delle barre",
+      "hint": "Imposta le dimensioni di intestazione e piè di pagina",
+      "inc": "Aumenta la dimensione delle barre",
+      "reset": "Reimposta grandezza delle barre"
+    },
+    "battleGoals": {
+      "": "Obiettivi di battaglia",
+      "hint": "Abilita la pesca e la selezione degli obiettivi di battaglia prima dell'inizio dello scenario."
+    },
+    "battleGoalsCharacter": {
+      "": "Mostra sempre gli obiettivi di battaglia",
+      "hint": "Mostra sempre il menu degli obiettivi di battaglia sul personaggio. Questo è abilitato automaticamente se il mazzo modificatore attacco del personaggio è disabilitato per accedere comunque al menu obiettivo di battaglia."
+    },
+    "battleGoalsFh": {
+      "": "Pesca sempre 3 obiettivi di battaglia",
+      "hint": "Applica sempre le regole di Frosthaven per pescare tre obiettivi di battaglia. (Automaticamente abilitato quando si gioca a Frosthaven)"
+    },
+    "battleGoalsReminder": {
+      "": "Promemoria obiettivi di battaglia",
+      "hint": "Mostra un promemoria prima del primo turno se non tutti i personaggi hanno scelto il loro obiettivo di battaglia."
+    },
+    "bbAm": {
+      "": "Tira il dado per MA",
+      "hint": "Tira il dado per determinare il prossimo modificatore di attacco. Se disabilitato, viene utilizzato il normale modificatore di attacco come mazzo mescolato."
+    },
+    "bbChars": {
+      "": "Limite dei personaggi",
+      "hint": "Consenti solo un personaggio nel gioco in solitaria predefinito. Se disabilitato, è possibile aggiungere più personaggi."
+    },
+    "bbRules": "Regole di Button & Bugs",
+    "bbStandeeLimit": {
+      "": "Limita le pedine dei mostri",
+      "hint": "Utilizza il limite predefinito di 4 pedine per tutti i mostri. Se disabilitato è possibile aggiungere fino a 10 pedine."
+    },
+    "bonusAdjustment": {
+      "": "Regolazione dei bonus di livello"
+    },
+    "browserNavigation": {
+      "": "Annulla/Ripeti con la navigazione",
+      "hint": "%wip%"
+    },
+    "calculate": {
+      "": "Mostra le statistiche calcolate",
+      "hint": "I valori di abilità sono calcolati con le statistiche, quindi invece di attacco +1, viene mostrato attacco 4 per un valore di attacco di 3 nelle statistiche"
+    },
+    "calculateShieldStats": {
+      "": "Aggiungi Scudo e Ritorsione alle abilità",
+      "hint": "I valori statistici predefiniti di %game.action.shield% e %game.action.retaliate% vengono aggiunti alle azioni %game.action.shield% e %game.action.retaliate% della scheda abilità, il che consente di visualizzare valori aggregati completi."
+    },
+    "calculateStats": {
+      "": "Aggiungi i valori statistici alle abilità",
+      "hint": "I valori delle statistiche predefiniti vengono aggiunti al valore di abilità, ad esempio un valore di portata viene automaticamente aggiunto all'abilità di attacco"
+    },
+    "character": "Personaggio",
+    "characterAttackModifierAnimate": {
+      "": "Mostra l'animazione del mazzo MA del personaggio",
+      "hint": "Visualizza un'animazione di pesca se un modificatore di attacco viene estratto dal mazzo MA chiuso di un personaggio."
+    },
+    "characterAttackModifierDeck": {
+      "": "Mazzo modificatore attacco del personaggio",
+      "hint": "Abilita il mazzo modificatore di attacco per i personaggi. Per utilizzare i talenti, la scheda personaggio deve essere abilitata."
+    },
+    "characterAttackModifierDeckPermanent": {
+      "": "Mazzo MA permanente del personaggio",
+      "hint": "Visualizza il mazzo modificatore di attacco permanente sotto il personaggio."
+    },
+    "characterAttackModifierDeckPermanentActive": {
+      "": "Attiva autom. mazzo MA",
+      "hint": "Attiva automaticamente il mazzo MA permanente per il personaggio attivo."
+    },
+    "characterCompact": {
+      "": "Plancia personaggio compatta",
+      "hint": "Visualizza la plancia personaggio ridotta. (Attualmente non supportato sul tema moderno)"
+    },
+    "characterHandSize": {
+      "": "Mostra il numero di carte in mano e livello",
+      "hint": "Visualizza il numero di carte in mano e il livello sulla plancia del personaggio."
     }
   }
 }

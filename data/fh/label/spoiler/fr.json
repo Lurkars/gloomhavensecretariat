@@ -2,6 +2,192 @@
   "campaignSticker": {
     "42-temple": "Temple"
   },
+  "challenges": {
+    "fh": {
+      "1482": {
+        "": "Tests d'Impact",
+        "text": "Lorsqu'un aventurier subit des %game.damage% d'une attaque qui ne sont pas réduits par %game.action.shield%, %game.action.push% 2 est ajouté à l'attaque."
+      },
+      "1483": {
+        "": "Empathie",
+        "text": "Lorsqu'un adversaire subit des %game.damage%, tous les autres adversaires gagnent avantage pour toutes leurs attaques du round."
+      },
+      "1484": {
+        "": "Optimisme",
+        "text": "Lorsque vous révélez un Modificateur d'attaque négatif ou %game.attackmodifier.null% du paquet Modificateur d'attaque de monstres, traitez-le comme une carte %game.attackmodifier.plus0% à la place."
+      },
+      "1485": {
+        "": "Adversité",
+        "text": "Lorsque vous révélez un Modificateur d'attaque %game.attackmodifier.minus2% du paquet Modificateur d'attaque des monstres, traitez-le comme un %game.attackmodifier.double% à la place."
+      },
+      "1486": {
+        "": "Intervention Divine",
+        "text": "Ajoutez trois Modificateurs d'attaque %game.attackmodifier.bless% au paquet Modificateur d'attaque des monstres au début du scénario."
+      },
+      "1487": {
+        "": "Hypocondrie",
+        "text": "Lorsqu'un aventurier gagne un état négatif, il gagne aussi %game.condition.wound%."
+      },
+      "1488": {
+        "": "Vent Propice",
+        "text": "Toutes les attaques à distance des adversaires ont +1%game.action.range%.<br>Ajoutez +1%game.action.move%  à toutes les capacités de déplacement des adversaires."
+      },
+      "1489": {
+        "": "Sommeil Agité",
+        "text": "Lorsqu'un aventurier prend un repos court ou long, tous ses alliés adjacents subissent des dégâts de terrain dangereux."
+      },
+      "1490": {
+        "": "Appât du Gain",
+        "text": "Les adversaires effectuent %game.action.loot% 1 à la fin de chacun de leurs tours. Lorsqu'un adversaire pille un pion Butin, il gagne %game.condition.strengthen%. Si ce scénario n'a pas de paquet Butin, piochez un nouveau défi et remettez cette carte au bas du paquet."
+      },
+      "1491": {
+        "": "Changement de Tactique",
+        "text": "Chaque round, lors de la détermination de l'ordre d'initiative, les valeurs d'initiative, sont classées de la plus haute à la plus basse."
+      },
+      "1492": {
+        "": "Barbelés",
+        "text": "Tous les adversaires indemnes ont %game.action.retaliate% 2."
+      },
+      "1493": {
+        "": "Engeance Rustique",
+        "text": "Tous les adversaires ajoutent NS/2 (arrondissez au supérieur) à leur valeur maximale de points de vie."
+      },
+      "1494": {
+        "": "En Garde",
+        "text": "Lorsque vous effectuez une attaque ciblant un adversaire qui n'a pas encore agi ce round, gagnez Désavantage pour l'attaque. Lorsque vous effectuez une attaque ciblant un adversaire qui a déjà agi ce round, gagner Avantage pour l'attaque."
+      },
+      "1495": {
+        "": "Victoire Empoisonnée",
+        "text": "Chaque round, la première fois qu'on adversaire meurt, chaque aventurier qui lui est adjacent gagne %game.condition.poison%."
+      },
+      "1496": {
+        "": "Tout ou Rien",
+        "text": "Retirer tous les Modificateurs d'attaque %game.attackmodifier.plus0% du paquet Modificateur d'attaque des monstres au début du scénario. Tous les adversaires sont immunisé contre %game.condition.curse%."
+      },
+      "1497": {
+        "": "Inflammable",
+        "text": "Lorsqu'un adversaire meurt, l'un des aventuriers les plus proche de lui subit %game.damage:1% (ou %game.damage:2% aux niveaux de scénario 4-7)."
+      },
+      "1498": {
+        "": "Force Irrésistible",
+        "text": "Tous les attaques à distance des adversaires ont %game.action.push%1."
+      },
+      "1499": {
+        "": "Fièvre de l'Or",
+        "text": "Lorsqu'il y a au moins trois pions Butin révélés sur le plateau à la fin du round, tous les adversaires gagnent %game.condition.impair%. Si ce scénario n'a pas de paquet Butin, piocher un nouveau défi et remettez cette carte au bas du paquet."
+      },
+      "1500": {
+        "": "Escalade de la Violence",
+        "text": "Lorsqu'un modificateur d'attaque %game.attackmodifier.minus1% ou %game.attackmodifier.minus2% est pioché du paquet Modificateur d'attaque des monstres, retirez-le du paquet après l'attaque pour le reste du scénario."
+      },
+      "1501": {
+        "": "Réflexes Aiguisés",
+        "text": "Diminuez toutes les valeurs d'initiative des adversaires de 10."
+      },
+      "1502": {
+        "": "Engourdissement",
+        "text": "Les aventuriers ne peuvent pas utiliser de %game.itemSlot:small%."
+      },
+      "1503": {
+        "": "Imitation",
+        "hint": "Pour des raisons de mise en œuvre, le personnage est choisi au hasard !",
+        "text": "Ajouter au paquet Modificateur d'attaque des monstres cinq cartes prises aléatoirement parmi les cartes Rappel de bénéfices d'un aventurier de Frosthaven débloqué ( au choix des joueurs) ne participant pas au scénario."
+      },
+      "1504": {
+        "": "Trésor Maudit",
+        "text": "Lorsqu'un aventurier pille un ou plusieurs pions Butin, il gagne %game.condition.curse%. Si ce scénario n'a pas de paquet Butin, piochez un nouveau défi et remettez cette carte au bas du paquet."
+      },
+      "1505": {
+        "": "Gueule de Bois",
+        "text": "Augmentez toutes les valeurs d'initiative des aventuriers de 10."
+      },
+      "1506": {
+        "": "En Rang Serré",
+        "text": "Lorsqu'un aventurier effectue une attaque sans être adjacent à un allié, ajoutez -1 %game.action.attack% à l'attaque."
+      },
+      "1507": {
+        "": "Camelote",
+        "text": "Lorsqu'un objet devrait être dépensé, il est perdu à la place."
+      },
+      "1508": {
+        "": "Formation Dispersée",
+        "text": "À la fin du tour de chaque aventurier, tous les aventuriers adjacents subissent %game.damage:1%."
+      },
+      "1509": {
+        "": "Rations de Fortune",
+        "text": "Lorsqu'un aventurier prend un repos, il gagne %game.condition.curse%."
+      },
+      "1510": {
+        "": "Progression Coordonnée",
+        "text": "Lorsqu'un aventurier termine son tour à plus de deux cases d'un autre aventurier, ou à plus de trois cases (pour trois aventuriers), ou à plus de quatre cases (pour quatre aventuriers), il gagne %game.condition.muddle%."
+      },
+      "1511": {
+        "": "Brouillard Épais",
+        "text": "Les capacités de déplacement d'une valeur supérieure à 3 de tous les adversaires sont réduites de 1."
+      },
+      "1512": {
+        "": "Armures à Pointes",
+        "text": "Tous les aventuriers gagnent %game.action.retaliate%X, %game.action.range%3, X étant leurs valeurs de %game.action.shield%. Ajoutez -1 %game.action.attack% à toutes les attaques des aventuriers."
+      },
+      "1513": {
+        "": "Combat Loyal",
+        "text": "Est-ce qu'un aventurier élimine un adversaire, cet aventurier gagne tous les états négatifs qu'avait l'adversaire à sa mort."
+      },
+      "1514": {
+        "": "Phalange",
+        "text": "Chaque adversaire gagne %game.action.shield% 1 tant qu'il est adjacent à au moins un de ses alliés."
+      },
+      "1515": {
+        "": "Présence Impérieuse",
+        "text": "Tant qu'un adversaire d'élite est présent sur le plateau, tous les adversaires normaux du même type gagnent %game.action.shield%1."
+      },
+      "1516": {
+        "": "Tactiques Mystiques",
+        "text": "Lorsqu'au moins un élément qui était faible devient inerte à la fin d'un round, l'un des aventuriers subi des dégâts de terrain dangereux."
+      },
+      "1517": {
+        "": "Échauffement",
+        "text": "Tant que le nombre de points de vie d'aventurier est supérieur aux égal à la moitié de sa valeur maximale de points de vie (arrondissez à l'inférieur), il gagne Désavantage pour toutes ses attaques."
+      },
+      "1518": {
+        "": "Lien de Sang",
+        "text": "Chaque round, la première fois qu'un des adversaires subit des dégâts %game.damage%, un autre adversaire, blessé effectue %game.action.heal% X sur lui-même, X étant le montant des dégâts subis."
+      },
+      "1519": {
+        "": "Chausse-trappes",
+        "text": "Les aventuriers et leurs alliés considèrent tous les hexagones contenant un pion Butin comme des terrains dangereux. Les adversaires ne sont pas affectés."
+      },
+      "1520": {
+        "": "Douleur Partagée",
+        "text": "Chaque fois qu'un adversaire inflige des %game.damage% à un aventurier, un autre aventurier subit %game.damage:1%."
+      },
+      "1521": {
+        "": "Débordement",
+        "text": "Tous les adversaires ajoutent %game.action.jump% à toutes leurs capacités de déplacement."
+      },
+      "1522": {
+        "": "Sur Tous les Fronts",
+        "hint": "Seulement appliqué pour les monstres !",
+        "text": "Tous les personnages ajoutent -1%game.action.attack% et +1%game.action.target% à toutes leurs capacités d'attaque sur une seule cible."
+      },
+      "1523": {
+        "": "Chasse en Meute",
+        "text": "Au début du troisième round, générez sur l'un des hexagones de départ, un Loup normal par aventurier dans la compagnie. Si le scénario a des Loups dans la première salle, ou six types de monstres sans compter les Loups, piochez un nouveau défi et remettez cette carte au bas du paquet."
+      },
+      "1524": {
+        "": "Frais et Dispos",
+        "text": "Chaque adversaire gagne %game.action.shield%1 tant qu'il n'a aucun état négatif. Lorsqu'un adversaire perd au moins un état négatif à la fin de son tour, il subit %game.damage:1%."
+      },
+      "1525": {
+        "": "Force de la Rancune",
+        "text": "Lorsqu'un adversaire perd un état négatif, il gagne %game.condition.strengthen%."
+      },
+      "1526": {
+        "": "Dernier Carré",
+        "text": "Chaque round, quand l'ordre d'initiative est déterminé, s'il y a moins de monstres que d'aventuriers sur le plateau, tous les monstres gagnent %game.condition.ward.%."
+      }
+    }
+  },
   "items": {
     "fh-1": {
       "": "Longue-vue",
@@ -310,19 +496,116 @@
       "1": "Au début du tour d'un adversaire, avant qu'il ne détermine sa focalisation, effectuez :"
     },
     "fh-168": {
-      "": ""
+      "": "Bandeau de Regard Perçant",
+      "1": "Pendant votre capacité d'attaque à distance, ajoutez +1 %game.action.target%."
+    },
+    "fh-169": {
+      "": "Charme Fatidique",
+      "1": "Pendant votre tour, révélez la carte du dessus de votre paquet Modificateur d'attaque. Vous pouvez placer cette carte au bas du paquet."
     },
     "fh-17": {
       "": "Armure de Cuir Durci",
       "1": "Pour les deux prochaines attaques vous ciblant, l'attaquant gagne Désavantage."
     },
+    "fh-170": {
+      "": "Oeil de Vérité",
+      "1": "Pendant votre tour, révélez la carte du dessus de chaque paquet Capacité de monstre."
+    },
+    "fh-171": {
+      "": "Charme Rajeunissant",
+      "1": "Lorsque vous perdez une carte pour annuler des %game.damage%, %game.card.recover% une carte maximum de votre défausse et gagnez %game.condition.regenerate%."
+    },
+    "fh-172": {
+      "": "Casquette de Prémonition",
+      "1": "Pendant votre tour, regardez les quatre cartes du dessus de votre paquet Modificateur d'attaque et replacez-les dans l'ordre de votre choix."
+    },
+    "fh-173": {
+      "": "Cape Multicolore",
+      "1": "Quand vous êtes attaqué, %game.element.wild%."
+    },
+    "fh-174": {
+      "": "Cape Magnétique",
+      "1": "Pendant votre tour, effectuez : %game.action.teleport% 20 Cette téléportation doit se terminer sur un hexagone adjacent à un de vos alliés."
+    },
+    "fh-175": {
+      "": "Armure Miroir",
+      "1": "Quand vous subissez des %game.damage% d'une attaque, l'attaquant subit le même montant de %game.damage%."
+    },
+    "fh-176": {
+      "": "Prestecape",
+      "1": "Pendant votre tour, effectuez : %game.action.teleport% 4 Cette téléportation doit se terminer sur un hexagone adjacent à un adversaire."
+    },
+    "fh-177": {
+      "": "Bottes de Passation",
+      "1": "Lorsque vous déclenchez un piège en entrant sur son hexagone, vous pouvez appliquer ses effets à un personnage à %game.action.range:3% ou moins au lieu de vous-même."
+    },
+    "fh-178": {
+      "": "Poulaines Paisibles",
+      "1": "Au début de votre tour où votre initiative est d'au moins 60 et où vous ne prenez pas de repos long, effectuez : %game.action.heal% 1 sur vous-même"
+    },
+    "fh-179": {
+      "": "Bottes Jaillissantes",
+      "1": "Pendant votre capacité de déplacement, ajoutez 4 %game.action.move%. Après la capacité de déplacement, gagnez %game.condition.immobilize%."
+    },
     "fh-18": {
       "": "Bottes Frustes",
       "1": "Pendant votre tour, ajoutez +1 %game.action.move% à toutes vos capacités de déplacement."
     },
+    "fh-180": {
+      "": "Brodequins de Cupidité",
+      "1": "Chaque fois que vous pillez au moins deux pions Butin à la fois, effectuez : %game.condition.bless% sur vous-même"
+    },
+    "fh-181": {
+      "": "Bâton de Translocalisation",
+      "1": "Pendant votre tour, désignez deux alliés, ou deux monstres normaux ou d'élite. Le premier personnage désigné %game.action.teleport% simultanément sur hexagone occupé par le second, et vice-versa."
+    },
+    "fh-182": {
+      "": "Coupe-ailes",
+      "1": "Après votre attaque de mêlée, placez un pion Aventurier sur la cible. La cible perd %game.action.fly%."
+    },
+    "fh-183": {
+      "": "Carafe des Brumes",
+      "1": "Pendant votre tour, tous les personnages gagnent Désavantage pour toutes les attaques à distance et leur ajoutent -1 %game.action.range% pour ce round. "
+    },
+    "fh-184": {
+      "": "Hache Flamboyante",
+      "1": "Pendant votre capacité d'attaque de mêlée sur cibles multiples, ajoutez +1 %game.action.target%."
+    },
+    "fh-185": {
+      "": "Couteau Miroir",
+      "1": "Pendant votre capacité d'attaque de mêlée, ajoutez tous vos états négatifs sauf %game.condition.brittle%, %game.condition.bane% et %game.condition.stun% à une attaque."
+    },
+    "fh-186": {
+      "": "Graines à Croissance Rapide",
+      "1": "Pendant votre tour, créez un obstacle de 1 hexagone adjacent vide."
+    },
+    "fh-187": {
+      "": "Dangereux Engrenage",
+      "1": "Pendant votre tour, créez un piège à %game.damage% 3 sur un hexagone adjacent vide."
+    },
+    "fh-188": {
+      "": "Cristal de Glace",
+      "1": "Pendant votre tour, créez un terrain dangereux, un terrain verglacé ou une tuile Eau de 1 hexagone sur un hexagone sans décor adjacent."
+    },
+    "fh-189": {
+      "": "Anneau de la Nuit",
+      "1": "Pendant votre tour, effectuez :"
+    },
     "fh-19": {
       "": "Marteau de Sonneur",
       "1": "Pendant votre capacité d'attaque, ajoutez %game.condition.muddle% à toutes les attaques."
+    },
+    "fh-190": {
+      "": "Carte Blanche",
+      "1": "Pendant votre tour, placez un pion Aventurier sur un adversaire normal ou d'élite à %game.action.range:3% ou moins. Cet adversaire ajoute -1 %game.action.attack% à toutes ses attaques."
+    },
+    "fh-191": {
+      "": "Parchemin Corrompu",
+      "1": "Pendant votre tour, effectuez :"
+    },
+    "fh-192": {
+      "": "Cloche Envoûtante",
+      "1": "À la fin de votre tour, désignez un adversaire à %game.action.range:3% ou moins. Vous devenez sa focalisation prioritaire, et il n'évite pas les hexagones négatifs pour déterminer son déplacement ce round. "
     },
     "fh-193": {
       "": "Heaume Perce-Esprit",
@@ -917,6 +1200,9 @@
     "banner-of-strength": "Bannière de Force",
     "banner-of-valor": "Bannière de Valeur",
     "reinforcements": "Renfort",
-    "torch-bearer": "Porte-Torche"
+    "shadow-beast": "Bête des Ombres",
+    "shambling-skeleton": "Squelette Titubant",
+    "torch-bearer": "Porte-Torche",
+    "wraith": "Spectre"
   }
 }

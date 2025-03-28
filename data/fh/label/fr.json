@@ -1,42 +1,73 @@
 {
   "ability": {
+    "Accelerated Power": "Puissance Accélérée",
+    "Advancing Horde": "Marche de la Horde",
     "Angry Hex": "Malédiction Colérique",
     "Arresting Advance": "Blocage de l'Audace",
     "Berserk Rage": "Folie Furieuse",
+    "Blinding Vortex": "Tourbillon Aveuglant",
+    "Blistering Assault": "Assaut Cinglant",
+    "Briny Bristles": "Soies Saumâtres",
     "Calculated Shot": "",
     "Calculated Strike": "Coup Calculé",
     "Call For Souls": "Appel aux Âmes",
     "Chilling Aura": "Aura Glacée",
     "Close In": "Encerclement",
+    "Cold Winds": "Vent Glacial",
+    "Concussive Burst": "Explosion Assommante",
     "Defensive Blades": "Lames Défensives",
     "Defensive Claws": "Griffes Défensives",
+    "Defensive Ordinance": "Injonction Défensive",
+    "Desperate Herd": "Troupeau Désespéré",
     "Divine Energy": "Énergie Divine",
     "Drain Speed": "Drain de Célérité",
     "Drain Strength": "Drain de force",
+    "Exploding Ammunition": "Munition Explosive",
     "Face of Darkness": "Visage des Ténèbres",
     "Firestorm": "Tempête de Feu",
+    "Fish Net": "Filet de Pêche",
     "Flame Jets": "Jets de Flamme",
     "Focused Strikes": "Frappes Ciblées",
+    "Frozen Debris": "Débris Gelés",
+    "Grenade": "Grenade",
+    "Guide the School": "Orienter le Banc",
+    "Hail": "Grêle",
     "Hardened by Frost": "Durci par le Gel",
     "Hasty Assault": "Assaut Précipité",
     "Hateful Spikes": "Pointes Haineuses",
     "Heated Sweep": "Balayage Thermique",
+    "Heavy Shot": "Feu Nourri",
+    "Heed the Pigs": "Attention aux Cochons",
+    "Ice Wall": "Mur de Glace",
     "Increase Momentum": "Élan Redoublé",
+    "Knockout Punch": "Point Assommant",
+    "Lingering Strength": "Force Durable",
+    "Long Shot": "Tir en Cloche",
+    "Massive Blast": "Explosion Massive",
     "Nothing": "Rien",
     "Nothing Special": "Rien de Particulier",
+    "One with the Earth": "Un avec la Terre",
     "Parry and Thrust": "Surin Empoisonnée",
+    "Pig Parade": "Parade du Cochon",
     "Power Shot": "Tir Puissant",
     "Psych Up": "Motivation",
     "Pull of the Grave": "Attrait de la Tombe",
     "Set Trap": "Pose de Piège",
     "Shoot Foot": "Dans les Pieds",
+    "Sleet": "Giboulée",
+    "Snow Drifts": "Tempête de Neige",
+    "Snowstorm": "Congères",
     "Spinning Charge": "Charge Tournoyante",
     "Strength of the Deep": "Force des Profondeurs",
     "Sunless Abyss": "Sombres Abysses",
     "Tend to the Clan": "Soins au Clan",
+    "Terrifying Growl": "Grognement Terrifiant",
     "Throwing Axe": "Jet de Hache",
     "Twin Bolts": "Carreaux Jumeaux",
-    "Venom Shiv": "Parade et Fente"
+    "Twin Shots": "Double Tir",
+    "Two-Fisted Strike": "Coup Vigoureux",
+    "Venom Shiv": "Parade et Fente",
+    "Warding Swipe": "Coup Protecteur"
   },
   "battleGoals": {
     "1301": {
@@ -419,9 +450,39 @@
   },
   "custom": {
     "fh": {
+      "abael-herder": {
+        "1": "Octroi au Cochon Piranha le plus <br>proche à moins à %game.action.range:4% :",
+        "2": "Octroie à tous les cochons Piranhas à %game.action.range:3% ou moins :",
+        "3": "Le Cochon Piranha subit %game.damage:1%.",
+        "4": "Octroie au Cochon Piranha<br>le plus proche à %game.action.range:4% ou moins :",
+        "5": "Si la capacité d'octroi n'a ciblé aucun Cochon Piranha, invoque un Cochon Piranha normal.",
+        "6": "où X est le nombre de Cochons Piranhas sur le plateau."
+      },
+      "algox-icespeaker": {
+        "1": "Crée une tuile Obstacle de<br>1 hexagone sur l'hexagone vide<br>adjacent le plus proche d'un adversaire.",
+        "2": "Tous les adversaires adjacents à l'obstacle créé subissent des dégâts de terrain dangereux."
+      },
+      "algox-snowspeaker": {
+        "1": "Tous les adversaires à %game.action.range:3%<br>ou moins subissent %game.damage:2%."
+      },
+      "algox-stormcaller": {
+        "1": "Créer un terrain dangereux, et tous les adversaires occupant ou adjacent à un terrain dangereux subissent des dégâts."
+      },
+      "ancient-artillery": {
+        "1": "Se focalise sur l'adversaire le plus éloigné à %game.action.range:7% ou moins.",
+        "2": "Tous les adversaires adjacents à la cible subissent %game.damage:2%."
+      },
+      "archer": {
+        "1": "Créer un piège %game.damage:3% sur l'hexagone vide adjacent le plus proche de l'adversaire."
+      },
       "banner-spear": {
+        "1": "Tous les alliés à %game.range:2% ou moins ajoutent +1 %game.action.attack% à une attaques chaque tour.",
         "10": "Attaquer au moins trois adversaires avec trois différentes capacités d'attaque à zone d'effet",
         "11": "Effectuer une capacité d'invocation de Bannière lors de votre premier tour, garder la Bannière en vie et à %game.action.range:3% ou moins de vous jusqu'à la fin du scénario",
+        "2": "Au début de leurs tours, octroie aux alliés à %game.range:3% ou moins :",
+        "3": "Tous les alliés adjacents gagnent %game.shield% 1.",
+        "4": "Annule la première source de %game.damage% infligés à un allié adjacent chaque round.",
+        "5": "Tout adv. à %game.action.range%4 ou moins subit %game.damage:1% au début de son tour.",
         "6": "Ajouter +1 %game.action.attack% par allié adjacent à la cible",
         "7": "À la fin de chacun de vos repos long octroyer à un allié à %game.action.range:3% ou moins : %game.action.move% 2",
         "8": "Quand vous ouvrez une porte avec une capacité de déplacement, ajouter +3 %game.action.move%",
@@ -442,6 +503,9 @@
         "3": "Juste avant chacun de vos repos, pouvoir éliminer une de vos invocations pour effectuer %game.condition.bless%, sur vous-même",
         "6": "Éliminer au moins quinze de vos invocation",
         "7": "Jouer une action d'invocation lors de votre premier tour, faire éliminer au moins six adversaires par cette invocation et la garder en vie jusqu'à la fin du scénario"
+      },
+      "city-guard-scenario-1": {
+        "1": "N'effectue pas leur tour."
       },
       "deathwalker": {
         "1": "Lorsque vous prenez un repos long, pouvoir déplacer une %data.action.custom.fh-shadow% jusqu'à trois hexagones",
@@ -557,10 +621,12 @@
     "sun-demon": "Démon du Soleil",
     "the-collector": "Le Collectionneur",
     "the-relic": "La Relique",
+    "vanjal": "Vanjal",
     "vermling-priest": "Prêtre Vermling",
     "vermling-scout": "Éclaireur Vermling",
     "vestige-of-the-imprisoned-god": "Le Vestige du Dieu Emprisonné",
-    "wind-demon": "Démon du Vent"
+    "wind-demon": "Démon du Vent",
+    "yoglang": "Yoglang"
   },
   "scenario": {
     "group": {

@@ -13,8 +13,8 @@
     "Ancient Rites of Power": "Ancient Rites of Power",
     "Anger of the Dead": "Anger of the Dead",
     "Angry Bulwark": "성난 보호벽",
-    "Angry Cloud": "분노의 사술",
-    "Angry Hex": "Angry Cloud",
+    "Angry Cloud": "성난 구름",
+    "Angry Hex": "분노의 사술",
     "Angry Howl": "성난 울부짖음",
     "Angry Spirits": "Angry Spirits",
     "Approach Oblivion": "Approach Oblivion",
@@ -76,9 +76,9 @@
     "Cage of Thorns": "Cage of Thorns",
     "Calamitous Yawp": "Calamitous Yawp",
     "Calamity": "Calamity",
-    "Calculated Shot": "Calculated Shot",
+    "Calculated Shot": "계산된 사격",
     "Calculated Strike": "계산된 공격",
-    "Call For Souls": "Call For Souls",
+    "Call For Souls": "영혼 호출",
     "Call of Doom": "Call of Doom",
     "Call to the Abyss": "심연으로부터의 부름",
     "Call to the Earth": "대지로의 부름",
@@ -214,7 +214,7 @@
     "Easy Prey": "손쉬운 먹잇감",
     "Ebb and Flow": "Ebb and Flow",
     "Eclipse": "Eclipse",
-    "Electric Pulse": "Electric Pulse",
+    "Electric Pulse": "전기 충격",
     "Electrical Discharge": "Electrical Discharge",
     "Electrified net": "Electrified net",
     "Elemental Pulse": "Elemental Pulse",
@@ -222,7 +222,7 @@
     "Empowering Pulse": "Empowering Pulse",
     "Empowering Rest": "힘이 솟는 휴식",
     "Empowering note": "Empowering note",
-    "Empowring Rest": "Empowring Rest",
+    "Empowring Rest": "힘이 솟는 휴식",
     "Encased Punch": "Encased Punch",
     "Endless Cycle": "Endless Cycle",
     "Endless Iumbers": "Endless Iumbers",
@@ -1218,7 +1218,7 @@
       "abael-herder": {
         "1": "%game.action.range:4% 내의 가장 가까운 피라냐돈 하나에게 지시:",
         "2": "%game.action.range:3% 내의 모든 피라냐돈에게 지시:",
-        "3": "피라냐돈이 스스로 %game.damage:1%점을 입음.",
+        "3": "피라냐돈이 스스로%game.damage:1%점을 입음.",
         "4": "%game.action.range:4% 내의 가장 가까운 피라냐돈 하나에게 지시:",
         "5": "대상이 된 피라냐돈이 하나도 없다면,",
         "6": "여기에서 X는 게임판에 있는<br>피라냐돈의 숫자."
@@ -1235,10 +1235,10 @@
       },
       "ancient-artillery": {
         "1": "%game.action.range:7% 내의<br>가장 멀리 있는 적을 주목",
-        "2": "대상에 인접한 모든 적이 %game.damage:2%점을 입음."
+        "2": "대상에 인접한 모든 적이%game.damage:2%점을 입음."
       },
       "archer": {
-        "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에<br>%game.damage:3% 함정을 생성한다."
+        "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에%game.damage:3% 함정을 생성한다."
       },
       "banner-spear": {
         "1": "매번 %game.range:2% 내의 모든 아군의 공격 중 하나에 +1%game.action.attack% 추가.",
@@ -1246,15 +1246,16 @@
         "11": "자신의 첫 번째 차례에 깃발 소환 능력을 수행하고, 시나리오 내내 그 깃발을 자신과 %game.action.range:3% 내에, 생존한 상태로 유지",
         "2": "매번 자신의 긴 휴식 종료 시, %game.action.range:3% 내의 아군 하나에게",
         "3": "모든 인접한 아군은 %game.shield% 1 획득.",
-        "4": "매번 인접한 아군에게 첫 번째 %game.damage% 무효",
-        "5": "%game.action.range%4 내에 있는 모든 적은 차례 시작 시 %game.damage:1%을 얻음.",
+        "4": "매번 인접한 아군에게 첫 번째%game.damage% 무효",
+        "5": "%game.action.range%4 내에 있는 모든 적은 차례 시작 시%game.damage:1%을 입음.",
         "6": "대상에 인접한 아군마다 +1%game.action.attack% 추가",
         "7": "매번 자신의 긴 휴식 종료 시, %game.action.range:3% 내의 아군 하나에게 %game.action.move% 2를 지시",
         "8": "자신의 이동 능력으로 문을 열 때마다, +3 %game.action.move% 추가",
         "9": "시나리오마다 한 번, 자신의 차례에, 그 라운드 동안 %game.action.shield% 2를 얻음"
       },
       "belara": {
-        "1": "인접한 모든 아군과 적이<br>%game.damage:2%점을 입는다"
+        "1": "인접한 모든 아군과 적이<br>%game.damage:2%점을 입는다",
+        "2": "%game.action.range:4%내의 모든 적이%game.damage:2%점을 입음."
       },
       "blinkblade": {
         "1": "자신의 다음 공격에, 이 카드를 버려 +2 %game.action.attack% 추가.<br>%game.card.persistent%",
@@ -1277,8 +1278,8 @@
         "7": "자신의 첫 번째 차례에 소환 행동을 수행하고, 그 소환물이 적어도 여섯 이상의 적을 죽이게 하고, 전체 시나리오 동안 그 소환물을 생존한 상태로 유지"
       },
       "burrowing-blade": {
-        "1": "인접한 모든 적이 %game.damage:2%점을 입는다.",
-        "2": "%game.action.range:2% 내의 모든 적이 %game.damage:2%점을 입는다."
+        "1": "인접한 모든 적이%game.damage:2%점을 입는다.",
+        "2": "%game.action.range:2% 내의 모든 적이%game.damage:2%점을 입는다."
       },
       "deathwalker": {
         "1": "자신이 긴 휴식을 취할 때마다, %data.action.custom.fh-shadow%하나를 세 칸까지 이동시킬 수 있음",
@@ -1288,8 +1289,8 @@
         "5": "절대로 공격의 대상이 되지 않음"
       },
       "deep-terror": {
-        "1": "공격 능력이 수행되었다면",
-        "2": "공격 능력의 대상에 인접한 빈칸 하나에 소환"
+        "1": "공격 능력이 수행되었다면<br>공격 대상에 인접한 빈 칸 하나에",
+        "2": " "
       },
       "drifter": {
         "1": "자신의 캐릭터 토큰 하나를 1칸 후퇴시킬 수 있음",
@@ -1311,11 +1312,11 @@
       "flame-demon": {
         "1": "인접한 빈칸 중 적과 가장 가까운 칸에<br>%game.damage:4% 함정 1개를 생성한다",
         "2": "%game.damage:1%",
-        "3": "인접한 모든 적이 %game.damage:2%점을 입음"
+        "3": "인접한 모든 적이%game.damage:2%점을 입음"
       },
       "flaming-bladespinner": {
-        "1": "%game.action.range:2% 내의 모든 적이<br> %game.damage:2%점을 입는다.",
-        "2": "%game.action.range:2% 내의 모든 적이 %game.damage:1%점을 입음."
+        "1": "%game.action.range:2% 내의 모든 적이<br>%game.damage:2%점을 입는다.",
+        "2": "%game.action.range:2% 내의 모든 적이%game.damage:1%점을 입음."
       },
       "flowChartGroup": {
         "algox-1": "알곡스",
@@ -1357,7 +1358,7 @@
         "1": "\"game.action.heal% X,자신\" 수행<br>여기에서 X는 공격 능력의 대상이 된<br>적의 숫자에 2를 곱한 값."
       },
       "hound": {
-        "1": "대상이 사냥개의 아군에 인접해 있다면 공격 +2 %game.action.attack% 추가."
+        "1": "대상이 사냥개의 아군에 인접해 있다면 +2%game.action.attack% 추가."
       },
       "ice-wraith": {
         "1": "모든 정예 얼음 망령이 일반이 되며,<br>모든 일반 얼음 망령이 정예가 된다."
@@ -1386,7 +1387,7 @@
         "1": "공격 능력의 모든 대상을<br>주도권 순서대로 조종:"
       },
       "lurker-soldier": {
-        "1": "%game.action.target% 2칸 내의 적들"
+        "1": "%game.action.target%%game.action.range:2% 내의 모든 적 대상"
       },
       "lurker-wavethrower": {
         "1": "%game.action.range:6% 내의 가장 멀리있는 적을 주목",
@@ -1407,7 +1408,7 @@
         "2": "%game.custom.disadvantage%"
       },
       "ooze": {
-        "1": "점액의 현재 체력과<br>체력이 동일한 일반 점액 하나를 소환한다.<br>(단, 일반 점액의 최대 체력은 초과 불가)"
+        "1": "점액의 현재 체력과 동일한 체력의 일반 점액 하나를 소환한다.<br>(단, 일반 점액의 최대 체력은 초과 불가)"
       },
       "piranha-pig": {
         "1": "대상이 피라냐돈의 아군에게 인접해 있다면 +1%game.action.attack%추가.",
@@ -1425,13 +1426,13 @@
       },
       "savvas-lavaflow": {
         "1": "인접한 모든 아군과 적이<br>%game.damage:2%점을 입음",
-        "2": "%game.action.range:4% 내의 모든 적이 %game.damage:2%점을 입는다."
+        "2": "%game.action.range:4% 내의 모든 적이%game.damage:2%점을 입는다."
       },
       "shrike-fiend": {
-        "1": "%game.action.range:3% 내의 모든 적이 %game.damage:2% 점을 입는다."
+        "1": "%game.action.range:3% 내의 모든 적이%game.damage:2% 점을 입는다."
       },
       "steel-automaton": {
-        "1": "인접한 모든 적이 %game.damage:1%점을 입는다",
+        "1": "인접한 모든 적이%game.damage:1%점을 입는다",
         "2": "인접한 모든 적이<br>위험지형 피해를 입는다."
       }
     }
@@ -1467,7 +1468,7 @@
     "hound": "사냥개",
     "hungry-maw": "굶주린 아가리",
     "ice-wraith": "얼음 망령",
-    "large-vermling-scout": "대형 버믈링 정찰병",
+    "large-vermling-scout": "",
     "lightning-eel": "번개뱀장어",
     "living-bones": "살아있는 뼈",
     "living-doom": "살아있는 파멸",
