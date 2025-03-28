@@ -721,7 +721,7 @@
         "floor": "(소수점 이하 내림)",
         "max": ", 최대 %game.number.{0}%",
         "maxCeil": "(올림), 최대 %game.number.{0}%",
-        "maxFloor": "(버림), 최대%game.number.{0}%",
+        "maxFloor": "(버림), 최소 %game.number.{0}%",
         "min": ", 최소 %game.number.{0}%",
         "minCeil": "(올림), 최소 %game.number.{0}%",
         "minFloor": "(버림), 최소 %game.number.{0}%"
@@ -835,7 +835,7 @@
       "startTurn": "차례 시작"
     },
     "health": "체력",
-    "hp": "ＨＰ",
+    "hp": " ",
     "initiative": "주도권",
     "item": "아이템",
     "items": {
@@ -926,7 +926,7 @@
       },
       "flamefruit": "화염열매",
       "herb_resources": "약초",
-      "hide": "숨기기",
+      "hide": "가죽",
       "keep": "%data.character.{0}% 캐릭터로 계속 진행하기",
       "lootTreasure": {
         "": "{0} 캐릭터가 {1} 보물을 노획했습니까?",
@@ -946,6 +946,7 @@
       },
       "remove": "%data.character.{0}%에게서 제거",
       "rockroot": "바위뿌리",
+      "snowthistle": "눈엉겅퀴",
       "special": "특수",
       "special1": "특수 카드 1 (#1418)",
       "special2": "특수 카드 2 (#1419)",
@@ -1017,7 +1018,7 @@
       "enemies": "%game.target% 모든 적 대상",
       "enemiesAdjacent": "%game.target% 인접한 모든 적",
       "enemiesMovedThrough": "%game.target% 이동 경로에 있는 모든 적 대상",
-      "enemiesMovedThroughAdjacent": "%game.target% 이동 능력 동안 들어간 칸을 점유하거나 인접하고 있는 모든 적 대상",
+      "enemiesMovedThroughAdjacent": "%game.target%이동 경로에 있는 칸을 점유하거나 인접하고 있는 모든 적 대상",
       "enemiesRange": "%game.target% 사정거리 %game.action.range% {0} 내 모든 적 대상",
       "enemiesRangeAffect": "%game.affect% 사정거리 %game.action.range% {0} 내 모든 적에게 영향",
       "enemiesRangeAffectExact": "%game.affect% 정확히 사정거리 %game.action.range% {0}인 모든 적에게 영향",
@@ -1038,7 +1039,7 @@
       "selfOrAlly": "자신 또는 아군",
       "targets": "모든 대상"
     },
-    "sufferDamage": "{0}가 스스로 피해 %game.damage:{1}%점을 입는다",
+    "sufferDamage": "{0}이 스스로 %game.damage:{1}%점을 입는다",
     "summon": {
       "player2-3": "2~3인인 경우 %game.monsterType.{0}% 또는 4인인 경우 %game.monsterType.{1}%",
       "player3-4": "2인인 경우 %game.monsterType.{0}% 또는 3~4인인 경우 %game.monsterType.{1}%",

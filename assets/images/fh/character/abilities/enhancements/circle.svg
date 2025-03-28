@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 5.4699999 5.4699999"
+   version="1.1"
+   id="svg19047"
+   sodipodi:docname="circle.svg"
+   width="5.4699998"
+   height="5.4699998"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview19049"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="50.974027"
+     inkscape:cx="1.7852229"
+     inkscape:cy="3.4429298"
+     inkscape:window-width="1854"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg19047" />
+  <defs
+     id="defs19035">
+    <style
+       id="style19030">.cls-1,.cls-6{fill:none;}.cls-2{isolation:isolate;}.cls-3{mix-blend-mode:overlay;}.cls-3,.cls-4{opacity:0.75;}.cls-5{clip-path:url(#clip-path);}.cls-6{stroke:#fff;stroke-width:0.5px;}</style>
+    <clipPath
+       id="clip-path"
+       transform="translate(-1 -1)">
+      <rect
+         class="cls-1"
+         width="5.8499999"
+         height="5.8499999"
+         id="rect19032"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <g
+     class="cls-2"
+     id="g19045"
+     transform="translate(0.84226411,0.87429635)">
+    <g
+       id="Layer_2"
+       data-name="Layer 2">
+      <g
+         id="Layer_1-2"
+         data-name="Layer 1">
+        <g
+           class="cls-4"
+           id="g19041">
+          <g
+             class="cls-5"
+             clip-path="url(#clip-path)"
+             id="g19039">
+            <circle
+               class="cls-6"
+               cx="1.9299999"
+               cy="1.92"
+               r="1.67"
+               id="circle19037" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
