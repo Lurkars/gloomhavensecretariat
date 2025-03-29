@@ -49,6 +49,17 @@
                 }
             }
 
+            .hex {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 1em;
+                    height: auto;
+                }
+            }
+
             .condition {
                 font-size: 1em;
                 margin-left: -0.2em;

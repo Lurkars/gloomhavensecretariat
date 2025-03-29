@@ -11,13 +11,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -29,13 +41,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -47,13 +71,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -65,13 +101,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -83,13 +131,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -101,13 +161,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -119,13 +191,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -137,13 +221,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -155,13 +251,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -173,13 +281,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -191,13 +311,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -209,13 +341,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -227,13 +371,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -245,13 +401,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -263,13 +431,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -281,13 +461,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -299,13 +491,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -317,13 +521,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -335,13 +551,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -353,13 +581,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -371,13 +611,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -389,13 +641,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -407,13 +671,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -425,13 +701,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -443,13 +731,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -461,13 +761,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -479,13 +791,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -497,13 +821,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -515,13 +851,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -533,13 +881,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -551,13 +911,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -569,13 +941,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -587,13 +971,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -605,13 +1001,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -623,13 +1031,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -641,13 +1061,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     },
@@ -659,13 +1091,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%"
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any",
+            "any",
+            "any",
+            "any"
+          ]
         }
       ]
     }

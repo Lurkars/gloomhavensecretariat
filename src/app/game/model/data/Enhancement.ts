@@ -7,7 +7,8 @@ export enum EnhancementType {
     circle = "circle",
     diamond = "diamond",
     diamond_plus = "diamond_plus",
-    hex = "hex"
+    hex = "hex",
+    any = "any"
 }
 
 export type EnhancementAction = "plus1" | "hex" | ConditionName | ActionType.jump | Element;

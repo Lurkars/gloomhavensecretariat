@@ -9,6 +9,9 @@
 
         <span class="enhancement" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i]">
             <span class="plus1" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i] == 'plus1'">+1</span>
+            <span class="hex" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i] == 'hex'">
+                <img src="./assets/images/action/hex/target.svg" />
+            </span>
             <span class="jump" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i] == 'jump'">
                 <span class="text-white" [ghs-label]="'%game.actionIcon.jump%'"></span>
             </span>

@@ -131,6 +131,11 @@
   <span class="action-custom" *ngSwitchCase="ActionType.custom">
     <span class="custom-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"
       [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"></span>
+
+    <ghs-action-enhancements
+      *ngIf="origAction.enhancementTypes && origAction.enhancementTypes.length && character && cardId"
+      [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"></ghs-action-enhancements>
+
     <div class="custom-subactions" *ngIf="subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;" [action]="subAction"

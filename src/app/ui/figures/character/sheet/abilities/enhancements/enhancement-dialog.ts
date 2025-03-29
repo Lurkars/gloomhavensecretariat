@@ -30,6 +30,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
     special: 'summon' | 'lost' | 'persistent' | undefined;
     character: Character | undefined;
     customAction: boolean;
+    wipSpecial: boolean = false;
 
     actionTypes: ActionType[] = [];
     enhancementAction: EnhancementAction = "plus1";
@@ -49,6 +50,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
             this.action.valueObject = this.data.summon;
             this.action.enhancementTypes = [EnhancementType.square, EnhancementType.square, EnhancementType.square, EnhancementType.square];
         }
+        this.wipSpecial = this.action != undefined && this.action.type == ActionType.custom && this.action.value == "%character.abilities.wip%";
     }
 
     ngOnInit(): void {
@@ -114,7 +116,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
             this.action = new Action(ActionType.attack, 1);
         }
 
-        if (!this.action.enhancementTypes || !this.action.enhancementTypes.length) {
+        if (!this.action.enhancementTypes || !this.action.enhancementTypes.length || this.wipSpecial) {
             if (gameManager.enhancementsManager.squareActions.indexOf(this.action.type) != -1) {
                 this.enhancementType = EnhancementType.square;
             }
@@ -142,7 +144,11 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
         }
 
         if (this.data.action && (this.enhancementAction == "plus1" || this.enhancementAction == "hex")) {
-            this.enhanceAction = new Action(this.data.action.type, this.data.action.value, this.data.action.valueType);
+            if (this.wipSpecial) {
+                this.enhanceAction = this.action;
+            } else {
+                this.enhanceAction = new Action(this.data.action.type, this.data.action.value, this.data.action.valueType);
+            }
         } else if (Object.values(ConditionName).includes(this.enhancementAction as ConditionName)) {
             this.enhanceAction = new Action(ActionType.condition, this.enhancementAction);
         } else if (Object.values(Element).includes(this.enhancementAction as Element)) {

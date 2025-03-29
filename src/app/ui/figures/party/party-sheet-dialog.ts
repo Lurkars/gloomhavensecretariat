@@ -400,6 +400,18 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.dialog.open(CharacterSheetDialog, {
       panelClass: ['dialog-invert'],
       data: { character: character, viewOnly: viewOnly }
+    }).closed.subscribe({
+      next: () => {
+        if (characterModel.progress && JSON.stringify(characterModel.progress.enhancements) != JSON.stringify(character.progress.enhancements)) {
+          gameManager.stateManager.before("changeRetiredCharacterEnhancements", gameManager.characterManager.characterName(character, true));
+          characterModel.progress.enhancements = character.progress.enhancements;
+          const current = gameManager.game.figures.find((figure) => figure instanceof Character && figure.edition == character.edition && figure.name == character.name) as Character;
+          if (current) {
+            gameManager.characterManager.previousEnhancements(current, gameManager.enhancementsManager.temporary);
+          }
+          gameManager.stateManager.after();
+        }
+      }
     });
   }
 
