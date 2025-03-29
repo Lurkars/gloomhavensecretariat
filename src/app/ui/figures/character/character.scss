@@ -176,7 +176,19 @@
     max-width: calc(var(--ghs-unit) * 77.5);
 
     ghs-standee {
+      position: relative;
       margin-bottom: calc(var(--ghs-unit) * 1);
+    }
+  }
+
+  &.spirits {
+
+    ghs-standee {
+      transition: top 500ms ease-in-out;
+
+      &.active {
+        top: calc(var(--ghs-unit) * -5);
+      }
     }
   }
 

@@ -8,7 +8,13 @@
     "galaxy": "Starslinger",
     "ladder-axe": "Fire Knight",
     "leaf": "Hierophant",
-    "skull": "Spirit Caller",
+    "skull": {
+      "": "Spirit Caller",
+      "spirits": {
+        "": "%data.characterIconColored.skull% Spirits",
+        "hint": "Automatically apply 1 damage to each Spirit at end of turn."
+      }
+    },
     "sprig": "Mirefoot",
     "target": "Bombard",
     "tools": "Artificer",
@@ -440,6 +446,7 @@
     "ghost-carriage": "Ghost Carriage",
     "giant-tortoise": "Giant Tortoise",
     "gleaming-squid": "Gleaming Squid",
+    "glowing-egg": "Glowing Egg",
     "hollow-carapace": "Hollow Carapace",
     "imbued-monolith": "Imbued Monolith",
     "leeching-phantasm": "Leeching Phantasm",

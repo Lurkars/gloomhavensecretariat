@@ -375,7 +375,11 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         if (activeFigure) {
             if (activeFigure instanceof Character) {
                 const activeSummon = activeFigure.summons.find((summon) => summon.active);
-                if (settingsManager.settings.activeSummons && activeFigure.active && activeSummon) {
+                const csSprits = activeFigure.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1);
+                if (settingsManager.settings.activeSummons && !activeSummon && activeFigure.active && csSprits.length && !csSprits.find((summon) => summon.active)) {
+                    gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(activeFigure), "data.summon." + csSprits[0].name);
+                    csSprits.forEach((spirit) => spirit.tags.push('cs-skull-spirit-turn'));
+                } else if (settingsManager.settings.activeSummons && activeFigure.active && activeSummon) {
                     gameManager.stateManager.before("summonInactive", gameManager.characterManager.characterName(activeFigure), "data.summon." + activeSummon.name);
                 } else {
                     gameManager.stateManager.before(activeFigure.active ? "unsetActive" : "setActive", gameManager.characterManager.characterName(activeFigure));

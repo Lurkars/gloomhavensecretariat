@@ -175,8 +175,17 @@ export class RoundManager {
 
     let figure: Figure | undefined = toggleFigure;
 
-    const next = toggleFigure.active && (!(toggleFigure instanceof Character) || !settingsManager.settings.activeSummons || !toggleFigure.summons.find((summon) => summon.active));
-    if (next) {
+    let nextFigure = toggleFigure.active;
+
+    if (settingsManager.settings.activeSummons && toggleFigure instanceof Character) {
+      const activeSummon = toggleFigure.summons.find((summon) => summon.active || summon.tags.indexOf('cs-skull-spirit-turn') != -1);
+      const csSprits = toggleFigure.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1);
+      if (activeSummon && (csSprits.indexOf(activeSummon) == -1 || !activeSummon.active || csSprits.indexOf(activeSummon) < csSprits.length - 1)) {
+        nextFigure = false;
+      }
+    }
+
+    if (nextFigure) {
       this.afterTurn(toggleFigure);
       figure = figures.find((other, otherIndex) => gameManager.gameplayFigure(other) && !other.off && otherIndex != index);
 
@@ -213,7 +222,7 @@ export class RoundManager {
               this.beforeTurn(other);
             }
             this.turn(other);
-          } else if (!next && i > index && i <= lastIndex) {
+          } else if (!nextFigure && i > index && i <= lastIndex) {
             this.beforeTurn(other);
           }
         }
@@ -256,6 +265,15 @@ export class RoundManager {
       if (figure instanceof Character) {
         if (figure.name == 'music-note' && figure.tags.indexOf('song_active') != -1) {
           figure.experience -= 1;
+        }
+
+        if (!figure.active && figure.name == 'skull' && figure.tags.find((tag) => tag === 'spirits')) {
+          figure.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1).forEach((summon) => {
+            if (summon.maxHealth) {
+              summon.health += 1;
+              gameManager.entityManager.checkHealth(summon, figure);
+            }
+          })
         }
       }
     } else if (figure instanceof Monster && !figure.entities.find((entity) => entity.active)) {
@@ -313,10 +331,10 @@ export class RoundManager {
     if (figure instanceof Character && gameManager.entityManager.isAlive(figure)) {
       if (!skipSummons && settingsManager.settings.activeSummons) {
         const activeSummon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true) && summon.active);
-        const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1 && summon.tags.indexOf('cs-skull-spirit') == -1);
-
+        const nextSummon = figure.summons.find((summon, index, self) => (!activeSummon || index > self.indexOf(activeSummon)) && gameManager.entityManager.isAlive(summon, true) && summon.tags.indexOf('prism_mode') == -1 && ((!activeSummon || activeSummon.tags.indexOf('cs-skull-spirit') == -1) && summon.tags.indexOf('cs-skull-spirit') == -1 || summon.tags.indexOf('cs-skull-spirit-turn') != -1));
         figure.summons.slice(activeSummon ? figure.summons.indexOf(activeSummon) : 0, nextSummon ? figure.summons.indexOf(nextSummon) : figure.summons.length).forEach((prevSummon, index, self) => {
           prevSummon.active = false;
+          prevSummon.tags = prevSummon.tags.filter((tag) => tag != 'cs-skull-spirit-turn');
           if (settingsManager.settings.expireConditions) {
             gameManager.entityManager.expireConditions(prevSummon, figure);
           }
@@ -451,14 +469,8 @@ export class RoundManager {
 
       if (figure instanceof Character) {
         figure.summons.forEach((summon) => {
-          if (!settingsManager.settings.activeSummons || summon.tags.indexOf('cs-skull-spirit') != -1) {
+          if (!settingsManager.settings.activeSummons) {
             summon.active = false;
-
-            if (summon.tags.indexOf('cs-skull-spirit') != -1) {
-              summon.health -= 1;
-              gameManager.entityManager.checkHealth(summon, figure);
-            }
-
             if (gameManager.entityManager.isAlive(summon)) {
               if (settingsManager.settings.expireConditions) {
                 gameManager.entityManager.expireConditions(summon, figure);
@@ -473,6 +485,15 @@ export class RoundManager {
             }
           }
         })
+
+        if (figure.name == 'skull' && figure.tags.find((tag) => tag === 'spirits')) {
+          figure.summons.filter((summon) => summon.tags.indexOf('cs-skull-spirit') != -1).forEach((summon) => {
+            if (summon.maxHealth) {
+              summon.health -= 1;
+              gameManager.entityManager.checkHealth(summon, figure);
+            }
+          })
+        }
       }
 
       if (figure instanceof Character && figure.name == 'fist' && figure.tags.indexOf('gift-of-the-mountain') != -1 && (figure.health < EntityValueFunction(figure.maxHealth, figure.level) || figure.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && !condition.permanent && !condition.expired))) {

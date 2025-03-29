@@ -199,6 +199,7 @@ export class CharacterManager {
 
     if (character.edition == 'cs' && character.name == 'skull' && summon.cardId && character.availableSummons.find((s) => s.cardId == summon.cardId)) {
       summon.tags.push('cs-skull-spirit');
+      summon.state = SummonState.true;
     }
 
     character.summons.push(summon);
