@@ -40,7 +40,7 @@
             },
             {
               "type": "area",
-              "value": "(0,0,target)|(0,1,active)|(1,1,target)|(1,0,target)",
+              "value": "(0,0,target)|(0,1,active)|(1,0,target)|(1,1,target)",
               "small": true
             }
           ]

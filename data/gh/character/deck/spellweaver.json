@@ -868,7 +868,7 @@
             },
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)",
               "hidden": false
             }
           ],
@@ -950,7 +950,7 @@
             },
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(0,0,enhance)",
+              "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)",
               "hidden": false
             }
           ],
@@ -1509,7 +1509,7 @@
             },
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(0,2,active)|(1,2,target)|(2,2,target)|(2,0,enhance)|(2,1,enhance)",
+              "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,enhance)|(2,1,enhance)|(2,2,target)",
               "hidden": false
             }
           ],
@@ -1881,7 +1881,7 @@
             },
             {
               "type": "area",
-              "value": "(1,1,target)|(1,2,target)|(0,3,target)|(0,4,target)|(2,0,target)",
+              "value": "(0,3,target)|(0,4,target)|(1,1,target)|(1,2,target)|(2,0,target)",
               "hidden": false
             }
           ],
