@@ -2118,6 +2118,164 @@
     "characterHandSize": {
       "": "Mostra il numero di carte in mano e livello",
       "hint": "Visualizza il numero di carte in mano e il livello sulla plancia del personaggio."
+    },
+    "characterIdentities": {
+      "": "Forme del personaggio",
+      "hint": "Altrerna tra le forme del personanggio cliccando sull'icona di forma vicino al suo nome."
+    },
+    "characterIdentityHint": {
+      "": "Suggerimento di forma",
+      "hint": "Visualizza la forma attiva corrente dopo il nome del personaggio."
+    },
+    "characterItems": {
+      "": "Oggetti del personaggio",
+      "hint": "Consente di gestire lo stato degli oggetti durante uno scenario."
+    },
+    "characterItemsApply": {
+      "": "Applica le azioni dell'oggetto",
+      "hint": "Applica tutte le azioni autoeffettive come %game.action.heal%, stati, evocazioni ecc. quando si utilizza l'oggetto."
+    },
+    "characterItemsPermanent": {
+      "": "Oggetti permanenti del personaggio",
+      "hint": "Visualizza gli oggetti permanenti sotto il personaggio."
+    },
+    "characterItemsPermanentActive": {
+      "": "Oggetti autom. attivi",
+      "hint": "Attiva automaticamente gli oggetti permanenti per il personaggio attivo."
+    },
+    "characterSheet": {
+      "": "Scheda del personaggio",
+      "hint": "Abilita la scheda del personaggio. Per aprirla, fai clic sull'icona grande del personaggio sul lato destro."
+    },
+    "characterSheetCompact": {
+      "": "Schede del personaggio compatte (%wip%)",
+      "hint": "Mostra schede del personaggio più compatte che non utilizzano il layout originale della scheda."
+    },
+    "characterShieldRetaliate": {
+      "": "Scudo e Ritorsione",
+      "hint": "Segui i valori %game.action.shield% e %game.action.retaliate% per il personaggio."
+    },
+    "characterSortIndex": {
+      "": "Ordina per giocatore #",
+      "hint": "Ordina i personaggi per numero del giocatore # tra i turni."
+    },
+    "characterTraits": {
+      "": "Mostra i tratti",
+      "hint": "Mostra i tratti sulla plancia del personaggio."
+    },
+    "columns": {
+      "": "Struttura a colonne",
+      "hint": "Abilita la struttura a colonne se si adattano zoom e spazio"
+    },
+    "columnsForce": {
+      "": "Usa tutte le colonne disponibili",
+      "hint": "Distribuisci sempre le unità in tutte le colonne disponibili."
+    },
+    "combineInteractiveAbilities": {
+      "": "Combina abilità interattive",
+      "hint": "Esegui abilità interattive per tutte le pedine contemporaneamente."
+    },
+    "conditions": "Condizioni/elementi",
+    "damageHP": {
+      "": "Danno invece di PV",
+      "hint": "Mostra danni inferti al posto dei punti ferita rimanenti"
+    },
+    "damageHPToggle": {
+      "": "Attiva danno/PV sulla plancia del personaggio",
+      "hint": "Scorciatoia facendo doppio clic sulla scritta PV sulla plancia personaggio per passare da danno a PV."
+    },
+    "debug": {
+      "": "Impostazioni/strumenti di debug",
+      "logServerMessages": "Registro messaggi del server",
+      "rightClick": "Abilita sempre il tasto destro del mouse"
+    },
+    "dragFigures": {
+      "": "Drag'n'Drop per le unità",
+      "hint": "Drag'n'Drop per l'elenco delle unità. Avvertenza, se disabilitato e non è richiesta alcuna iniziativa, non c'è modo di riordinare manualmente le unità."
+    },
+    "dragValues": {
+      "": "Trascina iniziativa/PV/Esp/bottino",
+      "hint": "Supporto al trascinamento per la modifica dei valori. Per cambiare l'iniziativa trascina sul ritratto del personaggio. Per i punti ferita, l'esperienza e il bottino trascina sopra i valori"
+    },
+    "eliteFirst": {
+      "": "Prima le pedine elite",
+      "hint": "Mostra prima le pedine elite quando si ordinano le pedine"
+    },
+    "errata": {
+      "": "Mostra suggerimenti Errata",
+      "hint": "Visualizza note di errata per scenari, sezioni, ecc. Nei dati stessi, tutti questi errata dovrebbero essere sistemati, ma con i suggerimenti dovrebbe essere più facile comprendere le differenze nella stampa."
+    },
+    "expireConditions": {
+      "": "Termine stati automatico",
+      "hint": "Gli stati corrispondenti verranno rimossi automaticamente dopo il turno delle unità, ad esempio Rinforzo verrà rimosso dopo il turno"
+    },
+    "feedback": {
+      "": "Disabilita il pulsante di feedback"
+    },
+    "feedbackErrors": {
+      "": "Feedback automatico",
+      "clear": "Cancella errori di feedback automatico ignorati",
+      "hint": "Segnala automaticamente gli errori tramite finestra di feedback"
+    },
+    "fhChallenges": {
+      "": "Supporto per le sfide",
+      "hint": "Pesca le carte sfida dal mazzo."
+    },
+    "fhChallengesApply": {
+      "": "Applica sfide",
+      "hint": "Applica automaticamente (se possibile) le carte di sfida attive."
+    },
+    "fhGarden": {
+      "": "Supporto per il giardinaggio",
+      "hint": "Pianta e raccogli erbe (edificio 24 Giardino)"
+    },
+    "fhGhItems": {
+      "": "Aggiungi gli oggetti di Gloomhaven",
+      "hint": "Aggiungi gli oggetti di Gloomhaven e Cerchi Dimenticati alla riserva disponibile come indicato nelle regole. (Solo su schede personaggio o oggetti personaggio abilitati)"
+    },
+    "fhPets": {
+      "": "Supporto per animali domestici",
+      "hint": "Cattura e gestisci gli animali da compagnia (edificio 88 Stalle)"
+    },
+    "fhRules": "Regole di Frosthaven",
+    "fhSecondEdition": {
+      "": "2° Edizione",
+      "hint": "Alcuni cambiamenti tra la prima e la seconda stampa di Frosthaven non possono essere impostati automaticamente. Quindi, per favore, controlla se si utilizza la seconda stampa di Frosthaven."
+    },
+    "fhStyle": {
+      "": "Stile di Frosthaven",
+      "hint": "Visualizzare azioni, abilità e icone nel nuovo stile di Frosthaven, attiva automaticamente il tema di Frosthaven."
+    },
+    "fhTrials": {
+      "": "Supporto per le prove",
+      "favors": {
+        "": "Supporto per l'Appendice F: favori",
+        "hint": "Seleziona nel menu Effetti dell'evento"
+      },
+      "hint": "Pesca carte della prova per ogni personaggio. Visibile sulla scheda dei personaggi!"
+    },
+    "fhTrialsApply": {
+      "": "Applica prove",
+      "favors": {
+        "": "Applica l'Appendice F: favori",
+        "hint": "Applica automaticamente (se possibile) i favori attivi."
+      },
+      "hint": "Applica automaticamente (se possibile) le carte delle prove attive."
+    },
+    "fontsize": {
+      "": "Grandezza carattere delle abilità",
+      "dec": "Riduci il carattere delle abilità",
+      "hint": "Imposta le dimensioni del carattere delle carte abilità e delle statistiche",
+      "inc": "Aumenta il carattere delle abilità",
+      "reset": "Reimposta il carattere delle abilità"
+    },
+    "fullscreen": {
+      "": "Schermo intero",
+      "hint": "Passa a schermo intero"
+    },
+    "gameClock": {
+      "": "Orologio del gioco",
+      "hint": "Abilita un orologio di gioco per tracciare il tempo di esecuzione dell'app."
     }
   }
 }
