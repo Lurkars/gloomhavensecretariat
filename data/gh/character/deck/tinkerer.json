@@ -13,9 +13,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -25,9 +22,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -43,9 +37,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -55,9 +46,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -70,25 +58,59 @@
       "initiative": 47,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,enhance)|(0,1,target)|(1,1,target)|(0,2,active)|(1,2,target)|(2,2,enhance)",
+              "enhancementTypes": [
+                "hex",
+                "hex"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "value": "1",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "experience:1"
+                },
+                {
+                  "type": "element",
+                  "value": "fire"
+                }
+              ]
+            }
+          ],
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
-            "any"
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "shield",
+          "value": "1",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "selfAlliesAffect",
+              "small": true
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
+          ],
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
-            "any"
+            "diamond_plus"
           ]
         }
       ]
@@ -103,9 +125,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -115,9 +134,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -133,9 +149,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -145,9 +158,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -163,9 +173,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -175,9 +182,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -193,9 +197,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -205,9 +206,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -223,9 +221,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -235,9 +230,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -253,9 +245,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -265,9 +254,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -283,9 +269,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -295,9 +278,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -313,9 +293,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -325,9 +302,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -343,9 +317,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -355,9 +326,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -373,9 +341,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -385,9 +350,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -403,9 +365,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -415,9 +374,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -433,9 +389,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -445,9 +398,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -463,9 +413,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -475,9 +422,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -493,9 +437,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -505,9 +446,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -523,9 +461,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -535,9 +470,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -553,9 +485,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -565,9 +494,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -583,9 +509,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -595,9 +518,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -613,9 +533,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -625,9 +542,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -643,9 +557,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -655,9 +566,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -673,9 +581,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -685,9 +590,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -703,9 +605,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -715,9 +614,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -733,9 +629,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -745,9 +638,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -763,9 +653,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -775,9 +662,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -793,9 +677,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -805,9 +686,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -823,9 +701,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -835,9 +710,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -853,9 +725,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -865,9 +734,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -883,9 +749,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -895,9 +758,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -913,9 +773,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }
@@ -925,9 +782,6 @@
           "type": "custom",
           "value": "%character.abilities.wip%",
           "enhancementTypes": [
-            "any",
-            "any",
-            "any",
             "any"
           ]
         }

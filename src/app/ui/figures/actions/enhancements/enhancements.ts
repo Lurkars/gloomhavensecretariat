@@ -31,6 +31,7 @@ export class ActionEnhancementsComponent implements OnInit, OnDestroy {
 
     slots: EnhancementType[] = [];
     enhancements: EnhancementAction[] = [];
+    wipSpecialIndex: string = "";
     edit: boolean = false;
 
     gameManager: GameManager = gameManager;
@@ -56,42 +57,51 @@ export class ActionEnhancementsComponent implements OnInit, OnDestroy {
     }
 
     update() {
+        this.slots = [];
         if (this.action.enhancementTypes) {
-            this.slots = this.slotIndex != undefined ? [this.action.enhancementTypes[this.slotIndex]] : this.action.enhancementTypes;
+            this.slots = this.slotIndex != undefined ? [this.action.enhancementTypes[this.slotIndex]] : [...this.action.enhancementTypes];
+            this.wipSpecialIndex = this.slots[0] == EnhancementType.any ? (this.actionIndex.indexOf('bottom') == -1 ? 'custom' : 'custom-bottom') : '';
+            this.enhancements = [];
             if (this.character && this.cardId && this.character.progress && this.character.progress.enhancements) {
-                this.enhancements = [];
-                this.action.enhancementTypes.forEach((value, index) => {
-                    if (this.character && this.character.progress.enhancements) {
-                        const enhancement = this.character.progress.enhancements.find((e) => e.cardId == this.cardId && e.actionIndex == this.actionIndex && e.index == index);
-                        if (enhancement) {
-                            this.enhancements[index] = enhancement.action;
-                        }
+                this.character.progress.enhancements.filter((e) => e.cardId == this.cardId && (!this.wipSpecialIndex && e.actionIndex == this.actionIndex || this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex)).forEach((e) => {
+                    this.enhancements[e.index] = e.action;
+                    if (this.wipSpecialIndex) {
+                        this.slots[e.index] = EnhancementType.any;
                     }
-                })
+                });
+            }
+
+            if (this.wipSpecialIndex && this.enhancements.length > 0) {
+                this.slots[this.enhancements.length] = EnhancementType.any;
             }
         }
-
         this.edit = this.character && this.character.tags.indexOf('edit-abilities') != -1 || false;
     }
 
     enhance(index: number, event: any) {
-        if (this.edit && !this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
-            this.dialog.open(EnhancementDialogComponent, {
-                panelClass: ['dialog'],
-                data: { action: this.action, actionIndex: this.actionIndex, cardId: this.cardId, enhancementIndex: index, character: this.character, summon: this.summon }
-            });
+        if (this.edit) {
+            if (!this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
+                this.dialog.open(EnhancementDialogComponent, {
+                    panelClass: ['dialog'],
+                    data: { action: this.action, actionIndex: this.wipSpecialIndex || this.actionIndex, cardId: this.cardId, enhancementIndex: index, character: this.character, summon: this.summon }
+                });
+            }
             event.stopPropagation();
             event.preventDefault();
         }
     }
 
     removeEnhancement(index: number, event: any) {
-        if (this.edit && this.character && this.cardId && this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
-            const enhancement = this.character.progress.enhancements.find((e) => e.cardId == this.cardId && e.actionIndex == this.actionIndex && e.index == index)
-            if (enhancement && !enhancement.inherited) {
-                gameManager.stateManager.before('removeEnhancement', gameManager.characterManager.characterName(this.character), this.cardId);
-                this.character.progress.enhancements = this.character.progress.enhancements.filter((e) => e != enhancement);
-                gameManager.stateManager.after();
+        if (this.edit) {
+            if (this.character && this.cardId && this.enhancements[this.slotIndex != undefined ? this.slotIndex : index]) {
+                const enhancement = this.character.progress.enhancements.find((e) => e.cardId == this.cardId && (!this.wipSpecialIndex && e.actionIndex == this.actionIndex || this.wipSpecialIndex && e.actionIndex == this.wipSpecialIndex) && e.index == index)
+                if (enhancement && !enhancement.inherited) {
+                    gameManager.stateManager.before('removeEnhancement', gameManager.characterManager.characterName(this.character), this.cardId);
+                    this.character.progress.enhancements = this.character.progress.enhancements.filter((e) => e != enhancement);
+                    gameManager.stateManager.after();
+                }
+            } else if (this.wipSpecialIndex && index == this.slots.length - 1) {
+                this.slots.push(EnhancementType.any);
             }
             event.stopPropagation();
             event.preventDefault();

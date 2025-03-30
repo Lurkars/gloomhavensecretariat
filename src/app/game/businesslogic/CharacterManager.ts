@@ -447,5 +447,36 @@ export class CharacterManager {
         return !first || index === self.indexOf(first);
       });
     }
+
+    // wipSpecial
+    character.progress.enhancements.filter((e) => e.actionIndex.indexOf('custom') != -1).forEach((e) => {
+      const card = gameManager.deckData(character).abilities.find((a) => a.cardId == e.cardId);
+      if (card) {
+        const mapping = this.enhancementMapping(e.actionIndex.indexOf('bottom') == -1 ? card.actions : card.bottomActions || [], e.actionIndex.indexOf('bottom') == -1 ? '' : 'bottom');
+        if (mapping.length && mapping[e.index]) {
+          e.actionIndex = mapping[e.index];
+          e.index = e.index - mapping.indexOf(e.actionIndex);
+        }
+      }
+    });
+  }
+
+  enhancementMapping(actions: Action[], parentIndex: string): string[] {
+    let mapping: string[] = [];
+    actions.forEach((action, index) => {
+      if (action.type != ActionType.custom || action.value != '%character.abilities.wip%') {
+        const actionId = (parentIndex ? parentIndex + '-' : '') + index;
+        if (action.enhancementTypes) {
+          action.enhancementTypes.forEach((t) => {
+            mapping.push(actionId);
+          })
+        }
+        if (action.subActions) {
+          mapping.push(...this.enhancementMapping(action.subActions, actionId));
+        }
+      }
+    })
+
+    return mapping;
   }
 }
