@@ -3,43 +3,68 @@
     "Accelerated Power": "Puissance Accélérée",
     "Advancing Horde": "Marche de la Horde",
     "Angry Hex": "Malédiction Colérique",
+    "Arcane Explosion": "Explosion Arcanique",
     "Arresting Advance": "Blocage de l'Audace",
+    "Aura of Fear": "Aura de Peur",
+    "Beam of Annihilation": "Rayon Annihilateur",
     "Berserk Rage": "Folie Furieuse",
+    "Black Tendrils": "Vrilles Noires",
     "Blinding Vortex": "Tourbillon Aveuglant",
     "Blistering Assault": "Assaut Cinglant",
+    "Boulder Throw": "Lancer de Bloc",
     "Briny Bristles": "Soies Saumâtres",
+    "Burning Gaze": "Regard Ardent",
     "Calculated Shot": "",
     "Calculated Strike": "Coup Calculé",
     "Call For Souls": "Appel aux Âmes",
+    "Chilled to the Bone": "Éclats Glacés",
     "Chilling Aura": "Aura Glacée",
+    "Chilling Breath": "Souffle Glacial",
     "Close In": "Encerclement",
+    "Cold Claws": "Griffes du Froid",
     "Cold Winds": "Vent Glacial",
     "Concussive Burst": "Explosion Assommante",
+    "Crashing Blow": "Coup Percutant",
+    "Dark Charm": "Sombre Charme",
     "Defensive Blades": "Lames Défensives",
     "Defensive Claws": "Griffes Défensives",
     "Defensive Ordinance": "Injonction Défensive",
+    "Descend": "Descente",
     "Desperate Herd": "Troupeau Désespéré",
+    "Disruptive Frenzy": "Frénésie Déstabilisante",
     "Divine Energy": "Énergie Divine",
     "Drain Speed": "Drain de Célérité",
     "Drain Strength": "Drain de force",
+    "Earthen Eruption": "Érupetion Tellurique",
     "Exploding Ammunition": "Munition Explosive",
+    "Explosive Ascent": "Ascension Explosive",
+    "Explosive Blast": "Déflagration",
     "Face of Darkness": "Visage des Ténèbres",
+    "Fire Spout": "Bouche à Feu",
     "Firestorm": "Tempête de Feu",
     "Fish Net": "Filet de Pêche",
     "Flame Jets": "Jets de Flamme",
     "Focused Strikes": "Frappes Ciblées",
     "Frozen Debris": "Débris Gelés",
+    "Frozen Shards": "Gelé jusqu'à la Moelle",
+    "Gather the Frost": "Collecte du Givre",
     "Grenade": "Grenade",
+    "Ground Slam": "Ébranlement",
     "Guide the School": "Orienter le Banc",
     "Hail": "Grêle",
     "Hardened by Frost": "Durci par le Gel",
     "Hasty Assault": "Assaut Précipité",
     "Hateful Spikes": "Pointes Haineuses",
+    "Heat Aura": "Aura de Chaleur",
+    "Heat Blast": "Déflagration de Chaleur",
     "Heated Sweep": "Balayage Thermique",
     "Heavy Shot": "Feu Nourri",
     "Heed the Pigs": "Attention aux Cochons",
+    "Horrible Glare": "Atroce Regard",
+    "Ice Barrier": "Barrière de Glace",
     "Ice Wall": "Mur de Glace",
     "Increase Momentum": "Élan Redoublé",
+    "Intense Torch": "Chalumeau",
     "Knockout Punch": "Point Assommant",
     "Lingering Strength": "Force Durable",
     "Long Shot": "Tir en Cloche",
@@ -48,26 +73,44 @@
     "Nothing Special": "Rien de Particulier",
     "One with the Earth": "Un avec la Terre",
     "Parry and Thrust": "Surin Empoisonnée",
+    "Phase Out": "Hors Phase",
     "Pig Parade": "Parade du Cochon",
     "Power Shot": "Tir Puissant",
     "Psych Up": "Motivation",
     "Pull of the Grave": "Attrait de la Tombe",
+    "Raging Blaze": "Embrasement",
+    "Ray of Hate": "Rayon de Haine",
+    "Reckless": "Téméraire",
+    "Reckless Charge": "Charge Téméraire",
+    "Restoration": "Récupération",
+    "Rocky Thrust": "Coup Rocailleux",
+    "Rooted Fear": "Peur Ancrée",
+    "Rotten Sting": "Dard Putride",
+    "Seismic Punch": "Coup Sismique",
     "Set Trap": "Pose de Piège",
     "Shoot Foot": "Dans les Pieds",
     "Sleet": "Giboulée",
     "Snow Drifts": "Tempête de Neige",
     "Snowstorm": "Congères",
+    "Soaring Strikes": "Frappes en Flèche",
     "Spinning Charge": "Charge Tournoyante",
     "Strength of the Deep": "Force des Profondeurs",
+    "Strong Growth": "Vive Croissance",
     "Sunless Abyss": "Sombres Abysses",
     "Tend to the Clan": "Soins au Clan",
+    "Terrible Growth": "Affreuse Croissance",
     "Terrifying Growl": "Grognement Terrifiant",
     "Throwing Axe": "Jet de Hache",
+    "Tip the Scales": "Rééquilibrage",
+    "Tunneling Slices": "Tunnel de Lames",
     "Twin Bolts": "Carreaux Jumeaux",
     "Twin Shots": "Double Tir",
     "Two-Fisted Strike": "Coup Vigoureux",
     "Venom Shiv": "Parade et Fente",
-    "Warding Swipe": "Coup Protecteur"
+    "Warding Swipe": "Coup Protecteur",
+    "Whirlwind": "Tourbillon",
+    "Whirlwinds": "Tourbillons",
+    "White Claws": "Griffes Blanches"
   },
   "battleGoals": {
     "1301": {
@@ -488,6 +531,9 @@
         "8": "Quand vous ouvrez une porte avec une capacité de déplacement, ajouter +3 %game.action.move%",
         "9": "Une fois par scénario, pendant votre tour, gagner %game.action.shield% 2 pour le round"
       },
+      "black-imp": {
+        "1": "%game.custom.disadvantage%"
+      },
       "blinkblade": {
         "1": "Lors de votre prochaine attaque, défaussez cette carte pour ajouter +2 %game.action.attack%.<br>%game.card.persistent%",
         "2": "Placez cette carte dans votre zone active. À votre prochaine attaque, défaussez-vous de cette carte pour ajouter +2 %game.action.attack%",
@@ -500,9 +546,23 @@
         "9": "Ne jamais être ciblé par une attaque"
       },
       "boneshaper": {
+        "1": "+1 %game.action.attack% pour chaque pion sur cette carte.",
+        "2": "Éliminez l'invocation attaquante pour ajouter %game.attackmodifier.plus4% à la place",
         "3": "Juste avant chacun de vos repos, pouvoir éliminer une de vos invocations pour effectuer %game.condition.bless%, sur vous-même",
+        "4": "Une fois par scénario, quand un personnage allié devrait devenir épuisé à cause de %game.damage% subis, pouvoir subir %game.damage:2% pour réduire son nombre de PV à 1 à la place",
+        "5": "Au début de chaque scénario, pouvoir jouer une carte de niveau 1 de votre main pour effectuer une de ses actions d'invocation",
         "6": "Éliminer au moins quinze de vos invocation",
         "7": "Jouer une action d'invocation lors de votre premier tour, faire éliminer au moins six adversaires par cette invocation et la garder en vie jusqu'à la fin du scénario"
+      },
+      "burrowing-blade": {
+        "1": "Tous les adversaires adjacents subissent %game.damage:2%.",
+        "2": "Tous les adversaires à %game.action.range:2% ou moins subissent %game.damage:2%."
+      },
+      "chaos-demon": {
+        "1": "%game.custom.advantage%"
+      },
+      "chaos-lieutenant": {
+        "1": "À la fin du round, effectuez :"
       },
       "city-guard-scenario-1": {
         "1": "N'effectue pas leur tour."
@@ -514,12 +574,25 @@
         "4": "Retirer sept %data.action.custom.fh-shadow% en un round",
         "5": "Placer ou retirer au moins une %data.action.custom.fh-shadow% chaque round"
       },
+      "deep-terror": {
+        "1": "Si la capacité d'attaque a été effectuée,",
+        "2": "sur un hexagone vide adjacent à la cible de la<br>capacité d'attaque."
+      },
       "drifter": {
         "2": "Lors de vos repos longs, pouvoir reculer un de vos pions Aventurier d'un emplacement",
         "3": "Pouvoir emporter un objet %game.items.slots.onehand% supplémentaire dans chaque main",
         "4": "À la fin de chaque scénario, pouvoir défausser jusqu'à deux cartes Butin, excepté Objet Aléatoire, pour piocher autant de nouvelles cartes Butin",
         "5": "Finir un scénario avec vos pions Aventurier sur les derniers emplacements d'un moins quatre capacités persistantes",
         "6": "Ne jamais effectuer une capacité de déplacement ou d'attaque d'une valeur inférieure à 4, et effectuer au moins une capacité de déplacement ou d'attaque chaque round"
+      },
+      "elder-ooze": {
+        "1": "La cible perd un objet.",
+        "2": "Tous les aventuriers adjacents gagnent 1 Limon."
+      },
+      "flame-demon": {
+        "1": "Crée un piège %game.damage:4% sur l'hexagone vide adjacent le plus proche d'un adversaire",
+        "2": "%game.damage:1%",
+        "3": "Tous les adversaires adjacents subissent %game.damage:2%"
       },
       "flaming-bladespinner": {
         "1": "Tous les Adversaires à<br>%game.action.range:2% ou moins subissent %game.damage:2%.",
@@ -627,6 +700,56 @@
     "vestige-of-the-imprisoned-god": "Le Vestige du Dieu Emprisonné",
     "wind-demon": "Démon du Vent",
     "yoglang": "Yoglang"
+  },
+  "personalQuest": {
+    "fh": {
+      "581": {
+        "": "L'Étude des Plantes",
+        "1": "Différents types de plantes pillées"
+      },
+      "582": {
+        "": "À la Recherche du Chêne",
+        "1": "Cartes bois pillées",
+        "2": "Suivre \"La Terre Sacrée\" %game.scenarioNumber:69% jusqu'à la conclusion"
+      },
+      "583": {
+        "": "Classe Marchande",
+        "1": "Objets %game.items.slots.head%",
+        "2": "Objets %game.items.slots.body%",
+        "3": "Objets %game.items.slots.legs%",
+        "4": "Objets %game.items.slots.onehand% ou %game.items.slots.twohand%",
+        "5": "Objets %game.items.slots.small%"
+      },
+      "584": {
+        "": "Le Pouvoir de l'Avarice"
+      },
+      "585": {
+        "": "Bâtir, pas Détruire",
+        "1": "Bâtiments construits ou améliorés"
+      },
+      "586": {
+        "": "Esprit d'Équipe",
+        "1": "Nom de la personne lu dans différentes phases d'avant-poste"
+      },
+      "587": {
+        "": "Poste Avancé Esther",
+        "1": "Suivre \"Une Solide Fondation\" %game.scenarioNumber:65% jusqu'à la conclusion"
+      },
+      "588": {
+        "": "Dangereuse Proie",
+        "1": "Gardes Algox morts",
+        "2": "Brise-Nuque Fouineurs morts",
+        "3": "Tire-Boulon morts"
+      },
+      "589": {
+        "": "Leçons de Vie",
+        "1": "Expérience acquise grâce aux cartes de Capacité"
+      },
+      "590": {
+        "": "Explorer les Confins",
+        "1": "Scénarios qui nécessitent %game.fhIcon:boat%, %game.fhIcon:climbing-gear%, ou %game.fhIcon:sled% terminés. "
+      }
+    }
   },
   "scenario": {
     "group": {
