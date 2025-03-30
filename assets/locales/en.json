@@ -91,6 +91,13 @@
         },
         "enhancements": "Previous Enhancements",
         "enhancerLevel": "Enhancer Bonus",
+        "hint": {
+          "enhance": {
+            "": "Click to add enhancement.",
+            "wipSpecial": "Click to add enhancement. Double click to add new enhancement slot."
+          },
+          "enhanced": "Double click to remove enhancement."
+        },
         "level": "Level",
         "lost": "Lost",
         "multiTarget": "Multiple Targets",
@@ -1054,7 +1061,7 @@
       "focusEnemyFarthest": "Focus on the enemy<br>farthest away.",
       "self": "Self",
       "selfAllies": "Self and all allies",
-      "selfAlliesAdjacentAffect": "%game.affect%ect self and all adjacent allies",
+      "selfAlliesAdjacentAffect": "%game.affect% self and all adjacent allies",
       "selfAlliesAffect": "%game.affect% self and all allies",
       "selfAlliesRange": "%game.target% self and all allies within %game.action.range% {0}",
       "selfOrAlly": "Self or ally",
