@@ -1038,7 +1038,7 @@
       "focusEnemyFarthest": "Centra su atención en el<br>enemigo más lejano.",
       "self": "Personal",
       "selfAllies": "Personal y todos los aliados",
-      "selfAlliesAdjacentAffect": "%game.affect%ect Personal y todos los aliados adyacentes",
+      "selfAlliesAdjacentAffect": "%game.affect% Personal y todos los aliados adyacentes",
       "selfAlliesAffect": "%game.affect% personal y todos los aliados",
       "selfAlliesRange": "%game.target% Personal y todos los aliados a %game.action.range% {0}",
       "selfOrAlly": "Personal o aliados",
