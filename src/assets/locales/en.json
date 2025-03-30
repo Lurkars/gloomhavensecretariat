@@ -1054,7 +1054,7 @@
       "focusEnemyFarthest": "Focus on the enemy<br>farthest away.",
       "self": "Self",
       "selfAllies": "Self and all allies",
-      "selfAlliesAdjacentAffect": "%game.affect%ect self and all adjacent allies",
+      "selfAlliesAdjacentAffect": "%game.affect% self and all adjacent allies",
       "selfAlliesAffect": "%game.affect% self and all allies",
       "selfAlliesRange": "%game.target% self and all allies within %game.action.range% {0}",
       "selfOrAlly": "Self or ally",
