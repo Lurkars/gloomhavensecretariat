@@ -2,8 +2,8 @@
     <div class="slot {{slot}}" *ngFor="let slot of slots;let i = index;" ghs-pointer-input
         [ngClass]="{'enhance': !enhancements[slotIndex != undefined ? slotIndex : i]}"
         (singleClick)="enhance(slotIndex != undefined ? slotIndex : i,$event)"
-        (doubleClick)="removeEnhancement(slotIndex ? slotIndex :  i,$event)">
-
+        (doubleClick)="removeEnhancement(slotIndex ? slotIndex :  i,$event)"
+        [ghs-tooltip]="'character.abilities.enhancements.hint.enhance' + (enhancements[slotIndex != undefined ? slotIndex : i] ? 'd': (wipSpecialIndex ? '.wipSpecial' : '') )">
         <img *ngIf="!enhancements[slotIndex != undefined ? slotIndex : i]" class="type"
             [src]="gameManager.enhancementsManager.fh ? './assets/images/fh/character/abilities/enhancements/' + slot + '.svg' : './assets/images/character/abilities/enhancements/circle.svg'" />
 

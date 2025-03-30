@@ -91,6 +91,13 @@
         },
         "enhancements": "Vorherige Fertigkeitsverbesserungen",
         "enhancerLevel": "Enhancer Bonus",
+        "hint": {
+          "enhance": {
+            "": "Klicke um eine Fertigkeitsverbesserung hinzuzufügen.",
+            "wipSpecial": "Klicke um eine Fertigkeitsverbesserung hinzuzufügen. Doppelklick um einen weiteten Slot für Verbesserungen hinzuzufügen."
+          },
+          "enhanced": "Doppelklick um die Fertigkeitsverbesserung zu entfernen."
+        },
         "level": "Level",
         "lost": "Verloren",
         "multiTarget": "Mehrere Ziele",

@@ -100,7 +100,7 @@ export class ActionEnhancementsComponent implements OnInit, OnDestroy {
                     this.character.progress.enhancements = this.character.progress.enhancements.filter((e) => e != enhancement);
                     gameManager.stateManager.after();
                 }
-            } else if (this.wipSpecialIndex && index == this.slots.length - 1) {
+            } else if (this.wipSpecialIndex) {
                 this.slots.push(EnhancementType.any);
             }
             event.stopPropagation();
