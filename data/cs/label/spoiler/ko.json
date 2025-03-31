@@ -8,7 +8,13 @@
     "galaxy": "별 투척자",
     "ladder-axe": "화염의 기사",
     "leaf": "순례자",
-    "skull": "강령술사",
+    "skull": {
+      "": "강령술사",
+      "spirits": {
+        "": "%data.characterIconColored.skull% 영혼",
+        "hint": "차례 종료 시 각 영혼은 자동으로 피해 1을 입습니다."
+      }
+    },
     "sprig": "늪지약초꾼",
     "target": "포격수",
     "tools": "발명가",
