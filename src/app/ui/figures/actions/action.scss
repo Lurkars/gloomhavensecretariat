@@ -202,9 +202,12 @@
   }
 
   .custom-value,
-  .grant-value,
-  ghs-action-summon {
+  .grant-value {
     padding: 0 0.2em;
+  }
+
+  ghs-action-summon {
+    padding: 0 0.1em;
   }
 
   .action-trigger {

@@ -115,7 +115,7 @@ export class ActionComponent implements OnInit, OnDestroy {
     this.updateSubActions();
     this.applyChallenges();
 
-    this.forceRelative = this.monster != undefined && !this.hasEntities();
+    this.forceRelative = !this.monster || !this.hasEntities();
     if (this.monster && !this.relative && !this.forceRelative && settingsManager.settings.calculate && this.action && (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && this.action.valueType != ActionValueType.minus && this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && !(subAction.value + '').startsWith('self'))) {
       this.forceRelative = true;
       this.action.valueType = ActionValueType.plus;

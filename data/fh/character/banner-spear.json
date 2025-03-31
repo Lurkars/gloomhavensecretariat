@@ -50,7 +50,7 @@
   ],
   "availableSummons": [
     {
-      "name": "reinforcements",
+      "name": "reinforcement",
       "cardId": "061",
       "thumbnail": true,
       "level": 1,

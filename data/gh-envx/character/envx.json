@@ -116,8 +116,9 @@
       }
     },
     {
-      "name": "lightning-moth",
+      "name": "lightning-moths",
       "cardId": "644",
+      "thumbnail": true,
       "level": 5,
       "health": 3,
       "movement": 3,

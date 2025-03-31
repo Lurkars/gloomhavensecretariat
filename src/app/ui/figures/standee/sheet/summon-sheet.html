@@ -1,13 +1,22 @@
 <div class="summon-container" *ngIf="summon"
     [ngClass]="{'action' : summon.action,  'additional' : summon.additionalAction || additional, 'item': item, 'fh' : fhStyle}">
+    <span *ngIf="summonData && summonData.thumbnail" class="thumbnail">
+        <img
+            [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'">
+    </span>
     <span class="name">
-        <span class="summon-label" *ngIf="action"><span [ghs-label]="'game.action.summon'"
-                [style]="style"></span>&nbsp;</span>
-        <span *ngIf="summon.title" [ngClass]="{'text-white' : !right}">{{summon.title}}</span>
-        <span *ngIf="!summon.title" [ghs-label]="'data.summon.' + summon.name" [style]="style"
-            [ngClass]="{'text-white' : !right}"></span>
-        <span *ngIf="summon.flying" class="flying"><img
-                [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
+        <ng-container *ngIf="!summonData">
+            <span class="summon-label" *ngIf="action"><span [ghs-label]="'game.action.summon'"
+                    [style]="style"></span>&nbsp;</span>
+            <span *ngIf="summon.title" [ngClass]="{'text-white' : !right}">{{summon.title}}</span>
+            <span *ngIf="!summon.title" [ghs-label]="'data.summon.' + summon.name" [style]="style"
+                [ngClass]="{'text-white' : !right}"></span>
+            <span *ngIf="summon.flying" class="flying"><img
+                    [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
+        </ng-container>
+        <span class="summon-label text-white" *ngIf="summonData"
+            [ghs-label]="'character.summon.action' + (summonData.count && summonData.count > 1 ? '.count': '') + (summonData.flying ? '.fly' : '')"
+            [ghs-label-args]="[summonData.name,summonData.count,summonData.flying]"></span>
     </span>
     <div class="grid">
         <span class="item health">
@@ -28,7 +37,7 @@
                 class="enhance" [action]="enhancementActions[2]" [index]="actionIndex" [character]="character"
                 [cardId]="cardId" [slot]="2" [summon]="summonData"></ghs-action-enhancements>
         </span>
-        <span class="action">
+        <span class="action" [ngClass]="{'xs': summon.action && summon.action.type == 'custom'}">
             <ghs-action *ngIf="summon.action" [action]="summon.action"></ghs-action>
         </span>
         <span class="item attack">
@@ -50,7 +59,8 @@
                 class="enhance" [action]="enhancementActions[3]" [index]="actionIndex" [character]="character"
                 [cardId]="cardId" [slot]="3" [summon]="summonData"></ghs-action-enhancements>
         </span>
-        <span class="additionalAction" *ngIf="summon.additionalAction">
+        <span class="additionalAction" *ngIf="summon.additionalAction"
+            [ngClass]="{'xs': summon.additionalAction && summon.additionalAction.type == 'custom'}">
             <ghs-action [action]="summon.additionalAction"></ghs-action>
         </span>
     </div>

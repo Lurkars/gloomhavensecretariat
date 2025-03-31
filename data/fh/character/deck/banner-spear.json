@@ -39,6 +39,7 @@
             "name": "reinforcement",
             "health": 1,
             "movement": 2,
+            "thumbnail": true,
             "enhancements": [
               "heal",
               "move"

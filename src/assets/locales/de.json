@@ -247,6 +247,16 @@
     },
     "setAside": "Charakter beiseitelegen",
     "summon": {
+      "action": {
+        "": "%game.action.summon% %data.summon.{0}%",
+        "count": {
+          "": "%game.action.summon% {1} %data.summon.{0}%",
+          "fly": "%game.action.summon% {1} %data.summon.{0}% %game.actionIcon.fly%"
+        },
+        "fly": {
+          "": "%game.action.summon% %data.summon.{0}% %game.actionIcon.fly%"
+        }
+      },
       "level": "(Level {0})"
     },
     "token": "Charakter Token",

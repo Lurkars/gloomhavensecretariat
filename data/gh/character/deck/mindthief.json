@@ -231,7 +231,7 @@
           "type": "summon",
           "value": "summonData",
           "valueObject": {
-            "name": "Rat Swarm",
+            "name": "rat-swarm",
             "health": 6,
             "movement": 1,
             "attack": 2,
@@ -784,7 +784,7 @@
           "type": "summon",
           "value": "summonData",
           "valueObject": {
-            "name": "Monstrous Rat",
+            "name": "monstrous-rat",
             "health": "4",
             "attack": "3",
             "movement": "3",
@@ -1806,7 +1806,7 @@
           "type": "summon",
           "value": "summonData",
           "valueObject": {
-            "name": "Rat King",
+            "name": "rat-king",
             "health": "9",
             "attack": "X",
             "movement": "2",

@@ -92,6 +92,13 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
     this.type = undefined;
     if (this.action.value == 'summonData' || this.action.value == 'summonDataItem') {
       this.summonData = this.action.valueObject as SummonData;
+      if (!this.summonData.edition) {
+        if (this.character && this.cardId) {
+          this.summonData.edition = this.character.edition;
+        } else if (this.monster) {
+          this.summonData.edition = this.monster.edition;
+        }
+      }
     }
   }
 

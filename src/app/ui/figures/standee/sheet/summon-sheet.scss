@@ -11,12 +11,31 @@
         font-family: var(--ghs-font-text);
     }
 
-    .name {
-        font-size: 1.3em;
+    .thumbnail {
         position: absolute;
-        top: 0;
-        left: 10%;
-        width: 90%;
+        width: 15%;
+        height: 53%;
+        top: 11%;
+        left: 0;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            width: 127%;
+            height: auto;
+            top: 2%;
+            right: 7%;
+            border-radius: 100%;
+        }
+    }
+
+    .name {
+        font-size: 1.1em;
+        letter-spacing: -0.04em;
+        position: absolute;
+        top: 6%;
+        left: 14%;
+        width: 86%;
         height: 34%;
         display: flex;
         justify-content: center;
@@ -88,6 +107,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            &.xs {
+                font-size: 0.8em;
+            }
         }
 
         .action {
