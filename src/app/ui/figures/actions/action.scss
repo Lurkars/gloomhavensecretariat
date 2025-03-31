@@ -746,7 +746,6 @@
   }
 
   .action-box-container-forced {
-    width: 100%;
     position: relative;
     display: flex;
     margin-bottom: 0.5em;
@@ -994,6 +993,10 @@
     .action-element {
       flex-direction: row;
       flex-wrap: wrap;
+    }
+
+    .action-custom ghs-action-enhancements {
+      width: 100%;
     }
 
     .custom-value,

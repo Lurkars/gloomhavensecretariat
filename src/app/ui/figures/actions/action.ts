@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
 import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { ObjectiveContainer } from 'src/app/game/model/ObjectiveContainer';
@@ -11,12 +12,13 @@ import { Condition, ConditionType } from 'src/app/game/model/data/Condition';
 import { MonsterStat } from 'src/app/game/model/data/MonsterStat';
 import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { valueCalc } from '../../helper/valueCalc';
-import { Character } from 'src/app/game/model/Character';
 
 export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.damage, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
+export const ActionTypesHelper: ActionType[] = [ActionType.concatenation, ActionType.box, ActionType.boxFhSubActions, ActionType.card, ActionType.forceBox, ActionType.grid, ActionType.nonCalc];
+
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-action',
   templateUrl: './action.html',
   styleUrls: ['./action.scss']
@@ -223,6 +225,10 @@ export class ActionComponent implements OnInit, OnDestroy {
       return "";
     }
 
+    if (ActionTypesHelper.indexOf(this.action.type) != -1) {
+      return this.action.value;
+    }
+
     if (settingsManager.settings.calculate && !this.relative && !this.forceRelative) {
       const stat = this.getStat(type);
       let statValue: number = 0;
@@ -323,7 +329,7 @@ export class ActionComponent implements OnInit, OnDestroy {
       return;
     }
     this.elementActions = [];
-    if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.concatenation, ActionType.box].indexOf(this.action.type) == -1) {
+    if (settingsManager.settings.fhStyle && [ActionType.element, ...ActionTypesHelper].indexOf(this.action.type) == -1) {
       this.action.subActions.forEach((action) => {
         if (action.type == ActionType.element) {
           this.elementActions.push(action);

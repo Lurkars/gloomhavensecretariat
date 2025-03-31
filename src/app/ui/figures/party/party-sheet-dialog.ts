@@ -1231,12 +1231,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (sticker) {
       this.party.campaignStickers = this.party.campaignStickers || [];
 
-      let total = 1;
+      let total = 0;
       const campaign = gameManager.campaignData();
       if (campaign.campaignStickers) {
         const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker.value));
         if (campaignSticker) {
-          total = +(campaignSticker.split(':')[1]);
+          total = campaignSticker.indexOf(':') != -1 ? +(campaignSticker.split(':')[1]) : 1;
         }
       }
 

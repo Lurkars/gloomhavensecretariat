@@ -298,11 +298,15 @@
 
           .value {
             position: absolute;
-            top: 0em;
-            left: 0.3em;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             font-size: 1.6em;
             font-family: ghs-title;
+            text-align: center;
             color: var(--ghs-color-black);
+            margin: 0;
           }
         }
       }
@@ -438,7 +442,7 @@
         &::before {
           background-color: var(--ghs-ability-color);
           background-image: url('~src/assets/images/fh/character/abilities/character-ability-front.png'), url('~src/assets/images/fh/character/abilities/character-ability-front-blend.png');
-          background-blend-mode: screen, luminosity;
+          background-blend-mode: luminosity, luminosity;
         }
 
         .name {
@@ -467,7 +471,7 @@
         .initiative {
           font-family: ghs-title;
           font-size: 2.6em;
-          top: 6.4em;
+          top: 6.35em;
           left: 4.8em;
         }
 
@@ -537,7 +541,7 @@
       &.character-actions {
         background-color: var(--ghs-ability-color);
         background-image: url('~src/assets/images/fh/character/abilities/character-ability-back.png'), url('~src/assets/images/fh/character/abilities/character-ability-back-blend.png');
-        background-blend-mode: screen, luminosity;
+        background-blend-mode: luminosity, luminosity;
 
         .name {
           color: var(--ghs-color-black);

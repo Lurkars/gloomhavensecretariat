@@ -25,6 +25,7 @@ import { CharacterInitiativeDialogComponent } from './cards/initiative-dialog';
 import { CharacterSheetDialog } from './dialogs/character-sheet-dialog';
 import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
+import { AbilityCardsDialogComponent } from './sheet/abilities/ability-cards-dialog';
 
 @Component({
   standalone: false,
@@ -583,5 +584,14 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
 
     gameManager.stateManager.after();
+  }
+
+  openAbilityCards() {
+    if (gameManager.deckData(this.character, true).abilities.length > 0) {
+      this.dialog.open(AbilityCardsDialogComponent, {
+        panelClass: ['dialog'],
+        data: { character: this.character }
+      });
+    }
   }
 }

@@ -91,6 +91,10 @@
           "player4": "elite"
         },
         {
+          "name": "piranha-pig",
+          "player4": "normal"
+        },
+        {
           "name": "polar-bear",
           "player2": "normal",
           "player3": "normal",

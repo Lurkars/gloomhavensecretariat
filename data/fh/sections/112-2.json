@@ -49,6 +49,10 @@
           "player4": "elite"
         },
         {
+          "name": "piranha-pig",
+          "player4": "normal"
+        },
+        {
           "name": "robotic-boltshooter",
           "type": "normal"
         },

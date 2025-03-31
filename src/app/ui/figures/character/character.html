@@ -268,7 +268,8 @@
       <img [src]="character.iconUrl" />
     </a>
 
-    <div *ngIf="!character.bb && settingsManager.settings.characterHandSize && !character.absent" class="hand-size">
+    <div *ngIf="!character.bb && settingsManager.settings.characterHandSize && !character.absent" class="hand-size"
+      ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="openAbilityCards()">
       {{character.handSize}}
     </div>
 
@@ -324,7 +325,8 @@
     <img class="menu" src="./assets/images/up.svg">
   </span>
   <div class="summons" *ngIf="skullSpiritCount">
-    <ghs-standee [ngClass]="{'active': summon.active}" *ngFor="let summon of skullSpirits" [figure]="character" [entity]="summon">
+    <ghs-standee [ngClass]="{'active': summon.active}" *ngFor="let summon of skullSpirits" [figure]="character"
+      [entity]="summon">
     </ghs-standee>
   </div>
 </div>
