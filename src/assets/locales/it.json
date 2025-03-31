@@ -81,6 +81,22 @@
     "abilities": {
       "currentDeck": "Mazzo attuale",
       "deckWarning": "Non è possibile selezionare la carta corretta perchè ci sono troppe carte nel mazzo!",
+      "enhancements": {
+        "apply": "Applica",
+        "baseCosts": "Costi base",
+        "costs": "Complessivo",
+        "disabled": {
+          "enhancements": "Numero massimo di carte migliorabili ({1}) raggiunto!",
+          "gold": "Non hai abbastanza oro ({0}/{1}) per il miglioramento!"
+        },
+        "enhancements": "Miglioramenti precedenti",
+        "enhancerLevel": "Bonus potenziatore",
+        "level": "Livello",
+        "lost": "Perso",
+        "multiTarget": "Bersagli multipli",
+        "persistent": "Persistente",
+        "temporary": "Temporaneo"
+      },
       "forceDeck": "Doppio clic per aggiungere la carta al mazzo",
       "levelWarning": "Mazzo non valido perchè alcune carte sono di livello superiore al personaggio!",
       "pickCard": "Scegli la tua carta di livello {0}",
@@ -481,7 +497,7 @@
       "push": "Spingi",
       "range": "Portata",
       "refreshItem": "Aggiorna un articolo",
-      "retaliate": "Rivendica",
+      "retaliate": "Ritorsione",
       "shield": "Scudo",
       "spawn": "Genera",
       "special": "Speciale",
@@ -1032,7 +1048,7 @@
       "focusEnemyFarthest": "Concentrati sul nemico<br>più lontano.",
       "self": "Se stesso",
       "selfAllies": "Se stesso e gli alleati",
-      "selfAlliesAdjacentAffect": "%game.affect%se stesso e tutti gli alleati adiacenti",
+      "selfAlliesAdjacentAffect": "%game.affect% se stesso e tutti gli alleati adiacenti",
       "selfAlliesAffect": "%game.affect% se stesso e tutti gli alleati",
       "selfAlliesRange": "%game.target% se stesso e tutti gli alleati entro %game.action.range% {0}",
       "selfOrAlly": "Se stesso o un alleato",
@@ -1934,8 +1950,8 @@
       "hint": "Applicare sempre le regole di Frosthaven per pescare il modificatore di attacco con vantaggio o svantaggio (abilitato automaticamente quando si gioca a Frosthaven)"
     },
     "alwaysFhEnhancements": {
-      "": "Costi di miglioramento di Frosthaven",
-      "hint": "Utilizzare sempre le regole di Frosthaven per calcolare i costi di miglioramento."
+      "": "Sempre miglioramenti di Frosthaven",
+      "hint": "Utilizzare sempre le regole di Frosthaven e i costi di miglioramento."
     },
     "alwaysFhSolo": {
       "": "Sempre le regole in solitario di Frosthaven",
@@ -2276,6 +2292,285 @@
     "gameClock": {
       "": "Orologio del gioco",
       "hint": "Abilita un orologio di gioco per tracciare il tempo di esecuzione dell'app."
+    },
+    "gameClockMerge": {
+      "": "Unisci orologi di gioco",
+      "hint": "Unisci l'orologio di gioco del server con l'orologio di gioco locale per ottenere il tempo di gioco complessivo."
+    },
+    "gameplay": "Gameplay",
+    "ge5Player": {
+      "": "Regole giocatori ≥ 5"
+    },
+    "helperDefaults": {
+      "": "Applica impostazioni predefinite"
+    },
+    "hideAbsent": {
+      "": "Nascondi le unità assenti",
+      "hint": "Le unità assenti non sono mostrate nell'elenco"
+    },
+    "hideCharacterHP": {
+      "": "Nascondi i PV del personaggio",
+      "hint": "Non visualizzare i punti ferita sulla plancia dei personaggi"
+    },
+    "hideCharacterLoot": {
+      "": "Nascondi il bottino del personaggio",
+      "hint": "Non visualizzare il bottino sulla plancia dei personaggi"
+    },
+    "hideCharacterXP": {
+      "": "Nascondi l'Esp del personaggio",
+      "hint": "Non visualizzare l'esperienza sulla plancia dei personaggi"
+    },
+    "hideStats": {
+      "": "Nascondi statistiche",
+      "hint": "Nascondi le statistiche dei mostri non generati"
+    },
+    "hints": {
+      "": "Mostra suggerimenti",
+      "hint": "Mostra scorciatoie e suggerimenti accanto al menu principale"
+    },
+    "initiativeRequired": {
+      "": "È richiesta l'iniziativa",
+      "hint": "Se non spuntato, l'ordine delle entità deve essere impostato manualmente con il Drag & Drop"
+    },
+    "initiativeRoundConfirm": {
+      "": "Finestra di dialogo dell'iniziativa",
+      "hint": "Mostra una finestra di dialogo per iniziare il prossimo turno quando sono impostate tutte le iniziative."
+    },
+    "interactiveAbilities": {
+      "": "Abilità interattive",
+      "hint": "Applica alcune abilità evidenziate, come evocazioni o azioni elementali, facendo clic sull'area corrispondente della scheda abilità."
+    },
+    "interface": "Interfaccia",
+    "keyboardShortcuts": {
+      "": "Scorciatoie da tastiera abilitate",
+      "hint": "Abilita le scorciatoie da tastiera elencate."
+    },
+    "levelAdjustment": {
+      "": "Regolazione del livello di scenario"
+    },
+    "levelCalculation": {
+      "": "Livello di scenario automatico"
+    },
+    "locale": {
+      "": "Lingua",
+      "de": "Tedesco (Deutsch)",
+      "en": "Inglese (English)",
+      "es": "Spagnolo (Español)",
+      "fr": "Francese (Français)",
+      "help": "Aiuta a tradurre!",
+      "it": "Italiano",
+      "ko": "Coreano (한국어)",
+      "zh_Hans": "Cinese semplificato (简体中文)"
+    },
+    "lootDeck": {
+      "": "Mazzo del bottino",
+      "hint": "Abilita il mazzo del bottino"
+    },
+    "lurkarsDefaults": "Applica le impostazioni personali di Lurkars",
+    "maxUndo": {
+      "": "Max. numero di Annulla",
+      "hint": {
+        "": "Il tuo browser non sembra supportare IndexedDB o hai un utilizzo limitato. Quindi il massimo numero di Annulla è limitato a 50.",
+        "firefox": "Su Firefox è possibile abilitare IndexedDB per la modalità privata in <a href=\"about:config\" target=\"_blank\">about:config</a> con la chiave<i>dom.indexedDB.privateBrowsing.enabled</i>."
+      }
+    },
+    "monsterAttackModifierDeck": {
+      "": "Mazzo modificatore di attacco per i mostri",
+      "hint": "bilita il mazzo modificatore di attacco per i mostri"
+    },
+    "monsters": {
+      "": "Mostri",
+      "hint": "Se disabilitato non vengono mostrati mostri."
+    },
+    "moveElements": {
+      "": "Aggiorna automaticamente lo stato degli elementi",
+      "hint": "Lo stato degli elementi viene automaticamente modificato prima di ogni turno"
+    },
+    "partySheet": {
+      "": "Scheda del gruppo",
+      "hint": "Abilita la scheda del gruppo e della campagna. La scheda della campagna si trova sul lato <i>posteriore</i> della scheda del gruppo."
+    },
+    "pinchZoom": {
+      "": "Zoom gestuale",
+      "hint": "Zoom tramite gesti touch."
+    },
+    "playerCount": {
+      "": "Conteggio manuale dei personaggi"
+    },
+    "playerNumber": {
+      "": "Visualizza il numero del giocatore",
+      "hint": "Visualizza il numero del giocatore sulla plancia del personaggio."
+    },
+    "portraitMode": {
+      "": "Ottimizzazione in modalità ritratto",
+      "hint": "Ottimizzazione della modalità ritratto per schermi più piccoli."
+    },
+    "pressDoubleClick": {
+      "": "Premi a lungo per doppio clic (touch)",
+      "hint": "Sui touchscreen, esegui un doppio clic solo con una lunga pressione. (Consigliato per evitare i clic fantasma)"
+    },
+    "randomStandees": {
+      "": "Pedine casuali",
+      "hint": "Aggiungi pedine con un numero casuale inutilizzato"
+    },
+    "removeUnusedMonster": {
+      "": "Rimuovi inutilizzati",
+      "hint": "Rimuovi automaticamente tutti i mostri inutilizzati."
+    },
+    "requires": "Richiede:",
+    "requiresOne": "Richiede uno tra:",
+    "scenarioNumberInput": {
+      "": "Inserimento numero di scenario"
+    },
+    "scenarioRewards": {
+      "": "Applica i premi dello scenario",
+      "hint": "Applica automaticamente i premi del tesoro: dai oro, Esp ecc. ai personaggi"
+    },
+    "scenarioRewardsItems": {
+      "": "Pesca oggetti casuali come ricompense di scenario",
+      "hint": "Pesca automaticamente una carta oggetto casuale."
+    },
+    "scenarioRooms": {
+      "": "Stanze dello scenario",
+      "hint": "Sblocco di stanze separate in uno scenario. Se non impostato, disabilita anche l'aggiunta automatica di pedine."
+    },
+    "scenarioRules": {
+      "": "Regole dello scenario",
+      "hint": "Mostra finestre di popup sulle regole di scenario speciali e applicale in maniera opzionale"
+    },
+    "scenarioRulesAutoapply": {
+      "": "Applica le regole di scenario automaticamente",
+      "hint": "Applica direttamente le regole di scenario automaticamente senza conferma"
+    },
+    "scenarioStats": {
+      "": "Statistiche dello scenario",
+      "hint": "Raccogli statistiche su danni, uccisioni, bottino, Esp e cure durante uno scenario"
+    },
+    "showExpandedAbilityCard": {
+      "": "Mostra carte abilità ampliate",
+      "hint": "Mostra tutte le abilità sulle carte abilità contemporaneamente (mostra automaticamente anche il titolo della carta)."
+    },
+    "showFullAbilityCard": {
+      "": "Mostra il titolo della carta abilità",
+      "hint": "Mostra le carte abilità incluso il titolo."
+    },
+    "sortFigures": {
+      "": "Ordina le unità",
+      "hint": "Ordina automaticamente le unità. Se disabilitato, l'ordine deve essere impostato manualmente tramite Drag'n'Drop."
+    },
+    "standeeShieldRetaliate": {
+      "": "Scudo e Ritorsione",
+      "hint": "Traccia i valori extra %game.Action.shield % e %game.action.retaliate% per pedine ed evocazioni."
+    },
+    "standeeStats": {
+      "": "Scudo e Ritorsione sulle pedine",
+      "hint": "Mostra il valore corrente di %game.action.shield% e %game.action.retaliate% vicino ad ogni pedina."
+    },
+    "standees": {
+      "": "Pedine",
+      "hint": "Visualizza le pedine. Se disabilitato, anche lo sblocco automatico di stanze e pedine sono disabilitati."
+    },
+    "statAnimations": {
+      "": "Animazione statistiche",
+      "hint": "Abilita l'animazione per evidenziare statistiche come %game.action.shield% o %game.action.retaliate%."
+    },
+    "stats": {
+      "": "Carte delle statistiche",
+      "hint": "Mostra le carte delle statistiche per i mostri."
+    },
+    "summons": {
+      "": "Evocazioni dei personaggi",
+      "hint": "Abilita l'evocazione dei personaggi"
+    },
+    "synced": "Queste impostazioni sono sincronizzate con il server!",
+    "temporaryEnhancements": {
+      "": "Miglioramenti temporanei",
+      "hint": "Utilizza i miglioramenti temporanei per ridurre i costi di miglioramento. Per le regole di Frosthaven sono utilizzati come indicato nel libro delle regole, altrimenti si applicano i costi di potenziamento digitale di Gloomhaven."
+    },
+    "theme": {
+      "": "Tema",
+      "bb": "Button & Bugs (%wip%)",
+      "default": "Predefinito",
+      "fh": "Frosthaven",
+      "hint": "Scegli un tema per sfondo, barre e caratteri.",
+      "modern": "Moderno"
+    },
+    "tooltips": {
+      "": "Aiuti",
+      "hint": "Visualizza gli aiuti"
+    },
+    "treasures": {
+      "": "Indicatore dei tesori della stanza",
+      "hint": "Mostra i tesori disponibili per lo scenario quando viene rivelata la stanza corrispondente e aggiungi la finestra di dialogo per aprire il tesoro."
+    },
+    "treasuresLoot": {
+      "": "Applica i premi del tesoro",
+      "hint": "Applica automaticamente i premi del tesoro: dai oro, Esp ecc. al personaggio che saccheggia, pesca uno scenario secondario casuale o un modello di oggetto ecc."
+    },
+    "treasuresLootItem": {
+      "": "Pesca oggetti di ricompensa casuali nei tesori",
+      "hint": "Pesca automaticamente una carta oggetto casuale."
+    },
+    "treasuresLootScenario": {
+      "": "Pesca ricompense di scenario casuali",
+      "hint": "Pesca automaticamente uno scenario casuale."
+    },
+    "turnConfirmation": {
+      "": "Conferma turno",
+      "hint": "Mostra un promemoria quando fai clic su\"%round.next%\" prima che tutte le unità finiscano i loro turni. Se disabilitato e %settings.expireConditions% o %settings.applyConditions% sono attivi, verrà automaticamente applicato per tutte le unità."
+    },
+    "unlockEnvelopeBuildings": {
+      "": "Sblocca gli edifici dalle buste",
+      "hint": "Sblocca automaticamente gli edifici aprendo le buste (dalla missione personale)."
+    },
+    "wakeLock": {
+      "": "Schermo sempre acceso",
+      "hint": "Lascia lo schermo sempre acceso sui dispositivi supportati. Può scaricare la batteria dei dispositivi mobili."
+    },
+    "xhaDefaults": "Applica le impostazioni Assistente X-Haven",
+    "zoom": {
+      "": "Zoom",
+      "in": "Ingrandisci",
+      "out": "Rimpicciolisci",
+      "reset": "Reimposta zoom"
+    }
+  },
+  "spoiler": {
+    "add": "Aggiungi spoiler",
+    "all": "Rivela tutti gli spoiler",
+    "placeholder": "???"
+  },
+  "state": {
+    "clear": {
+      "": "Cancella",
+      "redos": "Cancella i Rifai",
+      "undos": "Cancella gli Annulla"
+    },
+    "currentGame": "Attuale",
+    "info": {
+      "addBuilding": "Sbloccare l'edificio '%data.buildings.{1}%' ({0})",
+      "addCampaignSticker": "Aggiungi l'adesivo per la campagna {0}",
+      "addChar": "Aggiungi personaggio {0}",
+      "addCondition": {
+        "char": "%game.condition.{1}% {0}",
+        "monster": "%game.condition.{2}% '{1}' di {0}",
+        "monsterEntities": "%game.condition.{1}% tutti i {2}{0}",
+        "objective": "%game.condition.{1}% {0}",
+        "objectiveContainer": "%game.condition.{2}% %game.objectiveMarker.{1}% di {0}",
+        "objectives": "%game.condition.{1}% tutti i {0}",
+        "summon": "%game.condition.{2}% '{1}' di {0}",
+        "summons": "%game.condition.{1}% tutte le {0} evocazioni"
+      },
+      "addConditions": {
+        "char": "{2}x %game.condition.{1}% {0}",
+        "monster": "{3}x %game.condition.{2}% '{1}' di {0}",
+        "monsterEntities": "{3}x %game.condition.{1}% tutti i {2}{0}",
+        "objective": "{2}x %game.condition.{1}% {0}",
+        "objectiveContainer": "{3}x %game.condition.{2}% %game.objectiveMarker.{1}% di {0}",
+        "objectives": "{2}x %game.condition.{1}% tutti i {0}",
+        "summon": "{3}x %game.condition.{2}% '{1}' di {0}",
+        "summons": "{2}x %game.condition.{1}% tutte le {0} evocazioni"
+      }
     }
   }
 }

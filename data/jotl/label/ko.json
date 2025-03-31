@@ -111,6 +111,9 @@
     "vermling-scout": "버믈링 정찰병",
     "zealot": "추종자"
   },
+  "objective": {
+    "Pillar": "기둥"
+  },
   "scenario": {
     "title": {
       "jotl": {
