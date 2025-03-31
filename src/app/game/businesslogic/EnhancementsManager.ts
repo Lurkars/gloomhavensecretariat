@@ -17,11 +17,11 @@ export class EnhancementsManager {
     squareActions: ActionType[] = [ActionType.move, ActionType.attack, ActionType.range, ActionType.shield, ActionType.push, ActionType.pull, ActionType.pierce, ActionType.retaliate, ActionType.heal, ActionType.target, ActionType.teleport];
     circleActions: ActionType[] = [ActionType.move, ActionType.attack, ActionType.range, ActionType.shield, ActionType.push, ActionType.pull, ActionType.pierce, ActionType.retaliate, ActionType.heal, ActionType.target, ActionType.teleport];
     diamondActions: ActionType[] = [ActionType.attack, ActionType.condition, ActionType.push, ActionType.pull];
-    diamonPlusActions: ActionType[] = [ActionType.heal, ActionType.condition, ActionType.shield, ActionType.retaliate];
+    diamondPlusActions: ActionType[] = [ActionType.heal, ActionType.condition, ActionType.shield, ActionType.retaliate];
     hexActions: ActionType[] = [ActionType.area];
     summonActions: ActionType[] = [ActionType.move, ActionType.attack, ActionType.range, ActionType.heal];
     diamondConditions: ConditionName[] = [ConditionName.poison, ConditionName.wound, ConditionName.muddle, ConditionName.immobilize, ConditionName.disarm, ConditionName.curse];
-    diamonPlusConditions: ConditionName[] = [ConditionName.strengthen, ConditionName.bless, ConditionName.regenerate];
+    diamondPlusConditions: ConditionName[] = [ConditionName.strengthen, ConditionName.bless, ConditionName.regenerate];
 
     constructor(game: Game) {
         this.game = game;
@@ -33,10 +33,10 @@ export class EnhancementsManager {
         this.enhancerLevel = this.fh && this.game.party.buildings.find((buildingModel) => buildingModel.name == "enhancer" && buildingModel.level && buildingModel.state != "wrecked")?.level || 0;
         if (this.fh) {
             this.diamondConditions = [ConditionName.poison, ConditionName.wound, ConditionName.muddle, ConditionName.immobilize, ConditionName.curse];
-            this.diamonPlusConditions = [ConditionName.strengthen, ConditionName.bless, ConditionName.regenerate, ConditionName.ward];
+            this.diamondPlusConditions = [ConditionName.strengthen, ConditionName.bless, ConditionName.regenerate, ConditionName.ward];
         } else {
             this.diamondConditions = [ConditionName.poison, ConditionName.wound, ConditionName.muddle, ConditionName.immobilize, ConditionName.disarm, ConditionName.curse];
-            this.diamonPlusConditions = [ConditionName.strengthen, ConditionName.bless, ConditionName.regenerate];
+            this.diamondPlusConditions = [ConditionName.strengthen, ConditionName.bless, ConditionName.regenerate];
         }
     }
 
