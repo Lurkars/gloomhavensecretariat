@@ -52,7 +52,7 @@
             </div>
             <div class="conditions"
                 *ngIf="enhancementType && [EnhancementType.diamond_plus, EnhancementType.any].indexOf(enhancementType) != -1">
-                <div class="condition" *ngFor="let condition of gameManager.enhancementsManager.diamonPlusConditions"
+                <div class="condition" *ngFor="let condition of gameManager.enhancementsManager.diamondPlusConditions"
                     (click)="setEnhancementAction(condition)" [ngClass]="{'active': enhancementAction == condition}">
                     <span [ghs-label]="'%game.conditionIcon.' + condition + '%'"></span>
                 </div>

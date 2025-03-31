@@ -108,7 +108,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
     }
 
     update() {
-        this.actionTypes = [...gameManager.enhancementsManager.squareActions, ...gameManager.enhancementsManager.circleActions, ...gameManager.enhancementsManager.diamondActions, ...gameManager.enhancementsManager.diamonPlusActions, ...gameManager.enhancementsManager.hexActions].filter((type, index, self) => index === self.indexOf(type));
+        this.actionTypes = [...gameManager.enhancementsManager.squareActions, ...gameManager.enhancementsManager.circleActions, ...gameManager.enhancementsManager.diamondActions, ...gameManager.enhancementsManager.diamondPlusActions, ...gameManager.enhancementsManager.hexActions].filter((type, index, self) => index === self.indexOf(type));
 
         if (this.special === 'summon') {
             this.actionTypes = [...gameManager.enhancementsManager.summonActions];
@@ -127,7 +127,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
                 this.action.value).types.indexOf(ConditionType.negative) != -1)) {
                 this.enhancementType = EnhancementType.diamond;
             }
-            if (gameManager.enhancementsManager.diamonPlusActions.indexOf(this.action.type) != -1 && (this.action.type != ActionType.condition || new Condition('' +
+            if (gameManager.enhancementsManager.diamondPlusActions.indexOf(this.action.type) != -1 && (this.action.type != ActionType.condition || new Condition('' +
                 this.action.value).types.indexOf(ConditionType.positive) != -1)) {
                 this.enhancementType = EnhancementType.diamond_plus;
             }
