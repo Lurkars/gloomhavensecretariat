@@ -90,7 +90,7 @@
           "gold": "Nicht genügend Gold ({0}/{1}) für diese Fertigkeitsverbesserungen!"
         },
         "enhancements": "Vorherige Fertigkeitsverbesserungen",
-        "enhancerLevel": "Enhancer Bonus",
+        "enhancerLevel": "Bonus von Verbesserer",
         "hint": {
           "enhance": {
             "": "Klicke um eine Fertigkeitsverbesserung hinzuzufügen.",
