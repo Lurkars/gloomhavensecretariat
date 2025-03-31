@@ -56,7 +56,7 @@
           "value": 3,
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         }
       ]
@@ -111,7 +111,7 @@
           "value": 4,
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         }
       ]
@@ -151,7 +151,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         }
       ],
@@ -220,8 +220,8 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond",
-            "diamond"
+            "diamond_plus",
+            "diamond_plus"
           ]
         }
       ]
@@ -294,7 +294,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         }
       ]
@@ -485,7 +485,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         }
       ]
@@ -567,7 +567,10 @@
         {
           "type": "move",
           "value": 3,
-          "hidden": false
+          "hidden": false,
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "element",
@@ -600,10 +603,7 @@
               "hidden": false
             }
           ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
-          ]
+          "hidden": false
         }
       ]
     },
@@ -659,7 +659,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         }
       ],
@@ -669,7 +669,7 @@
           "value": 3,
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         },
         {
@@ -730,7 +730,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         }
       ],
@@ -811,7 +811,7 @@
           "value": 4,
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         }
       ]
@@ -893,7 +893,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         }
       ]
@@ -1016,7 +1016,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         }
       ],
@@ -1175,7 +1175,7 @@
           "value": 4,
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         }
       ]
@@ -1280,7 +1280,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         }
       ]
@@ -1567,7 +1567,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "circle"
           ]
         }
       ]
@@ -1609,7 +1609,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         }
       ],
@@ -1632,7 +1632,7 @@
               "small": true,
               "hidden": false,
               "enhancementTypes": [
-                "circle"
+                "diamond"
               ]
             },
             {
@@ -1699,7 +1699,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         },
         {
@@ -1826,8 +1826,8 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond",
-            "diamond"
+            "circle",
+            "circle"
           ]
         }
       ]
@@ -2113,7 +2113,7 @@
           ],
           "hidden": false,
           "enhancementTypes": [
-            "diamond"
+            "diamond_plus"
           ]
         }
       ]
