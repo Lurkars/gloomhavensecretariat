@@ -140,4 +140,20 @@
         <span [ghs-label]="'editor.action.removeSubAction'"></span></a>
     </div>
   </div>
+
+  <div class="enhancements">
+    <div class="enhancement" *ngFor="let type of action.enhancementTypes; let i = index">
+      <select (change)="changeEnhancement(i, $event)">
+        <option *ngFor="let value of EnhancementTypes" [selected]="type == value">{{value}}</option>
+      </select>
+      <a (click)="removeEnhancement(i)">
+        <img class="ghs-icon" src="./assets/images/minus.svg">
+        <span [ghs-label]="'editor.action.removeEnhancement'"></span>
+      </a>
+    </div>
+    <a (click)="addEnhancement()">
+      <img class="ghs-icon" src="./assets/images/plus.svg">
+      <span [ghs-label]="'editor.action.addEnhancement'"></span>
+    </a>
+  </div>
 </div>

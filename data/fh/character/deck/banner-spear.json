@@ -10,22 +10,52 @@
       "initiative": 60,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allies"
+            }
+          ]
+        },
+        {
+          "type": "forceBox",
+          "value": "",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Suffer %game.damage:1% for each ally whose hit point value increased with the heal ability."
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "reinforcement",
+            "health": 1,
+            "movement": 2,
+            "enhancements": [
+              "heal",
+              "move"
+            ]
+          },
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "You control the movement of this summon",
+              "small": true
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomPersistent": true,
+      "bottomXp": 1
     },
     {
       "name": "Rallying Cry",
@@ -34,22 +64,45 @@
       "initiative": 71,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,ally)|(0,1,target)|(1,0,enhance)|(0,2,active)",
+              "enhancementTypes": [
+                "hex"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "disarm"
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "summon",
+          "value": "summonData",
+          "valueObject": {
+            "name": "banner-of-strength",
+            "health": 3,
+            "action": {
+              "type": "custom",
+              "value": "All allies within %game.action.range%2 add +1 %game.action.attack% to one of their attacks each turn.",
+              "small": true
+            },
+            "enhancements": [
+              "heal"
+            ]
+          }
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomPersistent": true,
+      "bottomXp": 2
     },
     {
       "name": "Unbreakable Wall",
@@ -58,43 +111,91 @@
       "initiative": 83,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,ally)|(1,0,target)|(2,0,target)|(1,1,active)"
+            },
+            {
+              "type": "push",
+              "value": 1,
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "forceBox",
+          "value": "",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All your ranged attacks have -1%game.action.range%."
+            }
           ]
         }
-      ]
+      ],
+      "xp": 1,
+      "bottomPersistent": true,
+      "bottomXp": 2
     },
     {
-      "name": "Jauelin",
+      "name": "Javelin",
       "cardId": 64,
       "level": 1,
       "initiative": 21,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ]
+        },
+        {
+          "type": "forceBox",
+          "value": 0,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
           ]
         }
       ]

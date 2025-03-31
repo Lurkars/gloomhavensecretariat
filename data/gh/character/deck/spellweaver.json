@@ -27,7 +27,6 @@
               "type": "target",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -35,16 +34,13 @@
             {
               "type": "custom",
               "value": "Gain %game.card.experience:1% for each enemy targeted.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
-              "value": "fire",
-              "hidden": false
+              "value": "fire"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -54,7 +50,6 @@
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -84,22 +79,18 @@
             {
               "type": "custom",
               "value": "Additionally, target all enemies on the path to the primary target.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
               "value": "Gain %game.card.experience:1% for each enemy targeted.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
-              "value": "earth",
-              "hidden": false
+              "value": "earth"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -109,7 +100,6 @@
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -133,8 +123,7 @@
               "value": "dark",
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -149,7 +138,6 @@
               "hidden": false
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -176,8 +164,7 @@
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -190,11 +177,9 @@
                   "valueType": "add",
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -214,11 +199,9 @@
             },
             {
               "type": "element",
-              "value": "light",
-              "hidden": false
+              "value": "light"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus",
             "diamond_plus"
@@ -267,11 +250,9 @@
                   ],
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -292,7 +273,6 @@
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -340,11 +320,9 @@
                   ],
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -362,8 +340,7 @@
               "small": true,
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -376,21 +353,17 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -424,11 +397,9 @@
                   "small": true,
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -446,7 +417,6 @@
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -461,8 +431,7 @@
       "actions": [
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         }
       ],
       "bottomLost": true,
@@ -479,11 +448,9 @@
             },
             {
               "type": "element",
-              "value": "air",
-              "hidden": false
+              "value": "air"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -515,8 +482,7 @@
               ],
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -529,16 +495,13 @@
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -551,23 +514,19 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -602,8 +561,7 @@
               ],
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -636,8 +594,7 @@
                   "small": true,
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "concatenation",
@@ -650,14 +607,11 @@
                 },
                 {
                   "type": "card",
-                  "value": "round",
-                  "hidden": false
+                  "value": "round"
                 }
-              ],
-              "hidden": false
+              ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -667,7 +621,6 @@
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -703,8 +656,7 @@
               ],
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -728,7 +680,6 @@
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -752,8 +703,7 @@
               "range"
             ]
           },
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -766,11 +716,9 @@
             },
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -795,11 +743,9 @@
             },
             {
               "type": "element",
-              "value": "light",
-              "hidden": false
+              "value": "light"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -809,7 +755,6 @@
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -868,11 +813,9 @@
             },
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)",
-              "hidden": false
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomLost": true,
@@ -891,7 +834,6 @@
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -951,21 +893,18 @@
             {
               "type": "area",
               "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)",
-              "hidden": false,
               "enhancementTypes": [
                 "hex"
               ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomLost": true,
       "bottomActions": [
         {
           "type": "loot",
-          "value": 2,
-          "hidden": false
+          "value": 2
         }
       ]
     },
@@ -1013,11 +952,9 @@
                   ],
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -1045,16 +982,13 @@
                   "small": true,
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1086,11 +1020,9 @@
                   "small": true,
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomLost": true,
@@ -1108,8 +1040,7 @@
             {
               "type": "custom",
               "value": "where X is half of that ally's maximum hit point value (rounded down).",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -1122,16 +1053,13 @@
                   "small": true,
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1155,18 +1083,15 @@
               "type": "target",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -1176,7 +1101,6 @@
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1263,11 +1187,9 @@
             },
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)",
-              "hidden": false
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -1281,7 +1203,6 @@
               "hidden": false
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1309,11 +1230,9 @@
             },
             {
               "type": "element",
-              "value": "fire",
-              "hidden": false
+              "value": "fire"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -1323,8 +1242,7 @@
         {
           "type": "custom",
           "value": "On the next five melee attacks targeting you, gain %game.action.retaliate:3%.",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1337,21 +1255,17 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -1364,16 +1278,13 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1396,8 +1307,7 @@
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -1410,11 +1320,9 @@
                   "small": true,
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -1450,8 +1358,7 @@
               "range"
             ]
           },
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1464,11 +1371,9 @@
             },
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1513,14 +1418,12 @@
             {
               "type": "area",
               "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,enhance)|(2,1,enhance)|(2,2,target)",
-              "hidden": false,
               "enhancementTypes": [
                 "hex",
                 "hex"
               ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -1572,7 +1475,6 @@
               "hidden": false
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1589,8 +1491,7 @@
         {
           "type": "custom",
           "value": "Recover %game.card.recover% up to two of your lost cards.",
-          "small": true,
-          "hidden": false
+          "small": true
         }
       ],
       "bottomActions": [
@@ -1608,13 +1509,11 @@
               "type": "target",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -1645,8 +1544,7 @@
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -1672,23 +1570,19 @@
                   ],
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -1704,7 +1598,6 @@
               "hidden": false
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -1741,13 +1634,11 @@
               ],
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "card",
-          "value": "round",
-          "hidden": false
+          "value": "round"
         }
       ]
     },
@@ -1778,11 +1669,9 @@
             {
               "type": "custom",
               "value": "You may not loot more than four money tokens or treasure tiles with this action.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomLost": true,
@@ -1822,16 +1711,13 @@
                   ],
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "circle",
             "circle"
@@ -1888,19 +1774,16 @@
             },
             {
               "type": "area",
-              "value": "(0,3,target)|(0,4,target)|(1,1,target)|(1,2,target)|(2,0,target)",
-              "hidden": false
+              "value": "(0,3,target)|(0,4,target)|(1,1,target)|(1,2,target)|(2,0,target)"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
           "value": "On the next three sources of damage from attacks targeting you, suffer no damage instead and gain %game.action.retaliate:3%, %game.action.range:3%.",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1913,16 +1796,13 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -1935,11 +1815,9 @@
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2007,11 +1885,9 @@
             },
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)",
-              "hidden": false
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -2036,8 +1912,7 @@
                 "diamond"
               ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2082,17 +1957,14 @@
                   ],
                   "hidden": false
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "custom",
               "value": "All allies in the same room as you suffer 2 damage.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -2109,16 +1981,13 @@
             {
               "type": "specialTarget",
               "value": "selfAlliesAffect",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]

@@ -21,6 +21,10 @@
           src="./assets/images/warning.svg" />
         <span *ngIf="values.length > 1" class="value">{{values[1]}}</span>
       </span>
+
+      <ghs-action-enhancements
+        *ngIf="origAction.enhancementTypes && origAction.enhancementTypes.length && character && cardId"
+        [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"></ghs-action-enhancements>
     </span>
     <div class="subactions" *ngIf="subActions.length > 0">
       <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">

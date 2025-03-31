@@ -6,6 +6,14 @@ export const sortAction = function (action) {
         action.subActions = action.subActions.sort((subAction) => sortAction(subAction));
     }
 
+    if (action.hidden == false) {
+        delete action.hidden;
+    }
+
+    if (action.small == false) {
+        delete action.small;
+    }
+
     // sort area effects by coordinates
     if (action.type === 'area' && action.value) {
         let hexes = [];

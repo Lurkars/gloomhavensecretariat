@@ -7,6 +7,7 @@ import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from
 import { Action, ActionCardType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
 import { Element } from "src/app/game/model/data/Element";
+import { EnhancementType } from "src/app/game/model/data/Enhancement";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 import { SummonData } from "src/app/game/model/data/SummonData";
 
@@ -30,6 +31,7 @@ export class EditorActionComponent implements OnInit {
   ActionValueTypes: ActionValueType[] = Object.values(ActionValueType);
   ActionCardTypes: ActionCardType[] = Object.values(ActionCardType);
   MonsterTypes: MonsterType[] = Object.values(MonsterType);
+  EnhancementTypes: EnhancementType[] = Object.values(EnhancementType);
   hexAction: Action = new Action(ActionType.area, "(0,0,invisible)");
   value: string = '';
   subValue: string = '';
@@ -349,6 +351,23 @@ export class EditorActionComponent implements OnInit {
           this.changeSummon();
         }
       })
+    }
+  }
+
+  removeEnhancement(index: number) {
+    if (this.action.enhancementTypes && this.action.enhancementTypes[index]) {
+      this.action.enhancementTypes.splice(index, 1);
+    }
+  }
+
+  addEnhancement() {
+    this.action.enhancementTypes = this.action.enhancementTypes || [];
+    this.action.enhancementTypes.push(this.EnhancementTypes[0]);
+  }
+
+  changeEnhancement(index: number, event: any) {
+    if (this.action.enhancementTypes && this.action.enhancementTypes[index]) {
+      this.action.enhancementTypes[index] = event.target.value as EnhancementType;
     }
   }
 }

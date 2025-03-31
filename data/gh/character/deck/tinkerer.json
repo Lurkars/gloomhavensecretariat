@@ -8,35 +8,33 @@
       "cardId": 30,
       "level": 1,
       "initiative": 62,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "Create one 6 damage trap in an adjacent empty hex.",
-          "hidden": false
+          "value": "Create one 6 damage trap in an adjacent empty hex."
         },
         {
           "type": "custom",
-          "value": "Gain %game.card.experience:2% when the trap is sprung by an enemy.",
-          "hidden": false
+          "value": "Gain %game.card.experience:2% when the trap is sprung by an enemy."
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Harmless Contraption",
       "cardId": 31,
       "level": 1,
       "initiative": 74,
+      "lost": true,
       "actions": [
         {
           "type": "summon",
@@ -51,8 +49,7 @@
               "move"
             ]
           },
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -65,11 +62,9 @@
             },
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -87,19 +82,18 @@
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Flamethrower",
       "cardId": 32,
       "level": 1,
       "initiative": 47,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -157,8 +151,7 @@
             "diamond_plus"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Hook Gun",
@@ -183,15 +176,14 @@
               "type": "pull",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "diamond"
               ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "loot",
@@ -202,17 +194,16 @@
               "value": "experience:1",
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Ink Bomb",
       "cardId": 34,
       "level": 1,
       "initiative": 74,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -226,29 +217,24 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
               "value": "Gain %game.card.experience:1% for each",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
               "value": "enemy targeted.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
               "value": "dark",
-              "small": true,
-              "hidden": false
+              "small": true
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -258,19 +244,18 @@
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Net Shooter",
       "cardId": 35,
       "level": 1,
       "initiative": 19,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -287,29 +272,24 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
               "value": "Gain %game.card.experience:1% for each",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
               "value": "enemy targeted.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -324,7 +304,6 @@
               "hidden": false
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -332,13 +311,11 @@
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Stun Shot",
@@ -362,11 +339,9 @@
             {
               "type": "condition",
               "value": "stun",
-              "small": true,
-              "hidden": false
+              "small": true
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -376,7 +351,6 @@
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -403,28 +377,26 @@
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
           "value": "One adjacent ally may Recover %game.card.recover% all of their discarded cards.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
               "value": "experience:2",
               "hidden": false
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Restorative Mist",
@@ -446,7 +418,6 @@
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -456,7 +427,6 @@
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -471,8 +441,7 @@
               "small": true,
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -481,6 +450,7 @@
       "cardId": 39,
       "level": 1,
       "initiative": 16,
+      "lost": true,
       "actions": [
         {
           "type": "heal",
@@ -494,17 +464,16 @@
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus",
             "diamond_plus"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -516,14 +485,11 @@
               "hidden": false
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         }
-      ],
-      "lost": true,
-      "bottomLost": true
+      ]
     },
     {
       "name": "Enhancement Field",
@@ -542,7 +508,6 @@
               "hidden": false
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -552,15 +517,14 @@
         {
           "type": "custom",
           "value": "You and all adjacent alles add +1 %game.action.attack% to all your attacks this round.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
               "value": "round",
               "hidden": false
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -586,18 +550,16 @@
             {
               "type": "condition",
               "value": "poison",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
-              "value": "earth",
-              "hidden": false
+              "value": "earth"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "attack",
@@ -614,17 +576,14 @@
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Reviving Shock",
@@ -646,18 +605,17 @@
               "type": "target",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "heal",
@@ -671,18 +629,15 @@
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus",
             "diamond_plus"
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Volatile Concoction",
@@ -693,14 +648,14 @@
         {
           "type": "custom",
           "value": "Create one 2 damage %game.condition.poison% trap in an adjacent empty hex.",
-          "small": true,
-          "hidden": false
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
           "value": "One ally within %game.action.range:2% may Recover %game.card.recover% one of their discarded cards.",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -716,9 +671,7 @@
               ],
               "hidden": false
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -731,8 +684,7 @@
         {
           "type": "custom",
           "value": "On your next four Heal actions, add +2 %game.action.heal%.",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -745,16 +697,13 @@
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -767,23 +716,19 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -807,28 +752,26 @@
               "hidden": false
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
           "value": "One ally within %game.action.range:3% may Recover %game.card.recover% one of their lost cards.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
               "value": "experience:2",
               "hidden": false
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "bottomLost": true,
       "bottomLoss": true
     },
     {
@@ -836,6 +779,7 @@
       "cardId": 46,
       "level": 2,
       "initiative": 73,
+      "lost": true,
       "actions": [
         {
           "type": "condition",
@@ -854,18 +798,15 @@
               "type": "target",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -879,19 +820,16 @@
               "small": true,
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Tinkerer's Tools",
@@ -902,23 +840,21 @@
         {
           "type": "custom",
           "value": "Disarm one adjacent trap.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
               "value": "experience:1",
               "hidden": false
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
           "value": "Create one %game.condition.stun% trap in an adjacent empty hex.",
-          "small": true,
-          "hidden": false
+          "small": true
         }
       ]
     },
@@ -927,6 +863,7 @@
       "cardId": 48,
       "level": 3,
       "initiative": 66,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -940,11 +877,9 @@
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond",
             "diamond"
@@ -955,19 +890,18 @@
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Dangerous Contraption",
       "cardId": 49,
       "level": 4,
       "initiative": 84,
+      "lost": true,
       "actions": [
         {
           "type": "summon",
@@ -984,8 +918,7 @@
               "attack"
             ]
           },
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -998,30 +931,27 @@
             },
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Micro Bots",
       "cardId": 50,
       "level": 4,
       "initiative": 22,
+      "lost": true,
       "actions": [
         {
           "type": "heal",
@@ -1035,34 +965,29 @@
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus",
             "diamond_plus"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         },
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         }
-      ],
-      "lost": true,
-      "bottomLost": true
+      ]
     },
     {
       "name": "Noxious Vials",
@@ -1073,10 +998,10 @@
         {
           "type": "custom",
           "value": "One adjacent ally may Refresh %game.card.refresh% one of their consumed %game.items.slots.small% items.",
-          "small": true,
-          "hidden": false
+          "small": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "attack",
@@ -1093,41 +1018,36 @@
             {
               "type": "range",
               "value": "",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "poison",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
               "value": "Gain %game.card.experience:1% for each",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
               "value": "enemy targeted.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Disintegration Beam",
       "cardId": 52,
       "level": 5,
       "initiative": 36,
+      "lost": true,
       "actions": [
         {
           "type": "concatenation",
@@ -1173,21 +1093,18 @@
             },
             {
               "type": "area",
-              "value": "(1,1,target)|(1,2,target)|(0,3,target)|(2,0,enhance)|(0,4,active)",
-              "hidden": false,
+              "value": "(0,3,target)|(0,4,active)|(1,1,target)|(1,2,target)|(2,0,enhance)",
               "enhancementTypes": [
                 "hex"
               ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1203,13 +1120,11 @@
               "hidden": false
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Gas Canister",
@@ -1220,16 +1135,14 @@
         {
           "type": "custom",
           "value": "Create one 4 damage %game.condition.muddle% trap in an adjacent empty hex.",
-          "small": true,
-          "hidden": false
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
           "value": "At the end of your next four turns, one ally within %game.action.range:3% may Recover %game.card.recover% one of their discarded cards.",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1242,16 +1155,13 @@
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -1264,16 +1174,13 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1286,8 +1193,7 @@
         {
           "type": "custom",
           "value": "At the end of your next five turns, perform an \"%game.action.attack:2%, %game.action.range:5%\" action.",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1300,21 +1206,17 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -1327,16 +1229,13 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -1354,7 +1253,6 @@
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -1366,6 +1264,7 @@
       "cardId": 55,
       "level": 7,
       "initiative": 94,
+      "lost": true,
       "actions": [
         {
           "type": "summon",
@@ -1382,8 +1281,7 @@
               "attack"
             ]
           },
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1396,11 +1294,9 @@
             },
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -1418,13 +1314,11 @@
               ]
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Curative Aerosol",
@@ -1435,12 +1329,12 @@
         {
           "type": "move",
           "value": 2,
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "heal",
           "value": 2,
+          "small": true,
           "subActions": [
             {
               "type": "range",
@@ -1449,8 +1343,6 @@
               "hidden": false
             }
           ],
-          "small": true,
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -1458,12 +1350,12 @@
         {
           "type": "move",
           "value": 2,
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "heal",
           "value": 2,
+          "small": true,
           "subActions": [
             {
               "type": "range",
@@ -1472,13 +1364,12 @@
               "hidden": false
             }
           ],
-          "small": true,
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "heal",
@@ -1494,24 +1385,20 @@
               "type": "target",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Jet Propulsion",
@@ -1522,6 +1409,7 @@
         {
           "type": "custom",
           "value": "All summoned allies within %game.action.range:3% may perform",
+          "small": true,
           "subActions": [
             {
               "type": "move",
@@ -1532,14 +1420,12 @@
             {
               "type": "custom",
               "value": "with you controlling the actions.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -1553,23 +1439,21 @@
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Harsh Stimulants",
       "cardId": 58,
       "level": 8,
       "initiative": 27,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -1583,11 +1467,9 @@
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
           ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond",
             "diamond"
@@ -1598,6 +1480,7 @@
         {
           "type": "custom",
           "value": "All adjacent allies add +2 %game.action.attack% to all their attacks this round.",
+          "small": true,
           "subActions": [
             {
               "type": "custom",
@@ -1607,41 +1490,36 @@
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Lethal Injection",
       "cardId": 59,
       "level": 9,
       "initiative": 85,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
           "value": "Kill one adjacent normal or elite enemy.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
               "value": "experience:2",
               "hidden": false
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1656,11 +1534,9 @@
               "small": true,
               "hidden": false
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Chimeric Formula",
@@ -1671,26 +1547,24 @@
         {
           "type": "custom",
           "value": "One adjacent ally may Recover %game.card.recover% up to two of their lost cards, then lose two cards.",
-          "small": true,
-          "hidden": false
+          "small": true
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
           "value": "One ally within %game.action.range:3% may Recover %game.card.recover% one lost card belonging to an ally adjacent to them.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
               "value": "experience:2",
               "hidden": false
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     }
   ]
 }
