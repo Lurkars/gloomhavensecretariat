@@ -110,7 +110,7 @@
         "name": "Ordina per nome"
       },
       "undoLastPick": {
-        "": "Annulla scelta per il livello {0}",
+        "": "Cancella la scelta per il livello {0}",
         "hint": "Doppio clic per reimpostare tutte le scelte"
       },
       "wip": "<i>%wip%</i>"
@@ -814,7 +814,7 @@
         "reputation": "Ottieni {0} reputazione.",
         "scenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Tutti iniziano lo scenario con %game.condition.{0}%.",
-        "scenarioDamage": "Tutti iniziano lo scenario con {0} danno.",
+        "scenarioDamage": "Tutti iniziano lo scenario con {0} di danno.",
         "scenarioSingleMinus1": "Uno inizia lo scenario con %game.attackmodifier.minus1% x{0}."
       },
       "type": {
@@ -1698,7 +1698,7 @@
         "hint": "Numero di mostri %game.monsterType.boss% uccisi"
       },
       "damage": {
-        "": "Danno"
+        "": "Danni"
       },
       "dealtDamage": {
         "": "%game.action.attack% {0}",
@@ -1895,7 +1895,7 @@
       "hint": "Pesca carte abilità per i mostri. Se non selezionato, l'ordine dei mostri deve essere impostato manualmente con un trascinamento."
     },
     "abilityNumbers": {
-      "": "Mostra numeri delle abilità",
+      "": "Mostra i numeri delle abilità",
       "hint": "Mostra il numero della carta sulle carte abilità"
     },
     "abilityReveal": {
@@ -1909,15 +1909,15 @@
         "hint": {
           "": "Non chiedere conferma e applica automaticamente tali stati.<br><br>Da abilitare con attenzione!",
           "brittle": "Quando subisci danno, applica automaticamente %game.condition.brittle% e aumenta il danno.<br><br>Non funziona automaticamente su %game.condition.poison%!",
-          "heal": "Quando aumentano i punti ferita applica automaticamente %game.action.heal% e rimuovi gli stati corrispondenti.",
-          "shield": "Quando subisci danno, applica automaticamnete %game.action.shield% e abbassa il danno.",
+          "heal": "Per aumentare i punti ferita applica automaticamente %game.action.heal% e rimuovi gli stati corrispondenti.",
+          "shield": "Quando subisci danno, applica automaticamente %game.action.shield% e abbassa il danno.",
           "ward": "Quando subisci danno, applica automaticamente %game.condition.ward% e abbassa il danno.<br><br>Non funziona automaticamente su %game.condition.poison%!"
         }
       },
       "hint": {
         "": "Alcuni stati richiedono la conferma per essere applicati, ad esempio quando diminuiscono i PV con il Veleno, conferma per perdere 1 PV extra",
         "brittle": "Quando subisci danno, chiedi di applicare %game.condition.brittle% e aumenta il danno.",
-        "heal": "Non è uno stato, ma %game.action.heal% potrebbe essere applicato quando aumentano i punti ferita.",
+        "heal": "Non è uno stato, ma %game.action.heal% potrebbe essere applicato per aumentare i punti ferita.",
         "poison": "Quando subisci danno, chiedi di applicare %game.action.attack% +1 da %game.condition.poison% (incluso %game.attackmodifier.double%).",
         "poison_x": "Quando subisci danno, chiedi di applicare %game.action.attack% +X da %game.condition.poison_x:X% (incluso %game.attackmodifier.double%).",
         "shield": "Non è uno stato, ma %game.action.shield% potrebbe essere applicato per ridurre i danni quando se ne subiscono.",
@@ -2095,12 +2095,12 @@
       "": "Regolazione dei bonus di livello"
     },
     "browserNavigation": {
-      "": "Annulla/Ripeti con la navigazione",
+      "": "Cancella/Ripeti con la navigazione",
       "hint": "%wip%"
     },
     "calculate": {
       "": "Mostra le statistiche calcolate",
-      "hint": "I valori di abilità sono calcolati con le statistiche, quindi invece di attacco +1, viene mostrato attacco 4 per un valore di attacco di 3 nelle statistiche"
+      "hint": "I valori di abilità sono calcolati insieme alle statistiche, quindi invece di attacco +1, viene mostrato attacco 4 per un valore di attacco di 3 nelle statistiche"
     },
     "calculateShieldStats": {
       "": "Aggiungi Scudo e Ritorsione alle abilità",
@@ -2197,8 +2197,8 @@
       "hint": "Mostra danni inferti al posto dei punti ferita rimanenti"
     },
     "damageHPToggle": {
-      "": "Attiva danno/PV sulla plancia del personaggio",
-      "hint": "Scorciatoia facendo doppio clic sulla scritta PV sulla plancia personaggio per passare da danno a PV."
+      "": "Attiva Danno/PV sulla plancia del personaggio",
+      "hint": "Facendo doppio clic sulla scritta PV sulla plancia personaggio per passare da danno a PV."
     },
     "debug": {
       "": "Impostazioni/strumenti di debug",
@@ -2230,7 +2230,7 @@
     },
     "feedbackErrors": {
       "": "Feedback automatico",
-      "clear": "Cancella errori di feedback automatico ignorati",
+      "clear": "Elimina gli errori di feedback automatico ignorati",
       "hint": "Segnala automaticamente gli errori tramite finestra di feedback"
     },
     "fhChallenges": {
@@ -2290,7 +2290,7 @@
       "hint": "Passa a schermo intero"
     },
     "gameClock": {
-      "": "Orologio del gioco",
+      "": "Orologio di gioco",
       "hint": "Abilita un orologio di gioco per tracciare il tempo di esecuzione dell'app."
     },
     "gameClockMerge": {
@@ -2330,7 +2330,7 @@
     },
     "initiativeRequired": {
       "": "È richiesta l'iniziativa",
-      "hint": "Se non spuntato, l'ordine delle entità deve essere impostato manualmente con il Drag & Drop"
+      "hint": "Se non selezionato, l'ordine delle entità deve essere impostato manualmente con il Drag & Drop"
     },
     "initiativeRoundConfirm": {
       "": "Finestra di dialogo dell'iniziativa",
@@ -2368,9 +2368,9 @@
     },
     "lurkarsDefaults": "Applica le impostazioni personali di Lurkars",
     "maxUndo": {
-      "": "Max. numero di Annulla",
+      "": "Numero massimo di Cancella",
       "hint": {
-        "": "Il tuo browser non sembra supportare IndexedDB o hai un utilizzo limitato. Quindi il massimo numero di Annulla è limitato a 50.",
+        "": "Il tuo browser non sembra supportare IndexedDB o hai un utilizzo limitato. Quindi il numero massimo di Cancella è limitato a 50.",
         "firefox": "Su Firefox è possibile abilitare IndexedDB per la modalità privata in <a href=\"about:config\" target=\"_blank\">about:config</a> con la chiave<i>dom.indexedDB.privateBrowsing.enabled</i>."
       }
     },
@@ -2436,7 +2436,7 @@
     },
     "scenarioRules": {
       "": "Regole dello scenario",
-      "hint": "Mostra finestre di popup sulle regole di scenario speciali e applicale in maniera opzionale"
+      "hint": "Mostra finestre di popup sulle regole di scenario speciali e le applica in maniera opzionale"
     },
     "scenarioRulesAutoapply": {
       "": "Applica le regole di scenario automaticamente",
@@ -2542,9 +2542,9 @@
   },
   "state": {
     "clear": {
-      "": "Cancella",
-      "redos": "Cancella i Rifai",
-      "undos": "Cancella gli Annulla"
+      "": "Elimina",
+      "redos": "Elimina i Ripeti",
+      "undos": "Elimina i Cancella"
     },
     "currentGame": "Attuale",
     "info": {
@@ -2570,7 +2570,27 @@
         "objectives": "{2}x %game.condition.{1}% tutti i {0}",
         "summon": "{3}x %game.condition.{2}% '{1}' di {0}",
         "summons": "{2}x %game.condition.{1}% tutte le {0} evocazioni"
-      }
+      },
+      "challengeDeck": {
+        "clear": "Scarta le sfide pescate"
+      },
+      "clearDiscardedScenarioRules": "Elimina le regole di scenario scartate"
+    },
+    "redo": "Ripeti",
+    "undo": "Cancella"
+  },
+  "tools": {
+    "keyboard": {
+      "redo": "Ripeti",
+      "undo": "Cancella"
+    }
+  },
+  "welcome": {
+    "": "Benvenuto a Gloomhaven Secretariat",
+    "chooseEdition": "Inizia una nuova campagna scegliendo la tua edizione:",
+    "orChooseCharacters": "o inizia una partita casuale aggiungendo direttamente i personaggi",
+    "settings": {
+      "text": "Usa varie impostazioni per configurare tutto in modo appropriato:"
     }
   }
 }

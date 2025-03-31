@@ -417,6 +417,10 @@
       "": "Verdorbene Klinge",
       "1": "Füge bei deiner Nahkampf-Angriffsfertigkeit einem Angriff %game.condition.wound%, %game.condition.poison%, und %game.condition.muddle% hinzu."
     },
+    "fh-241": {
+      "": "Glitzerpuder",
+      "1": "Nachdem du eine Beutekarte gezogen hast, ziehe noch eine Beutekarte."
+    },
     "fh-243": {
       "": "Verfluchter Stein",
       "1": "Dieser Gegenstand kann nicht verkauf werden. Er muss in jedes Szenario mitgenommen und dabei genutzt werden.",
@@ -754,6 +758,10 @@
       "": "Großer Heiltrank",
       "1": "Führe während deines Zugs aus: %game.action.heal% 6 Selbst"
     }
+  },
+  "summon": {
+    "arcing-generator": "Blitzgenerator",
+    "repair-drone": "Reparaturdrohne"
   },
   "treasures": {
     "fh": {
