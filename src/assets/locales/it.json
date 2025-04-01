@@ -91,6 +91,13 @@
         },
         "enhancements": "Miglioramenti precedenti",
         "enhancerLevel": "Bonus potenziatore",
+        "hint": {
+          "enhance": {
+            "": "Fare clic per aggiungere miglioramento.",
+            "wipSpecial": "Fare clic per aggiungere miglioramento. Doppio clic per aggiungere un nuovo slot di miglioramento."
+          },
+          "enhanced": "Fare doppio clic per rimuovere il miglioramento."
+        },
         "level": "Livello",
         "lost": "Perso",
         "multiTarget": "Bersagli multipli",
@@ -240,6 +247,16 @@
     },
     "setAside": "Metti da parte il personaggio",
     "summon": {
+      "action": {
+        "": "%game.action.summon% %data.summon.{0}%",
+        "count": {
+          "": "%game.action.summon% {1} %data.summon.{0}%",
+          "fly": "%game.action.summon% {1} %data.summon.{0}% %game.actionIcon.fly%"
+        },
+        "fly": {
+          "": "%game.action.summon% %data.summon.{0}% %game.actionIcon.fly%"
+        }
+      },
       "level": "(Level {0})"
     },
     "token": "Segnalino personaggio",
@@ -597,7 +614,7 @@
       "persistent": "Bonus persistente",
       "recover": "Recupera",
       "refresh": "Aggiorna",
-      "round": "Turno bonus",
+      "round": "Bonus Round",
       "slot": "Usa spazio",
       "slotXp": "Usa spazio X Esperienza"
     },
@@ -1169,7 +1186,7 @@
   "or": "oppure",
   "party": {
     "": "Gruppo",
-    "achievements": "Risultati",
+    "achievements": "Traguardi",
     "addGlobalAchievement": {
       "": "Aggiungi risultato globale",
       "empty": "Nessun risultato globale corrispondente trovato"
@@ -1180,7 +1197,7 @@
     },
     "campaign": {
       "": "Campagna",
-      "achievements": "Risultati globali",
+      "achievements": "Traguardi globali",
       "donations": "Donazioni al santuario della Grande Quercia",
       "envelopeB": "Busta B",
       "items": "Oggetti sbloccati",
@@ -1337,7 +1354,7 @@
     },
     "remove": "Rimuovi gruppo",
     "reputation": "Reputazione",
-    "sheet": "Scheda del gruppo",
+    "sheet": "Scheda gruppo",
     "shop": {
       "": "Modificatore di prezzo",
       "none": "Nessuno"
@@ -1387,8 +1404,8 @@
       "hint": "Aggiorna e cambia il gruppo e i progressi della campagna"
     },
     "round": {
-      "": "Turno",
-      "hint": "Controlla i turni e i turni delle unità"
+      "": "Round",
+      "hint": "Controlla i round e i turni delle unità"
     },
     "save": "Salva autorizzazioni",
     "scenario": {
@@ -1399,22 +1416,22 @@
   "round": {
     "draw": "Pesca",
     "hint": {
-      "active": "Non tutte le unità hanno terminato. Finisci il turno comunque?",
-      "battleGoals": "Non tutti i personaggi hanno scelto un'obiettivo di battaglia. Iniziare comunque?",
+      "active": "Non tutte le unità hanno terminato. Finisci il round comunque?",
+      "battleGoals": "Non tutti i personaggi hanno scelto un'obiettivo di battaglia. Inizia il round comunque?",
       "confirm": "Conferma",
       "confirmFailed": "Finisci lo scenario con un fallimento",
       "confirmFinish": "Finisci lo scenario con un successo",
       "confirmReset": "Resetta lo scenario",
       "confirmTurns": "Conferma senza terminare i turni!",
       "continueDraw": "Continua con un pescaggio",
-      "continueNext": "Continua con il prossimo turno",
-      "empty": "Aggiungi mostri e personaggi prima del turno.",
+      "continueNext": "Continua con il prossimo round",
+      "empty": "Aggiungi mostri e personaggi prima del round.",
       "failed": "Tutti i personaggi sembrano esausti. Vuoi riavviare lo scenario?",
       "finish": "Non sono rimasti mostri. Hai finito con successo lo scenario?",
-      "initiativeRoundConfirm": "Tutte le iniziative sono impostate. Inizia il prossimo turno?",
+      "initiativeRoundConfirm": "Tutte le iniziative sono impostate. Inizia il prossimo round?",
       "missingInitiative": "L'iniziativa deve essere impostata per tutte le unità!"
     },
-    "next": "Prossimo turno"
+    "next": "Prossimo round"
   },
   "scenario": {
     "": "Scenario",
@@ -1549,7 +1566,7 @@
         "winter-road": "Aggiungi l'evento {0} al mazzo strada invernale"
       },
       "experience": "{0} esperienza ciascuno",
-      "globalAchievements": "Risultati globali",
+      "globalAchievements": "Traguardi globali",
       "gold": "{0} oro ciascuno",
       "inspiration": "{0} ispirazione",
       "item": "\"{1}\" (Oggetto {0})",
@@ -1562,11 +1579,11 @@
       "location": "Nuova posizione",
       "locations": "Nuove posizioni",
       "lootDeckCard": "Aggiungi la carta bottino {0} a ogni mazzo bottino di scenario oltre alla normale distribuzione del bottino.",
-      "lostPartyAchievements": "Perdite del gruppo",
+      "lostPartyAchievements": "Traguardi del gruppo perduto",
       "morale": "{0} morale",
       "overlayCampaignSticker": "Colloca l'adesivo \"%data.campaignSticker.{0}%\" sulla mappa della città nella posizione {1}",
       "overlaySticker": "Posiziona l'adesivo di sovrapposizione {0} sul luogo della mappa {0} ({1}).",
-      "partyAchievements": "Risultati del gruppo",
+      "partyAchievements": "Traguardi del gruppo",
       "perks": "Ciascuno guadagna {0} talenti",
       "pet": "Aggiungi %data.pets.{1}-{0}% (Animale {0}) alle stalle. Ciò può superare la capacità delle scuderie.",
       "prosperity": "{0} prosperità",
@@ -1631,7 +1648,7 @@
       },
       "finish": {
         "lost": "Scenario perso!",
-        "round": "Prossimo turno!",
+        "round": "Prossimo round!",
         "won": "Scenario vinto!"
       },
       "finishWithConclusion": "Finisci lo scenario con #{0} {1}",
@@ -1988,7 +2005,7 @@
     "applyConditions": {
       "": "Applica stati automaticamente",
       "hint": {
-        "": "Gli stati corrispondenti vengono applicati automaticamente prima e dopo il turno, ad esempio quando l'entità ha una ferita perderà 1 PV all'inizio del suo turno",
+        "": "Gli stati corrispondenti vengono applicati automaticamente prima e dopo il turno, ad esempio quando l'entità ha una ferita perderà 1 PV all'inizio del suo round",
         "bane": "Applica automaticamente il danno da %game.condition.bane% alla fine del turno.",
         "regenerate": "Applica automaticamente %game.condition.regenerate% all'inizio del turno.",
         "wound": "Applica automaticamente il danno da %game.condition.wound% alla fine del turno.",
@@ -2076,7 +2093,7 @@
     },
     "battleGoalsReminder": {
       "": "Promemoria obiettivi di battaglia",
-      "hint": "Mostra un promemoria prima del primo turno se non tutti i personaggi hanno scelto il loro obiettivo di battaglia."
+      "hint": "Mostra un promemoria prima del primo round se non tutti i personaggi hanno scelto il loro obiettivo di battaglia."
     },
     "bbAm": {
       "": "Tira il dado per MA",
@@ -2173,7 +2190,7 @@
     },
     "characterSortIndex": {
       "": "Ordina per giocatore #",
-      "hint": "Ordina i personaggi per numero del giocatore # tra i turni."
+      "hint": "Ordina i personaggi per numero del giocatore # tra i round."
     },
     "characterTraits": {
       "": "Mostra i tratti",
@@ -2334,7 +2351,7 @@
     },
     "initiativeRoundConfirm": {
       "": "Finestra di dialogo dell'iniziativa",
-      "hint": "Mostra una finestra di dialogo per iniziare il prossimo turno quando sono impostate tutte le iniziative."
+      "hint": "Mostra una finestra di dialogo per iniziare il prossimo round quando sono impostate tutte le iniziative."
     },
     "interactiveAbilities": {
       "": "Abilità interattive",
@@ -2384,11 +2401,11 @@
     },
     "moveElements": {
       "": "Aggiorna automaticamente lo stato degli elementi",
-      "hint": "Lo stato degli elementi viene automaticamente modificato prima di ogni turno"
+      "hint": "Lo stato degli elementi viene automaticamente modificato prima di ogni round"
     },
     "partySheet": {
-      "": "Scheda del gruppo",
-      "hint": "Abilita la scheda del gruppo e della campagna. La scheda della campagna si trova sul lato <i>posteriore</i> della scheda del gruppo."
+      "": "Scheda gruppo",
+      "hint": "Abilita le schede gruppo e campagna. La scheda campagna si trova sul lato <i>posteriore</i> della scheda gruppo."
     },
     "pinchZoom": {
       "": "Zoom gestuale",
@@ -2516,7 +2533,7 @@
       "hint": "Pesca automaticamente uno scenario casuale."
     },
     "turnConfirmation": {
-      "": "Conferma turno",
+      "": "Conferma round/turno",
       "hint": "Mostra un promemoria quando fai clic su\"%round.next%\" prima che tutte le unità finiscano i loro turni. Se disabilitato e %settings.expireConditions% o %settings.applyConditions% sono attivi, verrà automaticamente applicato per tutte le unità."
     },
     "unlockEnvelopeBuildings": {
@@ -2571,17 +2588,103 @@
         "summon": "{3}x %game.condition.{2}% '{1}' di {0}",
         "summons": "{2}x %game.condition.{1}% tutte le {0} evocazioni"
       },
+      "addGameCondition": "Aggiungi %game.condition.{0}% alla partita attuale",
+      "addGlobalAchievement": "Aggiungi il traguardo globale '{0}'",
+      "addImmunity": {
+        "char": "%game.immunity.{1}% immunità{0}",
+        "monster": "%game.immunity.{2}% immunità '{1}' di {0}",
+        "monsterEntities": "%game.immunity.{1}% immunità a tutti {2}{0}",
+        "objective": "%game.immunity.{1}% immunità {0}",
+        "objectiveContainer": "%game.immunity.{2}% immunità %game.objectiveMarker.{1}% di {0}",
+        "objectives": "%game.immunity.{1}% immunità a tutti {0}",
+        "summon": "%game.immunity.{2}% immunità '{1}' di {0}",
+        "summons": "%game.immunity.{1}% immunità a tutte le {0} evocazioni"
+      },
+      "addItem": "Aggiungi l'oggetto {1} (%data.edition.{2}%) a {0}",
+      "addManualScenario": "Sblocca lo scenario #{0} {1} ({2})",
+      "addMarker": {
+        "char": "%data.characterIconColored.{2}% {1} segnalino a {0}",
+        "monster": "%data.characterIconColored.{3}% {2} segnalino a '{1}' di {0}",
+        "monsterEntities": "%data.characterIconColored.{2}% {1} segnalino a tutti {2}{0}",
+        "objective": "%data.characterIconColored.{2}% {1} segnalino a {0}",
+        "objectiveContainer": "%data.characterIconColored.{3}% {2} segnalino a %game.objectiveMarker.{1}% di {0}",
+        "objectives": "%data.characterIconColored.{2}% {1} segnalino a tutti {0}",
+        "summon": "%data.characterIconColored.{3}% {2} segnalino a '{1}' di {0}",
+        "summons": "%data.characterIconColored.{2}% {1} segnalino a tutte le {0} evocazioni"
+      },
+      "addMastery": "Controlla la maestria {1} per{0}",
+      "addMonster": "Aggiungi mostro {0}",
+      "addNextStandee": "Aggiungi {1} {0} pedina",
+      "addObjective": {
+        "": "Aggiungi obiettivo",
+        "entity": "Aggiungi %game.objectiveMarker.{0}% a {1}",
+        "escort": "Aggiungi scorta"
+      },
+      "addParty": "Crea nuovo gruppo '{0}'",
+      "addPartyAchievement": "Aggiungi traguardo di gruppo '{0}'",
+      "addPartyTownGuardPerkSection": "Aggiungi la sezione talenti della guardia cittadina {0}",
+      "addPartyWeekSection": "Aggiungi la sezione {2} alla settimana {1}",
+      "addRandomStandee": "Aggiungi {1} {0} pedina casuale {2}",
+      "addResource": "Aggiungi +{2} {1} per {0}",
+      "addSection": "Aggiungi sezione #{0} {1} ({2})",
+      "addSpecialTags": "Aggiungi azioni speciali {1} per {0}",
+      "addSpecialTagsSummon": "Aggiungi azioni speciali {1} per {2} di {0}",
+      "addStandee": "Aggiungi {1} {0} pedina {2}",
+      "addSummon": "Aggiungi evocazione '{1}' per {0}",
+      "addTreasure": "Aggiungi tesoro {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
+      "addTreasures": "Aggiungi tesoro {1} (%data.edition.{0}%)",
+      "applyCondition": {
+        "char": "Applica %game.condition.{1}% a {0}",
+        "monster": "Applica %game.condition.{2}% a '{1}' di {0}",
+        "monsterEntities": "Applica %game.condition.{1}% a tutti {2}{0}",
+        "objective": "Applica %game.condition.{1}% a {0}",
+        "objectiveContainer": "Applica %game.condition.{2}% a %game.objectiveMarker.{1}% di {0}",
+        "summon": "Applica %game.condition.{2}% a '{1}' di {0}"
+      },
+      "applyHighlightAction": {
+        "condition": "%game.condition.{0}%",
+        "elementConsume": "Consuma {0}",
+        "elementInfuse": "Infondi {0}",
+        "heal": "%game.action.heal% {0}",
+        "spawn": "Genera",
+        "sufferDamage": "Subisci %game.damage:{0}%",
+        "summon": "Evoca",
+        "switchType": "Scambia tra %game.monsterType.normal% e %game.monsterType.elite%"
+      },
+      "applyInteractiveActions": "Applica {0} per le pedine {1} di {2}",
+      "applyScenarioRule": "Applica la regola dello scenario",
+      "battleGoals": {
+        "deselect": "Deseleziona l'obiettivo di battaglia attuale di {0}",
+        "drawCard": "Pesca un'altra carta obiettivo di battaglia per {0}",
+        "drawCards": "Pesca le carte obiettivo di battaglia per {0}",
+        "select": "Seleziona l'obiettivo di battaglia {0}",
+        "setup": {
+          "addEdition": "Aggiungi le carte obiettivo di battaglia dall'edizione %data.edition.{0} %"
+        }
+      },
       "challengeDeck": {
         "clear": "Scarta le sfide pescate"
       },
-      "clearDiscardedScenarioRules": "Elimina le regole di scenario scartate"
+      "clearDiscardedScenarioRules": "Elimina le regole di scenario scartate",
+      "nextRound": "Prossimo round",
+      "setPartyAchievements": "Traguardi del gruppo",
+      "updateGlobalAchievements": "Traguardi globali di {0}",
+      "updatePartyAchievements": "Traguardi di gruppo di {0}"
     },
     "redo": "Ripeti",
     "undo": "Cancella"
   },
   "tools": {
+    "feedback": {
+      "submitScenario": {
+        "notes": {
+          "hint": "per esempio, regole speciali di scenario come gli aggiustamenti del livello dei mostri, eventi di round o calcoli PV…"
+        }
+      }
+    },
     "keyboard": {
       "redo": "Ripeti",
+      "round": "Prossimo round / pescaggio",
       "undo": "Cancella"
     }
   },
