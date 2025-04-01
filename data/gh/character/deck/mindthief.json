@@ -440,7 +440,7 @@
           "type": "move",
           "value": 3,
           "enhancementTypes": [
-            "cirlce"
+            "circle"
           ]
         },
         {
@@ -673,7 +673,7 @@
       ]
     },
     {
-      "name": "Possesion",
+      "name": "Possession",
       "cardId": 157,
       "level": "X",
       "initiative": 51,
@@ -1776,7 +1776,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Force one normal or elite enemy within %game.action.range:5% to perfom its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.<br><br>To signify this, place one of your character tokens on this enemy for the round.",
+          "value": "Force one normal or elite enemy within %game.action.range:5% to perform its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.<br><br>To signify this, place one of your character tokens on this enemy for the round.",
           "small": true
         },
         {

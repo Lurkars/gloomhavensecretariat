@@ -184,7 +184,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Any enemy who targets one of your adjacent allies with an attack this rount targets you with that attack instead, regardless of the attack's range.",
+          "value": "Any enemy who targets one of your adjacent allies with an attack this round targets you with that attack instead, regardless of the attack's range.",
           "small": true
         },
         {
@@ -194,7 +194,7 @@
       ]
     },
     {
-      "name": "Overhelming Assault",
+      "name": "Overwhelming Assault",
       "cardId": 5,
       "level": 1,
       "initiative": 61,
