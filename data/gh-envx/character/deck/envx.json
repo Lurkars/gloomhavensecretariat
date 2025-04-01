@@ -451,8 +451,8 @@
             },
             {
               "type": "custom",
-              "small": true,
-              "value": "with you controlling the actions."
+              "value": "with you controlling the actions.",
+              "small": true
             }
           ]
         }
@@ -524,8 +524,8 @@
             },
             {
               "type": "custom",
-              "small": true,
-              "value": "with you controlling the actions."
+              "value": "with you controlling the actions.",
+              "small": true
             }
           ]
         }

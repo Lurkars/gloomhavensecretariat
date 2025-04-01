@@ -31,14 +31,14 @@
             {
               "type": "heal",
               "value": 3,
+              "small": true,
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self",
                   "small": true
                 }
-              ],
-              "small": true
+              ]
             }
           ]
         }

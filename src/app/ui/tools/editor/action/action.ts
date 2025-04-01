@@ -4,6 +4,7 @@ import { Component, EventEmitter, Inject, Input, OnInit, Output } from "@angular
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ActionHex, ActionHexFromString, ActionHexToString, ActionHexType } from "src/app/game/model/ActionHex";
+import { Character } from "src/app/game/model/Character";
 import { Action, ActionCardType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/data/Action";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
 import { Element } from "src/app/game/model/data/Element";
@@ -22,7 +23,11 @@ export class EditorActionComponent implements OnInit {
   @Input() action!: Action;
   @Input() actionTypes: ActionType[] = Object.values(ActionType);
   @Input() hideValues: boolean = false;
+  @Input() subactionIndex: number | undefined;
+  @Input() character: Character | undefined;
+  @Input() cardId: number | undefined;
   @Output() actionChange = new EventEmitter<Action>();
+  @Output() subActionRemoved = new EventEmitter<number>();
   conditionNames: ConditionName[] = Object.values(ConditionName);
   ActionType = ActionType;
   ActionSpecialTarget: ActionSpecialTarget[] = Object.values(ActionSpecialTarget);
@@ -57,7 +62,7 @@ export class EditorActionComponent implements OnInit {
       hexes.forEach((other) => this.fillHexes(other, hexes));
       this.hexAction.value = hexes.map((hex) => ActionHexToString(hex)).join('|');
       this.change();
-    } else if (this.action.type == ActionType.condition || this.action.type == ActionType.specialTarget || this.action.type == ActionType.card) {
+    } else if (this.action.type == ActionType.condition || this.action.type == ActionType.specialTarget || this.action.type == ActionType.card || this.action.type == ActionType.elementHalf) {
       if (('' + this.action.value).indexOf(':') != -1) {
         this.value = ('' + this.action.value).split(':')[0];
         this.subValue = ('' + this.action.value).split(':')[1];
@@ -280,6 +285,13 @@ export class EditorActionComponent implements OnInit {
     this.change();
   }
 
+  changeElementHalf() {
+    if (this.Elements.indexOf(this.value as Element) != -1 && this.Elements.indexOf(this.subValue as Element) != -1) {
+      this.action.value = this.value + ":" + this.subValue;
+    }
+    this.change();
+  }
+
   dropSubAction(event: CdkDragDrop<number>) {
     moveItemInArray(this.action.subActions, event.previousIndex, event.currentIndex);
     gameManager.uiChange.emit();
@@ -384,7 +396,7 @@ export class EditorActionDialogComponent {
   relative: boolean = true;
   noPreview: ActionType[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public data: { action: Action }, private dialogRef: DialogRef) { }
+  constructor(@Inject(DIALOG_DATA) public data: { action: Action, character: Character, cardId: number }, private dialogRef: DialogRef) { }
 
   deleteAction() {
     this.dialogRef.close(false);

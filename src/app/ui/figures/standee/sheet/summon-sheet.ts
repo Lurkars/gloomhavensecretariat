@@ -30,6 +30,7 @@ export class SummonSheetComponent implements OnInit, OnDestroy {
 
     settingsManager: SettingsManager = settingsManager;
     enhancementActions: Action[] = [];
+    hasSummon: boolean = false;
 
     ngOnInit(): void {
         this.update();
@@ -49,6 +50,7 @@ export class SummonSheetComponent implements OnInit, OnDestroy {
     }
 
     update() {
+        this.hasSummon = this.summon != undefined;
         this.fhStyle = settingsManager.settings.fhStyle && !this.style || this.style == 'fh';
         this.enhancementActions = [];
         if (this.summonData) {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { InteractiveAction } from 'src/app/game/businesslogic/ActionsManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -23,7 +23,7 @@ export const ActionTypesHelper: ActionType[] = [ActionType.concatenation, Action
   templateUrl: './action.html',
   styleUrls: ['./action.scss']
 })
-export class ActionComponent implements OnInit, OnDestroy {
+export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Input() monster: Monster | undefined;
   @Input() monsterType: MonsterType | undefined;
@@ -43,6 +43,8 @@ export class ActionComponent implements OnInit, OnDestroy {
   @Input() style: 'gh' | 'fh' | false = false;
   @Input() character: Character | undefined;
   @Input() cardId: number | undefined;
+
+  @ViewChild('enhancementContainer') enhancementContainer: ElementRef | undefined;
 
   action!: Action | undefined;
   normalValue: number | string = "";
@@ -86,6 +88,11 @@ export class ActionComponent implements OnInit, OnDestroy {
     if (this.uiChangeSubscription) {
       this.uiChangeSubscription.unsubscribe();
     }
+  }
+
+  ngAfterViewInit(): void {
+    // hacky enhancments in label texts
+    this.enhancmenetElementReplace();
   }
 
   update() {
@@ -140,6 +147,10 @@ export class ActionComponent implements OnInit, OnDestroy {
     }
 
     this.isInteractiveApplicableAction = this.interactiveAbilities && this.monster && this.monster.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || this.objective && this.objective.entities.some((entity) => this.origAction && gameManager.actionsManager.isInteractiveApplicableAction(entity, this.origAction, this.actionIndex)) || false;
+
+    if (this.enhancementContainer) {
+      this.enhancmenetElementReplace();
+    }
   }
 
   hasEntities(type: MonsterType | string | undefined = undefined): boolean {
@@ -329,13 +340,13 @@ export class ActionComponent implements OnInit, OnDestroy {
       return;
     }
     this.elementActions = [];
-    if (settingsManager.settings.fhStyle && [ActionType.element, ...ActionTypesHelper].indexOf(this.action.type) == -1) {
+    if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.elementHalf, ...ActionTypesHelper].indexOf(this.action.type) == -1) {
       this.action.subActions.forEach((action) => {
-        if (action.type == ActionType.element) {
+        if (action.type == ActionType.element || action.type == ActionType.elementHalf) {
           this.elementActions.push(action);
         }
       });
-      this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element);
+      this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element && action.type != ActionType.elementHalf);
     }
 
     this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.nonCalc);
@@ -634,5 +645,17 @@ export class ActionComponent implements OnInit, OnDestroy {
 
   onInteractiveActionsChange(change: InteractiveAction[]) {
     this.interactiveActionsChange.emit(change);
+  }
+
+  enhancmenetElementReplace() {
+    if (this.origAction && this.origAction.enhancementTypes && this.origAction.enhancementTypes.length && this.enhancementContainer) {
+      const enhancementElements = this.enhancementContainer.nativeElement.getElementsByClassName('placeholder-enhancement');
+      const ghsEnhancements = this.enhancementContainer.nativeElement.getElementsByTagName('ghs-action-enhancements');
+      for (let i = 0; i < ghsEnhancements.length; i++) {
+        if (enhancementElements[0] && enhancementElements[0].parentElement != ghsEnhancements[i].parentElement) {
+          enhancementElements[0].parentElement.replaceChild(ghsEnhancements[i], enhancementElements[0]);
+        }
+      }
+    }
   }
 }

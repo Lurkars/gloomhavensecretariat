@@ -151,6 +151,7 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
@@ -161,8 +162,7 @@
                       "type": "condition",
                       "value": "immobilize"
                     }
-                  ],
-                  "small": true
+                  ]
                 }
               ]
             }
@@ -273,7 +273,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(2,0,target)|(1,1,target)|(2,1,target)|(1,2,active)|(2,2,target)|(3,2,target)"
+              "value": "(1,1,target)|(1,2,active)|(2,0,target)|(2,1,target)|(2,2,target)|(3,2,target)"
             }
           ]
         },

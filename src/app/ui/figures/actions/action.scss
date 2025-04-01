@@ -156,10 +156,8 @@
 
 
   .action-default .main-action,
-  .action-custom,
   .action-grant,
   .action-trigger,
-  .action-specialTarget,
   .action-condition {
     filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
   }
@@ -199,6 +197,18 @@
 
   .action-area {
     margin-top: 0.3em;
+  }
+
+  .enhancements-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
+  }
+
+  ghs-action-enhancements-custom-label {
+    font-size: 1em;
+    line-height: 1em;
   }
 
   .custom-value,
@@ -376,7 +386,6 @@
   .action-element {
     display: grid;
     grid-template-columns: auto auto;
-    column-gap: 0.3em;
     align-items: flex-start;
     margin-top: 0.5%;
 
@@ -447,20 +456,10 @@
         }
       }
 
-      &.elements-half {
-        width: 2.5em;
-        height: 1.25em;
-        margin-left: 0.3em;
-      }
-
       .element-half-container {
-
         overflow: visible;
-
-        .element-half {
-          top: -50%;
-          height: 200%;
-        }
+        width: 1.2em;
+        height: 1.2em;
 
         &::after {
           filter: var(--ghs-filter-white);
@@ -652,6 +651,7 @@
 
     .action-concatenation-item {
       margin: 0 0.15em;
+      filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
     }
   }
 
@@ -795,9 +795,7 @@
 
 
   .special-target-value {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
   }
 
   ghs-action.subaction-monsterType {
@@ -1002,6 +1000,10 @@
       width: 100%;
     }
 
+    .action-custom .enhancements-container ghs-action-enhancements {
+      width: auto;
+    }
+
     .custom-value,
     .grant-value,
     .special-target-value {
@@ -1171,6 +1173,8 @@
     }
 
     .element-subactions {
+      max-width: 80%;
+
       .subaction-element {
         .action-element {
           padding: 0;
@@ -1181,7 +1185,7 @@
     .element-actions {
       flex-basis: 100%;
 
-      .action-element {
+      >.subaction-element>.action>.action-element {
 
         margin-top: 0.5em;
 
@@ -1210,7 +1214,16 @@
       padding: 0.2em;
 
       .elements {
+
+        &.elements-half {
+          width: 2.5em;
+          height: 1.25em;
+          margin-left: 0.3em;
+        }
+
         .element-half-container {
+          width: 100%;
+
           .element-half {
             top: initial;
             height: 100%;

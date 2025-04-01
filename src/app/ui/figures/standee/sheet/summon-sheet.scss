@@ -92,6 +92,12 @@
                 justify-self: start;
             }
 
+            .placeholder {
+                display: flex;
+                align-items: baseline;
+                height: 100%;
+            }
+
             ghs-action-enhancements {
                 margin-left: -25%;
             }

@@ -69,7 +69,6 @@
             {
               "type": "summon",
               "value": "monsterStandee",
-              "small": true,
               "valueObject": [
                 {
                   "monster": {
@@ -87,7 +86,8 @@
                     "player4": "elite"
                   }
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }

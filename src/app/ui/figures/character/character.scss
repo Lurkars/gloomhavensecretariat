@@ -620,7 +620,7 @@
       align-items: center;
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
       filter: var(--ghs-filter-shadow);
-      width: calc(var(--ghs-unit) * 8.5);
+      width: calc(var(--ghs-unit) * 6.5);
       margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
       margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
 
@@ -696,14 +696,15 @@
     position: relative;
     cursor: pointer;
     height: 100%;
-    width: calc(var(--ghs-unit) * 12);
+    width: calc(var(--ghs-unit) * 10);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: calc(var(--ghs-unit) * 4);
+    margin-left: calc(var(--ghs-unit) * 2);
 
     &.hand-size-margin {
-      margin-left: calc(var(--ghs-unit) * 0.5);
+      margin-left: calc(var(--ghs-unit) * 4.5);
     }
 
     img {

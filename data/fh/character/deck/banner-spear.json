@@ -70,7 +70,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,0,ally)|(0,1,target)|(1,0,enhance)|(0,2,active)",
+              "value": "(0,0,ally)|(0,1,target)|(0,2,active)|(1,0,enhance)",
               "enhancementTypes": [
                 "hex"
               ]
@@ -117,7 +117,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,0,target)|(0,1,ally)|(1,0,target)|(2,0,target)|(1,1,active)"
+              "value": "(0,0,target)|(0,1,ally)|(1,0,target)|(1,1,active)|(2,0,target)"
             },
             {
               "type": "push",
@@ -158,15 +158,15 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true
             }
-          ],
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {

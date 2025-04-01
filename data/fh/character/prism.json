@@ -170,7 +170,7 @@
           {
             "type": "specialTarget",
             "small": true,
-            "value": "adjacentEnemies"
+            "value": "enemiesAdjacent"
           }
         ]
       }

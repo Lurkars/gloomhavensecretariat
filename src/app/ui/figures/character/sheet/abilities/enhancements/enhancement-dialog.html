@@ -6,7 +6,7 @@
         <div class="action">
             <ghs-action [action]="action" [relative]="false" [character]="character" [index]="data.actionIndex || ''"
                 [cardId]="data.cardId"></ghs-action>
-            <ghs-editor-action [action]="action" *ngIf="customAction || wipSpecial" [actionTypes]="actionTypes"
+            <ghs-editor-action [action]="action" *ngIf="customAction || wipSpecial || customSpecial" [actionTypes]="actionTypes"
                 [hideValues]="true" (actionChange)="update()"></ghs-editor-action>
         </div>
 

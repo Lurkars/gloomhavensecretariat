@@ -31,6 +31,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
     character: Character | undefined;
     customAction: boolean;
     wipSpecial: boolean = false;
+    customSpecial: boolean = false;
 
     actionTypes: ActionType[] = [];
     enhancementAction: EnhancementAction = "plus1";
@@ -83,6 +84,26 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
             this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && (!gameManager.enhancementsManager.fh || this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom'))).length || 0;
 
             this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((e) => e.cardId).filter((cardId, index, self) => index == self.indexOf(cardId)).length;
+
+            if ([ActionType.custom, ActionType.specialTarget].indexOf(this.data.action.type) != -1 && this.data.action.enhancementTypes && !this.wipSpecial) {
+                this.customSpecial = true;
+                const enhancementType = this.data.action.enhancementTypes[this.data.enhancementIndex];
+                switch (enhancementType) {
+                    case EnhancementType.square:
+                        this.actionTypes = gameManager.enhancementsManager.squareActions;
+                        break;
+                    case EnhancementType.circle:
+                        this.actionTypes = gameManager.enhancementsManager.circleActions;
+                        break;
+                    case EnhancementType.diamond:
+                        this.actionTypes = gameManager.enhancementsManager.diamondActions;
+                        break;
+                    case EnhancementType.diamond_plus:
+                        this.actionTypes = gameManager.enhancementsManager.diamondPlusActions;
+                        break;
+                }
+                this.action = new Action(this.actionTypes[0], 1);
+            }
         } else {
             this.customAction = true;
         }
@@ -144,8 +165,9 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
         }
 
         if (this.data.action && (this.enhancementAction == "plus1" || this.enhancementAction == "hex")) {
-            if (this.wipSpecial) {
+            if (this.wipSpecial || this.customSpecial) {
                 this.enhanceAction = this.action;
+                this.enhanceAction.enhancementTypes = this.data.action.enhancementTypes;
             } else {
                 this.enhanceAction = new Action(this.data.action.type, this.data.action.value, this.data.action.valueType);
             }

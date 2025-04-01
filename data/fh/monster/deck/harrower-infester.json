@@ -181,7 +181,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(1,1,target)|(2,0,target)|(1,2,target)|(0,3,active)"
+              "value": "(0,3,active)|(1,1,target)|(1,2,target)|(2,0,target)"
             }
           ]
         },

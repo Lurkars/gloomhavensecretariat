@@ -236,6 +236,13 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-trait">' + image + settingsManager.getLabel('data.character.traits.' + value) + '</span>';
       } else if (type == "eventCheckbox" && value) {
         replace = '<span class="event-checkbox">' + value + '</span>';
+      } else if (type == "enhancement" && split.length == 3) {
+        if (!fh || split[2] === 'any') {
+          image = '<img class="enhancement-icon" src="./assets/images/character/abilities/enhancements/circle.svg">';
+        } else {
+          image = '<img class="enhancement-icon" src="./assets/images/fh/character/abilities/enhancements/' + split[2] + '.svg">';
+        }
+        replace = '<span class="placeholder-enhancement">' + image + '</span>';
       } else {
         let labelArgs = label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));

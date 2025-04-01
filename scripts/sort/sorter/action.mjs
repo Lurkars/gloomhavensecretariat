@@ -3,7 +3,11 @@ import { sortObjectKeys } from './sort-helper.mjs';
 export const sortAction = function (action) {
 
     if (action.subActions) {
-        action.subActions = action.subActions.sort((subAction) => sortAction(subAction));
+        action.subActions = action.subActions.map((subAction) => sortAction(subAction));
+
+        if (action.subActions.length == 0) {
+            delete action.subActions;
+        }
     }
 
     if (action.hidden == false) {
@@ -12,6 +16,10 @@ export const sortAction = function (action) {
 
     if (action.small == false) {
         delete action.small;
+    }
+
+    if (action.enhancementTypes && action.enhancementTypes.length == 0) {
+        delete action.enhancementTypes;
     }
 
     // sort area effects by coordinates
@@ -45,5 +53,5 @@ export const sortAction = function (action) {
         action.value = hexes.map((actionHex) => "(" + actionHex.x + "," + actionHex.y + "," + actionHex.type + (actionHex.value ? ":" + actionHex.value : "") + ")").join('|');
     }
 
-    return sortObjectKeys(action, 'type', 'value', 'valueType', 'valueObject', 'small', 'subActions');
+    return sortObjectKeys(action, 'type', 'value', 'valueType', 'valueObject', 'small', 'enhancementTypes', 'subActions');
 }

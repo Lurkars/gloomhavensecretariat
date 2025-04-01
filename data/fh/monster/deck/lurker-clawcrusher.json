@@ -45,6 +45,7 @@
             {
               "type": "custom",
               "value": "%data.custom.fh.lurker-clawcrusher.1%",
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
@@ -58,8 +59,7 @@
                     }
                   ]
                 }
-              ],
-              "small": true
+              ]
             }
           ]
         }
@@ -176,6 +176,7 @@
             {
               "type": "custom",
               "value": "%data.custom.fh.lurker-clawcrusher.1%",
+              "small": true,
               "subActions": [
                 {
                   "type": "element",
@@ -189,8 +190,7 @@
                     }
                   ]
                 }
-              ],
-              "small": true
+              ]
             }
           ]
         }

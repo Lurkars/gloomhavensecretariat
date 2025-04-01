@@ -31,7 +31,7 @@
                       "subActions": [
                         {
                           "type": "area",
-                          "value": "(0,1,target)|(1,0,target)|(1,1,target)|(0,2,active)|(1,2,target)|(2,2,target)",
+                          "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,2,target)",
                           "small": true
                         }
                       ]
@@ -150,6 +150,7 @@
             {
               "type": "custom",
               "value": "The Vanquisher<br>with the lowest<br>current hit point<br>value performs",
+              "small": true,
               "subActions": [
                 {
                   "type": "heal",
@@ -168,12 +169,12 @@
                     }
                   ]
                 }
-              ],
-              "small": true
+              ]
             },
             {
               "type": "custom",
               "value": "The Vanquisher with the<br>highest current hit point<br>value performs",
+              "small": true,
               "subActions": [
                 {
                   "type": "move",
@@ -192,8 +193,7 @@
                     }
                   ]
                 }
-              ],
-              "small": true
+              ]
             }
           ]
         },

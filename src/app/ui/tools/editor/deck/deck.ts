@@ -4,11 +4,11 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
 import { Ability } from "src/app/game/model/data/Ability";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
-import { Character } from "src/app/game/model/Character";
-import { CharacterStat } from "src/app/game/model/data/CharacterStat";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
+import { CharacterStat } from "src/app/game/model/data/CharacterStat";
 import { DeckData } from "src/app/game/model/data/DeckData";
 import { Monster } from "src/app/game/model/Monster";
 import { environment } from "src/environments/environment";
@@ -62,7 +62,7 @@ export function compactAction(action: any) {
 }
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-deck-editor',
     templateUrl: './deck.html',
     styleUrls: ['../editor.scss', './deck.scss']
@@ -261,7 +261,7 @@ export class DeckEditorComponent implements OnInit {
         ability.actions.push(action);
         const dialog = this.dialog.open(EditorActionDialogComponent, {
             panelClass: ['dialog'],
-            data: { action: action }
+            data: { action: action, character: this.getCharacter(), cardId: ability.cardId }
         });
 
         dialog.closed.subscribe({
@@ -277,7 +277,7 @@ export class DeckEditorComponent implements OnInit {
     editAbilityAction(ability: Ability, action: Action) {
         const dialog = this.dialog.open(EditorActionDialogComponent, {
             panelClass: ['dialog'],
-            data: { action: action }
+            data: { action: action, character: this.getCharacter(), cardId: ability.cardId }
         });
 
         dialog.closed.subscribe({
@@ -303,7 +303,7 @@ export class DeckEditorComponent implements OnInit {
         ability.bottomActions.push(action);
         const dialog = this.dialog.open(EditorActionDialogComponent, {
             panelClass: ['dialog'],
-            data: { action: action }
+            data: { action: action, character: this.getCharacter(), cardId: ability.cardId }
         });
 
         dialog.closed.subscribe({
@@ -319,7 +319,7 @@ export class DeckEditorComponent implements OnInit {
     editAbilityActionBottom(ability: Ability, action: Action) {
         const dialog = this.dialog.open(EditorActionDialogComponent, {
             panelClass: ['dialog'],
-            data: { action: action }
+            data: { action: action, character: this.getCharacter(), cardId: ability.cardId }
         });
 
         dialog.closed.subscribe({

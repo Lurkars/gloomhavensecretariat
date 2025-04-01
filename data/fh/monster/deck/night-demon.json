@@ -46,13 +46,13 @@
             {
               "type": "condition",
               "value": "invisible",
+              "small": true,
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ],
-              "small": true
+              ]
             }
           ]
         }
@@ -200,13 +200,13 @@
             {
               "type": "condition",
               "value": "curse",
+              "small": true,
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ],
-              "small": true
+              ]
             }
           ]
         }

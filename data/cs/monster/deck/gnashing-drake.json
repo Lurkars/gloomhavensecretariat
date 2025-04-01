@@ -137,7 +137,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(1,0,target)|(2,0,target)|(0,1,active)|(1,1,target)"
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(2,0,target)"
             },
             {
               "type": "condition",
@@ -193,7 +193,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(1,0,target)|(0,1,target)|(1,1,target)"
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
             },
             {
               "type": "range",

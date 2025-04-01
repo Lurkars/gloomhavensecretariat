@@ -17,8 +17,7 @@
       <span class="condition-image">
         <img class="icon" *ngIf="getConditionName(values[0]) != 'invalid'"
           [src]="'./assets/images' + (fhStyle ? '/fh' : '') + '/condition/' + getConditionName(values[0]) + '.svg'" />
-        <img class="icon warning" *ngIf="getConditionName(values[0]) == 'invalid'"
-          src="./assets/images/warning.svg" />
+        <img class="icon warning" *ngIf="getConditionName(values[0]) == 'invalid'" src="./assets/images/warning.svg" />
         <span *ngIf="values.length > 1" class="value">{{values[1]}}</span>
       </span>
 
@@ -106,16 +105,24 @@
   </ng-container>
 
   <span class="action-specialTarget" *ngSwitchCase="ActionType.specialTarget">
-    <span class="special-target-value" [ghs-label]="('game.specialTarget.' + values[0])"
-      [ghs-label-args]="values.splice(1)" [relative]="relative || forceRelative" [style]="style"
-      [ngClass]="{'text-white' : !textBlack && !right, 'small' : action.small}"></span>
-    <span
-      *ngIf="[ 'alliesRange:',  'alliesRangeAffect:','allyAffectRange:', 'enemiesRange:', 'enemiesRangeAffect:', 'enemyRange:'].indexOf(action.value + '') != -1"
-      [ngClass]="{'small' : action.small}">
-      <span>{{getRange()}}</span>
-      <span *ngIf="getEliteRange() && getRange() != getEliteRange()">/</span>
-      <span *ngIf="getEliteRange() && getRange() != getEliteRange()" class="elite">{{getEliteRange()}}</span>
-    </span>
+    <div class="enhancements-container" #enhancementContainer>
+      <span class="special-target-value" [ghs-label]="('game.specialTarget.' + values[0])"
+        [ghs-label-args]="values.slice(1)" [relative]="relative || forceRelative" [style]="style"
+        [ngClass]="{'text-white' : !textBlack && !right, 'small' : action.small}"></span>
+      <span
+        *ngIf="[ 'alliesRange:',  'alliesRangeAffect:','allyAffectRange:', 'enemiesRange:', 'enemiesRangeAffect:', 'enemyRange:'].indexOf(action.value + '') != -1"
+        [ngClass]="{'small' : action.small}">
+        <span>{{getRange()}}</span>
+        <span *ngIf="getEliteRange() && getRange() != getEliteRange()">/</span>
+        <span *ngIf="getEliteRange() && getRange() != getEliteRange()" class="elite">{{getEliteRange()}}</span>
+      </span>
+
+      <ng-container
+        *ngFor="let i of [] | ghsRange:(character && cardId && origAction && origAction.enhancementTypes && origAction.enhancementTypes.length || 0)">
+        <ghs-action-enhancements [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"
+          [slot]="i"></ghs-action-enhancements>
+      </ng-container>
+    </div>
 
     <div class="special-target-subactions" *ngIf="subActions.length > 0;">
       <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">
@@ -133,12 +140,26 @@
   </span>
 
   <span class="action-custom" *ngSwitchCase="ActionType.custom">
-    <span class="custom-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"
-      [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"></span>
+    <div *ngIf="!action.enhancementTypes || action.enhancementTypes[0] != 'any'" class="enhancements-container"
+      #enhancementContainer>
+      <span class="custom-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"
+        [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"></span>
 
-    <ghs-action-enhancements
-      *ngIf="origAction.enhancementTypes && origAction.enhancementTypes.length && character && cardId"
-      [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"></ghs-action-enhancements>
+      <ng-container
+        *ngFor="let i of [] | ghsRange:(character && cardId && origAction && origAction.enhancementTypes && origAction.enhancementTypes.length || 0)">
+        <ghs-action-enhancements [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"
+          [slot]="i"></ghs-action-enhancements>
+      </ng-container>
+    </div>
+
+    <ng-container *ngIf="action.enhancementTypes && action.enhancementTypes[0] == 'any'">
+      <span class="custom-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"
+        [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"></span>
+
+      <ghs-action-enhancements
+        *ngIf="origAction.enhancementTypes && origAction.enhancementTypes.length && character && cardId"
+        [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"></ghs-action-enhancements>
+    </ng-container>
 
     <div class="custom-subactions" *ngIf="subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"

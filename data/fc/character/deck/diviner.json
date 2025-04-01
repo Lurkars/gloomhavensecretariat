@@ -11,7 +11,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top three cards of any attack modifier deck, then place them back in any order.",
+          "value": "Reveal the top four cards of any attack modifier deck, then place them back in any order.",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -20,45 +21,37 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top five cards instead, %game.card.experience:1%.",
-                  "small": true,
-                  "hidden": false
+                  "value": "Reveal the top six cards instead, %game.card.experience:1%.",
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "heal",
           "value": 1,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
-              "type": "custom",
-              "value": "Affect all allies",
-              "small": true,
-              "hidden": false
+              "type": "specialTarget",
+              "value": "alliesAffect",
+              "small": true
             },
             {
               "type": "condition",
               "value": "regenerate",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "element",
-              "value": "light",
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
+        },
+        {
+          "type": "element",
+          "value": "light"
         }
       ]
     },
@@ -70,7 +63,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top two cards of any attack modifier deck, then place up to one card on the bottom of the deck and the rest on top in any order.",
+          "value": "Reveal the top three cards of any attack modifier deck, then place up to one card on the bottom of the deck and the rest on top in any order.",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -79,16 +73,12 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top four cards instead, then place up to two cards on the bottom of the deck and the rest on top in any order, %game.card.experience:1%.",
-                  "small": true,
-                  "hidden": false
+                  "value": "Reveal the top five cards instead, then place up to two cards on the bottom of the deck and the rest on top in any order, %game.card.experience:1%.",
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -100,27 +90,23 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false
-            },
-            {
-              "type": "target",
-              "value": 2,
-              "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
-              "type": "element",
-              "value": "dark",
-              "hidden": false
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "circle"
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     },
@@ -136,43 +122,38 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "alliesRangeAffect:2",
-              "hidden": false,
+              "value": "alliesRangeAffect:2 %game.enhancement.circle%",
+              "small": true,
               "enhancementTypes": [
                 "circle"
-              ],
-              "small": true
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": 0,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light"
             },
             {
-              "type": "concatenation",
-              "value": 0,
-              "subActions": [
-                {
-                  "type": "element",
-                  "value": "light",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "round",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "type": "card",
+              "value": "experience:1"
+            },
+            {
+              "type": "card",
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
           "value": "Reveal the top two cards of any non-boss monster ability card deck, then place them back in any order.",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -181,30 +162,14 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top four",
-                  "small": true,
-                  "hidden": false
-                },
-                {
-                  "type": "custom",
-                  "value": "cards instead, %game.card.experience:1%.",
-                  "small": true,
-                  "hidden": false
+                  "value": "Reveal the top four cards instead, %game.card.experience:1%.",
+                  "small": true
                 }
-              ],
-              "hidden": false
-            },
-            {
-              "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Clairvoyance",
@@ -214,39 +179,37 @@
       "actions": [
         {
           "type": "custom",
-          "value": "When any ally within %game.action.range:2% is attacked this round, consider any positive and %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead.",
+          "value": "When any ally within %game.action.range:3% %game.enhancement.circle% is attacked this round, consider any positive and %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead.",
+          "small": true,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
           "subActions": [
             {
-              "type": "concatenation",
-              "value": "",
-              "subActions": [
-                {
-                  "type": "element",
-                  "value": "dark",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "round",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            },
+            {
+              "type": "card",
+              "value": "round"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Reveal the top card of all non-boss monster ability card decks.",
+          "value": "Reveal the top card of any two non-boss monster ability card decks, then place up to one card of each deck on the bottom of its deck, and the rest on top of their respective decks in any order.",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -255,24 +218,14 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Additionally, you may place any number of revealed cards on the bottoms of their decks, %game.card.experience:1%.",
-                  "small": true,
-                  "hidden": false
+                  "value": "Reveal the top two cards of both decks instead, %game.card.experience:1%.",
+                  "small": true
                 }
-              ],
-              "hidden": false
-            },
-            {
-              "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Otherworldly Journey",
@@ -282,24 +235,39 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Force one enemy within %game.action.range:3% to %game.action.teleport% to any unoccupied hex within 2 hexes of you.",
+          "value": "Force one enemy within %game.action.range:3% to %game.action.teleport% to any unoccupied hex within 2 %game.enhancement.circle% hexes of you.",
+          "small": true,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% in the hex occupied by you.",
+              "small": true
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "%game.action.teleport% to any unoccupied hex within 4 %game.card.slot% hexes of you.",
+          "value": "%game.action.teleport% to any unoccupied hex within 4 %game.enhancement.circle% hexes of you.",
           "small": true,
-          "hidden": false
+          "enhancementTypes": [
+            "circle"
+          ]
         }
       ]
     },
@@ -312,49 +280,43 @@
         {
           "type": "heal",
           "value": 4,
+          "enhancementTypes": [
+            "diamond_plus",
+            "square"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "allyAffectRange:3",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "element",
-              "value": "light",
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus",
-            "square"
           ]
+        },
+        {
+          "type": "element",
+          "value": "light"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 2,
-          "hidden": false
+          "value": 2
         },
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ]
@@ -366,82 +328,62 @@
       "initiative": 57,
       "actions": [
         {
-          "type": "condition",
-          "value": "invisible",
+          "type": "concatenation",
+          "value": "and:2",
           "subActions": [
             {
-              "type": "concatenation",
-              "value": "",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "and",
-                  "hidden": false
-                },
-                {
-                  "type": "condition",
-                  "value": "stun",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "type": "condition",
+              "value": "invisible"
             },
             {
-              "type": "custom",
-              "value": "Target one enemy or affect",
+              "type": "condition",
+              "value": "stun"
+            },
+            {
+              "type": "specialTarget",
+              "value": "enemyAllyRange:3 %game.enhancement.circle%",
               "small": true,
-              "hidden": false
-            },
-            {
-              "type": "concatenation",
-              "value": 0,
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "one ally within",
-                  "small": true,
-                  "hidden": false
-                },
-                {
-                  "type": "range",
-                  "value": 3,
-                  "small": true,
-                  "hidden": false,
-                  "enhancementTypes": [
-                    "circle"
-                  ]
-                }
-              ],
-              "hidden": false,
-              "enhancementTypes": []
-            },
-            {
-              "type": "concatenation",
-              "value": "",
-              "subActions": [
-                {
-                  "type": "element",
-                  "value": "dark",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "enhancementTypes": [
+                "circle"
+              ]
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
+          ]
         }
       ],
       "bottomActions": [
         {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% in the hex occupied by you.",
+              "small": true
+            }
+          ]
+        },
+        {
           "type": "custom",
-          "value": "%game.action.teleport% to any unoccupied hex within 4 %game.card.slot% hexes of you.",
+          "value": "%game.action.teleport% to any unoccupied hex within 4 %game.enhancement.circle% hexes of you.",
           "small": true,
-          "hidden": false
+          "enhancementTypes": [
+            "circle"
+          ]
         }
       ]
     },
@@ -449,61 +391,53 @@
       "name": "Void Snare",
       "cardId": 581,
       "level": 1,
-      "initiative": 30,
+      "initiative": 25,
       "actions": [
         {
           "type": "custom",
-          "value": "Place one Rift token on any unoccupied hex within %game.action.range:3%.",
-          "small": true,
-          "hidden": false
+          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:3%.",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "When an enemy enters a hex containing a Rift token this round, it gains %game.condition.disarm%.",
+          "value": "When an enemy enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, it gains %game.condition.disarm%.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "attack",
           "value": 1,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "target",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
         }
       ]
     },
@@ -511,33 +445,29 @@
       "name": "Cursed Ground",
       "cardId": 582,
       "level": 1,
-      "initiative": 25,
+      "initiative": 17,
       "actions": [
         {
           "type": "custom",
-          "value": "Place one Rift token on any unoccupied hex within %game.action.range:4%.",
-          "small": true,
-          "hidden": false
+          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:4%.",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "When an enemy enters a hex containing a Rift token this round, it gains %game.condition.curse%.",
+          "value": "When an enemy enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, it gains %game.condition.curse%.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         },
         {
           "type": "condition",
@@ -547,21 +477,18 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false
+              "enhancementTypes": [
+                "circle"
+              ]
             },
             {
               "type": "target",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ]
@@ -575,8 +502,7 @@
         {
           "type": "custom",
           "value": "The next six times an enemy would shuffle a %game.attackmodifier.curse% card into their attack modifier deck, you may place it as the sixth card from the top instead.",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -584,100 +510,77 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1"
             }
-          ],
-          "hidden": false
-        },
-        {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
-            },
-            {
-              "type": "card",
-              "value": "slot",
-              "hidden": false
-            },
-            {
-              "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
-            },
-            {
-              "type": "card",
-              "value": "lost",
-              "hidden": false
-            }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Move one Rift token up to six hexes.",
-          "small": true,
-          "hidden": false
+          "value": "Move one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% up to six hexes. This movement triggers all active Rift effects as if an ally or enemy would have entered the hex containing the %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%.",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.action.teleport% to any unoccupied hex within 6 %game.card.slot% hexes of you.",
+          "value": "%game.action.teleport% to any unoccupied hex within 6 %game.enhancement.circle% hexes of you.",
+          "small": true,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Inspiration from Beyond",
       "cardId": 584,
       "level": "X",
-      "initiative": 28,
+      "initiative": 23,
       "actions": [
         {
           "type": "custom",
-          "value": "Place one Rift token on any unoccupied hex within %game.action.range:4%.",
-          "small": true,
-          "hidden": false
+          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:4%.",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "When an ally enters a hex containing a Rift token for the first time this round, they gain %game.condition.bless%.",
+          "value": "When an ally enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% for the first time this round, they gain %game.condition.bless%.",
           "small": true,
-          "hidden": false,
           "subActions": [
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
           ]
         }
@@ -686,7 +589,6 @@
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -694,23 +596,20 @@
         {
           "type": "heal",
           "value": 1,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "regenerate",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         }
       ]
@@ -727,9 +626,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 2,
+              "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -738,50 +636,43 @@
               "type": "push",
               "value": 1,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
-            },
-            {
-              "type": "element",
-              "value": "light",
-              "hidden": false
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light"
         }
       ],
       "bottomActions": [
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
-              "value": 3,
-              "small": true,
-              "hidden": false
+              "value": 4,
+              "small": true
             },
             {
               "type": "pull",
               "value": 1,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
-            },
-            {
-              "type": "element",
-              "value": "dark",
-              "hidden": false
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     },
@@ -790,64 +681,61 @@
       "cardId": 586,
       "level": 2,
       "initiative": 21,
+      "lost": true,
       "actions": [
+        {
+          "type": "custom",
+          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:3%.",
+          "small": true
+        },
         {
           "type": "heal",
           "value": 4,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "allyAffectRange:3",
-              "small": true,
-              "hidden": false
-            }
-          ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Affect one ally adjacent to that %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "small": true
+            }
           ]
         },
         {
           "type": "shield",
           "value": 3,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "alliesAdjacentAffect",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "concatenation",
-              "value": 0,
-              "subActions": [
-                {
-                  "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "round",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
-            }
-          ],
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Affect one ally adjacent to that %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": 0,
+          "subActions": [
+            {
+              "type": "card",
+              "value": "round"
+            },
+            {
+              "type": "card",
+              "value": "experience:2"
+            }
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Place one Rift token on any unoccupied hex within %game.action.range:3%.",
-          "small": true,
-          "hidden": false
+          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:3%.",
+          "small": true
         },
         {
           "type": "pull",
@@ -855,12 +743,10 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target one enemy within %game.action.range:3% of any Rift token and pull them toward that Rift token.",
-              "small": true,
-              "hidden": false
+              "value": "Target one enemy within %game.action.range:3% of any %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% and pull them toward that %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%.",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -872,41 +758,43 @@
       "actions": [
         {
           "type": "condition",
-          "value": "bless",
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "alliesRangeAffect:2",
-              "small": true,
-              "hidden": false
-            }
-          ],
-          "hidden": false
-        },
-        {
-          "type": "condition",
           "value": "strengthen",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "allyAffectRange:2",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "bless",
+          "enhancementTypes": [
+            "diamond_plus"
           ],
-          "hidden": false
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "alliesRangeAffect:2",
+              "small": true
+            }
+          ]
         }
       ],
       "bottomActions": [
         {
+          "type": "custom",
+          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% in the hex occupied by you.",
+          "small": true
+        },
+        {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle",
             "square"
@@ -915,8 +803,7 @@
         {
           "type": "custom",
           "value": "Remove all negative conditions on one ally within %game.action.range:2%",
-          "small": true,
-          "hidden": false
+          "small": true
         }
       ]
     },
@@ -928,33 +815,38 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top four cards of any attack modifier deck, then place them back in any order.",
+          "value": "Reveal the top five cards of any attack modifier deck, then place them back in any order.",
+          "small": true,
           "subActions": [
             {
-              "type": "custom",
-              "value": "%game.elementHalf.consume:light|dark%: Reveal the top four cards of a second attack modifier deck, then place them back in any order, %game.card.experience:1%.",
-              "small": true,
-              "hidden": false
+              "type": "elementHalf",
+              "value": "light:dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Reveal the top five cards of a second attack modifier deck, then place them back in any order, %game.card.experience:1%.",
+                  "small": true
+                }
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "summon",
           "value": "summonData",
           "valueObject": {
-            "name": "2 Ghost Falcons",
+            "name": "ghost-falcons",
             "health": "4",
             "movement": "3",
             "attack": "2",
             "count": 2,
             "action": {
               "type": "custom",
-              "value": "%game.action.fly%",
-              "small": true
+              "value": "%game.action.fly%"
             },
             "enhancements": [
               "heal",
@@ -962,30 +854,23 @@
               "attack"
             ]
           },
-          "small": true,
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
           "subActions": [
             {
-              "type": "concatenation",
-              "value": "",
-              "subActions": [
-                {
-                  "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "persistent",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "type": "card",
+              "value": "experience:2"
+            },
+            {
+              "type": "card",
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Call of the Nether",
@@ -994,67 +879,49 @@
       "initiative": 43,
       "actions": [
         {
-          "type": "attack",
-          "value": 0,
-          "subActions": [
-            {
-              "type": "area",
-              "value": "(1,0,target)|(1,1,target)|(1,2,target)|(2,0,enhance)|(2,1,target)|(2,2,enhance)|(0,1,enhance)",
-              "hidden": false,
-              "enhancementTypes": [
-                "hex",
-                "square",
-                "hex"
-              ]
-            },
-            {
-              "type": "range",
-              "value": 3,
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "condition",
-              "value": "curse",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "element",
-              "value": "dark",
-              "hidden": false
-            }
-          ],
-          "hidden": false
-        }
-      ],
-      "bottomActions": [
+          "type": "custom",
+          "value": "%game.action.teleport% to a hex occupied by an enemy within 4 hexes of you and simultaneously %game.action.teleport% that enemy to the hex occupied by you.",
+          "small": true
+        },
         {
           "type": "element",
           "value": "dark",
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Place one Rift token in the hex occupied by you.",
-              "small": true,
-              "hidden": false
+              "type": "condition",
+              "value": "invisible",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
             }
-          ],
-          "hidden": false
-        },
+          ]
+        }
+      ],
+      "bottomActions": [
         {
-          "type": "custom",
-          "value": "%game.action.teleport% to a hex occupied by an enemy within 5 hexes of you and simultaneously %game.action.teleport% that enemy to the hex occupied by you.",
+          "type": "attack",
+          "value": 3,
           "subActions": [
             {
-              "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Target an enenmy occupying or adjacent to any %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     },
@@ -1067,40 +934,46 @@
         {
           "type": "custom",
           "value": "You and all allies within %game.action.range:3% may perform",
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 2,
-              "hidden": false,
               "enhancementTypes": [
                 "circle",
                 "square"
               ]
             },
             {
-              "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "type": "custom",
+              "value": "If any affected ally is a summon or non player character, you may control the action for that ally."
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Reveal the top card of any non-boss monster ability card deck.",
+          "value": "Reveal the top card of all non-boss monster ability card decks.",
+          "small": true,
           "subActions": [
             {
-              "type": "custom",
-              "value": "%game.elementHalf.consume:light|dark%: Reveal the top two cards instead, then place up to one card on the bottom of the deck, and the rest on top in any order, %game.card.experience:1%.",
-              "small": true,
-              "hidden": false
+              "type": "elementHalf",
+              "value": "light:dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Additionally, you may place any number of revealed cards on the bottoms of their decks, %game.card.experience:1%.",
+                  "small": true
+                }
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1113,93 +986,83 @@
         {
           "type": "heal",
           "value": 2,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
-              "type": "custom",
-              "value": "Affect one ally within %game.action.range:3%",
-              "small": true,
-              "hidden": false
+              "type": "specialTarget",
+              "value": "alliesRangeAffect:2",
+              "small": true
             },
             {
               "type": "custom",
-              "value": "Remove all CURSE %game.attackmodifier.curse% cards from the attack modifier deck of the healed figure, then shuffle their discard pile back into their deck, %game.card.experience:1%.",
-              "small": true,
-              "hidden": false
+              "value": "Remove all CURSE %game.attackmodifier.curse% cards from the attack modifier deck any healed figure, then shuffle their discard pile back into their deck, %game.card.experience:1%.",
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         }
       ],
+      "bottomLost": true,
+      "bottomLoss": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "All allies may Recover %game.card.recover% a collective total of up to nine of their discarded cards.",
+          "value": "Recover %game.card.recover% up to on of your lost cards.",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "All allies may Recover %game.card.recover% a collective total of up to six of their discarded cards.",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
           "subActions": [
             {
-              "type": "concatenation",
-              "value": "",
-              "subActions": [
-                {
-                  "type": "element",
-                  "value": "light",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "type": "element",
+              "value": "light"
+            },
+            {
+              "type": "card",
+              "value": "experience:2"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Seal Their Fate",
       "cardId": 592,
       "level": 5,
       "initiative": 37,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "If an enemy draws any negative or %game.attackmodifier.curse% attack modifier card during its attack, this enemy suffers 1 damage.",
+          "value": "If an enemy draws any negative or %game.attackmodifier.null% attack modifier card during its attack, this enemy suffers 1 damage for each card drawn of that kind.",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
           "subActions": [
             {
-              "type": "concatenation",
-              "value": "",
-              "subActions": [
-                {
-                  "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "persistent",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "type": "card",
+              "value": "experience:2"
+            },
+            {
+              "type": "card",
+              "value": "persistent"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1207,23 +1070,20 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "curse",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ]
@@ -1232,34 +1092,33 @@
       "name": "Dimensional Divide",
       "cardId": 593,
       "level": 5,
-      "initiative": 23,
+      "initiative": 13,
       "actions": [
         {
           "type": "custom",
-          "value": "Place one Rift token on any unoccupied hex within %game.action.range:5%.",
-          "small": true,
-          "hidden": false
+          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:5%.",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "When an enemy enters a hex containing a Rift token this round, it gains %game.condition.wound% and %game.condition.immobilize%.",
+          "value": "When an enemy enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, it gains %game.condition.wound% and %game.condition.immobilize%.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%game.action.teleport% to any unoccupied hex within 4 %game.card.slot% hexes.",
+          "value": "%game.action.teleport% to any unoccupied hex within 5 %game.enhancement.circle% hexes.",
           "small": true,
-          "hidden": false
+          "enhancementTypes": [
+            "circle"
+          ]
         },
         {
           "type": "shield",
@@ -1267,17 +1126,14 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "alliesRangeAffect:3",
-              "small": true,
-              "hidden": false
+              "value": "alliesRangeAffect:2",
+              "small": true
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1286,29 +1142,33 @@
       "cardId": 594,
       "level": 6,
       "initiative": 52,
+      "lost": true,
+      "loss": true,
       "actions": [
         {
           "type": "custom",
-          "value": "Shuffle three %game.attackmodifier.minus1% cards into the monster attack modifier deck.",
+          "value": "Shuffle foir %game.attackmodifier.minus1% cards into the monster attack modifier deck.",
+          "small": true,
           "subActions": [
             {
-              "type": "custom",
-              "value": "%game.element.consume.light% %game.element.consume.dark%: Shuffle six %game.attackmodifier.minus1% cards into the deck instead, %game.card.experience:1%.",
-              "small": true,
-              "hidden": false
+              "type": "element",
+              "value": "light:dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Shuffle eight %game.attackmodifier.minus1% cards into the deck instead, %game.card.experience:1%.",
+                  "small": true
+                }
+              ]
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "loss": true,
-      "lost": true,
       "bottomActions": [
         {
           "type": "condition",
@@ -1317,44 +1177,32 @@
             {
               "type": "specialTarget",
               "value": "enemies",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "custom",
-          "value": "When an ally enters a hex containing a Rift token this round, they gain %game.condition.strengthen%.",
+          "value": "When an ally enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, they gain %game.condition.strengthen%.",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
           "subActions": [
             {
-              "type": "concatenation",
-              "value": "",
-              "subActions": [
-                {
-                  "type": "element",
-                  "value": "dark",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "round",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            },
+            {
+              "type": "card",
+              "value": "round"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1362,45 +1210,63 @@
       "name": "Careful Attunement",
       "cardId": 595,
       "level": 6,
-      "initiative": 17,
+      "initiative": 7,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top eight cards of any attack modifier deck, then place them back in any order.",
+          "value": "Reveal the top six cards of any attack modifier deck, then place up to three cards on the bottom of the deck and the rest on top in any order.",
+          "small": true,
           "subActions": [
             {
-              "type": "custom",
-              "value": "%game.element.consume.light% %game.element.consume.dark%: Additionally, reveal the top three cards of all other attack modifier decks, then pace them back in any order, %game.card.experience:2%.",
-              "small": true,
-              "hidden": false
+              "type": "grid",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": "",
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "wild",
+                      "valueType": "minus"
+                    },
+                    {
+                      "type": "elementHalf",
+                      "value": "light:dark",
+                      "valueType": "minus"
+                    }
+                  ]
+                },
+                {
+                  "type": "custom",
+                  "value": "Additionally, reveal the top three cards of all other attack modifier decks, then pace them back in any order, %game.card.experience:1%.",
+                  "small": true
+                }
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "When an ally within %game.action.range:3% %game.card.slot% is attacked this round, consider any positive and %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead.",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "card",
-              "value": "round",
-              "hidden": false
-            }
-          ],
-          "hidden": false,
+          "value": 4,
           "enhancementTypes": [
             "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "When an ally within %game.action.range:3% %game.enhancement.circle% is attacked this round, consider any positive and %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.minus1% instead.",
+          "small": true,
+          "enhancementTypes": [
+            "circle"
+          ]
+        },
+        {
+          "type": "card",
+          "value": "round"
         }
       ]
     },
@@ -1413,31 +1279,28 @@
         {
           "type": "heal",
           "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "selfAlliesAffect",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "regenerate",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
-              "value": "light",
-              "hidden": false
+              "value": "light"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "condition",
@@ -1446,27 +1309,22 @@
             {
               "type": "specialTarget",
               "value": "enemiesRange:3",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
           "value": "Remove all negative conditions on all allies within %game.action.range:3%.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Ethereal Vortex",
@@ -1476,62 +1334,53 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Move all Rift tokens up to two hexes.",
-          "small": true,
-          "hidden": false
+          "value": "Move all %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%s up to three hexes.",
+          "small": true
         },
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
-              "value": "Target all enemies occupying a hex containing a Rift token",
-              "small": true,
-              "hidden": false
+              "value": "Target all enemies occupying a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "small": true
             },
             {
               "type": "pierce",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "curse",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Place one of your character tokens on each of two separate Rift tokens. Until the end of the round, the hexes containing these Rift tokens are considered adjacent to each other for the purpose of movement for you and your allies.",
-          "small": true,
-          "hidden": false
+          "value": "Place one of your character tokens on each of two separate %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%s. Until the end of the round, the hexes containing these %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%s are considered adjacent to each other for the purpose of movement for you and your allies.",
+          "small": true
         },
         {
           "type": "concatenation",
-          "value": 0,
+          "value": "",
           "subActions": [
             {
               "type": "move",
-              "value": 3,
-              "hidden": false
+              "value": 3
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1542,65 +1391,61 @@
       "initiative": 91,
       "actions": [
         {
-          "type": "heal",
-          "value": 3,
+          "type": "attack",
+          "value": 2,
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self",
-              "small": true,
-              "hidden": false
+              "type": "area",
+              "value": "(0,1,enhance)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,enhance)|(2,1,target)|(2,2,enhance)",
+              "enhancementTypes": [
+                "hex",
+                "square",
+                "hex"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "invisible",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "condition",
-              "value": "bless",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "condition",
-              "value": "strengthen",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "element",
-              "value": "wild",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%game.elementHalf:light|dark%",
-                  "small": true,
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "value": "immobilize",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "light:dark"
+            }
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Reveal the top two cards of any monster ability card deck, then place them back in any order.",
+          "value": "Reveal the top three cards of any monster ability card deck, then place them back in any order.",
+          "small": true,
           "subActions": [
             {
-              "type": "custom",
-              "value": "%game.elementHalf.consume:light|dark%: Reveal the top two cards of a second monster ability card deck, then place them back in any order, %game.card.experience:1%.",
-              "small": true,
-              "hidden": false
+              "type": "elementHalf",
+              "value": "light:dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Reveal the top threee cards of a second monster ability card deck, then place them back in any order, %game.card.experience:1%.",
+                  "small": true
+                }
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1608,74 +1453,64 @@
       "name": "Anguish and Salvation",
       "cardId": 599,
       "level": 8,
-      "initiative": 29,
+      "initiative": 21,
       "actions": [
         {
           "type": "retaliate",
           "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
-              "type": "custom",
-              "value": "Affect all allies",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "card",
-              "value": "round",
-              "hidden": false
+              "type": "specialTarget",
+              "value": "alliesAffect",
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
+        },
+        {
+          "type": "card",
+          "value": "round"
         }
       ],
       "bottomActions": [
         {
           "type": "heal",
-          "value": 5,
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "Affect any one ally",
-              "small": true,
-              "hidden": false
-            },
-            {
-              "type": "element",
-              "value": "wild",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%game.elementHalf:light|dark%",
-                  "small": true,
-                  "hidden": false
-                }
-              ],
-              "hidden": false
-            },
-            {
-              "type": "card",
-              "value": "experience:1",
-              "hidden": false
-            }
-          ],
-          "hidden": false,
+          "value": 6,
           "enhancementTypes": [
             "diamond_plus"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allyAffect",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "elementHalf",
+              "value": "light:dark"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
         }
       ]
     },
@@ -1687,37 +1522,47 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top three cards of all attack modifier decks, then place any number of them on the bottom of their respective decks and the rest on top in any order.",
+          "value": "Reveal the top four cards of all attack modifier decks, then place any number of them on the bottom of their respective decks and the rest on top in any order.",
+          "small": true,
           "subActions": [
             {
-              "type": "custom",
-              "value": "%game.elementHalf.consume:light|dark%: Reveal the top five cards instead, %game.card.experience:1%.",
-              "small": true,
-              "hidden": false
+              "type": "elementHalf",
+              "value": "light:dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Reveal the top six cards instead, %game.card.experience:1%.",
+                  "small": true
+                }
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
+      "bottomLoss": true,
       "bottomActions": [
         {
           "type": "custom",
           "value": "Search any non-boss monster ability card deck for a card of your choice and remove it from that deck for the remainder of the scenario.",
+          "small": true,
           "subActions": [
             {
-              "type": "custom",
-              "value": "%game.element.consume.light% %game.element.consume.dark%: Search the same deck for a second monster ability card, this one without a %game.card.shuffle% icon, and remove it as well.",
-              "small": true,
-              "hidden": false
+              "type": "element",
+              "value": "light:dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Search the same deck for a second monster ability card, this one without a %game.card.shuffle% icon, and remove it as well",
+                  "small": true
+                }
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true,
-      "bottomLoss": true
+      ]
     },
     {
       "name": "Planar Fissure",
@@ -1727,9 +1572,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Place one Rift token on any unoccupied hex within %game.action.range:4%.",
-          "small": true,
-          "hidden": false
+          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:4%.",
+          "small": true
         },
         {
           "type": "attack",
@@ -1737,26 +1581,24 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target all enemies within %game.action.range:2% of this Rift token",
-              "small": true,
-              "hidden": false
+              "value": "Target all enemies within %game.action.range:2% of this %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "small": true
             },
             {
               "type": "condition",
               "value": "muddle",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "summon",
           "value": "summonData",
           "valueObject": {
-            "name": "Twilight Archon",
+            "name": "twilight-archon",
             "health": "9",
             "attack": "2",
             "movement": "3",
@@ -1767,9 +1609,8 @@
               "small": true,
               "subActions": [
                 {
-                  "type": "custom",
-                  "value": "%game.elementHalf:light|dark%",
-                  "small": true
+                  "type": "elementHalf",
+                  "value": "light:dark"
                 }
               ]
             },
@@ -1779,30 +1620,23 @@
               "attack"
             ]
           },
-          "small": true,
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
           "subActions": [
             {
-              "type": "concatenation",
-              "value": "",
-              "subActions": [
-                {
-                  "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "persistent",
-                  "hidden": false
-                }
-              ],
-              "hidden": false
+              "type": "card",
+              "value": "experience:2"
+            },
+            {
+              "type": "card",
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     }
   ]
 }

@@ -81,7 +81,7 @@
               "subActions": [
                 {
                   "type": "area",
-                  "value": "(1,0,target)|(2,0,target)|(2,1,target)|(0,1,target)|(1,1,target)|(1,2,target)|(2,2,target)",
+                  "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)",
                   "small": true
                 },
                 {
@@ -136,7 +136,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(2,0,target)|(1,1,target)|(1,2,active)"
+              "value": "(1,1,target)|(1,2,active)|(2,0,target)"
             },
             {
               "type": "element",

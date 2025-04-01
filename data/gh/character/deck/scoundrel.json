@@ -12,17 +12,15 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -30,8 +28,7 @@
         {
           "type": "custom",
           "value": "On your next four attacks targeting enemies adjacent to none of their allies, add +2 %game.action.attack%",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -39,21 +36,17 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -61,21 +54,17 @@
           "subActions": [
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -88,17 +77,15 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -106,7 +93,6 @@
         {
           "type": "move",
           "value": 5,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -126,30 +112,27 @@
             {
               "type": "condition",
               "value": "invisible",
+              "enhancementTypes": [
+                "diamond_plus"
+              ],
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false,
-              "enhancementTypes": [
-                "diamond_plus"
               ]
             },
             {
               "type": "element",
-              "value": "dark",
-              "hidden": false
+              "value": "dark"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
           "value": "On your next attack while %game.condition.invisible%, double the value of the attack.",
+          "small": true,
           "subActions": [
             {
               "type": "concatenation",
@@ -157,45 +140,37 @@
               "subActions": [
                 {
                   "type": "card",
-                  "value": "persistent",
-                  "hidden": false
+                  "value": "persistent"
                 },
                 {
                   "type": "card",
-                  "value": "slotXp:2",
-                  "hidden": false
+                  "value": "slotXp:2"
                 },
                 {
                   "type": "card",
-                  "value": "lost",
-                  "hidden": false
+                  "value": "lost"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "pull",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ]
@@ -205,39 +180,35 @@
       "cardId": 91,
       "level": 1,
       "initiative": 6,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
               "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to none of its allies.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond",
-            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 6,
-          "hidden": false
+          "value": 6
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Thief's Knack",
@@ -251,27 +222,23 @@
           "subActions": [
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ]
@@ -285,22 +252,19 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "condition",
               "value": "poison",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -308,7 +272,6 @@
         {
           "type": "move",
           "value": 5,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -316,10 +279,10 @@
       ]
     },
     {
-      "cardId": 94,
       "name": "Throwing Knives",
-      "initiative": 10,
+      "cardId": 94,
       "level": 1,
+      "initiative": 10,
       "actions": [
         {
           "type": "attack",
@@ -329,7 +292,6 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -337,26 +299,22 @@
             {
               "type": "target",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "loot",
-          "value": 2,
-          "hidden": false
+          "value": 2
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Quick Hands",
@@ -367,7 +325,6 @@
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -375,7 +332,6 @@
         {
           "type": "attack",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -384,8 +340,7 @@
       "bottomActions": [
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         }
       ]
     },
@@ -398,17 +353,15 @@
         {
           "type": "heal",
           "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         }
       ],
@@ -416,7 +369,6 @@
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -428,11 +380,9 @@
             {
               "type": "specialTarget",
               "value": "enemyAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -445,12 +395,14 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Add +1 %game.action.attack% for each of your allies adjacent to the target.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -460,16 +412,10 @@
                 {
                   "type": "custom",
                   "value": "Add +2 %game.action.attack% instead, %game.card.experience:1%",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -477,27 +423,24 @@
         {
           "type": "move",
           "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Force one adjacent enemy to perform",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "move",
-              "value": 1,
-              "hidden": false
+              "value": 1
             },
             {
               "type": "custom",
               "value": "with you controlling the action, and ending in a hex adjacent to you.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "enhancementTypes": [
-            "circle"
           ]
         }
       ]
@@ -507,27 +450,25 @@
       "cardId": 98,
       "level": "X",
       "initiative": 9,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Add +X %game.action.attack% where X is double the Shield value of the target.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond",
-            "diamond"
           ]
         }
       ],
@@ -535,8 +476,7 @@
         {
           "type": "custom",
           "value": "The next time you suffer damage this round, suffer no damage instead.",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -544,14 +484,11 @@
           "subActions": [
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "lost": true
+      ]
     },
     {
       "name": "Swift Bow",
@@ -562,20 +499,18 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -583,17 +518,15 @@
         {
           "type": "move",
           "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "%game.action.loot% every hex you enter with this action.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         }
       ]
@@ -607,17 +540,15 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Add %game.condition.wound% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -625,7 +556,6 @@
         {
           "type": "move",
           "value": 5,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -640,54 +570,53 @@
       "actions": [
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "attack",
           "value": 5,
+          "enhancementTypes": [
+            "diamond",
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond",
-            "diamond"
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Hidden Daggers",
       "cardId": 102,
       "level": 3,
       "initiative": 85,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -696,39 +625,30 @@
               "type": "target",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "condition",
           "value": "invisible",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         }
       ]
@@ -742,7 +662,6 @@
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -750,7 +669,6 @@
         {
           "type": "attack",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -760,15 +678,13 @@
         {
           "type": "custom",
           "value": "Add +2 %game.action.attack% to all of your attacks this round targeting enemies adjacent to none of their allies.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -786,7 +702,6 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -794,23 +709,19 @@
             {
               "type": "target",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ],
@@ -818,13 +729,11 @@
             {
               "type": "custom",
               "value": "Gain Advantage on all your attacks this round.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
           ]
         }
@@ -835,37 +744,33 @@
       "cardId": 105,
       "level": 4,
       "initiative": 62,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond",
+            "square"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Add +3 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
               "value": "Add +3 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to none of its allies.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond",
-            "square"
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
-          "value": 7,
-          "hidden": false
+          "value": 7
         }
       ]
     },
@@ -878,17 +783,15 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -896,8 +799,7 @@
         {
           "type": "custom",
           "value": "On your next six attacks targeting enemies with %game.condition.disarm%, %game.condition.immobilize% or %game.condition.stun%, add +2 %game.action.attack%",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -905,26 +807,21 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -932,26 +829,21 @@
           "subActions": [
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -964,22 +856,19 @@
         {
           "type": "custom",
           "value": "Kill one adjacent normal enemy that is adjacent to none of its allies and also adjacent to any of your allies.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -991,11 +880,9 @@
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1004,48 +891,42 @@
       "cardId": 108,
       "level": 6,
       "initiative": 30,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
           "value": "Add +2 %game.action.attack% to all of your attacks targeting enemies with %game.condition.poison%.",
+          "small": true,
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "condition",
               "value": "poison",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ]
@@ -1059,12 +940,14 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -1072,8 +955,7 @@
             {
               "type": "condition",
               "value": "wound",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "concatenation",
@@ -1081,21 +963,14 @@
               "subActions": [
                 {
                   "type": "element",
-                  "value": "fire",
-                  "hidden": false
+                  "value": "fire"
                 },
                 {
                   "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
+                  "value": "experience:1"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -1106,11 +981,9 @@
           "subActions": [
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1123,6 +996,10 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond",
+            "square"
+          ],
           "subActions": [
             {
               "type": "element",
@@ -1132,40 +1009,30 @@
                 {
                   "type": "custom",
                   "value": "Add +4 %game.action.attack% and gain %game.card.experience:2% when the target is adjacent to any of your allies.",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond",
-            "square"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 2,
-          "hidden": false
+          "value": 2
         },
         {
           "type": "condition",
           "value": "invisible",
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         }
       ]
@@ -1180,18 +1047,15 @@
           "type": "custom",
           "value": "Disarm one adjacent trap.",
           "small": true,
-          "hidden": false,
           "subActions": [
             {
               "type": "custom",
               "value": "Target one enemy within %game.action.range:3% to suffer the effects of the disarmed trap.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
           ]
         }
@@ -1200,8 +1064,7 @@
         {
           "type": "custom",
           "value": "On your next attack targeting an enemy adjacent to none of its allies and also adjacent to any of your allies, double the value of the attack.",
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1209,21 +1072,17 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slotXp:2",
-              "hidden": false
+              "value": "slotXp:2"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1241,7 +1100,6 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -1249,23 +1107,19 @@
             {
               "type": "target",
               "value": 4,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1273,22 +1127,19 @@
         {
           "type": "retaliate",
           "value": 1,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         }
       ]
@@ -1298,46 +1149,41 @@
       "cardId": 113,
       "level": 8,
       "initiative": 38,
+      "lost": true,
       "actions": [
         {
           "type": "heal",
           "value": 8,
+          "enhancementTypes": [
+            "circle",
+            "square"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle",
-            "square"
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "custom",
               "value": "Kill one adjacent enemy whose current hit point value is equal to or less than 3.",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         }
       ]
@@ -1351,36 +1197,34 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "disarm",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
           "value": "Force one adjacent normal or elite enemy to perform its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.",
+          "small": true,
           "subActions": [
             {
               "type": "custom",
               "value": "To signify this, place one of your character tokens on this enemy for the round.",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "concatenation",
@@ -1388,33 +1232,29 @@
               "subActions": [
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 },
                 {
                   "type": "card",
-                  "value": "round",
-                  "hidden": false
+                  "value": "round"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Watch It Burn",
       "cardId": 115,
       "level": 9,
       "initiative": 98,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
           "value": "Add %game.condition.poison% and %game.condition.wound% to all of your attacks.",
+          "small": true,
           "subActions": [
             {
               "type": "concatenation",
@@ -1422,28 +1262,21 @@
               "subActions": [
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 },
                 {
                   "type": "card",
-                  "value": "persistent",
-                  "hidden": false
+                  "value": "persistent"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 5,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1451,17 +1284,15 @@
         {
           "type": "condition",
           "value": "wound",
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ]

@@ -51,7 +51,7 @@
                                         <span class="handle" cdkDragHandle><img class="ghs-icon"
                                                 src="./assets/images/menu.svg"></span>
                                         <ghs-action (click)="editAbilityAction(ability, action)" [action]="action"
-                                            [relative]="true">
+                                            [relative]="true" [character]="getCharacter()" [cardId]="ability.cardId">
                                         </ghs-action>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                                         <span class="handle" cdkDragHandle><img class="ghs-icon"
                                                 src="./assets/images/menu.svg"></span>
                                         <ghs-action (click)="editAbilityActionBottom(ability, action)" [action]="action"
-                                            [relative]="true">
+                                            [relative]="true" [character]="getCharacter()" [cardId]="ability.cardId">
                                         </ghs-action>
                                     </div>
                                 </div>
@@ -177,15 +177,14 @@
                         <ghs-ability
                             [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}"
                             [character]="getCharacter()" [monster]="monster" [relative]="true" [flipped]="true"
-                            [reveal]="true" [statsCalculation]="false">
+                            [statsCalculation]="false">
                         </ghs-ability>
                     </div>
 
                     <ghs-ability
                         [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}"
                         [ability]="ability" [abilities]="deckData.abilities" [character]="getCharacter()"
-                        [monster]="monster" [relative]="true" [flipped]="true" [reveal]="true"
-                        [statsCalculation]="false">
+                        [monster]="monster" [relative]="true" [flipped]="true" [statsCalculation]="false">
                     </ghs-ability>
                 </div>
 

@@ -144,6 +144,7 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
@@ -154,8 +155,7 @@
                       "type": "condition",
                       "value": "immobilize"
                     }
-                  ],
-                  "small": true
+                  ]
                 }
               ]
             }
@@ -180,13 +180,13 @@
                 {
                   "type": "condition",
                   "value": "wound",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "specialTarget",
                       "value": "enemies"
                     }
-                  ],
-                  "small": true
+                  ]
                 }
               ]
             },
@@ -198,13 +198,13 @@
                 {
                   "type": "condition",
                   "value": "disarm",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "specialTarget",
                       "value": "enemies"
                     }
-                  ],
-                  "small": true
+                  ]
                 }
               ]
             }

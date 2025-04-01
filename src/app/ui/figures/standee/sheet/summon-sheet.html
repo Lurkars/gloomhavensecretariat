@@ -1,4 +1,4 @@
-<div class="summon-container" *ngIf="summon"
+<div class="summon-container" *ngIf="hasSummon"
     [ngClass]="{'action' : summon.action,  'additional' : summon.additionalAction || additional, 'item': item, 'fh' : fhStyle}">
     <span *ngIf="summonData && summonData.thumbnail" class="thumbnail">
         <img

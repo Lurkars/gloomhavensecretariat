@@ -41,7 +41,6 @@
           "subActions": [
             {
               "type": "summon",
-              "small": true,
               "value": "monsterStandee",
               "valueObject": [
                 {
@@ -52,7 +51,8 @@
                     "player4": "elite"
                   }
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         },
@@ -63,7 +63,6 @@
           "subActions": [
             {
               "type": "summon",
-              "small": true,
               "value": "monsterStandee",
               "valueObject": [
                 {
@@ -74,7 +73,8 @@
                     "player4": "elite"
                   }
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }
@@ -126,7 +126,6 @@
           "subActions": [
             {
               "type": "summon",
-              "small": true,
               "value": "monsterStandee",
               "valueObject": [
                 {
@@ -137,7 +136,8 @@
                     "player4": "elite"
                   }
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }

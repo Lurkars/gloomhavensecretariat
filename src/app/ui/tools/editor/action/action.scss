@@ -3,9 +3,39 @@
   flex-direction: column;
   color: var(--ghs-color-white);
 
-  .type {
+  .header {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+
+    .small {
+      margin-left: calc(var(--ghs-unit) * 1);
+      display: flex;
+      align-items: center;
+    }
+
+    .remove {
+      margin-right: calc(var(--ghs-unit) * 3);
+    }
+
+    .add {
+      margin-left: calc(var(--ghs-unit) * 1);
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+  }
+
+  .enhancements {
+    display: flex;
+    flex-direction: column;
+
+    .enhancement {
+      display: flex;
+      align-items: center;
+    }
   }
 
   .subactions {
@@ -32,6 +62,10 @@
       width: 0;
     }
   }
+
+  .element-half-container {
+    display: flex;
+  }
 }
 
 label.inline {
@@ -41,7 +75,8 @@ label.inline {
 
 input[type="text"],
 input[type="number"],
-select {
+select,
+textarea {
   width: 100%;
   min-width: initial;
   color: var(--ghs-color-white);

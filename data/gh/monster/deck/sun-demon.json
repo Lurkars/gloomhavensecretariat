@@ -205,13 +205,13 @@
             {
               "type": "condition",
               "value": "muddle",
+              "small": true,
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ],
-              "small": true
+              ]
             }
           ]
         }

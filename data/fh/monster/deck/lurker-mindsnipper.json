@@ -25,8 +25,8 @@
                 {
                   "type": "retaliate",
                   "value": 2,
-                  "small": true,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             }
@@ -152,8 +152,8 @@
             {
               "type": "target",
               "value": 2,
-              "small": true,
-              "valueType": "add"
+              "valueType": "add",
+              "small": true
             },
             {
               "type": "range",

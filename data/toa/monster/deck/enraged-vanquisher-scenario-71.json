@@ -97,7 +97,7 @@
               "subActions": [
                 {
                   "type": "area",
-                  "value": "(1,1,target:curse)|(2,0,target:immobilize)|(0,3,target:curse)|(0,4,target:immobilize)|(1,2,active)"
+                  "value": "(0,3,target:curse)|(0,4,target:immobilize)|(1,1,target:curse)|(1,2,active)|(2,0,target:immobilize)"
                 },
                 {
                   "type": "custom",
@@ -236,6 +236,7 @@
             {
               "type": "custom",
               "value": "If a target occupies the hex, add the condition shown to the attack.",
+              "small": true,
               "subActions": [
                 {
                   "type": "grid",
@@ -243,16 +244,15 @@
                   "subActions": [
                     {
                       "type": "area",
-                      "value": "(0,1,target:muddle)|(1,0,target:wound)|(1,1,target:wound)|(0,2,active)|(1,2,target:muddle)|(2,2,target:wound)"
+                      "value": "(0,1,target:muddle)|(0,2,active)|(1,0,target:wound)|(1,1,target:wound)|(1,2,target:muddle)|(2,2,target:wound)"
                     },
                     {
                       "type": "area",
-                      "value": "(0,1,target:muddle)|(1,0,target:poison)|(1,1,target:poison)|(0,2,active)|(1,2,target:muddle)|(2,2,target:poison)"
+                      "value": "(0,1,target:muddle)|(0,2,active)|(1,0,target:poison)|(1,1,target:poison)|(1,2,target:muddle)|(2,2,target:poison)"
                     }
                   ]
                 }
-              ],
-              "small": true
+              ]
             }
           ]
         }
@@ -362,7 +362,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(1,0,target:wound)|(2,0,target:wound)|(2,1,target:poison)|(0,1,target:poison)|(1,1,target:poison)|(1,2,target:muddle)|(2,2,target:muddle)|(1,3,active)"
+              "value": "(0,1,target:poison)|(1,0,target:wound)|(1,1,target:poison)|(1,2,target:muddle)|(1,3,active)|(2,0,target:wound)|(2,1,target:poison)|(2,2,target:muddle)"
             },
             {
               "type": "custom",

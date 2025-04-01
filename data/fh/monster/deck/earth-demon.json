@@ -106,8 +106,8 @@
                 {
                   "type": "target",
                   "value": 1,
-                  "small": true,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             }

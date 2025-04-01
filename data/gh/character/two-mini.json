@@ -117,7 +117,7 @@
       "attack": 1,
       "action": {
         "type": "specialTarget",
-        "value": "adjacentEnemies"
+        "value": "enemiesAdjacent"
       },
       "additionalAction": {
         "type": "push",
