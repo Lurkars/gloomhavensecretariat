@@ -247,6 +247,16 @@
     },
     "setAside": "Set character aside",
     "summon": {
+      "action": {
+        "": "%game.action.summon% %data.summon.{0}%",
+        "count": {
+          "": "%game.action.summon% {1} %data.summon.{0}%",
+          "fly": "%game.action.summon% {1} %data.summon.{0}% %game.actionIcon.fly%"
+        },
+        "fly": {
+          "": "%game.action.summon% %data.summon.{0}% %game.actionIcon.fly%"
+        }
+      },
       "level": "(Level {0})"
     },
     "token": "Character Token",
@@ -1033,9 +1043,11 @@
     "maxHealth": "Maximum hit points",
     "solo": "Solo",
     "specialTarget": {
+      "all": "%game.target% all",
       "allies": "%game.target% all allies",
       "alliesAdjacent": "%game.target% all adjacent allies",
       "alliesAdjacentAffect": "%game.affect% all adjacent allies",
+      "alliesAffect": "%game.affect% all allies",
       "alliesRange": "%game.target% all allies within %game.action.range% {0}",
       "alliesRangeAffect": "%game.affect% all allies within %game.action.range% {0}",
       "ally": "%game.target% 1 ally",
@@ -1053,6 +1065,7 @@
       "enemiesRangeExact": "%game.target% all enemies at exactly %game.action.range% {0}",
       "enemy": "%game.target% one enemy",
       "enemyAdjacent": "%game.target% one adjacent enemy",
+      "enemyAllyRange": "%game.target% one enemy or %game.affect% one ally within %game.action.range% {0}",
       "enemyOneAll": "%game.target% one enemy with all attacks",
       "enemyRange": "%game.target% one enemy at exactly %game.action.range% {0}",
       "figures": "%game.target% all figures",

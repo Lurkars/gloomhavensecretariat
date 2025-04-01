@@ -1030,7 +1030,7 @@
       "figures": "%game.target% toutes les unités",
       "figuresAdjacent": "%game.target% tous les ennemis adjacents",
       "figuresRange": "%game.target% toutes les unités à %game.action.range% {0}",
-      "focusEnemyFarthest": "Concentrez-vous sur l'ennemi le plus éloigné.",
+      "focusEnemyFarthest": "Se focalise sur l'adversaire<br>le plus éloigné.",
       "self": "Sur vous-même",
       "selfAllies": "Sur vous-même et tous les alliés",
       "selfAlliesAdjacentAffect": "%game.affect%etc. sur vous-même et tous les alliés adjacents",
