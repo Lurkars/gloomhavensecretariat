@@ -516,7 +516,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "You and all adjacent alles add +1 %game.action.attack% to all your attacks this round.",
+          "value": "You and all adjacent allies add +1 %game.action.attack% to all your attacks this round.",
           "small": true,
           "subActions": [
             {
