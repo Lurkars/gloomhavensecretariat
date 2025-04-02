@@ -31,6 +31,7 @@
       "reset": "Kampagne zurücksetzen"
     },
     "character": "Charakterbogen",
+    "enhancements": "Fertigkeitsverbesserungen-Rechner",
     "items": "Gegenstandskarten Übersicht",
     "map": {
       "": "Globale Karte",
@@ -102,7 +103,15 @@
         "lost": "Verloren",
         "multiTarget": "Mehrere Ziele",
         "persistent": "Anhaltend",
-        "temporary": "Temporär"
+        "temporary": "Temporär",
+        "types": {
+          "any": "Beliebig",
+          "circle": "Kreis",
+          "diamond": "Raute",
+          "diamond_plus": "Raute+",
+          "hex": "Sechseck",
+          "square": "Quadrat"
+        }
       },
       "forceDeck": "Doppelklick um die Karte zum Kartendeck hinzuzufügen",
       "levelWarning": "Ungültiges Kartendeck, da einige Karten ein höheres Level als der Charakter haben!",
@@ -387,10 +396,14 @@
     "action": {
       "add": "Aktion hinzufügen",
       "addBottom": "Untere Aktion hinzufügen",
+      "addEnhancement": "Fertigkeitsverbesserung hinzufügen",
       "addSubAction": "Unter-Aktion hinzufügen",
+      "enhancements": "Fertigkeitsverbesserungen",
       "remove": "Aktion entfernen",
+      "removeEnhancement": "Fertigkeitsverbesserung entfernen",
       "removeSubAction": "Unter-Aktion entfernen",
       "small": "Kleiner",
+      "subActions": "Unter-Aktionen",
       "type": "Aktionstyp",
       "value": "Aktionswert",
       "valueType": {
