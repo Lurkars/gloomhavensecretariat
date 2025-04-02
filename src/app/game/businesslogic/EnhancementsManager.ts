@@ -189,7 +189,7 @@ export class EnhancementsManager {
     }
 
     isMultiTarget(action: Action): boolean {
-        return action.subActions && action.subActions.find((subAction) => subAction.type == ActionType.target && EntityValueFunction(subAction.value) > 1 || subAction.type == ActionType.specialTarget && typeof subAction.value === 'string' && (subAction.value.toLowerCase().indexOf('allies') != -1 || subAction.value.toLowerCase().indexOf('enemies') != -1 || subAction.value.toLowerCase().indexOf('figures') != -1 || subAction.value.toLowerCase().indexOf('targets') != -1) || subAction.type == ActionType.area) != undefined;
+        return action.subActions && action.subActions.find((subAction) => subAction.type == ActionType.target && EntityValueFunction(subAction.value) > 1 || subAction.type == ActionType.specialTarget && typeof subAction.value === 'string' && (subAction.value.toLowerCase().indexOf('allies') != -1 || subAction.value.toLowerCase().indexOf('enemies') != -1 || subAction.value.toLowerCase().indexOf('figures') != -1 || subAction.value.toLowerCase().indexOf('targets') != -1 || subAction.value == 'all') || subAction.type == ActionType.area) != undefined;
     }
 
     levelCosts(level: number): number {

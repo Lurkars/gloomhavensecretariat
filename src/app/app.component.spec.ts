@@ -165,8 +165,9 @@ import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { EventCardsToolComponent } from './ui/tools/events/event-cards-tool';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
-import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
-import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
+import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier/attackmodifier-standalone';
+import { InitiativeStandaloneComponent } from './ui/tools/standalone/initiative/initiative-standalone';
+import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck/loot-deck-standalone';
 import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
 
 describe('AppComponent', () => {
@@ -271,6 +272,7 @@ describe('AppComponent', () => {
         HealthbarComponent,
         HighlightConditionsComponent,
         HintDialogComponent,
+        InitiativeStandaloneComponent,
         InteractiveActionsComponent,
         ItemComponent,
         ItemDialogComponent,

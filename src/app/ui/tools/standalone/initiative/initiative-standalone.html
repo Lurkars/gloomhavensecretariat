@@ -1,0 +1,77 @@
+<div class="initiative-standalone"
+    [ngClass]="{'vertical'  : vertical(), 'fh' : settingsManager.settings.theme == 'fh', 'modern' : settingsManager.settings.theme == 'modern'}"
+    ghs-keyboard-shortcuts>
+    <ghs-header #header [standalone]="true" [connection]="true"></ghs-header>
+
+    <div class="scroll-container">
+        <div *ngIf="character" class="dialog">
+            <div class="dialog-container initiative-dialog">
+                <div class="title">
+                    <span class="character" (click)="openCharacterSheet()">
+                        <img class="icon" [src]="character.iconUrl" />
+                        {{ gameManager.characterManager.characterName(character)}}
+                        <span *ngIf="character.title">&nbsp;(<span
+                                [ghs-label]="'data.character.' + character.name"></span>)</span>
+                    </span>
+                    <div class="initiative"
+                        [ngClass]="{'error' : statusCode != 200 && statusCode != 403, 'warn': statusCode == 403}">
+                        <span class="value" *ngIf="character.initiative && character.initiativeVisible">
+                            <span *ngIf="character.initiative < 10">0</span>
+                            <span>{{character.initiative}}</span>
+                        </span>
+                        <span class="value" *ngIf="character.initiative && !character.initiativeVisible">
+                            ??
+                        </span>
+                        <span class="value" *ngIf="!character.initiative">
+                            --
+                        </span>
+                        <img *ngIf="character.initiativeVisible && character.initiative == 99 && character.longRest"
+                            class="ghs-svg" src="./assets/images/long-rest.svg">
+                    </div>
+                    <ng-container *ngIf="!vertical()">
+                        <span class="spacer"></span>
+                        <span class="long-rest-button" [ngClass]="{'active' : longRest}" (click)="setLongRest()">
+                            <img class="ghs-svg" src="./assets/images/long-rest.svg"> <span
+                                [ghs-label]="'game.figure.longRest' + (longRest ? 'Off' : '')"></span>
+                        </span>
+                    </ng-container>
+                </div>
+
+                <div class="number-container">
+                    <span></span>
+                    <span class="value">{{value}}
+                        <img *ngIf="longRest" class="ghs-svg" src="./assets/images/long-rest.svg"></span>
+                    <span></span>
+                    <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
+                        <span class="number">{{number}}</span>
+                    </span>
+                    <span class="number-button" (click)="value = '__'">
+                        <span class="number">*</span>
+                    </span>
+                    <span class="number-button" (click)="pickNumber(0)">
+                        <span class="number">0</span>
+                    </span>
+                    <span class="number-button" (click)="setCurrentValue()">
+                        <span class="number">#</span>
+                    </span>
+                </div>
+
+                <span *ngIf="vertical()" class="long-rest-button" [ngClass]="{'active' : longRest}"
+                    (click)="setLongRest()">
+                    <img class="ghs-svg" src="./assets/images/long-rest.svg"> <span
+                        [ghs-label]="'game.figure.longRest' + (longRest ? 'Off' : '')"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="characters">
+            <span *ngFor="let c of characters; let i = index" class="character" [ngClass]="{'active': character == c}"
+                (click)="selectCharacter(c)"><img [src]="c.iconUrl"></span>
+            <label *ngIf="character">
+                <input type="checkbox" [checked]="settingsManager.settings.standaloneInitiativeAutomatic"
+                    (change)="settingsManager.toggle('standaloneInitiativeAutomatic')">
+                <span [ghs-label]="'Automatic'"></span>
+            </label>
+        </div>
+    </div>
+</div>

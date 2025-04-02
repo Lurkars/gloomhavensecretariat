@@ -6,13 +6,28 @@
         <div class="action">
             <ghs-action [action]="action" [relative]="false" [character]="character" [index]="data.actionIndex || ''"
                 [cardId]="data.cardId"></ghs-action>
-            <ghs-editor-action [action]="action" *ngIf="customAction || wipSpecial || customSpecial" [actionTypes]="actionTypes"
-                [hideValues]="true" (actionChange)="update()"></ghs-editor-action>
+            <ghs-editor-action [action]="action" *ngIf="customAction || wipSpecial || customSpecial"
+                [actionTypes]="actionTypes" [hideValues]="true"
+                (actionChange)="updateAction(action)"></ghs-editor-action>
         </div>
 
-        <div class="levels" *ngIf="customAction">
-            <a class="level" *ngFor="let l of [] | ghsRange:9" (click)="level = l+1"
-                [ngClass]="{'active' : level == l+1}">{{l+1}}</a>
+        <div class="levels">
+            <label [ghs-label]="'character.abilities.enhancements.level'"></label>
+            <ng-container *ngIf="customAction">
+                <a class="level" *ngFor="let l of [] | ghsRange:9" (click)="level = l+1"
+                    [ngClass]="{'active' : level == l+1}">{{l+1}}</a>
+            </ng-container>
+            <a *ngIf="!customAction" class="level active disabled">{{level}}</a>
+        </div>
+
+        <div class="previous-enhancements">
+            <label [ghs-label]="'character.abilities.enhancements.enhancements'"></label>
+            <ng-container *ngIf="customAction">
+                <a class="previous-enhancement" *ngFor="let e of [] | ghsRange:enhancements+1"
+                    (click)="enhancements = e" [ngClass]="{'active' : enhancements == e}">{{e}}</a>
+                <a class="previous-enhancement plus" (click)="enhancements = enhancements+1">+</a>
+            </ng-container>
+            <a *ngIf="!customAction" class="previous-enhancement active disabled">{{enhancements}}</a>
         </div>
 
         <div class="card-properties" *ngIf="customAction">
@@ -20,12 +35,13 @@
                 <img src="./assets/images/summons/red.png">
             </a>
 
-            <a class="lost" (click)="toggleSpecial('lost')" [ngClass]="{'enabled' :  special == 'lost'}">
+            <a *ngIf="gameManager.enhancementsManager.fh" class="lost" (click)="toggleSpecial('lost')"
+                [ngClass]="{'enabled' :  special == 'lost'}">
                 <img src="./assets/images/action/card/lost.svg">
                 <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
             </a>
 
-            <a class="persistent" (click)="toggleSpecial('persistent')"
+            <a *ngIf="gameManager.enhancementsManager.fh" class="persistent" (click)="toggleSpecial('persistent')"
                 [ngClass]="{'enabled' : special == 'persistent'}">
                 <img src="./assets/images/action/card/persistent.svg">
                 <img class="overlay" src="./assets/images/action/card/overlay/persistent.svg">

@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { GameState } from "src/app/game/model/Game";
-import { environment } from "src/environments/environment";
-import { LootDeckChange } from "../../figures/loot/loot-deck";
 import { storageManager } from "src/app/game/businesslogic/StorageManager";
+import { GameState } from "src/app/game/model/Game";
+import { LootDeckChange } from "src/app/ui/figures/loot/loot-deck";
+import { environment } from "src/environments/environment";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-loot-deck-standalone',
     templateUrl: './loot-deck-standalone.html',
     styleUrls: ['./loot-deck-standalone.scss',]

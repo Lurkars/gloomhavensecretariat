@@ -23,6 +23,7 @@ import { PartySheetComponent } from './party/party-sheet';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   @Input() standalone: boolean = false;
+  @Input() connection: boolean = false;
   @ViewChild('mainMenuButton') mainMenuButton!: ElementRef;
   @ViewChild('partySheet') partySheet!: PartySheetComponent;
   gameManager: GameManager = gameManager;

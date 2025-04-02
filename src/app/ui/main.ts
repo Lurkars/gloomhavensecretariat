@@ -15,7 +15,6 @@ import { MonsterType } from '../game/model/data/MonsterType';
 import { MonsterNumberPickerDialog } from './figures/monster/dialogs/numberpicker-dialog';
 import { FooterComponent } from './footer/footer';
 import { SubMenu } from './header/menu/menu';
-import { ghsDialogClosingHelper } from './helper/Static';
 import { ConfirmDialogComponent } from './helper/confirm/confirm';
 import { PointerInputService } from './helper/pointer-input';
 
@@ -67,7 +66,6 @@ export class MainComponent implements OnInit {
   constructor(private element: ElementRef, private swUpdate: SwUpdate, private dialog: Dialog, private pointerInputService: PointerInputService) {
     gameManager.uiChange.subscribe({
       next: () => {
-
         this.figures = gameManager.game.figures.filter((figure) => (settingsManager.settings.monsters || !(figure instanceof Monster)) && (!(figure instanceof Character) || !figure.absent || !settingsManager.settings.hideAbsent));
 
         if (this.initialized) {
@@ -195,40 +193,6 @@ export class MainComponent implements OnInit {
         await this.automaticClockOut();
       }
     });
-
-    dialog.afterOpened.subscribe({
-      next: (dialogRef: DialogRef) => {
-        if (dialogRef.overlayRef.backdropElement && dialog.openDialogs.length > 1 && !dialogRef.overlayRef.backdropElement.classList.contains('fullscreen-backdrop')) {
-          dialogRef.overlayRef.backdropElement.style.opacity = '0';
-        }
-
-        if (!dialogRef.disableClose) {
-          let closeIcon = document.createElement('img');
-          closeIcon.src = './assets/images/close_dialog.svg';
-          let closeElement = document.createElement('a');
-          closeElement.classList.add('dialog-close-button');
-          closeElement.appendChild(closeIcon);
-          closeElement.addEventListener('click', () => {
-            ghsDialogClosingHelper(dialogRef);
-          });
-          closeElement.title = settingsManager.getLabel('close');
-          dialogRef.overlayRef.hostElement.appendChild(closeElement);
-
-          if (dialogRef.overlayRef.backdropElement) {
-            dialogRef.disableClose = true;
-            dialogRef.overlayRef.backdropElement.addEventListener('click', () => {
-              ghsDialogClosingHelper(dialogRef);
-            });
-          }
-
-          dialogRef.keydownEvents.subscribe(event => {
-            if (settingsManager.settings.keyboardShortcuts && !event.ctrlKey && !event.shiftKey && !event.altKey && event.key === "Escape") {
-              ghsDialogClosingHelper(dialogRef);
-            }
-          });
-        }
-      }
-    })
   }
 
   onFigureScroll(event: any) {

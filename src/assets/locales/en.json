@@ -31,6 +31,7 @@
       "reset": "Reset Campaign"
     },
     "character": "Character Sheets",
+    "enhancements": "Enhancement Calculator",
     "items": "Itemcards Overview",
     "map": {
       "": "Global Map",
@@ -102,7 +103,15 @@
         "lost": "Lost",
         "multiTarget": "Multiple Targets",
         "persistent": "Persistent",
-        "temporary": "Temporary"
+        "temporary": "Temporary",
+        "types": {
+          "any": "Any",
+          "circle": "Circle",
+          "diamond": "Diamond",
+          "diamond_plus": "Diamond+",
+          "hex": "Hex",
+          "square": "Square"
+        }
       },
       "forceDeck": "Double click to add Card to Deck",
       "levelWarning": "Invalid deck as some cards are higher level than character!",
@@ -387,10 +396,14 @@
     "action": {
       "add": "Add Action",
       "addBottom": "Add Bottom Action",
+      "addEnhancement": "Add Enhancement Slot",
       "addSubAction": "Add Sub-action",
+      "enhancements": "Enhancements",
       "remove": "Remove Action",
+      "removeEnhancement": "Remove Enhancement Slot",
       "removeSubAction": "Remove Sub-action",
       "small": "Smaller",
+      "subActions": "Subactions",
       "type": "Action Type",
       "value": "Action Value",
       "valueType": {

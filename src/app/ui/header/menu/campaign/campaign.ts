@@ -8,15 +8,16 @@ import { Party } from "src/app/game/model/Party";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/data/Condition";
 import { BattleGoalSetupDialog } from "src/app/ui/figures/battlegoal/setup/battlegoal-setup";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
+import { EnhancementDialogComponent } from "src/app/ui/figures/character/sheet/abilities/enhancements/enhancement-dialog";
 import { ItemsDialogComponent } from "src/app/ui/figures/items/dialog/items-dialog";
 import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
+import { PartyResourcesDialogComponent } from "src/app/ui/figures/party/resources/resources";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 import { ScenarioChartDialogComponent } from "../../../figures/party/scenario-chart/scenario-chart";
-import { PartyResourcesDialogComponent } from "src/app/ui/figures/party/resources/resources";
 
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-campaign-menu',
     templateUrl: 'campaign.html',
     styleUrls: ['../menu.scss', 'campaign.scss']
@@ -141,6 +142,13 @@ export class CampaignMenuComponent implements OnInit {
                 edition: gameManager.game.edition
             }
         })
+        this.close.emit();
+    }
+
+    openEnhancementDialog() {
+        this.dialog.open(EnhancementDialogComponent, {
+            panelClass: ['dialog']
+        });
         this.close.emit();
     }
 

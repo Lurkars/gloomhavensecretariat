@@ -5,7 +5,7 @@
       <img class="ghs-svg" src="./assets/images/menu.svg">
     </a>
   </div>
-  <ng-container *ngIf="!standalone">
+  <ng-container *ngIf="!standalone || connection">
     <img *ngIf="gameManager.stateManager.serverError" src="./assets/images/warning.svg"
       [ghs-tooltip]="gameManager.stateManager.serverError" class="ghs-svg server-connection closed"
       [ghs-label]="'server.error'" [ghs-label-attribute]="'title'">
@@ -34,7 +34,9 @@
           [ghs-label]="'server.disconnected'" [ghs-label-attribute]="'title'">
       </a>
     </ng-container>
+  </ng-container>
 
+  <ng-container *ngIf="!standalone">
     <img src="./assets/images/shuffle.svg" class="server-connection syncing" *ngIf="syncing()">
     <span class="game-server"
       *ngIf="!syncing() && gameManager.stateManager.wsState() != -99 && gameManager.game.server">°</span>

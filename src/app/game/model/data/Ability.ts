@@ -21,6 +21,7 @@ export class Ability {
   bottomShuffle: boolean = false;
   hint: string | undefined;
   revealed: boolean = false;
+  replace: boolean = false;
 
   constructor(cardId: number | undefined = undefined, name: string | undefined = undefined, initiative: number = 0,
     actions: Action[] = [],

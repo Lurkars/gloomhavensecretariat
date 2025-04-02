@@ -251,7 +251,23 @@ export class GameManager {
   }
 
   decksData(edition: string | undefined = undefined): DeckData[] {
-    return this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).flatMap((editionData) => editionData.decks).filter((deckData) => !edition || deckData.edition == edition);;
+    const decks = this.editionData.filter((editionData) => (!edition || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (!edition || editionData.edition == edition || this.editionExtensions(editionData.edition).indexOf(edition) != -1)).flatMap((editionData) => editionData.decks);
+
+    const replaces = decks.filter((deckData) => deckData.abilities.some((ability) => ability.replace));
+
+    return decks.filter((deckData) => replaces.indexOf(deckData) == -1).map((deckData) => {
+      const replace = replaces.find((other) => other.edition == deckData.edition && other.name == deckData.name);
+      if (!replace) {
+        return deckData;
+      }
+      let newDeckData = new DeckData(deckData.edition, deckData.name, deckData.character);
+
+      newDeckData.abilities = deckData.abilities.map((ability) =>
+        Object.assign(new Ability(), replace.abilities.find((other) => other.cardId == ability.cardId && other.replace) || ability)
+      )
+
+      return newDeckData;
+    })
   }
 
   scenarioData(edition: string | undefined = undefined): ScenarioData[] {
@@ -501,7 +517,7 @@ export class GameManager {
         console.error("Unknwon deck: " + figure.name + (figure.deck ? "[" + figure.deck + "]" : "") + " for " + figure.edition);
         figure.errors.push(new FigureError(FigureErrorType.deck, figure instanceof Character ? "character" : "monster", figure.name, figure.edition, figure.deck));
       }
-      return new DeckData('', [], '');
+      return new DeckData();
     }
 
     return deckData;

@@ -1,8 +1,10 @@
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { Component, isDevMode, OnDestroy, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { gameManager } from './game/businesslogic/GameManager';
 import { settingsManager } from './game/businesslogic/SettingsManager';
+import { ghsDialogClosingHelper } from './ui/helper/Static';
 
 @Component({
   standalone: false,
@@ -15,7 +17,41 @@ export class AppComponent implements OnInit, OnDestroy {
 
   theme: string = '';
 
-  constructor(private meta: Meta) { }
+  constructor(private meta: Meta, private dialog: Dialog) {
+    this.dialog.afterOpened.subscribe({
+      next: (dialogRef: DialogRef) => {
+        if (dialogRef.overlayRef.backdropElement && dialog.openDialogs.length > 1 && !dialogRef.overlayRef.backdropElement.classList.contains('fullscreen-backdrop')) {
+          dialogRef.overlayRef.backdropElement.style.opacity = '0';
+        }
+
+        if (!dialogRef.disableClose) {
+          let closeIcon = document.createElement('img');
+          closeIcon.src = './assets/images/close_dialog.svg';
+          let closeElement = document.createElement('a');
+          closeElement.classList.add('dialog-close-button');
+          closeElement.appendChild(closeIcon);
+          closeElement.addEventListener('click', () => {
+            ghsDialogClosingHelper(dialogRef);
+          });
+          closeElement.title = settingsManager.getLabel('close');
+          dialogRef.overlayRef.hostElement.appendChild(closeElement);
+
+          if (dialogRef.overlayRef.backdropElement) {
+            dialogRef.disableClose = true;
+            dialogRef.overlayRef.backdropElement.addEventListener('click', () => {
+              ghsDialogClosingHelper(dialogRef);
+            });
+          }
+
+          dialogRef.keydownEvents.subscribe(event => {
+            if (settingsManager.settings.keyboardShortcuts && !event.ctrlKey && !event.shiftKey && !event.altKey && event.key === "Escape") {
+              ghsDialogClosingHelper(dialogRef);
+            }
+          });
+        }
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.applyStyle();

@@ -1,0 +1,32 @@
+{
+  "name": "angry-face",
+  "edition": "gh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Felling Swoop",
+      "cardId": 378,
+      "replace": true,
+      "level": 1,
+      "initiative": 75,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ]
+    }
+  ]
+}

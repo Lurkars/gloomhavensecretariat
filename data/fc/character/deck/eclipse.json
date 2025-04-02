@@ -1,0 +1,32 @@
+{
+  "name": "eclipse",
+  "edition": "gh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Concealed Dominance",
+      "cardId": 271,
+      "replace": true,
+      "level": "X",
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ]
+    }
+  ]
+}

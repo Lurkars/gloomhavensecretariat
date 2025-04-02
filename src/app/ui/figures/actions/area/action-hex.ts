@@ -24,6 +24,7 @@ export class ActionHexComponent implements OnChanges {
   enhanceHexes: ActionHex[] = [];
   enhancedHexes: ActionHex[] = [];
   edit: boolean = false;
+  editMode: boolean = false;
   ActionHex = ActionHex;
   ActionHexToString = ActionHexToString;
 
@@ -45,6 +46,9 @@ export class ActionHexComponent implements OnChanges {
           if (this.character && this.cardId && this.actionIndex && this.character.progress.enhancements && this.character.progress.enhancements.find((e) => e.cardId == this.cardId && e.actionIndex == this.actionIndex && e.index == this.enhanceHexes.length - 1 && e.action == 'hex')) {
             this.enhancedHexes.push(hex);
           }
+        }
+        if (hex.type == ActionHexType.invisible) {
+          this.editMode = true;
         }
       }
     })

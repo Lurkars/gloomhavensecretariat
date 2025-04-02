@@ -7,11 +7,11 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { storageManager } from "src/app/game/businesslogic/StorageManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
+import { AttackModiferDeckChange } from "src/app/ui/figures/attackmodifier/attackmodifierdeck";
+import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
+import { HeaderComponent } from "src/app/ui/header/header";
+import { SubMenu } from "src/app/ui/header/menu/menu";
 import { environment } from "src/environments/environment";
-import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
-import { CharacterSheetDialog } from "../../figures/character/dialogs/character-sheet-dialog";
-import { HeaderComponent } from "../../header/header";
-import { SubMenu } from "../../header/menu/menu";
 
 @Component({
     standalone: false,

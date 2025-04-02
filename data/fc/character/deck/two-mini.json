@@ -1,0 +1,82 @@
+{
+  "name": "two-mini",
+  "edition": "gh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Disorienting Roar",
+      "cardId": 477,
+      "replace": true,
+      "level": 1,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spirit Swap",
+      "cardId": 478,
+      "replace": true,
+      "level": 1,
+      "initiative": 22,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Primal Blessing",
+      "cardId": 498,
+      "replace": true,
+      "level": 6,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%character.abilities.wip%",
+          "enhancementTypes": [
+            "any"
+          ]
+        }
+      ]
+    }
+  ]
+}

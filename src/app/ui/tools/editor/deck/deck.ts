@@ -84,7 +84,7 @@ export class DeckEditorComponent implements OnInit {
     deckError: any;
 
     constructor(private dialog: Dialog, private route: ActivatedRoute, private router: Router) {
-        this.deckData = new DeckData("", [], "");
+        this.deckData = new DeckData();
         this.deckData.abilities.push(new Ability());
     }
 
@@ -209,7 +209,7 @@ export class DeckEditorComponent implements OnInit {
                 this.deckData = JSON.parse(this.inputDeckData.nativeElement.value);
                 return;
             } catch (e) {
-                this.deckData = new DeckData("", [], "");
+                this.deckData = new DeckData();
                 this.deckData.abilities.push(new Ability());
                 this.deckError = e;
             }
@@ -382,7 +382,7 @@ export class DeckEditorComponent implements OnInit {
     loadDeckData(event: any) {
         const index = +event.target.value;
         if (index == -1) {
-            this.deckData = new DeckData("", [], "");
+            this.deckData = new DeckData();
             this.deckData.abilities.push(new Ability());
             if (this.character) {
                 this.deckData.character = true;

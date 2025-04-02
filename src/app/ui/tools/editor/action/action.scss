@@ -35,6 +35,11 @@
     .enhancement {
       display: flex;
       align-items: center;
+
+      a {
+        white-space: nowrap;
+        margin-left: calc(var(--ghs-unit) * 0.5);
+      }
     }
   }
 
@@ -57,13 +62,18 @@
   .area-container {
     display: flex;
     justify-content: space-between;
+    margin-top: calc(var(--ghs-unit) * 0.5);
 
     .hexes {
       width: 0;
     }
+
+    textarea {
+      width: 50%;
+    }
   }
 
-  .element-half-container {
+  .action-element-half-container {
     display: flex;
   }
 }

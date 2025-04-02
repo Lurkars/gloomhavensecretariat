@@ -29,7 +29,7 @@
   .number-container {
 
     display: grid;
-    grid-template-columns: repeat(3, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
+    grid-template-columns: repeat(3, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor) * var(--ghs-text-factor)));
 
 
     .value {
@@ -39,7 +39,7 @@
       height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       font-family: var(--ghs-font-title);
-      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor) * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
     }
@@ -48,11 +48,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
-      width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
+      width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor) * var(--ghs-text-factor));
       cursor: pointer;
       font-family: var(--ghs-font-title);
-      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor) * var(--ghs-dialog-factor));
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
 

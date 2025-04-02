@@ -128,14 +128,25 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
         }
     }
 
+    updateAction(action: Action | undefined = undefined) {
+        if (action) {
+            this.action = action;
+        }
+        this.update();
+    }
+
     update() {
-        this.actionTypes = [...gameManager.enhancementsManager.squareActions, ...gameManager.enhancementsManager.circleActions, ...gameManager.enhancementsManager.diamondActions, ...gameManager.enhancementsManager.diamondPlusActions, ...gameManager.enhancementsManager.hexActions].filter((type, index, self) => index === self.indexOf(type));
+        if (!this.customSpecial) {
+            this.actionTypes = [...gameManager.enhancementsManager.squareActions, ...gameManager.enhancementsManager.circleActions, ...gameManager.enhancementsManager.diamondActions, ...gameManager.enhancementsManager.diamondPlusActions, ...gameManager.enhancementsManager.hexActions].filter((type, index, self) => index === self.indexOf(type));
+        }
 
         if (this.special === 'summon') {
             this.actionTypes = [...gameManager.enhancementsManager.summonActions];
         } else if (this.actionTypes.indexOf(this.action.type) == -1) {
             this.action = new Action(ActionType.attack, 1);
         }
+
+        const oldEnhancementType = this.enhancementType;
 
         if (!this.action.enhancementTypes || !this.action.enhancementTypes.length || this.wipSpecial) {
             if (gameManager.enhancementsManager.squareActions.indexOf(this.action.type) != -1) {
@@ -184,6 +195,8 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
 
         if (this.enhancementType == "hex") {
             this.enhancementAction = "hex";
+        } else if (oldEnhancementType != this.enhancementType) {
+            this.enhancementAction = "plus1";
         }
 
         if (this.data.actionIndex && this.data.cardId && this.data.enhancementIndex != undefined && this.character) {
