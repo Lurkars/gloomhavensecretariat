@@ -508,6 +508,10 @@ main {
     cursor: grabbing;
   }
 
+  &.short {
+    width: calc(var(--ghs-unit) * 4);
+  }
+
   &.character,
   &.objective-container {
     height: calc(var(--ghs-unit) * 14);
@@ -534,6 +538,10 @@ main {
         right: calc(var(--ghs-unit) * -0.5);
         left: auto;
       }
+    }
+
+    &.character.compact {
+      width: calc(var(--ghs-unit) * 4);
     }
   }
 }

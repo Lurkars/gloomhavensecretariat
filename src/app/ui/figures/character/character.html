@@ -13,7 +13,7 @@
 </div>
 
 <div class="character" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : (bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'compact': compact, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern', 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && (settingsManager.settings.theme == 'modern' || compact) }">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : (bb || settingsManager.settings.characterSheet) && settingsManager.settings.characterAttackModifierDeck && character.attackModifierDeckVisible && !settingsManager.settings.characterAttackModifierDeckPermanent || settingsManager.settings.lootDeck && settingsManager.settings.applyLoot && character.lootCardsVisible, 'compact': compact, 'short': short, 'menu': shortMenu, 'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'active-border' : character.active && (settingsManager.settings.theme == 'modern' || compact) }">
 
   <ghs-entity-index-key [entity]="character"></ghs-entity-index-key>
 
@@ -235,6 +235,13 @@
         <a #summonButton class="summon-dialog-button" ghs-pointer-input (singleClick)="openSummonDialog($event)"
           [ghs-label]="'summon'" [ghs-label-attribute]="'title'">
           <img class="ghs-svg" src="./assets/images/plus.svg">
+        </a>
+      </div>
+
+      <div class="short-menu" *ngIf="compact && short">
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
+        <a class="toggle-menu" ghs-pointer-input (singleClick)="shortMenu=!shortMenu">
+          <img class="ghs-svg" src="./assets/images/menu.svg">
         </a>
       </div>
 

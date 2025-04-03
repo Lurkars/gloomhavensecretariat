@@ -15,11 +15,11 @@
                     </span>
                     <div class="initiative"
                         [ngClass]="{'error' : statusCode != 200 && statusCode != 403, 'warn': statusCode == 403}">
-                        <span class="value" *ngIf="character.initiative && character.initiativeVisible">
+                        <span class="value" *ngIf="character.initiative && (character.initiativeVisible || gameManager.game.state == 'next')">
                             <span *ngIf="character.initiative < 10">0</span>
                             <span>{{character.initiative}}</span>
                         </span>
-                        <span class="value" *ngIf="character.initiative && !character.initiativeVisible">
+                        <span class="value" *ngIf="character.initiative && !character.initiativeVisible && gameManager.game.state != 'next'">
                             ??
                         </span>
                         <span class="value" *ngIf="!character.initiative">

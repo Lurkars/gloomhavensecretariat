@@ -232,6 +232,7 @@
     .items-button,
     .icon-container,
     .summon-dialog,
+    .short-menu,
     .stats .column,
     .hand-size,
     .character-level,
@@ -659,14 +660,16 @@
     z-index: 2;
   }
 
-  .summon-dialog {
+  .summon-dialog,
+  .short-menu {
     position: relative;
     display: flex;
     align-items: center;
     margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
   }
 
-  .summon-dialog-button {
+  .summon-dialog-button,
+  .toggle-menu {
     position: relative;
     display: flex;
     width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
@@ -681,6 +684,11 @@
     &:hover {
       color: var(--ghs-color-white);
       filter: var(--ghs-filter-white);
+    }
+
+    &.toggle-menu {
+      width: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
     }
   }
 
@@ -918,6 +926,7 @@
     .battlegoals-button,
     .items-button,
     .summon-dialog,
+    .short-menu,
     .hand-size,
     .character-level,
     .character-traits,
@@ -949,7 +958,7 @@
     }
   }
 
-  &.short {
+  &.short:not(.compact) {
     width: calc(var(--ghs-unit) * 57);
     height: calc(var(--ghs-unit) * 28);
     background-image: url('~src/assets/images/character/char-mat-short.png'), url('~src/assets/images/character/char-mat-short.png');
@@ -966,7 +975,7 @@
 
     .stats {
       position: absolute;
-      left: calc(var(--ghs-unit) * 6);
+      left: calc(var(--ghs-unit) * 2);
       right: calc(var(--ghs-unit) * 2);
       height: calc(var(--ghs-unit) * 26.5);
       flex-wrap: wrap;
@@ -978,11 +987,23 @@
       }
 
       .character-sheet-button {
+        margin-left: calc(var(--ghs-unit) * 2);
         margin-right: calc(var(--ghs-unit) * 2);
         margin-top: calc(var(--ghs-unit) * 2);
         height: auto;
       }
 
+      .hand-size {
+        top: calc(var(--ghs-unit) * 16);
+        left: calc(var(--ghs-unit) * 0);
+        right: initial;
+      }
+
+      .character-level {
+        top: calc(var(--ghs-unit) * 20.5);
+        left: calc(var(--ghs-unit) * 0.2);
+        right: initial;
+      }
 
       .player-number {
         top: calc(var(--ghs-unit) * 4.8);
@@ -1031,7 +1052,6 @@
     }
 
     .stats {
-
       margin-left: calc(var(--ghs-unit) * 7);
 
       .column {
@@ -1077,39 +1097,114 @@
           height: calc(var(--ghs-unit) * 9);
         }
       }
+
+      .hand-size {
+        top: calc(var(--ghs-unit) * 1.4);
+        right: calc(var(--ghs-unit) * 2);
+        left: initial;
+      }
+
+      .character-level {
+        top: calc(var(--ghs-unit) * 6);
+        right: calc(var(--ghs-unit) * 1.8);
+        left: initial;
+      }
+
+      .character-traits {
+        left: calc(var(--ghs-unit) * 11);
+      }
+
+      .player-number {
+        top: calc(var(--ghs-unit) * 3.3);
+        left: calc(var(--ghs-unit) * 1.7);
+        width: calc(var(--ghs-unit) * 3.5);
+        height: calc(var(--ghs-unit) * 3.5);
+        font-size: calc(var(--ghs-unit) * 2);
+        border-radius: 80%;
+      }
+
+      .character-sheet-button {
+        display: none;
+      }
+
+      .special-actions {
+        left: calc(var(--ghs-unit) * 10);
+        width: calc(var(--ghs-unit) * 70);
+        justify-content: flex-start;
+      }
     }
 
-    .hand-size {
-      top: calc(var(--ghs-unit) * 2.7);
-      right: calc(var(--ghs-unit) * 1.2);
-    }
+    &.short {
+      width: calc(var(--ghs-unit) * 57);
 
-    .character-level {
-      top: calc(var(--ghs-unit) * 6.3);
-      right: calc(var(--ghs-unit) * 1);
-    }
+      .drag-initiative {
+        left: calc(var(--ghs-unit) * 2);
+      }
 
-    .character-traits {
-      left: calc(var(--ghs-unit) * 11);
-    }
+      .column.col-1 {
+        .title-bar .title {
+          .icon {
+            margin-left: calc(var(--ghs-unit) * 0.5);
+          }
 
-    .player-number {
-      top: calc(var(--ghs-unit) * 3.3);
-      left: calc(var(--ghs-unit) * 1.7);
-      width: calc(var(--ghs-unit) * 3.5);
-      height: calc(var(--ghs-unit) * 3.5);
-      font-size: calc(var(--ghs-unit) * 2);
-      border-radius: 80%;
-    }
+          .name {
+            font-size: calc(var(--ghs-unit) * 3);
+            white-space: initial;
+          }
+        }
 
-    .character-sheet-button {
-      display: none;
-    }
+        .status-bar .health {
+          width: auto;
+        }
+      }
 
-    .special-actions {
-      left: calc(var(--ghs-unit) * 10);
-      width: calc(var(--ghs-unit) * 70);
-      justify-content: flex-start;
+      .stats {
+        margin-left: calc(var(--ghs-unit) * 1.5);
+
+        .loot-cards-button,
+        .attack-modifier-button,
+        .attack-modifier-draw,
+        .battlegoals-button,
+        .items-button,
+        .summon-dialog,
+        .column.col-2 {
+          display: none;
+        }
+
+        .short-menu {
+          position: absolute;
+          top: 0;
+          right: calc(var(--ghs-unit) * 6);
+          bottom: 0;
+        }
+      }
+
+      &.menu {
+
+        .column.col-1,
+        .drag-initiative,
+        ghs-highlight-conditions {
+          display: none;
+        }
+
+        .stats {
+          margin-left: calc(var(--ghs-unit) * 4.5);
+
+          .spacer {
+            display: none;
+          }
+
+          .loot-cards-button,
+          .attack-modifier-button,
+          .attack-modifier-draw,
+          .battlegoals-button,
+          .items-button,
+          .summon-dialog,
+          .column.col-2 {
+            display: inherit;
+          }
+        }
+      }
     }
   }
 

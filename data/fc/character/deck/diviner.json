@@ -454,7 +454,7 @@
         },
         {
           "type": "custom",
-          "value": "When an enemy enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, it gains %game.condition.curse%.",
+          "value": "When an enemy enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, it suffers 1 damage and gains %game.condition.curse%.",
           "small": true,
           "subActions": [
             {
@@ -575,7 +575,7 @@
         },
         {
           "type": "custom",
-          "value": "When an ally enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% for the first time this round, they gain %game.condition.bless%.",
+          "value": "Whenever an ally enters each hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% for the first time this round, they gain %game.condition.bless%.",
           "small": true,
           "subActions": [
             {
@@ -1008,7 +1008,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Recover %game.card.recover% up to on of your lost cards.",
+          "value": "Recover %game.card.recover% up to one of your lost cards.",
           "small": true
         },
         {

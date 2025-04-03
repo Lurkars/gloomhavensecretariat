@@ -59,6 +59,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
   token: number = 0;
   amAnimationDrawing: boolean = false;
   compact: boolean = false;
+  short: boolean = false;
+  shortMenu: boolean = false;
 
   summons: Summon[] = [];
   skullSpirits: Summon[] = [];
@@ -104,6 +106,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
 
     this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme != 'modern';
+    this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern';
+    this.shortMenu = false;
     this.bb = gameManager.bbRules() || this.character.bb;
     this.specialActions = this.character.specialActions.filter((specialAction) => this.character.tags.indexOf(specialAction.name) != -1);
   }

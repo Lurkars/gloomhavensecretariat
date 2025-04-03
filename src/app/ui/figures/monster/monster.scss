@@ -123,6 +123,9 @@
       .stats-container {
         position: absolute;
         left: 0;
+        bottom: 0;
+        width: calc(var(--ghs-unit) * 15.4);
+        height: calc(var(--ghs-unit) * 5);
 
         ghs-monster-numberpicker {
           bottom: calc(var(--ghs-unit) * 0.5);

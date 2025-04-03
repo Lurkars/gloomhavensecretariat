@@ -1,6 +1,6 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, CdkDragRelease, CdkDragStart, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, isDevMode, OnInit, ViewChild } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { Subscription } from 'rxjs';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -229,9 +229,9 @@ export class MainComponent implements OnInit {
       this.calcColumns();
     }
 
-    if (this.swUpdate.isEnabled) {
+    if (this.swUpdate.isEnabled || this.isAppDevMode()) {
       document.body.addEventListener("click", (event) => {
-        if (settingsManager.settings.fullscreen && this.swUpdate.isEnabled) {
+        if (settingsManager.settings.fullscreen && (this.swUpdate.isEnabled || this.isAppDevMode()) && !document.body.classList.contains('fullscreen')) {
           document.body.requestFullscreen && document.body.requestFullscreen();
         }
       });
@@ -607,5 +607,9 @@ export class MainComponent implements OnInit {
     } catch (e) {
       console.warn("Could not read datadump");
     }
+  }
+
+  isAppDevMode(): boolean {
+    return isDevMode();
   }
 }
