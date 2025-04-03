@@ -31,6 +31,7 @@
       "reset": "Ricomincia Campagna"
     },
     "character": "Schede del personaggio",
+    "enhancements": "Calcolatore di miglioramenti",
     "items": "Panoramica carte oggetto",
     "map": {
       "": "Mappa Globale",
@@ -102,7 +103,15 @@
         "lost": "Perso",
         "multiTarget": "Bersagli multipli",
         "persistent": "Persistente",
-        "temporary": "Temporaneo"
+        "temporary": "Temporaneo",
+        "types": {
+          "any": "Qualunque",
+          "circle": "Cerchio",
+          "diamond": "Diamante",
+          "diamond_plus": "Diamante+",
+          "hex": "Esagono",
+          "square": "Quadrato"
+        }
       },
       "forceDeck": "Doppio clic per aggiungere la carta al mazzo",
       "levelWarning": "Mazzo non valido perchè alcune carte sono di livello superiore al personaggio!",
@@ -387,10 +396,14 @@
     "action": {
       "add": "Aggiungi azione",
       "addBottom": "Aggiungi l'azione inferiore",
+      "addEnhancement": "Aggiungi slot di miglioramento",
       "addSubAction": "Aggiungi sotto-azione",
+      "enhancements": "Miglioramenti",
       "remove": "Rimuovi l'azione",
+      "removeEnhancement": "Rimuovi lo slot di miglioramento",
       "removeSubAction": "Rimuovi la sotto-azione",
       "small": "Minore",
+      "subActions": "Sotto-azioni",
       "type": "Tipo di azione",
       "value": "Valore d'azione",
       "valueType": {
@@ -1037,9 +1050,11 @@
     "maxHealth": "Punti vita massimi",
     "solo": "In solitario",
     "specialTarget": {
+      "all": "%game.target% tutti",
       "allies": "%game.target% tutti gli alleati",
       "alliesAdjacent": "%game.target% tutti gli alleati adiacenti",
       "alliesAdjacentAffect": "%game.affect% tutti gli alleati adiacenti",
+      "alliesAffect": "%game.affect% tutti gli alleati",
       "alliesRange": "%game.target% tutti gli alleati entro %game.action.range% {0}",
       "alliesRangeAffect": "%game.affect% tutti gli alleati entro %game.action.range% {0}",
       "ally": "%game.target% 1 alleato",
@@ -1057,6 +1072,7 @@
       "enemiesRangeExact": "%game.target% tutti i nemici esattamente a %game.action.range% {0}",
       "enemy": "%game.target% un nemico",
       "enemyAdjacent": "%game.target% un nemico adiacente",
+      "enemyAllyRange": "%game.target% un nemico o %game.affect% un alleato entro %game.action.range% {0}",
       "enemyOneAll": "%game.target% un nemico con tutti gli attacchi",
       "enemyRange": "%game.target% un nemico esattamente a %game.action.range% {0}",
       "figures": "%game.target% tutte le unità",
@@ -2693,7 +2709,7 @@
     "chooseEdition": "Inizia una nuova campagna scegliendo la tua edizione:",
     "orChooseCharacters": "o inizia una partita casuale aggiungendo direttamente i personaggi",
     "settings": {
-      "text": "Usa varie impostazioni per configurare tutto in modo appropriato:"
+      "text": "Usa diverse impostazioni per configurare tutto adeguatamente:"
     }
   }
 }

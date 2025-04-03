@@ -27,7 +27,7 @@
       },
       "1488": {
         "": "맞바람",
-        "text": "모든 적의 원거리 공격에 +1%game.action.range%,<br>모든 적의 이동 능력에+1%game.action.move%추가"
+        "text": "모든 적의 원거리 공격에 +1%game.action.range%,<br>모든 적의 이동 능력에+1%game.action.move%추가."
       },
       "1489": {
         "": "고약한 잠버릇",
@@ -198,12 +198,12 @@
   "custom": {
     "fh": {
       "coral": {
-        "1": "이번 라운드에 %data.action.custom.fh-tides%를 활성화 했다면, 대신%game.attackmodifier.plus2%",
+        "1": "이번 라운드중%data.action.custom.fh-tides%를 활성화 했다면, 대신%game.attackmodifier.plus2%",
         "2": "파손%game.condition.impair% 면역",
-        "3": "긴 휴식을 선언할 때마다, 해당 라운드 동안 %game.action.shield:1% 얻음",
-        "4": "물 칸을 점유하고 있는 적을 대상으로 하거나, 물 칸을 점유하고 있는 동안 모든 공격에 이익을 받음",
-        "5": "공격으로 피해를 전혀 입지 않고, 적어도 다섯 번 이상 공격의 대상이 됨",
-        "6": "매번 자신의 휴식 시작 시, 활성화된 %game.action.custom.fh-tides%가 자신의 버린 카드 더미에 있는 카드보다 많음"
+        "3": "긴 휴식을 선언할 때마다, 해당 라운드 동안%game.action.shield:1%얻음",
+        "4": "공격 대상이 물 칸을 점유하고 있거나, 캐릭터가 물 칸을 점유하고 있는 동안 모든 공격에 이익을 받음",
+        "5": "공격으로 피해를 전혀 입지 않고, 다섯 번 이상 공격의 대상이 됨",
+        "6": "매번 자신의 휴식 시작 시, 활성화된%game.action.custom.fh-tides%가 자신의 버린 카드 더미에 있는 카드보다 많음"
       },
       "fist": {
         "1": "대상에 인접한 특색 없는 칸 하나에 1칸짜리 결빙지형 타일 하나 생성",

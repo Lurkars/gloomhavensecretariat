@@ -314,7 +314,7 @@
       "3": "失去 1 士气值"
     },
     "hide-depot": {
-      "": "隐藏仓库",
+      "": "毛皮仓库",
       "1": "集体出售最多 1 个%game.resource.hide% 且每个换取 5 金钱",
       "2": "集体出售最多 2 个%game.resource.hide% 且每个换取 5 金钱",
       "3": "集体失去 2 %game.resource.hide%"
