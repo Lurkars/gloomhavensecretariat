@@ -31,6 +31,7 @@
       "reset": "캠페인 초기화"
     },
     "character": "캐릭터 시트",
+    "enhancements": "향상 계산기",
     "items": "아이템 카드 둘러보기",
     "map": {
       "": "세계 지도",
@@ -81,6 +82,37 @@
     "abilities": {
       "currentDeck": "덱",
       "deckWarning": "덱에 카드가 너무 많아서 카드를 선택할 수 없습니다!",
+      "enhancements": {
+        "apply": "적용",
+        "baseCosts": "기본 비용",
+        "costs": "합계 비용",
+        "disabled": {
+          "enhancements": "향상 가능한 카드의 최대 수 ({1}) 도달!",
+          "gold": "향상에 필요한 비용({0}/{1})이 부족합니다!"
+        },
+        "enhancements": "향상 횟수에 따른 비용",
+        "enhancerLevel": "향상 보너스",
+        "hint": {
+          "enhance": {
+            "": "클릭하여 향상 가능.",
+            "wipSpecial": "더블 클릭 시 향상 슬롯 추가."
+          },
+          "enhanced": "더블 클릭 시 향상 제거."
+        },
+        "level": "레벨 비용",
+        "lost": "소실 기호",
+        "multiTarget": "다수 대상",
+        "persistent": "지속 기호",
+        "temporary": "일회성",
+        "types": {
+          "any": "모든",
+          "circle": "원형",
+          "diamond": "마름모꼴",
+          "diamond_plus": "마름모꼴+",
+          "hex": "칸 기호",
+          "square": "사각형"
+        }
+      },
       "forceDeck": "카드를 덱에 추가하려면 더블클릭 하세요",
       "levelWarning": "캐릭터 레벨보다 레벨이 높은 카드가 덱에 있습니다!",
       "pickCard": "{0} 레벨 카드를 선택하세요",
@@ -222,6 +254,16 @@
     },
     "setAside": "캐릭터를 치워두기로 설정",
     "summon": {
+      "action": {
+        "": "%game.action.summon% %data.summon.{0}%",
+        "count": {
+          "": "%game.action.summon% {1} %data.summon.{0}%",
+          "fly": "%game.action.summon% {1} %data.summon.{0}% %game.actionIcon.fly%"
+        },
+        "fly": {
+          "": "%game.action.summon% %data.summon.{0}% %game.actionIcon.fly%"
+        }
+      },
       "level": "(레벨 {0})"
     },
     "token": "캐릭터 토큰",
@@ -352,8 +394,11 @@
     "action": {
       "add": "행동 추가하기",
       "addBottom": "하단 행동 추가하기",
+      "addEnhancement": "향상 슬롯 추가",
       "addSubAction": "부속 행동 추가하기",
+      "enhancements": "향상",
       "remove": "행동 제거하기",
+      "removeEnhancement": "향상 슬롯 삭제",
       "removeSubAction": "부속 행동 제거하기",
       "small": "작게 표현하기",
       "type": "행동 유형",
@@ -880,7 +925,9 @@
       "sell": "금화 {1}개로 '{0}' 팔기",
       "shop": {
         "": "아이템 카드",
-        "character": "%game.characterIconColored.{0}% {1}의 아이템 상점"
+        "buyingDisabled": "아이템을 구매할 수 없습니다. 먼저%data.buildings.trading-post%를 재건해야 합니다",
+        "character": "%game.characterIconColored.{0}% {1}의 아이템 상점",
+        "craftingDisabled": "아이템을 제작할 수 없습니다. 먼저%data.buildings.craftsman%를 재건해야 합니다"
       },
       "unlock": "해금 아이템",
       "unlocked": "아이템 해금됨",
@@ -1005,9 +1052,11 @@
     "maxHealth": "최대 체력",
     "solo": "단독",
     "specialTarget": {
+      "all": "%game.target%모두",
       "allies": "%game.target% 모든 아군 대상",
       "alliesAdjacent": "%game.target% 모든 인접한 아군 대상",
       "alliesAdjacentAffect": "%game.affect% 인접한 모든 아군에게 영향",
+      "alliesAffect": "%game.affect%모든 아군",
       "alliesRange": "%game.target% %game.action.range% {0} 내 모든 아군 대상",
       "alliesRangeAffect": "%game.affect% 사정거리 %game.action.range% {0} 내 모든 아군에게 영향",
       "ally": "%game.target% 아군 하나 대상",
@@ -1025,6 +1074,7 @@
       "enemiesRangeExact": "%game.target% 정확히 사정거리 %game.action.range% {0}인 모든 적 대상",
       "enemy": "%game.target% 적 하나 대상",
       "enemyAdjacent": "%game.target% 인접한 적 하나 대상",
+      "enemyAllyRange": "%game.target%적 하나 또는%game.action.range% {0}내의 아군 하나",
       "enemyOneAll": "%game.target% 모든 공격이 하나의 적 대상",
       "enemyRange": "%game.target% 사정거리 %game.action.range% {0} 내의 적 하나 대상",
       "figures": "%game.target% 모든 피규어 대상",
@@ -1047,6 +1097,7 @@
       "spawn": "%data.monster.{0}% {1}",
       "spawnMarker": "%game.mapMarker.{2}% 위치에 %data.monster.{0}% {1}",
       "spawnObjective": "{1} %data.objective.{0}%",
+      "spawnObjectiveMarker": "%game.mapMarker.{2}%에 {1}%data.objective.{0}%추가",
       "spawnType": "%game.monsterType.{1}% %data.monster.{0}% {2}",
       "spawnTypeMarker": "%game.mapMarker.{3}% 위치에 %game.monsterType.{1}% %data.monster.{0}% {2}"
     },
@@ -1227,7 +1278,8 @@
             "items": "아이템 보급에 %game.itemFh.{0}% 아이템을 %game.itemFh.{1}%에 추가",
             "loseMorale": "사기 -{0}점",
             "prosperity": "번영도 +{0}점",
-            "section": "%data.section:{0}%"
+            "section": "%data.section:{0}%",
+            "soldiers": "+{0} 병사"
           },
           "selectResources": {
             "": "자원 선택",
@@ -1250,9 +1302,9 @@
         "defense": "방어",
         "disable": "글룸헤이븐 파티 기록지로 이동",
         "enable": "프로스트헤이븐 캠페인 기록지로 이동",
-        "name": "파티<br>이름",
+        "name": "파티 이름",
         "nextWeek": "다음 주 (새 달력)",
-        "soldierLevel": "레벨",
+        "soldierLevel": "Lvl",
         "soldiers": "병사",
         "summer": "여름",
         "supply": {
@@ -1421,7 +1473,7 @@
       "reset": "초기화",
       "success": "성공"
     },
-    "level": "레벨 {0}",
+    "level": "Lvl {0}",
     "locked": "조건 누락",
     "manual": {
       "add": "시나리오 해금하기",
@@ -1592,7 +1644,8 @@
       "conclusion": {
         "": "{0} 상태로 시나리오 끝마치기",
         "continue": {
-          "": "{0} 상태로 계속하기"
+          "": "{0} 상태로 계속하기",
+          "named": "{1} {0}로 계속하기"
         },
         "named": "{1} {0} 상태로 시나리오 끝내기",
         "select": "결말 선택:"
@@ -1787,7 +1840,7 @@
     "": "설정",
     "abilities": {
       "": "능력 카드",
-      "hint": "몬스터의 능력 카드를 뽑습니다. 이 옵션을 선택하지 않으면 끌어다 놓기로 몬스터의 순서를 수동으로 설정해야 합니다."
+      "hint": "몬스터의 능력 카드를 뽑습니다. 이 옵션을 선택하지 않으면 몬스터의 순서를 수동으로 설정해야 합니다."
     },
     "abilityNumbers": {
       "": "능력 카드 번호 보기",
@@ -1815,12 +1868,12 @@
       "hint": "몬스터의 차례에, 각 몬스터 말은 활성화 상태를 가집니다. 몬스터 말을 두 번 클릭하여 완료한 것으로 표시합니다."
     },
     "activeSummons": {
-      "": "소환수 활성화",
-      "hint": "캐릭터 차례가 시작되면 소환수이 순서대로 활성화되며, 활성화 상태를 전환하려면 두 번 클릭합니다."
+      "": "소환물 활성화",
+      "hint": "캐릭터 차례 시작 시, 소환물이 순서대로 활성화됩니다. 활성화 상태를 전환하려면 두 번 클릭합니다."
     },
     "addAllMonsters": {
       "": "모든 방/섹션 추가",
-      "hint": "그러면 시나리오에 등장하는 모든 몬스터가 자동으로 추가됩니다. 이 경우 공개되지 않은 방/구역이 스포일러될 수 있으니 주의하세요."
+      "hint": "그러면 시나리오에 등장하는 모든 몬스터가 자동으로 추가됩니다. 공개되지 않은 방/구역이 스포일러될 수 있으니 주의하세요."
     },
     "additional": "추가 게임 플레이",
     "allyAttackModifierDeck": {
@@ -1828,19 +1881,24 @@
       "hint": "아군을 위한 공격 보정 덱 활성화"
     },
     "alwaysAllyAttackModifierDeck": {
-      "": "항상 아군의 공격 보정 덱 사용",
-      "hint": "프로스트헤이븐의 몬스터의 공격 보정 덱 대신 아군이 자신의 공격 보정 덱을 사용하도록 하는 규칙을 항상 적용합니다."
+      "": "항상 아군 공격 보정 덱 사용",
+      "hint": "몬스터가 공격할 때, 공격 대상이 된 아군의 공격 보정 덱을 사용합니다."
     },
     "alwaysFhAdvantage": {
-      "": "항상 프로스트헤이븐의 이익/불이익 규칙 적용"
+      "": "프로스트헤이븐의 이익/불이익 규칙 적용",
+      "hint": "프로스트헤이븐의 이익/불이익 규칙을 적용합니다 (프로스트헤이븐을 플레이할 때는 자동으로 활성화 됩니다)"
+    },
+    "alwaysFhEnhancements": {
+      "": "프로스트헤이븐 향상",
+      "hint": "향상 시 프로스트헤이븐의 규칙과 향상 비용을 적용합니다."
     },
     "alwaysFhSolo": {
-      "": "항상 프로스트헤이븐 1인 규칙으로 적용",
+      "": "프로스트헤이븐 1인 규칙 적용",
       "hint": "1인 레벨 계산 시 항상 프로스트헤이븐 규칙을 적용합니다(프로스트헤이븐 플레이 시 자동 활성화)."
     },
     "alwaysHazardousTerrain": {
-      "": "항상 위험 지형 계산 내용 표시",
-      "hint": "프로스트헤이븐의 위험 지형 계산 규칙을 활성화시켜 해당 내용을 항상 표시합니다."
+      "": "프로스트헤이븐 위험지형",
+      "hint": "프로스트헤이븐의 위험지형 피해 값을 적용합니다."
     },
     "alwaysLootApplyDialog": {
       "": "항상 노획 대화 상자를 표시",
@@ -2065,6 +2123,10 @@
       "": "체력 대신 피해로 표기",
       "hint": "남은 체력 대신 받은 피해로 표기"
     },
+    "damageHPToggle": {
+      "": "캐릭터 피해/HP 전환 토글",
+      "hint": "캐릭터 보드에 표시된 HP를 더블 클릭하여, [피해 표시] 및 [HP 표시]로 전환이 가능합니다."
+    },
     "debug": {
       "": "디버그 설정/도구",
       "logServerMessages": "로그 서버 메시지",
@@ -2083,7 +2145,8 @@
       "hint": "몬스터 말을 정렬할 때, 정예 몬스터 말을 우선으로 보여줍니다."
     },
     "errata": {
-      "": "오탈자 힌트 보기"
+      "": "오류 표시",
+      "hint": "시나리오, 섹션 등 게임 진행에 차질이 될만한 오류를 팝업창으로 표시합니다."
     },
     "expireConditions": {
       "": "자동으로 상태 처리",
@@ -2117,7 +2180,7 @@
       "": "능력 카드의 글씨 크기",
       "dec": "능력 카드의 글씨 크기 줄이기",
       "hint": "능력 카드 및 능력치 항목의 글씨 크기 설정하기",
-      "inc": "능력 카드의 글씨 크기 키우기",
+      "inc": "능력 카드의 글씨 크기 증가",
       "reset": "능력 카드의 글씨 크기 초기화"
     },
     "fullscreen": {
@@ -2176,6 +2239,9 @@
       "hint": "능력 카드에서 소환이나 원소 행동과 같이 강조 표시된 행동을 클릭하면 해당 행동을 바로 수행할 수 있습니다.."
     },
     "interface": "인터페이스",
+    "keyboardShortcuts": {
+      "": "키보드 단축키 활성화"
+    },
     "levelAdjustment": {
       "": "시나리오 레벨 조정"
     },
@@ -2275,7 +2341,7 @@
     },
     "showExpandedAbilityCard": {
       "": "확장된 능력 카드 보기",
-      "hint": "능력 카드의 모든 능력을 한 번에 표시합니다. (카드 제목도 자동으로 표시)"
+      "hint": "능력 카드에 있는 모든 능력을 전부 표시합니다."
     },
     "showFullAbilityCard": {
       "": "모든 능력 카드 보기",

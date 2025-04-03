@@ -31,6 +31,7 @@
       "reset": "重置战役"
     },
     "character": "角色记录表",
+    "enhancements": "强化（附魔）计算器",
     "items": "道具卡概览",
     "map": {
       "": "世界地图",
@@ -931,7 +932,7 @@
       },
       "flamefruit": "烈焰果",
       "herb_resources": "草药",
-      "hide": "隐藏",
+      "hide": "毛皮",
       "keep": "继续 %data.character.{0}%",
       "lootTreasure": {
         "": "{0} 拾取财宝 {1}？",
