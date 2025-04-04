@@ -90,7 +90,7 @@
           "enhancements": "향상 가능한 카드의 최대 수 ({1}) 도달!",
           "gold": "향상에 필요한 비용({0}/{1})이 부족합니다!"
         },
-        "enhancements": "향상 횟수에 따른 비용",
+        "enhancements": "기존 향상",
         "enhancerLevel": "향상 보너스",
         "hint": {
           "enhance": {
@@ -214,7 +214,7 @@
           "": "봉투 %game.fhIcon:envelope% {0} 열기",
           "alt": "봉투 %game.fhIcon:envelope% {0} 열기<br>(또는: %game.fhIcon:envelope% {1})",
           "building": "'%data.buildings.{1}%' ({0}) 건물 해금",
-          "inspiration": "영감 1 획득",
+          "inspiration": "영감 +1",
           "itemBlueprint": "\"%data.items.{1}-{0}%\" ({0}) 설계도 획득",
           "randomScenario": "%data.section:{0}% 열기, %data.scenarioNumber:{1}% 해제"
         },
@@ -227,24 +227,25 @@
       "resources": {
         "": "자원",
         "apply": "자원 이동",
-        "move": "프로스트헤이븐 보급으로 이동"
+        "move": "프로스트헤이븐 창고로 이동"
       },
       "retired": "은퇴",
       "retirement": {
         "": "캐릭터 은퇴",
         "additionalPQ": {
-          "": "영감 15점을 사용하면 개인 퀘스트를 추가로 받을 수 있습니다",
+          "": "영감 수치 15점을 소모하여 개인 퀘스트 하나를 추가로 완수할 수 있습니다",
           "cancel": "추가 개인 퀘스트 취소",
-          "inspiration": "영감 -15점"
+          "inspiration": "영감 -15"
         },
         "apply": "적용",
         "conclusion": "%data.section:{0}% 섹션 열기",
         "events": "도시 이벤트 {0}번 및 여로 이벤트 {0}번을 덱에 추가",
-        "moveSupply": "프로스트헤이븐 보급으로 자원 이동",
+        "moveSupply": "프로스트헤이븐 창고로 자원 이동",
         "prosperity": "번영도 +{0}점"
       },
       "retirements": "은퇴",
       "title": "{1} {0}",
+      "trial": "시련",
       "xp": "경험치"
     },
     "remove": "캐릭터 제거",
@@ -454,7 +455,7 @@
       },
       "conditions": {
         "": "사용가능한 상태 유형",
-        "allHint": "모든 상태 유형 선택 해제하기",
+        "allHint": "모든 상태 선택/해제",
         "allSelected": "모든 상태 유형 선택하기"
       },
       "decks": {
@@ -654,11 +655,11 @@
     "condition": {
       "bane": {
         "": "파멸",
-        "hint": "%game.conditionIcon.bane% 파멸: 다음 차례 종료 시 %game.damage:10%점을 입는다. 그런 다음 제거. 치료를 받아도 제거."
+        "hint": "%game.conditionIcon.bane% 파멸: 다음 차례 종료 시%game.damage:10%점을 입는다. 그런 다음 제거. 치료를 받아도 제거."
       },
       "bless": {
         "": "축복",
-        "hint": "%game.conditionIcon.bless% 축복: 공격 보정 덱에 %game.attackmodifier.bless% 카드를 섞어넣음"
+        "hint": "%game.conditionIcon.bless% 축복: 공격 보정 카드 덱에%game.attackmodifier.bless%카드를 섞어넣는다"
       },
       "brittle": {
         "": "취약",
@@ -666,11 +667,11 @@
       },
       "chill": {
         "": "냉기",
-        "hint": "%game.conditionIcon.chill% 냉기: 각 냉기 토큰마다 모든 공격 및 이동 능력에 -1. 다음 차례 종료 시 토큰 하나 제거."
+        "hint": "%game.conditionIcon.chill% 냉기: 각 냉기 토큰마다 공격 및 이동 수치에 -1 추가. 다음 차례 종료 시 토큰 하나 제거."
       },
       "curse": {
         "": "저주",
-        "hint": "%game.conditionIcon.curse% 저주: 공격 보정 덱에 %game.attackmodifier.curse% 카드를 섞어넣음"
+        "hint": "%game.conditionIcon.curse% 저주: 공격 보정 카드 덱에%game.attackmodifier.curse%카드를 섞어 넣는다"
       },
       "disarm": {
         "": "무장해제",
@@ -678,7 +679,7 @@
       },
       "dodge": {
         "": "회피",
-        "hint": "%game.conditionIcon.dodge% 회피: 공격을 받을 때 카드를 버리거나 잃습니다. 그런 다음 제거."
+        "hint": "%game.conditionIcon.dodge% 회피: 카드 1장을 버리거나 소실시켜 공격을 무효화합니다. 그런다음 제거."
       },
       "empower": {
         "": "강화",
@@ -726,7 +727,7 @@
       },
       "poison_x": {
         "": "중독 {0}",
-        "hint": "%game.conditionIcon.poison_X:X% 중독 X: 모든 공격자가 +X %game.action.attack%을 얻는다. 치료를 막는다. 치료를 받으면 제거."
+        "hint": "%game.conditionIcon.poison_x:X% 중독 X: 모든 공격자가 +X%game.action.attack%을 얻는다. 치료를 막는다. 치료를 받으면 제거."
       },
       "regenerate": {
         "": "복원",
@@ -738,11 +739,11 @@
       },
       "strengthen": {
         "": "강화",
-        "hint": "%game.conditionIcon.strenghten% 강화: 모든 공격에 이익. 다음 차례 끝에 제거."
+        "hint": "%game.conditionIcon.strengthen% 강화: 모든 공격에 이익을 적용. 다음 차례 끝에 제거."
       },
       "stun": {
         "": "기절",
-        "hint": "%game.conditionIcon.stun% 기절: 능력을 수행하거나 아이템을 사용, 또는 발동을 할 수 없다. 다음 차례 종료 시 제거."
+        "hint": "%game.conditionIcon.stun% 기절: 능력 수행 및 아이템을 사용하거나 발동할 수 없다. 다음 차례 종료 시 제거."
       },
       "ward": {
         "": "가호",
@@ -989,7 +990,7 @@
       "random_item": {
         "": "무작위 아이템",
         "apply": "선택하고 장비",
-        "draw": "%game.characterIconColored.{0}% {1}의 무작위 아이템"
+        "draw": "%game.characterIconColored.{0}% {1} 무작위 아이템 획득"
       },
       "remove": "%data.character.{0}%에게서 제거",
       "rockroot": "바위뿌리",
@@ -1002,7 +1003,7 @@
         "": "보물",
         "rewards": {
           "battleGoal": "{0} 획득 <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
-          "calendarSection": "%number.{1}%주 안에 %data.section:{0}% 추가",
+          "calendarSection": "%number.{1}%주 후 칸에%data.section:{0}% 추가",
           "campaignSticker": "캠페인 스티거 \"{0}\" 획득",
           "condition": "{0} 획득",
           "damage": "{0} 피해",
@@ -1248,8 +1249,8 @@
           "action": "행동",
           "build": {
             "": "건설",
-            "action": "짓기",
-            "hint": "건설 (두 번 클릭으로 강제 실행)"
+            "action": "건설",
+            "hint": "건설 (더블 클릭으로 강제 건설)"
           },
           "costs": "비용",
           "discount": "재료 자원 1개 할인",
@@ -1258,24 +1259,24 @@
           "interactions": "상호 작용",
           "level": {
             "": "레벨",
-            "hint": "보너스 보기 (두 번 클릭으로 레벨 낮추기)"
+            "hint": "보너스 보기 (더블 클릭으로 레벨 낮추기)"
           },
           "name": "이름",
           "rebuild": {
-            "": "재건설",
-            "action": "재건설",
-            "hint": "재건설 (두 번 클릭으로 강제 실행)"
+            "": "재건",
+            "action": "재건",
+            "hint": "재건 (더블 클릭으로 강제 실행)"
           },
           "repair": {
             "": "건물 수리",
             "action": "건물 수리",
             "costs": "아무 {0}",
-            "hint": "건물 수리 (두 번 클릭으로 강제 실행)"
+            "hint": "건물 수리 (더블 클릭으로 강제 실행)"
           },
           "rewards": {
-            "action": "레벨 {0}",
+            "action": "Lv {0}",
             "defense": "+{0} 방어",
-            "items": "아이템 보급에 %game.itemFh.{0}% 아이템을 %game.itemFh.{1}%에 추가",
+            "items": "제작 가능 아이템에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 추가",
             "loseMorale": "사기 -{0}점",
             "prosperity": "번영도 +{0}점",
             "section": "%data.section:{0}%",
@@ -1308,7 +1309,7 @@
         "soldiers": "병사",
         "summer": "여름",
         "supply": {
-          "": "프로스트헤이븐 보급",
+          "": "프로스트헤이븐 창고",
           "total": "총합"
         },
         "totalDefense": "총 방어",
@@ -1424,7 +1425,7 @@
       "empty": "라운드 전에 캐릭터와 몬스터를 추가해 주십시오.",
       "failed": "모든 캐릭터가 탈진하였습니다. 시나리오를 재시작하시겠습니까?",
       "finish": "남은 몬스터가 없습니다. 시나리오를 성공으로 종료하시겠습니까?",
-      "initiativeRoundConfirm": "모든 주도권 설정이 완료되었습니다.다음 라운드를 시작하시겠습니까?",
+      "initiativeRoundConfirm": "모든 캐릭터의 주도권 설정이 완료되었습니다. 다음 라운드를 시작하시겠습니까?",
       "missingInitiative": "주도권이 설정되어야 합니다. 캐릭터의 초상화를 클릭하여 주도권을 설정하십시오."
     },
     "next": "다음 라운드로"
@@ -1461,6 +1462,10 @@
       },
       "hint": "선택된 모든 캐릭터에게 적용",
       "progress": "캐릭터 진행 사항에 영향"
+    },
+    "favors": {
+      "": "부록 F: 은총",
+      "keep": "모든 시나리오에 항상 적용"
     },
     "filter": {
       "": "시나리오 검색",
@@ -1511,7 +1516,7 @@
       "": "보상",
       "addWeek": {
         "": "달력",
-        "next": "자동으로 {0}주차로 달력 시간을 넘깁니다.",
+        "next": "{0}주차로 시간이 흐릅니다",
         "section": "%data.section:{0}% 열기 (자동으로 적용됨)",
         "summer": "새로운 계절: 여름 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/summer.svg\">",
         "winter": "새로운 계절: 겨울 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/winter.svg\">"
@@ -1544,10 +1549,10 @@
       "experience": "각 경험치 {0}점",
       "globalAchievements": "전역 업적",
       "gold": "각 금화 {0}개",
-      "inspiration": "영감 {0}점",
+      "inspiration": "영감 {0}",
       "item": "\"{1}\" (아이템 {0}번)",
       "itemBlueprint": "\"{1}\" %game.itemFh.{0}% 설계도 획득",
-      "itemBlueprintRange": "가능한 아이템 보급으로 %game.itemFh.{0}% 아이템을 %game.itemFh.{1}%에 추가",
+      "itemBlueprintRange": "가능한 아이템 보급으로 %game.itemFh.{0}% 아이템을 %game.itemFh.{1}%에 추가.",
       "itemDesign": "\"{1}\" 도안 (아이템 {0}번)",
       "itemDesignEdition": "\"{1}\" 도안 (아이템 {0} %data.edition.{2}%)",
       "itemDesignRange": "아이템 도안 {0}번 추가",
@@ -1561,7 +1566,7 @@
       "perks": "각 특혜 {0}개 획득",
       "prosperity": "번영도 {0}",
       "randomItemBlueprint": "무작위 아이템 설계도 하나 획득",
-      "randomItemBlueprints": "무작위 아이템 설계도 덱으로 %game.itemFh.{0}% 아이템을 %game.itemFh.{1}%에 추가.",
+      "randomItemBlueprints": "아이템 설계도 덱에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 추가.",
       "randomItems": "각 캐릭터는 무작위 아이템 하나 획득 ({0}-{1})",
       "removeEvent": {
         "boat": "Boat 덱에서 {0} 이벤트 제거",
@@ -1589,15 +1594,19 @@
       "addSectionMarker": "{1}: %game.mapMarker.{2}% 위치의 섹션 열기",
       "addSectionMarkerIndex": "#{0} {1}: %game.mapMarker.{2}% 위치의 섹션 열기",
       "alwaysApply": "자동 적용",
+      "alwaysApplyTurn": {
+        "after": "매번 차례 종료 시",
+        "turn": "매번 차례 시작 시"
+      },
       "apply": "적용하기",
       "dismiss": "취소하기",
       "figures": {
         "activate": "{0} 활성화",
         "all": "모든 피규어",
-        "amAdd": "{0}의 %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% 카드를 공격 보정 덱에 추가",
+        "amAdd": "{0}의 공격 보정 덱에 %game.attackmodifier.{3}% %game.attackModifiers.perks.cards.{4}% 카드를 추가",
         "amRemove": "{0}의 %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% 카드를 공격 보정 덱에서 제거",
         "damage": "{0}에게 피해 %game.damage:{1}%점",
-        "discard": "{0} 효과로 각각 능력 카드 %number.{2}%장을 버림",
+        "discard": "{0}각 캐릭터는 능력 카드%number.{2}%을 버림",
         "discardAbilityToBottom": "{0}의 버린 더미 맨 아래에 능력 카드 놓기",
         "dormant": "{0}의 상태는 휴면으로 전환됩니다.",
         "drawAbility": "{0}의 다른 능력 카드 뽑기",
@@ -1638,8 +1647,8 @@
       "": "섹션",
       "add": "{1} #{0} 섹션을 여시겠습니까?",
       "addIndex": "{1} 섹션을 여시겠습니까?",
-      "addMarker": "%game.mapMarker.{1}% 위치에 섹션을 여시겠습니까?",
-      "addMarkerIndex": "%game.mapMarker.{1}% 위치에 #{0} 섹션을 여시겠습니까?",
+      "addMarker": "%game.mapMarker.{1}% 섹션을 여시겠습니까?",
+      "addMarkerIndex": "%game.mapMarker.{1}% #{0} 섹션을 여시겠습니까?",
       "cancel": "취소",
       "conclusion": {
         "": "{0} 상태로 시나리오 끝마치기",
@@ -1738,7 +1747,7 @@
       },
       "conclusionWarning": {
         "": "결말 누락!",
-        "hint": "이 시나리오는 결말 없이 종료되는 것 같습니다. 이로 인해 보상 및 해금이 누락될 수 있습니다. 결말 섹션에는 <img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\"> 아이콘이 표시됩니다.."
+        "hint": "(주의) 결말 없이 종료된 것으로 보이며, 보상 및 해금 콘텐츠가 누락될 수 있습니다. 결말 섹션에는<img class=\"icon ghs-svg\" src=\"./assets/images/scenario/conclusion.svg\">이 표시됩니다."
       },
       "forcedLinks": "%scenario.summary.links% (강제)",
       "gold": "금화",
@@ -1853,7 +1862,7 @@
     "activeApplyConditions": {
       "": "적용할 수 있는 상태 확인하기",
       "auto": {
-        "": "자동 확인",
+        "": "자동 적용",
         "hint": {
           "": "특정 상태를 적용하려면 확인이 필요합니다. 예를 들어, 중독 상태에서 체력을 감소시키면 추가로 체력 1을 잃습니다."
         }
@@ -1944,7 +1953,7 @@
     },
     "applyLootRandomItem": {
       "": "전리품으로 무작위 아이템 뽑기",
-      "hint": "무작위 아이템 전리품에서 새로운 무작위 아이템을 자동으로 뽑아 활성/선택 캐릭터에 장착"
+      "hint": "무작위 아이템 전리품에서 새로운 무작위 아이템을 자동으로 뽑아 활성/선택 캐릭터에 장착."
     },
     "applyRetirement": {
       "": "은퇴 보너스 적용",
@@ -1968,7 +1977,7 @@
     },
     "automaticPassTime": {
       "": "달력 시간을 자동 넘김",
-      "hint": "시나리오가 끝난 후 달력에 1주를 추가하여 자동으로 시간을 넘깁니다. 이번 주 달력 섹션의 효과도 자동으로 추가합니다."
+      "hint": "시나리오 종료 시 달력에서 자동으로 1주의 시간이 흐릅니다. 이번 주 달력 섹션의 효과도 자동으로 추가합니다."
     },
     "automaticStandees": {
       "": "자동 몬스터 말 (%wip%)",
@@ -2157,15 +2166,27 @@
     },
     "feedbackErrors": {
       "": "피드백 자동화",
-      "clear": ""
+      "clear": "자동 오류 피드백 제거",
+      "hint": "대화상자로 오류창을 보여줍니다."
     },
     "fhChallenges": {
-      "": "도전 규칙 지원",
+      "": "도전",
       "hint": "(가능하다면) 도전 덱에서 도전 카드를 뽑고 자동으로 적용."
+    },
+    "fhChallengesApply": {
+      "": "도전 적용",
+      "hint": "(가능한 경우) 활성화된 도전 카드를 자동으로 적용."
+    },
+    "fhGarden": {
+      "": "정원 시스템 지원"
     },
     "fhGhItems": {
       "": "글룸헤이븐 아이템 추가",
       "hint": "규칙에 명시된 대로 글룸헤이븐 및 잊힌 비술의 아이템을 사용 가능한 보급품에 추가합니다. (활성화된 캐릭터 시트 또는 캐릭터 아이템 한정)"
+    },
+    "fhPets": {
+      "": "펫 지원",
+      "hint": "잡기 및 펫 매니저 (건물 88 해금 필요)"
     },
     "fhRules": "항상 프로스트헤이븐 규칙을 적용",
     "fhSecondEdition": {
@@ -2175,6 +2196,17 @@
     "fhStyle": {
       "": "프로스트헤이븐 스타일",
       "hint": "프로스트헤이븐 스타일로 변경합니다."
+    },
+    "fhTrials": {
+      "favors": {
+        "": "은총 시스템"
+      }
+    },
+    "fhTrialsApply": {
+      "favors": {
+        "": "은총 적용",
+        "hint": "(가능할 경우) 은총 자동으로 적용."
+      }
     },
     "fontsize": {
       "": "능력 카드의 글씨 크기",
@@ -2254,7 +2286,10 @@
       "en": "영어 (English)",
       "es": "스페인어 (Español)",
       "fr": "프랑스어 (Français)",
-      "ko": "한국어"
+      "help": "번역을 도와주세요!",
+      "it": "이탈리아어 (Italiano)",
+      "ko": "한국어",
+      "zh_Hans": "중국어 간체 (简体中文)"
     },
     "lootDeck": {
       "": "노획 덱",
@@ -2304,7 +2339,7 @@
     },
     "randomStandees": {
       "": "무작위 몬스터 말",
-      "hint": "사용하지 않은 무작위 번호의 몬스터 말을 추가합니다."
+      "hint": "사용하지 않은 무작위 번호의 몬스터 말을 추가합니다"
     },
     "removeUnusedMonster": {
       "": "사용하지 않는 항목 제거",
@@ -2587,7 +2622,7 @@
       "monsterConsumeElement": "{0}의 {1} 사용",
       "monsterDead": "모든 {1}{0} 죽임",
       "monsterInfuseElement": "{0}: {1} 유입",
-      "moveResource": "{0}에게서 프로스트헤이븐 보급으로 {1} {2}개 이동",
+      "moveResource": "{0}에게서 프로스트헤이븐 창고로 {1} {2}개 이동",
       "nextRound": "다음 라운드",
       "openRoom": "#{0} {1}: '{2}' 타일 문 열기",
       "openRoomMarker": "#{0} {1}: %game.mapMarker.{3}% 위치의 '{2}' 타일 문 열기",
@@ -2663,7 +2698,7 @@
       "setPartyNotes": "파티 메모",
       "setPartyProsperity": "{0} 번영도",
       "setPartyReputation": "{0} 평판",
-      "setPartyResource": "프로스트헤이븐 보급을 {1}에서 변경: {2}",
+      "setPartyResource": "프로스트헤이븐 창고를 {1}에서 변경: {2}",
       "setPartySoldiers": "병사 {0}",
       "setPartyTotalDefense": "방어 {1} 설정",
       "setPartyTownGuardPerks": "마을 경비병 특혜 {0} 설정",
