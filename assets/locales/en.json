@@ -1718,7 +1718,7 @@
       "conclusion": {
         "": "Finish scenario with {0}",
         "continue": {
-          "": "{0}로 계속하기",
+          "": "Continue with {0}",
           "named": "Continue with {1} {0}"
         },
         "named": "Finish scenario with {1} {0}",
