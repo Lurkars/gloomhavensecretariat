@@ -1,8 +1,15 @@
 {
   "custom": {
     "fh": {
+      "algox-snowspeaker-trap-solo": {
+        "1": "All enemies within<br>%game.action.range:2% suffer %game.damage:2%"
+      },
       "errata": {
         "solo28": "Special rules: \"Snowspeaker\" should be \"Icespeaker\""
+      },
+      "lost-in-seaweed": {
+        "1": "Create one 1-hex water tile<br>in an adjacent empty hex.",
+        "2": "in an adjacent unoccupied<br>hex with a water tile."
       }
     },
     "gh": {
@@ -15,6 +22,13 @@
     },
     "solo": {
       "char-am-deck": "Uses character AM deck"
+    },
+    "toa": {
+      "okeda": {
+        "1": "Acts immediately after the Incarnate, performing the same bottom and top actions as the Incarnate",
+        "2": "If the Incarnate did not move during the bottom action:",
+        "3": "If the Incarnate did not attack during the top action:"
+      }
     }
   },
   "edition": {

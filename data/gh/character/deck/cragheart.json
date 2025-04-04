@@ -31,7 +31,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "On the next six melee attacks targeting you, gain %game.action.retaliate:2%.",
+          "value": "%data.custom.gh.cragheart.abilities.116.1%",
           "small": true
         },
         {
@@ -161,7 +161,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Create two single-hex obstacles in empty hexes adjacent to you.",
+          "value": "%data.custom.gh.cragheart.abilities.118.1%",
           "small": true,
           "subActions": [
             {
@@ -211,7 +211,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All adjacent allies and enemies suffer 1 damage.",
+              "value": "%data.custom.gh.cragheart.abilities.119.1%",
               "small": true,
               "subActions": [
                 {
@@ -247,7 +247,7 @@
             },
             {
               "type": "custom",
-              "value": "All allies and enemies adjacent to the target suffer 1 damage.",
+              "value": "%data.custom.gh.cragheart.abilities.120.1%",
               "small": true
             },
             {
@@ -275,7 +275,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On your next four ranges Attack actions, gain ADD TARGET.",
+          "value": "%data.custom.gh.cragheart.abilities.121.1%",
           "small": true
         },
         {
@@ -339,7 +339,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Destroy one adjacent obstacle.",
+          "value": "%data.custom.gh.cragheart.abilities.122.1%",
           "small": true,
           "subActions": [
             {
@@ -370,7 +370,7 @@
             },
             {
               "type": "custom",
-              "value": "Target all enemies moved through",
+              "value": "%data.custom.gh.cragheart.abilities.122.2%",
               "small": true
             },
             {
@@ -407,19 +407,19 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Target all enemies up to two",
+                  "value": "%data.custom.gh.cragheart.abilities.123.1%",
                   "small": true
                 },
                 {
                   "type": "custom",
-                  "value": "hexes away instead, %game.card.experience:1%",
+                  "value": "%data.custom.gh.cragheart.abilities.123.2%",
                   "small": true
                 }
               ]
             },
             {
               "type": "custom",
-              "value": "All adjacent allies suffer 2 damage",
+              "value": "%data.custom.gh.cragheart.abilities.123.3%",
               "small": true
             },
             {
@@ -433,7 +433,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "All allies suffer 1 damage",
+          "value": "%data.custom.gh.cragheart.abilities.123.4%",
           "small": true,
           "subActions": [
             {
@@ -442,7 +442,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Affect all allies",
+                  "value": "%data.custom.gh.cragheart.abilities.123.5%",
                   "small": true
                 }
               ]
@@ -494,7 +494,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%game.action.push% 2, %game.card.experience:1%"
+                  "value": "%data.custom.gh.cragheart.abilities.124.1%"
                 }
               ]
             }
@@ -505,7 +505,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "All adjacent allies and enemies suffer 1 damage.",
+          "value": "%data.custom.gh.cragheart.abilities.124.2%",
           "small": true,
           "subActions": [
             {
@@ -535,7 +535,7 @@
             },
             {
               "type": "custom",
-              "value": "All adjacent allies and enemies suffer 1 damage.",
+              "value": "%data.custom.gh.cragheart.abilities.124.3%",
               "small": true,
               "subActions": [
                 {
@@ -545,7 +545,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "2 damage instead, %game.card.experience:1%",
+                      "value": "%data.custom.gh.cragheart.abilities.124.4%",
                       "small": true
                     }
                   ]
@@ -586,14 +586,14 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "+1 %game.action.attack%, %game.card.experience:1%",
+                  "value": "%data.custom.gh.cragheart.abilities.125.1%",
                   "small": true
                 }
               ]
             },
             {
               "type": "custom",
-              "value": "%game.condition.muddle% all allies and enemies in the targeted area.",
+              "value": "%data.custom.gh.cragheart.abilities.125.2%",
               "small": true
             }
           ]
@@ -634,7 +634,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%game.condition.immobilize%, %game.card.experience:1%",
+                  "value": "%data.custom.gh.cragheart.abilities.126.1%",
                   "small": true
                 }
               ]
@@ -685,7 +685,7 @@
             },
             {
               "type": "custom",
-              "value": "You may push the target into hexes containing obstacles.  In each case, destroy the obstacle, the target suffers 2 damage, and you gain %game.card.experience:1%.",
+              "value": "%data.custom.gh.cragheart.abilities.127.1%",
               "small": true
             }
           ]
@@ -694,7 +694,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Add +1 %game.action.attack% to all your ranged attacks this round.",
+          "value": "%data.custom.gh.cragheart.abilities.127.2%",
           "small": true,
           "subActions": [
             {
@@ -738,12 +738,12 @@
             },
             {
               "type": "custom",
-              "value": "Gain %game.card.experience:1% for each",
+              "value": "%data.custom.gh.cragheart.abilities.128.1%",
               "small": true
             },
             {
               "type": "custom",
-              "value": "enemy targeted.",
+              "value": "%data.custom.gh.cragheart.abilities.128.2%",
               "small": true
             },
             {
@@ -756,7 +756,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Add +2 %game.action.attack% to all your melee attacks this round.",
+          "value": "%data.custom.gh.cragheart.abilities.128.3%",
           "small": true,
           "subActions": [
             {
@@ -802,7 +802,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "On your next six ranged Attack actions when %game.element.air% is Strong or Waning, %game.element.consume.air% to add +2 %game.action.range%.",
+          "value": "%data.custom.gh.cragheart.abilities.129.1%",
           "small": true
         },
         {
@@ -854,7 +854,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Destroy one adjacent obstacle.",
+          "value": "%data.custom.gh.cragheart.abilities.130.1%",
           "small": true,
           "subActions": [
             {
@@ -866,7 +866,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Target all enemies adjacent to the destroyed obstacle",
+                  "value": "%data.custom.gh.cragheart.abilities.130.2%",
                   "small": true,
                   "subActions": [
                     {
@@ -934,7 +934,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "Affect all allies in the targeted area",
+                      "value": "%data.custom.gh.cragheart.abilities.131.1%",
                       "small": true
                     }
                   ]
@@ -987,7 +987,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Move one adjacent single-hex obstacle to an empty hex within %game.action.range:4%.",
+          "value": "%data.custom.gh.cragheart.abilities.132.1%",
           "small": true,
           "subActions": [
             {
@@ -1003,12 +1003,12 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "Target all enemies adjacent",
+                      "value": "%data.custom.gh.cragheart.abilities.132.2%",
                       "small": true
                     },
                     {
                       "type": "custom",
-                      "value": "to the moved obstacle",
+                      "value": "%data.custom.gh.cragheart.abilities.132.3%",
                       "small": true
                     }
                   ]
@@ -1062,7 +1062,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Destroy all obstacles and disarm all traps moved through.",
+                  "value": "%data.custom.gh.cragheart.abilities.132.4%",
                   "small": true,
                   "subActions": [
                     {
@@ -1169,12 +1169,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Create three single-hex obstacles in empty hexes within %game.action.range:4%.",
+          "value": "%data.custom.gh.cragheart.abilities.134.1%",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "All allies and enemies adjacent to one or more created obstacles suffer 2 damage.",
+              "value": "%data.custom.gh.cragheart.abilities.134.2%",
               "small": true,
               "subActions": [
                 {
@@ -1203,7 +1203,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "The movement must be in a straight line.",
+              "value": "%data.custom.gh.cragheart.abilities.134.3%",
               "small": true
             }
           ]
@@ -1277,12 +1277,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Kill one normal enemy within %game.action.range:4%.",
+          "value": "%data.custom.gh.cragheart.abilities.136.1%",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "Create one single-hex obstacle in the hex in which the enemy died.",
+              "value": "%data.custom.gh.cragheart.abilities.136.2%",
               "small": true,
               "subActions": [
                 {
@@ -1363,7 +1363,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "On your next four melee attacks when possible, destroy an adjacent obstacle to add +3 %game.action.attack%.",
+          "value": "%data.custom.gh.cragheart.abilities.137.1%",
           "small": true
         },
         {
@@ -1418,7 +1418,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Create one 2 damage %game.condition.stun% trap in a adjacent empty hex.",
+          "value": "%data.custom.gh.cragheart.abilities.138.1%",
           "small": true
         },
         {
@@ -1498,7 +1498,7 @@
             },
             {
               "type": "custom",
-              "value": "%game.condition.immobilize% all allies and enemies in the targeted area.",
+              "value": "%data.custom.gh.cragheart.abilities.139.1%",
               "small": true
             }
           ]
@@ -1538,7 +1538,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Create one three-hex triangular obstacle in empty hexes within %game.action.range% 3.",
+          "value": "%data.custom.gh.cragheart.abilities.140.1%",
           "small": true,
           "subActions": [
             {
@@ -1556,7 +1556,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "Target all enemies adjacent to the obstacle.",
+                      "value": "%data.custom.gh.cragheart.abilities.140.2%",
                       "small": true,
                       "subActions": [
                         {
@@ -1622,7 +1622,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "For each hex you cannot push the target because of a wall or obstacle, the target suffers 2 damage and you gain %game.card.experience:1%.",
+                  "value": "%data.custom.gh.cragheart.abilities.141.1%",
                   "small": true
                 }
               ]
@@ -1633,7 +1633,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Add +1 %game.action.attack% to all your ranged attacks this round.",
+          "value": "%data.custom.gh.cragheart.abilities.141.2%",
           "small": true,
           "subActions": [
             {
@@ -1643,7 +1643,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Add +2 %game.action.attack% instead, %game.card.experience:1%.",
+                  "value": "%data.custom.gh.cragheart.abilities.141.3%",
                   "small": true
                 }
               ]
@@ -1665,7 +1665,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Destroy all obstacles within %game.action.range% 2",
+          "value": "%data.custom.gh.cragheart.abilities.142.1%",
           "small": true,
           "subActions": [
             {
@@ -1703,17 +1703,17 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Where X is twice the number",
+                  "value": "%data.custom.gh.cragheart.abilities.142.2%",
                   "small": true
                 },
                 {
                   "type": "custom",
-                  "value": "of hexes the destroyed obstacles",
+                  "value": "%data.custom.gh.cragheart.abilities.142.3%",
                   "small": true
                 },
                 {
                   "type": "custom",
-                  "value": "occupied.",
+                  "value": "%data.custom.gh.cragheart.abilities.142.4%",
                   "small": true
                 }
               ]
@@ -1732,7 +1732,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "The movement must end in a hex adjacent to an obstacle.",
+              "value": "%data.custom.gh.cragheart.abilities.142.5%",
               "small": true
             }
           ]
@@ -1777,7 +1777,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "At the start of your next five turns, perform a \"%game.action.heal:2%, %game.action.range:2%\" action.",
+          "value": "%data.custom.gh.cragheart.abilities.143.1%",
           "small": true
         },
         {
@@ -1848,7 +1848,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "All allies and enemies adjacent to the target suffer damage equal to the damage the target suffered.",
+                  "value": "%data.custom.gh.cragheart.abilities.144.1%",
                   "small": true
                 }
               ]
@@ -1866,7 +1866,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All allies and enemies adjacent to any hexes you enter during the movement suffer 2 damage.",
+              "value": "%data.custom.gh.cragheart.abilities.144.2%",
               "small": true
             },
             {
@@ -1905,7 +1905,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "You may push the targets into hexes containing obstacles.  In each case, destroy the obstacle, the target suffers 2 damage, and you gain %game.card.experience:1%.",
+                  "value": "%data.custom.gh.cragheart.abilities.145.1%",
                   "small": true
                 }
               ]

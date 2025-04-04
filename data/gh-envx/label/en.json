@@ -1,4 +1,22 @@
 {
+  "custom": {
+    "gh": {
+      "envx": {
+        "abilities": {
+          "641": {
+            "1": "In addition to your current items, you may immediately equip up to four %game.items.slots.onehand% items, two %game.items.slots.twohand% items, or two %game.items.slots.onehand% and one %game.items.slots.twohand% items.",
+            "2": "All summoned allies you own perform",
+            "3": "with you controlling the actions."
+          },
+          "644": {
+            "1": "All summoned allies you own perform",
+            "2": "with you controlling the actions.",
+            "3": "All adjacent summoned allies add +1 %game.action.attack% to all their attacks"
+          }
+        }
+      }
+    }
+  },
   "edition": {
     "gh-envx": "Gloomhaven Envelope X"
   }

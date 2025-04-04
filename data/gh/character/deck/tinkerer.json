@@ -12,11 +12,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Create one 6 damage trap in an adjacent empty hex."
+          "value": "%data.custom.gh.tinkerer.abilities.30.1%"
         },
         {
           "type": "custom",
-          "value": "Gain %game.card.experience:2% when the trap is sprung by an enemy."
+          "value": "%data.custom.gh.tinkerer.abilities.30.2%"
         }
       ],
       "bottomActions": [
@@ -219,12 +219,12 @@
             },
             {
               "type": "custom",
-              "value": "Gain %game.card.experience:1% for each",
+              "value": "%data.custom.gh.tinkerer.abilities.34.1%",
               "small": true
             },
             {
               "type": "custom",
-              "value": "enemy targeted.",
+              "value": "%data.custom.gh.tinkerer.abilities.34.2%",
               "small": true
             },
             {
@@ -275,12 +275,12 @@
             },
             {
               "type": "custom",
-              "value": "Gain %game.card.experience:1% for each",
+              "value": "%data.custom.gh.tinkerer.abilities.35.1%",
               "small": true
             },
             {
               "type": "custom",
-              "value": "enemy targeted.",
+              "value": "%data.custom.gh.tinkerer.abilities.35.2%",
               "small": true
             }
           ]
@@ -377,7 +377,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One adjacent ally may Recover %game.card.recover% all of their discarded cards.",
+          "value": "%data.custom.gh.tinkerer.abilities.37.1%",
           "small": true,
           "subActions": [
             {
@@ -501,7 +501,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "You and all adjacent allies add +1 %game.action.attack% to all your attacks this round.",
+          "value": "%data.custom.gh.tinkerer.abilities.40.1%",
           "small": true,
           "subActions": [
             {
@@ -627,14 +627,14 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Create one 2 damage %game.condition.poison% trap in an adjacent empty hex.",
+          "value": "%data.custom.gh.tinkerer.abilities.43.1%",
           "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:2% may Recover %game.card.recover% one of their discarded cards.",
+          "value": "%data.custom.gh.tinkerer.abilities.43.2%",
           "small": true,
           "subActions": [
             {
@@ -644,7 +644,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Up to two discarded cards instead",
+                  "value": "%data.custom.gh.tinkerer.abilities.43.3%",
                   "small": true
                 }
               ]
@@ -661,7 +661,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On your next four Heal actions, add +2 %game.action.heal%.",
+          "value": "%data.custom.gh.tinkerer.abilities.44.1%",
           "small": true
         },
         {
@@ -743,7 +743,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may Recover %game.card.recover% one of their lost cards.",
+          "value": "%data.custom.gh.tinkerer.abilities.45.1%",
           "small": true,
           "subActions": [
             {
@@ -817,7 +817,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Disarm one adjacent trap.",
+          "value": "%data.custom.gh.tinkerer.abilities.47.1%",
           "small": true,
           "subActions": [
             {
@@ -830,7 +830,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Create one %game.condition.stun% trap in an adjacent empty hex.",
+          "value": "%data.custom.gh.tinkerer.abilities.47.2%",
           "small": true
         }
       ]
@@ -971,7 +971,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "One adjacent ally may Refresh %game.card.refresh% one of their consumed %game.items.slots.small% items.",
+          "value": "%data.custom.gh.tinkerer.abilities.51.1%",
           "small": true
         }
       ],
@@ -1003,12 +1003,12 @@
             },
             {
               "type": "custom",
-              "value": "Gain %game.card.experience:1% for each",
+              "value": "%data.custom.gh.tinkerer.abilities.51.2%",
               "small": true
             },
             {
               "type": "custom",
-              "value": "enemy targeted.",
+              "value": "%data.custom.gh.tinkerer.abilities.51.3%",
               "small": true
             }
           ]
@@ -1028,32 +1028,32 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Kill all enemies in the",
+              "value": "%data.custom.gh.tinkerer.abilities.52.1%",
               "small": true,
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "targeted area whose",
+                  "value": "%data.custom.gh.tinkerer.abilities.52.2%",
                   "small": true
                 },
                 {
                   "type": "custom",
-                  "value": " current hit point value is",
+                  "value": "%data.custom.gh.tinkerer.abilities.52.3%",
                   "small": true
                 },
                 {
                   "type": "custom",
-                  "value": "equal to or less than 5.",
+                  "value": "%data.custom.gh.tinkerer.abilities.52.4%",
                   "small": true
                 },
                 {
                   "type": "custom",
-                  "value": "Gain %game.card.experience:1% for each",
+                  "value": "%data.custom.gh.tinkerer.abilities.52.5%",
                   "small": true
                 },
                 {
                   "type": "custom",
-                  "value": "enemy killed",
+                  "value": "%data.custom.gh.tinkerer.abilities.52.6%",
                   "small": true
                 }
               ]
@@ -1100,14 +1100,14 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Create one 4 damage %game.condition.muddle% trap in an adjacent empty hex.",
+          "value": "%data.custom.gh.tinkerer.abilities.53.1%",
           "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "At the end of your next four turns, one ally within %game.action.range:3% may Recover %game.card.recover% one of their discarded cards.",
+          "value": "%data.custom.gh.tinkerer.abilities.53.2%",
           "small": true
         },
         {
@@ -1162,7 +1162,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "At the end of your next five turns, perform an \"%game.action.attack:2%, %game.action.range:5%\" action.",
+          "value": "%data.custom.gh.tinkerer.abilities.54.1%",
           "small": true
         },
         {
@@ -1372,7 +1372,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All summoned allies within %game.action.range:3% may perform",
+          "value": "%data.custom.gh.tinkerer.abilities.57.1%",
           "small": true,
           "subActions": [
             {
@@ -1382,7 +1382,7 @@
             },
             {
               "type": "custom",
-              "value": "with you controlling the actions.",
+              "value": "%data.custom.gh.tinkerer.abilities.57.2%",
               "small": true
             }
           ]
@@ -1427,7 +1427,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Suffer 2 damage",
+              "value": "%data.custom.gh.tinkerer.abilities.58.1%",
               "small": true
             },
             {
@@ -1440,12 +1440,12 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "All adjacent allies add +2 %game.action.attack% to all their attacks this round.",
+          "value": "%data.custom.gh.tinkerer.abilities.58.2%",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "All adjacent allies suffer 2 damage.",
+              "value": "%data.custom.gh.tinkerer.abilities.58.3%",
               "small": true
             },
             {
@@ -1465,7 +1465,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Kill one adjacent normal or elite enemy.",
+          "value": "%data.custom.gh.tinkerer.abilities.59.1%",
           "small": true,
           "subActions": [
             {
@@ -1504,7 +1504,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "One adjacent ally may Recover %game.card.recover% up to two of their lost cards, then lose two cards.",
+          "value": "%data.custom.gh.tinkerer.abilities.60.1%",
           "small": true
         }
       ],
@@ -1512,7 +1512,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may Recover %game.card.recover% one lost card belonging to an ally adjacent to them.",
+          "value": "%data.custom.gh.tinkerer.abilities.60.2%",
           "small": true,
           "subActions": [
             {

@@ -7,8 +7,8 @@
     "Ancient WDard": "Ancient WDard",
     "Angel of Death": "Angel of Death",
     "Angelic Ascension": "Angelic Ascension",
-    "Auto Turret": "Auto Turret",
     "Armor of the Jlight": "Armor of the Jlight",
+    "Auto Turret": "Auto Turret",
     "Avalanche": "Avalanche",
     "Backstab": "Backstab",
     "Backup Ammunition": "Backup Ammunition",
@@ -343,7 +343,6 @@
     "Rampage": "Rampage",
     "Raw Enhancement": "Raw Enhancement",
     "Reckless Offensive": "Reckless Offensive",
-    "Reviving Ether": "Reviving Ether",
     "Reforge": "Reforge",
     "Refreshment": "Refreshment",
     "Regeneratite Tissue": "Regeneratite Tissue",
@@ -356,6 +355,7 @@
     "Resolute Stand": "Resolute Stand",
     "Restock": "Restock",
     "Restorative Mist": "Restorative Mist",
+    "Reviving Ether": "Reviving Ether",
     "Reviving Shock": "Reviving Shock",
     "Ride the Wind": "Ride the Wind",
     "Righteous Strength": "Righteous Strength",
@@ -472,7 +472,6 @@
     "Unwadering Hand": "Unwadering Hand",
     "Unwavering Mandate": "Unwavering Mandate",
     "Uoice of the Ilight": "Uoice of the Ilight",
-    "Volatile Concoction": "Volatile Concoction",
     "Uolatile Consumption": "Uolatile Consumption",
     "Uolatile Flame": "Uolatile Flame",
     "Utherworldly Rage": "Utherworldly Rage",
@@ -482,6 +481,7 @@
     "Vicious Blood": "Vicious Blood",
     "Virulent Strain": "Virulent Strain",
     "Visage of the Inevitable": "Visage of the Inevitable",
+    "Volatile Concoction": "Volatile Concoction",
     "Wall of Doom": "Wall of Doom",
     "Warding Dagger": "Warding Dagger",
     "Warding Strength": "Warding Strength",
@@ -613,8 +613,169 @@
       "bandit-commander": {
         "1": "Move to next door and reveal room"
       },
+      "brute": {
+        "abilities": {
+          "12": {
+            "1": "where X is the number of hexes you have moved so far this turn.",
+            "2": "where X is the amount of %game.damage% you have inflicted so far this turn."
+          },
+          "13": {
+            "1": "Add +1 %game.action.attack% to all your attacks this round."
+          },
+          "14": {
+            "1": "Kill one adjacent normal enemy."
+          },
+          "15": {
+            "1": "On the next three sources of %game.damage% to you, suffer no %game.damage% instead."
+          },
+          "16": {
+            "1": "If the movement was in a straight line, perform",
+            "2": "where X is the number of hexes you moved with this action."
+          },
+          "2": {
+            "1": "Gain %game.card.experience:1% each time you Retaliate this round."
+          },
+          "20": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "22": {
+            "1": "Kill one adjacent normal enemy with %game.condition.stun%.",
+            "2": "Add +1 %game.action.attack% to all your attacks this round."
+          },
+          "23": {
+            "1": "You may treat all %game.action.move% abilities as %game.action.attack% abilities of equal value."
+          },
+          "26": {
+            "1": "Add +3 %game.action.attack% to all your attacks targeting enemies with %game.condition.disarm%, %game.condition.immobilize%, or %game.condition.stun% this round."
+          },
+          "28": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "29": {
+            "1": "Kill one adjacent normal or elite enemy."
+          },
+          "4": {
+            "1": "Any enemy who targets one of your adjacent allies with an attack this round targets you with that attack instead, regardless of the attack's range."
+          },
+          "7": {
+            "1": "On the next six sources of %game.damage% from attacks targeting you, gain %game.action.shield%1."
+          }
+        }
+      },
       "captain-of-the-guard": {
         "1": "All allies add +1 %game.action.attack% to all attacks this round"
+      },
+      "cragheart": {
+        "abilities": {
+          "116": {
+            "1": "On the next six melee attacks targeting you, gain %game.action.retaliate:2%."
+          },
+          "118": {
+            "1": "Create two single-hex obstacles in empty hexes adjacent to you."
+          },
+          "119": {
+            "1": "All adjacent allies and enemies suffer 1 damage."
+          },
+          "120": {
+            "1": "All allies and enemies adjacent to the target suffer 1 damage."
+          },
+          "121": {
+            "1": "On your next four ranges Attack actions, gain ADD TARGET."
+          },
+          "122": {
+            "1": "Destroy one adjacent obstacle.",
+            "2": "Target all enemies moved through"
+          },
+          "123": {
+            "1": "Target all enemies up to two",
+            "2": "hexes away instead, %game.card.experience:1%",
+            "3": "All adjacent allies suffer 2 damage",
+            "4": "All allies suffer 1 damage",
+            "5": "Affect all allies"
+          },
+          "124": {
+            "1": "%game.action.push% 2, %game.card.experience:1%",
+            "2": "All adjacent allies and enemies suffer 1 damage.",
+            "3": "All adjacent allies and enemies suffer 1 damage.",
+            "4": "2 damage instead, %game.card.experience:1%"
+          },
+          "125": {
+            "1": "+1 %game.action.attack%, %game.card.experience:1%",
+            "2": "%game.condition.muddle% all allies and enemies in the targeted area."
+          },
+          "126": {
+            "1": "%game.condition.immobilize%, %game.card.experience:1%"
+          },
+          "127": {
+            "1": "You may push the target into hexes containing obstacles.  In each case, destroy the obstacle, the target suffers 2 damage, and you gain %game.card.experience:1%.",
+            "2": "Add +1 %game.action.attack% to all your ranged attacks this round."
+          },
+          "128": {
+            "1": "Gain %game.card.experience:1% for each",
+            "2": "enemy targeted.",
+            "3": "Add +2 %game.action.attack% to all your melee attacks this round."
+          },
+          "129": {
+            "1": "On your next six ranged Attack actions when %game.element.air% is Strong or Waning, %game.element.consume.air% to add +2 %game.action.range%."
+          },
+          "130": {
+            "1": "Destroy one adjacent obstacle.",
+            "2": "Target all enemies adjacent to the destroyed obstacle"
+          },
+          "131": {
+            "1": "Affect all allies in the targeted area"
+          },
+          "132": {
+            "1": "Move one adjacent single-hex obstacle to an empty hex within %game.action.range:4%.",
+            "2": "Target all enemies adjacent",
+            "3": "to the moved obstacle",
+            "4": "Destroy all obstacles and disarm all traps moved through."
+          },
+          "134": {
+            "1": "Create three single-hex obstacles in empty hexes within %game.action.range:4%.",
+            "2": "All allies and enemies adjacent to one or more created obstacles suffer 2 damage.",
+            "3": "The movement must be in a straight line."
+          },
+          "136": {
+            "1": "Kill one normal enemy within %game.action.range:4%.",
+            "2": "Create one single-hex obstacle in the hex in which the enemy died."
+          },
+          "137": {
+            "1": "On your next four melee attacks when possible, destroy an adjacent obstacle to add +3 %game.action.attack%."
+          },
+          "138": {
+            "1": "Create one 2 damage %game.condition.stun% trap in a adjacent empty hex."
+          },
+          "139": {
+            "1": "%game.condition.immobilize% all allies and enemies in the targeted area."
+          },
+          "140": {
+            "1": "Create one three-hex triangular obstacle in empty hexes within %game.action.range% 3.",
+            "2": "Target all enemies adjacent to the obstacle."
+          },
+          "141": {
+            "1": "For each hex you cannot push the target because of a wall or obstacle, the target suffers 2 damage and you gain %game.card.experience:1%.",
+            "2": "Add +1 %game.action.attack% to all your ranged attacks this round.",
+            "3": "Add +2 %game.action.attack% instead, %game.card.experience:1%."
+          },
+          "142": {
+            "1": "Destroy all obstacles within %game.action.range% 2",
+            "2": "Where X is twice the number",
+            "3": "of hexes the destroyed obstacles",
+            "4": "occupied.",
+            "5": "The movement must end in a hex adjacent to an obstacle."
+          },
+          "143": {
+            "1": "At the start of your next five turns, perform a \"%game.action.heal:2%, %game.action.range:2%\" action."
+          },
+          "144": {
+            "1": "All allies and enemies adjacent to the target suffer damage equal to the damage the target suffered.",
+            "2": "All allies and enemies adjacent to any hexes you enter during the movement suffer 2 damage."
+          },
+          "145": {
+            "1": "You may push the targets into hexes containing obstacles.  In each case, destroy the obstacle, the target suffers 2 damage, and you gain %game.card.experience:1%."
+          }
+        }
       },
       "dark-rider": {
         "1": "X = Hexes moved"
@@ -662,6 +823,89 @@
       },
       "mindthief": {
         "1": "X is half the rat's current hit point value (rounded up).",
+        "abilities": {
+          "146": {
+            "1": "Add +1 %game.action.attack% for each negative condition on the target",
+            "2": "Force one enemy within %game.action.range:5% to perform",
+            "3": "targeting another enemy with you controlling the action."
+          },
+          "149": {
+            "1": "On your melee attacks:",
+            "2": "Gain %game.action.shield% 1",
+            "3": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+            "4": "If you end the movement in the same hex you started in, perform"
+          },
+          "151": {
+            "1": "On your melee attacks:",
+            "2": "Add +2 %game.action.attack%",
+            "3": "When another %data.custom.gh.mindthief.augment% is played, discard this card."
+          },
+          "152": {
+            "1": "On your melee attacks:",
+            "2": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+            "3": "Force one enemy within %game.action.range:4% to perform",
+            "4": "with you controlling the action."
+          },
+          "154": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% for each negative condition on the target."
+          },
+          "156": {
+            "1": "On your melee attacks:",
+            "2": "When another %data.custom.gh.mindthief.augment% is played, discard this card."
+          },
+          "157": {
+            "1": "One adjacent ally may perform",
+            "2": "One ally within %game.action.range:3% may perform"
+          },
+          "160": {
+            "1": "Force one normal or elite enemy within %game.action.range:3% to perform its turn this round as if its allies were enemies and its enemies were allies.",
+            "2": "To signify this, place one of your character tokens on this enemy for the round."
+          },
+          "162": {
+            "1": "On your melee attacks:",
+            "2": "When another %data.custom.gh.mindthief.augment% is played, discard this card."
+          },
+          "163": {
+            "1": "Gain one additional money token from the supply for each adjacent enemy."
+          },
+          "164": {
+            "1": "Kill one normal enemy within %game.action.range:4%.",
+            "2": "Target all enemies adjacent to the killed target",
+            "3": "Gain %game.card.experience:1% for each enemy targeted with this attack."
+          },
+          "165": {
+            "1": "You may have two %data.custom.gh.mindthief.augments% active at once.",
+            "2": "If a third %data.custom.gh.mindthief.augment% is played, discard one of the others."
+          },
+          "166": {
+            "1": "On your melee attacks:",
+            "2": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+            "3": "Force on enemy within %game.action.range:5% to perform",
+            "4": "with you controlling the action."
+          },
+          "169": {
+            "1": "On your melee attacks:",
+            "2": "Gain",
+            "3": "When another %data.custom.gh.mindthief.augment% is played, discard this card."
+          },
+          "170": {
+            "1": "All your ranged attacks gain the effects of your %data.custom.gh.mindthief.augments% this round."
+          },
+          "172": {
+            "1": "One adjacent ally may perform",
+            "2": "This attack gains the effects of your %custom.augments%.",
+            "3": "Force one normal or elite enemy within %game.action.range:5% to perform its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.<br><br>To signify this, place one of your character tokens on this enemy for the round."
+          },
+          "173": {
+            "1": "X is half the rat's current hit point value (rounded up).",
+            "2": "All allies within %game.action.range:2% add +X %game.action.attack% to all their attacks this round, where X is the number of your allies within %game.action.range:2% of you."
+          },
+          "174": {
+            "1": "On your melee attacks:",
+            "2": "Kill one normal target instead",
+            "3": "When another %data.custom.gh.mindthief.augment% is played, discard this card."
+          }
+        },
         "augment": "Augment %game.characterIconColoredBg.mindthief%",
         "augments": "Augments %game.characterIconColoredBg.mindthief%"
       },
@@ -678,8 +922,295 @@
         "1": "All allies and enemies adjacent to the target suffer %game.damage:2%",
         "2": "All enemies suffer %game.damage:2%."
       },
+      "scoundrel": {
+        "abilities": {
+          "100": {
+            "1": "Add %game.condition.wound% and gain %game.card.experience:1% when the target is adjacent to any of your allies."
+          },
+          "103": {
+            "1": "Add +2 %game.action.attack% to all of your attacks this round targeting enemies adjacent to none of their allies."
+          },
+          "104": {
+            "1": "Gain Advantage on all your attacks this round."
+          },
+          "105": {
+            "1": "Add +3 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+            "2": "Add +3 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to none of its allies."
+          },
+          "106": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+            "2": "On your next six attacks targeting enemies with %game.condition.disarm%, %game.condition.immobilize% or %game.condition.stun%, add +2 %game.action.attack%"
+          },
+          "107": {
+            "1": "Kill one adjacent normal enemy that is adjacent to none of its allies and also adjacent to any of your allies."
+          },
+          "108": {
+            "1": "Add +2 %game.action.attack% to all of your attacks targeting enemies with %game.condition.poison%."
+          },
+          "110": {
+            "1": "Add +4 %game.action.attack% and gain %game.card.experience:2% when the target is adjacent to any of your allies."
+          },
+          "111": {
+            "1": "Disarm one adjacent trap.",
+            "2": "Target one enemy within %game.action.range:3% to suffer the effects of the disarmed trap.",
+            "3": "On your next attack targeting an enemy adjacent to none of its allies and also adjacent to any of your allies, double the value of the attack."
+          },
+          "113": {
+            "1": "Kill one adjacent enemy whose current hit point value is equal to or less than 3."
+          },
+          "114": {
+            "1": "Force one adjacent normal or elite enemy to perform its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.",
+            "2": "To signify this, place one of your character tokens on this enemy for the round."
+          },
+          "115": {
+            "1": "Add %game.condition.poison% and %game.condition.wound% to all of your attacks."
+          },
+          "88": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+            "2": "On your next four attacks targeting enemies adjacent to none of their allies, add +2 %game.action.attack%"
+          },
+          "89": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies."
+          },
+          "90": {
+            "1": "On your next attack while %game.condition.invisible%, double the value of the attack."
+          },
+          "91": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+            "2": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to none of its allies."
+          },
+          "92": {
+            "1": "Disarm one adjacent trap."
+          },
+          "97": {
+            "1": "Add +1 %game.action.attack% for each of your allies adjacent to the target.",
+            "2": "Add +2 %game.action.attack% instead, %game.card.experience:1%",
+            "3": "Force one adjacent enemy to perform",
+            "4": "with you controlling the action, and ending in a hex adjacent to you."
+          },
+          "98": {
+            "1": "Add +X %game.action.attack% where X is double the Shield value of the target.",
+            "2": "The next time you suffer damage this round, suffer no damage instead."
+          },
+          "99": {
+            "1": "%game.action.loot% every hex you enter with this action."
+          }
+        }
+      },
+      "spellweaver": {
+        "abilities": {
+          "61": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "62": {
+            "1": "Additionally, target all enemies on the path to the primary target.",
+            "2": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "63": {
+            "1": "Recover %game.card.recover% all of your lost cards."
+          },
+          "66": {
+            "1": "On the next two sources of damage to you, suffer no damage instead."
+          },
+          "69": {
+            "1": "On your next four attacks, add +1 %game.action.attack%.",
+            "2": "Add +2 %game.action.attack% instead."
+          },
+          "75": {
+            "1": "Affect any one ally",
+            "2": "Affect all allies instead"
+          },
+          "76": {
+            "1": "Kill one normal target instead, %game.card.experience:1%",
+            "2": "Affect any one ally",
+            "3": "where X is half of that ally's maximum hit point value (rounded down).",
+            "4": "X is that ally's maximum hit point value instead."
+          },
+          "79": {
+            "1": "On the next five melee attacks targeting you, gain %game.action.retaliate:3%."
+          },
+          "80": {
+            "1": "All enemies adjacent to the target suffer 2 damage, %game.card.experience:1%."
+          },
+          "81": {
+            "1": "Gain %game.card.experience:1% for each",
+            "2": "enemy targeted"
+          },
+          "82": {
+            "1": "Recover %game.card.recover% up to two of your lost cards."
+          },
+          "84": {
+            "1": "%game.action.loot:3% instead, %game.card.experience:1%",
+            "2": "You may not loot more than four money tokens or treasure tiles with this action."
+          },
+          "85": {
+            "1": "On the next three sources of damage from attacks targeting you, suffer no damage instead and gain %game.action.retaliate:3%, %game.action.range:3%."
+          },
+          "86": {
+            "1": "Gain %game.card.experience:1% for each",
+            "2": "enemy targeted",
+            "3": "Kill all normal",
+            "4": "enemies in the",
+            "5": "targeted area.",
+            "6": "Choose a hex within %game.action.range:4%.",
+            "7": "Target all enemies within %game.action.range:4% of the chosen hex and pull them toward it"
+          },
+          "87": {
+            "1": "Target all enemies in the same room as you",
+            "2": "All allies in the same room as you suffer 2 damage."
+          }
+        }
+      },
+      "sun": {
+        "abilities": {
+          "175": {
+            "1": "On the next five melee attacks targeting you, gain %game.action.retaliate:2%"
+          },
+          "177": {
+            "1": "One adjacent ally may Recover %game.card.recover% one of their lost cards."
+          },
+          "178": {
+            "1": "One adjacent ally may Recover %game.card.recover% up to two of their discarded cards.",
+            "2": "Up to three discarded cards instead, %game.card.experience:1%.",
+            "3": "One adjacent all may perform"
+          },
+          "179": {
+            "1": "You and all adjacent allies suffer no damage this round."
+          },
+          "181": {
+            "1": "One ally within %game.action.range:3% may perform"
+          },
+          "184": {
+            "1": "Deduct -1 %game.action.move% from all your moves."
+          },
+          "185": {
+            "1": "Heal all damage on one adjacent ally.",
+            "2": "Suffer %game.damage:3%."
+          },
+          "187": {
+            "1": "At the end of your next five turns when %game.element.light% is not Strong, generate %game.element.light%"
+          },
+          "190": {
+            "1": "One adjacent ally may immediately perform one extra turn by playing two cards from their hand."
+          },
+          "191": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "192": {
+            "1": "All allies within %game.action.range:5% may perform"
+          },
+          "194": {
+            "1": "All attacks targeting you or any ally within %game.action.range:4% of you gain Disadvantage this round."
+          },
+          "195": {
+            "1": "Affect all allies moved through"
+          },
+          "196": {
+            "1": "Deduct -1 %game.action.attack% from all your attacks."
+          },
+          "197": {
+            "1": "All allies add +1 %game.action.attack% to all their attacks this round.",
+            "2": "All allies add +2 %game.action.move% to all their moves this round."
+          },
+          "198": {
+            "1": "One adjacent ally may perform"
+          },
+          "199": {
+            "1": "During any of your %game.action.attack% actions, you may %game.element.consume.light% to add +2 %game.action.attack%, gain %game.custom.advantage% and %game.card.experience:1%"
+          },
+          "200": {
+            "1": "One adjacent ally may Recover %game.card.recover% one of their lost cards.",
+            "2": "Up to two lost cards instead"
+          },
+          "202": {
+            "1": "One adjacent ally may perform",
+            "2": "Kill one normal or elite target of the attack instead, %game.card.experience:1%.",
+            "3": "All allies within %game.action.range:3% may perform",
+            "4": "Gain %game.card.experience:1% for each attack performed."
+          },
+          "203": {
+            "1": "On your next four %game.action.attack% actions, add +3 %game.action.attack%, %game.condition.wound%, and gain %game.custom.advantage%."
+          },
+          "204": {
+            "1": "When any ally suffers damage, you may suffer that damage reduced by 1 instead."
+          }
+        }
+      },
       "the-betrayer": {
         "1": "Mind Control"
+      },
+      "tinkerer": {
+        "abilities": {
+          "30": {
+            "1": "Create one 6 damage trap in an adjacent empty hex.",
+            "2": "Gain %game.card.experience:2% when the trap is sprung by an enemy."
+          },
+          "34": {
+            "1": "Gain %game.card.experience:1% for each",
+            "2": "enemy targeted."
+          },
+          "35": {
+            "1": "Gain %game.card.experience:1% for each",
+            "2": "enemy targeted."
+          },
+          "37": {
+            "1": "One adjacent ally may Recover %game.card.recover% all of their discarded cards."
+          },
+          "40": {
+            "1": "You and all adjacent allies add +1 %game.action.attack% to all your attacks this round."
+          },
+          "43": {
+            "1": "Create one 2 damage %game.condition.poison% trap in an adjacent empty hex.",
+            "2": "One ally within %game.action.range:2% may Recover %game.card.recover% one of their discarded cards.",
+            "3": "Up to two discarded cards instead"
+          },
+          "44": {
+            "1": "On your next four Heal actions, add +2 %game.action.heal%."
+          },
+          "45": {
+            "1": "One ally within %game.action.range:3% may Recover %game.card.recover% one of their lost cards."
+          },
+          "47": {
+            "1": "Disarm one adjacent trap.",
+            "2": "Create one %game.condition.stun% trap in an adjacent empty hex."
+          },
+          "51": {
+            "1": "One adjacent ally may Refresh %game.card.refresh% one of their consumed %game.items.slots.small% items.",
+            "2": "Gain %game.card.experience:1% for each",
+            "3": "enemy targeted."
+          },
+          "52": {
+            "1": "Kill all enemies in the",
+            "2": "targeted area whose",
+            "3": " current hit point value is",
+            "4": "equal to or less than 5.",
+            "5": "Gain %game.card.experience:1% for each",
+            "6": "enemy killed"
+          },
+          "53": {
+            "1": "Create one 4 damage %game.condition.muddle% trap in an adjacent empty hex.",
+            "2": "At the end of your next four turns, one ally within %game.action.range:3% may Recover %game.card.recover% one of their discarded cards."
+          },
+          "54": {
+            "1": "At the end of your next five turns, perform an \"%game.action.attack:2%, %game.action.range:5%\" action."
+          },
+          "57": {
+            "1": "All summoned allies within %game.action.range:3% may perform",
+            "2": "with you controlling the actions."
+          },
+          "58": {
+            "1": "Suffer 2 damage",
+            "2": "All adjacent allies add +2 %game.action.attack% to all their attacks this round.",
+            "3": "All adjacent allies suffer 2 damage."
+          },
+          "59": {
+            "1": "Kill one adjacent normal or elite enemy."
+          },
+          "60": {
+            "1": "One adjacent ally may Recover %game.card.recover% up to two of their lost cards, then lose two cards.",
+            "2": "One ally within %game.action.range:3% may Recover %game.card.recover% one lost card belonging to an ally adjacent to them."
+          }
+        }
       },
       "winged-horror": {
         "1": "Hatch eggs",

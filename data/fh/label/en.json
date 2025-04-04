@@ -1303,7 +1303,19 @@
         "6": "Add +1 %game.action.attack% for each ally adjacent to the target",
         "7": "At the end of each of your long rests, grant one ally within %game.action.range:3%: %game.action.move% 2",
         "8": "Whenever you open a door with a move ability, add +3 %game.action.move%",
-        "9": "Once each scenario, during your turn, gain %game.action.shield% 2 for the round"
+        "9": "Once each scenario, during your turn, gain %game.action.shield% 2 for the round",
+        "abilities": {
+          "61": {
+            "1": "Suffer %game.damage:1% for each ally whose hit point value increased with the heal ability.",
+            "2": "You control the movement of this summon"
+          },
+          "62": {
+            "1": "All allies within %game.action.range%2 add +1 %game.action.attack% to one of their attacks each turn."
+          },
+          "63": {
+            "1": "All your ranged attacks have -1%game.action.range%."
+          }
+        }
       },
       "belara": {
         "1": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
@@ -1707,8 +1719,8 @@
     "Raven Nest": "Raven Nest",
     "Scenario": "Scenario",
     "Small Tree": "Small Tree",
-    "Snowdrift": "Snowdrift",
     "Snow Rock": "Snow Rock",
+    "Snowdrift": "Snowdrift",
     "Spectral Helper": "Spectral Helper",
     "Stalagmites": "Stalagmites",
     "Switch": "Switch",
@@ -2078,12 +2090,12 @@
           "1": "Gain Advantage on this target"
         },
         "146-3": "When this attack is performed, on the next round at initiative 99 instead perform:",
-        "180-3": {
-          "1": "Gain one Hide"
-        },
         "17-2": {
           "1": "+2 material resource",
           "2": "Gain any two material resources"
+        },
+        "180-3": {
+          "1": "Gain one Hide"
         },
         "19-2": {
           "1": "+1 material resource",

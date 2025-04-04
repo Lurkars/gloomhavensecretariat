@@ -9,12 +9,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Acts immediately after the Incarnate, performing the same bottom and top actions as the Incarnate",
+          "value": "%data.custom.toa.okeda.1%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "If the Incarnate did not move during the bottom action:",
+          "value": "%data.custom.toa.okeda.2%",
           "small": true,
           "subActions": [
             {
@@ -26,7 +26,7 @@
         },
         {
           "type": "custom",
-          "value": "If the Incarnate did not attack during the top action:",
+          "value": "%data.custom.toa.okeda.3%",
           "small": true,
           "subActions": [
             {
