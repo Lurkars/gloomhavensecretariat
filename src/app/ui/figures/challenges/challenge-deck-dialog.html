@@ -12,11 +12,11 @@
                 <a ghs-pointer-input (singleClick)="clear()" (doubleClick)="clear(false)"
                     [ngClass]="{'disabled': deck.current <= deck.finished}"><span
                         [ghs-label]="'challenges.deck.clear' +  (drawAvailable > 1 ? '.multiple': '')"></span></a>
-                <label *ngIf="gameManager.game.scenario"><input type="checkbox" (click)="toggleEdit()"
+                <label *ngIf="!!gameManager.game.scenario"><input type="checkbox" (click)="toggleEdit()"
                         [checked]="edit"><span [ghs-label]="'game.cards.edit'"></span></label>
             </ng-container>
         </div>
-        <div class="hint" *ngIf="!edit && gameManager.game.scenario">
+        <div class="hint" *ngIf="!edit && !!gameManager.game.scenario">
             <span *ngIf="!drawDisabled"
                 [ghs-label]="'challenges.deck.hint.drawAvailable'+  (drawAvailable > 1 ? '.multiple': '')"></span>
             <span *ngIf="!disabled && drawDisabled"
@@ -47,7 +47,7 @@
                 <div class="title" [ghs-label]="'challenges.deck.current'"></div>
                 <div class="empty"></div>
                 <div class="challenge-container" *ngFor="let card of discardedCards; let index = index" cdkDrag
-                    [ngClass]="{'active': !edit && gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state == GameState.draw, 'keep': !disabled && deck.keep.indexOf(deck.current - index) != -1}">
+                    [ngClass]="{'active': !edit && !!gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state == GameState.draw, 'keep': !disabled && deck.keep.indexOf(deck.current - index) != -1}">
                     <ghs-challenge-card class="drag-hidden" [challenge]="card"
                         [keep]="deck.keep.indexOf(deck.current - index) != -1" [flipped]="true" ghs-pointer-input
                         (singleClick)="toggleKeep(deck.current-index)"

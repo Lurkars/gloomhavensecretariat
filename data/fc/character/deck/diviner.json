@@ -535,6 +535,10 @@
             {
               "type": "card",
               "value": "slotXp:1"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
             }
           ]
         }

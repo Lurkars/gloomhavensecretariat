@@ -1,11 +1,11 @@
 <div class="move-resources-dialog"
     [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <label class="title">
-        <span class="name" *ngIf="building">
+        <span class="name" *ngIf="!!building">
             <span [ghs-label]="'data.buildings.' + building.data.name"></span>
             <span *ngIf="building.data.id">({{building.data.id}})</span>
         </span>
-        <span class="building" *ngIf="building">
+        <span class="building" *ngIf="!!building">
             <img class="action" [src]="'./assets/images/fh/buildings/' + action + '.svg'">
             <span [ghs-label]="'party.campaign.sheet.buildings.' + action + '.action'"
                 [ghs-label-args]="[''+ (building.model.level + (rewardsOnly ? 0 : 1)) ]"></span>
@@ -39,11 +39,11 @@
             <span class="cost" [ghs-label]="'party.campaign.sheet.buildings.discount'"></span>
         </div>
 
-        <span class="lose-morale" *ngIf="rewards && rewards.loseMorale"
+        <span class="lose-morale" *ngIf="!!rewards && rewards.loseMorale"
             [ghs-label]="'party.campaign.sheet.buildings.rewards.loseMorale'"
             [ghs-label-args]="[''+ rewards.loseMorale]"></span>
 
-        <div class="rewards" *ngIf="rewards">
+        <div class="rewards" *ngIf="!!rewards">
             <span class="text-white prosperity" *ngIf="rewards.prosperity"
                 [ghs-label]="'party.campaign.sheet.buildings.rewards.prosperity'"
                 [ghs-label-args]="[''+ rewards.prosperity]"></span>

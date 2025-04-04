@@ -282,7 +282,7 @@
               </div>
             </div>
 
-            <div class="requirements" *ngIf="personalQuest">
+            <div class="requirements" *ngIf="!!personalQuest">
               <div class="requirement" *ngFor="let requirement of personalQuest.requirements; let i = index;"
                 [ngClass]="{'disabled' : requirement.requires && requirement.requires.length > 0 && !personalQuestRequirementUnlocked(i)}">
                 <span class="requirement-name">
@@ -305,7 +305,7 @@
               </div>
             </div>
 
-            <div class="rewards" *ngIf="personalQuest">
+            <div class="rewards" *ngIf="!!personalQuest">
               <div class="reward" *ngIf="personalQuest.unlockCharacter"
                 [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
                 [ghs-label-args]="[personalQuest.unlockCharacter]">

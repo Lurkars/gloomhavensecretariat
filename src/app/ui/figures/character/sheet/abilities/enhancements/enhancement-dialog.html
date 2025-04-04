@@ -144,7 +144,7 @@
         </p>
     </div>
 
-    <div class="menu" *ngIf="character">
+    <div class="menu" *ngIf="!!character">
         <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
         <a class="apply"
             [ngClass]="{'disabled': this.data.character && this.data.character.progress.gold < gameManager.enhancementsManager.calculateCosts(this.enhanceAction, this.level, this.special, this.enhancements) || !gameManager.enhancementsManager.fh && this.enhancedCards >= gameManager.prosperityLevel()}"

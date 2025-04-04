@@ -7,13 +7,13 @@
       [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
       <div class="touch"></div>
       <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
-      <span class="name" *ngIf="monster" [ghs-label]="deckLabel"></span>
-      <span class="name" *ngIf="character"><span [ghs-label]="'data.character.' + character.name"></span></span>
-      <span class="logo" *ngIf="character"><img [src]="character.iconUrl" /></span>
+      <span class="name" *ngIf="!!monster" [ghs-label]="deckLabel"></span>
+      <span class="name" *ngIf="!!character"><span [ghs-label]="'data.character.' + character.name"></span></span>
+      <span class="logo" *ngIf="!!character"><img [src]="character.iconUrl" /></span>
     </div>
     <div class="card-front ability-front"
       [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
-      <ng-container *ngIf="ability">
+      <ng-container *ngIf="!!ability">
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
         <span class="name">{{abilityLabel}}</span>
         <div class="ability-actions-container">
@@ -30,10 +30,10 @@
         </div>
         <ghs-interactive-actions
           [ngClass]="{'interactive-actions-top' : ability.bottomActions && ability.bottomActions.length > 0 || character}"
-          *ngIf="interactiveAbilities && monster" [figure]="monster" [actions]="ability.actions"
+          *ngIf="interactiveAbilities && !!monster" [figure]="monster" [actions]="ability.actions"
           [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
 
-        <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0 || character">
+        <ng-container *ngIf="!!ability.bottomActions && ability.bottomActions.length > 0 || character">
           <span class="level">
             <span class="text" [ghs-label]="ability.level || 0"></span>
           </span>
@@ -48,7 +48,7 @@
             </div>
           </div>
 
-          <ghs-interactive-actions class="interactive-actions-bottom" *ngIf="interactiveAbilities && monster"
+          <ghs-interactive-actions class="interactive-actions-bottom" *ngIf="interactiveAbilities && !!monster"
             [figure]="monster" [actions]="ability.bottomActions" [(interactiveActions)]="interactiveBottomActions"
             [preIndex]="'bottom'"></ghs-interactive-actions>
         </ng-container>
@@ -57,11 +57,11 @@
         <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex +
           1}}]</span>
         <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">
-          <span *ngIf="character && ability.cardId < 100">0</span>
-          <span *ngIf="character && ability.cardId < 10">0</span>
+          <span *ngIf="!!character && ability.cardId < 100">0</span>
+          <span *ngIf="!!character && ability.cardId < 10">0</span>
           <span>{{ability.cardId}}</span>
         </span>
-        <span class="logo" *ngIf="character"><img [src]="character.iconUrl" /></span>
+        <span class="logo" *ngIf="!!character"><img [src]="character.iconUrl" /></span>
         <div class="required-container"
           *ngIf="ability.lost || ability.persistent || ability.loss || ability.round || ability.xp">
           <span class="label">!</span>
@@ -69,10 +69,6 @@
             <span class="xp" *ngIf="ability.xp">
               <img src="./assets/images/action/card/experience.svg">
               <span class="value">{{ability.xp}}</span>
-            </span>
-            <span class="lost" *ngIf="ability.lost">
-              <img src="./assets/images/action/card/lost.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
             </span>
             <span class="persistent" *ngIf="ability.persistent">
               <img src="./assets/images/action/card/persistent.svg">
@@ -86,6 +82,10 @@
               <img src="./assets/images/action/card/round.svg">
               <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
             </span>
+            <span class="lost" *ngIf="ability.lost">
+              <img src="./assets/images/action/card/lost.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+            </span>
           </div>
         </div>
         <div class="required-container bottom"
@@ -95,10 +95,6 @@
             <span class="xp" *ngIf="ability.bottomXp">
               <img src="./assets/images/action/card/experience.svg">
               <span class="value">{{ability.bottomXp}}</span>
-            </span>
-            <span class="lost" *ngIf="ability.bottomLost">
-              <img src="./assets/images/action/card/lost.svg">
-              <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
             </span>
             <span class="persistent" *ngIf="ability.bottomPersistent">
               <img src="./assets/images/action/card/persistent.svg">
@@ -111,6 +107,10 @@
             <span class="round" *ngIf="ability.bottomRound">
               <img src="./assets/images/action/card/round.svg">
               <img class="overlay" src="./assets/images/action/card/overlay/round.svg">
+            </span>
+            <span class="lost" *ngIf="ability.bottomLost">
+              <img src="./assets/images/action/card/lost.svg">
+              <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
             </span>
           </div>
         </div>

@@ -279,6 +279,11 @@
           height: 2em;
           margin: 0 0.1em;
 
+          &.loss {
+            height: 1.4em;
+            margin: 0 0.2em;
+          }
+
           img {
             position: relative;
             top: 0;

@@ -6,7 +6,7 @@
             <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
         </div>
         <div class="card-front">
-            <ng-container *ngIf="trialCard">
+            <ng-container *ngIf="!!trialCard">
                 <div class="title" [ghs-label]="'data.trials.' + trialCard.edition + '.' +  trialCard.cardId">
                 </div>
                 <div class="automation">

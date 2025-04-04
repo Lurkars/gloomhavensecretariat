@@ -1,4 +1,4 @@
-<div *ngIf="attackModifier" class="attack-modifier {{attackModifier.type}}" [ngClass]="{'town-guard' : townGuard }">
+<div *ngIf="!!attackModifier" class="attack-modifier {{attackModifier.type}}" [ngClass]="{'town-guard' : townGuard }">
   <div class="card" [ngClass]="{'flipped' : flipped || attackModifier.revealed, 'no-animations' : !animate}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal" #card>
     <div class="card-back back">
@@ -17,7 +17,7 @@
           </div>
         </ng-container>
 
-        <ng-container *ngIf="mixedElement && effects.length > 0">
+        <ng-container *ngIf="!!mixedElement && effects.length > 0">
           <div class="type multiple multiple-mixed-element {{mixedElement.value}}"
             [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
           </div>
@@ -26,7 +26,7 @@
               [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
             </div>
           </ng-container>
-          <ng-container *ngIf="orTypeEffect && orTypeEffect.effects.length > 1">
+          <ng-container *ngIf="!!orTypeEffect && orTypeEffect.effects.length > 1">
             <div *ngFor="let effect of orTypeEffect.effects"
               class="type multiple  multiple-mixed-element multiple-mixed-element-or {{effect.type}} {{effect.value}}"
               [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
@@ -34,7 +34,7 @@
           </ng-container>
         </ng-container>
 
-        <ng-container *ngIf="!mixedElement && orTypeEffect && orTypeEffect.effects.length > 1">
+        <ng-container *ngIf="!mixedElement && !!orTypeEffect && orTypeEffect.effects.length > 1">
           <div *ngFor="let effect of orTypeEffect.effects" class="type multiple {{effect.type}} {{effect.value}}"
             [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle, 'multiple-2' : orTypeEffect.effects.length == 2, 'multiple-3' : orTypeEffect.effects.length == 3, 'multiple-4' : orTypeEffect.effects.length == 4}">
           </div>
@@ -102,7 +102,7 @@
             [length]="effects.length"></ghs-attackmodifier-effect>
         </div>
 
-        <div class="mixed-element" *ngIf="mixedElement">
+        <div class="mixed-element" *ngIf="!!mixedElement">
           <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="mixedElement"
             [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
         </div>

@@ -9,7 +9,7 @@
         [max]="spawn.manualMax || ''">
     </ng-container>
   </div>
-  <div class="objective-spawns" *ngIf="rule.objectiveSpawns && rule.objectiveSpawns.length > 0">
+  <div class="objective-spawns" *ngIf="!!rule.objectiveSpawns && rule.objectiveSpawns.length > 0">
     <ng-container *ngFor="let spawn of rule.objectiveSpawns; let i = index">
       <span class="and" *ngIf="i > 0" [ghs-label]="'and'"></span>
       <span class="text-white text"
@@ -19,7 +19,7 @@
         [max]="spawn.manualMax || ''" [value]="EntityValueFunction(spawn.count || 1)">
     </ng-container>
   </div>
-  <div class="elements" *ngIf="rule.elements && rule.elements.length > 0">
+  <div class="elements" *ngIf="!!rule.elements && rule.elements.length > 0">
     <ng-container *ngFor="let element of rule.elements; let i = index">
       <span class="and" *ngIf="i > 0">,</span>
       <span class="element">
@@ -74,7 +74,7 @@
       [ghs-label-args]="[rule.randomDungeon.monsterCount, randomDungeonsMonsterLabel(rule).toString()]">
     </p>
   </div>
-  <div class="stat-effects" *ngIf="rule.statEffects && rule.statEffects.length">
+  <div class="stat-effects" *ngIf="!!rule.statEffects && rule.statEffects.length">
     <div class="text text-white" *ngFor="let statEffectRule of rule.statEffects" [ghs-label]="statEffectRule.note">
     </div>
   </div>

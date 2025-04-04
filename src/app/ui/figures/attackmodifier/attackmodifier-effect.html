@@ -1,4 +1,4 @@
-<span class="effect-wrapper {{effect.type}}" *ngIf="effect"
+<span class="effect-wrapper {{effect.type}}" *ngIf="!!effect"
   [ngClass]="{'fh': settingsManager.settings.fhStyle, 'new-style' : newStyle, 'town-guard': townGuard}">
   <span class="effect" [ngSwitch]="effect.type">
     <ng-container *ngSwitchCase="AttackModifierEffectType.condition">

@@ -4,7 +4,7 @@
     <ghs-header #header [standalone]="true" [connection]="true"></ghs-header>
 
     <div class="scroll-container">
-        <div *ngIf="character" class="dialog">
+        <div *ngIf="!!character" class="dialog">
             <div class="dialog-container initiative-dialog">
                 <div class="title">
                     <span class="character" (click)="openCharacterSheet()">
@@ -67,7 +67,7 @@
         <div class="characters">
             <span *ngFor="let c of characters; let i = index" class="character" [ngClass]="{'active': character == c}"
                 (click)="selectCharacter(c)"><img [src]="c.iconUrl"></span>
-            <label *ngIf="character">
+            <label *ngIf="!!character">
                 <input type="checkbox" [checked]="settingsManager.settings.standaloneInitiativeAutomatic"
                     (change)="settingsManager.toggle('standaloneInitiativeAutomatic')">
                 <span [ghs-label]="'Automatic'"></span>

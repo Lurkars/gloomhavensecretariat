@@ -1,4 +1,4 @@
-<span class="action" *ngIf="action && origAction" [ngSwitch]="action.type"
+<span class="action" *ngIf="!!action && !!origAction" [ngSwitch]="action.type"
   [ngClass]="{'highlight' : highlight, 'inline' : inline, 'right' : right, 'text-black' : textBlack || right,  'fh' : fhStyle, 'aoe' : hasAOE}">
   <span class="action-area" *ngSwitchCase="ActionType.area" [ngClass]="{'small' : action.small}">
     <ghs-action-hex [action]="action" [value]="'' + action.value" [size]="hexSize" [index]="actionIndex"
@@ -22,7 +22,7 @@
       </span>
 
       <ghs-action-enhancements
-        *ngIf="origAction.enhancementTypes && origAction.enhancementTypes.length && character && cardId"
+        *ngIf="!!origAction.enhancementTypes && origAction.enhancementTypes.length && !!character && cardId"
         [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"></ghs-action-enhancements>
     </span>
     <div class="subactions" *ngIf="subActions.length > 0">
@@ -157,7 +157,7 @@
         [ngClass]="{'small' : action.small,'text-white' : !textBlack && !right}"></span>
 
       <ghs-action-enhancements
-        *ngIf="origAction.enhancementTypes && origAction.enhancementTypes.length && character && cardId"
+        *ngIf="!!origAction.enhancementTypes && origAction.enhancementTypes.length && !!character && cardId"
         [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"></ghs-action-enhancements>
     </ng-container>
 
@@ -292,7 +292,7 @@
   </span>
 
   <span class="action-default" *ngSwitchCase="ActionType.concatenation">
-    <span class="action-concatenation" [ngClass]="{'small' : action.small}">
+    <span class="action-concatenation" [ngClass]="{'small' : action.small, 'card-concat': cardConcat}">
       <ng-container
         *ngFor="let subAction of (subActions | slice:(hasAOE ? 1 : 0):(values.length > 1  ? +(values[1]) : subActions.length)); let index = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster"
@@ -304,7 +304,7 @@
           [character]="character" [cardId]="cardId" [style]="style">
         </ghs-action>
         <span
-          *ngIf="!inline && (values.length > 1 && +(values[1]) > 0 && index < +(values[1]) - 1 || values.length < 2 && index < subActions.length -1)"
+          *ngIf="!inline && (values.length > 1 && +(values[1]) > 0 && index < +(values[1]) - 1 || values.length < 2 && index < subActions.length -1) && subAction.type != ActionType.concatenationSpacer"
           class="action-concatenation-item">
           <span *ngIf="values.length > 0">
             <span *ngIf="!fhStyle" [ghs-label]="values[0]" [relative]="relative || forceRelative"
@@ -328,6 +328,15 @@
         </ghs-action>
       </ng-container>
     </div>
+  </span>
+
+  <span class="action-default" *ngSwitchCase="ActionType.concatenationSpacer">
+    <span class="action-concatenation-spacer">
+      <span *ngFor="let i of []|ghsRange:(EntityValueFunction(action.value) || 1)"
+        class="action-concatenation-spacer-item" [ngClass]="{'small' : action.small}">
+        &nbsp;
+      </span>
+    </span>
   </span>
 
   <span class="action-default" *ngSwitchCase="ActionType.grid">
@@ -509,7 +518,7 @@
       </ng-container>
 
       <ghs-action-enhancements
-        *ngIf="origAction.enhancementTypes && origAction.enhancementTypes.length && character && cardId"
+        *ngIf="!!origAction.enhancementTypes && origAction.enhancementTypes.length && !!character && cardId"
         [action]="origAction" [index]="actionIndex" [character]="character" [cardId]="cardId"></ghs-action-enhancements>
     </span>
 

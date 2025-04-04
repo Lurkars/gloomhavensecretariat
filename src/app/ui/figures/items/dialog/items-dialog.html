@@ -3,10 +3,10 @@
     <div class="scroll-container">
         <div class="header">
             <span class="title" *ngIf="!character" [ghs-label]="'game.items.shop'"></span>
-            <span (click)="openItems()" class="title" *ngIf="character" [ghs-label]="'game.items.shop.character'"
+            <span (click)="openItems()" class="title" *ngIf="!!character" [ghs-label]="'game.items.shop.character'"
                 [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
                 [ngClass]="{'management' : character.progress.items &&  character.progress.items.length}"></span>
-            <div *ngIf="character" class="resources">
+            <div *ngIf="!!character" class="resources">
                 <span class="resource gold"><img
                         [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'">{{character.progress.gold}}</span>
                 <div class="resource-grid" *ngIf="gameManager.fhRules()">
@@ -54,10 +54,10 @@
                     [ngClass]="{'disabled': gameManager.itemManager.brewingDisabled()}"><img
                         src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
             </div>
-            <div *ngIf="gameManager.itemManager.buyingDisabled() && character && character.tags.indexOf('new-character') == -1 || gameManager.itemManager.craftingDisabled()"
+            <div *ngIf="gameManager.itemManager.buyingDisabled() && !!character && character.tags.indexOf('new-character') == -1 || gameManager.itemManager.craftingDisabled()"
                 class="shop-disabled">
                 <ng-container
-                    *ngIf="gameManager.itemManager.buyingDisabled() && character && character.tags.indexOf('new-character') == -1"
+                    *ngIf="gameManager.itemManager.buyingDisabled() && !!character && character.tags.indexOf('new-character') == -1"
                     class="shop-disabled">
                     <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.buyingDisabled'"></span>
                 </ng-container>
@@ -80,11 +80,11 @@
                 </div>
                 <input type="text" [(ngModel)]="filter" (keyup)="update()" [ghs-label]="'game.items.filter'"
                     [ghs-label-attribute]="'placeholder'">
-                <label *ngIf="character">
+                <label *ngIf="!!character">
                     <input type="checkbox" [(ngModel)]="affordable" (change)="update(true)">
                     <span [ghs-label]="'game.items.filter.affordable'"></span>
                 </label>
-                <label *ngIf="character">
+                <label *ngIf="!!character">
                     <input type="checkbox" [(ngModel)]="sorted" (change)="update(true)">
                     <span [ghs-label]="'game.items.filter.sorted'"></span>
                 </label>
@@ -93,7 +93,7 @@
                     &lt;<span [ghs-label]="'game.items.filter.all'"></span>(!)&gt;
                 </label>
             </div>
-            <div class="editions" *ngIf="editions && editions.length > 1">
+            <div class="editions" *ngIf="!!editions && editions.length > 1">
                 <label [ngClass]="{'disabled' : currentEdition == edition}" class="edition"
                     *ngFor="let edition of editions">
                     <input type="checkbox" [checked]="currentEdition == edition" (change)="setEdition(edition)">
@@ -101,9 +101,9 @@
                 </label>
             </div>
         </div>
-        <div class="menu" *ngIf="character">
+        <div class="menu" *ngIf="!!character">
             <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
-            <a class="secondary" *ngIf="selected && !gameManager.itemManager.owned(selected, character)"
+            <a class="secondary" *ngIf="!!selected && !gameManager.itemManager.owned(selected, character)"
                 (click)="addItem(selected, true)" [ghs-label]="'game.items.add'"
                 [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ] : []"></a>
             <a class="primary"
@@ -113,14 +113,14 @@
                 [ghs-label]="'game.items.' + (selected ? (selected.cost ? 'buy' : 'craft') : 'choose')"
                 [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ,(selected.cost + gameManager.itemManager.pricerModifier())] : []"></a>
 
-            <a class="secondary" *ngIf="selected && gameManager.itemManager.owned(selected, character)"
+            <a class="secondary" *ngIf="!!selected && gameManager.itemManager.owned(selected, character)"
                 (click)="removeItem(selected)" [ghs-label]="'game.items.remove'"
                 [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
-            <a class="primary" *ngIf="selected && gameManager.itemManager.owned(selected, character)"
+            <a class="primary" *ngIf="!!selected && gameManager.itemManager.owned(selected, character)"
                 (click)="sellItem(selected)" [ghs-label]="'game.items.sell'"
                 [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id , gameManager.itemManager.itemSellValue(selected)]"></a>
             <a class="tertiary"
-                *ngIf="selected && gameManager.itemManager.owned(selected, character) && gameManager.itemManager.canDistill(selected)"
+                *ngIf="!!selected && gameManager.itemManager.owned(selected, character) && gameManager.itemManager.canDistill(selected)"
                 (click)="distillItem(selected)" [ghs-label]="'game.items.distilling'"
                 [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
         </div>
@@ -131,7 +131,7 @@
 
         <div class="item-list">
             <div class="item" *ngFor="let itemData of items; let i = index;">
-                <ghs-item *ngIf="character" [item]="itemData" [flipped]="true" ghs-pointer-input
+                <ghs-item *ngIf="!!character" [item]="itemData" [flipped]="true" ghs-pointer-input
                     (singleClick)="select(itemData)" (doubleClick)="select(itemData,true)"
                     [count]="!character ? 1 : (itemsMeta[i].countAvailable < 1 ? '-' : itemsMeta[i].assigned +1)"
                     [editionLabel]="currentEdition"
@@ -141,7 +141,7 @@
                     [editionLabel]="currentEdition"></ghs-item>
                 <a class="button-remove" *ngIf="!all && unlocked(itemData)" (click)="removeUnlocked(itemData)">
                     <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-                <a class="button-equip" *ngIf="character && gameManager.itemManager.owned(itemData, character)"
+                <a class="button-equip" *ngIf="!!character && gameManager.itemManager.owned(itemData, character)"
                     [ngClass]="{'equipped' : gameManager.itemManager.isEquipped(itemData, character)}" ghs-pointer-input
                     (singleClick)="toggleEquippedItem(itemData)" (doubleClick)="toggleEquippedItem(itemData, true)">
                     <img class="ghs-svg" src="./assets/images/check.svg"></a>

@@ -1,7 +1,7 @@
 <div class="attack-modifiers-fullscreen">
   <div class="header">
     <div class="title">
-      <ng-container *ngIf="character">
+      <ng-container *ngIf="!!character">
         <img class="icon" [src]="character.iconUrl" />
         {{gameManager.characterManager.characterName(character, true)}}
         &nbsp;

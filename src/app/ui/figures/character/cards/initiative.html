@@ -9,6 +9,6 @@
     [id]="'initiative-input-' + tabindex()">
   <span class="hidden-initiative" *ngIf="figure.initiative > 0 && initiativeHidden() && !reveal" (click)="enableReveal($event)">??</span>
   <img class="ghs-svg long-rest" [ghs-label]="'game.figure.longRestOff'" [ghs-label-attribute]="'title'"
-    *ngIf="character && !initiativeHidden() && character.longRest" src="./assets/images/long-rest.svg"
+    *ngIf="!!character && !initiativeHidden() && character.longRest" src="./assets/images/long-rest.svg"
     (click)="longRestOff($event)" />
 </div>

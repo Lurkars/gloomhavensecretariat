@@ -123,7 +123,7 @@
             <label>
                 <span [ghs-label]="'campaign.campaignManagement'"></span>
             </label>
-            <ng-container *ngIf="gameManager.game.scenario">
+            <ng-container *ngIf="!!gameManager.game.scenario">
                 <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
                 <span class="hint">
                     <span class="text" [ghs-label]="'campaign.campaignManagement.hint'"></span>

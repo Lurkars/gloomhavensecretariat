@@ -272,16 +272,16 @@ export class EditorActionComponent implements OnInit {
     }
   }
 
-  changeSpecialTarget() {
-    if (settingsManager.getLabel('game.specialTarget.' + this.value).indexOf('{0}') != -1) {
-      if (!this.subValue) {
-        this.subValue = '1';
-      }
-      this.action.value = this.value + ":" + this.subValue;
-    } else {
-      this.action.value = this.value;
-      this.subValue = '';
+  changeSpecialTarget(value: string, subValue: string) {
+    if (settingsManager.getLabel('game.specialTarget.' + value).indexOf('{0}') == -1) {
+      subValue = '';
+    } else if (!subValue) {
+      subValue = '1';
     }
+
+    this.value = value;
+    this.subValue = subValue;
+    this.action.value = this.value + (this.subValue ? ":" + this.subValue : '');
     this.change();
   }
 

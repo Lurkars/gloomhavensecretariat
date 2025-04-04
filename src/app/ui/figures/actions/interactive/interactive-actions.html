@@ -9,7 +9,7 @@
         </span>
     </span>
 
-    <span class="choose-element-container" *ngIf="chooseElementAction">
+    <span class="choose-element-container" *ngIf="!!chooseElementAction">
         <span class="element" [ngClass]="{'consume' : chooseElementAction.action.valueType == ActionValueType.minus}">
             <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/wild.svg'" />

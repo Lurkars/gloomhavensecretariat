@@ -35,6 +35,10 @@
           "value": "",
           "subActions": [
             {
+              "type": "concatenationSpacer",
+              "value": 2
+            },
+            {
               "type": "card",
               "value": "persistent"
             },
@@ -45,13 +49,15 @@
             {
               "type": "card",
               "value": "slotXp:1"
-            }
-          ]
-        },
-        {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
             {
               "type": "card",
               "value": "slot"
@@ -820,13 +826,7 @@
             {
               "type": "card",
               "value": "slot"
-            }
-          ]
-        },
-        {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
+            },
             {
               "type": "card",
               "value": "slotXp:1"

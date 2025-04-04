@@ -2,7 +2,7 @@
   [ngClass]="{'disabled' : !standalone && (!townGuard && gameManager.game.state == GameState.draw || townGuard && gameManager.game.scenario), 'vertical' : vertical, 'character' : character}">
 
   <div
-    *ngIf="!gameManager.bbRules() && character && battleGoals && gameManager.game.scenario && settingsManager.settings.battleGoals && gameManager.game.round > 0 && !settingsManager.settings.battleGoalsCharacter"
+    *ngIf="!gameManager.bbRules() && !!character && battleGoals && !!gameManager.game.scenario && settingsManager.settings.battleGoals && gameManager.game.round > 0 && !settingsManager.settings.battleGoalsCharacter"
     class="battlegoals-button" (click)="openBattleGoals($event)" [ghs-label]="'game.battleGoals'"
     [ghs-label-attribute]="'title'">
     <img

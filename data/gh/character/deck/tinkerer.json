@@ -669,6 +669,10 @@
           "value": "",
           "subActions": [
             {
+              "type": "concatenationSpacer",
+              "value": 2
+            },
+            {
               "type": "card",
               "value": "persistent"
             },
@@ -679,13 +683,15 @@
             {
               "type": "card",
               "value": "slotXp:1"
-            }
-          ]
-        },
-        {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
             {
               "type": "card",
               "value": "slot"
@@ -1109,6 +1115,10 @@
           "value": "",
           "subActions": [
             {
+              "type": "concatenationSpacer",
+              "value": 2
+            },
+            {
               "type": "card",
               "value": "persistent"
             },
@@ -1119,13 +1129,15 @@
             {
               "type": "card",
               "value": "slotXp:1"
-            }
-          ]
-        },
-        {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
             {
               "type": "card",
               "value": "slot"
@@ -1172,13 +1184,15 @@
             {
               "type": "card",
               "value": "slotXp:1"
-            }
-          ]
-        },
-        {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
+            },
             {
               "type": "card",
               "value": "slot"

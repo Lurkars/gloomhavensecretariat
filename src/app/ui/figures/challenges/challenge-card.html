@@ -6,7 +6,7 @@
             <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
         </div>
         <div class="card-front">
-            <ng-container *ngIf="challenge">
+            <ng-container *ngIf="!!challenge">
                 <div class="title">
                     <div class="automation">
                         <img *ngIf="challenge.automation && settingsManager.settings.fhChallengesApply"

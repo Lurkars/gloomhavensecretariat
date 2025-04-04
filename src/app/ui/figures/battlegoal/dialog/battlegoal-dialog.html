@@ -8,7 +8,7 @@
         [flipped]="gameManager.roundManager.firstRound || selected == index || !character.battleGoal || revealed.indexOf(index) != -1 || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2 || cardOnly"
         [selected]="selected == index || trial349 || trial356 && battleGoals.length > 3 && index < battleGoals.length - 2"
         [reveal]="!cardOnly && gameManager.game.round > 0 && selected != index && character.battleGoal && revealed.indexOf(index) == -1"
-        [disabled]="character.battleGoal && gameManager.game.scenario && gameManager.game.round > 0 || false">
+        [disabled]="character.battleGoal && !!gameManager.game.scenario && gameManager.game.round > 0 || false">
       </ghs-battlegoal>
     </div>
     <div class="menu" *ngIf="!character.battleGoal || selected != 0">

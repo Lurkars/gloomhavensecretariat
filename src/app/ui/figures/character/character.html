@@ -190,7 +190,7 @@
         (doubleClick)="compact && openCharacterSheet()"></span>
 
       <div class="loot-cards-button"
-        *ngIf="!bb && settingsManager.settings.lootDeck && character.lootCards && character.lootCards.length > 0 && !settingsManager.settings.hideCharacterLoot"
+        *ngIf="!bb && settingsManager.settings.lootDeck && !!character.lootCards && character.lootCards.length > 0 && !settingsManager.settings.hideCharacterLoot"
         ghs-pointer-input (singleClick)="toggleLootCardsVisible()" [ngClass]="{'disabled': character.lootCardsVisible}">
         <img src="./assets/images/fh/loot-token.png" />
         <span class="badge">{{character.lootCards.length}}</span>
@@ -211,7 +211,7 @@
       </span>
 
       <div
-        *ngIf="!bb && gameManager.game.scenario && settingsManager.settings.battleGoals && (gameManager.roundManager.firstRound || settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck)"
+        *ngIf="!bb && !!gameManager.game.scenario && settingsManager.settings.battleGoals && (gameManager.roundManager.firstRound || settingsManager.settings.battleGoalsCharacter || !settingsManager.settings.characterSheet || !settingsManager.settings.characterAttackModifierDeck)"
         class="battlegoals-button" ghs-pointer-input (singleClick)="openBattleGoals()" [ghs-label]="'game.battleGoals'"
         [ghs-label-attribute]="'title'">
         <img

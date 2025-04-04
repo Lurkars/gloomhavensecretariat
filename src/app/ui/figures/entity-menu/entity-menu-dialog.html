@@ -262,7 +262,7 @@
             <span class="badge badge-center badge-warning" *ngIf="countEmpower() < 0">
               <img src="./assets/images/warning.svg" />
             </span>
-            <span class="badge badge-character-icon" *ngIf="empowerChar">
+            <span class="badge badge-character-icon" *ngIf="!!empowerChar">
               <img [src]="empowerChar.iconUrl" />
             </span>
           </span>
@@ -295,7 +295,7 @@
             <span class="badge badge-center badge-warning" *ngIf="countEnfeeble() < 0">
               <img src="./assets/images/warning.svg" />
             </span>
-            <span class="badge badge-character-icon" *ngIf="enfeebleChar">
+            <span class="badge badge-character-icon" *ngIf="!!enfeebleChar">
               <img [src]="enfeebleChar.iconUrl" />
             </span>
           </span>
@@ -595,10 +595,10 @@
     </div>
   </div>
 
-  <hr class="character-special" *ngIf="data.entity && gameManager.isCharacter(data.entity) && (settingsManager.settings.characterIdentities && gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1 || gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0)" />
+  <hr class="character-special" *ngIf="data.entity && gameManager.isCharacter(data.entity) && (settingsManager.settings.characterIdentities && !!gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1 || !!gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0)" />
 
   <div class="identities-container"
-    *ngIf="data.entity && gameManager.isCharacter(data.entity) && settingsManager.settings.characterIdentities && gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1">
+    *ngIf="data.entity && gameManager.isCharacter(data.entity) && settingsManager.settings.characterIdentities && !!gameManager.toCharacter(data.entity).identities && gameManager.toCharacter(data.entity).identities.length > 1">
     <a class="item" *ngFor="let identity of [] | ghsRange:gameManager.toCharacter(data.entity).identities.length"
       (click)="setIdentity(identity)"
       [ghs-tooltip]="'data.character.' + gameManager.toCharacter(data.entity).name + '.' +  gameManager.toCharacter(data.entity).identities[identity]"
@@ -609,7 +609,7 @@
   </div>
 
   <div
-    *ngIf="data.entity && !levelDialog && gameManager.isCharacter(data.figure) && gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0"
+    *ngIf="data.entity && !levelDialog && gameManager.isCharacter(data.figure) && !!gameManager.toCharacter(data.figure).specialActions && gameManager.toCharacter(data.figure).specialActions.length > 0"
     class="special-actions">
     <ng-container *ngFor="let specialAction of gameManager.toCharacter(data.figure).specialActions">
       <div class="hint-container"

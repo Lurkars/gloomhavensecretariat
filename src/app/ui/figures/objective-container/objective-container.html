@@ -1,7 +1,7 @@
 <div class="objective"
   [ngClass]="{'off' : objective.off, 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters, 'compact': compact, 'short': (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern'}">
   <a class="image-container" [ngClass]="{'entity' : entity}">
-    <ng-container *ngIf="entity">
+    <ng-container *ngIf="!!entity">
       <span *ngIf="entity.marker" class="map-marker"
         [ngClass]="{'active-border' : objective.active}">{{entity.marker}}</span>
       <span class="objective-marker">
@@ -25,11 +25,11 @@
 
   <ghs-character-initiative #initiativeElement [figure]="objective"></ghs-character-initiative>
 
-  <ng-container *ngIf="entity">
+  <ng-container *ngIf="!!entity">
     <ghs-highlight-conditions [entity]="entity"></ghs-highlight-conditions>
   </ng-container>
   <div class="stats">
-    <ng-container *ngIf="entity">
+    <ng-container *ngIf="!!entity">
       <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
       <div class="column col-1">
         <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
@@ -134,7 +134,7 @@
 
     </ng-container>
     <div class="actions-container">
-      <div class="actions" *ngIf="objectiveData && objectiveData.actions" ghs-pointer-input
+      <div class="actions" *ngIf="!!objectiveData && objectiveData.actions" ghs-pointer-input
         (singleClick)="openEntityMenu($event)">
         <ghs-actions [objective]="objective" [actions]="objectiveData.actions" [interactiveActions]="interactiveActions"
           (interactiveActionsChange)="onInteractiveActionsChange($event)"></ghs-actions>
@@ -143,7 +143,7 @@
       </div>
     </div>
 
-    <ghs-interactive-actions *ngIf="objectiveData && objectiveData.actions" [figure]="objective"
+    <ghs-interactive-actions *ngIf="!!objectiveData && objectiveData.actions" [figure]="objective"
       [actions]="objectiveData.actions" [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
 
     <span class="spacer" (click)="openEntityMenu($event)"></span>

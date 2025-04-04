@@ -42,7 +42,7 @@
             </span>
             <span class="character" (click)="changeCharacter($event)" *ngIf="looted || character"
                 [ngClass]="{'with-header' : loot.type != LootType.money && loot.type != LootType.special1 && loot.type != LootType.special2, 'edit': edit && settingsManager.settings.applyLoot}">
-                <img *ngIf="character" [src]="gameManager.characterManager.characterIcon(character)" />
+                <img *ngIf="!!character" [src]="gameManager.characterManager.characterIcon(character)" />
                 <img class="warning" *ngIf="!character && settingsManager.settings.applyLoot && apply"
                     src="./assets/images/warning.svg" />
             </span>

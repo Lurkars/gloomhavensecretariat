@@ -1,5 +1,5 @@
 <div class="pet-container" #container>
-    <ng-container *ngIf="petCard">
+    <ng-container *ngIf="!!petCard">
         <div class="card vertical reverse pet" [ngClass]="{'flipped': flipped}" [style.fontSize]="fontsize" card-reveal
             [disabled]="!reveal || false" (change)="revealed.emit($event)">
             <div class="card-back back">

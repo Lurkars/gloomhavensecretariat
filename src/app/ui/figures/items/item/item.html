@@ -1,5 +1,5 @@
 <div class="item-container" #container>
-    <ng-container *ngIf="item">
+    <ng-container *ngIf="!!item">
         <div class="card vertical reverse item"
             [ngClass]="{'flipped': flipped, 'random': item.random, 'fh': fhStyle, 'craft' : craft, 'bb': bb}"
             [style.fontSize]="fontsize" card-reveal
@@ -13,7 +13,7 @@
                         *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
                 </div>
             </div>
-            <div class="card-back front" *ngIf="item.actionsBack && item.actionsBack.length > 0">
+            <div class="card-back front" *ngIf="!!item.actionsBack && item.actionsBack.length > 0">
                 <img class="artwork"
                     [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + (item.backArtwork ? '-back' : '') + '.png'">
                 <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="count" *ngIf="item.count">{{count}}/{{item.count}}</div>
-                <div class="flip" *ngIf="item.actionsBack && item.actionsBack.length > 0" ghs-pointer-input
+                <div class="flip" *ngIf="!!item.actionsBack && item.actionsBack.length > 0" ghs-pointer-input
                     (singleClick)="flipped = !flipped">
                     <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>
                 </div>
@@ -53,7 +53,7 @@
                     [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + '.png'">
                 <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
                 <div class="content">
-                    <div class="actions" *ngIf="item.actions && item.actions.length > 0">
+                    <div class="actions" *ngIf="!!item.actions && item.actions.length > 0">
                         <ghs-actions [actions]="item.actions" [style]="fhStyle || bb ? 'fh' : 'gh'"
                             [noDivider]="true"></ghs-actions>
                     </div>
@@ -99,7 +99,7 @@
                     (singleClick)="clickedSpent.emit()" (doubleClick)="clickedSpent.emit(true)">
                     <span class="placeholder text-white" [ghs-label]="'%game.card.spent%'"></span>
                 </div>
-                <div class="flip" *ngIf="item.actionsBack && item.actionsBack.length > 0"
+                <div class="flip" *ngIf="!!item.actionsBack && item.actionsBack.length > 0"
                     [ngClass]="{'interactive' : clickedFlip.observed, 'usable' : usable}" ghs-pointer-input
                     (singleClick)="flipped = !flipped; clickedFlip.emit()" (doubleClick)="clickedFlip.emit(true)">
                     <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>

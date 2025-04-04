@@ -15,7 +15,7 @@ import { valueCalc } from '../../helper/valueCalc';
 
 export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.damage, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
-export const ActionTypesHelper: ActionType[] = [ActionType.concatenation, ActionType.box, ActionType.boxFhSubActions, ActionType.card, ActionType.forceBox, ActionType.grid, ActionType.nonCalc];
+export const ActionTypesHelper: ActionType[] = [ActionType.concatenation, ActionType.concatenationSpacer, ActionType.box, ActionType.boxFhSubActions, ActionType.card, ActionType.forceBox, ActionType.grid, ActionType.nonCalc];
 
 @Component({
   standalone: false,
@@ -68,6 +68,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
   MonsterType = MonsterType;
 
   hasAOE: boolean = false;
+  cardConcat: boolean = false;
 
   forceRelative: boolean = false;
 
@@ -549,6 +550,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.subActions = this.action.subActions.filter((action) => !action.hidden);
     this.additionalSubActions = this.additionalSubActions.filter((action) => !action.hidden);
+    this.cardConcat = this.action.type == ActionType.concatenation && this.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.concatenationSpacer);
   }
 
   subActionExists(additionalSubActions: Action[], subAction: Action, stackableCondition: boolean = true): boolean {

@@ -649,9 +649,30 @@
       flex-shrink: 0;
     }
 
+    &.card-concat {
+      margin-bottom: 0.4em;
+      
+      .subaction-card {
+        margin-bottom: -0.4em;
+      }
+    }
+
     .action-concatenation-item {
       margin: 0 0.15em;
       filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
+    }
+  }
+
+  .action-concatenation-spacer {
+    display: flex;
+
+    .action-concatenation-spacer-item {
+      display: block;
+      width: 1em;
+
+      &.small {
+        width: 0.5em;
+      }
     }
   }
 

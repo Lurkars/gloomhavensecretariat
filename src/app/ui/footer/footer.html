@@ -7,7 +7,7 @@
         <span *ngIf="round() > 0">{{round()}}</span>
         <span class="total-rounds" *ngIf="totalRounds() > 0">&nbsp;({{totalRounds()}})</span>
       </span>
-      <span class="time" *ngIf="gameManager.game.scenario">{{ currentTime }}</span>
+      <span class="time" *ngIf="!!gameManager.game.scenario">{{ currentTime }}</span>
       <span #button></span>
     </div>
   </div>

@@ -25,13 +25,13 @@
       [ghs-label]="'editor.action.value'"></span></label>
 
   <ng-container *ngIf="action.type == ActionType.specialTarget">
-    <select [(ngModel)]="value" (change)="changeSpecialTarget()">
+    <select [ngModel]="value" (ngModelChange)="changeSpecialTarget($event, subValue)">
       <option *ngFor="let specialTarget of ActionSpecialTarget" [value]="specialTarget">
         <span [ghs-label]="'game.specialTarget.' + specialTarget" [ghs-label-args]="['X']" [style]="'gh'"></span>
       </option>
     </select>
     <label class="inline" *ngIf="subValue">
-      X: <input type="text" [value]="subValue" (change)="changeSpecialTarget()">
+      X: <input type="text" [ngModel]="subValue" (ngModelChange)="changeSpecialTarget(value, $event)">
     </label>
   </ng-container>
 
@@ -77,7 +77,7 @@
         </option>
       </select>
     </div>
-    <div class="summon-form" *ngIf="summon">
+    <div class="summon-form" *ngIf="!!summon">
       <ghs-action-summon [action]="action" [additional]="true" [character]="character"
         [cardId]="cardId"></ghs-action-summon>
       <input class="summon-name" [(ngModel)]="summon.name" (change)="changeSummon()">

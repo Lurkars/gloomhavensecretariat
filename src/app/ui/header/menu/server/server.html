@@ -70,10 +70,10 @@
             <span class="unknown" *ngIf="!serverUpdateVersion">
               <span [ghs-label]="'server.info.version.unknown'"></span>
             </span>
-            <span class="latest" *ngIf="serverUpdateVersion && serverUpdateVersion.latest">
+            <span class="latest" *ngIf="!!serverUpdateVersion && serverUpdateVersion.latest">
               <span [ghs-label]="'server.info.version.latest'"></span>
             </span>
-            <span class="update" *ngIf="serverUpdateVersion && !serverUpdateVersion.latest">
+            <span class="update" *ngIf="!!serverUpdateVersion && !serverUpdateVersion.latest">
               <span [ghs-label]="'server.info.version.update'" [ghs-label-args]="[serverUpdateVersion.version, serverUpdateVersion.url]"></span>
             </span>
           </div>
@@ -146,10 +146,10 @@
           <span class="unknown" *ngIf="!serverUpdateVersion">
             <span [ghs-label]="'server.info.version.unknown'"></span>
           </span>
-          <span class="latest" *ngIf="serverUpdateVersion && serverUpdateVersion.latest">
+          <span class="latest" *ngIf="!!serverUpdateVersion && serverUpdateVersion.latest">
             <span [ghs-label]="'server.info.version.latest'"></span>
           </span>
-          <span class="update" *ngIf="serverUpdateVersion && !serverUpdateVersion.latest">
+          <span class="update" *ngIf="!!serverUpdateVersion && !serverUpdateVersion.latest">
             <span [ghs-label]="'server.info.version.update'" [ghs-label-args]="[serverUpdateVersion.version, serverUpdateVersion.url]"></span>
           </span>
         </div>
@@ -222,7 +222,7 @@
       </div>
     </ng-container>
 
-    <ng-container *ngIf="getPermissions() && permissions">
+    <ng-container *ngIf="getPermissions() && !!permissions">
       <div class="line" [ngClass]="{'separator' : !gameManager.stateManager.permissions}">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : gameManager.stateManager.permissions}">

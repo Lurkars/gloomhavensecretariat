@@ -9,7 +9,7 @@
   <ghs-ability [ability]="ability" [monster]="monster" [flipped]="flipped"
     [interactiveAbilities]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
     (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event)"></ghs-ability>
-  <ng-container *ngIf="secondAbility">
+  <ng-container *ngIf="!!secondAbility">
     <ghs-ability [ability]="secondAbility" [monster]="monster" [flipped]="flipped"
       [interactiveAbilities]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
       (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event,true)">

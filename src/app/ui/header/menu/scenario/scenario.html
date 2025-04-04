@@ -3,17 +3,17 @@
     <div class="column custom-container">
       <div class="line custom-check">
         <label>
-          <input tabclick type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
+          <input tabclick type="checkbox" [checked]="!!gameManager.game.scenario && gameManager.game.scenario.custom"
             (change)="customScenario()">
           &lt;<span [ghs-label]="'scenario.custom'"></span>&gt;
         </label>
       </div>
-      <div class="line" *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom">
+      <div class="line" *ngIf="!!gameManager.game.scenario && gameManager.game.scenario.custom">
         <input type="text" [value]="gameManager.game.scenario.name" (change)="customScenarioName($event)"
           [ghs-label]="'scenario.title'" [ghs-label-attribute]="'placeholder'">
       </div>
     </div>
-    <div class="column" *ngIf="gameManager.game.scenario && !gameManager.game.scenario.custom">
+    <div class="column" *ngIf="!!gameManager.game.scenario && !gameManager.game.scenario.custom">
       <div class="line">
         <a tabclick (click)="resetScenario()">&lt;<span [ghs-label]="'scenario.reset'"></span>!&gt;</a>
       </div>

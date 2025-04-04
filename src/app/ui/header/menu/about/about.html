@@ -14,10 +14,10 @@
             <span class="unknown" *ngIf="!updateVersion">
                 <span [ghs-label]="'about.version.unknown'"></span>
             </span>
-            <span class="latest" *ngIf="updateVersion && updateVersion.latest">
+            <span class="latest" *ngIf="!!updateVersion && updateVersion.latest">
                 <span [ghs-label]="'about.version.latest'"></span>
             </span>
-            <span class="update" *ngIf="updateVersion && !updateVersion.latest">
+            <span class="update" *ngIf="!!updateVersion && !updateVersion.latest">
                 <span [ghs-label]="'about.version.update'"
                     [ghs-label-args]="[updateVersion.version, updateVersion.url]"></span>
             </span>

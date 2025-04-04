@@ -35,7 +35,7 @@
                             <span class="level">
                                 <input class="text" [ngModel]="ability.level"
                                     (ngModelChange)="ability.level=valueChange($event)" (change)="deckDataToJson()"
-                                    *ngIf="deckData.character || ability.bottomActions && ability.bottomActions.length > 0">
+                                    *ngIf="deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0">
                             </span>
 
                             <input class="initiative" min="0" max="100" type="number"
@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="required-container"
-                                *ngIf="deckData.character || ability.bottomActions && ability.bottomActions.length > 0">
+                                *ngIf="deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0">
 
                                 <div class="xp">
                                     <input type="number" [ngModel]="ability.xp" min="0"
@@ -99,7 +99,7 @@
 
 
                             <div class="actions-container bottom"
-                                *ngIf="deckData.character || ability.bottomActions && ability.bottomActions.length > 0">
+                                *ngIf="deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0">
                                 <div class="actions" cdkDropList
                                     (cdkDropListDropped)="dropAction(ability.bottomActions, $event)">
                                     <div class="action-container"
@@ -115,7 +115,7 @@
                             </div>
 
                             <div class="required-container bottom"
-                                *ngIf="deckData.character || ability.bottomActions && ability.bottomActions.length > 0">
+                                *ngIf="deckData.character || !!ability.bottomActions && ability.bottomActions.length > 0">
 
                                 <div class="xp">
                                     <input type="number" [ngModel]="ability.bottomXp" min="0"

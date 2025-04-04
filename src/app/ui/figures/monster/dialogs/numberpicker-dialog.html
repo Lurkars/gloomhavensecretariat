@@ -12,9 +12,9 @@
   <span [ngClass]="{'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }">
     <span *ngIf="(!change || !entity) && (!entities || entities.length == 0)"
       [ghs-label]="(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type"></span>
-    <span *ngIf="change && entity" [ghs-label]="'monster.changeStandee'"
+    <span *ngIf="change && !!entity" [ghs-label]="'monster.changeStandee'"
       [ghs-label-args]="[entity.type, entity.number]"></span>
-    <span *ngIf="entities && entities.length > 0" [ghs-label]="'monster.setStandees'"
+    <span *ngIf="!!entities && entities.length > 0" [ghs-label]="'monster.setStandees'"
       [ghs-label-args]="[type, entitiesLeft()]"></span>
   </span>
 </div>
@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<div class="change-type" *ngIf="change && entity && entity.type != MonsterType.boss">
+<div class="change-type" *ngIf="change && !!entity && entity.type != MonsterType.boss">
   <a tabclick (click)="toggleMonsterType()"><span [ghs-label]="'monster.changeType'"
       [ghs-label-args]="[(entity.type == MonsterType.normal ? entity.type  :  MonsterType.elite),(entity.type == MonsterType.normal ?  MonsterType.elite: MonsterType.normal)]"></span></a>
 </div>

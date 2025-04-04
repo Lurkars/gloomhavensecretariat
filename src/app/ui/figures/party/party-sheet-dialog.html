@@ -39,7 +39,7 @@
                   [ghs-label-attribute]="'title'">
               </ng-container>
 
-              <ng-container *ngIf="gameManager.game.scenario">
+              <ng-container *ngIf="!!gameManager.game.scenario">
                 <div class="hint-container new-party-hint">
                   <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg">
                   <span class="hint">
@@ -196,7 +196,7 @@
               [ghs-label-attribute]="'title'">
           </ng-container>
 
-          <ng-container *ngIf="gameManager.game.scenario">
+          <ng-container *ngIf="!!gameManager.game.scenario">
             <div class="hint-container new-party-hint">
               <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg">
               <span class="hint">
@@ -402,7 +402,7 @@
 
         <ghs-party-buildings [party]="party"></ghs-party-buildings>
 
-        <div class="town-guard-deck-container" *ngIf="townGuardDeck && townGuardDeck.cards.length > 0"
+        <div class="town-guard-deck-container" *ngIf="!!townGuardDeck && townGuardDeck.cards.length > 0"
           [ngClass]="{ 'active' : townGuardDeck.active}">
           <div class="town-guard-deck"
             [ngClass]="{'collapsed' : !townGuardDeck.active,  'full' : townGuardDeck.active}">
@@ -699,7 +699,7 @@
             <div class="item-list">
               <label class="item" *ngFor="let item of items; let i = index;"
                 [ngClass]="{'edition' : !partyEdition || !itemEdition}">
-                <ng-container *ngIf="item">
+                <ng-container *ngIf="!!item">
                   <span class="item-index open-item" (click)="openItem(item)">
                     <img class="icon" [src]="item.slot ? './assets/images/items/slots/' + item.slot +'.svg' : ''">
                     <span class="index">{{item.id}}</span>
@@ -796,11 +796,11 @@
           </div>
         </div>
 
-        <div class="row" *ngIf="party.retirements && party.retirements.length > 0">
+        <div class="row" *ngIf="!!party.retirements && party.retirements.length > 0">
           <label><span [ghs-label]="'party.campaign.retirements'"></span>:</label>
         </div>
 
-        <div class="row retirements" *ngIf="party.retirements && party.retirements.length > 0">
+        <div class="row retirements" *ngIf="!!party.retirements && party.retirements.length > 0">
           <div class="list" [ngClass]="{'fh-sheet' : fhSheet}">
             <div class="character header legend seperator">
               <span><span [ghs-label]="'party.campaign.retirements.player'"></span></span>

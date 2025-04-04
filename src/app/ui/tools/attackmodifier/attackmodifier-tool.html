@@ -22,7 +22,7 @@
 
   <div class="characters">
     <ng-container *ngFor="let character of filteredCharacters">
-      <div class="character" *ngIf="character && character.attackModifierDeck.cards.length > 0">
+      <div class="character" *ngIf="!!character && character.attackModifierDeck.cards.length > 0">
         <h1><span [ghs-label]="'data.character.' + character.name"></span> [{{character.attackModifierDeck.cards.length}}]
         </h1>
         <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"

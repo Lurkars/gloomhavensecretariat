@@ -34,6 +34,6 @@
   </ng-container>
 </span>
 
-<ghs-summon-sheet *ngIf="summonData" [summon]="getSummon()" [summonData]="summonData" [action]="true" [additional]="additional" [right]="right"
+<ghs-summon-sheet *ngIf="!!summonData" [summon]="getSummon()" [summonData]="summonData" [action]="true" [additional]="additional" [right]="right"
   [item]="action.value == 'summonDataItem'" [style]="style" [character]="character" [cardId]="cardId"
   [index]="actionIndex"></ghs-summon-sheet>

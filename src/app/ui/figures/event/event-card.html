@@ -2,7 +2,7 @@
     <div class="card vertical reverse event" [ngClass]="{'flipped': selected != -1, 'disabled': disabled}"
         [style.fontSize]="container.offsetWidth * 0.072 + 'px'">
         <div class="card-back" [ngClass]="event ? event.type : ''">
-            <ng-container *ngIf="event">
+            <ng-container *ngIf="!!event">
                 <div class="text">
                     <p class="placeholder" [ghs-label]="label + '.text'"></p>
                 </div>
@@ -19,7 +19,7 @@
             </ng-container>
         </div>
         <div class="card-front" [ngClass]="event ? event.type : ''">
-            <ng-container *ngIf="event">
+            <ng-container *ngIf="!!event">
                 <div class="options">
                     <div class="option" *ngFor="let option of event.options; let i = index;"
                         [ngClass]="{'selected' : selected == i}" (click)="selected != i && selectOption(i)">

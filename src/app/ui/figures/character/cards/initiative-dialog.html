@@ -1,11 +1,11 @@
 <div class="initiative-dialog">
   <div class="title">
-    <span class="character" *ngIf="character">
+    <span class="character" *ngIf="!!character">
       <img class="icon" [src]="character.iconUrl" />
       {{ gameManager.characterManager.characterName(character)}}
       <span *ngIf="character.title">&nbsp;(<span [ghs-label]="'data.character.' + character.name"></span>)</span>
     </span>
-    <span class="character" *ngIf="objective">
+    <span class="character" *ngIf="!!objective">
       <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
       <span *ngIf="objective.title">
         {{objective.title}}</span>
@@ -29,7 +29,7 @@
     </span>
     <span></span>
   </div>
-  <span *ngIf="character" class="long-rest-button" [ngClass]="{'active' : character.longRest}" (click)="longRest()">
+  <span *ngIf="!!character" class="long-rest-button" [ngClass]="{'active' : character.longRest}" (click)="longRest()">
     <img class="ghs-svg" src="./assets/images/long-rest.svg"> <span
       [ghs-label]="'game.figure.longRest' + (character.longRest ? 'Off' : '')"></span>
   </span>
