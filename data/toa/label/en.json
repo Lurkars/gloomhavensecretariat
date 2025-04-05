@@ -157,6 +157,51 @@
     "Will of the Huntress": "Will of the Huntress",
     "Wreathed in Flame": "Wreathed in Flame"
   },
+  "custom": {
+    "toa": {
+      "enraged-vanquisher": {
+        "1": "If an enemy targets you with an attack<br>this round, that enemy gains",
+        "2": "%game.objectiveMarker.1%:",
+        "3": "%game.objectiveMarker.2%:",
+        "4": "If a target occupies the hex, add the condition shown to the attack.",
+        "5": "Vanquisher %game.objectiveMarker.1% swap positions<br>with Vanquisher %game.objectiveMarker.2%.",
+        "6": "All attackers targeting you this round gain %game.condition.disarm% at the end of their turn."
+      },
+      "enraged-vanquisher-scenario-71": {
+        "1": "If an enemy targets you with an attack<br>this round, that enemy gains",
+        "2": "%game.objectiveMarker.1%:",
+        "3": "%game.objectiveMarker.2%:",
+        "4": "If a target occupies the hex, add the condition shown to the attack.",
+        "5": "Vanquisher %game.objectiveMarker.1% swap positions<br>with Vanquisher %game.objectiveMarker.2%.",
+        "6": "All attackers targeting you this round gain %game.condition.disarm% at the end of their turn.",
+        "7": "Swap positions with the figure closest to you.",
+        "8": "%game.action.teleport% to a hex adjacent to %game.mapMarker.a% that is furthest from an enemy."
+      },
+      "reaver": {
+        "1": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+      },
+      "shardrender": {
+        "1": "One adjacent enemy suffer %game.damage:2%."
+      },
+      "smoke-spirit": {
+        "1": "Retaliate only applies before its turn",
+        "2": "Create a hazardous terrain tile in the<br>hex occupied by the target if it contains<br>no overlay tiles.",
+        "3": "Create a hazardous terrain tile in<br>all hexes occupied by a target if<br>it contains no overlay tiles.",
+        "4": "%game.action.target% one enemy within two hexes",
+        "5": "If the target of the attack ability is adjacent,<br>add %game.action.push% 2 to the attack.",
+        "6": "Create a hazardous terrain tile in the hex<br>the Smoke Spirit is occupying if it contains<br>no overlay tiles.",
+        "7": "Create a hazardous terrain tile in an empty<br>adjacent hex closest to an enemy."
+      },
+      "valrath-vanquisher": {
+        "1": "The Vanquisher<br>with the lowest<br>current hit point<br>value performs",
+        "2": "The Vanquisher with the<br>highest current hit point<br>value performs",
+        "3": "If both Vanquishers have the same hit point value, they both<br>perform all abilities."
+      },
+      "vermling-scenario-68": {
+        "1": "Move towards exit %game.mapMarker.a%"
+      }
+    }
+  },
   "deck": {
     "scavenger": "Scavenger"
   },

@@ -20,7 +20,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:2%"
+              "value": "%data.custom.r100kc.resonator-bot.1%"
             }
           ]
         }
@@ -38,7 +38,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:2%"
+              "value": "%data.custom.r100kc.resonator-bot.1%"
             }
           ]
         }
@@ -56,7 +56,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:2%"
+              "value": "%data.custom.r100kc.resonator-bot.1%"
             }
           ]
         }
@@ -74,7 +74,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+              "value": "%data.custom.r100kc.resonator-bot.2%"
             }
           ]
         }
@@ -95,7 +95,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+              "value": "%data.custom.r100kc.resonator-bot.2%"
             }
           ]
         }
@@ -116,7 +116,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+              "value": "%data.custom.r100kc.resonator-bot.2%"
             }
           ]
         }
@@ -137,7 +137,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+              "value": "%data.custom.r100kc.resonator-bot.3%"
             }
           ]
         }
@@ -158,7 +158,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+              "value": "%data.custom.r100kc.resonator-bot.3%"
             }
           ]
         }
@@ -181,7 +181,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+              "value": "%data.custom.r100kc.resonator-bot.2%"
             }
           ]
         }
@@ -200,7 +200,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+              "value": "%data.custom.r100kc.resonator-bot.2%"
             }
           ]
         }
@@ -222,7 +222,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+              "value": "%data.custom.r100kc.resonator-bot.2%"
             }
           ]
         }
@@ -244,7 +244,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%"
+              "value": "%data.custom.r100kc.resonator-bot.2%"
             }
           ]
         }
@@ -266,7 +266,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+              "value": "%data.custom.r100kc.resonator-bot.3%"
             }
           ]
         }
@@ -288,7 +288,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+              "value": "%data.custom.r100kc.resonator-bot.3%"
             }
           ]
         }
@@ -310,7 +310,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+              "value": "%data.custom.r100kc.resonator-bot.3%"
             }
           ]
         }
@@ -333,7 +333,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%"
+              "value": "%data.custom.r100kc.resonator-bot.3%"
             }
           ]
         }

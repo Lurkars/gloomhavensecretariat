@@ -18,7 +18,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+              "value": "%data.custom.gh.scoundrel.abilities.88.1%",
               "small": true
             }
           ]
@@ -27,7 +27,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "On your next four attacks targeting enemies adjacent to none of their allies, add +2 %game.action.attack%",
+          "value": "%data.custom.gh.scoundrel.abilities.88.2%",
           "small": true
         },
         {
@@ -89,7 +89,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+              "value": "%data.custom.gh.scoundrel.abilities.89.1%",
               "small": true
             }
           ]
@@ -137,7 +137,7 @@
         },
         {
           "type": "custom",
-          "value": "On your next attack while %game.condition.invisible%, double the value of the attack.",
+          "value": "%data.custom.gh.scoundrel.abilities.90.1%",
           "small": true,
           "subActions": [
             {
@@ -198,12 +198,12 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+              "value": "%data.custom.gh.scoundrel.abilities.91.1%",
               "small": true
             },
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to none of its allies.",
+              "value": "%data.custom.gh.scoundrel.abilities.91.2%",
               "small": true
             }
           ]
@@ -224,7 +224,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Disarm one adjacent trap.",
+          "value": "%data.custom.gh.scoundrel.abilities.92.1%",
           "subActions": [
             {
               "type": "card",
@@ -407,7 +407,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +1 %game.action.attack% for each of your allies adjacent to the target.",
+              "value": "%data.custom.gh.scoundrel.abilities.97.1%",
               "small": true
             },
             {
@@ -417,7 +417,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Add +2 %game.action.attack% instead, %game.card.experience:1%",
+                  "value": "%data.custom.gh.scoundrel.abilities.97.2%",
                   "small": true
                 }
               ]
@@ -435,7 +435,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Force one adjacent enemy to perform",
+              "value": "%data.custom.gh.scoundrel.abilities.97.3%",
               "small": true
             },
             {
@@ -444,7 +444,7 @@
             },
             {
               "type": "custom",
-              "value": "with you controlling the action, and ending in a hex adjacent to you.",
+              "value": "%data.custom.gh.scoundrel.abilities.97.4%",
               "small": true
             }
           ]
@@ -468,7 +468,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +X %game.action.attack% where X is double the Shield value of the target.",
+              "value": "%data.custom.gh.scoundrel.abilities.98.1%",
               "small": true
             },
             {
@@ -481,7 +481,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "The next time you suffer damage this round, suffer no damage instead.",
+          "value": "%data.custom.gh.scoundrel.abilities.98.2%",
           "small": true
         },
         {
@@ -530,7 +530,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.loot% every hex you enter with this action.",
+              "value": "%data.custom.gh.scoundrel.abilities.99.1%",
               "small": true
             }
           ]
@@ -552,7 +552,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add %game.condition.wound% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+              "value": "%data.custom.gh.scoundrel.abilities.100.1%",
               "small": true
             }
           ]
@@ -683,7 +683,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Add +2 %game.action.attack% to all of your attacks this round targeting enemies adjacent to none of their allies.",
+          "value": "%data.custom.gh.scoundrel.abilities.103.1%",
           "small": true,
           "subActions": [
             {
@@ -734,7 +734,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Gain Advantage on all your attacks this round.",
+              "value": "%data.custom.gh.scoundrel.abilities.104.1%",
               "small": true
             },
             {
@@ -762,12 +762,12 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +3 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+              "value": "%data.custom.gh.scoundrel.abilities.105.1%",
               "small": true
             },
             {
               "type": "custom",
-              "value": "Add +3 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to none of its allies.",
+              "value": "%data.custom.gh.scoundrel.abilities.105.2%",
               "small": true
             }
           ]
@@ -795,7 +795,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% when the target is adjacent to any of your allies.",
+              "value": "%data.custom.gh.scoundrel.abilities.106.1%",
               "small": true
             }
           ]
@@ -804,7 +804,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "On your next six attacks targeting enemies with %game.condition.disarm%, %game.condition.immobilize% or %game.condition.stun%, add +2 %game.action.attack%",
+          "value": "%data.custom.gh.scoundrel.abilities.106.2%",
           "small": true
         },
         {
@@ -855,7 +855,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Kill one adjacent normal enemy that is adjacent to none of its allies and also adjacent to any of your allies.",
+          "value": "%data.custom.gh.scoundrel.abilities.107.1%",
           "small": true,
           "subActions": [
             {
@@ -895,7 +895,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Add +2 %game.action.attack% to all of your attacks targeting enemies with %game.condition.poison%.",
+          "value": "%data.custom.gh.scoundrel.abilities.108.1%",
           "small": true,
           "subActions": [
             {
@@ -1008,7 +1008,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Add +4 %game.action.attack% and gain %game.card.experience:2% when the target is adjacent to any of your allies.",
+                  "value": "%data.custom.gh.scoundrel.abilities.110.1%",
                   "small": true
                 }
               ]
@@ -1045,12 +1045,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Disarm one adjacent trap.",
+          "value": "%data.custom.gh.scoundrel.abilities.111.1%",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "Target one enemy within %game.action.range:3% to suffer the effects of the disarmed trap.",
+              "value": "%data.custom.gh.scoundrel.abilities.111.2%",
               "small": true
             },
             {
@@ -1063,7 +1063,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "On your next attack targeting an enemy adjacent to none of its allies and also adjacent to any of your allies, double the value of the attack.",
+          "value": "%data.custom.gh.scoundrel.abilities.111.3%",
           "small": true
         },
         {
@@ -1181,7 +1181,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Kill one adjacent enemy whose current hit point value is equal to or less than 3.",
+              "value": "%data.custom.gh.scoundrel.abilities.113.1%",
               "small": true
             }
           ]
@@ -1218,12 +1218,12 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Force one adjacent normal or elite enemy to perform its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.",
+          "value": "%data.custom.gh.scoundrel.abilities.114.1%",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "To signify this, place one of your character tokens on this enemy for the round.",
+              "value": "%data.custom.gh.scoundrel.abilities.114.2%",
               "small": true
             },
             {
@@ -1253,7 +1253,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Add %game.condition.poison% and %game.condition.wound% to all of your attacks.",
+          "value": "%data.custom.gh.scoundrel.abilities.115.1%",
           "small": true,
           "subActions": [
             {

@@ -123,7 +123,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "in the same hex the elite died"
+                  "value": "%data.custom.r100kc.evil-eyeball.1%"
                 }
               ]
             }
@@ -156,7 +156,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "in the same hex the elite died"
+                  "value": "%data.custom.r100kc.evil-eyeball.1%"
                 }
               ]
             }
@@ -197,7 +197,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "in the same hex the elite died"
+                  "value": "%data.custom.r100kc.evil-eyeball.1%"
                 }
               ]
             }
@@ -238,7 +238,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "in the same hex the elite died"
+                  "value": "%data.custom.r100kc.evil-eyeball.1%"
                 }
               ]
             }
@@ -279,7 +279,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "in the same hex the elite died"
+                  "value": "%data.custom.r100kc.evil-eyeball.1%"
                 }
               ]
             }
@@ -320,7 +320,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "in the same hex the elite died"
+                  "value": "%data.custom.r100kc.evil-eyeball.1%"
                 }
               ]
             }
@@ -361,7 +361,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "in the same hex the elite died"
+                  "value": "%data.custom.r100kc.evil-eyeball.1%"
                 }
               ]
             }
@@ -402,7 +402,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "in the same hex the elite died"
+                  "value": "%data.custom.r100kc.evil-eyeball.1%"
                 }
               ]
             }

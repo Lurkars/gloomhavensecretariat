@@ -39,7 +39,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "If an enemy targets you with an attack<br>this round, that enemy gains",
+          "value": "%data.custom.toa.enraged-vanquisher.1%",
           "small": true,
           "subActions": [
             {
@@ -52,7 +52,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "%game.objectiveMarker.1%:"
+                      "value": "%data.custom.toa.enraged-vanquisher.2%"
                     },
                     {
                       "type": "condition",
@@ -66,7 +66,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "%game.objectiveMarker.2%:"
+                      "value": "%data.custom.toa.enraged-vanquisher.3%"
                     },
                     {
                       "type": "condition",
@@ -88,7 +88,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.objectiveMarker.2%:",
+          "value": "%data.custom.toa.enraged-vanquisher.3%",
           "subActions": [
             {
               "type": "attack",
@@ -101,7 +101,7 @@
                 },
                 {
                   "type": "custom",
-                  "value": "If a target occupies the hex, add the condition shown to the attack.",
+                  "value": "%data.custom.toa.enraged-vanquisher.4%",
                   "small": true
                 }
               ]
@@ -112,16 +112,16 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Vanquisher %game.objectiveMarker.1% swap positions<br>with Vanquisher %game.objectiveMarker.2%.",
+          "value": "%data.custom.toa.enraged-vanquisher.5%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "%game.objectiveMarker.1%:",
+          "value": "%data.custom.toa.enraged-vanquisher.2%",
           "subActions": [
             {
               "type": "custom",
-              "value": "All attackers targeting you this round gain %game.condition.disarm% at the end of their turn.",
+              "value": "%data.custom.toa.enraged-vanquisher.6%",
               "small": true
             }
           ]
@@ -136,7 +136,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.objectiveMarker.1%:",
+          "value": "%data.custom.toa.enraged-vanquisher.2%",
           "subActions": [
             {
               "type": "attack",
@@ -156,7 +156,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%game.objectiveMarker.2%:",
+          "value": "%data.custom.toa.enraged-vanquisher.3%",
           "subActions": [
             {
               "type": "move",
@@ -193,7 +193,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "If a target occupies the hex, add the condition shown to the attack.",
+              "value": "%data.custom.toa.enraged-vanquisher.4%",
               "small": true,
               "subActions": [
                 {
@@ -229,7 +229,7 @@
         },
         {
           "type": "custom",
-          "value": "Vanquisher %game.objectiveMarker.1% swap positions<br>with Vanquisher %game.objectiveMarker.2%.",
+          "value": "%data.custom.toa.enraged-vanquisher.5%",
           "small": true
         }
       ]

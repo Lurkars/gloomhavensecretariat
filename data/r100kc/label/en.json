@@ -1,4 +1,23 @@
 {
+  "custom": {
+    "r100kc": {
+      "black-cat": {
+        "1": "Focus the nearest unoccupied obstacle.<br>Until start of next turn, the Black Cat can occupy the hex. Afterwards move to the next empty hex.<br><br>If no obstacle is present, focus an empty hex farthest away from all characters.",
+        "2": "%game.action.target% all adjacent Black Cats",
+        "3": "%game.action.target% all Black Cats in %game.action.range% 2"
+      },
+      "evil-eyeball": {
+        "1": "in the same hex the elite died"
+      },
+      "resonator-bot": {
+        "1": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:2%",
+        "2": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:3%",
+        "3": "Where X is the number<br>of Resonator Bots<br>within %game.action.range:4%",
+        "4": "%game.condition.stun% 1 Resonator Bot without<br>%game.condition.stun% and within %game.action.range:3% to perform:",
+        "5": "%game.condition.stun% 2 Resonator Bots without<br>%game.condition.stun% and within %game.action.range:3% to perform:"
+      }
+    }
+  },
   "edition": {
     "r100kc": "Reddit 100k Subscriber Contest &lt;%wip%(!)&gt;"
   },

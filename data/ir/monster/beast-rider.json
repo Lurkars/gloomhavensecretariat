@@ -196,7 +196,7 @@
             "subActions": [
               {
                 "type": "custom",
-                "value": "All enemies suffer %game.damage:2%",
+                "value": "%data.custom.ir.beast-rider.1%",
                 "small": true
               }
             ]
@@ -287,7 +287,7 @@
             "subActions": [
               {
                 "type": "custom",
-                "value": "All enemies suffer %game.damage:3%",
+                "value": "%data.custom.ir.beast-rider.2%",
                 "small": true
               }
             ]
@@ -378,7 +378,7 @@
             "subActions": [
               {
                 "type": "custom",
-                "value": "All enemies suffer %game.damage:4%",
+                "value": "%data.custom.ir.beast-rider.3%",
                 "small": true
               }
             ]
@@ -469,7 +469,7 @@
             "subActions": [
               {
                 "type": "custom",
-                "value": "All enemies suffer %game.damage:5%",
+                "value": "%data.custom.ir.beast-rider.4%",
                 "small": true
               }
             ]
@@ -560,7 +560,7 @@
             "subActions": [
               {
                 "type": "custom",
-                "value": "All enemies suffer %game.damage:6%",
+                "value": "%data.custom.ir.beast-rider.5%",
                 "small": true
               }
             ]
@@ -651,7 +651,7 @@
             "subActions": [
               {
                 "type": "custom",
-                "value": "All enemies suffer %game.damage:7%",
+                "value": "%data.custom.ir.beast-rider.6%",
                 "small": true
               }
             ]

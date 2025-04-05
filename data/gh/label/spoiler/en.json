@@ -38,6 +38,81 @@
         "1": "when %game.action.attack% performed",
         "2": "at end of turn"
       },
+      "sun": {
+        "abilities": {
+          "175": {
+            "1": "On the next five melee attacks targeting you, gain %game.action.retaliate:2%"
+          },
+          "177": {
+            "1": "One adjacent ally may Recover %game.card.recover% one of their lost cards."
+          },
+          "178": {
+            "1": "One adjacent ally may Recover %game.card.recover% up to two of their discarded cards.",
+            "2": "Up to three discarded cards instead, %game.card.experience:1%.",
+            "3": "One adjacent all may perform"
+          },
+          "179": {
+            "1": "You and all adjacent allies suffer no damage this round."
+          },
+          "181": {
+            "1": "One ally within %game.action.range:3% may perform"
+          },
+          "184": {
+            "1": "Deduct -1 %game.action.move% from all your moves."
+          },
+          "185": {
+            "1": "Heal all damage on one adjacent ally.",
+            "2": "Suffer %game.damage:3%."
+          },
+          "187": {
+            "1": "At the end of your next five turns when %game.element.light% is not Strong, generate %game.element.light%"
+          },
+          "190": {
+            "1": "One adjacent ally may immediately perform one extra turn by playing two cards from their hand."
+          },
+          "191": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
+          },
+          "192": {
+            "1": "All allies within %game.action.range:5% may perform"
+          },
+          "194": {
+            "1": "All attacks targeting you or any ally within %game.action.range:4% of you gain Disadvantage this round."
+          },
+          "195": {
+            "1": "Affect all allies moved through"
+          },
+          "196": {
+            "1": "Deduct -1 %game.action.attack% from all your attacks."
+          },
+          "197": {
+            "1": "All allies add +1 %game.action.attack% to all their attacks this round.",
+            "2": "All allies add +2 %game.action.move% to all their moves this round."
+          },
+          "198": {
+            "1": "One adjacent ally may perform"
+          },
+          "199": {
+            "1": "During any of your %game.action.attack% actions, you may %game.element.consume.light% to add +2 %game.action.attack%, gain %game.custom.advantage% and %game.card.experience:1%"
+          },
+          "200": {
+            "1": "One adjacent ally may Recover %game.card.recover% one of their lost cards.",
+            "2": "Up to two lost cards instead"
+          },
+          "202": {
+            "1": "One adjacent ally may perform",
+            "2": "Kill one normal or elite target of the attack instead, %game.card.experience:1%.",
+            "3": "All allies within %game.action.range:3% may perform",
+            "4": "Gain %game.card.experience:1% for each attack performed."
+          },
+          "203": {
+            "1": "On your next four %game.action.attack% actions, add +3 %game.action.attack%, %game.condition.wound%, and gain %game.custom.advantage%."
+          },
+          "204": {
+            "1": "When any ally suffers damage, you may suffer that damage reduced by 1 instead."
+          }
+        }
+      },
       "triangles": {
         "1": "You may perform Attack actions as if you occupy the summon's hex.",
         "2": "when %game.action.attack% performed"

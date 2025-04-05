@@ -20,7 +20,7 @@
         },
         {
           "type": "custom",
-          "value": "Focus on the Resonator Bot<br>farthes away within %game.action.range:4%",
+          "value": "%data.custom.r100kc.resonator-bot.1%",
           "small": true,
           "subActions": [
             {
@@ -65,7 +65,7 @@
         },
         {
           "type": "custom",
-          "value": "Focus on the Resonator Bot<br>farthes away ",
+          "value": "%data.custom.r100kc.resonator-bot.2%",
           "small": true,
           "subActions": [
             {
@@ -100,7 +100,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is half the current %game.action.shield%<br>value of this monster, rounded down.",
+              "value": "%data.custom.r100kc.resonator-bot.3%",
               "small": true
             }
           ]
@@ -189,7 +189,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Where X is half the current %game.action.shield%<br>value of this monster, rounded down.",
+              "value": "%data.custom.r100kc.resonator-bot.3%",
               "small": true
             }
           ]
@@ -207,7 +207,7 @@
         },
         {
           "type": "custom",
-          "value": "%game.condition.stun% 1 Resonator Bot without<br>%game.condition.stun% and within %game.action.range:3% to perform:",
+          "value": "%data.custom.r100kc.resonator-bot.4%",
           "small": true,
           "subActions": [
             {
@@ -242,7 +242,7 @@
         },
         {
           "type": "custom",
-          "value": "%game.condition.stun% 2 Resonator Bots without<br>%game.condition.stun% and within %game.action.range:3% to perform:",
+          "value": "%data.custom.r100kc.resonator-bot.5%",
           "small": true,
           "subActions": [
             {

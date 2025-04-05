@@ -32,7 +32,7 @@
         },
         {
           "type": "custom",
-          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+          "value": "%data.custom.toa.reaver.1%"
         }
       ]
     },
@@ -48,7 +48,7 @@
         },
         {
           "type": "custom",
-          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+          "value": "%data.custom.toa.reaver.1%"
         }
       ]
     },
@@ -64,7 +64,7 @@
         },
         {
           "type": "custom",
-          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+          "value": "%data.custom.toa.reaver.1%"
         }
       ]
     },
@@ -80,7 +80,7 @@
         },
         {
           "type": "custom",
-          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+          "value": "%data.custom.toa.reaver.1%"
         }
       ]
     },
@@ -96,7 +96,7 @@
         },
         {
           "type": "custom",
-          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+          "value": "%data.custom.toa.reaver.1%"
         }
       ]
     },
@@ -112,7 +112,7 @@
         },
         {
           "type": "custom",
-          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+          "value": "%data.custom.toa.reaver.1%"
         }
       ]
     },
@@ -128,7 +128,7 @@
         },
         {
           "type": "custom",
-          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+          "value": "%data.custom.toa.reaver.1%"
         }
       ]
     },
@@ -144,7 +144,7 @@
         },
         {
           "type": "custom",
-          "value": "If killed, all enemies gain %game.custom.advantage% on all their attacks"
+          "value": "%data.custom.toa.reaver.1%"
         }
       ]
     }

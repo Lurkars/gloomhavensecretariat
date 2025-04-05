@@ -13,7 +13,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Focus the nearest unoccupied obstacle.<br>Until start of next turn, the Black Cat can occupy the hex. Afterwards move to the next empty hex.<br><br>If no obstacle is present, focus an empty hex farthest away from all characters.",
+              "value": "%data.custom.r100kc.black-cat.1%",
               "small": true
             }
           ]
@@ -99,7 +99,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% all adjacent Black Cats",
+              "value": "%data.custom.r100kc.black-cat.2%",
               "small": true
             }
           ]
@@ -120,7 +120,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% all Black Cats in %game.action.range% 2",
+              "value": "%data.custom.r100kc.black-cat.3%",
               "small": true
             }
           ]

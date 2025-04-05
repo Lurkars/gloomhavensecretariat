@@ -11,7 +11,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top four cards of any attack modifier deck, then place them back in any order.",
+          "value": "%data.custom.fc.diviner.abilities.574.1%",
           "small": true,
           "subActions": [
             {
@@ -21,7 +21,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top six cards instead, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.574.2%",
                   "small": true
                 }
               ]
@@ -63,7 +63,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top three cards of any attack modifier deck, then place up to one card on the bottom of the deck and the rest on top in any order.",
+          "value": "%data.custom.fc.diviner.abilities.575.1%",
           "small": true,
           "subActions": [
             {
@@ -73,7 +73,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top five cards instead, then place up to two cards on the bottom of the deck and the rest on top in any order, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.575.2%",
                   "small": true
                 }
               ]
@@ -152,7 +152,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Reveal the top two cards of any non-boss monster ability card deck, then place them back in any order.",
+          "value": "%data.custom.fc.diviner.abilities.576.1%",
           "small": true,
           "subActions": [
             {
@@ -162,7 +162,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top four cards instead, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.576.2%",
                   "small": true
                 }
               ]
@@ -179,7 +179,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "When any ally within %game.action.range:3% %game.enhancement.circle% is attacked this round, consider any positive and %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.plus0% instead.",
+          "value": "%data.custom.fc.diviner.abilities.577.1%",
           "small": true,
           "enhancementTypes": [
             "circle"
@@ -208,7 +208,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Reveal the top card of any two non-boss monster ability card decks, then place up to one card of each deck on the bottom of its deck, and the rest on top of their respective decks in any order.",
+          "value": "%data.custom.fc.diviner.abilities.577.2%",
           "small": true,
           "subActions": [
             {
@@ -218,7 +218,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top two cards of both decks instead, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.577.3%",
                   "small": true
                 }
               ]
@@ -235,7 +235,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Force one enemy within %game.action.range:3% to %game.action.teleport% to any unoccupied hex within 2 %game.enhancement.circle% hexes of you.",
+          "value": "%data.custom.fc.diviner.abilities.578.1%",
           "small": true,
           "enhancementTypes": [
             "circle"
@@ -256,14 +256,14 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% in the hex occupied by you.",
+              "value": "%data.custom.fc.diviner.abilities.578.2%",
               "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%game.action.teleport% to any unoccupied hex within 4 %game.enhancement.circle% hexes of you.",
+          "value": "%data.custom.fc.diviner.abilities.578.3%",
           "small": true,
           "enhancementTypes": [
             "circle"
@@ -372,14 +372,14 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% in the hex occupied by you.",
+              "value": "%data.custom.fc.diviner.abilities.580.1%",
               "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%game.action.teleport% to any unoccupied hex within 4 %game.enhancement.circle% hexes of you.",
+          "value": "%data.custom.fc.diviner.abilities.580.2%",
           "small": true,
           "enhancementTypes": [
             "circle"
@@ -395,12 +395,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:3%.",
+          "value": "%data.custom.fc.diviner.abilities.581.1%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "When an enemy enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, it gains %game.condition.disarm%.",
+          "value": "%data.custom.fc.diviner.abilities.581.2%",
           "small": true,
           "subActions": [
             {
@@ -449,12 +449,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:4%.",
+          "value": "%data.custom.fc.diviner.abilities.582.1%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "When an enemy enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, it suffers 1 damage and gains %game.condition.curse%.",
+          "value": "%data.custom.fc.diviner.abilities.582.2%",
           "small": true,
           "subActions": [
             {
@@ -501,7 +501,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The next six times an enemy would shuffle a %game.attackmodifier.curse% card into their attack modifier deck, you may place it as the sixth card from the top instead.",
+          "value": "%data.custom.fc.diviner.abilities.583.1%",
           "small": true
         },
         {
@@ -547,12 +547,12 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Move one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% up to six hexes. This movement triggers all active Rift effects as if an ally or enemy would have entered the hex containing the %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%.",
+          "value": "%data.custom.fc.diviner.abilities.583.2%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "%game.action.teleport% to any unoccupied hex within 6 %game.enhancement.circle% hexes of you.",
+          "value": "%data.custom.fc.diviner.abilities.583.3%",
           "small": true,
           "enhancementTypes": [
             "circle"
@@ -574,12 +574,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:4%.",
+          "value": "%data.custom.fc.diviner.abilities.584.1%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "Whenever an ally enters each hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% for the first time this round, they gain %game.condition.bless%.",
+          "value": "%data.custom.fc.diviner.abilities.584.2%",
           "small": true,
           "subActions": [
             {
@@ -689,7 +689,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:3%.",
+          "value": "%data.custom.fc.diviner.abilities.586.1%",
           "small": true
         },
         {
@@ -701,7 +701,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Affect one ally adjacent to that %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "value": "%data.custom.fc.diviner.abilities.586.2%",
               "small": true
             }
           ]
@@ -715,7 +715,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Affect one ally adjacent to that %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "value": "%data.custom.fc.diviner.abilities.586.2%",
               "small": true
             }
           ]
@@ -738,7 +738,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:3%.",
+          "value": "%data.custom.fc.diviner.abilities.586.1%",
           "small": true
         },
         {
@@ -747,7 +747,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target one enemy within %game.action.range:3% of any %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% and pull them toward that %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%.",
+              "value": "%data.custom.fc.diviner.abilities.586.3%",
               "small": true
             }
           ]
@@ -793,7 +793,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% in the hex occupied by you.",
+          "value": "%data.custom.fc.diviner.abilities.587.1%",
           "small": true
         },
         {
@@ -806,7 +806,7 @@
         },
         {
           "type": "custom",
-          "value": "Remove all negative conditions on one ally within %game.action.range:2%",
+          "value": "%data.custom.fc.diviner.abilities.587.2%",
           "small": true
         }
       ]
@@ -819,7 +819,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top five cards of any attack modifier deck, then place them back in any order.",
+          "value": "%data.custom.fc.diviner.abilities.588.1%",
           "small": true,
           "subActions": [
             {
@@ -829,7 +829,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top five cards of a second attack modifier deck, then place them back in any order, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.588.2%",
                   "small": true
                 }
               ]
@@ -884,7 +884,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.action.teleport% to a hex occupied by an enemy within 4 hexes of you and simultaneously %game.action.teleport% that enemy to the hex occupied by you.",
+          "value": "%data.custom.fc.diviner.abilities.589.1%",
           "small": true
         },
         {
@@ -918,7 +918,7 @@
             },
             {
               "type": "custom",
-              "value": "Target an enemy occupying or adjacent to any %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "value": "%data.custom.fc.diviner.abilities.589.2%",
               "small": true
             }
           ]
@@ -937,7 +937,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "You and all allies within %game.action.range:3% may perform",
+          "value": "%data.custom.fc.diviner.abilities.590.1%",
           "small": true,
           "subActions": [
             {
@@ -950,7 +950,7 @@
             },
             {
               "type": "custom",
-              "value": "If any affected ally is a summon or non player character, you may control the action for that ally."
+              "value": "%data.custom.fc.diviner.abilities.590.2%"
             }
           ]
         },
@@ -962,7 +962,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Reveal the top card of all non-boss monster ability card decks.",
+          "value": "%data.custom.fc.diviner.abilities.590.3%",
           "small": true,
           "subActions": [
             {
@@ -972,7 +972,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Additionally, you may place any number of revealed cards on the bottoms of their decks, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.590.4%",
                   "small": true
                 }
               ]
@@ -1001,7 +1001,7 @@
             },
             {
               "type": "custom",
-              "value": "Remove all CURSE %game.attackmodifier.curse% cards from the attack modifier deck any healed figure, then shuffle their discard pile back into their deck, %game.card.experience:1%.",
+              "value": "%data.custom.fc.diviner.abilities.591.1%",
               "small": true
             }
           ]
@@ -1012,12 +1012,12 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Recover %game.card.recover% up to one of your lost cards.",
+          "value": "%data.custom.fc.diviner.abilities.591.2%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "All allies may Recover %game.card.recover% a collective total of up to six of their discarded cards.",
+          "value": "%data.custom.fc.diviner.abilities.591.3%",
           "small": true
         },
         {
@@ -1045,7 +1045,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "If an enemy draws any negative or %game.attackmodifier.null% attack modifier card during its attack, this enemy suffers 1 damage for each card drawn of that kind.",
+          "value": "%data.custom.fc.diviner.abilities.592.1%",
           "small": true
         },
         {
@@ -1100,12 +1100,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:5%.",
+          "value": "%data.custom.fc.diviner.abilities.593.1%",
           "small": true
         },
         {
           "type": "custom",
-          "value": "When an enemy enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, it gains %game.condition.wound% and %game.condition.immobilize%.",
+          "value": "%data.custom.fc.diviner.abilities.593.2%",
           "small": true,
           "subActions": [
             {
@@ -1118,7 +1118,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%game.action.teleport% to any unoccupied hex within 5 %game.enhancement.circle% hexes.",
+          "value": "%data.custom.fc.diviner.abilities.593.3%",
           "small": true,
           "enhancementTypes": [
             "circle"
@@ -1151,7 +1151,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Shuffle four %game.attackmodifier.minus1% cards into the monster attack modifier deck.",
+          "value": "%data.custom.fc.diviner.abilities.594.1%",
           "small": true,
           "subActions": [
             {
@@ -1161,7 +1161,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Shuffle eight %game.attackmodifier.minus1% cards into the deck instead, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.594.2%",
                   "small": true
                 }
               ]
@@ -1187,7 +1187,7 @@
         },
         {
           "type": "custom",
-          "value": "When an ally enters a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% this round, they gain %game.condition.strengthen%.",
+          "value": "%data.custom.fc.diviner.abilities.594.3%",
           "small": true
         },
         {
@@ -1219,7 +1219,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top six cards of any attack modifier deck, then place up to three cards on the bottom of the deck and the rest on top in any order.",
+          "value": "%data.custom.fc.diviner.abilities.595.1%",
           "small": true,
           "subActions": [
             {
@@ -1244,7 +1244,7 @@
                 },
                 {
                   "type": "custom",
-                  "value": "Additionally, reveal the top three cards of all other attack modifier decks, then pace them back in any order, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.595.2%",
                   "small": true
                 }
               ]
@@ -1262,7 +1262,7 @@
         },
         {
           "type": "custom",
-          "value": "When an ally within %game.action.range:3% %game.enhancement.circle% is attacked this round, consider any positive and %game.attackmodifier.double% attack modifier card the enemy draws to be a %game.attackmodifier.minus1% instead.",
+          "value": "%data.custom.fc.diviner.abilities.595.3%",
           "small": true,
           "enhancementTypes": [
             "circle"
@@ -1319,7 +1319,7 @@
         },
         {
           "type": "custom",
-          "value": "Remove all negative conditions on all allies within %game.action.range:3%.",
+          "value": "%data.custom.fc.diviner.abilities.596.1%",
           "small": true,
           "subActions": [
             {
@@ -1338,7 +1338,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Move all %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%s up to three hexes.",
+          "value": "%data.custom.fc.diviner.abilities.597.1%",
           "small": true
         },
         {
@@ -1350,7 +1350,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target all enemies occupying a hex containing a %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "value": "%data.custom.fc.diviner.abilities.597.2%",
               "small": true
             },
             {
@@ -1369,7 +1369,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Place one of your character tokens on each of two separate %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%s. Until the end of the round, the hexes containing these %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%s are considered adjacent to each other for the purpose of movement for you and your allies.",
+          "value": "%data.custom.fc.diviner.abilities.597.3%",
           "small": true
         },
         {
@@ -1434,7 +1434,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Reveal the top three cards of any monster ability card deck, then place them back in any order.",
+          "value": "%data.custom.fc.diviner.abilities.598.1%",
           "small": true,
           "subActions": [
             {
@@ -1444,7 +1444,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top three cards of a second monster ability card deck, then place them back in any order, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.598.2%",
                   "small": true
                 }
               ]
@@ -1526,7 +1526,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Reveal the top four cards of all attack modifier decks, then place any number of them on the bottom of their respective decks and the rest on top in any order.",
+          "value": "%data.custom.fc.diviner.abilities.600.1%",
           "small": true,
           "subActions": [
             {
@@ -1536,7 +1536,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Reveal the top six cards instead, %game.card.experience:1%.",
+                  "value": "%data.custom.fc.diviner.abilities.600.2%",
                   "small": true
                 }
               ]
@@ -1549,7 +1549,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Search any non-boss monster ability card deck for a card of your choice and remove it from that deck for the remainder of the scenario.",
+          "value": "%data.custom.fc.diviner.abilities.600.3%",
           "small": true,
           "subActions": [
             {
@@ -1559,7 +1559,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Search the same deck for a second monster ability card, this one without a %game.card.shuffle% icon, and remove it as well",
+                  "value": "%data.custom.fc.diviner.abilities.600.4%",
                   "small": true
                 }
               ]
@@ -1576,7 +1576,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Place one %data.characterColored.diviner:Rift% %data.characterColored.diviner:token% on any unoccupied hex within %game.action.range:4%.",
+          "value": "%data.custom.fc.diviner.abilities.601.1%",
           "small": true
         },
         {
@@ -1585,7 +1585,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target all enemies within %game.action.range:2% of this %data.characterColored.diviner:Rift% %data.characterColored.diviner:token%",
+              "value": "%data.custom.fc.diviner.abilities.601.2%",
               "small": true
             },
             {

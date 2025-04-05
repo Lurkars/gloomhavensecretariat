@@ -32,7 +32,7 @@
         },
         {
           "type": "custom",
-          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
+          "value": "%data.custom.toa.glacier-demon.1%"
         }
       ]
     },
@@ -48,7 +48,7 @@
         },
         {
           "type": "custom",
-          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
+          "value": "%data.custom.toa.glacier-demon.1%"
         }
       ]
     },
@@ -64,7 +64,7 @@
         },
         {
           "type": "custom",
-          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
+          "value": "%data.custom.toa.glacier-demon.1%"
         }
       ]
     },
@@ -80,7 +80,7 @@
         },
         {
           "type": "custom",
-          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
+          "value": "%data.custom.toa.glacier-demon.1%"
         }
       ]
     },
@@ -96,7 +96,7 @@
         },
         {
           "type": "custom",
-          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
+          "value": "%data.custom.toa.glacier-demon.1%"
         }
       ]
     },
@@ -112,7 +112,7 @@
         },
         {
           "type": "custom",
-          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
+          "value": "%data.custom.toa.glacier-demon.1%"
         }
       ]
     },
@@ -128,7 +128,7 @@
         },
         {
           "type": "custom",
-          "value": "Lose %game.action.retaliate% if %game.condition.wound%"
+          "value": "%data.custom.toa.glacier-demon.1%"
         }
       ]
     }

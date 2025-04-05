@@ -13,7 +13,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Move towards exit %game.mapMarker.a%"
+              "value": "%data.custom.toa.vermling-scenario-68.1%"
             }
           ]
         },

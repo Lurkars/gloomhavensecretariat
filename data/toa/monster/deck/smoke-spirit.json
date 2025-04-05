@@ -19,7 +19,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% if the target<br>is occupying hazardous terrain",
+              "value": "%data.custom.toa.smoke-spirit.1%",
               "small": true
             }
           ]
@@ -43,7 +43,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Create a hazardous terrain tile in the<br>hex occupied by the target if it contains<br>no overlay tiles.",
+              "value": "%data.custom.toa.smoke-spirit.2%",
               "small": true
             }
           ]
@@ -98,7 +98,7 @@
             },
             {
               "type": "custom",
-              "value": "Create a hazardous terrain tile in<br>all hexes occupied by a target if<br>it contains no overlay tiles.",
+              "value": "%data.custom.toa.smoke-spirit.3%",
               "small": true
             }
           ]
@@ -116,7 +116,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% one enemy within two hexes",
+              "value": "%data.custom.toa.smoke-spirit.4%",
               "small": true
             },
             {
@@ -126,7 +126,7 @@
             },
             {
               "type": "custom",
-              "value": "If the target of the attack ability is adjacent,<br>add %game.action.push% 2 to the attack.",
+              "value": "%data.custom.toa.smoke-spirit.5%",
               "small": true
             }
           ]
@@ -144,7 +144,7 @@
         },
         {
           "type": "custom",
-          "value": "Create a hazardous terrain tile in the hex<br>the Smoke Spirit is occupying if it contains<br>no overlay tiles.",
+          "value": "%data.custom.toa.smoke-spirit.6%",
           "small": true
         },
         {
@@ -183,7 +183,7 @@
         },
         {
           "type": "custom",
-          "value": "Create a hazardous terrain tile in an empty<br>adjacent hex closest to an enemy.",
+          "value": "%data.custom.toa.smoke-spirit.7%",
           "small": true
         }
       ]

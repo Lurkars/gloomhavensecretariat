@@ -1,6 +1,14 @@
 {
   "custom": {
     "ir": {
+      "beast-rider": {
+        "1": "All enemies suffer %game.damage:2%",
+        "2": "All enemies suffer %game.damage:3%",
+        "3": "All enemies suffer %game.damage:4%",
+        "4": "All enemies suffer %game.damage:5%",
+        "5": "All enemies suffer %game.damage:6%",
+        "6": "All enemies suffer %game.damage:7%"
+      },
       "thrax": {
         "1": "Performs no actions"
       }
