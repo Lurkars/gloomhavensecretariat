@@ -18,7 +18,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.146.1%",
+              "value": "Add +1 %game.action.attack% for each negative condition on the target",
               "small": true
             }
           ]
@@ -31,7 +31,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.146.2%",
+          "value": "Force one enemy within %game.action.range:5% to perform",
           "small": true,
           "subActions": [
             {
@@ -48,7 +48,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.146.3%",
+              "value": "targeting another enemy with you controlling the action.",
               "small": true
             }
           ]
@@ -149,11 +149,11 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.149.1%"
+                  "value": "On your melee attacks:"
                 },
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.149.2%"
+                  "value": "Gain %game.action.shield% 1"
                 },
                 {
                   "type": "card",
@@ -188,7 +188,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.149.3%",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
               "small": true
             }
           ]
@@ -204,7 +204,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.149.4%",
+              "value": "If you end the movement in the same hex you started in, perform",
               "small": true
             },
             {
@@ -288,11 +288,11 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.151.1%"
+                  "value": "On your melee attacks:"
                 },
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.151.2%"
+                  "value": "Add +2 %game.action.attack%"
                 }
               ]
             }
@@ -323,7 +323,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.151.3%",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
               "small": true
             }
           ]
@@ -363,7 +363,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.152.1%"
+                  "value": "On your melee attacks:"
                 },
                 {
                   "type": "heal",
@@ -405,7 +405,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.152.2%",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
               "small": true
             }
           ]
@@ -414,7 +414,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.152.3%",
+          "value": "Force one enemy within %game.action.range:4% to perform",
           "small": true,
           "subActions": [
             {
@@ -423,7 +423,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.152.4%",
+              "value": "with you controlling the action.",
               "small": true
             }
           ]
@@ -479,7 +479,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.154.1%",
+              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% for each negative condition on the target.",
               "small": true
             }
           ]
@@ -604,7 +604,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.156.1%"
+                  "value": "On your melee attacks:"
                 },
                 {
                   "type": "concatenation",
@@ -649,7 +649,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.156.2%",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
               "small": true
             }
           ]
@@ -681,7 +681,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.157.1%",
+          "value": "One adjacent ally may perform",
           "small": true,
           "subActions": [
             {
@@ -698,7 +698,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.157.2%",
+          "value": "One ally within %game.action.range:3% may perform",
           "small": true,
           "subActions": [
             {
@@ -884,12 +884,12 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.160.1%",
+          "value": "Force one normal or elite enemy within %game.action.range:3% to perform its turn this round as if its allies were enemies and its enemies were allies.",
           "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.160.2%",
+          "value": "To signify this, place one of your character tokens on this enemy for the round.",
           "small": true
         },
         {
@@ -994,7 +994,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.162.1%"
+                  "value": "On your melee attacks:"
                 },
                 {
                   "type": "heal",
@@ -1035,7 +1035,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.162.2%",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
               "small": true
             }
           ]
@@ -1100,7 +1100,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.163.1%",
+              "value": "Gain one additional money token from the supply for each adjacent enemy.",
               "small": true
             }
           ]
@@ -1144,7 +1144,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.164.1%",
+          "value": "Kill one normal enemy within %game.action.range:4%.",
           "small": true
         },
         {
@@ -1157,12 +1157,12 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.164.2%",
+              "value": "Target all enemies adjacent to the killed target",
               "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.164.3%",
+              "value": "Gain %game.card.experience:1% for each enemy targeted with this attack.",
               "small": true
             }
           ]
@@ -1226,12 +1226,12 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.165.1%",
+          "value": "You may have two %data.custom.gh.mindthief.augments% active at once.",
           "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.165.2%",
+          "value": "If a third %data.custom.gh.mindthief.augment% is played, discard one of the others.",
           "small": true
         },
         {
@@ -1257,7 +1257,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.166.1%"
+                  "value": "On your melee attacks:"
                 },
                 {
                   "type": "element",
@@ -1299,7 +1299,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.166.2%",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
               "small": true
             }
           ]
@@ -1308,7 +1308,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.166.3%",
+          "value": "Force on enemy within %game.action.range:5% to perform",
           "small": true,
           "subActions": [
             {
@@ -1317,7 +1317,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.166.4%",
+              "value": "with you controlling the action.",
               "small": true
             }
           ]
@@ -1504,11 +1504,11 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.169.1%"
+                  "value": "On your melee attacks:"
                 },
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.169.2%",
+                  "value": "Gain",
                   "subActions": [
                     {
                       "type": "retaliate",
@@ -1549,7 +1549,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.169.3%",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
               "small": true
             }
           ]
@@ -1630,7 +1630,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.170.1%",
+          "value": "All your ranged attacks gain the effects of your %data.custom.gh.mindthief.augments% this round.",
           "small": true
         },
         {
@@ -1753,7 +1753,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.172.1%",
+          "value": "One adjacent ally may perform",
           "small": true,
           "subActions": [
             {
@@ -1762,7 +1762,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.172.2%",
+              "value": "This attack gains the effects of your %custom.augments%.",
               "small": true
             }
           ]
@@ -1776,7 +1776,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.172.3%",
+          "value": "Force one normal or elite enemy within %game.action.range:5% to perform its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.<br><br>To signify this, place one of your character tokens on this enemy for the round.",
           "small": true
         },
         {
@@ -1812,7 +1812,7 @@
             "movement": "2",
             "action": {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.173.1%",
+              "value": "X is half the rat's current hit point value (rounded up).",
               "small": true
             },
             "count": 1,
@@ -1842,7 +1842,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.mindthief.abilities.173.2%",
+          "value": "All allies within %game.action.range:2% add +X %game.action.attack% to all their attacks this round, where X is the number of your allies within %game.action.range:2% of you.",
           "small": true
         },
         {
@@ -1878,7 +1878,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.mindthief.abilities.174.1%"
+                  "value": "On your melee attacks:"
                 },
                 {
                   "type": "element",
@@ -1887,7 +1887,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "%data.custom.gh.mindthief.abilities.174.2%",
+                      "value": "Kill one normal target instead",
                       "small": true
                     }
                   ]
@@ -1922,7 +1922,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.174.3%",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
               "small": true
             }
           ]

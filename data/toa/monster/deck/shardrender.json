@@ -93,7 +93,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.toa.shardrender.1%",
+          "value": "One adjacent enemy suffer %game.damage:2%.",
           "small": true
         },
         {

@@ -11,7 +11,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.175.1%",
+          "value": "On the next five melee attacks targeting you, gain %game.action.retaliate:2%",
           "small": true
         },
         {
@@ -145,7 +145,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.177.1%",
+          "value": "One adjacent ally may Recover %game.card.recover% one of their lost cards.",
           "small": true
         },
         {
@@ -195,7 +195,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.178.1%",
+          "value": "One adjacent ally may Recover %game.card.recover% up to two of their discarded cards.",
           "small": true,
           "subActions": [
             {
@@ -205,7 +205,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.sun.abilities.178.2%",
+                  "value": "Up to three discarded cards instead, %game.card.experience:1%.",
                   "small": true
                 }
               ]
@@ -216,7 +216,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.178.3%",
+          "value": "One adjacent all may perform",
           "small": true,
           "subActions": [
             {
@@ -260,7 +260,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.179.1%",
+          "value": "You and all adjacent allies suffer no damage this round.",
           "small": true
         },
         {
@@ -355,7 +355,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.181.1%",
+          "value": "One ally within %game.action.range:3% may perform",
           "small": true,
           "subActions": [
             {
@@ -552,7 +552,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.184.1%",
+          "value": "Deduct -1 %game.action.move% from all your moves.",
           "small": true
         },
         {
@@ -580,12 +580,12 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.185.1%",
+          "value": "Heal all damage on one adjacent ally.",
           "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.185.2%",
+          "value": "Suffer %game.damage:3%.",
           "small": true
         },
         {
@@ -705,7 +705,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.187.1%",
+          "value": "At the end of your next five turns when %game.element.light% is not Strong, generate %game.element.light%",
           "small": true
         },
         {
@@ -855,7 +855,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.190.1%",
+          "value": "One adjacent ally may immediately perform one extra turn by playing two cards from their hand.",
           "small": true
         },
         {
@@ -927,7 +927,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.sun.abilities.191.1%",
+              "value": "Gain %game.card.experience:1% for each enemy targeted.",
               "small": true
             }
           ]
@@ -1003,7 +1003,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.192.1%",
+          "value": "All allies within %game.action.range:5% may perform",
           "small": true,
           "subActions": [
             {
@@ -1110,7 +1110,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.194.1%",
+          "value": "All attacks targeting you or any ally within %game.action.range:4% of you gain Disadvantage this round.",
           "small": true
         },
         {
@@ -1190,7 +1190,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.sun.abilities.195.1%",
+              "value": "Affect all allies moved through",
               "small": true
             }
           ]
@@ -1224,7 +1224,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.196.1%",
+          "value": "Deduct -1 %game.action.attack% from all your attacks.",
           "small": true
         },
         {
@@ -1300,7 +1300,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.197.1%",
+          "value": "All allies add +1 %game.action.attack% to all their attacks this round.",
           "small": true
         },
         {
@@ -1321,7 +1321,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.197.2%",
+          "value": "All allies add +2 %game.action.move% to all their moves this round.",
           "small": true
         },
         {
@@ -1365,7 +1365,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.198.1%",
+          "value": "One adjacent ally may perform",
           "small": true,
           "subActions": [
             {
@@ -1388,7 +1388,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.199.1%",
+          "value": "During any of your %game.action.attack% actions, you may %game.element.consume.light% to add +2 %game.action.attack%, gain %game.custom.advantage% and %game.card.experience:1%",
           "small": true
         },
         {
@@ -1467,7 +1467,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.200.1%",
+          "value": "One adjacent ally may Recover %game.card.recover% one of their lost cards.",
           "small": true,
           "subActions": [
             {
@@ -1481,7 +1481,7 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "%data.custom.gh.sun.abilities.200.2%",
+                      "value": "Up to two lost cards instead",
                       "small": true
                     },
                     {
@@ -1556,7 +1556,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.202.1%",
+          "value": "One adjacent ally may perform",
           "small": true,
           "subActions": [
             {
@@ -1570,7 +1570,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.sun.abilities.202.2%",
+                  "value": "Kill one normal or elite target of the attack instead, %game.card.experience:1%.",
                   "small": true
                 }
               ]
@@ -1586,7 +1586,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.202.3%",
+          "value": "All allies within %game.action.range:3% may perform",
           "small": true,
           "subActions": [
             {
@@ -1595,7 +1595,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.sun.abilities.202.4%",
+              "value": "Gain %game.card.experience:1% for each attack performed.",
               "small": true
             }
           ]
@@ -1610,7 +1610,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.203.1%",
+          "value": "On your next four %game.action.attack% actions, add +3 %game.action.attack%, %game.condition.wound%, and gain %game.custom.advantage%.",
           "small": true
         },
         {
@@ -1682,7 +1682,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.sun.abilities.204.1%",
+          "value": "When any ally suffers damage, you may suffer that damage reduced by 1 instead.",
           "small": true
         },
         {

@@ -26,7 +26,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fh.banner-spear.abilities.61.1%"
+              "value": "Suffer %game.damage:1% for each ally whose hit point value increased with the heal ability."
             }
           ]
         }
@@ -48,7 +48,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fh.banner-spear.abilities.61.2%",
+              "value": "You control the movement of this summon",
               "small": true
             }
           ]
@@ -92,7 +92,7 @@
             "health": 3,
             "action": {
               "type": "custom",
-              "value": "%data.custom.fh.banner-spear.abilities.62.1%",
+              "value": "All allies within %game.action.range%2 add +1 %game.action.attack% to one of their attacks each turn.",
               "small": true
             },
             "enhancements": [
@@ -140,7 +140,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fh.banner-spear.abilities.63.1%"
+              "value": "All your ranged attacks have -1%game.action.range%."
             }
           ]
         }

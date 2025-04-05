@@ -149,7 +149,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.toa.valrath-vanquisher.1%",
+              "value": "The Vanquisher<br>with the lowest<br>current hit point<br>value performs",
               "small": true,
               "subActions": [
                 {
@@ -173,7 +173,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.toa.valrath-vanquisher.2%",
+              "value": "The Vanquisher with the<br>highest current hit point<br>value performs",
               "small": true,
               "subActions": [
                 {
@@ -199,7 +199,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.toa.valrath-vanquisher.3%",
+          "value": "If both Vanquishers have the same hit point value, they both<br>perform all abilities.",
           "small": true
         }
       ]

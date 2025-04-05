@@ -38,7 +38,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.lost-in-seaweed.1%",
+          "value": "Focus on the enemy<br>farthest away within %game.action.range:6%",
           "small": true
         },
         {
@@ -115,7 +115,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.lost-in-seaweed.1%",
+          "value": "Create one 1-hex water tile<br>in an adjacent empty hex.",
           "small": true
         },
         {
@@ -141,7 +141,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.fh.lost-in-seaweed.2%",
+              "value": "in an adjacent unoccupied<br>hex with a water tile.",
               "small": true
             }
           ]
@@ -168,7 +168,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.lost-in-seaweed.1%",
+          "value": "Create one 1-hex water tile<br>in an adjacent empty hex.",
           "small": true
         },
         {
@@ -194,7 +194,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.fh.lost-in-seaweed.2%",
+              "value": "in an adjacent unoccupied<br>hex with a water tile.",
               "small": true
             }
           ]

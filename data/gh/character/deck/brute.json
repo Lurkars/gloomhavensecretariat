@@ -84,7 +84,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.brute.abilities.2.1%",
+              "value": "Gain %game.card.experience:1% each time you Retaliate this round.",
               "small": true
             }
           ]
@@ -184,7 +184,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.4.1%",
+          "value": "Any enemy who targets one of your adjacent allies with an attack this round targets you with that attack instead, regardless of the attack's range.",
           "small": true
         },
         {
@@ -283,7 +283,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.7.1%",
+          "value": "On the next six sources of %game.damage% from attacks targeting you, gain %game.action.shield%1.",
           "small": true
         },
         {
@@ -530,7 +530,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.brute.abilities.12.1%",
+              "value": "where X is the number of hexes you have moved so far this turn.",
               "small": true
             }
           ]
@@ -547,7 +547,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.brute.abilities.12.2%",
+              "value": "where X is the amount of %game.damage% you have inflicted so far this turn.",
               "small": true
             }
           ]
@@ -606,7 +606,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.13.1%"
+          "value": "Add +1 %game.action.attack% to all your attacks this round."
         },
         {
           "type": "card",
@@ -623,7 +623,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.14.1%"
+          "value": "Kill one adjacent normal enemy."
         },
         {
           "type": "card",
@@ -664,7 +664,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.15.1%",
+          "value": "On the next three sources of %game.damage% to you, suffer no %game.damage% instead.",
           "small": true
         },
         {
@@ -744,7 +744,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.brute.abilities.16.1%",
+              "value": "If the movement was in a straight line, perform",
               "small": true
             },
             {
@@ -753,7 +753,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.brute.abilities.16.2%",
+              "value": "where X is the number of hexes you moved with this action.",
               "small": true
             }
           ]
@@ -906,7 +906,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.brute.abilities.20.1%",
+              "value": "Gain %game.card.experience:1% for each enemy targeted.",
               "small": true
             }
           ]
@@ -987,7 +987,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.22.1%"
+          "value": "Kill one adjacent normal enemy with %game.condition.stun%."
         },
         {
           "type": "card",
@@ -1004,7 +1004,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.22.2%"
+          "value": "Add +1 %game.action.attack% to all your attacks this round."
         },
         {
           "type": "card",
@@ -1048,7 +1048,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.23.1%"
+          "value": "You may treat all %game.action.move% abilities as %game.action.attack% abilities of equal value."
         },
         {
           "type": "card",
@@ -1226,7 +1226,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.26.1%",
+          "value": "Add +3 %game.action.attack% to all your attacks targeting enemies with %game.condition.disarm%, %game.condition.immobilize%, or %game.condition.stun% this round.",
           "small": true
         },
         {
@@ -1327,7 +1327,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.brute.abilities.28.1%",
+              "value": "Gain %game.card.experience:1% for each enemy targeted.",
               "small": true
             }
           ]
@@ -1392,7 +1392,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.brute.abilities.29.1%"
+          "value": "Kill one adjacent normal or elite enemy."
         },
         {
           "type": "card",

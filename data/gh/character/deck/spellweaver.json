@@ -35,7 +35,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.spellweaver.abilities.61.1%",
+              "value": "Gain %game.card.experience:1% for each enemy targeted.",
               "small": true
             },
             {
@@ -79,12 +79,12 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.spellweaver.abilities.62.1%",
+              "value": "Additionally, target all enemies on the path to the primary target.",
               "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.spellweaver.abilities.62.2%",
+              "value": "Gain %game.card.experience:1% for each enemy targeted.",
               "small": true
             },
             {
@@ -114,7 +114,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.spellweaver.abilities.63.1%",
+          "value": "Recover %game.card.recover% all of your lost cards.",
           "small": true,
           "subActions": [
             {
@@ -315,7 +315,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.spellweaver.abilities.66.1%",
+          "value": "On the next two sources of damage to you, suffer no damage instead.",
           "small": true,
           "subActions": [
             {
@@ -443,7 +443,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.spellweaver.abilities.69.1%",
+          "value": "On your next four attacks, add +1 %game.action.attack%.",
           "small": true,
           "subActions": [
             {
@@ -453,7 +453,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.69.2%",
+                  "value": "Add +2 %game.action.attack% instead.",
                   "small": true
                 }
               ]
@@ -916,7 +916,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.spellweaver.abilities.75.1%",
+              "value": "Affect any one ally",
               "small": true
             },
             {
@@ -926,7 +926,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.75.2%",
+                  "value": "Affect all allies instead",
                   "small": true
                 }
               ]
@@ -962,7 +962,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.76.1%",
+                  "value": "Kill one normal target instead, %game.card.experience:1%",
                   "small": true
                 }
               ]
@@ -978,12 +978,12 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.spellweaver.abilities.76.2%",
+              "value": "Affect any one ally",
               "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.spellweaver.abilities.76.3%",
+              "value": "where X is half of that ally's maximum hit point value (rounded down).",
               "small": true
             },
             {
@@ -993,7 +993,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.76.4%",
+                  "value": "X is that ally's maximum hit point value instead.",
                   "small": true
                 }
               ]
@@ -1170,7 +1170,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.spellweaver.abilities.79.1%",
+          "value": "On the next five melee attacks targeting you, gain %game.action.retaliate:3%.",
           "small": true
         },
         {
@@ -1251,7 +1251,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.80.1%",
+                  "value": "All enemies adjacent to the target suffer 2 damage, %game.card.experience:1%.",
                   "small": true
                 }
               ]
@@ -1338,12 +1338,12 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.81.1%",
+                  "value": "Gain %game.card.experience:1% for each",
                   "small": true
                 },
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.81.2%",
+                  "value": "enemy targeted",
                   "small": true
                 },
                 {
@@ -1422,7 +1422,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.spellweaver.abilities.82.1%",
+          "value": "Recover %game.card.recover% up to two of your lost cards.",
           "small": true
         }
       ],
@@ -1580,14 +1580,14 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.84.1%",
+                  "value": "%game.action.loot:3% instead, %game.card.experience:1%",
                   "small": true
                 }
               ]
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.spellweaver.abilities.84.2%",
+              "value": "You may not loot more than four money tokens or treasure tiles with this action.",
               "small": true
             }
           ]
@@ -1692,7 +1692,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.spellweaver.abilities.85.1%",
+          "value": "On the next three sources of damage from attacks targeting you, suffer no damage instead and gain %game.action.retaliate:3%, %game.action.range:3%.",
           "small": true
         },
         {
@@ -1761,12 +1761,12 @@
                 },
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.86.1%",
+                  "value": "Gain %game.card.experience:1% for each",
                   "small": true
                 },
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.86.2%",
+                  "value": "enemy targeted",
                   "small": true
                 },
                 {
@@ -1776,17 +1776,17 @@
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "%data.custom.gh.spellweaver.abilities.86.3%",
+                      "value": "Kill all normal",
                       "small": true
                     },
                     {
                       "type": "custom",
-                      "value": "%data.custom.gh.spellweaver.abilities.86.4%",
+                      "value": "enemies in the",
                       "small": true
                     },
                     {
                       "type": "custom",
-                      "value": "%data.custom.gh.spellweaver.abilities.86.5%",
+                      "value": "targeted area.",
                       "small": true
                     }
                   ]
@@ -1803,7 +1803,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.spellweaver.abilities.86.6%",
+          "value": "Choose a hex within %game.action.range:4%.",
           "small": true,
           "subActions": [
             {
@@ -1815,7 +1815,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.86.7%",
+                  "value": "Target all enemies within %game.action.range:4% of the chosen hex and pull them toward it",
                   "small": true
                 }
               ]
@@ -1836,7 +1836,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.spellweaver.abilities.87.1%",
+              "value": "Target all enemies in the same room as you",
               "small": true
             },
             {
@@ -1865,7 +1865,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.gh.spellweaver.abilities.87.2%",
+              "value": "All allies in the same room as you suffer 2 damage.",
               "small": true
             }
           ]
