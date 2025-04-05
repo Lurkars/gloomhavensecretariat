@@ -37,12 +37,12 @@
               "type": "custom",
               "value": "%data.custom.gh.spellweaver.abilities.61.1%",
               "small": true
-            },
-            {
-              "type": "element",
-              "value": "fire"
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
         }
       ],
       "bottomActions": [
@@ -86,12 +86,12 @@
               "type": "custom",
               "value": "%data.custom.gh.spellweaver.abilities.62.2%",
               "small": true
-            },
-            {
-              "type": "element",
-              "value": "earth"
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
         }
       ],
       "bottomActions": [
@@ -115,13 +115,11 @@
         {
           "type": "custom",
           "value": "%data.custom.gh.spellweaver.abilities.63.1%",
-          "small": true,
-          "subActions": [
-            {
-              "type": "element",
-              "value": "dark"
-            }
-          ]
+          "small": true
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ],
       "bottomActions": [
@@ -193,12 +191,12 @@
               "type": "range",
               "value": 4,
               "small": true
-            },
-            {
-              "type": "element",
-              "value": "light"
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "light"
         }
       ]
     },
@@ -316,14 +314,11 @@
         {
           "type": "custom",
           "value": "%data.custom.gh.spellweaver.abilities.66.1%",
-          "small": true,
-          "subActions": [
-            {
-              "type": "element",
-              "value": "ice",
-              "small": true
-            }
-          ]
+          "small": true
+        },
+        {
+          "type": "element",
+          "value": "ice"
         },
         {
           "type": "concatenation",
@@ -426,12 +421,12 @@
               "type": "jump",
               "value": "",
               "small": true
-            },
-            {
-              "type": "element",
-              "value": "air"
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "air"
         }
       ]
     },
@@ -709,12 +704,12 @@
               "enhancementTypes": [
                 "circle"
               ]
-            },
-            {
-              "type": "element",
-              "value": "light"
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "light"
         }
       ],
       "bottomActions": [
@@ -735,45 +730,39 @@
       "lost": true,
       "actions": [
         {
-          "type": "concatenation",
-          "value": "",
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
-            {
-              "type": "attack",
-              "value": 2,
-              "enhancementTypes": [
-                "diamond"
-              ],
-              "subActions": [
-                {
-                  "type": "range",
-                  "value": 3,
-                  "small": true
-                },
-                {
-                  "type": "condition",
-                  "value": "muddle",
-                  "small": true
-                },
-                {
-                  "type": "concatenation",
-                  "value": "",
-                  "subActions": [
-                    {
-                      "type": "element",
-                      "value": "ice"
-                    },
-                    {
-                      "type": "card",
-                      "value": "experience:2"
-                    }
-                  ]
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2"
+                }
+              ]
             }
           ]
         }
@@ -806,48 +795,44 @@
       "initiative": 67,
       "actions": [
         {
-          "type": "concatenation",
-          "value": 0,
+          "type": "attack",
+          "value": 1,
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "subActions": [
-                {
-                  "type": "range",
-                  "value": 3,
-                  "small": true
-                },
-                {
-                  "type": "element",
-                  "value": "fire",
-                  "valueType": "minus",
-                  "subActions": [
-                    {
-                      "type": "attack",
-                      "value": 2,
-                      "valueType": "add"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "value": "ice",
-                  "valueType": "minus",
-                  "subActions": [
-                    {
-                      "type": "condition",
-                      "value": "stun"
-                    }
-                  ]
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)",
               "enhancementTypes": [
                 "hex"
+              ]
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true
+                }
               ]
             }
           ]
@@ -1057,68 +1042,54 @@
       "lost": true,
       "actions": [
         {
-          "type": "concatenation",
-          "value": "",
+          "type": "attack",
+          "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
-              "type": "attack",
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
               "value": 3,
-              "enhancementTypes": [
-                "diamond"
-              ],
+              "small": true
+            },
+            {
+              "type": "grid",
+              "value": "3",
               "subActions": [
                 {
-                  "type": "range",
-                  "value": 3,
-                  "small": true
+                  "type": "element",
+                  "value": "air"
                 },
                 {
-                  "type": "concatenation",
-                  "value": "",
-                  "small": true,
-                  "subActions": [
-                    {
-                      "type": "element",
-                      "value": "air"
-                    },
-                    {
-                      "type": "element",
-                      "value": "ice"
-                    },
-                    {
-                      "type": "element",
-                      "value": "fire"
-                    }
-                  ]
+                  "type": "element",
+                  "value": "ice"
                 },
                 {
-                  "type": "concatenation",
-                  "value": "",
-                  "small": true,
-                  "subActions": [
-                    {
-                      "type": "element",
-                      "value": "earth"
-                    },
-                    {
-                      "type": "element",
-                      "value": "light"
-                    },
-                    {
-                      "type": "element",
-                      "value": "dark"
-                    }
-                  ]
+                  "type": "element",
+                  "value": "fire"
                 },
                 {
-                  "type": "card",
-                  "value": "experience:2"
+                  "type": "element",
+                  "value": "earth"
+                },
+                {
+                  "type": "element",
+                  "value": "light"
+                },
+                {
+                  "type": "element",
+                  "value": "dark"
                 }
               ]
             },
             {
-              "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+              "type": "card",
+              "value": "experience:2"
             }
           ]
         }
@@ -1129,13 +1100,11 @@
           "value": 2,
           "enhancementTypes": [
             "circle"
-          ],
-          "subActions": [
-            {
-              "type": "element",
-              "value": "wild"
-            }
           ]
+        },
+        {
+          "type": "element",
+          "value": "wild"
         }
       ]
     },
@@ -1159,12 +1128,12 @@
               "enhancementTypes": [
                 "circle"
               ]
-            },
-            {
-              "type": "element",
-              "value": "fire"
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
         }
       ],
       "bottomActions": [
@@ -1326,32 +1295,12 @@
       "lost": true,
       "actions": [
         {
-          "type": "concatenation",
-          "value": 0,
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
-            {
-              "type": "attack",
-              "value": 4,
-              "enhancementTypes": [
-                "diamond"
-              ],
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.81.1%",
-                  "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.81.2%",
-                  "small": true
-                },
-                {
-                  "type": "element",
-                  "value": "ice"
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,enhance)|(2,1,enhance)|(2,2,target)",
@@ -1359,6 +1308,15 @@
                 "hex",
                 "hex"
               ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.spellweaver.abilities.81.1%",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice"
             }
           ]
         }
@@ -1648,43 +1606,37 @@
       "lost": true,
       "actions": [
         {
-          "type": "concatenation",
-          "value": "",
+          "type": "attack",
+          "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
-            {
-              "type": "attack",
-              "value": 5,
-              "enhancementTypes": [
-                "diamond"
-              ],
-              "subActions": [
-                {
-                  "type": "range",
-                  "value": 2,
-                  "small": true,
-                  "enhancementTypes": [
-                    "circle"
-                  ]
-                },
-                {
-                  "type": "concatenation",
-                  "value": "",
-                  "subActions": [
-                    {
-                      "type": "element",
-                      "value": "ice"
-                    },
-                    {
-                      "type": "card",
-                      "value": "experience:2"
-                    }
-                  ]
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,3,target)|(0,4,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice"
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2"
+                }
+              ]
             }
           ]
         }
@@ -1747,55 +1699,34 @@
       "lost": true,
       "actions": [
         {
-          "type": "concatenation",
-          "value": "",
+          "type": "attack",
+          "value": 4,
           "subActions": [
             {
-              "type": "attack",
-              "value": 4,
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.spellweaver.abilities.86.1%",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
               "subActions": [
-                {
-                  "type": "range",
-                  "value": 3,
-                  "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.86.1%",
-                  "small": true
-                },
                 {
                   "type": "custom",
                   "value": "%data.custom.gh.spellweaver.abilities.86.2%",
                   "small": true
-                },
-                {
-                  "type": "element",
-                  "value": "dark",
-                  "valueType": "minus",
-                  "subActions": [
-                    {
-                      "type": "custom",
-                      "value": "%data.custom.gh.spellweaver.abilities.86.3%",
-                      "small": true
-                    },
-                    {
-                      "type": "custom",
-                      "value": "%data.custom.gh.spellweaver.abilities.86.4%",
-                      "small": true
-                    },
-                    {
-                      "type": "custom",
-                      "value": "%data.custom.gh.spellweaver.abilities.86.5%",
-                      "small": true
-                    }
-                  ]
                 }
               ]
-            },
-            {
-              "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
             }
           ]
         }
@@ -1803,7 +1734,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.spellweaver.abilities.86.6%",
+          "value": "%data.custom.gh.spellweaver.abilities.86.3%",
           "small": true,
           "subActions": [
             {
@@ -1815,7 +1746,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.spellweaver.abilities.86.7%",
+                  "value": "%data.custom.gh.spellweaver.abilities.86.4%",
                   "small": true
                 }
               ]

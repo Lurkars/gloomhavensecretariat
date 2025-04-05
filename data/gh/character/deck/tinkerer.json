@@ -223,11 +223,6 @@
               "small": true
             },
             {
-              "type": "custom",
-              "value": "%data.custom.gh.tinkerer.abilities.34.2%",
-              "small": true
-            },
-            {
               "type": "element",
               "value": "dark",
               "small": true
@@ -276,11 +271,6 @@
             {
               "type": "custom",
               "value": "%data.custom.gh.tinkerer.abilities.35.1%",
-              "small": true
-            },
-            {
-              "type": "custom",
-              "value": "%data.custom.gh.tinkerer.abilities.35.2%",
               "small": true
             }
           ]
@@ -1005,11 +995,6 @@
               "type": "custom",
               "value": "%data.custom.gh.tinkerer.abilities.51.2%",
               "small": true
-            },
-            {
-              "type": "custom",
-              "value": "%data.custom.gh.tinkerer.abilities.51.3%",
-              "small": true
             }
           ]
         }
@@ -1023,47 +1008,21 @@
       "lost": true,
       "actions": [
         {
-          "type": "concatenation",
-          "value": "",
+          "type": "custom",
+          "value": "%data.custom.gh.tinkerer.abilities.52.1%",
+          "small": true,
           "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.gh.tinkerer.abilities.52.1%",
-              "small": true,
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh.tinkerer.abilities.52.2%",
-                  "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh.tinkerer.abilities.52.3%",
-                  "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh.tinkerer.abilities.52.4%",
-                  "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh.tinkerer.abilities.52.5%",
-                  "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh.tinkerer.abilities.52.6%",
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,3,target)|(0,4,active)|(1,1,target)|(1,2,target)|(2,0,enhance)",
               "enhancementTypes": [
                 "hex"
               ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.tinkerer.abilities.52.2%",
+              "small": true
             }
           ]
         }

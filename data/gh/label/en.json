@@ -1032,8 +1032,7 @@
             "1": "All enemies adjacent to the target suffer 2 damage, %game.card.experience:1%."
           },
           "81": {
-            "1": "Gain %game.card.experience:1% for each",
-            "2": "enemy targeted"
+            "1": "Gain %game.card.experience:1% for each enemy targeted"
           },
           "82": {
             "1": "Recover %game.card.recover% up to two of your lost cards."
@@ -1046,13 +1045,10 @@
             "1": "On the next three sources of damage from attacks targeting you, suffer no damage instead and gain %game.action.retaliate:3%, %game.action.range:3%."
           },
           "86": {
-            "1": "Gain %game.card.experience:1% for each",
-            "2": "enemy targeted",
-            "3": "Kill all normal",
-            "4": "enemies in the",
-            "5": "targeted area.",
-            "6": "Choose a hex within %game.action.range:4%.",
-            "7": "Target all enemies within %game.action.range:4% of the chosen hex and pull them toward it"
+            "1": "Gain %game.card.experience:1% for each enemy targeted",
+            "2": "Kill all normal enemies in the targeted area.",
+            "3": "Choose a hex within %game.action.range:4%.",
+            "4": "Target all enemies within %game.action.range:4% of the chosen hex and pull them toward it"
           },
           "87": {
             "1": "Target all enemies in the same room as you",
@@ -1070,12 +1066,10 @@
             "2": "Gain %game.card.experience:2% when the trap is sprung by an enemy."
           },
           "34": {
-            "1": "Gain %game.card.experience:1% for each",
-            "2": "enemy targeted."
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
           },
           "35": {
-            "1": "Gain %game.card.experience:1% for each",
-            "2": "enemy targeted."
+            "1": "Gain %game.card.experience:1% for each enemy targeted."
           },
           "37": {
             "1": "One adjacent ally may Recover %game.card.recover% all of their discarded cards."
@@ -1100,16 +1094,11 @@
           },
           "51": {
             "1": "One adjacent ally may Refresh %game.card.refresh% one of their consumed %game.items.slots.small% items.",
-            "2": "Gain %game.card.experience:1% for each",
-            "3": "enemy targeted."
+            "2": "Gain %game.card.experience:1% for each enemy targeted."
           },
           "52": {
-            "1": "Kill all enemies in the",
-            "2": "targeted area whose",
-            "3": " current hit point value is",
-            "4": "equal to or less than 5.",
-            "5": "Gain %game.card.experience:1% for each",
-            "6": "enemy killed"
+            "1": "Kill all enemies in the targeted area whose current hit point value is equal to or less than 5.",
+            "2": "Gain %game.card.experience:1% for each enemy killed"
           },
           "53": {
             "1": "Create one 4 damage %game.condition.muddle% trap in an adjacent empty hex.",
