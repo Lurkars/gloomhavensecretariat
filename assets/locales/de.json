@@ -404,6 +404,12 @@
       "removeSubAction": "Unter-Aktion entfernen",
       "small": "Kleiner",
       "subActions": "Unter-Aktionen",
+      "summon": {
+        "type": {
+          "monster": "Monster",
+          "summon": "Beschwörungsdaten"
+        }
+      },
       "type": "Aktionstyp",
       "value": "Aktionswert",
       "valueType": {
@@ -2174,6 +2180,10 @@
     "characterCompact": {
       "": "Kompaktes Charakterboard",
       "hint": "Zeige eine schmaleres Charakterboard an. (Aktuell keine Unterstützung für das Moderne Thema)"
+    },
+    "characterFullView": {
+      "": "Charakter Vollansicht",
+      "hint": "Doppelklick auf das Charaktericon um eine Vollansicht für den Charakter zu aktivieren."
     },
     "characterHandSize": {
       "": "Handkartenanzahl und Stufe anzeigen",
