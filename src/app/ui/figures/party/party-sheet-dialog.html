@@ -392,9 +392,10 @@
           <div class="stickers ignore-denied"
             [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
             <div class="sticker" *ngFor="let sticker of party.campaignStickers; let index = index">
-              <span class="text" *ngIf="!campaignStickerImage(sticker,index)" [ghs-label]="'data.campaignSticker.' + sticker"></span>
+              <span class="text" *ngIf="!campaignStickerImage(sticker,index)"
+                [ghs-label]="'data.campaignSticker.' + sticker"></span>
               <img *ngIf="campaignStickerImage(sticker,index)" class="image" [src]="campaignStickerImage(sticker,index)"
-              [ghs-tooltip]="'data.campaignSticker.' + sticker">
+                [ghs-tooltip]="'data.campaignSticker.' + sticker">
               <img class="remove" src="./assets/images/minus.svg" (click)="removeCampaignSticker(sticker)">
             </div>
           </div>
@@ -556,7 +557,7 @@
                   </span>
                   <span class="scenario-title">
                     <span *ngIf="scenarioData.named"
-                      [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData)"></span>
+                      [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenarioData,true)"></span>
                     <span *ngIf="scenarioData.parent"
                       [ghs-label]="'%data.scenarioNumber:' + scenarioData.parent + '%'"></span>
                   </span>

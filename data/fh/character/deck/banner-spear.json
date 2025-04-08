@@ -15,7 +15,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "allies"
+              "value": "allies",
+              "small": true
             }
           ]
         },
@@ -45,6 +46,7 @@
               "move"
             ]
           },
+          "small": true,
           "subActions": [
             {
               "type": "custom",
@@ -89,6 +91,7 @@
           "value": "summonData",
           "valueObject": {
             "name": "banner-of-strength",
+            "thumbnail": true,
             "health": 3,
             "action": {
               "type": "custom",
@@ -98,7 +101,8 @@
             "enhancements": [
               "heal"
             ]
-          }
+          },
+          "small": true
         }
       ],
       "xp": 1,

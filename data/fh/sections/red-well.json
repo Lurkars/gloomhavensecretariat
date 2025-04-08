@@ -1,0 +1,20 @@
+{
+  "index": "red-well",
+  "name": "\"Red Well\" Campaign Sticker",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "hideIndex": true,
+  "rewards": {
+    "overlayCampaignSticker": {
+      "name": "red-well",
+      "location": "G",
+      "coordinates": {
+        "x": 1049.18,
+        "y": 2292.25,
+        "width": 73,
+        "height": 83
+      }
+    }
+  }
+}

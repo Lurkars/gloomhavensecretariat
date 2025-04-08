@@ -1,8 +1,12 @@
 <div class="summon-container" *ngIf="hasSummon"
     [ngClass]="{'action' : summon.action,  'additional' : summon.additionalAction || additional, 'item': item, 'fh' : fhStyle}">
     <span *ngIf="!!summonData && summonData.thumbnail" class="thumbnail">
-        <img
+        <img *ngIf="!fhStyle"
             [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'">
+        <span *ngIf="fhStyle" class="thumbnail-border">
+            <img
+                [src]="summonData.thumbnailUrl || './assets/images/summons/thumbnail//' + summonData.edition + '-' + summonData.name + '.png'">
+        </span>
     </span>
     <span class="name">
         <ng-container *ngIf="!summonData">

@@ -29,7 +29,8 @@
             "allowedCommonJsDependencies": [
               "autocompleter",
               "leaflet",
-              "mermaid"
+              "mermaid",
+              "debug"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",

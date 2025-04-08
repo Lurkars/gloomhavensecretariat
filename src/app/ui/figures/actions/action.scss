@@ -150,6 +150,15 @@
     align-items: center;
   }
 
+  .action-specialTarget .special-target-value {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin: 0 0.5em;
+    }
+  }
+
   .action-custom ghs-action-enhancements {
     margin-top: 0.4em;
   }
@@ -651,7 +660,7 @@
 
     &.card-concat {
       margin-bottom: 0.4em;
-      
+
       .subaction-card {
         margin-bottom: -0.4em;
       }
@@ -782,7 +791,7 @@
       justify-content: center;
       align-items: center;
       padding: 0.3em;
-      border-right: 0.1em solid var(--ghs-color-white);
+      border-right: 0.1em solid var(--ghs-ability-color);
 
       .value {
         font-size: 1.5em;
@@ -809,7 +818,7 @@
       background-color: var(--ghs-color-black);
       opacity: 0.5;
       z-index: 0;
-      border: 0.1em solid var(--ghs-color-white);
+      border: 0.1em solid var(--ghs-ability-color);
       border-radius: 0.5em;
     }
   }

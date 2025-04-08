@@ -86,6 +86,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
         if (this.conclusionOnly) {
             this.conclusion = this.scenario;
             this.success = true;
+            gameManager.game.finish = undefined;
             if (this.conclusion.repeatable || gameManager.game.party.conclusions.find((conclusion) => conclusion.index == this.scenario.index && conclusion.edition == this.scenario.edition && conclusion.group == this.scenario.group)) {
                 this.rewardsOnly = true;
             }

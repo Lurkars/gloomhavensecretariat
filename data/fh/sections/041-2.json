@@ -3,6 +3,7 @@
   "name": "Ice Floes",
   "edition": "fh",
   "parent": "22",
+  "marker": "a",
   "monsters": [
     "lightning-eel",
     "lurker-clawcrusher",

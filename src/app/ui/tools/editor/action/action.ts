@@ -74,14 +74,9 @@ export class EditorActionComponent implements OnInit {
         this.HalfElementsLeft = this.Elements.filter((e) => e != Element.wild && (!this.subValue || e != this.subValue as Element));
         this.HalfElementsRight = this.Elements.filter((e) => e != Element.wild && (!this.value || e != this.value as Element));
       }
-    } else if (this.action.type == ActionType.summon && this.action.value) {
+    } else if (this.action.type == ActionType.summon && this.action.valueObject) {
       try {
-        let value = JSON.parse(this.action.value + '');
-        if (typeof value != 'string') {
-          this.summon = new SummonData(value.name, value.health, value.attack, value.movement, value.range, value.flying, value.action, value.additionalAction);
-        } else {
-          throw Error("fallback");
-        }
+        this.summon = Object.assign(new SummonData('', '', '', 0, 0, 0, 0, false), this.action.valueObject);
       } catch (e) {
         this.summon = undefined;
         const summonValue = (this.action.value + '').split(':');
@@ -335,7 +330,8 @@ export class EditorActionComponent implements OnInit {
       this.changeSummonMonster();
     } else if (event.target.value == 'summon') {
       this.summon = new SummonData("", "", "", 0, 0, 0, 0, false);
-      this.action.value = JSON.stringify(this.summon);
+      this.action.value = 'summonData';
+      this.action.valueObject = this.summon;
     }
   }
 
@@ -346,7 +342,7 @@ export class EditorActionComponent implements OnInit {
 
   changeSummon() {
     if (this.summon) {
-      this.action.value = JSON.stringify(this.summon);
+      this.action.valueObject = this.summon;
     }
     gameManager.uiChange.emit();
   }

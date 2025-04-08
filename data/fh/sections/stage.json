@@ -1,0 +1,20 @@
+{
+  "index": "stage",
+  "name": "\"Stage\" Campaign Sticker",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "hideIndex": true,
+  "rewards": {
+    "overlayCampaignSticker": {
+      "name": "stage",
+      "location": "H",
+      "coordinates": {
+        "x": 1732.375,
+        "y": 2167.375,
+        "width": 121,
+        "height": 111
+      }
+    }
+  }
+}

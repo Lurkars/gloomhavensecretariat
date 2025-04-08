@@ -404,6 +404,12 @@
       "removeSubAction": "Remove Sub-action",
       "small": "Smaller",
       "subActions": "Subactions",
+      "summon": {
+        "type": {
+          "monster": "Monster",
+          "summon": "Summon Data"
+        }
+      },
       "type": "Action Type",
       "value": "Action Value",
       "valueType": {
@@ -2174,6 +2180,10 @@
     "characterCompact": {
       "": "Compact Character Boards",
       "hint": "Display narrow character board. (currently not supported on modern theme)"
+    },
+    "characterFullView": {
+      "": "Character Full View",
+      "hint": "Double click on Character icon to display a standalone view for the character."
     },
     "characterHandSize": {
       "": "Display hand size and level",

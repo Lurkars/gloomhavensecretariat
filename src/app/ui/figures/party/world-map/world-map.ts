@@ -1,19 +1,21 @@
 import { DIALOG_DATA, Dialog, DialogRef } from "@angular/cdk/dialog";
 import { AfterViewInit, Component, HostListener, Inject, ViewEncapsulation } from "@angular/core";
 import L, { ImageOverlay, LatLngBounds, LatLngBoundsLiteral } from 'leaflet';
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { BuildingData } from "src/app/game/model/data/BuildingData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { WorldMapCoordinates } from "src/app/game/model/data/WorldMap";
+import { Scenario } from "src/app/game/model/Scenario";
 import { ScenarioChartPopupDialog } from "src/app/ui/figures/party/scenario-chart/popup/scenario-chart-popup";
 import { ScenarioChartDialogComponent } from "src/app/ui/figures/party/scenario-chart/scenario-chart";
+import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/summary/scenario-summary";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { PartySheetDialogComponent } from "../party-sheet-dialog";
-import { Subscription } from "rxjs";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-world-map',
     templateUrl: './world-map.html',
     styleUrls: ['./world-map.scss',],
@@ -211,7 +213,7 @@ export class WorldMapComponent implements AfterViewInit {
                 }
             })
 
-            this.conclusions.forEach((sectionData) => {
+            this.conclusions.forEach((sectionData, i) => {
                 const success = gameManager.game.party.conclusions.find((model) => model.edition == sectionData.edition && model.index == sectionData.index && model.group == sectionData.group);
 
                 if (!gameManager.game.party.campaignMode || success) {
@@ -224,6 +226,22 @@ export class WorldMapComponent implements AfterViewInit {
                         if (element) {
                             element.classList.add('building');
                         }
+
+                        overlayCampaignSticker.on('click', () => {
+                            const conclusion: ScenarioData = this.conclusions[i];
+                            let scenarioData: ScenarioData | undefined;
+                            if (conclusion.parent) {
+                                scenarioData = gameManager.scenarioData(conclusion.edition).find((scenarioData) => scenarioData.edition == conclusion.edition && scenarioData.group == conclusion.group && scenarioData.index == conclusion.parent);
+                            }
+                            this.dialog.open(ScenarioSummaryComponent, {
+                                panelClass: ['dialog'],
+                                data: {
+                                    scenario: new Scenario(scenarioData || conclusion),
+                                    conclusion: conclusion,
+                                    conclusionOnly: true
+                                }
+                            });
+                        });
                     }
 
                     if (sectionData.rewards && sectionData.rewards.overlaySticker) {

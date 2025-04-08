@@ -247,12 +247,12 @@
       [cardId]="cardId" [monsterType]="monsterType" [character]="character" [cardId]="cardId"
       [style]="style"></ghs-action-summon>
     <ng-container *ngIf="subActions.length > 0">
-      <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;" [action]="subAction"
+      <ghs-action [ngClass]="'subaction-' + subActions[index+(hasAOE ? 1 : 0)].type"
+        *ngFor="let index of [] | ghsRange:subActions.length" [action]="subActions[index+(hasAOE ? 1 : 0)]"
         [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
         (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
-        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subActions[index+(hasAOE ? 1 : 0)])"
         [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </ng-container>

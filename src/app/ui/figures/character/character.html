@@ -57,10 +57,10 @@
 
   <div class="stats">
     <ng-container *ngIf="!character.absent">
-      <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+      <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"
         (doubleClick)="compact && openCharacterSheet()"></div>
       <div class="column col-1">
-        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"
           (doubleClick)="compact && openCharacterSheet()"></div>
         <span class="title-bar">
           <span class="title" #characterName>
@@ -73,7 +73,7 @@
             </span>
 
             <ghs-character-initiative *ngIf="compact" [figure]="character"></ghs-character-initiative>
-            <span class="name" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+            <span class="name" ghs-pointer-input (singleClick)="openEntityMenu()"
               (doubleClick)="compact && openCharacterSheet()">
               {{characterTitle}}
               <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
@@ -81,24 +81,24 @@
           </span>
 
           <span class="actions" *ngIf="settingsManager.settings.characterShieldRetaliate">
-            <span class="action" *ngIf="character.shield" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+            <span class="action" *ngIf="character.shield" ghs-pointer-input (singleClick)="openEntityMenu()"
               (doubleClick)="removeShield()">
               <ghs-action [action]="character.shield" [style]="'fh'"></ghs-action>
             </span>
             <span class="action" *ngFor="let retaliate of character.retaliate; let i = index;" ghs-pointer-input
-              (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliate(i)">
+              (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliate(i)">
               <ghs-action [action]="retaliate" [style]="'fh'"></ghs-action>
             </span>
 
-            <span class="action" *ngIf="character.shieldPersistent" ghs-pointer-input
-              (singleClick)="openEntityMenu($event)" (doubleClick)="removeShieldPersistent()">
+            <span class="action" *ngIf="character.shieldPersistent" ghs-pointer-input (singleClick)="openEntityMenu()"
+              (doubleClick)="removeShieldPersistent()">
               <span class="action-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
               </span>
               <ghs-action [action]="character.shieldPersistent" [style]="'fh'"></ghs-action>
             </span>
             <span class="action" *ngFor="let retaliatePersistent of character.retaliatePersistent; let i = index;"
-              ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="removeRetaliatePersistent(i)">
+              ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeRetaliatePersistent(i)">
               <span class="action-overlay">
                 <span class="text-white" [ghs-label]="'%game.card.persistent%'"></span>
               </span>
@@ -128,7 +128,7 @@
             <div class="health" *ngIf="!settingsManager.settings.hideCharacterHP" [ghs-label]="'game.health'"
               [ghs-label-attribute]="'title'" ghs-pointer-input (dragMove)="dragHpMove($event)"
               (dragEnd)="dragHpEnd($event)" (dragCancel)="dragCancel($event)" [relative]="true" [screenWidth]="true"
-              [fastShift]="true" (singleClick)="openEntityMenu($event)" (doubleClick)="toggleDamageHP()">
+              [fastShift]="true" (singleClick)="openEntityMenu()" (doubleClick)="toggleDamageHP()">
               <img [ngClass]="{'damage' : settingsManager.settings.damageHP}"
                 [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
               <span *ngIf="!settingsManager.settings.damageHP">
@@ -172,7 +172,7 @@
     </ng-container>
 
     <ng-container *ngIf="character.absent">
-      <div *ngIf="character.absent" class="absent-menu" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+      <div *ngIf="character.absent" class="absent-menu" ghs-pointer-input (singleClick)="openEntityMenu()"
         (doubleClick)="compact && openCharacterSheet()"></div>
       <div class="title absent" #characterName>
         <span class="icon">
@@ -186,7 +186,7 @@
     <span class="spacer"></span>
 
     <ng-container *ngIf="!character.absent">
-      <span class="spacer" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+      <span class="spacer" ghs-pointer-input (singleClick)="openEntityMenu()"
         (doubleClick)="compact && openCharacterSheet()"></span>
 
       <div class="loot-cards-button"
@@ -230,7 +230,7 @@
       <div class="bb-spacer" *ngIf="bb"></div>
 
       <div class="summon-dialog" *ngIf="!bb && settingsManager.settings.summons">
-        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"
           (doubleClick)="compact && openCharacterSheet()"></div>
         <a #summonButton class="summon-dialog-button" ghs-pointer-input (singleClick)="openSummonDialog($event)"
           [ghs-label]="'summon'" [ghs-label-attribute]="'title'">
@@ -239,14 +239,14 @@
       </div>
 
       <div class="short-menu" *ngIf="compact && short">
-        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"></div>
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"></div>
         <a class="toggle-menu" ghs-pointer-input (singleClick)="shortMenu=!shortMenu">
           <img class="ghs-svg" src="./assets/images/menu.svg">
         </a>
       </div>
 
       <div class="column col-2">
-        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+        <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"
           (doubleClick)="compact && openCharacterSheet()"></div>
         <span class="experience" *ngIf="!bb && !settingsManager.settings.hideCharacterXP"
           [ghs-label]="'game.experience'" [ghs-label-attribute]="'title'" ghs-pointer-input
@@ -270,13 +270,13 @@
 
     <a *ngIf="!bb" class="character-sheet-button" [ghs-label]="'character.progress'" [ghs-label-attribute]="'title'"
       [ngClass]="{'hand-size-margin' : settingsManager.settings.characterHandSize}" ghs-pointer-input
-      (singleClick)="settingsManager.settings.characterSheet ? openCharacterSheet() : openEntityMenu($event)"
+      (singleClick)="settingsManager.settings.characterSheet ? openCharacterSheet() : openEntityMenu()"
       (doubleClick)="characterFullView()">
       <img [src]="character.iconUrl" />
     </a>
 
     <div *ngIf="!character.bb && settingsManager.settings.characterHandSize && !character.absent" class="hand-size"
-      ghs-pointer-input (singleClick)="openEntityMenu($event)" (doubleClick)="openAbilityCards()">
+      ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="openAbilityCards()">
       {{character.handSize}}
     </div>
 
@@ -295,7 +295,7 @@
 
 
     <div *ngIf="settingsManager.settings.characterTraits && !character.absent && character.traits.length > 0"
-      class="character-traits" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+      class="character-traits" ghs-pointer-input (singleClick)="openEntityMenu()"
       (doubleClick)="compact && openCharacterSheet()">
       <span class="icon"><img class="ghs-svg" src="./assets/images/fh/character/traits/trait.svg"></span>
       <ng-container *ngFor="let trait of character.traits; let i = index;">
@@ -307,12 +307,11 @@
     </div>
 
     <div class="special-actions" *ngIf="character.specialActions">
-      <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu($event)"
+      <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"
         (doubleClick)="compact && openCharacterSheet()"></div>
       <ng-container *ngFor="let specialAction of specialActions; let i = index">
         <span class="special-tag text-white" [ghs-label]="'data.character.' + character.name + '.' + specialAction.name"
-          ghs-pointer-input (singleClick)="openEntityMenu($event)"
-          (doubleClick)="removeSpecialAction(specialAction.name)"
+          ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="removeSpecialAction(specialAction.name)"
           [ghs-tooltip]="'data.character.' + character.name + '.' + specialAction.name + '.hint'" [originY]="'top'"
           [overlayY]="'bottom'" [originX]="'center'" [overlayX]="'center'"></span>
         <span class="separator" *ngIf="i < specialActions.length - 1 && specialActions.length > 1">|</span>

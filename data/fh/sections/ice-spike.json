@@ -1,0 +1,20 @@
+{
+  "index": "ice-spike",
+  "name": "\"Ice Spiker\" Campaign Sticker",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "hideIndex": true,
+  "rewards": {
+    "overlayCampaignSticker": {
+      "name": "ice-spike",
+      "location": "D",
+      "coordinates": {
+        "x": 1314.45,
+        "y": 1801.76,
+        "width": 40,
+        "height": 123
+      }
+    }
+  }
+}

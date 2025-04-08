@@ -226,7 +226,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       gameManager.stateManager.after();
       event.preventDefault();
     } else {
-      this.openEntityMenu(event);
+      this.openEntityMenu();
     }
   }
 
@@ -358,7 +358,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.token = 0;
   }
 
-  openEntityMenu(event: any): void {
+  openEntityMenu(): void {
     this.dialog.open(EntityMenuDialogComponent, {
       panelClass: ['dialog'],
       data: {
@@ -447,14 +447,20 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   characterFullView() {
-    gameManager.game.figures.forEach((figure) => {
-      if (figure instanceof Character) {
-        figure.fullview = false;
-      }
-    });
-    this.character.fullview = true;
-    gameManager.stateManager.saveLocal();
-    gameManager.uiChange.emit();
+    if (settingsManager.settings.characterFullView) {
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          figure.fullview = false;
+        }
+      });
+      this.character.fullview = true;
+      gameManager.stateManager.saveLocal();
+      gameManager.uiChange.emit();
+    } else if (settingsManager.settings.characterSheet) {
+      this.openCharacterSheet();
+    } else {
+      this.openEntityMenu();
+    }
   }
 
 

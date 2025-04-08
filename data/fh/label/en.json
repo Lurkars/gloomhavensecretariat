@@ -1199,6 +1199,7 @@
     }
   },
   "campaignSticker": {
+    "blue-well": "Blue Well",
     "boat": "Boat",
     "brummix": "Brummix",
     "bug-in-a-jar": "Bug in a Jar",
@@ -1214,9 +1215,13 @@
     "friend-of-the-frostspeakers": "Friend of the Frostspeaker",
     "friend-of-the-icespeakers": "Friend of the Icespeakers",
     "friend-of-the-snowspeakers": "Friend of the Snowspeakers",
+    "ice-spike": "Ice Spike",
     "into-the-forest": "Into the Forest",
+    "portcullis": "Portcullis",
+    "red-well": "Red Well",
     "shard-seeker": "Shard Seeker",
     "sled": "Sled",
+    "stage": "Stage",
     "statue": "Statue",
     "uncharged-core": "Uncharged Core",
     "unfettered-allies": "Unfettered Allies",
@@ -2614,6 +2619,8 @@
         "99-2": "Infiltrating the Lair",
         "99-3": "%game.characterIconColored.kelp% Retires",
         "99-4": "Call of the Harbinger",
+        "blue-well": "\"Blue Well\" Campaign Sticker",
+        "portcullis": "\"Portcullis\" Campaign Sticker",
         "randomMonsterCard-891": "Smashing",
         "randomMonsterCard-892": "Stormy",
         "randomMonsterCard-893": "Territorial",
@@ -2637,7 +2644,9 @@
         "randomMonsterCard-911": "Grave",
         "randomMonsterCard-912": "Luminous",
         "randomMonsterCard-913": "Scorching",
-        "randomMonsterCard-914": "Swift"
+        "randomMonsterCard-914": "Swift",
+        "red-well": "\"Red Well\" Campaign Sticker",
+        "stage": "\"Stage\" Campaign Sticker"
       }
     }
   }

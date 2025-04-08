@@ -99,6 +99,7 @@ export class ActionSummonComponent implements OnChanges, OnDestroy {
           this.summonData.edition = this.monster.edition;
         }
       }
+      this.action.small = true;
     }
   }
 

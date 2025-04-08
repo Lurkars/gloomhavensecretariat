@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [style.--ghs-ability-color]="abilityColor">
     <ghs-header [standalone]="true" *ngIf="standalone"></ghs-header>
 
     <div class="columns">
@@ -19,6 +19,11 @@
                         <ng-container *ngIf="!character && !monster">
                             <label><span [ghs-label]="'editor.deck.character'"></span></label>
                             <input type="checkbox" [(ngModel)]="deckData.character" (change)="deckDataToJson()">
+                            <ng-container *ngIf="deckData.character">
+                                <label><span [ghs-label]="'editor.character.data.color'"></span></label>
+                                <input [(ngModel)]="abilityColor" type="color"
+                                    [ghs-label]="'editor.character.data.color'" [ghs-label-attribute]="'placeholder'">
+                            </ng-container>
                         </ng-container>
                     </div>
                 </div>

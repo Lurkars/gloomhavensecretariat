@@ -1439,7 +1439,7 @@
           .scenario {
             position: relative;
             display: grid;
-            grid-template-columns: 0.3fr 0.7fr 2fr 1fr;
+            grid-template-columns: 0.7fr 0.7fr 2fr 1fr;
             text-align: left;
             width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
             max-width: 100%;

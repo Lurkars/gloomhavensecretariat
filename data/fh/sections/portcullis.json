@@ -1,0 +1,20 @@
+{
+  "index": "portcullis",
+  "name": "\"Portcullis\" Campaign Sticker",
+  "edition": "fh",
+  "conclusion": true,
+  "named": true,
+  "hideIndex": true,
+  "rewards": {
+    "overlayCampaignSticker": {
+      "name": "portcullis",
+      "location": "E",
+      "coordinates": {
+        "x": 1086.57,
+        "y": 1913.73,
+        "width": 283,
+        "height": 112
+      }
+    }
+  }
+}

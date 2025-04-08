@@ -82,6 +82,7 @@ export class DeckEditorComponent implements OnInit {
     encodeURIComponent = encodeURIComponent;
     deckData: DeckData;
     deckError: any;
+    abilityColor: string = "#aaaaaa";
 
     constructor(private dialog: Dialog, private route: ActivatedRoute, private router: Router) {
         this.deckData = new DeckData();
@@ -372,6 +373,10 @@ export class DeckEditorComponent implements OnInit {
             characterData.iconUrl = './assets/images/warning.svg';
             for (let i = 0; i < 9; i++) {
                 characterData.stats.push(new CharacterStat(i, i));
+            }
+            characterData.color = this.abilityColor;
+            if (this.edition) {
+                characterData.edition = this.edition;
             }
             return new Character(characterData, 1);
         }
