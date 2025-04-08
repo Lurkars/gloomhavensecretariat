@@ -251,6 +251,7 @@
     "remove": "캐릭터 제거",
     "removeAll": "전부 제거",
     "replay": {
+      "": "은퇴 취소",
       "hint": "두 번 클릭하여 캐릭터를 다시 플레이"
     },
     "setAside": "캐릭터를 치워두기로 설정",
@@ -691,7 +692,7 @@
       },
       "heal": {
         "": "치료",
-        "hint": ""
+        "hint": "상태이상이 없을 때, 체력을 늘려%game.action.heal%를 적용해야하는 경우 도움이 됩니다."
       },
       "immobilize": {
         "": "이동불가",
@@ -763,7 +764,7 @@
       "disadvantage": "공격자 불이익 획득",
       "instead": "대신",
       "math": {
-        "ceil": "(소수점 이하 올림)",
+        "ceil": "(올림)",
         "floor": "(소수점 이하 내림)",
         "max": ", 최대 %game.number.{0}%",
         "maxCeil": "(올림), 최대 %game.number.{0}%",
@@ -1063,6 +1064,7 @@
       "ally": "%game.target% 아군 하나 대상",
       "allyAdjacent": "%game.target% 인접한 아군 하나 대상",
       "allyAffect": "%game.affect% 아무 아군 하나에게 영향",
+      "allyAffectAdjacent": "%game.affect%인접한 아군 하나",
       "allyAffectRange": "%game.affect% 사정거리 %game.action.range% {0} 내의 아군 하나에게 영향",
       "allyShort": "아군",
       "enemies": "%game.target% 모든 적 대상",
@@ -1086,6 +1088,7 @@
       "selfAllies": "자신 및 모든 아군",
       "selfAlliesAdjacentAffect": "%game.affect% 자신 및 인접한 모든 아군에게 영향",
       "selfAlliesAffect": "%game.affect% 자신 및 모든 아군에게 영향",
+      "selfAlliesAffectRange": "%game.affect%자신 및%game.action.range% {0}내의 모든 아군",
       "selfAlliesRange": "%game.target% 자신 및 사정거리 %game.action.range% {0} 내에 있는 모든 아군에게 영향",
       "selfOrAlly": "자신 또는 아군",
       "targets": "모든 대상"
@@ -1526,7 +1529,8 @@
       "calendarSection": {
         "": "섹션 연결",
         "add": {
-          "": "%number.{1}%주 안에 %data.section:{0}% 추가."
+          "": "%number.{1}%주 안에 %data.section:{0}% 추가.",
+          "next": "%numbered.{1}%주의 다음%party.campaign.sheet.{2}%에%data.section:{0}%을 추가합니다."
         }
       },
       "campaignSticker": "캠페인 스티커",
@@ -1632,6 +1636,9 @@
       "hide": "다시 표시하지 않음",
       "openRoom": "문 열기",
       "openRoomMarker": "%game.mapMarker.{0}% 위치의 문 열기",
+      "show": {
+        "": "시나리오 규칙 보기"
+      },
       "spawn": "{2}%game.monsterType.{1}% %data.monster.{0}% 출현",
       "spawnMarker": "%game.mapMarker.{3}% 위치에 {2}%game.monsterType.{1}% %data.monster.{0}% 출현",
       "spawnObjective": "목표 대상 '{0}' 출현",
@@ -1864,12 +1871,20 @@
       "auto": {
         "": "자동 적용",
         "hint": {
-          "": "특정 상태를 적용하려면 확인이 필요합니다. 예를 들어, 중독 상태에서 체력을 감소시키면 추가로 체력 1을 잃습니다."
+          "": "상태이상 효과를 자동으로 적용합니다.<br><br>이 기능을 활성화 할 때 주의하세요!",
+          "brittle": "%game.condition.brittle%상태에서 피해를 입을 때, 자동으로 추가 피해를 입습니다.<br><br>%game.condition.poison%은 자동으로 적용되지 않습니다!",
+          "heal": "HP가 증가하면 %game.action.heal%시 제거되는 부정적 상태이상을 자동으로 제거합니다.",
+          "shield": "피해를 입을 때, 공격 수치를 자동으로%game.action.shield%X만큼 줄입니다.",
+          "ward": "%game.condition.ward%상태에서 피해를 입을 때, 자동으로 피해량이 줄어듭니다.<br><br>%game.condition.poison%은 자동으로 적용되지 않습니다!"
         }
       },
       "hint": {
         "": "중독으로 체력을 감소시키는 경우와 같이 특정 조건을 적용하려면 확인이 필요합니다.<br>체력 1 감소 확인",
-        "brittle": "피해를 입을 때, %game.condition.brittle%을 적용하여 피해를 입습니다."
+        "brittle": "피해를 입을 때, %game.condition.brittle%을 적용하여 피해를 입습니다.",
+        "poison": "%game.condition.poison%상태에서 피해를 입을 때, %game.action.attack% +1(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
+        "poison_x": "%game.condition.poison_x:X%상태에서 피해를 입을 때, %game.action.attack% +X(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
+        "shield": "피해를 입을 때,%game.action.shield%를 적용해야하는 경우에 도움이 됩니다.",
+        "ward": "피해를 입을 때, %game.condition.ward%를 적용하여 피해를 감소시킵니다."
       }
     },
     "activeStandees": {
@@ -2170,7 +2185,7 @@
       "hint": "대화상자로 오류창을 보여줍니다."
     },
     "fhChallenges": {
-      "": "도전",
+      "": "도전 지원",
       "hint": "(가능하다면) 도전 덱에서 도전 카드를 뽑고 자동으로 적용."
     },
     "fhChallengesApply": {
@@ -2178,15 +2193,16 @@
       "hint": "(가능한 경우) 활성화된 도전 카드를 자동으로 적용."
     },
     "fhGarden": {
-      "": "정원 시스템 지원"
+      "": "텃밭 도우미",
+      "hint": "약초 심기 및 수확 (건물 24 텃밭)"
     },
     "fhGhItems": {
       "": "글룸헤이븐 아이템 추가",
       "hint": "규칙에 명시된 대로 글룸헤이븐 및 잊힌 비술의 아이템을 사용 가능한 보급품에 추가합니다. (활성화된 캐릭터 시트 또는 캐릭터 아이템 한정)"
     },
     "fhPets": {
-      "": "펫 지원",
-      "hint": "잡기 및 펫 매니저 (건물 88 해금 필요)"
+      "": "펫 도우미",
+      "hint": "펫 포획 및 관리 (건물 88 외양간)"
     },
     "fhRules": "항상 프로스트헤이븐 규칙을 적용",
     "fhSecondEdition": {
@@ -2198,15 +2214,20 @@
       "hint": "프로스트헤이븐 스타일로 변경합니다."
     },
     "fhTrials": {
+      "": "시련",
       "favors": {
-        "": "은총 시스템"
-      }
+        "": "은총 도우미",
+        "hint": "이벤트 효과 메뉴에서 선택 가능"
+      },
+      "hint": "각 캐릭터에 대한 시련 카드를 뽑습니다. 캐릭터 시트에 표시됩니다!"
     },
     "fhTrialsApply": {
+      "": "시련 적용",
       "favors": {
         "": "은총 적용",
-        "hint": "(가능할 경우) 은총 자동으로 적용."
-      }
+        "hint": "(가능할 경우) 자동으로 은총을 적용합니다."
+      },
+      "hint": "(가능할 경우) 자동으로 시련을 적용합니다."
     },
     "fontsize": {
       "": "능력 카드의 글씨 크기",
@@ -2272,7 +2293,8 @@
     },
     "interface": "인터페이스",
     "keyboardShortcuts": {
-      "": "키보드 단축키 활성화"
+      "": "키보드 단축키 활성화",
+      "hint": "키보드 단축키를 활성화 합니다."
     },
     "levelAdjustment": {
       "": "시나리오 레벨 조정"
@@ -2380,18 +2402,18 @@
     },
     "showFullAbilityCard": {
       "": "모든 능력 카드 보기",
-      "hint": "카드 제목을 포함하여 모든 능력 카드를 보여줍니다."
+      "hint": "카드 제목을 포함한 모든 능력 카드를 표시합니다."
     },
     "sortFigures": {
       "": "피규어 정렬",
-      "hint": "피규어를 자동으로 정렬합니다. 비활성화 시, 끌어다 놓기와 같은 방법으로 수동으로 순서를 설정하여야 합니다."
+      "hint": "피규어를 자동으로 정렬합니다. 비활성화 시, 수동으로 순서를 설정하여야 합니다."
     },
     "standeeShieldRetaliate": {
       "": "방어 및 반격",
       "hint": "소환물의 %game.action.shield% 및 %game.action.retaliate% 값을 추적합니다."
     },
     "standeeStats": {
-      "": "방어와 반격 값 표시",
+      "": "방어 및 반격 값 표시",
       "hint": "모든 몬스터 말 옆에 현재 %game.action.shield% 및 %game.action.retaliate% 값을 보여줍니다."
     },
     "standees": {
@@ -2404,24 +2426,28 @@
     },
     "stats": {
       "": "몬스터 능력치 카드",
-      "hint": "몬스터의 능력치 카드 표시."
+      "hint": "몬스터 능력 카드 표시."
     },
     "summons": {
-      "": "캐릭터 소환수",
-      "hint": "캐릭터의 소환수를 활성화 합니다."
+      "": "캐릭터 소환물",
+      "hint": "캐릭터 소환물을 활성화 합니다"
     },
-    "synced": "이러한 설정은 서버와 동기화됩니다!",
+    "synced": "이 설정은 서버와 동기화됩니다!",
+    "temporaryEnhancements": {
+      "": "한시적 향상",
+      "hint": "향상 비용을 줄이는 대신에 은퇴하며 모든 향상을 제거합니다. 프로스트헤이븐은 규칙서의 향상 비용 적용, 글룸헤이븐은 디지털 버전의 향상 비용 적용."
+    },
     "theme": {
       "": "테마",
       "bb": "버튼 앤 벅스 (%wip%)",
-      "default": "기본값",
+      "default": "기본 값",
       "fh": "프로스트헤이븐",
       "hint": "배경과 막대 및 글씨 유형을 선택합니다.",
       "modern": "모던 테마"
     },
     "tooltips": {
       "": "툴팁",
-      "hint": "툴팁 보기"
+      "hint": "툴팁 표시"
     },
     "treasures": {
       "": "방 보물 표시기",

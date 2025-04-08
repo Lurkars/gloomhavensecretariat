@@ -1,5 +1,13 @@
 {
   "character": {
+    "lightning": {
+      "blood-pact": {
+        "hint": "你的每个行动轮开始时自身承受 %game.damage:1%。"
+      },
+      "unbridled-power": {
+        "hint": "对你的治疗可以超出当前生命最大值，最多可达到 26 点，但是所有技能卡所描述的最大生命值仍然按照你当前等级所对应的最大生命值计算。"
+      }
+    },
     "sun": "执日士",
     "three-spears": "精数者"
   }

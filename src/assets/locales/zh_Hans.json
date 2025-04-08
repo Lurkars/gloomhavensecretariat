@@ -82,6 +82,11 @@
     "abilities": {
       "currentDeck": "当前牌堆",
       "deckWarning": "牌堆卡牌数量过多，无法进行正确选牌！",
+      "enhancements": {
+        "apply": "应用",
+        "baseCosts": "基础费用",
+        "costs": "总计"
+      },
       "forceDeck": "双击将卡牌添加到牌堆中",
       "levelWarning": "牌堆无效，部分卡牌等级高于角色等级！",
       "pickCard": "选择等级 {0} 卡牌",
@@ -161,8 +166,8 @@
       "donations": "向圣橡树庇护所捐赠: {0}",
       "export": "导出",
       "fh": {
-        "disable": "前往幽港迷城角色记录表",
-        "enable": "前往霜港迷城角色记录表"
+        "disable": "切换为幽港迷城角色记录表",
+        "enable": "切换为霜港迷城角色记录表"
       },
       "gold": "金币",
       "gold-notes": "金币记录",

@@ -1,14 +1,14 @@
 {
   "character": {
-    "bruiser": "拳击手",
-    "cragheart": "裂心石人",
+    "bruiser": "蛮子",
+    "cragheart": "裂心人",
     "mindthief": "乱心贼",
-    "silent-knife": "沉默之刃",
+    "silent-knife": "凶徒",
     "spellweaver": "织魔师",
     "tinkerer": "修补匠"
   },
   "edition": {
-    "bb": "问题反馈"
+    "bb": "纽扣与虫子"
   },
   "items": {
     "bb-1": {
