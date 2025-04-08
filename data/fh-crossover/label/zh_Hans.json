@@ -1,6 +1,14 @@
 {
   "character": {
     "brute": "蛮子",
+    "demolitionist": {
+      "": "爆裂拳手",
+      "mech": {
+        "hint": "你的生命值上限增加5点。治疗10%game.action.heal%，自己。"
+      }
+    },
+    "diviner": "占卜师",
+    "hatchet": "神斧客",
     "mindthief": "乱心贼",
     "red-guard": "赤红守卫",
     "scoundrel": "凶徒",
@@ -19,6 +27,14 @@
         "1": "<b>Earthquakes</b>每当一个新房间被揭示时，控制该房间中所有敌人执行 %game.action.move% 1， 该行动能力必须最后停止在空格",
         "2": "只攻击临近物体或墙壁的敌人",
         "3": "每回合至少对一个盟友造成伤害或治疗"
+      },
+      "demolitionist": {
+        "1": "<b>Remodeling</b> 每当你在与墙壁或障碍物相邻时休息，可在距离你%game.action.range%2格内的空六角格放置一个障碍物",
+        "2": "使用三种不同的攻击行动各造成不少于10点伤害",
+        "3": "摧毁至少6个障碍物。在完成剧本时，地图上除友方单位放置的障碍物外不存在任何其他障碍物"
+      },
+      "diviner": {
+        "1": "<b>Tip the Scales</b> 每当你进行休息时，你可以检视任意一个攻击修正牌堆的顶端卡牌，然后你可以%game.elementHalf.consume:dark|light%将其中一张卡牌置于牌堆底部"
       }
     }
   }

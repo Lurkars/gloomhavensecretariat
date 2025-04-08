@@ -130,7 +130,7 @@
     "Fire Whirl": "Fire Whirl",
     "Fireroot Sap'": "Fireroot Sap'",
     "Fiyuiufuyul": "Fiyuiufuyul",
-    "Flaming Axe": "Flaming Axe",
+    "Flaming Axe": "타오르는 도끼",
     "Flashover": "Flashover",
     "Flickering Lights": "Flickering Lights",
     "Floodlight": "Floodlight",
@@ -441,7 +441,9 @@
     "bandit-guard-hired-muscle": "강도 경비병 (고용된 용병)",
     "black-bear": "검은 곰",
     "blood-ooze": "핏빛 점액",
-    "bone-archer": "해골 궁수"
+    "bone-archer": "해골 궁수",
+    "flaming-drake": "타오르는 드레이크",
+    "frozen-cadaver": "얼어붙은 시체"
   },
   "scenario": {
     "title": {
