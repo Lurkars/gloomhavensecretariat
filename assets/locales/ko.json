@@ -882,7 +882,7 @@
       "startTurn": "차례 시작"
     },
     "health": "체력",
-    "hp": " ",
+    "hp": "HP",
     "initiative": "주도권",
     "item": "아이템",
     "items": {
@@ -890,15 +890,15 @@
       "add": "'{0}' 추가",
       "anyResource": "아무 %game.loot.{0}%",
       "brewing": {
-        "": "물약 추출",
-        "brew": "추출",
-        "brewFor": "{0}의 물약 추출",
-        "brewed": "{2}의 %game.itemFh.{0}% 물약 {1}병 추출",
-        "brewedOther": "{2}의 {3}에 대해 %game.itemFh.{0}% 물약 {1}병 추출",
-        "disabled": "포션을 제작할 수 없습니다, 우선 '%data.buildings.alchemist%' (35) 를 재건하세요",
+        "": "물약 조제",
+        "brew": "조제",
+        "brewFor": "{0}의 물약 조제",
+        "brewed": "{2}의 %game.itemFh.{0}% 물약 {1}병 조제",
+        "brewedOther": "{2}의 {3}에 대해 %game.itemFh.{0}% 물약 {1}개 추출",
+        "disabled": "물약을 조제할 수 없습니다. %data.buildings.alchemist%(35)를 재건하세요",
         "item": "{1} %game.itemFh.{0}%",
-        "noChar": "모든 캐릭터가 이미 물약을 소유하고 있습니다!",
-        "selectCharacter": "추출할 캐릭터 선택:"
+        "noChar": "모든 캐릭터가 이 물약을 소유하고 있습니다!",
+        "selectCharacter": "전달할 캐릭터 선택:"
       },
       "buy": "금화 {1}개로 '{0}' 구매",
       "character": {

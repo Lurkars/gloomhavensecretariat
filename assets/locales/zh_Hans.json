@@ -1983,8 +1983,8 @@
         "": "相应的状态在回合前后自动生效,例如当个体有负伤状态时,它将在其回合开始时损失1点生命值",
         "bane": "在回合结束时自动生效 %game.condition.bane% 伤害.",
         "regenerate": "在回合开始时自动生效 %game.condition.regenerate%.",
-        "wound": "在回合开始时自动生效 %game.condition.wound% 伤害.",
-        "wound_x": "在回合开始时自动生效 %game.condition.wound_x:X% 伤害."
+        "wound": "在回合结束时自动生效 %game.condition.wound% 伤害.",
+        "wound_x": "在回合结束时自动生效 %game.condition.wound_x:X% 伤害."
       }
     },
     "applyLongRest": {
@@ -2169,7 +2169,7 @@
     },
     "characterTraits": {
       "": "显示特性",
-      "hint": "显示角色人物面板上的特性."
+      "hint": "显示角色人物面板上的特性。"
     },
     "columns": {
       "": "列布局",
@@ -3192,7 +3192,7 @@
       "space": "SPACE",
       "tab": "↹",
       "toggelTab": "当抽牌后切换行动个体 / 当索敌确定后切换时序值",
-      "toggleAbsent": "切换 <i>隐藏不在场个体</i>",
+      "toggleAbsent": "切换 <i>Hide absent figures</i>",
       "toggleDamageHP": "切换 <i>%settings.damageHP%</i>",
       "toggleElements": "切换元素状态",
       "toggleHandSize": "切换 <i>Display hand size and level</i>",
@@ -3213,7 +3213,7 @@
     "orChooseCharacters": "或者直接添加角色以开始一场休闲模式游戏",
     "settings": {
       "": "设置",
-      "text": "使用多样化的调整来将所有内容进行合理的设置:"
+      "text": "通过调整各类设置，完成适配性配置："
     }
   },
   "wip": "开发中"
