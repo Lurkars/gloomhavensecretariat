@@ -1,1 +1,10 @@
-{}
+{
+  "character": {
+    "demolitionist": {
+      "": "Demolitore"
+    },
+    "hatchet": "Ascia da Guerra",
+    "red-guard": "Guardia Rossa",
+    "voidwarden": "Guardiano del Vuoto"
+  }
+}

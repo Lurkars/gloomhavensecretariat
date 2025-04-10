@@ -1,1 +1,15 @@
-{}
+{
+  "character": {
+    "banner-spear": "Alfiere",
+    "blinkblade": {
+      "": "Lama Fulminea"
+    },
+    "boneshaper": {
+      "": "Plasmaossa"
+    },
+    "deathwalker": "Viandante della Morte",
+    "geminate": {
+      "": "Geminato"
+    }
+  }
+}

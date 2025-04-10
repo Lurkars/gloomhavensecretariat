@@ -1466,7 +1466,7 @@
       },
       "lurker-clawcrusher": {
         "1": "대상은 %game.damage:X%점을 입음.<br>여기에서 X는 공격 대상의%game.action.shield% 수치.",
-        "2": "대신 X는 대상의%game.action.shield%수치에 2를 곱한 값"
+        "2": "대신 X는 대상의%game.action.shield%수치에 2를 곱한 값."
       },
       "lurker-mindsnipper": {
         "1": "공격 능력의 모든 대상을<br>주도권 순서대로 조종:"

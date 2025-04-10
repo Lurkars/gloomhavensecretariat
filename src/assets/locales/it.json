@@ -404,6 +404,12 @@
       "removeSubAction": "Rimuovi la sotto-azione",
       "small": "Minore",
       "subActions": "Sotto-azioni",
+      "summon": {
+        "type": {
+          "monster": "Mostro",
+          "summon": "Dati di Evocazione"
+        }
+      },
       "type": "Tipo di azione",
       "value": "Valore d'azione",
       "valueType": {
@@ -1980,7 +1986,7 @@
       "hint": "Abilita il mazzo modificatore di attacco per gli alleati"
     },
     "alwaysAllyAttackModifierDeck": {
-      "": "Attacca sempre il mazzo modificatore per gli alleati",
+      "": "Usa sempre mazzo modificatore attacco per gli alleati",
       "hint": "Mostra sempre il mazzo modificatore di attacco per gli alleati"
     },
     "alwaysFhAdvantage": {
@@ -2168,6 +2174,10 @@
     "characterCompact": {
       "": "Plancia personaggio compatta",
       "hint": "Visualizza la plancia personaggio ridotta. (Attualmente non supportato sul tema moderno)"
+    },
+    "characterFullView": {
+      "": "Visualizzazione completa del personaggio",
+      "hint": "Fare doppio clic sull'icona del personaggio per visualizzare una vista autonoma."
     },
     "characterHandSize": {
       "": "Mostra il numero di carte in mano e livello",
@@ -2498,7 +2508,7 @@
     },
     "standeeShieldRetaliate": {
       "": "Scudo e Ritorsione",
-      "hint": "Traccia i valori extra %game.Action.shield % e %game.action.retaliate% per pedine ed evocazioni."
+      "hint": "Traccia i valori extra %game.action.shield% e %game.action.retaliate% per pedine ed evocazioni."
     },
     "standeeStats": {
       "": "Scudo e Ritorsione sulle pedine",
@@ -3188,19 +3198,83 @@
       "": "Scorciatoie da tastiera",
       "activeCharacter": {
         "lootDec": "Riduci monetine per il personaggio attivo",
-        "lootInc": "Aumenta monetine per il personaggio attivo"
+        "lootInc": "Aumenta monetine per il personaggio attivo",
+        "xpDec": "Riduci Esp per il personaggio attivo",
+        "xpInc": "Aumenta Esp per il personaggio attivo"
       },
+      "alt": "ALT",
+      "am": "Pesca una carta MA (mazzo a seconda della figura attiva, mazzo dei mostri quando non attivo, disabilitato quando <b>Pesca</b>)",
+      "amAdvantage": "Lo stesso di <kbd><span>m</span></kbd>, ma pesca con vantaggio se abilitato",
+      "amDisadvantage": "come<kbd><span>m</span></kbd>, ma pesca con svantaggio se abilitato",
+      "ctrl": "CTRL",
+      "difficulty": "Menu di difficoltà/livello",
+      "enter": "↵",
+      "entityMenu": {
+        "": "In qualsiasi menu di figure/pedine aperto, queste scorciatoie sono disabilitate, attualmente sono disponibili queste scorciatoie nel menu figure/pedine:",
+        "blessDec": "Riduci Benedizione",
+        "blessInc": "Aumenta Benedizione",
+        "characterSheet": "Apri la scheda del personaggio",
+        "curseDec": "Riduci Maledizione",
+        "curseInc": "Aumenta Maledizione",
+        "hpDec": "Riduci PV attuali",
+        "hpInc": "Aumenta PV attuali",
+        "kill": "Uccidi / Esaurisci",
+        "lootDec": "Riduci segnalini moneta",
+        "lootInc": "Aumenta segnalini moneta",
+        "maxHpDec": "Riduci Esp max",
+        "maxHpInc": "Aumenta Esp max",
+        "toggleAbsent": "Attiva/disattiva personaggio assente",
+        "toggleCondition": "Attiva/disattiva Condizione/Modificatore di condizione",
+        "xpDec": "Riduci Esp",
+        "xpInc": "Aumenta Esp"
+      },
+      "esc": "ESC",
+      "events": "Menu degli effetti degli eventi",
+      "finish": "(termina) menu scenario",
+      "global": "Attualmente sono implementate le seguenti scorciatoie da tastiera:",
+      "globalMap": "Apri la Mappa Globale",
+      "keyboard": "Mostra le scorciatoie da tastiera",
+      "loot": "Pesca dal mazzo bottino",
+      "mainMenu": {
+        "": "Apri il menu principale",
+        "confirm": "Conferma azione / Apri sottomenu",
+        "decline": "Rifiuta azione / Chiudi menu",
+        "open": "Su menu aperto",
+        "select": "Seleziona l'azione"
+      },
+      "party": "Apri la scheda del gruppo",
       "redo": "Ripeti",
       "round": "Prossimo round / pescaggio",
-      "undo": "Cancella"
-    }
+      "scenarioChart": "Mostra diagramma di flusso dello scenario",
+      "select": "Selezionare la figura/pedina per l'apertura del menu con il tasto numerico",
+      "selectNatural": "Selezionare la figura/pedina per l'apertura del menu in ordine fisso con il tasto numerico",
+      "shift": "SHIFT",
+      "space": "SPAZIO",
+      "tab": "↹",
+      "toggelTab": "Imposta la figura attiva quando peschi / Imposta l'iniziativa quando ti concentri sull'input",
+      "toggleAbsent": "Attiva/disattiva <i>Nascondi le figure assenti</i>",
+      "toggleDamageHP": "Attiva/disattiva <i>%settings.damageHP%</i>",
+      "toggleElements": "Passa da uno stato dell'elemento all'altro",
+      "toggleHandSize": "Attiva/disattiva <i>Mostra le dimensioni e il livello della mano</i>",
+      "togglePlayerNumber": "Attiva/disattiva <i>Mostra il numero del giocatore</i>",
+      "toggleTraits": "Attiva/disattiva <i>Mostra tratti</i>",
+      "undo": "Cancella",
+      "zoomIn": "Ingrandisci",
+      "zoomOut": "Rimpicciolisci",
+      "zoomReset": "Ripristina zoom"
+    },
+    "validateEditionData": "Convalida i dati dell'edizione"
   },
+  "update": "Aggiorna - Ricarica",
   "welcome": {
     "": "Benvenuto a Gloomhaven Secretariat",
+    "chooseCharacters": "Scegli i tuoi personaggi",
     "chooseEdition": "Inizia una nuova campagna scegliendo la tua edizione:",
     "orChooseCharacters": "o inizia una partita casuale aggiungendo direttamente i personaggi",
     "settings": {
-      "text": "Usa diverse impostazioni per configurare tutto adeguatamente:"
+      "": "Impostazioni",
+      "text": "Usa le diverse impostazioni per configurare tutto adeguatamente:"
     }
-  }
+  },
+  "wip": "Lavori in corso"
 }

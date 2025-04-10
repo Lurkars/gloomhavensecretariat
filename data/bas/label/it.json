@@ -1,1 +1,40 @@
-{}
+{
+  "custom": {
+    "bas": {
+      "desiccated-corpse": {
+        "1": "PROSCIUGA",
+        "2": "Distruggi tutta l'acqua trasportata da nemici adiacenti."
+      },
+      "dust-demon": {
+        "1": "%data.monster.dust-demon% si muove attraverso il maggior numero possibile di nemici."
+      },
+      "jackal": {
+        "1": "Fai i bagagli"
+      },
+      "sand-spider": {
+        "1": "Aggiungi +3 %game.action.attack% se il bersaglio è %game.condition.immobilize%.",
+        "2": "Tutti gli attacchi mirati a %data.monster.sand-spider% questo round guadagnano Svantaggio.",
+        "3": "Crea una %game.condition.immobilize% trappola in un esagono vuoto adiacente più vicino a un nemico."
+      }
+    }
+  },
+  "edition": {
+    "bas": "Sangue e sabbia"
+  },
+  "monster": {
+    "desiccated-corpse": "Cadavere prosciugato",
+    "dust-demon": "Demone della Polvere",
+    "giant-scorpion": "Scorpione gigante",
+    "horned-lizard": "Lucertola cornuta",
+    "jackal": "Sciacallo",
+    "sand-spider": "Ragno delle Sabbie"
+  },
+  "scenario": {
+    "title": {
+      "bas": {
+        "1": "Su tutta la mappa",
+        "2": "Acque agitate"
+      }
+    }
+  }
+}
