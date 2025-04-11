@@ -3,7 +3,6 @@ import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ActionHex, ActionHexFromString } from "src/app/game/model/ActionHex";
-import { Character } from "src/app/game/model/Character";
 import { ActionType } from "src/app/game/model/data/Action";
 import { AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
 import { Condition, ConditionType } from "src/app/game/model/data/Condition";
@@ -336,8 +335,9 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   ngOnInit(): void {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
-        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
-          this.C = Math.max(2, gameManager.characterManager.characterCount());
+        const count = Math.max(2, gameManager.characterManager.characterCount());
+        if (this.locale != settingsManager.settings.locale || this.C != count || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
+          this.C = count;
           this.L = gameManager.game.level;
           this.locale = settingsManager.settings.locale;
           this.calc = settingsManager.settings.calculate;

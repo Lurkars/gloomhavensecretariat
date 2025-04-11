@@ -330,6 +330,21 @@ export class ActionsManager {
         return action.type == ActionType.monsterType && entity instanceof MonsterEntity && entity.type == (action.value as MonsterType);
     }
 
+    isMultiTarget(action: Action, includeHex: boolean = true): boolean {
+        let result = action.type == ActionType.target && EntityValueFunction(action.value) > 1 || this.isMultiTargetSpecial(action) || includeHex && action.type == ActionType.area;
+
+        return result || action.subActions && action.subActions.some((subAction) => this.isMultiTarget(subAction, includeHex));
+    }
+
+    isMultiTargetSpecial(action: Action): boolean {
+        return action.type == ActionType.specialTarget && typeof action.value === 'string' &&
+            (action.value.toLowerCase().indexOf('allies') != -1 ||
+                action.value.toLowerCase().indexOf('enemies') != -1 ||
+                action.value.toLowerCase().indexOf('figures') != -1 ||
+                action.value.toLowerCase().indexOf('targets') != -1 ||
+                action.value == 'all');
+    }
+
     applyInteractiveAction(entity: Entity, figure: Figure, interactiveAction: InteractiveAction, additionalValues: string[] = [], force: boolean = false) {
         const action = interactiveAction.action;
         const index = interactiveAction.index;

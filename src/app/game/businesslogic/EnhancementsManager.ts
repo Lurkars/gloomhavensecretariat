@@ -2,7 +2,6 @@ import { ActionHex, ActionHexFromString, ActionHexType } from "../model/ActionHe
 import { Action, ActionType } from "../model/data/Action";
 import { ConditionName } from "../model/data/Condition";
 import { Element } from "../model/data/Element";
-import { EntityValueFunction } from "../model/Entity";
 import { Game } from "../model/Game";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -46,7 +45,7 @@ export class EnhancementsManager {
 
         if (costs > 0) {
             // double multi target
-            if (this.isMultiTarget(action)) {
+            if (gameManager.actionsManager.isMultiTarget(action)) {
                 costs *= 2;
             }
 
@@ -186,10 +185,6 @@ export class EnhancementsManager {
         }
 
         return costs;
-    }
-
-    isMultiTarget(action: Action): boolean {
-        return action.subActions && action.subActions.find((subAction) => subAction.type == ActionType.target && EntityValueFunction(subAction.value) > 1 || subAction.type == ActionType.specialTarget && typeof subAction.value === 'string' && (subAction.value.toLowerCase().indexOf('allies') != -1 || subAction.value.toLowerCase().indexOf('enemies') != -1 || subAction.value.toLowerCase().indexOf('figures') != -1 || subAction.value.toLowerCase().indexOf('targets') != -1 || subAction.value == 'all') || subAction.type == ActionType.area) != undefined;
     }
 
     levelCosts(level: number): number {

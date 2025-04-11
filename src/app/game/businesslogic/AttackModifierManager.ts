@@ -346,7 +346,7 @@ export class AttackModifierManager {
 
 
   buildCharacterAttackModifierDeck(character: Character): AttackModifierDeck {
-    if (character.bb && character.amTables && character.amTables.length >= character.level) {
+    if (character.bb && character.amTables && character.amTables.length >= character.level && character.amTables[character.level - 1]) {
       return new AttackModifierDeck(character.amTables[character.level - 1].map((value, index) => {
 
         if (typeof value === 'string') {
