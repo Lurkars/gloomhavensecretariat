@@ -61,6 +61,11 @@ export class AppComponent implements OnInit, OnDestroy {
         this.applyAnimations();
       }
     })
+    const preventDefault = (e: Event) => e.preventDefault();
+
+    document.addEventListener('gesturestart', preventDefault);
+    document.addEventListener('gesturechange', preventDefault);
+    document.addEventListener('gestureend', preventDefault);
   }
 
   uiChangeSubscription: Subscription | undefined;
