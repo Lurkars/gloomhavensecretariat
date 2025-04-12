@@ -610,10 +610,10 @@
   "custom": {
     "gh": {
       "ancient-artillery": {
-        "1": "所有相邻的敌人遭受 %game.damage:2%。"
+        "1": "所有相邻的敌人遭受%game.damage:2%。"
       },
       "archer": {
-        "1": "在与自己相邻并且距离敌人最近的空置六角格上制造一个 %game.damage:3% 的陷阱。"
+        "1": "在与自己相邻并且距离敌人最近的空置六角格上制造一个%game.damage:3%的陷阱。"
       },
       "bandit-commander": {
         "1": "移动至下一个门并揭示房间"
@@ -622,7 +622,7 @@
         "abilities": {
           "12": {
             "1": "X 是这个行动轮中，到目前为止你移动时所经过的六角格数目。",
-            "2": "X 是这个行动轮中，到目前为止你所造成的 %game.damage% 数值。"
+            "2": "X 是这个行动轮中，到目前为止你所造成的%game.damage%数值。"
           },
           "13": {
             "1": "这回合内你的所有攻击额外 +1 %game.action.attack%。"
@@ -631,30 +631,30 @@
             "1": "立即杀死一个相邻的普通级别的敌人。"
           },
           "15": {
-            "1": "你免除接下来的三次 %game.damage%。"
+            "1": "你免除接下来的三次%game.damage%。"
           },
           "16": {
             "1": "若你这次移动的路径是一条直线，则可执行",
             "2": "X 是这个行动你移动时所经过的六角格数目。"
           },
           "2": {
-            "1": "这回合你的每次反击能让你获得 %game.card.experience:1%。"
+            "1": "这回合你的每次反击能让你获得%game.card.experience:1%。"
           },
           "20": {
-            "1": "每个成为目标的敌人能让你获得 %game.card.experience:1%。"
+            "1": "每个成为目标的敌人能让你获得%game.card.experience:1%。"
           },
           "22": {
-            "1": "立即杀死一个相邻，并且处于 %game.condition.stun% 状态的普通级别敌人。",
+            "1": "立即杀死一个相邻，并且处于%game.condition.stun%状态的普通级别敌人。",
             "2": "这回合内你的所有攻击额外 +1 %game.action.attack%。"
           },
           "23": {
-            "1": "你可以将所有的 %game.action.move% 技能当做数值相同的 %game.action.attack% 技能来使用。"
+            "1": "你可以将所有的%game.action.move%技能当做数值相同的%game.action.attack%技能来使用。"
           },
           "26": {
-            "1": "这回合内若你的攻击目标处于 %game.condition.disarm% 或 %game.condition.immobilize% 或 %game.condition.stun% 状态，则你对其所有的攻击额外 +3 %game.action.attack%。"
+            "1": "这回合内若你的攻击目标处于%game.condition.disarm%或%game.condition.immobilize%或%game.condition.stun%状态，则你对其所有的攻击额外 +3 %game.action.attack%。"
           },
           "28": {
-            "1": "每个成为目标的敌人能让你获得 %game.card.experience:1%。"
+            "1": "每个成为目标的敌人能让你获得%game.card.experience:1%。"
           },
           "29": {
             "1": "立即杀死一个相邻的普通或者精英级别的敌人。"
@@ -663,7 +663,7 @@
             "1": "这回合内的任何敌人以你相邻的盟友作为攻击目标，则将其攻击目标改为你，并忽视该攻击距离的限制。"
           },
           "7": {
-            "1": "接下来的六次以你为攻击目标所造成的 %game.damage%，会获得 %game.action.shield%1。"
+            "1": "接下来的六次以你为攻击目标所造成的%game.damage%，会获得%game.action.shield%1。"
           }
         }
       },
@@ -673,7 +673,7 @@
       "cragheart": {
         "abilities": {
           "116": {
-            "1": "对于接下来六次以你为目标的近战攻击，你能获得 %game.action.retaliate:2%。"
+            "1": "对于接下来六次以你为目标的近战攻击，你能获得%game.action.retaliate:2%。"
           },
           "118": {
             "1": "在你相邻空置的六角格上创造两个单格的障碍物。"
@@ -699,29 +699,29 @@
             "5": "影响所有盟友"
           },
           "124": {
-            "1": "%game.action.push% 2， %game.card.experience:1%",
+            "1": "%game.action.push% 2，%game.card.experience:1%",
             "2": "所有相邻的盟友和敌人遭受 1 伤害。",
             "3": "所有相邻的盟友和敌人遭受 1 伤害。",
             "4": "改为遭受 2 伤害，%game.card.experience:1%"
           },
           "125": {
             "1": "+1 %game.action.attack%，%game.card.experience:1%",
-            "2": "目标区域内的所有盟友和敌人都会陷入%game.condition.muddle% 状态。"
+            "2": "目标区域内的所有盟友和敌人都会陷入%game.condition.muddle%状态。"
           },
           "126": {
-            "1": "%game.condition.immobilize%， %game.card.experience:1%"
+            "1": "%game.condition.immobilize%，%game.card.experience:1%"
           },
           "127": {
-            "1": "你可以将攻击目标推至有障碍物的六角格内。若这样做，该障碍物会被摧毁，且攻击目标遭受 2 伤害，并让你获得 %game.card.experience:1%。",
+            "1": "你可以将攻击目标推至有障碍物的六角格内。若这样做，该障碍物会被摧毁，且攻击目标遭受 2 伤害，并让你获得%game.card.experience:1%。",
             "2": "这回合内你的所有远距离攻击额外 +1 %game.action.attack%。"
           },
           "128": {
             "1": "每个成为目标的敌人",
-            "2": "能让你获得 %game.card.experience:1%。",
+            "2": "能让你获得%game.card.experience:1%。",
             "3": "这回合内你的所有近战攻击额外 +2 %game.action.attack%。"
           },
           "129": {
-            "1": "在你接下来的六个远距离攻击行动，若 %game.element.air% 处于强烈或弱化，%game.element.consume.air% 来额外 +2 %game.action.range%。"
+            "1": "在你接下来的六个远距离攻击行动，若%game.element.air%处于强烈或弱化，%game.element.consume.air%来额外 +2 %game.action.range%。"
           },
           "130": {
             "1": "摧毁一个相邻的障碍物。",
@@ -731,40 +731,40 @@
             "1": "影响目标区域内的所有盟友"
           },
           "132": {
-            "1": "将一个相邻的单格障碍物移动到 %game.action.range:4% 以内的另一个空置的六角格上。",
+            "1": "将一个相邻的单格障碍物移动到%game.action.range:4%以内的另一个空置的六角格上。",
             "2": "目标为所有与这个移动后",
             "3": "的障碍物相邻的敌人",
             "4": "你这次移动所经过的所有障碍物会被摧毁，以及解除所有经过的陷阱。"
           },
           "134": {
-            "1": "在距离 %game.action.range:4% 以内的空置六角格上创造三个单格的障碍物。",
+            "1": "在%game.action.range:4%以内的空置六角格上创造三个单格的障碍物。",
             "2": "所有与这些（不论一个或多个）障碍物相邻的盟友以及敌人遭受 2 伤害。",
             "3": "这次移动的路径必须为一条直线。"
           },
           "136": {
-            "1": "立即杀死距离 %game.action.range:4% 以内的一个普通级别的敌人。",
+            "1": "立即杀死%game.action.range:4%以内的一个普通级别的敌人。",
             "2": "在刚被杀死的敌人所在的六角格上创造一个单格的障碍物。"
           },
           "137": {
             "1": "在你接下来的四次近战攻击时，如果可能，则摧毁一个相邻的障碍物以获得 +3 %game.action.attack%。"
           },
           "138": {
-            "1": "在一个相邻空置的六角格上制造一个 2 伤害的 %game.condition.stun% 陷阱。"
+            "1": "在一个相邻空置的六角格上制造一个 2 伤害的%game.condition.stun%陷阱。"
           },
           "139": {
-            "1": "目标区域内的所有盟友和敌人都会陷入 %game.condition.immobilize% 状态。"
+            "1": "目标区域内的所有盟友和敌人都会陷入%game.condition.immobilize%状态。"
           },
           "140": {
-            "1": "在距离 %game.action.range% 3 以内的空置六角格上创造一个呈三角形的三格障碍物。",
+            "1": "在%game.action.range:3%以内的空置六角格上创造一个呈三角形的三格障碍物。",
             "2": "目标为所有与此障碍物相邻的敌人。"
           },
           "141": {
-            "1": "因为墙壁或者障碍物的阻挡导致目标无法被推动的每一格，会让目标遭受 2 伤害，并且让你获得 %game.card.experience:1%。",
+            "1": "因为墙壁或者障碍物的阻挡导致目标无法被推动的每一格，会让目标遭受 2 伤害，并且让你获得%game.card.experience:1%。",
             "2": "这回合内你的所有远距离攻击额外 +1 %game.action.attack%。",
             "3": "改为额外 +2 %game.action.attack%，%game.card.experience:1%。"
           },
           "142": {
-            "1": "摧毁 %game.action.range% 2 以内的所有障碍物",
+            "1": "摧毁%game.action.range% 2 以内的所有障碍物",
             "2": "X 是刚才被摧毁的障碍物",
             "3": "所占据六角格数目的两倍",
             "4": "。",
@@ -778,7 +778,7 @@
             "2": "所有与你这次移动所进入的任意六角格相邻的盟友和敌人遭受 2 伤害。"
           },
           "145": {
-            "1": "你可以将攻击目标推至有障碍物的六角格内，每当出现这种情况，该障碍物会被摧毁，而且该攻击目标遭受 2 伤害，并让你获得 %game.card.experience:1%。"
+            "1": "你可以将攻击目标推至有障碍物的六角格内，每当出现这种情况，该障碍物会被摧毁，而且该攻击目标遭受 2 伤害，并让你获得%game.card.experience:1%。"
           }
         }
       },
@@ -813,14 +813,14 @@
         "voice": "神秘之声"
       },
       "giant-viper": {
-        "1": "如果攻击目标与 %data.monster.giant-viper% 的任意盟友相邻，则额外 +2 %game.action.attack%。",
-        "2": "这回合内所有以 %data.monster.giant-viper% 为目标的攻击处于劣势。"
+        "1": "如果攻击目标与%data.monster.giant-viper%的任意盟友相邻，则额外 +2 %game.action.attack%。",
+        "2": "这回合内所有以%data.monster.giant-viper%为目标的攻击处于劣势。"
       },
       "harrower-infester": {
         "1": "每对一个目标造成了伤害便进行“%game.action.heal% 2，%game.specialTarget.self%”"
       },
       "hound": {
-        "1": "如果攻击目标与 %data.monster.hound% 的任意盟友相邻，则额外 +2 %game.action.attack%。"
+        "1": "如果攻击目标与%data.monster.hound%的任意盟友相邻，则额外 +2 %game.action.attack%。"
       },
       "merciless-overseer": {
         "1": "所有哨兵再次行动",
@@ -831,106 +831,106 @@
         "abilities": {
           "146": {
             "1": "攻击目标身上每有一项负面状态则额外 +1 %game.action.attack%",
-            "2": "强制一个 %game.action.range:5% 以内的敌人执行",
+            "2": "强制一个%game.action.range:5%以内的敌人执行",
             "3": "以另一个敌人作为攻击目标，这行动由你来控制。"
           },
           "149": {
             "1": "在你近战攻击时：",
-            "2": "获得 %game.action.shield% 1",
-            "3": "当另一张 %data.custom.gh.mindthief.augment% 被使用，则弃掉此卡。",
+            "2": "获得%game.action.shield% 1",
+            "3": "当另一张%data.custom.gh.mindthief.augment%被使用，则弃掉此卡。",
             "4": "当这次移动开始并结束于同一六角格内，则可执行"
           },
           "151": {
             "1": "在你近战攻击时：",
             "2": "额外 +2 %game.action.attack%",
-            "3": "当另一张 %data.custom.gh.mindthief.augment% 被使用，则弃掉此卡。"
+            "3": "当另一张%data.custom.gh.mindthief.augment%被使用，则弃掉此卡。"
           },
           "152": {
             "1": "在你近战攻击时：",
-            "2": "当另一张 %data.custom.gh.mindthief.augment% 被使用，则弃掉此卡。",
-            "3": "强制一个 %game.action.range:4% 以内的敌人执行",
+            "2": "当另一张%data.custom.gh.mindthief.augment%被使用，则弃掉此卡。",
+            "3": "强制一个%game.action.range:4%以内的敌人执行",
             "4": "这行动由你来控制。"
           },
           "154": {
-            "1": "攻击目标身上每有一项负面状态则额外 +2 %game.action.attack%并获得 %game.card.experience:1%。"
+            "1": "攻击目标身上每有一项负面状态则额外 +2 %game.action.attack%并获得%game.card.experience:1%。"
           },
           "156": {
             "1": "在你近战攻击时：",
-            "2": "当另一张 %data.custom.gh.mindthief.augment% 被使用，则弃掉此卡。"
+            "2": "当另一张%data.custom.gh.mindthief.augment%被使用，则弃掉此卡。"
           },
           "157": {
             "1": "一名相邻的盟友可以执行",
-            "2": "一名 %game.action.range:3% 以内的盟友可以执行"
+            "2": "一名%game.action.range:3%以内的盟友可以执行"
           },
           "160": {
-            "1": "强制一个 %game.action.range:3% 以内的普通或者精英级别的敌人，让此敌人在行动轮中将其盟友当作敌人，敌人则当作盟友。",
+            "1": "强制一个%game.action.range:3%以内的普通或者精英级别的敌人，让此敌人在行动轮中将其盟友当作敌人，敌人则当作盟友。",
             "2": "在这回合内将你的一个角色标记放置在此敌人身上来帮助分辨。"
           },
           "162": {
             "1": "在你近战攻击时：",
-            "2": "当另一张 %data.custom.gh.mindthief.augment% 被使用，则弃掉此卡。"
+            "2": "当另一张%data.custom.gh.mindthief.augment%被使用，则弃掉此卡。"
           },
           "163": {
             "1": "在这次拾取时，每有一个相邻的敌人就能让你从供应堆中额外获得 1 金币。"
           },
           "164": {
-            "1": "立即杀死一个 %game.action.range:4% 以内的普通级别敌人。",
+            "1": "立即杀死一个%game.action.range:4%以内的普通级别敌人。",
             "2": "目标为所有与该名被杀对象相邻的敌人",
-            "3": "此攻击每使一个敌人成为目标则会让你获得 %game.card.experience:1%。"
+            "3": "此攻击每使一个敌人成为目标则会让你获得%game.card.experience:1%。"
           },
           "165": {
-            "1": "你可以同时激活两张 %data.custom.gh.mindthief.augments%。",
-            "2": "当第三张 %data.custom.gh.mindthief.augments% 被使用时，弃掉现有两张中的一张。"
+            "1": "你可以同时激活两张%data.custom.gh.mindthief.augments%。",
+            "2": "当第三张%data.custom.gh.mindthief.augments%被使用时，弃掉现有两张中的一张。"
           },
           "166": {
             "1": "在你近战攻击时：",
-            "2": "当另一张 %data.custom.gh.mindthief.augment% 被使用，则弃掉此卡。",
-            "3": "强制一个 %game.action.range:5% 以内的敌人执行",
+            "2": "当另一张%data.custom.gh.mindthief.augment%被使用，则弃掉此卡。",
+            "3": "强制一个%game.action.range:5%以内的敌人执行",
             "4": "这行动由你来控制。"
           },
           "169": {
             "1": "在你近战攻击时：",
             "2": "获得",
-            "3": "当另一张 %data.custom.gh.mindthief.augment% 被使用，则弃掉此卡。"
+            "3": "当另一张%data.custom.gh.mindthief.augment%被使用，则弃掉此卡。"
           },
           "170": {
-            "1": "这回合内你的所有远距离攻击也可获得你的 %data.custom.gh.mindthief.augments% 效果。"
+            "1": "这回合内你的所有远距离攻击也可获得你的%data.custom.gh.mindthief.augments%效果。"
           },
           "172": {
             "1": "一名相邻的盟友可以执行",
-            "2": "此攻击获得你的 %custom.augments% 效果。",
-            "3": "强制一个 %game.action.range:5% 以内的普通或者精英级别的敌人，让此敌人在行动轮中将其盟友当作敌人，敌人则当作盟友，并且此敌人的行动由你来控制。<br><br>在这回合内将你的一个角色标记放置在此敌人身上来帮助分辨。"
+            "2": "此攻击获得你的%custom.augments%效果。",
+            "3": "强制一个%game.action.range:5%以内的普通或者精英级别的敌人，让此敌人在行动轮中将其盟友当作敌人，敌人则当作盟友，并且此敌人的行动由你来控制。<br><br>在这回合内将你的一个角色标记放置在此敌人身上来帮助分辨。"
           },
           "173": {
             "1": "X 是鼠王当前生命值的一半（向上取整）。",
-            "2": "这回合内所有 %game.action.range:2% 以内的盟友，他们所有的攻击额外 +X %game.action.attack%，X 是在你 %game.action.range:2% 以内的盟友数量。"
+            "2": "这回合内所有%game.action.range:2%以内的盟友，他们所有的攻击额外 +X %game.action.attack%，X 是在你%game.action.range:2%以内的盟友数量。"
           },
           "174": {
             "1": "在你近战攻击时：",
             "2": "改为将一个普通级别的目标立即杀死",
-            "3": "当另一张 %data.custom.gh.mindthief.augment% 被使用，则弃掉此卡。"
+            "3": "当另一张%data.custom.gh.mindthief.augment%被使用，则弃掉此卡。"
           }
         },
-        "augment": "增强 %game.characterIconColoredBg.mindthief%",
-        "augments": "增强 %game.characterIconColoredBg.mindthief%"
+        "augment": "增强%game.characterIconColoredBg.mindthief%",
+        "augments": "增强%game.characterIconColoredBg.mindthief%"
       },
       "night-demon": {
-        "1": "所有相邻的盟友和敌人遭受 %game.damage:1%。"
+        "1": "所有相邻的盟友和敌人遭受%game.damage:1%。"
       },
       "ooze": {
-        "1": "召唤普通级别的 %data.monster.ooze%，其生命值与召唤它的 %data.monster.ooze% 的当前生命值相等（新召唤的 %data.monster.ooze%，其生命值受限于普通级别软泥怪指定的生命最大值）"
+        "1": "召唤普通级别的%data.monster.ooze%，其生命值与召唤它的%data.monster.ooze%的当前生命值相等（新召唤的%data.monster.ooze%，其生命值受限于普通级别软泥怪指定的生命最大值）"
       },
       "prime-demon": {
         "1": "王座移动"
       },
       "savvas-lavaflow": {
-        "1": "所有与攻击目标相邻的盟友和敌人遭受 %game.damage:2%",
-        "2": "所有敌人遭受 %game.damage:2%。"
+        "1": "所有与攻击目标相邻的盟友和敌人遭受%game.damage:2%",
+        "2": "所有敌人遭受%game.damage:2%。"
       },
       "scoundrel": {
         "abilities": {
           "100": {
-            "1": "若你的攻击目标与你的任意盟友相邻，则攻击附加 %game.condition.wound% 状态并让你获得 %game.card.experience:1%。"
+            "1": "若你的攻击目标与你的任意盟友相邻，则攻击附加%game.condition.wound%状态并让你获得%game.card.experience:1%。"
           },
           "103": {
             "1": "这回合内若你的攻击目标不与其任何盟友相邻，则你对其所有的攻击额外 +2 %game.action.attack%。"
@@ -939,25 +939,25 @@
             "1": "这回合内你的所有攻击获得优势。"
           },
           "105": {
-            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +3 %game.action.attack% 并让你获得 %game.card.experience:1%。",
-            "2": "若你的攻击目标不与其任何盟友相邻，则额外+3 %game.action.attack% 并让你获得 %game.card.experience:1%。"
+            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +3 %game.action.attack%并让你获得%game.card.experience:1%。",
+            "2": "若你的攻击目标不与其任何盟友相邻，则额外+3 %game.action.attack%并让你获得%game.card.experience:1%。"
           },
           "106": {
-            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +2 %game.action.attack% 并让你获得 %game.card.experience:1%。",
-            "2": "当你接下来的六次攻击，若目标处于 %game.condition.disarm% 或者 %game.condition.immobilize% 或者 %game.condition.stun% 状态，则对其额外 +2 %game.action.attack%"
+            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +2 %game.action.attack%并让你获得%game.card.experience:1%。",
+            "2": "当你接下来的六次攻击，若目标处于%game.condition.disarm%或者%game.condition.immobilize%或者%game.condition.stun%状态，则对其额外 +2 %game.action.attack%"
           },
           "107": {
             "1": "立即杀死一个与你相邻的普通级别敌人，此敌人不与其任何盟友相邻以及要和你的任意盟友相邻。"
           },
           "108": {
-            "1": "若你的攻击目标处于 %game.condition.poison% 状态，则你对其所有的攻击额外 +2 %game.action.attack%。"
+            "1": "若你的攻击目标处于%game.condition.poison%状态，则你对其所有的攻击额外 +2 %game.action.attack%。"
           },
           "110": {
-            "1": "若此目标与你的任意盟友相邻，则额外 +4 %game.action.attack% 并让你获得 %game.card.experience:2%。"
+            "1": "若此目标与你的任意盟友相邻，则额外 +4 %game.action.attack%并让你获得%game.card.experience:2%。"
           },
           "111": {
             "1": "解除一个相邻的陷阱。",
-            "2": "将一个 %game.action.range:3% 以内的敌人作为目标，让其承受此陷阱的效果。",
+            "2": "将一个%game.action.range:3%以内的敌人作为目标，让其承受此陷阱的效果。",
             "3": "当你下一次攻击以一个不与其任何盟友相邻，并且与你的任意盟友相邻的敌人作为攻击目标时，此次攻击的数值加倍。"
           },
           "113": {
@@ -968,21 +968,21 @@
             "2": "在这回合内将你的一个角色标记放置在此敌人身上来帮助分辨。"
           },
           "115": {
-            "1": "你的所有攻击附加 %game.condition.poison% 以及 %game.condition.wound% 效果。"
+            "1": "你的所有攻击附加%game.condition.poison%以及%game.condition.wound%效果。"
           },
           "88": {
-            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +2 %game.action.attack% 并让你获得 %game.card.experience:1%。",
+            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +2 %game.action.attack%并让你获得%game.card.experience:1%。",
             "2": "在你接下来的四次攻击，若你的目标不与其任何盟友相邻，则额外 +2 %game.action.attack%"
           },
           "89": {
-            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +2 %game.action.attack% 并让你获得 %game.card.experience:1%。"
+            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +2 %game.action.attack%并让你获得%game.card.experience:1%。"
           },
           "90": {
-            "1": "当你处于 %game.condition.invisible% 状态下进行的下一次攻击，该次攻击的数值加倍。"
+            "1": "当你处于%game.condition.invisible%状态下进行的下一次攻击，该次攻击的数值加倍。"
           },
           "91": {
-            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +2 %game.action.attack% 并让你获得 %game.card.experience:1%。",
-            "2": "若你的攻击不与其任何盟友相邻，则额外 +2 %game.action.attack% 并让你获得 %game.card.experience:1%。"
+            "1": "若你的攻击目标与你的任意盟友相邻，则额外 +2 %game.action.attack%并让你获得%game.card.experience:1%。",
+            "2": "若你的攻击不与其任何盟友相邻，则额外 +2 %game.action.attack%并让你获得%game.card.experience:1%。"
           },
           "92": {
             "1": "解除一个相邻的陷阱。"
@@ -998,21 +998,21 @@
             "2": "在这回合内你免除接下来的一次伤害。"
           },
           "99": {
-            "1": "你这个行动所进入的每个六角格都可以执行 %game.action.loot%。"
+            "1": "你这个行动所进入的每个六角格都可以执行%game.action.loot%。"
           }
         }
       },
       "spellweaver": {
         "abilities": {
           "61": {
-            "1": "每个成为目标的敌人能让你获得 %game.card.experience:1%。"
+            "1": "每个成为目标的敌人能让你获得%game.card.experience:1%。"
           },
           "62": {
             "1": "此外，将通向首个攻击目标路径上的所有敌人一同作为目标。",
-            "2": "每个成为目标的敌人让你获得 %game.card.experience:1%。"
+            "2": "每个成为目标的敌人让你获得%game.card.experience:1%。"
           },
           "63": {
-            "1": "你从自己的移除区中回收 %game.card.recover% 所有的技能卡。"
+            "1": "你从自己的移除区中回收%game.card.recover%所有的技能卡。"
           },
           "66": {
             "1": "你免除接下来的两次伤害。"
@@ -1032,30 +1032,30 @@
             "4": "X 改为此盟友最大生命值。"
           },
           "79": {
-            "1": "接下来五次以你为目标的近战攻击，获得 %game.action.retaliate:3%。"
+            "1": "接下来五次以你为目标的近战攻击，获得%game.action.retaliate:3%。"
           },
           "80": {
             "1": "所有与攻击目标相邻的敌人遭受 2 伤害，%game.card.experience:1%。"
           },
           "81": {
-            "1": "每个成为目标的",
+            "1": "每个成为目标的敌人能让你获得%game.card.experience:1%",
             "2": "敌人能让你获得 %game.card.experience:1%"
           },
           "82": {
-            "1": "你从自己的移除区中回收 %game.card.recover% 最多两张的技能卡。"
+            "1": "你从自己的移除区中回收%game.card.recover%最多两张的技能卡。"
           },
           "84": {
-            "1": "改为 %game.action.loot:3%，%game.card.experience:1%",
+            "1": "改为%game.action.loot:3%，%game.card.experience:1%",
             "2": "你这个行动拾取的金币或宝箱数量不得超过 4 个。"
           },
           "85": {
-            "1": "你免除接下来三次以你为攻击目标所造成的伤害，并且获得 %game.action.retaliate:3%，%game.action.range:3%。"
+            "1": "你免除接下来三次以你为攻击目标所造成的伤害，并且获得%game.action.retaliate:3%，%game.action.range:3%。"
           },
           "86": {
-            "1": "每个成为目标的",
-            "2": "敌人能让你获得 %game.card.experience:1%",
-            "3": "立即杀死目标区域内",
-            "4": "所有普通级别的敌人",
+            "1": "每个成为目标的敌人能让你获得%game.card.experience:1%",
+            "2": "立即杀死目标区域内所有普通级别的敌人。",
+            "3": "选择一个%game.action.range:4%以内的六角格。",
+            "4": "以此六角格%game.action.range:4%以内的所有敌人为目标，将这些敌人全部向此格拉近",
             "5": "。",
             "6": "选择一个 %game.action.range:4% 以内的六边格。",
             "7": "以此六角格 %game.action.range:4% 以内的所有敌人为目标，将这些敌人全部向此格拉近"
@@ -1148,59 +1148,59 @@
         "abilities": {
           "30": {
             "1": "在一个相邻的空置六角格上制造一个 6 伤害的陷阱。",
-            "2": "当此陷阱被敌人触发时让你获得 %game.card.experience:2%。"
+            "2": "当此陷阱被敌人触发时让你获得%game.card.experience:2%。"
           },
           "34": {
-            "1": "每个成为目标的",
+            "1": "每个成为目标的敌人让你获得%game.card.experience:1%。",
             "2": "敌人让你获得 %game.card.experience:1%。"
           },
           "35": {
-            "1": "每个成为目标的敌人",
+            "1": "每个成为目标的敌人让你获得%game.card.experience:1%。",
             "2": "敌人让你获得 %game.card.experience:1%。"
           },
           "37": {
-            "1": "一名相邻的盟友可以回收 %game.card.recover% 其弃牌区所有的技能卡。"
+            "1": "一名相邻的盟友可以回收%game.card.recover%其弃牌区所有的技能卡。"
           },
           "40": {
             "1": "这回合内你和所有相邻盟友的所有攻击额外 +1 %game.action.attack%。"
           },
           "43": {
-            "1": "在一个相邻的空置六角格上制造一个 2 伤害的 %game.condition.poison% 陷阱。",
-            "2": "一名 %game.action.range:2% 以内的盟友可以回收 %game.card.recover% 其弃牌区里一张技能卡。",
+            "1": "在一个相邻的空置六角格上制造一个 2 伤害的%game.condition.poison%陷阱。",
+            "2": "一名%game.action.range:2%以内的盟友可以回收%game.card.recover%其弃牌区里一张技能卡。",
             "3": "改为回收其弃牌区里最多两张技能卡"
           },
           "44": {
             "1": "在你接下来的四个治疗行动中，额外 +2 %game.action.heal%。"
           },
           "45": {
-            "1": "一名 %game.action.range:3% 以内的盟友可以回收 %game.card.recover% 其移除区里一张技能卡。"
+            "1": "一名%game.action.range:3%以内的盟友可以回收%game.card.recover%其移除区里一张技能卡。"
           },
           "47": {
             "1": "解除一个相邻的陷阱。",
-            "2": "在一个相邻的空置六角格上制造一个 %game.condition.stun% 陷阱。"
+            "2": "在一个相邻的空置六角格上制造一个%game.condition.stun%陷阱。"
           },
           "51": {
-            "1": "一名相邻的盟友可以重置 %game.card.refresh% 他一个已耗损的 %game.items.slots.small% 道具。",
-            "2": "每个成为目标的敌人",
+            "1": "一名相邻的盟友可以重置%game.card.refresh%他一个已耗损的%game.items.slots.small%道具。",
+            "2": "每个成为目标的敌人让你获得%game.card.experience:1%。",
             "3": "能让你获得 %game.card.experience:1%。"
           },
           "52": {
-            "1": "立即杀死目标区域内",
-            "2": "所有当前生命值小于",
+            "1": "立即杀死目标区域内所有当前生命值小于或等于 5 的敌人。",
+            "2": "每杀死一个敌人能让你获得%game.card.experience:1%",
             "3": " 或等于 5 的敌人",
             "4": "每杀死一个敌人",
             "5": "能让你获得 %game.card.experience:1%",
             "6": "。"
           },
           "53": {
-            "1": "在一个相邻的空置六角格上制造一个 4 伤害的 %game.condition.muddle% 陷阱。",
-            "2": "在你接下来的四个行动轮结束时，一名 %game.action.range:3% 以内的盟友可以回收 %game.card.recover% 其弃牌区里一张技能卡。"
+            "1": "在一个相邻的空置六角格上制造一个 4 伤害的%game.condition.muddle%陷阱。",
+            "2": "在你接下来的四个行动轮结束时，一名%game.action.range:3%以内的盟友可以回收%game.card.recover%其弃牌区里一张技能卡。"
           },
           "54": {
             "1": "在你接下来的五个行动轮结束时，执行一个“%game.action.attack:2%，%game.action.range:5%”的行动。"
           },
           "57": {
-            "1": "所有 %game.action.range:3% 以内的被召唤盟友可以执行",
+            "1": "所有%game.action.range:3%以内的被召唤盟友可以执行",
             "2": "这些行动由你来控制。"
           },
           "58": {
@@ -1212,14 +1212,14 @@
             "1": "立即杀死一个相邻的普通或者精英级别的敌人。"
           },
           "60": {
-            "1": "一名相邻的盟友可以回收 %game.card.recover% 其移除区里最多两张技能卡，之后再选择两张卡放回移除区。",
-            "2": "一名 %game.action.range:3% 以内的盟友可以回收 %game.card.recover% 一张技能卡，该卡是来自于与其相邻的一名盟友的移除区。"
+            "1": "一名相邻的盟友可以回收%game.card.recover%其移除区里最多两张技能卡，之后再选择两张卡放回移除区。",
+            "2": "一名%game.action.range:3%以内的盟友可以回收%game.card.recover%一张技能卡，该卡是来自于与其相邻的一名盟友的移除区。"
           }
         }
       },
       "winged-horror": {
         "1": "将所有卵孵化",
-        "2": "%game.action.summon% C 个卵"
+        "2": "%game.action.summon% [C] 个卵"
       }
     }
   },
@@ -1376,7 +1376,7 @@
         "1": "%game.items.slots.head% 道具",
         "2": "%game.items.slots.body% 道具",
         "3": "%game.items.slots.legs% 道具",
-        "4": "%game.items.slots.onehand% 或者 %game.items.slots.twohand% 道具",
+        "4": "%game.items.slots.onehand%或者%game.items.slots.twohand%道具",
         "5": "%game.items.slots.small% 道具"
       },
       "512": {
@@ -1409,7 +1409,7 @@
       },
       "519": {
         "": "战斗传说",
-        "1": "从战斗目标卡中获得 %game.checkmark%"
+        "1": "从战斗目标卡中获得%game.checkmark%"
       },
       "520": {
         "": "行使光明",
@@ -1520,7 +1520,7 @@
           "6": "所有的角色及其召唤物的所有攻击额外 -1 。"
         },
         "54": {
-          "1": "洞穴熊的所有攻击都会附加 %game.condition.poison% 状态。"
+          "1": "洞穴熊的所有攻击都会附加%game.condition.poison% 状态。"
         },
         "67": {
           "1": "这个精英级别的岩石魔像等级比当前场景等级高一级，但上限为 7 级，它拥有 H x C 生命值，其中 H 是精英级别岩石魔像的常规生命值。它就是剧情中的奥术魔像。它永远不能进入或通过门 %game.mapMarker.2%。"
@@ -1538,7 +1538,7 @@
           "1": "放置积水叠加板块。"
         },
         "78": {
-          "1": "两个邪教徒 %game.mapMarker.b%，以及牺牲者 %game.mapMarker.a%，免疫所有强制移动，%game.condition.immobilize%，和 %game.condition.stun%，能够将门开启。",
+          "1": "两个邪教徒 %game.mapMarker.b%，以及牺牲者 %game.mapMarker.a%，免疫所有强制移动，%game.condition.immobilize%，和%game.condition.stun%，能够将门开启。",
           "2": "免疫所有强制移动",
           "3": "可以开门"
         },
