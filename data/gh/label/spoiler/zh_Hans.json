@@ -6,7 +6,7 @@
       "": "狂战士",
       "blood-pact": {
         "": "血之契约",
-        "hint": "你的每个行动轮开始时自身承受 %game.damage:1%。"
+        "hint": "你的每个行动轮开始时自身承受%game.damage:1%。"
       },
       "careless-charge": {
         "": "鲁莽冲锋",
@@ -20,7 +20,7 @@
     "music-note": {
       "": "畅歌者",
       "song_active": {
-        "": "%game.characterIconColored.music-note% 战歌",
+        "": "%game.characterIconColored.music-note%战歌",
         "hint": "在你的每个行动轮开始时获得 1 经验。"
       }
     },
@@ -34,19 +34,19 @@
   "custom": {
     "gh": {
       "circles": {
-        "1": "当 %game.action.attack% 时执行",
+        "1": "当%game.action.attack%时执行",
         "2": "在回合结束时"
       },
       "sun": {
         "abilities": {
           "175": {
-            "1": "对于接下来五次以你为目标的近战攻击，获得 %game.action.retaliate:2%"
+            "1": "对于接下来五次以你为目标的近战攻击，获得%game.action.retaliate:2%"
           },
           "177": {
-            "1": "一名相邻的盟友可以从他的移除区中回收 %game.card.recover% 一张技能卡。"
+            "1": "一名相邻的盟友可以从他的移除区中回收%game.card.recover%一张技能卡。"
           },
           "178": {
-            "1": "一名相邻的盟友可以从他的弃牌区中回收 %game.card.recover% 最多两张技能卡。",
+            "1": "一名相邻的盟友可以从他的弃牌区中回收%game.card.recover%最多两张技能卡。",
             "2": "改为从他的弃牌区中回收最多三张技能卡，%game.card.experience:1%。",
             "3": "一名相邻的盟友可以执行"
           },
@@ -54,29 +54,29 @@
             "1": "这回合内，凡是与你相邻的盟友以及自身都能免除所有伤害。"
           },
           "181": {
-            "1": "一名 %game.action.range:3% 以内的盟友可以执行"
+            "1": "一名%game.action.range:3%以内的盟友可以执行"
           },
           "184": {
             "1": "你的所有移动都 -1 %game.action.move%。"
           },
           "185": {
             "1": "令一名相邻的盟友治疗所有伤害。",
-            "2": "你遭受 %game.damage:3%。"
+            "2": "你遭受%game.damage:3%。"
           },
           "187": {
-            "1": "在你接下来的五个行动轮结束时，若 %game.element.light% 不是强烈， 则将 %game.element.light% 移回强烈那一栏"
+            "1": "在你接下来的五个行动轮结束时，若%game.element.light%不是强烈， 则将%game.element.light%移回强烈那一栏"
           },
           "190": {
             "1": "一名相邻的盟友可以从他的手牌中打出两张技能卡并立即执行一个额外的行动轮。"
           },
           "191": {
-            "1": "每个成为目标的敌人让你获得 %game.card.experience:1%。"
+            "1": "每个成为目标的敌人让你获得%game.card.experience:1%。"
           },
           "192": {
-            "1": "所有 %game.action.range:5% 以内的盟友可以执行"
+            "1": "所有%game.action.range:5%以内的盟友可以执行"
           },
           "194": {
-            "1": "这回合内所有对你和 %game.action.range:4% 以内任意的盟友作为目标的攻击处于劣势。"
+            "1": "这回合内所有对你和%game.action.range:4%以内任意的盟友作为目标的攻击处于劣势。"
           },
           "195": {
             "1": "影响本次移动所经过的所有盟友"
@@ -92,20 +92,20 @@
             "1": "一名相邻的盟友可以执行"
           },
           "199": {
-            "1": "在你任何 %game.action.attack% actions 中，你可以 %game.element.consume.light% 来额外 +2 %game.action.attack%，获得 %game.custom.advantage% 并获得 %game.card.experience:1%"
+            "1": "在你任何%game.action.attack%actions 中，你可以%game.element.consume.light%来额外 +2 %game.action.attack%，获得%game.custom.advantage%并获得%game.card.experience:1%"
           },
           "200": {
-            "1": "一名相邻的盟友可以从他的移除区中回收 %game.card.recover% 一张技能卡。",
+            "1": "一名相邻的盟友可以从他的移除区中回收%game.card.recover%一张技能卡。",
             "2": "改为从他的移除区中回收最多两张技能卡，%game.card.experience:1%"
           },
           "202": {
             "1": "一名相邻的盟友可以执行",
             "2": "改为将此攻击的一个普通或者精英级别的目标立即杀死，%game.card.experience:1%。",
-            "3": "所有 %game.action.range:3% 以内的盟友可以执行",
-            "4": "盟友的每次攻击让你获得 %game.card.experience:1%。"
+            "3": "所有%game.action.range:3%以内的盟友可以执行",
+            "4": "盟友的每次攻击让你获得%game.card.experience:1%。"
           },
           "203": {
-            "1": "在你接下来的四个 %game.action.attack% 中，额外 +3 %game.action.attack%，附加 %game.condition.wound% 效果，并获得 %game.custom.advantage%。"
+            "1": "在你接下来的四个%game.action.attack%中，额外 +3 %game.action.attack%，附加%game.condition.wound%效果，并获得%game.custom.advantage%。"
           },
           "204": {
             "1": "任何时候当你的盟友遭受伤害时，你可以将伤害值减 1 并代替盟友遭受次伤害。"
@@ -114,7 +114,7 @@
       },
       "triangles": {
         "1": "你可以如同自己占据此召唤物所在的六角格来进行攻击。",
-        "2": "当 %game.action.attack% 被执行"
+        "2": "当%game.action.attack%被执行"
       },
       "two-mini": {
         "1": "所有相邻盟友的所有攻击额外 +2 %game.action.attack%。"
@@ -262,15 +262,15 @@
   "items": {
     "gh-1": {
       "": "阔步靴",
-      "1": "在你移动时，额外 +2 %game.action.move% 到单次移动。"
+      "1": "在你移动时，额外 +2 %game.action.move%到单次移动。"
     },
     "gh-2": {
       "": "飞翼鞋",
-      "1": "在你移动时，附加 %game.action.jump% 效果到移动。"
+      "1": "在你移动时，附加%game.action.jump%效果到移动。"
     },
     "gh-3": {
       "": "兽皮甲",
-      "1": "下两次以你为攻击目标的伤害，各获得 %game.action.shield% 1。"
+      "1": "下两次以你为攻击目标的伤害，各获得%game.action.shield% 1。"
     },
     "gh-4": {
       "": "软皮甲",
@@ -278,7 +278,19 @@
     },
     "gh-5": {
       "": "隐形斗篷",
-      "1": "在你的行动轮中，获得 %game.condition.invisible%。"
+      "1": "在你的行动轮中，获得%game.condition.invisible%。"
+    },
+    "gh-6": {
+      "": "鹰眼护目镜",
+      "1": "在你攻击时，使你整个攻击行动获得优势。"
+    },
+    "gh-7": {
+      "": "铁制头盔",
+      "1": "当你被攻击时，将敌人所抽到的任何%game.attackmodifier.double%攻击修正卡视为%game.attackmodifier.plus0%攻击修正卡。"
+    },
+    "gh-8": {
+      "": "斗盾",
+      "1": "当你因为攻击而遭受伤害时，对此次攻击获得%game.action.shield% 1。"
     }
   },
   "summon": {
