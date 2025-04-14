@@ -46,7 +46,7 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
 
         if (settingsManager.settings.keyboardShortcuts) {
           const tabindex = this.tabindex();
-          if (event.key === 'Tab' && gameManager.game.state == GameState.draw) {
+          if ((event.key === 'Tab' || event.key === 'Enter') && gameManager.game.state == GameState.draw) {
             let nextIndex = event.shiftKey ? tabindex - 1 : tabindex + 1;
             let next = document.getElementById('initiative-input-' + nextIndex);
             if (!next && tabindex > 0) {

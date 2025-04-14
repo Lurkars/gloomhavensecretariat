@@ -322,6 +322,7 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
   private locale: string;
   private calc: boolean = false;
   private fhStyle: boolean = false;
+  private valueChange: string | number = "";
 
   constructor(private el: ElementRef) {
     el.nativeElement.classList.add('placeholder');
@@ -336,12 +337,13 @@ export class GhsLabelDirective implements OnInit, OnDestroy, OnChanges {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
         const count = Math.max(2, gameManager.characterManager.characterCount());
-        if (this.locale != settingsManager.settings.locale || this.C != count || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
+        if (this.locale != settingsManager.settings.locale || this.C != count || this.L != gameManager.game.level || (this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate || this.valueChange != this.value) {
           this.C = count;
           this.L = gameManager.game.level;
           this.locale = settingsManager.settings.locale;
           this.calc = settingsManager.settings.calculate;
           this.fhStyle = settingsManager.settings.fhStyle;
+          this.valueChange = this.value;
           this.apply();
         }
       }
