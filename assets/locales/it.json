@@ -511,10 +511,10 @@
     "action": {
       "area": "Effetto ad area",
       "attack": "Attacco",
-      "box": "[Custodia]",
+      "box": "&#91;Custodia&#93;",
       "boxFhSubActions": "&#91;Box sotto-azione FH&#93;",
       "card": "Carta",
-      "concatenation": "[Concatenazione]",
+      "concatenation": "&#91;Concatenazione&#93;",
       "concatenationSpacer": "&#91;Spaziatore concatenazione&#93;",
       "condition": "Condizione",
       "custom": "Personalizzato",
@@ -524,7 +524,7 @@
       "fly": "Volo",
       "forceBox": "&#91;Box obbligatorio FH&#93;",
       "grant": "Accordo",
-      "grid": "[Griglia]",
+      "grid": "&#91;Griglia&#93;",
       "heal": "Cura",
       "jump": "Salto",
       "loot": "Bottino",
@@ -563,7 +563,7 @@
       "": "Mazzo modificatori attacco",
       "additional": {
         "apply": "Usa il mazzo di {0}",
-        "dialog": "Seleziona il mazzo del personaggio per applicare %game.condition. {0} %",
+        "dialog": "Seleziona il mazzo del personaggio per applicare %game.condition.{0} %",
         "select": "Seleziona personaggio"
       },
       "effects": {
@@ -585,7 +585,7 @@
         },
         "effects": {
           "recoverRandomDiscard": "Recupera %game.card.recover% una carta casuale dalla pila di scarto",
-          "refreshItem": "Aggiorna un articolo",
+          "refreshItem": "Aggiorna un oggetto",
           "refreshItemFh": "%game.card.recover% un articolo",
           "refreshSpentItem": "Aggiorna un oggetto esaurito"
         },
@@ -838,7 +838,7 @@
         "discard": "Ognuno scarta {0} carte.",
         "event": "Aggiungi l'evento %game.events.type.{0}% {1} al mazzo.",
         "experience": "Ciascuno ottiene {0} di esperienza.",
-        "globalAchievement": "Risultato globale: \"{0}\".",
+        "globalAchievement": "Traguardo globale: \"{0}\".",
         "gold": "Ognuno ottiene {0} di oro.",
         "itemDesign": "Ottieni il modello \"%data.items.{1}-{0}%\" (Oggetto {0}).",
         "loseBattleGoal": "Ognuno perde {0} %game.checkmark%.",
@@ -847,7 +847,7 @@
         "loseReputation": "Perdi {0} reputazione.",
         "noEffect": "Nessun effetto.",
         "outcome": "Leggi la conclusione %game.events.option.{0}%.",
-        "partyAchievement": "Risultato di gruppo: \"{0}\".",
+        "partyAchievement": "Traguardo di gruppo: \"{0}\".",
         "prosperity": "Ottieni {0} prosperità.",
         "randomItemDesign": "Ottieni un modello di oggetto casuale.",
         "reputation": "Ottieni {0} reputazione.",
@@ -1030,7 +1030,7 @@
           "itemFh": "ottieni {1} %game.itemFh.{0}%",
           "loot": "ottieni {0} segnalini denaro",
           "lootCards": "ottieni %number.{0}% carte bottino",
-          "partyAchievement": "Risultato di gruppo: \"{0}\"",
+          "partyAchievement": "Traguardo di gruppo: \"{0}\"",
           "randomItem": {
             "": "Ottieni un oggetto casuale (oggetti {0})",
             "result": ": {1} ({0})"
@@ -1124,7 +1124,7 @@
     "addMonsterEntities": "Usa i pulsanti \"+\" per generare mostri.",
     "addMonsters": "%monster.add%",
     "draw": "Fai clic su \"%round.draw%\"",
-    "draw-full": "Scegli le carte di abilità del personaggio, imposta l'iniziativa, fai clic su \"%round.draw%\".",
+    "draw-full": "Scegli le carte abilità del personaggio, imposta l'iniziativa, fai clic su \"%round.draw%\".",
     "draw-short": "Imposta l'iniziativa, fai clic su \"%round.draw%\"",
     "next": "Fai clic su \"%round.next%\"",
     "setScenario": "%scenario.set%"
@@ -1215,12 +1215,12 @@
     "": "Gruppo",
     "achievements": "Traguardi",
     "addGlobalAchievement": {
-      "": "Aggiungi risultato globale",
-      "empty": "Nessun risultato globale corrispondente trovato"
+      "": "Aggiungi traguardo globale",
+      "empty": "Nessun traguardo globale corrispondente trovato"
     },
     "addPartyAchievement": {
-      "": "Aggiungi risultato di gruppo",
-      "empty": "Nessun risultato di gruppo corrispondente trovato"
+      "": "Aggiungi traguardo di gruppo",
+      "empty": "Nessun traguardo di gruppo corrispondente trovato"
     },
     "campaign": {
       "": "Campagna",
@@ -1998,7 +1998,7 @@
       "hint": "Utilizzare sempre le regole di Frosthaven e i costi di miglioramento."
     },
     "alwaysFhSolo": {
-      "": "Sempre le regole in solitario di Frosthaven",
+      "": "Usa sempre le regole in solitario di Frosthaven",
       "hint": "Applicare sempre le regole di Frosthaven per il calcolo del livello in solitario (abilitato automaticamente quando si gioca a Frosthaven)"
     },
     "alwaysHazardousTerrain": {
@@ -2424,7 +2424,7 @@
     },
     "monsterAttackModifierDeck": {
       "": "Mazzo modificatore di attacco per i mostri",
-      "hint": "bilita il mazzo modificatore di attacco per i mostri"
+      "hint": "Abilita il mazzo modificatore di attacco per i mostri"
     },
     "monsters": {
       "": "Mostri",
@@ -3147,7 +3147,7 @@
         "type": {
           "": "Tipo di problema",
           "abilityCard": {
-            "": "Carte di abilità",
+            "": "Carte abilità",
             "hint": "Valori errati sulle carte abilità.",
             "subject": "Riscontrato un problema con le carte abilità"
           },
@@ -3197,8 +3197,8 @@
     "keyboard": {
       "": "Scorciatoie da tastiera",
       "activeCharacter": {
-        "lootDec": "Riduci monetine per il personaggio attivo",
-        "lootInc": "Aumenta monetine per il personaggio attivo",
+        "lootDec": "Riduci segnalini moneta per il personaggio attivo",
+        "lootInc": "Aumenta segnalini moneta per il personaggio attivo",
         "xpDec": "Riduci Esp per il personaggio attivo",
         "xpInc": "Aumenta Esp per il personaggio attivo"
       },
@@ -3276,5 +3276,5 @@
       "text": "Usa le diverse impostazioni per configurare tutto adeguatamente:"
     }
   },
-  "wip": "Lavori in corso"
+  "wip": "In lavorazione"
 }
