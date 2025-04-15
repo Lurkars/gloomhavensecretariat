@@ -92,7 +92,7 @@
       },
       "1504": {
         "": "Narrengold",
-        "text": "Wann immer ein Charakter mindestens einen Beutemarker erbeutet, erh#lt er %game.condition.curse%. Zieht in Szenarien ohne Beutedeck eine neue Herausforderung und legt diese Karte unter das Deck."
+        "text": "Wann immer ein Charakter mindestens einen Beutemarker erbeutet, erhält er %game.condition.curse%. Zieht in Szenarien ohne Beutedeck eine neue Herausforderung und legt diese Karte unter das Deck."
       },
       "1505": {
         "": "Katerstimmung",
@@ -100,7 +100,7 @@
       },
       "1506": {
         "": "Geschlossene Formation",
-        "text": "Fügt allen Angriffen von Charakteren, die nicht an mindestens einen Verbündeten angrenzen 1%game.action.attack% hinzu."
+        "text": "Fügt allen Angriffen von Charakteren, die nicht an mindestens einen Verbündeten angrenzen -1%game.action.attack% hinzu."
       },
       "1507": {
         "": "Miese Qualität",
