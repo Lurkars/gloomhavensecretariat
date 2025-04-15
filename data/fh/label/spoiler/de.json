@@ -369,6 +369,10 @@
       "": "Spröde Stiefel",
       "1": "Füge während deines Zugs allen deinen Bewegungsfertigkeiten +1 %game.action.move% hinzu."
     },
+    "fh-182": {
+      "": "Stutzschere",
+      "1": "Lege nach deinem Nahkampfangriff einen Charaktermarker auf das Ziel. Das Ziel verliert %game.action.fly%."
+    },
     "fh-186": {
       "": "Wildwuchs-Samen",
       "1": "Erstelle während deines Zugs ein 1er-Hindernis auf einem angrenzenden leeren Feld."
@@ -400,6 +404,10 @@
     "fh-221": {
       "": "Eisklinge",
       "1": "%game.element.consume.ice% bei deiner Nahkampf-Angriffsfertigkeit, um einem Angriff %game.action.pierce% 3 hinzuzufügen."
+    },
+    "fh-222": {
+      "": "Schwarze Kiste",
+      "1": "Wirf während deines Zugs 2 Handkarten ab, um auszuführen:"
     },
     "fh-227": {
       "": "Datenspeicher",

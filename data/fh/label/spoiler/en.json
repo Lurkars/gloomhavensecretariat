@@ -901,7 +901,7 @@
       "1": "During your turn, designate one adjacent hex.  At the end of your turn, all figures withing %game.action.range:2% of the designated hex suffer %game.damage% 1."
     },
     "fh-212": {
-      "": "Elemental Stone",
+      "": "",
       "1": "After ordering of initiative, choose one element. This element cannot be infused or consume by any monster this round. "
     },
     "fh-213": {
