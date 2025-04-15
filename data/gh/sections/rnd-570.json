@@ -17,39 +17,63 @@
       "monster": [
         {
           "name": "cultist",
-          "type": "normal"
+          "type": "normal",
+          "marker": "8"
         },
         {
           "name": "cultist",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "cultist",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "9"
         },
         {
           "name": "living-bones",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "7"
         },
         {
           "name": "living-bones",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "2"
         },
         {
           "name": "night-demon",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "3"
         },
         {
           "name": "night-demon",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "4"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "hazardousTerrain",
+      "value": "thorns",
+      "marker": "10"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "thorns",
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "recoverLost",
+      "marker": "12"
     }
   ]
 }

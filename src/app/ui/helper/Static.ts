@@ -90,6 +90,10 @@ export function ghsInputFullScreenCheckListener(event: any) {
   })
 }
 
+export function ghsFilterInputFocus(event: KeyboardEvent): boolean {
+  return !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA');
+}
+
 export function ghsModulo(n: number, m: number): number {
   return ((n % m) + m) % m;
 }

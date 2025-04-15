@@ -73,6 +73,10 @@
       &:not(:first-child) {
         border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-barsize)) solid var(--ghs-color-white);
       }
+
+      &.random-monster-card {
+        cursor: pointer;
+      }
     }
   }
 

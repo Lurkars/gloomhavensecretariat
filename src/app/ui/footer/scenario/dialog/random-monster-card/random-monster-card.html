@@ -1,0 +1,66 @@
+<div class="random-monster-card-container" #container>
+    <div class="card vertical random-monster-card" [ngClass]="{'flipped': flipped, 'fh': fh}"
+        [style.fontSize]="container.offsetWidth * 0.05 + 'px'">
+        <div class="card-back random-monster-card-back"></div>
+        <div class="card-front random-monster-card-front">
+            <div class="name" [ghs-label]="'data.section.title.' + section.name"></div>
+            <div class="index">{{section.index}}</div>
+            <div class="element" *ngIf="element">
+                <img [src]="'./assets/images/' + (fh ? 'fh/' : '') + 'element/' + element + '.svg'">
+            </div>
+            <div class="slots">
+                <div *ngFor="let i of [] | ghsRange:12" class="slot-container">
+                    <label>{{i+1}}</label>
+
+                    <div *ngIf="monster[i]" class="slot monster">
+                        <div class="image">
+                            <div class="outer-border">
+                                <div class="inner-border">
+                                    <div class="image-container">
+                                        <img [src]="gameManager.monsterManager.monsterThumbnail(monster[i])">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="type player2"
+                            [ngClass]="{'normal': standees[i].type == 'normal' || standees[i].player2 == 'normal', 'elite': standees[i].type == 'elite' || standees[i].player2 == 'elite'}">
+                            <span class="inner-border"></span>
+                        </span>
+                        <span class="type player3"
+                            [ngClass]="{'normal': standees[i].type == 'normal' || standees[i].player3 == 'normal', 'elite': standees[i].type == 'elite' || standees[i].player3 == 'elite'}">
+                            <span class="inner-border"></span>
+                        </span>
+                        <span class="type player4"
+                            [ngClass]="{'normal': standees[i].type == 'normal' || standees[i].player4 == 'normal', 'elite': standees[i].type == 'elite' || standees[i].player4 == 'elite'}">
+                            <span class="inner-border"></span>
+                        </span>
+                    </div>
+
+                    <div *ngIf="overlays[i]" class="slot overlay">
+                        <div class="image"
+                            [ngClass]="{'obstacle': overlays[i].type == 'obstacle', 'difficult-terrain': overlays[i].type == 'difficultTerrain', 'hazardous-terrain': overlays[i].type == 'hazardousTerrain', 'trap': overlays[i].type == 'trap', 'treasure': overlays[i].type == 'treasure','loot': overlays[i].type == 'loot'}">
+                            <div class="border">
+                                <div class="image-container">
+                                    <img
+                                        [src]="'./assets/images/scenario/random/overlays/' + (fh ? 'fh/' : '') + (overlays[i].type == 'loot' || overlays[i].type == 'treasure' ? overlays[i].type : overlays[i].value) + '.png'">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="value" *ngIf="overlays[i].type == 'treasure' &&  overlays[i].value">
+                            <span class="separator">:</span>
+                            <span class="values" [ghs-label]="'scenario.random.treasure.' + overlays[i].value"
+                                [ghs-label-args]="overlays[i].values || []"></span>
+                        </div>
+                        <div class="value" *ngIf="overlays[i].type != 'treasure' &&  overlays[i].values">
+                            <span class="separator">:</span>
+                            <span class="values">
+                                <img *ngFor="let condition of overlays[i].values"
+                                    [src]="'./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + condition + '.svg'">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,31 +18,81 @@
           "name": "living-spirit",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "6"
         },
         {
           "name": "living-spirit",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "7"
         },
         {
           "name": "living-spirit",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "4"
         },
         {
           "name": "lurker",
-          "type": "normal"
+          "type": "normal",
+          "marker": "3"
         },
         {
           "name": "lurker",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "lurker",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "2"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "difficultTerrain",
+      "value": "water",
+      "marker": "5"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "stun",
+        "damage"
+      ],
+      "marker": "8"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "stun",
+        "damage"
+      ],
+      "marker": "9"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "stun",
+        "damage"
+      ],
+      "marker": "10"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water",
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "recoverLost",
+      "marker": "12"
     }
   ]
 }

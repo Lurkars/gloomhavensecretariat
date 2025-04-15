@@ -47,6 +47,7 @@ export class ScenarioData implements Editional, Spoilable {
   hideIndex: boolean = false;
   complexity: number = 0;
   level: number | undefined;
+  overlays: ScenarioOverlay[] = [];
 
   // from Editional
   edition: string = "";
@@ -94,6 +95,7 @@ export class ScenarioData implements Editional, Spoilable {
       this.hideIndex = scenarioData.hideIndex;
       this.complexity = scenarioData.complexity;
       this.level = scenarioData.level;
+      this.overlays = scenarioData.overlays;
     }
   }
 }
@@ -218,5 +220,15 @@ export class ScenarioFinish {
   randomItems: (Identifier | undefined)[] = [];
   randomItemBlueprints: number[] = [];
   trials: boolean[] = [];
+
+}
+
+export class ScenarioOverlay {
+
+  type: "obstacle" | "difficultTerrain" | "hazardousTerrain" | "trap" | "treasure" | "loot" | undefined;
+  value: string = "";
+  count: number = 1;
+  values: (string | number | boolean)[] = [];
+  marker: string = "";
 
 }

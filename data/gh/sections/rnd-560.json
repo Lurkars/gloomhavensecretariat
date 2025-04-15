@@ -17,39 +17,87 @@
       "monster": [
         {
           "name": "bandit-archer",
-          "type": "normal"
+          "type": "normal",
+          "marker": "4"
         },
         {
           "name": "bandit-archer",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "3"
         },
         {
           "name": "bandit-archer",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "10"
         },
         {
           "name": "bandit-guard",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "bandit-guard",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "7"
         },
         {
           "name": "hound",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "6"
         },
         {
           "name": "hound",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "8"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "loot",
+      "marker": "2"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "poison",
+        "damage"
+      ],
+      "marker": "5"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "poison",
+        "damage"
+      ],
+      "marker": "9"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "poison",
+        "damage"
+      ],
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "gold",
+      "values": [
+        5
+      ],
+      "marker": "12"
     }
   ]
 }

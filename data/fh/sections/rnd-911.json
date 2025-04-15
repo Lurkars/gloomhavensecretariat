@@ -30,36 +30,63 @@
       "monster": [
         {
           "name": "deep-terror",
-          "type": "normal"
+          "type": "normal",
+          "marker": "12"
         },
         {
           "name": "deep-terror",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "11"
         },
         {
           "name": "ice-wraith",
-          "type": "normal"
+          "type": "normal",
+          "marker": "6"
         },
         {
           "name": "ice-wraith",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "10"
         },
         {
           "name": "night-demon",
-          "type": "normal"
+          "type": "normal",
+          "marker": "3"
         },
         {
           "name": "night-demon",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "2"
         },
         {
           "name": "night-demon",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "9"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "loot",
+      "marker": "4"
+    },
+    {
+      "type": "loot",
+      "marker": "5"
+    },
+    {
+      "type": "obstacle",
+      "value": "altar",
+      "marker": "7"
+    },
+    {
+      "type": "obstacle",
+      "value": "altar",
+      "marker": "8"
     }
   ]
 }

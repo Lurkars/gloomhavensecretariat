@@ -1,0 +1,432 @@
+.random-monster-card-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 150%;
+}
+
+
+.random-monster-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .random-monster-card-back,
+    .random-monster-card-front {
+        min-height: 16em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        border-radius: 3.5%;
+    }
+
+    .random-monster-card-front {
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            content: ' ';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('~src/assets/images/scenario/random/monster/random-monster-card-front.png');
+            background-position: center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        .name {
+            position: absolute;
+            top: 6%;
+            left: 15%;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            color: var(--ghs-color-brown);
+            font-size: 1.3em;
+            font-family: ghs-title;
+        }
+
+        .element {
+            position: absolute;
+            top: 4%;
+            left: 7%;
+            width: 2.6em;
+            height: 2.6em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 0.1em solid var(--ghs-color-brown);
+            border-radius: 100%;
+            background-image: url('~src/assets/images/scenario/random/monster/random-monster-card-front.png');
+            background-position: center;
+
+            img {
+                width: 82%;
+                height: auto;
+            }
+        }
+
+        .index {
+            position: absolute;
+            bottom: 5.5%;
+            left: 15%;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            color: var(--ghs-color-brown);
+            font-size: 0.75em;
+            font-family: ghs-normal;
+            font-weight: bold;
+        }
+
+        .slots {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: absolute;
+            top: 13%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+
+            .slot-container {
+                position: relative;
+
+                label {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 0.1em solid var(--ghs-color-brown);
+                    border-radius: 100%;
+                    color: var(--ghs-color-brown);
+                    font-size: 1em;
+                    width: 1.3em;
+                    height: 1.3em;
+                    font-family: ghs-title;
+                }
+
+                .slot {
+                    position: absolute;
+                    top: 0;
+                    left: 15%;
+                    width: 85%;
+                    height: 100%;
+
+                    &.monster {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        .image {
+                            position: relative;
+
+                            .outer-border {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: calc(4em);
+                                height: calc(4em * 0.92);
+                                background-color: var(--ghs-color-white);
+                                clip-path: polygon(0 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+
+                                .inner-border {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    width: calc(3.7em);
+                                    height: calc(3.7em * 0.92);
+                                    background-color: var(--ghs-color-red);
+                                    clip-path: polygon(0 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+
+                                    .image-container {
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        width: calc(3.2em);
+                                        height: calc(3.2em * 0.92);
+                                        background-color: var(--ghs-color-darkgray);
+                                        clip-path: polygon(0 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+                                        overflow: hidden;
+
+                                        img {
+                                            width: calc(3.2em);
+                                            height: auto;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .type {
+                            position: absolute;
+                            bottom: 0.2em;
+                            left: 1.24em;
+                            width: 1.5em;
+                            height: 0.5em;
+                            clip-path: polygon(0 100%, 0% 30%, 50% 00%, 100% 30%, 100% 100%);
+                            background-color: var(--ghs-color-white);
+
+                            .inner-border {
+                                position: absolute;
+                                bottom: 10%;
+                                left: 5%;
+                                width: 90%;
+                                height: 75%;
+                                clip-path: polygon(0 100%, 0% 30%, 50% 00%, 100% 30%, 100% 100%);
+                                background-color: var(--ghs-color-black);
+                            }
+
+                            &.normal {
+                                .inner-border {
+                                    background-color: var(--ghs-color-white);
+                                }
+                            }
+
+                            &.elite {
+                                .inner-border {
+                                    background-color: var(--ghs-color-yellow);
+                                }
+                            }
+
+                            &.player2 {
+                                transform: rotate(118deg);
+                                left: 0em;
+                                bottom: initial;
+                                top: 1em;
+                            }
+
+                            &.player3 {
+                                transform: rotate(-118deg);
+                                left: 2.5em;
+                                bottom: initial;
+                                top: 1em;
+                            }
+                        }
+                    }
+
+                    &.overlay {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin-left: 0.3em;
+
+                        .image {
+                            position: relative;
+
+                            .border {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: calc(3.7em * 0.866025);
+                                height: 3.7em;
+                                background-color: var(--ghs-color-darkgray);
+                                clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+
+                                .image-container {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    width: calc(3.2em * 0.866025);
+                                    height: 3.2em;
+                                    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+                                    overflow: hidden;
+
+                                    img {
+                                        width: 4em;
+                                        height: auto;
+                                    }
+                                }
+                            }
+
+                            &.obstacle .border {
+                                background-color: var(--ghs-color-green);
+                            }
+
+                            &.difficult-terrain .border {
+                                background-color: var(--ghs-color-purple);
+                            }
+
+                            &.hazardous-terrain .border {
+                                background-color: var(--ghs-color-orange);
+                            }
+
+                            &.trap .border {
+                                background-color: var(--ghs-color-red);
+                            }
+
+                            &.treasure .border {
+                                background-color: var(--ghs-color-yellow);
+                            }
+
+                            &.loot .border {
+                                clip-path: none;
+                                background-color: var(--ghs-color-white);
+                                border-radius: 100%;
+                                width: 2.7em;
+                                height: 2.7em;
+
+                                .image-container {
+                                    clip-path: none;
+                                    background-color: var(--ghs-color-yellow);
+                                    border-radius: 100%;
+                                    width: 2.3em;
+                                    height: 2.3em;
+                                }
+                            }
+                        }
+
+                        .value {
+                            display: flex;
+                            align-items: center;
+                            height: 100%;
+
+                            .separator {
+                                font-size: 1.3em;
+                                font-family: ghs-title;
+                            }
+
+                            .values {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                font-size: 0.7em;
+                                font-family: ghs-title;
+
+                                img {
+                                    width: 1.8em;
+                                    height: auto;
+                                    margin: 0.05em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    &.fh .random-monster-card-front .slots .slot-container .slot {
+
+        &.monster {
+            .image {
+                position: relative;
+
+                .outer-border {
+                    clip-path: none;
+                    background-color: transparent;
+
+                    .inner-border {
+                        width: calc(3.7em * 0.866025);
+                        height: 3.7em;
+                        background-color: var(--ghs-color-black);
+                        clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+
+                        .image-container {
+                            width: calc(3.4em * 0.866025);
+                            height: 3.4em;
+                            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+
+                            img {
+                                width: 3.5em;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+            .type {
+                position: absolute;
+                bottom: 0.6em;
+                left: 0.5em;
+                width: 0.8em;
+                height: 1.1em;
+                clip-path: polygon(0% 0%, 100% 44%, 100% 100%, 0% 56%);
+                background-color: var(--ghs-color-black);
+
+                .inner-border {
+                    position: absolute;
+                    bottom: 7%;
+                    left: 5%;
+                    width: 90%;
+                    height: 85%;
+                    clip-path: polygon(0% 0%, 100% 44%, 100% 100%, 0% 56%);
+                    background-color: var(--ghs-color-darkgray);
+                    filter: brightness(1.4);
+                }
+
+                &.normal {
+                    .inner-border {
+                        background-color: var(--ghs-color-gray);
+                    }
+                }
+
+                &.elite {
+                    .inner-border {
+                        background-color: var(--ghs-color-yellow);
+                        filter: brightness(1);
+                    }
+                }
+
+                &.player2 {
+                    top: initial;
+                    transform: none;
+                    bottom: 1.8em;
+                    left: 0.5em;
+                }
+
+                &.player3 {
+                    top: initial;
+                    transform: none;
+                    bottom: 1.2em;
+                    left: 0.5em;
+                }
+            }
+        }
+
+        &.overlay .image {
+            .border .image-container img {
+                height: 3em;
+                width: auto;
+            }
+
+            &.treasure .border .image-container img {
+                width: 3em;
+                height: auto;
+            }
+
+            &.loot .border {
+                border-radius: 0;
+                background-color: transparent;
+
+                .image-container {
+                    border-radius: 0;
+                    background-color: transparent;
+                    overflow: visible;
+
+                    img {
+                        width: 3.5em;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .random-monster-card-back {
+        background-position: center;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-image: url('~src/assets/images/scenario/random/monster/random-monster-card-back.png');
+        z-index: 1;
+    }
+}

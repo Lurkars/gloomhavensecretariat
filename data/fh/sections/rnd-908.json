@@ -29,34 +29,68 @@
       "monster": [
         {
           "name": "rending-drake",
-          "type": "normal"
+          "type": "normal",
+          "marker": "1"
         },
         {
           "name": "rending-drake",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "9"
         },
         {
           "name": "rending-drake",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "2"
         },
         {
           "name": "shrike-fiend",
-          "type": "normal"
+          "type": "normal",
+          "marker": "6"
         },
         {
           "name": "shrike-fiend",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "10"
         },
         {
           "name": "shrike-fiend",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "5"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "loot",
+      "marker": "4"
+    },
+    {
+      "type": "obstacle",
+      "value": "nest",
+      "marker": "7"
+    },
+    {
+      "type": "loot",
+      "marker": "8"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "ice-spikes",
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "enemiesDamage",
+      "values": [
+        3
+      ],
+      "marker": "12"
     }
   ]
 }

@@ -17,36 +17,70 @@
       "monster": [
         {
           "name": "inox-archer",
-          "type": "elite"
+          "type": "elite",
+          "marker": "5"
         },
         {
           "name": "inox-archer",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "9"
         },
         {
           "name": "inox-guard",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "inox-guard",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "2"
         },
         {
           "name": "inox-shaman",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "3"
         },
         {
           "name": "inox-shaman",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "7"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "wound",
+        "disarm"
+      ],
+      "marker": "8"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "wound",
+        "disarm"
+      ],
+      "marker": "10"
+    },
+    {
+      "type": "loot",
+      "marker": 11
+    },
+    {
+      "type": "loot",
+      "marker": 12
     }
   ]
 }

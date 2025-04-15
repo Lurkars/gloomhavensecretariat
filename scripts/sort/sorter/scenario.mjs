@@ -54,5 +54,26 @@ export const sortScenario = function (scenario) {
         scenario.requirements = scenario.requirements.map((requirements) => sortObjectKeys(requirements, 'global', 'party', 'buildings', 'campaignSticker', 'puzzle', 'solo'));
     }
 
-    return sortObjectKeys(scenario, 'index', 'group', 'name', 'flowChartGroup', 'errata', 'coordinates', 'edition', 'complexity', 'parent', 'parentSections', 'level', 'conclusion', 'repeatable', 'named', 'hideIndex', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requirements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
+    if (scenario.overlays) {
+        scenario.overlays = scenario.overlays.map((overlay) => sortObjectKeys(overlay, 'type', 'value', 'count', 'values', 'marker')).sort((a, b) => {
+            if (a.marker == b.marker) {
+                if (a.type == b.type) {
+                    return a.value < b.value ? -1 : 1;
+                }
+                return a.type < b.type ? -1 : 1;
+            } else if (a.marker && !b.marker) {
+                return 1;
+            } else if (!a.marker && b.marker) {
+                return -1;
+            }
+
+            if (!isNaN(+a.marker) && !isNaN(+b.marker)) {
+                return +a.marker - +b.marker;
+            }
+
+            return a.marker < b.marker ? -1 : 1;
+        })
+    }
+
+    return sortObjectKeys(scenario, 'index', 'group', 'name', 'flowChartGroup', 'errata', 'coordinates', 'edition', 'complexity', 'parent', 'parentSections', 'level', 'conclusion', 'repeatable', 'named', 'hideIndex', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'requirements', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'allied', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms', 'overlays');
 }

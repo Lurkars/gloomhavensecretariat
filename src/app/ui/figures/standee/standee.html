@@ -42,8 +42,6 @@
             {{maxHp}}/{{((maxHp - entity.health + health) | ghsMinZero)}}
           </span>
           <span *ngIf="!maxHp">-</span>
-          <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
-            [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
         </span>
     </div>
 
@@ -104,6 +102,8 @@
         </span>
       </span>
     </div>
+    <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
+      [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
     <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
     <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
   </div>

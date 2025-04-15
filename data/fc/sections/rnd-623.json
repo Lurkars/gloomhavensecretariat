@@ -12,30 +12,63 @@
       "monster": [
         {
           "name": "aesther-ashblade",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "aesther-ashblade",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "5"
         },
         {
           "name": "aesther-scout",
-          "type": "normal"
+          "type": "normal",
+          "marker": "4"
         },
         {
           "name": "aesther-scout",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "10"
         },
         {
           "name": "aesther-scout",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "6"
         },
         {
           "name": "ooze",
-          "player3": "normal"
+          "player3": "normal",
+          "marker": "11"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "difficultTerrain",
+      "value": "water",
+      "marker": "2"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water",
+      "marker": "3"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water",
+      "marker": "8"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water",
+      "marker": "9"
+    },
+    {
+      "type": "treasure",
+      "value": "createTwoElements",
+      "marker": "12"
     }
   ]
 }

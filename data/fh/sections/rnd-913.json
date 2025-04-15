@@ -31,28 +31,54 @@
           "name": "flame-demon",
           "player2": "normal",
           "player3": "elite",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "7"
         },
         {
           "name": "flame-demon",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "9"
         },
         {
           "name": "flaming-bladespinner",
-          "type": "normal"
+          "type": "normal",
+          "marker": "4"
         },
         {
           "name": "flaming-bladespinner",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "flaming-bladespinner",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "6"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "hazardousTerrain",
+      "value": "lava",
+      "marker": "10"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "lava",
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "resource",
+      "values": [
+        "metal",
+        3
+      ],
+      "marker": "12"
     }
   ]
 }

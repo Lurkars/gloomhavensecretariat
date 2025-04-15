@@ -30,40 +30,69 @@
       "monster": [
         {
           "name": "earth-demon",
-          "type": "normal"
+          "type": "normal",
+          "marker": "5"
         },
         {
           "name": "earth-demon",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "earth-demon",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "9"
         },
         {
           "name": "forest-imp",
-          "type": "normal"
+          "type": "normal",
+          "marker": "6"
         },
         {
           "name": "forest-imp",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "8"
         },
         {
           "name": "ooze",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "12"
         },
         {
           "name": "ooze",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "11"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "damage"
+      ],
+      "marker": "4"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "damage"
+      ],
+      "marker": "7"
+    },
+    {
+      "type": "loot",
+      "marker": "10"
     }
   ]
 }

@@ -111,6 +111,8 @@ import { LevelDialogComponent } from './ui/footer/level/level-dialog';
 import { ScenarioRulesDialogComponent } from './ui/footer/scenario-rules/dialog/scenario-rules-dialog';
 import { ScenarioRuleComponent } from './ui/footer/scenario-rules/scenario-rule';
 import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rules';
+import { RandomMonsterCardComponent } from './ui/footer/scenario/dialog/random-monster-card/random-monster-card';
+import { RandomMonsterCardDialogComponent } from './ui/footer/scenario/dialog/random-monster-card/random-monster-card-dialog';
 import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-dialog';
 import { StatsListComponent } from './ui/footer/scenario/dialog/stats-list/stats-list';
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
@@ -165,6 +167,7 @@ import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { EventCardsToolComponent } from './ui/tools/events/event-cards-tool';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
+import { RandomMonsterCardsToolComponent } from './ui/tools/random-monster-cards/random-monster-cards-tool';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier/attackmodifier-standalone';
 import { InitiativeStandaloneComponent } from './ui/tools/standalone/initiative/initiative-standalone';
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck/loot-deck-standalone';
@@ -314,6 +317,9 @@ describe('AppComponent', () => {
         PerkLabelComponent,
         PetCardComponent,
         PointerInputDirective,
+        RandomMonsterCardComponent,
+        RandomMonsterCardDialogComponent,
+        RandomMonsterCardsToolComponent,
         ScenarioChartDialogComponent,
         ScenarioChartPopupDialog,
         ScenarioComponent,

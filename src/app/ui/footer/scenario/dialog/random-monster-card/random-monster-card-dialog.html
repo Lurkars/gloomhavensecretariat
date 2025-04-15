@@ -1,0 +1,7 @@
+<div class="random-monster-card-dialog" ghs-pointer-input (singleClick)="close()"
+  [ngClass]="{'closed' : !opened, 'opened' : opened}">
+  <div class="random-monster-card-container">
+    <ghs-random-monster-card [section]="section" [flipped]="opened"></ghs-random-monster-card>
+  </div>
+</div>
+<div class="close-container" (click)="close()"></div>

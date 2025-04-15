@@ -16,29 +16,71 @@
       "monster": [
         {
           "name": "ancient-artillery",
-          "type": "normal"
+          "type": "normal",
+          "marker": "8"
         },
         {
           "name": "ancient-artillery",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "11"
         },
         {
           "name": "ancient-artillery",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "6"
         },
         {
           "name": "stone-golem",
-          "type": "elite"
+          "type": "elite",
+          "marker": "3"
         },
         {
           "name": "stone-golem",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "4"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "1"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "2"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "thorns",
+      "marker": "5"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "7"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "thorns",
+      "marker": "9"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "thorns",
+      "marker": "10"
+    },
+    {
+      "type": "treasure",
+      "value": "recoverLost",
+      "marker": "12"
     }
   ]
 }

@@ -16,7 +16,7 @@ import { WorldMapComponent } from '../figures/party/world-map/world-map';
 import { FooterComponent } from '../footer/footer';
 import { HeaderComponent } from '../header/header';
 import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/keyboard-shortcuts';
-import { ghsValueSign } from './Static';
+import { ghsFilterInputFocus, ghsValueSign } from './Static';
 
 
 export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP" | "activeCharacter" | "playerNumber";
@@ -66,7 +66,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.currentZoom = settingsManager.settings.zoom })
 
         this.keydown = window.addEventListener('keydown', (event: KeyboardEvent) => {
-            if (settingsManager.settings.keyboardShortcuts && this.filterInputFocus(event)) {
+            if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus(event)) {
                 if (gameManager.stateManager.keyboardSelecting) {
                     if (event.key === 'Escape' || event.key === 's' || event.key === 'w') {
                         gameManager.stateManager.keyboardSelect = -1;
@@ -204,10 +204,10 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     if (gameManager.game.scenario && this.header) {
                         this.header.openEventEffects();
                     } else if (!gameManager.game.scenario && this.footer && this.footer.ghsScenario) {
-                        this.footer.ghsScenario.open(event);
+                        this.footer.ghsScenario.open();
                     }
                 } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'f' && this.footer.ghsScenario && gameManager.game.scenario) {
-                    this.footer.ghsScenario.open(event);
+                    this.footer.ghsScenario.open();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('party') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'p' && settingsManager.settings.partySheet) {
                     this.dialog.open(PartySheetDialogComponent, {
                         panelClass: ['dialog-invert'],
@@ -322,7 +322,7 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         })
 
         this.keyup = window.addEventListener('keyup', (event: KeyboardEvent) => {
-            if (settingsManager.settings.keyboardShortcuts && this.filterInputFocus(event) && this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+' || event.key === 'ArrowDown' || event.key === '-')) {
+            if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus(event) && this.zoomInterval && (event.key === 'ArrowUp' || event.key === '+' || event.key === 'ArrowDown' || event.key === '-')) {
                 clearInterval(this.zoomInterval);
                 this.zoomInterval = null;
                 if (settingsManager.settings.zoom != this.currentZoom) {
@@ -341,10 +341,6 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
         }
         window.removeEventListener('keydown', this.keydown);
         window.removeEventListener('keyup', this.keyup);
-    }
-
-    filterInputFocus(event: KeyboardEvent): boolean {
-        return !event.metaKey && (!window.document.activeElement || window.document.activeElement.tagName != 'INPUT' && window.document.activeElement.tagName != 'SELECT' && window.document.activeElement.tagName != 'TEXTAREA');
     }
 
     zoom(value: number) {

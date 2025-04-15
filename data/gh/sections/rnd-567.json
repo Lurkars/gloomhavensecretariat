@@ -19,36 +19,85 @@
           "name": "giant-viper",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "6"
         },
         {
           "name": "giant-viper",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "10"
         },
         {
           "name": "rending-drake",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "4"
         },
         {
           "name": "rending-drake",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "5"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "nromal",
+          "marker": "8"
         },
         {
           "name": "spitting-drake",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "spitting-drake",
-          "player2": "type"
+          "player4": "elite",
+          "marker": "11"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "wound",
+        "poison"
+      ],
+      "marker": "1"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "wound",
+        "poison"
+      ],
+      "marker": "2"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "wound",
+        "poison"
+      ],
+      "marker": "3"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "thorns",
+      "marker": "7"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "thorns",
+      "marker": "9"
+    },
+    {
+      "type": "loot",
+      "marker": 12
     }
   ]
 }

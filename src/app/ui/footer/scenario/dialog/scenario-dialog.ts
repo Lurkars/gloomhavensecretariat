@@ -6,18 +6,19 @@ import { Scenario } from "src/app/game/model/Scenario";
 import { EditionData } from "src/app/game/model/data/EditionData";
 import { RoomData } from "src/app/game/model/data/RoomData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { FavorsComponent } from "src/app/ui/figures/character/event-effects/favors/favors";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { EventEffectsDialog } from "../../../figures/character/event-effects/event-effects";
+import { ScenarioRulesDialogComponent } from "../../scenario-rules/dialog/scenario-rules-dialog";
 import { ScenarioConclusionComponent } from "../scenario-conclusion/scenario-conclusion";
 import { ScenarioSetupComponent } from "../scenario-setup/scenario-setup";
 import { SectionDialogComponent } from "../section/section-dialog";
 import { ScenarioSummaryComponent } from "../summary/scenario-summary";
 import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog";
-import { ScenarioRulesDialogComponent } from "../../scenario-rules/dialog/scenario-rules-dialog";
-import { FavorsComponent } from "src/app/ui/figures/character/event-effects/favors/favors";
+import { RandomMonsterCardDialogComponent } from "./random-monster-card/random-monster-card-dialog";
 
 @Component({
-	standalone: false,
+    standalone: false,
     selector: 'ghs-scenario-dialog',
     templateUrl: './scenario-dialog.html',
     styleUrls: ['./scenario-dialog.scss']
@@ -140,7 +141,19 @@ export class ScenarioDialogComponent {
         })
     }
 
+    openRandomMonsterCard(sectionData: ScenarioData) {
+        if (sectionData.group == 'randomMonsterCard') {
+            this.dialog.open(RandomMonsterCardDialogComponent, {
+                panelClass: ['fullscreen-panel'],
+                disableClose: true,
+                data: sectionData
+            })
+        }
+    }
+
     close() {
         ghsDialogClosingHelper(this.dialogRef);
     }
+
+
 }

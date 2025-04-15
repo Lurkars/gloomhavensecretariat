@@ -1,5 +1,5 @@
 <div class="scenario-container" [ngClass]="{'setup' : gameManager.game.round < 1}">
-  <div class="button" (click)="open($event)">
+  <div class="button" (click)="open()">
     <div class="scenario" *ngIf="!!gameManager.game.scenario">
       <span *ngIf="gameManager.game.scenario.index && !gameManager.game.scenario.hideIndex"
         class="index">#{{gameManager.game.scenario.index}}</span>
@@ -23,16 +23,17 @@
       <img class="ghs-svg" src="./assets/images/event.svg"> <span [ghs-label]="'scenario.eventEffects'"></span>
     </div>
   </div>
-  <div class="sections rooms" (click)="open($event)"
+  <div class="sections rooms"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
     <ng-container *ngIf="settingsManager.settings.scenarioRooms">
-      <span *ngFor="let roomData of gameManager.scenarioManager.openRooms();" class="section room">
+      <span *ngFor="let roomData of gameManager.scenarioManager.openRooms();" class="section room" (click)="open()">
         <img class="ghs-svg" src="./assets/images/scenario/door-open.svg">
         {{roomData.ref}}
         <span class="marker" *ngIf="roomData.marker" [ghs-label]="'%game.mapMarker.' + roomData.marker +'%'"></span>
       </span>
     </ng-container>
-    <span *ngFor="let section of gameManager.game.sections;" class="section">
+    <span *ngFor="let section of gameManager.game.sections;" class="section" ghs-pointer-input (singleClick)="open()"
+      (doubleClick)="openRandomMonsterCard(section)">
       <img class="ghs-svg" src="./assets/images/lock-open.svg">
       <span *ngIf="!section.hideIndex">#{{section.index}}</span>
       <span *ngIf="!gameManager.game.scenario || section.name != gameManager.game.scenario.name" class="name">

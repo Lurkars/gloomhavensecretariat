@@ -19,26 +19,68 @@
           "name": "earth-demon",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "3"
         },
         {
           "name": "earth-demon",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "4"
         },
         {
           "name": "flame-demon",
-          "type": "normal"
+          "type": "normal",
+          "marker": "7"
         },
         {
           "name": "flame-demon",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "12"
         },
         {
           "name": "savvas-lavaflow",
-          "type": "normal"
+          "type": "normal",
+          "marker": "1"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "2"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "5"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "6"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "hot-coals",
+      "marker": "8"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "hot-coals",
+      "marker": "9"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "hot-coals",
+      "marker": "10"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "hot-coals",
+      "marker": "11"
     }
   ]
 }

@@ -16,31 +16,75 @@
       "monster": [
         {
           "name": "earth-demon",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "earth-demon",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "6"
         },
         {
           "name": "wind-demon",
-          "type": "normal"
+          "type": "normal",
+          "marker": "2"
         },
         {
           "name": "wind-demon",
-          "type": "normal"
+          "type": "normal",
+          "marker": "9"
         },
         {
           "name": "wind-demon",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "7"
         },
         {
           "name": "wind-demon",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "3"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "4"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "5"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "8"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "rubble",
+      "marker": "10"
+    },
+    {
+      "type": "treasure",
+      "value": "gold",
+      "values": [
+        5
+      ],
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "gold",
+      "values": [
+        5
+      ],
+      "marker": "12"
     }
   ]
 }

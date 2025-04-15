@@ -270,16 +270,6 @@
           transform: translateX(-50%);
         }
 
-        .value-overlay {
-          position: absolute;
-          left: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
-          top: calc(var(--ghs-unit) * -4.5 * var(--ghs-text-factor));
-          font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-          width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
-          height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
-          z-index: 1000;
-        }
-
         &.damage {
           font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
 
@@ -631,6 +621,16 @@
     z-index: 4;
   }
 
+  .value-overlay {
+    position: absolute;
+    left: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+    top: calc(var(--ghs-unit) * -3 * var(--ghs-text-factor));
+    font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+    z-index: 1000;
+  }
+
   &.summon {
     transition: height 500ms ease-out;
 
@@ -738,18 +738,17 @@
           top: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
           left: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
           transition: top 500ms ease-out, left 500ms ease-out;
-
-          .value-overlay {
-            top: initial;
-            left: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
-            bottom: calc(var(--ghs-unit) * -3 * var(--ghs-text-factor));
-          }
         }
       }
 
       ghs-healthbar {
         transition: width 500ms ease-out;
       }
+    }
+
+    .value-overlay {
+      top: initial;
+      bottom: calc(var(--ghs-unit) * -2.5 * var(--ghs-text-factor));
     }
   }
 
@@ -800,13 +799,12 @@
         .health {
           top: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor));
           left: calc(var(--ghs-unit) * 1);
-
-          .value-overlay {
-            left: 100%;
-            bottom: calc(var(--ghs-unit) * 0.6);
-            z-index: 1000;
-          }
         }
+      }
+
+      .value-overlay {
+        left: calc(var(--ghs-unit) * 0 * var(--ghs-text-factor));
+        bottom: calc(var(--ghs-unit) * -3 * var(--ghs-text-factor));
       }
     }
 

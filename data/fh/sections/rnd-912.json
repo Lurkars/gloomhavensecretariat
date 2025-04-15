@@ -29,34 +29,69 @@
       "monster": [
         {
           "name": "lurker-wavethrower",
-          "type": "elite"
+          "type": "elite",
+          "marker": "10"
         },
         {
           "name": "lurker-wavethrower",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "5"
         },
         {
           "name": "lurker-wavethrower",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "8"
         },
         {
           "name": "sun-demon",
-          "type": "normal"
+          "type": "normal",
+          "marker": "1"
         },
         {
           "name": "sun-demon",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "4"
         },
         {
           "name": "sun-demon",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "3"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "loot",
+      "marker": "6"
+    },
+    {
+      "type": "loot",
+      "marker": "7"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water-small",
+      "marker": "9"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water-small",
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "resource",
+      "values": [
+        "lumber",
+        3
+      ],
+      "marker": "12"
     }
   ]
 }

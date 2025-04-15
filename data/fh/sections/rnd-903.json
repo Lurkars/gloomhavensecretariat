@@ -30,28 +30,76 @@
       "monster": [
         {
           "name": "lurker-clawcrusher",
-          "type": "normal"
+          "type": "normal",
+          "marker": "4"
         },
         {
           "name": "lurker-clawcrusher",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "lurker-mindsnipper",
-          "type": "normal"
+          "type": "normal",
+          "marker": "8"
         },
         {
           "name": "lurker-mindsnipper",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "7"
         },
         {
           "name": "lurker-wavethrower",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "9"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "poison",
+        "immobilize"
+      ],
+      "marker": "2"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "poison",
+        "immobilize"
+      ],
+      "marker": "3"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water-small",
+      "marker": "5"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water-small",
+      "marker": "6"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water-small",
+      "marker": "10"
+    },
+    {
+      "type": "loot",
+      "marker": "11"
+    },
+    {
+      "type": "loot",
+      "marker": "12"
     }
   ]
 }

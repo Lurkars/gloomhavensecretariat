@@ -19,36 +19,76 @@
           "name": "cave-bear",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "cave-bear",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "10"
         },
         {
           "name": "forest-imp",
-          "type": "normal"
+          "type": "normal",
+          "marker": "11"
         },
         {
           "name": "forest-imp",
-          "type": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player2": "normal",
-          "player3": "mormal",
-          "player4": "elite"
+          "type": "elite",
+          "marker": "7"
         },
         {
           "name": "forest-imp",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "6"
         },
         {
           "name": "hound",
-          "type": "normal"
+          "type": "normal",
+          "marker": "5"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "mormal",
+          "player4": "elite",
+          "marker": "4"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "loot",
+      "marker": "2"
+    },
+    {
+      "type": "loot",
+      "marker": "3"
+    },
+    {
+      "type": "trap",
+      "value": "bear-trap",
+      "values": [
+        "immobilize",
+        "damage"
+      ],
+      "marker": "8"
+    },
+    {
+      "type": "trap",
+      "value": "bear-trap",
+      "values": [
+        "immobilize",
+        "damage"
+      ],
+      "marker": "9"
+    },
+    {
+      "type": "treasure",
+      "value": "cureConditions",
+      "marker": "12"
     }
   ]
 }

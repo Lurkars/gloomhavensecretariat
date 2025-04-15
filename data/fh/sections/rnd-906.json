@@ -30,25 +30,63 @@
       "monster": [
         {
           "name": "flaming-bladespinner",
-          "type": "normal"
+          "type": "normal",
+          "marker": "1"
         },
         {
           "name": "flaming-bladespinner",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "9"
         },
         {
           "name": "ruined-machine",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "2"
         },
         {
           "name": "steel-automaton",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "7"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "bear-trap",
+      "values": [
+        "wound"
+      ],
+      "marker": "3"
+    },
+    {
+      "type": "trap",
+      "value": "bear-trap",
+      "values": [
+        "wound"
+      ],
+      "marker": "6"
+    },
+    {
+      "type": "trap",
+      "value": "bear-trap",
+      "values": [
+        "wound"
+      ],
+      "marker": "10"
+    },
+    {
+      "type": "loot",
+      "marker": "11"
+    },
+    {
+      "type": "loot",
+      "marker": "12"
     }
   ]
 }

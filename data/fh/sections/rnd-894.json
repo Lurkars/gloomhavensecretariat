@@ -17,35 +17,69 @@
       "monster": [
         {
           "name": "hound",
-          "type": "elite"
+          "type": "elite",
+          "marker": "10"
         },
         {
           "name": "hound",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "2"
         },
         {
           "name": "polar-bear",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "polar-bear",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "4"
         },
         {
           "name": "snow-imp",
-          "type": "elite"
+          "type": "elite",
+          "marker": "11"
         },
         {
           "name": "snow-imp",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "5"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "bear-trap",
+      "values": [
+        "damage",
+        "wound"
+      ],
+      "marker": "6"
+    },
+    {
+      "type": "loot",
+      "marker": "7"
+    },
+    {
+      "type": "trap",
+      "value": "bear-trap",
+      "values": [
+        "damage",
+        "wound"
+      ],
+      "marker": "8"
+    },
+    {
+      "type": "loot",
+      "marker": "12"
     }
   ]
 }

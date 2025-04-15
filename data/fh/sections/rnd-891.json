@@ -31,29 +31,68 @@
           "name": "algox-archer",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "10"
         },
         {
           "name": "algox-archer",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "8"
         },
         {
           "name": "algox-archer",
-          "player3": "normal"
+          "player3": "normal",
+          "marker": "4"
         },
         {
           "name": "algox-icespeaker",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "algox-icespeaker",
           "player2": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "5"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "obstacle",
+      "value": "ice-pillar",
+      "marker": "2"
+    },
+    {
+      "type": "loot",
+      "marker": "6"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "ice-spikes",
+      "marker": "7"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "ice-spikes",
+      "marker": "9"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "ice-spikes",
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "enemiesCondition",
+      "values": [
+        "wound"
+      ],
+      "marker": "12"
     }
   ]
 }

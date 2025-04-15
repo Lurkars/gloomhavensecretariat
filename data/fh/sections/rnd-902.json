@@ -30,35 +30,62 @@
       "monster": [
         {
           "name": "lurker-soldier",
-          "type": "normal"
+          "type": "normal",
+          "marker": "1"
         },
         {
           "name": "lurker-soldier",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "2"
         },
         {
           "name": "lurker-wavethrower",
-          "type": "elite"
+          "type": "elite",
+          "marker": "7"
         },
         {
           "name": "lurker-wavethrower",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "12"
         },
         {
           "name": "piranha-pig",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "4"
         },
         {
           "name": "piranha-pig",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "5"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "difficultTerrain",
+      "value": "water-small",
+      "marker": "6"
+    },
+    {
+      "type": "loot",
+      "marker": "9"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water-small",
+      "marker": "10"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water-small",
+      "marker": "11"
     }
   ]
 }

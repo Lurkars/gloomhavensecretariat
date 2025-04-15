@@ -18,46 +18,83 @@
           "name": "black-imp",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "black-imp",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "2"
         },
         {
           "name": "black-imp",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "4"
         },
         {
           "name": "black-imp",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "8"
         },
         {
           "name": "black-imp",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "9"
         },
         {
           "name": "deep-terror",
-          "type": "elite"
+          "type": "elite",
+          "marker": "12"
         },
         {
           "name": "deep-terror",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "6"
         },
         {
           "name": "lurker",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "3"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "poison-gas-trap",
+      "values": [
+        "muddle",
+        "damage"
+      ],
+      "marker": "7"
+    },
+    {
+      "type": "trap",
+      "value": "poison-gas-trap",
+      "values": [
+        "muddle",
+        "damage"
+      ],
+      "marker": "10"
+    },
+    {
+      "type": "trap",
+      "value": "poison-gas-trap",
+      "values": [
+        "muddle",
+        "damage"
+      ],
+      "marker": "11"
     }
   ]
 }

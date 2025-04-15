@@ -16,31 +16,68 @@
       "monster": [
         {
           "name": "flame-demon",
-          "type": "elite"
+          "type": "elite",
+          "marker": "3"
         },
         {
           "name": "flame-demon",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "9"
         },
         {
           "name": "flame-demon",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "6"
         },
         {
           "name": "frost-demon",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "frost-demon",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "5"
         },
         {
           "name": "frost-demon",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "7"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "difficultTerrain",
+      "value": "water",
+      "marker": "4"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "hot-coals",
+      "marker": "8"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "water",
+      "marker": "10"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "hot-coals",
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "refreshItem",
+      "values": [
+        2,
+        "small"
+      ],
+      "marker": "12"
     }
   ]
 }

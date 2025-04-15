@@ -16,50 +16,66 @@
       "monster": [
         {
           "name": "giant-viper",
-          "type": "normal"
+          "type": "normal",
+          "marker": "4"
         },
         {
           "name": "giant-viper",
-          "type": "normal"
+          "type": "normal",
+          "marker": "5"
         },
         {
           "name": "giant-viper",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "giant-viper",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "6"
         },
         {
           "name": "giant-viper",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "2"
         },
         {
           "name": "giant-viper",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "3"
         },
         {
           "name": "giant-viper",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "8"
         },
         {
           "name": "ooze",
-          "type": "normal"
+          "type": "normal",
+          "marker": "11"
         },
         {
           "name": "ooze",
-          "type": "elite"
+          "type": "elite",
+          "marker": "10"
         },
         {
           "name": "ooze",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "7"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "loot",
+      "marker": "12"
     }
   ]
 }

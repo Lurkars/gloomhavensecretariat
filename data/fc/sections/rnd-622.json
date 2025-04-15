@@ -12,29 +12,72 @@
       "monster": [
         {
           "name": "valrath-savage",
-          "type": "normal"
+          "type": "normal",
+          "marker": "5"
         },
         {
           "name": "valrath-savage",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "6"
         },
         {
           "name": "valrath-savage",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "1"
         },
         {
           "name": "valrath-tracker",
-          "type": "elite"
+          "type": "elite",
+          "marker": "9"
         },
         {
           "name": "valrath-tracker",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "7"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "wound",
+        "damage"
+      ],
+      "marker": "2"
+    },
+    {
+      "type": "trap",
+      "value": "spike-pit-trap",
+      "values": [
+        "wound",
+        "damage"
+      ],
+      "marker": "3"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "thorns",
+      "marker": "10"
+    },
+    {
+      "type": "hazardousTerrain",
+      "value": "thorns",
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "gold",
+      "values": [
+        10
+      ],
+      "marker": "12"
     }
   ]
 }

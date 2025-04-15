@@ -31,29 +31,63 @@
           "name": "algox-guard",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "2"
         },
         {
           "name": "algox-guard",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "1"
         },
         {
           "name": "algox-guard",
-          "player3": "normal"
+          "player3": "normal",
+          "marker": "10"
         },
         {
           "name": "algox-snowspeaker",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "6"
         },
         {
           "name": "algox-snowspeaker",
           "player2": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "11"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "difficultTerrain",
+      "value": "snowdrift",
+      "marker": "3"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "snowdrift",
+      "marker": "5"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "snowdrift",
+      "marker": "7"
+    },
+    {
+      "type": "loot",
+      "marker": "9"
+    },
+    {
+      "type": "treasure",
+      "value": "enemiesCondition",
+      "values": [
+        "immobilize"
+      ],
+      "marker": "12"
     }
   ]
 }

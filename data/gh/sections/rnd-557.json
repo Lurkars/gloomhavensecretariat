@@ -16,42 +16,87 @@
       "monster": [
         {
           "name": "forest-imp",
-          "type": "normal"
+          "type": "normal",
+          "marker": "1"
         },
         {
           "name": "forest-imp",
-          "type": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "elite",
+          "marker": "3"
         },
         {
           "name": "forest-imp",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "2"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "elite",
+          "marker": "4"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "elite",
+          "marker": "5"
         },
         {
           "name": "sun-demon",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "sun-demon",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "10"
         },
         {
           "name": "sun-demon",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "6"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "poison-gas-trap",
+      "values": [
+        "poison",
+        "immobilize"
+      ],
+      "marker": "8"
+    },
+    {
+      "type": "trap",
+      "value": "poison-gas-trap",
+      "values": [
+        "poison",
+        "immobilize"
+      ],
+      "marker": "9"
+    },
+    {
+      "type": "trap",
+      "value": "poison-gas-trap",
+      "values": [
+        "poison",
+        "immobilize"
+      ],
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "heal",
+      "values": [
+        5
+      ],
+      "marker": "12"
     }
   ]
 }

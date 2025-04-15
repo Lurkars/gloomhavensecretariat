@@ -29,39 +29,77 @@
       "monster": [
         {
           "name": "chaos-demon",
-          "type": "normal"
+          "type": "normal",
+          "marker": "7"
         },
         {
           "name": "chaos-demon",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "2"
         },
         {
           "name": "chaos-demon",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "8"
         },
         {
           "name": "city-guard",
-          "type": "elite"
+          "type": "elite",
+          "marker": "6"
         },
         {
           "name": "city-guard",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "city-guard",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "3"
         },
         {
           "name": "city-guard",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "9"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "treasure",
+      "value": "recoverCards",
+      "values": [
+        5
+      ]
+    },
+    {
+      "type": "loot",
+      "marker": "4"
+    },
+    {
+      "type": "trap",
+      "value": "poison-trap",
+      "values": [
+        "wound",
+        "poison"
+      ],
+      "marker": "10"
+    },
+    {
+      "type": "trap",
+      "value": "poison-trap",
+      "values": [
+        "wound",
+        "poison"
+      ],
+      "marker": "11"
     }
   ]
 }

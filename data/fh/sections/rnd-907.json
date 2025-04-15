@@ -32,38 +32,78 @@
           "name": "black-imp",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "2"
         },
         {
           "name": "black-imp",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "9"
         },
         {
           "name": "chaos-demon",
-          "type": "normal"
+          "type": "normal",
+          "marker": "4"
         },
         {
           "name": "chaos-demon",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "1"
         },
         {
           "name": "chaos-demon",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "8"
         },
         {
           "name": "ooze",
-          "type": "elite"
+          "type": "elite",
+          "marker": "7"
         },
         {
           "name": "ooze",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "5"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "treasure",
+      "value": "lootCards",
+      "values": [
+        2
+      ]
+    },
+    {
+      "type": "trap",
+      "value": "poison-trap",
+      "values": [
+        "poison"
+      ],
+      "marker": "3"
+    },
+    {
+      "type": "trap",
+      "value": "poison-trap",
+      "values": [
+        "poison"
+      ],
+      "marker": "10"
+    },
+    {
+      "type": "trap",
+      "value": "poison-trap",
+      "values": [
+        "poison"
+      ],
+      "marker": "11"
     }
   ]
 }

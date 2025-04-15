@@ -7,6 +7,7 @@ import { storageManager } from "src/app/game/businesslogic/StorageManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
+import { ghsFilterInputFocus } from "src/app/ui/helper/Static";
 import { environment } from "src/environments/environment";
 
 @Component({
@@ -39,6 +40,13 @@ export class InitiativeStandaloneComponent implements OnInit, OnDestroy {
 
         gameManager.uiChange.emit();
         this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
+
+        window.addEventListener('focus', (event) => {
+            if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() != WebSocket.OPEN) {
+                gameManager.stateManager.connect();
+            }
+        });
+
     }
 
     uiChangeSubscription: Subscription | undefined;
@@ -72,7 +80,7 @@ export class InitiativeStandaloneComponent implements OnInit, OnDestroy {
 
     @HostListener('document:keydown', ['$event'])
     onKeyPress(event: KeyboardEvent) {
-        if (settingsManager.settings.keyboardShortcuts) {
+        if (settingsManager.settings.keyboardShortcuts && ghsFilterInputFocus(event) && this.dialog.openDialogs.length == 0) {
             if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
                 this.pickNumber(+event.key);
                 event.preventDefault();

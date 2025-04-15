@@ -29,32 +29,66 @@
       "monster": [
         {
           "name": "burrowing-blade",
-          "type": "normal"
+          "type": "normal",
+          "marker": "5"
         },
         {
           "name": "burrowing-blade",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "12"
         },
         {
           "name": "burrowing-blade",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "4"
         },
         {
           "name": "spitting-drake",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "7"
         },
         {
           "name": "spitting-drake",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "9"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "difficultTerrain",
+      "value": "snowdrift",
+      "marker": "1"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "snowdrift",
+      "marker": "2"
+    },
+    {
+      "type": "loot",
+      "marker": "3"
+    },
+    {
+      "type": "difficultTerrain",
+      "value": "snowdrift",
+      "marker": "6"
+    },
+    {
+      "type": "loot",
+      "marker": "10"
+    },
+    {
+      "type": "loot",
+      "marker": "11"
     }
   ]
 }

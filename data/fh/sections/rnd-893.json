@@ -16,32 +16,58 @@
       "monster": [
         {
           "name": "algox-priest",
-          "type": "normal"
+          "type": "normal",
+          "marker": "8"
         },
         {
           "name": "algox-priest",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "11"
         },
         {
           "name": "algox-priest",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "4"
         },
         {
           "name": "algox-scout",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "algox-scout",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "5"
         },
         {
           "name": "algox-scout",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "10"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "obstacle",
+      "value": "ice-pillar",
+      "marker": "3"
+    },
+    {
+      "type": "obstacle",
+      "value": "ice-pillar",
+      "marker": "6"
+    },
+    {
+      "type": "treasure",
+      "value": "lootCards",
+      "values": [
+        3
+      ],
+      "marker": "12"
     }
   ]
 }

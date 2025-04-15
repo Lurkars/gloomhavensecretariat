@@ -32,31 +32,65 @@
           "name": "frost-demon",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "4"
         },
         {
           "name": "frost-demon",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "7"
         },
         {
           "name": "ice-wraith",
-          "type": "normal"
+          "type": "normal",
+          "marker": "5"
         },
         {
           "name": "ice-wraith",
-          "type": "elite"
+          "type": "elite",
+          "marker": "1"
         },
         {
           "name": "ice-wraith",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "9"
         },
         {
           "name": "snow-imp",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "8"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "poison-trap",
+      "values": [
+        "poison",
+        "muddle"
+      ],
+      "marker": "10"
+    },
+    {
+      "type": "trap",
+      "value": "poison-trap",
+      "values": [
+        "poison",
+        "muddle"
+      ],
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "lootCards",
+      "values": [
+        2
+      ],
+      "marker": "12"
     }
   ]
 }

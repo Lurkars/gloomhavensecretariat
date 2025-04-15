@@ -16,41 +16,86 @@
       "monster": [
         {
           "name": "living-corpse",
-          "type": "normal"
+          "type": "normal",
+          "marker": "1"
         },
         {
           "name": "living-corpse",
-          "type": "elite"
+          "type": "elite",
+          "marker": "3"
         },
         {
           "name": "living-corpse",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "2"
         },
         {
           "name": "living-corpse",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "5"
         },
         {
           "name": "living-corpse",
-          "player4": "normal"
+          "player4": "normal",
+          "marker": "6"
         },
         {
           "name": "ooze",
-          "type": "normal"
+          "type": "normal",
+          "marker": "8"
         },
         {
           "name": "ooze",
           "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "7"
         },
         {
           "name": "ooze",
           "player3": "elite",
-          "player4": "elite"
+          "player4": "elite",
+          "marker": "4"
         }
       ]
+    }
+  ],
+  "overlays": [
+    {
+      "type": "trap",
+      "value": "poison-gas-trap",
+      "values": [
+        "muddle",
+        "damage"
+      ],
+      "marker": "9"
+    },
+    {
+      "type": "trap",
+      "value": "poison-gas-trap",
+      "values": [
+        "muddle",
+        "damage"
+      ],
+      "marker": "10"
+    },
+    {
+      "type": "trap",
+      "value": "poison-gas-trap",
+      "values": [
+        "muddle",
+        "damage"
+      ],
+      "marker": "11"
+    },
+    {
+      "type": "treasure",
+      "value": "gold",
+      "values": [
+        10
+      ],
+      "marker": "12"
     }
   ]
 }

@@ -1,0 +1,28 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  ghs-header {
+    z-index: 2;
+  }
+}
+
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+
+  .section {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--ghs-color-darkgray);
+
+    ghs-random-monster-card {
+      display: block;
+      width: calc(var(--ghs-unit) * 40);
+      height: calc(var(--ghs-unit) * 60);
+    }
+  }
+}

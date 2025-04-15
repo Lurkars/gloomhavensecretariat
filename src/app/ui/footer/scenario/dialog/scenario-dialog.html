@@ -32,7 +32,9 @@
         <span class="marker" *ngIf="roomData.marker" [ghs-label]="'%game.mapMarker.' + roomData.marker +'%'"></span>
       </span>
 
-      <span class="section" *ngFor="let section of gameManager.game.sections;">
+      <span class="section" *ngFor="let section of gameManager.game.sections;"
+        [ngClass]="{'random-monster-card': section.group == 'randomMonsterCard'}"
+        (click)="openRandomMonsterCard(section)">
         #{{section.index}}
         <span *ngIf="!scenario || section.name != scenario.name">
           &nbsp;<span [ghs-label]="gameManager.scenarioManager.scenarioTitle(section,true)"></span>

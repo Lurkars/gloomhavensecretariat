@@ -8,6 +8,7 @@ import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
 import { EditionEditorComponent } from './ui/tools/editor/edition';
 import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { EventCardsToolComponent } from './ui/tools/events/event-cards-tool';
+import { RandomMonsterCardsToolComponent } from './ui/tools/random-monster-cards/random-monster-cards-tool';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier/attackmodifier-standalone';
 import { InitiativeStandaloneComponent } from './ui/tools/standalone/initiative/initiative-standalone';
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck/loot-deck-standalone';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'tools/decks', component: DecksToolComponent },
   { path: 'tools/events', component: EventCardsToolComponent },
   { path: 'tools/treasures', component: TreasuresToolComponent },
+  { path: 'tools/random-monster-cards', component: RandomMonsterCardsToolComponent },
   { path: 'loot', component: LootDeckStandaloneComponent },
   { path: 'am', component: AttackModifierStandaloneComponent },
   { path: 'initiative', component: InitiativeStandaloneComponent },
