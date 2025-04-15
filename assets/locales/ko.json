@@ -215,12 +215,12 @@
           "alt": "봉투 %game.fhIcon:envelope% {0} 열기<br>(또는: %game.fhIcon:envelope% {1})",
           "building": "'%data.buildings.{1}%' ({0}) 건물 해금",
           "inspiration": "영감 +1",
-          "itemBlueprint": "\"%data.items.{1}-{0}%\" ({0}) 설계도 획득",
+          "itemBlueprint": "\"%data.items.{1}-{0}%\" ({0}) 도안 획득",
           "randomScenario": "%data.section:{0}% 열기, %data.scenarioNumber:{1}% 해제"
         },
         "unlockCharacter": {
           "": "%game.characterIcon.{0}% 박스 열기",
-          "itemDesign": "\"%data.items.{1}-{0}%\" ({0}) 설계도 획득",
+          "itemDesign": "\"%data.items.{1}-{0}%\" ({0}) 도안 획득",
           "randomScenario": "\"{1}\" %data.scenarioNumber:{0}% 해제"
         }
       },
@@ -333,7 +333,7 @@
         "hint": {
           "": "정기적으로 게임을 백업하여 데이터 손실을 방지하십시오.",
           "hide": "다시 표시 안 함",
-          "text": "전체 과정은 브라우저의 저장소에 저장됩니다. 어떤 브라우저도 실수로 이 데이터를 삭제해서는 안 되지만, 이러한 사고에 대한 보고는 아직 거의 없습니다. 이러한 사고가 사용 오류로 인해 발생하는지 여부와 관계없이 안전을 위해 백업을 생성하는 것이 좋습니다."
+          "text": "모든 데이터는 브라우저에 저장됩니다. 이 데이터를 삭제해서는 안 되며, 이와같은 이슈에 대한 사례는 거의 없었습니다. 하지만 누적된 사례와 관계없이 백업을 생성하는 것을 권장드립니다."
         },
         "onFinish": "시나리오를 마친 후, 자동 백업 생성"
       },
@@ -464,7 +464,7 @@
         "remove": "능력 덱 제거하기"
       },
       "edition": "에디션 이름",
-      "extensions": "확장할 에디션",
+      "extensions": "확장 에디션",
       "json": {
         "": "JSON 파일 유형의 에디션 데이터",
         "download": "에디션 데이터 JSON 파일 유형으로 다운로드"
@@ -1031,8 +1031,8 @@
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
-            "": "무작위 아이템 설계도",
-            "result": ": {1} 설계도 ({0})"
+            "": "무작위 아이템 도안",
+            "result": ": {1} 도안 ({0})"
           },
           "randomItemDesign": {
             "": "무작위 아이템 도안",
@@ -1166,16 +1166,16 @@
     }
   },
   "number": {
-    "0": "0장",
-    "1": "1장",
-    "2": "2장",
-    "3": "3장",
-    "4": "4장",
-    "5": "5장",
-    "6": "6장",
-    "7": "7장",
-    "8": "8장",
-    "9": "9장"
+    "0": "0",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9"
   },
   "numbered": {
     "1": "첫 번째",
@@ -1455,7 +1455,7 @@
       "drawRandomItem": {
         "": "무작위 아이템 도안 뽑기",
         "apply": "적용",
-        "blueprint": "무작위 아이템 설계도 뽑기"
+        "blueprint": "무작위 아이템 도안 뽑기"
       },
       "drawRandomScenario": {
         "": "무작위 시나리오 뽑기",
@@ -1529,7 +1529,7 @@
       "calendarSection": {
         "": "섹션 연결",
         "add": {
-          "": "%number.{1}%주 안에 %data.section:{0}% 추가.",
+          "": "%number.{1}%주 후의 칸에 %data.section:{0}%를 추가합니다.",
           "next": "%numbered.{1}%주의 다음%party.campaign.sheet.{2}%에%data.section:{0}%을 추가합니다."
         }
       },
@@ -1555,8 +1555,8 @@
       "gold": "각 금화 {0}개",
       "inspiration": "영감 {0}",
       "item": "\"{1}\" (아이템 {0}번)",
-      "itemBlueprint": "\"{1}\" %game.itemFh.{0}% 설계도 획득",
-      "itemBlueprintRange": "가능한 아이템 보급으로 %game.itemFh.{0}% 아이템을 %game.itemFh.{1}%에 추가.",
+      "itemBlueprint": "\"{1}\" %game.itemFh.{0}% 도안 획득",
+      "itemBlueprintRange": "입수 가능한 아이템 공급처에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 아이템 추가.",
       "itemDesign": "\"{1}\" 도안 (아이템 {0}번)",
       "itemDesignEdition": "\"{1}\" 도안 (아이템 {0} %data.edition.{2}%)",
       "itemDesignRange": "아이템 도안 {0}번 추가",
@@ -1569,8 +1569,8 @@
       "partyAchievements": "파티 업적",
       "perks": "각 특혜 {0}개 획득",
       "prosperity": "번영도 {0}",
-      "randomItemBlueprint": "무작위 아이템 설계도 하나 획득",
-      "randomItemBlueprints": "아이템 설계도 덱에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 추가.",
+      "randomItemBlueprint": "무작위 아이템 도안 하나 획득",
+      "randomItemBlueprints": "입수 가능한 아이템 공급처에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 추가.",
       "randomItems": "각 캐릭터는 무작위 아이템 하나 획득 ({0}-{1})",
       "removeEvent": {
         "boat": "Boat 덱에서 {0} 이벤트 제거",
@@ -1652,8 +1652,8 @@
     },
     "section": {
       "": "섹션",
-      "add": "{1} #{0} 섹션을 여시겠습니까?",
-      "addIndex": "{1} 섹션을 여시겠습니까?",
+      "add": "{1} 섹션을 여시겠습니까?",
+      "addIndex": "{1}#{0} 섹션을 여시겠습니까?",
       "addMarker": "%game.mapMarker.{1}% 섹션을 여시겠습니까?",
       "addMarkerIndex": "%game.mapMarker.{1}% #{0} 섹션을 여시겠습니까?",
       "cancel": "취소",
@@ -2615,6 +2615,9 @@
       "endAllTurns": "모든 차례 종료",
       "entityDead": "{0}의 {1} 몬스터 말 {2}번을 죽임",
       "equipItem": "{0}의 아이템 {1} (%data.edition.{2}%) 장비",
+      "eventEffect": {
+        "drawRandomItemBlueprint": "무작위 아이템 도안을 뽑습니다 {0} \"{2}\" (%data.edition.{1}%)"
+      },
       "finishScenario": {
         "battleGoal": "%data.character.{0}%의 전투 목표 {1} 설정",
         "close": "시나리오 요약 닫기",
@@ -2869,7 +2872,7 @@
       "difficulty": "난이도/레벨 메뉴",
       "entityMenu": {
         "characterSheet": "캐릭터 시트 열기",
-        "kill": "사망 / 소진"
+        "kill": "사망 / 탈진"
       },
       "events": "이벤트 효과 메뉴",
       "finish": "(종료) 시나리오 메뉴",

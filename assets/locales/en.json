@@ -1534,7 +1534,22 @@
     "openRoomMarker": "Open door %game.mapMarker.{1}%",
     "openRoomMarkerRef": "Open door %game.mapMarker.{1}% for tile '{0}'",
     "openRoomRef": "Open door for tile '{0}'",
-    "random": "Random Dungeon",
+    "random": {
+      "": "Random Dungeon",
+      "treasure": {
+        "createTwoElements": "Create any two elements",
+        "cureConditions": "Cure all negative conditions",
+        "enemiesCondition": "All enemies gain %game.condition.{0}%",
+        "enemiesDamage": "All enemies suffer %game.damage:{0}%",
+        "gold": "{0} gold",
+        "heal": "Heal {0} hit points",
+        "lootCards": "Gain {0} loot cards",
+        "recoverCards": "Recover {0} cards from discard",
+        "recoverLost": "Recover a lost card",
+        "refreshItem": "Refresh {0} %game.itemSlot:{1}% items",
+        "resource": "Gain {1} %game.resource.{0}%"
+      }
+    },
     "requirements": {
       "": "Scenario Requirements",
       "all": "Show all requirements (include fulfilled)",

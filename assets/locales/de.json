@@ -1534,7 +1534,22 @@
     "openRoomMarker": "Raum %game.mapMarker.{1}% öffnen",
     "openRoomMarkerRef": "Raum %game.mapMarker.{1}% für Kachel '{0}' öffnen",
     "openRoomRef": "Raum für Kachel '{0}' öffnen",
-    "random": "Zufallsabenteuer",
+    "random": {
+      "": "Zufallsabenteuer",
+      "treasure": {
+        "createTwoElements": "Erstelle zwei beliebige Elemente",
+        "cureConditions": "Alle negativen Zustände heilen",
+        "enemiesCondition": "Alle Gegner erhalten %game.condition.{0}%",
+        "enemiesDamage": "Alle Gegner erleiden %game.damage:{0}%",
+        "gold": "{0} Gold",
+        "heal": "Heile {0} Trefferpunkte",
+        "lootCards": "Erhalte {0} Beutekarten",
+        "recoverCards": "Hole {0} Karten aus dem Abwurfstapel wieder",
+        "recoverLost": "Hole eine verlorene Karte zurück",
+        "refreshItem": "Erneuere {0} %game.itemSlot:{1}% Gegenstände",
+        "resource": "Erhalte {1} %game.resource.{0}%"
+      }
+    },
     "requirements": {
       "": "Szenario Voraussetzungen",
       "all": "Zeige alle Voraussetzungen (inkl. erfüllte)",
