@@ -2913,10 +2913,6 @@
         "summon": "%game.condition.{2}% von '{1}' von {0} entfernen",
         "summons": "%game.condition.{1}% von allen {0} Beschwörungen entfernen"
       },
-      "removeEntityMarker": {
-        "monster": "Entferne Markierung %game.mapMarker.{2}% für '{1}' von {0}",
-        "objectiveContainer": "Entferne Markierung %game.mapMarker.{2}% für %game.objectiveMarker.{1}% von {0}"
-      },
       "removeConditions": {
         "char": "{2}x %game.condition.{1}% von {0} entfernen",
         "monster": "{3}x %game.condition.{2}% von {1} von {0} entfernen",
@@ -2926,6 +2922,10 @@
         "objectives": "{2}x game.condition.{1}% von allen {0} entfernen",
         "summon": "{3}x %game.condition.{2}% von '{1}' von {0} entfernen",
         "summons": "{2}x %game.condition.{1}% von allen {0} Beschwörungen entfernen"
+      },
+      "removeEntityMarker": {
+        "monster": "Entferne Markierung %game.mapMarker.{2}% für '{1}' von {0}",
+        "objectiveContainer": "Entferne Markierung %game.mapMarker.{2}% für %game.objectiveMarker.{1}% von {0}"
       },
       "removeEntityRetaliate": {
         "char": "%game.action.retaliate% für {0} entfernen",
