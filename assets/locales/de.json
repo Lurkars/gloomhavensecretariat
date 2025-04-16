@@ -838,7 +838,7 @@
         "discard": "Jeder legt jeweils {0} Karten ab.",
         "event": "Füge %game.events.type.{0}% Ereignis {1} zum Ereignisdeck hinzu.",
         "experience": "Erhaltet jeder {0} Erfahrung.",
-        "globalAchievement": "Globaler Erfolg: \"{0}\".",
+        "globalAchievement": "Globaler Erfolg: \"%data.globalAchievements.{0}%\".",
         "gold": "Erhaltet jeweils {0} Gold.",
         "itemDesign": "Erhalte \"%data.items.{1}-{0}%\" Gegenstandsplan (Gegenstein {0}).",
         "loseBattleGoal": "Verliert jeweils {0} %game.checkmark%.",
@@ -847,7 +847,7 @@
         "loseReputation": "Verliere {0} Ansehen.",
         "noEffect": "Kein Effekt.",
         "outcome": "Lese Ausgang %game.events.option.{0}%.",
-        "partyAchievement": "Gruppenerfolg: \"{0}\".",
+        "partyAchievement": "Gruppenerfolg: \"%data.partyAchievements.{0}%\".",
         "prosperity": "Erhalte {0} Wohlstand.",
         "randomItemDesign": "Erhalte einen zufälligen Gegenstandsplan.",
         "reputation": "Erhalte {0} Ansehen.",
@@ -1036,7 +1036,7 @@
           "itemFh": "erhalte {1} %game.itemFh.{0}%",
           "loot": "erhalte {0} Münzmarker",
           "lootCards": "erhalte %number.{0}% Beutekarten",
-          "partyAchievement": "Gruppenerfolg: \"{0}\"",
+          "partyAchievement": "Gruppenerfolg: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "Erhalte einen zufälligen Gegenstand (Gegenstände {0})",
             "result": ": {1} ({0})"
@@ -1501,7 +1501,7 @@
         "scenario": "{1} %data.scenarioNumber:{0}%",
         "section": "Öffne %data.section:{0}%, schaltet {2} frei"
       },
-      "hint": "Auf alle ausgewählten Charaktere anwenden",
+      "hint": "Auf alle ausgewählten Figuren anwenden",
       "progress": "Betrifft Charakter Progression"
     },
     "favors": {
@@ -1557,16 +1557,16 @@
       "buildingsLevel": "'%data.buildings.{0}%' (Building) Level {1} GEBAUT",
       "buildingsMissing": "'%data.buildings.{0}%' (Building) NICHT GEBAUT",
       "campaignStickers": "'%data.campaignSticker.{0}%' (Kampagnenbogensticker) VOLLSTÄNDIG",
-      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Kampagnenbogensticker) x{2} VOLLSTÄNDIG  (got {1})",
+      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Kampagnenbogensticker) x{2} VOLLSTÄNDIG (bisher {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Kampagnenbogensticker) NICHT VOLLSTÄNDIG",
       "cancel": "Abbrechen",
       "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' anwesend",
       "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' abwesend",
       "global": "'{0}' (Global) VOLLSTÄNDIG",
-      "globalCount": "'{0}' (Global) x{2} VOLLSTÄNDIG (hat {1})",
+      "globalCount": "'{0}' (Global) x{2} VOLLSTÄNDIG (bisher {1})",
       "globalMissing": "'{0}' (Global) NICHT VOLLSTÄNDIG",
       "party": "'{0}' (Gruppe) VOLLSTÄNDIG",
-      "partyCount": "'{0}' (Gruppe)x{2} VOLLSTÄNDIG  (hat {1})",
+      "partyCount": "'{0}' (Gruppe)x{2} VOLLSTÄNDIG (bisher {1})",
       "partyMissing": "'{0}' (Gruppe) NICHT VOLLSTÄNDIG",
       "scenarios": {
         "": "Folgende Szenarien müssen abgeschlossen sein",
@@ -2641,7 +2641,7 @@
         "summons": "{2}x %game.condition.{1}% alle {0} Beschwörungen"
       },
       "addGameCondition": "%game.condition.{0}% zum aktuellen Spiel hinzufügen",
-      "addGlobalAchievement": "Füge globalen Erfolg '{0}' hinzu",
+      "addGlobalAchievement": "Füge globalen Erfolg '%data.globalAchievements.{0}%' hinzu",
       "addImmunity": {
         "char": "%game.immunity.{1}% Immunität {0}",
         "monster": "%game.immunity.{2}% Immunität '{1}' von {0}",
@@ -2673,7 +2673,7 @@
         "escort": "Begleiter hinzufügen"
       },
       "addParty": "Neue Gruppe '{0}' erstellen",
-      "addPartyAchievement": "Füge Gruppenerfolg '{0}' hinzu",
+      "addPartyAchievement": "Füge Gruppenerfolg '%data.partyAchievements.{0}%' hinzu",
       "addPartyTownGuardPerkSection": "Verbesserung der Stadtwache Sektion {0}",
       "addPartyWeekSection": "Sektion {2} zur Woche {1} hinzufügen",
       "addRandomStandee": "Zufälliger Aufsteller {1} {0} {2} hinzufügen",
@@ -2913,6 +2913,10 @@
         "summon": "%game.condition.{2}% von '{1}' von {0} entfernen",
         "summons": "%game.condition.{1}% von allen {0} Beschwörungen entfernen"
       },
+      "removeEntityMarker": {
+        "monster": "Entferne Markierung %game.mapMarker.{2}% für '{1}' von {0}",
+        "objectiveContainer": "Entferne Markierung %game.mapMarker.{2}% für %game.objectiveMarker.{1}% von {0}"
+      },
       "removeConditions": {
         "char": "{2}x %game.condition.{1}% von {0} entfernen",
         "monster": "{3}x %game.condition.{2}% von {1} von {0} entfernen",
@@ -2948,7 +2952,7 @@
         "summon": "%game.card.persistent% %game.action.shield% für '{1}' von {0} entfernen"
       },
       "removeGameCondition": "%game.condition.{0}% vom aktuellen Spiel entfernen",
-      "removeGlobalAchievement": "Entferne globalen Erfolg '{0}'",
+      "removeGlobalAchievement": "Entferne globalen Erfolg '%data.globalAchievements.{0}%'",
       "removeImmunity": {
         "char": "%game.immunity.{1}% Immunität von {0} entfernen",
         "monster": "%game.immunity.{2}% Immunität von {1} von {0} entfernen",
@@ -2975,7 +2979,7 @@
       "removeMonster": "Monster {0} entfernen",
       "removeObjective": "Ziel {0} entfernen",
       "removeParty": "Gruppe '{0}' löschen",
-      "removePartyAchievement": "Entferne Gruppenerfolg '{0}'",
+      "removePartyAchievement": "Entferne Gruppenerfolg '%data.partyAchievements.{0}%'",
       "removePartyTownGuardPerkSection": "Sektion {0} von den Verbesserungen der Stadtwache entfernen",
       "removePartyWeekSection": "Sektion {2} von Woche {1} entfernen",
       "removePlayer": "Entferne Spieler {1} ({0})",
@@ -3049,6 +3053,7 @@
       "setInitiative": "Initiative {1} für {0}",
       "setLevel": "Level {1} für {0}",
       "setNotes": "Notizen \"{1}\" für {0}",
+      "setObjectiveEntityMarker": "Setze Markierung für %game.objectiveMarker.{1}% von {0} auf %game.mapMarker.{2}%",
       "setObjectiveExhausted": "Ziel {0} erschöpft",
       "setObjectiveInitiative": "Initiative {1} für Ziel {0}",
       "setPQ": "Persönliche Quest {1} für {0}",

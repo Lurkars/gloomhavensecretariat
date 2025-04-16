@@ -838,7 +838,7 @@
         "discard": "Discard {0} cards each.",
         "event": "Add %game.events.type.{0}% Event {1} to the deck.",
         "experience": "Gain {0} experience each.",
-        "globalAchievement": "Global Achievement: \"{0}\".",
+        "globalAchievement": "Global Achievement: \"%data.globalAchievements.{0}%\".",
         "gold": "Gain {0} gold each.",
         "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0}).",
         "loseBattleGoal": "Lose {0} %game.checkmark% each.",
@@ -847,7 +847,7 @@
         "loseReputation": "Lose {0} reputation.",
         "noEffect": "No effect.",
         "outcome": "Read outome %game.events.option.{0}%.",
-        "partyAchievement": "Party Achievement: \"{0}\".",
+        "partyAchievement": "Party Achievement: \"%data.partyAchievements.{0}%\".",
         "prosperity": "Gain {0} prosperity.",
         "randomItemDesign": "Gain Random Item Design.",
         "reputation": "Gain {0} reputation.",
@@ -1036,7 +1036,7 @@
           "itemFh": "gain {1} %game.itemFh.{0}%",
           "loot": "gain {0} money tokens",
           "lootCards": "gain %number.{0}% loot cards",
-          "partyAchievement": "Party Achievement: \"{0}\"",
+          "partyAchievement": "Party Achievement: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "Gain one random item (Items {0})",
             "result": ": {1} ({0})"
@@ -1501,7 +1501,7 @@
         "scenario": "{1} %data.scenarioNumber:{0}%",
         "section": "Open %data.section:{0}%, unlocks {2}"
       },
-      "hint": "Apply to all selected characters",
+      "hint": "Apply to all selected figures",
       "progress": "Affects character progress"
     },
     "favors": {
@@ -1557,7 +1557,7 @@
       "buildingsLevel": "'%data.buildings.{0}%' (Building) Level {1} BUILD",
       "buildingsMissing": "'%data.buildings.{0}%' (Building) NOT BUILD",
       "campaignStickers": "'%data.campaignSticker.{0}%' (Campaign Sticker) COMPLETE",
-      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Campaign Sticker) x{2} COMPLETE  (got {1})",
+      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Campaign Sticker) x{2} COMPLETE (got {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Campaign Sticker) INCOMPLETE",
       "cancel": "Cancel",
       "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' present",
@@ -1566,7 +1566,7 @@
       "globalCount": "'{0}' (Global) x{2} COMPLETE (got {1})",
       "globalMissing": "'{0}' (Global) INCOMPLETE",
       "party": "'{0}' (Party) COMPLETE",
-      "partyCount": "'{0}' (Party)x{2} COMPLETE  (got {1})",
+      "partyCount": "'{0}' (Party)x{2} COMPLETE (got {1})",
       "partyMissing": "'{0}' (Party) INCOMPLETE",
       "scenarios": {
         "": "Requires following Scenarios to be finished",
@@ -2641,7 +2641,7 @@
         "summons": "{2}x %game.condition.{1}% all {0} summons"
       },
       "addGameCondition": "Add %game.condition.{0}% to current game",
-      "addGlobalAchievement": "Add global achievement '{0}'",
+      "addGlobalAchievement": "Add global achievement '%data.globalAchievements.{0}%'",
       "addImmunity": {
         "char": "%game.immunity.{1}% immunity {0}",
         "monster": "%game.immunity.{2}% immunity '{1}' of {0}",
@@ -2673,7 +2673,7 @@
         "escort": "Add Escort"
       },
       "addParty": "Create new party '{0}'",
-      "addPartyAchievement": "Add party achievement '{0}'",
+      "addPartyAchievement": "Add party achievement '%data.partyAchievements.{0}%'",
       "addPartyTownGuardPerkSection": "Add Town Guard Perk Section {0}",
       "addPartyWeekSection": "Add section {2} to week {1}",
       "addRandomStandee": "Add random {1} {0} standee {2}",
@@ -2901,7 +2901,7 @@
       "removeCharTreasure": "Remove treasure {1} for {2}",
       "removeCharacterRetaliate": "Remove %game.action.retaliate% for {0}",
       "removeCharacterRetaliatePersistent": "Remove %game.card.persistent% %game.action.retaliate% for {0}",
-      "removeCharacterShield": "Remove  %game.action.shield% for {0}",
+      "removeCharacterShield": "Remove %game.action.shield% for {0}",
       "removeCharacterShieldPersistent": "Remove %game.card.persistent% %game.action.shield% for {0}",
       "removeCondition": {
         "char": "Remove %game.condition.{1}% from {0}",
@@ -2922,6 +2922,10 @@
         "objectives": "Remove {2}x %game.condition.{1}% from all {0}",
         "summon": "Remove {3}x %game.condition.{2}% from '{1}' of {0}",
         "summons": "Remove {2}x %game.condition.{1}% from all {0} summons"
+      },
+      "removeEntityMarker": {
+        "monster": "Remove marker %game.mapMarker.{2}% from '{1}' of {0}",
+        "objectiveContainer": "Remove marker %game.mapMarker.{2}% from %game.objectiveMarker.{1}% of {0}"
       },
       "removeEntityRetaliate": {
         "char": "Remove %game.action.retaliate% for {0}",
@@ -2948,7 +2952,7 @@
         "summon": "Remove %game.card.persistent% %game.action.shield% for '{1}' of {0}"
       },
       "removeGameCondition": "Remove %game.condition.{0}% to current game",
-      "removeGlobalAchievement": "Remove global achievement '{0}'",
+      "removeGlobalAchievement": "Remove global achievement '%data.globalAchievements.{0}%'",
       "removeImmunity": {
         "char": "Remove %game.immunity.{1}% immunity from {0}",
         "monster": "Remove %game.immunity.{2}% immunity from '{1}' of {0}",
@@ -2975,7 +2979,7 @@
       "removeMonster": "Remove monster {0}",
       "removeObjective": "Remove objective {0}",
       "removeParty": "Remove party '{0}'",
-      "removePartyAchievement": "Remove party achievement '{0}'",
+      "removePartyAchievement": "Remove party achievement '%data.partyAchievements.{0}%'",
       "removePartyTownGuardPerkSection": "Remove Town Guard Perk Section {0}",
       "removePartyWeekSection": "Remove section {2} from week {1}",
       "removePlayer": "Remove Player {1} ({0})",
@@ -3049,6 +3053,7 @@
       "setInitiative": "Initiative {1} for {0}",
       "setLevel": "Level {1} for {0}",
       "setNotes": "Notes \"{1}\" for {0}",
+      "setObjectiveEntityMarker": "Set marker from %game.objectiveMarker.{1}% of {0} to %game.mapMarker.{2}%",
       "setObjectiveExhausted": "Objective {0} exhausted",
       "setObjectiveInitiative": "Initiative {1} for objective {0}",
       "setPQ": "Personal Quest {1} for {0}",

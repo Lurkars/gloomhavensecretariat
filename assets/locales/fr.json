@@ -779,7 +779,7 @@
         "discard": "Défaussez {0} cartes chacun.",
         "event": "Ajouter %game.events.type.{0}% événement {1} à la pioche.",
         "experience": "Gagnez {0} d'expérience à chaque fois.",
-        "globalAchievement": "Haut Fait Global: \"{0}\".",
+        "globalAchievement": "Haut Fait Global: \"%data.globalAchievements.{0}%\".",
         "gold": "Gagnez {0} or chacun.",
         "loseBattleGoal": "Perdre {0} %game.checkmark% chaque fois.",
         "loseCollectiveGold": "Perte de {0} or chacun.",
@@ -787,7 +787,7 @@
         "loseReputation": "Perdre {0} réputation.",
         "noEffect": "Aucun effet.",
         "outcome": "Lire la sortie %game.events.option.{0}%.",
-        "partyAchievement": "Haut Fait de Compagnie : \"{0}\".",
+        "partyAchievement": "Haut Fait de Compagnie : \"%data.partyAchievements.{0}%\".",
         "prosperity": "Gagnez {0} de prospérité.",
         "randomItemDesign": "Gagner un Modèle d’Objet Aléatoire.",
         "reputation": "Gagnez {0} de réputation.",
@@ -976,7 +976,7 @@
           "itemFh": "gagner {1} %game.itemFh.{0}%",
           "loot": "gagner {0} pions monnaie",
           "lootCards": "gagner %number.{0}% cartes de butin",
-          "partyAchievement": "Haut Fait de Compagnie : \"{0}\"",
+          "partyAchievement": "Haut Fait de Compagnie : \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "Gagner un objet aléatoire (Objets {0})",
             "result": ": {1} ({0})"
@@ -1485,7 +1485,7 @@
       "globalCount": "'{0}' (Global) x{2} COMPLET (got {1})",
       "globalMissing": "'{0}' (Global) INCOMPLET",
       "party": "'{0}' (Groupe) COMPLET",
-      "partyCount": "'{0}' (Groupe)x{2} COMPLET  (got {1})",
+      "partyCount": "'{0}' (Groupe)x{2} COMPLET (got {1})",
       "partyMissing": "'{0}' (Groupe) INCOMPLET",
       "scenarios": {
         "": "Nécessite les scénarios suivants pour être terminé",
@@ -2360,7 +2360,7 @@
         "summons": "{2}x %game.condition.{1}% tous {0} convocation"
       },
       "addGameCondition": "Ajouter %game.condition.{0}% à la partie en cours",
-      "addGlobalAchievement": "Ajouter le Haut Fait Global '{0}'",
+      "addGlobalAchievement": "Ajouter le Haut Fait Global '%data.globalAchievements.{0}%'",
       "addImmunity": {
         "char": "%game.immunity.{1}% immunité {0}",
         "monster": "%game.immunity.{2}% immunité '{1}' de {0}",
@@ -2382,7 +2382,7 @@
         "escort": "Ajouter Escorte"
       },
       "addParty": "Créer une nouvelle campagne '{0}'",
-      "addPartyAchievement": "Ajoute le Haut Fait de la Compagnie '{0}'.",
+      "addPartyAchievement": "Ajoute le Haut Fait de la Compagnie '%data.partyAchievements.{0}%'.",
       "addPartyTownGuardPerkSection": "Bénéfice de la section des gardes de la ville {0}",
       "addPartyWeekSection": "Ajouter la section {2} à la semaine {1}",
       "addRandomStandee": "Ajouter {1} {0} silhouette aléatoire {2}",
@@ -2575,14 +2575,14 @@
         "summons": "Remove {2}x %game.condition.{1}% de tous {0} convocation"
       },
       "removeGameCondition": "Retrait %game.condition.{0}% de la partie en cours",
-      "removeGlobalAchievement": "Supprimer Haut Fait Global '{0}'",
+      "removeGlobalAchievement": "Supprimer Haut Fait Global '%data.globalAchievements.{0}%'",
       "removeItem": "Retrait de l'objet {1} (%data.edition.{2}%) sur {0}",
       "removeManualScenario": "Retrait du scénario #{0} {1} ({2})",
       "removeMastery": "Décocher la maîtrise {1} pour {0}",
       "removeMonster": "Retrait du monstre {0}",
       "removeObjective": "Retrait de l'objectif {0}",
       "removeParty": "Retrait de la campagne '{0}'",
-      "removePartyAchievement": "Supprimer Haut Fait de Compagnie '{0}'",
+      "removePartyAchievement": "Supprimer Haut Fait de Compagnie '%data.partyAchievements.{0}%'",
       "removePartyTownGuardPerkSection": "Supprimer la section {0} des bénéfices de la garde de la ville",
       "removePartyWeekSection": "Supprimer la section {2} de la semaine {1}",
       "removePlayer": "Supprimer le joueur {1} ({0})",
