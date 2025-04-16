@@ -1271,7 +1271,11 @@ export class EntityMenuDialogComponent {
       const newMarker = OBJECTIV_MARKERS[ghsModulo(this.marker + OBJECTIV_MARKERS.indexOf(this.data.entity.marker), OBJECTIV_MARKERS.length)];
 
       if (newMarker != this.data.entity.marker) {
-        gameManager.stateManager.before("changeObjectiveEntityMarker", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', this.data.entity.number, newMarker);
+        if (newMarker) {
+          gameManager.stateManager.before("setObjectiveEntityMarker", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', this.data.entity.number, newMarker);
+        } else {
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, "removeEntityMarker"), this.data.entity.marker);
+        }
         this.data.entity.marker = newMarker;
         gameManager.stateManager.after();
       }

@@ -24,7 +24,7 @@
   "items": {
     "cs-1": {
       "": "Orb of Confusion",
-      "1": "During your Attack ability, you may place one character token on this card to add %game.condition.muddle% to one attack.  When there are three tokens on this card it is consumed %game.card.lost%."
+      "1": "During your Attack ability, you may place one character token on this card to add %game.condition.muddle% to one attack. When there are three tokens on this card it is consumed %game.card.lost%."
     },
     "cs-10": {
       "": "Orb of Despair",
@@ -244,7 +244,7 @@
     },
     "cs-59": {
       "": "Drake's Blood",
-      "1": "During your turn, remove all positive conditions from all enemies within %game.action.range:2%.  This can be used on enemies that have %game.condition.invisible%."
+      "1": "During your turn, remove all positive conditions from all enemies within %game.action.range:2%. This can be used on enemies that have %game.condition.invisible%."
     },
     "cs-6": {
       "": "Orb of Infection",

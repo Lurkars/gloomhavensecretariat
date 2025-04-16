@@ -110,7 +110,7 @@
     },
     "toa-124": {
       "": "Arcbolt Lance",
-      "1": "During your melee Attack ability, add %game.condition.wound% and %game.condition.muddle% to one attack.  You may consume %game.card.lost% this item instead to gain ADD %game.target%."
+      "1": "During your melee Attack ability, add %game.condition.wound% and %game.condition.muddle% to one attack. You may consume %game.card.lost% this item instead to gain ADD %game.target%."
     },
     "toa-125": {
       "": "Scroll of Evasion",
@@ -122,7 +122,7 @@
     },
     "toa-127": {
       "": "Arclight Hood",
-      "1": "You are immune to %game.condition.immobilize%, even if this item is spent.  When attacked, the attacker gains Disadvantage on the attack and gain %game.condition.dodge% after the attack."
+      "1": "You are immune to %game.condition.immobilize%, even if this item is spent. When attacked, the attacker gains Disadvantage on the attack and gain %game.condition.dodge% after the attack."
     },
     "toa-129": {
       "": "Talo's Rosary",

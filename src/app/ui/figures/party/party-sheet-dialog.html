@@ -69,7 +69,7 @@
                     </span>
                     <span [ghs-label]="'data.partyAchievements.' + achievement.split(':')[0]"></span>
                     <span class="spacer"></span>
-                    <span class="remove" (click)="removeAchievement(i)">
+                    <span class="remove" (click)="removeAchievement(achievement)">
                       <img class="ghs-svg" src="./assets/images/close.svg"></span>
                   </div>
                 </div>
@@ -663,7 +663,7 @@
                   </span>
                   <span [ghs-label]="'data.globalAchievements.' + achievement.split(':')[0]"></span>
                   <span class="spacer"></span>
-                  <span class="remove" (click)="removeGlobalAchievement(i)">
+                  <span class="remove" (click)="removeGlobalAchievement(achievement)">
                     <img class="ghs-svg" src="./assets/images/close.svg"></span>
                 </div>
               </div>

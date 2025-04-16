@@ -706,7 +706,7 @@
             "1": "%game.condition.immobilize%, %game.card.experience:1%"
           },
           "127": {
-            "1": "You may push the target into hexes containing obstacles.  In each case, destroy the obstacle, the target suffers 2 damage, and you gain %game.card.experience:1%.",
+            "1": "You may push the target into hexes containing obstacles. In each case, destroy the obstacle, the target suffers 2 damage, and you gain %game.card.experience:1%.",
             "2": "Add +1 %game.action.attack% to all your ranged attacks this round."
           },
           "128": {
@@ -772,7 +772,7 @@
             "2": "All allies and enemies adjacent to any hexes you enter during the movement suffer 2 damage."
           },
           "145": {
-            "1": "You may push the targets into hexes containing obstacles.  In each case, destroy the obstacle, the target suffers 2 damage, and you gain %game.card.experience:1%."
+            "1": "You may push the targets into hexes containing obstacles. In each case, destroy the obstacle, the target suffers 2 damage, and you gain %game.card.experience:1%."
           }
         }
       },

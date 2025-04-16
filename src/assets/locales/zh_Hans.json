@@ -789,7 +789,7 @@
         "discard": "每人弃 {0} 张牌。",
         "event": "添加 %game.events.type.{0}% 事件 {1} 到牌库中。",
         "experience": "每人获得 {0} 点经验。",
-        "globalAchievement": "世界成就：\"{0}\"。",
+        "globalAchievement": "世界成就：\"%data.globalAchievements.{0}%\"。",
         "gold": "每人获得 {0} 金币。",
         "itemDesign": "获得 \"%data.items.{1}-{0}%\" 设计图纸 (物品 {0})。",
         "loseBattleGoal": "每人失去 {0} %game.checkmark%。",
@@ -798,7 +798,7 @@
         "loseReputation": "失去 {0} 点声望。",
         "noEffect": "没有效果。",
         "outcome": "阅读结果 %game.events.option.{0}%。",
-        "partyAchievement": "团队成就： \"{0}\"。",
+        "partyAchievement": "团队成就： \"%data.partyAchievements.{0}%\"。",
         "prosperity": "获得 {0} 点繁荣。",
         "randomItemDesign": "获得随机物品设计图纸。",
         "reputation": "获得 {0} 点声望。",
@@ -987,7 +987,7 @@
           "itemFh": "获得 {1} %game.itemFh.{0}%",
           "loot": "获得 {0} 金钱指示物",
           "lootCards": "获得 %number.{0}% 拾取物卡牌",
-          "partyAchievement": "团队成就: \"{0}\"",
+          "partyAchievement": "团队成就: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "获得一个随机物品 （物品 {0}）",
             "result": ": {1} ({0})"
@@ -1488,7 +1488,7 @@
       "buildingsLevel": "'%data.buildings.{0}%' (Building) 等级 {1} 构筑",
       "buildingsMissing": "'%data.buildings.{0}%' (Building) 未构筑",
       "campaignStickers": "'%data.campaignSticker.{0}%' (Campaign Sticker) 完成",
-      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Campaign Sticker) x{2} 完成  (got {1})",
+      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Campaign Sticker) x{2} 完成 (got {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Campaign Sticker) 未完成",
       "cancel": "取消",
       "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' 在场",
@@ -1497,7 +1497,7 @@
       "globalCount": "'{0}' (Global) x{2} 完成 (got {1})",
       "globalMissing": "'{0}' (Global) 未完成",
       "party": "'{0}' (Party) 完成",
-      "partyCount": "'{0}' (Party)x{2} 完成  (got {1})",
+      "partyCount": "'{0}' (Party)x{2} 完成 (got {1})",
       "partyMissing": "'{0}' (Party) 未完成",
       "scenarios": {
         "": "需要完成以下场景",
@@ -2560,7 +2560,7 @@
         "summons": "{2}x %game.condition.{1}% 所有 {0} 召唤物"
       },
       "addGameCondition": "添加 %game.condition.{0}% 至当前游戏中",
-      "addGlobalAchievement": "添加世界成就 '{0}'",
+      "addGlobalAchievement": "添加世界成就 '%data.globalAchievements.{0}%'",
       "addImmunity": {
         "char": "%game.immunity.{1}% 免疫 {0}",
         "monster": "{0}中的%game.immunity.{2}% 免疫 '{1}'",
@@ -2592,7 +2592,7 @@
         "escort": "添加护送者"
       },
       "addParty": "创建新的团队 '{0}'",
-      "addPartyAchievement": "添加团队成就 '{0}'",
+      "addPartyAchievement": "添加团队成就 '%data.partyAchievements.{0}%'",
       "addPartyTownGuardPerkSection": "添加城镇守卫专长段落 {0}",
       "addPartyWeekSection": "添加段落 {2} 至第 {1} 周",
       "addRandomStandee": "添加随机 {1} {0} 立牌 {2}",
@@ -2867,7 +2867,7 @@
         "summon": "为 {0}的 '{1}' 移除 %game.card.persistent% %game.action.shield%"
       },
       "removeGameCondition": "从当前游戏中移除 %game.condition.{0}%",
-      "removeGlobalAchievement": "移除世界成就 '{0}'",
+      "removeGlobalAchievement": "移除世界成就 '%data.globalAchievements.{0}%'",
       "removeImmunity": {
         "char": "从 {0}中移除 %game.immunity.{1}% immunity",
         "monster": "从 {0} 的 '{1}' 中移除 %game.immunity.{2}% immunity",
@@ -2894,7 +2894,7 @@
       "removeMonster": "移除怪物 {0}",
       "removeObjective": "移除目标点 {0}",
       "removeParty": "移除团队 '{0}'",
-      "removePartyAchievement": "移除团队成就 '{0}'",
+      "removePartyAchievement": "移除团队成就 '%data.partyAchievements.{0}%'",
       "removePartyTownGuardPerkSection": "移除城镇守卫专长段落 {0}",
       "removePartyWeekSection": "从周 {1} 中移除段落 {2}",
       "removePlayer": "移除玩家 {1} ({0})",

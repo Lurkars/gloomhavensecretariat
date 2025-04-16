@@ -9,7 +9,7 @@ import { Condition, ConditionType } from "src/app/game/model/data/Condition";
 import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from "src/app/game/model/Entity";
 import { ActionTypesIcons } from "../figures/actions/action";
 
-export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
+export const ghsLabelRegex = /\%((\w+|\s|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/|\%U+200B)+)\%/;
 
 export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false, style: 'gh' | 'fh' | false = false): string {
   const fh = !style && settingsManager.settings.fhStyle || style == 'fh';

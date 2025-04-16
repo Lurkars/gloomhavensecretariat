@@ -10,15 +10,31 @@
 
     <div class="characters"
       [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
-      <a class="character" *ngFor="let character of characters" tabclick (click)="toggleCharacter(character)"
-        [ngClass]="{'inactive' : activeCharacters.indexOf(character) == -1}">
-        <img class="icon" [src]="character.iconUrl">
-        <img class="absent" src="./assets/images/status/absent.svg" *ngIf="character.absent">
-      </a>
+      <div class="character-container" *ngFor="let character of characters">
+        <a class="character" tabclick (click)="toggleCharacter(character)"
+          [ngClass]="{'inactive' : activeCharacters.indexOf(character) == -1}">
+          <img class="icon" [src]="character.iconUrl">
+          <img class="absent" src="./assets/images/status/absent.svg" *ngIf="character.absent">
+        </a>
+        <ng-container *ngIf="!gameManager.roundManager.firstRound">
+          <a class="summon" *ngFor="let summon of character.summons" tabclick (click)="toggleSummon(summon)"
+            [ngClass]="{'inactive' : activeSummons.indexOf(summon) == -1, 'thumbnail' : settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)}">
+            <span class="summon-state" [ngClass]="{'fh': summon.color == SummonColor.fh}">
+              <img *ngIf="summon.color != SummonColor.fh" src="./assets/images/summons/{{summon.color}}.png">
+              <span class="summon-number">
+                <span *ngIf="summon.number == 0">-</span>
+                <span *ngIf="summon.number > 0">{{summon.number}}</span></span>
+            </span>
 
-      <a class="favors"
-        *ngIf="gameManager.trialsManager.favorsEnabled"
-        (click)="openFavors()">
+            <div class="background-image"
+              *ngIf="settingsManager.settings.artwork && (summon.thumbnail && !summon.noThumbnail || summon.thumbnailUrl)"
+              [style.background-image]="summon.thumbnailUrl ? 'url(' +  summon.thumbnailUrl + ')' : 'url(./assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'">
+            </div>
+          </a>
+        </ng-container>
+      </div>
+
+      <a class="favors" *ngIf="gameManager.trialsManager.favorsEnabled" (click)="openFavors()">
         <span [ghs-label]="'scenario.favors'"></span>
       </a>
     </div>

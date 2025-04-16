@@ -12,13 +12,14 @@ import { LootType } from 'src/app/game/model/data/Loot';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
+import { Summon, SummonColor } from 'src/app/game/model/Summon';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
 import { FavorsComponent } from './favors/favors';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-event-effects',
   templateUrl: './event-effects.html',
   styleUrls: ['./event-effects.scss']
@@ -30,6 +31,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
   characters: Character[] = [];
   activeCharacters: Character[] = [];
+  activeSummons: Summon[] = [];
   entityConditions: EntityCondition[] = [];
   immunities: ConditionName[] = [];
   newImmunities: ConditionName[] = [];
@@ -45,6 +47,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   inspiration: number = 0;
   loot: Partial<Record<LootType, number>>[] = [];
   lootColumns: LootType[] = [];
+  SummonColor = SummonColor;
 
   constructor(@Inject(DIALOG_DATA) public menu: boolean = false, public dialogRef: DialogRef, public dialog: Dialog) { }
 
@@ -66,6 +69,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     if (!toggle) {
       this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
       this.activeCharacters = this.characters.filter((character) => !character.absent && !character.exhausted);
+      this.activeSummons = gameManager.roundManager.firstRound ? [] : this.activeCharacters.map((character) => character.summons).flat();
       this.lootColumns = gameManager.fhRules() ? [LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle] : [];
     }
 
@@ -87,13 +91,48 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         }
       })
     })
+
+    this.activeSummons.forEach((summon, index, self) => {
+      summon.entityConditions.forEach((entityCondition) => {
+        if (!this.entityConditions.find((other) => other.name == entityCondition.name) && self.every((otherEntity) => otherEntity.entityConditions.find((other) => other.name == entityCondition.name && other.state == entityCondition.state))) {
+          this.entityConditions.push(JSON.parse(JSON.stringify(entityCondition)));
+        }
+      })
+
+      summon.immunities.forEach((immunity) => {
+        if (!this.immunities.find((other) => other == immunity) && self.every((otherEntity) => otherEntity.immunities.find((other) => other == immunity))) {
+          this.immunities.push(immunity);
+          this.newImmunities.push(immunity);
+        }
+      })
+    })
   }
 
   toggleCharacter(character: Character) {
     if (this.activeCharacters.indexOf(character) == -1) {
       this.activeCharacters.push(character);
+      character.summons.forEach((summon) => {
+        if (this.activeSummons.indexOf(summon) == -1) {
+          this.activeSummons.push(summon);
+        }
+      })
     } else {
       this.activeCharacters.splice(this.activeCharacters.indexOf(character), 1);
+      character.summons.forEach((summon) => {
+        const index = this.activeSummons.indexOf(summon);
+        if (index != -1) {
+          this.activeSummons.splice(index, 1);
+        }
+      })
+    }
+    this.update(true);
+  }
+
+  toggleSummon(summon: Summon) {
+    if (this.activeSummons.indexOf(summon) == -1) {
+      this.activeSummons.push(summon);
+    } else {
+      this.activeSummons.splice(this.activeSummons.indexOf(summon), 1);
     }
     this.update(true);
   }
@@ -112,6 +151,19 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         this.health[i] = maxHealth - character.health;
       } else if (character.health + this.health[i] < 0) {
         this.health[i] = - character.health;
+      }
+    });
+
+
+    this.activeSummons.forEach((summon, index) => {
+      const i = this.activeCharacters.length + index;
+      this.health[i] = this.health[i] || 0;
+      this.health[i] += value;
+      const maxHealth = EntityValueFunction(summon.maxHealth);
+      if (summon.health + this.health[i] > maxHealth) {
+        this.health[i] = maxHealth - summon.health;
+      } else if (summon.health + this.health[i] < 0) {
+        this.health[i] = - summon.health;
       }
     });
   }
@@ -343,12 +395,24 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
     this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
       gameManager.stateManager.before(entityCondition.state == EntityConditionState.removed ? "eventEffect.removeCondition" : "eventEffect.addCondition", entityCondition.name, characterIcons);
-      this.activeCharacters.find((character) => {
+      this.activeCharacters.forEach((character) => {
         if (entityCondition.state == EntityConditionState.removed) {
           gameManager.entityManager.removeCondition(character, character, entityCondition, entityCondition.permanent);
         } else {
           gameManager.entityManager.addCondition(character, character, entityCondition, entityCondition.permanent);
         }
+      })
+
+      this.characters.forEach((character) => {
+        character.summons.forEach((summon) => {
+          if (this.activeSummons.indexOf(summon) != -1) {
+            if (entityCondition.state == EntityConditionState.removed) {
+              gameManager.entityManager.removeCondition(summon, character, entityCondition, entityCondition.permanent);
+            } else {
+              gameManager.entityManager.addCondition(summon, character, entityCondition, entityCondition.permanent);
+            }
+          }
+        })
       })
       gameManager.stateManager.after();
     })
@@ -356,11 +420,22 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     this.entityConditions.forEach((condition) => {
       if (this.activeCharacters.find((character) => character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired && entityCondition.value != condition.value))) {
         gameManager.stateManager.before("eventEffect.setConditionValue", condition.name, "" + condition.value, characterIcons);
-        this.activeCharacters.find((character) => {
+        this.activeCharacters.forEach((character) => {
           const entityCondition = character.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
           if (entityCondition && entityCondition.value != condition.value) {
             entityCondition.value = condition.value;
           }
+        })
+
+        this.characters.forEach((character) => {
+          character.summons.forEach((summon) => {
+            if (this.activeSummons.indexOf(summon) != -1) {
+              const entityCondition = summon.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+              if (entityCondition && entityCondition.value != condition.value) {
+                entityCondition.value = condition.value;
+              }
+            }
+          })
         })
         gameManager.stateManager.after();
       }
@@ -369,8 +444,15 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     this.immunities.forEach((immunity) => {
       if (this.newImmunities.indexOf(immunity) == -1) {
         gameManager.stateManager.before("eventEffect.removeImmunity", immunity, characterIcons);
-        this.activeCharacters.find((character) => {
+        this.activeCharacters.forEach((character) => {
           character.immunities = character.immunities.filter((existing) => existing != immunity);
+        })
+        this.characters.forEach((character) => {
+          character.summons.forEach((summon) => {
+            if (this.activeSummons.indexOf(summon) != -1) {
+              summon.immunities = summon.immunities.filter((existing) => existing != immunity);
+            }
+          })
         })
         gameManager.stateManager.after();
       }
@@ -381,6 +463,13 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         gameManager.stateManager.before("eventEffect.addImmunity", immunity, characterIcons);
         this.activeCharacters.find((character) => {
           character.immunities.push(immunity);
+        })
+        this.characters.find((character) => {
+          character.summons.forEach((summon) => {
+            if (this.activeSummons.indexOf(summon) != -1) {
+              summon.immunities.push(immunity);
+            }
+          })
         })
         gameManager.stateManager.after();
       }
@@ -397,6 +486,22 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         if (character.maxHealth > 0 && character.health <= 0 || character.exhausted) {
           character.exhausted = true;
         }
+      })
+
+      this.characters.forEach((character) => {
+        character.summons.forEach((summon) => {
+          const index = this.activeSummons.indexOf(summon);
+          if (index != -1) {
+            const i = this.activeCharacters.length + index;
+            if (this.health[i] && this.health[i] != 0) {
+              gameManager.entityManager.changeHealth(summon, character, this.health[i]);
+              this.health[i] = 0;
+            }
+            if (summon.maxHealth > 0 && summon.health <= 0 || summon.dead) {
+              summon.dead = true;
+            }
+          }
+        })
       })
       gameManager.stateManager.after();
     }

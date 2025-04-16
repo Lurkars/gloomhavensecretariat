@@ -516,7 +516,7 @@
     },
     "gh-37": {
       "": "Robes of Evocation",
-      "1": "During your attack, %game.element.consume.wild%  to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your attack, %game.element.consume.wild% to add +1 %game.action.attack% to the entire Attack action."
     },
     "gh-38": {
       "": "Heavy Basinet",

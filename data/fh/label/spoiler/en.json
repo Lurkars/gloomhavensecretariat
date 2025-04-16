@@ -415,7 +415,7 @@
     },
     "fh-103": {
       "": "Major Cure Potion",
-      "1": "During your turn, remove all negative conditions you have.  This item can be used while you have %game.condition.impair% %game.condition.stun%."
+      "1": "During your turn, remove all negative conditions you have. This item can be used while you have %game.condition.impair% %game.condition.stun%."
     },
     "fh-104": {
       "": "Swiftness Potion",
@@ -749,7 +749,7 @@
     },
     "fh-179": {
       "": "Burst Boots",
-      "1": "During your move ability, add +4 %game.action.move%.  After the move ability gain %game.condition.immobilize%."
+      "1": "During your move ability, add +4 %game.action.move%. After the move ability gain %game.condition.immobilize%."
     },
     "fh-18": {
       "": "Rough Boots",
@@ -886,7 +886,7 @@
     },
     "fh-209": {
       "": "Sword of Mastery",
-      "1": "During your melee attack ability, give advantage on one attack.  For each master you have completed also add one following to the attack: +1 %game.action.attack%, %game.condition.wound%, or %game.condition.poison%. "
+      "1": "During your melee attack ability, give advantage on one attack. For each master you have completed also add one following to the attack: +1 %game.action.attack%, %game.condition.wound%, or %game.condition.poison%. "
     },
     "fh-21": {
       "": "Chain Hood",
@@ -898,10 +898,10 @@
     },
     "fh-211": {
       "": "Boom Barrel",
-      "1": "During your turn, designate one adjacent hex.  At the end of your turn, all figures withing %game.action.range:2% of the designated hex suffer %game.damage% 1."
+      "1": "During your turn, designate one adjacent hex. At the end of your turn, all figures withing %game.action.range:2% of the designated hex suffer %game.damage% 1."
     },
     "fh-212": {
-      "": "",
+      "": "Elemental Stone",
       "1": "After ordering of initiative, choose one element. This element cannot be infused or consume by any monster this round. "
     },
     "fh-213": {
@@ -1240,7 +1240,7 @@
     },
     "fh-65": {
       "": "Rust Powder",
-      "1": "During your turn, place a character token on one normal or elite enemy within %game.action.range:3%.  That enemy gains -1 %game.action.shield% for the scenario."
+      "1": "During your turn, place a character token on one normal or elite enemy within %game.action.range:3%. That enemy gains -1 %game.action.shield% for the scenario."
     },
     "fh-66": {
       "": "Amulet of Eternal Life",
@@ -1338,7 +1338,7 @@
     },
     "fh-87": {
       "": "Cure Potion",
-      "1": "During your turn, remove one negative condition you have.  This item can be used while you have %game.condition.impair% %game.condition.stun%."
+      "1": "During your turn, remove one negative condition you have. This item can be used while you have %game.condition.impair% %game.condition.stun%."
     },
     "fh-88": {
       "": "Fireshield Potion",

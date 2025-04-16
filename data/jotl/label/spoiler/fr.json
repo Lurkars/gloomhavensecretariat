@@ -34,7 +34,7 @@
     },
     "jotl-17": {
       "": "Poulaines Confortable",
-      "1": "Quand vous utilisez l'action inférieure par défaut d'une carte Capacité, effectuez une action \"%game.action.move% 3\" à  la place d'une action \"%game.action.move% 2\"."
+      "1": "Quand vous utilisez l'action inférieure par défaut d'une carte Capacité, effectuez une action \"%game.action.move% 3\" à la place d'une action \"%game.action.move% 2\"."
     },
     "jotl-18": {
       "": "Hache de Bataille",

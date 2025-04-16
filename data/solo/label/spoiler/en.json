@@ -266,7 +266,7 @@
       "1": "Gain 3 %data.action.custom.fh-resonance%"
     },
     "solo-257": {
-      "1": "When you create a trap, place a character token on it.  Monsters do not treat the trap as negative. Remove the token when you %game.card.recover% this item."
+      "1": "When you create a trap, place a character token on it. Monsters do not treat the trap as negative. Remove the token when you %game.card.recover% this item."
     },
     "solo-258": {
       "1": "When you suffer damage, if your hit point value is reduced to below half your maximum, perform:",

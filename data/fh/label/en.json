@@ -1396,7 +1396,7 @@
         "2": "All adjacent characters gain 1 slime."
       },
       "errata": {
-        "env24": "1st Printing: Envelope 24  should list sticker 10",
+        "env24": "1st Printing: Envelope 24 should list sticker 10",
         "env37": "1st Printing: Envelope 37 should list sticker 11 and 13",
         "env44": "1st Printing: Envelope 44 should list sticker 12 and 14",
         "env81": "1st Printing: There is a deck of cards in envelope 81 whose order should be reversed. If you pull it out and the visible card is titled \"T___ of W___\", reverse the order of the deck so that card is the first drawn when the deck is face-down.",

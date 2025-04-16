@@ -10,7 +10,7 @@
             "status": "https://status.gloomhaven-secretariat.de",
             "privacy": "https://github.com/Lurkars/ghs-server#privacy"
         }
-    },    
+    },
     {
         "url": "us.gloomhaven-secretariat.de",
         "port": 8443,

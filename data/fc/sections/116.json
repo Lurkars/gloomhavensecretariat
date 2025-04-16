@@ -6,7 +6,7 @@
   "rewards": {
     "gold": 175,
     "hints": {
-      "gold": "This money must be immediately be spend on any %game.element.air%, %game.element.ice%, %game.element.fire%, %game.element.earth%, %game.element.light%, or  %game.element.dark% enhancement"
+      "gold": "This money must be immediately be spend on any %game.element.air%, %game.element.ice%, %game.element.fire%, %game.element.earth%, %game.element.light%, or %game.element.dark% enhancement"
     }
   }
 }

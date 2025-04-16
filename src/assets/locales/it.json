@@ -838,7 +838,7 @@
         "discard": "Ognuno scarta {0} carte.",
         "event": "Aggiungi l'evento %game.events.type.{0}% {1} al mazzo.",
         "experience": "Ciascuno ottiene {0} di esperienza.",
-        "globalAchievement": "Traguardo globale: \"{0}\".",
+        "globalAchievement": "Traguardo globale: \"%data.globalAchievements.{0}%\".",
         "gold": "Ognuno ottiene {0} di oro.",
         "itemDesign": "Ottieni il modello \"%data.items.{1}-{0}%\" (Oggetto {0}).",
         "loseBattleGoal": "Ognuno perde {0} %game.checkmark%.",
@@ -847,7 +847,7 @@
         "loseReputation": "Perdi {0} reputazione.",
         "noEffect": "Nessun effetto.",
         "outcome": "Leggi la conclusione %game.events.option.{0}%.",
-        "partyAchievement": "Traguardo di gruppo: \"{0}\".",
+        "partyAchievement": "Traguardo di gruppo: \"%data.partyAchievements.{0}%\".",
         "prosperity": "Ottieni {0} prosperità.",
         "randomItemDesign": "Ottieni un modello di oggetto casuale.",
         "reputation": "Ottieni {0} reputazione.",
@@ -1030,7 +1030,7 @@
           "itemFh": "ottieni {1} %game.itemFh.{0}%",
           "loot": "ottieni {0} segnalini denaro",
           "lootCards": "ottieni %number.{0}% carte bottino",
-          "partyAchievement": "Traguardo di gruppo: \"{0}\"",
+          "partyAchievement": "Traguardo di gruppo: \"%data.partyAchievements.{0}%\"",
           "randomItem": {
             "": "Ottieni un oggetto casuale (oggetti {0})",
             "result": ": {1} ({0})"
@@ -1536,7 +1536,7 @@
       "buildingsLevel": "'%data.buildings.{0}%' (Edificio) Livello {1} COSTRUISCI",
       "buildingsMissing": "'%data.buildings.{0}%' (Edificio) NON COSTRUITO",
       "campaignStickers": "'%data.campaignSticker.{0}%' (Adesivo campagna) COMPLETO",
-      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Adesivo campagna) x{2} COMPLETO  (ottenuto {1})",
+      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Adesivo campagna) x{2} COMPLETO (ottenuto {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Adesivo campagna) INCOMPLETO",
       "cancel": "Annulla",
       "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' presente",
@@ -1545,7 +1545,7 @@
       "globalCount": "'{0}' (Globale) x{2} COMPLETO (ottenuto {1})",
       "globalMissing": "'{0}' (Globale) INCOMPLETO",
       "party": "'{0}' (Gruppo) COMPLETO",
-      "partyCount": "'{0}' (Gruppo)x{2} COMPLETO  (ottenuto {1})",
+      "partyCount": "'{0}' (Gruppo)x{2} COMPLETO (ottenuto {1})",
       "partyMissing": "'{0}' (Gruppo) INCOMPLETO",
       "scenarios": {
         "": "Richiede che i seguenti scenari siano finiti",
@@ -2620,7 +2620,7 @@
         "summons": "{2}x %game.condition.{1}% tutte le {0} evocazioni"
       },
       "addGameCondition": "Aggiungi %game.condition.{0}% alla partita attuale",
-      "addGlobalAchievement": "Aggiungi il traguardo globale '{0}'",
+      "addGlobalAchievement": "Aggiungi il traguardo globale '%data.globalAchievements.{0}%'",
       "addImmunity": {
         "char": "%game.immunity.{1}% immunità{0}",
         "monster": "%game.immunity.{2}% immunità '{1}' di {0}",
@@ -2652,7 +2652,7 @@
         "escort": "Aggiungi scorta"
       },
       "addParty": "Crea nuovo gruppo '{0}'",
-      "addPartyAchievement": "Aggiungi traguardo di gruppo '{0}'",
+      "addPartyAchievement": "Aggiungi traguardo di gruppo '%data.partyAchievements.{0}%'",
       "addPartyTownGuardPerkSection": "Aggiungi la sezione talenti della guardia cittadina {0}",
       "addPartyWeekSection": "Aggiungi la sezione {2} alla settimana {1}",
       "addRandomStandee": "Aggiungi {1} {0} pedina casuale {2}",
@@ -2927,7 +2927,7 @@
         "summon": "Rimuovi %game.card.persistent% %game.action.shield% per '{1}' di {0}"
       },
       "removeGameCondition": "Rimuovi %game.condition.{0}% dalla partita in corso",
-      "removeGlobalAchievement": "Rimuovi l'obiettivo globale '{0}'",
+      "removeGlobalAchievement": "Rimuovi l'obiettivo globale '%data.globalAchievements.{0}%'",
       "removeImmunity": {
         "char": "Rimuovi %game.immunity.{1}% immunità da {0}",
         "monster": "Rimuovi %game.immunity.{2}% immunità da '{1}' di {0}",
@@ -2954,7 +2954,7 @@
       "removeMonster": "Rimuovi il mostro {0}",
       "removeObjective": "Rimuovi l'obiettivo {0}",
       "removeParty": "Rimuovi il gruppo '{0}'",
-      "removePartyAchievement": "Rimuovi il risultato del gruppo '{0}'",
+      "removePartyAchievement": "Rimuovi il risultato del gruppo '%data.partyAchievements.{0}%'",
       "removePartyTownGuardPerkSection": "Rimuovi la sezione talenti della guardia cittadina {0}",
       "removePartyWeekSection": "Rimuovi la sezione {2} dalla settimana {1}",
       "removePlayer": "Rimuovi il giocatore {1} ({0})",

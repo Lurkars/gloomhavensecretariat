@@ -783,7 +783,7 @@
         "discard": "Cada personaje descarta {0} cartas.",
         "event": "Añade el evento %game.events.type.{0}% {1} al mazo.",
         "experience": "Cada personaje obtiene {0} experiencia.",
-        "globalAchievement": "Logro global: \"{0}\".",
+        "globalAchievement": "Logro global: \"%data.globalAchievements.{0}%\".",
         "gold": "Obtén {0} oro cada uno.",
         "itemDesign": "Obtén el diseño \"%data.items.{1}-{0}%\" (Item {0}).",
         "loseBattleGoal": "Cada personaje pierde {0} %game.checkmark%.",
@@ -792,7 +792,7 @@
         "loseReputation": "Pierde {0} reputación.",
         "noEffect": "Sin efecto.",
         "outcome": "Lee conclusión %game.events.option.{0}%.",
-        "partyAchievement": "Logo de grupo: \"{0}\".",
+        "partyAchievement": "Logo de grupo: \"%data.partyAchievements.{0}%\".",
         "prosperity": "Obtén {0} prosperidad.",
         "randomItemDesign": "Obtén un Diseño de objeto aleatorio.",
         "reputation": "Obtén {0} reputación..",
@@ -1491,7 +1491,7 @@
       "globalCount": "'{0}' (Global) x{2} COMPLETADO (obtén{1})",
       "globalMissing": "'{0}' (Global) NO COMPLETADO",
       "party": "'{0}' (Grupo) COMPLETADO",
-      "partyCount": "'{0}' (Grupo)x{2} COMPLETADO  (obtén{1})",
+      "partyCount": "'{0}' (Grupo)x{2} COMPLETADO (obtén{1})",
       "partyMissing": "'{0}' (Grupo) NO COMPLETADO",
       "scenarios": {
         "": "Requiere la finalización de los siguientes escenarios",
@@ -2554,7 +2554,7 @@
         "summons": "{2}x %game.condition.{1}% todas las {0} invocaciones"
       },
       "addGameCondition": "Añadir %game.condition.{0}% al juego actual",
-      "addGlobalAchievement": "Añadir logro global '{0}'",
+      "addGlobalAchievement": "Añadir logro global '%data.globalAchievements.{0}%'",
       "addImmunity": {
         "char": "%game.immunity.{1}% inmunidad {0}",
         "monster": "%game.immunity.{2}% inmunidad '{1}' of {0}",
@@ -2586,7 +2586,7 @@
         "escort": "Añadir Escolta"
       },
       "addParty": "Crear nuevo grupo '{0}'",
-      "addPartyAchievement": "Añadir logro de grupo '{0}'",
+      "addPartyAchievement": "Añadir logro de grupo '%data.partyAchievements.{0}%'",
       "addPartyTownGuardPerkSection": "Añadir sección Pericias de Guardia de la Ciudad {0}",
       "addPartyWeekSection": "Añadir sección {2} a la semana {1}",
       "addRandomStandee": "Añadir aleatoriamente {1} {0} peana {2}",
@@ -2861,7 +2861,7 @@
         "summon": "Elimina %game.card.persistent% %game.action.shield% de '{1}' de {0}"
       },
       "removeGameCondition": "Elimina %game.condition.{0}% del juego actual",
-      "removeGlobalAchievement": "Elimina el logro global '{0}'",
+      "removeGlobalAchievement": "Elimina el logro global '%data.globalAchievements.{0}%'",
       "removeImmunity": {
         "char": "Elimina %game.immunity.{1}% inmunidad de {0}",
         "monster": "Elimina %game.immunity.{2}% inmunidad de '{1}' de {0}",
@@ -2888,7 +2888,7 @@
       "removeMonster": "Eliminar monstruo {0}",
       "removeObjective": "Eliminar objetivo {0}",
       "removeParty": "Eliminar grupo {0}",
-      "removePartyAchievement": "Eliminar logro de grupo {0}",
+      "removePartyAchievement": "Eliminar logro de grupo %data.partyAchievements.{0}%",
       "removePartyTownGuardPerkSection": "Eliminar Sección de pericia de la Guardia de la Ciudad {0}",
       "removePartyWeekSection": "Eliminar sección {2} de la semana {1}",
       "removePlayer": "Eliminar jugador {1} ({0})",

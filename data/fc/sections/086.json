@@ -18,7 +18,7 @@
       "globalAchievements": [
         "(If this is the third \"Pieces of an Artifact\" achievement gained, read section 49 on page 17)"
       ],
-      "gold": "This money must be immediately be spend on any %game.element.air%, %game.element.ice%, %game.element.fire%, %game.element.earth%, %game.element.light%, or  %game.element.dark% enhancement"
+      "gold": "This money must be immediately be spend on any %game.element.air%, %game.element.ice%, %game.element.fire%, %game.element.earth%, %game.element.light%, or %game.element.dark% enhancement"
     }
   }
 }

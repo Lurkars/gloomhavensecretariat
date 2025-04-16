@@ -62,10 +62,10 @@
 
 
     <div class="markers">
-      <span *ngIf="marker" class="placeholder placeholder-marker"
+      <span *ngIf="marker" class="placeholder placeholder-marker" ghs-pointer-input (doubleClick)="removeMarker()"
         [ghs-label]="'%game.mapMarker.' + marker + '%'"></span>
       <span class="marker" *ngFor="let marker of entity.markers;" ghs-pointer-input
-        (doubleClick)="removeMarker(marker)">
+        (doubleClick)="removeCharacterMarker(marker)">
         <img [src]="gameManager.characterManager.characterIcon(marker)" />
       </span>
     </div>
@@ -102,8 +102,8 @@
         </span>
       </span>
     </div>
-    <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
-      [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
+    <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [reverse]="settingsManager.settings.damageHP"
+      [container]="true"></span>
     <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
     <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
   </div>

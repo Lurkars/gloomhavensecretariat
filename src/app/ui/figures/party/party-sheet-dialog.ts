@@ -300,15 +300,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  removeAchievement(index: number) {
-    gameManager.stateManager.before("removePartyAchievement", this.party.achievementsList[index]);
-    const achievement = this.party.achievementsList[index];
-    this.party.achievementsList.splice(this.party.achievementsList.lastIndexOf(achievement), 1);
+  removeAchievement(achievement: string) {
+    const a = achievement.split(':')[0];
+    gameManager.stateManager.before("removePartyAchievement", a);
+    this.party.achievementsList.splice(this.party.achievementsList.lastIndexOf(a), 1);
     gameManager.stateManager.after();
     this.update();
   }
-
-
 
   addGlobalAchievement(input: HTMLInputElement) {
     if (input.value) {
@@ -326,10 +324,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  removeGlobalAchievement(index: number) {
-    gameManager.stateManager.before("removeGlobalAchievement", this.party.globalAchievementsList[index]);
-    const achievement = this.party.globalAchievementsList[index];
-    this.party.globalAchievementsList.splice(this.party.globalAchievementsList.lastIndexOf(achievement), 1);
+  removeGlobalAchievement(achievement: string) {
+    const a = achievement.split(':')[0];
+    gameManager.stateManager.before("removeGlobalAchievement", a);
+    this.party.globalAchievementsList.splice(this.party.globalAchievementsList.lastIndexOf(a), 1);
     gameManager.stateManager.after();
     this.update();
   }
