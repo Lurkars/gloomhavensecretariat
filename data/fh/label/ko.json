@@ -1336,7 +1336,8 @@
         "2": "%game.action.range:2% 내의 모든 적이%game.damage:2%점을 입는다."
       },
       "chaos-lieutenant": {
-        "1": "차례 종료 후, 다음을 수행:"
+        "1": "차례 종료 후, 다음을 수행:",
+        "2": "여기에서 X는 (RxL)/2이고(내림), R은 현재 게임판 위에 있는 망가진 기계의 수 입니다"
       },
       "chaos-spark": {
         "2": "여기에서 T는 대상의 캐릭터 매트에 놓인 피해 토큰의 수",
@@ -1570,6 +1571,7 @@
     "brother": "형제",
     "burrowing-blade": "땅굴칼날",
     "chaos-demon": "혼돈 악마",
+    "chaos-lieutenant": "혼돈 부관",
     "chaos-spark": "혼돈 불꽃",
     "city-guard": "도시 경비병",
     "deep-terror": "심연의 공포",
@@ -1585,6 +1587,7 @@
     "frozen-fist": "빙결주먹",
     "giant-piranha-pig": "거대 피라냐돈",
     "giant-piranha-pig-boss": "거대 피라냐돈",
+    "guard-captain": "경비 대장",
     "harbinger-of-shadow": "그림자 전령",
     "harbinger-of-shadow-1": "그림자 전령%game.mapMarker.1%",
     "harbinger-of-shadow-2": "그림자 전령%game.mapMarker.2%",
