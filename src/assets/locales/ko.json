@@ -215,7 +215,7 @@
           "alt": "봉투 %game.fhIcon:envelope% {0} 열기<br>(또는: %game.fhIcon:envelope% {1})",
           "building": "'%data.buildings.{1}%' ({0}) 건물 해금",
           "inspiration": "영감 +1",
-          "itemBlueprint": "\"%data.items.{1}-{0}%\" ({0}) 설계도 획득",
+          "itemBlueprint": "\"%data.items.{1}-{0}%\" ({0}) 제작 아이템 도안 획득",
           "randomScenario": "%data.section:{0}% 열기, %data.scenarioNumber:{1}% 해제"
         },
         "unlockCharacter": {
@@ -1020,7 +1020,7 @@
           "goldFh": "{0} 획득 <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
           "heal": "\"치료 {0}, 자신\" 수행",
           "item": "{1} ({0}) 획득",
-          "itemBlueprint": "{1} 설계도 %game.itemFh.{0}% 획득",
+          "itemBlueprint": "{1} 제작 아이템 도안 %game.itemFh.{0}% 획득",
           "itemDesign": "{1} 도안 ({0}) 획득",
           "itemFh": "{1} %game.itemFh.{0}% 획득",
           "loot": "돈 토큰 {0}개 획득",
@@ -1031,8 +1031,8 @@
             "result": ": {1} ({0})"
           },
           "randomItemBlueprint": {
-            "": "무작위 아이템 설계도",
-            "result": ": {1} 설계도 ({0})"
+            "": "무작위 제작 아이템 도안",
+            "result": ": {1} 제작 아이템 도안 ({0})"
           },
           "randomItemDesign": {
             "": "무작위 아이템 도안",
@@ -1455,7 +1455,7 @@
       "drawRandomItem": {
         "": "무작위 아이템 도안 뽑기",
         "apply": "적용",
-        "blueprint": "무작위 아이템 설계도 뽑기"
+        "blueprint": "무작위 제작 아이템 도안뽑기"
       },
       "drawRandomScenario": {
         "": "무작위 시나리오 뽑기",
@@ -1555,7 +1555,7 @@
       "gold": "각 금화 {0}개",
       "inspiration": "영감 {0}",
       "item": "\"{1}\" (아이템 {0}번)",
-      "itemBlueprint": "\"{1}\" %game.itemFh.{0}% 설계도 획득",
+      "itemBlueprint": "\"{1}\" %game.itemFh.{0}% 제작 아이템 도안 획득",
       "itemBlueprintRange": "입수 가능한 아이템 공급처에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 아이템 추가.",
       "itemDesign": "\"{1}\" 도안 (아이템 {0}번)",
       "itemDesignEdition": "\"{1}\" 도안 (아이템 {0} %data.edition.{2}%)",
@@ -1569,7 +1569,7 @@
       "partyAchievements": "파티 업적",
       "perks": "각 특혜 {0}개 획득",
       "prosperity": "번영도 {0}",
-      "randomItemBlueprint": "무작위 아이템 설계도 하나 획득",
+      "randomItemBlueprint": "무작위 제작 아이템 도안 하나 획득",
       "randomItemBlueprints": "입수 가능한 아이템 공급처에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 추가.",
       "randomItems": "각 캐릭터는 무작위 아이템 하나 획득 ({0}-{1})",
       "removeEvent": {
@@ -1968,7 +1968,7 @@
     },
     "applyLootRandomItem": {
       "": "전리품으로 무작위 아이템 뽑기",
-      "hint": "무작위 아이템 전리품에서 새로운 무작위 아이템을 자동으로 뽑아 활성/선택 캐릭터에 장착."
+      "hint": "새로운 무작위 아이템을 자동으로 뽑아 활성화/선택한 캐릭터에 장착."
     },
     "applyRetirement": {
       "": "은퇴 보너스 적용",
@@ -2616,7 +2616,8 @@
       "entityDead": "{0}의 {1} 몬스터 말 {2}번을 죽임",
       "equipItem": "{0}의 아이템 {1} (%data.edition.{2}%) 장비",
       "eventEffect": {
-        "drawRandomItemBlueprint": "무작위 아이템 설계도 뽑습니다 {0} \"{2}\" (%data.edition.{1}%)"
+        "drawRandomItem": "무작위 아이템 도안 뽑기 {0} \"{2}\" (%data.edition.{1}%)",
+        "drawRandomItemBlueprint": "무작위 제작 아이템 도안 뽑습니다 {0} \"{2}\" (%data.edition.{1}%)"
       },
       "finishScenario": {
         "battleGoal": "%data.character.{0}%의 전투 목표 {1} 설정",

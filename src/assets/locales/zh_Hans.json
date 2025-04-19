@@ -85,7 +85,10 @@
       "enhancements": {
         "apply": "应用",
         "baseCosts": "基础费用",
-        "costs": "总计"
+        "costs": "总计",
+        "disabled": {
+          "gold": "没有足够的金币 ({0}/{1}) 用于强化!"
+        }
       },
       "forceDeck": "双击将卡牌添加到牌堆中",
       "levelWarning": "牌堆无效，部分卡牌等级高于角色等级！",

@@ -1495,7 +1495,7 @@
         "scenario": "{1} %data.scenarioNumber:{0}%",
         "section": "Aprire %data.section:{0}%, sblocca {2}"
       },
-      "hint": "Applicare a tutti i personaggi selezionati",
+      "hint": "Applica a tutte le figure selezionate",
       "progress": "Colpisce il progresso del personaggio"
     },
     "favors": {
@@ -1528,7 +1528,22 @@
     "openRoomMarker": "Apri la porta %game.mapMarker.{1}%",
     "openRoomMarkerRef": "Apri la porta %game.mapMarker.{1}% per la tessera '{0}'",
     "openRoomRef": "Apri la porta per la tessera '{0}'",
-    "random": "Dungeon casuale",
+    "random": {
+      "": "Dungeon casuale",
+      "treasure": {
+        "createTwoElements": "Crea due elementi qualsiasi",
+        "cureConditions": "Cura tutte le condizioni negative",
+        "enemiesCondition": "Tutti i nemici ottengono %game.condition.{0}%",
+        "enemiesDamage": "Tutti i nemici subiscono %game.damage:{0}%",
+        "gold": "{0} oro",
+        "heal": "Cura {0} punti ferita",
+        "lootCards": "Ottieni {0} carte bottino",
+        "recoverCards": "Recupera {0} carte dalla pila degli scarti",
+        "recoverLost": "Recupera una carta smarrita",
+        "refreshItem": "Aggiorna {0} %game.itemSlot:{1}% oggetti",
+        "resource": "Ottieni {1} %game.resource.{0}%"
+      }
+    },
     "requirements": {
       "": "Requisiti di scenario",
       "all": "Mostra tutti i requisiti (includi i soddisfatti)",
@@ -2902,6 +2917,10 @@
         "summon": "Rimuovi {3}x %game.condition.{2}% da '{1}' di {0}",
         "summons": "Rimuovi {2}x %game.condition.{1}% da tutte le {0} evocazioni"
       },
+      "removeEntityMarker": {
+        "monster": "Rimuovi segnalino %game.mapMarker.{2}% da '{1}' di {0}",
+        "objectiveContainer": "Rimuovi segnalino %game.mapMarker.{2}% da %game.objectiveMarker.{1}% di {0}"
+      },
       "removeEntityRetaliate": {
         "char": "Rimuovi %game.action.retaliate% per {0}",
         "monster": "Rimuovi %game.action.retaliate% per '{1}' di {0}",
@@ -3028,6 +3047,7 @@
       "setInitiative": "Iniziativa {1} per {0}",
       "setLevel": "Livello {1} per {0}",
       "setNotes": "Note '{1}' per {0}",
+      "setObjectiveEntityMarker": "Imposta segnalino da %game.objectiveMarker.{1}% di {0} a %game.mapMarker.{2}%",
       "setObjectiveExhausted": "Obiettivo {0} esaurito",
       "setObjectiveInitiative": "Iniziativa {1} per l'obiettivo {0}",
       "setPQ": "Missione personale {1} per {0}",
