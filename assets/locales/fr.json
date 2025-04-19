@@ -1511,7 +1511,7 @@
       "calendarSection": {
         "": "Liens de section",
         "add": {
-          "": "Ajouter %data.section:{0}% dans %numéro.{1}% semaines.",
+          "": "Ajouter %data.section:{0}% dans %number.{1}% semaines.",
           "next": "Ajouter %data.section:{0}% au calendrier dans la semaine %numérotée.{1}% de la prochaine %party.campaign.sheet.{2}%."
         }
       },
