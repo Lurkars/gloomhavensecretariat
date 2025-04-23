@@ -1477,6 +1477,41 @@
         "back": "Zurück zum Kampagnenmodus",
         "force": "Doppelklick um das komplette Flussdiagramm inkl. Spoiler anzuzeigen."
       },
+      "legend": {
+        "": "Legende",
+        "blocked": {
+          "": "Blockiert",
+          "hint": "Dieses Szenario kann nicht gespielt werden, da es durch andere Szenarien blockiert ist."
+        },
+        "locked": {
+          "": "Fehlende Voraussetzungen",
+          "hint": "Dieses Szenario kann nicht gespielt werden, da bestimmte Vorraussetzungen noch nicht erfüllt sind"
+        },
+        "not-campaign": {
+          "": "Kein Kampagnenmodus",
+          "hint": "Du befindest dich nicht im Kampagnenmodus"
+        },
+        "not-unlocked": {
+          "": "Nicht freigeschaltet",
+          "hint": "Dieses Szenario ist zwar sichtbar, kann aber nicht gespielt werden, da es bisher noch nicht freigeschaltet wurde."
+        },
+        "success": {
+          "": "Erfolg",
+          "hint": "Dieses Szenario wurde erfolgriech abgeschlossen."
+        },
+        "success-blocked": {
+          "": "Erfolg, aktuell blockiert",
+          "hint": "Dieses Szenario wurde erfolgriech abgeschlossen, ist aktuell allerdings blockiert."
+        },
+        "success-locked": {
+          "": "Erfolg, aktuell fehlende Voraussetzungen",
+          "hint": "Dieses Szenario wurde erfolgriech abgeschlossen, hat aktuell allerdings fehlende Voraussetzungen."
+        },
+        "unplayed": {
+          "": "Noch nicht gespielt",
+          "hint": "Dieses Szenario ist freigeschaltet und kann gespielt werden."
+        }
+      },
       "setup": "Zeige Szenario Setup",
       "start": "Szenario starten",
       "success": "Als erfolgreich markieren",
