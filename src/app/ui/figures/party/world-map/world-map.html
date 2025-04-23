@@ -2,10 +2,10 @@
   <div #map class="world-map" [ngClass]="{'highlighting' : settingsManager.settings.globalMapHighlighting}" id="map">
   </div>
   <div class="menu">
-    <a (click)="openFlowChart()" [ghs-tooltip]="'scenario.chart'">
+    <a (click)="openFlowChart()" [ghs-tooltip]="'scenario.chart'" [originY]="'top'" [overlayY]="'bottom'">
       <img src="./assets/images/chart.svg">
     </a>
-    <a (click)="openCampaignSheet()" [ghs-tooltip]="'party.campaign.manage'">
+    <a (click)="openCampaignSheet()" [ghs-tooltip]="'party.campaign.manage'" [originY]="'top'" [overlayY]="'bottom'">
       <img src="./assets/images/sheet.svg">
     </a>
     <label>

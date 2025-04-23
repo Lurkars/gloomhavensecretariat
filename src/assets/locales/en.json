@@ -1477,6 +1477,41 @@
         "back": "Back to Campaign Mode",
         "force": "Double click to force showing the complete flow chart including spoilers."
       },
+      "legend": {
+        "": "Legend",
+        "blocked": {
+          "": "Blocked",
+          "hint": "This scenario cannot be played, because it is blocked by others."
+        },
+        "locked": {
+          "": "Locked",
+          "hint": "This scenario is locked, so it cannot be played yet because of unmet requirements."
+        },
+        "not-campaign": {
+          "": "No Campaign Mode",
+          "hint": "You are not in Campaign Mode"
+        },
+        "not-unlocked": {
+          "": "Not unlocked",
+          "hint": "This scenario is visible, but cannot be played because it has not been unlocked yet."
+        },
+        "success": {
+          "": "Success",
+          "hint": "This scneario was finished successfully."
+        },
+        "success-blocked": {
+          "": "Success, currently blocked",
+          "hint": "This scneario was finished successfully, but is now blocked."
+        },
+        "success-locked": {
+          "": "Success, currently locked",
+          "hint": "This scneario was finished successfully, but is now locked."
+        },
+        "unplayed": {
+          "": "Unplayed",
+          "hint": "This scenario is unlocked and can be played."
+        }
+      },
       "setup": "Show Scenario Setup",
       "start": "Start Scenario",
       "success": "Mark as completed",

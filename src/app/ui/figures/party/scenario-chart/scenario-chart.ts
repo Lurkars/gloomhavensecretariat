@@ -28,6 +28,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     worldMap: boolean = false;
     campaignSheet: boolean = false;
     campaignMode: boolean = true;
+    legend: boolean = false;
     chart!: L.Map;
 
     gameManager: GameManager = gameManager;
@@ -105,7 +106,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
         scenarios.forEach((scenarioData) => {
 
-            let state = ":::unplayed";
+            let state = this.campaignMode ? ":::unplayed" : "";
             const success = this.campaignMode && gameManager.scenarioManager.isSuccess(scenarioData);
 
             if (success) {
@@ -270,7 +271,9 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
     updateMap() {
         this.update();
-        this.chart.remove();
+        if (this.chart) {
+            this.chart.remove();
+        }
         this.ngAfterViewInit();
     }
 

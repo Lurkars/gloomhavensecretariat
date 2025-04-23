@@ -110,7 +110,9 @@ export class WorldMapComponent implements AfterViewInit {
 
     updateMap() {
         this.update();
-        this.map.remove();
+        if (this.map) {
+            this.map.remove();
+        }
         this.ngAfterViewInit();
     }
 
