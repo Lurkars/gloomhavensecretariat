@@ -18,10 +18,9 @@
         </div>
     </div>
     <div class="menu right">
-
-        <div class="legend">
-            <a (click)="legend = !legend"><span [ghs-label]="'scenario.chart.legend'"></span> <img class="ghs-svg"
-                    [ngClass]="{'open' : legend}" src="./assets/images/select-arrow.svg"></a>
+        <div class="legend" (click)="legend = !legend"  [ngClass]="{'open' : legend}">
+            <a><span [ghs-label]="'scenario.chart.legend'"></span> <img class="ghs-svg"
+                    src="./assets/images/select-arrow.svg"></a>
             <ul *ngIf="legend">
                 <li [ghs-tooltip]="'scenario.chart.legend.unplayed.hint'" [originY]="'top'" [overlayY]="'bottom'">
                     <span class="symbol unplayed">U</span>
