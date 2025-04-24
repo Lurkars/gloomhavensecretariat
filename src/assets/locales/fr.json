@@ -31,6 +31,7 @@
       "reset": "Réinitialisation de la Campagne"
     },
     "character": "Feuilles de personnage",
+    "enhancements": "Calculateur d'amélioration",
     "items": "Aperçu des cartes d'objets",
     "map": {
       "": "Carte Globale",
@@ -81,6 +82,35 @@
     "abilities": {
       "currentDeck": "Deck actuel",
       "deckWarning": "Aucune sélection correcte des cartes n'est possible car il y a trop de cartes dans le paquet !",
+      "enhancements": {
+        "apply": "Appliquer",
+        "baseCosts": "Coûts de base",
+        "costs": "Global",
+        "disabled": {
+          "enhancements": "Nombre maximal de cartes améliorables ({1}) atteint !",
+          "gold": "Nombre maximal de cartes améliorables ({1}) atteint !"
+        },
+        "enhancements": "Améliorations antérieures",
+        "hint": {
+          "enhance": {
+            "": "Cliquez pour ajouter l'amélioration.",
+            "wipSpecial": "Cliquez pour ajouter une amélioration. Double cliquez pour ajouter un nouvel emplacement d'amélioration."
+          },
+          "enhanced": "Double cliquez pour supprimer une amélioration."
+        },
+        "level": "Niveau",
+        "lost": "Perdu",
+        "multiTarget": "Cibles multiples",
+        "persistent": "Permanent",
+        "temporary": "Provisoires",
+        "types": {
+          "circle": "Cercle",
+          "diamond": "Losange",
+          "diamond_plus": "Losange+",
+          "hex": "Hexagone",
+          "square": "Carré"
+        }
+      },
       "forceDeck": "Double-cliquez pour ajouter la Carte au Paquet",
       "levelWarning": "Paquet invalide car certaines cartes sont de niveau supérieur au personnage !",
       "pickCard": "Choisissez votre carte de niveau {0}",
@@ -114,6 +144,7 @@
         "orchid": "Orchid",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
+        "unfettered": "Émancipée",
         "valrath": "Valrath",
         "vermling": "Vermling"
       },
@@ -131,12 +162,14 @@
         "orchid": "Orchid",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
+        "unfettered": "Émancipé",
         "valrath": "Valrath",
         "vermling": "Vermling"
       },
       "orchid": "Orchid",
       "quatryl": "Quatryl",
       "savvas": "Savvas",
+      "unfettered": "Émancipé",
       "valrath": "Valrath",
       "vermling": "Vermling"
     },
@@ -221,6 +254,16 @@
     },
     "setAside": "Mettre de côté le personnage",
     "summon": {
+      "action": {
+        "": "%game.action.summon% %data.summon.{0}%",
+        "count": {
+          "": "%game.action.summon% {1} %data.summon.{0}%",
+          "fly": "%game.action.summon% {1} %data.summon.{0}% %game.actionIcon.fly%"
+        },
+        "fly": {
+          "": "%game.action.summon% %data.summon.{0}% %game.actionIcon.fly%"
+        }
+      },
       "level": "(Level {0})"
     },
     "token": "Jeton de Personnage",
@@ -351,10 +394,18 @@
     "action": {
       "add": "Ajouter une action",
       "addBottom": "Ajouter une action de fond",
+      "addEnhancement": "Ajouter un Emplacement d'Amélioration",
       "addSubAction": "Ajouter une sous-action",
+      "enhancements": "Améliorations",
       "remove": "Supprimer l'action",
+      "removeEnhancement": "Retirer un Emplacement d'Amélioration",
       "removeSubAction": "Supprimer une sous-action",
       "small": "Plus petit",
+      "summon": {
+        "type": {
+          "monster": "Monstre"
+        }
+      },
       "type": "Type d'action",
       "value": "Valeur de l'action",
       "valueType": {
@@ -456,9 +507,9 @@
     "action": {
       "area": "Effets de Zone",
       "attack": "Attaque",
-      "box": "[Box]",
+      "box": "&#91;Boîte&#93;",
       "card": "Carte",
-      "concatenation": "[Concaténation]",
+      "concatenation": "&#91;Concaténation&#93;",
       "condition": "Condition",
       "custom": "Personnalisé",
       "damage": "Dommage",
@@ -1102,7 +1153,7 @@
       "elite": "Sélectionnez toutes les silhouettes Elites",
       "normal": "Sélectionner toutes les silhouettes normaux"
     },
-    "setStandees": "Mise en place {1} silhouettes %game.monsterType.{0}%",
+    "setStandees": "Mettre en place {1} silhouettes %game.monsterType.{0}%",
     "showBoss": "Voir les monstres boss",
     "showHidden": "Voir les monstres cachés",
     "skipInteractiveActions": "Sauter les capacités intéractives pour",
@@ -1153,7 +1204,7 @@
   },
   "or": "ou",
   "party": {
-    "": "Campagne",
+    "": "Companie",
     "achievements": "Hauts Faits",
     "addGlobalAchievement": {
       "": "Ajouter le Haut Fait Global",
@@ -1896,7 +1947,7 @@
       "hint": "Démarrer et arrêter automatiquement l’horloge de jeu quand la fenêtre est active ou non."
     },
     "automaticPassTime": {
-      "": "Passage automatique de l'heure du calendrier",
+      "": "Passage automatique du temps du calendrier",
       "hint": "Passez automatiquement le temps en ajoutant une semaine au calendrier après avoir terminé un scénario. Cela permet également d'ajouter automatiquement les effets des sections du calendrier dans cette semaine."
     },
     "automaticStandees": {
