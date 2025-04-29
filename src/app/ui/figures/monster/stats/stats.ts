@@ -36,7 +36,7 @@ export class MonsterStatsComponent implements OnInit, OnDestroy {
   eliteStats: MonsterStat = new MonsterStat(MonsterType.elite);
   hideEliteStats: boolean = false;
   statOverview: boolean = false;
-  highlightActions: ActionType[] = [ActionType.shield, ActionType.retaliate];
+  highlightActions: ActionType[] = [];
   edition: string = "";
   catching: boolean = false;
   catched: boolean = false;
@@ -66,7 +66,7 @@ export class MonsterStatsComponent implements OnInit, OnDestroy {
     if (!settingsManager.settings.statAnimations) {
       this.highlightActions = [];
     } else {
-      this.highlightActions = [ActionType.shield, ActionType.retaliate];
+      this.highlightActions = [ActionType.shield, ActionType.retaliate, ActionType.custom];
     }
     this.edition = gameManager.getEdition(this.monster);
     this.catching = this.monster.pet != undefined && gameManager.buildingsManager.petsAvailable;

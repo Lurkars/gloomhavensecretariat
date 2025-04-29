@@ -99,7 +99,7 @@ export class MainComponent implements OnInit {
             this.showBackupHint = settingsManager.settings.backupHint && !this.loading && !gameManager.game.scenario && (gameManager.game.party.scenarios.length > 0 || gameManager.game.party.casualScenarios.length > 0 || gameManager.game.parties.some((party) => party.casualScenarios.length > 0));
 
             if (settingsManager.settings.initiativeRequired && settingsManager.settings.initiativeRoundConfirm && gameManager.game.state == GameState.draw && gameManager.game.scenario) {
-              if (gameManager.game.figures.every((figure) => !(figure instanceof Character) || gameManager.entityManager.isAlive(figure) && !figure.absent && figure.getInitiative() > 0)) {
+              if (gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent) != undefined && gameManager.game.figures.every((figure) => !(figure instanceof Character) || !gameManager.entityManager.isAlive(figure) || figure.absent || figure.getInitiative() > 0)) {
                 if (!this.initiativeSetDialog) {
                   this.initiativeSetDialog = this.dialog.open(ConfirmDialogComponent, {
                     panelClass: ['dialog'],
