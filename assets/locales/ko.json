@@ -403,6 +403,12 @@
       "removeEnhancement": "향상 슬롯 삭제",
       "removeSubAction": "부속 행동 제거하기",
       "small": "작게 표현하기",
+      "summon": {
+        "type": {
+          "monster": "몬스터",
+          "summon": "소환물 데이터"
+        }
+      },
       "type": "행동 유형",
       "value": "행동 값",
       "valueType": {
@@ -1290,6 +1296,7 @@
             "confirm": "확인하기"
           },
           "state": {
+            "damaged": "피해",
             "wrecked": "박살남"
           },
           "unlock": "건물 해금",
@@ -1491,7 +1498,17 @@
     "openRoomMarker": "%game.mapMarker.{1}% 위치의 문 열기",
     "openRoomMarkerRef": "%game.mapMarker.{1}% 위치의 '{0}' 타일 문 열기",
     "openRoomRef": "'{0}' 타일 문 열기",
-    "random": "무작위 던전",
+    "random": {
+      "treasure": {
+        "enemiesCondition": "모든 적에게 %game.condition.{0}% 적용",
+        "enemiesDamage": "모든 적에게 피해 %game.damage:{0}%",
+        "gold": "금화 {0}",
+        "heal": "{0} 치료",
+        "lootCards": "{0} 노획카드 획득",
+        "recoverCards": "버린카드 더미에서 {0} 카드 회수",
+        "recoverLost": "소실 카드 회수"
+      }
+    },
     "requirements": {
       "": "시나리오 조건",
       "all": "모든 조건 보기 (달성된 조건 포함)",
@@ -2566,6 +2583,13 @@
         }
       },
       "buildBuilding": "{0} 건설",
+      "buildings": {
+        "stables": {
+          "pets": {
+            "unsetName": "%data.pets.{0}-{1}% 펫 이름 삭제"
+          }
+        }
+      },
       "buyItem": "{0}의 아이템 구매: {1} (%data.edition.{2}%)",
       "cancelScenario": "시나리오 취소 #{0} {1} ({2})",
       "changeCustomScenario": "커스텀 시나리오 이름 변경: '{0}'",
