@@ -1,6 +1,10 @@
 {
   "character": {
     "brute": "Bruto",
-    "scoundrel": "Canaglia"
+    "cragheart": "Cuore di Roccia",
+    "mindthief": "Ladro Mentale",
+    "scoundrel": "Canaglia",
+    "spellweaver": "Tessimagie",
+    "tinkerer": "Inventore"
   }
 }

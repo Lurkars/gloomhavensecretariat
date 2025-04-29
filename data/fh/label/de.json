@@ -1010,8 +1010,25 @@
     },
     "rules": {
       "fh": {
+        "17-2": {
+          "1": "+2 Materialressourcen",
+          "2": "Erhaltet 2 beliebige Materialressourcen"
+        },
+        "180-3": {
+          "1": "Erhalte 1 Leder"
+        },
+        "19-2": {
+          "1": "+1 Materialressource",
+          "2": "Erhaltet eine beliebige Materialressource"
+        },
+        "192-1": {
+          "1": "Erhaltet 1 Metall"
+        },
         "21-1": {
           "1": "auf einem beliebigen leeren Startfeld"
+        },
+        "41-1": {
+          "1": "Erhaltet 1 Holz"
         },
         "65-3": {
           "1": "Öffne alle Türen %game.mapMarker.1%. Stelle alle Charaktere und Charakter-Beschworenen in Initiative-Reinfolge auf die nächsten leeren Felder auf Element 16-A und entferne dann alle Türen und das Element 13-A von der Karte."

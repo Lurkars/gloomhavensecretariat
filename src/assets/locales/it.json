@@ -1471,6 +1471,41 @@
         "back": "Torna alla modalità campagna",
         "force": "Doppio clic per mostrare il diagramma di flusso completo di spoilers."
       },
+      "legend": {
+        "": "Legenda",
+        "blocked": {
+          "": "Bloccato",
+          "hint": "Questo scenario non può essere giocato, perché è bloccato da altri."
+        },
+        "locked": {
+          "": "Bloccato",
+          "hint": "Questo scenario è bloccato, non può ancora essere giocato a causa di requisiti insoddisfatti."
+        },
+        "not-campaign": {
+          "": "Nessuna modalità campagna",
+          "hint": "Non sei in modalità Campagna"
+        },
+        "not-unlocked": {
+          "": "Non sbloccato",
+          "hint": "uesto scenario è visibile, ma non può essere giocato perché non è stato ancora sbloccato."
+        },
+        "success": {
+          "": "Successo",
+          "hint": "Questo scenario è stato terminato con successo."
+        },
+        "success-blocked": {
+          "": "Successo, attualmente bloccato",
+          "hint": "Questo scenario è stato completato con successo, ma ora è bloccato."
+        },
+        "success-locked": {
+          "": "Successo, attualmente chiuso",
+          "hint": "Questo scenario è stato completato con successo, ma ora è chiuso."
+        },
+        "unplayed": {
+          "": "Non giocato",
+          "hint": "Questo scenario è sbloccato e può essere giocato."
+        }
+      },
       "setup": "Mostra le impostazioni dello scenario",
       "start": "Inizia lo scenario",
       "success": "Segna come completato",

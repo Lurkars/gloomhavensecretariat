@@ -434,6 +434,10 @@
       "1": "Dieser Gegenstand kann nicht verkauf werden. Er muss in jedes Szenario mitgenommen und dabei genutzt werden.",
       "2": "Führe zu Beginn des Szenarios aus:"
     },
+    "fh-244": {
+      "": "Glühende Energiequelle",
+      "1": "Erhöhe während deines Zugs den aufgedruckten %game.action.attack%, %game.action.move%, %game.action.target%, oder %game.action.range% Wert einer deiner Fertigkeiten um 1."
+    },
     "fh-25": {
       "": "Sanftes Szepter",
       "1": "Füge während deines Zugs aus: %game.condition.regenerate% %game.action.target% 1 ally, %game.action.range:2%"
@@ -769,6 +773,8 @@
   },
   "summon": {
     "arcing-generator": "Blitzgenerator",
+    "armored-tank": "Panzer",
+    "jackal-mech": "Robo-Schakal",
     "repair-drone": "Reparaturdrohne"
   },
   "treasures": {
