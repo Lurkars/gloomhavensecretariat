@@ -36,6 +36,7 @@ export class Settings {
   autoBackupFinish: boolean = false;
   autoBackupUrl: { url: string, method: string, fileUpload: boolean, username: string | undefined, password: string | undefined, authorization: string | undefined } | undefined;
   automaticAttackModifierFullscreen: boolean = true;
+  automaticFirstFigure: boolean = false;
   automaticGameClock: boolean = true;
   automaticGameClockFocus: boolean = false;
   automaticPassTime: boolean = true;

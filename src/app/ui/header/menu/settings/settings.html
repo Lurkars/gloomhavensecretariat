@@ -267,6 +267,8 @@
 
   <div class="column">
     <div class="line" ghs-setting-menu="turnConfirmation" [requiresOne]="['expireConditions', 'applyConditions']"></div>
+    <div *ngIf="!settingsManager.settings.initiativeRequired" class="line" ghs-setting-menu="automaticFirstFigure"
+      [requires]="['!initiativeRequired']"></div>
     <div class="line" ghs-setting-menu="scenarioRulesAutoapply" [requires]="['scenarioRules']">
     </div>
     <div class="line" ghs-setting-menu="automaticUnlocking"></div>

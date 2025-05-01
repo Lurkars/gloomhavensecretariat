@@ -122,7 +122,7 @@ export class RoundManager {
         gameManager.challengesManager.applyCardsTrigger(1526);
       }
 
-      if (this.game.figures.length > 0) {
+      if (this.game.figures.length > 0 && (settingsManager.settings.initiativeRequired || settingsManager.settings.automaticFirstFigure)) {
         let i = 0;
         let firstFigure = this.game.figures.find((figure, index) => index == i && gameManager.gameplayFigure(figure));
         while (!firstFigure && i < this.game.figures.length - 1) {

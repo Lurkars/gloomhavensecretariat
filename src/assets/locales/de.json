@@ -2119,6 +2119,10 @@
       "": "Autom. Vollbild AM-Deck",
       "hint": "Angriffsmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen."
     },
+    "automaticFirstFigure": {
+      "": "Autom. Zug erste Figur",
+      "hint": "Starte den Zug der ersten Figur automatisch beim Beginn der nächsten Runde. Diese Funktion is automatisch aktiviert, wenn die Initiative gesetzt werden muss."
+    },
     "automaticGameClock": {
       "": "Automatischer Spieltimer",
       "hint": "Startet und pausiert den Spieltimer automatisch wenn das Fenster geöffnet oder geschlossen wird."
