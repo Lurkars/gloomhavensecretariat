@@ -2119,6 +2119,10 @@
       "": "Auto fullscreen AM Deck",
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
     },
+    "automaticFirstFigure": {
+      "": "Auto start first figure",
+      "hint": "Automatically start the turn of first figure on begin of next the round. This is always enabled, if initiative is required."
+    },
     "automaticGameClock": {
       "": "Automatic game clock",
       "hint": "Automatically start and stop game clock when window openes or closes."
