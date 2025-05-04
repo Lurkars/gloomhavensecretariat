@@ -10,6 +10,7 @@
     "Knockout Punch": "K.-o.-Schlag",
     "One with the Earth": "Eins mit der Natur",
     "Rock Bomb": "Felsbombe",
+    "Set Trap": "Falle stellen",
     "Split": "Teilung",
     "Stone Spikes": "Steinstacheln",
     "Strength of the Mountain": "Stärke der Berge",
@@ -442,7 +443,7 @@
         "2": "Alle an das Ziel angrenzenden<br>Gegner erleiden %game.damage:2%."
       },
       "archer": {
-        "1": "Erstelle eine %game.damage:3% Falle in einem angrenzenden<br>leeren Hex-Feld zum nächsten Gegner."
+        "1": "Erstelle eine %game.damage:3% Falle auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist."
       },
       "banner-spear": {
         "1": "Alle Verbündeten innerhalb von %game.range:2% addieren in jeder Runde +1 %game.action.attack% zu einem ihrer Angriffe.",
