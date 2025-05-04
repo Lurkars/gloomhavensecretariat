@@ -775,7 +775,8 @@
     "arcing-generator": "Blitzgenerator",
     "armored-tank": "Panzer",
     "jackal-mech": "Robo-Schakal",
-    "repair-drone": "Reparaturdrohne"
+    "repair-drone": "Reparaturdrohne",
+    "toxin-distributor": "Giftspritzer"
   },
   "treasures": {
     "fh": {
