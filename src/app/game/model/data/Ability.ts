@@ -20,12 +20,13 @@ export class Ability {
   bottomXp: number = 0;
   bottomShuffle: boolean = false;
   hint: string | undefined;
+  bottomHint: string | undefined;
   revealed: boolean = false;
   replace: boolean = false;
 
   constructor(cardId: number | undefined = undefined, name: string | undefined = undefined, initiative: number = 0,
     actions: Action[] = [],
-    shuffle: boolean = false, bottomActions: Action[] = [], level: number = 0, hint: string | undefined = undefined) {
+    shuffle: boolean = false, bottomActions: Action[] = [], level: number = 0) {
     this.cardId = cardId;
     this.name = name;
     this.initiative = initiative;
@@ -33,6 +34,5 @@ export class Ability {
     this.shuffle = shuffle;
     this.bottomActions = bottomActions;
     this.level = level;
-    this.hint = hint;
   }
 }

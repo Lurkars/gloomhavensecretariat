@@ -8,6 +8,7 @@
       "cardId": 216,
       "level": "A",
       "initiative": 63,
+      "hint": "One enemy within 2 hexes suffers 3 damage (plus modifier &mdash; Disadvantage if adjacent).",
       "actions": [
         {
           "type": "attack",
@@ -16,18 +17,16 @@
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomHint": "One adjacent enemy suffers 2 damage (plus modifier).",
       "bottomActions": [
         {
           "type": "attack",
-          "value": 2,
-          "hidden": false
+          "value": 2
         }
       ]
     },
@@ -36,6 +35,7 @@
       "cardId": 217,
       "level": "A",
       "initiative": 87,
+      "hint": "One enemy within 2 hexes suffers 2 damage (plus modifier &mdash; Disadvantage if adjacent) and cannot move until the end of its next turn.",
       "actions": [
         {
           "type": "attack",
@@ -44,24 +44,21 @@
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomHint": "Move up to 4 hexes away.",
       "bottomActions": [
         {
           "type": "move",
-          "value": 4,
-          "hidden": false
+          "value": 4
         }
       ]
     },
@@ -70,6 +67,7 @@
       "cardId": 218,
       "level": "A",
       "initiative": 38,
+      "hint": "All adjacent enemies suffer 2 damage (plus a separate modifier for each).",
       "actions": [
         {
           "type": "attack",
@@ -78,18 +76,16 @@
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomHint": "One adjacent enemy suffers 2 damage (plus modifier).",
       "bottomActions": [
         {
           "type": "attack",
-          "value": 2,
-          "hidden": false
+          "value": 2
         }
       ]
     },
@@ -98,6 +94,7 @@
       "cardId": 219,
       "level": "A",
       "initiative": 314,
+      "hint": "One adjacent enemy suffers 2 damage (plus modifier) and cannot move until the end of its next turn.",
       "actions": [
         {
           "type": "attack",
@@ -106,18 +103,16 @@
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomHint": "Move up to 3 hexes away.",
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         }
       ]
     },
@@ -126,6 +121,7 @@
       "cardId": 220,
       "level": "A",
       "initiative": 90,
+      "hint": "One adjacent enemy suffers 3 damage (plus modifier) and gains Disadvantage on all its attack until the end of its next turn.",
       "actions": [
         {
           "type": "attack",
@@ -134,18 +130,16 @@
             {
               "type": "condition",
               "value": "muddle",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomHint": "Move up to 4 hexes away.",
       "bottomActions": [
         {
           "type": "move",
-          "value": 4,
-          "hidden": false
+          "value": 4
         }
       ]
     },
@@ -154,14 +148,15 @@
       "cardId": 221,
       "level": "A",
       "initiative": 41,
+      "hint": "No attack modifier card is drawn for this damage.",
       "actions": [
         {
           "type": "custom",
-          "value": "Two adjacent enemies suffer 2 damage.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.221.1%",
+          "small": true
         }
       ],
+      "bottomHint": "You or one ally within 2 hexes heals 2 damage.",
       "bottomActions": [
         {
           "type": "heal",
@@ -170,11 +165,9 @@
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -183,6 +176,7 @@
       "cardId": 222,
       "level": "B",
       "initiative": 90,
+      "hint": "One adjacent enemy suffers 2 damage (plus modifier) and cannot attack until the end of its next turn.",
       "actions": [
         {
           "type": "attack",
@@ -190,34 +184,32 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target one enemy within 2 hexes",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.red-guard.abilities.222.1%",
+              "small": true
             },
             {
               "type": "condition",
               "value": "disarm",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomHint": "Move up to 6 hexes away and lose this card.",
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
-          "value": 6,
-          "hidden": false
+          "value": 6
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Flaming Sickle",
       "cardId": 223,
       "level": "B",
       "initiative": 63,
+      "hint": "One enemy within 2 hexes suffers 3 damage (plus modifier &mdash; Disadvantage if adjacent) and is moved 1 hex closer to you.",
       "actions": [
         {
           "type": "attack",
@@ -226,24 +218,21 @@
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "pull",
               "value": 1,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomHint": "Collect all money tokens and treasure tiles in or adjacent to your hex.",
       "bottomActions": [
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         }
       ]
     },
@@ -256,29 +245,25 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "target",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "pull",
               "value": 1,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         }
       ],
@@ -290,25 +275,21 @@
             {
               "type": "jump",
               "value": "",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "shield",
           "value": 1,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         }
       ]
@@ -322,46 +303,40 @@
         {
           "type": "heal",
           "value": 4,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "hidden": false
+          "value": "experience:1"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         },
         {
           "type": "custom",
-          "value": "All attacks targeting you gain Disadvantage this round.",
+          "value": "%data.custom.jotl.red-guard.abilities.225.1%",
+          "small": true,
           "subActions": [
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -370,12 +345,12 @@
       "cardId": 226,
       "level": 1,
       "initiative": 41,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "Each time after an adjacent enemy attacks you, that enemy suffers damage equal to your Shield value.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.226.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -383,40 +358,33 @@
           "subActions": [
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             },
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "heal",
           "value": 2,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
           "type": "element",
-          "value": "fire",
-          "hidden": false
+          "value": "fire"
         }
       ]
     },
@@ -429,47 +397,40 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "pull",
               "value": 1,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "element",
-          "value": "fire",
-          "hidden": false
+          "value": "fire"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer 1 damage.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.227.1%",
+          "small": true
         },
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         },
         {
           "type": "element",
-          "value": "fire",
-          "hidden": false
+          "value": "fire"
         }
       ]
     },
@@ -482,47 +443,40 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "element",
-          "value": "light",
-          "hidden": false
+          "value": "light"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer 1 damage.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.228.1%",
+          "small": true
         },
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         },
         {
           "type": "element",
-          "value": "light",
-          "hidden": false
+          "value": "light"
         }
       ]
     },
@@ -535,12 +489,14 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -551,22 +507,15 @@
                   "type": "attack",
                   "value": 1,
                   "valueType": "add",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "hidden": false
+          "value": "experience:1"
         }
       ],
       "bottomActions": [
@@ -582,26 +531,21 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "wound",
-                      "hidden": false
+                      "value": "wound"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -612,15 +556,19 @@
       "initiative": 6,
       "actions": [
         {
-          "type": "custom",
-          "value": "The next five times an enemy enters a hex adjacent to you, the enemy suffers 2 damage.",
-          "small": true,
-          "hidden": false
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "hidden": false
+          "type": "grid",
+          "value": "",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.red-guard.abilities.230.1%",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
         },
         {
           "type": "concatenation",
@@ -628,48 +576,39 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -686,25 +625,20 @@
                 {
                   "type": "shield",
                   "value": 1,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 },
                 {
                   "type": "card",
                   "value": "experience:1",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "card",
-          "value": "round",
-          "hidden": false
+          "value": "round"
         }
       ]
     },
@@ -717,17 +651,15 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
@@ -742,37 +674,30 @@
                 {
                   "type": "shield",
                   "value": 1,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 },
                 {
                   "type": "card",
                   "value": "experience:1",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "card",
-          "value": "round",
-          "hidden": false
+          "value": "round"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "element",
-          "value": "light",
-          "hidden": false
+          "value": "light"
         }
       ]
     },
@@ -793,11 +718,9 @@
               "subActions": [
                 {
                   "type": "area",
-                  "value": "(0,1,active)|(1,0,target)|(1,1,target)",
-                  "hidden": false
+                  "value": "(0,1,active)|(1,0,target)|(1,1,target)"
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "element",
@@ -812,36 +735,30 @@
                       "type": "attack",
                       "value": 1,
                       "valueType": "add",
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     },
                     {
                       "type": "push",
                       "value": 1,
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     },
                     {
                       "type": "card",
                       "value": "experience:1",
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     }
-                  ],
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "shield",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -852,16 +769,13 @@
           "subActions": [
             {
               "type": "element",
-              "value": "fire",
-              "hidden": false
+              "value": "fire"
             },
             {
               "type": "element",
-              "value": "light",
-              "hidden": false
+              "value": "light"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -869,19 +783,15 @@
           "subActions": [
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Desert Night",
@@ -892,23 +802,20 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
-              "value": "Target one enemy within 2 hexes",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.red-guard.abilities.233.1%",
+              "small": true
             },
             {
               "type": "condition",
               "value": "disarm",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
@@ -917,42 +824,36 @@
           "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "hidden": false
+              "value": "ice"
             },
             {
               "type": "element",
-              "value": "dark",
-              "hidden": false
+              "value": "dark"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 6,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "jump",
               "value": "",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "hidden": false
+          "value": "experience:1"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Warrior of the Sun",
@@ -963,7 +864,6 @@
         {
           "type": "shield",
           "value": 1,
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -975,11 +875,9 @@
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -987,16 +885,13 @@
           "subActions": [
             {
               "type": "element",
-              "value": "light",
-              "hidden": false
+              "value": "light"
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -1008,6 +903,7 @@
               "type": "element",
               "value": "light",
               "valueType": "minus",
+              "small": true,
               "subActions": [
                 {
                   "type": "concatenation",
@@ -1017,31 +913,23 @@
                       "type": "attack",
                       "value": 1,
                       "valueType": "add",
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     },
                     {
                       "type": "condition",
                       "value": "muddle",
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     },
                     {
                       "type": "card",
                       "value": "experience:1",
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     }
-                  ],
-                  "hidden": false
+                  ]
                 }
-              ],
-              "small": true,
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": []
+          ]
         }
       ]
     },
@@ -1054,110 +942,96 @@
         {
           "type": "attack",
           "value": 1,
+          "small": true,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
               "value": "fire",
               "valueType": "minus",
+              "small": true,
               "subActions": [
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "pull",
-                      "value": 2,
-                      "hidden": false
+                      "value": 2
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "small": true,
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "move",
           "value": 2,
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "attack",
           "value": 1,
+          "small": true,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
               "value": "light",
               "valueType": "minus",
+              "small": true,
               "subActions": [
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "pull",
-                      "value": 2,
-                      "hidden": false
+                      "value": 2
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "small": true,
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -1166,116 +1040,99 @@
             {
               "type": "jump",
               "value": "",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "All enemies moved through suffer 1 damage.",
+          "value": "%data.custom.jotl.red-guard.abilities.235.1%",
+          "small": true,
           "subActions": [
             {
               "type": "element",
               "value": "light",
               "valueType": "minus",
+              "small": true,
               "subActions": [
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "2 damage instead",
-                      "hidden": false
+                      "value": "%data.custom.jotl.red-guard.abilities.235.2%"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "small": true,
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "hidden": false
+          "value": "experience:1"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Precision Strike",
       "cardId": 236,
       "level": "X",
       "initiative": 40,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +3 %game.action.attack% if the target has a negative condition.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.red-guard.abilities.236.1%",
+              "small": true
             },
             {
               "type": "element",
               "value": "fire",
               "valueType": "minus",
+              "small": true,
               "subActions": [
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "Advantage",
-                      "hidden": false
+                      "value": "%data.custom.jotl.red-guard.abilities.236.2%"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "small": true,
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "hidden": false
+          "value": "experience:1"
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1287,11 +1144,9 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1304,17 +1159,15 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
@@ -1323,18 +1176,16 @@
           "subActions": [
             {
               "type": "element",
-              "value": "earth",
-              "hidden": false
+              "value": "earth"
             },
             {
               "type": "element",
-              "value": "light",
-              "hidden": false
+              "value": "light"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -1342,20 +1193,16 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.loot% each hex you enter with this movement.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.red-guard.abilities.237.1%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "hidden": false
+          "value": "experience:1"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Barbaric Instincts",
@@ -1366,7 +1213,6 @@
         {
           "type": "shield",
           "value": 1,
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -1378,17 +1224,14 @@
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer 1 damage.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.238.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1396,16 +1239,13 @@
           "subActions": [
             {
               "type": "element",
-              "value": "fire",
-              "hidden": false
+              "value": "fire"
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -1417,23 +1257,19 @@
             {
               "type": "concatenation",
               "value": ",",
+              "small": true,
               "subActions": [
                 {
                   "type": "move",
-                  "value": 2,
-                  "hidden": false
+                  "value": 2
                 },
                 {
                   "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
+                  "value": "experience:1"
                 }
-              ],
-              "small": true,
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "attack",
@@ -1442,11 +1278,9 @@
             {
               "type": "condition",
               "value": "wound",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1455,6 +1289,7 @@
       "cardId": 239,
       "level": 3,
       "initiative": 23,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -1462,8 +1297,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(0,2,active)|(1,2,target)|(2,2,target)",
-              "hidden": false
+              "value": "(0,1,target)|(0,2,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,2,target)"
             },
             {
               "type": "element",
@@ -1473,40 +1307,32 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "condition",
-                      "value": "muddle",
-                      "hidden": false
+                      "value": "muddle"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "heal",
@@ -1516,18 +1342,15 @@
               "type": "range",
               "value": 1,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "element",
-          "value": "light",
-          "hidden": false
+          "value": "light"
         }
       ]
     },
@@ -1540,18 +1363,19 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
-              "value": "Each time the target is attacked this round, it suffers 1 damage. To signify this, place one of your character tokens on the target.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.red-guard.abilities.240.1%",
+              "small": true
             },
             {
               "type": "element",
@@ -1561,37 +1385,27 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "2 damage instead",
-                      "hidden": false
+                      "value": "%data.custom.jotl.red-guard.abilities.240.2%"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
-      "round": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1603,13 +1417,12 @@
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
-      ]
+      ],
+      "round": true
     },
     {
       "name": "Radiant Sickle",
@@ -1620,36 +1433,31 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
-              "value": "All enemies adjacent to the target suffer 1 damage.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.red-guard.abilities.241.1%",
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "element",
-          "value": "light",
-          "hidden": false
+          "value": "light"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 2,
-          "hidden": false
+          "value": 2
         },
         {
           "type": "heal",
@@ -1659,13 +1467,11 @@
               "type": "range",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1681,9 +1487,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target all enemies within 2 hexes",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.red-guard.abilities.242.1%",
+              "small": true
             },
             {
               "type": "element",
@@ -1693,33 +1498,27 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "wound",
-                      "hidden": false
+                      "value": "wound"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1731,11 +1530,9 @@
             {
               "type": "specialTarget",
               "value": "enemyAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -1748,16 +1545,13 @@
               "subActions": [
                 {
                   "type": "element",
-                  "value": "fire",
-                  "hidden": false
+                  "value": "fire"
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "concatenationSpacer",
-              "value": "",
-              "hidden": false
+              "value": ""
             },
             {
               "type": "element",
@@ -1766,14 +1560,11 @@
               "subActions": [
                 {
                   "type": "element",
-                  "value": "light",
-                  "hidden": false
+                  "value": "light"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1782,28 +1573,25 @@
       "cardId": 244,
       "level": 5,
       "initiative": 355,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "Place the Sand Devil in an adjacent empty hex. It is considered a trap for the purposes of monster focusing and movement. At the start of each of your turns, you may move it up to 2 hexes, and you may force any figure on it to move with it. Any time a figure moves onto the devil or vice versa (not when moving together), the figure suffers 1 damage and gains %game.condition.muddle%",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.244.1%",
+          "small": true
         },
         {
           "type": "card",
-          "value": "experience:2",
-          "hidden": false
+          "value": "experience:2"
         }
       ],
-      "persistent": true,
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
-          "value": 5,
-          "hidden": false
+          "value": 5
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Fierce Brilliance",
@@ -1812,15 +1600,19 @@
       "initiative": 22,
       "actions": [
         {
-          "type": "custom",
-          "value": "The next four times an enemy enters a hex adjacent to you, that enemy gains %game.condition.disarm%.",
-          "small": true,
-          "hidden": false
-        },
-        {
-          "type": "element",
-          "value": "light",
-          "hidden": false
+          "type": "grid",
+          "value": "",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.red-guard.abilities.245.1%",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ]
         },
         {
           "type": "concatenation",
@@ -1828,57 +1620,47 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "concatenationSpacer",
-              "value": 2,
-              "hidden": false
+              "value": 2
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         },
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer 2 damage.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.245.2%",
+          "small": true
         }
       ]
     },
@@ -1891,36 +1673,31 @@
         {
           "type": "attack",
           "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "pull",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "element",
-          "value": "air",
-          "hidden": false
+          "value": "air"
         }
       ],
       "bottomActions": [
         {
           "type": "attack",
-          "value": 2,
-          "hidden": false
+          "value": 2
         },
         {
           "type": "element",
@@ -1930,28 +1707,23 @@
             {
               "type": "concatenation",
               "value": ",",
+              "small": true,
               "subActions": [
                 {
                   "type": "move",
-                  "value": 2,
-                  "hidden": false
+                  "value": 2
                 },
                 {
                   "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
+                  "value": "experience:1"
                 }
-              ],
-              "small": true,
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "attack",
-          "value": 2,
-          "hidden": false
+          "value": 2
         }
       ]
     },
@@ -1964,7 +1736,6 @@
         {
           "type": "attack",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
@@ -1975,25 +1746,11 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "concatenation",
-              "value": ",",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "One adjacent ally may perform an \"%game.action.attack:3%\" action",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
-                }
-              ],
-              "small": true,
-              "hidden": false
+              "type": "custom",
+              "value": "%data.custom.jotl.red-guard.abilities.247.1%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "element",
@@ -2001,57 +1758,38 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "concatenation",
-              "value": ",",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "One different adjacent ally may perform an \"%game.action.attack:3%\" action",
-                  "hidden": false
-                },
-                {
-                  "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
-                }
-              ],
-              "small": true,
-              "hidden": false
+              "type": "custom",
+              "value": "%data.custom.jotl.red-guard.abilities.247.2%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One adjacent enemy suffers 1 damage.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.247.3%",
+          "small": true
         },
         {
           "type": "move",
           "value": 2,
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "custom",
-          "value": "One adjacent enemy suffers 1 damage.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.247.3%",
+          "small": true
         },
         {
           "type": "move",
           "value": 2,
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "custom",
-          "value": "One adjacent enemy suffers 1 damage.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.247.3%",
+          "small": true
         }
       ]
     },
@@ -2067,14 +1805,12 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)",
-              "hidden": false
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
             },
             {
               "type": "push",
               "value": 1,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "concatenation",
@@ -2082,26 +1818,22 @@
               "subActions": [
                 {
                   "type": "element",
-                  "value": "fire",
-                  "hidden": false
+                  "value": "fire"
                 },
                 {
                   "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
+                  "value": "experience:1"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -2109,6 +1841,9 @@
         {
           "type": "shield",
           "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "element",
@@ -2118,29 +1853,21 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "shield",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
@@ -2149,19 +1876,15 @@
           "subActions": [
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Prismatic Sickle",
@@ -2172,17 +1895,15 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
@@ -2191,33 +1912,27 @@
           "subActions": [
             {
               "type": "element",
-              "value": "wild",
-              "hidden": false
+              "value": "wild"
             },
             {
               "type": "element",
-              "value": "wild",
-              "hidden": false
+              "value": "wild"
             },
             {
               "type": "element",
-              "value": "wild",
-              "hidden": false
+              "value": "wild"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "loot",
-          "value": 2,
-          "hidden": false
+          "value": 2
         },
         {
           "type": "element",
-          "value": "wild",
-          "hidden": false
+          "value": "wild"
         }
       ]
     },
@@ -2229,27 +1944,29 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Any time you are attacked this round, gain %game.action.shield:X% for the attack, where X is the number of enemies adjacent to you at the time of the attack, up to a maximum of 3.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.250.1%",
+          "small": true
         },
         {
           "type": "card",
-          "value": "round",
-          "hidden": false
+          "value": "round"
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "The next five times an emeny enters a hex adjacent to you, perform a \"%game.action.heal:3%, %game.specialTarget.self%\" action.",
-          "small": true,
-          "hidden": false
-        },
-        {
-          "type": "element",
-          "value": "light",
-          "hidden": false
+          "type": "grid",
+          "value": "",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.jotl.red-guard.abilities.250.2%",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light"
+            }
+          ]
         },
         {
           "type": "concatenation",
@@ -2257,41 +1974,33 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2300,6 +2009,7 @@
       "cardId": 251,
       "level": 9,
       "initiative": 3,
+      "lost": true,
       "actions": [
         {
           "type": "move",
@@ -2308,11 +2018,9 @@
             {
               "type": "jump",
               "value": "",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "attack",
@@ -2321,17 +2029,14 @@
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "stun",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -2339,19 +2044,15 @@
           "subActions": [
             {
               "type": "element",
-              "value": "fire",
-              "hidden": false
+              "value": "fire"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -2360,15 +2061,16 @@
             {
               "type": "jump",
               "value": "",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "shield",
           "value": 2,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "element",
@@ -2378,35 +2080,26 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "shield",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
           "type": "card",
-          "value": "round",
-          "hidden": false
+          "value": "round"
         }
       ]
     },
@@ -2419,12 +2112,14 @@
         {
           "type": "attack",
           "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -2434,31 +2129,26 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "range",
                       "value": 2,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "custom",
-                      "value": "all enemies adjacent to the target suffer 1 damage",
-                      "small": true,
-                      "hidden": false
+                      "value": "%data.custom.jotl.red-guard.abilities.252.1%",
+                      "small": true
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "element",
@@ -2468,34 +2158,25 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "custom",
-                      "value": "Advantage",
-                      "hidden": false
+                      "value": "%data.custom.jotl.red-guard.abilities.252.2%"
                     },
                     {
                       "type": "condition",
-                      "value": "muddle",
-                      "hidden": false
+                      "value": "muddle"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -2508,29 +2189,24 @@
             {
               "type": "concatenation",
               "value": ",",
+              "small": true,
               "subActions": [
                 {
                   "type": "move",
-                  "value": 3,
-                  "hidden": false
+                  "value": 3
                 },
                 {
                   "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
+                  "value": "experience:1"
                 }
-              ],
-              "small": true,
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer 3 damage.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.red-guard.abilities.252.3%",
+          "small": true
         }
       ]
     }

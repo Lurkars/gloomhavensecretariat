@@ -386,6 +386,79 @@
       "rat-monstrosity-16-2": {
         "1": "If any figure dies or become exhausted due to the damage"
       },
+      "red-guard": {
+        "abilities": {
+          "221": {
+            "1": "Two adjacent enemies suffer 2 damage."
+          },
+          "222": {
+            "1": "Target one enemy within 2 hexes"
+          },
+          "225": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "226": {
+            "1": "Each time after an adjacent enemy attacks you, that enemy suffers damage equal to your Shield value."
+          },
+          "227": {
+            "1": "All adjacent enemies suffer 1 damage."
+          },
+          "228": {
+            "1": "All adjacent enemies suffer 1 damage."
+          },
+          "230": {
+            "1": "The next five times an enemy enters a hex adjacent to you, the enemy suffers 2 damage."
+          },
+          "233": {
+            "1": "Target one enemy within 2 hexes"
+          },
+          "235": {
+            "1": "All enemies moved through suffer 1 damage.",
+            "2": "2 damage instead"
+          },
+          "236": {
+            "1": "Add +3 %game.action.attack% if the target has a negative condition.",
+            "2": "Advantage"
+          },
+          "237": {
+            "1": "%game.action.loot% each hex you enter with this movement."
+          },
+          "238": {
+            "1": "All adjacent enemies suffer 1 damage."
+          },
+          "240": {
+            "1": "Each time the target is attacked this round, it suffers 1 damage. To signify this, place one of your character tokens on the target.",
+            "2": "2 damage instead"
+          },
+          "241": {
+            "1": "All enemies adjacent to the target suffer 1 damage."
+          },
+          "242": {
+            "1": "Target all enemies within 2 hexes"
+          },
+          "244": {
+            "1": "<small>Place the Sand Devil in an adjacent empty hex. It is considered a trap for the purposes of monster focusing and movement. At the start of each of your turns, you may move it up to 2 hexes, and you may force any figure on it to move with it. Any time a figure moves onto the devil or vice versa (not when moving together), the figure suffers 1 damage and gains %game.condition.muddle%</small>"
+          },
+          "245": {
+            "1": "The next four times an enemy enters a hex adjacent to you, that enemy gains %game.condition.disarm%.",
+            "2": "All adjacent enemies suffer 2 damage."
+          },
+          "247": {
+            "1": "One adjacent ally may perform an \"%game.action.attack:3%\" action, %game.card.experience:1%",
+            "2": "One different adjacent ally may perform an \"%game.action.attack:3%\" action, %game.card.experience:1%",
+            "3": "One adjacent enemy suffers 1 damage."
+          },
+          "250": {
+            "1": "Any time you are attacked this round, gain %game.action.shield:X% for the attack, where X is the number of enemies adjacent to you at the time of the attack, up to a maximum of 3.",
+            "2": "The next five times an emeny enters a hex adjacent to you, perform a \"%game.action.heal:3%, %game.specialTarget.self%\" action."
+          },
+          "252": {
+            "1": "all enemies adjacent to the target suffer 1 damage",
+            "2": "Advantage",
+            "3": "All adjacent enemies suffer 3 damage."
+          }
+        }
+      },
       "stone-golem": {
         "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers %game.damage:3%.",
         "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers %game.damage:1%.",

@@ -85,7 +85,7 @@ export class AbilityCardsDialogComponent implements OnInit, OnDestroy {
             this.smallAbilities = [];
 
             if (this.deck) {
-                this.visibleAbilities = this.visibleAbilities.filter((ability) => ability.level == 'X' || ability.level == 1 || this.character.progress.deck.indexOf(this.abilities.indexOf(ability)) != -1);
+                this.visibleAbilities = this.visibleAbilities.filter((ability) => ability.level == 'X' || ability.level == 1 || typeof ability.level === 'string' && ability.level == this.level || this.character.progress.deck.indexOf(this.abilities.indexOf(ability)) != -1);
                 this.character.tags.push('edit-abilities');
             }
 

@@ -10,7 +10,7 @@ import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Act
 import { MonsterType } from "src/app/game/model/data/MonsterType";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-actions',
   templateUrl: './actions.html',
   styleUrls: ['./actions.scss']
@@ -118,7 +118,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
       return false;
     }
 
-    if (action.type == ActionType.concatenation && action.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.element || subAction.type == ActionType.elementHalf)) {
+    if (action.type == ActionType.concatenation && action.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.element || subAction.type == ActionType.elementHalf || subAction.type == ActionType.concatenationSpacer)) {
       return false;
     }
 

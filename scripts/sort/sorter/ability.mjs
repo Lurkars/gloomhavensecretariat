@@ -11,5 +11,5 @@ export const sortAbility = function (ability) {
         ability.bottomActions = ability.bottomActions.map((action) => sortAction(action));
     }
 
-    return sortObjectKeys(ability, 'name', 'cardId', 'replace', 'level', 'initiative', 'hint', 'shuffle', 'lost', 'loss', 'actions', 'bottomShuffle', 'bottomLost', 'bottomLoss', 'bottomActions');
+    return sortObjectKeys(ability, 'name', 'cardId', 'replace', 'level', 'initiative', 'hint', 'shuffle', 'lost', 'loss', 'actions', 'bottomHint', 'bottomShuffle', 'bottomLost', 'bottomLoss', 'bottomActions');
 }
