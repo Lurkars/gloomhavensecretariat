@@ -2113,6 +2113,10 @@
       "": "Mazzo MA a schermo intero",
       "hint": "Apri il mazzo modificatori attacco (e anche il mazzo bottino) in modalità a schermo intero quando su piccoli dispositivi."
     },
+    "automaticFirstFigure": {
+      "": "Avvio automatico prima figura",
+      "hint": "Inizia automaticamente il turno della prima figura all'inizio del turno successivo. Questa opzione è sempre attivata, se è richiesta l'iniziativa."
+    },
     "automaticGameClock": {
       "": "Orologio di gioco automatico",
       "hint": "Avvia e arresta automaticamente l'orologio di gioco quando la finestra si apre o si chiude."
