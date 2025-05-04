@@ -388,11 +388,39 @@
       },
       "red-guard": {
         "abilities": {
+          "216": {
+            "bottomHint": "One adjacent enemy suffers 2 damage (plus modifier).",
+            "hint": "One enemy within 2 hexes suffers 3 damage (plus modifier &mdash; Disadvantage if adjacent)."
+          },
+          "217": {
+            "bottomHint": "Move up to 4 hexes away.",
+            "hint": "One enemy within 2 hexes suffers 2 damage (plus modifier &mdash; Disadvantage if adjacent) and cannot move until the end of its next turn."
+          },
+          "218": {
+            "bottomHint": "One adjacent enemy suffers 2 damage (plus modifier).",
+            "hint": "All adjacent enemies suffer 2 damage (plus a separate modifier for each)."
+          },
+          "219": {
+            "bottomHint": "Move up to 3 hexes away.",
+            "hint": "One adjacent enemy suffers 2 damage (plus modifier) and cannot move until the end of its next turn."
+          },
+          "220": {
+            "bottomHint": "Move up to 4 hexes away.",
+            "hint": "One adjacent enemy suffers 3 damage (plus modifier) and gains Disadvantage on all its attack until the end of its next turn."
+          },
           "221": {
-            "1": "Two adjacent enemies suffer 2 damage."
+            "1": "Two adjacent enemies suffer 2 damage.",
+            "bottomHint": "You or one ally within 2 hexes heals 2 damage.",
+            "hint": "No attack modifier card is drawn for this damage."
           },
           "222": {
-            "1": "Target one enemy within 2 hexes"
+            "1": "Target one enemy within 2 hexes",
+            "bottomHint": "Move up to 6 hexes away and lose this card.",
+            "hint": "One adjacent enemy suffers 2 damage (plus modifier) and cannot attack until the end of its next turn."
+          },
+          "223": {
+            "bottomHint": "Collect all money tokens and treasure tiles in or adjacent to your hex.",
+            "hint": "One enemy within 2 hexes suffers 3 damage (plus modifier &mdash; Disadvantage if adjacent) and is moved 1 hex closer to you."
           },
           "225": {
             "1": "All attacks targeting you gain Disadvantage this round."

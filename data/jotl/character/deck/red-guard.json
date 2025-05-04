@@ -8,7 +8,7 @@
       "cardId": 216,
       "level": "A",
       "initiative": 63,
-      "hint": "One enemy within 2 hexes suffers 3 damage (plus modifier &mdash; Disadvantage if adjacent).",
+      "hint": "%data.custom.jotl.red-guard.abilities.216.hint%",
       "actions": [
         {
           "type": "attack",
@@ -22,7 +22,7 @@
           ]
         }
       ],
-      "bottomHint": "One adjacent enemy suffers 2 damage (plus modifier).",
+      "bottomHint": "%data.custom.jotl.red-guard.abilities.216.bottomHint%",
       "bottomActions": [
         {
           "type": "attack",
@@ -35,7 +35,7 @@
       "cardId": 217,
       "level": "A",
       "initiative": 87,
-      "hint": "One enemy within 2 hexes suffers 2 damage (plus modifier &mdash; Disadvantage if adjacent) and cannot move until the end of its next turn.",
+      "hint": "%data.custom.jotl.red-guard.abilities.217.hint%",
       "actions": [
         {
           "type": "attack",
@@ -54,7 +54,7 @@
           ]
         }
       ],
-      "bottomHint": "Move up to 4 hexes away.",
+      "bottomHint": "%data.custom.jotl.red-guard.abilities.217.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
@@ -67,7 +67,7 @@
       "cardId": 218,
       "level": "A",
       "initiative": 38,
-      "hint": "All adjacent enemies suffer 2 damage (plus a separate modifier for each).",
+      "hint": "%data.custom.jotl.red-guard.abilities.218.hint%",
       "actions": [
         {
           "type": "attack",
@@ -81,7 +81,7 @@
           ]
         }
       ],
-      "bottomHint": "One adjacent enemy suffers 2 damage (plus modifier).",
+      "bottomHint": "%data.custom.jotl.red-guard.abilities.218.bottomHint%",
       "bottomActions": [
         {
           "type": "attack",
@@ -94,7 +94,7 @@
       "cardId": 219,
       "level": "A",
       "initiative": 314,
-      "hint": "One adjacent enemy suffers 2 damage (plus modifier) and cannot move until the end of its next turn.",
+      "hint": "%data.custom.jotl.red-guard.abilities.219.hint%",
       "actions": [
         {
           "type": "attack",
@@ -108,7 +108,7 @@
           ]
         }
       ],
-      "bottomHint": "Move up to 3 hexes away.",
+      "bottomHint": "%data.custom.jotl.red-guard.abilities.219.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
@@ -121,7 +121,7 @@
       "cardId": 220,
       "level": "A",
       "initiative": 90,
-      "hint": "One adjacent enemy suffers 3 damage (plus modifier) and gains Disadvantage on all its attack until the end of its next turn.",
+      "hint": "%data.custom.jotl.red-guard.abilities.220.hint%",
       "actions": [
         {
           "type": "attack",
@@ -135,7 +135,7 @@
           ]
         }
       ],
-      "bottomHint": "Move up to 4 hexes away.",
+      "bottomHint": "%data.custom.jotl.red-guard.abilities.220.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
@@ -148,7 +148,7 @@
       "cardId": 221,
       "level": "A",
       "initiative": 41,
-      "hint": "No attack modifier card is drawn for this damage.",
+      "hint": "%data.custom.jotl.red-guard.abilities.221.hint%",
       "actions": [
         {
           "type": "custom",
@@ -156,7 +156,7 @@
           "small": true
         }
       ],
-      "bottomHint": "You or one ally within 2 hexes heals 2 damage.",
+      "bottomHint": "%data.custom.jotl.red-guard.abilities.221.bottomHint%",
       "bottomActions": [
         {
           "type": "heal",
@@ -176,7 +176,7 @@
       "cardId": 222,
       "level": "B",
       "initiative": 90,
-      "hint": "One adjacent enemy suffers 2 damage (plus modifier) and cannot attack until the end of its next turn.",
+      "hint": "%data.custom.jotl.red-guard.abilities.222.hint%",
       "actions": [
         {
           "type": "attack",
@@ -195,7 +195,7 @@
           ]
         }
       ],
-      "bottomHint": "Move up to 6 hexes away and lose this card.",
+      "bottomHint": "%data.custom.jotl.red-guard.abilities.222.bottomHint%",
       "bottomLost": true,
       "bottomActions": [
         {
@@ -209,7 +209,7 @@
       "cardId": 223,
       "level": "B",
       "initiative": 63,
-      "hint": "One enemy within 2 hexes suffers 3 damage (plus modifier &mdash; Disadvantage if adjacent) and is moved 1 hex closer to you.",
+      "hint": "%data.custom.jotl.red-guard.abilities.223.hint%",
       "actions": [
         {
           "type": "attack",
@@ -228,7 +228,7 @@
           ]
         }
       ],
-      "bottomHint": "Collect all money tokens and treasure tiles in or adjacent to your hex.",
+      "bottomHint": "%data.custom.jotl.red-guard.abilities.223.bottomHint%",
       "bottomActions": [
         {
           "type": "loot",
