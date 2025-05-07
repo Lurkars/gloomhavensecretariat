@@ -193,6 +193,14 @@
     "fist": {
       "": "빙결주먹"
     },
+    "prism": {
+      "": "모방군집",
+      "prism_mode": "%data.characterToken.prism.mode% 모드 토큰",
+      "repair_mode": {
+        "": "재구축 지원",
+        "hint": "%data.characterToken.prism.mode% 수리 드론 모드: 매번 카드 사용자의 차례 시작 시, 수행:%game.action.heal% 2, 자신"
+      }
+    },
     "snowflake": {
       "": "눈의 연무가"
     },
@@ -215,6 +223,20 @@
         "4": "시나리오마다 한 번, %game.damage%를 입으려 할 때 그 %game.damage% 를 무효화 할 수 있음",
         "5": "매 라운드 자신의 버린 카드 더미에서 카드 1장 이상씩 %game.card.recover%",
         "6": "이동 능력 하나로 10개 이상의 서로 다른 칸에 진입, 그런 다음 같은 차례에 공격 능력 하나로 적 하나가 %game.damage:10%점 이상을 입도록 만듦"
+      },
+      "prism": {
+        "1": "매번 자신의 차례 종료 시, 수행:",
+        "10": "자신이 %game.condition.wound% 을 얻으려 할 때마다, 그 상태를 방지",
+        "11": "매 라운드마다 %game.action.custom.fh-mode%",
+        "12": "한 라운드에 서로 다른 소환물 4개로 %game.action.custom.fh-mode%",
+        "2": "모방군집에게서 가장 멀리 있는 적에게 주목.",
+        "3": "인접한 모든 아군이%game.action.shield%1을 얻음.",
+        "4": "공격 받을 때, 공격자의 부정적 상태마다%game.damage%1점을 줄임.",
+        "5": "차례 종료 시, 인접한 모든 피규어 및 자신에게%game.condition.wound%을 줌.",
+        "6": "이 공격 능력 후에, 자신의 소환물 하나에게 다음을 지시:%game.action.move:2%",
+        "7": "이 공격 능력 후에,%game.action.custom.fh-mode%",
+        "8": "긴 휴식을 취할 때마다, 어떤 주도권 수치로든 휴식을 취할 수 있음. 모든 능력 카드가 공개된 다음 자신의 주도권 수치를 정하며, 이번 라운드에 자신의 소환물이 각자의 능력을 어떻게 수행하는지를 결정",
+        "9": "매번 자신의 짧은 휴식 종료 시,%game.action.custom.fh-mode%을 할 수 있음"
       },
       "snowflake": {
         "1": "이 행동이 대상을 강제로 이동시키는 경우, 대상이%game.damage:1%점을 입음",
@@ -910,7 +932,7 @@
     },
     "fh-24": {
       "": "타락한 검",
-      "1": "장착자의 귽버 공격 능력 중, 공격 한 번에%game.condition.wound%,%game.condition.poison%,%game.condition.muddle%추가."
+      "1": "장착자의 근접 공격 능력 중, 공격 한 번에%game.condition.wound%,%game.condition.poison%,%game.condition.muddle%추가."
     },
     "fh-240": {
       "": "악마의 보석",
@@ -1327,21 +1349,35 @@
     }
   },
   "summon": {
+    "arcing-generator": "아크 발전기",
+    "armored-tank": "장갑 전차",
     "banner-of-courage": "용기의 깃발",
     "banner-of-doom": "파멸의 깃발",
     "banner-of-hope": "희망의 깃발",
     "banner-of-strength": "힘의 깃발",
     "banner-of-valor": "용맹의 깃발",
+    "bombardier": "포격수",
     "bone-horde": "뼈 무더기",
+    "dampening-unit": "완충 유닛",
+    "jackal-mech": "기계 자칼",
+    "leaper": "도약자",
     "longbowman": "장궁병",
+    "machine-bolter": "자동포탑",
     "raging-corpse": "광분한 시체",
+    "repair-drone": "수리 드론",
     "shadow-beast": "그림자 야수",
     "shadow-horror": "그림자 공포",
     "shambling-skeleton": "비틀거리는 해골",
+    "shield-spider": "방패 거미",
     "skeleton-sorcerer": "해골 마술사",
+    "sledge-driver": "슬레지 드라이버",
+    "sniper-turret": "저격 포탑",
     "stitched-atrocity": "끔찍한 누더기",
+    "sword-propeller": "칼날 나선추진기",
     "torch-bearer": "횃불잡이",
+    "toxin-distributor": "독극물 살포기",
     "trained-falcon": "훈련된 매",
+    "trapping-unit": "포획 유닛",
     "wraith": "망령"
   }
 }
