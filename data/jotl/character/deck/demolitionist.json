@@ -8,22 +8,34 @@
       "cardId": 74,
       "level": "A",
       "initiative": 88,
+      "hint": "One adjacent enemy suffers %game.damage:3% (plus modifier) and gain Disadvantage on all its attack until the end of its next turn.",
+      "bottomHint": "Move up to 2 hexes away, then place a destruction token on one obstacle within 3 hexes. It is now considered a normal hex.",
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
+          "type": "move",
+          "value": 2,
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Destroy one obstacle within %game.action.range:2%",
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -32,22 +44,41 @@
       "cardId": 75,
       "level": "A",
       "initiative": 20,
+      "hint": "One adjacent enemy suffers %game.damage:3% (plus modifier).",
+      "bottomHint": "<small>Gain Advantage on all your attacks until the end of your next turn.</small>",
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 3,
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
+          "type": "move",
+          "value": 2,
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Destroy one adjacent obstacle. If you do, perform",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -56,22 +87,28 @@
       "cardId": 76,
       "level": "A",
       "initiative": 42,
+      "hint": "One adjacent enemy suffers %game.damage:3% (plus modifier).",
+      "bottomHint": "One adjacent enemy cannot perform any actions until the end of its next turn.",
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 3,
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -80,22 +117,28 @@
       "cardId": 77,
       "level": "A",
       "initiative": 19,
+      "hint": "One enemy within 4 hexes suffers %game.damage:2% (plus modifier&mdash;Disadvantage if adjacent).",
+      "bottomHint": "Move up to 4 hexes away.",
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 4,
+          "hidden": false
         }
       ]
     },
@@ -104,22 +147,34 @@
       "cardId": 78,
       "level": "A",
       "initiative": 37,
+      "hint": "Up to two enemies within 2 hexes suffer %game.damage:2% (plus a separate modifier for each&mdash;Disadvantage if adjacent).",
+      "bottomHint": "Move up to 3 hexes away.",
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 3,
+          "hidden": false
         }
       ]
     },
@@ -128,22 +183,25 @@
       "cardId": 79,
       "level": "A",
       "initiative": 66,
+      "hint": "One adjacent enemy suffers %game.damage:2% (plus modifier), then the same or a different adjacent enemy suffers %game.damage:1% (plus modifier).",
+      "bottomHint": "One adjacent enemy suffers %game.damage:1% (plus modifier).",
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 2,
+          "hidden": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 1,
+          "hidden": false
         }
       ]
     },
@@ -152,22 +210,46 @@
       "cardId": 80,
       "level": "B",
       "initiative": 37,
+      "hint": "<small>All enemies in the targeted area suffer %game.damage:3% (plus a separate modifier for each&mdash;Disadvantage if adjacent) and lose this card.</small>",
+      "bottomHint": "Move up to 3 hexes away, then one adjacent enemy is moved 1 hex away from you.",
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)",
+              "hidden": false
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 3,
+          "hidden": false
+        },
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -176,22 +258,37 @@
       "cardId": 81,
       "level": "B",
       "initiative": 66,
+      "bottomHint": "One adjacent enemy suffers %game.damage:1% (plus modifier), then collect all money tokens and treasure tiles in or adjacent to your hex.",
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 2,
+          "hidden": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add %game.action.push:2% and %game.condition.muddle% if this attack targets the same enemy as the previous Attack ability.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 1,
+          "hidden": false
+        },
+        {
+          "type": "loot",
+          "value": 1,
+          "hidden": false
         }
       ]
     },
@@ -203,19 +300,56 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "On your next two attacks, add +2 %game.action.attack%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Double the value of your next Move ability.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -226,20 +360,36 @@
       "initiative": 22,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is adjacent to a wall.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "One adjacent enemy that is adjacent to a wall suffers %game.damage:2%.",
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -250,20 +400,68 @@
       "initiative": 20,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All heals targeting the target have no effect this round. To signify this, place one of your character tokens on the target.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "round",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and perform",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -275,18 +473,55 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:2% and perform",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "Target all enemies adjacent to the destroyed obstacle",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "Each target suffers %game.damage:2%.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
       ]
@@ -298,20 +533,59 @@
       "initiative": 88,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Destroy one obstacle within %game.action.range:3%.",
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -322,20 +596,85 @@
       "initiative": 42,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "push",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -346,22 +685,64 @@
       "initiative": 19,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "If you opened a door during the movement, perform",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesRange:3",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "The Big One",
@@ -370,20 +751,76 @@
       "initiative": 37,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)",
+              "hidden": false
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "fire",
+                  "hidden": false
+                },
+                {
+                  "type": "element",
+                  "value": "earth",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and perform",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "bless",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -394,20 +831,40 @@
       "initiative": 66,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add %game.action.push:2%, %game.condition.muddle% and gain %game.card.experience:1% if this attack targets the same enemy as the previous Attack ability.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 1,
+          "hidden": false
+        },
+        {
+          "type": "loot",
+          "value": 1,
+          "hidden": false
         }
       ]
     },
@@ -419,19 +876,42 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Designate one hex within %game.action.range:3% containing a destruction token. All allies and enemies in or adjacent to that hex suffer %game.damage:2%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Create one 2-damage trap in an adjacent empty hex containing a destruction token.",
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -442,20 +922,33 @@
       "initiative": 0,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +3 %game.action.attack% and gain %game.card.experience:1% if the target is an objective.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Add +1 %game.action.attack% to all your melee attacks this round.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "card",
+          "value": "round",
+          "hidden": false
         }
       ]
     },
@@ -467,21 +960,68 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Create one 3-damage %game.condition.muddle% trap in an empty hex within %game.action.range:3%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
+          "small": true,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Designate one adjacent enemy. If each hex of the movement brought you closer to that enemy, perform",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": 0,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": "X",
+                  "subActions": [
+                    {
+                      "type": "push",
+                      "value": 2,
+                      "small": true,
+                      "hidden": false
+                    }
+                  ],
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "hidden": false
+                }
+              ],
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "<small>targeting that enemy, where X is the number of hexes you moved.<small>",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Robotic Enhancement",
@@ -490,19 +1030,37 @@
       "initiative": 33,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "This movement is unaffected by difficult terrain.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
       ]
@@ -515,18 +1073,93 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "On your next four attacks targeting enemies adjacent to a wall, add +2 %game.action.attack%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": "",
+              "hidden": false
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": "",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "lost",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "Each time you enter a hex containing an obstacle with this movement, destroy that obstacle and add +1 %game.action.move%.",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "All enemies moved through suffer %game.damage:1%, %game.card.experience:1%.",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
       ]
@@ -538,20 +1171,50 @@
       "initiative": 24,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and all enemies adjacent to the destroyed obstacle suffer %game.damage:2%.",
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -562,20 +1225,47 @@
       "initiative": 39,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +1 %game.action.attack% for each wall hex, obstacle hex, objective, figure, or trap adjacent to the target.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "card",
+          "value": "experience:2",
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Move one adjacent trap to an enemy hex adjacent to you.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "hidden": false
         }
       ]
     },
@@ -587,21 +1277,70 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Destroy one obstacle within %game.action.range:4%. If you do, perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Target all enemies adjacent to the destroyed obstacle",
+                  "small": true,
+                  "hidden": false
+                },
+                {
+                  "type": "element",
+                  "value": "fire",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 1,
+                          "valueType": "add",
+                          "hidden": false
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "hidden": false
+                        }
+                      ],
+                      "small": true,
+                      "hidden": false
+                    }
+                  ],
+                  "hidden": false
+                }
+              ],
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Create three 3-damage traps in an empty hex within %game.action.range:4%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "card",
+          "value": "experience:2",
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Extra Fuel",
@@ -610,20 +1349,49 @@
       "initiative": 3,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +2 %game.action.attack%, %game.condition.wound% and gain %game.card.experience:1% if the target is adjacent to a wall.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 5,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -635,19 +1403,60 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Your maximum hit point value is increased by 5.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "heal",
+          "value": 10,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2",
+              "hidden": false
+            },
+            {
+              "type": "shield",
+              "value": 1,
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "loot",
+          "value": 1,
+          "hidden": false
         }
       ]
     },
@@ -658,20 +1467,61 @@
       "initiative": 15,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "push",
+              "value": 1,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and perform",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2,
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "round",
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -682,68 +1532,197 @@
       "initiative": 62,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 1,
+          "hidden": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "hidden": false
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "<small>Ignore the Shield value of the target, add %game.condition.poison%, and gain %game.card.experience:1% if this attack targets the same enemy as the previous two Attack abilities.</small>",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Place one of your character tokens on one adjacent normal or elite enemy. You and all allies may ignore the Shield value of this enemy this round.",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "round",
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
     {
-      "name": "Mlicro Mlissiles",
+      "name": "Micro Missiles",
       "cardId": 104,
       "level": 7,
       "initiative": 16,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "target",
+              "value": 4,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "All objectives within %game.action.range:3% suffer %game.damage:3%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "hidden": false
         }
       ]
     },
     {
-      "name": "Jnsult to Injury",
+      "name": "Insult to Injury",
       "cardId": 105,
       "level": 7,
       "initiative": 64,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "<small>On your next three attacks targeting enemies you attacked earlier in the same round, add +3 %game.action.attack%.</small>",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": "",
+              "hidden": false
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 0,
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "lost",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Add %game.condition.immobilize% to all your attacks this round.",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Also add %game.condition.muddle%, %game.card.experience:1%",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "round",
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -754,19 +1733,92 @@
       "initiative": 26,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 5,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "push",
+                      "value": 2,
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "condition",
+                      "value": "immobilize",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ]
@@ -778,20 +1830,67 @@
       "initiative": 31,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(0,2,target)|(1,2,target)|(0,3,target)|(1,3,target)|(2,0,target)|(2,1,target)|(2,2,target)|(3,2,target)|(2,3,target)",
+              "hidden": false
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "fire",
+                  "hidden": false
+                },
+                {
+                  "type": "element",
+                  "value": "earth",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2",
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "Destroy all obstacles in the targeted area. All allies in the targeted area suffer %game.damage:2%.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
+          "type": "move",
+          "value": 3,
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "All adjacent enemies that are adjacent to a wall suffer %game.damage:2%.",
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -803,19 +1902,77 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Destroy one adjacent obstacle or objective. If you do, gain %game.card.experience:1% and perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 2,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "Target all enemies adjacent to the destroyed obstacle or objective",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and all enemies in the same room as the destroyed obstacle suffer %game.damage:2%.",
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -826,20 +1983,84 @@
       "initiative": 34,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
+          "hidden": false
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "hidden": false
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "condition",
+                      "value": "wound",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false,
+          "enhancementTypes": [
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "You may perform any destroy obstacle ability as if one empty hex within range of the ability contains an obstacle. If you do, do not place a destruction token.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     }
