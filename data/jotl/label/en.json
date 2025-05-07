@@ -347,7 +347,138 @@
         "2": "All enemies adjacent to the target suffer %game.damage:1%"
       },
       "demolitionist": {
-        "1": "All adjacent enemies suffer %game.damage:1%"
+        "1": "All adjacent enemies suffer %game.damage:1%",
+        "abilities": {
+          "101": {
+            "1": "Your maximum hit point value is increased by 5."
+          },
+          "102": {
+            "1": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and perform"
+          },
+          "103": {
+            "1": "<small>Ignore the Shield value of the target, add %game.condition.poison%, and gain %game.card.experience:1% if this attack targets the same enemy as the previous two Attack abilities.</small>",
+            "2": "Place one of your character tokens on one adjacent normal or elite enemy. You and all allies may ignore the Shield value of this enemy this round."
+          },
+          "104": {
+            "1": "All objectives within %game.action.range:3% suffer %game.damage:3%."
+          },
+          "105": {
+            "1": "<small>On your next three attacks targeting enemies you attacked earlier in the same round, add +3 %game.action.attack%.</small>",
+            "2": "Add %game.condition.immobilize% to all your attacks this round.",
+            "3": "Also add %game.condition.muddle%, %game.card.experience:1%"
+          },
+          "107": {
+            "1": "Destroy all obstacles in the targeted area. All allies in the targeted area suffer %game.damage:2%.",
+            "2": "All adjacent enemies that are adjacent to a wall suffer %game.damage:2%."
+          },
+          "108": {
+            "1": "Destroy one adjacent obstacle or objective. If you do, gain %game.card.experience:1% and perform",
+            "2": "Target all enemies adjacent to the destroyed obstacle or objective",
+            "3": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and all enemies in the same room as the destroyed obstacle suffer %game.damage:2%."
+          },
+          "109": {
+            "1": "You may perform any destroy obstacle ability as if one empty hex within range of the ability contains an obstacle. If you do, do not place a destruction token."
+          },
+          "74": {
+            "1": "Destroy one obstacle within %game.action.range:2%",
+            "bottomHint": "Move up to 2 hexes away, then place a destruction token on one obstacle within 3 hexes. It is now considered a normal hex.",
+            "hint": "One adjacent enemy suffers %game.damage:3% (plus modifier) and gain Disadvantage on all its attack until the end of its next turn."
+          },
+          "75": {
+            "1": "Destroy one adjacent obstacle. If you do, perform",
+            "bottomHint": "<small>Gain Advantage on all your attacks until the end of your next turn.</small>",
+            "hint": "One adjacent enemy suffers %game.damage:3% (plus modifier)."
+          },
+          "76": {
+            "bottomHint": "One adjacent enemy cannot perform any actions until the end of its next turn.",
+            "hint": "One adjacent enemy suffers %game.damage:3% (plus modifier)."
+          },
+          "77": {
+            "bottomHint": "Move up to 4 hexes away.",
+            "hint": "One enemy within 4 hexes suffers %game.damage:2% (plus modifier&mdash;Disadvantage if adjacent)."
+          },
+          "78": {
+            "bottomHint": "Move up to 3 hexes away.",
+            "hint": "Up to two enemies within 2 hexes suffer %game.damage:2% (plus a separate modifier for each&mdash;Disadvantage if adjacent)."
+          },
+          "79": {
+            "bottomHint": "One adjacent enemy suffers %game.damage:1% (plus modifier).",
+            "hint": "One adjacent enemy suffers %game.damage:2% (plus modifier), then the same or a different adjacent enemy suffers %game.damage:1% (plus modifier)."
+          },
+          "80": {
+            "bottomHint": "Move up to 3 hexes away, then one adjacent enemy is moved 1 hex away from you.",
+            "hint": "<small>All enemies in the targeted area suffer %game.damage:3% (plus a separate modifier for each&mdash;Disadvantage if adjacent) and lose this card.</small>"
+          },
+          "81": {
+            "1": "Add %game.action.push:2% and %game.condition.muddle% if this attack targets the same enemy as the previous Attack ability.",
+            "bottomHint": "One adjacent enemy suffers %game.damage:1% (plus modifier), then collect all money tokens and treasure tiles in or adjacent to your hex."
+          },
+          "82": {
+            "1": "On your next two attacks, add +2 %game.action.attack%.",
+            "2": "Double the value of your next Move ability."
+          },
+          "83": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is adjacent to a wall.",
+            "2": "One adjacent enemy that is adjacent to a wall suffers %game.damage:2%."
+          },
+          "84": {
+            "1": "All heals targeting the target have no effect this round. To signify this, place one of your character tokens on the target.",
+            "2": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and perform"
+          },
+          "85": {
+            "1": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:2% and perform",
+            "2": "Target all enemies adjacent to the destroyed obstacle",
+            "3": "Each target suffers %game.damage:2%."
+          },
+          "86": {
+            "1": "Destroy one obstacle within %game.action.range:3%."
+          },
+          "88": {
+            "1": "If you opened a door during the movement, perform"
+          },
+          "89": {
+            "1": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and perform"
+          },
+          "90": {
+            "1": "Add %game.action.push:2%, %game.condition.muddle% and gain %game.card.experience:1% if this attack targets the same enemy as the previous Attack ability."
+          },
+          "91": {
+            "1": "Designate one hex within %game.action.range:3% containing a destruction token. All allies and enemies in or adjacent to that hex suffer %game.damage:2%.",
+            "2": "Create one 2-damage trap in an adjacent empty hex containing a destruction token."
+          },
+          "92": {
+            "1": "Add +3 %game.action.attack% and gain %game.card.experience:1% if the target is an objective.",
+            "2": "Add +1 %game.action.attack% to all your melee attacks this round."
+          },
+          "93": {
+            "1": "Create one 3-damage %game.condition.muddle% trap in an empty hex within %game.action.range:3%.",
+            "2": "Designate one adjacent enemy. If each hex of the movement brought you closer to that enemy, perform",
+            "3": "<small>targeting that enemy, where X is the number of hexes you moved.<small>"
+          },
+          "94": {
+            "1": "This movement is unaffected by difficult terrain."
+          },
+          "95": {
+            "1": "On your next four attacks targeting enemies adjacent to a wall, add +2 %game.action.attack%.",
+            "2": "Each time you enter a hex containing an obstacle with this movement, destroy that obstacle and add +1 %game.action.move%.",
+            "3": "All enemies moved through suffer %game.damage:1%, %game.card.experience:1%."
+          },
+          "96": {
+            "1": "Destroy one adjacent obstacle. If you do, gain %game.card.experience:1% and all enemies adjacent to the destroyed obstacle suffer %game.damage:2%."
+          },
+          "97": {
+            "1": "Add +1 %game.action.attack% for each wall hex, obstacle hex, objective, figure, or trap adjacent to the target.",
+            "2": "Move one adjacent trap to an enemy hex adjacent to you."
+          },
+          "98": {
+            "1": "Destroy one obstacle within %game.action.range:4%. If you do, perform",
+            "2": "Target all enemies adjacent to the destroyed obstacle",
+            "3": "Create three 3-damage traps in an empty hex within %game.action.range:4%."
+          },
+          "99": {
+            "1": "Add +2 %game.action.attack%, %game.condition.wound% and gain %game.card.experience:1% if the target is adjacent to a wall."
+          }
+        }
       },
       "first-of-the-order": {
         "1": "All enemies within %game.action.range:2% suffer %game.damage:2%",
