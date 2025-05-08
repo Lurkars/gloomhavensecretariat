@@ -8,7 +8,6 @@
       "cardId": 74,
       "level": "A",
       "initiative": 88,
-      "hint": "%data.custom.jotl.demolitionist.abilities.74.hint%",
       "actions": [
         {
           "type": "attack",
@@ -20,9 +19,12 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.74.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.demolitionist.abilities.74.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
@@ -32,6 +34,10 @@
           "type": "custom",
           "value": "%data.custom.jotl.demolitionist.abilities.74.1%",
           "small": true
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.74.bottomHint%"
         }
       ]
     },
@@ -40,14 +46,16 @@
       "cardId": 75,
       "level": "A",
       "initiative": 20,
-      "hint": "%data.custom.jotl.demolitionist.abilities.75.hint%",
       "actions": [
         {
           "type": "attack",
           "value": 3
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.75.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.demolitionist.abilities.75.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
@@ -70,6 +78,10 @@
               ]
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.75.bottomHint%"
         }
       ]
     },
@@ -78,14 +90,16 @@
       "cardId": 76,
       "level": "A",
       "initiative": 42,
-      "hint": "%data.custom.jotl.demolitionist.abilities.76.hint%",
       "actions": [
         {
           "type": "attack",
           "value": 3
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.76.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.demolitionist.abilities.76.bottomHint%",
       "bottomActions": [
         {
           "type": "condition",
@@ -97,6 +111,10 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.76.bottomHint%"
         }
       ]
     },
@@ -105,7 +123,6 @@
       "cardId": 77,
       "level": "A",
       "initiative": 19,
-      "hint": "%data.custom.jotl.demolitionist.abilities.77.hint%",
       "actions": [
         {
           "type": "attack",
@@ -117,13 +134,20 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.77.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.demolitionist.abilities.77.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
           "value": 4
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.77.bottomHint%"
         }
       ]
     },
@@ -132,7 +156,6 @@
       "cardId": 78,
       "level": "A",
       "initiative": 37,
-      "hint": "%data.custom.jotl.demolitionist.abilities.78.hint%",
       "actions": [
         {
           "type": "attack",
@@ -149,13 +172,20 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.78.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.demolitionist.abilities.78.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
           "value": 3
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.78.bottomHint%"
         }
       ]
     },
@@ -164,7 +194,6 @@
       "cardId": 79,
       "level": "A",
       "initiative": 66,
-      "hint": "%data.custom.jotl.demolitionist.abilities.79.hint%",
       "actions": [
         {
           "type": "attack",
@@ -173,13 +202,20 @@
         {
           "type": "attack",
           "value": 1
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.79.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.demolitionist.abilities.79.bottomHint%",
       "bottomActions": [
         {
           "type": "attack",
           "value": 1
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.79.bottomHint%"
         }
       ]
     },
@@ -188,7 +224,6 @@
       "cardId": 80,
       "level": "B",
       "initiative": 37,
-      "hint": "%data.custom.jotl.demolitionist.abilities.80.hint%",
       "lost": true,
       "actions": [
         {
@@ -204,9 +239,12 @@
               "value": 2
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.80.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.demolitionist.abilities.80.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
@@ -222,6 +260,10 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.80.bottomHint%"
         }
       ]
     },
@@ -247,7 +289,6 @@
           ]
         }
       ],
-      "bottomHint": "%data.custom.jotl.demolitionist.abilities.81.bottomHint%",
       "bottomActions": [
         {
           "type": "attack",
@@ -256,6 +297,10 @@
         {
           "type": "loot",
           "value": 1
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.demolitionist.abilities.81.bottomHint%"
         }
       ]
     },

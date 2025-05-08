@@ -6,7 +6,6 @@
       "name": "Screaming Shot",
       "cardId": 368,
       "initiative": 85,
-      "hint": "%data.custom.jotl.basic-vermling-raider.1%",
       "shuffle": true,
       "actions": [
         {
@@ -31,6 +30,10 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.basic-vermling-raider.1%"
         }
       ]
     },
@@ -38,7 +41,6 @@
       "name": "Careful Throw",
       "cardId": 369,
       "initiative": 36,
-      "hint": "%data.custom.jotl.basic-vermling-raider.2%",
       "actions": [
         {
           "type": "move",
@@ -56,6 +58,10 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.basic-vermling-raider.2%"
         }
       ]
     },
@@ -63,7 +69,6 @@
       "name": "Dual Daggers",
       "cardId": 370,
       "initiative": 59,
-      "hint": "%data.custom.jotl.basic-vermling-raider.3%",
       "actions": [
         {
           "type": "attack",
@@ -81,6 +86,10 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.basic-vermling-raider.3%"
         }
       ]
     },
@@ -88,7 +97,6 @@
       "name": "Nothing Special",
       "cardId": 371,
       "initiative": 50,
-      "hint": "%data.custom.jotl.basic-vermling-raider.4%",
       "actions": [
         {
           "type": "move",
@@ -99,6 +107,10 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus"
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.basic-vermling-raider.4%"
         }
       ]
     }

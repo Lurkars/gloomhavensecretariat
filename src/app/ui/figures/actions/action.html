@@ -223,7 +223,9 @@
         [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>
     </div>
-  </span>
+  </span>  
+  
+  <span class="action-hint" *ngSwitchCase="ActionType.hint" [ghs-label]="action.value + ''"></span>
 
   <span class="action-grant" *ngSwitchCase="ActionType.grant">
     <span class="grant-value" [ghs-label]="action.value + ''" [relative]="relative || forceRelative" [style]="style"

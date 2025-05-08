@@ -778,5 +778,37 @@
         "small": true
       }
     ]
+  },
+  {
+    "id": 41,
+    "name": "Bottle Cap Helm",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "spent": true,
+    "unlockProsperity": 1,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-41.1%",
+        "small": true
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Sparrow Skull Helm",
+    "count": 1,
+    "edition": "bb",
+    "slot": "small",
+    "spent": true,
+    "unlockProsperity": 1,
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.items.bb-42.1%",
+        "small": true
+      }
+    ]
   }
 ]

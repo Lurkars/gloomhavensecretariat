@@ -7,8 +7,6 @@
       "name": "Stopping Power",
       "cardId": 2,
       "level": "A",
-      "hint": "One enemy within 3 hexes suffers %game.damage:3% (plus modifier&mdash;Disadvantage if adjacent).",
-      "bottomHint": "One adjacent enemy cannot move until the end of its next turn, then move up to 3 hexes away.",
       "initiative": 35,
       "actions": [
         {
@@ -18,11 +16,13 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.2.hint%"
         }
       ],
       "bottomActions": [
@@ -33,16 +33,17 @@
             {
               "type": "specialTarget",
               "value": "enemyAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.2.bottomHint%"
         }
       ]
     },
@@ -50,7 +51,6 @@
       "name": "Double Throw",
       "cardId": 3,
       "level": "A",
-      "hint": "Up to two enemies within 3 hexes suffer %game.damage:2% (plus a separate modifier for each&mdash;Disadvantage if adjacent).",
       "initiative": 64,
       "actions": [
         {
@@ -60,25 +60,25 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "target",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.3.hint%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Add +1 %game.action.attack% to all your attacks this turn.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.3.1%",
+          "small": true
         }
       ]
     },
@@ -86,8 +86,6 @@
       "name": "Disorienting Barrage",
       "cardId": 4,
       "level": "A",
-      "hint": "<small>Up to three enemies within 3 hexes suffer %game.damage:1% (plus a separate modifier for each&mdash;Disadvantage if adjacent) and gain Disadvantage on all of their attacks until the end of their next turn.</small>",
-      "bottomHint": "Move up to 2 hexes away.",
       "initiative": 51,
       "actions": [
         {
@@ -97,36 +95,38 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "target",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "muddle",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.4.hint%"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 2,
-          "hidden": false
+          "value": 2
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.4.bottomHint%"
         },
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer %game.damage:1%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.4.1%",
+          "small": true
         }
       ]
     },
@@ -134,8 +134,6 @@
       "name": "Second Wind",
       "cardId": 5,
       "level": "A",
-      "hint": "You heal %game.damage:3%.",
-      "bottomHint": "Move up to 5 hexes away.",
       "initiative": 18,
       "actions": [
         {
@@ -145,18 +143,23 @@
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.5.hint%"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 5,
-          "hidden": false
+          "value": 5
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.5.bottomHint%"
         }
       ]
     },
@@ -164,8 +167,6 @@
       "name": "Center Mass",
       "cardId": 6,
       "level": "A",
-      "hint": "One enemy within 3 hexes suffers %game.damage:3% (plus modifier&mdash;Disadvantage if adjacent).",
-      "bottomHint": "Move up to 3 hexes away.",
       "initiative": 24,
       "actions": [
         {
@@ -175,18 +176,23 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.6.hint%"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.6.bottomHint%"
         }
       ]
     },
@@ -194,21 +200,25 @@
       "name": "Close Cuts",
       "cardId": 7,
       "level": "A",
-      "hint": "One adjacent enemy suffers %game.damage:3% (plus modifier).",
-      "bottomHint": "Move up to 4 hexes away.",
       "initiative": 25,
       "actions": [
         {
           "type": "attack",
-          "value": 3,
-          "hidden": false
+          "value": 3
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.7.hint%"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 4,
-          "hidden": false
+          "value": 4
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.7.bottomHint%"
         }
       ]
     },
@@ -216,8 +226,6 @@
       "name": "Center Mass",
       "cardId": 8,
       "level": "B",
-      "hint": "One enemy within 3 hexes suffers %game.damage:3% (plus modifier&mdash;Disadvantage if adjacent).",
-      "bottomHint": "Move up to 3 hexes away, then one adjacent enemy is moved up to 2 hexes away from you.",
       "initiative": 24,
       "actions": [
         {
@@ -227,18 +235,19 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.8.hint%"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "push",
@@ -247,11 +256,13 @@
             {
               "type": "specialTarget",
               "value": "enemyAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.8.bottomHint%"
         }
       ]
     },
@@ -259,8 +270,6 @@
       "name": "Close Cuts",
       "cardId": 9,
       "level": "B",
-      "hint": "All enemies in the targeted area suffer %game.damage:3% (plus a separate modifier for each).",
-      "bottomHint": "Move up to 4 hexes away, then collect all money tokens and treasure tiles in or adjacent to your hex and lose this card.",
       "initiative": 25,
       "actions": [
         {
@@ -269,47 +278,48 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)",
-              "hidden": false
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
             }
-          ],
-          "hidden": false
+          ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.9.hint%"
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
-          "value": 4,
-          "hidden": false
+          "value": 4
         },
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.hatchet.abilities.9.bottomHint%"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "The Favorite",
       "cardId": 10,
       "level": 1,
       "initiative": 17,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "<small>Place one of your character tokens on this card. You may add +3 %game.action.attack% to any of your ranged attacks by moving the token from this card to the target after the attack ability is resolved. When the target dies, place the token on the hex in which it died. If you loot that hex, return the token to this card.</small>",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.10.1%",
+          "small": true
         },
         {
           "type": "card",
-          "value": "experience:2",
-          "hidden": false
+          "value": "experience:2"
         }
       ],
-      "lost": true,
-      "persistent": true,
       "bottomActions": [
         {
           "type": "condition",
@@ -318,29 +328,26 @@
             {
               "type": "specialTarget",
               "value": "enemyAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "move",
           "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "jump",
               "value": "",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         }
-      ]
+      ],
+      "persistent": true
     },
     {
       "name": "Retrieval",
@@ -351,30 +358,26 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
-              "value": "If the target has your Favorite token, return the token to its card.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.11.1%",
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 1,
-          "hidden": false
+          "value": 1
         },
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         }
       ]
     },
@@ -390,32 +393,26 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,enhance)",
-              "hidden": false,
-              "enhancementTypes": []
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,enhance)"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "attack",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "diamond"
           ]
         },
         {
           "type": "move",
-          "value": 2,
-          "hidden": false
+          "value": 2
         }
       ]
     },
@@ -428,20 +425,18 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -449,7 +444,6 @@
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -457,17 +451,15 @@
         {
           "type": "push",
           "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemyAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         }
       ]
@@ -481,12 +473,14 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -499,67 +493,55 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "range",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "push",
-                      "value": 2,
-                      "hidden": false
+                      "value": 2
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "jump",
               "value": "",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         },
         {
           "type": "condition",
           "value": "immobilize",
+          "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "Target all enemies adjacent to any hex you entered during the movement",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.14.1%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -567,49 +549,43 @@
           "subActions": [
             {
               "type": "element",
-              "value": "air",
-              "hidden": false
+              "value": "air"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Double Throw",
       "cardId": 15,
       "level": 1,
       "initiative": 64,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "target",
               "value": 2,
-              "hidden": false,
+              "small": true,
               "enhancementTypes": [
                 "circle"
-              ],
-              "small": true
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
@@ -618,25 +594,21 @@
           "subActions": [
             {
               "type": "element",
-              "value": "air",
-              "hidden": false
+              "value": "air"
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Double the value of your next attack this round.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.15.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -644,19 +616,15 @@
           "subActions": [
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Disorienting Barrage",
@@ -672,7 +640,6 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -681,7 +648,6 @@
               "type": "target",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -689,35 +655,30 @@
             {
               "type": "condition",
               "value": "muddle",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
-          "value": 2,
-          "hidden": false
+          "value": 2
         },
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer %game.damage:1%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.16.1%",
+          "small": true
         },
         {
           "type": "move",
-          "value": 1,
-          "hidden": false
+          "value": 1
         },
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer %game.damage:2%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.16.2%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -725,25 +686,22 @@
           "subActions": [
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             },
             {
               "type": "move",
-              "value": 1,
-              "hidden": false
+              "value": 1
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Power Pitch",
       "cardId": 17,
       "level": 1,
       "initiative": 60,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -752,32 +710,26 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "card",
-          "value": "experience:2",
-          "hidden": false
+          "value": "experience:2"
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         },
         {
           "type": "element",
-          "value": "air",
-          "hidden": false
+          "value": "air"
         }
       ]
     },
@@ -795,27 +747,22 @@
               "type": "range",
               "value": 4,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target has your Favorite token.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.18.1%",
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": []
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -827,11 +774,9 @@
             {
               "type": "specialTarget",
               "value": "enemyAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "element",
@@ -841,11 +786,9 @@
             {
               "type": "move",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -854,21 +797,20 @@
       "cardId": 19,
       "level": 1,
       "initiative": 18,
+      "lost": true,
       "actions": [
         {
           "type": "heal",
           "value": 6,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
@@ -877,19 +819,15 @@
           "subActions": [
             {
               "type": "element",
-              "value": "air",
-              "hidden": false
+              "value": "air"
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -897,12 +835,10 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 %game.action.move% and gain %game.card.experience:1% if you killed an enemy this round.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.19.1%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -915,41 +851,36 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "heal",
           "value": 2,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "custom",
-              "value": "Target one ally adjacent to the target of the attack",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.20.1%",
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "heal",
@@ -959,18 +890,15 @@
               "type": "range",
               "value": 1,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "element",
-          "value": "earth",
-          "hidden": false
+          "value": "earth"
         }
       ]
     },
@@ -983,12 +911,14 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -1001,35 +931,26 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "range",
                       "value": 2,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -1040,22 +961,18 @@
           "subActions": [
             {
               "type": "move",
-              "value": 4,
-              "hidden": false
+              "value": 4
             },
             {
               "type": "element",
-              "value": "air",
-              "hidden": false
+              "value": "air"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "On your next four Move abilities, add +2 %game.action.move%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.21.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1063,46 +980,37 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "concatenationSpacer",
-              "value": "",
-              "hidden": false
+              "value": ""
             },
             {
               "type": "concatenationSpacer",
-              "value": "",
-              "hidden": false
+              "value": ""
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1111,16 +1019,15 @@
       "cardId": 22,
       "level": "X",
       "initiative": 12,
+      "lost": true,
       "actions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "shield",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "diamond_plus"
           ]
@@ -1131,35 +1038,28 @@
           "subActions": [
             {
               "type": "element",
-              "value": "dark",
-              "hidden": false
+              "value": "dark"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             },
             {
               "type": "card",
-              "value": "round",
-              "hidden": false
+              "value": "round"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Add +1 %game.action.attack% to all your attacks this round.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.22.1%",
+          "small": true
         },
         {
           "type": "card",
-          "value": "round",
-          "hidden": false
+          "value": "round"
         }
       ]
     },
@@ -1176,37 +1076,33 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target has your Favorite token.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.23.1%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "attack",
           "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
@@ -1215,19 +1111,15 @@
           "subActions": [
             {
               "type": "element",
-              "value": "air",
-              "hidden": false
+              "value": "air"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Ricochet",
@@ -1238,42 +1130,37 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
-              "value": "Target a different enemy within %game.action.range:2% of the target of the previous Attack ability",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.24.1%",
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "On your next four attacks when possible, one enemy adjacent to the target suffers %game.damage:2%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.24.2%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1281,46 +1168,37 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "concatenationSpacer",
-              "value": "",
-              "hidden": false
+              "value": ""
             },
             {
               "type": "concatenationSpacer",
-              "value": "",
-              "hidden": false
+              "value": ""
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1329,25 +1207,27 @@
       "cardId": 25,
       "level": 3,
       "initiative": 58,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
           "value": 6,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "custom",
-              "value": "<small>If this attack kills the target, one enemy adjacent to the hex in which it died suffers X damage, where X is the amount of damage the target would have suffered in excess of what was needed to kill it.</small>",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.25.1%",
+              "small": true
             },
             {
               "type": "concatenation",
@@ -1355,25 +1235,17 @@
               "subActions": [
                 {
                   "type": "element",
-                  "value": "air",
-                  "hidden": false
+                  "value": "air"
                 },
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "attack",
@@ -1382,17 +1254,14 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you killed an enemy this round.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.25.2%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1404,9 +1273,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On your next five attacks, add +1 %game.action.attack% and %game.condition.wound%",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.26.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1414,47 +1282,42 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "element",
@@ -1465,16 +1328,10 @@
                   "type": "move",
                   "value": 2,
                   "valueType": "add",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         }
       ]
@@ -1487,43 +1344,37 @@
       "actions": [
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         },
         {
           "type": "custom",
-          "value": "If an adjacent enemy has your Favorite token, you may return the token to its card. If you do, the adjacent enemy suffers %game.damage:2% and gains %game.condition.wound%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.27.1%",
+          "small": true
         }
       ],
       "bottomActions": [
         {
           "type": "heal",
           "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
-              "value": "Add %game.condition.strengthen% and gain %game.card.experience:1% if you killed an enemy this round.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.27.2%",
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
           "type": "element",
-          "value": "air",
-          "hidden": false
+          "value": "air"
         }
       ]
     },
@@ -1536,12 +1387,14 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -1554,44 +1407,34 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "range",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "<small>The next five times an enemy ends a Move ability within %game.action.range:5%, perform an \"%game.action.attack:2%, %game.action.range:5%\" action targeting that enemy.</small>",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.28.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1599,41 +1442,33 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1642,10 +1477,12 @@
       "cardId": 30,
       "level": 5,
       "initiative": 715,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "<small>Place the Axe token on this card. You may add +3 %game.action.attack%, %game.condition.wound%, and %game.action.push:1% to any of your ranged attacks by moving the token from this card to the target after the attack ability is resolved. When the target dies, place the token on the hex in which it died. If you loot that hex, return the token to this card. This card cannot be active while \"The Favorite\" is active.</small>",
+          "value": "%data.custom.jotl.hatchet.abilities.30.1%",
+          "small": true,
           "subActions": [
             {
               "type": "concatenation",
@@ -1653,49 +1490,39 @@
               "subActions": [
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 },
                 {
                   "type": "card",
-                  "value": "persistent",
-                  "hidden": false
+                  "value": "persistent"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "move",
-          "value": 4,
-          "hidden": false
+          "value": 4
         },
         {
           "type": "element",
-          "value": "air",
-          "hidden": false
+          "value": "air"
         }
       ]
     },
@@ -1704,6 +1531,7 @@
       "cardId": 31,
       "level": 6,
       "initiative": 54,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -1712,11 +1540,9 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "attack",
@@ -1725,11 +1551,9 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -1737,8 +1561,7 @@
           "subActions": [
             {
               "type": "element",
-              "value": "air",
-              "hidden": false
+              "value": "air"
             },
             {
               "type": "attack",
@@ -1747,51 +1570,42 @@
                 {
                   "type": "range",
                   "value": 3,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 3,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         },
         {
           "type": "custom",
-          "value": "All adjacent enemies suffer %game.damage:1%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.31.1%",
+          "small": true
         },
         {
           "type": "push",
           "value": 1,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ]
@@ -1810,7 +1624,6 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -1818,8 +1631,7 @@
             {
               "type": "push",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -1829,53 +1641,44 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "range",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "push",
                       "value": 2,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "custom",
-          "value": "If your Favorite token is in or adjacent to your hex, you may perform",
+          "value": "%data.custom.jotl.hatchet.abilities.32.1%",
+          "small": true,
           "subActions": [
             {
               "type": "loot",
-              "value": 1,
-              "hidden": false
+              "value": 1
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1887,9 +1690,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On your next five attacks targeting an enemy that has your Favorite token, add +2 %game.action.attack%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.33.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1897,48 +1699,39 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "element",
@@ -1948,6 +1741,7 @@
             {
               "type": "concatenation",
               "value": "",
+              "small": true,
               "subActions": [
                 {
                   "type": "attack",
@@ -1956,23 +1750,17 @@
                     {
                       "type": "range",
                       "value": 2,
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     }
-                  ],
-                  "hidden": false
+                  ]
                 },
                 {
                   "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
+                  "value": "experience:1"
                 }
-              ],
-              "small": true,
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1985,41 +1773,37 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target has your Favorite token, then return the token to its card.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.hatchet.abilities.34.1%",
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "attack",
           "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "stun",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
@@ -2028,19 +1812,15 @@
           "subActions": [
             {
               "type": "element",
-              "value": "air",
-              "hidden": false
+              "value": "air"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Shrapnel",
@@ -2056,20 +1836,17 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "target",
-              "value": 2,
-              "hidden": false
+              "value": 2
             },
             {
               "type": "condition",
-              "value": "wound",
-              "hidden": false
+              "value": "wound"
             },
             {
               "type": "element",
@@ -2079,35 +1856,29 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "target",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "<small>The next five times you kill an enemy, all enemies adjacent to the hex in which it died suffer %game.damage:2%.</small>",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.35.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -2115,41 +1886,33 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2162,52 +1925,45 @@
         {
           "type": "heal",
           "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
           "type": "heal",
           "value": 3,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "specialTarget",
               "value": "allyAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
           "type": "element",
-          "value": "air",
-          "hidden": false
+          "value": "air"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "custom",
-          "value": "Add +2 %game.action.attack% to your next attack this turn if you are adjacent to an ally.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.36.1%",
+          "small": true
         }
       ]
     },
@@ -2216,12 +1972,12 @@
       "cardId": 37,
       "level": 9,
       "initiative": 79,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "One adjacent normal or elite enemy suffers %game.damage:12%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.37.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -2229,25 +1985,20 @@
           "subActions": [
             {
               "type": "element",
-              "value": "dark",
-              "hidden": false
+              "value": "dark"
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "If you killed an enemy this round, return your Favorite token to its card and gain %game.card.experience:1%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.37.2%",
+          "small": true
         }
       ]
     },
@@ -2260,17 +2011,18 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
-              "value": "stun",
-              "hidden": false
+              "value": "stun"
             },
             {
               "type": "element",
@@ -2280,37 +2032,28 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "wound",
-                      "hidden": false
+                      "value": "wound"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "<small>The next four times you kill an enemy, perform a \"%game.action.heal:3%, %game.action.range:2%, %game.condition.bless%\" action.</small>",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.hatchet.abilities.38.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -2318,46 +2061,37 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "concatenationSpacer",
-              "value": "",
-              "hidden": false
+              "value": ""
             },
             {
               "type": "concatenationSpacer",
-              "value": "",
-              "hidden": false
+              "value": ""
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     }

@@ -381,6 +381,33 @@
     color: var(--ghs-color-yellow);
   }
 
+  .action-hint {
+    position: relative;
+    min-width: 60%;
+    background: rgb(124, 210, 224);
+    background: linear-gradient(90deg, rgba(124, 210, 224, 1) 0%, rgba(193, 236, 245, 1) 100%);
+    color: var(--ghs-color-black);
+    font-size: 0.7em;
+    line-height: 0.9em;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 0.5em;
+    margin-bottom: 0.5em;
+    margin-top: -0.7em;
+    padding: 0.3em;
+    border: 0.1em solid rgb(39, 103, 124);
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 0.1em;
+      left: 0.1em;
+      bottom: 0.1em;
+      right: 0.1em;
+      border: 0.1em solid var(--ghs-color-white);
+      opacity: 0.7;
+    }
+  }
 
   .action-element {
     display: grid;

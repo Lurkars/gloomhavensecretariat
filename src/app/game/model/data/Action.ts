@@ -43,6 +43,7 @@ export enum ActionType {
   grant = "grant",
   grid = "grid",
   heal = "heal",
+  hint = "hint",
   jump = "jump",
   loot = "loot",
   monsterType = "monsterType",

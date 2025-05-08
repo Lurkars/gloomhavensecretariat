@@ -19,8 +19,6 @@ export class Ability {
   bottomLoss: boolean = false;
   bottomXp: number = 0;
   bottomShuffle: boolean = false;
-  hint: string | undefined;
-  bottomHint: string | undefined;
   revealed: boolean = false;
   replace: boolean = false;
 
