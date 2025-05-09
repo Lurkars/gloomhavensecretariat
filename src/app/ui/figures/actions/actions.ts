@@ -31,7 +31,6 @@ export class ActionsComponent implements OnInit, OnDestroy {
   @Output() interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
   @Input() highlightActions: ActionType[] = [];
   @Input() hexSize!: number;
-  @Input() hint!: string | undefined;
   @Input('index') actionIndex: string = "";
   @Input() style: 'gh' | 'fh' | false = false;
   @Input() noDivider: boolean = false;
@@ -106,7 +105,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
       return false;
     }
 
-    if (action.type == ActionType.card) {
+    if (action.type == ActionType.card || action.type == ActionType.hint) {
       return false;
     }
 

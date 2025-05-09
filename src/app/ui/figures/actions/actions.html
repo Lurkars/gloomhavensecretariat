@@ -7,8 +7,7 @@
       [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
       (interactiveActionsChange)="onInteractiveActionsChange($event)"
       [index]="(actionIndex ? actionIndex + '-' : '') + index" [style]="style" [character]="character" [cardId]="cardId"
-      [ngClass]="{'spacing' : !noDivider && !inline && index > 0 &&  !divider[index]}">
+      [ngClass]="{'spacing' : !noDivider && !inline && index > 0 && !divider[index]}">
     </ghs-action>
   </ng-container>
-  <div class="hint" *ngIf="hint" [ghs-label]="hint"></div>
 </div>

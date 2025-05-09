@@ -4,7 +4,6 @@
   "abilities": [
     {
       "initiative": 99,
-      "hint": "%data.custom.solo.char-am-deck%",
       "actions": [
         {
           "type": "move",
@@ -15,6 +14,10 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus"
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.solo.char-am-deck%"
         }
       ]
     }

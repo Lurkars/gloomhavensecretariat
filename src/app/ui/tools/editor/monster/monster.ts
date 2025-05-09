@@ -5,11 +5,11 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/data/Action";
-import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { FigureError, FigureErrorType } from "src/app/game/model/data/FigureError";
-import { Monster } from "src/app/game/model/Monster";
+import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { MonsterStat } from "src/app/game/model/data/MonsterStat";
 import { MonsterType } from "src/app/game/model/data/MonsterType";
+import { Monster } from "src/app/game/model/Monster";
 import { MonsterStatsComponent } from "src/app/ui/figures/monster/stats/stats";
 import { environment } from "src/environments/environment";
 import { EditorActionDialogComponent } from "../action/action";
@@ -19,7 +19,7 @@ import { compactAction, DeckEditorComponent } from "../deck/deck";
 export const newMonsterJson: string = '{"name": "new-monster", "thumbnail" : "", "edition": "", "deck": "", "boss": false, "flying" : false, "hidden":false, "count": 10, "baseStat" : {}, "stats": []}';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-monster-editor',
   templateUrl: './monster.html',
   styleUrls: ['../editor.scss', './monster.scss']
@@ -41,6 +41,8 @@ export class MonsterEditorComponent implements OnInit {
   monsterError: any;
   edition: string | undefined;
   init: boolean = false;
+  monstersData: MonsterData[] = [];
+  editions: string[] = [];
 
   constructor(private dialog: Dialog, private route: ActivatedRoute, private router: Router) {
     this.monsterData = JSON.parse(newMonsterJson);
@@ -54,6 +56,9 @@ export class MonsterEditorComponent implements OnInit {
       this.monsterDataFromJson();
     });
 
+    this.editions = gameManager.editions(true);
+    this.monstersData = gameManager.monstersData(this.edition);
+
     this.route.queryParams.subscribe({
       next: (queryParams) => {
         if (queryParams['edition']) {
@@ -63,8 +68,10 @@ export class MonsterEditorComponent implements OnInit {
           }
         }
 
+        this.monstersData = gameManager.monstersData(this.edition);
+
         if (queryParams['monster']) {
-          const monsterData = gameManager.monstersData(this.edition).find((monsterData) => monsterData.name == queryParams['monster']);
+          const monsterData = this.monstersData.find((monsterData) => monsterData.name == queryParams['monster']);
           if (monsterData) {
             this.monsterData = monsterData;
             this.monsterDataToJson();
@@ -422,7 +429,7 @@ export class MonsterEditorComponent implements OnInit {
 
   loadMonsterData(event: any) {
     const index = +event.target.value;
-    this.monsterData = index != -1 ? gameManager.monstersData(this.edition)[index] : JSON.parse(newMonsterJson);
+    this.monsterData = index != -1 ? this.monstersData[index] : JSON.parse(newMonsterJson);
     this.updateType();
     this.monsterDataToJson();
     this.updateQueryParams();

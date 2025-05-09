@@ -204,14 +204,14 @@
 
                 <select (change)="loadDeckData($event)">
                     <option [value]="-1">&lt;<span [ghs-label]="'editor.deck.new'"></span>&gt;</option>
-                    <option [value]="index" *ngFor="let dd of decksData(); let index = index;"
+                    <option [value]="index" *ngFor="let dd of decksData; let index = index;"
                         [selected]="dd.edition == deckData.edition && dd.name == deckData.name">
                         {{dd.name}} (<span [ghs-label]="'data.edition.' + dd.edition"></span>)
                     </option>
                 </select>
                 <select [(ngModel)]="edition" (change)="updateQueryParams()">
                     <option></option>
-                    <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+                    <option *ngFor="let edition of editions" [value]="edition">
                         <span [ghs-label]="'data.edition.' + edition"></span>
                     </option>
                 </select>

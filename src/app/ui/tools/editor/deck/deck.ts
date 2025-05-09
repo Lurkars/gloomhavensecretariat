@@ -81,6 +81,8 @@ export class DeckEditorComponent implements OnInit {
     ActionValueType = ActionValueType;
     encodeURIComponent = encodeURIComponent;
     deckData: DeckData;
+    decksData: DeckData[] = [];
+    editions: string[] = [];
     deckError: any;
     abilityColor: string = "#aaaaaa";
 
@@ -98,9 +100,12 @@ export class DeckEditorComponent implements OnInit {
             this.deckData.character = true;
         }
         this.deckDataToJson();
+        this.updateDecksData();
         this.inputDeckData.nativeElement.addEventListener('change', (event: any) => {
             this.deckDataFromJson();
         });
+
+        this.editions = gameManager.editions(true);
 
         this.route.queryParams.subscribe({
             next: (queryParams) => {
@@ -112,7 +117,7 @@ export class DeckEditorComponent implements OnInit {
                 }
 
                 if (queryParams['deck']) {
-                    const deckData = this.decksData().find((deckData) => deckData.name == queryParams['deck']);
+                    const deckData = this.decksData.find((deckData) => deckData.name == queryParams['deck']);
                     if (deckData) {
                         this.deckData = deckData;
                         this.deckDataToJson();
@@ -137,10 +142,11 @@ export class DeckEditorComponent implements OnInit {
                 queryParams: { edition: this.edition || undefined, monster: this.monster && this.monster.name || undefined, character: this.character && this.character.name || undefined, deck: this.deckData.name || undefined },
                 queryParamsHandling: 'merge'
             });
+        this.updateDecksData();
     }
 
-    decksData(): DeckData[] {
-        return gameManager.decksData(this.edition).filter((deckData) => {
+    updateDecksData() {
+        this.decksData = gameManager.decksData(this.edition).filter((deckData) => {
             if (this.character) {
                 return deckData.character;
             } else if (this.monster) {
@@ -393,7 +399,7 @@ export class DeckEditorComponent implements OnInit {
                 this.deckData.character = true;
             }
         } else {
-            this.deckData = this.decksData()[index];
+            this.deckData = this.decksData[index];
         }
         this.deckDataToJson();
         this.updateQueryParams();

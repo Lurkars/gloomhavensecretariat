@@ -26,9 +26,6 @@
                 "cardId": {
                     "type": "number"
                 },
-                "hint": {
-                    "type": "string"
-                },
                 "initiative": {
                     "type": "number"
                 },

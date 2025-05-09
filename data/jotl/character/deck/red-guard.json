@@ -8,7 +8,6 @@
       "cardId": 216,
       "level": "A",
       "initiative": 63,
-      "hint": "%data.custom.jotl.red-guard.abilities.216.hint%",
       "actions": [
         {
           "type": "attack",
@@ -20,13 +19,20 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.216.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.red-guard.abilities.216.bottomHint%",
       "bottomActions": [
         {
           "type": "attack",
           "value": 2
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.216.bottomHint%"
         }
       ]
     },
@@ -35,7 +41,6 @@
       "cardId": 217,
       "level": "A",
       "initiative": 87,
-      "hint": "%data.custom.jotl.red-guard.abilities.217.hint%",
       "actions": [
         {
           "type": "attack",
@@ -52,13 +57,20 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.217.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.red-guard.abilities.217.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
           "value": 4
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.217.bottomHint%"
         }
       ]
     },
@@ -67,7 +79,6 @@
       "cardId": 218,
       "level": "A",
       "initiative": 38,
-      "hint": "%data.custom.jotl.red-guard.abilities.218.hint%",
       "actions": [
         {
           "type": "attack",
@@ -79,13 +90,20 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.218.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.red-guard.abilities.218.bottomHint%",
       "bottomActions": [
         {
           "type": "attack",
           "value": 2
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.218.bottomHint%"
         }
       ]
     },
@@ -94,7 +112,6 @@
       "cardId": 219,
       "level": "A",
       "initiative": 314,
-      "hint": "%data.custom.jotl.red-guard.abilities.219.hint%",
       "actions": [
         {
           "type": "attack",
@@ -106,13 +123,20 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.219.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.red-guard.abilities.219.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
           "value": 3
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.219.bottomHint%"
         }
       ]
     },
@@ -121,7 +145,6 @@
       "cardId": 220,
       "level": "A",
       "initiative": 90,
-      "hint": "%data.custom.jotl.red-guard.abilities.220.hint%",
       "actions": [
         {
           "type": "attack",
@@ -133,13 +156,20 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.220.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.red-guard.abilities.220.bottomHint%",
       "bottomActions": [
         {
           "type": "move",
           "value": 4
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.220.bottomHint%"
         }
       ]
     },
@@ -148,15 +178,17 @@
       "cardId": 221,
       "level": "A",
       "initiative": 41,
-      "hint": "%data.custom.jotl.red-guard.abilities.221.hint%",
       "actions": [
         {
           "type": "custom",
           "value": "%data.custom.jotl.red-guard.abilities.221.1%",
           "small": true
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.221.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.red-guard.abilities.221.bottomHint%",
       "bottomActions": [
         {
           "type": "heal",
@@ -168,6 +200,10 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.221.bottomHint%"
         }
       ]
     },
@@ -176,7 +212,6 @@
       "cardId": 222,
       "level": "B",
       "initiative": 90,
-      "hint": "%data.custom.jotl.red-guard.abilities.222.hint%",
       "actions": [
         {
           "type": "attack",
@@ -193,14 +228,21 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.222.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.red-guard.abilities.222.bottomHint%",
       "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 6
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.222.bottomHint%"
         }
       ]
     },
@@ -209,7 +251,6 @@
       "cardId": 223,
       "level": "B",
       "initiative": 63,
-      "hint": "%data.custom.jotl.red-guard.abilities.223.hint%",
       "actions": [
         {
           "type": "attack",
@@ -226,13 +267,20 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.223.hint%"
         }
       ],
-      "bottomHint": "%data.custom.jotl.red-guard.abilities.223.bottomHint%",
       "bottomActions": [
         {
           "type": "loot",
           "value": 1
+        },
+        {
+          "type": "hint",
+          "value": "%data.custom.jotl.red-guard.abilities.223.bottomHint%"
         }
       ]
     },

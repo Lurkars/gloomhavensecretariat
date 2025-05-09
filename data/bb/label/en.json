@@ -151,6 +151,14 @@
       "": "Pocket Knife",
       "1": "During your melee attack, add +1 %game.action.attack%, %game.action.pierce% 2, %game.condition.wound%."
     },
+    "bb-41": {
+      "": "Bottle Cap Helm",
+      "1": "During an enemy's attack, treat its %game.bbAm.2% attack modifier as a %game.bbAm.1% attack modifier."
+    },
+    "bb-42": {
+      "": "Sparrow Skull Helm",
+      "1": "During your attack, gain advantage."
+    },
     "bb-5": {
       "": "Drop of Power Potion",
       "1": "Durin your turn, add +1 %game.action.attack% to all your attacks."
