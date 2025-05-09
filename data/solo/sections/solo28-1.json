@@ -4,6 +4,11 @@
   "name": "Tuning the Resonance",
   "edition": "fh",
   "parent": "28",
+  "parentSections": [
+    [
+      "28-a"
+    ]
+  ],
   "marker": "1",
   "resetRound": "visible",
   "monsters": [

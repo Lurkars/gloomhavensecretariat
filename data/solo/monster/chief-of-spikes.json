@@ -5,8 +5,12 @@
   "boss": true,
   "hidden": true,
   "count": 1,
+  "standeeShare": "algox-icespeaker",
   "baseStat": {
-    "type": "boss"
+    "type": "boss",
+    "immunities": [
+      "stun"
+    ]
   },
   "stats": [
     {
@@ -41,10 +45,6 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "brittle"
-        },
-        {
           "type": "target",
           "value": 1,
           "valueType": "add"
@@ -64,10 +64,6 @@
         {
           "type": "shield",
           "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         },
         {
           "type": "target",
@@ -91,10 +87,6 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "brittle"
-        },
-        {
           "type": "target",
           "value": 1,
           "valueType": "add"
@@ -114,10 +106,6 @@
         {
           "type": "shield",
           "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         },
         {
           "type": "target",
@@ -141,10 +129,6 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "brittle"
-        },
-        {
           "type": "target",
           "value": 1,
           "valueType": "add"
@@ -164,10 +148,6 @@
         {
           "type": "shield",
           "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "brittle"
         },
         {
           "type": "target",
@@ -194,10 +174,6 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "brittle"
-        },
-        {
           "type": "target",
           "value": 1,
           "valueType": "add"
@@ -211,6 +187,5 @@
         "brittle"
       ]
     }
-  ],
-  "standeeSahre": "algox-icespeaker"
+  ]
 }
