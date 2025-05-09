@@ -1199,7 +1199,7 @@
     }
   },
   "campaignSticker": {
-    "blue-well": "",
+    "blue-well": "푸른 우물",
     "boat": "선박",
     "brummix": "브루믹스",
     "bug-in-a-jar": "병 속의 벌레",
@@ -1216,6 +1216,7 @@
     "friend-of-the-icespeakers": "얼음속삭이의 친구",
     "friend-of-the-snowspeakers": "눈속삭이의 벗",
     "into-the-forest": "숲속으로",
+    "red-well": "붉은 우물",
     "shard-seeker": "조각 탐색자",
     "sled": "썰매",
     "uncharged-core": "충전되지 않은 코어",
@@ -2462,7 +2463,9 @@
         "98-1": "영원한 갈망",
         "99-2": "은신처에 잠입하다",
         "99-3": "%game.characterIconColored.kelp% 은퇴",
-        "99-4": "불길한 정령의 부름"
+        "99-4": "불길한 정령의 부름",
+        "blue-well": "\"푸른 우물\" 캠페인 스티커",
+        "red-well": "\"붉은 우물\" 캠페인 스티커"
       }
     }
   }
