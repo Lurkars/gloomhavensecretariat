@@ -13,9 +13,7 @@
     ]
   },
   "monsters": [
-    "algox-archer",
-    "algox-icespeaker-shards-solo",
-    "chief-of-spikes"
+    "algox-icespeaker-shards-solo"
   ],
   "objectives": [
     {
@@ -52,18 +50,6 @@
       "initial": true,
       "monster": [
         {
-          "name": "algox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "algox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "algox-icespeaker-shards-solo",
-          "type": "normal"
-        },
-        {
           "name": "algox-icespeaker-shards-solo",
           "type": "normal"
         }
@@ -71,12 +57,6 @@
       "objectives": [
         1,
         1,
-        1,
-        1,
-        2,
-        2,
-        2,
-        2,
         2,
         2
       ]

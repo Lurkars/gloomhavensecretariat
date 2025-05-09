@@ -1,0 +1,40 @@
+{
+  "index": "28-a",
+  "group": "solo",
+  "name": "Tuning the Resonance",
+  "edition": "fh",
+  "parent": "28",
+  "marker": "a",
+  "monsters": [
+    "algox-archer",
+    "algox-icespeaker-shards-solo"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-icespeaker-shards-solo",
+          "type": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ]
+    }
+  ]
+}
