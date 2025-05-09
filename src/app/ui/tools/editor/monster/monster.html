@@ -185,7 +185,7 @@
 
           <select (change)="loadMonsterData($event)">
             <option [value]="-1">&lt;<span [ghs-label]="'editor.monster.new'"></span>&gt;</option>
-            <option [value]="index" *ngFor="let md of gameManager.monstersData(edition); let index = index;"
+            <option [value]="index" *ngFor="let md of monstersData; let index = index;"
               [selected]="md.edition == monsterData.edition && md.name == monsterData.name">
               <span [ghs-label]="'data.monster.' + md.name"></span> (<span
                 [ghs-label]="'data.edition.' + md.edition"></span>)
@@ -195,7 +195,7 @@
 
           <select [(ngModel)]="edition" (change)="updateQueryParams()">
             <option></option>
-            <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+            <option *ngFor="let edition of editions" [value]="edition">
               <span [ghs-label]="'data.edition.' + edition"></span>
             </option>
           </select>
