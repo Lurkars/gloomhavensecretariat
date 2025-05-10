@@ -2466,10 +2466,14 @@
       "en": "English",
       "es": "Spanish (Español)",
       "fr": "French (Français)",
-      "help": "Help translating!",
+      "help": {
+        "": "Help translating!",
+        "hint": "<img src=\"https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
+      },
       "it": "Italian (Italiano)",
       "ko": "Korean (한국어)",
-      "zh_Hans": "Simplified Chinese (简体中文)"
+      "zh_Hans": "Simplified Chinese (简体中文)",
+      "zh_Hant": "Traditional Chinese (繁體中文)"
     },
     "lootDeck": {
       "": "Loot Deck",

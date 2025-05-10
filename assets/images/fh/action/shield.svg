@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="83.284103mm"
-   height="81.550583mm"
-   viewBox="0 0 83.284106 81.550582"
+   width="83.283997mm"
+   height="83.283997mm"
+   viewBox="0 0 83.283999 83.283996"
    version="1.1"
    id="svg5"
    sodipodi:docname="shield.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,15 +23,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.5371268"
-     inkscape:cx="157.46158"
-     inkscape:cy="153.91426"
-     inkscape:window-width="1846"
-     inkscape:window-height="1136"
+     inkscape:zoom="1.7940196"
+     inkscape:cx="84.168536"
+     inkscape:cy="142.41762"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg5" />
+     inkscape:current-layer="svg5"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2">
     <clipPath
@@ -121,7 +123,7 @@
   </defs>
   <path
      class="cls-5"
-     d="M 68.460889,15.612808 A 14.751579,14.751579 0 0 1 64.047038,6.9012444 40.015109,40.015109 0 0 1 51.270064,4.9847555 39.666646,39.666646 0 0 1 42.035819,0.16436119 39.957033,39.957033 0 0 1 32.859632,5.0428362 40.015109,40.015109 0 0 1 20.082682,6.9013761 15.100042,15.100042 0 0 1 15.61075,15.612939 50.643215,50.643215 0 0 1 7.8864943,22.001404 c 0,0 1.509967,30.722782 11.6154237,42.512426 A 66.846723,66.846723 0 0 0 42.151981,81.472353 66.846723,66.846723 0 0 0 64.802043,64.51383 C 74.791295,52.898428 76.417446,22.001404 76.417446,22.001404 a 52.269376,52.269376 0 0 1 -7.782314,-6.388596"
+     d="M 68.460889,16.141975 A 14.751579,14.751579 0 0 1 64.047038,7.4304111 40.015109,40.015109 0 0 1 51.270064,5.5139222 39.666646,39.666646 0 0 1 42.035819,0.69352783 39.957033,39.957033 0 0 1 32.859632,5.5720029 40.015109,40.015109 0 0 1 20.082682,7.4305428 15.100042,15.100042 0 0 1 15.61075,16.142106 50.643215,50.643215 0 0 1 7.8864943,22.530571 c 0,0 1.509967,30.722782 11.6154237,42.512426 A 66.846723,66.846723 0 0 0 42.151981,82.00152 66.846723,66.846723 0 0 0 64.802043,65.042997 C 74.791295,53.427595 76.417446,22.530571 76.417446,22.530571 a 52.269376,52.269376 0 0 1 -7.782314,-6.388596"
      id="path19"
      style="fill:#000000;stroke-width:5.80771" />
 </svg>

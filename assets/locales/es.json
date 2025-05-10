@@ -2343,10 +2343,14 @@
       "en": "Inglés (English)",
       "es": "Español",
       "fr": "Francés (Français)",
-      "help": "¡Ayuda con la traducción!",
+      "help": {
+        "": "¡Ayuda con la traducción!",
+        "hint": "<img src=\"https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
+      },
       "it": "Italiano",
       "ko": "Coreano (한국어)",
-      "zh_Hans": "Chino simplificado (简体中文)"
+      "zh_Hans": "Chino simplificado (简体中文)",
+      "zh_Hant": "Chino tradicional (繁體中文)"
     },
     "lootDeck": {
       "": "Mazo de botín",

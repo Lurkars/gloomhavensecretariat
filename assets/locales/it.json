@@ -2459,10 +2459,14 @@
       "en": "Inglese (English)",
       "es": "Spagnolo (Español)",
       "fr": "Francese (Français)",
-      "help": "Aiuta a tradurre!",
+      "help": {
+        "": "Aiuta a tradurre!",
+        "hint": "<img src=\"https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
+      },
       "it": "Italiano",
       "ko": "Coreano (한국어)",
-      "zh_Hans": "Cinese semplificato (简体中文)"
+      "zh_Hans": "Cinese semplificato (简体中文)",
+      "zh_Hant": "Cinese tradizionale (繁體中文)"
     },
     "lootDeck": {
       "": "Mazzo del bottino",
