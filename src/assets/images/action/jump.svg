@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="90.041374mm"
-   height="66.742485mm"
-   viewBox="0 0 90.041376 66.742484"
+   width="90.041mm"
+   height="90.041mm"
+   viewBox="0 0 90.041002 90.040999"
    version="1.1"
    id="svg5"
    sodipodi:docname="jump.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,15 +23,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="3.1000369"
-     inkscape:cx="170.15926"
-     inkscape:cy="125.96624"
-     inkscape:window-width="1846"
-     inkscape:window-height="1016"
+     inkscape:zoom="1.0960286"
+     inkscape:cx="35.583014"
+     inkscape:cy="130.92725"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg5" />
+     inkscape:current-layer="svg5"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2">
     <clipPath
@@ -100,7 +102,7 @@
   </defs>
   <g
      id="layer1"
-     transform="translate(-24.867941,-8.5944608)"
+     transform="translate(-24.867941,2.5180397)"
      style="fill:#000000">
     <g
        id="g2942"

@@ -2210,8 +2210,13 @@
       "en": "Anglais (English)",
       "es": "Espagnol (Español)",
       "fr": "Français",
-      "help": "Aidez à traduire !",
-      "ko": "Coréen (한국어)"
+      "help": {
+        "": "Aidez à traduire !",
+        "hint": "<img src=\"https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
+      },
+      "ko": "Coréen (한국어)",
+      "zh_Hans": "Chinois simplifié (简体中文)",
+      "zh_Hant": "Chinois traditionnel (繁體中文)"
     },
     "lootDeck": {
       "": "Paquet de butin",

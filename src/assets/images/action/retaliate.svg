@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="76.096313mm"
-   height="89.077271mm"
-   viewBox="0 0 76.096313 89.077271"
+   width="89.077003mm"
+   height="89.077003mm"
+   viewBox="0 0 89.077003 89.077004"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="retaliate.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -28,14 +28,16 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="0.69664703"
-     inkscape:cx="240.4374"
-     inkscape:cy="401.20748"
-     inkscape:window-width="1846"
-     inkscape:window-height="1016"
+     inkscape:cx="156.46374"
+     inkscape:cy="402.64293"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2">
     <clipPath
@@ -54,7 +56,7 @@
     <g
        id="g850"
        clip-path="url(#clipPath854)"
-       transform="matrix(0.35277777,0,0,-0.35277777,26.352148,139.63628)"
+       transform="matrix(0.35277777,0,0,-0.35277777,32.702152,139.63628)"
        style="fill:#000000">
       <g
          id="g856"

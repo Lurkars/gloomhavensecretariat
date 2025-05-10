@@ -786,7 +786,10 @@
     "edition": "bb",
     "slot": "small",
     "spent": true,
-    "unlockProsperity": 1,
+    "unlockScenario": {
+      "name": "1",
+      "edition": "bb"
+    },
     "actions": [
       {
         "type": "custom",
@@ -802,7 +805,10 @@
     "edition": "bb",
     "slot": "small",
     "spent": true,
-    "unlockProsperity": 1,
+    "unlockScenario": {
+      "name": "1",
+      "edition": "bb"
+    },
     "actions": [
       {
         "type": "custom",

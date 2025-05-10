@@ -2325,10 +2325,14 @@
       "en": "영어 (English)",
       "es": "스페인어 (Español)",
       "fr": "프랑스어 (Français)",
-      "help": "번역을 도와주세요!",
+      "help": {
+        "": "번역을 도와주세요!",
+        "hint": "<img src=\"https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
+      },
       "it": "이탈리아어 (Italiano)",
       "ko": "한국어",
-      "zh_Hans": "중국어 간체 (简体中文)"
+      "zh_Hans": "중국어 간체 (简体中文)",
+      "zh_Hant": "중국어 번체 (繁體中文)"
     },
     "lootDeck": {
       "": "노획 덱",

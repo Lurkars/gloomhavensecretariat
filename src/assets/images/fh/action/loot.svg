@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 6.44 7.92"
+   viewBox="0 0 7.92 7.92"
    version="1.1"
    id="svg29"
    sodipodi:docname="loot.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   width="7.9200001"
+   height="7.9200001"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -19,15 +21,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="98.737373"
-     inkscape:cx="3.2156011"
-     inkscape:cy="3.9549361"
-     inkscape:window-width="1846"
-     inkscape:window-height="1016"
+     inkscape:zoom="69.817866"
+     inkscape:cx="0.773441"
+     inkscape:cy="4.5189006"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg29" />
+     inkscape:current-layer="svg29"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs17">
     <style
@@ -50,7 +54,7 @@
        height="13.68"
        maskUnits="userSpaceOnUse">
       <g
-         transform="translate(-0.38 -0.38)"
+         transform="translate(-0.38,-0.38)"
          id="g11">
         <g
            class="cls-1"
@@ -59,7 +63,7 @@
           <image
              width="34"
              height="38"
-             transform="translate(-1.8 -1.8) scale(0.36)"
+             transform="matrix(0.36,0,0,0.36,-1.8,-1.8)"
              xlink:href="data:image/png;base64,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"
              id="image7" />
         </g>
@@ -72,24 +76,24 @@
          class="cls-2"
          x="0.38"
          y="0.38"
-         width="6.44"
-         height="7.92"
+         width="6.4400001"
+         height="7.9200001"
          id="rect14" />
     </clipPath>
   </defs>
   <path
      class="cls-5"
-     d="M 6.44,6.38 V 6.45 C 6.44,7.26 5,7.92 3.22,7.92 1.44,7.92 0,7.26 0,6.45 V 6.38 A 2.35,2.35 0 0 0 0.83,6.96 5.79,5.79 0 0 0 3.22,7.42 5.79,5.79 0 0 0 5.62,6.96 2.35,2.35 0 0 0 6.45,6.38"
+     d="m 7.219987,6.4010369 v 0.07 c 0,0.81 -1.44,1.47 -3.22,1.47 -1.78,0 -3.21999995,-0.66 -3.21999995,-1.47 v -0.07 a 2.35,2.35 0 0 0 0.82999995,0.58 5.79,5.79 0 0 0 2.39,0.46 5.79,5.79 0 0 0 2.4,-0.46 2.35,2.35 0 0 0 0.83,-0.58"
      id="path19"
      style="fill:#000000" />
   <path
      class="cls-5"
-     d="M 4.68,4.29 4.62,5.62 A 3.83,3.83 0 0 1 3.22,5.82 3.83,3.83 0 0 1 1.83,5.62 L 1.77,4.29 C 0.72,4.53 0,5.02 0,5.62 0,6.43 1.44,7.09 3.22,7.09 5,7.09 6.44,6.41 6.44,5.62 6.44,5.04 5.72,4.55 4.68,4.31"
+     d="m 5.459987,4.3110369 -0.06,1.33 a 3.83,3.83 0 0 1 -1.4,0.2 3.83,3.83 0 0 1 -1.39,-0.2 l -0.06,-1.33 c -1.05,0.24 -1.76999995,0.73 -1.76999995,1.33 0,0.81 1.43999995,1.47 3.21999995,1.47 1.78,0 3.22,-0.68 3.22,-1.47 0,-0.58 -0.72,-1.07 -1.76,-1.31"
      id="path21"
      style="fill:#000000" />
   <path
      class="cls-5"
-     d="M 5.38,3.23 H 4.17 L 4.07,5.15 A 3,3 0 0 1 3.22,5.24 3.07,3.07 0 0 1 2.37,5.15 L 2.27,3.23 H 1.07 L 3.22,0 Z"
+     d="m 6.159987,3.2510369 h -1.21 l -0.1,1.92 a 3,3 0 0 1 -0.85,0.09 3.07,3.07 0 0 1 -0.85,-0.09 l -0.1,-1.92 h -1.2 l 2.15,-3.23000002 z"
      id="path23"
      style="fill:#000000" />
 </svg>

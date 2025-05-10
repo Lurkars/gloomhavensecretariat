@@ -46,7 +46,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           image += '<span class="value">' + value + '</span>';
         }
         image += '</span>';
-        replace = '<span class="placeholder-condition">' + (fh ? '&nbsp;' : settingsManager.getLabel('game.condition.' + condition.name, [value ? value : ''])) + image + '</span>';
+        replace = '<span class="placeholder-condition">' + (fh ? '&#8203;' : settingsManager.getLabel('game.condition.' + condition.name, [value ? value : ''])) + image + '</span>';
       } else if (type == "conditionIcon" || type == "immunityIcon") {
         let condition = new Condition(split[2]);
         image = '<span class="condition-icon' + (type == "immunityIcon" ? ' immunity' : '') + '">';
@@ -58,17 +58,17 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           image += '<span class="value">' + value + '</span>';
         }
         image += '</span>';
-        replace = '<span class="placeholder-condition">&nbsp;' + image + '</span>';
+        replace = '<span class="placeholder-condition">&#8203;' + image + '</span>';
       } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
         split.splice(0, 1);
         const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
         image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
-        replace = '&nbsp;<span class="placeholder-action">' + (fh ? '&nbsp;' : settingsManager.getLabel(label)) + image + value + '</span>';
+        replace = '&nbsp;<span class="placeholder-action">' + (fh ? '&#8203;' : settingsManager.getLabel(label)) + image + value + '</span>';
       } else if (type == "actionIcon" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
         split.splice(0, 1);
         const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
         image = '<img  src="./assets/images/' + (fh ? 'fh/action/' : 'action/') + split[split.length - 1] + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
-        replace = '&nbsp;<span class="placeholder-action">&nbsp;' + image + value + '</span>';
+        replace = '&nbsp;<span class="placeholder-action">&#8203;' + image + value + '</span>';
       } else if (type == "element") {
         let element = split[2];
         if (element == "consume") {
@@ -197,7 +197,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
       } else if (fh && type == "damage") {
         image = '<img  src="./assets/images/fh/action/damage.svg" class="icon ghs-svg">';
-        replace = '<span class="damage">&nbsp;' + image + value + '</span>';
+        replace = '<span class="damage">&#8203;' + image + value + '</span>';
       } else if (type == "loot" && split.length == 4) {
         image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="icon">';
         replace = '<span class="placeholder-player">' + image + '</span>';

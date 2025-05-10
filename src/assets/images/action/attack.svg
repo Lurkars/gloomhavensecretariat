@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="82.337105mm"
-   height="81.580635mm"
-   viewBox="0 0 82.337106 81.580634"
+   width="82.336998mm"
+   height="82.336998mm"
+   viewBox="0 0 82.336999 82.336997"
    version="1.1"
    id="svg5"
    sodipodi:docname="attack.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,14 +24,16 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="2.5361922"
-     inkscape:cx="155.54815"
-     inkscape:cy="153.97098"
-     inkscape:window-width="1846"
-     inkscape:window-height="1016"
+     inkscape:cx="132.48207"
+     inkscape:cy="154.36527"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg5" />
+     inkscape:current-layer="svg5"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2">
     <clipPath
@@ -93,7 +95,7 @@
   </defs>
   <g
      id="layer1"
-     transform="translate(105.74693,9.5970293)"
+     transform="translate(105.74693,10.126196)"
      style="fill:#000000">
     <g
        id="g2728"
