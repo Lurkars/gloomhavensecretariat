@@ -1711,7 +1711,7 @@
       "name": "Collateral Damage",
       "cardId": 108,
       "level": 9,
-      "initiative": 315,
+      "initiative": 15,
       "lost": true,
       "actions": [
         {

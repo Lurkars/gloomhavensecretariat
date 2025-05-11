@@ -111,7 +111,7 @@
       "name": "Shocking Advance",
       "cardId": 219,
       "level": "A",
-      "initiative": 314,
+      "initiative": 14,
       "actions": [
         {
           "type": "attack",
@@ -1476,7 +1476,7 @@
       "name": "Radiant Sickle",
       "cardId": 241,
       "level": 4,
-      "initiative": 779,
+      "initiative": 79,
       "actions": [
         {
           "type": "attack",
@@ -1620,7 +1620,7 @@
       "name": "Sand Devil",
       "cardId": 244,
       "level": 5,
-      "initiative": 355,
+      "initiative": 55,
       "lost": true,
       "actions": [
         {
@@ -1938,7 +1938,7 @@
       "name": "Prismatic Sickle",
       "cardId": 249,
       "level": 8,
-      "initiative": 370,
+      "initiative": 70,
       "actions": [
         {
           "type": "attack",
