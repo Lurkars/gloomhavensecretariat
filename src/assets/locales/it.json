@@ -526,6 +526,7 @@
       "grant": "Accordo",
       "grid": "&#91;Griglia&#93;",
       "heal": "Cura",
+      "hint": "&#91;Bacheca Informativa&#93;",
       "jump": "Salto",
       "loot": "Bottino",
       "monsterType": "Tipo di mostro",
@@ -3252,7 +3253,7 @@
         "name": "Nome scenario",
         "notes": {
           "": "Note aggiuntive",
-          "hint": "per esempio, regole speciali di scenario come gli aggiustamenti del livello dei mostri, eventi di round o calcoli PV…"
+          "hint": "per esempio, regole speciali di scenario come le regolazioni del livello dei mostri, eventi di round o calcoli PV…"
         },
         "send": "Invia scenario"
       }
@@ -3268,7 +3269,7 @@
       "alt": "ALT",
       "am": "Pesca una carta MA (mazzo a seconda della figura attiva, mazzo dei mostri quando non attivo, disabilitato quando <b>Pesca</b>)",
       "amAdvantage": "Lo stesso di <kbd><span>m</span></kbd>, ma pesca con vantaggio se abilitato",
-      "amDisadvantage": "come<kbd><span>m</span></kbd>, ma pesca con svantaggio se abilitato",
+      "amDisadvantage": "Lo stesso di <kbd><span>m</span></kbd>, ma pesca con svantaggio se abilitato",
       "ctrl": "CTRL",
       "difficulty": "Menu di difficoltà/livello",
       "enter": "↵",
@@ -3284,8 +3285,8 @@
         "kill": "Uccidi / Esaurisci",
         "lootDec": "Riduci segnalini moneta",
         "lootInc": "Aumenta segnalini moneta",
-        "maxHpDec": "Riduci Esp max",
-        "maxHpInc": "Aumenta Esp max",
+        "maxHpDec": "Riduci PV max",
+        "maxHpInc": "Aumenta PV max",
         "toggleAbsent": "Attiva/disattiva personaggio assente",
         "toggleCondition": "Attiva/disattiva Condizione/Modificatore di condizione",
         "xpDec": "Riduci Esp",
@@ -3293,7 +3294,7 @@
       },
       "esc": "ESC",
       "events": "Menu degli effetti degli eventi",
-      "finish": "(termina) menu scenario",
+      "finish": "(Termina) Menu scenario",
       "global": "Attualmente sono implementate le seguenti scorciatoie da tastiera:",
       "globalMap": "Apri la Mappa Globale",
       "keyboard": "Mostra le scorciatoie da tastiera",

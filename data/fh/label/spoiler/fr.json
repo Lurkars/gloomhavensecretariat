@@ -188,6 +188,26 @@
       }
     }
   },
+  "character": {
+    "snowflake": {
+      "": "Danseuse des Neiges",
+      "muddle-monster": {
+        "hint": "%data.custom.fh.snowflake.4%"
+      }
+    }
+  },
+  "custom": {
+    "fh": {
+      "snowflake": {
+        "1": "Si cette action force la cible à se déplacer elle subit %game.damage:1%",
+        "2": "Lorsque vous prenez un repos long, pouvoir %game.elementHalf:ice|air%",
+        "3": "Lorsque vous prenez un repos court, pouvoir %game.element.consume.ice% pour effectuer %game.condition.regenerate%, %game.action.range:3% et %game.element.consume.air% pour effectuer %game.condition.ward%, %game.action.range:3%",
+        "4": "Au début de chaque scénario, tous les adversaires gagnent %game.condition.muddle%. Lorsque qu'une nouvelle salle est révélée, tous les adversaires qui s'y trouvent gagnent %game.condition.muddle%",
+        "5": "Faire se déplacer au moins un allié ou un adversaire chaque round",
+        "6": "Faire en sorte que le premier allié à subir %game.damage% chaque round subisse juste avant au moins un état que vous donnez"
+      }
+    }
+  },
   "items": {
     "fh-1": {
       "": "Longue-vue",
