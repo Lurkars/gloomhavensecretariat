@@ -742,6 +742,174 @@
       "vermling-raider": {
         "1": "Create one 3-%game.damage% trap in an adjacent empty hex closest to an enemy."
       },
+      "voidwarden": {
+        "abilities": {
+          "143": {
+            "1": "You or one ally within 3 hexes heals %game.damage:3%.",
+            "2": "Move up to 4 hexes away."
+          },
+          "144": {
+            "1": "One enemy within 3 hexes suffers %game.damage:3% (plus modifier&mdash;Disadvantage if adjacent).",
+            "2": "Force one enemy within %game.action.range:3% to perform",
+            "3": "targeting an enemy of your choice adjacent to them.",
+            "4": "Use the monsters' attack modifier deck for this attack."
+          },
+          "145": {
+            "1": "One ally within %game.action.range:2% may perform",
+            "2": "Use the ally's attack modifier deck for this attack.",
+            "3": "Move up to 2 hexes away, then you or one ally within 3 hexes gains Advantage on all their attacks until the end of their next turn."
+          },
+          "146": {
+            "1": "Force one enemy within %game.action.range:3% to perform",
+            "2": "targeting an enemy of your choice adjacent to them.",
+            "3": "Use the monsters' attack modifier deck for this attack.",
+            "4": "Move up to 3 hexes away, then one enemy within 3 hexes gains Disadvantage on all its attacks until the end of its next turn."
+          },
+          "147": {
+            "1": "One ally within %game.action.range:3% may perform",
+            "2": "Use the ally's attack modifier deck for this attack.",
+            "3": "You or one ally within 3 hexes heals %game.damage:2%."
+          },
+          "148": {
+            "1": "One enemy within 3 hexes cannot perform any actions until the end of its next turn.",
+            "2": "One ally within %game.action.range:3% may perform",
+            "3": "If they do, this ally suffers %game.damage:1%.",
+            "4": "Use the ally's attack modifier deck for this attack."
+          },
+          "149": {
+            "1": "One enemy within 3 hexes cannot attack until the end of its next turn.",
+            "2": "Force the target to perform",
+            "3": "with you controlling the action.",
+            "4": "One ally within %game.action.range:3% may perform",
+            "5": "If they do, this ally suffers %game.damage:2%.",
+            "6": "Use the ally's attack modifier deck for this attack and lose this card."
+          },
+          "150": {
+            "1": "One ally within %game.action.range:2% may perform",
+            "2": "Use the ally's attack modifier deck for this attack.",
+            "3": "Collect all money tokens and treasure tiles in or adjacent to your hex, then you or one ally within 3 hexes gains Advantage on all their attacks until the end of their next turn."
+          },
+          "151": {
+            "1": "One ally within %game.action.range:3% may perform",
+            "2": "This same ally may perform",
+            "3": "At the start of your next five turns, perform a \"%game.condition.curse%, %game.action.range:2%\" action."
+          },
+          "152": {
+            "1": "All allies who remove %game.condition.poison% with this heal gain %game.condition.bless%.",
+            "2": "Force all enemies within %game.action.range:3% to perform",
+            "3": "with you controlling the actions."
+          },
+          "153": {
+            "1": "One adjacent ally may perform",
+            "2": "targeting the target of the %game.condition.poison%. If they do, this ally suffers %game.damage:2%."
+          },
+          "154": {
+            "1": "One ally within %game.action.range:3% may perform"
+          },
+          "155": {
+            "1": "Ignore the %game.condition.curse% instead"
+          },
+          "156": {
+            "1": "One ally within %game.action.range:2% may perform"
+          },
+          "157": {
+            "1": "<small>Force one enemy within %game.action.range:3% to perform</small>",
+            "2": "<small>targeting an enemy of your choice. The acting enemy suffers damage equal to the damage suffered by the target.</small>"
+          },
+          "158": {
+            "1": "Force the target to perform",
+            "2": "with you controlling the action.",
+            "3": "One ally within %game.action.range:3% may perform",
+            "4": "If they do, gain %game.card.experience:1% and this ally suffers %game.damage:2%."
+          },
+          "160": {
+            "1": "The first attack performed in each of your attack granting actions gains Advantage, and you may %game.element.consume.wild% to add +1 %game.action.attack% to it. In addition, when you grant monsters attacks, they use your attack modifier deck."
+          },
+          "161": {
+            "1": "<small>Force one enemy within %game.action.range:4% to perform</small>",
+            "2": "<small>with you controlling the action and</small>",
+            "3": "<small>targeting an enemy of your choice adjacent to them.</small>",
+            "4": "%game.condition.stun% the acting enemy"
+          },
+          "162": {
+            "1": "Force all enemies within %game.action.range:3% to perform",
+            "2": "targeting enemies of your choice adjacent to them."
+          },
+          "163": {
+            "1": "All adjacent allies suffer %game.damage:1%."
+          },
+          "164": {
+            "1": "<small>The next three times after an ally attacks an enemy with %game.condition.poison%, that ally may perform a \"%game.action.heal:1%, %game.specialTarget.self%\" action.</small>"
+          },
+          "165": {
+            "1": "Target self or one ally within %game.action.range:2%",
+            "2": "%game.condition.bless%, %game.condition.strengthen%",
+            "3": "Target a different ally within %game.action.range:3%",
+            "4": "Target all enemies moved through during the movement"
+          },
+          "166": {
+            "1": "One ally within %game.action.range:3% may perform"
+          },
+          "167": {
+            "1": "Shuffle one %game.condition.bless% card into the monster attack modifier deck.",
+            "2": "<small>The next time you grant an attack this turn, add +1 %game.action.attack% to the entire Attack action.</small>",
+            "3": "Add +2 %game.action.attack% instead",
+            "4": "<small>All attacks targeting you add +2 %game.action.attack% this round. This card cannot be discarded before the end of the round.</small>"
+          },
+          "168": {
+            "1": "<small>At the start of your next five turns, one ally within %game.action.range:3% may perform an \"%game.action.attack:2%\" action.</small>",
+            "2": "Ignore the %game.condition.curse% instead",
+            "3": "One ally within %game.action.range:3% may perform"
+          },
+          "169": {
+            "1": "Force one enemy within %game.action.range:3% to perform",
+            "2": "targeting all other enemies adjacent to it. The acting enemy suffers %game.damage:1% for each enemy targeted."
+          },
+          "170": {
+            "1": "Force one adjacent enemy to perform",
+            "2": "with you controlling the action. This enemy gains %game.condition.immobilize%."
+          },
+          "172": {
+            "1": "<small>Place the Ward in an adjacent empty hex. It is considered an obstacle for all purposes. All enemies that enter a hex adjacent to the Ward gain %game.condition.poison%. All enemies gain Disadvantage on all their attacks not granted by you while within %game.action.range:3% of the Ward.</small>",
+            "2": "One ally or enemy within %game.action.range:3% may perform",
+            "3": "targeting an enemy of your choice."
+          },
+          "173": {
+            "1": "<small>Two allies within %game.action.range:2% may each suffer %game.damage:2%. Each ally who does may perform</small>",
+            "2": "Ignore the %game.condition.curse% instead"
+          },
+          "174": {
+            "1": "Heal all damage on one ally within %game.action.range:3%. If you do, that ally gains %game.condition.muddle%.",
+            "2": "Any time you or any ally loses %game.condition.poison%, that figure gains %game.condition.strengthen%."
+          },
+          "175": {
+            "1": "<small>Force one enemy within %game.action.range:3% to perform</small>",
+            "2": "<small>targeting three enemies of your choice.</small>"
+          },
+          "176": {
+            "1": "One ally within %game.action.range:2% may perform",
+            "2": "If they do, this ally may perform",
+            "3": "where X is the amount of damage suffered by the target of the attack."
+          },
+          "177": {
+            "1": "%game.condition.stun%, %game.condition.curse%",
+            "2": "If this card is discarded before the end of the round or either target suffers damage this round, both targets lose %game.condition.stun%.",
+            "3": "You and all allies within %game.action.range:2% may perform"
+          },
+          "178": {
+            "1": "On your next three Heal abilities when possible, target an additional ally."
+          },
+          "179": {
+            "1": "Force all other enemies within %game.action.range:3% of the target to perform",
+            "2": "targeting that target.",
+            "3": "All allies and enemies within %game.action.range:3% suffer %game.damage:1%."
+          },
+          "180": {
+            "1": "One ally within %game.action.range:3% may perform",
+            "2": "If they do, gain %game.card.experience:1% and this ally gains %game.condition.poison%."
+          }
+        }
+      },
       "zealot": {
         "1": "X is %game.damage% suffered by target of attack"
       }

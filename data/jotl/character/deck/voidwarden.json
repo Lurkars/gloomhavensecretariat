@@ -16,28 +16,23 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "You or one ally within 3 hexes heals %game.damage:3%.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.143.1%"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 4,
-          "hidden": false
+          "value": 4
         },
         {
           "type": "hint",
-          "value": "Move up to 4 hexes away.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.143.2%"
         }
       ]
     },
@@ -54,42 +49,35 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "One enemy within 3 hexes suffers %game.damage:3% (plus modifier&mdash;Disadvantage if adjacent).",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.144.1%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Force one enemy within %game.action.range:3% to perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.144.2%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
-              "value": 2,
-              "hidden": false
+              "value": 2
             },
             {
               "type": "custom",
-              "value": "targeting an enemy of your choice adjacent to them.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.144.3%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Use the monsters' attack modifier deck for this attack.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.144.4%"
         }
       ]
     },
@@ -101,28 +89,24 @@
       "actions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:2% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.145.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
-              "value": 4,
-              "hidden": false
+              "value": 4
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Use the ally's attack modifier deck for this attack.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.145.2%"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 2,
-          "hidden": false
+          "value": 2
         },
         {
           "type": "condition",
@@ -131,16 +115,13 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Move up to 2 hexes away, then you or one ally within 3 hexes gains Advantage on all their attacks until the end of their next turn.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.145.3%"
         }
       ]
     },
@@ -152,34 +133,29 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Force one enemy within %game.action.range:3% to perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.146.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
-              "value": 3,
-              "hidden": false
+              "value": 3
             },
             {
               "type": "custom",
-              "value": "targeting an enemy of your choice adjacent to them.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.146.2%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Use the monsters' attack modifier deck for this attack.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.146.3%"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "condition",
@@ -188,16 +164,13 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Move up to 3 hexes away, then one enemy within 3 hexes gains Disadvantage on all its attacks until the end of its next turn.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.146.4%"
         }
       ]
     },
@@ -209,7 +182,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.147.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
@@ -218,20 +192,15 @@
                 {
                   "type": "range",
                   "value": 3,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Use the ally's attack modifier deck for this attack.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.147.2%"
         }
       ],
       "bottomActions": [
@@ -242,16 +211,13 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "You or one ally within 3 hexes heals %game.damage:2%.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.147.3%"
         }
       ]
     },
@@ -268,42 +234,35 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "One enemy within 3 hexes cannot perform any actions until the end of its next turn.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.148.1%"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.148.2%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
-              "value": 3,
-              "hidden": false
+              "value": 3
             },
             {
               "type": "custom",
-              "value": "If they do, this ally suffers %game.damage:1%.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.148.3%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Use the ally's attack modifier deck for this attack.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.148.4%"
         }
       ]
     },
@@ -320,65 +279,55 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "One enemy within 3 hexes cannot attack until the end of its next turn.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.149.1%"
         },
         {
           "type": "custom",
-          "value": "Force the target to perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.149.2%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
-              "value": "with you controlling the action.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.149.3%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.149.4%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
-              "value": 6,
-              "hidden": false
+              "value": 6
             },
             {
               "type": "custom",
-              "value": "If they do, this ally suffers %game.damage:2%.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.149.5%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Use the ally's attack modifier deck for this attack and lose this card.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.149.6%"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Wicked Scratch",
@@ -388,48 +337,41 @@
       "actions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:2% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.150.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
-              "value": 4,
-              "hidden": false
+              "value": 4
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Use the ally's attack modifier deck for this attack.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.150.2%"
         }
       ],
       "bottomActions": [
         {
           "type": "loot",
           "value": 1,
-          "small": true,
-          "hidden": false
+          "small": true
         },
         {
           "type": "condition",
           "value": "strengthen",
+          "small": true,
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "hint",
-          "value": "Collect all money tokens and treasure tiles in or adjacent to your hex, then you or one ally within 3 hexes gains Advantage on all their attacks until the end of their next turn.",
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.150.3%"
         }
       ]
     },
@@ -441,49 +383,42 @@
       "actions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.151.1%",
+          "small": true,
           "subActions": [
             {
               "type": "shield",
               "value": 1,
-              "hidden": false,
               "enhancementTypes": [
                 "diamond_plus"
               ]
             }
-          ],
-          "small": true,
-          "hidden": false,
-          "enhancementTypes": []
+          ]
         },
         {
           "type": "custom",
-          "value": "This same ally may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.151.2%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 2,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "card",
-          "value": "round",
-          "hidden": false
+          "value": "round"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "At the start of your next five turns, perform a \"%game.condition.curse%, %game.action.range:2%\" action.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.151.3%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -491,41 +426,33 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -543,7 +470,6 @@
               "type": "range",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -552,40 +478,34 @@
               "type": "target",
               "value": 2,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "custom",
-              "value": "All allies who remove %game.condition.poison% with this heal gain %game.condition.bless%.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.152.1%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Force all enemies within %game.action.range:3% to perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.152.2%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
-              "value": 1,
-              "hidden": false
+              "value": 1
             },
             {
               "type": "custom",
-              "value": "with you controlling the actions.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.152.3%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -606,23 +526,20 @@
                 {
                   "type": "range",
                   "value": 3,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "element",
-              "value": "dark",
-              "hidden": false
+              "value": "dark"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "One adjacent ally may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.153.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
@@ -631,21 +548,16 @@
                 {
                   "type": "range",
                   "value": 4,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "custom",
-              "value": "targeting the target of the %game.condition.poison%. If they do, this ally suffers %game.damage:2%.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.153.2%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
@@ -656,11 +568,9 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -673,52 +583,45 @@
         {
           "type": "heal",
           "value": 5,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "poison",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
           "type": "element",
-          "value": "dark",
-          "hidden": false
+          "value": "dark"
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 2,
-          "hidden": false
+          "value": 2
         },
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.154.1%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 2,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -731,12 +634,14 @@
         {
           "type": "attack",
           "value": 3,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "condition",
               "value": "poison",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -746,34 +651,25 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "condition",
-                      "value": "muddle",
-                      "hidden": false
+                      "value": "muddle"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -786,13 +682,11 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "condition",
@@ -801,8 +695,7 @@
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -811,15 +704,12 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Ignore the %game.condition.curse% instead",
-                  "small": true,
-                  "hidden": false
+                  "value": "%data.custom.jotl.voidwarden.abilities.155.1%",
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -831,19 +721,17 @@
       "actions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:2% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.156.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
               "value": 3,
-              "hidden": false,
               "enhancementTypes": [
                 "diamond"
               ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -851,23 +739,19 @@
           "subActions": [
             {
               "type": "element",
-              "value": "dark",
-              "hidden": false
+              "value": "dark"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "loot",
-          "value": 1,
-          "hidden": false
+          "value": 1
         },
         {
           "type": "condition",
@@ -876,11 +760,9 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -898,7 +780,6 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -911,60 +792,53 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "condition",
-                      "value": "curse",
-                      "hidden": false
+                      "value": "curse"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "<small>Force one enemy within %game.action.range:3% to perform</small>",
+          "value": "%data.custom.jotl.voidwarden.abilities.157.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
               "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
               "subActions": [
                 {
                   "type": "range",
                   "value": 3,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false,
-              "enhancementTypes": [
-                "diamond"
               ]
             },
             {
               "type": "custom",
-              "value": "<small>targeting an enemy of your choice. The acting enemy suffers damage equal to the damage suffered by the target.</small>",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.157.2%",
+              "small": true
             },
             {
               "type": "concatenation",
@@ -972,23 +846,17 @@
               "subActions": [
                 {
                   "type": "element",
-                  "value": "ice",
-                  "hidden": false
+                  "value": "ice"
                 },
                 {
                   "type": "card",
-                  "value": "experience:1",
-                  "hidden": false
+                  "value": "experience:1"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Lure of the Void",
@@ -1004,22 +872,20 @@
               "type": "range",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "Force the target to perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.158.1%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
-              "value": 1,
-              "hidden": false
+              "value": 1
             },
             {
               "type": "element",
@@ -1029,45 +895,39 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "move",
                       "value": 2,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "custom",
-              "value": "with you controlling the action.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.158.2%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.158.3%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
-              "value": 5,
-              "hidden": false
+              "value": 5
             },
             {
               "type": "element",
@@ -1077,37 +937,29 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 2,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "custom",
-              "value": "If they do, gain %game.card.experience:1% and this ally suffers %game.damage:2%.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.158.4%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Grasp of Doom",
@@ -1119,30 +971,29 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "condition",
               "value": "poison",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "wound",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "curse",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "stun",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "concatenation",
@@ -1150,26 +1001,18 @@
               "subActions": [
                 {
                   "type": "element",
-                  "value": "ice",
-                  "hidden": false
+                  "value": "ice"
                 },
                 {
                   "type": "element",
-                  "value": "dark",
-                  "hidden": false
+                  "value": "dark"
                 },
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
@@ -1177,6 +1020,9 @@
         {
           "type": "move",
           "value": 3,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "element",
@@ -1187,16 +1033,10 @@
                   "type": "move",
                   "value": 2,
                   "valueType": "add",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         }
       ]
@@ -1206,10 +1046,12 @@
       "cardId": 160,
       "level": 1,
       "initiative": 83,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "The first attack performed in each of your attack granting actions gains Advantage, and you may %game.element.consume.wild% to add +1 %game.action.attack% to it. In addition, when you grant monsters attacks, they use your attack modifier deck.",
+          "value": "%data.custom.jotl.voidwarden.abilities.160.1%",
+          "small": true,
           "subActions": [
             {
               "type": "concatenation",
@@ -1217,23 +1059,17 @@
               "subActions": [
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 },
                 {
                   "type": "card",
-                  "value": "persistent",
-                  "hidden": false
+                  "value": "persistent"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "condition",
@@ -1242,11 +1078,9 @@
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "condition",
@@ -1255,16 +1089,13 @@
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "element",
-          "value": "ice",
-          "hidden": false
+          "value": "ice"
         }
       ]
     },
@@ -1277,52 +1108,44 @@
       "actions": [
         {
           "type": "custom",
-          "value": "<small>Force one enemy within %game.action.range:4% to perform</small>",
+          "value": "%data.custom.jotl.voidwarden.abilities.161.1%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 3,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             },
             {
               "type": "custom",
-              "value": "<small>with you controlling the action and</small>",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.161.2%",
+              "small": true
             },
             {
               "type": "concatenation",
               "value": 0,
-              "hidden": false,
-              "enhancementTypes": [],
               "subActions": [
                 {
                   "type": "attack",
                   "value": 3,
-                  "hidden": false,
                   "enhancementTypes": [
                     "diamond"
                   ]
                 },
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 }
               ]
             },
             {
               "type": "custom",
-              "value": "<small>targeting an enemy of your choice adjacent to them.</small>",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.161.3%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "element",
@@ -1331,19 +1154,16 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.condition.stun% the acting enemy",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.161.4%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "element",
@@ -1357,14 +1177,11 @@
                 {
                   "type": "range",
                   "value": 3,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1373,36 +1190,32 @@
       "cardId": 162,
       "level": "X",
       "initiative": 26,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "Force all enemies within %game.action.range:3% to perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.162.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
               "value": 2,
-              "hidden": false,
               "enhancementTypes": [
                 "diamond"
               ]
             },
             {
               "type": "custom",
-              "value": "targeting enemies of your choice adjacent to them.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.162.2%",
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -1416,33 +1229,27 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "move",
                       "value": 1,
-                      "valueType": "subtract",
-                      "hidden": false
+                      "valueType": "subtract"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 },
                 {
                   "type": "attack",
                   "value": 2,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1451,6 +1258,7 @@
       "cardId": 163,
       "level": "X",
       "initiative": 71,
+      "lost": true,
       "actions": [
         {
           "type": "condition",
@@ -1459,14 +1267,12 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "target",
               "value": 3,
               "small": true,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -1479,41 +1285,33 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "range",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "target",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "element",
@@ -1523,17 +1321,14 @@
             {
               "type": "move",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "All adjacent allies suffer %game.damage:1%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.163.1%",
+          "small": true
         },
         {
           "type": "condition",
@@ -1542,11 +1337,9 @@
             {
               "type": "specialTarget",
               "value": "alliesAdjacent",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -1563,30 +1356,27 @@
             {
               "type": "condition",
               "value": "poison",
+              "enhancementTypes": [
+                "diamond"
+              ],
               "subActions": [
                 {
                   "type": "range",
                   "value": 3,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false,
-              "enhancementTypes": [
-                "diamond"
               ]
             },
             {
               "type": "element",
-              "value": "dark",
-              "hidden": false
+              "value": "dark"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "<small>The next three times after an ally attacks an enemy with %game.condition.poison%, that ally may perform a \"%game.action.heal:1%, %game.specialTarget.self%\" action.</small>",
+          "value": "%data.custom.jotl.voidwarden.abilities.164.1%",
+          "small": true,
           "subActions": [
             {
               "type": "concatenation",
@@ -1594,37 +1384,30 @@
               "subActions": [
                 {
                   "type": "card",
-                  "value": "persistent",
-                  "hidden": false
+                  "value": "persistent"
                 },
                 {
                   "type": "card",
-                  "value": "slot",
-                  "hidden": false
+                  "value": "slot"
                 },
                 {
                   "type": "card",
-                  "value": "slot",
-                  "hidden": false
+                  "value": "slot"
                 },
                 {
                   "type": "card",
-                  "value": "slotXp:1",
-                  "hidden": false
+                  "value": "slotXp:1"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1636,11 +1419,9 @@
             {
               "type": "specialTarget",
               "value": "selfAlliesRange:2",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -1648,19 +1429,15 @@
           "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "hidden": false
+              "value": "ice"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Give and Take",
@@ -1674,47 +1451,41 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target self or one ally within %game.action.range:2%",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.165.1%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "%game.condition.bless%, %game.condition.strengthen%",
+          "value": "%data.custom.jotl.voidwarden.abilities.165.2%",
           "subActions": [
             {
               "type": "custom",
-              "value": "Target a different ally within %game.action.range:3%",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.165.3%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "element",
-          "value": "dark",
-          "hidden": false
+          "value": "dark"
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ],
           "subActions": [
             {
               "type": "jump",
               "value": "",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "circle"
           ]
         },
         {
@@ -1723,12 +1494,10 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target all enemies moved through during the movement",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.165.4%",
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "concatenation",
@@ -1736,34 +1505,31 @@
           "subActions": [
             {
               "type": "element",
-              "value": "fire",
-              "hidden": false
+              "value": "fire"
             },
             {
               "type": "element",
-              "value": "ice",
-              "hidden": false
+              "value": "ice"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Crushing Cold",
       "cardId": 166,
       "level": 2,
       "initiative": 86,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.166.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
@@ -1772,11 +1538,9 @@
                 {
                   "type": "target",
                   "value": 2,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "element",
@@ -1786,61 +1550,49 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "muddle",
-                      "hidden": false
+                      "value": "muddle"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "hidden": false
+          "value": 3
         },
         {
           "type": "condition",
           "value": "muddle",
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "element",
-          "value": "ice",
-          "hidden": false
+          "value": "ice"
         }
       ]
     },
@@ -1853,35 +1605,32 @@
         {
           "type": "heal",
           "value": 6,
+          "enhancementTypes": [
+            "diamond_plus"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond_plus"
           ]
         },
         {
           "type": "custom",
-          "value": "Shuffle one %game.condition.bless% card into the monster attack modifier deck.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.167.1%",
+          "small": true
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "hidden": false
+          "value": "experience:1"
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "<small>The next time you grant an attack this turn, add +1 %game.action.attack% to the entire Attack action.</small>",
+          "value": "%data.custom.jotl.voidwarden.abilities.167.2%",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -1891,28 +1640,22 @@
                 {
                   "type": "concatenation",
                   "value": "",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "custom",
-                      "value": "Add +2 %game.action.attack% instead",
-                      "hidden": false
+                      "value": "%data.custom.jotl.voidwarden.abilities.167.3%"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "<small>All attacks targeting you add +2 %game.action.attack% this round. This card cannot be discarded before the end of the round.</small>",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.167.4%",
+          "small": true
         }
       ],
       "bottomRound": true
@@ -1925,9 +1668,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "<small>At the start of your next five turns, one ally within %game.action.range:3% may perform an \"%game.action.attack:2%\" action.</small>",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.168.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -1935,48 +1677,39 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 4,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -1988,8 +1721,7 @@
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -1998,31 +1730,26 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Ignore the %game.condition.curse% instead",
-                  "small": true,
-                  "hidden": false
+                  "value": "%data.custom.jotl.voidwarden.abilities.168.2%",
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.168.3%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 3,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2031,36 +1758,32 @@
       "cardId": 169,
       "level": 4,
       "initiative": 51,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "Force one enemy within %game.action.range:3% to perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.169.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
               "value": 3,
-              "hidden": false,
               "enhancementTypes": [
                 "diamond"
               ]
             },
             {
               "type": "custom",
-              "value": "targeting all other enemies adjacent to it. The acting enemy suffers %game.damage:1% for each enemy targeted.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.169.2%",
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "heal",
@@ -2069,20 +1792,17 @@
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "strengthen",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "poison",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -2092,14 +1812,11 @@
                 {
                   "type": "condition",
                   "value": "bless",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2112,75 +1829,66 @@
         {
           "type": "attack",
           "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "curse",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         },
         {
           "type": "element",
-          "value": "dark",
-          "hidden": false
+          "value": "dark"
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
-          "value": 4,
-          "hidden": false
+          "value": 4
         },
         {
           "type": "custom",
-          "value": "Force one adjacent enemy to perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.170.1%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
-              "value": 3,
-              "hidden": false
+              "value": 3
             },
             {
               "type": "custom",
-              "value": "with you controlling the action. This enemy gains %game.condition.immobilize%.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.170.2%",
+              "small": true
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "hidden": false
+              "value": "experience:1"
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Stand Fast",
       "cardId": 172,
       "level": 5,
       "initiative": 90,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "<small>Place the Ward in an adjacent empty hex. It is considered an obstacle for all purposes. All enemies that enter a hex adjacent to the Ward gain %game.condition.poison%. All enemies gain Disadvantage on all their attacks not granted by you while within %game.action.range:3% of the Ward.</small>",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.172.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -2188,54 +1896,45 @@
           "subActions": [
             {
               "type": "element",
-              "value": "earth",
-              "hidden": false
+              "value": "earth"
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             },
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One ally or enemy within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.172.2%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
               "value": 3,
+              "enhancementTypes": [
+                "diamond"
+              ],
               "subActions": [
                 {
                   "type": "range",
                   "value": 3,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false,
-              "enhancementTypes": [
-                "diamond"
               ]
             },
             {
               "type": "custom",
-              "value": "targeting an enemy of your choice.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.172.3%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2248,7 +1947,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "<small>Two allies within %game.action.range:2% may each suffer %game.damage:2%. Each ally who does may perform</small>",
+          "value": "%data.custom.jotl.voidwarden.abilities.173.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
@@ -2257,20 +1957,15 @@
                 {
                   "type": "range",
                   "value": 3,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "card",
-          "value": "experience:2",
-          "hidden": false
+          "value": "experience:2"
         }
       ],
       "bottomActions": [
@@ -2281,8 +1976,7 @@
             {
               "type": "specialTarget",
               "value": "self",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -2291,36 +1985,30 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "Ignore the %game.condition.curse% instead",
-                  "small": true,
-                  "hidden": false
+                  "value": "%data.custom.jotl.voidwarden.abilities.173.2%",
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "condition",
           "value": "curse",
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 4,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "target",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ]
@@ -2334,9 +2022,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Heal all damage on one ally within %game.action.range:3%. If you do, that ally gains %game.condition.muddle%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.174.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -2344,25 +2031,21 @@
           "subActions": [
             {
               "type": "element",
-              "value": "dark",
-              "hidden": false
+              "value": "dark"
             },
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Any time you or any ally loses %game.condition.poison%, that figure gains %game.condition.strengthen%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.174.2%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -2370,16 +2053,13 @@
           "subActions": [
             {
               "type": "card",
-              "value": "experience:2",
-              "hidden": false
+              "value": "experience:2"
             },
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2392,18 +2072,19 @@
         {
           "type": "attack",
           "value": 5,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "muddle",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -2413,35 +2094,29 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "wound",
-                      "hidden": false
+                      "value": "wound"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "<small>Force one enemy within %game.action.range:3% to perform</small>",
+          "value": "%data.custom.jotl.voidwarden.abilities.175.1%",
+          "small": true,
           "subActions": [
             {
               "type": "concatenation",
@@ -2450,29 +2125,25 @@
                 {
                   "type": "attack",
                   "value": 2,
+                  "enhancementTypes": [
+                    "diamond"
+                  ],
                   "subActions": [
                     {
                       "type": "range",
                       "value": 2,
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     },
                     {
                       "type": "condition",
                       "value": "wound",
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     }
-                  ],
-                  "hidden": false,
-                  "enhancementTypes": [
-                    "diamond"
                   ]
                 },
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 }
               ]
             },
@@ -2485,50 +2156,44 @@
                   "type": "range",
                   "value": 1,
                   "valueType": "add",
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "custom",
-              "value": "<small>targeting three enemies of your choice.</small>",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.175.2%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Spirit Hunger",
       "cardId": 176,
       "level": 7,
       "initiative": 68,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:2% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.176.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
               "value": 5,
-              "hidden": false,
               "enhancementTypes": [
                 "diamond"
               ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "If they do, this ally may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.176.2%",
+          "small": true,
           "subActions": [
             {
               "type": "concatenation",
@@ -2536,34 +2201,26 @@
               "subActions": [
                 {
                   "type": "heal",
-                  "value": "X",
-                  "hidden": false
+                  "value": "X"
                 },
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "custom",
-              "value": "where X is the amount of damage suffered by the target of the attack.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.176.3%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
-          "value": 4,
-          "hidden": false
+          "value": 4
         },
         {
           "type": "heal",
@@ -2572,8 +2229,7 @@
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -2583,28 +2239,23 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "heal",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "range",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2616,25 +2267,22 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.condition.stun%, %game.condition.curse%",
+          "value": "%data.custom.jotl.voidwarden.abilities.177.1%",
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "target",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "custom",
-              "value": "If this card is discarded before the end of the round or either target suffers damage this round, both targets lose %game.condition.stun%.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.177.2%",
+              "small": true
             },
             {
               "type": "concatenation",
@@ -2642,30 +2290,26 @@
               "subActions": [
                 {
                   "type": "element",
-                  "value": "dark",
-                  "hidden": false
+                  "value": "dark"
                 },
                 {
                   "type": "card",
-                  "value": "round",
-                  "hidden": false
+                  "value": "round"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "You and all allies within %game.action.range:2% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.177.3%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
               "value": 3,
-              "hidden": false,
               "enhancementTypes": [
                 "circle"
               ]
@@ -2678,28 +2322,22 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "move",
                       "value": 1,
-                      "valueType": "add",
-                      "hidden": false
+                      "valueType": "add"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2711,9 +2349,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On your next three Heal abilities when possible, target an additional ally.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.178.1%",
+          "small": true
         },
         {
           "type": "concatenation",
@@ -2721,38 +2358,31 @@
           "subActions": [
             {
               "type": "card",
-              "value": "persistent",
-              "hidden": false
+              "value": "persistent"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "slot",
-              "hidden": false
+              "value": "slot"
             },
             {
               "type": "card",
-              "value": "slotXp:1",
-              "hidden": false
+              "value": "slotXp:1"
             },
             {
               "type": "card",
-              "value": "lost",
-              "hidden": false
+              "value": "lost"
             }
-          ],
-          "hidden": false
+          ]
         }
       ],
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
@@ -2764,16 +2394,13 @@
             {
               "type": "specialTarget",
               "value": "selfAlliesAdjacentAffect",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "element",
-          "value": "ice",
-          "hidden": false
+          "value": "ice"
         }
       ]
     },
@@ -2782,6 +2409,7 @@
       "cardId": 179,
       "level": 9,
       "initiative": 19,
+      "lost": true,
       "actions": [
         {
           "type": "concatenation",
@@ -2794,23 +2422,20 @@
                 {
                   "type": "range",
                   "value": 4,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "element",
-              "value": "dark",
-              "hidden": false
+              "value": "dark"
             }
-          ],
-          "hidden": false
+          ]
         },
         {
           "type": "custom",
-          "value": "Force all other enemies within %game.action.range:3% of the target to perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.179.1%",
+          "small": true,
           "subActions": [
             {
               "type": "concatenation",
@@ -2823,46 +2448,36 @@
                     {
                       "type": "range",
                       "value": 3,
-                      "small": true,
-                      "hidden": false
+                      "small": true
                     },
                     {
                       "type": "custom",
-                      "value": "targeting that target.",
-                      "small": true,
-                      "hidden": false
+                      "value": "%data.custom.jotl.voidwarden.abilities.179.2%",
+                      "small": true
                     }
-                  ],
-                  "hidden": false
+                  ]
                 },
                 {
                   "type": "card",
-                  "value": "experience:2",
-                  "hidden": false
+                  "value": "experience:2"
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
           "value": 2,
-          "hidden": false,
           "enhancementTypes": [
             "circle"
           ]
         },
         {
           "type": "custom",
-          "value": "All allies and enemies within %game.action.range:3% suffer %game.damage:1%.",
-          "small": true,
-          "hidden": false
+          "value": "%data.custom.jotl.voidwarden.abilities.179.3%",
+          "small": true
         },
         {
           "type": "condition",
@@ -2871,11 +2486,9 @@
             {
               "type": "specialTarget",
               "value": "alliesRange:3",
-              "small": true,
-              "hidden": false
+              "small": true
             }
-          ],
-          "hidden": false
+          ]
         }
       ]
     },
@@ -2888,30 +2501,29 @@
         {
           "type": "attack",
           "value": 2,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
               "type": "range",
               "value": 2,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "target",
               "value": 3,
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "poison",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "condition",
               "value": "wound",
-              "small": true,
-              "hidden": false
+              "small": true
             },
             {
               "type": "element",
@@ -2921,35 +2533,29 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "curse",
-                      "hidden": false
+                      "value": "curse"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             }
-          ],
-          "hidden": false,
-          "enhancementTypes": [
-            "diamond"
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range:3% may perform",
+          "value": "%data.custom.jotl.voidwarden.abilities.180.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
@@ -2958,11 +2564,9 @@
                 {
                   "type": "range",
                   "value": 3,
-                  "small": true,
-                  "hidden": false
+                  "small": true
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "element",
@@ -2972,36 +2576,28 @@
                 {
                   "type": "concatenation",
                   "value": ",",
+                  "small": true,
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "stun",
-                      "hidden": false
+                      "value": "stun"
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "hidden": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": true,
-                  "hidden": false
+                  ]
                 }
-              ],
-              "hidden": false
+              ]
             },
             {
               "type": "custom",
-              "value": "If they do, gain %game.card.experience:1% and this ally gains %game.condition.poison%.",
-              "small": true,
-              "hidden": false
+              "value": "%data.custom.jotl.voidwarden.abilities.180.2%",
+              "small": true
             }
-          ],
-          "small": true,
-          "hidden": false
+          ]
         }
-      ],
-      "bottomLost": true
+      ]
     }
   ]
 }
