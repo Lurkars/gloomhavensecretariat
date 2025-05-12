@@ -10,20 +10,34 @@
       "initiative": 43,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "You or one ally within 3 hexes heals %game.damage:3%.",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 4,
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Move up to 4 hexes away.",
+          "hidden": false
         }
       ]
     },
@@ -34,20 +48,48 @@
       "initiative": 49,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "One enemy within 3 hexes suffers %game.damage:3% (plus modifier&mdash;Disadvantage if adjacent).",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Force one enemy within %game.action.range:3% to perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "targeting an enemy of your choice adjacent to them.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Use the monsters' attack modifier deck for this attack.",
+          "hidden": false
         }
       ]
     },
@@ -59,19 +101,46 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:2% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Use the ally's attack modifier deck for this attack.",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 2,
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Move up to 2 hexes away, then you or one ally within 3 hexes gains Advantage on all their attacks until the end of their next turn.",
+          "hidden": false
         }
       ]
     },
@@ -83,19 +152,52 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Force one enemy within %game.action.range:3% to perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "targeting an enemy of your choice adjacent to them.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Use the monsters' attack modifier deck for this attack.",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 3,
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Move up to 3 hexes away, then one enemy within 3 hexes gains Disadvantage on all its attacks until the end of its next turn.",
+          "hidden": false
         }
       ]
     },
@@ -107,19 +209,49 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Use the ally's attack modifier deck for this attack.",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "You or one ally within 3 hexes heals %game.damage:2%.",
+          "hidden": false
         }
       ]
     },
@@ -127,23 +259,51 @@
       "name": "Lure of the Void",
       "cardId": 148,
       "level": "A",
-      "initiative": 0,
+      "initiative": 67,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "One enemy within 3 hexes cannot perform any actions until the end of its next turn.",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "If they do, this ally suffers %game.damage:1%.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Use the ally's attack modifier deck for this attack.",
+          "hidden": false
         }
       ]
     },
@@ -151,25 +311,74 @@
       "name": "Lure of the Void",
       "cardId": 149,
       "level": "B",
-      "initiative": 0,
+      "initiative": 67,
       "actions": [
         {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "One enemy within 3 hexes cannot attack until the end of its next turn.",
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Force the target to perform",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "with you controlling the action.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 6,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "If they do, this ally suffers %game.damage:2%.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Use the ally's attack modifier deck for this attack and lose this card.",
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Wicked Scratch",
@@ -179,19 +388,48 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:2% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Use the ally's attack modifier deck for this attack.",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "loot",
+          "value": 1,
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "hint",
+          "value": "Collect all money tokens and treasure tiles in or adjacent to your hex, then you or one ally within 3 hexes gains Advantage on all their attacks until the end of their next turn.",
+          "hidden": false
         }
       ]
     },
@@ -203,19 +441,91 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1,
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond_plus"
+              ]
+            }
+          ],
+          "small": true,
+          "hidden": false,
+          "enhancementTypes": []
+        },
+        {
+          "type": "custom",
+          "value": "This same ally may perform",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "card",
+          "value": "round",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "At the start of your next five turns, perform a \"%game.condition.curse%, %game.action.range:2%\" action.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "lost",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -226,20 +536,56 @@
       "initiative": 72,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "All allies who remove %game.condition.poison% with this heal gain %game.condition.bless%.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Force all enemies within %game.action.range:3% to perform",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "with you controlling the actions.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -250,20 +596,71 @@
       "initiative": 89,
       "actions": [
         {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One adjacent ally may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "targeting the target of the %game.condition.poison%. If they do, this ally suffers %game.damage:2%.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -274,20 +671,54 @@
       "initiative": 43,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 5,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
+          "type": "move",
+          "value": 2,
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -298,20 +729,97 @@
       "initiative": 58,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Ignore the %game.condition.curse% instead",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -323,19 +831,56 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:2% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "loot",
+          "value": 1,
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -346,67 +891,312 @@
       "initiative": 49,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "condition",
+                      "value": "curse",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "<small>Force one enemy within %game.action.range:3% to perform</small>",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "<small>targeting an enemy of your choice. The acting enemy suffers damage equal to the damage suffered by the target.</small>",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Lure of the Void",
       "cardId": 158,
       "level": 1,
-      "initiative": 0,
+      "initiative": 67,
       "actions": [
         {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ],
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Force the target to perform",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "move",
+                      "value": 2,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "with you controlling the action.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "If they do, gain %game.card.experience:1% and this ally suffers %game.damage:2%.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Grasp of Doom",
       "cardId": 159,
       "level": 1,
       "initiative": 36,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "hidden": false
+                },
+                {
+                  "type": "element",
+                  "value": "dark",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2",
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
         }
       ]
@@ -419,19 +1209,62 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "The first attack performed in each of your attack granting actions gains Advantage, and you may %game.element.consume.wild% to add +1 %game.action.attack% to it. In addition, when you grant monsters attacks, they use your attack modifier deck.",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "experience:2",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "persistent",
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "condition",
+          "value": "bless",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "hidden": false
         }
       ]
     },
@@ -440,22 +1273,98 @@
       "cardId": 161,
       "level": 1,
       "initiative": 23,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "<small>Force one enemy within %game.action.range:4% to perform</small>",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "<small>with you controlling the action and</small>",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "concatenation",
+              "value": 0,
+              "hidden": false,
+              "enhancementTypes": [],
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 3,
+                  "hidden": false,
+                  "enhancementTypes": [
+                    "diamond"
+                  ]
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2",
+                  "hidden": false
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "<small>targeting an enemy of your choice adjacent to them.</small>",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.condition.stun% the acting enemy",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 3,
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -467,19 +1376,73 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Force all enemies within %game.action.range:3% to perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "targeting enemies of your choice adjacent to them.",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:2",
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "move",
+                      "value": 1,
+                      "valueType": "subtract",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                },
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -487,23 +1450,103 @@
       "name": "Cold Embrace",
       "cardId": 163,
       "level": "X",
-      "initiative": 0,
+      "initiative": 71,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "target",
+              "value": 3,
+              "small": true,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "target",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "All adjacent allies suffer %game.damage:1%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "bless",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "alliesAdjacent",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -514,22 +1557,110 @@
       "initiative": 59,
       "actions": [
         {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "<small>The next three times after an ally attacks an enemy with %game.condition.poison%, that ally may perform a \"%game.action.heal:1%, %game.specialTarget.self%\" action.</small>",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "persistent",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "slot",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "slot",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1",
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "selfAlliesRange:2",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Give and Take",
@@ -538,22 +1669,91 @@
       "initiative": 21,
       "actions": [
         {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target self or one ally within %game.action.range:2%",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%game.condition.bless%, %game.condition.strengthen%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target a different ally within %game.action.range:3%",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all enemies moved through during the movement",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Crushing Cold",
@@ -563,19 +1763,84 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "hidden": false
         }
       ]
     },
@@ -586,22 +1851,71 @@
       "initiative": 13,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "heal",
+          "value": 6,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond_plus"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "Shuffle one %game.condition.bless% card into the monster attack modifier deck.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "card",
+          "value": "experience:1",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "<small>The next time you grant an attack this turn, add +1 %game.action.attack% to the entire Attack action.</small>",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": "",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "Add +2 %game.action.attack% instead",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "custom",
+          "value": "<small>All attacks targeting you add +2 %game.action.attack% this round. This card cannot be discarded before the end of the round.</small>",
+          "small": true,
+          "hidden": false
         }
-      ]
+      ],
+      "bottomRound": true
     },
     {
       "name": "Commanding Presence",
@@ -611,19 +1925,104 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "<small>At the start of your next five turns, one ally within %game.action.range:3% may perform an \"%game.action.attack:2%\" action.</small>",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "lost",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 4,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Ignore the %game.condition.curse% instead",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "custom",
+          "value": "One ally within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -635,19 +2034,72 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Force one enemy within %game.action.range:3% to perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "targeting all other enemies adjacent to it. The acting enemy suffers %game.damage:1% for each enemy targeted.",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:2",
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "bless",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -658,22 +2110,65 @@
       "initiative": 38,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
+          "type": "move",
+          "value": 4,
+          "hidden": false
+        },
+        {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Force one adjacent enemy to perform",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "with you controlling the action. This enemy gains %game.condition.immobilize%.",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Stand Fast",
@@ -683,42 +2178,149 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "<small>Place the Ward in an adjacent empty hex. It is considered an obstacle for all purposes. All enemies that enter a hex adjacent to the Ward gain %game.condition.poison%. All enemies gain Disadvantage on all their attacks not granted by you while within %game.action.range:3% of the Ward.</small>",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:2",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally or enemy within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "targeting an enemy of your choice.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
     {
-      "name": "Withering Conoiction",
+      "name": "Withering Conviction",
       "cardId": 173,
       "level": 6,
       "initiative": 44,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "<small>Two allies within %game.action.range:2% may each suffer %game.damage:2%. Each ally who does may perform</small>",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 6,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "card",
+          "value": "experience:2",
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "Ignore the %game.condition.curse% instead",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ]
@@ -728,22 +2330,56 @@
       "cardId": 174,
       "level": 6,
       "initiative": 81,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Heal all damage on one ally within %game.action.range:3%. If you do, that ally gains %game.condition.muddle%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "experience:2",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "Any time you or any ally loses %game.condition.poison%, that figure gains %game.condition.strengthen%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -754,22 +2390,119 @@
       "initiative": 29,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 5,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "wound",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "<small>Force one enemy within %game.action.range:3% to perform</small>",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": 0,
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 2,
+                      "small": true,
+                      "hidden": false
+                    },
+                    {
+                      "type": "condition",
+                      "value": "wound",
+                      "small": true,
+                      "hidden": false
+                    }
+                  ],
+                  "hidden": false,
+                  "enhancementTypes": [
+                    "diamond"
+                  ]
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2",
+                  "hidden": false
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "<small>targeting three enemies of your choice.</small>",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Spirit Hunger",
@@ -779,19 +2512,99 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
-        }
-      ],
-      "bottomActions": [
+          "value": "One ally within %game.action.range:2% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 5,
+              "hidden": false,
+              "enhancementTypes": [
+                "diamond"
+              ]
+            }
+          ],
+          "small": true,
+          "hidden": false
+        },
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "If they do, this ally may perform",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": "X",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2",
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "where X is the amount of damage suffered by the target of the attack.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "hidden": false
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "heal",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -799,23 +2612,94 @@
       "name": "Lull into Oblivion",
       "cardId": 177,
       "level": 8,
-      "initiative": 114,
+      "initiative": 11,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "%game.condition.stun%, %game.condition.curse%",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "If this card is discarded before the end of the round or either target suffers damage this round, both targets lose %game.condition.stun%.",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "dark",
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "round",
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "You and all allies within %game.action.range:2% may perform",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 3,
+              "hidden": false,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "move",
+                      "value": 1,
+                      "valueType": "add",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
       ]
     },
@@ -827,19 +2711,69 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "On your next three Heal abilities when possible, target an additional ally.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "persistent",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slot",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1",
+              "hidden": false
+            },
+            {
+              "type": "card",
+              "value": "lost",
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "condition",
+          "value": "bless",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "selfAlliesAdjacentAffect",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "hidden": false
         }
       ]
     },
@@ -850,20 +2784,98 @@
       "initiative": 19,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
-        }
-      ],
-      "bottomActions": [
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "hidden": false
+            }
+          ],
+          "hidden": false
+        },
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
+          "value": "Force all other enemies within %game.action.range:3% of the target to perform",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 3,
+                      "small": true,
+                      "hidden": false
+                    },
+                    {
+                      "type": "custom",
+                      "value": "targeting that target.",
+                      "small": true,
+                      "hidden": false
+                    }
+                  ],
+                  "hidden": false
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2",
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "custom",
+          "value": "All allies and enemies within %game.action.range:3% suffer %game.damage:1%.",
+          "small": true,
+          "hidden": false
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "alliesRange:3",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "hidden": false
         }
       ]
     },
@@ -874,22 +2886,122 @@
       "initiative": 66,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "target",
+              "value": 3,
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true,
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "curse",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            }
+          ],
+          "hidden": false,
           "enhancementTypes": [
-            "any"
+            "diamond"
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "value": "One ally within %game.action.range:3% may perform",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 8,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "stun",
+                      "hidden": false
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "hidden": false
+                    }
+                  ],
+                  "small": true,
+                  "hidden": false
+                }
+              ],
+              "hidden": false
+            },
+            {
+              "type": "custom",
+              "value": "If they do, gain %game.card.experience:1% and this ally gains %game.condition.poison%.",
+              "small": true,
+              "hidden": false
+            }
+          ],
+          "small": true,
+          "hidden": false
         }
-      ]
+      ],
+      "bottomLost": true
     }
   ]
 }
