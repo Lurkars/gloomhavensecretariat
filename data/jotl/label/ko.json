@@ -1,4 +1,9 @@
 {
+  "ability": {
+    "Careful Throw": "신중한 투척",
+    "Dual Daggers": "두 자루의 단검",
+    "Screaming Shot": "포효의 일격"
+  },
   "character": {
     "demolitionist": {
       "": "철거전문가",

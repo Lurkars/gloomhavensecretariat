@@ -1,1 +1,195 @@
-{}
+{
+  "character": {
+    "bruiser": "蠻子",
+    "cragheart": "裂心人",
+    "mindthief": "亂心賊",
+    "silent-knife": "凶徒",
+    "spellweaver": "織魔師",
+    "tinkerer": "修補匠"
+  },
+  "edition": {
+    "bb": "鈕扣與蟲子"
+  },
+  "items": {
+    "bb-1": {
+      "": "玫刺刀",
+      "1": "在你的攻擊行動中， %game.elementHalf.consume:ice|earth% 來增加%game.action.pierce% 1。"
+    },
+    "bb-10": {
+      "": "藤蔓鞭",
+      "1": "在你的攻擊行動中， %game.elementHalf.consume:earth|light% 增加 %game.condition.immobilize%"
+    },
+    "bb-11": {
+      "": "強磁指針",
+      "1": "在你的回合中，控制一名在 %game.action.range% 5裏的敵人執行%game.action.move% 2。"
+    },
+    "bb-12": {
+      "": "殘羹冷炙",
+      "1": "在你的回合中以自己為目標執行%game.action.heal% 1。"
+    },
+    "bb-13": {
+      "": "俠盜羽箭",
+      "1": "當你進行單次遠程攻擊時， %game.elementHalf.consume:fire|air%附加 +1 %game.action.range%和%game.action.pierce% 1。"
+    },
+    "bb-14": {
+      "": "龍葵粉",
+      "1": "在一個敵人攻擊後，%game.elementHalf.consume:earth|dark%為其添加%game.condition.poison%。"
+    },
+    "bb-15": {
+      "": "生命滴露",
+      "1": "在你的回合中以自己為目標執行%game.action.heal%。"
+    },
+    "bb-16": {
+      "": "揮發粉末",
+      "1": "當你進行單次遠程攻擊時，附加："
+    },
+    "bb-17": {
+      "": "魚鈎和魚線",
+      "1": "當你進行遠程攻擊時附加%game.action.pierce% 2， %game.action.pull% 2。"
+    },
+    "bb-18": {
+      "": "栗殼盾",
+      "1": "當你收到敵人攻擊時，獲得%game.action.shield% 1 和 %game.action.retaliate% 1。"
+    },
+    "bb-19": {
+      "": "黃銅齒輪",
+      "1": "在確定時序值後，為你的時序值增加或減少10。"
+    },
+    "bb-2": {
+      "": "毒牙",
+      "1": "當你進行近戰攻擊時附加%game.condition.poison%。"
+    },
+    "bb-20": {
+      "": "潤滑油",
+      "1": "在你執行移動行動時增加+2 %game.action.move%。"
+    },
+    "bb-21": {
+      "": "元素藥水",
+      "1": "在你的回合中創造%game.element.wild%。"
+    },
+    "bb-22": {
+      "": "精力藥水",
+      "1": "在你的回合中，從手牌或棄牌堆中 %game.card.recover% 一張等級1的卡牌，並將其翻回A面。"
+    },
+    "bb-23": {
+      "": "厄運粉",
+      "1": "在你的攻擊行動中，附加 %game.condition.disarm%,%game.condition.poison%。"
+    },
+    "bb-24": {
+      "": "縫衣針",
+      "1": "在你的攻擊行動中，附加 %game.action.pierce% 1。"
+    },
+    "bb-25": {
+      "": "尖銳鉛筆",
+      "1": "在你對單一目標的近戰攻擊中，附加："
+    },
+    "bb-26": {
+      "": "硬幣盾",
+      "1": "在敵人的攻擊期間，獲得 %game.action.shield% 2。"
+    },
+    "bb-27": {
+      "": "乾癟長弓",
+      "1": "在你的遠程攻擊行動中，附加 +1 %game.action.attack%、%game.action.pierce% 1。"
+    },
+    "bb-28": {
+      "": "乾癟長劍",
+      "1": "在你的近戰攻擊行動中，附加 +1 %game.action.attack%。"
+    },
+    "bb-29": {
+      "": "餘燼",
+      "1": "在一個敵人攻擊後，%game.elementHalf.consume:fire|earth%為其添加%game.condition.wound%。"
+    },
+    "bb-3": {
+      "": "風蝕長靴",
+      "1": "在你的移動行動中，附加 +1 %game.action.move%。"
+    },
+    "bb-30": {
+      "": "幸運貓眼石",
+      "1": "在你的攻擊中，將你的 %game.bbAm.0% 攻擊修正視為 %game.bbAm.1% 攻擊修正牌。"
+    },
+    "bb-31": {
+      "": "碎片玻璃",
+      "1": "在你的近戰攻擊行動中，附加 %game.condition.wound%。"
+    },
+    "bb-32": {
+      "": "護盾撲克",
+      "1": "在敵人的攻擊期間，獲得 %game.action.shield% 4。"
+    },
+    "bb-33": {
+      "": "速度靈藥",
+      "1": "在執行一張能力牌的上方動作後，也執行其下方動作。"
+    },
+    "bb-34": {
+      "": "精力靈藥",
+      "1": "在你的回合中，對手牌或棄牌堆中的一張牌執行 %game.card.recover%，使其回到A面。"
+    },
+    "bb-35": {
+      "": "棱鏡寶石",
+      "1": "在你的攻擊行動中，%game.element.consume.wild% 來增加 %game.action.attack% 1。"
+    },
+    "bb-36": {
+      "": "強壯藥水",
+      "1": "在你的回合中，為自己附加 %game.condition.strengthen%。"
+    },
+    "bb-37": {
+      "": "黃昏寶石",
+      "1": "在敵人的攻擊期間，%game.elementHalf.consume:air|dark% 來獲得 %game.action.shield% 1，並對該敵人附加 %game.condition.muddle%。"
+    },
+    "bb-38": {
+      "": "明媚寶石",
+      "1": "在你的攻擊後，%game.elementHalf.consume:air|light% 來控制攻擊目標：%game.action.move% 1。"
+    },
+    "bb-39": {
+      "": "彩貝盾",
+      "1": "在你的回合中獲得 %game.action.shield% 1，本回合有效。創造 %game.element.wild%。"
+    },
+    "bb-4": {
+      "": "舊彈簧",
+      "1": "在你的回合中，為所有移動附加 %game.action.jump%。"
+    },
+    "bb-40": {
+      "": "折疊刀",
+      "1": "在你的近戰攻擊行動中，附加 +1 %game.action.attack%、%game.action.pierce% 2、%game.condition.wound%。"
+    },
+    "bb-41": {
+      "": "瓶蓋頭盔",
+      "1": "在敵人的攻擊期間，將其 %game.bbAm.2% 攻擊修正牌視為 %game.bbAm.1% 攻擊修正牌。"
+    },
+    "bb-42": {
+      "": "燕骨頭盔",
+      "1": "在你的攻擊行動中，獲得優勢。"
+    },
+    "bb-5": {
+      "": "力量藥水",
+      "1": "在你的回合中，為所有攻擊附加 +1 %game.action.attack%。"
+    },
+    "bb-6": {
+      "": "淨化藥水",
+      "1": "在你的回合中，%game.elementHalf.consume:ice|air% 來移除一個負面狀態。"
+    },
+    "bb-7": {
+      "": "彈簧錘",
+      "1": "在你的近戰攻擊行動中，附加 %game.action.push% 2。"
+    },
+    "bb-8": {
+      "": "鈕扣盾",
+      "1": "在敵人的攻擊期間，獲得 %game.action.shield% 1。"
+    },
+    "bb-9": {
+      "": "鋼釘",
+      "1": "在你的回合中，為所有近戰攻擊附加 %game.action.pierce% 2。"
+    }
+  },
+  "monster": {
+    "arena-sorcerer": "競技場巫師",
+    "bandit-archer": "強盜弓箭手",
+    "bandit-guard": "強盜衛兵",
+    "demon-prince": "惡魔王子",
+    "earth-demon": "大地惡魔",
+    "flame-demon": "火焰惡魔",
+    "frost-demon": "冰霜惡魔",
+    "gloomtoad": "幽暗蟾蜍",
+    "goring-beetle": "尖角甲蟲",
+    "harrowing-infestation": "恐怖感染"
+  }
+}

@@ -718,6 +718,7 @@
         "2": "sur un hexagone vide adjacent à la cible de la<br>capacité d'attaque."
       },
       "drifter": {
+        "1": "Reculez un de vos pions Aventurier d'un emplacement",
         "2": "Lors de vos repos longs, pouvoir reculer un de vos pions Aventurier d'un emplacement",
         "3": "Pouvoir emporter un objet %game.items.slots.onehand% supplémentaire dans chaque main",
         "4": "À la fin de chaque scénario, pouvoir défausser jusqu'à deux cartes Butin, excepté Objet Aléatoire, pour piocher autant de nouvelles cartes Butin",
@@ -928,7 +929,7 @@
     "seeker-of-the-abyss": "Le Chasseur des Abysses",
     "shrike-fiend": "Nuée Démoniaque",
     "snow-imp": "Diablotin des Neiges",
-    "snowdancer": "La Danseuse des Neiges",
+    "snowdancer": "Danseuse des Neiges",
     "spitting-drake": "Wyverne Cracheuse",
     "steel-automaton": "Automate D'Acier",
     "sun-demon": "Démon du Soleil",
@@ -1312,8 +1313,8 @@
         "149-4": "Mon Petit Empire",
         "149-5": "La Guérison de l'Artificier",
         "15-1": "Passe-Temps Mortel",
-        "15-2A": "Coeur de Glace",
-        "15-2B": "Coeur de Glace",
+        "15-2A": "Danseuse des Neiges est morte",
+        "15-2B": "Danseuse des Neiges est morte",
         "15-3": "Le Monte-Charge Abandonnée",
         "15-4": "L'Emplacement du Chêne Véritable",
         "150-2": "Une Vue Imprenable",
