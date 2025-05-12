@@ -1476,7 +1476,7 @@
       "name": "The New Favorite",
       "cardId": 30,
       "level": 5,
-      "initiative": 715,
+      "initiative": 15,
       "lost": true,
       "actions": [
         {
@@ -1920,7 +1920,7 @@
       "name": "Camaraderie",
       "cardId": 36,
       "level": 8,
-      "initiative": 375,
+      "initiative": 75,
       "actions": [
         {
           "type": "heal",
