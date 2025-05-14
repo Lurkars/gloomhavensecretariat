@@ -1685,6 +1685,7 @@
         "winter-road": "Entferne Ereignis {0} vom Winter-Wegdeck"
       },
       "removeLootDeckCard": "Entferne Beutekarte {0} aus dem Spiel. Füge diese Karte anschließend in keinem Szenario mehr zum Beutekarten Deck hinzu.",
+      "repeatScenario": "Das Szenario kann erneut gespielt werden!",
       "reputation": "{0} Ansehen",
       "resources": "Erhalte jeweils {1} %game.resource.{0}%",
       "resourcesLose": "Verliere jeweils {1} %game.resource.{0}%",
