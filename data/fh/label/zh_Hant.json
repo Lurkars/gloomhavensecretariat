@@ -1,1 +1,56 @@
-{}
+{
+  "character": {
+    "banner-spear": "旗槍衛士",
+    "blinkblade": {
+      "": "閃刃師",
+      "fast": "快速",
+      "slow": "慢速",
+      "time_tokens": {
+        "": "\"%data.characterToken.blinkblade.time% 個時間標記",
+        "hint": "在回合開始時於選擇慢速/快速之後，自動添加/移除時間標記"
+      }
+    },
+    "boneshaper": {
+      "": "塑骨師"
+    },
+    "deathwalker": "死亡行者",
+    "drifter": "流浪者",
+    "geminate": {
+      "": "雙生者",
+      "melee": "近戰",
+      "range": "遠程"
+    }
+  },
+  "custom": {
+    "fh": {
+      "banner-spear": {
+        "1": "%game.range:2% 範圍內的盟友每回合1次攻擊附加 +1 %game.action.attack%。",
+        "10": "使用3次不同的範圍效果攻擊能力，每次攻擊至少3個敵人",
+        "11": "在你第一個回合中，執行旗幟召喚能力，且整個劇本中，保證該旗幟在場並在你 %game.action.range:3% 內",
+        "2": "在回合開始時，賦予 %game.range:3% 範圍內的盟友：",
+        "3": "相鄰的盟友獲得 %game.shield% 1。",
+        "abilities": {
+          "61": {
+            "2": "你能控制本召喚物的移動"
+          },
+          "62": {
+            "1": "%game.action.range%2 範圍內的盟友每回合的1次攻擊附加 +1 %game.action.attack%。"
+          },
+          "63": {
+            "1": "你所有的遠程攻擊具有-1%game.action.range%."
+          }
+        }
+      },
+      "blinkblade": {
+        "3": "獲得 1 個 %data.characterToken.blinkblade.time%",
+        "4": "獲得 1 個 %data.action.custom.fh-hourglass%",
+        "5": "當執行短休時，可以花費一個未使用的 %game.card.spent% 道具（無效果），以 %game.card.recover% 另一個已使用的道具",
+        "8": "連續7輪宣布快速",
+        "9": "從未成為攻擊目標"
+      },
+      "drifter": {
+        "3": "可以在每場劇本中額外攜帶一件 %game.items.slots.onehand% 道具"
+      }
+    }
+  }
+}

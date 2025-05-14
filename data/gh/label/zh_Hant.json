@@ -1,1 +1,40 @@
-{}
+{
+  "character": {
+    "brute": "蠻子",
+    "scoundrel": "兇徒"
+  },
+  "custom": {
+    "gh": {
+      "bandit-commander": {
+        "1": "移動到下一道門並打開房間"
+      },
+      "captain-of-the-guard": {
+        "1": "本回合內，所有盟友的所有攻擊附加 +1 %game.action.attack%"
+      },
+      "dark-rider": {
+        "1": "X = 移動過的格子數"
+      },
+      "elder-drake": {
+        "1": "飛向下一個岩石棲點"
+      },
+      "merciless-overseer": {
+        "1": "所有斥候再次行動",
+        "2": "V = 場上斥候的數量"
+      },
+      "prime-demon": {
+        "1": "王座移動"
+      },
+      "the-betrayer": {
+        "1": "心靈控制"
+      },
+      "winged-horror": {
+        "1": "孵化蛋",
+        "2": "%game.action.summon% [C] 蛋"
+      }
+    }
+  },
+  "monster": {
+    "bandit-commander": "強盜指揮官",
+    "elder-drake": "上古亞龍"
+  }
+}
