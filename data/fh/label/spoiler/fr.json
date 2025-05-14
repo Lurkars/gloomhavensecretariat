@@ -189,6 +189,9 @@
     }
   },
   "character": {
+    "fist": {
+      "": "Poing-de-Glace"
+    },
     "snowflake": {
       "": "Danseuse des Neiges",
       "muddle-monster": {
@@ -198,6 +201,14 @@
   },
   "custom": {
     "fh": {
+      "fist": {
+        "1": "Créez une tuile Terrain verglacé de 1 hexagone sur un hexagone sans décor adjacent à la cible",
+        "2": "et lorsque vous entrez sur un terrain verglacé avec une capacité de déplacement, pouvoir en ignorer l'effet pour ajouter +1 %game.action.move%",
+        "3": "Lorsque vous vous soignez grâce a un repos long, pouvoir %game.elementHalf.consume:ice|earth% pour ajouter +2 %game.action.heal%",
+        "4": "Une fois par scénario, quand vous devriez subir des %game.damage%, pouvoir les annuler",
+        "5": "%game.card.recover% au moins une carte de votre défausse chaque round",
+        "6": "Entrer sur au moins dix hexagones différents avec une capacité de déplacement, puis infliger au moins %game.damage:10% à un adversaire par une seule capacité d'attaque dans une même tour"
+      },
       "snowflake": {
         "1": "Si cette action force la cible à se déplacer elle subit %game.damage:1%",
         "2": "Lorsque vous prenez un repos long, pouvoir %game.elementHalf:ice|air%",
@@ -878,7 +889,7 @@
     },
     "fh-25": {
       "": "Sceptre Apaisant",
-      "1": "Pendant votre tour, effectuez : %game.condition.regenerate% %game.action.target% 1 allié, %game.action.range:2%"
+      "1": "Pendant votre tour, effectuez : %game.condition.regenerate% %game.action.target% sur un allié, %game.action.range:2%"
     },
     "fh-26": {
       "": "Lunettes de Vision Vraie",

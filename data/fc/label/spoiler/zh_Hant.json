@@ -1,1 +1,56 @@
-{}
+{
+  "items": {
+    "fc-152": {
+      "": "二元戒指",
+      "1": "執行任意能力牌的上方動作後，可以立即執行同一張牌的下方動作。若上下動作皆有移除圖示 %game.card.lost%，則無法使用此道具。"
+    },
+    "fc-153": {
+      "": "次級解毒藥劑",
+      "1": "接下來三次獲得 %game.condition.poison% 時，防止該狀態效果。"
+    },
+    "fc-154": {
+      "": "高級解毒藥劑",
+      "1": "接下來五次獲得 %game.condition.poison% 時，防止該狀態效果。"
+    },
+    "fc-155": {
+      "": "防護詛咒鎧甲",
+      "1": "對 %game.condition.curse% 免疫，即使此物品已被消耗。在接下來三次以你為目標的攻擊造成傷害時，獲得 %game.action.shield% 1。"
+    },
+    "fc-156": {
+      "": "元素闊劍",
+      "1": "進行近戰攻擊中，%game.element.consume.wild% 為單次次攻擊附加 +2 %game.action.attack%。"
+    },
+    "fc-157": {
+      "": "遠古弓",
+      "1": "進行遠程攻擊中，單次攻擊附加 +2 %game.action.attack%、%game.condition.curse% 和 %game.condition.wound%。"
+    },
+    "fc-158": {
+      "": "回春護脛",
+      "1": "進行移動時，本次移動附加 +2 %game.action.move%，並獲得 %game.condition.regenerate%。"
+    },
+    "fc-159": {
+      "": "加速卷軸",
+      "1": "任意盟友進行移動時，本次移動附加 +2 %game.action.move%。"
+    },
+    "fc-160": {
+      "": "扒手短匕",
+      "1": "在自己的行動輪中殺死1個怪物時，獲得1個金幣標記。"
+    },
+    "fc-161": {
+      "": "飛斧",
+      "1": "對單一目標執行近戰攻擊時，本次攻擊附加 %game.action.range:3%。"
+    },
+    "fc-162": {
+      "": "裂隙裝置",
+      "1": "在你的回合中，%game.action.teleport% 到距離你 4 格內任一未被佔據的六角格。"
+    },
+    "fc-163": {
+      "": "水晶花冠",
+      "1": "當你執行長休或短休時，獲得 %game.condition.strengthen%。"
+    },
+    "fc-165": {
+      "": "活化盔甲",
+      "1": "對 POISON（中毒）和 !enchantment-circle! 免疫。受到攻擊傷害時，針對本次攻擊獲得 %game.action.shield% 0 !enchantment-circle!。"
+    }
+  }
+}

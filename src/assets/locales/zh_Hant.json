@@ -5,7 +5,7 @@
     "ip": "幽港迷城及其所有相關產權、圖像和文字內容均歸{0}所有。",
     "license": "依據{0}。",
     "sourceCode": "Source Code",
-    "support": "\"支持開發者\"",
+    "support": "支持開發者",
     "version": {
       "latest": "最新版本",
       "unknown": "無法獲取至最新版本",
@@ -106,11 +106,11 @@
         "temporary": "暫時效果",
         "types": {
           "any": "任何",
-          "circle": "Circle",
-          "diamond": "Diamond",
-          "diamond_plus": "Diamond+",
-          "hex": "Hex",
-          "square": "Square"
+          "circle": "圓",
+          "diamond": "菱",
+          "diamond_plus": "菱+",
+          "hex": "六角",
+          "square": "方"
         }
       },
       "forceDeck": "雙擊將卡牌添加至牌庫中",
@@ -204,7 +204,7 @@
       "name": "名稱",
       "notes": "備註",
       "perks": {
-        "": "增益列表",
+        "": "專長",
         "extra": "額外的專長"
       },
       "personalQuest": {
@@ -540,7 +540,7 @@
       "retaliate": "反擊",
       "shield": "護盾",
       "spawn": "生成",
-      "special": "特定",
+      "special": "特殊",
       "specialTarget": "特定目標",
       "sufferDamage": "承受傷害",
       "summon": "召喚",
@@ -684,7 +684,7 @@
       },
       "curse": {
         "": "詛咒",
-        "hint": "%game.conditionIcon.curse% 詛咒: 混洗一張 %game.attackmodifier.curse% 卡牌入攻擊修正牌庫。"
+        "hint": "%game.conditionIcon.curse% 詛咒: 混洗一張 %game.attackmodifier.curse% 卡牌入攻擊修正牌庫"
       },
       "disarm": {
         "": "繳械",
@@ -715,7 +715,7 @@
         "hint": "對狀態免疫"
       },
       "impair": {
-        "": "破損r",
+        "": "破損",
         "hint": "%game.conditionIcon.impair% 破損: 不能使用物品。下回合時移除。"
       },
       "infect": {
@@ -759,7 +759,7 @@
         "hint": "%game.conditionIcon.stun% 暈眩: 不能執行能力和觸發物品。下回合結束時移除。"
       },
       "ward": {
-        "": "戒護",
+        "": "守護結界",
         "hint": "%game.conditionIcon.ward% 戒護: 下次受到的傷害減至一半（向下取整），然後移除。"
       },
       "wound": {
@@ -931,7 +931,7 @@
       "empty": "未搜尋到物品",
       "filter": {
         "": "搜尋…",
-        "affordable": "僅顯示買得起的物品s",
+        "affordable": "僅顯示買得起的物品",
         "all": "查看所有物品",
         "sorted": "已整理"
       },
@@ -1066,14 +1066,17 @@
     "maxHealth": "最大生命值",
     "solo": "單人",
     "specialTarget": {
+      "all": "%game.target% 的所有",
       "allies": "%game.target% 的所有盟友",
       "alliesAdjacent": "%game.target% 的所有相鄰盟友",
       "alliesAdjacentAffect": "%game.affect% 的所有相鄰盟友",
+      "alliesAffect": "%game.affect% 的所有盟友",
       "alliesRange": "%game.target% %game.action.range% {0} 格範圍內的所有盟友",
       "alliesRangeAffect": "%game.affect% %game.action.range% {0} 格範圍內的所有盟友",
       "ally": "%game.target% 的 1 名盟友",
       "allyAdjacent": "%game.target% 1 名相鄰盟友",
       "allyAffect": "%game.affect% 的任意盟友",
+      "allyAffectAdjacent": "%game.affect% 一名相鄰的盟友",
       "allyAffectRange": "%game.affect% %game.action.range% {0} 格範圍內的 1 名盟友",
       "allyShort": "盟友",
       "enemies": "%game.target% 的所有敵人",
@@ -1086,6 +1089,7 @@
       "enemiesRangeExact": "正好在 %game.action.range% {0} 範圍的 %game.target% 所有敵人",
       "enemy": "%game.target% 1 名敵人",
       "enemyAdjacent": "%game.target% 1 名相鄰敵人",
+      "enemyAllyRange": "%game.target% 一名敵人或 %game.affect% 一名在 %game.action.range% {0} 內的盟友",
       "enemyOneAll": "所有攻擊 %game.target% 1 名敵人",
       "enemyRange": "%game.target% 1 名正好在 %game.action.range% {0} 範圍的敵人",
       "figures": "%game.target% 所有個體",
@@ -1096,6 +1100,7 @@
       "selfAllies": "自身以及所有盟友",
       "selfAlliesAdjacentAffect": "%game.affect% 作用於自身和所有相鄰盟友",
       "selfAlliesAffect": "%game.affect% 自身以及所有盟友",
+      "selfAlliesAffectRange": "%game.affect% 自己與所有在 %game.action.range% {0} 範圍內的盟友",
       "selfAlliesRange": "%game.target% 自身以及在 %game.action.range% {0} 範圍內的所有盟友",
       "selfOrAlly": "自身或盟友",
       "targets": "所有目標"
@@ -1473,6 +1478,40 @@
         "back": "返回戰役模式",
         "force": "雙擊以顯示完整流程圖（含劇透內容）。"
       },
+      "legend": {
+        "blocked": {
+          "": "被阻擋",
+          "hint": "此劇本無法進行，因為被其他劇本所阻擋。"
+        },
+        "locked": {
+          "": "未解鎖",
+          "hint": "此劇本尚未解鎖，因為尚未滿足相關條件，暫時無法進行。"
+        },
+        "not-campaign": {
+          "": "無劇情模式",
+          "hint": "你目前不在劇情模式中"
+        },
+        "not-unlocked": {
+          "": "尚未解鎖",
+          "hint": "此劇本已可見，但尚未解鎖，因此無法進行。"
+        },
+        "success": {
+          "": "通過",
+          "hint": "此劇本已成功完成。"
+        },
+        "success-blocked": {
+          "": "通過，但目前被阻擋",
+          "hint": "此劇本已成功完成，但目前被阻擋。"
+        },
+        "success-locked": {
+          "": "通過，但目前未解鎖",
+          "hint": "此劇本已成功完成，但目前尚未解鎖。"
+        },
+        "unplayed": {
+          "": "尚未進行",
+          "hint": "此劇本已解鎖，可進行遊戲。"
+        }
+      },
       "setup": "顯示場景設置",
       "start": "開始場景",
       "success": "標記為已完成",
@@ -1530,6 +1569,22 @@
     "openRoomMarker": "打開 %game.mapMarker.{1}% 的門",
     "openRoomMarkerRef": "打開 %game.mapMarker.{1}% 的門放置板塊 '{0}'",
     "openRoomRef": "開門放置板塊 '{0}'",
+    "random": {
+      "": "隨機副本",
+      "treasure": {
+        "createTwoElements": "創造任意兩種元素",
+        "cureConditions": "解除所有負面狀態",
+        "enemiesCondition": "所有敵人獲得 %game.condition.{0}%",
+        "enemiesDamage": "所有敵人受到 %game.damage:{0}% 傷害",
+        "gold": "{0} 金幣",
+        "heal": "治療 {0} 生命值",
+        "lootCards": "獲得 {0} 拾取卡牌",
+        "recoverCards": "從棄牌堆回收 {0} 張卡牌",
+        "recoverLost": "回收一張已移除的卡牌",
+        "refreshItem": "重置 {0} 個 %game.itemSlot:{1}% 道具",
+        "resource": "獲得 {1} %game.resource.{0}%"
+      }
+    },
     "requirements": {
       "": "場景條件",
       "all": "顯示所有條件（包括已滿足的）",
@@ -1994,6 +2049,10 @@
       "": "始終使用霜港迷城優勢/劣勢攻擊的規則",
       "hint": "始終應用霜港迷城中優勢攻擊或劣勢攻擊時抽取攻擊修正卡牌的規則（當遊玩霜港迷城時此功能將自動啟用）"
     },
+    "alwaysFhEnhancements": {
+      "": "永久啟用 Frosthaven 附魔功能",
+      "hint": "始終使用 Frosthaven 的附魔規則與費用。"
+    },
     "alwaysFhSolo": {
       "": "始終啟用霜港迷城單人遊玩規則",
       "hint": "始終應用霜港迷城中單人模式等級計算的規則（當遊玩霜港迷城時此功能將自動啟用）"
@@ -2059,6 +2118,10 @@
     "automaticAttackModifierFullscreen": {
       "": "攻擊修正牌堆自動全螢幕",
       "hint": "當使用小型裝置操作時，以全螢幕模式打開攻擊修正牌堆（同樣適用於拾取牌堆）。"
+    },
+    "automaticFirstFigure": {
+      "": "自動開始第一個個體行動",
+      "hint": "下回合開始時自動啟動第一個個體的行動。若需要時序值，此功能將始終啟用。"
     },
     "automaticGameClock": {
       "": "自動遊戲時鐘",
@@ -2171,6 +2234,10 @@
     "characterCompact": {
       "": "緊湊型角色面板",
       "hint": "顯示較狹窄的角色面板。（目前在現代主題中不支援該功能）"
+    },
+    "characterFullView": {
+      "": "角色完整檢視",
+      "hint": "雙擊角色圖示以顯示該角色的獨立檢視畫面。"
     },
     "characterHandSize": {
       "": "顯示手牌上限及等級",
@@ -2398,6 +2465,9 @@
       "en": "英語 (English)",
       "es": "西班牙語 (Español)",
       "fr": "法語 (Français)",
+      "help": {
+        "": "協助翻譯！"
+      },
       "it": "義大利語（Italiano）",
       "ko": "韓語 (한국어)",
       "zh_Hans": "簡體中文",
@@ -2500,11 +2570,11 @@
       "hint": "自動對個體進行排序。如果停用，則必須透過拖曳手動設定順序."
     },
     "standeeShieldRetaliate": {
-      "": "護盾以及反擊",
+      "": "護盾和反擊",
       "hint": "追蹤立牌以及召喚物額外的 %game.action.shield% 和 %game.action.retaliate% 的數值."
     },
     "standeeStats": {
-      "": "立牌上的護盾以及反擊",
+      "": "立牌上的護盾和反擊",
       "hint": "在每個立牌旁顯示當前 %game.action.shield% 以及 %game.action.retaliate% 的數值."
     },
     "standees": {
@@ -2524,6 +2594,10 @@
       "hint": "啟用角色召喚物"
     },
     "synced": "這些設定與伺服器同步！",
+    "temporaryEnhancements": {
+      "": "臨時附魔",
+      "hint": "使用臨時附魔可降低強化費用。若使用 Frosthaven 規則，將依照規則書所述計算；否則將套用 Gloomhaven Digital 的附魔費用。"
+    },
     "theme": {
       "": "主題",
       "bb": "鈕扣 & 蟲子 (%wip%)",
@@ -2881,6 +2955,10 @@
         "summon": "從 {0} 的 '{1}' 中移除 {3}x %game.condition.{2}%",
         "summons": "從所有 {0} 召喚物中移除 {2}x %game.condition.{1}%"
       },
+      "removeEntityMarker": {
+        "monster": "從 {0} 的'{1}'中移除標記 %game.mapMarker.{2}%",
+        "objectiveContainer": "從 {0} 的 %game.objectiveMarker.{1}% 移除標記 %game.mapMarker.{2}%"
+      },
       "removeEntityRetaliate": {
         "char": "為 {0} 移除 %game.action.retaliate%",
         "monster": "為 {0} 的 '{1}' 移除 %game.action.retaliate%",
@@ -2977,10 +3055,10 @@
       "setEditionAll": "選擇全部版本",
       "setEntityActive": "將 {0} 的立牌 {1} 設定為啟動狀態",
       "setEntityRetaliate": {
-        "char": "為 {0} 設定 {1}",
-        "monster": "將 {0} 的「{1}」設定為 {2}",
+        "char": "為 {0} 設定 為{1}",
+        "monster": "將 {0} 的'{1}'設定為 {2}",
         "objectiveContainer": "將 {0} 的 %game.objectiveMarker.{1}% 設定為 {2}",
-        "summon": "將 {0} 的「{1}」設定為 {2}"
+        "summon": "將 {0} 的'{1}'設定為 {2}"
       },
       "setEntityRetaliatePersistent": {
         "char": "將 {0} 設定為 %game.card.persistent% {1}",
@@ -3007,6 +3085,7 @@
       "setInitiative": "為 {0} 設定時序值 {1}",
       "setLevel": "將 {0} 設定為等級 {1}",
       "setNotes": "為 {0} 記錄 \"{1}\"",
+      "setObjectiveEntityMarker": "將 {0} 的 %game.objectiveMarker.{1}% 設定為標記 %game.mapMarker.{2}%",
       "setObjectiveExhausted": "目標點 {0} 被摧毀",
       "setObjectiveInitiative": "為目標點 {0} 設定時序值 {1}",
       "setPQ": "為 {0} 設定個人使命 {1}",
@@ -3085,7 +3164,7 @@
       "updateManualPlayerCount": "將手動角色數量設為 {0}",
       "updatePartyAchievements": "更新團隊成就為 {0}",
       "updateStandee": "將 {0} 的 {1} 立牌編號從 {2} 改為 {3}",
-      "upgradeBuilding": "將建築物『%data.buildings.{1}%』({0}) 升級至等級 {2}"
+      "upgradeBuilding": "將建築物'%data.buildings.{1}%'({0})升級至等級 {2}"
     },
     "loadMore": "顯示更多",
     "missing": "缺失狀態：{0}",
@@ -3095,7 +3174,7 @@
   },
   "summon": {
     "": "召喚",
-    "addCustom": "召喚「{0}」",
+    "addCustom": "召喚{0}",
     "name": "名稱",
     "state": {
       "": "狀態",
@@ -3108,7 +3187,7 @@
     "": "工具【劇透警告！】",
     "attackModifier": "攻擊修正",
     "backToGhs": "返回 GHS",
-    "decks": "能力牌堆",
+    "decks": "技能牌堆",
     "feedback": {
       "": "回饋",
       "githubIssue": "改為提交 GitHub 問題",
@@ -3119,7 +3198,7 @@
         "errorHint": "發生了軟體錯誤。<br>您可以回報此錯誤給開發者以幫助改善本軟體。<br>若可行，請附上資料傾印，非常感謝！",
         "errorIgnore": "不要再自動回報這個錯誤。",
         "errorText": "錯誤追蹤：\n\n{0}\n\n{1}",
-        "mail": "請注意,微軟試圖利用其市場力量封鎖私人郵件伺服器.因此,我可以接收 outlook.com,hotmail.com 或其他微軟服務的郵件,但無法回覆!",
+        "mail": "請注意,微軟試圖利用其市場力量封鎖私人郵件伺服器。因此,我可以接收 outlook.com,hotmail.com 或其他微軟服務的郵件,但無法回覆!",
         "send": "發送問題（Email）",
         "specify": "請在文字中詳細說明。<br>如果您不確定問題具體為何，請下載並一併附上資料傾印！",
         "text": "文字",

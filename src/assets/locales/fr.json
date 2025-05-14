@@ -91,6 +91,7 @@
           "gold": "Nombre maximal de cartes améliorables ({1}) atteint !"
         },
         "enhancements": "Améliorations antérieures",
+        "enhancerLevel": "Bonus d'amélioration",
         "hint": {
           "enhance": {
             "": "Cliquez pour ajouter l'amélioration.",
@@ -104,6 +105,7 @@
         "persistent": "Permanent",
         "temporary": "Provisoires",
         "types": {
+          "any": "Tous",
           "circle": "Cercle",
           "diamond": "Losange",
           "diamond_plus": "Losange+",
@@ -781,7 +783,7 @@
         "addTarget": "Ajouter une cible",
         "addTargets": "Ajouter {0} cibles",
         "ignoreNegativeItem": "Ignorer les effets négatifs des objets",
-        "ignoreNegativeItemFh": "Ignorer les effets de l'objet %game.card.minus1%.",
+        "ignoreNegativeItemFh": "Ignorer les effets d'objet %game.card.minus1%",
         "ignoreNegativeScenario": "Ignorer les effets négatifs des scénarios",
         "ignoreScenario": "Ignorer les effets de scénario"
       },
@@ -1056,14 +1058,17 @@
     "maxHealth": "Poins de Vie maximum",
     "solo": "Solo",
     "specialTarget": {
+      "all": "%game.target% tous",
       "allies": "%game.target% tous les alliés",
       "alliesAdjacent": "%game.target% tous les alliés",
       "alliesAdjacentAffect": "%game.affect% tous les alliés adjacents",
+      "alliesAffect": "%game.affect% tous les alliés",
       "alliesRange": "%game.target% tous les alliés à portée %game.action.range% {0}",
       "alliesRangeAffect": "%game.affect% tous les alliés à portée %game.action.range% {0}",
-      "ally": "%game.target% 1 allié",
+      "ally": "%game.target% sur un allié",
       "allyAdjacent": "%game.target% un allié adjacent",
       "allyAffect": "%game.affect% tous les alliés",
+      "allyAffectAdjacent": "%game.affect% un allié adjacent",
       "allyAffectRange": "%game.target% un allié à portée %game.action.range% {0}",
       "allyShort": "Allié",
       "enemies": "%game.target% tous les ennemis",
@@ -1076,6 +1081,7 @@
       "enemiesRangeExact": "%game.target% tous les ennemis à exactement %game.action.range% {0}",
       "enemy": "%game.target% un ennemi",
       "enemyAdjacent": "%game.target% un ennemi adjacent",
+      "enemyAllyRange": "%game.target% un ennemi ou %game.affect% un allié à portée %game.action.range% {0}",
       "enemyOneAll": "%game.target% un ennemi avec toutes les attaques",
       "enemyRange": "%game.target% un ennemi à %game.action.range% {0}",
       "figures": "%game.target% toutes les unités",
@@ -1086,7 +1092,8 @@
       "selfAllies": "Sur vous-même et tous les alliés",
       "selfAlliesAdjacentAffect": "%game.affect%etc. sur vous-même et tous les alliés adjacents",
       "selfAlliesAffect": "%game.affect% sur vous-même et tous les alliés",
-      "selfAlliesRange": "%game.target% tous les alliés à Portée %game.action.range% {0} et lui-même.",
+      "selfAlliesAffectRange": "%game.affect% sur vous-même et tous les alliés à portée %game.action.range% {0}",
+      "selfAlliesRange": "%game.target% sur vous-même et tous les alliés à portée %game.action.range% {0}",
       "selfOrAlly": "Soi-même ou allié",
       "targets": "Toutes les cibles"
     },

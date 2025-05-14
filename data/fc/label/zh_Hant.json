@@ -1,1 +1,27 @@
-{}
+{
+  "custom": {
+    "fc": {
+      "flowChartGroup": {
+        "diviner": "預言師"
+      }
+    }
+  },
+  "deck": {
+    "ashblade": "燼刀客",
+    "savage": "野蠻人",
+    "tracker": "追蹤者"
+  },
+  "edition": {
+    "fc": "遺忘之環"
+  },
+  "monster": {
+    "aesther-ashblade": "行維族燼刀客",
+    "aesther-scout": "行維族哨兵",
+    "avatar-of-ashtar": "",
+    "human-commander": "人類統帥",
+    "manifestation-of-corruption": "腐化原型",
+    "valrath-commander": "煉魔族統帥",
+    "valrath-savage": "煉魔族野蠻人",
+    "valrath-tracker": "煉魔族追蹤者"
+  }
+}
