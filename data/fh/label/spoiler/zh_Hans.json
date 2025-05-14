@@ -219,7 +219,10 @@
     "meteor": "炎浆使",
     "prism": {
       "": "虫巢",
-      "prism_mode": "%data.characterToken.prism.mode% 模式标记",
+      "prism_mode": {
+        "": "%data.characterToken.prism.mode% 模式标记",
+        "hint": ""
+      },
       "repair_mode": {
         "": "再建援助",
         "hint": "%data.characterToken.prism.mode%修理无人机模块：在你每个回合开始时，执行：%game.action.heal%2，自己"

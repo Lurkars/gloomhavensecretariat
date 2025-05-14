@@ -11,6 +11,9 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "blocks": [
+    "4B"
+  ],
   "rewards": {
     "prosperity": 1,
     "morale": 1,

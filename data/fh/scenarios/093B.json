@@ -11,6 +11,9 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "blocks": [
+    "93A"
+  ],
   "rewards": {
     "itemBlueprints": [
       "79"

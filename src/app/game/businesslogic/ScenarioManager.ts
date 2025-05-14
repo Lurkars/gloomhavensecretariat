@@ -288,7 +288,7 @@ export class ScenarioManager {
             if (!scenario.repeatable && !this.game.party.conclusions.find((conclusion) => conclusion.index == scenario.index && conclusion.edition == scenario.edition && conclusion.group == scenario.group)) {
               this.game.party.conclusions.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group));
             }
-          } else if (!scenario.hideIndex) {
+          } else if (!scenario.hideIndex && (!rewards || !rewards.repeatScenario)) {
             this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
           }
 

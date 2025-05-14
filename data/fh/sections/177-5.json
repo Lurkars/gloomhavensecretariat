@@ -9,10 +9,12 @@
     ]
   ],
   "conclusion": true,
+  "named": true,
   "blockedSections": [
     "116.1"
   ],
   "rewards": {
-    "custom": "%data.section.rewards.fh.177-5%"
+    "custom": "%data.section.rewards.fh.177-5%",
+    "repeatScenario": true
   }
 }

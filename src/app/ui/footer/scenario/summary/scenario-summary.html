@@ -791,6 +791,10 @@
               <span class="placeholder text-white" [ghs-label]="rewards.custom"></span>
             </div>
 
+            <div class="item custom" *ngIf="rewards.repeatScenario">
+              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.repeatScenario'"></span>
+            </div>
+
             <div class="item loot-deck-cards"
               *ngFor="let lootDeckCard of (rewards.lootDeckCards || []); let i = index;">
               <span class="placeholder text-white" [ghs-label]="'scenario.rewards.lootDeckCard'"

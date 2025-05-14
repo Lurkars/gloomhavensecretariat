@@ -219,7 +219,10 @@
     "meteor": "Pyroclast",
     "prism": {
       "": "HIVE",
-      "prism_mode": "%data.characterToken.prism.mode% Mode Token",
+      "prism_mode": {
+        "": "%data.characterToken.prism.mode% Mode Token",
+        "hint": "%data.characterToken.prism.mode% Mode is activated for summon, summon does not act on turn."
+      },
       "repair_mode": {
         "": "Reconstructive Aid",
         "hint": "%data.characterToken.prism.mode% Repair Drone Mode: At the start of each of your turns, perform: %game.action.heal% 2, self"

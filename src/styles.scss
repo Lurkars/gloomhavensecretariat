@@ -40,6 +40,19 @@
   src: url('./assets/fonts/germaniaone.woff') format('woff'), url('./assets/fonts/germaniaone.ttf') format('truetype'), url('./assets/fonts/germaniaone.svg') format('svg');
 }
 
+@font-face {
+  font-family: 'ghs-title-ru';
+  src: url('./assets/fonts/Moyenage.eot');
+  src: url('./assets/fonts/Moyenage.woff') format('woff'), url('./assets/fonts/Moyenage.ttf') format('truetype'), url('./assets/fonts/Moyenage.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'ghs-normal-ru';
+  size-adjust: 75%;
+  src: url('./assets/fonts/Kurale.eot');
+  src: url('./assets/fonts/Kurale.woff') format('woff'), url('./assets/fonts/Kurale.ttf') format('truetype'), url('./assets/fonts/Kurale.svg') format('svg');
+}
+
 @import '@angular/cdk/overlay-prebuilt.css';
 @import '~leaflet/dist/leaflet.css';
 
@@ -144,6 +157,13 @@ body {
     --ghs-font-text: 'ghs-text-fh';
     --ghs-font-extra: 'ghs-extra';
     --ghs-font-title: 'ghs-title-fh';
+  }
+
+  &.locale-ru {
+    --ghs-font-normal: 'ghs-normal-ru';
+    --ghs-font-text: 'ghs-normal-ru';
+    --ghs-font-extra: 'ghs-normal-ru';
+    --ghs-font-title: 'ghs-title-ru';
   }
 
   &.dragging {

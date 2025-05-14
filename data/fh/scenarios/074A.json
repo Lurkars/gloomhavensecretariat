@@ -21,6 +21,9 @@
       ]
     }
   ],
+  "blocks": [
+    "74B"
+  ],
   "rewards": {
     "randomItemBlueprint": 1
   },

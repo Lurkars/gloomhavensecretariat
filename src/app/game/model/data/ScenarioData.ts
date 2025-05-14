@@ -157,6 +157,7 @@ export class ScenarioRewards {
   overlaySticker: WorldMapOverlay | undefined = undefined;
   overlayCampaignSticker: WorldMapOverlay | undefined = undefined;
   pet: string | undefined = undefined;
+  repeatScenario: boolean = false;
   hints: ScenarioRewardHints | undefined = undefined;
 
 }

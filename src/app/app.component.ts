@@ -16,6 +16,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'gloomhavensecretariat';
 
   theme: string = '';
+  locale: string = '';
 
   constructor(private meta: Meta, private dialog: Dialog) {
     this.dialog.afterOpened.subscribe({
@@ -113,6 +114,15 @@ export class AppComponent implements OnInit, OnDestroy {
     } else if (document.body.classList.contains('disable-context-menu-touch')) {
       document.body.classList.remove('disable-context-menu-touch');
     }
+
+    this.locale = settingsManager.settings.locale;
+    for (let i = document.body.classList.length - 1; i >= 0; i--) {
+      const className = document.body.classList[i];
+      if (className.startsWith('locale-')) {
+        document.body.classList.remove(className);
+      }
+    }
+    document.body.classList.add('locale-' + this.locale)
   }
 
   applyAnimations() {

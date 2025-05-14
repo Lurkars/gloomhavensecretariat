@@ -45,6 +45,7 @@
     .ability-actions-container {
       position: relative;
       overflow: auto;
+      z-index: 2;
 
       .ability-actions {
         position: relative;
