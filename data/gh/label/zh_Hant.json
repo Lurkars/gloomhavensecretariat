@@ -17,6 +17,9 @@
       "elder-drake": {
         "1": "飛向下一個岩石棲點"
       },
+      "giant-viper": {
+        "1": "若目標與任何 %data.monster.giant-viper% 的盟友相鄰，增加 +2 %game.action.attack%。"
+      },
       "merciless-overseer": {
         "1": "所有斥候再次行動",
         "2": "V = 場上斥候的數量"

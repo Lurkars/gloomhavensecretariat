@@ -1,30 +1,125 @@
 {
   "ability": {
+    "Accelerated Power": "威力加速",
+    "Angry Howl": "憤怒嚎叫",
+    "Barbaric Instincts": "野蠻本能",
+    "Black Boon": "黑暗恩惠",
+    "Black Hex": "黑色巫術",
+    "Black Tendrils": "黑色觸須",
+    "Boil Blood": "鮮血沸騰",
+    "Bombardment": "狂轟猛炸",
+    "Booming Scream": "轟鳴尖叫",
+    "Brutalize": "殘酷蠻力",
+    "Calculated Strike": "精算打擊",
+    "Camaraderie": "戰友情深",
+    "Care Package": "護理包裹",
+    "Careful Throw": "謹慎投擲",
+    "Center Mass": "中心靶點",
+    "Chilling Breath": "冰凍吐息",
+    "Close Cuts": "近身切割",
     "Collateral Damage": "附帶傷害",
+    "Constrict": "纏身收束",
+    "Coupled Chain": "共軛鎖鏈",
     "Crash Protocol": "撞擊協議",
+    "Cripple": "致殘攻擊",
     "Crushing Weight": "粉碎重壓",
+    "Dark Charm": "黑暗魅惑",
+    "Defensive Strike": "防禦打擊",
+    "Disorienting Barrage": "失感彈幕",
+    "Double Throw": "雙重投擲",
+    "Drain Life": "汲取生命",
     "Drill Fist": "鑽機鐵拳",
+    "Dual Daggers": "匕首雙刺",
     "Dust Cloud": "漫天塵雲",
+    "Excessive Force": "過量武力",
+    "Executioner's Axe": "處決之斧",
     "Explode": "外向爆破",
+    "Explosive Blisters": "爆裂水皰",
     "Explosive Blitz": "爆裂閃襲",
     "Extra Fuel": "額外燃料",
+    "Extra Lift": "縱身騰躍",
+    "Fancy Hat": "精美禮帽",
+    "Fearsome Efficiency": "高效殺戮",
+    "Feed": "吞物進食",
+    "Find Cover": "尋找掩護",
     "Fire Bombs": "火焰炸彈",
+    "Flashing Claws": "閃光利爪",
+    "Follow Through": "緊追不捨",
+    "Greed": "貪得無厭",
+    "Ground Pound": "捶打地面",
     "Gut Punch": "腹部拳擊",
+    "Hasty Assault": "倉促攻擊",
+    "Heart Seeker": "穿心利斧",
+    "Heat Blast": "高溫爆彈",
+    "Hex Whip": "妖術鞭笞",
+    "Hungry Maw": "飢餓巨口",
+    "Icy Glare": "寒冰怒視",
     "Implode": "向內聚爆",
     "Insult to Injury": "雪上加霜",
     "Knock Out the Support": "擊垮支柱",
+    "Leech Warmth": "體溫榨取",
     "Level": "夷為平地",
+    "Lingering Strenth": "力量縈繞",
     "Lobbed Charge": "長程衝擊",
+    "Mana Explosion": "魔力爆破",
     "Mech Suit": "機械裝甲",
     "Micro Missiles": "微型導彈",
+    "Nothing Special": "普通攻擊",
     "Nowhere to Run": "無處可逃",
+    "Noxious Blade": "毒素利刃",
     "One-Two Punch": "二連拳擊",
+    "Overwatch": "掩護射擊",
+    "Parry": "巧勁招架",
+    "Patch Wounds": "包紮傷口",
+    "Phase Out": "相位隱退",
     "Piston Punch": "活塞拳擊",
+    "Plasma Ward": "電漿結界",
+    "Power Pitch": "威力投擲",
+    "Rancid Arrow": "酸腐之箭",
+    "Rapid Bolts": "速射之矢",
+    "Reckless Charge": "魯莽衝鋒",
+    "Release Gas": "釋放毒氣",
     "Remote Detonation": "遠程引爆",
+    "Repeat Shot": "多重射擊",
+    "Restoration": "療傷復原",
+    "Retrieval": "物歸原主",
+    "Ricochet": "迴旋彈射",
+    "Ripped From the Flesh": "撕裂血肉",
     "Robotic Enhancement": "機器強化",
+    "Rotting Embrace": "腐爛之擁",
     "Rubble": "碎石利用",
+    "Runic Draw": "符文牽引",
+    "Runic Feedback": "符文反饋",
+    "Sacrificial Hurl": "犧牲拋擲",
+    "Sap Strength": "力量榨幹",
+    "Screaming Shot": "尖叫射擊",
+    "Second Wind": "調勻氣息",
+    "Seismic Punch": "震波拳擊",
+    "Septic Hex": "敗血巫術",
+    "Sharpened Blades": "銳利鋒刃",
+    "Short Bow": "短弓攻擊",
+    "Shrapnel": "碎片飛濺",
+    "Spiked Pit": "尖刺坑洞",
+    "Stopping Power": "制動作用",
+    "Surround": "包抄圍堵",
+    "Swarm": "蜂擁群襲",
+    "Swift Fangs": "迅捷尖牙",
+    "Taxing Advance": "費力前行",
     "The Big One": "大型炸彈",
     "The Bigger One": "巨型炸彈",
+    "The Favorite": "趁手飛斧",
+    "The New Favorite": "趁手愛斧",
+    "Tip The Scales": "扭轉局勢",
+    "Toxic Frenzy": "劇毒狂亂",
+    "Twin Missiles": "二重飛彈",
+    "Unholy Flame": "不潔烈焰",
+    "Unstable Frenzy": "無常狂亂",
+    "Unstable Scratch": "無常抓撓",
+    "Vicious Spear": "狠毒長矛",
+    "Vile Scourge": "邪毒天災",
+    "Violent Slam": "暴力猛推",
+    "Weakening Bite": "虛弱撕咬",
+    "Whirlwind": "氣流旋風",
     "Wholesale Destruction": "整體摧毀",
     "Windup": "上緊發條"
   },
@@ -238,7 +333,44 @@
       },
       "flowChartGroup": {
         "characters": "角色",
-        "city-events": "城市事件"
+        "city-events": "城市事件",
+        "intro": "引導",
+        "main": "主線故事"
+      },
+      "giant-viper": {
+        "1": "本輪所有以 %data.monster.giant-viper% 為目標的攻擊獲得劣勢。",
+        "2": "若目標與任何 %data.monster.giant-viper% 的盟友相鄰，增加 +2 %game.action.attack%。"
+      },
+      "giant-viper-scenario-21": {
+        "1": "每當有個體攻擊巨型蝰蛇後，該個體承受 %game.damage:L% 傷害"
+      },
+      "hatchet": {
+        "abilities": {
+          "9": {
+            "bottomHint": "最多移動 4 格，然後收集你所在格子或相鄰格內的所有金幣與寶藏標記，並遺失此卡牌。",
+            "hint": "目標區域內的所有敵人承受 %game.damage:3%（每個敵人各自套用一張攻擊修正牌）。"
+          }
+        }
+      },
+      "living-corpse": {
+        "1": "目標承受 %game.damage:2% 傷害。",
+        "2": "若執行移動， %data.monster.living-corpse% 承受 %game.damage:1%。",
+        "3": "若執行攻擊， %data.monster.living-corpse% 承受 %game.damage:1%。"
+      },
+      "monstrosity": {
+        "1": "若執行攻擊行動， %data.monster.monstrosity% 承受 %game.damage:1%。",
+        "2": "與 %data.monster.monstrosity% 的相鄰盟友，添加 +1 %game.action.attack%。",
+        "3": "本輪中，任何個體攻擊 %data.monster.monstrosity% 時，該個體承受 %game.damage:2%。",
+        "4": "%data.monster.monstrosity% 承受 %game.damage:1% 傷害"
+      },
+      "rat-monstrosity": {
+        "1": "所有相鄰個體承受 %game.damage:1% 傷害",
+        "2": "所有相鄰個體承受 %game.damage:2% 傷害",
+        "3": "所有相鄰個體承受 %game.damage:3% 傷害",
+        "4": "所有相鄰個體承受 %game.damage:4% 傷害"
+      },
+      "rat-monstrosity-16-2": {
+        "1": "若有任何個體因死亡傷害而導致死亡或精疲力盡"
       },
       "red-guard": {
         "abilities": {
@@ -262,6 +394,17 @@
             "3": "所有相鄰的敵人受到 3 點傷害。"
           }
         }
+      },
+      "stone-golem": {
+        "1": "本回合中，任何個體攻擊 %data.monster.stone-golem% 時，該個體受到 %game.damage:3%。",
+        "2": "若執行移動能力，則 %data.monster.stone-golem% 承受 %game.damage:1%。",
+        "3": "若執行攻擊行動，則 %data.monster.stone-golem% 承受 %game.damage:2%。"
+      },
+      "vermling-raider": {
+        "1": "在最靠近敵人一個相鄰空格中製造一個 3-%game.damage% 的陷阱。"
+      },
+      "zealot": {
+        "1": "X =攻擊的目標所承受的 %game.damage%"
       }
     }
   },
@@ -305,7 +448,7 @@
     "Pillar right": "右側立柱",
     "Summoning Stone": "召喚石",
     "Table": "煉金桌",
-    "Ward": "守護結界"
+    "Ward": "結界"
   },
   "scenario": {
     "rules": {
@@ -315,10 +458,10 @@
           "2": "將 %game.mapMarker.2% 區域內最初設置的陷阱向最近的角色移動一格"
         },
         "14": {
-          "1": "所有與狂熱者相鄰的巨型蝰蛇死亡，若是普通巨型蝰蛇的話生成一個精英血色小惡魔，如果巨型蝰蛇為精英，改為生成兩個精英血色小惡魔"
+          "1": "所有與狂熱者相鄰的巨型蝰蛇死亡，巨型蝰蛇為普通生成1個，巨型蝰蛇為精英，改為生成2個精英"
         },
         "15": {
-          "1": "每輪結束時，每個狂熱者消滅一個其射程3內的黑色小惡魔，所有這麼做的狂熱者獲得 %game.condition.stun%"
+          "1": "每輪結束時，每個狂熱者消滅一個其射程3內的黑色小惡魔，該狂熱者獲得 %game.condition.stun%"
         },
         "20": {
           "1": "每次拾取字母格時，在該格放置一個激活標記",

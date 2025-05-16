@@ -759,7 +759,7 @@
         "hint": "%game.conditionIcon.stun% 暈眩: 不能執行能力和觸發物品。下回合結束時移除。"
       },
       "ward": {
-        "": "守護結界",
+        "": "結界",
         "hint": "%game.conditionIcon.ward% 戒護: 下次受到的傷害減至一半（向下取整），然後移除。"
       },
       "wound": {
@@ -1479,6 +1479,7 @@
         "force": "雙擊以顯示完整流程圖（含劇透內容）。"
       },
       "legend": {
+        "": "傳説",
         "blocked": {
           "": "被阻擋",
           "hint": "此劇本無法進行，因為被其他劇本所阻擋。"
@@ -1684,6 +1685,7 @@
         "winter-road": "從冬季道路牌庫移除事件{0}"
       },
       "removeLootDeckCard": "從遊戲中移除拾取卡{0}。不再添加它到任何劇本的拾取牌庫中。",
+      "repeatScenario": "劇本可重新遊玩！",
       "reputation": "{0}聲望",
       "resources": "每人獲得{1} %game.resource.{0}%",
       "resourcesLose": "每人失去{1} %game.resource.{0}% each",
@@ -2671,6 +2673,14 @@
         "objectives": "%game.condition.{1}% 所有 {0}",
         "summon": "{0}中的%game.condition.{2}% '{1}'",
         "summons": "%game.condition.{1}% 所有 {0} 召喚物"
+      },
+      "addConditions": {
+        "monster": "{0}中的{3}x %game.condition.{2}% '{1}'",
+        "monsterEntities": "{3}x %game.condition.{1}% 所有 {2}{0}",
+        "objectiveContainer": "{0}中的{3}x %game.condition.{2}% %game.objectiveMarker.{1}%",
+        "objectives": "{2}x %game.condition.{1}% 所有 {0}",
+        "summon": "{0}中的{3}x %game.condition.{2}% '{1}'",
+        "summons": "{2} x %game.condition.{1}% 所有 {0} 召喚物"
       },
       "addGameCondition": "添加 %game.condition.{0}% 至當前遊戲中",
       "addGlobalAchievement": "添加世界成就 '%data.globalAchievements.{0}%'",
