@@ -1721,8 +1721,8 @@
         "gainCondition": "{0}獲得%game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} 失去 %game.condition.{1}%",
-        "permanentCondition": "{0}獲得持續型%game.condition.{1}%",
-        "remove": "移除{0}",
+        "permanentCondition": "{0} 獲得持續型 %game.condition.{1}%",
+        "remove": "移除 {0}",
         "scenarioEffect": "作為劇本效果",
         "setAbility": "將 {0} 的激活能力卡牌設置為 '{1}'",
         "setHp": "{0} HP 到 {2}",
@@ -2472,6 +2472,7 @@
       },
       "it": "義大利語（Italiano）",
       "ko": "韓語 (한국어)",
+      "ru": "俄羅斯文",
       "zh_Hans": "簡體中文",
       "zh_Hant": "繁體中文"
     },
