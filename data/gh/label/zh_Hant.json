@@ -1,4 +1,15 @@
 {
+  "ability": {
+    "Blood Pact": "血之契約"
+  },
+  "battleGoals": {
+    "461": {
+      "": "狂熱者"
+    },
+    "462": {
+      "": "受虐狂"
+    }
+  },
   "character": {
     "brute": "蠻子",
     "scoundrel": "兇徒"
@@ -17,6 +28,13 @@
       "elder-drake": {
         "1": "飛向下一個岩石棲點"
       },
+      "flowChartGroup": {
+        "city-events": "城市事件",
+        "intro": "引導",
+        "personal-quests": "個人任務",
+        "random-scenarios": "隨機劇本",
+        "road-events": "道路事件"
+      },
       "giant-viper": {
         "1": "若目標與任何 %data.monster.giant-viper% 的盟友相鄰，增加 +2 %game.action.attack%。"
       },
@@ -24,11 +42,25 @@
         "1": "所有斥候再次行動",
         "2": "V = 場上斥候的數量"
       },
+      "mindthief": {
+        "abilities": {
+          "169": {
+            "2": "獲得"
+          }
+        }
+      },
       "prime-demon": {
         "1": "王座移動"
       },
       "the-betrayer": {
         "1": "心靈控制"
+      },
+      "tinkerer": {
+        "abilities": {
+          "58": {
+            "1": "承受 2 點傷害"
+          }
+        }
       },
       "winged-horror": {
         "1": "孵化蛋",
@@ -36,8 +68,52 @@
       }
     }
   },
+  "deck": {
+    "archer": "弓箭手",
+    "scout": "哨兵"
+  },
+  "edition": {
+    "gh": "幽港迷城"
+  },
   "monster": {
+    "ancient-artillery": "遠古砲台",
     "bandit-commander": "強盜指揮官",
-    "elder-drake": "上古亞龍"
+    "cave-bear": "洞穴熊",
+    "city-archer": "城鎮弓箭手",
+    "city-guard": "城鎮衛兵",
+    "cultist": "邪教徒",
+    "dark-rider": "黑暗騎士",
+    "deep-terror": "深恐者",
+    "elder-drake": "上古亞龍",
+    "forest-imp": "森林小惡魔",
+    "harrower-infester": "巢靈族寄生者",
+    "hound": "獵犬",
+    "inox-archer": "羚牛族弓箭手",
+    "inox-bodyguard": "羚牛族保鑣",
+    "inox-guard": "羚牛族衛兵",
+    "inox-shaman": "羚牛族薩滿",
+    "jekserah": "婕克瑟拉",
+    "living-bones": "骷髏",
+    "lurker": "伏擊者",
+    "merciless-overseer": "無情監工",
+    "night-demon": "暗夜惡魔",
+    "ooze": "軟泥怪",
+    "prime-demon": "惡魔主宰",
+    "savvas-icestorm": "原生族冰風魔人",
+    "savvas-lavaflow": "原生族熔岩魔",
+    "sun-demon": "旭日惡魔",
+    "the-betrayer": "背叛者",
+    "the-colorless": "蒼白者",
+    "the-gloom": "黯",
+    "the-sightless-eye": "漠視之眼",
+    "vermling-shaman": "腐鼠薩滿",
+    "winged-horror": "翼魔"
+  },
+  "section": {
+    "title": {
+      "gh": {
+        "randomMonsterCard-558": ""
+      }
+    }
   }
 }

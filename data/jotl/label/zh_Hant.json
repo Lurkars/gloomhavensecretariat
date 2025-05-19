@@ -95,6 +95,7 @@
     "Nowhere to Run": "無處可逃",
     "Noxious Blade": "毒素利刃",
     "One-Two Punch": "二連拳擊",
+    "Ones-Two Punch": "二連組合拳",
     "Overwatch": "掩護射擊",
     "Parry": "巧勁招架",
     "Patch Wounds": "包紮傷口",
@@ -465,10 +466,16 @@
             "1": "摧毀一個相鄰的障礙物。若你這麼做，獲得 %game.card.experience:1%，且所有與被摧毀障礙物相鄰的敵人各自承受 %game.damage:2%。"
           },
           "97": {
-            "1": "目標每相鄰一個牆面、障礙物、目標物、個體或陷阱，此攻擊額外增加 +1 %game.action.attack%。"
+            "1": "目標每相鄰一個牆面、障礙物、目標物、個體或陷阱，此攻擊額外增加 +1 %game.action.attack%。",
+            "2": "將一個相鄰的陷阱移動到一個相鄰敵人的格子中。"
           },
           "98": {
-            "1": "摧毀距離 %game.action.range:4% 內的一個障礙物。若你這麼做，則執行"
+            "1": "摧毀距離 %game.action.range:4% 內的一個障礙物。若你這麼做，則執行",
+            "2": "指定所有與被摧毀障礙物相鄰的敵人為目標",
+            "3": "在距離 %game.action.range:4% 內的一個空格中創造三個造成3點傷害的陷阱。"
+          },
+          "99": {
+            "1": "若目標與牆面相鄰，添加 +2 %game.action.attack%、添加 %game.condition.wound%，獲得 %game.card.experience:1%。"
           }
         }
       },
@@ -491,11 +498,82 @@
       },
       "hatchet": {
         "abilities": {
+          "11": {
+            "1": "若目標擁有你的愛斧標記，則將該標記歸回其卡牌上。"
+          },
+          "14": {
+            "1": "指定所有與你在此次移動中進入的任一格相鄰的敵人"
+          },
           "15": {
             "1": "在本輪中，接下來的攻擊數值增為兩倍。"
           },
           "16": {
-            "1": "所有相鄰的敵人承受 %game.damage:1%。"
+            "1": "所有相鄰的敵人承受 %game.damage:1%。",
+            "2": "所有相鄰敵人各自承受 %game.damage:2%。"
+          },
+          "18": {
+            "1": "若目標身上有你的愛斧標記，添加 +2 %game.action.attack%，並獲得 %game.card.experience:1%。"
+          },
+          "19": {
+            "1": "若本輪中擊殺過敵人，添加 +2 %game.action.move%，獲得 %game.card.experience:1%。"
+          },
+          "20": {
+            "1": "指定一名與攻擊目標相鄰的盟友"
+          },
+          "21": {
+            "1": "在接下來的四次移動能力中，添加 +2 %game.action.move%。"
+          },
+          "22": {
+            "1": "本回合所有的攻擊添加 +1 %game.action.attack%。"
+          },
+          "23": {
+            "1": "若目標有愛斧標記，添加 +2 %game.action.attack%，獲得 %game.card.experience:1%。"
+          },
+          "24": {
+            "1": "指定一名距離前一個攻擊目標 %game.action.range:2% 內的不同敵人為目標",
+            "2": "在接下來的四次攻擊中，一名與目標相鄰的敵人承受 %game.damage:2%。"
+          },
+          "25": {
+            "1": "<small>若此攻擊殺死目標，一名與其死亡格子相鄰的敵人承受 X 點傷害，其中 X 為該目標超過其死亡所需的傷害值。</small>",
+            "2": "\"若本輪中擊殺過敵人，添加 +2 %game.action.attack%，獲得 %game.card.experience:1%。"
+          },
+          "26": {
+            "1": "在接下來的五次攻擊中，添加 +1 %game.action.attack%，附加 %game.condition.wound%"
+          },
+          "27": {
+            "1": "若有相鄰敵人擁有愛斧標記，可以選擇將該標記歸回其卡牌上。若這麼做，該敵人承受 %game.damage:2%，附加 %game.condition.wound%。",
+            "2": "若本回合擊殺過敵人，添加 %game.condition.strengthen%，獲得 %game.card.experience:1%。"
+          },
+          "28": {
+            "1": "<small>在接下來的五次中，有敵人在移動能力結束時位於距離 %game.action.range:5% 內，即對該敵人執行一次\"%game.action.attack:2%、%game.action.range:5%\"的動作。</small>"
+          },
+          "30": {
+            "1": "<small>將斧頭標記放置在此卡牌上。在解決攻擊後，將該標記從此卡牌移到目標上，來為任意遠程攻擊添加 +3 %game.action.attack%、%game.condition.wound% 和 %game.action.push:1%。當該目標死亡時，將標記放置在其死亡的格子中。若拾取該格子，則將標記歸回此卡牌。當「趁手飛斧」卡片啟動時，此卡片無法同時啟動。</small>"
+          },
+          "31": {
+            "1": "所有相鄰敵人承受 %game.damage:1%。"
+          },
+          "32": {
+            "1": "若你的愛斧標記位於所在格子或相鄰格子中，執行"
+          },
+          "33": {
+            "1": "在接下來的五次針對擁有愛斧標記之敵人的攻擊中，添加 +2 %game.action.attack%。"
+          },
+          "34": {
+            "1": "若目標擁有愛斧標記，添加+2 %game.action.attack%，獲得 %game.card.experience:1%，將該標記歸回其卡牌上。"
+          },
+          "35": {
+            "1": "<small>在接下來的五次中，只要殺死一名敵人，所有與其死亡格子相鄰的敵人自承受 %game.damage:2%。</small>"
+          },
+          "36": {
+            "1": "若與一名盟友相鄰，則本回合的下一次攻擊添加+2 %game.action.attack%。"
+          },
+          "37": {
+            "1": "一名相鄰的普通或精英敵人承受 %game.damage:12%。",
+            "2": "若本輪中擊殺過敵人，則將愛斧標記歸回其卡牌上，獲得 %game.card.experience:1%。"
+          },
+          "38": {
+            "1": "<small>在接下來的四次只要你殺死一名敵人，執行%game.action.heal:3%、%game.action.range:2%、%game.condition.bless%的動作。</small>"
           },
           "9": {
             "bottomHint": "最多移動 4 格，然後收集你所在格子或相鄰格內的所有金幣與寶藏標記，並遺失此卡牌。",
