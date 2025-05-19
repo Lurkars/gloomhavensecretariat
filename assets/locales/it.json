@@ -117,7 +117,7 @@
       "levelWarning": "Mazzo non valido perchè alcune carte sono di livello superiore al personaggio!",
       "pickCard": "Scegli la tua carta di livello {0}",
       "removeFromDeck": "Fare doppio clic per rimuovere la carta dal mazzo",
-      "show": "Mostra tutte le carte abilità",
+      "show": "Mostra tutte le carte Capacità",
       "showDeck": "Mostra il mazzo del personaggio attuale",
       "sort": {
         "cardId": "Ordina per numero di carta",
@@ -269,7 +269,7 @@
       "level": "(Level {0})"
     },
     "token": "Segnalino personaggio",
-    "traits": "Capacità",
+    "traits": "Tratti",
     "unlock": {
       "": "Sbloccare?",
       "confirm": "Sblocca!"
@@ -331,7 +331,7 @@
       "download": {
         "": "Scarica ora il file di backup",
         "hint": {
-          "": "Eseguire il backup del gioco regolarmente per prevenire la perdita di dati.",
+          "": "Esegui il backup del gioco regolarmente per prevenire la perdita di dati.",
           "hide": "Non mostrare più",
           "text": "L'intero processo è archiviato nella memoria del browser. Sebbene nessun browser dovrebbe eliminare accidentalmente questi dati, ci sono ancora pochissimi di questi casi fortuiti. Indipendentemente dal fatto che questi incidenti siano causati da errori di utilizzo, per esserne sicuri, è una buona idea creare un backup."
         },
@@ -425,7 +425,7 @@
       "": "Editor dei personaggi",
       "data": {
         "": "Dati dei personaggi",
-        "deck": "Nome del mazzo delle abilità",
+        "deck": "Nome del mazzo delle Capacità",
         "hp": {
           "": "Punti vita",
           "-1": "Profilo personalizzato",
@@ -442,17 +442,17 @@
       "new": "Nuovo personaggio"
     },
     "deck": {
-      "": "Editor del mazzo delle abilità",
-      "abilityName": "Nome abilità",
-      "addAbility": "Aggiungi abilità",
+      "": "Editor del mazzo delle Capacità",
+      "abilityName": "Nome Capacità",
+      "addAbility": "Aggiungi Capacità",
       "character": "Mazzo del personaggio",
       "json": {
-        "": "Mazzo delle abilità in formato JSON",
-        "download": "Scarica il mazzo delle abilità come file JSON"
+        "": "Mazzo delle Capacità in formato JSON",
+        "download": "Scarica il mazzo delle Capacità come file JSON"
       },
       "name": "Nome del mazzo",
-      "new": "Nuovo mazzo delle abilità",
-      "removeAbility": "Rimuovi abilità"
+      "new": "Nuovo mazzo delle Capacità",
+      "removeAbility": "Rimuovi Capacità"
     },
     "edition": {
       "": "Editor dell'edizione",
@@ -467,8 +467,8 @@
         "allSelected": "Seleziona tutti gli stati"
       },
       "decks": {
-        "": "Aggiungi files del mazzo delle abilità",
-        "remove": "Rimuovi mazzo delle abilità"
+        "": "Aggiungi files del mazzo delle Capacità",
+        "remove": "Rimuovi mazzo delle Capacità"
       },
       "edition": "Nome edizione",
       "extensions": "Edizioni da ampliare",
@@ -491,7 +491,7 @@
         "applyAll": "Applica a tutti i livelli",
         "boss": "E' il Boss",
         "count": "Numero delle pedine",
-        "deck": "Nome del mazzo delle abilità",
+        "deck": "Nome del mazzo delle Capacità",
         "flying": "Sta volando",
         "hidden": "E' nascosto",
         "json": {
@@ -756,7 +756,7 @@
       },
       "stun": {
         "": "Stordire",
-        "hint": "%game.conditionIcon.stun% Stordire: Non è possibile eseguire abilità o utilizzare o attivare oggetti. Rimuovi alla fine del turno successivo."
+        "hint": "%game.conditionIcon.stun% Stordire: Non è possibile effettuare capacità o utilizzare o attivare oggetti. Rimuovi alla fine del turno successivo."
       },
       "ward": {
         "": "Interdizione",
@@ -869,7 +869,7 @@
       "error": {
         "deck": {
           "": "Mazzo mancante",
-          "hint": "Nessun mazzo abilità trovato per %{0}% '%data.{0}.{1}%'! Si prega di controllare i dati del mazzo (Edizione: %data.edition.{2}%)."
+          "hint": "Nessun mazzo Capacità trovato per %{0}% '%data.{0}.{1}%'! Si prega di controllare i dati del mazzo (Edizione: %data.edition.{2}%)."
         },
         "monsterEdition": {
           "": "Edizione del mostro errata",
@@ -967,6 +967,8 @@
     "loot": {
       "": "Bottino",
       "apply": "Aggiungi a %data.character.{0}%",
+      "arrowvine": "Rampicafreccia",
+      "axenut": "Ascianoce",
       "chooseCharacter": "Seleziona personaggio per +{0} {1}",
       "config": {
         "": "Tabella del bottino",
@@ -976,12 +978,14 @@
         "hide": "Nascondi la tabella del bottino",
         "show": "Mostra la tabella del bottino"
       },
+      "corpsecap": "Cappellocadavere",
       "deck": "Mazzo del bottino",
       "enhancements": {
         "": "Miglioramenti",
         "add": "Aggiungi miglioramento",
         "remove": "Rimuovi miglioramento"
       },
+      "flamefruit": "Fruttofiamma",
       "herb_resources": "erba",
       "hide": "Pelle",
       "keep": "Continua con %data.character.{0}%",
@@ -1002,6 +1006,8 @@
         "draw": "Oggetto casuale per %game.characterIconColored.{0}% {1}"
       },
       "remove": "Rimuovi da %data.character.{0}%",
+      "rockroot": "Pietraradice",
+      "snowthistle": "Nevecardo",
       "special": "speciale",
       "special1": "Carta speciale 1(#1418)",
       "special2": "Carta speciale 2 (#1419)",
@@ -1125,7 +1131,7 @@
     "addMonsterEntities": "Usa i pulsanti \"+\" per generare mostri.",
     "addMonsters": "%monster.add%",
     "draw": "Fai clic su \"%round.draw%\"",
-    "draw-full": "Scegli le carte abilità del personaggio, imposta l'iniziativa, fai clic su \"%round.draw%\".",
+    "draw-full": "Scegli le carte capacità del personaggio, imposta l'iniziativa, fai clic su \"%round.draw%\".",
     "draw-short": "Imposta l'iniziativa, fai clic su \"%round.draw%\"",
     "next": "Fai clic su \"%round.next%\"",
     "setScenario": "%scenario.set%"
@@ -1142,7 +1148,7 @@
       "elite": "Genera mostro elite",
       "normal": "Genera mostro normale"
     },
-    "applyInteractiveActions": "Applica abilità evidenziate per",
+    "applyInteractiveActions": "Applica capacità evidenziate per",
     "boss": "Boss",
     "cancelNumberpicker": "Annulla",
     "changeStandee": "Cambia %game.monsterType.{0}% pedina #{1}",
@@ -1165,10 +1171,10 @@
     "setStandees": "Sistema le pedine {1} %game.monsterType.{0}%",
     "showBoss": "Mostra mostro Boss",
     "showHidden": "Mostra mostro nascosto",
-    "skipInteractiveActions": "Salta le abilità interattive per",
+    "skipInteractiveActions": "Salta le capacità interattive per",
     "statEffect": {
       "": "Regole speciali applicano le seguenti modifiche:",
-      "deck": "Usa abilità modificate:<br>\"{0}\""
+      "deck": "Usa capacità modificate:<br>\"{0}\""
     },
     "toggleAction": "Attiva/disattiva la capacità applicabile",
     "toggleAllied": {
@@ -1679,6 +1685,7 @@
         "winter-road": "Rimuovi l'evento {0} dal mazzo strada invernale"
       },
       "removeLootDeckCard": "Rimuovi la carta bottino {0} dal gioco. Non aggiungerlo più al mazzo di bottino di nessuno scenario.",
+      "repeatScenario": "Lo scenario può essere rigiocato!",
       "reputation": "{0} reputazione",
       "resources": "Ciascuno ottiene {1} %game.resource.{0}%",
       "resourcesLose": "Ciascuno perde {1} %game.resource.{0}%",
@@ -1707,17 +1714,17 @@
         "amAdd": "{0} aggiungi %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% al mazzo dei modificatori attacco",
         "amRemove": "0} rimuovi %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% dal mazzo dei modificatori attacco",
         "damage": "{0} subisci %game.damage:{2}%",
-        "discard": "{0}ognuno scarta %number.{2}% carte abilità",
-        "discardAbilityToBottom": "Posiziona l'abilità sul fondo della pila degli scarti per {0}",
+        "discard": "{0}ognuno scarta %number.{2}% carte capacità",
+        "discardAbilityToBottom": "Posiziona la capacità sul fondo della pila degli scarti per {0}",
         "dormant": "{0} diventa dormiente",
-        "drawAbility": "Pesca un'altra carta abilità per {0}",
+        "drawAbility": "Pesca un'altra carta capacità per {0}",
         "gainCondition": "{0} ottieni %game.condition.{1}%",
         "heal": "{0} %game.action.heal% {2}",
         "loseCondition": "{0} perdi %game.condition.{1}%",
         "permanentCondition": "{0} ottieni %game.condition.{1}% permanente",
         "remove": "Rimuovi {0}",
         "scenarioEffect": "come effetto dello scenario",
-        "setAbility": "Imposta la carta abilità attiva da {0} a '{1}'",
+        "setAbility": "Imposta la carta capacità attiva da {0} a '{1}'",
         "setHp": "{0} PV a {2}",
         "toggleOff": "{0} a inattivo",
         "toggleOn": "{0} a attivo",
@@ -1780,7 +1787,7 @@
     "set": "Imposta scenario",
     "setup": {
       "": "Configurazione scenario",
-      "abilities": "Abilità",
+      "abilities": "Capacità",
       "detailed": "Mostra statistiche dettagliate dei mostri",
       "spoiler": "Spoiler",
       "stats": "Statistiche mostri"
@@ -1986,16 +1993,16 @@
   "settings": {
     "": "Impostazioni",
     "abilities": {
-      "": "Carte abilità",
-      "hint": "Pesca carte abilità per i mostri. Se non selezionato, l'ordine dei mostri deve essere impostato manualmente con un trascinamento."
+      "": "Carte Capacità",
+      "hint": "Pesca carte capacità per i mostri. Se non selezionato, l'ordine dei mostri deve essere impostato manualmente con un trascinamento."
     },
     "abilityNumbers": {
-      "": "Mostra i numeri delle abilità",
-      "hint": "Mostra il numero della carta sulle carte abilità"
+      "": "Mostra i numeri delle capacità",
+      "hint": "Mostra il numero della carta sulle carte capacità"
     },
     "abilityReveal": {
-      "": "Rivela le abilità direttamente",
-      "hint": "Se non selezionato, le abilità dei mostri non vengono rivelate fino al turno"
+      "": "Rivela le capacità direttamente",
+      "hint": "Se non selezionato, le capacità dei mostri non vengono rivelate fino al turno"
     },
     "activeApplyConditions": {
       "": "Conferma gli stati applicabili",
@@ -2092,7 +2099,7 @@
     },
     "applyLongRest": {
       "": "Applica riposo lungo",
-      "hint": "Esegui automaticamente %game.action.heal% 2 nel turno del personaggio quando riposa a lungo"
+      "hint": "Effettua automaticamente %game.action.heal% 2 nel turno del personaggio quando riposa a lungo"
     },
     "applyLoot": {
       "": "Applica bottino al personaggio",
@@ -2199,15 +2206,15 @@
     },
     "calculate": {
       "": "Mostra le statistiche calcolate",
-      "hint": "I valori di abilità sono calcolati insieme alle statistiche, quindi invece di attacco +1, viene mostrato attacco 4 per un valore di attacco di 3 nelle statistiche"
+      "hint": "I valori di capacità sono calcolati insieme alle statistiche, quindi invece di attacco +1, viene mostrato attacco 4 per un valore di attacco di 3 nelle statistiche"
     },
     "calculateShieldStats": {
-      "": "Aggiungi Scudo e Ritorsione alle abilità",
-      "hint": "I valori statistici predefiniti di %game.action.shield% e %game.action.retaliate% vengono aggiunti alle azioni %game.action.shield% e %game.action.retaliate% della scheda abilità, il che consente di visualizzare valori aggregati completi."
+      "": "Aggiungi Scudo e Ritorsione alle capacità",
+      "hint": "I valori statistici predefiniti di %game.action.shield% e %game.action.retaliate% vengono aggiunti alle azioni %game.action.shield% e %game.action.retaliate% della scheda capacità, il che consente di visualizzare valori aggregati completi."
     },
     "calculateStats": {
-      "": "Aggiungi i valori statistici alle abilità",
-      "hint": "I valori delle statistiche predefiniti vengono aggiunti al valore di abilità, ad esempio un valore di portata viene automaticamente aggiunto all'abilità di attacco"
+      "": "Aggiungi i valori statistici alle capacità",
+      "hint": "I valori delle statistiche predefiniti vengono aggiunti al valore di capacità, ad esempio un valore di portata viene automaticamente aggiunto alla capacità di Attacco"
     },
     "character": "Personaggio",
     "characterAttackModifierAnimate": {
@@ -2291,8 +2298,8 @@
       "hint": "Distribuisci sempre le unità in tutte le colonne disponibili."
     },
     "combineInteractiveAbilities": {
-      "": "Combina abilità interattive",
-      "hint": "Esegui abilità interattive per tutte le pedine contemporaneamente."
+      "": "Combina capacità interattive",
+      "hint": "Effettua capacità interattive per tutte le pedine contemporaneamente."
     },
     "conditions": "Condizioni/elementi",
     "damageHP": {
@@ -2363,7 +2370,7 @@
     },
     "fhStyle": {
       "": "Stile di Frosthaven",
-      "hint": "Visualizzare azioni, abilità e icone nel nuovo stile di Frosthaven, attiva automaticamente il tema di Frosthaven."
+      "hint": "Visualizzare azioni, capacità e icone nel nuovo stile di Frosthaven, attiva automaticamente il tema di Frosthaven."
     },
     "fhTrials": {
       "": "Supporto per le prove",
@@ -2382,11 +2389,11 @@
       "hint": "Applica automaticamente (se possibile) le carte delle prove attive."
     },
     "fontsize": {
-      "": "Grandezza carattere delle abilità",
-      "dec": "Riduci il carattere delle abilità",
-      "hint": "Imposta le dimensioni del carattere delle carte abilità e delle statistiche",
-      "inc": "Aumenta il carattere delle abilità",
-      "reset": "Reimposta il carattere delle abilità"
+      "": "Grandezza carattere delle Capacità",
+      "dec": "Riduci il carattere delle capacità",
+      "hint": "Imposta le dimensioni del carattere delle carte capacità e delle statistiche",
+      "inc": "Aumenta il carattere delle capacità",
+      "reset": "Reimposta il carattere delle capacità"
     },
     "fullscreen": {
       "": "Schermo intero",
@@ -2440,8 +2447,8 @@
       "hint": "Mostra una finestra di dialogo per iniziare il prossimo round quando sono impostate tutte le iniziative."
     },
     "interactiveAbilities": {
-      "": "Abilità interattive",
-      "hint": "Applica alcune abilità evidenziate, come evocazioni o azioni elementali, facendo clic sull'area corrispondente della scheda abilità."
+      "": "Capacità interattive",
+      "hint": "Applica alcune capacità evidenziate, come evocazioni o azioni elementali, facendo clic sull'area corrispondente della scheda capacità."
     },
     "interface": "Interfaccia",
     "keyboardShortcuts": {
@@ -2466,6 +2473,7 @@
       },
       "it": "Italiano",
       "ko": "Coreano (한국어)",
+      "ru": "Russo (Русский)",
       "zh_Hans": "Cinese semplificato (简体中文)",
       "zh_Hant": "Cinese tradizionale (繁體中文)"
     },
@@ -2554,12 +2562,12 @@
       "hint": "Raccogli statistiche su danni, uccisioni, bottino, Esp e cure durante uno scenario"
     },
     "showExpandedAbilityCard": {
-      "": "Mostra carte abilità ampliate",
-      "hint": "Mostra tutte le abilità sulle carte abilità contemporaneamente (mostra automaticamente anche il titolo della carta)."
+      "": "Mostra carte capacità ampliate",
+      "hint": "Mostra tutte le capacità sulle carte capacità contemporaneamente (mostra automaticamente anche il titolo della carta)."
     },
     "showFullAbilityCard": {
-      "": "Mostra il titolo della carta abilità",
-      "hint": "Mostra le carte abilità incluso il titolo."
+      "": "Mostra il titolo della carta capacità",
+      "hint": "Mostra le carte capacità incluso il titolo."
     },
     "sortFigures": {
       "": "Ordina le unità",
@@ -2850,7 +2858,7 @@
       "donate": "Donazione di {0} al Santuario della Grande Quercia",
       "downgradeBuilding": "Downgrade dell'edificio '%data.buildings.{1}%' ({0}) al livello {2}",
       "draw": "Pesca",
-      "drawAbility": "Pesca l'abilità per {0}",
+      "drawAbility": "Pesca la capacità per {0}",
       "enableAutomaticLevel": "Abilita il calcolo automatico del livello",
       "enableEnvelopeB": "Apri la busta B",
       "enablePartyCampaignMode": "Abilita la modalità campagna",
@@ -2929,7 +2937,7 @@
       "openRoom": "Porta aperta per la tessera '{2}' in #{0} {1}",
       "openRoomMarker": "Apri la porta %game.mapMarker.{3}% per la tessera '{2}' in #{0} {1}",
       "rebuildBuilding": "Ricostruisci '%data.buildings.{1}%' ({0})",
-      "removeAbility": "Rimuovi l'abilità \"{1}\" da {0}",
+      "removeAbility": "Rimuovi la capacità \"{1}\" da {0}",
       "removeAllChars": "Rimuovi tutti i personaggi",
       "removeAllMonster": "Rimuovi tutti i mostri",
       "removeAllObjectives": "Rimuovi tutti gli obiettivi",
@@ -3028,12 +3036,12 @@
       "removeTreasure": "Rimuovi il tesoro {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "removeTreasures": "Rimuovi i tesori {1} (%data.edition.{0}%)",
       "reorder": "Riordina le unità",
-      "reorderAbilities": "Riordina le abilità di {0}",
+      "reorderAbilities": "Riordina le capacità di {0}",
       "repairBuilding": "Ripara '%data.buildings.{1}%' ({0})",
       "resetCampaign": "Reimposta la campagna",
       "resetScenario": "Reimposta lo scenario #{0} {1} ({2})",
-      "restoreAbility": "Ripristina l'abilità \"{1}\" per {0}",
-      "restoreDefaultAbilities": "Ripristina le abilità predefinite di {0}",
+      "restoreAbility": "Ripristina la capacità \"{1}\" per {0}",
+      "restoreDefaultAbilities": "Ripristina le capacità predefinite di {0}",
       "sellItem": "Vendi l'oggetto \"%data.items.{2}-{1}%\" per {0}",
       "serverSync": "Server: {0}",
       "serverSyncEmpty": "Sincronizzazione server",
@@ -3122,9 +3130,9 @@
       "setSummonState": "Imposta evocazione {1} {2} per {0}",
       "setTitle": "Titolo '{1}' per {0}",
       "setXP": "Esp {1} per {0}",
-      "shuffleAbilityDeck": "Mescola le abilità di {0}",
-      "shuffleAbilityDeckUpcoming": "Mescola le abilità in arrivo di {0}",
-      "skipInteractiveActions": "Salta le abilità interattive per le pedine {1} di {2}",
+      "shuffleAbilityDeck": "Mescola le capacità di {0}",
+      "shuffleAbilityDeckUpcoming": "Mescola le capacità in arrivo di {0}",
+      "skipInteractiveActions": "Salta le capacità interattive per le pedine {1} di {2}",
       "startCampaign": "Avvia una nuova campagna {0}",
       "summonActive": "Evoca '{1}' di {0} attivo",
       "summonDead": "Uccidi evocazione '{1}' di {0}",
@@ -3193,7 +3201,7 @@
     "": "Strumenti [Spoiler!]",
     "attackModifier": "Modificatore di attacco",
     "backToGhs": "Torna a GHS",
-    "decks": "Mazzi Abilità",
+    "decks": "Mazzi Capacità",
     "feedback": {
       "": "Commenti",
       "githubIssue": "Segnala un problema in GitHub",
@@ -3211,9 +3219,9 @@
         "type": {
           "": "Tipo di problema",
           "abilityCard": {
-            "": "Carte abilità",
-            "hint": "Valori errati sulle carte abilità.",
-            "subject": "Riscontrato un problema con le carte abilità"
+            "": "Carte capacità",
+            "hint": "Valori errati sulle carte capacità.",
+            "subject": "Riscontrato un problema con le carte capacità"
           },
           "artwork": {
             "": "Illustrazione",

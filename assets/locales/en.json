@@ -1498,15 +1498,15 @@
         },
         "success": {
           "": "Success",
-          "hint": "This scneario was finished successfully."
+          "hint": "This scenario was finished successfully."
         },
         "success-blocked": {
           "": "Success, currently blocked",
-          "hint": "This scneario was finished successfully, but is now blocked."
+          "hint": "This scenario was finished successfully, but is now blocked."
         },
         "success-locked": {
           "": "Success, currently locked",
-          "hint": "This scneario was finished successfully, but is now locked."
+          "hint": "This scenario was finished successfully, but is now locked."
         },
         "unplayed": {
           "": "Unplayed",
@@ -3327,6 +3327,7 @@
       "toggleAbsent": "Toggle <i>Hide absent figures</i>",
       "toggleDamageHP": "Toggle <i>%settings.damageHP%</i>",
       "toggleElements": "Toggle through element state",
+      "toggleFullscreen": "Toggle <i>Fullscreen</i>",
       "toggleHandSize": "Toggle <i>Display hand size and level</i>",
       "togglePlayerNumber": "Toggle <i>Display player number</i>",
       "toggleTraits": "Toggle <i>Display traits</i>",

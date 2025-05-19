@@ -1469,6 +1469,41 @@
         "back": "Retour au mode campagne",
         "force": "Double-cliquez pour forcer l’affichage de l'organigramme, y compris les spoilers."
       },
+      "legend": {
+        "": "Légende",
+        "blocked": {
+          "": "Bloqué",
+          "hint": "Ce scénario ne peut pas être joué, car il est bloqué."
+        },
+        "locked": {
+          "": "Verrouillé",
+          "hint": "Ce scénario est verrouillé, il ne peut donc pas encore être joué en raison d'exigences non satisfaites."
+        },
+        "not-campaign": {
+          "": "Pas de mode campagne",
+          "hint": "Vous n'êtes pas en Mode Campagne"
+        },
+        "not-unlocked": {
+          "": "Non déverrouillé",
+          "hint": "Ce scénario est visible, mais ne peut pas être joué car il n'a pas encore été déverrouillé."
+        },
+        "success": {
+          "": "Succès",
+          "hint": "Ce scénario a été terminé avec succès."
+        },
+        "success-blocked": {
+          "": "Succès, actuellement bloqué",
+          "hint": "Ce scénario a été terminé avec succès, mais est maintenant bloqué."
+        },
+        "success-locked": {
+          "": "Succès, actuellement verrouillé",
+          "hint": "Ce scénario a été terminé avec succès, mais il est maintenant verrouillé."
+        },
+        "unplayed": {
+          "": "Non joué",
+          "hint": "Ce scénario est déverrouillé et peut être joué."
+        }
+      },
       "setup": "Afficher la configuration du scénario",
       "start": "Démarrer un Scénario",
       "success": "Marquer comme terminé",

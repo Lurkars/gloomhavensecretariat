@@ -1486,7 +1486,7 @@
         },
         "locked": {
           "": "Fehlende Voraussetzungen",
-          "hint": "Dieses Szenario kann nicht gespielt werden, da bestimmte Vorraussetzungen noch nicht erfüllt sind"
+          "hint": "Dieses Szenario kann nicht gespielt werden, da bestimmte Voraussetzungen noch nicht erfüllt sind."
         },
         "not-campaign": {
           "": "Kein Kampagnenmodus",
@@ -1498,15 +1498,15 @@
         },
         "success": {
           "": "Erfolg",
-          "hint": "Dieses Szenario wurde erfolgriech abgeschlossen."
+          "hint": "Dieses Szenario wurde erfolgreich abgeschlossen."
         },
         "success-blocked": {
           "": "Erfolg, aktuell blockiert",
-          "hint": "Dieses Szenario wurde erfolgriech abgeschlossen, ist aktuell allerdings blockiert."
+          "hint": "Dieses Szenario wurde erfolgreich abgeschlossen, ist aktuell allerdings blockiert."
         },
         "success-locked": {
           "": "Erfolg, aktuell fehlende Voraussetzungen",
-          "hint": "Dieses Szenario wurde erfolgriech abgeschlossen, hat aktuell allerdings fehlende Voraussetzungen."
+          "hint": "Dieses Szenario wurde erfolgreich abgeschlossen, hat aktuell allerdings fehlende Voraussetzungen."
         },
         "unplayed": {
           "": "Noch nicht gespielt",
@@ -3327,6 +3327,7 @@
       "toggleAbsent": "<i>Abwesende Figuren ausblenden</i> umschalten",
       "toggleDamageHP": "<i>%settings.damageHP%</i> umschalten",
       "toggleElements": "Elementen Status durchschalten",
+      "toggleFullscreen": "<i>Vollbild</i> umschalten",
       "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen</i> umschalten",
       "togglePlayerNumber": "<i>Spielernummer anzeigen</i> umschalten",
       "toggleTraits": "<i>Eigenschaften anzeigen</i> umschalten",
