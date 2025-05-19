@@ -1,1 +1,56 @@
-{}
+{
+  "items": {
+    "gh-1": {
+      "": "Stivali dei Lunghi Passi",
+      "1": "Durante il tuo movimento, aggiungi +2 %game.action.move% al movimento."
+    },
+    "gh-10": {
+      "": "Martello da Guerra",
+      "1": "Durante il tuo attacco in mischia, aggiungi %game.condition.stun% all'intera azione di Attacco."
+    },
+    "gh-100": {
+      "": "Vesti dell'Evocazione",
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal% 2, bersaglia un qualsiasi alleato evocato\"."
+    },
+    "gh-101": {
+      "": "Seconda Pelle",
+      "1": "Rimuovi due %game.attackmodifier.minus1% dal tuo mazzo dei modificatori di attacco."
+    },
+    "gh-102": {
+      "": "Vesti Sacrificali",
+      "1": "Durante il tuo attacco a distanza, subisci 3 danni per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
+    },
+    "gh-103": {
+      "": "Armatura di Scaglie di Draco",
+      "1": "Sei immune a %game.condition.poison% e %game.condition.wound%."
+    },
+    "gh-104": {
+      "": "Armatura a Vapore",
+      "1": "Per le prossime cinque fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield% 1."
+    },
+    "gh-105": {
+      "": "Scialle Pulcioso",
+      "1": "Sei considerato dotato di iniziativa 99 ai fini del focus dei nemici."
+    },
+    "gh-106": {
+      "": "Collana di Denti",
+      "1": "Ogni volta che uccidi un nemico durante il tuo turno, effettua un'azione \"%game.action.heal% 1, Se Stesso\"."
+    },
+    "gh-107": {
+      "": "Elmo Cornuto",
+      "1": "Dopo esserti mosso di 4 o più esagoni nel tuo turno, aggiungi +1 %game.action.attack% al tuo prossimo attacco in mischia in questo turno."
+    },
+    "gh-108": {
+      "": "Elmo di Scaglie di Draco",
+      "1": "Ogni volta che ottieni %game.condition.muddle%, ottieni invece %game.condition.strengthen%."
+    },
+    "gh-109": {
+      "": "Cappuccio da Ladro",
+      "1": "Durante la tua capacità \"%game.action.loot% 1\", effettua invece una capacità \"%game.action.loot% 2\"."
+    },
+    "gh-11": {
+      "": "Pugnale Avvelenato",
+      "1": "Durante il tuo attacco in mischia, aggiungi %game.condition.poison% a un singolo attacco."
+    }
+  }
+}
