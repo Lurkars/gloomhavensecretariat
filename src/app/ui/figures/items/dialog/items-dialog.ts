@@ -120,7 +120,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
             })
         }
 
-        this.items = this.items.filter((itemData) => !this.filter || (ghsTextSearch(itemData.name, this.filter) || ghsTextSearch('' + (typeof itemData.id === 'number' && itemData.id < 100 ? '0' : '') + (typeof itemData.id === 'number' && itemData.id < 10 ? '0' : '') + itemData.id, this.filter)));
+        this.items = this.items.filter((itemData) => !this.filter || (ghsTextSearch(itemData.name, this.filter) || ghsTextSearch(settingsManager.getLabel('data.items.' + itemData.edition + '-' + itemData.id), this.filter) || ghsTextSearch('' + (typeof itemData.id === 'number' && itemData.id < 100 ? '0' : '') + (typeof itemData.id === 'number' && itemData.id < 10 ? '0' : '') + itemData.id, this.filter)));
 
         this.itemSlotUndefined = this.items.find((itemData) => !itemData.slot) != undefined;
 

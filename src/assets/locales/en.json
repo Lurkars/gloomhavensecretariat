@@ -3327,6 +3327,7 @@
       "toggleAbsent": "Toggle <i>Hide absent figures</i>",
       "toggleDamageHP": "Toggle <i>%settings.damageHP%</i>",
       "toggleElements": "Toggle through element state",
+      "toggleFullscreen": "Toggle <i>Fullscreen</i>",
       "toggleHandSize": "Toggle <i>Display hand size and level</i>",
       "togglePlayerNumber": "Toggle <i>Display player number</i>",
       "toggleTraits": "Toggle <i>Display traits</i>",

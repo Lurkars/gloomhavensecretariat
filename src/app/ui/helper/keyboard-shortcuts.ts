@@ -19,7 +19,7 @@ import { KeyboardShortcutsComponent } from '../header/menu/keyboard-shortcuts/ke
 import { ghsFilterInputFocus, ghsValueSign } from './Static';
 
 
-export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP" | "activeCharacter" | "playerNumber";
+export type KEYBOARD_SHORTCUT_EVENTS = "undo" | "zoom" | "fullscreen" | "round" | "am" | "loot" | "active" | "element" | "absent" | "select" | "menu" | "level" | "scenario" | "handSize" | "traits" | "party" | "map" | "chart" | "damageHP" | "activeCharacter" | "playerNumber";
 
 @Directive({
     standalone: false,
@@ -206,7 +206,9 @@ export class KeyboardShortcuts implements OnInit, OnDestroy {
                     } else if (!gameManager.game.scenario && this.footer && this.footer.ghsScenario) {
                         this.footer.ghsScenario.open();
                     }
-                } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'f' && this.footer.ghsScenario && gameManager.game.scenario) {
+                } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'f') {
+                    settingsManager.toggle('fullscreen');
+                } else if ((!this.dialogOpen || this.allowed.indexOf('scenario') != -1) && this.footer && !event.ctrlKey && !event.altKey && event.shiftKey && event.key.toLowerCase() === 'f' && this.footer.ghsScenario && gameManager.game.scenario) {
                     this.footer.ghsScenario.open();
                 } else if ((!this.dialogOpen || this.allowed.indexOf('party') != -1) && !event.ctrlKey && !event.altKey && !event.shiftKey && event.key.toLowerCase() === 'p' && settingsManager.settings.partySheet) {
                     this.dialog.open(PartySheetDialogComponent, {

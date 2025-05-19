@@ -3327,6 +3327,7 @@
       "toggleAbsent": "<i>Abwesende Figuren ausblenden</i> umschalten",
       "toggleDamageHP": "<i>%settings.damageHP%</i> umschalten",
       "toggleElements": "Elementen Status durchschalten",
+      "toggleFullscreen": "<i>Vollbild</i> umschalten",
       "toggleHandSize": "<i>Handkartenanzahl und Stufe anzeigen</i> umschalten",
       "togglePlayerNumber": "<i>Spielernummer anzeigen</i> umschalten",
       "toggleTraits": "<i>Eigenschaften anzeigen</i> umschalten",

@@ -8,6 +8,7 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>↑</kbd> | <kbd>+</kbd>: Zoom-In
 - <kbd>↓</kbd> | <kbd>-</kbd>: Zoom-Out
 - <kbd>CTRL</kbd> + <kbd>r</kbd>: reset zoom
+- <kbd>f</kbd>: Toggle Fullscreen
 - <kbd>↹</kbd>: toggle active figure when drawn / toggle initiative input when focused input
 - <kbd>n</kbd>: next round / draw
 - <kbd>m</kbd>: draw AM card (deck depending on active figure, monster deck when not active, disabled when **Draw**)
@@ -23,7 +24,7 @@ The following keyboard shortcuts are currently implemented:
 - <kbd>ALT</kbd> + <kbd>x</kbd>: Inc. XP for active Character
 - <kbd>SHIFT</kbd> + <kbd>X</kbd>: Dec. XP for active Character
 - <kbd>e</kbd>: scenario effects menu
-- <kbd>f</kbd>: (finish) scenario menu
+- <kbd>SHIFT</kbd> + <kbd>f</kbd>: (finish) scenario menu
 - <kbd>p</kbd>: open party sheet
 - <kbd>g</kbd>: open global map
 - <kbd>c</kbd>: open scenario chart
