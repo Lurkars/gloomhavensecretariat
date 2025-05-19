@@ -7,7 +7,7 @@ import { LevelDialogComponent } from './level-dialog';
 import { Subscription } from 'rxjs';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-level',
   templateUrl: './level.html',
   styleUrls: ['./level.scss']

@@ -6,7 +6,7 @@ import { Character } from 'src/app/game/model/Character';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-item-dialog',
   templateUrl: './item-dialog.html',
   styleUrls: ['./item-dialog.scss'],

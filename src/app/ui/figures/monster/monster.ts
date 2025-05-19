@@ -11,7 +11,7 @@ import { ghsDefaultDialogPositions } from '../../helper/Static';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-monster',
   templateUrl: './monster.html',
   styleUrls: ['./monster.scss']

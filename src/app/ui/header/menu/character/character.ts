@@ -6,7 +6,7 @@ import { CharacterData } from "src/app/game/model/data/CharacterData";
 import { ghsTextSearch } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-character-menu',
   templateUrl: 'character.html',
   styleUrls: ['../menu.scss', 'character.scss']

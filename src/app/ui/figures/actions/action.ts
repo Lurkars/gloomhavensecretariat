@@ -61,7 +61,6 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
 
   additionalSubActions: Action[] = [];
   elementActions: Action[] = [];
-  additionAttackSubActionTypes: ActionType[] = [ActionType.condition, ActionType.target, ActionType.pierce, ActionType.pull, ActionType.push, ActionType.swing, ActionType.area];
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
@@ -385,7 +384,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
         if (stat.actions && this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && (monsterEntity.type == MonsterType.normal || monsterEntity.type == MonsterType.boss))) {
-          stat.actions.filter((statAction) => this.additionAttackSubActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
+          stat.actions.filter((statAction) => this.additionAttackSubAction(statAction)).forEach((statAction) => {
             const newStatAction = new Action(statAction.type, statAction.value, statAction.valueType, statAction.subActions);
             if (this.action && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
               if (statAction.type != ActionType.area || this.action.subActions.every((subAction) => subAction.type != ActionType.area)) {
@@ -410,7 +409,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
         }
 
         if (eliteStat && eliteStat.actions && this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.elite)) {
-          eliteStat.actions.filter((eliteAction) => this.additionAttackSubActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
+          eliteStat.actions.filter((eliteAction) => this.additionAttackSubAction(eliteAction)).forEach((eliteAction) => {
             const newEliteAction = new Action(eliteAction.type, eliteAction.value, eliteAction.valueType, eliteAction.subActions);
             if (this.action && (!stat.actions || !this.subActionExists(stat.actions, newEliteAction, false) || !this.hasEntities(MonsterType.normal))) {
               if (this.monster && !this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.normal)) {
@@ -551,6 +550,18 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
     this.subActions = this.action.subActions.filter((action) => !action.hidden);
     this.additionalSubActions = this.additionalSubActions.filter((action) => !action.hidden);
     this.cardConcat = this.action.type == ActionType.concatenation && this.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.concatenationSpacer);
+  }
+
+
+  additionAttackSubAction(action: Action): boolean {
+    if ([ActionType.condition, ActionType.target, ActionType.pierce, ActionType.pull, ActionType.push, ActionType.swing, ActionType.area].indexOf(action.type) != -1) {
+      return true;
+    }
+    if (settingsManager.settings.calculateAdvantageStats && action.type == ActionType.custom && action.value == '%game.custom.advantage%') {
+      return true;
+    }
+
+    return false;
   }
 
   subActionExists(additionalSubActions: Action[], subAction: Action, stackableCondition: boolean = true): boolean {

@@ -58,8 +58,9 @@ export class Settings {
   buildingEffectsVisible: boolean = false;
   buildingInteractionsVisible: boolean = false;
   calculate: boolean = true;
-  calculateStats: boolean = true;
+  calculateAdvantageStats: boolean = true;
   calculateShieldStats: boolean = true;
+  calculateStats: boolean = true;
   calendarLocked: boolean | 'permissive' = false;
   characterAttackModifierAnimate: boolean = true;
   characterAttackModifierDeck: boolean = true;

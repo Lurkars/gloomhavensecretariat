@@ -35,7 +35,7 @@ export enum SubMenu {
 }
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-main-menu',
   templateUrl: 'menu.html',
   styleUrls: ['./menu.scss']

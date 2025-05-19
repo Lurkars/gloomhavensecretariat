@@ -7,7 +7,7 @@ import { Ability } from 'src/app/game/model/data/Ability';
 import { Monster } from 'src/app/game/model/Monster';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-ability-dialog',
   templateUrl: './ability-dialog.html',
   styleUrls: ['./ability-dialog.scss'],

@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component, ComponentRef, Directive, ElementRef
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-tooltip',
     styleUrls: ['./tooltip.scss'],
     templateUrl: './tooltip.html',
@@ -34,7 +34,7 @@ export class GhsTooltipComponent {
 }
 
 @Directive({
-	standalone: false, selector: '[ghs-tooltip]' })
+  standalone: false, selector: '[ghs-tooltip]' })
 export class GhsTooltipDirective implements OnInit, OnDestroy {
 
     @Input('ghs-tooltip') value = '';

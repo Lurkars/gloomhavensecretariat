@@ -6,7 +6,7 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-battlegoal',
     templateUrl: './battlegoal.html',
     styleUrls: ['./battlegoal.scss']

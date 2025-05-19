@@ -2,7 +2,7 @@ import { AfterViewChecked, Directive, ElementRef, Input } from '@angular/core';
 
 
 @Directive({
-	standalone: false,
+  standalone: false,
   selector: '[text-shrink]'
 })
 export class TextShrinkDirective implements AfterViewChecked {

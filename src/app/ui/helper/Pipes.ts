@@ -4,7 +4,7 @@ import { ghsDurationLabel, ghsValueSign } from './Static';
 import { ScenarioCache } from 'src/app/game/model/Scenario';
 
 @Pipe({
-	standalone: false,
+  standalone: false,
   name: 'ghsValueSign'
 })
 export class GhsValueSignPipe implements PipeTransform {
@@ -15,7 +15,7 @@ export class GhsValueSignPipe implements PipeTransform {
 }
 
 @Pipe({
-	standalone: false,
+  standalone: false,
   name: 'ghsRange'
 })
 export class GhsRangePipe implements PipeTransform {
@@ -29,7 +29,7 @@ export class GhsRangePipe implements PipeTransform {
 }
 
 @Pipe({
-	standalone: false,
+  standalone: false,
   name: 'ghsFloor'
 })
 export class GhsFloorPipe implements PipeTransform {
@@ -39,7 +39,7 @@ export class GhsFloorPipe implements PipeTransform {
 }
 
 @Pipe({
-	standalone: false,
+  standalone: false,
   name: 'ghsCeil'
 })
 export class GhsCeilPipe implements PipeTransform {
@@ -49,7 +49,7 @@ export class GhsCeilPipe implements PipeTransform {
 }
 
 @Pipe({
-	standalone: false,
+  standalone: false,
   name: 'ghsMinZero'
 })
 export class GhsMinZeroPipe implements PipeTransform {
@@ -59,7 +59,7 @@ export class GhsMinZeroPipe implements PipeTransform {
 }
 
 @Pipe({
-	standalone: false,
+  standalone: false,
   name: 'ghsDurationLabel'
 })
 export class GhsDurationLabelPipe implements PipeTransform {
@@ -70,7 +70,7 @@ export class GhsDurationLabelPipe implements PipeTransform {
 
 
 @Pipe({
-	standalone: false,
+  standalone: false,
   name: 'ghsScenarioSearch'
 })
 export class GhsScenarioSearch implements PipeTransform {

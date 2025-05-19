@@ -15,7 +15,7 @@ import { MainMenuComponent, SubMenu } from './menu/menu';
 import { PartySheetComponent } from './party/party-sheet';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-header',
   templateUrl: './header.html',
   styleUrls: ['./header.scss']

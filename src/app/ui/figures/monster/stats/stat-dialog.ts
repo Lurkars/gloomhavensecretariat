@@ -6,7 +6,7 @@ import { MonsterType } from 'src/app/game/model/data/MonsterType';
 import { Monster } from 'src/app/game/model/Monster';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-stat-dialog',
   templateUrl: './stat-dialog.html',
   styleUrls: ['./stat-dialog.scss']

@@ -2,7 +2,7 @@ import { Directive, ElementRef, Input, OnChanges, SimpleChanges } from '@angular
 import { ghsValueSign } from './Static';
 
 @Directive({
-	standalone: false,
+  standalone: false,
   selector: '[value-sign]'
 })
 export class ValueSignDirective implements OnChanges {

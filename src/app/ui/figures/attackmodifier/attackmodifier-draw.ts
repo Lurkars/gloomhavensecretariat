@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-attackmodifier-draw',
   templateUrl: './attackmodifier-draw.html',
   styleUrls: ['./attackmodifier-draw.scss']

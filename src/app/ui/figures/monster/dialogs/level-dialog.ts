@@ -5,7 +5,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { ghsDialogClosingHelper } from 'src/app/ui/helper/Static';
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-monster-level-dialog',
   templateUrl: './level-dialog.html',
   styleUrls: ['./level-dialog.scss']

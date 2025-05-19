@@ -7,7 +7,7 @@ import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-character-image',
   templateUrl: 'image.html',
   styleUrls: ['./image.scss']

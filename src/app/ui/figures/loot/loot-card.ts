@@ -13,7 +13,7 @@ import { GameScenarioModel } from "src/app/game/model/Scenario";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-loot',
     templateUrl: './loot-card.html',
     styleUrls: ['./loot-card.scss']

@@ -8,7 +8,7 @@ import { LootType } from "src/app/game/model/data/Loot";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-character-move-resources',
     templateUrl: 'move-resources.html',
     styleUrls: ['./move-resources.scss']

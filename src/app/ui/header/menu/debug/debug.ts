@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from "@angular/core";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-debug-menu',
   templateUrl: 'debug.html',
   styleUrls: ['../menu.scss', 'debug.scss']

@@ -10,7 +10,7 @@ import { ScenarioConclusionComponent } from "src/app/ui/footer/scenario/scenario
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-scneario-chart-popup',
     templateUrl: 'scenario-chart-popup.html',
     styleUrls: ['./scenario-chart-popup.scss']

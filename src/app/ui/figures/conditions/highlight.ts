@@ -9,7 +9,7 @@ import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-highlight-conditions',
   templateUrl: './highlight.html',
   styleUrls: ['./highlight.scss']
@@ -62,7 +62,7 @@ export class HighlightConditionsComponent {
 }
 
 @Directive({
-	standalone: false,
+  standalone: false,
   selector: '[conditionHighlight]'
 })
 export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {

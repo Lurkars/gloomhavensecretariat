@@ -6,7 +6,7 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-event-card',
     templateUrl: './event-card.html',
     styleUrls: ['./event-card.scss']

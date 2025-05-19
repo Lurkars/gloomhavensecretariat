@@ -5,7 +5,7 @@ import { LootDeckChange } from "./loot-deck";
 import { ghsDialogClosingHelper } from "../../helper/Static";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-loot-deck-fullscreen',
   templateUrl: './loot-deck-fullscreen.html',
   styleUrls: ['./loot-deck-fullscreen.scss',]

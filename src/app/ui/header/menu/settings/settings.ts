@@ -10,7 +10,7 @@ import { SettingMenuComponent } from "./setting/setting";
 import { ghsTextSearch } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+  standalone: false,
   selector: 'ghs-settings-menu',
   templateUrl: 'settings.html',
   styleUrls: ['../menu.scss', 'settings.scss']

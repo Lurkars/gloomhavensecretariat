@@ -6,7 +6,7 @@ import { ScenarioRule, ScenarioRuleIdentifier } from "src/app/game/model/data/Sc
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-scenario-rules-dialog',
     templateUrl: './scenario-rules-dialog.html',
     styleUrls: ['./scenario-rules-dialog.scss']

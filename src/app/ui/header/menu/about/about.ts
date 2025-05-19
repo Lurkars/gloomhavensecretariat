@@ -4,7 +4,7 @@ import packageJson from '../../../../../../package.json';
 
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-about-menu',
     templateUrl: 'about.html',
     styleUrls: ['../menu.scss', 'about.scss']

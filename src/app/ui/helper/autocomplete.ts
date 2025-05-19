@@ -18,7 +18,7 @@ export class AutocompleteItem {
 }
 
 @Directive({
-	standalone: false,
+  standalone: false,
   selector: '[autocomplete]'
 })
 export class AutocompleteDirective implements OnInit {

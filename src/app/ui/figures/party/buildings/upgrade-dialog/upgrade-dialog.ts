@@ -15,7 +15,7 @@ import { Building } from "../buildings";
 
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-buildings-upgrade-dialog',
     templateUrl: 'upgrade-dialog.html',
     styleUrls: ['./upgrade-dialog.scss']

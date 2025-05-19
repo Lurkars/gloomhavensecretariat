@@ -2208,6 +2208,10 @@
       "": "Zeige berechnete Werte an",
       "hint": "Fähigkeitswerte werden mit den Basiswerten zusammengerechnet, statt Angriff +1 wird z.B. Angriff 4 angezeigt bei einem Basis Angriffswert von 3"
     },
+    "calculateAdvantageStats": {
+      "": "Füge Vorteil zu Fähigkeiten hinzu",
+      "hint": "%game.custom.advantage% wird zu %game.action.attack% Fähigkeiten hinzugefügt."
+    },
     "calculateShieldStats": {
       "": "Füge Schild und Vergeltung zu Fähigkeiten hinzu",
       "hint": "Basiswerte von %game.action.shield% und %game.action.retaliate% werden zu %game.action.shield% und %game.action.retaliate% Aktionen auf der Fertigkeitskarte zugefügt, es werden also die vollständigen zusammengezählten Werte angezeigt."

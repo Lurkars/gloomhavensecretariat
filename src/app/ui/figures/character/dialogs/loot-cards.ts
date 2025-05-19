@@ -8,7 +8,7 @@ import { ItemDialogComponent } from "../../items/dialog/item-dialog";
 import { ItemData } from "src/app/game/model/data/ItemData";
 
 @Component({
-	standalone: false,
+  standalone: false,
     selector: 'ghs-character-loot-cards',
     templateUrl: 'loot-cards.html',
     styleUrls: ['./loot-cards.scss']
