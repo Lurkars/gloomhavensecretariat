@@ -1571,7 +1571,7 @@
     "openRoomMarkerRef": "打開 %game.mapMarker.{1}% 的門放置板塊 '{0}'",
     "openRoomRef": "開門放置板塊 '{0}'",
     "random": {
-      "": "隨機副本",
+      "": "隨機地城",
       "treasure": {
         "createTwoElements": "創造任意兩種元素",
         "cureConditions": "解除所有負面狀態",

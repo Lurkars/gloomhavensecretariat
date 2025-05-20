@@ -251,6 +251,11 @@
     "wind-demon": "Winddämon",
     "winged-horror": "Der Geflügelte Schrecken"
   },
+  "objective": {
+    "Fish": "Fisch",
+    "Grave": "Grab",
+    "Tree": "Baum"
+  },
   "partyAchievements": {
     "A Demon's Errand": "Dämonischer Auftrag",
     "A Map to Treasure": "Eine Karte zum Schatz",

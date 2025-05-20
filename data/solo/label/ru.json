@@ -34,11 +34,13 @@
     "solo": "Соло сценарии (все издания)"
   },
   "monster": {
+    "deep-earth": "Недра",
     "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.diviner% %solo%)",
     "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.mindthief% %solo%)",
     "energized-corpse": "Заряженный труп",
-    "ghost-wolf": "Дух волка",
+    "ghost-wolf": "Призрачный Волк",
     "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.angry-face% %solo%)",
+    "high-flame": "Пламя",
     "inox-necromancer": "Инокс-некромант",
     "lieutenant": "Лейтенант",
     "mountains-heart": "Сердце гор",
@@ -52,6 +54,9 @@
       "solo": "Соло сценарии"
     },
     "title": {
+      "fc": {
+        "solo-19": "Предсказания неизбежного"
+      },
       "gh": {
         "solo-1": "Возвращение в Чёрный курган",
         "solo-10": "Ночная жатва",
@@ -76,6 +81,11 @@
   },
   "section": {
     "title": {
+      "fc": {
+        "solo-19-29": "Предсказания неизбежного",
+        "solo-19-73": "Предсказания неизбежного",
+        "solo-19-90": "Предсказания неизбежного"
+      },
       "gh": {
         "solo-15-1": "Последствия",
         "solo-17-1": "Медведь в клетке",

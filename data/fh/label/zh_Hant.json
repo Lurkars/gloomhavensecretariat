@@ -82,5 +82,35 @@
         "random-scenarios": "隨機劇本"
       }
     }
+  },
+  "scenario": {
+    "title": {
+      "fh": {
+        "randomDungeon-rnd": "隨機地城"
+      }
+    }
+  },
+  "section": {
+    "title": {
+      "fh": {
+        "103-4": "%game.characterIconColored.drill% 退休",
+        "107-3": "%game.characterIconColored.snowflake% 退休",
+        "120-3": "%game.characterIconColored.fist% 退休",
+        "132-1": "%game.characterIconColored.shards% 退休",
+        "148-2": "%game.characterIconColored.prism% 退休",
+        "160-3": "%game.characterIconColored.geminate% 退休",
+        "179-6": "%game.characterIconColored.shackles% 退休",
+        "48-3": "%game.characterIconColored.drifter% 退休",
+        "50-2": "%game.characterIconColored.banner-spear% 退休",
+        "51-3": "%game.characterIconColored.meteor% 退休",
+        "53-3": "%game.characterIconColored.deathwalker% 退休",
+        "54-2": "%game.characterIconColored.coral% 退休",
+        "56-5": "%game.characterIconColored.trap% 退休",
+        "60-2": "%game.characterIconColored.blinkblade% 退休",
+        "70-2": "%game.characterIconColored.boneshaper% 退休",
+        "92-2": "%game.characterIconColored.astral% 退休",
+        "99-3": "%game.characterIconColored.kelp% 退休"
+      }
+    }
   }
 }

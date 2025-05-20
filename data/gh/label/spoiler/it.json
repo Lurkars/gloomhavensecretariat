@@ -51,6 +51,88 @@
     "gh-11": {
       "": "Pugnale Avvelenato",
       "1": "Durante il tuo attacco in mischia, aggiungi %game.condition.poison% a un singolo attacco."
+    },
+    "gh-110": {
+      "": "Elmo della Montagna",
+      "1": "Quando sei attaccato, se %game.element.earth% è Forte, applica %game.condition.immobilize% all'attaccante."
+    },
+    "gh-111": {
+      "": "Monile dell'Onda",
+      "1": "Quando sei attaccato, se %game.element.ice% è Forte, esegui un'azione \"%game.action.push% 2\" bersagliando l'attaccante."
+    },
+    "gh-112": {
+      "": "Trivella Antica",
+      "1": "Durante il tuo attacco in mischia, aggiungi +2 %game.action.attack% e %game.action.pierce% 2 all'intera azione di Attacco"
+    },
+    "gh-113": {
+      "": "Ascia Anatema dei Teschi",
+      "1": "Durante il tuo attacco in mischia che bersaglia un Cadavere Vivente, uno Spirito Vivente o un Ossa Viventi, aggiungi +5 %game.action.attack% a un singolo attacco."
+    },
+    "gh-114": {
+      "": "Bastone di Xorn",
+      "1": "Durante il tuo attacco a distanza, aggiungi %game.condition.poison% e % game.condition.mubble % all'intera azione di Attacco"
+    },
+    "gh-115": {
+      "": "Martello della Montagna"
+    },
+    "gh-116": {
+      "": "Falchion a Combustione",
+      "1": "Durante il tuo attacco in mischia a bersaglio singolo, il bersaglio e tutti i nemici adiacenti ad esso subiscono 1 danno"
+    },
+    "gh-117": {
+      "": "Ascia Sanguinaria",
+      "1": "Durante il tuo attacco in mischia, subisci 2 danni per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
+    },
+    "gh-118": {
+      "": "Bastone degli Elementi",
+      "1": "Durante il tuo turno, crea un qualsiasi elemento."
+    },
+    "gh-119": {
+      "": "Teschio dell'Odio",
+      "1": "Durante il tuo turno, applica %game.condition.curse% a tutti i nemici adiacenti."
+    },
+    "gh-12": {
+      "": "Pozione di Cura Minore",
+      "1": "Durante il tuo turno, esegui un'azione \"%game.action.heal% 3\", su te stesso."
+    },
+    "gh-120": {
+      "": "Bastone dell'Evocazione",
+      "1": "Durante il tuo turno, un alleato evocato entro %game.action.range:3% effettua un'azione \"%game.action.move% 3\"; sei tu a controllare l'azione."
+    },
+    "gh-121": {
+      "": "Globo dell'Alba",
+      "1": "Durante il tuo turno, %game.element.consume.dark% per creare Luce."
+    },
+    "gh-122": {
+      "": "Globo del Tramonto",
+      "1": "Durante il tuo turno, %game.element.consume.light% per creare Oscurità."
+    },
+    "gh-123": {
+      "": "Anello dei Teschi"
+    },
+    "gh-124": {
+      "": "Bussola del Destino",
+      "1": "Durante il tuo turno, obbliga un nemico entro %game.action.range:5% a effettuare un'azione \"%game.action.move% 2\"; sei tu a controllare l'azione."
+    },
+    "gh-125": {
+      "": "Ingranaggio Curioso",
+      "1": "Durante il tuo turno, disattiva tutte le trappole entro %game.action.range:2%."
+    },
+    "gh-126": {
+      "": "Ragno Meccanico",
+      "1": "Durante il tuo turno, applica %game.condition.poison% a tutti i nemici adiacenti."
+    },
+    "gh-127": {
+      "": "Ragno Meccanico Gigante",
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.loot% 1\"."
+    },
+    "gh-128": {
+      "": "Incensiere Nero",
+      "1": "Durante il tuo turno, applica %game.condition.muddle% a tutti i nemici entro %game.action.range:2%."
+    },
+    "gh-129": {
+      "": "Carta Nera",
+      "1": "Durante il tuo turno, colloca un segnalino personaggio su un nemico normale o élite adiacente. Aggiungi +1 %game.action.attack % a tutti i tuoi attacchi che bersagliano questo nemico."
     }
   }
 }
