@@ -340,7 +340,7 @@
       ]
     },
     {
-      "name": "Uaccine",
+      "name": "Vaccine",
       "cardId": 430,
       "level": "X",
       "initiative": 44,
@@ -436,7 +436,7 @@
       ]
     },
     {
-      "name": "Uital Strike",
+      "name": "Vital Strike",
       "cardId": 434,
       "level": 3,
       "initiative": 38,

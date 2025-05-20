@@ -4,7 +4,7 @@
   "character": true,
   "abilities": [
     {
-      "name": "Uile Pestilence",
+      "name": "Vile Pestilence",
       "cardId": 289,
       "level": 1,
       "initiative": 61,
@@ -316,7 +316,7 @@
       ]
     },
     {
-      "name": "Blistering Uortex",
+      "name": "Blistering Vortex",
       "cardId": 302,
       "level": "X",
       "initiative": 21,

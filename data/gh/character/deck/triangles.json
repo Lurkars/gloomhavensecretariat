@@ -148,7 +148,7 @@
       ]
     },
     {
-      "name": "Infernal Uortex",
+      "name": "Infernal Vortex",
       "cardId": 453,
       "level": 1,
       "initiative": 17,
@@ -436,7 +436,7 @@
       ]
     },
     {
-      "name": "Gravel Uortex",
+      "name": "Gravel Vortex",
       "cardId": 465,
       "level": 4,
       "initiative": 62,
@@ -556,7 +556,7 @@
       ]
     },
     {
-      "name": "Uengeance",
+      "name": "Vengeance",
       "cardId": 470,
       "level": 7,
       "initiative": 33,
@@ -604,7 +604,7 @@
       ]
     },
     {
-      "name": "Uolatile Consumption",
+      "name": "Volatile Consumption",
       "cardId": 472,
       "level": 8,
       "initiative": 64,

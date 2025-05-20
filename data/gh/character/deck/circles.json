@@ -28,7 +28,7 @@
       ]
     },
     {
-      "name": "Ilild Animation",
+      "name": "Wild Animation",
       "cardId": 234,
       "level": 1,
       "initiative": 92,
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "name": "Living Ilight",
+      "name": "Living Night",
       "cardId": 235,
       "level": 1,
       "initiative": 82,
@@ -244,7 +244,7 @@
       ]
     },
     {
-      "name": "Uolatile Flame",
+      "name": "Volatile Flame",
       "cardId": 243,
       "level": "X",
       "initiative": 94,
@@ -268,7 +268,7 @@
       ]
     },
     {
-      "name": "Ethereal Uines",
+      "name": "Ethereal Vines",
       "cardId": 244,
       "level": "X",
       "initiative": 30,
@@ -556,7 +556,7 @@
       ]
     },
     {
-      "name": "Staff of Uisions",
+      "name": "Staff of Visions",
       "cardId": 256,
       "level": 7,
       "initiative": 27,
@@ -604,7 +604,7 @@
       ]
     },
     {
-      "name": "Utherworldly Rage",
+      "name": "Otherworldly Rage",
       "cardId": 258,
       "level": 8,
       "initiative": 35,

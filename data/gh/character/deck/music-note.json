@@ -148,7 +148,7 @@
       ]
     },
     {
-      "name": "Throw Uoice",
+      "name": "Throw Voice",
       "cardId": 354,
       "level": 1,
       "initiative": 44,
@@ -220,7 +220,7 @@
       ]
     },
     {
-      "name": "Iistful Wounding",
+      "name": "Wistful Wounding",
       "cardId": 357,
       "level": "X",
       "initiative": 16,
@@ -268,7 +268,7 @@
       ]
     },
     {
-      "name": "Ilimble Knife",
+      "name": "Nimble Knife",
       "cardId": 359,
       "level": "X",
       "initiative": 27,
