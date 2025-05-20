@@ -2692,7 +2692,7 @@
       "characterItemApply": {
         "consumed": "{0} objeto consumido {1} \"{3}\"",
         "flipped": "{0} objeto girado {1} \"{3}\"",
-        "persistend": "{0} objeto persistente {1} \"{3}\"",
+        "persistent": "{0} objeto persistente {1} \"{3}\"",
         "slot": "{0} ranura marcada en el objeto {1} \"{3}\"",
         "slotBack": "{0} ranura sin marcar en el objeto {1} \"{3}\"",
         "spent": "{0} artículo gastado {1} \"{3}\""
@@ -2700,7 +2700,7 @@
       "characterItemUnapply": {
         "consumed": "{0} objeto recuperado {1} \"{3}\"",
         "flipped": "{0} objeto girado {1} \"{3}\" de vuelta",
-        "persistend": "{0} objeto no persistente {1} \"{3}\"",
+        "persistent": "{0} objeto no persistente {1} \"{3}\"",
         "slot": "{0} ranura sin marcar en el artículo {1} \"{3}\"",
         "slotBack": "{0} ranura marcada en el artículo {1} \"{3}\"",
         "spent": "{0} objeto repuesto {1} \"{3}\""

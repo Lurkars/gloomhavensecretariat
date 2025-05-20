@@ -2546,7 +2546,7 @@
       "characterItemApply": {
         "consumed": "{0} a consommé l'objet {1} \"{3}\"",
         "flipped": "{0} objet retourné {1} \"{3}\"",
-        "persistend": "{0} objet persistant {1} \"{3}\"",
+        "persistent": "{0} objet persistant {1} \"{3}\"",
         "slot": "{0} Emplacement marqué sur l'objet {1} \"{3}\"",
         "slotBack": "{0} emplacement non marqué sur objet {1} \"{3}\"",
         "spent": "{0} dépense objet {1} \"{3}\""
@@ -2554,7 +2554,7 @@
       "characterItemUnapply": {
         "consumed": "{0} élément récupéré {1} \"{3}\"",
         "flipped": "{0} a retourné l'élément {1} \"{3}\" retour",
-        "persistend": "{0} supprimer l'objet {1} \"{3}\"",
+        "persistent": "{0} supprimer l'objet {1} \"{3}\"",
         "slot": "{0} emplacement non marqué sur objet {1} \"{3}\"",
         "slotBack": "Emplacement marqué {0} sur objet {1} \"{3}\"",
         "spent": "{0} élément actualisé {1} \"{3}\""

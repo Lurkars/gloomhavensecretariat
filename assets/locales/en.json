@@ -2208,6 +2208,10 @@
       "": "Show calculated stats",
       "hint": "Ability values are calculated with stats, so instead of Attack +1 Attack 4 is shown for an Attack value of 3 in the stats"
     },
+    "calculateAdvantageStats": {
+      "": "Add Advantage to abilities",
+      "hint": "Add %game.custom.advantage% to %game.action.attack% on Ability cards."
+    },
     "calculateShieldStats": {
       "": "Add Shield and Retaliate to abilities",
       "hint": "Default stats values of %game.action.shield% and %game.action.retaliate% are added to %game.action.shield% and %game.action.retaliate% actions on ability card, so full aggregated values are shown."
@@ -2821,7 +2825,7 @@
       "characterItemApply": {
         "consumed": "{0} consumed item {1} \"{3}\"",
         "flipped": "{0} flipped item {1} \"{3}\"",
-        "persistend": "{0} persistend item {1} \"{3}\"",
+        "persistent": "{0} persistent item {1} \"{3}\"",
         "slot": "{0} marked slot on item {1} \"{3}\"",
         "slotBack": "{0} unmarked slot on item {1} \"{3}\"",
         "spent": "{0} spent item {1} \"{3}\""
@@ -2829,7 +2833,7 @@
       "characterItemUnapply": {
         "consumed": "{0} recovered item {1} \"{3}\"",
         "flipped": "{0} flipped item {1} \"{3}\" back",
-        "persistend": "{0} unpersistend item {1} \"{3}\"",
+        "persistent": "{0} unpersistent item {1} \"{3}\"",
         "slot": "{0} unmarked slot on item {1} \"{3}\"",
         "slotBack": "{0} marked slot on item {1} \"{3}\"",
         "spent": "{0} refreshed item {1} \"{3}\""

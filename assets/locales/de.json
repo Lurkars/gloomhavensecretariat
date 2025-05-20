@@ -2208,6 +2208,10 @@
       "": "Zeige berechnete Werte an",
       "hint": "Fähigkeitswerte werden mit den Basiswerten zusammengerechnet, statt Angriff +1 wird z.B. Angriff 4 angezeigt bei einem Basis Angriffswert von 3"
     },
+    "calculateAdvantageStats": {
+      "": "Füge Vorteil zu Fähigkeiten hinzu",
+      "hint": "%game.custom.advantage% wird zu %game.action.attack% Fähigkeiten hinzugefügt."
+    },
     "calculateShieldStats": {
       "": "Füge Schild und Vergeltung zu Fähigkeiten hinzu",
       "hint": "Basiswerte von %game.action.shield% und %game.action.retaliate% werden zu %game.action.shield% und %game.action.retaliate% Aktionen auf der Fertigkeitskarte zugefügt, es werden also die vollständigen zusammengezählten Werte angezeigt."
@@ -2821,7 +2825,7 @@
       "characterItemApply": {
         "consumed": "{0} verbraucht Gegenstand {1} \"{3}\"",
         "flipped": "{0} dreht Gegenstand {1} \"{3}\" um",
-        "persistend": "{0} dauerhafter Gegenstand {1} \"{3}\"",
+        "persistent": "{0} dauerhafter Gegenstand {1} \"{3}\"",
         "slot": "{0} markiert Slot auf Gegenstand {1} \"{3}\"",
         "slotBack": "{0} unmarkiert Slot auf Gegenstand {1} \"{3}\"",
         "spent": "{0} nutzt Gegenstand {1} \"{3}\""
@@ -2829,7 +2833,7 @@
       "characterItemUnapply": {
         "consumed": "{0} stellt Gegenstand {1} \"{3}\" wieder her",
         "flipped": "{0} dreht Gegenstand {1} \"{3}\" zurück",
-        "persistend": "{0} hebt Persistenz von Gegenstand {1} \"{3}\" auf",
+        "persistent": "{0} hebt Persistenz von Gegenstand {1} \"{3}\" auf",
         "slot": "{0} unmarkiert Slot von Gegenstand {1} \"{3}\"",
         "slotBack": "{0} markiert Slot von Gegenstand {1} \"{3}\"",
         "spent": "{0} erneuert Gegenstand {1} \"{3}\""

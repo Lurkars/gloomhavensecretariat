@@ -535,7 +535,7 @@
       "pierce": "Perfora",
       "pull": "Tira",
       "push": "Spingi",
-      "range": "Portata",
+      "range": "Gittata",
       "refreshItem": "Aggiorna un articolo",
       "retaliate": "Ritorsione",
       "shield": "Scudo",
@@ -724,7 +724,7 @@
       },
       "invisible": {
         "": "Invisibile",
-        "hint": "%game.conditionIcon.invisible% Invisibile: Non può essere preso di mira. Rimuovi alla fine del turno successivo."
+        "hint": "%game.conditionIcon.invisible% Invisibile: Non può essere bersagliato. Rimuovi alla fine del turno successivo."
       },
       "muddle": {
         "": "Confondere",
@@ -1655,7 +1655,7 @@
       "inspiration": "{0} ispirazione",
       "item": "\"{1}\" (Oggetto {0})",
       "itemBlueprint": "Ottieni \"{1}\" progetto %game.itemFh.{0}%",
-      "itemBlueprintRange": "Aggiungi gli oggetti da %game.itemFh.{0}% a %game.itemFh.{1}% alla riserva di oggetti diponibili.",
+      "itemBlueprintRange": "Aggiungi gli oggetti da %game.itemFh.{0}% a %game.itemFh.{1}% alla riserva di oggetti disponibili.",
       "itemDesign": "\"{1}\" modello (Oggetto {0})",
       "itemDesignEdition": "\"{1}\" modello (Oggetto {0} %data.edition.{2}%)",
       "itemDesignRange": "Aggiungi i modelli di oggetto {0}",
@@ -1812,7 +1812,7 @@
       },
       "gold": {
         "": "%game.gameIcon:loot%: {0}",
-        "hint": "Numero di monete %game.gameIcon:loot% saccheggiate"
+        "hint": "Numero di %game.gameIcon:loot% monete saccheggiate"
       },
       "heal": {
         "": "Cure"
@@ -2208,13 +2208,17 @@
       "": "Mostra le statistiche calcolate",
       "hint": "I valori di capacità sono calcolati insieme alle statistiche, quindi invece di attacco +1, viene mostrato attacco 4 per un valore di attacco di 3 nelle statistiche"
     },
+    "calculateAdvantageStats": {
+      "": "Aggiungi vantaggio alle capacità",
+      "hint": "Aggiungi %game.custom.advantage% a %game.action.attack% sulle carte Capacità."
+    },
     "calculateShieldStats": {
       "": "Aggiungi Scudo e Ritorsione alle capacità",
       "hint": "I valori statistici predefiniti di %game.action.shield% e %game.action.retaliate% vengono aggiunti alle azioni %game.action.shield% e %game.action.retaliate% della scheda capacità, il che consente di visualizzare valori aggregati completi."
     },
     "calculateStats": {
       "": "Aggiungi i valori statistici alle capacità",
-      "hint": "I valori delle statistiche predefiniti vengono aggiunti al valore di capacità, ad esempio un valore di portata viene automaticamente aggiunto alla capacità di Attacco"
+      "hint": "I valori delle statistiche predefiniti vengono aggiunti al valore di capacità, ad esempio un valore di Gittata viene automaticamente aggiunto alla capacità di Attacco"
     },
     "character": "Personaggio",
     "characterAttackModifierAnimate": {
@@ -2816,12 +2820,12 @@
       "changeSummonHp": "PV {2} per l'evocazione '{1}' di {0}",
       "changeSummonMaxHp": "PV max. {2} per l'evocazione '{1}' di {0}",
       "changeSummonMove": "Movimento {2} per l'evocazione '{1}' di {0}",
-      "changeSummonRange": "Portata {2} per l'evocazione '{1}' di {0}",
+      "changeSummonRange": "Gittata {2} per l'evocazione '{1}' di {0}",
       "changeXP": "Esp {1} per {0}",
       "characterItemApply": {
         "consumed": "{0} oggetto consumato {1} \"{3}\"",
         "flipped": "{0} oggetto capovolto {1} \"{3}\"",
-        "persistend": "{0} oggetto persistente {1} \"{3}\"",
+        "persistent": "{0} oggetto persistente {1} \"{3}\"",
         "slot": "{0} slot contrassegnato sull'oggetto {1} \"{3}\"",
         "slotBack": "{0} slot non contrassegnato sull'oggetto {1} \"{3}\"",
         "spent": "0} oggetto utilizzato {1} '{3}'"
@@ -2829,7 +2833,7 @@
       "characterItemUnapply": {
         "consumed": "{0} oggetto recuperato {1} \"{3}\"",
         "flipped": "{0} oggetto capovolto {1} \"{3}\" indietro",
-        "persistend": "{0} oggetto non persistente {1} \"{3}\"",
+        "persistent": "{0} oggetto non persistente {1} \"{3}\"",
         "slot": "{0} slot non contrassegnato sull'articolo {1} \"{3}\"",
         "slotBack": "{0} slot contrassegnato sull'articolo {1} \"{3}\"",
         "spent": "{0} oggetto aggiornato {1} \"{3}\""
@@ -3327,12 +3331,13 @@
       "toggleAbsent": "Attiva/disattiva <i>Nascondi le figure assenti</i>",
       "toggleDamageHP": "Attiva/disattiva <i>%settings.damageHP%</i>",
       "toggleElements": "Passa da uno stato dell'elemento all'altro",
+      "toggleFullscreen": "Attiva/disattiva <i>Schermo intero</i>",
       "toggleHandSize": "Attiva/disattiva <i>Mostra le dimensioni e il livello della mano</i>",
       "togglePlayerNumber": "Attiva/disattiva <i>Mostra il numero del giocatore</i>",
       "toggleTraits": "Attiva/disattiva <i>Mostra tratti</i>",
       "undo": "Cancella",
-      "zoomIn": "Ingrandisci",
-      "zoomOut": "Rimpicciolisci",
+      "zoomIn": "Avvicina",
+      "zoomOut": "Allontana",
       "zoomReset": "Ripristina zoom"
     },
     "validateEditionData": "Convalida i dati dell'edizione"
