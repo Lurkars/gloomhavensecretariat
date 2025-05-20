@@ -10,7 +10,7 @@
     "toa": {
       "gemstone": {
         "1": "and at the start of each scenario, you may play a level 1 card from your hand to perform a Crystallize %game.characterIconColoredBg.gemstone% action of the card.",
-        "2": "Once each scenario, when you would suffer damage from an attack, gain \"%game.action.shield% 3\" fo that attack",
+        "2": "Once each scenario, when you would suffer damage from an attack, gain \"%game.action.shield% 3\" for that attack",
         "3": "Each time you long rest, perform \"%game.condition.regenerate%, Self\""
       },
       "ice-meteor": {
@@ -19,7 +19,7 @@
       "lightning-ball": {
         "1": "Whenever you dodge an attack, gain one Spark %game.characterIconColoredBg.lightning-ball%",
         "2": "Whenever you long rest, you may gain %game.condition.dodge%",
-        "3": "Whenever you short rest, you may spent one Spark %game.characterIconColoredBg.lightning-ball%. If you do, one enemety within %game.action.range% 2 suffers one damage."
+        "3": "Whenever you short rest, you may spent one Spark %game.characterIconColoredBg.lightning-ball%. If you do, one enemy within %game.action.range% 2 suffers one damage."
       },
       "spiked-ring": {
         "1": "Gain %game.action.shield% 1 while you occupy hazardous terrain"
@@ -49,7 +49,7 @@
     },
     "toa-105": {
       "": "Tyrannical Staff",
-      "1": "During your rangedAttack ability, place your character token on one of the target of the attack. That enemy loses %game.action.fly% after the attack."
+      "1": "During your ranged attack ability, place your character token on one of the target of the attack. That enemy loses %game.action.fly% after the attack."
     },
     "toa-106": {
       "": "Crushing Mace",

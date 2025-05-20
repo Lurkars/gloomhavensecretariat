@@ -268,7 +268,7 @@
       ]
     },
     {
-      "name": "Cpidemic",
+      "name": "Epidemic",
       "cardId": 300,
       "level": "X",
       "initiative": 43,
@@ -364,7 +364,7 @@
       ]
     },
     {
-      "name": "Rot Ilaggots",
+      "name": "Rot Maggots",
       "cardId": 304,
       "level": 2,
       "initiative": 69,
@@ -388,7 +388,7 @@
       ]
     },
     {
-      "name": "Succumb fo the Gift",
+      "name": "Succumb for the Gift",
       "cardId": 305,
       "level": 3,
       "initiative": 70,
@@ -580,7 +580,7 @@
       ]
     },
     {
-      "name": "Hirborne Toxin",
+      "name": "Airborne Toxin",
       "cardId": 313,
       "level": 7,
       "initiative": 57,

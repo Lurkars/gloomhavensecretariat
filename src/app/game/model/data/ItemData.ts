@@ -79,7 +79,7 @@ export enum ItemFlags {
   spent = "spent",
   consumed = "consumed",
   flipped = "flipped",
-  persistend = "persistend",
+  persistent = "persistent",
   slot = "slot",
   slotBack = "slotBack"
 }

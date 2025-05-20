@@ -147,7 +147,7 @@
       },
       "1517": {
         "": "Warm Up",
-        "text": "While any character's hit point value is equal to or greater than half their maximum hit poiunt value (rounded down), that character gains disadvantage on all their attacks."
+        "text": "While any character's hit point value is equal to or greater than half their maximum hit point value (rounded down), that character gains disadvantage on all their attacks."
       },
       "1518": {
         "": "Bloodlink",
@@ -309,7 +309,7 @@
         "12": "%game.action.custom.fh-mode% into four different summons in one round",
         "2": "Focus on the enemy farthest from HIVE.",
         "3": "All adjacent allies gain %game.action.shield% 1.",
-        "4": "When attacked reduece %game.damage% by 1 for each negative condition the attacker has.",
+        "4": "When attacked reduce %game.damage% by 1 for each negative condition the attacker has.",
         "5": "Give %game.condition.wound% to all adjacent figures and self at the end of turn.",
         "6": "After this attack ability, grant one of your summons %game.action.move:2% card",
         "7": "After this attack ability, %game.action.custom.fh-mode%",
@@ -318,7 +318,7 @@
       },
       "shackles": {
         "1": "When attacking, ignore %game.action.retaliate%",
-        "2": "all enemeis within 2 hexes",
+        "2": "all enemies within 2 hexes",
         "3": "Add +1 %game.action.attack% for each negative condition you have",
         "4": "Each round in which you long rest, you may ignore all negative conditions you have.<br>If you do, they cannot be removed that round",
         "5": "Whenever you become exhausted, first perform %game.condition.curse%, %game.action.target% all, %game.action.range:3%",
@@ -362,7 +362,7 @@
     "fh": {
       "capacity": {
         "": "Capacity",
-        "automation": "Capicity of small items automatically increased for each favor. Unused item must be applied manually.",
+        "automation": "Capacity of small items automatically increased for each favor. Unused item must be applied manually.",
         "text": "Each character may bring one extra small item into this scenario, but they must have one unused small item at all times during this scenario."
       },
       "discovery": {
@@ -1516,7 +1516,7 @@
         "text": "During each scenario, whenever an ally loots a loot token, suffer %game.damage:L/3% (rounded up).<br>You have passed this trial when you complete a scenario."
       },
       "352": {
-        "": "Ceonsorship",
+        "": "Censorship",
         "text": "During each scenario you may not say the words: \"Attack\", \"Take\", or \"Damage\". Whenever you do, suffer %game.damage:L/2% (rounded up).<br>You have passed this trial when you complete a scenario."
       },
       "353": {
@@ -1525,7 +1525,7 @@
       },
       "354": {
         "": "Prediction",
-        "text": "At the start of each scenario, predict the number of rounds needed to complete the scenario by placing that number of damage tokens in front of you.<br>You have passed this trial when you complete a scenario in the prediceted number of rounds or one fewer than the predicted number of rounds."
+        "text": "At the start of each scenario, predict the number of rounds needed to complete the scenario by placing that number of damage tokens in front of you.<br>You have passed this trial when you complete a scenario in the predicted number of rounds or one fewer than the predicted number of rounds."
       },
       "355": {
         "": "Inquisition",

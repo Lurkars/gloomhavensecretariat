@@ -43,7 +43,7 @@
       "1": "Any time you perform an attack, add %game.action.pierce% 1 to the Attack."
     },
     "solo-digital-138": {
-      "1": "Whenever you create an obstacle, all enemies adjacent to the obstalce gain %game.condition.muddle%."
+      "1": "Whenever you create an obstacle, all enemies adjacent to the obstacle gain %game.condition.muddle%."
     },
     "solo-digital-139": {
       "1": "Any time you perform an %data.characterColored.mindthief:Augment% action, add +2 %game.action.attack% to the entire action."

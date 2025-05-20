@@ -88,7 +88,7 @@
     "Pressure Spike": "Pressure Spike",
     "Pressure Wave": "Pressure Wave",
     "Prickly Situation": "Prickly Situation",
-    "Prismatic Iard": "Prismatic Iard",
+    "Prismatic Ward": "Prismatic Ward",
     "Protective Gale": "Protective Gale",
     "Rabid Undergrowth": "Rabid Undergrowth",
     "Radiant Explosion": "Radiant Explosion",
@@ -247,8 +247,8 @@
       },
       "643": {
         "": "False Dichotomies",
-        "1": "Option A choosed on an event",
-        "2": "Option B choosed on an event"
+        "1": "Option A was chosen for an event.",
+        "2": "Option B was chosen for an event."
       },
       "644": {
         "": "Shared Suffering",
@@ -268,7 +268,7 @@
       },
       "648": {
         "": "In Good Time",
-        "1": "Long rests perfomred while an enemy is in the same room"
+        "1": "Long rests performed while an enemy is in the same room"
       }
     }
   },

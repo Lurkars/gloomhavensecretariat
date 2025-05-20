@@ -23,7 +23,7 @@
       "brute": {
         "1": "<b>Rested and Ready:</b> Whenever you long rest, add +1 %game.action.move% to your first move ability the following round",
         "2": "Cause enemies to suffer a total of 12 or more Retaliate damage during attacks targeting you in a single round",
-        "3": "Accross three consecutive rounds, play six different ability cards and cause enemies to suffer at least %game.damage:6% on each of your turns"
+        "3": "Across three consecutive rounds, play six different ability cards and cause enemies to suffer at least %game.damage:6% on each of your turns"
       },
       "cragheart": {
         "1": "<b>Earthquakes</b> Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty hex",
@@ -31,7 +31,7 @@
         "3": "Damage or heal at least one ally each round"
       },
       "demolitionist": {
-        "1": "<b>Remodeling</b> Whenever you rest while adjacent to a wall or obstacle, you may place an obstalce in an empty hex within %game.action.range% 2 (of you)",
+        "1": "<b>Remodeling</b> Whenever you rest while adjacent to a wall or obstacle, you may place an obstacle in an empty hex within %game.action.range% 2 (of you)",
         "2": "Deal 10 or more damage with each of three different attack actions",
         "3": "Destroy at least six obstacles. End the scenario with no obstacles on the map other than ones placed by allies"
       },

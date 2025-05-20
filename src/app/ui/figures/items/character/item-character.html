@@ -8,11 +8,11 @@
         [slotsBackMarked]="slotsMarked(ItemFlags.slotBack)" [editionLabel]="gameManager.currentEdition()"
         (clickedConsumed)="toggleFlag($event,ItemFlags.consumed)" (clickedFlip)="toggleFlag($event,ItemFlags.flipped)"
         (clickedSpent)="toggleFlag($event,ItemFlags.spent)"
-        (clickedPersistent)="toggleFlag($event,ItemFlags.persistend)"
+        (clickedPersistent)="toggleFlag($event,ItemFlags.persistent)"
         (clickedSlot)="toggleFlagCount($event,ItemFlags.slot)"
         (clickedSlotBack)="toggleFlagCount($event,ItemFlags.slotBack)"
         [ngClass]="{'filtered' : !equipped(), 
-    'unavailable': countFlag( ItemFlags.consumed) > 0 || bbBlocked(), 'owned': countFlag( ItemFlags.persistend) > 0 }"></ghs-item>
+    'unavailable': countFlag( ItemFlags.consumed) > 0 || bbBlocked(), 'owned': countFlag( ItemFlags.persistent) > 0 }"></ghs-item>
 
     <span class="loot-random-item" *ngIf="isLootRandomItem()">
         <img src="./assets/images/fh/loot-token.png">

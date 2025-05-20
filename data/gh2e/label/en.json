@@ -10,12 +10,12 @@
   "custom": {
     "gh2e": {
       "bruiser": {
-        "1": "Add this card to your active area. On the next attack targeting you perfomed by an adjacent enemy, discard this card to gain %game.action.retaliate% 2 for the attack",
+        "1": "Add this card to your active area. On the next attack targeting you performed by an adjacent enemy, discard this card to gain %game.action.retaliate% 2 for the attack",
         "2": "Once each scenario, during your turn, you may perform: %game.action.loot%1, if this ability loots at least one money token, you may %game.card.recover% one %game.itemSlot:body% item",
         "3": "Whenever you long rest, add +1 %game.action.move% to your first move ability the following round",
         "4": "Each character gains advantage on their first attack during the first round of each scenario",
         "5": "In 3 different scenarios, kill an enemy that you Pushed or Pulled that round",
-        "6": "In a single scenario, across 3 consecutive rounds, play 6 different ability cards and cause enemeis to suffer 7 or more damage durng each of those rounds"
+        "6": "In a single scenario, across 3 consecutive rounds, play 6 different ability cards and cause enemies to suffer 7 or more damage during each of those rounds"
       },
       "cragheart": {
         "1": "Create one 1-hex obstacle tile in an empty hex adjacent to the target",
@@ -33,7 +33,7 @@
         "5": "Whenever you control the attack of an enemy, you may have the enemy use your attack modifier deck",
         "6": "You are considered to be last in initiative order when determining monster focus",
         "7": "At the end of each of your rests, you may %game.elementHalf.consume:ice|dark% to control one enemy withing %game.action.range:5%: %game.action.attack% 1",
-        "8": "In a single scenario, kill 5 or more enemeis with control abilities",
+        "8": "In a single scenario, kill 5 or more enemies with control abilities",
         "9": "In a single scenario, trigger the on-attack effect from four different Augments at least 3 times each"
       },
       "silent-knife": {

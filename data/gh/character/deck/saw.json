@@ -412,7 +412,7 @@
       ]
     },
     {
-      "name": "Regeneratite Tissue",
+      "name": "Regenerative Tissue",
       "cardId": 433,
       "level": 3,
       "initiative": 46,
@@ -484,7 +484,7 @@
       ]
     },
     {
-      "name": "Do Ilo Harm",
+      "name": "Do No Harm",
       "cardId": 436,
       "level": 4,
       "initiative": 76,
@@ -556,7 +556,7 @@
       ]
     },
     {
-      "name": "Cuthanize",
+      "name": "Euthanize",
       "cardId": 439,
       "level": 6,
       "initiative": 27,
@@ -652,7 +652,7 @@
       ]
     },
     {
-      "name": "Bedside Mllanner",
+      "name": "Bedside Manner",
       "cardId": 443,
       "level": 8,
       "initiative": 5,

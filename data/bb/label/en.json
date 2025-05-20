@@ -21,7 +21,7 @@
     },
     "bb-11": {
       "": "Magnetic Needle",
-      "1": "During your turn, control one enemey within %game.action.range% 5: %game.action.move% 2."
+      "1": "During your turn, control one enemy within %game.action.range% 5: %game.action.move% 2."
     },
     "bb-12": {
       "": "Leftover Table Scraps",
@@ -205,7 +205,7 @@
   "scenario": {
     "rules": {
       "bb": {
-        "15": "Flip all of your abilitiy cards to their B-Site."
+        "15": "Flip all of your ability cards to their B-Site."
       }
     },
     "title": {
@@ -214,7 +214,7 @@
         "10": "Into the Darkness",
         "11": "Up in the Window",
         "12": "Gathering Materials",
-        "13": "Zipping Accross",
+        "13": "Zipping Across",
         "14": "The Bouncer",
         "15": "Ring the Bell",
         "16": "Signal Flare",

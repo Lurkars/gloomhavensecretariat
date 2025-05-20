@@ -28,7 +28,7 @@
       ]
     },
     {
-      "name": "Defensite",
+      "name": "Defensive Ditty",
       "cardId": 349,
       "level": 1,
       "initiative": 9,
@@ -508,7 +508,7 @@
       ]
     },
     {
-      "name": "Prouoke Terror",
+      "name": "Provoke Terror",
       "cardId": 369,
       "level": 6,
       "initiative": 60,
@@ -628,7 +628,7 @@
       ]
     },
     {
-      "name": "Captidating Performance",
+      "name": "Captivating Performance",
       "cardId": 374,
       "level": 9,
       "initiative": 25,

@@ -82,7 +82,7 @@
     "Knock Out the Support": "Knock Out the Support",
     "Leech Warmth": "Leech Warmth",
     "Level": "Level",
-    "Lingering Strenth": "Lingering Strenth",
+    "Lingering Strength": "Lingering Strength",
     "Lobbed Charge": "Lobbed Charge",
     "Lull into Oblivion": "Lull into Oblivion",
     "Lure of the Void": "Lure of the Void",
@@ -725,7 +725,7 @@
           },
           "250": {
             "1": "Any time you are attacked this round, gain %game.action.shield:X% for the attack, where X is the number of enemies adjacent to you at the time of the attack, up to a maximum of 3.",
-            "2": "The next five times an emeny enters a hex adjacent to you, perform a \"%game.action.heal:3%, %game.specialTarget.self%\" action."
+            "2": "The next five times an enemy enters a hex adjacent to you, perform a \"%game.action.heal:3%, %game.specialTarget.self%\" action."
           },
           "252": {
             "1": "all enemies adjacent to the target suffer 1 damage",

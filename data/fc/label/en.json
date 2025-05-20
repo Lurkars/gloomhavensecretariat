@@ -8,7 +8,7 @@
     "Careful Attunement": "Careful Attunement",
     "Clairvoyance": "Clairvoyance",
     "Cleansing Rite": "Cleansing Rite",
-    "Corruptiing Presence": "Corruptiing Presence",
+    "Corrupting Presence": "Corrupting Presence",
     "Curative Flux": "Curative Flux",
     "Cursed Ground": "Cursed Ground",
     "Deep Contemplation": "Deep Contemplation",
@@ -28,7 +28,7 @@
     "Legandary - Shadows": "Legandary - Shadows",
     "Legendary - Domination": "Legendary - Domination",
     "Legendary - Void": "Legendary - Void",
-    "Legengary - Gloom": "Legengary - Gloom",
+    "Legendary - Gloom": "Legendary - Gloom",
     "Lure Them In": "Lure Them In",
     "Marked for Death": "Marked for Death",
     "Nightmare Spheres": "Nightmare Spheres",
@@ -312,7 +312,7 @@
           "1": "All characters must discard one card from their hand or lose one at random from their discard pile."
         },
         "110": {
-          "1": "The Valrath Tracker is Selah Naberis and has hit points equal to an elite Valrath Tracker'sr egular hit point value. He adds \"%game.target% C\" and \"%game.action.pierce% 10\" to all his attacks.",
+          "1": "The Valrath Tracker is Selah Naberis and has hit points equal to an elite Valrath Tracker's regular hit point value. He adds \"%game.target% C\" and \"%game.action.pierce% 10\" to all his attacks.",
           "2": "The Vermling Shaman is Sraka the Wise and has CxH/2 (rounded up) hit points, where H is an elite Vermling Shaman's regular hit point value. The value of all her heals are doubled, and all %game.condition.curse% and %game.condition.bless% conditions she applies are applied twice. Any time she performs a Heal action, if the City Guard is within range and is damaged, she will prioritize healing him.",
           "3": "The City Guard is The Steel Lion and has CxH/2 (rounded up) hit points, where H is an elite City Guard's regular hit point value. He adds +1 to all his Move actions. As long as he is alive, all his allies gain \"%game.action.shield% X\", where X is the shield value printed on his stat card. The first C times he suffers 6 or more damage from a single source, he suffers no damage instead. All attacks targeting his allies when they are adjacent to him, target him instead, regardless of range.",
           "4": "The Savvas Lavaflow is Uyart Ikkuma and has CxH/2 (rounded up) hit points, where H is an elite Savvas Lavaflow's regular hit point value. All its summons are elite for three or four characters. Any consume element effects on its ability cards are applied if the element's corresponding demon is present on the map."
