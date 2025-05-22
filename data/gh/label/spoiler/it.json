@@ -133,6 +133,10 @@
     "gh-129": {
       "": "Carta Nera",
       "1": "Durante il tuo turno, colloca un segnalino personaggio su un nemico normale o élite adiacente. Aggiungi +1 %game.action.attack % a tutti i tuoi attacchi che bersagliano questo nemico."
+    },
+    "gh-13": {
+      "": "Pozione del Vigore Minore",
+      "1": "Durante il tuo turno, recupera %game.card.recover% fino a due tue carte scartate."
     }
   }
 }
