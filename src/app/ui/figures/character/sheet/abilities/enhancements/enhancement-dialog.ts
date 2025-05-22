@@ -131,6 +131,7 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
     updateAction(action: Action | undefined = undefined) {
         if (action) {
             this.action = action;
+            this.enhanceAction = new Action(this.action.type, this.action.value, this.action.valueType, this.action.subActions);
         }
         this.update();
     }
@@ -188,12 +189,14 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
             this.enhanceAction = new Action(ActionType.element, this.enhancementAction);
         } else if (this.enhancementAction == ActionType.jump) {
             this.enhanceAction = new Action(ActionType.jump);
+        } else if (this.enhancementAction == "plus1") {
+            this.enhanceAction = new Action(this.action.type, this.action.value, this.action.valueType, this.action.subActions);
         }
         if (this.action.subActions) {
             this.enhanceAction.subActions = JSON.parse(JSON.stringify(this.action.subActions));
         }
 
-        if (this.enhancementType == "hex") {
+        if (this.enhancementType == EnhancementType.hex) {
             this.enhancementAction = "hex";
         } else if (oldEnhancementType != this.enhancementType) {
             this.enhancementAction = "plus1";

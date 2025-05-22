@@ -87,7 +87,7 @@
       },
       "1503": {
         "": "Nachahmung",
-        "hint": "Aus Implementierungsgründen wird der Charakter zufällig gewählt!",
+        "hint": "Aus Implementierungsgründen wird der Charakter zufällig ausgewählt!",
         "text": "Fügt dem Monster-Angriffsmodifikator-Deck 5 zufällige Angriffsmodifikator-Karten aus dem Verbesserungsdeck eines beliebigen freigeschalteten Frosthaven-Charakter hinzu, der nicht am Szenario teilnimmt."
       },
       "1504": {

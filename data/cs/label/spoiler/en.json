@@ -116,7 +116,7 @@
     },
     "cs-19": {
       "": "Boots of Perpetuity",
-      "1": "You are immune to %game.condition.immobilize%. At the end of your turn, if you moved zeo hexes on your turn, perform \"%game.action.move% 1\""
+      "1": "You are immune to %game.condition.immobilize%. At the end of your turn, if you moved zero hexes on your turn, perform \"%game.action.move% 1\""
     },
     "cs-2": {
       "": "Orb of Momentum",

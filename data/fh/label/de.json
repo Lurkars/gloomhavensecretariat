@@ -68,7 +68,7 @@
       "text": "Sammle mehr Beutemarker als jeder andere Charakter."
     },
     "1313": {
-      "": "Volltrefer",
+      "": "Volltreffer",
       "text": "Töte einen unverletzten Gegner mit einer einzigen Angriffsaktion."
     },
     "1314": {
@@ -393,8 +393,7 @@
     "blinkblade": {
       "": "Blitzklinge",
       "fast": "Schnell",
-      "slow": "Langsam",
-      "time_tokens": "%data.characterToken.blinkblade.time% Time Tokens"
+      "slow": "Langsam"
     },
     "boneshaper": "Knochenformerin",
     "deathwalker": "Todeswandlerin",
@@ -640,7 +639,7 @@
       "piranha-pig": {
         "1": "Füge +1 %game.action.attack% hinzu, wenn das Ziel an einen Verbündeten<br>des Piranhaschweins angrenzt.",
         "2": "Füge +2 %game.action.attack% hinzu, wenn das Ziel %game.condition.wound% hat.",
-        "3": "Füge +1 %game.action.attack% hinzu, wennn das Ziel ein Feld mit<br>Wasseraufleger besetzt.",
+        "3": "Füge +1 %game.action.attack% hinzu, wenn das Ziel ein Feld mit<br>Wasseraufleger besetzt.",
         "4": "X ist die Menge des Schadens,<br>den das Ziel der<br>Angriffsfertigkeit erlitten hat."
       },
       "prince-of-frost": {

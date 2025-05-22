@@ -6,7 +6,7 @@
     "Flame Lance": "Flammenlanze",
     "Harsh Entrapment": "Harte Verstrickung",
     "Heed My Call": "Folge meinen Ruf",
-    "Legandary - Shadows": "Legendär - Schatten",
+    "Legendary - Shadows": "Legendär - Schatten",
     "Legendary - Domination": "Legendär - Herrschaft",
     "Legendary - Void": "Legendär - Leere",
     "Legendary - Gloom": "Legendär - Finsternis",
@@ -54,7 +54,7 @@
         "9": "Beschwöre eine %data.monster.valrath-tracker%: Normal für zwei oder drei, Elite für vier Charaktere."
       },
       "sraka-the-wise": {
-        "1": "Verdopple alle Heil-Werte. Wenn möglich visiert Heilung den Stählernden Löwen an",
+        "1": "Verdopple alle Heil-Werte. Wenn möglich visiert Heilung den Stählernen Löwen an",
         "2": "Falls %game.condition.curse% oder %game.condition.bless% angewendet wird, wende %game.condition.curse% oder %game.condition.bless% erneut an"
       },
       "the-steel-lion": {
@@ -104,7 +104,7 @@
     "selah-naberis": "Selah Naberis",
     "sraka-the-wise": "Die Weise Sraka",
     "the-husk": "Die Hülle",
-    "the-steel-lion": "Der Stählernde Löwe",
+    "the-steel-lion": "Der Stählerne Löwe",
     "uyart-ikkuma": "Uyart Ikkuma",
     "valrath-commander": "Valrath Kommandant",
     "valrath-savage": "Valrath Wilde",
@@ -150,7 +150,7 @@
           "4": "bei %game.mapMarker.d% wenn Altar %game.mapMarker.b% noch keinen Schadensmarker hat."
         },
         "98": {
-          "1": "Platziere 1 Schadenstoken auf beiden Schiffen %game.mapMarker.a% and %game.mapMarker.b%."
+          "1": "Platziere 1 Schadenstoken auf beiden Schiffen %game.mapMarker.a% und %game.mapMarker.b%."
         }
       }
     },

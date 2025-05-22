@@ -76,12 +76,14 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 2em;
-                width: auto;
-                margin: 0.5em;
+                height: 2.5em;
+                width: 2.5em;
+                margin: 0.25em;
                 filter: grayscale(0.7);
                 opacity: 0.5;
                 cursor: pointer;
+                padding: 0.3em;
+                border-radius: 100%;
 
                 &:hover {
                     filter: grayscale(0.5);
@@ -91,15 +93,14 @@
                 &.enabled {
                     filter: grayscale(0);
                     opacity: 1;
+                    border: calc(var(--ghs-unit) * 0.1 * var(--ghs-text-factor)) solid var(--ghs-color-white);
                 }
 
 
                 img {
                     position: relative;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: auto;
+                    width: 1.5em;
+                    height: auto;
 
                     &:nth-child(1) {
                         filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
@@ -112,7 +113,8 @@
                 }
 
                 &.summon img {
-                    height: 80%;
+                    width: 1.6em;
+
 
                     &:nth-child(1) {
                         filter: none;
@@ -144,24 +146,31 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-                height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+                width: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+                height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
                 opacity: 0.7;
                 filter: grayscale(0.6);
+                border-radius: 100%;
 
                 &.condition {
-                    font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-text-factor));
-                }
-
-                &.active {
-                    font-size: 1.8em;
-                    opacity: 1;
-                    filter: none;
+                    font-size: calc(var(--ghs-unit) * 2.1 * var(--ghs-text-factor));
                 }
 
                 &:hover {
                     font-size: 1.4em;
                     opacity: 1;
+                }
+
+                &.active {
+                    font-size: 1.6em;
+                    opacity: 1;
+                    filter: none;
+                    border: calc(var(--ghs-unit) * 0.1 * var(--ghs-text-factor)) solid var(--ghs-color-white);
+                    pointer-events: none;
+
+                    &.condition {
+                        font-size: 1.3em;
+                    }
                 }
             }
         }
