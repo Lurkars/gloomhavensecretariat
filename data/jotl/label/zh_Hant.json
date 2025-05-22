@@ -355,7 +355,7 @@
             "1": "摧毀一個相鄰的障礙物。若你這麼做， %game.card.experience:1%，並執行"
           },
           "103": {
-            "1": "<small>無視目標的護甲值，附加 %game.condition.poison%，若此攻擊與前兩次攻擊動作目標相同， %game.card.experience:1%。</small>",
+            "1": "<small>若此攻擊與前兩次攻擊目標相同，無視目標的護甲值，附加 %game.condition.poison%， %game.card.experience:1%。</small>",
             "2": "將你的一個角色標記放置在一個相鄰的普通或菁英敵人上。本回合你與所有盟友可無視該敵人的護盾值。"
           },
           "104": {
@@ -417,7 +417,7 @@
             "2": "使你下一次移動能力的數值加倍。"
           },
           "83": {
-            "1": "若目標相鄰牆面，則此攻擊添加 +2 %game.action.attack%， %game.card.experience:1%。",
+            "1": "若目標相鄰牆面，則此攻擊額外添加 +2 %game.action.attack%， %game.card.experience:1%。",
             "2": "一名與牆面相鄰的相鄰敵人承受 %game.damage:2%。"
           },
           "84": {
@@ -439,19 +439,19 @@
             "1": "摧毀一個相鄰的障礙物。若你這麼做， %game.card.experience:1%，並執行"
           },
           "90": {
-            "1": "若此攻擊目標與前一個攻擊能力相同，則額外附加 %game.action.push:2%、%game.condition.muddle%，獲得 %game.card.experience:1%。"
+            "1": "若此攻擊目標與前一個攻擊相同，則添加 %game.action.push:2%、%game.condition.muddle%，獲得 %game.card.experience:1%。"
           },
           "91": {
             "1": "指定一個距離 %game.action.range:3% 內且含有摧毀標記的格子。該格子內及其相鄰的所有盟友與敵人各自承受 %game.damage:2%。",
             "2": "在一個相鄰且包含摧毀標記的空格中創造一個造成2點傷害的陷阱。"
           },
           "92": {
-            "1": "若目標為目標物，則此攻擊額外增加 +3 %game.action.attack%，獲得 %game.card.experience:1%。",
+            "1": "若目標為目標物，則此攻擊添加 +3 %game.action.attack%，獲得 %game.card.experience:1%。",
             "2": "本輪你所有的近戰攻擊額外添加 +1 %game.action.attack%。"
           },
           "93": {
-            "1": "在距離 %game.action.range:3% 內的一個空格中，創造一個造成3點傷害並附加 %game.condition.muddle% 的陷阱。",
-            "2": "指定一名相鄰敵人。若移動的每一格皆讓你更接近該敵人，則執行",
+            "1": "在 %game.action.range:3% 內的一個空格中，創造一個造成3點傷害並附加 %game.condition.muddle% 的陷阱。",
+            "2": "指定一名最終相鄰的敵人。若移動的每一格皆讓你更接近該敵人，則執行",
             "3": "<small>以該名敵人為目標，其中 X =你移動的格數。</small>"
           },
           "94": {
@@ -527,7 +527,7 @@
             "1": "在接下來的四次移動能力中，添加 +2 %game.action.move%。"
           },
           "22": {
-            "1": "本回合所有的攻擊添加 +1 %game.action.attack%。"
+            "1": "這回合中你的所有攻擊額外添加 +1 %game.action.attack% 。"
           },
           "23": {
             "1": "若目標有愛斧標記，添加 +2 %game.action.attack%，獲得 %game.card.experience:1%。"
@@ -678,6 +678,9 @@
           "157": {
             "1": "<small>強制一名在 %game.action.range:3% 範圍內的敵人執行</small>",
             "2": "<small>以你選擇的敵人為目標。執行攻擊的敵人將受到與目標相同的傷害。</small>"
+          },
+          "170": {
+            "1": "強制一個相鄰的敵人執行"
           },
           "175": {
             "1": "<small>強制一名在 %game.action.range:3% 範圍內的敵人執行</small>"

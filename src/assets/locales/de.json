@@ -1152,7 +1152,7 @@
     "boss": "Boss",
     "cancelNumberpicker": "Abbrechen",
     "changeStandee": "%game.monsterType.{0}% Aufsteller #{1} ändern",
-    "changeType": "Ändere Type von %game.monsterType.{0}% ui %game.monsterType.{1}%",
+    "changeType": "Ändere Type von %game.monsterType.{0}% zu %game.monsterType.{1}%",
     "elite": "Elite",
     "filter": {
       "": "Monster filtern",

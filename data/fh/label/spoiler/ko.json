@@ -193,10 +193,10 @@
     "coral": "파쇄조류",
     "drill": {
       "": "금속 모자이크",
-      "high": "%game.action.custom.fh-pressure-up%",
-      "low": "%game.action.custom.fh-pressure-down%",
-      "over": "%game.action.custom.fh-pressure-over%",
-      "regular": "%game.action.custom.fh-pressure-Regular%"
+      "high": "",
+      "low": "",
+      "over": "",
+      "regular": ""
     },
     "fist": {
       "": "빙결주먹"
