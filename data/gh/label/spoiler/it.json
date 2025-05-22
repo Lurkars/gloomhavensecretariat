@@ -137,6 +137,11 @@
     "gh-13": {
       "": "Pozione del Vigore Minore",
       "1": "Durante il tuo turno, recupera %game.card.recover% fino a due tue carte scartate."
+    },
+    "gh-130": {
+      "": "Anello Elicoidale",
+      "1": "Durante il tuo turno,",
+      "3": "effettua un'azione \"%game.action.heal% 25, su se stesso\""
     }
   }
 }
