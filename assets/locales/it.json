@@ -331,7 +331,7 @@
       "download": {
         "": "Scarica ora il file di backup",
         "hint": {
-          "": "Esegui il backup del gioco regolarmente per prevenire la perdita di dati.",
+          "": "Effettua il backup del gioco regolarmente per prevenire la perdita di dati.",
           "hide": "Non mostrare più",
           "text": "L'intero processo è archiviato nella memoria del browser. Sebbene nessun browser dovrebbe eliminare accidentalmente questi dati, ci sono ancora pochissimi di questi casi fortuiti. Indipendentemente dal fatto che questi incidenti siano causati da errori di utilizzo, per esserne sicuri, è una buona idea creare un backup."
         },
@@ -536,7 +536,7 @@
       "pull": "Tira",
       "push": "Spingi",
       "range": "Gittata",
-      "refreshItem": "Aggiorna un articolo",
+      "refreshItem": "Ripristina un articolo",
       "retaliate": "Ritorsione",
       "shield": "Scudo",
       "spawn": "Genera",
@@ -586,9 +586,9 @@
         },
         "effects": {
           "recoverRandomDiscard": "Recupera %game.card.recover% una carta casuale dalla pila di scarto",
-          "refreshItem": "Aggiorna un oggetto",
+          "refreshItem": "Ripristina un oggetto",
           "refreshItemFh": "%game.card.recover% un articolo",
-          "refreshSpentItem": "Aggiorna un oggetto esaurito"
+          "refreshSpentItem": "Ripristina un oggetto esaurito"
         },
         "type": {
           "add": "Aggiungi {0}",
@@ -636,7 +636,7 @@
       "lost": "Perso",
       "persistent": "Bonus persistente",
       "recover": "Recupera",
-      "refresh": "Aggiorna",
+      "refresh": "Ripristina",
       "round": "Bonus Round",
       "slot": "Usa spazio",
       "slotXp": "Usa spazio X Esperienza"
@@ -1030,7 +1030,7 @@
           "goal": "Obiettivo",
           "gold": "ottieni {0} oro",
           "goldFh": "ottieni {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
-          "heal": "effettua \"Cura {0}, se stesso\"",
+          "heal": "effettua \"Cura {0}, Se Stesso\"",
           "item": "ottieni {1} ({0})",
           "itemBlueprint": "ottieni {1} progetto %game.itemFh.{0}%",
           "itemDesign": "ottieni {1} modello ({0}",
@@ -1096,7 +1096,7 @@
       "figuresAdjacent": "%game.target% tutte le unità adiacenti",
       "figuresRange": "%game.target% tutte le unità a %game.action.range% {0}",
       "focusEnemyFarthest": "Concentrati sul nemico<br>più lontano.",
-      "self": "Se stesso",
+      "self": "Se Stesso",
       "selfAllies": "Se stesso e gli alleati",
       "selfAlliesAdjacentAffect": "%game.affect% se stesso e tutti gli alleati adiacenti",
       "selfAlliesAffect": "%game.affect% se stesso e tutti gli alleati",
@@ -1582,7 +1582,7 @@
         "lootCards": "Ottieni {0} carte bottino",
         "recoverCards": "Recupera {0} carte dalla pila degli scarti",
         "recoverLost": "Recupera una carta smarrita",
-        "refreshItem": "Aggiorna {0} %game.itemSlot:{1}% oggetti",
+        "refreshItem": "Ripristina {0} %game.itemSlot:{1}% oggetti",
         "resource": "Ottieni {1} %game.resource.{0}%"
       }
     },
@@ -2836,7 +2836,7 @@
         "persistent": "{0} oggetto non persistente {1} \"{3}\"",
         "slot": "{0} slot non contrassegnato sull'articolo {1} \"{3}\"",
         "slotBack": "{0} slot contrassegnato sull'articolo {1} \"{3}\"",
-        "spent": "{0} oggetto aggiornato {1} \"{3}\""
+        "spent": "{0} oggetto ripristinato {1} \"{3}\""
       },
       "characterLongRest": "Imposta il riposo lungo per {0}",
       "characterLongRestOff": "Disabilita il riposo lungo per {0}",
