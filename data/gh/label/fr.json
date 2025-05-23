@@ -1,4 +1,73 @@
 {
+  "ability": {
+    "Avalanche": "Avalanche",
+    "Backstab": "Coup en Traître",
+    "Backup Ammunition": "Réserve de Munitions",
+    "Balanced Measure": "Mesures Équilibrées",
+    "Crater": "Cratère",
+    "Crushing Grasp": "Poigne Écrasante",
+    "Dirt Tornado": "Tornade de Poussière",
+    "Earthen Clod": "Motte de Terre",
+    "Empathetic Assault": "Assaut Empathique",
+    "Energizing Tonic": "Tonic Énergisant",
+    "Enhancement Field": "Champ d'Amélioration",
+    "Eye for an Eye": "Œil pour Œil",
+    "Fearsome Blade": "Lame Effrayante",
+    "Feedback Loop": "Boucle de Rétroaction",
+    "Flamethrower": "Lance-flammes",
+    "Flanking Strike": "Frappe de Côté",
+    "Forceful Storm": "Tempête Puissante",
+    "Frigid Apparition": "Apparition Glaciale",
+    "Gnawing Horde": "Horde de Rongeurs",
+    "Grab and Go": "Pas Vu, Pas Pris",
+    "Harmless Contraption": "Engin Inoffensif",
+    "Heaving Swing": "Projection",
+    "Hook Gun": "Pistolet à Grappin",
+    "Info the Night": "Au Cœur de la Nuit",
+    "Ink Bomb": "Bombe à Encre",
+    "Leaping Cleave": "Feinte Bondissante",
+    "Massive Boulder": "Rocher Massif",
+    "Nature's Lift": "Sur l'Aile de la Nature",
+    "Net Shooter": "Lance-filet",
+    "Opposing Strike": "Force d'Opposition",
+    "Overwhelming Assault": "Assaut Déferlant",
+    "Parasitic Influence": "Influence Parasite",
+    "Perverse Edge": "Côté Pervers",
+    "Possession": "Possession",
+    "Potent Potables": "Boissons Puissantes",
+    "Provoking Roar": "Rugissement Provocant",
+    "Proximity Mine": "Mine de Proximité",
+    "Quick Hands": "Mains Vives",
+    "Reinvigorating Elixir": "Élixir Revigorant",
+    "Restorative Mist": "Brume Reconstituante",
+    "Reviving Shock": "Choc Revitalisant",
+    "Rock Tunnel": "Tunnel de Roche",
+    "Rumbling Advance": "Progression Grondante",
+    "Scurry": "Précipitation",
+    "Shield Bash": "Coup de Bouclier",
+    "Single Out": "Isolement",
+    "Sinister Opportunity": "Sinistre Occasion",
+    "Skewer": "Embroché",
+    "Smoke Bomb": "Fumigène",
+    "Spare Dagger": "Dague Cachée",
+    "Special Mixture": "Mixture Spéciale",
+    "Stun Shot": "Tir Étourdissant",
+    "Submissive Affliction": "Affliction Aggravée",
+    "Sweeping Blow": "Balayage",
+    "Swift Bow": "Arc Prompt",
+    "The Mind's Weakness": "La Faiblesse de l'Esprit",
+    "Thief's Knack": "Truc de filou",
+    "Throwing Knives": "Couteaux de Lancer",
+    "Toxic Bolt": "Carreau Toxique",
+    "Trample": "Piétinement",
+    "Trickster's Reversal": "Coup de Jarnac",
+    "Unstable Upheaval": "Perturbation Instable",
+    "Venom Shiv": "Surin Empoisonné",
+    "Volatile Concoction": "Mélange Volatile",
+    "Wall of Doom": "Mur de Chaos",
+    "Warding Strength": "Force de Guet",
+    "Withering Claw": "Griffe Flétrissante"
+  },
   "character": {
     "brute": "Brute",
     "cragheart": "Cœur de Roche",
@@ -18,8 +87,81 @@
       "bandit-commander": {
         "1": "Se déplace vers la prochaine porte et révèle la salle"
       },
+      "brute": {
+        "abilities": {
+          "12": {
+            "1": "où X est le nombre d'hexagones dont vous vous êtes déplacé jusqu’à présent, ce tour.",
+            "2": "où X est le montant de dégâts que vous avez infligé jusqu’à présent, ce tour."
+          },
+          "13": {
+            "1": "Ajoutez +1 %game.action.attack% à toutes vos attaques ce round."
+          },
+          "2": {
+            "1": "Gagnez %game.card.experience:1% à chaque fois que vous ripostez ce round."
+          },
+          "4": {
+            "1": "Tout adversaire ciblant un de vos alliés adjacents avec une attaque ce round vous cible à la place avec cette attaque, quelle que soit la portée de celle-ci."
+          },
+          "7": {
+            "1": "Pour les six prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield%1."
+          }
+        }
+      },
       "captain-of-the-guard": {
         "1": "Tous les alliés ajoutent +1 %game.action.attack% à toutes leurs attaques ce round"
+      },
+      "cragheart": {
+        "abilities": {
+          "116": {
+            "1": "Pour les six prochaines attaques de mêlée vous ciblant, gagnez %game.action.retaliate:2%."
+          },
+          "118": {
+            "1": "Créez deux obstacles de la taille d'un hexagone sur des hexagones vides qui vous sont adjacents."
+          },
+          "119": {
+            "1": "Tous les alliés et adversaires adjacents subissent 1 dégât."
+          },
+          "120": {
+            "1": "Tous les alliés et adversaires adjacents à la cible subissent 1 dégât."
+          },
+          "121": {
+            "1": "Pour vos quatre prochaines actions d'attaque à distance, gagnez AJOUTEZ UNE CIBLE."
+          },
+          "122": {
+            "1": "Détruisez 1 obstacle adjacent.",
+            "2": "Ciblez tous les adversaires franchis"
+          },
+          "123": {
+            "1": "Ciblez tous les adversaires",
+            "2": "jusqu'à 2 hexagones à la place, %game.card.experience:1%",
+            "3": "Tous les alliés adjacents subissent 2 dégâts",
+            "4": "Tous les alliés subissent 1 dégât",
+            "5": "Affectez tous les alliés"
+          },
+          "124": {
+            "1": "POUSSÉE %game.action.push% 2, %game.card.experience:1%",
+            "2": "Tous les alliés et adversaires adjacents subissent 1 dégât.",
+            "3": "2 dégâts à la place, %game.card.experience:1%"
+          },
+          "125": {
+            "2": "Appliquez CONFUSION %game.condition.muddle% à tous les alliés et adversaires dans la zone ciblée."
+          },
+          "126": {
+            "1": "IMMOBILISATION %game.condition.immobilize%, %game.card.experience:1%"
+          },
+          "127": {
+            "1": "Vous pouvez pousser la cible sur un hexagone contenant un obstacle. Dans ce cas, détruisez l'obstacle, la cible subit 2 dégâts et vous gagnez %game.card.experience:1%.",
+            "2": "Ajoutez +1 %game.action.attack% à toutes vos attaques à distance ce round."
+          },
+          "128": {
+            "1": "Gagnez %game.card.experience:1% pour chaque",
+            "2": "adversaire ciblé.",
+            "3": "Ajoutez +2 %game.action.attack% à toutes vos attaques de mêlée ce round."
+          },
+          "129": {
+            "1": "Pour vos six prochaines actions d'Attaque à distance lors desquelles %game.element.air% est Fort ou Faible, %game.element.consume.air% pour ajouter +2 %game.action.range%."
+          }
+        }
       },
       "dark-rider": {
         "1": "X = Nombre d'hexagones du déplacement"
@@ -46,6 +188,41 @@
         "2": "R = Nombre d'Éclaireurs présents"
       },
       "mindthief": {
+        "abilities": {
+          "146": {
+            "1": "Ajoutez +1 %game.action.attack% pour chaque État négatif sur la cible",
+            "2": "Forcez un adversaire à %game.action.range:5% à effectuer",
+            "3": "Ciblant un autre adversaire. Vous contrôlez cette action."
+          },
+          "149": {
+            "1": "À chacune de vos attaques de mêlée :",
+            "2": "Gagnez %game.action.shield% 1",
+            "3": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte.",
+            "4": "Si vous terminez votre déplacement sur le même hexagone où vous l'avez commencé effectuez"
+          },
+          "151": {
+            "1": "Pour vos attaques de mêlée :",
+            "2": "Ajoutez +2 %game.action.attack%",
+            "3": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte."
+          },
+          "152": {
+            "1": "Pour vos attaques de mêlée :",
+            "2": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussée cette carte.",
+            "3": "Forcez un adversaire à %game.action.range:4% à effectuer",
+            "4": "Vous contrôlez cette action."
+          },
+          "154": {
+            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% pour chaque État négatif sur la cible."
+          },
+          "156": {
+            "1": "Pour vos attaques de mêlée :",
+            "2": "Quand une autre %data.custom.gh.mindthief.augment% est jouée, défaussez cette carte."
+          },
+          "157": {
+            "1": "Un allié adjacent peut effectuer",
+            "2": "Un allié à %game.action.range:3% peut effectuer"
+          }
+        },
         "augment": "Augmentation %game.characterIconColoredBg.mindthief%",
         "augments": "Augmente %game.characterIconColoredBg.mindthief%"
       },
@@ -62,8 +239,77 @@
         "1": "Tous les alliés et adversaires adjacents à la cible subissent %game.damage:2%.",
         "2": "Tous les adversaires subissent %game.damage:2%."
       },
+      "scoundrel": {
+        "abilities": {
+          "88": {
+            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Pour vos quatre prochaines attaques ciblant des adversaires qui ne sont adjacents à aucun de leurs alliés, ajoutez +2 %game.action.attack%"
+          },
+          "89": {
+            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés."
+          },
+          "90": {
+            "1": "Pour votre prochaine Attaque avec INVISIBILITÉ %game.condition.invisible%, doublez la valeur de l'attaque."
+          },
+          "91": {
+            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible n'est adjacente à aucun de ses alliés."
+          },
+          "92": {
+            "1": "Désarmez un piège adjacent."
+          },
+          "97": {
+            "1": "Ajoutez +1 %game.action.attack% pour chacun de vos alliés adjacents à la cible.",
+            "2": "Ajoutez +2 %game.action.attack% à la place, %game.card.experience:1%",
+            "3": "Forcez un adversaire adjacent à effectuer",
+            "4": "Vous contrôlez cette action. Le déplacement se termine sur un hexagone qui vous est adjacent."
+          },
+          "98": {
+            "1": "Ajoutez +X %game.action.attack% où X est le double de la valeur de Bouclier de la cible.",
+            "2": "La prochaine fois que vous subissez des dégâts ce round, ne subissez pas de dégât à la place."
+          },
+          "99": {
+            "1": "Procédez au %game.action.loot% de tous les hexagones sur lesquels vous entrez lors de cette action."
+          }
+        }
+      },
+      "spellweaver": {
+        "abilities": {
+          "61": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
+          }
+        }
+      },
       "the-betrayer": {
         "1": "Contrôle Mental"
+      },
+      "tinkerer": {
+        "abilities": {
+          "30": {
+            "1": "Créez un piège à 6 dégâts sur un hexagone vide adjacent.",
+            "2": "Gagnez %game.card.experience:2% quand le piège est déclenché par un adversaire."
+          },
+          "34": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
+          },
+          "35": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
+          },
+          "37": {
+            "1": "Un allié adjacent peut Récupérer %game.card.recover% toutes ses cartes défaussées."
+          },
+          "40": {
+            "1": "Vous et tous les alliés adjacents ajoutez +1 %game.action.attack% à toutes vos attaques ce round."
+          },
+          "43": {
+            "1": "Créez un piège à 2 dégâts et %game.condition.poison% sur un hexagone vide adjacent.",
+            "2": "Un allié à %game.action.range:2% peut Récupérer %game.card.recover% une de ses cartes défaussées.",
+            "3": "À la place, jusqu'à 2 cartes défaussées"
+          },
+          "44": {
+            "1": "Pour vos 4 prochaines actions de Soin, ajoutez +2 %game.action.heal%."
+          }
+        }
       },
       "winged-horror": {
         "1": "Éclosion des Œufs",
@@ -77,7 +323,7 @@
     "guard": "Garde",
     "imp": "Diablotin",
     "scout": "Éclaireur",
-    "shaman": "Shaman"
+    "shaman": "Chaman"
   },
   "edition": {
     "gh": "Gloomhaven"
@@ -132,6 +378,9 @@
     "winged-horror": "Horreur Ailée"
   },
   "scenario": {
+    "group": {
+      "randomMonsterCard": "Cartes de Monstres Aléatoires"
+    },
     "title": {
       "gh": {
         "1": "Le Tertre Noir",

@@ -12,6 +12,53 @@
     "triangles": "Élémentaliste",
     "two-mini": "Maître des Bêtes"
   },
+  "items": {
+    "gh-1": {
+      "": "Bottes de Voyage"
+    },
+    "gh-10": {
+      "": "Marteau de Guerre"
+    },
+    "gh-11": {
+      "": "Dague Empoisonnée"
+    },
+    "gh-12": {
+      "": "Potion de Soin Mineure"
+    },
+    "gh-123": {
+      "": "Anneau de Crânes"
+    },
+    "gh-13": {
+      "": "Potion d'Endurance Mineure"
+    },
+    "gh-14": {
+      "": "Potion de Puissance Mineure"
+    },
+    "gh-2": {
+      "": "Bottines Ailées"
+    },
+    "gh-3": {
+      "": "Armure de Peaux"
+    },
+    "gh-4": {
+      "": "Armure de Cuir"
+    },
+    "gh-5": {
+      "": "Cape d'Invisibilité"
+    },
+    "gh-6": {
+      "": "Jumelles Œil-de-Faucon"
+    },
+    "gh-7": {
+      "": "Casque de fer"
+    },
+    "gh-8": {
+      "": "Écu"
+    },
+    "gh-9": {
+      "": "Arc Perforant"
+    }
+  },
   "summon": {
     "bat-swarm": "Nuée de Chauves-souris",
     "battle-boar": "Sanglier de Combat",
