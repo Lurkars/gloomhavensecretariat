@@ -488,7 +488,7 @@ export class ItemManager {
                 break;
             case ItemEffectType.damage:
                 const damage = EntityValueFunction(effect.value);
-                gameManager.entityManager.changeHealth(character, character, -damage);
+                gameManager.entityManager.changeHealth(character, character, -damage, true);
                 break;
             case ItemEffectType.condition:
                 const condition: ConditionName = ("" + effect.value).split(':')[0] as ConditionName;

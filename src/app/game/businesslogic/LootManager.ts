@@ -56,7 +56,7 @@ export class LootManager {
     if (gameManager.trialsManager.apply && gameManager.trialsManager.trialsEnabled) {
       const trialCharacter = this.game.figures.find((figure) => figure instanceof Character && figure != character && figure.progress.trial && figure.progress.trial.edition == 'fh' && figure.progress.trial.name == '351') as Character;
       if (trialCharacter) {
-        gameManager.entityManager.changeHealth(trialCharacter, trialCharacter, - Math.ceil(this.game.level / 3));
+        gameManager.entityManager.changeHealth(trialCharacter, trialCharacter, - Math.ceil(this.game.level / 3), true);
       }
     }
 

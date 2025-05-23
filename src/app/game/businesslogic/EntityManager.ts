@@ -129,7 +129,7 @@ export class EntityManager {
       entity.health = 0;
     }
 
-    if (entity.health == 0 && !entity.entityConditions.find((condition) => settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && condition.highlight && condition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1)) {
+    if (entity.health == 0 && !entity.entityConditions.find((condition) => settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && condition.highlight && condition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1 && settingsManager.settings.activeApplyConditionsAuto.indexOf(condition.name) == -1)) {
       if ((entity instanceof Character) && (!entity.off || !entity.exhausted)) {
         entity.off = true;
         entity.exhausted = true;
@@ -151,8 +151,8 @@ export class EntityManager {
     }
   }
 
-  changeHealth(entity: Entity, figure: Figure, value: number) {
-    this.changeHealthHighlightConditions(entity, figure, value);
+  changeHealth(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
+    this.changeHealthHighlightConditions(entity, figure, value, damageOnly);
     entity.health += value;
     this.checkHealth(entity, figure);
     if (settingsManager.settings.scenarioStats && value != 0) {
@@ -168,7 +168,7 @@ export class EntityManager {
     }
   }
 
-  changeHealthHighlightConditions(entity: Entity, figure: Figure, value: number) {
+  changeHealthHighlightConditions(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
     if (settingsManager.settings.applyConditions) {
       entity.entityConditions.filter((entityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition) => {
         if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new && (entity.health + value > 0) && !this.isImmune(entity, figure, entityCondition.name)) {
@@ -184,7 +184,7 @@ export class EntityManager {
         regenerate.expired = true;
       }
 
-      this.sufferDamageHighlightConditions(entity, figure, value);
+      this.sufferDamageHighlightConditions(entity, figure, value, damageOnly);
 
       if (regenerate && entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.ward && entityCondition.highlight && !this.isImmune(entity, figure, entityCondition.name))) {
         regenerate.expired = false;
@@ -210,7 +210,7 @@ export class EntityManager {
     }
   }
 
-  sufferDamageHighlightConditions(entity: Entity, figure: Figure, value: number) {
+  sufferDamageHighlightConditions(entity: Entity, figure: Figure, value: number, damageOnly: boolean = false) {
     if (settingsManager.settings.applyConditions) {
       const ward = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.ward && !this.isImmune(entity, figure, entityCondition.name));
       const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.brittle && !this.isImmune(entity, figure, entityCondition.name));
@@ -250,7 +250,7 @@ export class EntityManager {
         }
       }
 
-      if (value < 0) {
+      if (value < 0 && !damageOnly) {
         [ConditionName.retaliate, ConditionName.shield].forEach((shieldRetaliateCondition) => {
           let shieldRetaliate = entity.entityConditions.find((condition) => condition.name == shieldRetaliateCondition);
           if (!shieldRetaliate || shieldRetaliate.expired || !shieldRetaliate.highlight) {
@@ -276,11 +276,18 @@ export class EntityManager {
               }
             }
 
-            if (shieldRetaliateCondition == ConditionName.shield && shieldRetaliate.value && (entity.health + value + shieldRetaliate.value) >= 0) {
+            if (shieldRetaliateCondition == ConditionName.shield && shieldRetaliate.value && (entity.health + value + shieldRetaliate.value) > 0) {
               shieldRetaliate.expired = false;
               shieldRetaliate.highlight = true;
               if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsAuto.indexOf(shieldRetaliateCondition) != -1) {
+
+                if (shieldRetaliate.value > Math.abs(value)) {
+                  shieldRetaliate.value = Math.abs(value);
+                }
+
                 this.applyCondition(entity, figure, shieldRetaliateCondition, true, true);
+              } else {
+                shieldRetaliate.value = (entity.health + value + shieldRetaliate.value);
               }
             } else if (shieldRetaliateCondition == ConditionName.retaliate && shieldRetaliate.value) {
               shieldRetaliate.expired = false;
@@ -575,7 +582,7 @@ export class EntityManager {
     if (gameManager.challengesManager.apply && negativeCondition && figure instanceof Monster && !figure.isAlly && entity instanceof MonsterEntity) {
       // apply Challenge #1524
       if (gameManager.challengesManager.isActive(1524, 'fh')) {
-        this.changeHealth(entity, figure, -1);
+        this.changeHealth(entity, figure, -1, true);
       }
 
       // apply Challenge #1525
@@ -644,7 +651,7 @@ export class EntityManager {
           setTimeout(() => {
             entityCondition.highlight = false;
             if (!(entity instanceof Character) || !entity.progress.equippedItems.find((identifier) => identifier.edition == 'cs' && identifier.name == '71')) {
-              this.sufferDamageHighlightConditions(entity, figure, - entityCondition.value);
+              this.sufferDamageHighlightConditions(entity, figure, - entityCondition.value, true);
               this.checkHealth(entity, figure);
             }
           }, 1000);
@@ -705,12 +712,12 @@ export class EntityManager {
     }
   }
 
-  applyConditionsAfter(entity: Entity, figure: Figure,) {
+  applyConditionsAfter(entity: Entity, figure: Figure) {
     entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.afterTurn) != -1).forEach((entityCondition) => {
       if (!this.isImmune(entity, figure, entityCondition.name) && settingsManager.settings.applyConditionsExcludes.indexOf(entityCondition.name) == -1) {
         if (entityCondition.state == EntityConditionState.turn) {
           if (entityCondition.name == ConditionName.bane) {
-            this.changeHealth(entity, figure, -10);
+            this.changeHealth(entity, figure, -10, true);
             entityCondition.expired = true;
             entityCondition.highlight = true;
             setTimeout(() => {

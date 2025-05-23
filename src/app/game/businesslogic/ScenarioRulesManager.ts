@@ -554,7 +554,7 @@ export class ScenarioRulesManager {
                   } else if (damage > EntityValueFunction(entity.maxHealth)) {
                     damage = EntityValueFunction(entity.maxHealth);
                   }
-                  gameManager.entityManager.changeHealth(entity, figure, -damage);
+                  gameManager.entityManager.changeHealth(entity, figure, -damage, true);
                   break;
                 case "heal":
                   let heal = 0;
