@@ -1,9 +1,11 @@
 {
   "ability": {
+    "Aid from the Ether": "Secours de l'Éther",
     "Avalanche": "Avalanche",
     "Backstab": "Coup en Traître",
     "Backup Ammunition": "Réserve de Munitions",
     "Balanced Measure": "Mesures Équilibrées",
+    "Crackling Air": "Air Crépitant",
     "Crater": "Cratère",
     "Crushing Grasp": "Poigne Écrasante",
     "Dirt Tornado": "Tornade de Poussière",
@@ -14,18 +16,25 @@
     "Eye for an Eye": "Œil pour Œil",
     "Fearsome Blade": "Lame Effrayante",
     "Feedback Loop": "Boucle de Rétroaction",
+    "Fire Orbs": "Orbes de Feu",
+    "Flame Strike": "Frappe de la Flamme",
     "Flamethrower": "Lance-flammes",
     "Flanking Strike": "Frappe de Côté",
     "Forceful Storm": "Tempête Puissante",
+    "Freezing Nova": "Nova de Glace",
     "Frigid Apparition": "Apparition Glaciale",
+    "Frost Armor": "Armure de Givre",
     "Gnawing Horde": "Horde de Rongeurs",
     "Grab and Go": "Pas Vu, Pas Pris",
+    "Hardened Spikes": "Piques Durcis",
     "Harmless Contraption": "Engin Inoffensif",
     "Heaving Swing": "Projection",
     "Hook Gun": "Pistolet à Grappin",
+    "Impaling Eruption": "Éruption de Piques",
     "Info the Night": "Au Cœur de la Nuit",
     "Ink Bomb": "Bombe à Encre",
     "Leaping Cleave": "Feinte Bondissante",
+    "Mana Bolt": "Projectile de Mana",
     "Massive Boulder": "Rocher Massif",
     "Nature's Lift": "Sur l'Aile de la Nature",
     "Net Shooter": "Lance-filet",
@@ -40,7 +49,9 @@
     "Quick Hands": "Mains Vives",
     "Reinvigorating Elixir": "Élixir Revigorant",
     "Restorative Mist": "Brume Reconstituante",
+    "Reviving Ether": "Éther Revigorant",
     "Reviving Shock": "Choc Revitalisant",
+    "Ride the Wind": "Chevauchée sur le Vent",
     "Rock Tunnel": "Tunnel de Roche",
     "Rumbling Advance": "Progression Grondante",
     "Scurry": "Précipitation",
@@ -178,7 +189,7 @@
         "2": "Toutes les attaques ciblant la %data.monster.giant-viper% ce round gagnent Désavantage."
       },
       "harrower-infester": {
-        "1": "Effectue une action de %game.action.heal% 2 sur lui-même pour chaque cible ayant subi des dégâts."
+        "1": "Effectue une action de %game.action.heal% 2 sur lui-même pour chaque cible ayant subi des dégâts"
       },
       "hound": {
         "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié du %data.monster.hound%."
@@ -236,7 +247,7 @@
         "1": "L'autel bouge"
       },
       "savvas-lavaflow": {
-        "1": "Tous les alliés et adversaires adjacents à la cible subissent %game.damage:2%.",
+        "1": "Tous les alliés et adversaires adjacents à la cible subissent %game.damage:2%",
         "2": "Tous les adversaires subissent %game.damage:2%."
       },
       "scoundrel": {
@@ -277,6 +288,20 @@
         "abilities": {
           "61": {
             "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
+          },
+          "62": {
+            "1": "De plus, ciblez tous les adversaires sur le chemin vers votre première cible.",
+            "2": "Gagnez %game.card.experience:1%pour chaque adversaire ciblé."
+          },
+          "63": {
+            "1": "Récupérez %game.card.recover% toutes vos cartes perdues."
+          },
+          "66": {
+            "1": "Les deux prochaines fois qu'une source vous inflige des dégâts, ne subissez pas de dégâts à la place."
+          },
+          "69": {
+            "1": "Pour vos 4 prochaines attaques, ajoutez +1 %game.action.attack%.",
+            "2": "Ajoutez +2 %game.action.attack% à la place."
           }
         }
       },

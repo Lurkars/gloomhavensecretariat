@@ -665,23 +665,23 @@
       },
       "bless": {
         "": "Bénédiction",
-        "hint": "%game.conditionIcon.bless% Bénédiction : Mélanger la carte %game.attackmodifier.bless% dans le paquet de modificateurs d'attaque."
+        "hint": "%game.conditionIcon.bless% Bénédiction : Mélanger la carte %game.attackmodifier.bless% dans le paquet de modificateurs d'attaque"
       },
       "brittle": {
         "": "Faiblesse",
-        "hint": "%game.conditionIcon.brittle% Faiblesse: Double la prochaine source d'%game.damage%, puis la supprime. Se retire également lorsqu'il est soigné."
+        "hint": "%game.conditionIcon.brittle% Faiblesse : Double la prochaine source d'%game.damage%, puis la supprime. Se retire également lorsqu'il est soigné."
       },
       "chill": {
         "": "Découragement",
-        "hint": "%game.conditionIcon.chill% Découragement: Gagnez -1 sur tous vos déplacements et attaques pour chaque jeton. Retirez-en un à la fin du prochain tour."
+        "hint": "%game.conditionIcon.chill% Découragement : Gagnez -1 sur tous vos déplacements et attaques pour chaque jeton. Retirez-en un à la fin du prochain tour."
       },
       "curse": {
         "": "Malédiction",
-        "hint": "%game.conditionIcon.curse% Malédiction: Mélanger la carte %game.attackmodifier.curse% dans le paquet de modificateurs d'attaque"
+        "hint": "%game.conditionIcon.curse% Malédiction : Mélanger la carte %game.attackmodifier.curse% dans le paquet de modificateurs d'attaque"
       },
       "disarm": {
         "": "Désarmement",
-        "hint": "%game.conditionIcon.disarm% Désarmement: Ne peut pas attaquer. Retiré à la fin du tour suivant."
+        "hint": "%game.conditionIcon.disarm% Désarmement : Ne peut pas attaquer. Retiré à la fin du tour suivant."
       },
       "dodge": {
         "": "Esquive",
@@ -689,11 +689,11 @@
       },
       "empower": {
         "": "Renforcement",
-        "hint": "%game.conditionIcon.empower% Renforcement: Mélangez la carte %game.attackmodifier.empower% dans la pioche des modificateurs d'attaque."
+        "hint": "%game.conditionIcon.empower% Renforcement : Mélangez la carte %game.attackmodifier.empower% dans la pioche des modificateurs d'attaque."
       },
       "enfeeble": {
         "": "Incapacité",
-        "hint": "%game.conditionIcon.enfeeble% Affaiblir: Mélangez la carte %game.attackmodifier.enfeeble% dans la pioche des modificateurs d'attaque."
+        "hint": "%game.conditionIcon.enfeeble% Affaiblir : Mélangez la carte %game.attackmodifier.enfeeble% dans la pioche des modificateurs d'attaque."
       },
       "heal": {
         "": "Guérir",
@@ -701,7 +701,7 @@
       },
       "immobilize": {
         "": "Immobilisation",
-        "hint": "%game.conditionIcon.immobilize% Immobilisation: Ne peut pas se déplacer. Retirer à la fin du tour suivant."
+        "hint": "%game.conditionIcon.immobilize% Immobilisation : Ne peut pas se déplacer. Retirer à la fin du tour suivant."
       },
       "immune": {
         "": "Immunisé",
@@ -1561,16 +1561,23 @@
     "openRoomMarker": "Ouvrir la porte %game.mapMarker.{1}%",
     "openRoomMarkerRef": "Ouvrir la porte %game.mapMarker.{1}% pour la tuile '{0}'",
     "openRoomRef": "Ouvrir la porte pour la tuile '{0}'",
-    "random": "Donjon Aléatoire",
+    "random": {
+      "": "Donjon Aléatoire",
+      "treasure": {
+        "createTwoElements": "Créez deux éléments au choix",
+        "gold": "{0} or",
+        "resource": "Gagnez {1} %game.resource.{0}%"
+      }
+    },
     "requirements": {
       "": "Exigences du scénario",
       "all": "Afficher toutes les exigences (y compris celles qui ont été remplies)",
       "buildings": "'%data.buildings.{0}%' (Bâtiment) CONSTRUIRE",
       "buildingsLevel": "'%data.buildings.{0}%' (Bâtiment) Niveau {1} BÂTIMENT",
       "buildingsMissing": "'%data.buildings.{0}%' (Building) NON CONSTRUIT",
-      "campaignStickers": "'{0}' (autocollant de campagne) COMPLET",
-      "campaignStickersCount": "'{0}' (autocollant de campagne) x{2} COMPLET (obtenu {1})",
-      "campaignStickersMissing": "'{0}' (Autocollant de campagne) INCOMPLET",
+      "campaignStickers": "'%data.campaignSticker.{0}%' (Autocollant de Campagne) COMPLET",
+      "campaignStickersCount": "'%data.campaignSticker.{0}%' (Autocollant de Campagne) x{2} COMPLET (obtenu {1})",
+      "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Autocollant de Campagne) INCOMPLET",
       "cancel": "Annuler",
       "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' présent",
       "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' absent",
@@ -1605,7 +1612,7 @@
         "": "Liens de section",
         "add": {
           "": "Ajouter %data.section:{0}% dans %number.{1}% semaines.",
-          "next": "Ajouter %data.section:{0}% au calendrier dans la semaine %numérotée.{1}% de la prochaine %party.campaign.sheet.{2}%."
+          "next": "Ajouter %data.section:{0}% au calendrier dans la semaine %numbered.{1}% de la prochaine %party.campaign.sheet.{2}%."
         }
       },
       "campaignSticker": "Autocollant de campagne",
@@ -1660,6 +1667,7 @@
         "winter-road": "Retirer l'événement {0} du paquet de routes d'hiver"
       },
       "removeLootDeckCard": "Retirer la carte de butin {0} du jeu. Elle ne peut plus être ajoutée au paquet de butin d'un scénario.",
+      "repeatScenario": "Le scénario peut être rejoué !",
       "reputation": "{0} réputation",
       "resources": "Gagner {1} %game.resource.{0}% chacun",
       "resourcesLose": "Perder {1} %game.resource.{0}% chacun",
@@ -1673,6 +1681,11 @@
       "addSectionIndex": "Section ouverte #{0} {1}",
       "addSectionMarker": "Section ouverte {1} %game.mapMarker.{2}%",
       "addSectionMarkerIndex": "Section ouverte #{0} {1} %game.mapMarker.{2}%",
+      "alwaysApply": "Appliquer automatiquement",
+      "alwaysApplyTurn": {
+        "after": "à la fin de chacun de leurs tours.",
+        "turn": "au début de chacun de leurs tours."
+      },
       "apply": "Appliquer",
       "dismiss": "Rejeter",
       "figures": {
@@ -1700,7 +1713,7 @@
       },
       "finish": {
         "lost": "Scénario perdu !",
-        "round": "Round suivant!",
+        "round": "Round suivant !",
         "won": "Scénario gagné !"
       },
       "finishWithConclusion": "Terminer le scénario avec #{0} {1}",
@@ -1711,12 +1724,12 @@
       "spawnMarker": "Faire apparaitre {2}%game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
       "spawnObjective": "Lancer l'objectif '{0}'",
       "spawnObjectiveEscort": "Créer l'escorte '{0}'",
-      "spawnObjectiveEscortMarker": "Apparition de l'escorte '{0}' à %game.mapMarker.{2}%.",
-      "spawnObjectiveMarker": "Lancement de l'objectif '{0}' à %game.mapMarker.{2}%.",
+      "spawnObjectiveEscortMarker": "Apparition de l'escorte '{0}' à %game.mapMarker.{2}%",
+      "spawnObjectiveMarker": "Lancement de l'objectif '{0}' à %game.mapMarker.{2}%",
       "spawnObjectives": "Lancer {1} Objectifs '{0}'",
-      "spawnObjectivesEscort": "Créer {1} escortes '{0}'.",
+      "spawnObjectivesEscort": "Créer {1} escortes '{0}'",
       "spawnObjectivesEscortMarker": "Créer {1} Escortes '{0}' à %game.mapMarker.{2}%",
-      "spawnObjectivesMarker": "Créer {1} Objectifs '{0}' à %game.mapMarker.{2}%."
+      "spawnObjectivesMarker": "Créer {1} Objectifs '{0}' à %game.mapMarker.{2}%"
     },
     "section": {
       "": "Section",
@@ -1750,7 +1763,8 @@
       "toggle": {
         "hide": "Cacher Statistiques sur les Scénarios",
         "show": "Montrer Statistiques sur les Scénarios"
-      }
+      },
+      "total": "Total"
     },
     "summary": {
       "": "Résumé du scénario",
@@ -1766,7 +1780,7 @@
         "": "Mode occasionnel",
         "campaignRewards": "Activer les récompenses de campagne",
         "fh": "Mode occasionnel Frosthaven",
-        "hintFh": "En mode occasionnel de Frosthaven, tous les effets de la campagne sont ignorés. Aucun événement n'est résolu, le temps ne s'écoule pas et le groupe ne gagne pas d'expérience, de butin, de trésors, de marqueurs, de progrès dans les quêtes personnelles, de récompenses, d'éléments déverrouillables, etc.",
+        "hintFh": "En mode occasionnel de Frosthaven, tous les effets de la campagne sont ignorés. Aucun événement n'est résolu, le temps ne s'écoule pas et le groupe ne gagne pas d'expérience, de butin, de trésors, de marqueurs, de progrès dans les quêtes personnelles, de récompenses, d'éléments déverrouillables, etc",
         "ignore": "Gagnez tout de même des récompenses !",
         "reapply": "Revenir au mode occasionnel"
       },
@@ -1800,7 +1814,7 @@
         "experience": "Récompense XP",
         "gold": "Récompense or"
       },
-      "solve": "Continue",
+      "solve": "Continuer",
       "totalGold": "Or total",
       "totalXp": "Expérience totale",
       "treasures": "Trésors",
@@ -1829,7 +1843,7 @@
     },
     "connect": "Connecter",
     "connected": "Connecté",
-    "connecting": "Connexion...",
+    "connecting": "Connexion en cours",
     "connectionTries": {
       "": "(Essais : {0})",
       "hint": "Il ne semble pas qu'une connexion réussie puisse être établie. Vous pouvez vérifier votre connexion réseau ou votre configuration de connexion."
@@ -1845,7 +1859,9 @@
       "location": "Localisation",
       "privacy": "Politique de confidentialité",
       "status": "Page d'état",
-      "version": "Version serveur",
+      "version": {
+        "": "Version Serveur"
+      },
       "website": "Site web"
     },
     "list": {
@@ -1892,7 +1908,7 @@
         }
       },
       "hint": {
-        "": "Certaines conditions nécessitent une confirmation pour être appliquées, par exemple lorsque vous diminuez les HP avec Poison, confirmez la perte de 1 HP supplémentaire. ",
+        "": "Certaines conditions nécessitent une confirmation pour être appliquées, par exemple lorsque vous diminuez les HP avec Poison, confirmez la perte de 1 HP supplémentaire",
         "brittle": "Si vous subissez des dégâts, demandez à appliquer %game.condition.brittle% et augmentez les dégâts.",
         "heal": "Pas de condition, mais une aide si %game.action.heal% doit être appliqué lors de l'augmentation des points de vie.",
         "poison": "Lorsqu'il subit des dégâts, il demande à appliquer %game.action.attack% +1 de %game.condition.poison% (y compris %game.attackmodifier.double%).",
@@ -1949,7 +1965,7 @@
     "applyConditions": {
       "": "Application automatique des conditions",
       "hint": {
-        "": "Les conditions correspondantes sont automatiquement appliquées avant et après le tour, par exemple lorsque l'entité est blessée, elle perd 1 HP au début de son tour.",
+        "": "Les conditions correspondantes sont automatiquement appliquées avant et après le tour, par exemple lorsque l'entité est blessée, elle perd 1 HP au début de son tour",
         "bane": "Applique automatiquement %game.condition.bane% de dégâts à la fin du tour.",
         "regenerate": "Application automatique de %game.condition.regenerate% au début du tour.",
         "wound": "Applique automatiquement %game.condition.wound% de dégâts à la fin du tour.",
@@ -1978,7 +1994,7 @@
     },
     "automaticAttackModifierFullscreen": {
       "": "Plein écran automatique AM Deck",
-      "hint": "Ouvrir le Deck de modificateurs d'attaque (et aussi le paquet de butin) en mode plein écran sur les petits appareils. (Désactivé sans l'optimisation du mode portrait)"
+      "hint": "Ouvrir le Deck de modificateurs d'attaque (et aussi le paquet de butin) en mode plein écran sur les petits appareils. (Désactivé sans l'optimisation du mode portrait)."
     },
     "automaticGameClock": {
       "": "Horloge de jeu automatique",
@@ -2002,7 +2018,7 @@
     },
     "automaticTheme": {
       "": "Thème automatique",
-      "hint": "Ajuster le thème et le style Frosthaven automatiquement en cas de changement d'édition. Ajuste également le thème lorsque l'on bascule sur le style Frosthaven (l'ajustement du thème est désactivé sur le thème Modern)."
+      "hint": "Ajuster le thème et le style Frosthaven automatiquement en cas de changement d'édition. Ajuste également le thème lorsque l'on bascule sur le style Frosthaven (l'ajustement du thème est désactivé sur le thème Modern)"
     },
     "automaticUnlocking": {
       "": "Déverrouillage automatique des personnages",
@@ -2047,7 +2063,7 @@
     },
     "calculate": {
       "": "Afficher les stats calculées",
-      "hint": "Les valeurs de capacité sont calculées avec les statistiques, donc au lieu de Attaque +1 Attaque 4 est indiqué pour une valeur d'attaque de 3 dans les statistiques."
+      "hint": "Les valeurs de capacité sont calculées avec les statistiques, donc au lieu de Attaque +1 Attaque 4 est indiqué pour une valeur d'attaque de 3 dans les statistiques"
     },
     "calculateShieldStats": {
       "": "Ajout du Bouclier et de la Riposte aux capacités",
@@ -2055,7 +2071,7 @@
     },
     "calculateStats": {
       "": "Ajouter les valeurs des stats aux capacités",
-      "hint": "Les valeurs de statistiques par défaut sont ajoutées à la valeur de l'aptitude, par exemple une valeur de portée est automatiquement ajoutée à l'aptitude Attaque."
+      "hint": "Les valeurs de statistiques par défaut sont ajoutées à la valeur de l'aptitude, par exemple une valeur de portée est automatiquement ajoutée à l'aptitude Attaque"
     },
     "character": "Personnages",
     "characterAttackModifierAnimate": {
@@ -2229,7 +2245,7 @@
     },
     "initiativeRequired": {
       "": "Initiative requise",
-      "hint": "Si la case n'est pas cochée, l'ordre des entités doit être défini manuellement par glisser-déposer."
+      "hint": "Si la case n'est pas cochée, l'ordre des entités doit être défini manuellement par glisser-déposer"
     },
     "initiativeRoundConfirm": {
       "": "Fenêtre d’initiative",
@@ -2240,6 +2256,10 @@
       "hint": "Sur les cartes d'aptitude, cliquez sur une action mise en évidence, comme les invocations ou les actions d'élément, pour effectuer directement cette action."
     },
     "interface": "Interface",
+    "keyboardShortcuts": {
+      "": "Raccourcis clavier activés",
+      "hint": "Active les raccourcis clavier listés."
+    },
     "levelAdjustment": {
       "": "Ajuster le niveau du scénario"
     },
@@ -2256,7 +2276,9 @@
         "": "Aidez à traduire !",
         "hint": "<img src=\"https://translate.gloomhaven-secretariat.de/widget/gloomhavensecretariat/multi-auto.svg\"/>"
       },
+      "it": "Italien (Italiano)",
       "ko": "Coréen (한국어)",
+      "ru": "Russe (Русский)",
       "zh_Hans": "Chinois simplifié (简体中文)",
       "zh_Hant": "Chinois traditionnel (繁體中文)"
     },
@@ -2286,7 +2308,7 @@
     },
     "partySheet": {
       "": "Feuille de route",
-      "hint": "Permet la création d'une feuille de campagne. La feuille de campagne se trouve au verso de la feuille de campagne.."
+      "hint": "Permet la création d'une feuille de campagne. La feuille de campagne se trouve au <i>verso</i> de la feuille de campagne."
     },
     "pinchZoom": {
       "": "Zoom gestuel",
@@ -2294,6 +2316,10 @@
     },
     "playerCount": {
       "": "Comptage manuel des personnages"
+    },
+    "playerNumber": {
+      "": "Affiche le numéro du joueur",
+      "hint": "Affiche le numéro du joueur sur le tableau du personnage."
     },
     "portraitMode": {
       "": "Optimisation du mode portrait",
@@ -2331,6 +2357,7 @@
       "hint": "Afficher des fenêtres contextuelles sur les règles des scénarios spéciaux et les appliquer de manière facultative"
     },
     "scenarioRulesAutoapply": {
+      "": "Appliquer les règles de scénario automatique",
       "hint": "Appliquer directement les Règles de Scénario automatiques sans confirmation"
     },
     "scenarioStats": {
@@ -2338,7 +2365,7 @@
       "hint": "Collecter des statistiques sur les dégâts, les morts, le butin, l’XP et les guérisons lors d’un scénario"
     },
     "showExpandedAbilityCard": {
-      "": "Afficher les détails des cartes de capacité.",
+      "": "Afficher les détails des cartes de capacité",
       "hint": "Affiche toutes les capacités des cartes de capacité en une seule fois (y compris le titre)."
     },
     "showFullAbilityCard": {
@@ -2373,7 +2400,7 @@
       "": "Invocations de personnages",
       "hint": "Active les invocations de personnages"
     },
-    "synced": "Ces paramètres sont synchronisés avec le serveur!",
+    "synced": "Ces paramètres sont synchronisés avec le serveur !",
     "theme": {
       "": "Thème",
       "default": "Défaut",
@@ -2471,6 +2498,10 @@
       },
       "addItem": "Ajouter objet Item {1} (%data.edition.{2}%) à {0}",
       "addManualScenario": "Débloquer scénario #{0} {1} ({2})",
+      "addMarker": {
+        "char": "%data.characterIconColored.{2}% {1} marqueur à {0}",
+        "monster": "%data.characterIconColored.{3}% {2} marqueur à '{1}' de {0}"
+      },
       "addMastery": "Vérifier la maîtrise {1} pour {0}",
       "addMonster": "Ajouter monstre {0}",
       "addNextStandee": "Ajouter {1} {0} silhouette",
@@ -2480,7 +2511,7 @@
         "escort": "Ajouter Escorte"
       },
       "addParty": "Créer une nouvelle campagne '{0}'",
-      "addPartyAchievement": "Ajoute le Haut Fait de la Compagnie '%data.partyAchievements.{0}%'.",
+      "addPartyAchievement": "Ajoute le Haut Fait de la Compagnie '%data.partyAchievements.{0}%'",
       "addPartyTownGuardPerkSection": "Bénéfice de la section des gardes de la ville {0}",
       "addPartyWeekSection": "Ajouter la section {2} à la semaine {1}",
       "addRandomStandee": "Ajouter {1} {0} silhouette aléatoire {2}",
@@ -2500,8 +2531,11 @@
       },
       "applyHighlightAction": {
         "condition": "Appliquer l'action %game.condition.{1}% à {0}",
+        "elementConsume": "Consommer {0}",
+        "elementInfuse": "Infuser {0}",
         "heal": "Appliquer l'action %game.action.heal% {1} à {0}",
-        "sufferDamage": "Appliquer l'action subir %game.damage:{1}% à {0}",
+        "sufferDamage": "Subir %game.damage:{0}%",
+        "summon": "Invoquer",
         "switchType": "Commuter %game.monsterType.normal% et %game.monsterType.elite% à {0}"
       },
       "applyScenarioRule": "Appliquer la règle du scénario",
@@ -2511,15 +2545,15 @@
         "drawCards": "Tirer des cartes d'objectif de bataille pour {0}",
         "select": "Choisir une cible de combat pour {0}",
         "setup": {
-          "addEdition": "Ajouter des cartes d'objectif de bataille de %data.edition.{0}%.",
+          "addEdition": "Ajouter des cartes d'objectif de bataille de %data.edition.{0}%",
           "filter": {
             "addCard": "Objectif de bataille '{1}'. (%data.edition.{0}%) Ajouter aux cartes d'objectifs de combat",
             "removeCard": "Objectif de bataille '{1}'. (%data.edition.{0}%) des cartes d'objectif de combat"
           },
-          "removeEdition": "Retirer les cartes d'objectif de bataille de %data.edition.{0}%."
+          "removeEdition": "Retirer les cartes d'objectif de bataille de %data.edition.{0}%"
         }
       },
-      "buildBuilding": "Construire {0}",
+      "buildBuilding": "Construire '%data.buildings.{1}%' ({0})",
       "buyItem": "Acheter objet {1} (%data.edition.{2}%) pour {0}",
       "cancelScenario": "Annuler scénario #{0} {1} ({2})",
       "changeCustomScenario": "Nom '{0}' pour le scénario personnalisé",
@@ -2571,14 +2605,17 @@
         "summon": "%game.condition.{2}% à '{1}' de {0"
       },
       "disableAutomaticLevel": "Désactiver le calcul automatique du niveau",
+      "disableEnvelopeB": "Désactiver Enveloppe B",
       "disablePartyCampaignMode": "Désactiver le mode campagne",
       "disableSolo": "Désactiver le calcul du niveau solo",
       "disabledGe5Player": "Désactiver les règles pour + de 5 joueurs",
       "disabledManualPlayerCount": "Désactiver le décompte manuel des joueurs",
+      "distillItem": "Distiller l'objet \"%data.items.{2}-{1}%\" pour {0}",
       "donate": "Donation de {0} au Sanctuaire du Grand Chêne",
       "draw": "Piocher",
       "drawAbility": "Piocher une capacité pour {0}",
       "enableAutomaticLevel": "Activer le calcul automatique du niveau",
+      "enableEnvelopeB": "Ouvrir Enveloppe B",
       "enablePartyCampaignMode": "Activer le mode campagne",
       "enableSolo": "Activer le calcul du niveau solo",
       "enabledGe5Player": "Activer les règles pour + de 4 joueurs",
@@ -2630,10 +2667,11 @@
       "lootDeckDraw": "Tirez une carte de la pioche",
       "lootDeckHide": "Cacher le paquet de butin",
       "lootDeckRemoveCard": "Retirer la carte {0} du paquet du butin",
-      "lootDeckRemoveEnhancement": "Supprimer l'amélioration du paquet du butin '{1} %game.loot.{0}%'.",
+      "lootDeckRemoveEnhancement": "Supprimer l'amélioration du paquet du butin '{1} %game.loot.{0}%'",
       "lootDeckReorder": "Réorganiser le paquet de cartes",
       "lootDeckShow": "Afficher le paquet du butin",
       "lootDeckShuffle": "Mélanger le paquet de butin",
+      "lootDeckShuffleUpcoming": "Mélangez les cartes à venir du paquet de butin",
       "lootRandomItem": "{3} récupère l'objet aléatoire {0} \"{2}\" (%data.edition.{1}%)",
       "monsterChangeEntityHp": "PV {2} pour silhouette {1} de %data.monster.{0}%",
       "monsterConsumeElement": "{0} consomme {1}",
@@ -2652,6 +2690,10 @@
       "removeCampaignSticker": "Supprimer l'autocollant de campagne {0}",
       "removeChar": "Retrait du personnage {0}",
       "removeCharTreasure": "Retirer le trésor {1} pour {2}",
+      "removeCharacterRetaliate": "Retirer %game.action.retaliate% pour {0}",
+      "removeCharacterRetaliatePersistent": "Retirer %game.card.persistent% %game.action.retaliate% pour {0}",
+      "removeCharacterShield": "Retirer %game.action.shield% pour {0}",
+      "removeCharacterShieldPersistent": "Retirer %game.card.persistent% %game.action.shield% pour {0}",
       "removeCondition": {
         "char": "Retirer %game.condition.{1}% de {0}",
         "monster": "Retirer %game.condition.{2}% de '{1}' a {0}",
