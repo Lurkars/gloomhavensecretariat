@@ -50,7 +50,7 @@
     },
     "fc-165": {
       "": "Living Armor",
-      "1": "You are immune to POISON and !enchantment-circle!. When damage by an attack, gain %game.action.shield% 0 !enchantment-circle! for the attack."
+      "1": "You are immune to POISON and %game.enhancement.circle%. When damage by an attack, gain %game.action.shield% 0 %game.enhancement.circle% for the attack."
     }
   },
   "summon": {
