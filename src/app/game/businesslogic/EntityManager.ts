@@ -276,7 +276,9 @@ export class EntityManager {
               }
             }
 
-            if (shieldRetaliateCondition == ConditionName.shield && shieldRetaliate.value && (entity.health + value + shieldRetaliate.value) > 0) {
+            const absValue = entity.health + value + shieldRetaliate.value;
+
+            if (shieldRetaliateCondition == ConditionName.shield && shieldRetaliate.value && absValue > 0) {
               shieldRetaliate.expired = false;
               shieldRetaliate.highlight = true;
               if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && settingsManager.settings.activeApplyConditionsAuto.indexOf(shieldRetaliateCondition) != -1) {
@@ -287,7 +289,7 @@ export class EntityManager {
 
                 this.applyCondition(entity, figure, shieldRetaliateCondition, true, true);
               } else {
-                shieldRetaliate.value = (entity.health + value + shieldRetaliate.value);
+                shieldRetaliate.value = Math.min(shieldRetaliate.value, absValue);
               }
             } else if (shieldRetaliateCondition == ConditionName.retaliate && shieldRetaliate.value) {
               shieldRetaliate.expired = false;
