@@ -617,7 +617,7 @@
     },
     "battleGoals": {
       "": "戰鬥目標",
-      "all": "當前卡派",
+      "all": "當前卡牌",
       "cancel": "取消",
       "choose": "為 %game.characterIconColored.{0}% {1}選擇戰鬥目標",
       "chooseCard": "選擇已被選取的卡牌",
