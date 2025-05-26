@@ -1,6 +1,6 @@
-<div class="highlight-conditions" *ngIf="gameManager.entityManager.highlightedConditions(entity).length > 0">
+<div class="highlight-conditions" *ngIf="highlightedConditions.length > 0">
   <span class="condition" [conditionHighlight]="entityCondition"
-    *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(entity)"
+    *ngFor="let entityCondition of highlightedConditions"
     [ngClass]="{'apply' : settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && !entityCondition.expired && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 && entityCondition.types.indexOf(ConditionType.apply) != -1, 'double': entityCondition.types.indexOf(ConditionType.double) != -1}">
 
     <a class="close" [conditionHighlight]="entityCondition"

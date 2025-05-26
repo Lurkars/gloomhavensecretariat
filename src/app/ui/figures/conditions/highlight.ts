@@ -14,7 +14,7 @@ import { MonsterEntity } from "src/app/game/model/MonsterEntity";
   templateUrl: './highlight.html',
   styleUrls: ['./highlight.scss']
 })
-export class HighlightConditionsComponent {
+export class HighlightConditionsComponent implements OnInit, OnDestroy {
 
   @Input() entity!: Entity;
   @Input() figure!: Figure;
@@ -22,6 +22,28 @@ export class HighlightConditionsComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   ConditionType = ConditionType;
+  highlightedConditions: EntityCondition[] = [];
+
+  ngOnInit(): void {
+    this.update();
+    this.uiChangeSubscription = gameManager.uiChange.subscribe({
+      next: () => {
+        this.update();
+      }
+    })
+  }
+
+  uiChangeSubscription: Subscription | undefined;
+
+  ngOnDestroy(): void {
+    if (this.uiChangeSubscription) {
+      this.uiChangeSubscription.unsubscribe();
+    }
+  }
+
+  update() {
+    this.highlightedConditions = gameManager.entityManager.highlightedConditions(this.entity);
+  }
 
   applyCondition(name: ConditionName, event: any, double: boolean = false) {
     event.stopPropagation();
@@ -75,7 +97,7 @@ export class ConditionHighlightAnimationDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
-        if (this.condition.highlight && !this.condition.expired &&(!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.indexOf(this.condition.name) != -1)) {
+        if (this.condition.highlight && !this.condition.expired && (!settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions || settingsManager.settings.activeApplyConditionsExcludes.indexOf(this.condition.name) != -1)) {
           this.playAnimation();
         }
       }

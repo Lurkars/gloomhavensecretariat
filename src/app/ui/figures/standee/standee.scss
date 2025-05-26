@@ -325,7 +325,7 @@
     }
 
     ghs-highlight-conditions {
-      z-index: 5;
+      z-index: 20;
       position: absolute;
       bottom: 0;
       width: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor));

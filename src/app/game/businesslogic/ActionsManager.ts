@@ -384,9 +384,9 @@ export class ActionsManager {
                 if (entity.health <= 0) {
                     entity.health = 0;
                 }
-                if (figure instanceof Monster && entity instanceof MonsterEntity && entity.health == 0) {
+                if (figure instanceof Monster && entity instanceof MonsterEntity && entity.health <= 0) {
                     entity.dead = true;
-                } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity && entity.health == 0) {
+                } else if (figure instanceof ObjectiveContainer && entity instanceof ObjectiveEntity && entity.health <= 0) {
                     entity.dead = true;
                 }
                 break;
