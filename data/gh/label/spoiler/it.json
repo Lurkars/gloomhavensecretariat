@@ -280,6 +280,208 @@
     "gh-42": {
       "": "Anello della Velocità",
       "1": "Alla fine del tuo turno, gioca una carta dalla tua mano ed effettua immediatamente l'azione inferiore della carta."
+    },
+    "gh-43": {
+      "": "Stivali della Rapidità",
+      "1": "All'inizio di un round, dopo che tutte le carte capacità sono state rivelate, aumenta o riduci di 20 il valore di iniziativa della tua carta primaria."
+    },
+    "gh-44": {
+      "": "Corazza di Strisce",
+      "1": "Per le prossime quattro fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield% 1."
+    },
+    "gh-45": {
+      "": "Pendente dei Patti Oscuri",
+      "1": "Durante il tuo turno, ripristina %game.card.refresh% due tuoi oggetti %game.items.slots.small% consumati. Ottieni %game.condition.curse%."
+    },
+    "gh-46": {
+      "": "Scudo Chiodato",
+      "1": "Quando sei danneggiato da un attacco, ottieni % game.action.shield % 1 e % game.action.retaliate % 2 per quell'attacco."
+    },
+    "gh-47": {
+      "": "Falce del Mietitore",
+      "1": "Durante la tua azione di attacco in mischia a bersaglio singolo, trasforma l'attacco nel seguente:"
+    },
+    "gh-48": {
+      "": "Pozione di Mana Maggiore",
+      "1": "Durante il tuo turno, crea due elementi qualsiasi."
+    },
+    "gh-49": {
+      "": "Orecchino del Sole",
+      "1": "Durante il tuo turno, ripristina %game.card.refresh% tutti i tuoi oggetti spesi ed effettua un'azione \"%game.action.heal% 3, Se Stesso\"."
+    },
+    "gh-5": {
+      "": "Mantello dell'Invisibilità",
+      "1": "Durante il tuo turno, ottieni %game.condition.invisible%."
+    },
+    "gh-50": {
+      "": "Scarpa d'Arme",
+      "1": "Se ti muovi di 1 o meno esagoni nel tuo turno, ottieni %game.action.shield% 1 per il round."
+    },
+    "gh-51": {
+      "": "Armatura d'Ombra",
+      "1": "Quando sei danneggiato da un attacco che ti bersaglia, non subisci invece alcun danno."
+    },
+    "gh-52": {
+      "": "Amuleto Protettivo",
+      "1": "Sei immune a %game.condition.poison% e %game.condition.wound%."
+    },
+    "gh-53": {
+      "": "Coltello Nero",
+      "1": "Durante il tuo attacco in mischia, aggiungi %game.condition.curse% a un singolo attacco."
+    },
+    "gh-54": {
+      "": "Bastone dell'Eminenza",
+      "1": "Durante il tuo attacco a distanza, %game.element.consume.wild% per aggiungere +1 %game.action.attack% all'intera azione di Attacco."
+    },
+    "gh-55": {
+      "": "Pozione di Guarigione Superiore",
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal% 7, Se Stesso\"."
+    },
+    "gh-56": {
+      "": "Anello della Brutalità",
+      "1": "Alla fine del tuo turno, gioca una carta dalla tua mano ed effettua immediatamente l'azione superiore della carta."
+    },
+    "gh-57": {
+      "": "Sandali Semplici",
+      "1": "Ogni volta che usi l'azione base inferiore di una carta capacità, effettua un'azione \"%game.action.move% 4\" invece di un'azione \"%game.action.move% 2\"."
+    },
+    "gh-58": {
+      "": "Mantello dell'Intangibilità",
+      "1": "Ottieni %game.action.fly%.",
+      "2": "Mentre occupi un esagono ostacolo, sei considerato %game.condition.invisible% e non puoi attaccare."
+    },
+    "gh-59": {
+      "": "Lenti Telescopiche",
+      "1": "Durante il tuo attacco a distanza, aggiungi +2 %game.action.range% all'intera azione di Attacco"
+    },
+    "gh-6": {
+      "": "Occhiali dell'Aquila",
+      "1": "Durante il tuo attacco, ottieni Vantaggio per l'intera azione di Attacco."
+    },
+    "gh-60": {
+      "": "Esplosivi Instabili",
+      "1": "Trasforma un attacco a distanza a bersaglio singolo nel seguente:",
+      "3": "Tutti gli alleati nell'area di attacco subiscono 3 danni."
+    },
+    "gh-61": {
+      "": "Scudo a Muro",
+      "1": "Quando sei danneggiato da un attacco, ottieni %game.action.shield% 4 per quell'attacco."
+    },
+    "gh-62": {
+      "": "Polvere del Destino",
+      "1": "Durante il tuo attacco, aggiungi %game.condition.stun%, %game.condition.poison% e %game.condition.curse% a un singolo attacco."
+    },
+    "gh-63": {
+      "": "Occhio Fortunato",
+      "1": "Durante il tuo turno, applica %game.condition.strengthen% a te stesso e a tutti gli alleati adiacenti."
+    },
+    "gh-64": {
+      "": "Stivali della Corsa",
+      "1": "Durante il tuo movimento, aggiungi +4 %game.action.move% a un singolo movimento."
+    },
+    "gh-65": {
+      "": "Corazza di Piastre",
+      "1": "Per le prossime cinque fonti di danno dagli attacchi, ottieni %game.action.shield% 1."
+    },
+    "gh-66": {
+      "": "Maschera del Terrore",
+      "1": "Durante il tuo attacco in mischia, aggiungi %game.action.push% 1."
+    },
+    "gh-67": {
+      "": "Lama Bilanciata",
+      "1": "Ogni volta che usi l'azione base superiore di una carta capacità, effettua un'azione \"%game.action.attack% 4\" invece di un'azione \"%game.action.attack% 2\"."
+    },
+    "gh-68": {
+      "": "Alabarda",
+      "1": "Durante la tua azione di attacco in mischia a bersaglio singolo, puoi attaccare un qualsiasi nemico singolo entro 2 esagoni."
+    },
+    "gh-69": {
+      "": "Orecchino della Stella",
+      "1": "Durante il tuo turno, ripristina %game.card.refresh% tutti i tuoi oggetti spesi, effettua un'azione \"%game.action.heal% 3, Se Stesso\" e recupera %game.card.recover% fino a due tue carte scartate."
+    },
+    "gh-7": {
+      "": "Elmo di Ferro",
+      "1": "Quando sei attaccato, considera una qualsiasi carta modificatore di attacco %game.attackmodifier.double% pescata dal nemico come se fosse invece un %game.attackmodifier.plus0%."
+    },
+    "gh-70": {
+      "": "Anello della Seconda Chance",
+      "1": "Alla fine del tuo turno, gioca due carte dalla tua mano ed effettua un turno aggiuntivo in questo round basato sull'iniziativa della tua nuova carta primaria (che deve essere successiva alla tua iniziativa attuale)."
+    },
+    "gh-71": {
+      "": "Stivali della Levitazione",
+      "1": "Ottieni %game.action.fly%"
+    },
+    "gh-72": {
+      "": "Scarpe della Felicità",
+      "1": "Se ti muovi di 6 o più esagoni nel tuo turno, ottieni %game.card.experience:1%."
+    },
+    "gh-73": {
+      "": "Mantello Intermittente",
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.move%4,%game.act.jump%\""
+    },
+    "gh-74": {
+      "": "Armatura Affilata",
+      "1": "Per le prossime tre fonti di danno dagli attacchi che ti bersagliano, ottieni %game.action.shield% 1, %game.action.retaliate% 1"
+    },
+    "gh-75": {
+      "": "Diadema degli Elementi",
+      "1": "Durante il tuo turno, %game.element.consume.wild% per creare un qualsiasi elemento."
+    },
+    "gh-76": {
+      "": "Cappuccio di Maglia",
+      "1": "Mentre sei adiacente a tre o più mostri, ottieni %game.action.shield% 1"
+    },
+    "gh-77": {
+      "": "Lama del Ghiaccio",
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.ice% per aggiungere +2 %game.action.attack% a un singolo attacco."
+    },
+    "gh-78": {
+      "": "Lama della Tempesta",
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.air% per aggiungere +2 %game.action.attack% a un singolo attacco."
+    },
+    "gh-79": {
+      "": "Lama dell'Inferno",
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.fire% per aggiungere +2 %game.action.attack% a un singolo attacco."
+    },
+    "gh-8": {
+      "": "Scudo Triangolare",
+      "1": "Quando sei danneggiato da un attacco, ottieni %game.action.shield% 1 per quell'attacco."
+    },
+    "gh-80": {
+      "": "Lama del Tremito",
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.earth% per aggiungere +2 %game.action.attack% a un singolo attacco."
+    },
+    "gh-81": {
+      "": "Lama del Bagliore",
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.light% per aggiungere +2 %game.action.attack% a un singolo attacco."
+    },
+    "gh-82": {
+      "": "Lama della Notte",
+      "1": "Durante il tuo attacco in mischia, %game.element.consume.dark% per aggiungere +2 %game.action.attack% a un singolo attacco."
+    },
+    "gh-83": {
+      "": "Bacchetta del Gelo",
+      "1": "Durante il tuo turno, crea Ghiaccio."
+    },
+    "gh-84": {
+      "": "Bacchetta delle Tempeste",
+      "1": "Durante il tuo turno, crea Aria."
+    },
+    "gh-85": {
+      "": "Bacchetta degli Inferi",
+      "1": "Durante il tuo turno, crea Fuoco."
+    },
+    "gh-86": {
+      "": "Bacchetta dei Tremiti",
+      "1": "Durante il tuo turno, crea Terra."
+    },
+    "gh-87": {
+      "": "Bacchetta dello Splendore",
+      "1": "Durante il tuo turno, crea Luce."
+    },
+    "gh-88": {
+      "": "Bacchetta delle Tenebre",
+      "1": "Durante il tuo turno, crea Oscurità."
     }
   }
 }
