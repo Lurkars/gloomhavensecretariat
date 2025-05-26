@@ -4,5 +4,8 @@
     "mindthief": "Ladro Mentale",
     "spellweaver": "Tessimagie",
     "tinkerer": "Inventore"
+  },
+  "monster": {
+    "bandit-guard": "Bandito Guardia"
   }
 }

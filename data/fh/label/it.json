@@ -12,5 +12,20 @@
     "geminate": {
       "": "Geminato"
     }
+  },
+  "monster": {
+    "ancient-artillery": "Artiglieria Antica",
+    "city-guard": "Guardia Cittadina",
+    "earth-demon": "Demone della Terra",
+    "flame-demon": "Demone della Fiamma",
+    "forest-imp": "Imp della Foresta",
+    "harrower-infester": "Harrower Infestatore",
+    "living-bones": "Ossa Viventi",
+    "ooze": "Melma",
+    "rending-drake": "Draco Dilaniatore",
+    "savvas-lavaflow": "Savvas Lava Colante",
+    "spitting-drake": "Draco Sputante",
+    "sun-demon": "Demone del Sole",
+    "wind-demon": "Demone del Vento"
   }
 }

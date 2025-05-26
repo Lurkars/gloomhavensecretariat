@@ -215,7 +215,7 @@
           "alt": "Apri la busta %game.fhIcon:envelope% {0}<br>(alt: %game.fhIcon:envelope% {1})",
           "building": "Sblocca l'edificio '%data.buildings.{1}%' ({0})",
           "inspiration": "Ottieni +1 ispirazione",
-          "itemBlueprint": "Ottieni il progetto di \"%data.items.{1}-{0}%\" (Item {0})",
+          "itemBlueprint": "Ottieni il progetto di \"%data.items.{1}-{0}%\" (Oggetto {0})",
           "randomScenario": "Apri %data.section:{0}%, sblocca %data.scenarioNumber:{1}%"
         },
         "unlockCharacter": {
@@ -1081,7 +1081,7 @@
       "allyShort": "Alleato",
       "enemies": "%game.target% tutti i nemici",
       "enemiesAdjacent": "%game.target% tutti i nemici adiacenti",
-      "enemiesMovedThrough": "%game.target% tutti i nemici attraversati",
+      "enemiesMovedThrough": "%game.target% tutti i nemici spostati",
       "enemiesMovedThroughAdjacent": "%game.target% tutti i nemici che occupano o sono adiacenti a<br>esagoni attraversati durante l'abilità di spostamento",
       "enemiesRange": "%game.target% tutti i nemici entro %game.action.range% {0}",
       "enemiesRangeAffect": "%game.affect% tutti i nemici entro %game.action.range% {0}",
@@ -1668,7 +1668,7 @@
       "overlayCampaignSticker": "Colloca l'adesivo \"%data.campaignSticker.{0}%\" sulla mappa della città nella posizione {1}",
       "overlaySticker": "Posiziona l'adesivo di sovrapposizione {0} sul luogo della mappa {0} ({1}).",
       "partyAchievements": "Traguardi del gruppo",
-      "perks": "Ciascuno guadagna {0} talenti",
+      "perks": "Ognuno ottiene {0} talenti",
       "pet": "Aggiungi %data.pets.{1}-{0}% (Animale {0}) alle stalle. Ciò può superare la capacità delle scuderie.",
       "prosperity": "{0} prosperità",
       "randomItemBlueprint": "Ottieni un progetto di oggetto casuale",
@@ -1864,7 +1864,7 @@
       },
       "xp": {
         "": "%game.gameIcon:experience%: {0}",
-        "hint": "Quantità di esperienza %game.gameIcon:experience% guadagnata"
+        "hint": "Quantità di esperienza %game.gameIcon:experience% ottenuta"
       }
     },
     "summary": {

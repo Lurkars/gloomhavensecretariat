@@ -14,49 +14,63 @@
   },
   "items": {
     "gh-1": {
-      "": "Bottes de Voyage"
+      "": "Bottes de Voyage",
+      "1": "Pendant votre déplacement, ajoutez +2 %game.action.move% à un seul déplacement."
     },
     "gh-10": {
-      "": "Marteau de Guerre"
+      "": "Marteau de Guerre",
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.stun% à la totalité de l'action d'Attaque."
     },
     "gh-11": {
-      "": "Dague Empoisonnée"
+      "": "Dague Empoisonnée",
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.poison% à une seule attaque."
     },
     "gh-12": {
-      "": "Potion de Soin Mineure"
+      "": "Potion Soin Mineure",
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 3, self\"."
     },
     "gh-123": {
       "": "Anneau de Crânes"
     },
     "gh-13": {
-      "": "Potion d'Endurance Mineure"
+      "": "Potion Endurance Mineure",
+      "1": "Pendant votre tour, Récupérez %game.card.recover% une de vos cartes défaussées."
     },
     "gh-14": {
-      "": "Potion de Puissance Mineure"
+      "": "Potion Puissance Mineure",
+      "1": "Pendant votre attaque, ajoutez +1 %game.action.attack% à la totalité de votre action d'Attaque."
     },
     "gh-2": {
-      "": "Bottines Ailées"
+      "": "Bottines Ailées",
+      "1": "Pendant votre déplacement, ajoutez %game.action.jump% à ce déplacement."
     },
     "gh-3": {
-      "": "Armure de Peaux"
+      "": "Armure de Peaux",
+      "1": "Pour les deux prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield% 1."
     },
     "gh-4": {
-      "": "Armure de Cuir"
+      "": "Armure de Cuir",
+      "1": "Lorsque vous êtes attaqué, l'attaquant gagne Désavantage pour cette attaque."
     },
     "gh-5": {
-      "": "Cape d'Invisibilité"
+      "": "Cape d'Invisibilité",
+      "1": "Pendant votre tour, gagnez %game.condition.invisible%."
     },
     "gh-6": {
-      "": "Jumelles Œil-de-Faucon"
+      "": "Jumelles Œil-de-Faucon",
+      "1": "Pendant votre attaque, gagnez Avantage pour la totalité de l'action d'Attaque."
     },
     "gh-7": {
-      "": "Casque de fer"
+      "": "Casque de fer",
+      "1": "Lorsque vous êtes attaqué, traitez toute carte Modificateur d'Attaque %game.attackmodifier.double% piochée par l'adversaire comme une carte %game.attackmodifier.plus0% à la place."
     },
     "gh-8": {
-      "": "Écu"
+      "": "Écu",
+      "1": "Lorsque vous subissez des dégâts du fait d'une attaque, gagnez %game.action.shield% 1 pour cette attaque."
     },
     "gh-9": {
-      "": "Arc Perforant"
+      "": "Arc Perforant",
+      "1": "Pendant votre attaque à distance, ignorez toutes les valeurs de Bouclier pour la totalité de l'action d'Attaque."
     }
   },
   "summon": {

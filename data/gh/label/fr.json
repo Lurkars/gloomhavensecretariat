@@ -14,12 +14,14 @@
     "Energizing Tonic": "Tonic Énergisant",
     "Enhancement Field": "Champ d'Amélioration",
     "Eye for an Eye": "Œil pour Œil",
+    "Fatal Advance": "Avancée Fatale",
     "Fearsome Blade": "Lame Effrayante",
     "Feedback Loop": "Boucle de Rétroaction",
     "Fire Orbs": "Orbes de Feu",
     "Flame Strike": "Frappe de la Flamme",
     "Flamethrower": "Lance-flammes",
     "Flanking Strike": "Frappe de Côté",
+    "Flintlock": "Silex",
     "Forceful Storm": "Tempête Puissante",
     "Freezing Nova": "Nova de Glace",
     "Frigid Apparition": "Apparition Glaciale",
@@ -33,11 +35,13 @@
     "Impaling Eruption": "Éruption de Piques",
     "Info the Night": "Au Cœur de la Nuit",
     "Ink Bomb": "Bombe à Encre",
+    "Juggernaut": "Rouleau Compresseur",
     "Leaping Cleave": "Feinte Bondissante",
     "Mana Bolt": "Projectile de Mana",
     "Massive Boulder": "Rocher Massif",
     "Nature's Lift": "Sur l'Aile de la Nature",
     "Net Shooter": "Lance-filet",
+    "Open Wound": "Blessure Ouverte",
     "Opposing Strike": "Force d'Opposition",
     "Overwhelming Assault": "Assaut Déferlant",
     "Parasitic Influence": "Influence Parasite",
@@ -107,6 +111,12 @@
           "13": {
             "1": "Ajoutez +1 %game.action.attack% à toutes vos attaques ce round."
           },
+          "14": {
+            "1": "Éliminez un adversaire normal adjacent."
+          },
+          "15": {
+            "1": "Les trois prochaines fois qu'une source vous inflige des dégâts, ne subissez pas de dégâts à la place."
+          },
           "2": {
             "1": "Gagnez %game.card.experience:1% à chaque fois que vous ripostez ce round."
           },
@@ -150,15 +160,15 @@
             "5": "Affectez tous les alliés"
           },
           "124": {
-            "1": "POUSSÉE %game.action.push% 2, %game.card.experience:1%",
+            "1": "%game.action.push% 2, %game.card.experience:1%",
             "2": "Tous les alliés et adversaires adjacents subissent 1 dégât.",
             "3": "2 dégâts à la place, %game.card.experience:1%"
           },
           "125": {
-            "2": "Appliquez CONFUSION %game.condition.muddle% à tous les alliés et adversaires dans la zone ciblée."
+            "2": "Appliquez %game.condition.muddle% à tous les alliés et adversaires dans la zone ciblée."
           },
           "126": {
-            "1": "IMMOBILISATION %game.condition.immobilize%, %game.card.experience:1%"
+            "1": "%game.condition.immobilize%, %game.card.experience:1%"
           },
           "127": {
             "1": "Vous pouvez pousser la cible sur un hexagone contenant un obstacle. Dans ce cas, détruisez l'obstacle, la cible subit 2 dégâts et vous gagnez %game.card.experience:1%.",
@@ -252,6 +262,9 @@
       },
       "scoundrel": {
         "abilities": {
+          "100": {
+            "1": "Ajoutez %game.condition.wound% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés."
+          },
           "88": {
             "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
             "2": "Pour vos quatre prochaines attaques ciblant des adversaires qui ne sont adjacents à aucun de leurs alliés, ajoutez +2 %game.action.attack%"
@@ -260,7 +273,7 @@
             "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés."
           },
           "90": {
-            "1": "Pour votre prochaine Attaque avec INVISIBILITÉ %game.condition.invisible%, doublez la valeur de l'attaque."
+            "1": "Pour votre prochaine Attaque avec %game.condition.invisible%, doublez la valeur de l'attaque."
           },
           "91": {
             "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
@@ -353,6 +366,29 @@
   "edition": {
     "gh": "Gloomhaven"
   },
+  "globalAchievements": {
+    "Ancient Technology": "Technologie Ancienne",
+    "Annihilation of Order": "L'Annihilation de l'Ordre",
+    "Artifact: Cleansed": "Relique : Purifiée",
+    "Artifact: Lost": "Relique : Perdue",
+    "Artifact: Recovered": "Relique : Récupérée",
+    "City Rule: Demonic": "Régime de la Cité : Démoniaque",
+    "City Rule: Economic": "Régime de la Cité : Commercial",
+    "City Rule: Militaristic": "Régime de la Cité : Militariste",
+    "End of Corruption": "La fin de la Corruption",
+    "End of Gloom": "La fin de l'Ombre",
+    "End of the Invasion": "La fin de l'Invasion",
+    "The Dead Invade": "L'Invasion des Morts",
+    "The Drake Aided": "Au Service de la Wyverne",
+    "The Drake Slain": "La Wyverne Abattue",
+    "The Edge of Darkness": "La Lisière des Ténèbres",
+    "The Merchant Flees": "La Fuite de la Négociante",
+    "The Power of Enhancement": "Le Pouvoir de l'Amélioration",
+    "The Rift Neutralized": "La Faille Neutralisée",
+    "The Voice Freed": "La Voix Libérée",
+    "The Voice Silenced": "La Voix Réduite au Silence",
+    "Water-Breathing": "Respiration Aquatique"
+  },
   "monster": {
     "ancient-artillery": "Canon Ancien",
     "bandit-archer": "Archer Bandit",
@@ -401,6 +437,9 @@
     "vermling-shaman": "Chaman Vermling",
     "wind-demon": "Démon du Vent",
     "winged-horror": "Horreur Ailée"
+  },
+  "partyAchievements": {
+    "First Steps": "Premiers Pas"
   },
   "scenario": {
     "group": {

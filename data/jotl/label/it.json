@@ -6,5 +6,13 @@
     "hatchet": "Ascia da Guerra",
     "red-guard": "Guardia Rossa",
     "voidwarden": "Guardiano del Vuoto"
+  },
+  "monster": {
+    "black-imp": "Imp Nero",
+    "giant-viper": "Vipera Gigante",
+    "living-corpse": "Cadavere Vivente",
+    "living-spirit": "Spirito Vivente",
+    "stone-golem": "Golem di Pietra",
+    "vermling-scout": "Vermling Esploratore"
   }
 }
