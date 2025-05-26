@@ -1,4 +1,14 @@
 {
+  "character": {
+    "lightning": {
+      "blood-pact": {
+        "hint": "Subisci %game.damage:1% all'inizio di ciascuno dei tuoi turni."
+      },
+      "careless-charge": {
+        "hint": "Sei immune a tutte le condizioni negative."
+      }
+    }
+  },
   "items": {
     "gh-1": {
       "": "Stivali dei Lunghi Passi",
@@ -92,7 +102,7 @@
       "1": "Durante il tuo turno, applica %game.condition.curse% a tutti i nemici adiacenti."
     },
     "gh-12": {
-      "": "Pozione di Cura Minore",
+      "": "Pozione di Guarigione Minore",
       "1": "Durante il tuo turno, esegui un'azione \"%game.action.heal% 3\", su te stesso."
     },
     "gh-120": {
@@ -482,6 +492,54 @@
     "gh-88": {
       "": "Bacchetta delle Tenebre",
       "1": "Durante il tuo turno, crea Oscurità."
+    },
+    "gh-89": {
+      "": "Pozione di Cura Minore",
+      "1": "Durante il tuo turno, rimuovi una condizione negativa da te stesso. Può usata mentre hai %game.condition.stun%."
+    },
+    "gh-9": {
+      "": "Arco Perforante",
+      "1": "Durante il tuo attacco a distanza, ignora tutti i valori di Scudo per l'intera azione di Attacco."
+    },
+    "gh-90": {
+      "": "Pozione di Cura Maggiore",
+      "1": "Durante il tuo turno, rimuovi tutte le condizioni negative da te stesso. Può essere usata mentre hai %game.condition.stun%."
+    },
+    "gh-91": {
+      "": "Anello d'Acciaio",
+      "1": "Quando sei danneggiato da un attacco che ti bersaglia, ottieni %game.action.shield% 4 per quell'attacco."
+    },
+    "gh-92": {
+      "": "Anello della Soppressione",
+      "1": "Prima che un nemico consumi un elemento, consuma invece quell'elemento senza generare alcun effetto"
+    },
+    "gh-93": {
+      "": "Pergamena del Potere",
+      "1": "Durante l'attacco di un alleato, aggiungi +1 %game.action.attack% all'intera azione di Attacco"
+    },
+    "gh-94": {
+      "": "Pergamena della Guarigione",
+      "1": "Durante il tuo turno, effettua un'azione \"%game.action.heal% 3, %game.action.range:5%\""
+    },
+    "gh-95": {
+      "": "Pergamena del Vigore",
+      "1": "Durante il tuo turno, un alleato entro %game.action.range:5% può recuperare fino a due sue carte scartate"
+    },
+    "gh-96": {
+      "": "Stivali a Razzo",
+      "1": "Durante il tuo movimento, aggiungi +3 %game.action.move% e %game.action.jump% a un singolo movimento"
+    },
+    "gh-97": {
+      "": "Calzari della Tenacia",
+      "1": "Se ti muovi di 4 o più esagoni nel tuo turno, effettua un'azione \"%game.action.heal% 1, Se Stesso\"."
+    },
+    "gh-98": {
+      "": "Stivali di Scaglie di Draco",
+      "1": "Non sei influenzato dal terreno difficile e pericoloso."
+    },
+    "gh-99": {
+      "": "Stivali di Magma",
+      "1": "Ignora gli effetti dannosi del terreno pericoloso ed effettua un'azione \"%game.action.heal% 2, Se Stesso\" in un qualsiasi turno in cui sei entrato in un esagono di terreno pericoloso."
     }
   }
 }
