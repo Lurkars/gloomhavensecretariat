@@ -2208,6 +2208,10 @@
       "": "顯示計算之後的數據",
       "hint": "能力數值是經過計算之後得出的數據，因此當基礎屬性中的攻擊值為3時，顯示的不是攻擊+1，而是攻擊4"
     },
+    "calculateAdvantageStats": {
+      "": "增加優勢至能力卡牌",
+      "hint": "在能力卡上的 %game.action.attack% 中附加 %game.custom.advantage%。"
+    },
     "calculateShieldStats": {
       "": "添加護盾及反擊至能力中",
       "hint": "將預設的 %game.action.shield% 以及 %game.action.retaliate% 數值添加至能力卡牌中 %game.action.shield% 以及 %game.action.retaliate% 的行動中，因此顯示的是完整的總值。"
@@ -3324,6 +3328,7 @@
       "toggleAbsent": "切換 <i>隱藏不在場單位</i>",
       "toggleDamageHP": "切換 <i>%settings.damageHP%</i>",
       "toggleElements": "切換元素狀態",
+      "toggleFullscreen": "切換<i>全螢幕</i>",
       "toggleHandSize": "切換 <i>顯示手牌上限與等級</i>",
       "togglePlayerNumber": "切換 <i>顯示玩家編號</i>",
       "toggleTraits": "切換 <i>顯示特性</i>",
