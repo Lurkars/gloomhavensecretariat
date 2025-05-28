@@ -33,7 +33,8 @@
   "rooms": [
     {
       "roomNumber": 3,
-      "ref": "M1b"
+      "ref": "M1b",
+      "initial": true
     }
   ]
 }

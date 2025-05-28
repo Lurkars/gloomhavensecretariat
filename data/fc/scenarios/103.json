@@ -34,7 +34,20 @@
       "name": "Orchid Caravan",
       "escort": true,
       "health": "2x(C+L)+3",
-      "marker": "a"
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "small": true,
+              "value": "%data.scenario.rules.fc.103.1%"
+            }
+          ]
+        }
+      ]
     }
   ],
   "rules": [

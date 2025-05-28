@@ -29,6 +29,7 @@
     {
       "roomNumber": 2,
       "ref": "C2a",
+      "initial": true,
       "treasures": [
         81
       ]

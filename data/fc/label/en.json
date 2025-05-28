@@ -299,6 +299,9 @@
         "101": {
           "1": "if adjacent Spitting Drake is alive and without %game.condition.stun%."
         },
+        "103": {
+          "1": "Towards safety %game.mapMarker.d% on tile M1b, opening doors and springing traps if necessary."
+        },
         "104": {
           "1": "towards portal %game.mapMarker.1%",
           "2": "towards portal %game.mapMarker.2%",

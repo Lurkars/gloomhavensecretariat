@@ -316,6 +316,14 @@
         height: calc(var(--ghs-unit) * 13);
         max-width: calc(var(--ghs-unit) * 10);
         overflow: visible;
+
+        .bar-container {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+        }
       }
 
       &.col-2 {
@@ -967,12 +975,6 @@
       margin: calc(var(--ghs-unit) * 2.8) calc(var(--ghs-unit) * 2);
     }
 
-    ghs-character-initiative {
-      height: calc(var(--ghs-unit) * 14);
-      margin-top: calc(var(--ghs-unit) * 1);
-      margin-left: calc(var(--ghs-unit) * 2);
-    }
-
     .stats {
       position: absolute;
       left: calc(var(--ghs-unit) * 2);
@@ -984,6 +986,16 @@
         margin-left: calc(var(--ghs-unit) * 12);
         width: 100%;
         max-width: initial;
+
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        ghs-character-initiative {
+          height: calc(var(--ghs-unit) * 10);
+          margin-top: calc(var(--ghs-unit) * 1);
+          margin-left: initial;
+        }
       }
 
       .character-sheet-button {
@@ -1058,6 +1070,12 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+
+        .bar-container {
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+        }
 
         .title {
 
