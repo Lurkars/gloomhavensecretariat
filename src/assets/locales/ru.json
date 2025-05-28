@@ -198,7 +198,7 @@
       "gold": "Золото",
       "gold-notes": "Золото Заметки",
       "import": "Импорт",
-      "level": "Уровень",
+      "level": "Ур.",
       "lock": "Заблокировать лист персонажа, чтобы избежать случайных изменений.",
       "masteries": "Мастерство",
       "name": "Имя",
@@ -220,7 +220,7 @@
         },
         "unlockCharacter": {
           "": "Открыть коробку %game.characterIcon.{0}%",
-          "itemDesign": "Получить проект \"%data.items.{1}-{0}%\"(предмет {0})",
+          "itemDesign": "Получить проект «%data.items.{1}-{0}%» (предмет {0})",
           "randomScenario": "Разблокировать \"{1}\" %data.scenarioNumber:{0}%"
         }
       },
@@ -841,7 +841,7 @@
         "experience": "Каждый получает по {0} опыта.",
         "globalAchievement": "Глобальное достижение: «%data.globalAchievements.{0}%».",
         "gold": "Каждый получает по {0} золота.",
-        "itemDesign": "Получите проект «%data.items.{1}-{0}%» (Предмет {0}).",
+        "itemDesign": "Получите проект «%data.items.{1}-{0}%» (предмет {0}).",
         "loseBattleGoal": "Каждый потеряйте по {0} %game.checkmark%.",
         "loseCollectiveGold": "Потеряйте в общем {0} золота.",
         "loseGold": "Каждый теряет по {0} золота.",
