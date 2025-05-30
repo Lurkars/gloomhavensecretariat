@@ -1,3 +1,4 @@
+import { commandManager } from "../commands/CommandManager";
 import { Character } from "../model/Character";
 import { Game, GameModel } from "../model/Game";
 import { Monster } from "../model/Monster";
@@ -343,6 +344,12 @@ export class StateManager {
         case "ping":
           console.debug("Received ping answer...");
           break;
+        case "remoteCommand":
+          if (message.payload && (gameManager.game.server || message.payload.force)) {
+            console.debug("remoteCommand:", message.payload);
+            commandManager.execute(message.payload.id, ...(message.payload.parameters || []));
+          }
+          break;
         case "error":
           // migration
           if (message.message == "No enum constant de.champonthis.ghs.server.socket.model.MessageType.PING") {
@@ -670,6 +677,15 @@ export class StateManager {
 
       this.saveStorage();
     }
+  }
+
+  revertLastUndo() {
+    this.undos.splice(this.undos.length - 1, 1);
+    this.undoInfos.splice(this.undoInfos.length - 1, 1);
+    window.document.body.classList.remove('working');
+    window.document.body.classList.remove('server-sync');
+    this.saveStorage();
+    gameManager.uiChange.emit();
   }
 
   hasUndo(): boolean {
