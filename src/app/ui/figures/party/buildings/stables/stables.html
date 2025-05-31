@@ -16,16 +16,17 @@
         </label>
     </div>
 
-    <div class="pet-list">
+    <div class="scroll-container pet-list">
         <div class="empty" *ngIf="!pets.length"><span [ghs-label]="'data.buildings.stables.pets.empty'"></span></div>
 
         <div class="pet" *ngFor="let pet of pets">
             <ghs-pet-card *ngIf="pet.card" [petCard]="pet.card" [flipped]="pet.model != undefined"
                 [reveal]="pet.model == undefined" [name]="!edit && pet.model ? pet.model.petname : ''"
                 (revealed)="addPet(pet)"
-                [ngClass]="{'selected': (select || running) && pet.model && pet.model.active, 'unavailable': pet.model && pet.model.active && pet.model.lost, 'disabled': (!pet.model || !pet.model.active) && !select && running}"
-                ghs-pointer-input (singleClick)="toggleActive(pet.model)"
-                (doubleClick)="toggleActive(pet.model, true)"></ghs-pet-card>
+                [ngClass]="{'selected': (select || running) && pet.model && pet.model.active, 'unavailable': pet.model && pet.model.active && pet.model.lost, 'disabled': (!pet.model || !pet.model.active) && !select && running}"></ghs-pet-card>
+
+            <div *ngIf="!edit && pet.model && (select || running)" class="toggle-active" ghs-pointer-input
+                (singleClick)="toggleActive(pet.model)" (doubleClick)="toggleActive(pet.model, true)"></div>
 
             <input *ngIf="edit && pet.model" class="name" type="text" [value]="pet.model.petname"
                 (change)="updatePet($event, pet.model)">
