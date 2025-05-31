@@ -198,28 +198,52 @@ export class Game {
     // migration
     if (this.party.achievementsList) {
       const partyAchievementsLabel = settingsManager.label.data.partyAchievements;
+      let partyAchievementsLabelEn = settingsManager.label.data.globalAchievements;
+      if (settingsManager.settings.locale != settingsManager.defaultLocale) {
+        partyAchievementsLabelEn = gameManager.editionData.map((editionData) => editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].globalAchievements || {}).reduce((a, b) => Object.assign(a, b));
+      }
       this.party.achievementsList = this.party.achievementsList.filter((item) => item);
       this.party.achievementsList = this.party.achievementsList.map((value) => {
         let achievement = value;
+        if (value.startsWith('!')) {
+          achievement = achievement.slice(1, achievement.length);
+        }
         Object.keys(partyAchievementsLabel).forEach((key) => {
           if (partyAchievementsLabel[key].toLowerCase() == achievement.toLowerCase()) {
             achievement = key;
+          } else if (partyAchievementsLabelEn[key] && partyAchievementsLabelEn[key].toLowerCase() == achievement.toLowerCase()) {
+            achievement = key;
           }
         })
+        if (value.startsWith('!')) {
+          achievement = '!' + achievement;
+        }
         return achievement;
       })
     }
 
     if (this.party.globalAchievementsList) {
       const globalAchievementsLabel = settingsManager.label.data.globalAchievements;
+      let globalAchievementsLabelEn = settingsManager.label.data.globalAchievements;
+      if (settingsManager.settings.locale != settingsManager.defaultLocale) {
+        globalAchievementsLabelEn = gameManager.editionData.map((editionData) => editionData.label[settingsManager.defaultLocale] && editionData.label[settingsManager.defaultLocale].globalAchievements || {}).reduce((a, b) => Object.assign(a, b));
+      }
       this.party.globalAchievementsList = this.party.globalAchievementsList.filter((item) => item);
       this.party.globalAchievementsList = this.party.globalAchievementsList.map((value) => {
         let achievement = value;
+        if (value.startsWith('!')) {
+          achievement = achievement.slice(1, achievement.length);
+        }
         Object.keys(globalAchievementsLabel).forEach((key) => {
           if (globalAchievementsLabel[key].toLowerCase() == achievement.toLowerCase()) {
             achievement = key;
+          } else if (globalAchievementsLabelEn[key] && globalAchievementsLabelEn[key].toLowerCase() == achievement.toLowerCase()) {
+            achievement = key;
           }
         })
+        if (value.startsWith('!')) {
+          achievement = '!' + achievement;
+        }
         return achievement;
       })
     }
