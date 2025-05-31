@@ -5,6 +5,7 @@
     "Backstab": "Coup en Traître",
     "Backup Ammunition": "Réserve de Munitions",
     "Balanced Measure": "Mesures Équilibrées",
+    "Brute Force": "Force Brute",
     "Crackling Air": "Air Crépitant",
     "Crater": "Cratère",
     "Crushing Grasp": "Poigne Écrasante",
@@ -32,6 +33,7 @@
     "Harmless Contraption": "Engin Inoffensif",
     "Heaving Swing": "Projection",
     "Hook Gun": "Pistolet à Grappin",
+    "Hook and Chain": "Crochet et Chaîne",
     "Impaling Eruption": "Éruption de Piques",
     "Info the Night": "Au Cœur de la Nuit",
     "Ink Bomb": "Bombe à Encre",
@@ -116,6 +118,10 @@
           },
           "15": {
             "1": "Les trois prochaines fois qu'une source vous inflige des dégâts, ne subissez pas de dégâts à la place."
+          },
+          "16": {
+            "1": "S'il s'agissait d'un mouvement en ligne droite, effectuez",
+            "2": "où X est le nombre d'hexagones dont vous vous êtes déplacé lors de cette action."
           },
           "2": {
             "1": "Gagnez %game.card.experience:1% à chaque fois que vous ripostez ce round."
