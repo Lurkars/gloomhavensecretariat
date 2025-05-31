@@ -25,18 +25,18 @@
   "requirements": [
     {
       "party": [
-        "A Demon's Errand"
+        "a-demons-errand"
       ]
     },
     {
       "party": [
-        "Following Clues"
+        "following-clues"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "Artifact: Recovered"
+      "artifact-recovered"
     ]
   },
   "monsters": [

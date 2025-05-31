@@ -18,10 +18,10 @@
   "requirements": [
     {
       "global": [
-        "!Artifact: Lost"
+        "!artifact-lost"
       ],
       "party": [
-        "Stonebreaker's Censer"
+        "stonebreakers-censer"
       ]
     }
   ],
@@ -33,7 +33,7 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "The Rift Neutralized"
+      "the-rift-neutralized"
     ],
     "gold": 100,
     "prosperity": 1,

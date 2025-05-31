@@ -17,7 +17,7 @@
   "requirements": [
     {
       "global": [
-        "!The Merchant Flees"
+        "!the-merchant-flees"
       ]
     }
   ],
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "The Dead Invade"
+      "the-dead-invade"
     ],
     "gold": 20,
     "prosperity": 1

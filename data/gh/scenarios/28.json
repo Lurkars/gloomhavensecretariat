@@ -21,7 +21,7 @@
   "requirements": [
     {
       "party": [
-        "Dark Bounty"
+        "dark-bounty"
       ]
     }
   ],
@@ -30,7 +30,7 @@
   ],
   "rewards": {
     "partyAchievements": [
-      "An Invitation"
+      "an-invitation"
     ]
   },
   "monsters": [

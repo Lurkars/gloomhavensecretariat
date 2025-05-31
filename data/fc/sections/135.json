@@ -10,13 +10,13 @@
   "conclusion": true,
   "rewards": {
     "globalAchievements": [
-      "A Peril Averted"
+      "a-peril-averted"
     ],
     "partyAchievements": [
-      "Hunting the Hunter"
+      "hunting-the-hunter"
     ],
     "lostPartyAchievements": [
-      "Hunted Prey"
+      "hunted-prey"
     ],
     "experience": 12,
     "battleGoals": 1,

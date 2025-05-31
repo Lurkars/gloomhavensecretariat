@@ -19,7 +19,7 @@
   "requirements": [
     {
       "global": [
-        "Water-Breathing"
+        "water-breathing"
       ]
     }
   ],

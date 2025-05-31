@@ -13,7 +13,7 @@
   "requirements": [
     {
       "global": [
-        "!The Rift Neutralized"
+        "!the-rift-neutralized"
       ]
     }
   ],
@@ -24,7 +24,7 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "The Rift Neutralized"
+      "the-rift-neutralized"
     ],
     "gold": 50,
     "prosperity": 1,

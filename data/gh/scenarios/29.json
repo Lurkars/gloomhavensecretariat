@@ -18,13 +18,13 @@
   "requirements": [
     {
       "party": [
-        "An Invitation"
+        "an-invitation"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "The Edge of Darkness"
+      "the-edge-of-darkness"
     ],
     "experience": 15
   },

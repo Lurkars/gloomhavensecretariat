@@ -21,13 +21,13 @@
   "requirements": [
     {
       "global": [
-        "The Power of Enhancement"
+        "the-power-of-enhancement"
       ]
     }
   ],
   "rewards": {
     "partyAchievements": [
-      "Stonebreaker's Censer"
+      "stonebreakers-censer"
     ],
     "prosperity": 1
   },

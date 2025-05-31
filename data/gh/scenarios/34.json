@@ -18,19 +18,19 @@
   "requirements": [
     {
       "global": [
-        "!The Drake Aided"
+        "!the-drake-aided"
       ],
       "party": [
-        "The Drake's Command"
+        "the-drakes-command"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "The Drake Slain"
+      "the-drake-slain"
     ],
     "lostPartyAchievements": [
-      "The Drake's Command"
+      "the-drakes-command"
     ],
     "gold": 20,
     "reputation": 2,

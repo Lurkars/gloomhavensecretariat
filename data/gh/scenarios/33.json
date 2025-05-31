@@ -20,19 +20,19 @@
   "requirements": [
     {
       "party": [
-        "The Voice's Command"
+        "the-voices-command"
       ]
     },
     {
       "party": [
-        "The Drake's Command"
+        "the-drakes-command"
       ]
     }
   ],
   "rewards": {
     "partyAchievements": [
-      "The Voice's Treasure",
-      "The Drake's Treasure"
+      "the-voices-treasure",
+      "the-drakes-treasure"
     ]
   },
   "monsters": [

@@ -83,12 +83,12 @@
     "fc": "Forgotten Circles"
   },
   "globalAchievements": {
-    "A Peril Averted": "Gefahr gebannt",
-    "Knowledge is Power": "Wissen ist Macht",
-    "Mechanical Splendor": "Mechanische Pracht",
-    "Pieces of an Artifact": "Teile eines Artefakts",
-    "Severed Ties": "Gekappte Verbindung",
-    "Through the Portal": "Durch das Portal"
+    "a-peril-averted": "Gefahr gebannt",
+    "knowledge-is-power": "Wissen ist Macht",
+    "mechanical-splendor": "Mechanische Pracht",
+    "pieces-of-an-artifact": "Teile eines Artefakts",
+    "severed-ties": "Gekappte Verbindung",
+    "through-the-portal": "Durch das Portal"
   },
   "monster": {
     "aesther-ashblade": "Aesther Ascheklinge",
@@ -113,17 +113,17 @@
     "wolf-viper-abomination": "Wolf-Viper-Abscheulichkeit"
   },
   "partyAchievements": {
-    "A Strongbox": "Eine Schatulle",
-    "Angels of Death": "Todesengel",
-    "Beauty in Freedom": "Schönheit in Freiheit",
-    "Custodians": "Bewahrer",
-    "Diamara's Aid": "Diamaras Hilfe",
-    "Dimensional Equilibrium": "Dimensionsgleichgewicht",
-    "Guard Detail": "Wachdienst",
-    "Hunted Prey": "Gehetzte Beute",
-    "Hunting the Hunter": "Jagd auf die Jägerin",
-    "Opportunists": "Opportunisten",
-    "Xangroth's Aid": "Xangroths Hilfe"
+    "a-strongbox": "Eine Schatulle",
+    "angels-of-death": "Todesengel",
+    "beauty-in-freedom": "Schönheit in Freiheit",
+    "custodians": "Bewahrer",
+    "diamaras-aid": "Diamaras Hilfe",
+    "dimensional-equilibrium": "Dimensionsgleichgewicht",
+    "guard-detail": "Wachdienst",
+    "hunted-prey": "Gehetzte Beute",
+    "hunting-the-hunter": "Jagd auf die Jägerin",
+    "opportunists": "Opportunisten",
+    "xangroths-aid": "Xangroths Hilfe"
   },
   "scenario": {
     "rules": {

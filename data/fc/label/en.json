@@ -234,12 +234,12 @@
     "fc": "Forgotten Circles"
   },
   "globalAchievements": {
-    "A Peril Averted": "A Peril Averted",
-    "Knowledge is Power": "Knowledge is Power",
-    "Mechanical Splendor": "Mechanical Splendor",
-    "Pieces of an Artifact": "Pieces of an Artifact",
-    "Severed Ties": "Severed Ties",
-    "Through the Portal": "Through the Portal"
+    "a-peril-averted": "A Peril Averted",
+    "knowledge-is-power": "Knowledge is Power",
+    "mechanical-splendor": "Mechanical Splendor",
+    "pieces-of-an-artifact": "Pieces of an Artifact",
+    "severed-ties": "Severed Ties",
+    "through-the-portal": "Through the Portal"
   },
   "monster": {
     "aesther-ashblade": "Aesther Ashblade",
@@ -276,17 +276,17 @@
     "Ship": "Ship"
   },
   "partyAchievements": {
-    "A Strongbox": "A Strongbox",
-    "Angels of Death": "Angels of Death",
-    "Beauty in Freedom": "Beauty in Freedom",
-    "Custodians": "Custodians",
-    "Diamara's Aid": "Diamara's Aid",
-    "Dimensional Equilibrium": "Dimensional Equilibrium",
-    "Guard Detail": "Guard Detail",
-    "Hunted Prey": "Hunted Prey",
-    "Hunting the Hunter": "Hunting the Hunter",
-    "Opportunists": "Opportunists",
-    "Xangroth's Aid": "Xangroth's Aid"
+    "a-strongbox": "A Strongbox",
+    "angels-of-death": "Angels of Death",
+    "beauty-in-freedom": "Beauty in Freedom",
+    "custodians": "Custodians",
+    "diamaras-aid": "Diamara's Aid",
+    "dimensional-equilibrium": "Dimensional Equilibrium",
+    "guard-detail": "Guard Detail",
+    "hunted-prey": "Hunted Prey",
+    "hunting-the-hunter": "Hunting the Hunter",
+    "opportunists": "Opportunists",
+    "xangroths-aid": "Xangroth's Aid"
   },
   "scenario": {
     "rewards": {

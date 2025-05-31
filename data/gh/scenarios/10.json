@@ -17,7 +17,7 @@
   "requirements": [
     {
       "global": [
-        "!The Rift Neutralized"
+        "!the-rift-neutralized"
       ]
     }
   ],
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "partyAchievements": [
-      "A Demon's Errand"
+      "a-demons-errand"
     ]
   },
   "monsters": [

@@ -21,13 +21,13 @@
   "requirements": [
     {
       "global": [
-        "Water-Breathing"
+        "water-breathing"
       ]
     }
   ],
   "rewards": {
     "partyAchievements": [
-      "Through the Trench"
+      "through-the-trench"
     ]
   },
   "monsters": [

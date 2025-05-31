@@ -18,7 +18,7 @@
   "requirements": [
     {
       "global": [
-        "!End of the Invasion"
+        "!end-of-the-invasion"
       ]
     }
   ],
@@ -27,7 +27,7 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "End of the Invasion"
+      "end-of-the-invasion"
     ],
     "reputation": 4,
     "itemDesigns": [

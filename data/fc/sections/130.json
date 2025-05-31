@@ -5,8 +5,8 @@
   "conclusion": true,
   "rewards": {
     "globalAchievements": [
-      "Mechanical Splendor",
-      "A Peril Averted"
+      "mechanical-splendor",
+      "a-peril-averted"
     ],
     "gold": 10,
     "experience": 5,

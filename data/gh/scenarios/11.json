@@ -17,7 +17,7 @@
   "requirements": [
     {
       "global": [
-        "!End of the Invasion"
+        "!end-of-the-invasion"
       ]
     }
   ],
@@ -26,8 +26,8 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "City Rule: Economic",
-      "End of the Invasion"
+      "city-rule-economic",
+      "end-of-the-invasion"
     ],
     "gold": 15,
     "reputation": -2,

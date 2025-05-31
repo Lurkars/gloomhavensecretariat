@@ -18,10 +18,10 @@
   "requirements": [
     {
       "global": [
-        "!The Rift Neutralized"
+        "!the-rift-neutralized"
       ],
       "party": [
-        "A Demon's Errand"
+        "a-demons-errand"
       ]
     }
   ],
@@ -32,7 +32,7 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "The Rift Neutralized"
+      "the-rift-neutralized"
     ],
     "lostPartyAchievements": [
       "The Demmon's Errand"

@@ -18,7 +18,7 @@
   "requirements": [
     {
       "global": [
-        "City Rule: Demonic"
+        "city-rule-demonic"
       ]
     }
   ],
@@ -27,7 +27,7 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "Annihilation of Order"
+      "annihilation-of-order"
     ],
     "gold": 50,
     "reputation": -3

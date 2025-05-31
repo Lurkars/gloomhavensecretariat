@@ -730,15 +730,15 @@
     "your-shadow": "Your Shadow"
   },
   "partyAchievements": {
-    "A Potion Lost": "A Potion Lost",
-    "Accomplished Mercenaries": "Accomplished Mercenaries",
-    "Fallen Lava": "Fallen Lava",
-    "Follow the Money": "Follow the Money",
-    "Frozen Warrior": "Frozen Warrior",
-    "Inox Alliance": "Inox Alliance",
-    "Oaks Alliance": "Oaks Alliance",
-    "Ooze Destroyed": "Ooze Destroyed",
-    "Take the Money": "Take the Money"
+    "a-potion-lost": "A Potion Lost",
+    "accomplished-mercenaries": "Accomplished Mercenaries",
+    "fallen-lava": "Fallen Lava",
+    "follow-the-money": "Follow the Money",
+    "frozen-warrior": "Frozen Warrior",
+    "inox-alliance": "Inox Alliance",
+    "oaks-alliance": "Oaks Alliance",
+    "ooze-destroyed": "Ooze Destroyed",
+    "take-the-money": "Take the Money"
   },
   "personalQuest": {
     "cs": {

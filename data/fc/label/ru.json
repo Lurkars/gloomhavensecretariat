@@ -211,12 +211,12 @@
     "fc": "Забытые круги"
   },
   "globalAchievements": {
-    "A Peril Averted": "Устранение угрозы",
-    "Knowledge is Power": "Знание - сила",
-    "Mechanical Splendor": "Торжество технологий",
-    "Pieces of an Artifact": "Части артефакта",
-    "Severed Ties": "Разорванные узы",
-    "Through the Portal": "Путь через портал"
+    "a-peril-averted": "Устранение угрозы",
+    "knowledge-is-power": "Знание - сила",
+    "mechanical-splendor": "Торжество технологий",
+    "pieces-of-an-artifact": "Части артефакта",
+    "severed-ties": "Разорванные узы",
+    "through-the-portal": "Путь через портал"
   },
   "monster": {
     "aesther-ashblade": "Эстер «Пепельный клинок»",
@@ -253,17 +253,17 @@
     "Ship": "Корабль"
   },
   "partyAchievements": {
-    "A Strongbox": "Сундук",
-    "Angels of Death": "Ангелы смерти",
-    "Beauty in Freedom": "Красота - это свобода",
-    "Custodians": "Хранители",
-    "Diamara's Aid": "Помощь Диамаре",
-    "Dimensional Equilibrium": "Межпространственное равновесие",
-    "Guard Detail": "Охрана",
-    "Hunted Prey": "Преследуемая жертва",
-    "Hunting the Hunter": "Охота на охотника",
-    "Opportunists": "Авантюристы",
-    "Xangroth's Aid": "Помощь Зангроту"
+    "a-strongbox": "Сундук",
+    "angels-of-death": "Ангелы смерти",
+    "beauty-in-freedom": "Красота - это свобода",
+    "custodians": "Хранители",
+    "diamaras-aid": "Помощь Диамаре",
+    "dimensional-equilibrium": "Межпространственное равновесие",
+    "guard-detail": "Охрана",
+    "hunted-prey": "Преследуемая жертва",
+    "hunting-the-hunter": "Охота на охотника",
+    "opportunists": "Авантюристы",
+    "xangroths-aid": "Помощь Зангроту"
   },
   "scenario": {
     "rewards": {

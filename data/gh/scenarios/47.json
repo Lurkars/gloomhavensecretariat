@@ -21,13 +21,13 @@
   "requirements": [
     {
       "party": [
-        "Through the Trench"
+        "through-the-trench"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "End of Corruption"
+      "end-of-corruption"
     ]
   },
   "monsters": [

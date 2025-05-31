@@ -373,27 +373,27 @@
     "gh": "Gloomhaven"
   },
   "globalAchievements": {
-    "Ancient Technology": "Technologie Ancienne",
-    "Annihilation of Order": "L'Annihilation de l'Ordre",
-    "Artifact: Cleansed": "Relique : Purifiée",
-    "Artifact: Lost": "Relique : Perdue",
-    "Artifact: Recovered": "Relique : Récupérée",
-    "City Rule: Demonic": "Régime de la Cité : Démoniaque",
-    "City Rule: Economic": "Régime de la Cité : Commercial",
-    "City Rule: Militaristic": "Régime de la Cité : Militariste",
-    "End of Corruption": "La fin de la Corruption",
-    "End of Gloom": "La fin de l'Ombre",
-    "End of the Invasion": "La fin de l'Invasion",
-    "The Dead Invade": "L'Invasion des Morts",
-    "The Drake Aided": "Au Service de la Wyverne",
-    "The Drake Slain": "La Wyverne Abattue",
-    "The Edge of Darkness": "La Lisière des Ténèbres",
-    "The Merchant Flees": "La Fuite de la Négociante",
-    "The Power of Enhancement": "Le Pouvoir de l'Amélioration",
-    "The Rift Neutralized": "La Faille Neutralisée",
-    "The Voice Freed": "La Voix Libérée",
-    "The Voice Silenced": "La Voix Réduite au Silence",
-    "Water-Breathing": "Respiration Aquatique"
+    "ancient-technology": "Technologie Ancienne",
+    "annihilation-of-order": "L'Annihilation de l'Ordre",
+    "artifact-cleansed": "Relique : Purifiée",
+    "artifact-lost": "Relique : Perdue",
+    "artifact-recovered": "Relique : Récupérée",
+    "city-rule-demonic": "Régime de la Cité : Démoniaque",
+    "city-rule-economic": "Régime de la Cité : Commercial",
+    "city-rule-militaristic": "Régime de la Cité : Militariste",
+    "end-of-corruption": "La fin de la Corruption",
+    "end-of-gloom": "La fin de l'Ombre",
+    "end-of-the-invasion": "La fin de l'Invasion",
+    "the-dead-invade": "L'Invasion des Morts",
+    "the-drake-aided": "Au Service de la Wyverne",
+    "the-drake-slain": "La Wyverne Abattue",
+    "the-edge-of-darkness": "La Lisière des Ténèbres",
+    "the-merchant-flees": "La Fuite de la Négociante",
+    "the-power-of-enhancement": "Le Pouvoir de l'Amélioration",
+    "the-rift-neutralized": "La Faille Neutralisée",
+    "the-voice-freed": "La Voix Libérée",
+    "the-voice-silenced": "La Voix Réduite au Silence",
+    "water-breathing": "Respiration Aquatique"
   },
   "monster": {
     "ancient-artillery": "Canon Ancien",
@@ -445,8 +445,8 @@
     "winged-horror": "Horreur Ailée"
   },
   "partyAchievements": {
-    "First Steps": "Premiers Pas",
-    "Jekserah's Plans": "Les Plans de Jekserah"
+    "first-steps": "Premiers Pas",
+    "jekserahs-plans": "Les Plans de Jekserah"
   },
   "scenario": {
     "group": {

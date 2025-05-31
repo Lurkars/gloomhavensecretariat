@@ -21,13 +21,13 @@
   "requirements": [
     {
       "party": [
-        "The Voice's Command"
+        "the-voices-command"
       ]
     }
   ],
   "rewards": {
     "partyAchievements": [
-      "The Scepter and the Voice"
+      "the-scepter-and-the-voice"
     ],
     "gold": 10
   },

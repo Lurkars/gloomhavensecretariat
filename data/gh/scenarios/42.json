@@ -18,10 +18,10 @@
   "requirements": [
     {
       "global": [
-        "!The Voice Freed"
+        "!the-voice-freed"
       ],
       "party": [
-        "The Scepter and the Voice"
+        "the-scepter-and-the-voice"
       ]
     }
   ],
@@ -33,10 +33,10 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "The Voice Silenced"
+      "the-voice-silenced"
     ],
     "lostPartyAchievements": [
-      "The Voice's Command"
+      "the-voices-command"
     ]
   },
   "monsters": [

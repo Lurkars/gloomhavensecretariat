@@ -17,13 +17,13 @@
   "requirements": [
     {
       "global": [
-        "End of Gloom"
+        "end-of-gloom"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "Through the Portal"
+      "through-the-portal"
     ],
     "experience": 10,
     "events": [

@@ -8,13 +8,13 @@
   "requirements": [
     {
       "party": [
-        "!Ship repaired"
+        "!ship-repaired"
       ]
     }
   ],
   "rewards": {
     "partyAchievements": [
-      "Ship repaired"
+      "ship-repaired"
     ],
     "gold": 40,
     "reputation": 1,

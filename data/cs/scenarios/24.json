@@ -11,7 +11,7 @@
   ],
   "rewards": {
     "partyAchievements": [
-      "Frozen Warrior"
+      "frozen-warrior"
     ],
     "custom": "%data.scenario.rewards.cs.random-orb%"
   },

@@ -21,13 +21,13 @@
   "requirements": [
     {
       "party": [
-        "Across the Divide"
+        "across-the-divide"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "End of Corruption"
+      "end-of-corruption"
     ]
   },
   "monsters": [

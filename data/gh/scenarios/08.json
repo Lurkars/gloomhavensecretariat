@@ -26,10 +26,10 @@
   "requirements": [
     {
       "global": [
-        "!The Dead Invade"
+        "!the-dead-invade"
       ],
       "party": [
-        "Jekserah's Plans"
+        "jekserahs-plans"
       ]
     }
   ],
@@ -39,7 +39,7 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "The Merchant Flees"
+      "the-merchant-flees"
     ],
     "reputation": 2
   },

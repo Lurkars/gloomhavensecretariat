@@ -17,13 +17,13 @@
   "requirements": [
     {
       "global": [
-        "!The Merchant Flees"
+        "!the-merchant-flees"
       ]
     }
   ],
   "rewards": {
     "partyAchievements": [
-      "Jekserah's Plans"
+      "jekserahs-plans"
     ],
     "gold": 15,
     "prosperity": 1

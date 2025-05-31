@@ -18,7 +18,7 @@
   "requirements": [
     {
       "party": [
-        "The Voice's Command"
+        "the-voices-command"
       ]
     }
   ],
@@ -27,7 +27,7 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "The Voice Freed"
+      "the-voice-freed"
     ],
     "gold": 50,
     "experience": 25,

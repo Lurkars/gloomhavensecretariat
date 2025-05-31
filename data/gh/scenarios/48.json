@@ -21,13 +21,13 @@
   "requirements": [
     {
       "party": [
-        "Redthorn's Aid"
+        "redthorns-aid"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "End of Corruption"
+      "end-of-corruption"
     ]
   },
   "monsters": [

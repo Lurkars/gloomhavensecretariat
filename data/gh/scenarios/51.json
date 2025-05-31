@@ -12,13 +12,13 @@
   "requirements": [
     {
       "global": [
-        "End of Corruption:3"
+        "end-of-corruption:3"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "End of Gloom"
+      "end-of-gloom"
     ],
     "reputation": 5,
     "prosperity": 5,

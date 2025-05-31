@@ -17,13 +17,13 @@
   "requirements": [
     {
       "global": [
-        "The Power of Enhancement"
+        "the-power-of-enhancement"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "Water-Breathing"
+      "water-breathing"
     ]
   },
   "monsters": [

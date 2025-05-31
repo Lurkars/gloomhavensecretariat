@@ -18,14 +18,14 @@
   "requirements": [
     {
       "global": [
-        "City Rule: Demonic",
+        "city-rule-demonic",
         "!Annihilation of Order"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "City Rule: Militaristic"
+      "city-rule-militaristic"
     ],
     "reputation": 3,
     "prosperity": -2

@@ -28,14 +28,14 @@
   "requirements": [
     {
       "global": [
-        "The Power of Enhancement",
-        "Artifact: Recovered"
+        "the-power-of-enhancement",
+        "artifact-recovered"
       ]
     }
   ],
   "rewards": {
     "globalAchievements": [
-      "Artifact: Cleansed"
+      "artifact-cleansed"
     ]
   },
   "monsters": [

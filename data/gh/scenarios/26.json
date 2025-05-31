@@ -24,18 +24,18 @@
   "requirements": [
     {
       "global": [
-        "Water-Breathing"
+        "water-breathing"
       ]
     },
     {
       "party": [
-        "Through the Ruins"
+        "through-the-ruins"
       ]
     }
   ],
   "rewards": {
     "partyAchievements": [
-      "Following Clues"
+      "following-clues"
     ],
     "gold": 10,
     "reputation": 1,

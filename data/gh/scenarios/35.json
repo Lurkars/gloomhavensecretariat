@@ -21,10 +21,10 @@
   "requirements": [
     {
       "global": [
-        "!The Rift Neutralized"
+        "!the-rift-neutralized"
       ],
       "party": [
-        "A Demon's Errand"
+        "a-demons-errand"
       ]
     }
   ],
@@ -33,11 +33,11 @@
   ],
   "rewards": {
     "globalAchievements": [
-      "City Rule: Demonic",
-      "Artifact: Lost"
+      "city-rule-demonic",
+      "artifact-lost"
     ],
     "lostPartyAchievements": [
-      "A Demon's Errand"
+      "a-demons-errand"
     ],
     "gold": 30,
     "reputation": -5,

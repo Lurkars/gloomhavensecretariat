@@ -9,7 +9,7 @@
   "requirements": [
     {
       "global": [
-        "Pieces of an Artifact:3"
+        "pieces-of-an-artifact:3"
       ]
     }
   ]
