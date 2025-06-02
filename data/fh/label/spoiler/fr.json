@@ -1015,7 +1015,7 @@
     },
     "fh-53": {
       "": "Bottes Ferrées",
-      "1": "Après un déplacement d'au moins 4 hexagones pendant votre tour, gagnez %game.action,retaliate% 1 pour le round."
+      "1": "Après un déplacement d'au moins 4 hexagones pendant votre tour, gagnez %game.action.retaliate% 1 pour le round."
     },
     "fh-54": {
       "": "Pantoufles Reposantes",
@@ -1023,7 +1023,7 @@
     },
     "fh-55": {
       "": "Gantelet Acéré",
-      "1": "Lorsque vous êtes attaqué par un adversaire adjacent, gagnez %game.action,retaliate% 2 pour l'attaque."
+      "1": "Lorsque vous êtes attaqué par un adversaire adjacent, gagnez %game.action.retaliate% 2 pour l'attaque."
     },
     "fh-56": {
       "": "Aimant du Récupérateur",
@@ -1169,7 +1169,7 @@
     },
     "fh-88": {
       "": "Potion Bouclier-de-feu",
-      "1": "Pendant votre tour, effectuez : %game.action,retaliate% 1 %game.action.range:3% "
+      "1": "Pendant votre tour, effectuez : %game.action.retaliate% 1 %game.action.range:3% "
     },
     "fh-89": {
       "": "Potion Peau-de-pierre",

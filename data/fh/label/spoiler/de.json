@@ -566,7 +566,7 @@
     },
     "fh-53": {
       "": "Nagelstiefel",
-      "1": "Erhalte, nachdem du dich während deines Zugs mindestens 4 Felder weit bewegt hast, %game.action,retaliate% 1 für die Runde."
+      "1": "Erhalte, nachdem du dich während deines Zugs mindestens 4 Felder weit bewegt hast, %game.action.retaliate% 1 für die Runde."
     },
     "fh-54": {
       "": "Wohlfühlschuhe",
@@ -574,7 +574,7 @@
     },
     "fh-55": {
       "": "Stachelstulpe",
-      "1": "Wenn du von einem angrenzenden Gegner angegriffen wirst, erhältst du für den Angriff %game.action,retaliate% 2."
+      "1": "Wenn du von einem angrenzenden Gegner angegriffen wirst, erhältst du für den Angriff %game.action.retaliate% 2."
     },
     "fh-56": {
       "": "Magnetsammler",
@@ -720,7 +720,7 @@
     },
     "fh-88": {
       "": "Feuerschildtrank",
-      "1": "Führe während deines Zugs aus: %game.action,retaliate% 1 %game.action.range:3% "
+      "1": "Führe während deines Zugs aus: %game.action.retaliate% 1 %game.action.range:3% "
     },
     "fh-89": {
       "": "Steinhauttrank",

@@ -1191,7 +1191,7 @@
     },
     "fh-53": {
       "": "Hobnail Boots",
-      "1": "After you move 4 or more hexes during your turn, gain %game.action,retaliate% 1 for the round."
+      "1": "After you move 4 or more hexes during your turn, gain %game.action.retaliate% 1 for the round."
     },
     "fh-54": {
       "": "Restful Slippers",
@@ -1199,7 +1199,7 @@
     },
     "fh-55": {
       "": "Biting Gauntlet",
-      "1": "When you are attacked by an adjacent enemy, gain %game.action,retaliate% 2 for the attack."
+      "1": "When you are attacked by an adjacent enemy, gain %game.action.retaliate% 2 for the attack."
     },
     "fh-56": {
       "": "Scavenger's Magnet",
@@ -1345,7 +1345,7 @@
     },
     "fh-88": {
       "": "Fireshield Potion",
-      "1": "During your turn perform %game.action,retaliate% 1 %game.action.range:3% "
+      "1": "During your turn perform %game.action.retaliate% 1 %game.action.range:3% "
     },
     "fh-89": {
       "": "Stoneskin Potion",
