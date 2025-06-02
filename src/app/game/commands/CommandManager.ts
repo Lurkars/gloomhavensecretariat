@@ -5,7 +5,7 @@ import { CharacterInitiativeCommand } from "./character/CharacterInitiative";
 import { BASE_TYPE, Command, CommandExecutionError, CommandInvalidParametersError, CommandMissingParameterError, CommandUnknownError } from "./Command";
 import { FigureNextCommand } from "./figure/FigureNext";
 import { LootDeckDrawCommand } from "./lootDeck/LootDeckDraw";
-import { RoundNextCommand } from "./round/RoundNext";
+import { RoundStateCommand } from "./round/RoundState";
 
 declare global {
     interface Window { commandManager: CommandManager }
@@ -19,7 +19,7 @@ export class CommandManager {
         'character.initiative': CharacterInitiativeCommand,
         'figure.next': FigureNextCommand,
         'lootDeck.draw': LootDeckDrawCommand,
-        'round.next': RoundNextCommand,
+        'round.state': RoundStateCommand,
     }
 
     private history: Command[] = [];
@@ -31,7 +31,6 @@ export class CommandManager {
             }
 
             const command: Command = new this.commandsMap[id](...parameters);
-            command.checkParameters();
             gameManager.stateManager.before('command.' + command.id, ...command.parameters);
             try {
                 command.execute();
@@ -41,6 +40,10 @@ export class CommandManager {
                 gameManager.stateManager.revertLastUndo();
                 if (e instanceof CommandExecutionError) {
                     console.error(e, e.id, e.parameters, e.message);
+                } else if (e instanceof CommandMissingParameterError) {
+                    console.error("Missing Parameter", id, e.parameter);
+                } else if (e instanceof CommandInvalidParametersError) {
+                    console.error("Invalid Parameters", id, e.parameters);
                 } else {
                     throw e;
                 }
@@ -48,10 +51,6 @@ export class CommandManager {
         } catch (e) {
             if (e instanceof CommandUnknownError) {
                 console.error("Unkown Command", id, e.message);
-            } else if (e instanceof CommandMissingParameterError) {
-                console.error("Missing Parameter", id, e.parameter);
-            } else if (e instanceof CommandInvalidParametersError) {
-                console.error("Invalid Parameters", id, e.parameters);
             } else {
                 throw e;
             }

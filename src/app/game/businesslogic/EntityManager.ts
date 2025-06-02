@@ -250,20 +250,12 @@ export class EntityManager {
 
             shieldRetaliate.value = 0;
 
-            if (entity instanceof MonsterEntity && figure instanceof Monster) {
-              let actionHints = gameManager.actionsManager.calcActionHints(figure, entity);
-              actionHints.forEach((actionHint) => {
-                if (shieldRetaliate && (shieldRetaliateCondition == ConditionName.shield && actionHint.type == ActionType.shield || shieldRetaliateCondition == ConditionName.retaliate && actionHint.type == ActionType.retaliate)) {
-                  shieldRetaliate.value += actionHint.value;
-                }
-              })
-            } else if (entity instanceof Character) {
-              if (shieldRetaliateCondition == ConditionName.shield && entity.shield && EntityValueFunction(entity.shield.value)) {
-                shieldRetaliate.value = EntityValueFunction(entity.shield.value);
-              } else if (shieldRetaliateCondition == ConditionName.retaliate && entity.retaliate.length) {
-                shieldRetaliate.value = entity.retaliate.map((action) => EntityValueFunction(action.value)).reduce((a, b) => a + b);
+            let actionHints = gameManager.actionsManager.calcActionHints(figure, entity);
+            actionHints.forEach((actionHint) => {
+              if (shieldRetaliate && (shieldRetaliateCondition == ConditionName.shield && actionHint.type == ActionType.shield || shieldRetaliateCondition == ConditionName.retaliate && actionHint.type == ActionType.retaliate)) {
+                shieldRetaliate.value += actionHint.value;
               }
-            }
+            })
 
             if (shieldRetaliateCondition == ConditionName.shield && shieldRetaliate.value && (entity.health + value + shieldRetaliate.value) > 0) {
               shieldRetaliate.expired = false;

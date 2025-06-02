@@ -5,7 +5,6 @@ export interface Command {
     id: string;
     parameters: BASE_TYPE[];
     execute(): void;
-    checkParameters(): void;
 }
 
 export abstract class CommandImpl implements Command {
@@ -29,7 +28,8 @@ export abstract class CommandImpl implements Command {
     }
 
     execute() {
-        return this.executeWithParameters(...this.parameters);
+        this.checkParameters();
+        this.executeWithParameters(...this.parameters);
     }
 
     executionError(message?: string) {
