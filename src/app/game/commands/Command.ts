@@ -18,7 +18,7 @@ export abstract class CommandImpl implements Command {
 
     checkParameters() {
         for (let i = 0; i < this.requiredParameters; i++) {
-            if (!this.parameters[i]) {
+            if (this.parameters[i] == undefined) {
                 throw new CommandMissingParameterError(i);
             }
         }

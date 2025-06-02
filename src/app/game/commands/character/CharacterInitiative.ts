@@ -4,7 +4,7 @@ import { CommandImpl } from "../Command";
 
 export class CharacterInitiativeCommand extends CommandImpl {
     id: string = 'character.initiative';
-    requiredParameters: number = 3;
+    requiredParameters: number = 2;
 
     validParameters(number: number, initiative: number, longRest: boolean): boolean {
         return initiative >= 0 && initiative <= 99 && (!longRest || initiative == 99) && gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == number) != undefined || false;
