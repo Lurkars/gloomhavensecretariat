@@ -381,7 +381,7 @@
     },
     "fh-53": {
       "": "Botas de clavos",
-      "1": "Después de moverte 4 o más hexágonos durante tu turno, obtén %game.action,retaliate% 1 durante esta ronda."
+      "1": "Después de moverte 4 o más hexágonos durante tu turno, obtén %game.action.retaliate% 1 durante esta ronda."
     },
     "fh-54": {
       "": "Zapatillas de descanso",
@@ -389,7 +389,7 @@
     },
     "fh-55": {
       "": "Guantelete mordedor",
-      "1": "Cuando te ataque un enemigo adyacente, obtén %game.action,retaliate% 2 para dicho ataque."
+      "1": "Cuando te ataque un enemigo adyacente, obtén %game.action.retaliate% 2 para dicho ataque."
     },
     "fh-56": {
       "": "Imán de rapiñador",
@@ -465,7 +465,7 @@
     },
     "fh-88": {
       "": "Poción de piroescudo",
-      "1": "Durante tu turno, realiza: %game.action,retaliate% 1 %game.action.range:3% "
+      "1": "Durante tu turno, realiza: %game.action.retaliate% 1 %game.action.range:3% "
     },
     "fh-89": {
       "": "Poción de piel pétrea",
