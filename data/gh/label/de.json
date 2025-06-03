@@ -296,28 +296,40 @@
         "": "Kaufmannsgilde"
       },
       "513": {
-        "": "Suche nach Heilung"
+        "": "Suche nach Heilung",
+        "1": "Töte Waldwichte",
+        "2": "Schalte \"Vergessener Hain\" (Szenario 59) frei und schließe die Suche ab"
       },
       "514": {
-        "": "Anatomische Studien"
+        "": "Anatomische Studien",
+        "1": "Erschöpfte Gruppen Mitglieder"
+      },
+      "515": {
+        "": "Recht und Ordnung",
+        "1": "Banditen oder Kultisten getötet"
       },
       "516": {
-        "": "Wehrhaftes Fleisch"
+        "": "Wehrhaftes Fleisch",
+        "1": "Töte Ratzen"
       },
       "518": {
-        "": "Ewige Wanderschaft"
+        "": "Ewige Wanderschaft",
+        "1": "Verschiedene Szenarien abgeschlossen"
       },
       "519": {
-        "": "Kampflegende"
+        "": "Kampflegende",
+        "1": "Verdiene %game.checkmark% durch abgeschlossene Kampfziele"
       },
       "520": {
-        "": "Werkzeug des Lichts"
+        "": "Werkzeug des Lichts",
+        "1": "Wandelnde Skelette, Wandelnde Leichen oder Wandelnde Seelen mit den Schädelfluch getötet"
       },
       "521": {
         "": "Rückeroberung des Waldes"
       },
       "522": {
-        "": "Hauchdünn"
+        "": "Hauchdünn",
+        "1": "Abgeschlossene Nebenszenarien (Szenarionummer > 51)"
       },
       "523": {
         "": "Tilgung des Unnatürlichen"
@@ -329,7 +341,9 @@
         "": "Voller Frömmigkeit"
       },
       "526": {
-        "": "Rachefeldzug"
+        "": "Rachefeldzug",
+        "1": "Abgeschlossene Szenarien in Gloomhaven",
+        "2": "Schalte \"Ermittlungen\" (Szenario 57) frei und schließe die Suche ab"
       },
       "527": {
         "": "Für den Blutgott"
@@ -338,10 +352,17 @@
         "": "Sturz der Giganten"
       },
       "529": {
-        "": "Vergangene Zivilisation"
+        "": "Vergangene Zivilisation",
+        "1": "Abgeschlossene Szenarien im Siechensumpf",
+        "2": "Schalte \"Schwindender Leuchtturm\" (Szenario 61) frei und schließe die Suche ab"
       },
       "530": {
-        "": "Verbesserte Fähigkeiten"
+        "": "Verbesserte Fähigkeiten",
+        "1": "Verbesserungen"
+      },
+      "532": {
+        "": "Helfende Hand",
+        "1": "Persönliche Quest abschließen"
       },
       "533": {
         "": "Das perfekte Gift"
