@@ -53,7 +53,7 @@ export class ScenarioManager {
     gameManager.stateManager.standeeDialogCanceled = false;
   }
 
-  finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linkedScenario: Scenario | undefined = undefined, characterProgress: boolean = true, gainRewards: boolean = true, internal: boolean = false) {
+  finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linked: boolean = false, characterProgress: boolean = true, gainRewards: boolean = true, internal: boolean = false) {
     gameManager.game.finish = undefined;
     if (scenario) {
       let rewards: ScenarioRewards | undefined = scenario.rewards || undefined;
@@ -80,7 +80,7 @@ export class ScenarioManager {
           if (figure instanceof Character && !figure.absent) {
             const scnearioXP: number = success && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0;
 
-            gameManager.characterManager.addXP(figure, scnearioXP + figure.experience, !restart && !linkedScenario);
+            gameManager.characterManager.addXP(figure, scnearioXP + figure.experience, !restart && !linked);
 
             if ((!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('gold') == -1)) {
               figure.progress.gold += figure.loot * gameManager.levelManager.loot();
@@ -100,7 +100,7 @@ export class ScenarioManager {
             this.game.figures.forEach((figure) => {
               if (rewards && figure instanceof Character && !figure.absent && settingsManager.settings.scenarioRewards) {
                 if (rewards.experience) {
-                  gameManager.characterManager.addXP(figure, rewards.experience, !restart && !linkedScenario);
+                  gameManager.characterManager.addXP(figure, rewards.experience, !restart && !linked);
                 }
 
                 if (rewards.gold) {
@@ -304,7 +304,7 @@ export class ScenarioManager {
       if (restart) {
         gameManager.scenarioManager.setScenario(scenario);
       } else {
-        if (scenario && !scenario.conclusion && (!rewards || !rewards.calendarIgnore) && gameManager.fhRules() && !linkedScenario && settingsManager.settings.automaticPassTime && !scenario.solo && settingsManager.settings.partySheet && !internal && gainRewards) {
+        if (scenario && !scenario.conclusion && (!rewards || !rewards.calendarIgnore) && gameManager.fhRules() && !linked && settingsManager.settings.automaticPassTime && !scenario.solo && settingsManager.settings.partySheet && !internal && gainRewards) {
 
           this.game.party.weeks++;
 
@@ -336,17 +336,6 @@ export class ScenarioManager {
           this.game.scenario = undefined;
           this.game.sections = [];
           gameManager.roundManager.resetScenario();
-
-
-          if (linkedScenario) {
-            this.setScenario(linkedScenario);
-          } else {
-            this.game.figures.forEach((figure) => {
-              if (figure instanceof Character) {
-                figure.absent = false;
-              }
-            });
-          }
         }
       }
     }

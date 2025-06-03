@@ -450,7 +450,9 @@
             <ng-container *ngFor="let location of scenario.unlocks; let i = index;">
               <div class="item location" *ngIf="gameManager.scenarioManager.getScenario(location,scenario.edition,
               scenario.group)">
-                <span [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span> <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
+                <span
+                  [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
+                <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
                 <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
               </div>
             </ng-container>
@@ -461,7 +463,9 @@
             <label class="item location choose" *ngFor="let location of rewards.chooseLocation; let i = index;">
               <input type="radio" name="chooseLocation" (change)="selectLocation(location)" [value]="location"
                 [checked]="chooseLocation == location">
-              <span [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span> <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
+              <span
+                [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
+              <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
             </label>
           </div>
         </div>
@@ -473,7 +477,9 @@
             <ng-container *ngFor="let location of conclusion.unlocks; let i = index;">
               <div class="item location" *ngIf="gameManager.scenarioManager.getScenario(location,conclusion.edition,
               conclusion.group)">
-                <span [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span> <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
+                <span
+                  [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
+                <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
                 <span *ngIf="conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1">,</span>
               </div>
             </ng-container>
@@ -896,13 +902,13 @@
       *ngIf="success && (gameManager.game.party.campaignMode || forceCampaign) && (!!scenario.links && scenario.links.length > 0 || !!scenario.forcedLinks && scenario.forcedLinks.length > 0 || !!conclusion && !!conclusion.forcedLinks && conclusion.forcedLinks.length > 0)">
       <ng-container *ngIf="!!scenario.forcedLinks && scenario.forcedLinks.length > 0">
         <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
-        <a class="apply forced-link" (click)="finish(index)" *ngFor="let index of scenario.forcedLinks">
+        <a class="apply forced-link" (click)="finish(index, true)" *ngFor="let index of scenario.forcedLinks">
           <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
         </a>
       </ng-container>
       <ng-container *ngIf="!!conclusion && !!conclusion.forcedLinks && conclusion.forcedLinks.length > 0">
         <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
-        <a class="apply forced-link" (click)="finish(index)" *ngFor="let index of conclusion.forcedLinks">
+        <a class="apply forced-link" (click)="finish(index, true)" *ngFor="let index of conclusion.forcedLinks">
           <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
         </a>
       </ng-container>
@@ -910,13 +916,13 @@
         *ngIf="(!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0)">
         <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
         <ng-container *ngFor="let index of scenario.links">
-          <a class="link" (click)="finish(index)" *ngIf="scenarioLinkAvailable(index)">
+          <a class="link" (click)="finish(index)">
             <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
           </a>
         </ng-container>
         <ng-container *ngIf="!!conclusion && conclusion.links">
           <ng-container *ngFor="let index of conclusion.links">
-            <a class="link" (click)="finish(index)" *ngIf="scenarioLinkAvailable(index)">
+            <a class="link" (click)="finish(index)">
               <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
             </a>
           </ng-container>
