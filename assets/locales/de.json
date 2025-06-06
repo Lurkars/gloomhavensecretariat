@@ -2843,6 +2843,17 @@
       "characterReplay": "{0} wieder spielen für Spieler {1}",
       "characterSetAside": "Lege {0} beiseite für Spieler {1}",
       "clearDiscardedScenarioRules": "Verworfene Szenario Regeln wiederherstellen",
+      "command": {
+        "character": {
+          "initiative": "Initative für {0}"
+        },
+        "round": {
+          "state": {
+            "draw": "Ziehen",
+            "next": "Nächste Runde"
+          }
+        }
+      },
       "craftItem": "Gegenstand {1} (%data.edition.{2}%) für {0} anfertigen",
       "declineApplyCondition": {
         "char": "Anwenden von {1} auf {0} abgelehnt",
