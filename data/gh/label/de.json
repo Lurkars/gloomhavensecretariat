@@ -290,10 +290,20 @@
   "personalQuest": {
     "gh": {
       "510": {
-        "": "Suche nach Xorn"
+        "": "Suche nach Xorn",
+        "1": "\"Krypta\" Szenarien",
+        "2": "Schalte \"Verseuchter Keller\" (Szenario 52) frei und schließe die Suche ab"
       },
       "511": {
-        "": "Kaufmannsgilde"
+        "": "Kaufmannsgilde",
+        "1": "%game.items.slots.head% Gegenstände",
+        "2": "%game.items.slots.body% Gegenstände",
+        "3": "%game.items.slots.legs% Gegenstände",
+        "4": "%game.items.slots.onehand% oder %game.items.slots.twohand% Gegenstände",
+        "5": "%game.items.slots.small% Gegenstände"
+      },
+      "512": {
+        "": "Gute Gier"
       },
       "513": {
         "": "Suche nach Heilung",
@@ -312,6 +322,10 @@
         "": "Wehrhaftes Fleisch",
         "1": "Töte Ratzen"
       },
+      "517": {
+        "": "Trophäenjagt",
+        "1": "Verschiedene Arten von Monster getötet"
+      },
       "518": {
         "": "Ewige Wanderschaft",
         "1": "Verschiedene Szenarien abgeschlossen"
@@ -325,20 +339,30 @@
         "1": "Wandelnde Skelette, Wandelnde Leichen oder Wandelnde Seelen mit den Schädelfluch getötet"
       },
       "521": {
-        "": "Rückeroberung des Waldes"
+        "": "Rückeroberung des Waldes",
+        "1": "Abgeschlossene Szenarien im Dolchwald",
+        "2": "Schalte \"Nebeldickicht\" (Szenario 55) frei und schließe die Rückeroberung ab"
       },
       "522": {
         "": "Hauchdünn",
         "1": "Abgeschlossene Nebenszenarien (Szenarionummer > 51)"
       },
       "523": {
-        "": "Tilgung des Unnatürlichen"
+        "": "Tilgung des Unnatürlichen",
+        "1": "Flammendämon getötet",
+        "2": "Frostdämon getötet",
+        "3": "Winddämon getötet",
+        "4": "Erddämon getötet",
+        "5": "Nachtdämon getötet",
+        "6": "Sonnendämon getötet"
       },
       "524": {
-        "": "Unerschrocken"
+        "": "Unerschrocken",
+        "1": "Elite Monster getötet"
       },
       "525": {
-        "": "Voller Frömmigkeit"
+        "": "Voller Frömmigkeit",
+        "1": "Gold gespendet an den Tempel der Großen Eiche"
       },
       "526": {
         "": "Rachefeldzug",
@@ -349,7 +373,8 @@
         "": "Für den Blutgott"
       },
       "528": {
-        "": "Sturz der Giganten"
+        "": "Sturz der Giganten",
+        "1": "Abgeschlossene Boss Szenarien"
       },
       "529": {
         "": "Vergangene Zivilisation",
@@ -360,12 +385,24 @@
         "": "Verbesserte Fähigkeiten",
         "1": "Verbesserungen"
       },
+      "531": {
+        "": "Elementarproben",
+        "1": "Abgeschlossenes Szenario in Gloomhaven",
+        "2": "Abgeschlossenes Szenario im Dolchwald",
+        "3": "Abgeschlossenes Szenario im Siechensumpf",
+        "4": "Abgeschlossenes Szenario im Wächtergebirge",
+        "5": "Abgeschlossenes Szenario im Kupfernacken-Gebirge",
+        "6": "Abgeschlossenes Szenario im Nebelmeer"
+      },
       "532": {
         "": "Helfende Hand",
         "1": "Persönliche Quest abschließen"
       },
       "533": {
-        "": "Das perfekte Gift"
+        "": "Das perfekte Gift",
+        "1": "Schleime getötet",
+        "2": "Pirscher getötet",
+        "3": "Speidraken getötet"
       }
     }
   },
