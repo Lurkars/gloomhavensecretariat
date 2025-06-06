@@ -95,7 +95,7 @@
       &.fh {
         .summon-number {
           width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-          font-family: ghs-title;
+          font-family: var(--ghs-font-gh-title);
           color: var(--ghs-color-white);
           border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
           border-radius: 100%;

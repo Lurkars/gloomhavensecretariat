@@ -1335,7 +1335,7 @@
               }
 
               .numeration {
-                font-family: "ghs-title";
+                font-family: var(--ghs-font-gh-title);
                 display: flex;
                 justify-content: center;
                 position: absolute;
@@ -2284,7 +2284,7 @@
               align-items: center;
               margin: calc(var(--ghs-unit) * 0.5);
               font-size: 0.8em;
-              font-family: ghs-title;
+              font-family: var(--ghs-font-gh-title);
 
               .checkpoint {
                 display: block;

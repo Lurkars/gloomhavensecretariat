@@ -156,7 +156,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          font-family: ghs-title;
+          font-family: var(--ghs-font-gh-title);
           font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
           color: var(--ghs-color-white);
           border: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
@@ -509,7 +509,7 @@
         background-color: var(--ghs-color-darkgray);
         z-index: 1;
         opacity: 0.9;
-        font-family: ghs-title;
+        font-family: var(--ghs-font-gh-title);
         color: var(--ghs-color-white);
         border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
         border-radius: 100%;
@@ -656,7 +656,7 @@
     margin: calc(var(--ghs-unit) * 1) 0;
 
     .deck {
-      font-family: "ghs-title";
+      font-family: var(--ghs-font-gh-title);
       display: flex;
       justify-content: center;
       z-index: 2;

@@ -102,7 +102,7 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        font-family: 'ghs-title';
+        font-family: var(--ghs-font-gh-title);
         font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
         width: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));

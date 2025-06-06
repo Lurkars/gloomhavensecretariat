@@ -71,7 +71,7 @@ footer {
       }
 
       .numeration {
-        font-family: "ghs-title";
+        font-family: var(--ghs-font-gh-title);
         display: flex;
         justify-content: center;
         position: absolute;

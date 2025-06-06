@@ -1,53 +1,54 @@
 @font-face {
-  font-family: 'ghs-normal';
-  src: url('./assets/fonts/majallab.eot');
-  src: url('./assets/fonts/majallab.woff') format('woff'), url('./assets/fonts/majallab.ttf') format('truetype'), url('./assets/fonts/majallab.svg') format('svg');
-}
-
-@font-face {
-  font-family: 'ghs-text';
-  src: url('./assets/fonts/nyala.eot');
-  src: url('./assets/fonts/nyala.woff') format('woff'), url('./assets/fonts/nyala.ttf') format('truetype'), url('./assets/fonts/nyala.svg') format('svg');
-}
-
-@font-face {
-  font-family: 'ghs-extra';
-  src: url('./assets/fonts/HighTower.eot');
-  src: url('./assets/fonts/HighTower.woff') format('woff'), url('./assets/fonts/HighTower.ttf') format('truetype'), url('./assets/fonts/HighTower.svg') format('svg');
-}
-
-@font-face {
-  font-family: 'ghs-title';
+  font-family: 'pirataone';
   src: url('./assets/fonts/PirataOne-Gloomhaven.eot');
   src: url('./assets/fonts/PirataOne-Gloomhaven.woff') format('woff'), url('./assets/fonts/PirataOne-Gloomhaven.ttf') format('truetype'), url('./assets/fonts/PirataOne-Gloomhaven.svg') format('svg');
 }
 
 @font-face {
-  font-family: 'ghs-normal-fh';
-  src: url('./assets/fonts/markazi.eot');
-  src: url('./assets/fonts/markazi.woff') format('woff'), url('./assets/fonts/markazi.ttf') format('truetype'), url('./assets/fonts/markazi.svg') format('svg');
-}
-
-@font-face {
-  font-family: 'ghs-text-fh';
+  font-family: 'majallab';
   src: url('./assets/fonts/majallab.eot');
   src: url('./assets/fonts/majallab.woff') format('woff'), url('./assets/fonts/majallab.ttf') format('truetype'), url('./assets/fonts/majallab.svg') format('svg');
 }
 
 @font-face {
-  font-family: 'ghs-title-fh';
+  font-family: 'nyala';
+  src: url('./assets/fonts/nyala.eot');
+  src: url('./assets/fonts/nyala.woff') format('woff'), url('./assets/fonts/nyala.ttf') format('truetype'), url('./assets/fonts/nyala.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'hightower';
+  src: url('./assets/fonts/HighTower.eot');
+  src: url('./assets/fonts/HighTower.woff') format('woff'), url('./assets/fonts/HighTower.ttf') format('truetype'), url('./assets/fonts/HighTower.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'germaniaone';
   src: url('./assets/fonts/germaniaone.eot');
   src: url('./assets/fonts/germaniaone.woff') format('woff'), url('./assets/fonts/germaniaone.ttf') format('truetype'), url('./assets/fonts/germaniaone.svg') format('svg');
 }
 
 @font-face {
-  font-family: 'ghs-title-ru';
+  font-family: 'markazi';
+  src: url('./assets/fonts/markazi.eot');
+  src: url('./assets/fonts/markazi.woff') format('woff'), url('./assets/fonts/markazi.ttf') format('truetype'), url('./assets/fonts/markazi.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'majallab';
+  src: url('./assets/fonts/majallab.eot');
+  src: url('./assets/fonts/majallab.woff') format('woff'), url('./assets/fonts/majallab.ttf') format('truetype'), url('./assets/fonts/majallab.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'moyenage';
+  size-adjust: 85%;
   src: url('./assets/fonts/Moyenage.eot');
   src: url('./assets/fonts/Moyenage.woff') format('woff'), url('./assets/fonts/Moyenage.ttf') format('truetype'), url('./assets/fonts/Moyenage.svg') format('svg');
 }
 
 @font-face {
-  font-family: 'ghs-normal-ru';
+  font-family: 'kurale';
   size-adjust: 75%;
   src: url('./assets/fonts/Kurale.eot');
   src: url('./assets/fonts/Kurale.woff') format('woff'), url('./assets/fonts/Kurale.ttf') format('truetype'), url('./assets/fonts/Kurale.svg') format('svg');
@@ -72,14 +73,17 @@ body {
 }
 
 body {
-  margin: 0;
-  font-family: var(--ghs-font-normal);
-  overscroll-behavior-y: contain;
-  overflow: hidden;
-  --ghs-font-normal: 'ghs-normal';
-  --ghs-font-text: 'ghs-text';
-  --ghs-font-extra: 'ghs-extra';
-  --ghs-font-title: 'ghs-title';
+  --ghs-font-gh-title: 'pirataone';
+  --ghs-font-gh-normal: 'majallab';
+  --ghs-font-gh-text: 'nyala';
+  --ghs-font-gh-extra: 'hightower';
+  --ghs-font-fh-title: 'germaniaone';
+  --ghs-font-fh-normal: 'markazi';
+  --ghs-font-fh-text: 'majallab';
+  --ghs-font-title: var(--ghs-font-gh-title);
+  --ghs-font-normal: var(--ghs-font-gh-normal);
+  --ghs-font-text: var(--ghs-font-gh-text);
+  --ghs-font-extra: var(--ghs-font-gh-extra);
   --ghs-width: 100px;
   --ghs-factor: 100;
   --ghs-dialog-factor: 1;
@@ -89,7 +93,6 @@ body {
   --ghs-fontsize: 1;
   --ghs-unit: calc(var(--ghs-width) / var(--ghs-factor));
   --ghs-max-width: calc(var(--ghs-unit) * 99.9);
-  min-width: var(--ghs-max-width);
   --form-background: transparent;
   --ghs-color-black: #000;
   --ghs-color-white: #fff;
@@ -140,6 +143,11 @@ body {
   --ghs-outline-white-thin: calc(var(--ghs-unit) * -0.1) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * 0.1) var(--ghs-color-white), calc(var(--ghs-unit) * 0.1) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * -0.1) var(--ghs-color-white);
   --ghs-outline-gray: calc(var(--ghs-unit) * -0.2) 0px var(--ghs-color-gray), 0px calc(var(--ghs-unit) * 0.2) var(--ghs-color-gray), calc(var(--ghs-unit) * 0.2) 0px var(--ghs-color-gray), 0px calc(var(--ghs-unit) * -0.2) var(--ghs-color-gray);
   --ghs-outline-gray-thin: calc(var(--ghs-unit) * -0.1) 0px var(--ghs-color-gray), 0px calc(var(--ghs-unit) * 0.1) var(--ghs-color-gray), calc(var(--ghs-unit) * 0.1) 0px var(--ghs-color-gray), 0px calc(var(--ghs-unit) * -0.1) var(--ghs-color-gray);
+  margin: 0;
+  font-family: var(--ghs-font-normal);
+  overscroll-behavior-y: contain;
+  overflow: hidden;
+  min-width: var(--ghs-max-width);
 
   &.disable-context-menu-touch {
     -webkit-touch-callout: none !important;
@@ -153,17 +161,21 @@ body {
   &.fh,
   &.modern,
   &.bb {
-    --ghs-font-normal: 'ghs-normal-fh';
-    --ghs-font-text: 'ghs-text-fh';
-    --ghs-font-extra: 'ghs-extra';
-    --ghs-font-title: 'ghs-title-fh';
+    --ghs-font-title: var(--ghs-font-fh-title);
+    --ghs-font-normal: var(--ghs-font-fh-normal);
+    --ghs-font-text: var(--ghs-font-fh-text);
+    --ghs-font-extra: var(--ghs-font-gh-extra);
   }
 
   &.locale-ru {
-    --ghs-font-normal: 'ghs-normal-ru';
-    --ghs-font-text: 'ghs-normal-ru';
-    --ghs-font-extra: 'ghs-normal-ru';
-    --ghs-font-title: 'ghs-title-ru';
+    --ghs-font-gh-title: 'moyenage';
+    --ghs-font-gh-normal: 'kurale';
+    --ghs-font-gh-text: 'kurale';
+    --ghs-font-gh-extra: 'kurale';
+    --ghs-font-fh-title: 'moyenage';
+    --ghs-font-fh-normal: 'kurale';
+    --ghs-font-fh-text: 'kurale';
+    --ghs-font-fh-extra: 'kurale';
   }
 
   &.dragging {
@@ -1439,7 +1451,7 @@ input[type="radio"] {
     color: var(--ghs-color-white);
     width: 1.8em;
     height: 1.3em;
-    font-family: ghs-title-fh;
+    font-family: var(--ghs-font-fh-title);
     font-size: 0.9em;
     line-height: 1.3em;
     padding-right: 0.1em;
@@ -1503,7 +1515,7 @@ input[type="radio"] {
     align-items: center;
     width: 1.8em;
     height: 1.8em;
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-gh-title);
     font-size: 0.9em;
     text-shadow: var(--ghs-outline-thin);
     color: var(--ghs-color-white);

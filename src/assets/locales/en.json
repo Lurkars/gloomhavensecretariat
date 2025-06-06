@@ -2843,6 +2843,17 @@
       "characterReplay": "Play {0} again for player {1}",
       "characterSetAside": "Set {0} aside for player {1}",
       "clearDiscardedScenarioRules": "Clear discarded scenario rules",
+      "command": {
+        "character": {
+          "initiative": "Initative for {0}"
+        },
+        "round": {
+          "state": {
+            "draw": "Draw",
+            "next": "Next Round"
+          }
+        }
+      },
       "craftItem": "Craft Item {1} (%data.edition.{2}%) for {0}",
       "declineApplyCondition": {
         "char": "Decline apply %game.condition.{1}% to {0}",

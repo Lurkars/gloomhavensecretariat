@@ -48,7 +48,7 @@ a {
   &.button {
 
     justify-content: center;
-    font-family: "ghs-normal";
+    font-family: var(--ghs-font-gh-normal);
     font-size: calc(var(--ghs-unit) * 3);
     color: var(--ghs-color-white);
     padding: calc(var(--ghs-unit) * 1);

@@ -77,7 +77,7 @@
 
       .numeration,
       .character-icon {
-        font-family: "ghs-title";
+        font-family: var(--ghs-font-gh-title);
         display: flex;
         justify-content: center;
         position: absolute;
@@ -118,7 +118,7 @@
       cursor: pointer;
       position: absolute;
       left: -14%;
-      font-family: "ghs-title";
+      font-family: var(--ghs-font-gh-title);
       display: flex;
       justify-content: center;
       position: absolute;

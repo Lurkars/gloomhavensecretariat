@@ -31,7 +31,6 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   @Input() objective!: ObjectiveContainer;
 
   @ViewChild('objectiveTitle', { static: false }) titleInput!: ElementRef;
-  @ViewChild('objectiveName') objectiveName!: ElementRef;
 
   characterManager: CharacterManager = gameManager.characterManager;
 
@@ -46,13 +45,15 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   health: number = 0;
   marker: string = "";
   compact: boolean = false;
+  short: boolean = false;
+  shortMenu: boolean = false;
 
   nonDead: number = 0;
 
   interactiveActions: InteractiveAction[] = [];
   interactiveActionsChange = new EventEmitter<InteractiveAction[]>();
 
-  constructor(private dialog: Dialog, private overlay: Overlay) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
@@ -115,6 +116,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
       }
     }
     this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme != 'modern';
+    this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern';
   }
 
   toggleFigure(event: any): void {
@@ -199,13 +201,13 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
     this.health = 0;
   }
 
-  openEntityMenu(event: any): void {
+  openEntityMenu(): void {
     this.dialog.open(EntityMenuDialogComponent, {
       panelClass: ['dialog'], data: {
         entity: this.entity,
         figure: this.objective
       },
-      positionStrategy: this.overlay.position().flexibleConnectedTo(this.objectiveName).withPositions(ghsDefaultDialogPositions())
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.elementRef.nativeElement.querySelector('.image-container')).withPositions(ghsDefaultDialogPositions())
     });
   }
 

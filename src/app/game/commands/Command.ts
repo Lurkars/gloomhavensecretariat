@@ -5,6 +5,7 @@ export interface Command {
     id: string;
     parameters: BASE_TYPE[];
     execute(): void;
+    before(): BASE_TYPE[];
 }
 
 export abstract class CommandImpl implements Command {
@@ -39,6 +40,10 @@ export abstract class CommandImpl implements Command {
     abstract validParameters(...parameters: BASE_TYPE[]): boolean;
 
     abstract executeWithParameters(...parameters: BASE_TYPE[]): void;
+
+    before(): BASE_TYPE[] {
+        return ['command.' + this.id, ...this.parameters];
+    }
 
     toString(): string {
         return JSON.stringify([this.id, ...this.parameters]);

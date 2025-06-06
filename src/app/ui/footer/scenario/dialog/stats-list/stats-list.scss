@@ -98,7 +98,7 @@
           position: absolute;
           bottom: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
           right: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
-          font-family: ghs-title;
+          font-family: var(--ghs-font-gh-title);
           color: var(--ghs-color-white);
           font-size: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor));
           line-height: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor));

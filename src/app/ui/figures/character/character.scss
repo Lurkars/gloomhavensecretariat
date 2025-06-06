@@ -281,11 +281,9 @@
 
   ghs-highlight-conditions {
     position: absolute;
-    left: calc(var(--ghs-unit) * 6);
-    top: 50%;
-    transform: translateY(-50%);
-    width: calc(var(--ghs-unit) * 9.5);
-    z-index: 5;
+    left: calc(var(--ghs-unit) * 10.5);
+    bottom: calc(var(--ghs-unit) * 2.5);
+    z-index: 20;
   }
 
   .entity-menu-container {
@@ -973,6 +971,16 @@
 
     ghs-character-image {
       margin: calc(var(--ghs-unit) * 2.8) calc(var(--ghs-unit) * 2);
+    }
+
+    ghs-highlight-conditions {
+      left: calc(var(--ghs-unit) * 9);
+      bottom: calc(var(--ghs-unit) * 16);
+    }
+
+    .drag-initiative {
+      top: calc(var(--ghs-unit) * 2.8);
+      left: calc(var(--ghs-unit) * 4.3);
     }
 
     .stats {

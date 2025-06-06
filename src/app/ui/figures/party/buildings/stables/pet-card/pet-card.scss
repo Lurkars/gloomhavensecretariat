@@ -39,7 +39,7 @@
             color: var(--ghs-color-white);
             justify-content: center;
             align-items: center;
-            font-family: ghs-title-fh;
+            font-family: var(--ghs-font-fh-title);
             font-size: 1.3em;
             filter: var(--ghs-filter-outline-thin);
         }
@@ -52,13 +52,13 @@
             height: 8%;
             color: var(--ghs-color-white);
             font-size: 0.8em;
-            font-family: ghs-normal-fh;
+            font-family: var(--ghs-font-fh-normal);
             filter: var(--ghs-filter-outline-thin);
             display: flex;
             align-items: center;
 
             .name {
-                font-family: ghs-extra-fh;
+                font-family: var(--ghs-font-fh-extra);
                 font-size: 1.05em;
                 margin-left: 3%;
                 flex-grow: 1;
@@ -76,7 +76,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            font-family: ghs-normal-fh;
+            font-family: var(--ghs-font-fh-normal);
             font-size: 1.25em;
             line-height: 0.8em;
         }
@@ -109,7 +109,7 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            font-family: ghs-normal;
+            font-family: var(--ghs-font-gh-normal);
             font-size: 0.65em;
         }
 
@@ -132,7 +132,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: ghs-title-fh;
+            font-family: var(--ghs-font-fh-title);
             font-size: 1.2em;
         }
     }

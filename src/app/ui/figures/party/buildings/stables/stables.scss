@@ -107,7 +107,7 @@
                 width: calc(var(--ghs-unit) * 21 * var(--ghs-dialog-factor));
                 height: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
                 color: var(--ghs-color-white);
-                font-family: ghs-extra-fh;
+                font-family: var(--ghs-font-fh-extra);
                 filter: var(--ghs-filter-outline-thin);
                 font-size: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
             }

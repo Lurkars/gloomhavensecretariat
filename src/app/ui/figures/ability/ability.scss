@@ -309,7 +309,7 @@
             width: 100%;
             height: 100%;
             font-size: 1.6em;
-            font-family: ghs-title;
+            font-family: var(--ghs-font-gh-title);
             text-align: center;
             color: var(--ghs-color-black);
             margin: 0;
@@ -462,7 +462,7 @@
           top: 1.1em;
           left: 0.8em;
           font-size: 1.6em;
-          font-family: ghs-title;
+          font-family: var(--ghs-font-gh-title);
           color: var(--ghs-color-black);
           mask: none;
           background-color: transparent;
@@ -475,7 +475,7 @@
         }
 
         .initiative {
-          font-family: ghs-title;
+          font-family: var(--ghs-font-gh-title);
           font-size: 2.6em;
           top: 6.35em;
           left: 4.8em;
