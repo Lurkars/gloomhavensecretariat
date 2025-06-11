@@ -9,6 +9,7 @@
     "Crackling Air": "Air Crépitant",
     "Crater": "Cratère",
     "Crushing Grasp": "Poigne Écrasante",
+    "Devastating Hack": "Frappe Dévastatrice",
     "Dirt Tornado": "Tornade de Poussière",
     "Earthen Clod": "Motte de Terre",
     "Empathetic Assault": "Assaut Empathique",
@@ -65,6 +66,7 @@
     "Single Out": "Isolement",
     "Sinister Opportunity": "Sinistre Occasion",
     "Skewer": "Embroché",
+    "Skirmishing Maneuver": "Manœuvre d'Escarmouche",
     "Smoke Bomb": "Fumigène",
     "Spare Dagger": "Dague Cachée",
     "Special Mixture": "Mixture Spéciale",
@@ -79,10 +81,12 @@
     "Trample": "Piétinement",
     "Trickster's Reversal": "Coup de Jarnac",
     "Unstable Upheaval": "Perturbation Instable",
+    "Unstoppable Chard": "Charge Irrésistible",
     "Venom Shiv": "Surin Empoisonné",
     "Volatile Concoction": "Mélange Volatile",
     "Wall of Doom": "Mur de Chaos",
     "Warding Strength": "Force de Guet",
+    "Whirlwind": "Tornade",
     "Withering Claw": "Griffe Flétrissante"
   },
   "character": {
@@ -125,6 +129,9 @@
           },
           "2": {
             "1": "Gagnez %game.card.experience:1% à chaque fois que vous ripostez ce round."
+          },
+          "20": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
           },
           "4": {
             "1": "Tout adversaire ciblant un de vos alliés adjacents avec une attaque ce round vous cible à la place avec cette attaque, quelle que soit la portée de celle-ci."
@@ -445,8 +452,34 @@
     "winged-horror": "Horreur Ailée"
   },
   "partyAchievements": {
+    "a-demons-errand": "À la Botte du Démon",
+    "a-map-to-treasure": "La Carte au Trésor",
+    "across-the-divide": "De l'Autre Côté du Précipice",
+    "an-invitation": "Une Invitation",
+    "bad-business": "Mauvaise Affaire",
+    "dark-bounty": "La Prime de l'Ombre",
+    "debt-collection": "La Collecte des dettes",
     "first-steps": "Premiers Pas",
-    "jekserahs-plans": "Les Plans de Jekserah"
+    "fishs-aid": "L'Aide de Fretin",
+    "following-clues": "Suivre les Indices",
+    "grave-job": "Fossoyeur",
+    "high-sea-escort": "Escorte en Haute Mer",
+    "jekserahs-plans": "Les Plans de Jekserah",
+    "redthorns-aid": "Au Secours de Rougépine",
+    "sin-ra": "Sin-Ra",
+    "stonebreakers-censer": "L'Encensoir de Brisepierre",
+    "sun-blessed": "Bénis par le Soleil",
+    "the-drakes-command": "L'Injonction de la Wyverne",
+    "the-drakes-treasure": "Le Trésor de la Wyverne",
+    "the-poisons-source": "La Source du Poison",
+    "the-scepter-and-the-voice": "Le Sceptre et la Voix",
+    "the-voices-command": "L'Injonction de la Voix",
+    "the-voices-treasure": "Le Trésor de la Voix",
+    "through-the-nest": "Derrière le Nid",
+    "through-the-ruins": "À Travers les Ruines",
+    "through-the-trench": "Par la Tranchée",
+    "tremors": "Séismes",
+    "water-staff": "Bâton d'Eau"
   },
   "scenario": {
     "group": {

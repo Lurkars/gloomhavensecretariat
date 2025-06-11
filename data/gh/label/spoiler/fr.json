@@ -21,6 +21,10 @@
       "": "Marteau de Guerre",
       "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.stun% à la totalité de l'action d'Attaque."
     },
+    "gh-101": {
+      "": "Deuxième Peau",
+      "1": "Retirez deux %game.attackmodifier.minus1% de votre paquet de Modificateur d'Attaque."
+    },
     "gh-107": {
       "": "Casque à Cornes",
       "1": "Une fois par tour, après vous être déplacé d'au moins 4 hexagones pendant votre tour, ajoutez +1 %game.action.attack% à votre prochaine attaque de mêlée ce tour-ci."
