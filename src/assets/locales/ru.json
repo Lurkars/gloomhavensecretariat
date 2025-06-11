@@ -2843,6 +2843,17 @@
       "characterReplay": "{0} включён в игру для игрока {1}",
       "characterSetAside": "{0} отложен для игрока {1}",
       "clearDiscardedScenarioRules": "Очищены отменённые правила сценария",
+      "command": {
+        "character": {
+          "initiative": "Инициативы у {0}"
+        },
+        "round": {
+          "state": {
+            "draw": "Тянуть",
+            "next": "Следующий раунд"
+          }
+        }
+      },
       "craftItem": "Создан предмет «{1}» (%data.edition.{2}%) для {0}",
       "declineApplyCondition": {
         "char": "Отказано в применении «%game.condition.{1}%» к {0}",
