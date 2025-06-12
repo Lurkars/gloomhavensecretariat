@@ -8,7 +8,7 @@ import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { SelectResourceResult } from "src/app/game/model/data/BuildingData";
-import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
+import { EditionData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
 import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { LootType } from "src/app/game/model/data/Loot";
@@ -725,29 +725,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       if (editionData.worldMap || editionData.extendWorldMap) {
         this.worldMap = true;
       }
-      if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].partyAchievements) {
-        this.partyAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].partyAchievements[achievement], achievement, this.party.achievementsList.indexOf(achievement) != -1)));
-      } else if (editionData.label && editionData.label['en'] && editionData.label['en'].partyAchievements) {
-        this.partyAchievements.push(...Object.keys(editionData.label['en'].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].partyAchievements[achievement], achievement, this.party.achievementsList.indexOf(achievement) != -1)));
-      }
-
-      if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].globalAchievements) {
-        this.globalAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)));
-      }
-
-      if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
-        Object.keys(editionData.label['en'].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)).forEach((item) => {
-          if (this.globalAchievements.every((other) => item.value != other.value)) {
-            this.globalAchievements.push(item);
+      this.updateAchievements(editionData);
+      if (!editionData.additional && editionData.extensions) {
+        editionData.extensions.forEach((extension) => {
+          const extensionData = gameManager.editionData.find((editionData) => editionData.edition == extension);
+          if (extensionData) {
+            this.updateAchievements(extensionData);
           }
         })
-      }
-
-      if (editionData.campaign && editionData.campaign.campaignStickers) {
-        this.campaignStickers.push(...editionData.campaign.campaignStickers.map((sticker) => {
-          sticker = sticker.split(':')[0];
-          return new AutocompleteItem(settingsManager.getLabel('data.campaignSticker.' + sticker), sticker, this.party.campaignStickers.indexOf(sticker) != -1);
-        }));
       }
     }
 
@@ -782,6 +767,33 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       }
     }
     this.updateAlways();
+  }
+
+  updateAchievements(editionData: EditionData) {
+    if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].partyAchievements) {
+      this.partyAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].partyAchievements[achievement], achievement, this.party.achievementsList.indexOf(achievement) != -1)));
+    } else if (editionData.label && editionData.label['en'] && editionData.label['en'].partyAchievements) {
+      this.partyAchievements.push(...Object.keys(editionData.label['en'].partyAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].partyAchievements[achievement], achievement, this.party.achievementsList.indexOf(achievement) != -1)));
+    }
+
+    if (editionData.label && editionData.label[settingsManager.settings.locale] && editionData.label[settingsManager.settings.locale].globalAchievements) {
+      this.globalAchievements.push(...Object.keys(editionData.label[settingsManager.settings.locale].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label[settingsManager.settings.locale].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)));
+    }
+
+    if (editionData.label && editionData.label['en'] && editionData.label['en'].globalAchievements) {
+      Object.keys(editionData.label['en'].globalAchievements).map((achievement) => new AutocompleteItem(editionData.label['en'].globalAchievements[achievement], achievement, this.party.globalAchievementsList.indexOf(achievement) != -1)).forEach((item) => {
+        if (this.globalAchievements.every((other) => item.value != other.value)) {
+          this.globalAchievements.push(item);
+        }
+      })
+    }
+
+    if (editionData.campaign && editionData.campaign.campaignStickers) {
+      this.campaignStickers.push(...editionData.campaign.campaignStickers.map((sticker) => {
+        sticker = sticker.split(':')[0];
+        return new AutocompleteItem(settingsManager.getLabel('data.campaignSticker.' + sticker), sticker, this.party.campaignStickers.indexOf(sticker) != -1);
+      }));
+    }
   }
 
   updateAlways() {
