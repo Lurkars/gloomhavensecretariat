@@ -2843,6 +2843,17 @@
       "characterReplay": "Gioca {0} di nuovo per il giocatore {1}",
       "characterSetAside": "Metti da parte {0} per il giocatore {1}",
       "clearDiscardedScenarioRules": "Elimina le regole di scenario scartate",
+      "command": {
+        "character": {
+          "initiative": "Iniziativa per {0}"
+        },
+        "round": {
+          "state": {
+            "draw": "Pesca",
+            "next": "Prossimo Round"
+          }
+        }
+      },
       "craftItem": "Crea l'oggetto {1} (%data.edition.{2}%) per {0}",
       "declineApplyCondition": {
         "char": "Rifiuta di applicare %game.condition.{1}% a {0}",
