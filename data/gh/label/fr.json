@@ -261,7 +261,7 @@
         "augments": "Augmente %game.characterIconColoredBg.mindthief%"
       },
       "night-demon": {
-        "1": "Tous les alliés et adversaires adjacents subissent 1 dégât."
+        "1": "Tous les adversaires et alliés adjacents subissent %game.damage:1%."
       },
       "ooze": {
         "1": "Invoque un %data.monster.ooze% (normal) dont le nombre de points de vie est égal à son propre nombre de points de vie actuel (limité à la valeur maximale de points de vie d'un %data.monster.ooze% normal)"
