@@ -2840,6 +2840,14 @@
       "characterReplay": "玩家{1} 再次遊玩 {0}",
       "characterSetAside": "為玩家 {1} 將 {0} 閒置",
       "clearDiscardedScenarioRules": "清除已作廢的劇本規則",
+      "command": {
+        "round": {
+          "state": {
+            "draw": "抽牌",
+            "next": "下個回合"
+          }
+        }
+      },
       "craftItem": "為 {0} 製作物品 {1} (%data.edition.{2}%)",
       "declineApplyCondition": {
         "char": "拒絕將 %game.condition.{1}% 應用至 {0}",
