@@ -308,7 +308,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      z-index: 2;
 
       &.col-1 {
         height: calc(var(--ghs-unit) * 13);
@@ -326,6 +325,7 @@
 
       &.col-2 {
         width: auto;
+        z-index: 2;
       }
     }
 
@@ -434,7 +434,6 @@
       font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
-      width: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor));
 
       img {
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
@@ -447,6 +446,10 @@
       }
 
       .value-overlay {
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
         font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
         width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));

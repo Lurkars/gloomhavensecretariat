@@ -64,6 +64,8 @@
           (doubleClick)="compact && openCharacterSheet()"></div>
         <ghs-character-initiative *ngIf="short" class="initiative" [figure]="character"></ghs-character-initiative>
         <div class="bar-container">
+          <div class="entity-menu-container" ghs-pointer-input (singleClick)="openEntityMenu()"
+            (doubleClick)="compact && openCharacterSheet()"></div>
           <span class="title-bar">
             <span class="title" #characterName>
               <span class="icon" ghs-pointer-input (dragMove)="dragTokenMove($event)" (dragEnd)="dragTokenEnd($event)"
