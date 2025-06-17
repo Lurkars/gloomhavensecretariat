@@ -262,10 +262,22 @@
   },
   "buildings": {
     "alchemist": {
-      "": "Alchemist"
+      "": "Alchemist",
+      "1": "Charaktere können keine Tränke verwenden",
+      "2": "Braut 2-Kräuter Tränke",
+      "3": "Braut und destilliert 2-Kräuter Tränke",
+      "4": "Braut und destilliert 2- und 3-Kräuter Tränke",
+      "5": "Braut Tränke",
+      "6": "Braut und destilliert Tränke",
+      "7": "Braut und destilliert Tränke"
     },
     "barracks": {
-      "": "Kaserne"
+      "": "Kaserne",
+      "1": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 4<br><i>Effect:</i> Vorteil und -5 %game.action.attack%",
+      "2": "Bildet insgesamt bis zu 1 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 6<br><i>Effect:</i> Vorteil und -15 %game.action.attack%",
+      "3": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 8<br><i>Effect:</i> Vorteil und -25 %game.action.attack%",
+      "4": "Bildet insgesamt bis zu 2 Soldaten für 3 Gold und 1 Materialressource aus <br><br><i>Capacity:</i> 10<br><i>Effect:</i> Vorteil und -35 %game.action.attack%",
+      "5": "Nachteil bei der Berechnung aller Bedrohungen.<br>Einsatz von Soldaten nicht möglich."
     },
     "boat": {
       "": "Schiff"
@@ -277,7 +289,11 @@
       "": "Kletterausrüstung"
     },
     "craftsman": {
-      "": "Handwerker"
+      "": "Handwerker",
+      "1": "Verliert insgesamt 1 %game.resource.hide%",
+      "2": "Verliert insgesamt 2 %game.resource.hide%",
+      "3": "Verliert insgesamt 2 %game.resource.hide%",
+      "4": "Stellt Gegenstände her"
     },
     "enhancer": {
       "": "Verbesserer"
@@ -348,6 +364,7 @@
     "trading-post": {
       "": "Handelsposten"
     },
+    "wall-effect": "+5 Verteidigung",
     "wall-j": {
       "": "Verteidigung J"
     },
@@ -800,25 +817,36 @@
   "personalQuest": {
     "fh": {
       "581": {
-        "": "Pflanzenstudien"
+        "": "Pflanzenstudien",
+        "1": "Verschiedene Kräuter durch Beutemarker gesammelt"
       },
       "582": {
-        "": "Suche nach der Eiche"
+        "": "Suche nach der Eiche",
+        "1": "Holzkarten durch Beutemarker",
+        "2": "Folge \"Heiliger Boden\" %game.scenarioNumber:69% und schließe den Erzählstrang ab"
       },
       "583": {
-        "": "Kaufmannsgilde"
+        "": "Kaufmannsgilde",
+        "1": "%game.items.slots.head% Gegenstände",
+        "2": "%game.items.slots.body% Gegenstände",
+        "3": "%game.items.slots.legs% Gegenstände",
+        "4": "%game.items.slots.onehand% oder %game.items.slots.twohand% Gegenstände",
+        "5": "%game.items.slots.small% Gegenstände"
       },
       "584": {
         "": "Gute Gier"
       },
       "585": {
-        "": "Aufbau statt Zerstörung"
+        "": "Aufbau statt Zerstörung",
+        "1": "Gebäude gebaut oder verbessert"
       },
       "586": {
-        "": "Gruppengefühl"
+        "": "Gruppengefühl",
+        "1": "Lies Namen einer Person in unterschiedlichen Außenpostenphasen"
       },
       "587": {
-        "": "Aesther-Außenposten"
+        "": "Aesther-Außenposten",
+        "1": "Folge \"Solide Grundlage\" %game.scenarioNumber:65% und schließe den Erzählstrang ab"
       },
       "588": {
         "": "Gefährliches Spiel",
@@ -827,10 +855,12 @@
         "3": "Bolzenschussroboter getötet"
       },
       "589": {
-        "": "Lebenserfahrung"
+        "": "Lebenserfahrung",
+        "1": "Erfahrungspunkte erhalten durch Fertigkeitskarten"
       },
       "590": {
-        "": "Erkundung der Weite"
+        "": "Erkundung der Weite",
+        "1": "Szenarien abgeschlossen mit %game.fhIcon:boat%, %game.fhIcon:climbing-gear%, oder %game.fhIcon:sled% Vorraussetzung "
       }
     }
   },
