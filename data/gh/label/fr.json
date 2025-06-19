@@ -89,6 +89,104 @@
     "Whirlwind": "Tornade",
     "Withering Claw": "Griffe Flétrissante"
   },
+  "battleGoals": {
+    "458": {
+      "": "Planificateur",
+      "text": "Avoir au minimum cinq cartes au total dans votre main et votre défausse à la fin de ce scénario."
+    },
+    "459": {
+      "": "Paresseux",
+      "text": "Gagner au maximum 7 XP lors de ce scénario."
+    },
+    "460": {
+      "": "Bête de Travail",
+      "text": "Gagnez au minimum 13 XP lors de ce scénario."
+    },
+    "461": {
+      "": "Fanatique",
+      "text": "Avoir au maximum trois cartes au total dans votre main et votre défausse à la fin de ce scénario."
+    },
+    "462": {
+      "": "Masochiste",
+      "text": "Avoir au maximum 2 points de vie à la fin de ce scénario."
+    },
+    "463": {
+      "": "Force de la Nature",
+      "text": "Avoir un nombre de points de vie égal à votre valeur maximale de points de vie à la fin de ce scénario."
+    },
+    "464": {
+      "": "Désamorceur",
+      "text": "Désamorcer ou causer le déclenchement d'un piège pendant votre tour ou pendant celui d'une de vos invocations lors de ce scénario."
+    },
+    "465": {
+      "": "Pillard",
+      "text": "Piller une tuile Trésor lors de ce scénario."
+    },
+    "466": {
+      "": "Protecteur",
+      "text": "Aucun de vos alliés personnages ne doit devenir épuisé lors de ce scénario."
+    },
+    "467": {
+      "": "Explorateur",
+      "text": "Révéler une salle en ouvrant une porte pendant votre tour lors de ce scénario."
+    },
+    "468": {
+      "": "Avare",
+      "text": "Piller au minimum cinq pions Monnaie lors de ce scénario."
+    },
+    "469": {
+      "": "Indigent",
+      "text": "Ne piller ni pion Monnaie ni tuile Trésor lors de ce scénario."
+    },
+    "470": {
+      "": "Pacifiste",
+      "text": "Tuer au maximum trois monstres lors de ce scénario."
+    },
+    "471": {
+      "": "Sadique",
+      "text": "Tuer au minimum cinq monstres lors de ce scénario."
+    },
+    "472": {
+      "": "Chasseur",
+      "text": "Tuer au minimum un monstre d'élite lors de ce scénario."
+    },
+    "473": {
+      "": "Professionnel",
+      "text": "Utiliser des objets dont vous êtes équipé un nombre de fois égal ou supérieur à votre niveau plus 2 lors de ce scénario."
+    },
+    "474": {
+      "": "Agressif",
+      "text": "Avoir au minimum un monstre présent sur le plateau au début de chaque round lors de ce scénario."
+    },
+    "475": {
+      "": "Massacreur",
+      "text": "Tuer un monstre lors de ce scénario en lui infligeant au minimum 4 dégâts de plus que nécessaire."
+    },
+    "476": {
+      "": "Puriste",
+      "text": "N'utiliser aucun objet lors de ce scénario."
+    },
+    "477": {
+      "": "Premier Sang",
+      "text": "Être le premier à tuer un monstre lors de ce scénario."
+    },
+    "478": {
+      "": "Dur à cuire",
+      "text": "Ne jamais laisser votre nombre de points de vie descendre sous la moitié de votre valeur maximale de points de vie (arrondissez au supérieur) lors de ce scénario."
+    },
+    "479": {
+      "": "Exécuteur",
+      "text": "Tuer un monstre indemne en une seule attaque lors de ce scénario."
+    },
+    "480": {
+      "": "Traînard",
+      "text": "N'effectuer que des repos longs lors de ce scénario."
+    },
+    "481": {
+      "": "Impatient",
+      "text": "N'effectuer que des repos courts lors de ce scénario."
+    }
+  },
   "character": {
     "brute": "Brute",
     "cragheart": "Cœur de Roche",
