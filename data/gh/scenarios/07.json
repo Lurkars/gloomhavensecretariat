@@ -176,6 +176,9 @@
     {
       "roomNumber": 6,
       "ref": "D2b",
+      "rooms": [
+        5
+      ],
       "treasures": [
         "G"
       ],
