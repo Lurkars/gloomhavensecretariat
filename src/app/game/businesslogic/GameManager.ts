@@ -906,7 +906,7 @@ export class GameManager {
 
   changeParty(party: Party) {
     if (settingsManager.settings.automaticTheme) {
-      if (this.game.edition != 'fh' && party.edition == 'fh') {
+      if (this.game.edition != 'fh' && party.edition == 'fh' || this.game.edition != 'gh2e' && party.edition == 'gh2e') {
         settingsManager.set('fhStyle', true);
       } else if (this.game.edition == 'fh' && party.edition != 'fh') {
         settingsManager.set('fhStyle', false);

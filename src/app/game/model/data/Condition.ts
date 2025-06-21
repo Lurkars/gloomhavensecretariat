@@ -25,6 +25,7 @@ export enum ConditionName {
   heal = "heal",
   shield = "shield",
   retaliate = "retaliate",
+  safeguard = "safeguard",
   invalid = "invalid",
 }
 
@@ -85,12 +86,12 @@ export class Condition {
 
     this.types.push(ConditionType.action);
 
-    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.chill, ConditionName.ward, ConditionName.rupture, ConditionName.poison_x, ConditionName.wound_x].indexOf(this.name) != -1) {
+    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.chill, ConditionName.ward, ConditionName.rupture, ConditionName.poison_x, ConditionName.wound_x, ConditionName.safeguard].indexOf(this.name) != -1) {
       this.types.push(ConditionType.entity);
     }
 
 
-    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.impair, ConditionName.rupture, ConditionName.ward, ConditionName.dodge].indexOf(this.name) != -1) {
+    if ([ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.wound, ConditionName.muddle, ConditionName.poison, ConditionName.invisible, ConditionName.strengthen, ConditionName.regenerate, ConditionName.infect, ConditionName.bane, ConditionName.brittle, ConditionName.impair, ConditionName.rupture, ConditionName.ward, ConditionName.dodge, ConditionName.safeguard].indexOf(this.name) != -1) {
       this.types.push(ConditionType.standard);
     }
 
@@ -131,7 +132,7 @@ export class Condition {
       this.types.push(ConditionType.apply);
     }
 
-    if ([ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield].indexOf(this.name) != -1) {
+    if ([ConditionName.ward, ConditionName.brittle, ConditionName.heal, ConditionName.shield, ConditionName.safeguard].indexOf(this.name) != -1) {
       this.types.push(ConditionType.autoApply);
     }
 
@@ -147,7 +148,7 @@ export class Condition {
       this.types.push(ConditionType.expire);
     }
 
-    if ([ConditionName.regenerate, ConditionName.ward, ConditionName.invisible, ConditionName.strengthen, ConditionName.bless, ConditionName.dodge].indexOf(this.name) != -1) {
+    if ([ConditionName.regenerate, ConditionName.ward, ConditionName.invisible, ConditionName.strengthen, ConditionName.bless, ConditionName.dodge, ConditionName.safeguard].indexOf(this.name) != -1) {
       this.types.push(ConditionType.positive);
     }
 

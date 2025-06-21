@@ -750,6 +750,10 @@
         "": "Rupture",
         "hint": "%game.conditionIcon.rupture% Rupture: On move suffer %game.damage:1%. Remove when healed."
       },
+      "safeguard": {
+        "": "Safeguard",
+        "hint": "%game.conditionIcon.safeguard% Safeguard: Prevent next negative condition, then remove."
+      },
       "strengthen": {
         "": "Strengthen",
         "hint": "%game.conditionIcon.strengthen% Strengthen: Advantage on all attacks. Remove at end of next turn."
@@ -2093,6 +2097,7 @@
         "": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will lose 1 HP on start of it's round",
         "bane": "Automatic apply %game.condition.bane% damage at end of turn.",
         "regenerate": "Automatic apply %game.condition.regenerate% at start of turn.",
+        "safeguard": "Automatic apply %game.condition.safeguard% on receiving next negative condition.",
         "wound": "Automatic apply %game.condition.wound% damage at end of turn.",
         "wound_x": "Automatic apply %game.condition.wound_x:X% damage at end of turn."
       }
