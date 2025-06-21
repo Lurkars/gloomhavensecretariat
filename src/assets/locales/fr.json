@@ -519,7 +519,7 @@
       "elementHalf": "Moitié d'Élément",
       "fly": "Vol",
       "grant": "Accorde",
-      "grid": "[Grid]",
+      "grid": "&#91;Grid&#93;",
       "heal": "Soin",
       "jump": "Saut",
       "loot": "Pillage",
@@ -537,7 +537,7 @@
       "special": "Spécial",
       "specialTarget": "Cible spéciale",
       "sufferDamage": "Subir des Dommages",
-      "summon": "Invoque",
+      "summon": "Invoquez",
       "target": "Cible",
       "targets": "Cibles",
       "teleport": "Téléporte",
@@ -902,7 +902,7 @@
         "disabled": "Impossible de préparer des potions, reconstruire d’abord '%data.buildings.alchemist%' (35)",
         "item": "{1} %game.itemFh.{0}%",
         "noChar": "Potion déjà possédée par tous les personnages !",
-        "selectCharacter": "Sélectionnez le personnage pour lequel vous souhaitez brasser:"
+        "selectCharacter": "Sélectionnez le personnage pour lequel vous souhaitez brasser :"
       },
       "buy": "Acheter '{0}' pour {1} or",
       "character": {
@@ -1090,7 +1090,7 @@
       "focusEnemyFarthest": "Se focalise sur l'adversaire<br>le plus éloigné.",
       "self": "Sur vous-même",
       "selfAllies": "Sur vous-même et tous les alliés",
-      "selfAlliesAdjacentAffect": "%game.affect%etc. sur vous-même et tous les alliés adjacents",
+      "selfAlliesAdjacentAffect": "%game.affect% sur vous-même et tous les alliés adjacents",
       "selfAlliesAffect": "%game.affect% sur vous-même et tous les alliés",
       "selfAlliesAffectRange": "%game.affect% sur vous-même et tous les alliés à portée %game.action.range% {0}",
       "selfAlliesRange": "%game.target% sur vous-même et tous les alliés à portée %game.action.range% {0}",
@@ -1454,7 +1454,7 @@
       "failed": "Tous les personnages sont épuisés. Voulez-vous redémarrer le scénario ?",
       "finish": "Il n'y a plus de monstres. Avez-vous accompli l'objectif du scénario ?",
       "initiativeRoundConfirm": "Toutes les initiatives sont établies. Commencer le prochain tour?",
-      "missingInitiative": "L'initiative des joueurs doit être définie en cliquant sur le portrait des unités."
+      "missingInitiative": "L'initiative des joueurs doit être définie en cliquant sur le portrait des unités !"
     },
     "next": "Round suivant"
   },
@@ -2900,7 +2900,7 @@
         "name": "Nom du scénario",
         "notes": {
           "": "Notes complémentaires",
-          "hint": "par exemple, les règles spéciales de scénario comme les ajustements de niveau des monstres, les événements de ronde ou les calculs de PV..."
+          "hint": "par exemple, les règles spéciales de scénario comme les ajustements de niveau des monstres, les événements de round ou les calculs de PV…"
         },
         "send": "Envoyer le scénario"
       }

@@ -110,7 +110,7 @@
     "skeleton": "Squelette",
     "slime-spirit": "Esprit du Limon",
     "spirit-banner": "Bannière des Esprits",
-    "spitting-cobra": "Cobra Cracheur ",
+    "spitting-cobra": "Cobra Cracheur",
     "steel-construct": "Construction d'Acier",
     "swamp-alligator": "Alligator des Marais",
     "tattered-wolf": "Loup Famélique",
@@ -119,6 +119,7 @@
     "vicious-jackal": "Chacal Vicieux",
     "void-eater": "Dévoreur du Vide",
     "war-hawk": "Faucon de Guerre",
+    "warrior-spirit": "Esprit Guerrier",
     "wind-totem": "Totem du Vent"
   }
 }
