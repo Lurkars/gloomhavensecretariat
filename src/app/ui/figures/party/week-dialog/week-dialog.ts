@@ -75,7 +75,7 @@ export class PartyWeekDialogComponent {
                     if (conclusion) {
                         const scenario = new Scenario(conclusion as ScenarioData);
                         gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(scenario));
-                        gameManager.scenarioManager.finishScenario(scenario, true, undefined, false, undefined, false, gameManager.game.party.campaignMode, true);
+                        gameManager.scenarioManager.finishScenario(scenario, true, undefined, false, false, false, gameManager.game.party.campaignMode, true);
                         if (!scenario.repeatable) {
                             gameManager.game.party.weekSections[this.week] = [...(gameManager.game.party.weekSections[this.week] || []), scenario.index];
                         }

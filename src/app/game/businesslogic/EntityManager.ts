@@ -387,6 +387,10 @@ export class EntityManager {
       this.addCondition(entity, figure, new Condition(ConditionName.wound));
     }
 
+    if (settingsManager.settings.applyConditions && settingsManager.settings.applyConditionsExcludes.indexOf(ConditionName.safeguard) == -1 && this.hasCondition(entity, new Condition(ConditionName.safeguard)) && entityCondition.types.indexOf(ConditionType.negative) != -1) {
+      this.removeCondition(entity, figure, entityCondition);
+      this.removeCondition(entity, figure, new Condition(ConditionName.safeguard));
+    }
   }
 
   removeCondition(entity: Entity, figure: Figure, condition: Condition, permanent: boolean = false) {

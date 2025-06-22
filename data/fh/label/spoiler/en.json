@@ -219,6 +219,10 @@
     "meteor": "Pyroclast",
     "prism": {
       "": "HIVE",
+      "long_rest": {
+        "": "Perk 8",
+        "hint": "%data.custom.fh.prism.8%"
+      },
       "prism_mode": {
         "": "%data.characterToken.prism.mode% Mode Token",
         "hint": "%data.characterToken.prism.mode% Mode is activated for summon, summon does not act on turn."

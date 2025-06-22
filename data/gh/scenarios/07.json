@@ -152,6 +152,7 @@
       "roomNumber": 5,
       "ref": "F1b",
       "rooms": [
+        3,
         6
       ],
       "treasures": [
@@ -176,6 +177,9 @@
     {
       "roomNumber": 6,
       "ref": "D2b",
+      "rooms": [
+        5
+      ],
       "treasures": [
         "G"
       ],

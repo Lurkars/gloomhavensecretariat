@@ -72,6 +72,7 @@ export class HintDialogComponent {
                     }
                 });
             }
+            ghsDialogClosingHelper(this.dialogRef, false);
         }
     }
 

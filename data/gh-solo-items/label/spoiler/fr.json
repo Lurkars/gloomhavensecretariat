@@ -1,1 +1,70 @@
-{}
+{
+  "items": {
+    "gh-135": {
+      "": "Rayon de Concentration"
+    },
+    "gh-137": {
+      "": "Stylet Silencieux"
+    },
+    "gh-138": {
+      "": "Charme de Pierre"
+    },
+    "gh-139": {
+      "": "Couteau Psychique"
+    },
+    "gh-140": {
+      "": "Bouclier du Soleil"
+    },
+    "gh-143": {
+      "": "Élixir de Fumée"
+    },
+    "gh-144": {
+      "": "Pendentif de la Peste"
+    },
+    "gh-146": {
+      "": "Luth du Maître"
+    },
+    "gh-147": {
+      "": "Cape du Chasseur"
+    },
+    "gh-148": {
+      "": "Manteau de Docteur"
+    },
+    "gh-149": {
+      "": "Bottes Élémentaires"
+    },
+    "gh-150": {
+      "": "Bâton de Commandement"
+    },
+    "solo-digital-135": {
+      "1": "Pendant votre action de Soin ciblant un allié, ajoutez +1 %game.action.heal% et %game.condition.strengthen%."
+    },
+    "solo-digital-137": {
+      "1": "À chaque fois que vous réalisez une attaque de mêlée, ajoutez %game.action.pierce% 1 à l'attaque."
+    },
+    "solo-digital-138": {
+      "1": "Pendant votre action de création d'un obstacle, tous les adversaires adjacents à cet obstacle gagnent %game.condition.muddle%."
+    },
+    "solo-digital-139": {
+      "1": "À chaque fois que vous réalisez une action %data.characterColored.mindthief:Augment%, ajoutez +2 %game.action.attack% à la totalité de l'action."
+    },
+    "solo-digital-140": {
+      "1": "Lorsque vous êtes blessé par une attaque, vous pouvez %game.element.consume.light% pour gagner %game.action.shield% 2 et %game.action.retaliate% 1 pour l'attaque."
+    },
+    "solo-digital-143": {
+      "1": "Durant votre tour, gagnez %game.condition.invisible%."
+    },
+    "solo-digital-144": {
+      "1": "Durant votre tour, %game.condition.poison% et %game.condition.curse% un adversaire avec %game.action.range:3%."
+    },
+    "solo-digital-146": {
+      "1": "Après avoir réalisé une action %data.characterColored.music-note:Song%, réalisez immédiatement une action %game.action.attack% 2 ou %game.action.move% 2."
+    },
+    "solo-digital-147": {
+      "1": "À chaque fois que vous réalisez une action %data.characterColored.angry-face:Doom%, vous pouvez effectuer immédiatement après \"%game.action.move% 1\"."
+    },
+    "solo-digital-149": {
+      "1": "Si vous vous déplacez de 3 hexagones ou plus pendant votre tour, créez n'importe quel élément."
+    }
+  }
+}

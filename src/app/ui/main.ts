@@ -336,6 +336,9 @@ export class MainComponent implements OnInit {
       } else {
         settingsManager.set('theme', 'default');
       }
+      if (edition == 'gh2e') {
+        settingsManager.set('fhStyle', true);
+      }
     }
     gameManager.game.party.campaignMode = true;
     gameManager.stateManager.after();

@@ -104,7 +104,7 @@
       position: relative;
       top: calc(var(--ghs-unit) * -0.6);
       left: calc(var(--ghs-unit) * -0.3);
-      font-family: ghs-title;
+      font-family: var(--ghs-font-gh-title);
       color: var(--ghs-color-white);
       font-size: calc(var(--ghs-unit) * 4.5);
       line-height: calc(var(--ghs-unit) * 4);
@@ -195,7 +195,7 @@
     position: absolute;
     top: 0.2em;
     left: 0.7em;
-    font-family: "ghs-title";
+    font-family: var(--ghs-font-gh-title);
     font-size: 3em;
     text-shadow: var(--ghs-outline);
     color: var(--ghs-color-gray);

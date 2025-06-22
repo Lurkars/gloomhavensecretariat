@@ -750,6 +750,10 @@
         "": "斷裂",
         "hint": "%game.conditionIcon.rupture% 斷裂: 每當移動時承受 %game.damage:1%。當被治療時移除。"
       },
+      "safeguard": {
+        "": "",
+        "hint": ""
+      },
       "strengthen": {
         "": "強壯",
         "hint": "%game.conditionIcon.strengthen% 強壯: 所有攻擊獲得優勢。下回合結束時移除。"
@@ -2093,6 +2097,7 @@
         "": "相應的狀態在回合前後自動生效，例如當個體有負傷狀態時，它將在其回合開始時損失1點生命值",
         "bane": "在回合結束時自動生效 %game.condition.bane% 傷害。",
         "regenerate": "在回合開始時自動生效 %game.condition.regenerate%。",
+        "safeguard": "",
         "wound": "在回合結束時自動生效 %game.condition.wound% 傷害。",
         "wound_x": "在回合結束時自動生效 %game.condition.wound_x:X% 傷害。"
       }
@@ -2472,7 +2477,8 @@
       "es": "西班牙語 (Español)",
       "fr": "法語 (Français)",
       "help": {
-        "": "協助翻譯！"
+        "": "協助翻譯！",
+        "hint": ""
       },
       "it": "義大利語（Italiano）",
       "ko": "韓語 (한국어)",
@@ -2680,8 +2686,10 @@
         "summons": "%game.condition.{1}% 所有 {0} 召喚物"
       },
       "addConditions": {
+        "char": "",
         "monster": "{0}中的{3}x %game.condition.{2}% '{1}'",
         "monsterEntities": "{3}x %game.condition.{1}% 所有 {2}{0}",
+        "objective": "",
         "objectiveContainer": "{0}中的{3}x %game.condition.{2}% %game.objectiveMarker.{1}%",
         "objectives": "{2}x %game.condition.{1}% 所有 {0}",
         "summon": "{0}中的{3}x %game.condition.{2}% '{1}'",
@@ -2840,6 +2848,17 @@
       "characterReplay": "玩家{1} 再次遊玩 {0}",
       "characterSetAside": "為玩家 {1} 將 {0} 閒置",
       "clearDiscardedScenarioRules": "清除已作廢的劇本規則",
+      "command": {
+        "character": {
+          "initiative": ""
+        },
+        "round": {
+          "state": {
+            "draw": "抽牌",
+            "next": "下個回合"
+          }
+        }
+      },
       "craftItem": "為 {0} 製作物品 {1} (%data.edition.{2}%)",
       "declineApplyCondition": {
         "char": "拒絕將 %game.condition.{1}% 應用至 {0}",
@@ -3135,9 +3154,9 @@
       "shuffleAbilityDeckUpcoming": "洗牌 {0} 尚未抽取的能力卡牌堆",
       "skipInteractiveActions": "為 {2} 的立牌 {1} 略過互動能力",
       "startCampaign": "開啟新的戰役 {0}",
-      "summonActive": "啟動召喚物『{1}』（{0}）",
+      "summonActive": "啟動召喚物'{1}'（{0}）",
       "summonDead": "擊殺 {0} 的召喚物『{1}』",
-      "summonInactive": "將召喚物『{1}』（{0}）設定為未啟動狀態",
+      "summonInactive": "將召喚物'{1}'（{0}）設定為未啟動狀態",
       "toggleTypeAll": "切換 {0} 所有怪物立牌的類型",
       "unequipItem": "為 {0} 卸下裝備 {1} (%data.edition.{2}%)",
       "unlockChar": "解鎖 {0}",

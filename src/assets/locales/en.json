@@ -511,10 +511,10 @@
     "action": {
       "area": "Area Effect",
       "attack": "Attack",
-      "box": "&#91;Box&#93;",
+      "box": "Box",
       "boxFhSubActions": "&#91;FH Subaction Box&#93;",
       "card": "Card",
-      "concatenation": "&#91;Concatenation&#93;",
+      "concatenation": "Concatenation",
       "concatenationSpacer": "&#91;Concatenation Spacer&#93;",
       "condition": "Condition",
       "custom": "Custom",
@@ -524,7 +524,7 @@
       "fly": "Fly",
       "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "Grant",
-      "grid": "&#91;Grid&#93;",
+      "grid": "Grid",
       "heal": "Heal",
       "hint": "&#91;Information Board&#93;",
       "jump": "Jump",
@@ -574,7 +574,7 @@
       "perks": {
         "": "Perks",
         "additional": "{0} and {1}",
-        "card": "card",
+        "card": "Card",
         "cardLabel": "{0}{1} {2}",
         "cards": {
           "": "cards",
@@ -749,6 +749,10 @@
       "rupture": {
         "": "Rupture",
         "hint": "%game.conditionIcon.rupture% Rupture: On move suffer %game.damage:1%. Remove when healed."
+      },
+      "safeguard": {
+        "": "Safeguard",
+        "hint": "%game.conditionIcon.safeguard% Safeguard: Prevent next negative condition, then remove."
       },
       "strengthen": {
         "": "Strengthen",
@@ -2093,6 +2097,7 @@
         "": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will lose 1 HP on start of it's round",
         "bane": "Automatic apply %game.condition.bane% damage at end of turn.",
         "regenerate": "Automatic apply %game.condition.regenerate% at start of turn.",
+        "safeguard": "Automatic apply %game.condition.safeguard% on receiving next negative condition.",
         "wound": "Automatic apply %game.condition.wound% damage at end of turn.",
         "wound_x": "Automatic apply %game.condition.wound_x:X% damage at end of turn."
       }
@@ -2843,6 +2848,17 @@
       "characterReplay": "Play {0} again for player {1}",
       "characterSetAside": "Set {0} aside for player {1}",
       "clearDiscardedScenarioRules": "Clear discarded scenario rules",
+      "command": {
+        "character": {
+          "initiative": "Initative for {0}"
+        },
+        "round": {
+          "state": {
+            "draw": "Draw",
+            "next": "Next Round"
+          }
+        }
+      },
       "craftItem": "Craft Item {1} (%data.edition.{2}%) for {0}",
       "declineApplyCondition": {
         "char": "Decline apply %game.condition.{1}% to {0}",

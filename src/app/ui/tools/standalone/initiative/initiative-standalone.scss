@@ -20,7 +20,7 @@
         margin: calc(var(--ghs-unit) * 1) 0;
 
         .character {
-            font-family: "ghs-title";
+            font-family: var(--ghs-font-gh-title);
             display: flex;
             justify-content: center;
             z-index: 2;
@@ -96,7 +96,7 @@
                     align-items: center;
 
                     .value {
-                        font-family: ghs-title;
+                        font-family: var(--ghs-font-gh-title);
                         font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-dialog-factor));
                     }
 

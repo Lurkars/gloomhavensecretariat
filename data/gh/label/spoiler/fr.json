@@ -21,6 +21,10 @@
       "": "Marteau de Guerre",
       "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.stun% à la totalité de l'action d'Attaque."
     },
+    "gh-101": {
+      "": "Deuxième Peau",
+      "1": "Retirez deux %game.attackmodifier.minus1% de votre paquet de Modificateur d'Attaque."
+    },
     "gh-107": {
       "": "Casque à Cornes",
       "1": "Une fois par tour, après vous être déplacé d'au moins 4 hexagones pendant votre tour, ajoutez +1 %game.action.attack% à votre prochaine attaque de mêlée ce tour-ci."
@@ -28,6 +32,10 @@
     "gh-11": {
       "": "Dague Empoisonnée",
       "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.poison% à une seule attaque."
+    },
+    "gh-113": {
+      "": "Hache Fléau des Crânes",
+      "1": "Pendant votre attaque de mêlée ciblant un Cadavre Réanimé, Esprit Réanimé ou Squelette Réanimé, ajoutez +5 %game.action.attack% à une seule attaque."
     },
     "gh-12": {
       "": "Potion Soin Mineure",
@@ -44,9 +52,37 @@
       "": "Potion Puissance Mineure",
       "1": "Pendant votre attaque, ajoutez +1 %game.action.attack% à la totalité de votre action d'Attaque."
     },
+    "gh-15": {
+      "": "Bottes de Célérité",
+      "1": "Au début d'un round, après que toutes les cartes Capacité ont été révélées, augmentez ou réduisez l'initiative de votre carte principale de 10."
+    },
+    "gh-16": {
+      "": "Cape Multipoches",
+      "1": "Vous pouvez vous équiper de deux objets %game.items.slots.small% supplémentaires."
+    },
+    "gh-17": {
+      "": "Talisman de Puissance",
+      "1": "Pendant votre tour, Rafraîchissez %game.card.refresh% un de vos objets %game.items.slots.small% consommés."
+    },
+    "gh-18": {
+      "": "Hache de Bataille",
+      "1": "Pendant votre action d'attaque de mêlée sur une seule cible, transformez cette attaque en :"
+    },
+    "gh-19": {
+      "": "Filet Lesté",
+      "1": "Pendant votre attaque à distance, ajoutez %game.condition.immobilize% à une seule attaque."
+    },
     "gh-2": {
       "": "Bottines Ailées",
       "1": "Pendant votre déplacement, ajoutez %game.action.jump% à ce déplacement."
+    },
+    "gh-20": {
+      "": "Potion Mana Mineure",
+      "1": "Pendant votre tour, créez un élément au choix."
+    },
+    "gh-21": {
+      "": "Poudre Étourdissante",
+      "1": "Pendant votre attaque, ajoutez %game.condition.stun% à une seule attaque."
     },
     "gh-3": {
       "": "Armure de Peaux",
@@ -71,6 +107,9 @@
     "gh-8": {
       "": "Écu",
       "1": "Lorsque vous subissez des dégâts du fait d'une attaque, gagnez %game.action.shield% 1 pour cette attaque."
+    },
+    "gh-86": {
+      "": "Baguette de Séisme"
     },
     "gh-9": {
       "": "Arc Perforant",
@@ -106,7 +145,7 @@
     "skeleton": "Squelette",
     "slime-spirit": "Esprit du Limon",
     "spirit-banner": "Bannière des Esprits",
-    "spitting-cobra": "Cobra Cracheur ",
+    "spitting-cobra": "Cobra Cracheur",
     "steel-construct": "Construction d'Acier",
     "swamp-alligator": "Alligator des Marais",
     "tattered-wolf": "Loup Famélique",
@@ -115,6 +154,7 @@
     "vicious-jackal": "Chacal Vicieux",
     "void-eater": "Dévoreur du Vide",
     "war-hawk": "Faucon de Guerre",
+    "warrior-spirit": "Esprit Guerrier",
     "wind-totem": "Totem du Vent"
   }
 }

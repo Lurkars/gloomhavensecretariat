@@ -1,4 +1,16 @@
-{
+{  "conditions": [
+    "stun",
+    "immobilize",
+    "disarm",
+    "wound",
+    "muddle",
+    "poison",
+    "invisible",
+    "strengthen",
+    "curse",
+    "bless",
+    "safeguard"
+  ],
   "edition": "gh2e",
   "logoUrl": "./assets/images/logos/gh2e.png"
 }

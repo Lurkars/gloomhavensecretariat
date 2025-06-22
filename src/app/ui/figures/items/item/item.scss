@@ -39,8 +39,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transform: translateX(-60%);
-            font-family: ghs-title;
+            text-align: center;
+            transform: translateX(-56%);
+            font-family: var(--ghs-font-gh-title);
             font-size: 1.2em;
             filter: var(--ghs-filter-outline);
         }
@@ -77,7 +78,7 @@
             align-items: center;
             text-align: center;
             transform: translateX(-50%);
-            font-family: ghs-normal;
+            font-family: var(--ghs-font-gh-normal);
             font-size: 1.25em;
             line-height: 0.8em;
             --ghs-filter-shadow: brightness(1) !important;
@@ -136,7 +137,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            font-family: ghs-normal;
+            font-family: var(--ghs-font-gh-normal);
             font-size: 0.8em;
             text-shadow: var(--ghs-filter-outline-thin);
         }
@@ -153,7 +154,7 @@
             text-align: center;
 
             .value {
-                font-family: ghs-title;
+                font-family: var(--ghs-font-gh-title);
                 font-size: 2em;
                 filter: var(--ghs-filter-outline-thin);
             }
@@ -170,7 +171,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            font-family: ghs-title;
+            font-family: var(--ghs-font-gh-title);
             font-size: 1em;
 
             .required-item {
@@ -190,7 +191,7 @@
                 }
 
                 .any {
-                    font-family: ghs-text-fh;
+                    font-family: var(--ghs-font-fh-text);
                     color: var(--ghs-color-black);
                     font-size: 1.2em;
                     line-height: 0.9em;
@@ -198,7 +199,7 @@
                 }
 
                 .value {
-                    font-family: ghs-text-fh;
+                    font-family: var(--ghs-font-fh-text);
                     color: var(--ghs-color-black);
                     margin: -0.4em 0;
                     font-size: 1.2em;
@@ -276,7 +277,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            font-family: ghs-title;
+            font-family: var(--ghs-font-gh-title);
             font-size: 0.8em;
 
             .value {
@@ -313,7 +314,7 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            font-family: ghs-normal;
+            font-family: var(--ghs-font-gh-normal);
             font-size: 0.8em;
             filter: var(--ghs-filter-thin);
 
@@ -362,7 +363,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: ghs-normal;
+            font-family: var(--ghs-font-gh-normal);
             font-size: 1.2em;
             filter: var(--ghs-filter-outline);
         }
@@ -414,13 +415,13 @@
 
             .name {
                 top: 1%;
-                font-family: ghs-title-fh;
+                font-family: var(--ghs-font-fh-title);
                 letter-spacing: 0.02em;
                 transform: translateX(-58%);
             }
 
             .content {
-                font-family: ghs-text-fh !important;
+                font-family: var(--ghs-font-fh-text) !important;
                 font-size: 1.4em;
                 line-height: 1em;
             }
@@ -475,7 +476,7 @@
             .minus-one {
                 top: 86%;
                 left: 4%;
-                font-family: ghs-text-fh;
+                font-family: var(--ghs-font-fh-text);
                 font-size: 0.9em;
 
                 .card-icon.small img.icon {
@@ -521,7 +522,7 @@
                 left: -6%;
                 color: var(--ghs-color-black);
                 filter: none;
-                font-family: "ghs-title-fh";
+                font-family: var(--ghs-font-fh-title);
                 font-size: 1em;
             }
         }
@@ -567,7 +568,7 @@
             background-image: url('~src/assets/images/bb/items/item-front-bb.png');
 
             .name {
-                font-family: ghs-title-fh !important;
+                font-family: var(--ghs-font-fh-title) !important;
                 top: 30%;
                 transform: translateX(-50%);
                 text-transform: uppercase;
@@ -577,7 +578,7 @@
             }
 
             .content {
-                font-family: ghs-text-fh !important;
+                font-family: var(--ghs-font-fh-text) !important;
                 top: 45%;
                 font-size: 1.7em;
                 line-height: 1.2em;

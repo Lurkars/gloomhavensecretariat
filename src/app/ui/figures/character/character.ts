@@ -150,7 +150,9 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
     this.character.initiative = value;
     this.character.initiativeVisible = true;
-    this.character.longRest = false;
+    if (this.character.name != 'prism' || this.character.tags.indexOf('long_rest') == -1) {
+      this.character.longRest = false;
+    }
     if (value == 99) {
       this.character.longRest = true;
     }
@@ -171,9 +173,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.character.initiative = this.initiative;
       gameManager.stateManager.before("setInitiative", gameManager.characterManager.characterName(this.character), "" + value);
       this.character.initiative = value;
-      this.character.longRest = false;
       if (value == 99) {
         this.character.longRest = true;
+      } else if (!value || this.character.name != 'prism' || this.character.tags.indexOf('long_rest') == -1) {
+        this.character.longRest = false;
       }
       this.initiative = -1;
       if (this.character instanceof Character) {

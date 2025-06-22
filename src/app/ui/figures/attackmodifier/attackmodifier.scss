@@ -289,7 +289,7 @@
     position: absolute;
     left: 9.6%;
     top: 74%;
-    font-family: "ghs-title";
+    font-family: var(--ghs-font-gh-title);
     font-size: 0.8em;
     line-height: 0.8em;
     color: var(--ghs-color-white);
@@ -470,7 +470,7 @@
     width: 34%;
     height: 52%;
     transform: translate(-50%, -50%);
-    font-family: ghs-title;
+    font-family: var(--ghs-font-gh-title);
     color: var(--ghs-color-white);
     font-size: 3.5em;
     z-index: 1;

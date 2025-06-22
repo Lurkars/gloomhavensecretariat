@@ -750,6 +750,10 @@
         "": "Frattura",
         "hint": "%game.conditionIcon.rupture% Frattura: Ad ogni movimento subisci %game.damage:1%. Rimuovi quando guarito."
       },
+      "safeguard": {
+        "": "",
+        "hint": ""
+      },
       "strengthen": {
         "": "Rinforzo",
         "hint": "%game.conditionIcon.strengthen% Rinforzo: Vantaggio ad ogni attacco. Rimuovi alla fine del prossimo turno."
@@ -2093,6 +2097,7 @@
         "": "Gli stati corrispondenti vengono applicati automaticamente prima e dopo il turno, ad esempio quando l'entità ha una ferita perderà 1 PV all'inizio del suo round",
         "bane": "Applica automaticamente il danno da %game.condition.bane% alla fine del turno.",
         "regenerate": "Applica automaticamente %game.condition.regenerate% all'inizio del turno.",
+        "safeguard": "",
         "wound": "Applica automaticamente il danno da %game.condition.wound% alla fine del turno.",
         "wound_x": "Applica automaticamente il danno da %game.condition.wound_x:X% alla fine del turno."
       }
@@ -2843,6 +2848,17 @@
       "characterReplay": "Gioca {0} di nuovo per il giocatore {1}",
       "characterSetAside": "Metti da parte {0} per il giocatore {1}",
       "clearDiscardedScenarioRules": "Elimina le regole di scenario scartate",
+      "command": {
+        "character": {
+          "initiative": "Iniziativa per {0}"
+        },
+        "round": {
+          "state": {
+            "draw": "Pesca",
+            "next": "Prossimo Round"
+          }
+        }
+      },
       "craftItem": "Crea l'oggetto {1} (%data.edition.{2}%) per {0}",
       "declineApplyCondition": {
         "char": "Rifiuta di applicare %game.condition.{1}% a {0}",

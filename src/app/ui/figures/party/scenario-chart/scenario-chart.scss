@@ -130,7 +130,7 @@
                         color: var(--ghs-color-white);
                         background-color: var(--ghs-color-darkgray);
                         margin-right: 1em;
-                        font-family: ghs-title;
+                        font-family: var(--ghs-font-gh-title);
                         font-size: 0.6em;
 
                         &.unplayed {

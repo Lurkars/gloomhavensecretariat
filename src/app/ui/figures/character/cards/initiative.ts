@@ -122,7 +122,9 @@ export class CharacterInitiativeComponent implements OnInit, AfterViewInit {
       if (this.character) {
         gameManager.stateManager.before("setInitiative", gameManager.characterManager.characterName(this.character), "" + initiative);
         this.character.initiativeVisible = true;
-        this.character.longRest = false;
+        if (this.character.name != 'prism' || this.character.tags.indexOf('long_rest') == -1) {
+          this.character.longRest = false;
+        }
         if (initiative == 99) {
           this.character.longRest = true;
         }

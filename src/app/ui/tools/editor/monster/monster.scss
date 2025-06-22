@@ -25,7 +25,7 @@
     margin-top: calc(var(--ghs-unit) * 3);
 
     .level {
-      font-family: "ghs-title";
+      font-family: var(--ghs-font-gh-title);
       font-size: calc(var(--ghs-unit) * 3);
       text-shadow: var(--ghs-outline);
       color: var(--ghs-color-gray);

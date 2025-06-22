@@ -216,7 +216,7 @@
         height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
         justify-content: center;
         align-items: center;
-        font-family: "ghs-normal";
+        font-family: var(--ghs-font-gh-normal);
         flex-shrink: 0;
         z-index: 1;
       }
@@ -328,7 +328,7 @@
       z-index: 20;
       position: absolute;
       bottom: 0;
-      width: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor));
+      left: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
     }
 
     .conditions {
@@ -710,7 +710,7 @@
             .summon-number {
               width: calc(var(--ghs-unit) * 3.5);
               height: calc(var(--ghs-unit) * 3.5);
-              font-family: ghs-title;
+              font-family: var(--ghs-font-gh-title);
               font-size: calc(var(--ghs-unit) * 2.5);
               color: var(--ghs-color-white);
               border: calc(var(--ghs-unit) * 0.3) solid var(--ghs-color-white);

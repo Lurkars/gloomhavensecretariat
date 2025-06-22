@@ -132,7 +132,7 @@
       top: 35%;
       left: 50%;
       transform: translateX(-50%);
-      font-family: "ghs-title";
+      font-family: var(--ghs-font-gh-title);
       font-size: 0.6em;
       color: var(--ghs-color-black);
     }
@@ -342,19 +342,19 @@
       background-color: #c88c4e;
       font-size: 1.2em;
       left: 25%;
-      font-family: ghs-title;
+      font-family: var(--ghs-font-gh-title);
       top: 32%;
     }
   }
 
   &.push.fh .value {
-    font-family: ghs-title;
+    font-family: var(--ghs-font-gh-title);
     top: 12%;
     color: #4f504f;
   }
 
   &.pull.fh .value {
-    font-family: ghs-title;
+    font-family: var(--ghs-font-gh-title);
     top: 40%;
     color: #4f504f;
   }
@@ -529,7 +529,7 @@
     &.custom .custom-value-container {
 
       .custom-value {
-        font-family: ghs-title;
+        font-family: var(--ghs-font-gh-title);
         font-size: 2.3em;
         text-shadow: var(--ghs-outline-thin);
       }

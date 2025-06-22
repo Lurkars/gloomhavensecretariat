@@ -45,7 +45,7 @@
             justify-content: center;
             color: var(--ghs-color-brown);
             font-size: 1.3em;
-            font-family: ghs-title;
+            font-family: var(--ghs-font-gh-title);
         }
 
         .element {
@@ -77,7 +77,7 @@
             justify-content: center;
             color: var(--ghs-color-brown);
             font-size: 0.75em;
-            font-family: ghs-normal;
+            font-family: var(--ghs-font-gh-normal);
             font-weight: bold;
         }
 
@@ -106,7 +106,7 @@
                     font-size: 1em;
                     width: 1.3em;
                     height: 1.3em;
-                    font-family: ghs-title;
+                    font-family: var(--ghs-font-gh-title);
                 }
 
                 .slot {
@@ -286,7 +286,7 @@
 
                             .separator {
                                 font-size: 1.3em;
-                                font-family: ghs-title;
+                                font-family: var(--ghs-font-gh-title);
                             }
 
                             .values {
@@ -295,7 +295,7 @@
                                 justify-content: center;
                                 align-items: center;
                                 font-size: 0.7em;
-                                font-family: ghs-title;
+                                font-family: var(--ghs-font-gh-title);
 
                                 img {
                                     width: 1.8em;

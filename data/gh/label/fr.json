@@ -9,7 +9,10 @@
     "Crackling Air": "Air Crépitant",
     "Crater": "Cratère",
     "Crushing Grasp": "Poigne Écrasante",
+    "Cull the Weak": "Élimination des Faibles",
+    "Devastating Hack": "Frappe Dévastatrice",
     "Dirt Tornado": "Tornade de Poussière",
+    "Duelist's Advance": "Pas de Duelliste",
     "Earthen Clod": "Motte de Terre",
     "Empathetic Assault": "Assaut Empathique",
     "Energizing Tonic": "Tonic Énergisant",
@@ -23,17 +26,21 @@
     "Flamethrower": "Lance-flammes",
     "Flanking Strike": "Frappe de Côté",
     "Flintlock": "Silex",
+    "Flurry of Blades": "Déluge de Lames",
     "Forceful Storm": "Tempête Puissante",
     "Freezing Nova": "Nova de Glace",
     "Frigid Apparition": "Apparition Glaciale",
     "Frost Armor": "Armure de Givre",
     "Gnawing Horde": "Horde de Rongeurs",
     "Grab and Go": "Pas Vu, Pas Pris",
+    "Gruesome Advantage": "Terrible Avantage",
     "Hardened Spikes": "Piques Durcis",
     "Harmless Contraption": "Engin Inoffensif",
     "Heaving Swing": "Projection",
+    "Hidden Daggers": "Dagues Dissimulées",
     "Hook Gun": "Pistolet à Grappin",
     "Hook and Chain": "Crochet et Chaîne",
+    "Immovable Phalanx": "Phalange Inébranlable",
     "Impaling Eruption": "Éruption de Piques",
     "Info the Night": "Au Cœur de la Nuit",
     "Ink Bomb": "Bombe à Encre",
@@ -53,6 +60,7 @@
     "Provoking Roar": "Rugissement Provocant",
     "Proximity Mine": "Mine de Proximité",
     "Quick Hands": "Mains Vives",
+    "Quietus": "Coup de Grâce",
     "Reinvigorating Elixir": "Élixir Revigorant",
     "Restorative Mist": "Brume Reconstituante",
     "Reviving Ether": "Éther Revigorant",
@@ -65,6 +73,7 @@
     "Single Out": "Isolement",
     "Sinister Opportunity": "Sinistre Occasion",
     "Skewer": "Embroché",
+    "Skirmishing Maneuver": "Manœuvre d'Escarmouche",
     "Smoke Bomb": "Fumigène",
     "Spare Dagger": "Dague Cachée",
     "Special Mixture": "Mixture Spéciale",
@@ -79,11 +88,112 @@
     "Trample": "Piétinement",
     "Trickster's Reversal": "Coup de Jarnac",
     "Unstable Upheaval": "Perturbation Instable",
+    "Unstoppable Chard": "Charge Irrésistible",
     "Venom Shiv": "Surin Empoisonné",
+    "Visage of the Inevitable": "Visage de l'Inévitable",
     "Volatile Concoction": "Mélange Volatile",
     "Wall of Doom": "Mur de Chaos",
     "Warding Strength": "Force de Guet",
+    "Whirlwind": "Tornade",
     "Withering Claw": "Griffe Flétrissante"
+  },
+  "battleGoals": {
+    "458": {
+      "": "Planificateur",
+      "text": "Avoir au minimum cinq cartes au total dans votre main et votre défausse à la fin de ce scénario."
+    },
+    "459": {
+      "": "Paresseux",
+      "text": "Gagner au maximum 7 XP lors de ce scénario."
+    },
+    "460": {
+      "": "Bête de Travail",
+      "text": "Gagnez au minimum 13 XP lors de ce scénario."
+    },
+    "461": {
+      "": "Fanatique",
+      "text": "Avoir au maximum trois cartes au total dans votre main et votre défausse à la fin de ce scénario."
+    },
+    "462": {
+      "": "Masochiste",
+      "text": "Avoir au maximum 2 points de vie à la fin de ce scénario."
+    },
+    "463": {
+      "": "Force de la Nature",
+      "text": "Avoir un nombre de points de vie égal à votre valeur maximale de points de vie à la fin de ce scénario."
+    },
+    "464": {
+      "": "Désamorceur",
+      "text": "Désamorcer ou causer le déclenchement d'un piège pendant votre tour ou pendant celui d'une de vos invocations lors de ce scénario."
+    },
+    "465": {
+      "": "Pillard",
+      "text": "Piller une tuile Trésor lors de ce scénario."
+    },
+    "466": {
+      "": "Protecteur",
+      "text": "Aucun de vos alliés personnages ne doit devenir épuisé lors de ce scénario."
+    },
+    "467": {
+      "": "Explorateur",
+      "text": "Révéler une salle en ouvrant une porte pendant votre tour lors de ce scénario."
+    },
+    "468": {
+      "": "Avare",
+      "text": "Piller au minimum cinq pions Monnaie lors de ce scénario."
+    },
+    "469": {
+      "": "Indigent",
+      "text": "Ne piller ni pion Monnaie ni tuile Trésor lors de ce scénario."
+    },
+    "470": {
+      "": "Pacifiste",
+      "text": "Tuer au maximum trois monstres lors de ce scénario."
+    },
+    "471": {
+      "": "Sadique",
+      "text": "Tuer au minimum cinq monstres lors de ce scénario."
+    },
+    "472": {
+      "": "Chasseur",
+      "text": "Tuer au minimum un monstre d'élite lors de ce scénario."
+    },
+    "473": {
+      "": "Professionnel",
+      "text": "Utiliser des objets dont vous êtes équipé un nombre de fois égal ou supérieur à votre niveau plus 2 lors de ce scénario."
+    },
+    "474": {
+      "": "Agressif",
+      "text": "Avoir au minimum un monstre présent sur le plateau au début de chaque round lors de ce scénario."
+    },
+    "475": {
+      "": "Massacreur",
+      "text": "Tuer un monstre lors de ce scénario en lui infligeant au minimum 4 dégâts de plus que nécessaire."
+    },
+    "476": {
+      "": "Puriste",
+      "text": "N'utiliser aucun objet lors de ce scénario."
+    },
+    "477": {
+      "": "Premier Sang",
+      "text": "Être le premier à tuer un monstre lors de ce scénario."
+    },
+    "478": {
+      "": "Dur à cuire",
+      "text": "Ne jamais laisser votre nombre de points de vie descendre sous la moitié de votre valeur maximale de points de vie (arrondissez au supérieur) lors de ce scénario."
+    },
+    "479": {
+      "": "Exécuteur",
+      "text": "Tuer un monstre indemne en une seule attaque lors de ce scénario."
+    },
+    "480": {
+      "": "Traînard",
+      "text": "N'effectuer que des repos longs lors de ce scénario."
+    },
+    "481": {
+      "": "Impatient",
+      "text": "N'effectuer que des repos courts lors de ce scénario."
+    }
   },
   "character": {
     "brute": "Brute",
@@ -125,6 +235,16 @@
           },
           "2": {
             "1": "Gagnez %game.card.experience:1% à chaque fois que vous ripostez ce round."
+          },
+          "20": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
+          },
+          "22": {
+            "1": "Éliminez un adversaire adjacent normal avec %game.condition.stun%.",
+            "2": "Ajoutez +1 %game.action.attack% à toutes vos attaques ce round."
+          },
+          "23": {
+            "1": "Vous pouvez traiter toutes les capacités de %game.action.move% comme des capacités d'%game.action.attack% de valeur égale."
           },
           "4": {
             "1": "Tout adversaire ciblant un de vos alliés adjacents avec une attaque ce round vous cible à la place avec cette attaque, quelle que soit la portée de celle-ci."
@@ -254,7 +374,7 @@
         "augments": "Augmente %game.characterIconColoredBg.mindthief%"
       },
       "night-demon": {
-        "1": "Tous les alliés et adversaires adjacents subissent 1 dégât."
+        "1": "Tous les adversaires et alliés adjacents subissent %game.damage:1%."
       },
       "ooze": {
         "1": "Invoque un %data.monster.ooze% (normal) dont le nombre de points de vie est égal à son propre nombre de points de vie actuel (limité à la valeur maximale de points de vie d'un %data.monster.ooze% normal)"
@@ -270,6 +390,23 @@
         "abilities": {
           "100": {
             "1": "Ajoutez %game.condition.wound% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés."
+          },
+          "103": {
+            "1": "Ajoutez +2 %game.action.attack% à toutes vos attaques ce round ciblant des adversaires qui ne sont adjacents à aucun de leurs alliés."
+          },
+          "104": {
+            "1": "Gagnez Avantage pour toutes vos attaques ce round."
+          },
+          "105": {
+            "1": "Ajoutez +3 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Ajoutez +3 %game.action.attack% et gagnez %game.card.experience:1% quand la cible n'est adjacente à aucun de ses alliés."
+          },
+          "106": {
+            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Pour vos 6 prochaines attaques ciblant des adversaires avec %game.condition.disarm%, %game.condition.immobilize% ou %game.condition.stun%, ajoutez +2 %game.action.attack%"
+          },
+          "107": {
+            "1": "Éliminez un adversaire adjacent normal qui n'est adjacent à aucun de ses alliés et adjacent à l'un des vôtres."
           },
           "88": {
             "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
@@ -445,8 +582,34 @@
     "winged-horror": "Horreur Ailée"
   },
   "partyAchievements": {
+    "a-demons-errand": "À la Botte du Démon",
+    "a-map-to-treasure": "La Carte au Trésor",
+    "across-the-divide": "De l'Autre Côté du Précipice",
+    "an-invitation": "Une Invitation",
+    "bad-business": "Mauvaise Affaire",
+    "dark-bounty": "La Prime de l'Ombre",
+    "debt-collection": "La Collecte des dettes",
     "first-steps": "Premiers Pas",
-    "jekserahs-plans": "Les Plans de Jekserah"
+    "fishs-aid": "L'Aide de Fretin",
+    "following-clues": "Suivre les Indices",
+    "grave-job": "Fossoyeur",
+    "high-sea-escort": "Escorte en Haute Mer",
+    "jekserahs-plans": "Les Plans de Jekserah",
+    "redthorns-aid": "Au Secours de Rougépine",
+    "sin-ra": "Sin-Ra",
+    "stonebreakers-censer": "L'Encensoir de Brisepierre",
+    "sun-blessed": "Bénis par le Soleil",
+    "the-drakes-command": "L'Injonction de la Wyverne",
+    "the-drakes-treasure": "Le Trésor de la Wyverne",
+    "the-poisons-source": "La Source du Poison",
+    "the-scepter-and-the-voice": "Le Sceptre et la Voix",
+    "the-voices-command": "L'Injonction de la Voix",
+    "the-voices-treasure": "Le Trésor de la Voix",
+    "through-the-nest": "Derrière le Nid",
+    "through-the-ruins": "À Travers les Ruines",
+    "through-the-trench": "Par la Tranchée",
+    "tremors": "Séismes",
+    "water-staff": "Bâton d'Eau"
   },
   "scenario": {
     "group": {

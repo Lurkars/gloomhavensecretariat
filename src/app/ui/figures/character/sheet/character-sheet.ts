@@ -108,7 +108,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
       this.character.progress.experience = gameManager.characterManager.xpMap[this.character.level - 1];
     }
 
-    this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
+    this.availablePerks = this.character.level + Math.min(6, Math.floor(this.character.progress.battleGoals / 3)) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
 
     if (this.character.progress.personalQuest) {
       this.personalQuest = gameManager.characterManager.personalQuestByCard(gameManager.currentEdition(), this.character.progress.personalQuest);
@@ -130,7 +130,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
 
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
-        this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
+        this.availablePerks = this.character.level + Math.min(6, Math.floor(this.character.progress.battleGoals / 3)) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
 
         for (let i = 0; i < 15; i++) {
           if (!this.character.progress.perks[i]) {

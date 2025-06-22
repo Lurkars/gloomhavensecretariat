@@ -76,6 +76,9 @@ export class CampaignMenuComponent implements OnInit {
             } else {
                 settingsManager.set('theme', 'default');
             }
+            if (edition == 'gh2e') {
+              settingsManager.set('fhStyle', true);
+            }
         }
         gameManager.game.edition = edition;
         gameManager.game.party.edition = edition;

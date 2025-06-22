@@ -31,7 +31,7 @@ export class CommandManager {
             }
 
             const command: Command = new this.commandsMap[id](...parameters);
-            gameManager.stateManager.before('command.' + command.id, ...command.parameters);
+            gameManager.stateManager.before(...command.before());
             try {
                 command.execute();
                 this.history.push(command);

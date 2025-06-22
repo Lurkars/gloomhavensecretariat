@@ -15,6 +15,10 @@
   "spoiler": true,
   "specialActions": [
     {
+      "name": "long_rest",
+      "perk": 8
+    },
+    {
       "name": "prism_mode",
       "summon": true
     },

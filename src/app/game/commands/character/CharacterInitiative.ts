@@ -1,6 +1,6 @@
 import { gameManager } from "../../businesslogic/GameManager";
 import { Character } from "../../model/Character";
-import { CommandImpl } from "../Command";
+import { BASE_TYPE, CommandImpl } from "../Command";
 
 export class CharacterInitiativeCommand extends CommandImpl {
     id: string = 'character.initiative';
@@ -22,5 +22,14 @@ export class CharacterInitiativeCommand extends CommandImpl {
         } else {
             this.executionError("character not found");
         }
+    }
+
+    override before(): BASE_TYPE[] {
+        const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == this.parameters[0]) as Character;
+        if (character) {
+            return ['command.' + this.id, gameManager.characterManager.characterName(character, true, true, false)];
+        }
+
+        return ['command.invalid.' + this.id, ...this.parameters];
     }
 }

@@ -143,7 +143,7 @@ export class ScenarioChartPopupDialog {
 
     addSuccessIntern(conclusionSection: ScenarioData | undefined = undefined) {
         gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(this.scenario)));
-        gameManager.scenarioManager.finishScenario(new Scenario(this.scenario), true, conclusionSection, false, undefined, false, gameManager.game.party.campaignMode && this.countFinished() == 0, true);
+        gameManager.scenarioManager.finishScenario(new Scenario(this.scenario), true, conclusionSection, false, false, false, gameManager.game.party.campaignMode && this.countFinished() == 0, true);
         gameManager.stateManager.after();
         this.update();
     }

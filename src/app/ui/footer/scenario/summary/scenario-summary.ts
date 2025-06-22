@@ -16,6 +16,7 @@ import { CharacterBattleGoalsDialog } from "src/app/ui/figures/battlegoal/dialog
 import { ChallengeDialogComponent } from "src/app/ui/figures/challenges/dialog/challenge-dialog";
 import { CharacterSheetDialog } from "src/app/ui/figures/character/dialogs/character-sheet-dialog";
 import { ItemDialogComponent } from "src/app/ui/figures/items/dialog/item-dialog";
+import { ScenarioRequirementsDialogComponent } from "src/app/ui/figures/party/requirements/requirements";
 import { TrialDialogComponent } from "src/app/ui/figures/trials/dialog/trial-dialog";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 
@@ -699,13 +700,13 @@ export class ScenarioSummaryComponent implements OnDestroy {
         gameManager.stateManager.after();
     }
 
-    async finish(linkedIndex: string | undefined = undefined) {
+    async finish(linkedIndex: string | undefined = undefined, forcedLink: boolean = false) {
         this.waitForClose = true;
-        const linked = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == linkedIndex);
+        const linkedScenarioData = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.group == this.scenario.group && scenarioData.index == linkedIndex);
         if (this.conclusionOnly) {
             gameManager.stateManager.before("finishConclusion", ...gameManager.scenarioManager.scenarioUndoArgs(this.scenario));
         } else {
-            gameManager.stateManager.before(this.success && linked ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
+            gameManager.stateManager.before(this.success && linkedScenarioData ? "finishScenario.linked" : ("finishScenario." + (this.success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs(), linkedIndex ? linkedIndex : '');
         }
 
         if (settingsManager.settings.scenarioRewards && this.success && !gameManager.bbRules()) {
@@ -815,10 +816,28 @@ export class ScenarioSummaryComponent implements OnDestroy {
             gameManager.trialsManager.applyTrialCards();
         }
         if (this.conclusionOnly) {
-            gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, undefined, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign, true);
+            gameManager.scenarioManager.finishScenario(this.scenario, true, this.conclusion, false, false, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign, true);
         } else {
-            gameManager.scenarioManager.finishScenario(gameManager.game.scenario, this.success, this.conclusion, false, linked ? new Scenario(linked) : undefined, settingsManager.settings.scenarioRewards && !gameManager.bbRules() && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign);
+            gameManager.scenarioManager.finishScenario(gameManager.game.scenario, this.success, this.conclusion, false, linkedScenarioData != undefined, settingsManager.settings.scenarioRewards && !gameManager.bbRules() && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign);
         }
+
+        if (linkedScenarioData) {
+            if (!forcedLink && (gameManager.scenarioManager.isBlocked(linkedScenarioData) || gameManager.scenarioManager.isLocked(linkedScenarioData))) {
+                this.dialog.open(ScenarioRequirementsDialogComponent, {
+                    panelClass: ['dialog'],
+                    data: { scenarioData: linkedScenarioData }
+                })
+            } else {
+                gameManager.scenarioManager.setScenario(new Scenario(linkedScenarioData));
+            }
+        } else {
+            gameManager.game.figures.forEach((figure) => {
+                if (figure instanceof Character) {
+                    figure.absent = false;
+                }
+            });
+        }
+
         await gameManager.stateManager.after(0, settingsManager.settings.autoBackup > -1 && settingsManager.settings.autoBackupFinish && (settingsManager.settings.autoBackup == 0 || (gameManager.game.revision + gameManager.game.revisionOffset) % settingsManager.settings.autoBackup != 0));
 
         this.close();
@@ -827,7 +846,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
     restart() {
         this.waitForClose = true;
         gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
-        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true, undefined, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign, false);
+        gameManager.scenarioManager.finishScenario(this.gameManager.game.scenario, this.success, this.conclusion, true, false, settingsManager.settings.scenarioRewards && (this.characterProgress || this.forceCampaign), this.gainRewards || this.forceCampaign, false);
         gameManager.stateManager.after(1000);
         this.close();
     }
@@ -838,13 +857,5 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     unlocked(character: string) {
         return gameManager.game.unlockedCharacters.indexOf(character) != -1;
-    }
-
-    scenarioLinkAvailable(index: string): boolean {
-        const linkScenarioData = gameManager.scenarioData(this.scenario.edition).find((scenarioData) => scenarioData.index == index && scenarioData.group == this.scenario.group);
-        if (linkScenarioData) {
-            return !gameManager.scenarioManager.isBlocked(linkScenarioData) && !gameManager.scenarioManager.isLocked(linkScenarioData);
-        }
-        return true;
     }
 }

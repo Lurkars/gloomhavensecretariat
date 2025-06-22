@@ -1,9 +1,11 @@
 .highlight-conditions {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-
+  width: 0;
+  height: 0;
+  overflow: visible;
 
   .condition {
     position: relative;
