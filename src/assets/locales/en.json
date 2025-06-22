@@ -511,10 +511,10 @@
     "action": {
       "area": "Area Effect",
       "attack": "Attack",
-      "box": "&#91;Box&#93;",
+      "box": "Box",
       "boxFhSubActions": "&#91;FH Subaction Box&#93;",
       "card": "Card",
-      "concatenation": "&#91;Concatenation&#93;",
+      "concatenation": "Concatenation",
       "concatenationSpacer": "&#91;Concatenation Spacer&#93;",
       "condition": "Condition",
       "custom": "Custom",
@@ -524,7 +524,7 @@
       "fly": "Fly",
       "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "Grant",
-      "grid": "&#91;Grid&#93;",
+      "grid": "Grid",
       "heal": "Heal",
       "hint": "&#91;Information Board&#93;",
       "jump": "Jump",
@@ -574,7 +574,7 @@
       "perks": {
         "": "Perks",
         "additional": "{0} and {1}",
-        "card": "card",
+        "card": "Card",
         "cardLabel": "{0}{1} {2}",
         "cards": {
           "": "cards",
