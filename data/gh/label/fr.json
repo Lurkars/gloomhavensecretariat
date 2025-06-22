@@ -11,6 +11,7 @@
     "Crushing Grasp": "Poigne Écrasante",
     "Devastating Hack": "Frappe Dévastatrice",
     "Dirt Tornado": "Tornade de Poussière",
+    "Duelist's Advance": "Pas de Duelliste",
     "Earthen Clod": "Motte de Terre",
     "Empathetic Assault": "Assaut Empathique",
     "Energizing Tonic": "Tonic Énergisant",
@@ -33,8 +34,10 @@
     "Hardened Spikes": "Piques Durcis",
     "Harmless Contraption": "Engin Inoffensif",
     "Heaving Swing": "Projection",
+    "Hidden Daggers": "Dagues Dissimulées",
     "Hook Gun": "Pistolet à Grappin",
     "Hook and Chain": "Crochet et Chaîne",
+    "Immovable Phalanx": "Phalange Inébranlable",
     "Impaling Eruption": "Éruption de Piques",
     "Info the Night": "Au Cœur de la Nuit",
     "Ink Bomb": "Bombe à Encre",
@@ -54,6 +57,7 @@
     "Provoking Roar": "Rugissement Provocant",
     "Proximity Mine": "Mine de Proximité",
     "Quick Hands": "Mains Vives",
+    "Quietus": "Coup de Grâce",
     "Reinvigorating Elixir": "Élixir Revigorant",
     "Restorative Mist": "Brume Reconstituante",
     "Reviving Ether": "Éther Revigorant",
@@ -231,6 +235,13 @@
           "20": {
             "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
           },
+          "22": {
+            "1": "Éliminez un adversaire adjacent normal avec %game.condition.stun%.",
+            "2": "Ajoutez +1 %game.action.attack% à toutes vos attaques ce round."
+          },
+          "23": {
+            "1": "Vous pouvez traiter toutes les capacités de %game.action.move% comme des capacités d'%game.action.attack% de valeur égale."
+          },
           "4": {
             "1": "Tout adversaire ciblant un de vos alliés adjacents avec une attaque ce round vous cible à la place avec cette attaque, quelle que soit la portée de celle-ci."
           },
@@ -375,6 +386,23 @@
         "abilities": {
           "100": {
             "1": "Ajoutez %game.condition.wound% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés."
+          },
+          "103": {
+            "1": "Ajoutez +2 %game.action.attack% à toutes vos attaques ce round ciblant des adversaires qui ne sont adjacents à aucun de leurs alliés."
+          },
+          "104": {
+            "1": "Gagnez Avantage pour toutes vos attaques ce round."
+          },
+          "105": {
+            "1": "Ajoutez +3 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Ajoutez +3 %game.action.attack% et gagnez %game.card.experience:1% quand la cible n'est adjacente à aucun de ses alliés."
+          },
+          "106": {
+            "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
+            "2": "Pour vos 6 prochaines attaques ciblant des adversaires avec %game.condition.disarm%, %game.condition.immobilize% ou %game.condition.stun%, ajoutez +2 %game.action.attack%"
+          },
+          "107": {
+            "1": "Éliminez un adversaire adjacent normal qui n'est adjacent à aucun de ses alliés et adjacent à l'un des vôtres."
           },
           "88": {
             "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
