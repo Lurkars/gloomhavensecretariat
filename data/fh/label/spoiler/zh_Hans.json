@@ -1073,7 +1073,7 @@
     },
     "fh-27": {
       "": "界护披风",
-      "1": "在敌人移动能力结束,停留在你相邻格之后,立即执行：<br>%game.action.push% %game.action.target%该敌人"
+      "1": "在敌人移动能力结束,停留在你相邻格之后,立即执行：<br>%game.action.push% 1 %game.action.target%该敌人"
     },
     "fh-28": {
       "": "坚固靴",

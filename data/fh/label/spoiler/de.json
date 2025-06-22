@@ -448,7 +448,7 @@
     },
     "fh-27": {
       "": "Schutzmantel",
-      "1": "Führe, wenn ein Gegner seine Bewegungsfertigkeit an dich angrenzend beendet, sofort aus: %game.action.push% %game.action.target% dieser Gegner"
+      "1": "Führe, wenn ein Gegner seine Bewegungsfertigkeit an dich angrenzend beendet, sofort aus: %game.action.push% 1 %game.action.target% dieser Gegner"
     },
     "fh-28": {
       "": "Robuste Stiefel",
