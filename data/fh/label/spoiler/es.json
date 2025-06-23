@@ -263,7 +263,7 @@
     },
     "fh-27": {
       "": "Capa de salvaguarda",
-      "1": "Inmediatamente después de que un enemigo termine su capacidad de Movimiento adyacente a ti, realiza: %game.action.push% %game.action.target% el enemigo"
+      "1": "Inmediatamente después de que un enemigo termine su capacidad de Movimiento adyacente a ti, realiza: %game.action.push% 1 %game.action.target% el enemigo"
     },
     "fh-28": {
       "": "Botas robustas",

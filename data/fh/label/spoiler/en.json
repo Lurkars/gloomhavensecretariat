@@ -1077,7 +1077,7 @@
     },
     "fh-27": {
       "": "Cloak of Warding",
-      "1": "Immediately after an enemy ends its move ability adjacent to you, perform %game.action.push% %game.action.target% the enemy"
+      "1": "Immediately after an enemy ends its move ability adjacent to you, perform %game.action.push% 1 %game.action.target% the enemy"
     },
     "fh-28": {
       "": "Sturdy Boots",
