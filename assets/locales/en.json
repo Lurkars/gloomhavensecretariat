@@ -2098,8 +2098,8 @@
         "bane": "Automatic apply %game.condition.bane% damage at end of turn.",
         "regenerate": "Automatic apply %game.condition.regenerate% at start of turn.",
         "safeguard": "Automatic apply %game.condition.safeguard% on receiving next negative condition.",
-        "wound": "Automatic apply %game.condition.wound% damage at end of turn.",
-        "wound_x": "Automatic apply %game.condition.wound_x:X% damage at end of turn."
+        "wound": "Automatic apply %game.condition.wound% damage at start of turn.",
+        "wound_x": "Automatic apply %game.condition.wound_x:X% damage at start of turn."
       }
     },
     "applyLongRest": {
