@@ -104,12 +104,17 @@
       "": "Casque de fer",
       "1": "Lorsque vous êtes attaqué, traitez toute carte Modificateur d'Attaque %game.attackmodifier.double% piochée par l'adversaire comme une carte %game.attackmodifier.plus0% à la place."
     },
+    "gh-72": {
+      "": "Brodequins de Bonheur",
+      "1": "Si vous vous déplacez d'au moins 6 hexagones à votre tour, gagnez %game.card.experience:1%."
+    },
     "gh-8": {
       "": "Écu",
       "1": "Lorsque vous subissez des dégâts du fait d'une attaque, gagnez %game.action.shield% 1 pour cette attaque."
     },
     "gh-86": {
-      "": "Baguette de Séisme"
+      "": "Baguette de Séisme",
+      "1": "Pendant votre tour, créez l’élément Terre."
     },
     "gh-9": {
       "": "Arc Perforant",
