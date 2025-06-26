@@ -545,7 +545,7 @@
       "sufferDamage": "Subir des Dommages",
       "summon": "Invoquez",
       "swing": "",
-      "target": "Ciblez",
+      "target": "Cible",
       "targets": "Cibles",
       "teleport": "Téléporte",
       "trigger": "Déclenchement"
@@ -574,7 +574,7 @@
       "perks": {
         "": "Bénéfices",
         "additional": "{0} et {1}",
-        "card": "carte",
+        "card": "Carte",
         "cardLabel": "{0} {2} {1}",
         "cards": {
           "": "cartes",
@@ -1122,7 +1122,7 @@
       "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% à %game.mapMarker.{3}%"
     },
     "target": {
-      "": "Cible",
+      "": "Ciblez",
       "all": "tous"
     }
   },
@@ -2098,8 +2098,8 @@
         "bane": "Applique automatiquement %game.condition.bane% de dégâts à la fin du tour.",
         "regenerate": "Application automatique de %game.condition.regenerate% au début du tour.",
         "safeguard": "",
-        "wound": "Applique automatiquement %game.condition.wound% de dégâts à la fin du tour.",
-        "wound_x": "Application automatique de %game.condition.wound_x:X% de dégâts à la fin du tour."
+        "wound": "Applique automatiquement %game.condition.wound% de dégâts au début du tour.",
+        "wound_x": "Application automatique de %game.condition.wound_x:X% de dégâts au début du tour."
       }
     },
     "applyLongRest": {
