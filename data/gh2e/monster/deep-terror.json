@@ -1,0 +1,182 @@
+{
+  "name": "deep-terror",
+  "edition": "gh2e",
+  "count": 10,
+  "baseStat": {
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 3,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 5,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 7,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 7,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 9,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 9,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 5,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 6,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 7,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 8,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 9,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 11,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 13,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 16,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        }
+      ]
+    }
+  ]
+}
