@@ -1,6 +1,6 @@
 {
   "name": "cave-bear",
-  "edition": "gh",
+  "edition": "gh2e",
   "count": 4,
   "baseStat": {
     "type": "normal"

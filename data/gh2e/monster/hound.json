@@ -1,6 +1,6 @@
 {
   "name": "hound",
-  "edition": "gh",
+  "edition": "gh2e",
   "count": 9,
   "baseStat": {
     "type": "normal"
