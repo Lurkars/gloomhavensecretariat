@@ -1,0 +1,251 @@
+{
+  "name": "frost-demon",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Gather the Frost",
+      "cardId": 554,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 3,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hasty Assault",
+      "cardId": 555,
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "name": "Frozen Shards",
+      "cardId": 556,
+      "initiative": 58,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 557,
+      "initiative": 58,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Cold Claws",
+      "cardId": 558,
+      "initiative": 78,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
+      "name": "Cold Claws",
+      "cardId": 559,
+      "initiative": 78,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
+      "name": "Chilled to the Bone",
+      "cardId": 560,
+      "initiative": 58,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ice Barrier",
+      "cardId": 627,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.frost-demon.1%",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
