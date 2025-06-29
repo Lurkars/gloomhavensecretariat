@@ -6,9 +6,11 @@
     "Backup Ammunition": "Réserve de Munitions",
     "Balanced Measure": "Mesures Équilibrées",
     "Brute Force": "Force Brute",
+    "Burning Oil": "Huile Brûlante",
     "Crackling Air": "Air Crépitant",
     "Crater": "Cratère",
     "Crippling Offensive": "Offensive Paralysante",
+    "Crippling Poison": "Poison Paralysant",
     "Crushing Grasp": "Poigne Écrasante",
     "Cull the Weak": "Élimination des Faibles",
     "Defensive Tactics": "Tactiques Défensives",
@@ -31,6 +33,7 @@
     "Flurry of Blades": "Déluge de Lames",
     "Forceful Storm": "Tempête Puissante",
     "Freezing Nova": "Nova de Glace",
+    "Frenzied Onslaught": "Assaut Frénétique",
     "Frigid Apparition": "Apparition Glaciale",
     "Frost Armor": "Armure de Givre",
     "Gnawing Horde": "Horde de Rongeurs",
@@ -71,6 +74,7 @@
     "Rock Tunnel": "Tunnel de Roche",
     "Rumbling Advance": "Progression Grondante",
     "Scurry": "Précipitation",
+    "Selfish Retribution": "Amende Déshonorable",
     "Shield Bash": "Coup de Bouclier",
     "Single Out": "Isolement",
     "Sinister Opportunity": "Sinistre Occasion",
@@ -248,6 +252,9 @@
           "23": {
             "1": "Vous pouvez traiter toutes les capacités de %game.action.move% comme des capacités d'%game.action.attack% de valeur égale."
           },
+          "26": {
+            "1": "Ajoutez +3 %game.action.attack% à toutes vos attaques ciblant des adversaires avec %game.condition.disarm%, %game.condition.immobilize%, ou %game.condition.stun% ce round."
+          },
           "4": {
             "1": "Tout adversaire ciblant un de vos alliés adjacents avec une attaque ce round vous cible à la place avec cette attaque, quelle que soit la portée de celle-ci."
           },
@@ -409,6 +416,9 @@
           },
           "107": {
             "1": "Éliminez un adversaire adjacent normal qui n'est adjacent à aucun de ses alliés et adjacent à l'un des vôtres."
+          },
+          "108": {
+            "1": "Ajoutez +2 %game.action.attack% à toutes vos attaques ciblant des adversaires avec %game.condition.poison%."
           },
           "88": {
             "1": "Ajoutez +2 %game.action.attack% et gagnez %game.card.experience:1% quand la cible est adjacente à un de vos alliés.",
