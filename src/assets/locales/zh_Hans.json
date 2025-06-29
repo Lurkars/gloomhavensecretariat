@@ -1070,17 +1070,17 @@
     "maxHealth": "最大生命值",
     "solo": "Solo",
     "specialTarget": {
-      "all": "",
+      "all": "%game.target% 所有",
       "allies": "%game.target% 的所有盟友",
       "alliesAdjacent": "%game.target% 的所有相邻盟友",
       "alliesAdjacentAffect": "%game.affect% 的所有相邻盟友",
-      "alliesAffect": "",
+      "alliesAffect": "%game.affect% 所有盟友",
       "alliesRange": "%game.target% %game.action.range% {0} 格范围内的所有盟友",
       "alliesRangeAffect": "%game.affect% %game.action.range% {0} 格范围内的所有盟友",
       "ally": "%game.target% 的 1 名盟友",
       "allyAdjacent": "%game.target% 1 名相邻盟友",
       "allyAffect": "%game.affect% 的任意盟友",
-      "allyAffectAdjacent": "",
+      "allyAffectAdjacent": "%game.affect% 一个相邻的盟友",
       "allyAffectRange": "%game.affect% %game.action.range% {0} 格范围内的 1 名盟友",
       "allyShort": "盟友",
       "enemies": "%game.target% 的所有敌人",
@@ -1093,7 +1093,7 @@
       "enemiesRangeExact": "正好在%game.action.range% {0}范围的%game.target% 所有敌人",
       "enemy": "%game.target% 1名敌人",
       "enemyAdjacent": "%game.target% 1名相邻敌人",
-      "enemyAllyRange": "",
+      "enemyAllyRange": "%game.action.range% {0}内的%game.target% 一个敌人或%game.affect%一个盟友",
       "enemyOneAll": "所有攻击%game.target% 1名敌人",
       "enemyRange": "%game.target% 1名正好在 %game.action.range% {0}范围的敌人",
       "figures": "%game.target% 所有个体",
@@ -1104,7 +1104,7 @@
       "selfAllies": "自身以及所有盟友",
       "selfAlliesAdjacentAffect": "%game.affect%作用于自身和所有相邻盟友",
       "selfAlliesAffect": "%game.affect% 自身以及所有盟友",
-      "selfAlliesAffectRange": "",
+      "selfAlliesAffectRange": "作用于自身和%game.action.range% {0}内的所有盟友",
       "selfAlliesRange": "%game.target% 自身以及在%game.action.range% {0}范围内的所有盟友",
       "selfOrAlly": "自身或盟友",
       "targets": "所有目标"
@@ -1541,7 +1541,7 @@
         "scenario": "{1} %data.scenarioNumber:{0}%",
         "section": "打开 %data.section:{0}%，解锁 {2}"
       },
-      "hint": "应用至所有选定角色",
+      "hint": "应用至所有选定个体",
       "progress": "影响角色成长进度"
     },
     "favors": {
@@ -1689,7 +1689,7 @@
         "winter-road": "从冬季道路牌库移除事件{0}"
       },
       "removeLootDeckCard": "从游戏中移除拾取卡{0}。不再添加它到任何剧本的拾取牌库中。",
-      "repeatScenario": "",
+      "repeatScenario": "场景可以游玩！",
       "reputation": "{0}声望",
       "resources": "每人获得{1} %game.resource.{0}%",
       "resourcesLose": "每人失去{1} %game.resource.{0}% each",
@@ -2098,8 +2098,8 @@
         "bane": "在回合结束时自动生效 %game.condition.bane% 伤害.",
         "regenerate": "在回合开始时自动生效 %game.condition.regenerate%.",
         "safeguard": "",
-        "wound": "在回合结束时自动生效 %game.condition.wound% 伤害.",
-        "wound_x": "在回合结束时自动生效 %game.condition.wound_x:X% 伤害."
+        "wound": "在回合开始时自动生效 %game.condition.wound% 伤害.",
+        "wound_x": "在回合开始时自动生效 %game.condition.wound_x:X% 伤害."
       }
     },
     "applyLongRest": {
@@ -2214,8 +2214,8 @@
       "hint": "能力数值是经过计算之后得出的数据,因此当基础属性中的攻击值为3时,显示的不是攻击+1,而是攻击4"
     },
     "calculateAdvantageStats": {
-      "": "",
-      "hint": ""
+      "": "能力获得优势",
+      "hint": "为能力卡上的%game.action.attack%施加%game.custom.advantage%。"
     },
     "calculateShieldStats": {
       "": "添加护盾及反击至能力中",
@@ -2608,7 +2608,7 @@
     },
     "synced": "这些设置与服务器同步!",
     "temporaryEnhancements": {
-      "": "",
+      "": "临时附魔",
       "hint": ""
     },
     "theme": {

@@ -545,7 +545,7 @@
       "sufferDamage": "Subir des Dommages",
       "summon": "Invoquez",
       "swing": "",
-      "target": "Ciblez",
+      "target": "Cible",
       "targets": "Cibles",
       "teleport": "Téléporte",
       "trigger": "Déclenchement"
@@ -574,7 +574,7 @@
       "perks": {
         "": "Bénéfices",
         "additional": "{0} et {1}",
-        "card": "carte",
+        "card": "Carte",
         "cardLabel": "{0} {2} {1}",
         "cards": {
           "": "cartes",
@@ -1075,25 +1075,25 @@
       "alliesAdjacent": "%game.target% tous les alliés",
       "alliesAdjacentAffect": "%game.affect% tous les alliés adjacents",
       "alliesAffect": "%game.affect% tous les alliés",
-      "alliesRange": "%game.target% tous les alliés à portée %game.action.range% {0}",
-      "alliesRangeAffect": "%game.affect% tous les alliés à portée %game.action.range% {0}",
+      "alliesRange": "%game.target% tous les alliés à %game.action.range% {0}",
+      "alliesRangeAffect": "%game.affect% tous les alliés à %game.action.range% {0}",
       "ally": "%game.target% sur un allié",
       "allyAdjacent": "%game.target% un allié adjacent",
       "allyAffect": "%game.affect% tous les alliés",
       "allyAffectAdjacent": "%game.affect% un allié adjacent",
-      "allyAffectRange": "%game.target% un allié à portée %game.action.range% {0}",
+      "allyAffectRange": "%game.target% un allié à %game.action.range% {0}",
       "allyShort": "Allié",
       "enemies": "%game.target% tous les ennemis",
       "enemiesAdjacent": "%game.target% tous les ennemis adjacents",
       "enemiesMovedThrough": "%game.target% tous les ennemis déplacé",
       "enemiesMovedThroughAdjacent": "%game.target% tous les ennemis occupant ou adjacents aux<br>hexagones entrés lors de la capacité de déplacement",
-      "enemiesRange": "%game.target% tous les ennemis à Portée %game.action.range% {0}",
-      "enemiesRangeAffect": "%game.affect% tous les ennemis à Portée %game.action.range% {0}",
+      "enemiesRange": "%game.target% tous les ennemis à %game.action.range% {0}",
+      "enemiesRangeAffect": "%game.affect% tous les ennemis à %game.action.range% {0}",
       "enemiesRangeAffectExact": "%game.affect% tous les ennemis à exactement %game.action.range% {0}",
       "enemiesRangeExact": "%game.target% tous les ennemis à exactement %game.action.range% {0}",
       "enemy": "%game.target% un ennemi",
       "enemyAdjacent": "%game.target% un ennemi adjacent",
-      "enemyAllyRange": "%game.target% un ennemi ou %game.affect% un allié à portée %game.action.range% {0}",
+      "enemyAllyRange": "%game.target% un ennemi ou %game.affect% un allié à %game.action.range% {0}",
       "enemyOneAll": "%game.target% un ennemi avec toutes les attaques",
       "enemyRange": "%game.target% un ennemi à %game.action.range% {0}",
       "figures": "%game.target% toutes les unités",
@@ -1104,8 +1104,8 @@
       "selfAllies": "Sur vous-même et tous les alliés",
       "selfAlliesAdjacentAffect": "%game.affect% sur vous-même et tous les alliés adjacents",
       "selfAlliesAffect": "%game.affect% sur vous-même et tous les alliés",
-      "selfAlliesAffectRange": "%game.affect% sur vous-même et tous les alliés à portée %game.action.range% {0}",
-      "selfAlliesRange": "%game.target% sur vous-même et tous les alliés à portée %game.action.range% {0}",
+      "selfAlliesAffectRange": "%game.affect% sur vous-même et tous les alliés à %game.action.range% {0}",
+      "selfAlliesRange": "%game.target% sur vous-même et tous les alliés à %game.action.range% {0}",
       "selfOrAlly": "Soi-même ou allié",
       "targets": "Toutes les cibles"
     },
@@ -1122,7 +1122,7 @@
       "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% à %game.mapMarker.{3}%"
     },
     "target": {
-      "": "Cible",
+      "": "Ciblez",
       "all": "tous"
     }
   },
@@ -2098,8 +2098,8 @@
         "bane": "Applique automatiquement %game.condition.bane% de dégâts à la fin du tour.",
         "regenerate": "Application automatique de %game.condition.regenerate% au début du tour.",
         "safeguard": "",
-        "wound": "Applique automatiquement %game.condition.wound% de dégâts à la fin du tour.",
-        "wound_x": "Application automatique de %game.condition.wound_x:X% de dégâts à la fin du tour."
+        "wound": "Applique automatiquement %game.condition.wound% de dégâts au début du tour.",
+        "wound_x": "Application automatique de %game.condition.wound_x:X% de dégâts au début du tour."
       }
     },
     "applyLongRest": {

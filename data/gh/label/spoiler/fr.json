@@ -12,6 +12,25 @@
     "triangles": "Élémentaliste",
     "two-mini": "Maître des Bêtes"
   },
+  "events": {
+    "gh": {
+      "city": {
+        "5": {
+          "options": {
+            "1": {
+              "choice": "Allez aider à mettre en place les fondations.",
+              "outcome": "Tout en participant très activement aux festivités, vous investissez toutes vos forces à creuser les fondations du Sanctuaire. Un grand bien sera sûrement accompli ici en soignant les malades et les blessés. En attendant, après tous vos épuisants efforts, c'est vous qui risquez d'être leurs premiers patients."
+            },
+            "2": {
+              "choice": "Profitez de l'occasion pour voler quelques objets de valeur dans la zone pendant que les gens sont distraits.",
+              "outcome": "Vous vous dirigez vers le quartier est - la partie prospère de la ville - non pas pour aider à la construction des fondations mais pour dérober quelques biens des marchands trop idiots pour verrouiller leurs échoppes pendant les festivités. Vous repartez avec une coquette somme. Les gardes distraits ne sont pas des plus vigilants."
+            }
+          },
+          "text": "Après une nuit de repos, vous commencez votre journée en remarquant un grand nombre d'affiches imposantes tout autour de la ville. À la lecture de l'une d'entre elles, vous apprenez que le Sanctuaire du Grand Chêne creuse les fondations d'un nouveau bâtiment dans le quartier est de Havrenuit. Tout le monde est convié à venir apporter son aide. Cela pourrait être un événement communautaire important."
+        }
+      }
+    }
+  },
   "items": {
     "gh-1": {
       "": "Bottes de Voyage",
@@ -43,6 +62,9 @@
     },
     "gh-123": {
       "": "Anneau de Crânes"
+    },
+    "gh-124": {
+      "": "Compas Maudit"
     },
     "gh-13": {
       "": "Potion Endurance Mineure",
@@ -115,6 +137,10 @@
     "gh-86": {
       "": "Baguette de Séisme",
       "1": "Pendant votre tour, créez l’élément Terre."
+    },
+    "gh-88": {
+      "": "Baguette de Ténèbres",
+      "1": "Pendant votre tour, créez l'élément Obscurité."
     },
     "gh-9": {
       "": "Arc Perforant",
