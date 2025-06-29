@@ -47,14 +47,14 @@
       "health": 15,
       "movement": 4,
       "attack": 4,
-      "immunities": [
-        "disarm"
-      ],
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -62,14 +62,14 @@
       "health": 17,
       "movement": 5,
       "attack": 4,
-      "immunities": [
-        "disarm"
-      ],
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -77,14 +77,14 @@
       "health": 21,
       "movement": 5,
       "attack": 5,
-      "immunities": [
-        "disarm"
-      ],
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -92,14 +92,14 @@
       "health": 27,
       "movement": 5,
       "attack": 5,
-      "immunities": [
-        "disarm"
-      ],
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -118,14 +118,14 @@
       "health": 14,
       "movement": 3,
       "attack": 4,
-      "immunities": [
-        "disarm"
-      ],
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -134,14 +134,14 @@
       "health": 17,
       "movement": 4,
       "attack": 4,
-      "immunities": [
-        "disarm"
-      ],  
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -150,14 +150,14 @@
       "health": 20,
       "movement": 4,
       "attack": 5,
-      "immunities": [
-        "disarm"
-      ],  
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -166,14 +166,14 @@
       "health": 21,
       "movement": 5,
       "attack": 5,
-      "immunities": [
-        "disarm"
-      ],
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -182,14 +182,14 @@
       "health": 24,
       "movement": 5,
       "attack": 6,
-      "immunities": [
-        "disarm"
-      ],
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -198,14 +198,14 @@
       "health": 29,
       "movement": 5,
       "attack": 7,
-      "immunities": [
-        "disarm"
-      ],
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     },
     {
@@ -214,14 +214,14 @@
       "health": 37,
       "movement": 5,
       "attack": 7,
-      "immunities": [
-        "disarm"
-      ],
       "actions": [
         {
           "type": "condition",
           "value": "wound"
         }
+      ],
+      "immunities": [
+        "disarm"
       ]
     }
   ]
