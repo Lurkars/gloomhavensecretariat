@@ -1,5 +1,6 @@
 {
   "name": "music-note",
+  "icon": "gh-music-note",
   "edition": "gh2e",
   "color": "ffe3726b",
   "spoiler": true,
