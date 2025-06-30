@@ -511,10 +511,10 @@
     "action": {
       "area": "Effetto ad area",
       "attack": "Attacco",
-      "box": "&#91;Custodia&#93;",
+      "box": "Custodia",
       "boxFhSubActions": "&#91;Box sotto-azione FH&#93;",
       "card": "Carta",
-      "concatenation": "&#91;Concatenazione&#93;",
+      "concatenation": "Concatenazione",
       "concatenationSpacer": "&#91;Spaziatore concatenazione&#93;",
       "condition": "Condizione",
       "custom": "Personalizzato",
@@ -524,7 +524,7 @@
       "fly": "Volo",
       "forceBox": "&#91;Box obbligatorio FH&#93;",
       "grant": "Accordo",
-      "grid": "&#91;Griglia&#93;",
+      "grid": "Griglia",
       "heal": "Cura",
       "hint": "&#91;Bacheca Informativa&#93;",
       "jump": "Salto",
@@ -574,7 +574,7 @@
       "perks": {
         "": "Talenti",
         "additional": "{0} e {1}",
-        "card": "carta",
+        "card": "Carta",
         "cardLabel": "{0}{1} {2}",
         "cards": {
           "": "carte",
@@ -751,8 +751,8 @@
         "hint": "%game.conditionIcon.rupture% Frattura: Ad ogni movimento subisci %game.damage:1%. Rimuovi quando guarito."
       },
       "safeguard": {
-        "": "",
-        "hint": ""
+        "": "Salvaguardia",
+        "hint": "%game.conditionIcon.safeguard% Salvaguardia: previeni la prossima condizione negativa, quindi rimuovi la carta."
       },
       "strengthen": {
         "": "Rinforzo",
@@ -2097,9 +2097,9 @@
         "": "Gli stati corrispondenti vengono applicati automaticamente prima e dopo il turno, ad esempio quando l'entità ha una ferita perderà 1 PV all'inizio del suo round",
         "bane": "Applica automaticamente il danno da %game.condition.bane% alla fine del turno.",
         "regenerate": "Applica automaticamente %game.condition.regenerate% all'inizio del turno.",
-        "safeguard": "",
-        "wound": "Applica automaticamente il danno da %game.condition.wound% alla fine del turno.",
-        "wound_x": "Applica automaticamente il danno da %game.condition.wound_x:X% alla fine del turno."
+        "safeguard": "Applica automaticamente %game.condition.safeguard% quando subisci la successiva condizione negativa.",
+        "wound": "Applica automaticamente il danno da %game.condition.wound% all'inizio del turno.",
+        "wound_x": "Applica automaticamente il danno da %game.condition.wound_x:X% all'inizio del turno."
       }
     },
     "applyLongRest": {
