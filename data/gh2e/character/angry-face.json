@@ -1,0 +1,95 @@
+{
+  "name": "angry-face",
+  "edition": "gh2e",
+  "color": "ff69cde0",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "green-snake",
+      "level": 1,
+      "health": 5,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "vicious-jackal",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "battle-boar",
+      "level": 1,
+      "health": 7,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "staunch-garralev",
+      "level": 3,
+      "health": 8,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "war-raptor",
+      "level": 5,
+      "health": 6,
+      "attack": 3,
+      "movement": 5
+    },
+    {
+      "name": "horned-hristek",
+      "level": 7,
+      "health": 7,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "great-archinotl",
+      "level": 9,
+      "health": 8,
+      "attack": 3,
+      "movement": 4
+    }
+  ]
+}
