@@ -1746,18 +1746,18 @@
       "openRoomMarker": "Ouvrir la porte %game.mapMarker.{0}%",
       "randomDungeon": {
         "dungeon": {
-          "": "",
-          "cards": ""
+          "": "Piochez {0} cartes aléatoires du paquet de cartes de Donjon Aléatoire. (manuel)",
+          "cards": "Piochez {0} cartes aléatoires du paquet de cartes de Donjon Aléatoire. Utilisez uniquement les cartes :<i>{1}</i>. (manuel)"
         },
         "monster": {
-          "": "",
-          "cards": ""
+          "": "Ajoutez {0} cartes aléatoires du paquet de cartes de monstre aléatoire.",
+          "cards": "Ajoutez {0} cartes aléatoires du paquet de cartes de monstre aléatoire. Utilisez uniquement les cartes<i>{1}</i>."
         }
       },
       "show": {
-        "": "",
-        "applied": "",
-        "discarded": ""
+        "": "Afficher les règles du scénario",
+        "applied": "Règles de scénario appliquées",
+        "discarded": "Règles de scénario abandonnées"
       },
       "spawn": "Faire apparaitre {2}%game.monsterType.{1}% %data.monster.{0}%",
       "spawnMarker": "Faire apparaitre {2}%game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
