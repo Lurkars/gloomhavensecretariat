@@ -219,6 +219,9 @@
     "meteor": "炎浆使",
     "prism": {
       "": "虫巢",
+      "long_rest": {
+        "hint": "%data.custom.fh.prism.8%"
+      },
       "prism_mode": {
         "": "%data.characterToken.prism.mode% 模式标记",
         "hint": ""
