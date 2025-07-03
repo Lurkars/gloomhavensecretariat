@@ -1,0 +1,182 @@
+{
+  "name": "scout",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Cruel Bow",
+      "cardId": 770,
+      "initiative": 29,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hasty Assault",
+      "cardId": 771,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 772,
+      "initiative": 53,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Rancid Arrow",
+      "cardId": 773,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 774,
+      "initiative": 69,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Noxious Blade",
+      "cardId": 775,
+      "initiative": 92,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rapid Bolts",
+      "cardId": 776,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Greed",
+      "cardId": 777,
+      "initiative": 35,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

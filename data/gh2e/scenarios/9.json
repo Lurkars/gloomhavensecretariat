@@ -1,0 +1,29 @@
+{
+  "index": "9",
+  "name": "Ruinous Rift",
+  "edition": "gh2e",
+  "monsters": [
+    "chaos-demon",
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "night-demon",
+    "sun-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Hail",
+      "escort": true,
+      "health": "4+(2xL)",
+      "initiative": 99
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

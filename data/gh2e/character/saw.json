@@ -1,8 +1,9 @@
 {
   "name": "saw",
   "icon": "gh-saw",
+  "noThumbnail": true,
   "edition": "gh2e",
-  "color": "ffe3dfcf",
+  "color": "#e3dfcf",
   "spoiler": true,
   "stats": [
     {
@@ -42,5 +43,6 @@
       "health": 20
     }
   ],
-  "availableSummons": []
+  "availableSummons": [],
+  "perkWarning": true
 }

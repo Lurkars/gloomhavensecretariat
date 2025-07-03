@@ -1,6 +1,7 @@
 {
   "name": "triangles",
   "icon": "gh-triangles",
+  "noThumbnail": true,
   "edition": "gh2e",
   "color": "#dcdcdc",
   "spoiler": true,
@@ -56,5 +57,6 @@
       "attack": 2,
       "movement": 3
     }
-  ]
+  ],
+  "perkWarning": true
 }

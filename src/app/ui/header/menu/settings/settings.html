@@ -245,6 +245,15 @@
   </div>
 
 
+  <div class="separator"></div>
+
+  <!-- BUTTON&BUGS -->
+  <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
+
+  <div class="column">
+    <div class="line" ghs-setting-menu="gh2eImbuement"></div>
+  </div>
+
   <ng-container *ngIf="gameManager.bbRules()">
     <div class="separator"></div>
 
@@ -382,7 +391,8 @@
     <div class="line title" ghs-setting-title-menu="locale" [sync]="true"></div>
     <div ghs-setting-menu="locale" [values]="settingsManager.locales"></div>
     <div class="line">
-      <a href="https://translate.gloomhaven-secretariat.de/" target="_blank" [ghs-tooltip]="'settings.locale.help.hint'" [originY]="'top'" [overlayY]="'bottom'">
+      <a href="https://translate.gloomhaven-secretariat.de/" target="_blank" [ghs-tooltip]="'settings.locale.help.hint'"
+        [originY]="'top'" [overlayY]="'bottom'">
         <img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;
         <span [ghs-label]="'settings.locale.help'"></span>
       </a>

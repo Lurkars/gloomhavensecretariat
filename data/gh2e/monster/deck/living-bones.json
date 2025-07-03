@@ -1,0 +1,162 @@
+{
+  "name": "living-bones",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Calculated Strike",
+      "cardId": 666,
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Drain Life",
+      "cardId": 667,
+      "initiative": 20,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hasty Assault",
+      "cardId": 668,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 669,
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 670,
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Power Slash",
+      "cardId": 671,
+      "initiative": 81,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Focused Stabs",
+      "cardId": 672,
+      "initiative": 74,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyOneAll",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eternal Life",
+      "cardId": 673,
+      "initiative": 12,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

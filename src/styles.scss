@@ -976,7 +976,8 @@ label {
 }
 
 
-input[type="checkbox"] {
+input[type="checkbox"],
+.input-checkbox {
   cursor: pointer;
   appearance: none;
   position: relative;
@@ -1005,7 +1006,8 @@ input[type="checkbox"] {
     background-color: var(--ghs-color-gray);
   }
 
-  &:checked::before {
+  &:checked::before,
+  &.input-checkbox.checked::before {
     transform: scale(1);
   }
 
@@ -1013,7 +1015,8 @@ input[type="checkbox"] {
     background-color: var(--ghs-color-white);
   }
 
-  &:disabled {
+  &:disabled,
+  .input-checkbox.disabled {
     cursor: initial;
     color: var(--ghs-color-darkgray);
     border-width: calc(var(--ghs-unit) * 0.4);

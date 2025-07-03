@@ -1,0 +1,30 @@
+{
+  "index": "43.3",
+  "edition": "gh2e",
+  "parent": "44",
+  "marker": "4",
+  "objectives": [
+    {
+      "name": "Elemental Tether C",
+      "health": "2+(CxL)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

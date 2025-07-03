@@ -1,6 +1,7 @@
 {
   "name": "circles",
   "icon": "gh-circles",
+  "noThumbnail": true,
   "edition": "gh2e",
   "color": "#e570b3",
   "spoiler": true,
@@ -129,5 +130,6 @@
       "attack": 3,
       "movement": 4
     }
-  ]
+  ],
+  "perkWarning": true
 }

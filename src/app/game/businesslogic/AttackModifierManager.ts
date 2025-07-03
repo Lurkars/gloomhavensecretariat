@@ -1,4 +1,4 @@
-import { AttackModifier, AttackModifierDeck, AttackModifierType, AttackModifierValueType, CsOakDeckAttackModifier, GameAttackModifierDeckModel, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
+import { AdvancedImbueAttackModifier, AttackModifier, AttackModifierDeck, AttackModifierType, AttackModifierValueType, CsOakDeckAttackModifier, GameAttackModifierDeckModel, ImbuementAttackModifier, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
 import { CharacterData } from "../model/data/CharacterData";
@@ -155,6 +155,17 @@ export class AttackModifierManager {
       index = Math.floor(Math.random() * (attackModifierDeck.cards.length - attackModifierDeck.current)) + attackModifierDeck.current + 1;
     }
     attackModifierDeck.cards.splice(index, 0, attackModifier);
+  }
+
+  addModifierByType(attackModifierDeck: AttackModifierDeck, type: AttackModifierType) {
+    this.addModifier(attackModifierDeck, new AttackModifier(type));
+  }
+
+  removeModifierByType(attackModifierDeck: AttackModifierDeck, type: AttackModifierType) {
+    const attackModifier = attackModifierDeck.cards.find((am) => am.type == type);
+    if (attackModifier) {
+      attackModifierDeck.cards.splice(attackModifierDeck.cards.indexOf(attackModifier), 1);
+    }
   }
 
   drawModifier(attackModifierDeck: AttackModifierDeck, state: 'advantage' | 'disadvantage' | undefined) {
@@ -651,6 +662,12 @@ export class AttackModifierManager {
       attackModifier = defaultAttackModifier.find((attackModifier) => attackModifier.id == id);
       if (!attackModifier) {
         attackModifier = CsOakDeckAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        attackModifier = ImbuementAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        attackModifier = AdvancedImbueAttackModifier.find((attackModifier) => attackModifier.id == id);
       }
       if (!attackModifier) {
         attackModifier = this.getAllAdditional().find((attackModifier) => attackModifier.id == id);

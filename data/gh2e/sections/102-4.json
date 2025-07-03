@@ -1,0 +1,13 @@
+{
+  "index": "102.4",
+  "name": "Burning Mountain",
+  "edition": "gh2e",
+  "parent": "90",
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

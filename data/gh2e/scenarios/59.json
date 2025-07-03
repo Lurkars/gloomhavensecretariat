@@ -1,0 +1,13 @@
+{
+  "index": "59",
+  "name": "Foggy Thicket",
+  "edition": "gh2e",
+  "monsters": [],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "index": "52",
+  "name": "Shadow Weald",
+  "edition": "gh2e",
+  "monsters": [
+    "city-guard",
+    "earth-demon",
+    "forest-imp",
+    "harrower-infester",
+    "living-bones",
+    "night-demon",
+    "the-dark-rider"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "the-dark-rider",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

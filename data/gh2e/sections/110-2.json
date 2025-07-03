@@ -1,0 +1,30 @@
+{
+  "index": "110.2",
+  "edition": "gh2e",
+  "parent": "56",
+  "monsters": [
+    "jekserah-scenario-56",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "jekserah-scenario-56",
+          "type": "boss"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

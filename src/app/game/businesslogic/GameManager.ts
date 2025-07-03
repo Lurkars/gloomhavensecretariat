@@ -729,7 +729,11 @@ export class GameManager {
   }
 
   fhRules(gh2e: boolean = false): boolean {
-    return this.editionRules('fh') || gh2e && this.editionRules('gh2e');
+    return this.editionRules('fh') || gh2e && this.gh2eRules();
+  }
+
+  gh2eRules(): boolean {
+    return this.editionRules('gh2e');
   }
 
   bbRules(): boolean {

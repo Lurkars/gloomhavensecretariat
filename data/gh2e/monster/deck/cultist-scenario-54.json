@@ -1,0 +1,274 @@
+{
+  "name": "cultist-scenario-54",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Volatile Conduct",
+      "cardId": 760,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "If Cultist dies this round, first remove all negative conditions and perform:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,active)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Volatile Conduct",
+      "cardId": 761,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "If Cultist dies this round, first remove all negative conditions and perform:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,active)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Harrowing Harvest",
+      "cardId": 762,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "where X is the amount of damage suffered by the target of the attack ability.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Harrowing Harvest",
+      "cardId": 763,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "where X is the amount of damage suffered by the target of the attack ability.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dark Ritual",
+      "cardId": 764,
+      "initiative": 63,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "The highest health enemy within %game.action.range% 5 and within line-of-sight suffers Damage X."
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "where X is equal to hazardous terrain %game.damage%.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dark Ritual",
+      "cardId": 765,
+      "initiative": 63,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "The highest health enemy within %game.action.range% 5 and within line-of-sight suffers Damage X."
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "where X is equal to hazardous terrain %game.damage%.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unholy Guard",
+      "cardId": 766,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "safeguard",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unholy Guard",
+      "cardId": 767,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "safeguard",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

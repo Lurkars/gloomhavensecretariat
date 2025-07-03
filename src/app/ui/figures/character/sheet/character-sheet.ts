@@ -53,6 +53,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
   replayable: boolean = false;
 
   fhSheet: boolean = false;
+  gh2eSheet: boolean = false;
   csSheet: boolean = false;
 
   donations: boolean = true;
@@ -83,6 +84,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
     this.character.progress.perks = this.character.progress.perks || [];
 
     this.fhSheet = gameManager.fhRules(true);
+    this.gh2eSheet = !gameManager.fhRules() && gameManager.fhRules(true);
     this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
 
     this.donations = !this.fhSheet;
@@ -548,6 +550,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
 
   toggleFhSheet() {
     this.fhSheet = !this.fhSheet;
+    this.gh2eSheet = this.gh2eSheet ? false : !gameManager.fhRules() && gameManager.fhRules(true);
     this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
   }
 

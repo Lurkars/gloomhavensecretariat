@@ -1,0 +1,185 @@
+{
+  "name": "living-corpse",
+  "edition": "gh2e",
+  "count": 6,
+  "baseStat": {
+    "type": "normal",
+    "actions": [],
+    "immunities": [
+      "poison"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 5,
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": 8,
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "health": 10,
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "level": 3,
+      "health": 11,
+      "movement": 1,
+      "attack": 4
+    },
+    {
+      "level": 4,
+      "health": 12,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 14,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 18,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 26,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 10,
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 11,
+      "movement": 1,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 15,
+      "movement": 1,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 15,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 19,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 21,
+      "movement": 2,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 31,
+      "movement": 2,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 36,
+      "movement": 2,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    }
+  ]
+}

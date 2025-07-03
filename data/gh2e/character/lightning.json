@@ -1,8 +1,9 @@
 {
   "name": "lightning",
   "icon": "gh-lightning",
+  "noThumbnail": true,
   "edition": "gh2e",
-  "color": "ffd75f49",
+  "color": "#d75f49",
   "spoiler": true,
   "stats": [
     {
@@ -42,5 +43,6 @@
       "health": 26
     }
   ],
-  "availableSummons": []
+  "availableSummons": [],
+  "perkWarning": true
 }

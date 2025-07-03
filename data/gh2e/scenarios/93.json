@@ -1,0 +1,50 @@
+{
+  "index": "93",
+  "name": "Harried Village",
+  "edition": "gh2e",
+  "monsters": [
+    "cave-bear",
+    "lurker-soldier",
+    "vermling-priest",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-priest",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-priest",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "index": "55",
+  "name": "The Last Stand",
+  "edition": "gh2e",
+  "monsters": [
+    "black-imp",
+    "chaos-demon",
+    "city-archer",
+    "city-guard",
+    "deep-terror",
+    "earth-demon",
+    "harrower-infester",
+    "living-bones",
+    "living-corpse",
+    "vermling-scout",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Hail",
+      "escort": true,
+      "health": "4+(2xL)",
+      "initiative": 99
+    },
+    {
+      "name": "Stone Pillar H",
+      "health": "8+CxL",
+      "initiative": 99
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

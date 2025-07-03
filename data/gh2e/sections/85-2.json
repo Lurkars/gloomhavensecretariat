@@ -1,0 +1,13 @@
+{
+  "index": "85.2",
+  "name": "Wetlands Ambush",
+  "edition": "gh2e",
+  "parent": "40",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

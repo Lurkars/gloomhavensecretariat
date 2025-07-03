@@ -1,0 +1,45 @@
+{
+  "index": "33",
+  "name": "Ancient Defense Network",
+  "edition": "gh2e",
+  "monsters": [
+    "cave-bear",
+    "flame-demon",
+    "forest-imp",
+    "living-corpse",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "index": "32",
+  "name": "Savvas Armory",
+  "edition": "gh2e",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "savvas-icestorm",
+    "savvas-lavaflow",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Door",
+      "health": "(4+L)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

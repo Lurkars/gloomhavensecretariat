@@ -1,0 +1,32 @@
+{
+  "index": "71",
+  "name": "Clockwork Factory",
+  "edition": "gh2e",
+  "monsters": [
+    "ancient-artillery",
+    "living-spirit",
+    "ooze",
+    "stone-construct"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

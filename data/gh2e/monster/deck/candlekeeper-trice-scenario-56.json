@@ -1,0 +1,42 @@
+{
+  "name": "candlekeeper-trice-scenario-56",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "We Will See",
+      "cardId": 0,
+      "initiative": 1,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,active)|(1,1,target)|(2,1,target)"
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%game.advantage%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "elementHalf",
+          "value": "fire:light"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "index": "132.4",
+  "name": "Chasing Secrets",
+  "edition": "gh2e",
+  "parent": "43",
+  "rooms": [
+    {
+      "roomNumber": 8,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

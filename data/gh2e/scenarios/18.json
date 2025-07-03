@@ -1,0 +1,18 @@
+{
+  "index": "18",
+  "name": "Investigation",
+  "edition": "gh2e",
+  "monsters": [
+    "bandit-scout",
+    "city-archer",
+    "city-guard",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

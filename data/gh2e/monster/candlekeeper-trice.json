@@ -1,0 +1,435 @@
+{
+  "name": "candlekeeper-trice",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "disarm",
+      "immobilize",
+      "stun"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx18",
+      "movement": 3,
+      "attack": "C+1",
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "See monster stat sheet."
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 1
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "pierce",
+                "value": 1,
+                "small": true
+              },
+              {
+                "type": "element",
+                "value": "light",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "custom",
+                    "value": "%game.advantage%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 1,
+      "health": "Cx20",
+      "movement": 3,
+      "attack": "C+2",
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "See monster stat sheet."
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 1
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "pierce",
+                "value": 1,
+                "small": true
+              },
+              {
+                "type": "element",
+                "value": "light",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "custom",
+                    "value": "%game.advantage%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx24",
+      "movement": 3,
+      "attack": "C+2",
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "See monster stat sheet."
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 1
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "pierce",
+                "value": 1,
+                "small": true
+              },
+              {
+                "type": "element",
+                "value": "light",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "custom",
+                    "value": "%game.advantage%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx25",
+      "movement": 4,
+      "attack": "C+3",
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "See monster stat sheet."
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 1
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "pierce",
+                "value": 2,
+                "small": true
+              },
+              {
+                "type": "element",
+                "value": "light",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "custom",
+                    "value": "%game.advantage%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 4,
+      "health": "Cx29",
+      "movement": 4,
+      "attack": "C+3",
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "See monster stat sheet."
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 2
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "pierce",
+                "value": 1,
+                "small": true
+              },
+              {
+                "type": "element",
+                "value": "light",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "custom",
+                    "value": "%game.advantage%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 5,
+      "health": "Cx31",
+      "movement": 4,
+      "attack": "C+4",
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "See monster stat sheet."
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 2
+          },
+          {
+            "type": "move",
+            "value": 2,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "pierce",
+                "value": 1,
+                "small": true
+              },
+              {
+                "type": "element",
+                "value": "light",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "custom",
+                    "value": "%game.advantage%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 6,
+      "health": "Cx37",
+      "movement": 5,
+      "attack": "C+4",
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "See monster stat sheet."
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 2
+          },
+          {
+            "type": "move",
+            "value": 2,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "pierce",
+                "value": 3,
+                "small": true
+              },
+              {
+                "type": "element",
+                "value": "light",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "custom",
+                    "value": "%game.advantage%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 7,
+      "health": "Cx44",
+      "movement": 5,
+      "attack": "C+5",
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "See monster stat sheet."
+          }
+        ],
+        [
+          {
+            "type": "shield",
+            "value": 3
+          },
+          {
+            "type": "move",
+            "value": 2,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "pierce",
+                "value": 3,
+                "small": true
+              },
+              {
+                "type": "element",
+                "value": "light",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "custom",
+                    "value": "%game.advantage%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire"
+          }
+        ]
+      ]
+    }
+  ]
+}

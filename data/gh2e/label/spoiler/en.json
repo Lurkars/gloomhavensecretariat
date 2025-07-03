@@ -1,6 +1,7 @@
 {
     "character": {
         "angry-face": "Doomstalker",
+        "crossed-swords": "Bladeswarm",
         "circles": "Soultether",
         "eclipse": "Nightshroud",
         "lightning": "Berserker",
@@ -10,8 +11,7 @@
         "sun": "Sunkeeper",
         "three-spears": "Quartermaster",
         "triangles": "Elementalist",
-        "two-mini": "Wildfury",
-        "two-swords": "Bladeswarm"
+        "two-mini": "Wildfury"
     },
     "summon": {
         "angry-wasps": "Angry Wasps",

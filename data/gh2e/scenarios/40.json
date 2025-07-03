@@ -1,0 +1,20 @@
+{
+  "index": "40",
+  "name": "Wetlands Ambush",
+  "edition": "gh2e",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "savvas-icestorm-scenario-40",
+    "savvas-lavaflow-scenario-40",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

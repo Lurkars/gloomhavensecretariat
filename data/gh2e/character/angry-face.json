@@ -1,8 +1,9 @@
 {
   "name": "angry-face",
   "icon": "gh-angry-face",
+  "noThumbnail": true,
   "edition": "gh2e",
-  "color": "ff69cde0",
+  "color": "#69cde0",
   "spoiler": true,
   "stats": [
     {
@@ -92,5 +93,6 @@
       "attack": 3,
       "movement": 4
     }
-  ]
+  ],
+  "perkWarning": true
 }

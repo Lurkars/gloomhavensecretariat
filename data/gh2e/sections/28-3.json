@@ -1,0 +1,51 @@
+{
+  "index": "28.3",
+  "name": "- Military Outpost",
+  "edition": "gh2e",
+  "parent": "19",
+  "marker": "1",
+  "objectives": [
+    {
+      "name": "Cleansing Pillar 2",
+      "health": "2+C+L"
+    },
+    {
+      "name": "Cleansing Pillar 3",
+      "health": "2+C+L"
+    },
+    {
+      "name": "Cleansing Pillar 4",
+      "health": "2+C+L"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

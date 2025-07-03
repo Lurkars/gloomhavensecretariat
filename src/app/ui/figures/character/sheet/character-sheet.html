@@ -1,5 +1,5 @@
 <div class="light character-sheet" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet, 'compact': settingsManager.settings.characterSheetCompact}">
+  [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet, 'gh2e-sheet': gh2eSheet, 'compact': settingsManager.settings.characterSheetCompact}">
   <div class="container"
     [ngClass]="{'denied' : !forceEdit && (!editable || !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]) || settingsManager.settings.characterSheetLocked, 'view-only' : !forceEdit && !editable || settingsManager.settings.characterSheetLocked}">
     <div class="columns">
@@ -83,7 +83,7 @@
         </div>
 
         <hr class="compact-separator" *ngIf="fhSheet">
-        <div class="row resources" *ngIf="fhSheet">
+        <div class="row resources" *ngIf="fhSheet && !gh2eSheet">
           <label><span [ghs-label]="'character.progress.resources'"></span>:</label>
 
           <a class="move" (click)="moveResources()"><span [ghs-label]="'character.progress.resources.move'"></span></a>

@@ -195,7 +195,6 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "rolling": true,
             "effects": [
               {
                 "type": "heal",
@@ -226,7 +225,6 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "rolling": true,
             "effects": [
               {
                 "type": "heal",
@@ -336,7 +334,7 @@
           }
         },
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
             "type": "plus1",
             "rolling": true,

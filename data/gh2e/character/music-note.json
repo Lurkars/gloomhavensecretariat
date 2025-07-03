@@ -1,8 +1,9 @@
 {
   "name": "music-note",
   "icon": "gh-music-note",
+  "noThumbnail": true,
   "edition": "gh2e",
-  "color": "ffe3726b",
+  "color": "#e3726b",
   "spoiler": true,
   "stats": [
     {
@@ -42,5 +43,6 @@
       "health": 14
     }
   ],
-  "availableSummons": []
+  "availableSummons": [],
+  "perkWarning": true
 }

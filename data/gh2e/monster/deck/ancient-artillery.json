@@ -1,0 +1,256 @@
+{
+  "name": "ancient-artillery",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Long Shot",
+      "cardId": 626,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fh.ancient-artillery.1%",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 7,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exploding Ammunition",
+      "cardId": 627,
+      "initiative": 71,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.ancient-artillery.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exploding Ammunition",
+      "cardId": 628,
+      "initiative": 71,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 5,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fh.ancient-artillery.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grenade",
+      "cardId": 629,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Massive Blast",
+      "cardId": 630,
+      "initiative": 57,
+      "actions": [
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heavy Shot",
+      "cardId": 631,
+      "initiative": 95,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Defensive Ordinance",
+      "cardId": 632,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Concussive Burst",
+      "cardId": 633,
+      "initiative": 46,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

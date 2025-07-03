@@ -1,0 +1,42 @@
+{
+  "index": "95.1",
+  "edition": "gh2e",
+  "parent": "45",
+  "marker": "2",
+  "objectives": [
+    {
+      "name": "Rock Column A",
+      "health": "(8+L)xC",
+      "initiative": 1
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

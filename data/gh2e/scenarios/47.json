@@ -1,0 +1,56 @@
+{
+  "index": "47",
+  "name": "Slave Pens",
+  "edition": "gh2e",
+  "monsters": [
+    "city-archer",
+    "earth-demon",
+    "inox-archer",
+    "inox-guard",
+    "inox-priest",
+    "living-corpse",
+    "stone-construct"
+  ],
+  "objectives": [
+    {
+      "name": "Orchid",
+      "escort": true,
+      "health": "6+(3xL)",
+      "initiative": 40
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player2": "elite",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

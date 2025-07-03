@@ -1,8 +1,9 @@
 {
   "name": "eclipse",
   "icon": "gh-eclipse",
+  "noThumbnail": true,
   "edition": "gh2e",
-  "color": "ff6e77ba",
+  "color": "#6e77ba",
   "spoiler": true,
   "stats": [
     {
@@ -42,5 +43,6 @@
       "health": 20
     }
   ],
-  "availableSummons": []
+  "availableSummons": [],
+  "perkWarning": true
 }

@@ -340,7 +340,7 @@ export class MainComponent implements OnInit {
         settingsManager.set('fhStyle', true);
       }
     }
-    gameManager.game.party.campaignMode = true;
+    gameManager.game.party.campaignMode = edition != 'gh2e';
     gameManager.stateManager.after();
   }
 
@@ -348,6 +348,12 @@ export class MainComponent implements OnInit {
     gameManager.stateManager.before("cancelCampaign", 'data.edition.' + edition);
     gameManager.game.edition = undefined;
     gameManager.game.party.campaignMode = false;
+    gameManager.stateManager.after();
+  }
+
+  toggleCampaignMode() {
+    gameManager.stateManager.before(gameManager.game.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
+    gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
     gameManager.stateManager.after();
   }
 

@@ -1,8 +1,9 @@
 {
   "name": "three-spears",
   "icon": "gh-three-spears",
+  "noThumbnail": true,
   "edition": "gh2e",
-  "color": "ffcd8229",
+  "color": "#cd8229",
   "spoiler": true,
   "stats": [
     {
@@ -42,5 +43,6 @@
       "health": 26
     }
   ],
-  "availableSummons": []
+  "availableSummons": [],
+  "perkWarning": true
 }

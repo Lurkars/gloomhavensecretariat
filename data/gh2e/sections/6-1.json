@@ -1,0 +1,29 @@
+{
+  "index": "6.1",
+  "edition": "gh2e",
+  "parent": "56",
+  "monsters": [
+    "candlekeeper-trice-56",
+    "city-guard"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "candlekeeper-trice-56",
+          "type": "boss"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

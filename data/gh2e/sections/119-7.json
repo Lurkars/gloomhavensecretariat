@@ -1,0 +1,23 @@
+{
+  "index": "119.7",
+  "name": "Vault of Secrets",
+  "edition": "gh2e",
+  "parent": "78",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

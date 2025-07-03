@@ -124,6 +124,7 @@ export class Settings {
   fontsize: number = 1;
   gameClock: boolean = false;
   gameClockMerge: boolean = true;
+  gh2eImbuement: boolean = false;
   globalFontsize: number = 1;
   globalMapHighlighting: boolean = true;
   fullscreen: boolean = false;

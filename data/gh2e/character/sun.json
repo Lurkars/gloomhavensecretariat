@@ -1,6 +1,7 @@
 {
   "name": "sun",
   "icon": "gh-sun",
+  "noThumbnail": true,
   "edition": "gh2e",
   "color": "#fce434",
   "spoiler": true,
@@ -42,5 +43,6 @@
       "health": 26
     }
   ],
-  "availableSummons": []
+  "availableSummons": [],
+  "perkWarning": true
 }

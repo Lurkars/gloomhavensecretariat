@@ -1,0 +1,43 @@
+{
+  "index": "2",
+  "name": "Ruinous Crypt",
+  "edition": "gh2e",
+  "monsters": [
+    "dark-ritual-cultist",
+    "earth-demon",
+    "frost-demon",
+    "living-bones",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "dark-ritual-cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "dark-ritual-cultist",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

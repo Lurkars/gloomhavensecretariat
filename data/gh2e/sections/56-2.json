@@ -1,0 +1,82 @@
+{
+  "index": "56.2",
+  "name": "- Bandit's Wood",
+  "edition": "gh2e",
+  "parent": "60",
+  "marker": "2",
+  "objectives": [
+    {
+      "name": "Captive Orchid 1",
+      "escort": true,
+      "health": "4+(2xL)",
+      "initiative": 50
+    },
+    {
+      "name": "Captive Orchid 2",
+      "escort": true,
+      "health": "4+(2xL)",
+      "initiative": 50
+    },
+    {
+      "name": "Captive Orchid 3",
+      "escort": true,
+      "health": "4+(2xL)",
+      "initiative": 50
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

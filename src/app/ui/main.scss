@@ -295,6 +295,40 @@ main {
     }
   }
 
+  .gh2e-warning {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+      color: var(--ghs-color-darkgray);
+      text-align: justify;
+    }
+
+    label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      input[type="checkbox"] {
+        color: var(--ghs-color-black);
+  
+        &::before {
+          color: var(--ghs-color-black);
+          background-color: var(--ghs-color-black);
+        }
+  
+        &:hover::before {
+          background-color: var(--ghs-color-darkgray);
+        }
+      }
+    }
+
+  }
+
   .settings-menu,
   .add-characters {
     color: var(--ghs-color-darkgray);

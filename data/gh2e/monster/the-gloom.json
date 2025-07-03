@@ -1,0 +1,76 @@
+{
+  "name": "the-gloom",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "movement": 10,
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "immobilize",
+      "stun",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "See monster stat sheet."
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "See monster stat sheet."
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx21",
+      "attack": "C+2"
+    },
+    {
+      "level": 1,
+      "health": "Cx27",
+      "attack": "C+3"
+    },
+    {
+      "level": 2,
+      "health": "Cx33",
+      "attack": "C+3"
+    },
+    {
+      "level": 3,
+      "health": "Cx37",
+      "attack": "C+4"
+    },
+    {
+      "level": 4,
+      "health": "Cx43",
+      "attack": "C+4"
+    },
+    {
+      "level": 5,
+      "health": "Cx48",
+      "attack": "C+5"
+    },
+    {
+      "level": 6,
+      "health": "Cx58",
+      "attack": "C+6"
+    },
+    {
+      "level": 7,
+      "health": "Cx70",
+      "attack": "C+7"
+    }
+  ]
+}

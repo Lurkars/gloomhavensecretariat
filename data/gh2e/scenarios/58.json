@@ -1,0 +1,37 @@
+{
+  "index": "58",
+  "name": "Palace of Ice",
+  "edition": "gh2e",
+  "monsters": [
+    "cave-bear",
+    "frost-demon",
+    "harrower-infester",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear-58",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear-58",
+          "type": "elite"
+        },
+        {
+          "name": "cave-bear-58",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

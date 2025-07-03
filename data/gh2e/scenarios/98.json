@@ -1,0 +1,35 @@
+{
+  "index": "98",
+  "name": "Metamorphic Fault",
+  "edition": "gh2e",
+  "monsters": [
+    "deep-terror",
+    "earth-demon",
+    "flame-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

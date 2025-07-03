@@ -1,0 +1,47 @@
+{
+  "index": "80",
+  "name": "Lost Temple",
+  "edition": "gh2e",
+  "monsters": [
+    "giant-viper",
+    "stone-construct",
+    "the-betrayer"
+  ],
+  "objectives": [
+    {
+      "name": "Chereth",
+      "escort": true,
+      "health": "6+2xL",
+      "initiative": 99
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "stone-construct",
+          "type": "normal"
+        },
+        {
+          "name": "stone-construct",
+          "type": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "type": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-construct",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

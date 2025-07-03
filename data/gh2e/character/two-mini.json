@@ -1,8 +1,9 @@
 {
   "name": "two-mini",
   "icon": "gh-two-mini",
+  "noThumbnail": true,
   "edition": "gh2e",
-  "color": "ffca9789",
+  "color": "#ca9789",
   "spoiler": true,
   "stats": [
     {
@@ -60,5 +61,6 @@
       "level": 9,
       "health": 3
     }
-  ]
+  ],
+  "perkWarning": true
 }

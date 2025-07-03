@@ -1,0 +1,33 @@
+{
+  "index": "99.2",
+  "edition": "gh2e",
+  "parent": "44",
+  "marker": "5",
+  "objectives": [
+    {
+      "name": "Elemental Tether D",
+      "health": "2+(CxL)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

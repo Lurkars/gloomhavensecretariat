@@ -1,0 +1,13 @@
+{
+  "index": "107.2",
+  "name": "Fading Lighthouse",
+  "edition": "gh2e",
+  "parent": "63",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "index": "101.2",
+  "name": "Slave Pens",
+  "edition": "gh2e",
+  "parent": "47",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-priest",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

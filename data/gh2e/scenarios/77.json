@@ -1,0 +1,18 @@
+{
+  "index": "77",
+  "name": "Harrower Hive",
+  "edition": "gh2e",
+  "monsters": [
+    "giant-viper",
+    "harrower-infester",
+    "living-bones",
+    "night-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

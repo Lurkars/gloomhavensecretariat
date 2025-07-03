@@ -54,6 +54,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Forgotten Circles (including Diviner Mechanics)                                 | ✅        | ✅         | ⛔        | ✅       | ✅       |
 | Jaws Of The Lion                                                                | ✅        | ✅         | ⛔        | ✅       | ✅       |
 | Frosthaven                                                                      | ✅        | ✅         | ✅        | ✅       | ⛔       |
+| Gloomhaven 2nd Edition                                                          | ❗[^3.2]  | ❗[^3.3]   | ⛔        | ⛔       | ⛔       |
 | Button & Bugs                                                                   | ✅        | ✅[^2.2]   | ⛔        | ✅[^2.2] | ⛔       |
 | The Crimson Scales                                                              | ✅[^2.1]  | ✅         | ⛔        | ✅       | ⛔       |
 | Trail Of Ashes                                                                  | ✅[^2.1]  | ✅         | ⛔        | ⛔       | ⛔       |
@@ -91,6 +92,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Apply Special Scenario Rules                                                    | ✅        | ✅❗[^16.2] | ⛔        | ✅       | ⛔       |
 | Support Frosthaven Building 81 Mechanics                                        | ✅[^1]    | ⛔         | ⛔        | ✅       | ⛔       |
 | Support Frosthaven Building 90 Mechanics                                        | ✅[^1]    | ⛔         | ⛔        | ✅       | ⛔       |
+| Support for Gloomhaven 2nd Edition Appendix F                                   | ✅[^1]    | ✅         | ⛔        | ⛔       | ⛔       |
 | Automatic Standees                                                              | ✅        | ✅         | ✅        | ✅       | ⛔       |
 | Assign Standee Numbers                                                          | ✅        | ✅         | ✅        | ✅       | ✅       |
 | Sort Standees                                                                   | ✅        | ✅         | ✅        | ✅       | ✅       |
@@ -142,6 +144,10 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 [^3]: Need to be enabled in **Data Management** Menu
 
 [^3.1]: Need to be enabled in **Data Management** Menu, afterwards added in **Battle Goals Setup**
+
+[^3.2]: Work in Progress, by now only all data/features in XHA covered, mostly all Campaign Management is missing
+
+[^3.3]: Some mechanics that are anyway used sparingly in the game may be ignored by the app
 
 [^4]: Need separate server component [*GHS* Server](https://github.com/Lurkars/*GHS*-server), public instance available
 

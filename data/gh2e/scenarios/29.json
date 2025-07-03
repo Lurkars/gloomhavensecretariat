@@ -1,0 +1,39 @@
+{
+  "index": "29",
+  "name": "Scorched Summit",
+  "edition": "gh2e",
+  "monsters": [
+    "rending-drake",
+    "spitting-drake",
+    "the-elder-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "the-elder-drake",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

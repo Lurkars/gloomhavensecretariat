@@ -6,7 +6,7 @@ import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/Set
 import { EditionData } from 'src/app/game/model/data/EditionData';
 import { RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
-import { EventEffectsDialog } from '../../figures/character/event-effects/event-effects';
+import { EventEffectsDialog } from '../../figures/event-effects/event-effects';
 import { RandomMonsterCardDialogComponent } from './dialog/random-monster-card/random-monster-card-dialog';
 import { ScenarioDialogComponent } from './dialog/scenario-dialog';
 import { SectionDialogComponent } from './section/section-dialog';

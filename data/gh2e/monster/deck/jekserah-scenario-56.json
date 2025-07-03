@@ -1,0 +1,56 @@
+{
+  "name": "jekserah-scenario-56",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Purple Glow",
+      "cardId": 0,
+      "initiative": 1,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "If odd round:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "living-bones",
+                    "type": "normal"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If even round:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

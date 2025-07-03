@@ -1,0 +1,18 @@
+{
+  "name": "living-bomb",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Nothing Really",
+      "cardId": 0,
+      "initiative": 66,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}

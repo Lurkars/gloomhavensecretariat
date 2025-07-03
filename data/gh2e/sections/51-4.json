@@ -1,0 +1,31 @@
+{
+  "index": "51.4",
+  "name": "Ritual Chamber",
+  "edition": "gh2e",
+  "parent": "11",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

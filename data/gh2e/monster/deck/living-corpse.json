@@ -1,0 +1,194 @@
+{
+  "name": "living-corpse",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Rotting Embrace",
+      "cardId": 752,
+      "initiative": 21,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If Living Corpse dies this round, all figures adjacent to the hex it occupied suffer %game.damage:1% and gain %game.condition.poison%.",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 753,
+      "initiative": 82,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "hasty Assault",
+      "cardId": 754,
+      "initiative": 47,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 755,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 756,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Reckless Charge",
+      "cardId": 757,
+      "initiative": 91,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If the move ability was performed, Living Corpse suffers damage 1.",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Release Gas",
+      "cardId": 758,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "all",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "name": "Violent Slam",
+      "cardId": 759,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If the attack ability was performed, Living Corpse suffers damage 1.",
+          "small": true
+        }
+      ]
+    }
+  ]
+}

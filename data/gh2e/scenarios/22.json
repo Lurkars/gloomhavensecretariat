@@ -1,0 +1,44 @@
+{
+  "index": "22",
+  "name": "Doomcannon Demolition",
+  "edition": "gh2e",
+  "monsters": [
+    "flame-demon",
+    "frost-demon",
+    "living-bomb",
+    "sun-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bomb",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "index": "16",
+  "name": "Diamond Mine",
+  "edition": "gh2e",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "hound",
+    "merciless-taskmaster",
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-scout",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

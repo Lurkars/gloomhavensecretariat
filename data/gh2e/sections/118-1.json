@@ -1,0 +1,30 @@
+{
+  "index": "118.1",
+  "edition": "gh2e",
+  "parent": "44",
+  "marker": "2",
+  "objectives": [
+    {
+      "name": "Elemental Tether A",
+      "health": "2+(CxL)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

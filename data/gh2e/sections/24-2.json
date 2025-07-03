@@ -1,0 +1,13 @@
+{
+  "index": "24.2",
+  "name": "Investigation",
+  "edition": "gh2e",
+  "parent": "18",
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

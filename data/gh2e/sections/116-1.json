@@ -1,0 +1,43 @@
+{
+  "index": "116.1",
+  "name": "- Alchemy Lab",
+  "edition": "gh2e",
+  "parent": "62",
+  "marker": "2",
+  "objectives": [
+    {
+      "name": "Rubble 5",
+      "health": "C+L"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

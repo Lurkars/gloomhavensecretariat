@@ -1,0 +1,173 @@
+{
+  "name": "cave-bear",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Hasty Assault",
+      "cardId": 834,
+      "initiative": 13,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "name": "Low Slash",
+      "cardId": 835,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Full Force",
+      "cardId": 836,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 837,
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 838,
+      "initiative": 60,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Rampage",
+      "cardId": 839,
+      "initiative": 80,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Claw Swipes",
+      "cardId": 840,
+      "initiative": 61,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hibernate",
+      "cardId": 841,
+      "initiative": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "safeguard",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "name": "the-elder-drake",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "movement": 0,
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "immobilize",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ],
+      [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,active)|(0,1,active)|(1,0,active)|(1,1,target)|(1,2,target)|(1,3,target)|(2,0,target)|(2,1,target)|(2,2,target)|(3,0,target)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx26",
+      "attack": "C+1"
+    },
+    {
+      "level": 1,
+      "health": "Cx31",
+      "attack": "C+2"
+    },
+    {
+      "level": 2,
+      "health": "Cx37",
+      "attack": "C+2"
+    },
+    {
+      "level": 3,
+      "health": "Cx41",
+      "attack": "C+3"
+    },
+    {
+      "level": 4,
+      "health": "Cx47",
+      "attack": "C+3"
+    },
+    {
+      "level": 5,
+      "health": "Cx52",
+      "attack": "C+4"
+    },
+    {
+      "level": 6,
+      "health": "Cx62",
+      "attack": "C+4"
+    },
+    {
+      "level": 7,
+      "health": "Cx75",
+      "attack": "C+5"
+    }
+  ]
+}

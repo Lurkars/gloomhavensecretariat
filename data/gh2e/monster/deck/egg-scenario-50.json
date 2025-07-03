@@ -1,0 +1,30 @@
+{
+  "name": "egg-scenario-50",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Hatch",
+      "cardId": 0,
+      "initiative": 99,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If health increased beyond max: Destroy Egg and spawn one Normal Night Demon in same hex.",
+          "small": true
+        }
+      ]
+    }
+  ]
+}

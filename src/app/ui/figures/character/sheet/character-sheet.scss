@@ -899,6 +899,27 @@
 
   }
 
+  &.gh2e-sheet {
+    .container {
+      background-image: url('~src/assets/images/gh2e/character/character-sheet.svg');
+    }
+
+    .columns .column.column-right .battlegoals {
+      position: relative;
+      top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
+
+      .battlegoals-grid {
+        margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      }
+    }
+
+    .notes {
+      position: relative;
+      margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 30 * var(--ghs-dialog-factor));
+    }
+  }
+
   &.compact {
 
     .container {

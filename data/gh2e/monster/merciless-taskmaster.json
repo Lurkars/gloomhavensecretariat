@@ -1,0 +1,92 @@
+{
+  "name": "merciless-taskmaster",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "poison",
+      "disarm",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Vermling Scouts perform:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "1",
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Remove L+2 damage from the Shackles."
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Advance the round tracker one round and spawn monsters if necessary."
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx21",
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": "Cx25",
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "health": "Cx28",
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 3,
+      "health": "Cx31",
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "level": 4,
+      "health": "Cx34",
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 5,
+      "health": "Cx36",
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 6,
+      "health": "Cx43",
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 7,
+      "health": "Cx49",
+      "movement": 4,
+      "attack": 6
+    }
+  ]
+}

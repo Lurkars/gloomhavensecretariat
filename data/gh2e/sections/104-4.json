@@ -1,0 +1,31 @@
+{
+  "index": "104.4",
+  "edition": "gh2e",
+  "parent": "51",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        },
+        {
+          "name": "the-sightless-eye",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

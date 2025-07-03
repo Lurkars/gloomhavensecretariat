@@ -1,0 +1,33 @@
+{
+  "index": "48.4",
+  "edition": "gh2e",
+  "parent": "44",
+  "marker": "3",
+  "objectives": [
+    {
+      "name": "Elemental Tether B",
+      "health": "2+(CxL)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "index": "20",
+  "name": "Gloomhaven Warehouse",
+  "edition": "gh2e",
+  "monsters": [
+    "crystal-rot",
+    "inox-bodyguard",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

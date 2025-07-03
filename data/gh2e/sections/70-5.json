@@ -1,0 +1,23 @@
+{
+  "index": "70.5",
+  "name": "Clockwork Factory",
+  "edition": "gh2e",
+  "parent": "71",
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

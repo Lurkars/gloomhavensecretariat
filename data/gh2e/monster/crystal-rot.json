@@ -1,0 +1,147 @@
+{
+  "name": "crystal-rot",
+  "edition": "gh2e",
+  "deck": "crystal-rot",
+  "count": 4,
+  "baseStat": {
+    "type": "normal",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "^^Living Bones"
+      },
+      {
+        "type": "custom",
+        "value": "^^Living Corpses"
+      },
+      {
+        "type": "custom",
+        "value": "^^and Living Spirits"
+      },
+      {
+        "type": "range",
+        "value": "^^within3gain"
+      },
+      {
+        "type": "custom",
+        "value": "^^advantage on"
+      },
+      {
+        "type": "custom",
+        "value": "^^all their"
+      },
+      {
+        "type": "custom",
+        "value": "^^attacks"
+      }
+    ],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 5,
+      "movement": 2,
+      "attack": 1
+    },
+    {
+      "level": 1,
+      "health": 6,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 2,
+      "health": 7,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 3,
+      "health": 10,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 4,
+      "health": 11,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 5,
+      "health": 13,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 6,
+      "health": 18,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 7,
+      "health": 21,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 8,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 9,
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 11,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 16,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 18,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 21,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 29,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 33,
+      "movement": 3,
+      "attack": 5
+    }
+  ]
+}

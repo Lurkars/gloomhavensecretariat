@@ -1,0 +1,27 @@
+{
+  "index": "38",
+  "name": "Drake Nest",
+  "edition": "gh2e",
+  "monsters": [
+    "flame-demon",
+    "rending-drake",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

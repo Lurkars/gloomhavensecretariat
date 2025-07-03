@@ -1,0 +1,36 @@
+{
+  "index": "8",
+  "name": "Barrow Lair",
+  "edition": "gh2e",
+  "monsters": [
+    "bandit-archer",
+    "bandit-commander",
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "index": "50",
+  "name": "Nightmare Peak",
+  "edition": "gh2e",
+  "monsters": [
+    "city-guard",
+    "flame-demon",
+    "frost-demon",
+    "living-bones",
+    "night-demon",
+    "savvas-icestorm",
+    "the-winged-horror",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Door 1 (push 1)",
+      "health": "100",
+      "initiative": 73
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-icestorm",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

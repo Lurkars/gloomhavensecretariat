@@ -1,0 +1,62 @@
+{
+  "index": "49",
+  "name": "Tribal Assault",
+  "edition": "gh2e",
+  "monsters": [
+    "hound",
+    "inox-archer",
+    "inox-guard",
+    "inox-priest"
+  ],
+  "objectives": [
+    {
+      "name": "Redthorn",
+      "escort": true,
+      "health": "6+(3xL)",
+      "initiative": 40
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

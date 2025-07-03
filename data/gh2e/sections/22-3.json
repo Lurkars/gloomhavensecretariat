@@ -1,0 +1,41 @@
+{
+  "index": "22.3",
+  "name": "- Barrow Lair",
+  "edition": "gh2e",
+  "parent": "8",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-commander",
+          "type": "boss"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

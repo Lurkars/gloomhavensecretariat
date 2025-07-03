@@ -1,0 +1,158 @@
+{
+  "name": "jekserah-scenario-23",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Accelerated Power",
+      "cardId": 874,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Spawn one Living Bones. It is Normal for 2 characters, Elite every second spawn for 3 and Elite for 4 characters.",
+          "small": true
+        },
+        {
+          "type": "special",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Accelerated Power",
+      "cardId": 875,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Spawn one Living Bones. It is Normal for 2 characters, Elite every second spawn for 3 and Elite for 4 characters.",
+          "small": true
+        },
+        {
+          "type": "special",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Accelerated Power",
+      "cardId": 876,
+      "initiative": 17,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Spawn one Living Bones. It is Normal for 2 characters, Elite every second spawn for 3 and Elite for 4 characters.",
+          "small": true
+        },
+        {
+          "type": "special",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Lingering Strength",
+      "cardId": 877,
+      "initiative": 85,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Spawn one Living Corpse. It is Normal for 2 characters, Elite every second spawn for 3 and Elite for 4 characters.",
+          "small": true
+        },
+        {
+          "type": "special",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "Lingering Strength",
+      "cardId": 878,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Spawn one Living Corpse. It is Normal for 2 characters, Elite every second spawn for 3 and Elite for 4 characters.",
+          "small": true
+        },
+        {
+          "type": "special",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "Lingering Strength",
+      "cardId": 879,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Spawn one Living Corpse. It is Normal for 2 characters, Elite every second spawn for 3 and Elite for 4 characters.",
+          "small": true
+        },
+        {
+          "type": "special",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 880,
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Spawn one Living Bones. It is Normal for 2 characters, Elite every second spawn for 3 and Elite for 4 characters.",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Twin Shots",
+      "cardId": 881,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Spawn one Living Corpse. It is Normal for 2 characters, Elite every second spawn for 3 and Elite for 4 characters.",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -75,6 +75,14 @@
           </span>
         </div>
       </div>
+      <div *ngIf="gameManager.game.edition == 'gh2e'" class="gh2e-warning">
+        <p [ghs-label]="'data.edition.gh2e-wip'"></p>
+        <label>
+          <input tabclick type="checkbox" [checked]="gameManager.game.party.campaignMode"
+            (change)="toggleCampaignMode()">
+          <span [ghs-label]="'party.campaignMode'"></span>
+        </label>
+      </div>
     </div>
 
     <div class="container-row bordered">

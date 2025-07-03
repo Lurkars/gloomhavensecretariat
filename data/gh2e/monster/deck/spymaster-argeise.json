@@ -1,0 +1,33 @@
+{
+  "name": "spymaster-argeise",
+  "edition": "gh2e",
+  "abilities": [
+    {
+      "name": "Fire Grenade",
+      "cardId": 0,
+      "initiative": 1,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

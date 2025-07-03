@@ -1,0 +1,30 @@
+{
+  "index": "45.5",
+  "edition": "gh2e",
+  "parent": "56",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "first-shield-harmon-scenario-56"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "initial": true,
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "first-shield-harmon-scenario-56",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

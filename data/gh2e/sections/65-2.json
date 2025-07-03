@@ -1,0 +1,31 @@
+{
+  "index": "65.2",
+  "name": "Savvas Armory",
+  "edition": "gh2e",
+  "parent": "32",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "initial": true,
+      "monster": [
+        {
+          "name": "savvas-icestorm",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-icestorm",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

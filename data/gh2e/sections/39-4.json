@@ -1,0 +1,13 @@
+{
+  "index": "39.4",
+  "name": "The Gloom",
+  "edition": "gh2e",
+  "parent": "56",
+  "rooms": [
+    {
+      "roomNumber": 7,
+      "initial": true,
+      "monster": []
+    }
+  ]
+}

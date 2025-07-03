@@ -1,0 +1,117 @@
+{
+  "name": "bandit-commander",
+  "edition": "gh2e",
+  "deck": "boss",
+  "boss": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "stun",
+      "immobilize",
+      "disarm"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Move as far from focus as possible while still within %game.action.range% 3 of them",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx13",
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "Cx17",
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "health": "Cx19",
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 3,
+      "health": "Cx21",
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 4,
+      "health": "Cx25",
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 5,
+      "health": "Cx28",
+      "movement": 5,
+      "attack": 4
+    },
+    {
+      "level": 6,
+      "health": "Cx33",
+      "movement": 5,
+      "attack": 5
+    },
+    {
+      "level": 7,
+      "health": "Cx40",
+      "movement": 6,
+      "attack": 6
+    }
+  ]
+}
