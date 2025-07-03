@@ -34,7 +34,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Character Scenario XP                                                           | ✅        | ✅         | ✅        | ✅       | ✅       |
 | Character Scenario Gold                                                         | ✅        | ⛔         | ✅        | ✅       | ✅       |
 | Character Progress (XP, Gold/Resources, Items, Perks etc.)                      | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
-| Character Ability Cards                                                         | ⛔        | ⛔         | ⛔        | ✅       | ⛔       |
+| Character Ability Cards                                                         | ❗[^1.4]  | ⛔         | ⛔        | ✅       | ⛔       |
 | Campaign Progress                                                               | ✅        | ⛔         | ✅❗       | ✅       | ⛔       |
 | Event-Decks                                                                     | ⛔        | ⛔         | ⛔        | ✅       | ⛔       |
 | Battle Goal Deck                                                                | ✅[^1]    | ⛔         | ⛔        | ✅       | ⛔       |
@@ -84,7 +84,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Automaitc apply Conditions  (like wound, regenarate etc.)                       | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
 | Automatic ask for applying Conditions  (like poison, ward etc.)                 | ✅        | ⛔         | ⛔        | ⛔       | ⛔       |
 | Track Character Shield/Retaliate                                                | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
-| Character Ability Cards Enhancements                                            | ⛔        | ⛔         | ⛔        | ✅       | ⛔       |
+| Character Ability Cards Enhancements                                            | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
 | Character Items (manage item states)                                            | ✅        | ⛔         | ⛔        | ⛔       | ⛔       |
 | Loot Deck Enhancements                                                          | ✅        | ✅         | ⛔        | ✅       | ⛔       |
 | Assign Loot Cards to Character                                                  | ✅        | ✅         | ⛔        | ✅       | ⛔       |
@@ -136,6 +136,8 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 [^1.2]: Only support monster cards, dungeon cards must be drawn manually
 
 [^1.3]: Manually save/load states for multiple parties
+
+[^1.4]: All titles and initiatives implemented but most ability data still missing
 
 [^2.1]: Some special rules data not complete, but fully playable
 
