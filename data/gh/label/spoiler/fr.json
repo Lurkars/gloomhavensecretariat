@@ -12,6 +12,41 @@
     "triangles": "Élémentaliste",
     "two-mini": "Maître des Bêtes"
   },
+  "custom": {
+    "gh": {
+      "sun": {
+        "abilities": {
+          "175": {
+            "1": "Pour les cinq prochaines attaques de mêlée vous ciblant, gagnez %game.action.retaliate:2%"
+          },
+          "177": {
+            "1": "Un allié adjacent peut Récupérer %game.card.recover% une des ses cartes perdues."
+          },
+          "178": {
+            "1": "Un allié adjacent peut Récupérer %game.card.recover% jusqu'à deux de ses cartes défaussées.",
+            "2": "jusqu'à trois cartes défaussées à la place, %game.card.experience:1%.",
+            "3": "Un allié adjacent peut effectuer"
+          },
+          "179": {
+            "1": "Vous et tous vos alliés adjacents ne subissez aucun dégât ce round."
+          },
+          "181": {
+            "1": "Un allié à %game.action.range:3% peut effectuer"
+          },
+          "184": {
+            "1": "Retirez -1 %game.action.move% à tous vos déplacements."
+          },
+          "185": {
+            "1": "Soignez tous les dégâts sur un allié adjacent.",
+            "2": "Subissez %game.damage:3%."
+          },
+          "187": {
+            "1": "À la fin de vos cinq prochains tours lors desquels %game.element.light% n'est pas Fort, générez %game.element.light%"
+          }
+        }
+      }
+    }
+  },
   "events": {
     "gh": {
       "city": {
@@ -47,6 +82,10 @@
     "gh-107": {
       "": "Casque à Cornes",
       "1": "Une fois par tour, après vous être déplacé d'au moins 4 hexagones pendant votre tour, ajoutez +1 %game.action.attack% à votre prochaine attaque de mêlée ce tour-ci."
+    },
+    "gh-108": {
+      "": "Heaume Écailles de Wyverne",
+      "1": "Quand vous subissez %game.condition.muddle%, gagnez %game.condition.strengthen% à la place."
     },
     "gh-11": {
       "": "Dague Empoisonnée",
@@ -105,6 +144,34 @@
     "gh-21": {
       "": "Poudre Étourdissante",
       "1": "Pendant votre attaque, ajoutez %game.condition.stun% à une seule attaque."
+    },
+    "gh-22": {
+      "": "Jambières Lourdes",
+      "1": "Vous êtes immunisé à tout déplacement forcé par des adversaires ou des mécanismes de scénario."
+    },
+    "gh-23": {
+      "": "Cotte de Maille",
+      "1": "Pour les trois prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield% 1."
+    },
+    "gh-24": {
+      "": "Amulette de Vie",
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 1, Sur vous-même\"."
+    },
+    "gh-25": {
+      "": "Épée Dentelée",
+      "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.wound% à une seule attaque."
+    },
+    "gh-26": {
+      "": "Pique",
+      "1": "Pendant votre action d'attaque de mêlée sur une seule cible, transformez cette attaque en :"
+    },
+    "gh-27": {
+      "": "Potion Soin Majeur",
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 5, Sur vous-même\"."
+    },
+    "gh-28": {
+      "": "Boucle d'Oreille Lunaire",
+      "1": "Pendant votre tour, Rafraîchissez %game.card.refresh% tous vos objets dépensés."
     },
     "gh-3": {
       "": "Armure de Peaux",
