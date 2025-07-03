@@ -87,30 +87,10 @@
         "baseCosts": "基础费用",
         "costs": "总计",
         "disabled": {
-          "enhancements": "",
           "gold": "没有足够的金币 ({0}/{1}) 用于强化!"
         },
-        "enhancements": "",
-        "enhancerLevel": "",
-        "hint": {
-          "enhance": {
-            "": "",
-            "wipSpecial": ""
-          },
-          "enhanced": ""
-        },
-        "level": "",
-        "lost": "",
-        "multiTarget": "",
-        "persistent": "",
-        "temporary": "",
         "types": {
-          "any": "",
-          "circle": "",
-          "diamond": "",
-          "diamond_plus": "",
-          "hex": "",
-          "square": ""
+          "square": "方"
         }
       },
       "forceDeck": "双击将卡牌添加到牌堆中",
@@ -256,16 +236,6 @@
     },
     "setAside": "将角色闲置",
     "summon": {
-      "action": {
-        "": "",
-        "count": {
-          "": "",
-          "fly": ""
-        },
-        "fly": {
-          "": ""
-        }
-      },
       "level": "(Level {0})"
     },
     "token": "角色指示物",
@@ -396,20 +366,10 @@
     "action": {
       "add": "添加行动",
       "addBottom": "添加底部行动",
-      "addEnhancement": "",
       "addSubAction": "添加子行动",
-      "enhancements": "",
       "remove": "移除行动",
-      "removeEnhancement": "",
       "removeSubAction": "移除子行动",
       "small": "更小",
-      "subActions": "",
-      "summon": {
-        "type": {
-          "monster": "",
-          "summon": ""
-        }
-      },
       "type": "行动类型",
       "value": "行动数值",
       "valueType": {
@@ -512,21 +472,17 @@
       "area": "区域效果",
       "attack": "攻击",
       "box": "[Box]",
-      "boxFhSubActions": "",
       "card": "卡牌",
       "concatenation": "[Concatenation]",
-      "concatenationSpacer": "",
       "condition": "状态",
       "custom": "自定义",
       "damage": "伤害",
       "element": "元素",
       "elementHalf": "元素衰退",
       "fly": "飞行",
-      "forceBox": "",
       "grant": "赋予",
       "grid": "[Grid]",
       "heal": "治疗",
-      "hint": "",
       "jump": "跳跃",
       "loot": "拾取",
       "monsterType": "怪物类型",
@@ -749,10 +705,6 @@
       "rupture": {
         "": "断裂",
         "hint": "%game.conditionIcon.rupture% 断裂： 每当移动时承受 %game.damage:1%。当被治疗时移除。"
-      },
-      "safeguard": {
-        "": "",
-        "hint": ""
       },
       "strengthen": {
         "": "强壮",
@@ -1070,17 +1022,17 @@
     "maxHealth": "最大生命值",
     "solo": "Solo",
     "specialTarget": {
-      "all": "",
+      "all": "%game.target% 所有",
       "allies": "%game.target% 的所有盟友",
       "alliesAdjacent": "%game.target% 的所有相邻盟友",
       "alliesAdjacentAffect": "%game.affect% 的所有相邻盟友",
-      "alliesAffect": "",
+      "alliesAffect": "%game.affect% 所有盟友",
       "alliesRange": "%game.target% %game.action.range% {0} 格范围内的所有盟友",
       "alliesRangeAffect": "%game.affect% %game.action.range% {0} 格范围内的所有盟友",
       "ally": "%game.target% 的 1 名盟友",
       "allyAdjacent": "%game.target% 1 名相邻盟友",
       "allyAffect": "%game.affect% 的任意盟友",
-      "allyAffectAdjacent": "",
+      "allyAffectAdjacent": "%game.affect% 一个相邻的盟友",
       "allyAffectRange": "%game.affect% %game.action.range% {0} 格范围内的 1 名盟友",
       "allyShort": "盟友",
       "enemies": "%game.target% 的所有敌人",
@@ -1093,7 +1045,7 @@
       "enemiesRangeExact": "正好在%game.action.range% {0}范围的%game.target% 所有敌人",
       "enemy": "%game.target% 1名敌人",
       "enemyAdjacent": "%game.target% 1名相邻敌人",
-      "enemyAllyRange": "",
+      "enemyAllyRange": "%game.action.range% {0}内的%game.target% 一个敌人或%game.affect%一个盟友",
       "enemyOneAll": "所有攻击%game.target% 1名敌人",
       "enemyRange": "%game.target% 1名正好在 %game.action.range% {0}范围的敌人",
       "figures": "%game.target% 所有个体",
@@ -1104,7 +1056,7 @@
       "selfAllies": "自身以及所有盟友",
       "selfAlliesAdjacentAffect": "%game.affect%作用于自身和所有相邻盟友",
       "selfAlliesAffect": "%game.affect% 自身以及所有盟友",
-      "selfAlliesAffectRange": "",
+      "selfAlliesAffectRange": "作用于自身和%game.action.range% {0}内的所有盟友",
       "selfAlliesRange": "%game.target% 自身以及在%game.action.range% {0}范围内的所有盟友",
       "selfOrAlly": "自身或盟友",
       "targets": "所有目标"
@@ -1482,41 +1434,6 @@
         "back": "返回战役模式",
         "force": "双击以显示完整流程图（含剧透内容）。"
       },
-      "legend": {
-        "": "",
-        "blocked": {
-          "": "",
-          "hint": ""
-        },
-        "locked": {
-          "": "",
-          "hint": ""
-        },
-        "not-campaign": {
-          "": "",
-          "hint": ""
-        },
-        "not-unlocked": {
-          "": "",
-          "hint": ""
-        },
-        "success": {
-          "": "",
-          "hint": ""
-        },
-        "success-blocked": {
-          "": "",
-          "hint": ""
-        },
-        "success-locked": {
-          "": "",
-          "hint": ""
-        },
-        "unplayed": {
-          "": "",
-          "hint": ""
-        }
-      },
       "setup": "显示场景设置",
       "start": "开始场景",
       "success": "标记为已完成",
@@ -1541,7 +1458,7 @@
         "scenario": "{1} %data.scenarioNumber:{0}%",
         "section": "打开 %data.section:{0}%，解锁 {2}"
       },
-      "hint": "应用至所有选定角色",
+      "hint": "应用至所有选定个体",
       "progress": "影响角色成长进度"
     },
     "favors": {
@@ -1574,22 +1491,6 @@
     "openRoomMarker": "打开 %game.mapMarker.{1}% 的门",
     "openRoomMarkerRef": "打开 %game.mapMarker.{1}% 的门放置板块 '{0}'",
     "openRoomRef": "开门放置板块 '{0}'",
-    "random": {
-      "": "",
-      "treasure": {
-        "createTwoElements": "",
-        "cureConditions": "",
-        "enemiesCondition": "",
-        "enemiesDamage": "",
-        "gold": "",
-        "heal": "",
-        "lootCards": "",
-        "recoverCards": "",
-        "recoverLost": "",
-        "refreshItem": "",
-        "resource": ""
-      }
-    },
     "requirements": {
       "": "场景条件",
       "all": "显示所有条件（包括已满足的）",
@@ -1689,7 +1590,7 @@
         "winter-road": "从冬季道路牌库移除事件{0}"
       },
       "removeLootDeckCard": "从游戏中移除拾取卡{0}。不再添加它到任何剧本的拾取牌库中。",
-      "repeatScenario": "",
+      "repeatScenario": "场景可以游玩！",
       "reputation": "{0}声望",
       "resources": "每人获得{1} %game.resource.{0}%",
       "resourcesLose": "每人失去{1} %game.resource.{0}% each",
@@ -2055,10 +1956,6 @@
       "": "始终使用霜港迷城优势/劣势攻击的规则",
       "hint": "始终应用霜港迷城中优势攻击或劣势攻击时抽取攻击修正卡牌的规则 (当游玩霜港迷城时此功能将自动启用)"
     },
-    "alwaysFhEnhancements": {
-      "": "",
-      "hint": ""
-    },
     "alwaysFhSolo": {
       "": "始终启用霜港迷城单人游玩规则",
       "hint": "始终应用霜港迷城中单人模式等级计算的规则 (当游玩霜港迷城时此功能将自动启用)"
@@ -2097,9 +1994,8 @@
         "": "相应的状态在回合前后自动生效,例如当个体有负伤状态时,它将在其回合开始时损失1点生命值",
         "bane": "在回合结束时自动生效 %game.condition.bane% 伤害.",
         "regenerate": "在回合开始时自动生效 %game.condition.regenerate%.",
-        "safeguard": "",
-        "wound": "在回合结束时自动生效 %game.condition.wound% 伤害.",
-        "wound_x": "在回合结束时自动生效 %game.condition.wound_x:X% 伤害."
+        "wound": "在回合开始时自动生效 %game.condition.wound% 伤害.",
+        "wound_x": "在回合开始时自动生效 %game.condition.wound_x:X% 伤害."
       }
     },
     "applyLongRest": {
@@ -2125,10 +2021,6 @@
     "automaticAttackModifierFullscreen": {
       "": "攻击修正牌堆自动全屏",
       "hint": "当使用小型设备操作时,以全屏模式打开攻击修正牌堆(同样适用于拾取牌堆)."
-    },
-    "automaticFirstFigure": {
-      "": "",
-      "hint": ""
     },
     "automaticGameClock": {
       "": "自动游戏时钟",
@@ -2214,8 +2106,8 @@
       "hint": "能力数值是经过计算之后得出的数据,因此当基础属性中的攻击值为3时,显示的不是攻击+1,而是攻击4"
     },
     "calculateAdvantageStats": {
-      "": "",
-      "hint": ""
+      "": "能力获得优势",
+      "hint": "为能力卡上的%game.action.attack%施加%game.custom.advantage%。"
     },
     "calculateShieldStats": {
       "": "添加护盾及反击至能力中",
@@ -2245,10 +2137,6 @@
     "characterCompact": {
       "": "紧凑型角色面板",
       "hint": "显示较狭窄的角色面板.(目前在现代主题中不支持该功能)"
-    },
-    "characterFullView": {
-      "": "",
-      "hint": ""
     },
     "characterHandSize": {
       "": "显示手牌上限及等级",
@@ -2482,7 +2370,6 @@
       },
       "it": "意大利语（Italiano）",
       "ko": "韩语 (한국어)",
-      "ru": "",
       "zh_Hans": "简体中文",
       "zh_Hant": "繁体中文 (繁體中文)"
     },
@@ -2608,8 +2495,7 @@
     },
     "synced": "这些设置与服务器同步!",
     "temporaryEnhancements": {
-      "": "",
-      "hint": ""
+      "": "临时附魔"
     },
     "theme": {
       "": "主题",
@@ -2848,17 +2734,6 @@
       "characterReplay": "玩家{1} 再次游玩 {0}",
       "characterSetAside": "为玩家 {1} 将 {0} 闲置",
       "clearDiscardedScenarioRules": "清除已作废的剧本规则",
-      "command": {
-        "character": {
-          "initiative": ""
-        },
-        "round": {
-          "state": {
-            "draw": "",
-            "next": ""
-          }
-        }
-      },
       "craftItem": "为 {0} 制作物品 {1} (%data.edition.{2}%)",
       "declineApplyCondition": {
         "char": "拒绝将 %game.condition.{1}% 应用至 {0}",
@@ -2989,10 +2864,6 @@
         "summon": "从 {0} 的'{1}' 中移除 {3}x %game.condition.{2}%",
         "summons": "从所有 {0} 召唤物中移除 {2}x %game.condition.{1}%"
       },
-      "removeEntityMarker": {
-        "monster": "",
-        "objectiveContainer": ""
-      },
       "removeEntityRetaliate": {
         "char": "为 {0} 移除 %game.action.retaliate%",
         "monster": "为 {0} 的 '{1}' 移除 %game.action.retaliate%",
@@ -3119,7 +2990,6 @@
       "setInitiative": "为 {0} 设置时序值 {1}",
       "setLevel": "将 {0} 设置为等级 {1}",
       "setNotes": "为 {0} 记录 \"{1}\"",
-      "setObjectiveEntityMarker": "",
       "setObjectiveExhausted": "目标点 {0} 被摧毁",
       "setObjectiveInitiative": "为目标点 {0} 设置时序值 {1}",
       "setPQ": "为 {0} 设置个人使命 {1}",
@@ -3347,7 +3217,6 @@
       "toggleAbsent": "切换 <i>Hide absent figures</i>",
       "toggleDamageHP": "切换 <i>%settings.damageHP%</i>",
       "toggleElements": "切换元素状态",
-      "toggleFullscreen": "",
       "toggleHandSize": "切换 <i>Display hand size and level</i>",
       "togglePlayerNumber": "切换 <i>Display player number</i>",
       "toggleTraits": "切换 <i>Display traits</i>",

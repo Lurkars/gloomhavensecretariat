@@ -1564,6 +1564,11 @@
       "reset": "Reset",
       "success": "Success"
     },
+    "gh2eImbuement": {
+      "": "Appendix F: Monster Imbuement",
+      "advancedImbuement": "Advanced Imbuement",
+      "imbuement": "Imbuement"
+    },
     "level": "Lvl {0}",
     "locked": "Missing Requirements",
     "manual": {
@@ -2374,7 +2379,7 @@
     },
     "fhRules": "Frosthaven Rules",
     "fhSecondEdition": {
-      "": "2nd Edition",
+      "": "2nd Printing",
       "hint": "Some changes between first and second printing of Frosthaven cannot be set automatically. So please check this if you are using second printing of Frosthaven."
     },
     "fhStyle": {
@@ -2420,6 +2425,11 @@
     "ge5Player": {
       "": "≥ 5 player rules"
     },
+    "gh2eImbuement": {
+      "": "Enable Monster Imbuements",
+      "hint": "Enable option to add Monster Imbuement (Appendix F) in the Event Effect menu."
+    },
+    "gh2eRules": "Gloomhaven 2nd Edition",
     "helperDefaults": {
       "": "Apply default Helper settings"
     },

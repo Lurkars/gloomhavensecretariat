@@ -750,10 +750,6 @@
         "": "Bruch",
         "hint": "%game.conditionIcon.rupture% Bruch: Bei jeder Bewegung, erleide %game.damage:1%. Bei Heilung entfernen."
       },
-      "safeguard": {
-        "": "",
-        "hint": ""
-      },
       "strengthen": {
         "": "Stärkung",
         "hint": "%game.conditionIcon.strengthen% Stärkung: Vorteil für alle Angriffe. Entferne am Ende des nächsten Zugs."
@@ -2097,7 +2093,6 @@
         "": "Entsprechende Zustände werden automatisch vor und nach einem Zug angewendet, bei Wunde z.B. wird zu Beginn des Zuges automatisch 1 TP abgezogen",
         "bane": "Am Ende des Zuges automatisch %game.condition.bane% Schaden hinzufügen.",
         "regenerate": "Am Anfang des Zuges automatisch %game.condition.regenerate% anwenden.",
-        "safeguard": "",
         "wound": "Am Anfang des Zuges automatisch %game.condition.wound% Schaden hinzufügen.",
         "wound_x": "Am Anfang des Zuges automatisch %game.condition.wound_x:X% Schaden hinzufügen."
       }
@@ -2374,7 +2369,7 @@
     },
     "fhRules": "Frosthaven Regeln",
     "fhSecondEdition": {
-      "": "2te Edition",
+      "": "2te Auflage",
       "hint": "Einige Änderungen zwischen der ersten und zweiten Auflage von Frosthaven können nicht automatisch angewandt werden. Bitte diese Option auswählen, wenn die zweite Auflage von Frosthaven verwendet wird."
     },
     "fhStyle": {
