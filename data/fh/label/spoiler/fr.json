@@ -1220,11 +1220,6 @@
       "1": "Pendant votre tour, effectuez : %game.action.heal% 6 sur vous-même"
     }
   },
-  "pets": {
-    "fh-01": {
-      "": ""
-    }
-  },
   "summon": {
     "banner-of-courage": "Bannière du Courage",
     "banner-of-hope": "Bannière d'Espoir",

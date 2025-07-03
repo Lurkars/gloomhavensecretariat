@@ -1,10 +1,5 @@
 {
   "custom": {
-    "fh": {
-      "errata": {
-        "solo28": ""
-      }
-    },
     "gh": {
       "city-guard-saw-solo": {
         "1": "매 라운드 종료 시, 완전히 치료되지 않은 모든 도시 경비병이%game.damage:1%점을 입습니다"

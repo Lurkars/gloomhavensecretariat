@@ -403,7 +403,6 @@
       "removeEnhancement": "향상 슬롯 삭제",
       "removeSubAction": "부속 행동 제거하기",
       "small": "작게 표현하기",
-      "subActions": "",
       "summon": {
         "type": {
           "monster": "몬스터",
@@ -512,21 +511,17 @@
       "area": "범위 효과",
       "attack": "공격",
       "box": "[상자]",
-      "boxFhSubActions": "",
       "card": "카드",
       "concatenation": "[연쇄]",
-      "concatenationSpacer": "",
       "condition": "상태",
       "custom": "커스텀",
       "damage": "피해",
       "element": "원소",
       "elementHalf": "원소 절반",
       "fly": "비행",
-      "forceBox": "",
       "grant": "승인",
       "grid": "[범위]",
       "heal": "치료",
-      "hint": "",
       "jump": "도약",
       "loot": "노획",
       "monsterType": "몬스터 유형",
@@ -651,8 +646,7 @@
       "drawDisadvantage": "불이익 효과 적용하여 뽑기",
       "drawExtra": "추가로 뽑기",
       "edit": {
-        "": "편집",
-        "toggleBB": ""
+        "": "편집"
       },
       "fullscreen": "최대 창 화면으로 보기",
       "openDialog": "모든 카드 보기",
@@ -749,10 +743,6 @@
       "rupture": {
         "": "파열",
         "hint": "%game.conditionIcon.rupture% 파열: 이동 시%game.damage:1%점을 입는다. 치료를 받으면 제거."
-      },
-      "safeguard": {
-        "": "",
-        "hint": ""
       },
       "strengthen": {
         "": "강화",
@@ -1179,15 +1169,6 @@
     "statEffect": {
       "": "다음 변경점에 대한 특별 규칙 적용:",
       "deck": "수정된 능력 사용:<br>\"{0}\""
-    },
-    "toggleAction": "",
-    "toggleAllied": {
-      "off": "",
-      "on": ""
-    },
-    "toggleAlly": {
-      "off": "",
-      "on": ""
     }
   },
   "number": {
@@ -1306,8 +1287,6 @@
             "defense": "+{0} 방어",
             "items": "제작 가능 아이템에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 추가",
             "loseMorale": "사기 -{0}점",
-            "plot": "",
-            "plots": "",
             "prosperity": "번영도 +{0}점",
             "section": "%data.section:{0}%",
             "soldiers": "+{0} 병사"
@@ -1318,7 +1297,6 @@
           },
           "state": {
             "damaged": "피해",
-            "normal": "",
             "wrecked": "박살남"
           },
           "unlock": "건물 해금",
@@ -1342,8 +1320,6 @@
         "summer": "여름",
         "supply": {
           "": "프로스트헤이븐 창고",
-          "apply": "",
-          "edit": "",
           "total": "총합"
         },
         "totalDefense": "총 방어",
@@ -1382,14 +1358,6 @@
       "hint": "시나리오 중에는 새 파티 생성이 비활성화됩니다. 새 파티를 생성하려면 현재 시나리오를 완료하거나 취소하세요."
     },
     "notes": "메모",
-    "prosperity": {
-      "": "",
-      "reset": "",
-      "wrap": {
-        "expand": "",
-        "shrink": ""
-      }
-    },
     "remove": "파티 제거하기",
     "reputation": "평판",
     "sheet": "파티 기록지",
@@ -1477,46 +1445,6 @@
     "cancel": "시나리오 취소",
     "chart": {
       "": "시나리오 흐름도",
-      "campaign": {
-        "": "",
-        "back": "",
-        "force": ""
-      },
-      "legend": {
-        "": "",
-        "blocked": {
-          "": "",
-          "hint": ""
-        },
-        "locked": {
-          "": "",
-          "hint": ""
-        },
-        "not-campaign": {
-          "": "",
-          "hint": ""
-        },
-        "not-unlocked": {
-          "": "",
-          "hint": ""
-        },
-        "success": {
-          "": "",
-          "hint": ""
-        },
-        "success-blocked": {
-          "": "",
-          "hint": ""
-        },
-        "success-locked": {
-          "": "",
-          "hint": ""
-        },
-        "unplayed": {
-          "": "",
-          "hint": ""
-        }
-      },
       "setup": "시나리오 초기 세팅 보기",
       "start": "시나리오 시작",
       "success": "완료로 표시",
@@ -1546,12 +1474,7 @@
     },
     "favors": {
       "": "부록 F: 은총",
-      "apply": "",
-      "keep": "모든 시나리오에 항상 적용",
-      "label": {
-        "": "",
-        "multiple": ""
-      }
+      "keep": "모든 시나리오에 항상 적용"
     },
     "filter": {
       "": "시나리오 검색",
@@ -1575,19 +1498,14 @@
     "openRoomMarkerRef": "%game.mapMarker.{1}% 위치의 '{0}' 타일 문 열기",
     "openRoomRef": "'{0}' 타일 문 열기",
     "random": {
-      "": "",
       "treasure": {
-        "createTwoElements": "",
-        "cureConditions": "",
         "enemiesCondition": "모든 적에게 %game.condition.{0}% 적용",
         "enemiesDamage": "모든 적에게 피해 %game.damage:{0}%",
         "gold": "금화 {0}",
         "heal": "{0} 치료",
         "lootCards": "{0} 노획카드 획득",
         "recoverCards": "버린카드 더미에서 {0} 카드 회수",
-        "recoverLost": "소실 카드 회수",
-        "refreshItem": "",
-        "resource": ""
+        "recoverLost": "소실 카드 회수"
       }
     },
     "requirements": {
@@ -1600,8 +1518,6 @@
       "campaignStickersCount": "'%data.campaignSticker.{0}%' (캠페인 스티커) {2}회 달성할 것 (현재 {1}회)",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (캠페인 스티커) 달성하지 않을 것",
       "cancel": "취소하기",
-      "characters": "",
-      "charactersMissing": "",
       "global": "'%data.globalAchievements.{0}%' (전역) 달성할 것",
       "globalCount": "'%data.globalAchievements.{0}%' (전역) {2}회 달성할 것 (현재 {1}회)",
       "globalMissing": "'%data.globalAchievements.{0}%' (전역) 달성하지 않을 것",
@@ -1609,10 +1525,7 @@
       "partyCount": "'%data.partyAchievements.{0}%' (파티) {2}회 달성할 것 (현재 {1}회)",
       "partyMissing": "'%data.partyAchievements.{0}%' (파티) 달성하지 않을 것",
       "scenarios": {
-        "": "다음 시나리오를 완료해야 합니다",
-        "and": "",
-        "or": "",
-        "scenario": ""
+        "": "다음 시나리오를 완료해야 합니다"
       },
       "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' 레벨 5 이상일 것",
       "start": "무시하고 시나리오 시작"
@@ -1669,11 +1582,8 @@
       "lootDeckCard": "모든 시나리오 전리품 덱에 일반 전리품 분배 외에 {0} 전리품 카드를 추가합니다.",
       "lostPartyAchievements": "파티 업적 상실",
       "morale": "사기 {0}점",
-      "overlayCampaignSticker": "",
-      "overlaySticker": "",
       "partyAchievements": "파티 업적",
       "perks": "각 특혜 {0}개 획득",
-      "pet": "",
       "prosperity": "번영도 {0}",
       "randomItemBlueprint": "무작위 제작 아이템 도안 하나 획득",
       "randomItemBlueprints": "입수 가능한 아이템 공급처에 %game.itemFh.{0}% ~ %game.itemFh.{1}% 추가.",
@@ -1689,7 +1599,6 @@
         "winter-road": "Winter 여로 덱에서 {0} 이벤트 제거"
       },
       "removeLootDeckCard": "게임에서 {0} 전리품 카드 제거. 어떠한 시나리오의 전리품 덱에도 추가하지 않음.",
-      "repeatScenario": "",
       "reputation": "평판 {0}",
       "resources": "각 %game.resource.{0}% {1}개 획득",
       "resourcesLose": "각 %game.resource.{0}% {1}개 상실",
@@ -1710,7 +1619,6 @@
         "turn": "매번 차례 시작 시"
       },
       "apply": "적용하기",
-      "clearDiscarded": "",
       "dismiss": "취소하기",
       "figures": {
         "activate": "{0} 활성화",
@@ -1744,20 +1652,8 @@
       "hide": "다시 표시하지 않음",
       "openRoom": "문 열기",
       "openRoomMarker": "%game.mapMarker.{0}% 위치의 문 열기",
-      "randomDungeon": {
-        "dungeon": {
-          "": "",
-          "cards": ""
-        },
-        "monster": {
-          "": "",
-          "cards": ""
-        }
-      },
       "show": {
-        "": "시나리오 규칙 보기",
-        "applied": "",
-        "discarded": ""
+        "": "시나리오 규칙 보기"
       },
       "spawn": "{2}%game.monsterType.{1}% %data.monster.{0}% 출현",
       "spawnMarker": "%game.mapMarker.{3}% 위치에 {2}%game.monsterType.{1}% %data.monster.{0}% 출현",
@@ -1799,34 +1695,25 @@
     "showAllSections": "모든 섹션 보기",
     "stats": {
       "": "시나리오 통계",
-      "bossKills": {
-        "": "",
-        "hint": ""
-      },
       "damage": {
         "": "피해"
       },
       "dealtDamage": {
-        "": "",
         "hint": "입힌 피해"
       },
       "eliteKills": {
-        "": "",
         "hint": "%game.monsterType.elite% 죽인 몬스터의 수"
       },
       "gold": {
-        "": "",
         "hint": "노획한 돈 토큰의 수"
       },
       "heal": {
         "": "치료"
       },
       "healedDamage": {
-        "": "",
         "hint": "받은 치료"
       },
       "heals": {
-        "": "",
         "hint": "그 외 치료"
       },
       "kills": {
@@ -1836,23 +1723,18 @@
         "": "최대치"
       },
       "maxDamage": {
-        "": "",
         "hint": "가장 높은 단일 피해량"
       },
       "maxDealtDamage": {
-        "": "",
         "hint": "가장 높은 단일 피해량"
       },
       "monsterDamage": {
-        "": "",
         "hint": "적에게 받은 피해"
       },
       "normalKills": {
-        "": "",
         "hint": "%game.monsterType.normal% 몬스터를 죽인 수"
       },
       "otherDamage": {
-        "": "",
         "hint": "그 외의 받은 피해량"
       },
       "progress": "노획, 경험치",
@@ -1861,15 +1743,7 @@
         "hide": "시나리오 통계 숨기기",
         "show": "시나리오 통계 보기"
       },
-      "total": "종합",
-      "treasures": {
-        "": "",
-        "hint": ""
-      },
-      "xp": {
-        "": "",
-        "hint": ""
-      }
+      "total": "종합"
     },
     "summary": {
       "": "시나리오 요약",
@@ -2023,7 +1897,6 @@
       "hint": {
         "": "중독으로 체력을 감소시키는 경우와 같이 특정 조건을 적용하려면 확인이 필요합니다.<br>체력 1 감소 확인",
         "brittle": "피해를 입을 때, %game.condition.brittle%을 적용하여 피해를 입습니다.",
-        "heal": "",
         "poison": "%game.condition.poison%상태에서 피해를 입을 때, %game.action.attack% +1(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
         "poison_x": "%game.condition.poison_x:X%상태에서 피해를 입을 때, %game.action.attack% +X(%game.attackmodifier.double%포함)를 적용하여 피해를 입습니다.",
         "shield": "피해를 입을 때,%game.action.shield%를 적용해야하는 경우에 도움이 됩니다.",
@@ -2097,7 +1970,6 @@
         "": "해당 상태는 차례 전후에 자동으로 적용됩니다. 예를 들어, 부상 상태인 대상은 라운드 시작 시에 체력 1을 잃습니다.",
         "bane": "차례 종료 시, 자동으로%game.condition.bane% 피해 적용.",
         "regenerate": "차례 시작 시, 자동으로%game.condition.regenerate%적용.",
-        "safeguard": "",
         "wound": "차례 시작 시, 자동으로%game.condition.wound%피해 적용.",
         "wound_x": "차례 시작 시, 자동으로%game.condition.wound_x:X% 피해 적용."
       }
@@ -2125,10 +1997,6 @@
     "automaticAttackModifierFullscreen": {
       "": "전체 화면으로 공격 보정 덱 자동 전환",
       "hint": "작은 장치에서 공격 보정 덱과 노획 덱을 전체 화면으로 자동 전환됩니다."
-    },
-    "automaticFirstFigure": {
-      "": "",
-      "hint": ""
     },
     "automaticGameClock": {
       "": "자동 게임 시간 기록 적용",
@@ -2189,33 +2057,16 @@
       "": "전투 목표 미리 알림",
       "hint": "모든 캐릭터가 전투 목표를 선택하지 않은 경우, 첫 라운드 전에 알림을 미리 표시합니다."
     },
-    "bbAm": {
-      "": "",
-      "hint": ""
-    },
-    "bbChars": {
-      "": "",
-      "hint": ""
-    },
     "bbRules": "버튼 앤 벅스 규칙",
-    "bbStandeeLimit": {
-      "": "",
-      "hint": ""
-    },
     "bonusAdjustment": {
       "": "레벨 보너스 조정"
     },
     "browserNavigation": {
-      "": "내비게이션으로 실행 취소 / 다시 실행",
-      "hint": ""
+      "": "내비게이션으로 실행 취소 / 다시 실행"
     },
     "calculate": {
       "": "계산된 능력치로 보기",
       "hint": "능력 값은 능력치를 기반으로 계산되기 때문에, 공격 수치 3에서의 ‘공격 +1’ 대신에 ‘공격 4’로 표시됩니다."
-    },
-    "calculateAdvantageStats": {
-      "": "",
-      "hint": ""
     },
     "calculateShieldStats": {
       "": "방어 및 반격 능력 추가",
@@ -2245,10 +2096,6 @@
     "characterCompact": {
       "": "소형 캐릭터 보드",
       "hint": "소형 캐릭터 보드로 표시합니다. (현재 모던 테마에서는 지원되지 않음)"
-    },
-    "characterFullView": {
-      "": "",
-      "hint": ""
     },
     "characterHandSize": {
       "": "손패 크기 및 레벨 표시",
@@ -2482,7 +2329,6 @@
       },
       "it": "이탈리아어 (Italiano)",
       "ko": "한국어",
-      "ru": "",
       "zh_Hans": "중국어 간체 (简体中文)",
       "zh_Hant": "중국어 번체 (繁體中文)"
     },
@@ -2522,8 +2368,7 @@
       "": "수동 캐릭터 수"
     },
     "playerNumber": {
-      "": "플레이어 번호 표시",
-      "hint": ""
+      "": "플레이어 번호 표시"
     },
     "portraitMode": {
       "": "초상화 모드 최적화",
@@ -2685,40 +2530,8 @@
         "summon": "{0} {1}번에게 {2} 상태 추가",
         "summons": "모든 {0} 소환수에게 %game.condition.{1}% 적용"
       },
-      "addConditions": {
-        "char": "",
-        "monster": "",
-        "monsterEntities": "",
-        "objective": "",
-        "objectiveContainer": "",
-        "objectives": "",
-        "summon": "",
-        "summons": ""
-      },
-      "addGameCondition": "",
-      "addGlobalAchievement": "",
-      "addImmunity": {
-        "char": "",
-        "monster": "",
-        "monsterEntities": "",
-        "objective": "",
-        "objectiveContainer": "",
-        "objectives": "",
-        "summon": "",
-        "summons": ""
-      },
       "addItem": "{0}에게 {1} (%data.edition.{2}%) 아이템 추가",
       "addManualScenario": "시나리오 해금 #{0} {1} ({2})",
-      "addMarker": {
-        "char": "",
-        "monster": "",
-        "monsterEntities": "",
-        "objective": "",
-        "objectiveContainer": "",
-        "objectives": "",
-        "summon": "",
-        "summons": ""
-      },
       "addMastery": "{0}에게 마스터리 {1} 체크",
       "addMonster": "{0} 몬스터 추가",
       "addNextStandee": "{1} {0} 몬스터 말 추가",
@@ -2745,20 +2558,17 @@
         "monster": "{0}의 {1}에게 {2} 적용",
         "monsterEntities": "모든 {2}{0}에게 {1} 적용",
         "objective": "{0}에게 {1} 적용",
-        "objectiveContainer": "",
         "summon": "{0}의 {1}에게 {2} 적용"
       },
       "applyHighlightAction": {
         "condition": "{0}에게 %game.condition.{1}% 상태가 되도록 행동을 적용",
         "elementConsume": "{0} 소비",
-        "elementInfuse": "",
         "heal": "{0}에게 %game.action.heal% {1} 되도록 행동 적용",
         "spawn": "출현",
         "sufferDamage": "%game.damage:{0}%만큼 피해를 받음",
         "summon": "소환",
         "switchType": "%game.monsterType.normal% 및 %game.monsterType.elite% 말에 대해 {0} 유형으로 전환을 적용"
       },
-      "applyInteractiveActions": "",
       "applyScenarioRule": "시나리오 규칙 적용",
       "battleGoals": {
         "deselect": "{0}의 현재 전투 목표 선택 해제",
@@ -2774,38 +2584,16 @@
           "removeEdition": "%data.edition.{0}% 에디션의 전투 목표 카드 모두 추가"
         }
       },
-      "brewPotion": "",
-      "brewPotionOther": "",
       "buildBuilding": "{0} 건설",
       "buildings": {
         "stables": {
           "pets": {
-            "add": "",
-            "catch": "",
-            "play": "",
-            "remove": "",
-            "restore": "",
-            "setActive": "",
-            "setInactive": "",
-            "setName": "",
             "unsetName": "%data.pets.{0}-{1}% 펫 이름 삭제"
           }
         }
       },
       "buyItem": "{0}의 아이템 구매: {1} (%data.edition.{2}%)",
       "cancelScenario": "시나리오 취소 #{0} {1} ({2})",
-      "challengeDeck": {
-        "clear": "",
-        "draw": "",
-        "hide": "",
-        "removeCard": "",
-        "reorder": "",
-        "restoreCard": "",
-        "show": "",
-        "shuffle": "",
-        "toggle": ""
-      },
-      "changeBuildingState": "",
       "changeCustomScenario": "커스텀 시나리오 이름 변경: '{0}'",
       "changeEntityHp": "{1} {0} {2}번의 체력을 {3}만큼 변경",
       "changeEntityMaxHp": "{1} {0} {2}번의 최대 체력을 {3}만큼 변경",
@@ -2814,12 +2602,9 @@
       "changeMaxHP": "{0}의 최대 체력을 {1}만큼 변경",
       "changeMonsterHP": "모든 {2}{0} 체력 {1}",
       "changeMonsterType": "{0} 몬스터 말 {2}번의 유형을 {1}에서 %monster.{3}% 유형으로 변경",
-      "changeObjectiveEntityHP": "",
-      "changeObjectiveEntityNumber": "",
       "changeObjectiveHP": "목표 대상 {0}의 체력을 {1}만큼 변경",
       "changeObjectiveId": "{0}의 번호 번경: '{1}'",
       "changeObjectiveMaxHp": "목표 대상 {0}의 최대 체력을 {1}만큼 변경",
-      "changeObjectivesHP": "",
       "changeParty": "'{0}' 파티로 변경",
       "changeSummonAttack": "{0}의 소환수 '{1}'의 공격력을 변경: {2}",
       "changeSummonHp": "{0}의 소환수 '{1}'의 체력을 변경: {2}",
@@ -2827,45 +2612,14 @@
       "changeSummonMove": "{0}의 소환수 '{1}'의 이동력을 변경: {2}",
       "changeSummonRange": "{0}의 소환수 '{1}'의 사정거리를 변경: {2}",
       "changeXP": "{0}의 경험치를 변경: {1}",
-      "characterItemApply": {
-        "consumed": "",
-        "flipped": "",
-        "persistent": "",
-        "slot": "",
-        "slotBack": "",
-        "spent": ""
-      },
-      "characterItemUnapply": {
-        "consumed": "",
-        "flipped": "",
-        "persistent": "",
-        "slot": "",
-        "slotBack": "",
-        "spent": ""
-      },
       "characterLongRest": "{0}: 긴 휴식으로 설정",
       "characterLongRestOff": "{0}: 긴 휴식 설정 해제",
-      "characterReplay": "",
-      "characterSetAside": "",
-      "clearDiscardedScenarioRules": "",
-      "command": {
-        "character": {
-          "initiative": ""
-        },
-        "round": {
-          "state": {
-            "draw": "",
-            "next": ""
-          }
-        }
-      },
       "craftItem": "{0}의 아이템 {1} (%data.edition.{2}%) 제작",
       "declineApplyCondition": {
         "char": "{0}에게 {1} 해제",
         "monster": "{0}의 {1}에게 {2} 해제",
         "monsterEntities": "모든 {2}{0}에게 {1} 적용 거부",
         "objective": "{0}에게 {1} 해제",
-        "objectiveContainer": "",
         "summon": "{0}의 {1}에게 {2} 해제"
       },
       "disableAutomaticLevel": "자동 레벨 계산 비활성화",
@@ -2874,9 +2628,7 @@
       "disableSolo": "단독 레벨 계산 비활성화",
       "disabledGe5Player": "5인 이상 규칙 비활성화",
       "disabledManualPlayerCount": "수동 플레이어 수 비활성화",
-      "distillItem": "",
       "donate": "위대한 떡갈나무 성지에 {0}개 기부",
-      "downgradeBuilding": "",
       "draw": "뽑기",
       "drawAbility": "{0}의 능력 카드 뽑기",
       "enableAutomaticLevel": "자동 레벨 계산 활성화",
@@ -2889,28 +2641,9 @@
       "entityDead": "{0}의 {1} 몬스터 말 {2}번을 죽임",
       "equipItem": "{0}의 아이템 {1} (%data.edition.{2}%) 장비",
       "eventEffect": {
-        "addCondition": "",
-        "addImmunity": "",
-        "changeCharacterBattleGoals": "",
-        "changeCharacterBless": "",
-        "changeCharacterCurse": "",
-        "changeCharacterGold": "",
-        "changeCharacterHP": "",
-        "changeCharacterResource": "",
-        "changeCharacterXP": "",
         "drawRandomItem": "무작위 아이템 도안 뽑기 {0} \"{2}\" (%data.edition.{1}%)",
-        "drawRandomItemBlueprint": "무작위 제작 아이템 도안 뽑습니다 {0} \"{2}\" (%data.edition.{1}%)",
-        "drawRandomScenario": "",
-        "drawRandomScenarioSection": "",
-        "inspiration": "",
-        "morale": "",
-        "prosperity": "",
-        "removeCondition": "",
-        "removeImmunity": "",
-        "reputation": "",
-        "setConditionValue": ""
+        "drawRandomItemBlueprint": "무작위 제작 아이템 도안 뽑습니다 {0} \"{2}\" (%data.edition.{1}%)"
       },
-      "finishConclusion": "",
       "finishScenario": {
         "battleGoal": "%data.character.{0}%의 전투 목표 {1} 설정",
         "close": "시나리오 요약 닫기",
@@ -2941,106 +2674,30 @@
       "lootDeckReorder": "노획 덱 재정렬",
       "lootDeckShow": "노획 덱 보기",
       "lootDeckShuffle": "노획 덱 섞기",
-      "lootDeckShuffleUpcoming": "",
-      "lootRandomItem": "",
-      "monsterChangeEntityHp": "",
       "monsterConsumeElement": "{0}의 {1} 사용",
       "monsterDead": "모든 {1}{0} 죽임",
       "monsterInfuseElement": "{0}: {1} 유입",
-      "monsterSetEntityActive": "",
-      "monsterUnsetEntityActive": "",
       "moveResource": "{0}에게서 프로스트헤이븐 창고로 {1} {2}개 이동",
-      "nextIdentity": "",
       "nextRound": "다음 라운드",
-      "objectiveContainerChangeEntityHp": "",
-      "objectiveEntityDead": "",
       "openRoom": "#{0} {1}: '{2}' 타일 문 열기",
       "openRoomMarker": "#{0} {1}: %game.mapMarker.{3}% 위치의 '{2}' 타일 문 열기",
-      "rebuildBuilding": "",
       "removeAbility": "{0}의 {1} 능력 카드 제거",
       "removeAllChars": "모든 캐릭터 제거",
       "removeAllMonster": "모든 몬스터 제거",
       "removeAllObjectives": "모든 목표 대상 제거",
-      "removeBuilding": "",
       "removeCampaignSticker": "캠페인 스티커 {0} 제거",
       "removeChar": "{0} 캐릭터 제거",
       "removeCharTreasure": "{2}의 보물 {1} 제거",
-      "removeCharacterRetaliate": "",
-      "removeCharacterRetaliatePersistent": "",
-      "removeCharacterShield": "",
-      "removeCharacterShieldPersistent": "",
       "removeCondition": {
         "char": "{0}에게서 {1} 상태 제거",
         "monster": "{0} {1}번에게서 {2} 상태 제거",
         "monsterEntities": "모든 {2}{0}에게서 {1} 제거",
         "objective": "{0}에게서 {1} 상태 제거",
-        "objectiveContainer": "",
-        "objectives": "",
-        "summon": "{0} {1}번에게서 {2} 상태 제거",
-        "summons": ""
+        "summon": "{0} {1}번에게서 {2} 상태 제거"
       },
-      "removeConditions": {
-        "char": "",
-        "monster": "",
-        "monsterEntities": "",
-        "objective": "",
-        "objectiveContainer": "",
-        "objectives": "",
-        "summon": "",
-        "summons": ""
-      },
-      "removeEntityMarker": {
-        "monster": "",
-        "objectiveContainer": ""
-      },
-      "removeEntityRetaliate": {
-        "char": "",
-        "monster": "",
-        "objectiveContainer": "",
-        "summon": ""
-      },
-      "removeEntityRetaliatePersistent": {
-        "char": "",
-        "monster": "",
-        "objectiveContainer": "",
-        "summon": ""
-      },
-      "removeEntityShield": {
-        "char": "",
-        "monster": "",
-        "objectiveContainer": "",
-        "summon": ""
-      },
-      "removeEntityShieldPersistent": {
-        "char": "",
-        "monster": "",
-        "objectiveContainer": "",
-        "summon": ""
-      },
-      "removeGameCondition": "",
       "removeGlobalAchievement": "전역 업적 %data.globalAchievements.{0}% 제거",
-      "removeImmunity": {
-        "char": "",
-        "monster": "",
-        "monsterEntities": "",
-        "objective": "",
-        "objectiveContainer": "",
-        "objectives": "",
-        "summon": "",
-        "summons": ""
-      },
       "removeItem": "{0}에게서 {1} (%data.edition.{2}%) 아이템 제거",
       "removeManualScenario": "해금된 시나리오 #{0} {1} ({2}) 제거",
-      "removeMarker": {
-        "char": "",
-        "monster": "",
-        "monsterEntities": "",
-        "objective": "",
-        "objectiveContainer": "",
-        "objectives": "",
-        "summon": "",
-        "summons": ""
-      },
       "removeMastery": "{0}의 숙련 {1} 체크 해제",
       "removeMonster": "{0} 몬스터 제거",
       "removeObjective": "{0} 목표 대상 제거",
@@ -3051,16 +2708,11 @@
       "removePlayer": "플레이어 {1} ({0}) 제거",
       "removeResource": "{0}의 {1}에서 -{2}",
       "removeScenarioRule": "시나리오 규칙 제거",
-      "removeSpecialTags": "",
-      "removeSpecialTagsSummon": "",
       "removeTreasure": "{1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) 보물 제거",
-      "removeTreasures": "",
       "reorder": "재정렬",
       "reorderAbilities": "{0}의 능력 카드 재정렬",
-      "repairBuilding": "",
       "resetCampaign": "캠페인 초기화",
       "resetScenario": "시나리오 초기화 #{0} {1} ({2})",
-      "restoreAbility": "",
       "restoreDefaultAbilities": "{0}의 능력을 기본값으로 복원",
       "sellItem": "{0}의 아이템 (%data.edition.{2}%) {1} 팔기",
       "serverSync": "서버: {0}",
@@ -3070,17 +2722,11 @@
       "setAllied": "{0} 아군으로 설정",
       "setAlly": "{0} 아군으로 설정",
       "setBG": "{0}에게 {1} 전투 목표를 설정",
-      "setCharacterRetaliate": "",
-      "setCharacterRetaliatePersistent": "",
-      "setCharacterShield": "",
-      "setCharacterShieldPersistent": "",
-      "setCharacterTokenValue": "",
       "setConditionValue": {
         "char": "{0}의 {1} 상태를 변경: {2}",
         "monster": "{0} {1}번의 {2} 상태를 변경: {3}",
         "monsterEntities": "모든 {3}{0}에 대해 {1}에서 변경: {2}",
         "objective": "{0}의 {1} 상태를 변경: {2}",
-        "objectiveContainer": "",
         "summon": "{0} {1}번의 {2} 상태를 변경: {3}"
       },
       "setCustomScenario": "커스텀 시나리오 설정",
@@ -3088,38 +2734,12 @@
       "setEdition": "{0} 에디션으로 전환",
       "setEditionAll": "모든 에디션 선택",
       "setEntityActive": "{0}의 {1} 몬스터 말을 활성화 상태로 설정",
-      "setEntityRetaliate": {
-        "char": "",
-        "monster": "",
-        "objectiveContainer": "",
-        "summon": ""
-      },
-      "setEntityRetaliatePersistent": {
-        "char": "",
-        "monster": "",
-        "objectiveContainer": "",
-        "summon": ""
-      },
-      "setEntityShield": {
-        "char": "",
-        "monster": "",
-        "objectiveContainer": "",
-        "summon": ""
-      },
-      "setEntityShieldPersistent": {
-        "char": "",
-        "monster": "",
-        "objectiveContainer": "",
-        "summon": ""
-      },
       "setEntitySummonState": "소환된 {1} {0} 몬스터 말 {2}번을 {3} 상태로 설정",
       "setExhausted": "{0} 탈진",
       "setGold": "{0}의 금화 {1}개",
-      "setIdentity": "",
       "setInitiative": "{0}의 주도권 {1}",
       "setLevel": "{0}의 레벨을 변경: {1}",
       "setNotes": "{0}의 메모 사항 변경",
-      "setObjectiveEntityMarker": "",
       "setObjectiveExhausted": "목표 대상 {0} 탈진",
       "setObjectiveInitiative": "목표 대상 {0}의 주도권 {1}",
       "setPQ": "{0}의 개인 퀘스트 {1}",
@@ -3151,8 +2771,6 @@
       "setTitle": "{0}의 기록지 이름 설정: '{1}'",
       "setXP": "{0}의 경험치 설정: {1}",
       "shuffleAbilityDeck": "{0}의 능력 카드 섞기",
-      "shuffleAbilityDeckUpcoming": "",
-      "skipInteractiveActions": "",
       "startCampaign": "새로운 {0} 캠페인 시작",
       "summonActive": "{0}에서 '{1}' 소환수을 활성",
       "summonDead": "'{1}'의 {0} 소환수을 죽임",
@@ -3187,17 +2805,14 @@
         "removeDrawnDiscards": "{0}의 공격 보정 덱에서 뽑은 폐기 카드 제거",
         "reorder": "{0}의 공격 보정 덱 재정렬",
         "restoreDefault": "{0}의 공격 보정 덱 기본값으로 복원",
-        "shuffle": "{0}의 공격 보정 덱 섞기",
-        "shuffleUpcoming": ""
+        "shuffle": "{0}의 공격 보정 덱 섞기"
       },
       "updateBonusAdjustment": "{0} 보너스 조정",
       "updateElement": "{0} 원소 {1}",
       "updateGlobalAchievements": "전역 업적 {0} 달성",
       "updateLevelAdjustment": "{0} 레벨 조정",
-      "updateLevelAdjustmentBb": "",
       "updateManualPlayerCount": "수동 플레이어 수를 {0}명으로 조정",
       "updatePartyAchievements": "파티 업적 {0} 달성",
-      "updateStandee": "",
       "upgradeBuilding": "{1} 레벨로 {0} 건물 향상"
     },
     "loadMore": "더 보기",
@@ -3227,11 +2842,7 @@
       "githubIssue": "깃허브 이슈 파일",
       "reportIssue": {
         "": "이슈 제보하기",
-        "automaticText": "",
         "download": "모든 데이터 다운로드",
-        "errorHint": "",
-        "errorIgnore": "",
-        "errorText": "",
         "mail": "Microsoft는 시장 지배력을 이용하여 소규모 개인 이메일 서버를 차단하려고 합니다. 그 결과 outlook.com, hotmail.com 또는 기타 Microsoft 서비스에서 보낸 전자 메일은 받을 수 있지만 답장을 보낼 수 없습니다!",
         "send": "이메일로 이슈 보내기",
         "specify": "텍스트로 세부 정보를 지정하십시오.<br>정확히 무엇이 문제인지 잘 모르겠다면 아래 데이터 덤프를 다운로드하여 첨부해 주세요!",
@@ -3247,11 +2858,6 @@
             "": "삽화",
             "hint": "잘못되거나 누락된 삽화.",
             "subject": "삽화에서 문제 발견"
-          },
-          "automatic": {
-            "": "",
-            "hint": "",
-            "subject": ""
           },
           "characterStat": {
             "": "캐릭터 능력치",
@@ -3288,45 +2894,17 @@
     },
     "keyboard": {
       "": "키보드 단축키",
-      "activeCharacter": {
-        "lootDec": "",
-        "lootInc": "",
-        "xpDec": "",
-        "xpInc": ""
-      },
-      "alt": "",
       "am": "공격 보정 카드 뽑기 (deck depending on active figure, monster deck when not active, disabled when <b>Draw</b>)",
-      "amAdvantage": "",
-      "amDisadvantage": "",
-      "ctrl": "",
       "difficulty": "난이도/레벨 메뉴",
-      "enter": "",
       "entityMenu": {
-        "": "",
-        "blessDec": "",
-        "blessInc": "",
         "characterSheet": "캐릭터 시트 열기",
-        "curseDec": "",
-        "curseInc": "",
-        "hpDec": "",
-        "hpInc": "",
-        "kill": "사망 / 탈진",
-        "lootDec": "",
-        "lootInc": "",
-        "maxHpDec": "",
-        "maxHpInc": "",
-        "toggleAbsent": "",
-        "toggleCondition": "",
-        "xpDec": "",
-        "xpInc": ""
+        "kill": "사망 / 탈진"
       },
-      "esc": "",
       "events": "이벤트 효과 메뉴",
       "finish": "(종료) 시나리오 메뉴",
       "global": "현재 다음과 같은 키보드 단축키가 구현되어 있습니다:",
       "globalMap": "세계 지도 열기",
       "keyboard": "키보드 단축키 보기",
-      "loot": "",
       "mainMenu": {
         "": "메인 메뉴 열기",
         "confirm": "행동 확인 / 보조 메뉴 열기",
@@ -3338,19 +2916,6 @@
       "redo": "다시 실행",
       "round": "다음 라운드 / 뽑기",
       "scenarioChart": "시나리오 흐름도 보기",
-      "select": "",
-      "selectNatural": "",
-      "shift": "",
-      "space": "",
-      "tab": "",
-      "toggelTab": "",
-      "toggleAbsent": "",
-      "toggleDamageHP": "",
-      "toggleElements": "",
-      "toggleFullscreen": "",
-      "toggleHandSize": "",
-      "togglePlayerNumber": "",
-      "toggleTraits": "",
       "undo": "되돌리기",
       "zoomIn": "확대",
       "zoomOut": "축소",

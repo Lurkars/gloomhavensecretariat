@@ -220,8 +220,7 @@
     "prism": {
       "": "虫巢",
       "prism_mode": {
-        "": "%data.characterToken.prism.mode% 模式标记",
-        "hint": ""
+        "": "%data.characterToken.prism.mode% 模式标记"
       },
       "repair_mode": {
         "": "再建援助",

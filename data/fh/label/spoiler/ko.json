@@ -1,7 +1,4 @@
 {
-  "campaignSticker": {
-    "42-temple": ""
-  },
   "challenges": {
     "fh": {
       "1482": {
@@ -192,11 +189,7 @@
     "astral": "주입술사",
     "coral": "파쇄조류",
     "drill": {
-      "": "금속 모자이크",
-      "high": "",
-      "low": "",
-      "over": "",
-      "regular": ""
+      "": "금속 모자이크"
     },
     "fist": {
       "": "빙결주먹"
@@ -208,8 +201,7 @@
     "prism": {
       "": "모방군집",
       "prism_mode": {
-        "": "%data.characterToken.prism.mode% 모드 토큰",
-        "hint": ""
+        "": "%data.characterToken.prism.mode% 모드 토큰"
       },
       "repair_mode": {
         "": "재구축 지원",

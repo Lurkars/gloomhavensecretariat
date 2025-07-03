@@ -750,10 +750,6 @@
         "": "Frattura",
         "hint": "%game.conditionIcon.rupture% Frattura: Ad ogni movimento subisci %game.damage:1%. Rimuovi quando guarito."
       },
-      "safeguard": {
-        "": "",
-        "hint": ""
-      },
       "strengthen": {
         "": "Rinforzo",
         "hint": "%game.conditionIcon.strengthen% Rinforzo: Vantaggio ad ogni attacco. Rimuovi alla fine del prossimo turno."
@@ -2097,7 +2093,6 @@
         "": "Gli stati corrispondenti vengono applicati automaticamente prima e dopo il turno, ad esempio quando l'entità ha una ferita perderà 1 PV all'inizio del suo round",
         "bane": "Applica automaticamente il danno da %game.condition.bane% alla fine del turno.",
         "regenerate": "Applica automaticamente %game.condition.regenerate% all'inizio del turno.",
-        "safeguard": "",
         "wound": "Applica automaticamente il danno da %game.condition.wound% alla fine del turno.",
         "wound_x": "Applica automaticamente il danno da %game.condition.wound_x:X% alla fine del turno."
       }
