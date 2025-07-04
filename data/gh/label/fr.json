@@ -727,7 +727,7 @@
             "2": "À la fin de vos quatre prochains tours, un allié à %game.action.range:3% peut Récupérer %game.card.recover% une de ses cartes défaussées."
           },
           "54": {
-            "1": "À la fn de vos cinq prochains tours, effectuez une action d'\"%game.action.attack:2%, %game.action.range:5%\"."
+            "1": "À la fin de vos cinq prochains tours, effectuez une action d'\"%game.action.attack:2%, %game.action.range:5%\"."
           },
           "57": {
             "1": "Tous les alliés invoqués se trouvant à %game.action.range:3% peuvent effectuer",
