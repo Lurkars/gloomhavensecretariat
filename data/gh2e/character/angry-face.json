@@ -1,7 +1,6 @@
 {
   "name": "angry-face",
   "icon": "gh-angry-face",
-  "noThumbnail": true,
   "edition": "gh2e",
   "color": "#69cde0",
   "spoiler": true,
@@ -94,5 +93,150 @@
       "movement": 4
     }
   ],
-  "perkWarning": true
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.angry-face.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.angry-face.2%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus3"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "rolling": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.gh2e.angry-face.3%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.gh2e.angry-face.4%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.gh2e.angry-face.5%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.gh2e.angry-face.6%",
+    "%data.custom.gh2e.angry-face.7%"
+  ]
 }

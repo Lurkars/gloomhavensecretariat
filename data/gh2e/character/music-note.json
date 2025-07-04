@@ -1,7 +1,6 @@
 {
   "name": "music-note",
   "icon": "gh-music-note",
-  "noThumbnail": true,
   "edition": "gh2e",
   "color": "#e3726b",
   "spoiler": true,
@@ -44,5 +43,196 @@
     }
   ],
   "availableSummons": [],
-  "perkWarning": true
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "bless",
+                "effects": [
+                  {
+                    "type": "target",
+                    "value": 2
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.music-note.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "strengthen",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "ally"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 21,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.gh2e.music-note.2%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 3,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.gh2e.music-note.3%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.gh2e.music-note.4%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%data.custom.gh2e.music-note.5%"
+    }
+  ],
+  "masteries": [
+    "%data.custom.gh2e.music-note.6%",
+    "%data.custom.gh2e.music-note.7%"
+  ]
 }

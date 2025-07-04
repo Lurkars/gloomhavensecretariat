@@ -115,6 +115,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Absent Characters                                                               | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
 | Scenario Statistics                                                             | ✅[^1]    | ⛔         | ⛔        | ✅       | ⛔       |
 | Localization                                                                    | ✅[^5]    | ⛔         | ⛔        | ⛔       | ✅❗[^6]  |
+| Keyboard Shortcuts                                                              | ✅        | ⛔         | ⛔        | ⛔       | ✅       |
 | Offline Support                                                                 | ✅[^10]   | ✅         | ✅        | ⛔       | ✅       |
 |                                                                                 |          |           |          |         |         |
 | **Devices**                                                                     | *GHS*    | *XHA*     | *FOC*    | *GHFS*  | *GHH*   |

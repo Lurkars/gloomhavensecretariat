@@ -44,7 +44,7 @@ export class AttackModifier {
   revealed: boolean = false;
   character: boolean = false;
 
-  constructor(type: AttackModifierType, value: number = 0, valueType: AttackModifierValueType = AttackModifierValueType.plus, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false) {
+  constructor(type: AttackModifierType, value: number = 0, valueType: AttackModifierValueType = AttackModifierValueType.plus, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false, shuffle: boolean | undefined = undefined) {
     this.type = type;
     this.value = value;
     this.valueType = valueType;
@@ -58,6 +58,7 @@ export class AttackModifier {
     this.effects = effects;
     this.rolling = rolling;
     this.active = active;
+    this.shuffle = shuffle || false;
     switch (type) {
       case AttackModifierType.plus0:
         this.value = 0;
@@ -88,12 +89,16 @@ export class AttackModifier {
       case AttackModifierType.null:
         this.valueType = AttackModifierValueType.multiply;
         this.value = 0;
-        this.shuffle = true;
+        if (shuffle == undefined) {
+          this.shuffle = true;
+        }
         break;
       case AttackModifierType.double:
         this.valueType = AttackModifierValueType.multiply;
         this.value = 2;
-        this.shuffle = true;
+        if (shuffle == undefined) {
+          this.shuffle = true;
+        }
         break;
       case AttackModifierType.bless:
         this.valueType = AttackModifierValueType.multiply;

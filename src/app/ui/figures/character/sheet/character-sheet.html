@@ -211,7 +211,7 @@
           <div class="battlegoals-grid">
             <ng-container *ngFor="let item of [] | ghsRange:18">
               <span class="checkmark" *ngIf="item % 3 == 0">
-                <img src="./assets/images/check.svg">:</span>
+                <img [src]="'./assets/images/'+ (gh2eSheet || fhSheet ? 'checkmark' : 'check') + '.svg'">:</span>
               <span class="battlegoal checkbox" [ngClass]="{'checked' : character.progress.battleGoals >= item + 1}"
                 (click)="setBattleGoals(item + 1)"></span>
             </ng-container>

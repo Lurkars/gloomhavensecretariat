@@ -114,6 +114,12 @@
             font-size: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
         }
 
+        img.null {
+            filter: var(--ghs-filter-black);
+            width: 70%;
+            height: 70%;
+        }
+
         &::before {
             content: ' ';
             position: absolute;
