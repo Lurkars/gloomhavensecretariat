@@ -95,6 +95,10 @@
       "": "Hache Fléau des Crânes",
       "1": "Pendant votre attaque de mêlée ciblant un Cadavre Réanimé, Esprit Réanimé ou Squelette Réanimé, ajoutez +5 %game.action.attack% à une seule attaque."
     },
+    "gh-116": {
+      "": "Fauchon Attisé",
+      "1": "Pendant votre attaque de mêlée sur une unique cible, la cible et tous les adversaires adjacents à la cible subissent 1 dégât"
+    },
     "gh-12": {
       "": "Potion Soin Mineure",
       "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 3, self\"."
