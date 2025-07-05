@@ -966,7 +966,7 @@
     },
     "loot": {
       "": "Добыча",
-      "apply": "Добавить к %data.character.{0}%",
+      "apply": "Добавить к %data.character.{0}.{1}%",
       "arrowvine": "Стрелолианы",
       "axenut": "Орех-колун",
       "chooseCharacter": "Выберите персонажа для +{0} {1}",
@@ -988,7 +988,7 @@
       "flamefruit": "Огнефрукт",
       "herb_resources": "растение",
       "hide": "Шкура",
-      "keep": "Оставить на %data.character.{0}%",
+      "keep": "Оставить на %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "{0} добывает сокровище {1}?",
         "confirm": "Подтвердить",
@@ -1005,7 +1005,7 @@
         "apply": "Выбрать и экипировать",
         "draw": "Случайный предмет для %game.characterIconColored.{0}% {1}"
       },
-      "remove": "Убрать у %data.character.{0}%",
+      "remove": "Убрать у %data.character.{0}.{1}%",
       "rockroot": "Камнекорень",
       "snowthistle": "Снегополох",
       "special": "особое",
@@ -1596,8 +1596,8 @@
       "campaignStickersCount": "«%data.campaignSticker.{0}%» (Наклейки кампании) x{2} ВЫПОЛНЕНО (сейчас {1})",
       "campaignStickersMissing": "«%data.campaignSticker.{0}%» (Наклейки кампании) НЕ ВЫПОЛНЕНО",
       "cancel": "Отменить",
-      "characters": "%data.characterIconColored.{0}% «%data.character.{0}%» присутствует",
-      "charactersMissing": "%data.characterIconColored.{0}% «%data.character.{0}%» отсутствует",
+      "characters": "%data.characterIconColored.{1}% «%data.character.{0}.{1}%» присутствует",
+      "charactersMissing": "%data.characterIconColored.{1}% «%data.character.{0}.{1}%» отсутствует",
       "global": "«%data.globalAchievements.{0}%» (Глобальные) ВЫПОЛНЕНО",
       "globalCount": "«%data.globalAchievements.{0}%» (Глобальные) x{2} ВЫПОЛНЕНО (сейчас {1})",
       "globalMissing": "«%data.globalAchievements.{0}%» (Глобальные) НЕ ВЫПОЛНЕНО",
@@ -1610,7 +1610,7 @@
         "or": "или",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% «%data.character.{0}%» уровня 5 или выше",
+      "solo": "%data.characterIconColored.{1}% «%data.character.{0}.{1}%» уровня 5 или выше",
       "start": "Всё равно начать сценарий"
     },
     "reset": "Начать сценарий заново",
@@ -2907,7 +2907,7 @@
       },
       "finishConclusion": "Завершён с заключением №{0} {1} ({2})",
       "finishScenario": {
-        "battleGoal": "Установлены флажки за боевые задачи у %data.character.{0}% на {1}",
+        "battleGoal": "Установлены флажки за боевые задачи у %data.character.{0}.{1}% на {2}",
         "close": "Закрыты итоги сценария",
         "dialog": "Итоги сценария №{0} {1} ({2})",
         "failure": "Сценарий №{0} {1} ({2}) провален",
@@ -2945,7 +2945,7 @@
       "monsterSetEntityActive": "Активирована фигурка %game.monster.{2}% {1} %data.monster.{0}%",
       "monsterUnsetEntityActive": "Деактивирована фигурка %game.monster.{2}% {1} %data.monster.{0}%",
       "moveResource": "{2} {1} перемещены из {0} в запасы Frosthaven",
-      "nextIdentity": "Изменена форма {0} с %data.character.{1}.{2}% на %data.character.{1}.{3}%",
+      "nextIdentity": "Изменена форма {0} с %data.character.{4}.{1}.{2}% на %data.character.{4}.{1}.{3}%",
       "nextRound": "Следующий раунд",
       "objectiveContainerChangeEntityHp": "{2} ОЗ у %game.objectiveMarker.{1}% {0}",
       "objectiveEntityDead": "Убит %game.objectiveMarker.{1}% {0}",
@@ -3110,7 +3110,7 @@
       "setEntitySummonState": "Призванный {3} у фигурки {1} {2} у {0}",
       "setExhausted": "{0} изнурён",
       "setGold": "{1} золота для {0}",
-      "setIdentity": "Выбрана форма {0} у %data.character.{1}.{2}%",
+      "setIdentity": "Выбрана форма {0} у %data.character.{3}.{1}.{2}%",
       "setInitiative": "Инициатива {1} у {0}",
       "setLevel": "Уровень {1} у {0}",
       "setNotes": "Заметки «{1}» у {0}",

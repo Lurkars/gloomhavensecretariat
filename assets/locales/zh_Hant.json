@@ -966,7 +966,7 @@
     },
     "loot": {
       "": "拾取",
-      "apply": "分配給 %data.character.{0}%",
+      "apply": "分配給 %data.character.{0}.{1}%",
       "arrowvine": "箭藤草",
       "axenut": "斧首仁",
       "chooseCharacter": "選擇角色 +{0} {1}",
@@ -988,7 +988,7 @@
       "flamefruit": "烈焰果",
       "herb_resources": "草藥",
       "hide": "毛皮",
-      "keep": "繼續 %data.character.{0}%",
+      "keep": "繼續 %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "{0} 拾取財寶 {1}？",
         "confirm": "確認",
@@ -1005,7 +1005,7 @@
         "apply": "選擇並裝備",
         "draw": "將隨機物品分配給 %game.characterIconColored.{0}% {1}"
       },
-      "remove": "從 %data.character.{0}% 中移除",
+      "remove": "從 %data.character.{0}.{1}% 中移除",
       "rockroot": "岩土根",
       "snowthistle": "雪薊花",
       "special": "特殊",
@@ -1596,8 +1596,8 @@
       "campaignStickersCount": "'%data.campaignSticker.{0}%' (Campaign Sticker) x{2} 完成 (got {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Campaign Sticker) 未完成",
       "cancel": "取消",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' 在場",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' 離場",
+      "characters": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' 在場",
+      "charactersMissing": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' 離場",
       "global": "'%data.globalAchievements.{0}%' (Global) 完成",
       "globalCount": "'%data.globalAchievements.{0}%' (Global) x{2} 完成 (got {1})",
       "globalMissing": "'%data.globalAchievements.{0}%' (Global) 未完成",
@@ -1610,7 +1610,7 @@
         "or": "或",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' 等級 5 或更高",
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' 等級 5 或更高",
       "start": "強制開始場景"
     },
     "reset": "重啟場景",
@@ -2901,7 +2901,7 @@
       },
       "finishConclusion": "完成結局 #{0} {1} ({2})",
       "finishScenario": {
-        "battleGoal": "為 %data.character.{0}% 設定戰鬥目標選中標記至 {1}",
+        "battleGoal": "為 %data.character.{0}.{1}% 設定戰鬥目標選中標記至 {2}",
         "close": "關閉劇本概要",
         "dialog": "#{0} {1} ({2}) 的劇本概要",
         "failure": "劇本 #{0} {1} ({2}) 失敗",
@@ -2939,7 +2939,7 @@
       "monsterSetEntityActive": "將 %data.monster.{0}% 的 %game.monster.{2}% 立牌 {1} 設為啟動",
       "monsterUnsetEntityActive": "將 %data.monster.{0}% 的 %game.monster.{2}% 立牌 {1} 設為未啟動",
       "moveResource": "將 {2} {1} 從 {0} 挪動至寒霜港補給中",
-      "nextIdentity": "將 {0} 的形態由 %data.character.{1}.{2}% 切換至 %data.character.{1}.{3}%",
+      "nextIdentity": "將 {0} 的形態由 %data.character.{4}.{1}.{2}% 切換至 %data.character.{4}.{1}.{3}%",
       "nextRound": "下一輪次",
       "objectiveContainerChangeEntityHp": "將 {0} 的 %game.objectiveMarker.{1}% 血量更改至 {2}",
       "objectiveEntityDead": "擊殺 {0} 的 %game.objectiveMarker.{1}%",
@@ -3104,7 +3104,7 @@
       "setEntitySummonState": "為 {0} 的 {1} 立牌 {2} 設定召喚物 {3}",
       "setExhausted": "{0} 精疲力竭",
       "setGold": "將 {0} 的金幣設定為 {1}",
-      "setIdentity": "將 {0} 的形態設定為 %data.character.{1}.{2}%",
+      "setIdentity": "將 {0} 的形態設定為 %data.character.{3}.{1}.{2}%",
       "setInitiative": "為 {0} 設定時序值 {1}",
       "setLevel": "將 {0} 設定為等級 {1}",
       "setNotes": "為 {0} 記錄 \"{1}\"",

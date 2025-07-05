@@ -958,7 +958,7 @@
     },
     "loot": {
       "": "Pillage",
-      "apply": "Ajouter à %data.character.{0}%",
+      "apply": "Ajouter à %data.character.{0}.{1}%",
       "arrowvine": "Jasmin-archer",
       "axenut": "Glandache",
       "chooseCharacter": "Choisir un personnage pour +{0} {1}",
@@ -980,7 +980,7 @@
       "flamefruit": "Fruit-de-feu",
       "herb_resources": "Herbe",
       "hide": "Peau",
-      "keep": "Continuer %data.character.{0}%",
+      "keep": "Continuer %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "{0} pille le trésor {1}?",
         "confirm": "Confirmer",
@@ -997,7 +997,7 @@
         "apply": "Sélectionner et équiper",
         "draw": "Objet aléatoire pour %game.characterIconColored.{0}% {1}"
       },
-      "remove": "Supprimer de %data.character.{0}%",
+      "remove": "Supprimer de %data.character.{0}.{1}%",
       "rockroot": "Pierrhizome",
       "snowthistle": "Chardoneige",
       "special": "spécial",
@@ -1579,8 +1579,8 @@
       "campaignStickersCount": "'%data.campaignSticker.{0}%' (Autocollant de Campagne) x{2} COMPLET (obtenu {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Autocollant de Campagne) INCOMPLET",
       "cancel": "Annuler",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' présent",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' absent",
+      "characters": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' présent",
+      "charactersMissing": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' absent",
       "global": "'%data.globalAchievements.{0}%' (Global) COMPLET",
       "globalCount": "'%data.globalAchievements.{0}%' (Global) x{2} COMPLET (got {1})",
       "globalMissing": "'%data.globalAchievements.{0}%' (Global) INCOMPLET",
@@ -1593,7 +1593,7 @@
         "or": "ou",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Niveau 5 ou supérieur",
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' Niveau 5 ou supérieur",
       "start": "Commencez quand même le scénario"
     },
     "reset": "Recommencer le scénario",
@@ -2659,7 +2659,7 @@
       },
       "finishConclusion": "Terminer la conclusion #{0} {1} ({2})",
       "finishScenario": {
-        "battleGoal": "Définir les coches de l'objectif de bataille pour %data.character.{0}% à {1}",
+        "battleGoal": "Définir les coches de l'objectif de bataille pour %data.character.{0}.{1}% à {2}",
         "close": "Fermer le résumé du scénario",
         "dialog": "Résumé du scénario pour #{0} {1} ({2})",
         "failure": "Scénario #{0} {1} ({2}) terminé en échec",
