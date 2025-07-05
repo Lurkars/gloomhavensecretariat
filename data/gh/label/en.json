@@ -595,12 +595,14 @@
     }
   },
   "character": {
-    "brute": "Brute",
-    "cragheart": "Cragheart",
-    "mindthief": "Mindthief",
-    "scoundrel": "Scoundrel",
-    "spellweaver": "Spellweaver",
-    "tinkerer": "Tinkerer"
+    "gh": {
+      "brute": "Brute",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "scoundrel": "Scoundrel",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer"
+    }
   },
   "custom": {
     "gh": {

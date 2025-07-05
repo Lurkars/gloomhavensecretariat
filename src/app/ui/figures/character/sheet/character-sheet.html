@@ -9,7 +9,7 @@
           <label class="headline" [ghs-label]="(character.absent ? 'character.absent' : 'character.present')"
             [ghs-label-attribute]="'title'">
             <div class="character-title">
-              <span [ghs-label]="'character.progress.title'" [ghs-label-args]="['data.character.' + character.name,
+              <span [ghs-label]="'character.progress.title'" [ghs-label-args]="['data.character.' + character.edition + '.' + character.name,
                 character.characterClass ? 'character.class.' + (character.gender ? character.gender + '.' : '') +
                 character.characterClass : '']"></span>
             </div>

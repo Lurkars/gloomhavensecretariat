@@ -8,7 +8,8 @@
       <div class="touch"></div>
       <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
       <span class="name" *ngIf="!!monster" [ghs-label]="deckLabel"></span>
-      <span class="name" *ngIf="!!character"><span [ghs-label]="'data.character.' + character.name"></span></span>
+      <span class="name" *ngIf="!!character"><span
+          [ghs-label]="'data.character.'+ character.edition + '.' + character.name"></span></span>
       <span class="logo" *ngIf="!!character"><img [src]="character.iconUrl" /></span>
     </div>
     <div class="card-front ability-front"

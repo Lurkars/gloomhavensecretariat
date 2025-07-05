@@ -48,7 +48,7 @@
                     <span class="file" [ghs-label]="'editor.edition.character.remove'" [ghs-label-attribute]="'title'"
                         *ngFor="let characterData of editionData.characters; let index = index;"
                         (click)="removeCharacter(index)">
-                        <span [ghs-label]="'data.character.' + characterData.name"></span>
+                        <span [ghs-label]="'data.character.' + characterData.edition + '.' + characterData.name"></span>
                         [{{characterData.name}}]</span>
                 </div>
 

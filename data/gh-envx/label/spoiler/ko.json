@@ -1,6 +1,8 @@
 {
   "character": {
-    "envx": "칼날군단"
+    "gh": {
+      "envx": "칼날군단"
+    }
   },
   "summon": {
     "angry-wasps": "성난 말벌",

@@ -1,6 +1,8 @@
 {
   "character": {
-    "envx": "Hordelames"
+    "gh": {
+      "envx": "Hordelames"
+    }
   },
   "summon": {
     "angry-wasps": "Guêpes Irritées",

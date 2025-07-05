@@ -1,11 +1,13 @@
 {
   "character": {
-    "bruiser": "蛮子",
-    "cragheart": "裂心人",
-    "mindthief": "乱心贼",
-    "silent-knife": "凶徒",
-    "spellweaver": "织魔师",
-    "tinkerer": "修补匠"
+    "bb": {
+      "bruiser": "蛮子",
+      "cragheart": "裂心人",
+      "mindthief": "乱心贼",
+      "silent-knife": "凶徒",
+      "spellweaver": "织魔师",
+      "tinkerer": "修补匠"
+    }
   },
   "edition": {
     "bb": "纽扣与虫子"

@@ -98,12 +98,14 @@
     }
   },
   "character": {
-    "brute": "Дикарь",
-    "cragheart": "Пустотелый",
-    "mindthief": "Крадущая разум",
-    "scoundrel": "Плутовка",
-    "spellweaver": "Плетущая чары",
-    "tinkerer": "Изобретатель"
+    "gh": {
+      "brute": "Дикарь",
+      "cragheart": "Пустотелый",
+      "mindthief": "Крадущая разум",
+      "scoundrel": "Плутовка",
+      "spellweaver": "Плетущая чары",
+      "tinkerer": "Изобретатель"
+    }
   },
   "custom": {
     "gh": {

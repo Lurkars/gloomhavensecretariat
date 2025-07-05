@@ -1,9 +1,11 @@
 {
   "character": {
-    "antlers": "Wildspeaker",
-    "bars": "Statistician",
-    "dynamite": "Specialist",
-    "light-fist": "Lightbender"
+    "ir": {
+      "antlers": "Wildspeaker",
+      "bars": "Statistician",
+      "dynamite": "Specialist",
+      "light-fist": "Lightbender"
+    }
   },
   "custom": {
     "ir": {

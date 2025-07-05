@@ -3,7 +3,8 @@
     <span class="character" *ngIf="!!character">
       <img class="icon" [src]="character.iconUrl" />
       {{ gameManager.characterManager.characterName(character)}}
-      <span *ngIf="character.title">&nbsp;(<span [ghs-label]="'data.character.' + character.name"></span>)</span>
+      <span *ngIf="character.title">&nbsp;(<span
+          [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>)</span>
     </span>
     <span class="character" *ngIf="!!objective">
       <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />

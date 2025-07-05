@@ -1,11 +1,13 @@
 {
   "character": {
-    "demolitionist": {
-      "": "Demolitore"
-    },
-    "hatchet": "Ascia da Guerra",
-    "red-guard": "Guardia Rossa",
-    "voidwarden": "Guardiano del Vuoto"
+    "jotl": {
+      "demolitionist": {
+        "": "Demolitore"
+      },
+      "hatchet": "Ascia da Guerra",
+      "red-guard": "Guardia Rossa",
+      "voidwarden": "Guardiano del Vuoto"
+    }
   },
   "monster": {
     "black-imp": "Imp Nero",

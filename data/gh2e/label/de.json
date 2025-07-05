@@ -1,8 +1,10 @@
 {
   "character": {
-    "cragheart": "Felsenherz",
-    "mindthief": "Gedankendiebin",
-    "spellweaver": "Spruchweberin",
-    "tinkerer": "Tüftler"
+    "gh2e": {
+      "cragheart": "Felsenherz",
+      "mindthief": "Gedankendiebin",
+      "spellweaver": "Spruchweberin",
+      "tinkerer": "Tüftler"
+    }
   }
 }

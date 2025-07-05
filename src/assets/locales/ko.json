@@ -982,7 +982,7 @@
       "flamefruit": "화염열매",
       "herb_resources": "약초",
       "hide": "가죽",
-      "keep": "%data.character.{0}% 캐릭터로 계속 진행하기",
+      "keep": "%data.character.{0}.{1}% 캐릭터로 계속 진행하기",
       "lootTreasure": {
         "": "{0} 캐릭터가 {1} 보물을 노획했습니까?",
         "confirm": "확인하기",
@@ -999,7 +999,7 @@
         "apply": "선택하고 장비",
         "draw": "%game.characterIconColored.{0}% {1} 무작위 아이템 획득"
       },
-      "remove": "%data.character.{0}%에게서 제거",
+      "remove": "%data.character.{0}.{1}%에게서 제거",
       "rockroot": "바위뿌리",
       "snowthistle": "눈엉겅퀴",
       "special": "특수",
@@ -1527,7 +1527,7 @@
       "scenarios": {
         "": "다음 시나리오를 완료해야 합니다"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' 레벨 5 이상일 것",
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' 레벨 5 이상일 것",
       "start": "무시하고 시나리오 시작"
     },
     "reset": "시나리오 재시작하기",
@@ -2645,7 +2645,7 @@
         "drawRandomItemBlueprint": "무작위 제작 아이템 도안 뽑습니다 {0} \"{2}\" (%data.edition.{1}%)"
       },
       "finishScenario": {
-        "battleGoal": "%data.character.{0}%의 전투 목표 {1} 설정",
+        "battleGoal": "%data.character.{0}.{1}%의 전투 목표 {2} 설정",
         "close": "시나리오 요약 닫기",
         "dialog": "시나리오 #{0} {1} ({2}) 요약",
         "failure": "시나리오 #{0} {1} ({2}) 실패",

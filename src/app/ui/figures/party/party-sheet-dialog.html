@@ -821,7 +821,7 @@
                 (doubleClick)="openCharacterSheet(characterModel, false)">{{characterModel.title}}</span>
               <span class="link" ghs-pointer-input (singleClick)="openCharacterSheet(characterModel)"
                 (doubleClick)="openCharacterSheet(characterModel, false)"
-                [ghs-label]="'data.character.' + characterModel.name"></span>
+                [ghs-label]="'data.character.' + characterModel.edition + '.'+ characterModel.name"></span>
               <span>{{characterModel.level}}</span>
               <span>{{characterPerks(characterModel) || '/'}}</span>
               <span *ngIf="fhSheet">

@@ -66,7 +66,8 @@
             <option [value]="-1">&lt;<span [ghs-label]="'editor.character.new'"></span>&gt;</option>
             <option [value]="index" *ngFor="let cD of charactersData; let index = index;"
               [selected]="cD.edition == characterData.edition && cD.name == characterData.name">
-              <span *ngIf="isSpoiled(cD)" [ghs-label]="'data.character.' + cD.name"></span> {{cD.name}}
+              <span *ngIf="isSpoiled(cD)" [ghs-label]="'data.character.' + cD.edition + '.' + cD.name"></span>
+              {{cD.name}}
               (<span [ghs-label]="'data.edition.' + cD.edition"></span>)
               [{{cD.name}}]
             </option>

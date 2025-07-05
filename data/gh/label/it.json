@@ -1,11 +1,13 @@
 {
   "character": {
-    "brute": "Bruto",
-    "cragheart": "Cuore di Roccia",
-    "mindthief": "Ladro Mentale",
-    "scoundrel": "Canaglia",
-    "spellweaver": "Tessimagie",
-    "tinkerer": "Inventore"
+    "gh": {
+      "brute": "Bruto",
+      "cragheart": "Cuore di Roccia",
+      "mindthief": "Ladro Mentale",
+      "scoundrel": "Canaglia",
+      "spellweaver": "Tessimagie",
+      "tinkerer": "Inventore"
+    }
   },
   "deck": {
     "archer": "Arciere",

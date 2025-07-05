@@ -72,25 +72,27 @@
     }
   },
   "character": {
-    "banner-spear": "旗槍衛士",
-    "blinkblade": {
-      "": "閃刃師",
-      "fast": "快速",
-      "slow": "慢速",
-      "time_tokens": {
-        "": "\"%data.characterToken.blinkblade.time% 個時間標記",
-        "hint": "在回合開始時於選擇慢速/快速之後，自動添加/移除時間標記"
+    "fh": {
+      "banner-spear": "旗槍衛士",
+      "blinkblade": {
+        "": "閃刃師",
+        "fast": "快速",
+        "slow": "慢速",
+        "time_tokens": {
+          "": "\"%data.characterToken.blinkblade.time% 個時間標記",
+          "hint": "在回合開始時於選擇慢速/快速之後，自動添加/移除時間標記"
+        }
+      },
+      "boneshaper": {
+        "": "塑骨師"
+      },
+      "deathwalker": "死亡行者",
+      "drifter": "流浪者",
+      "geminate": {
+        "": "雙生者",
+        "melee": "近戰",
+        "range": "遠程"
       }
-    },
-    "boneshaper": {
-      "": "塑骨師"
-    },
-    "deathwalker": "死亡行者",
-    "drifter": "流浪者",
-    "geminate": {
-      "": "雙生者",
-      "melee": "近戰",
-      "range": "遠程"
     }
   },
   "custom": {

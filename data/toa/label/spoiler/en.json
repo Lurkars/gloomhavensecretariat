@@ -1,10 +1,12 @@
 {
   "character": {
-    "gemstone": "Shardrender",
-    "ice-meteor": "Rimehearth",
-    "lightning-ball": "Tempest",
-    "spiked-ring": "Thornreaper",
-    "three-eyes": "Incarnate"
+    "toa": {
+      "gemstone": "Shardrender",
+      "ice-meteor": "Rimehearth",
+      "lightning-ball": "Tempest",
+      "spiked-ring": "Thornreaper",
+      "three-eyes": "Incarnate"
+    }
   },
   "custom": {
     "toa": {

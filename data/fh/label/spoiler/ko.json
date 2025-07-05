@@ -186,36 +186,38 @@
     }
   },
   "character": {
-    "astral": "주입술사",
-    "coral": "파쇄조류",
-    "drill": {
-      "": "금속 모자이크"
-    },
-    "fist": {
-      "": "빙결주먹"
-    },
-    "kelp": {
-      "": "심연 망령"
-    },
-    "meteor": "용암분쇄자",
-    "prism": {
-      "": "모방군집",
-      "prism_mode": {
-        "": "%data.characterToken.prism.mode% 모드 토큰"
+    "fh": {
+      "astral": "주입술사",
+      "coral": "파쇄조류",
+      "drill": {
+        "": "금속 모자이크"
       },
-      "repair_mode": {
-        "": "재구축 지원",
-        "hint": "%data.characterToken.prism.mode% 수리 드론 모드: 매번 카드 사용자의 차례 시작 시, 수행:%game.action.heal% 2, 자신"
-      }
-    },
-    "shackles": "고통전달자",
-    "shards": {
-      "": "산산조곡"
-    },
-    "snowflake": {
-      "": "눈의 연무가"
-    },
-    "trap": "덫 사냥꾼"
+      "fist": {
+        "": "빙결주먹"
+      },
+      "kelp": {
+        "": "심연 망령"
+      },
+      "meteor": "용암분쇄자",
+      "prism": {
+        "": "모방군집",
+        "prism_mode": {
+          "": "%data.characterToken.prism.mode% 모드 토큰"
+        },
+        "repair_mode": {
+          "": "재구축 지원",
+          "hint": "%data.characterToken.prism.mode% 수리 드론 모드: 매번 카드 사용자의 차례 시작 시, 수행:%game.action.heal% 2, 자신"
+        }
+      },
+      "shackles": "고통전달자",
+      "shards": {
+        "": "산산조곡"
+      },
+      "snowflake": {
+        "": "눈의 연무가"
+      },
+      "trap": "덫 사냥꾼"
+    }
   },
   "custom": {
     "fh": {

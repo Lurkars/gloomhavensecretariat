@@ -970,7 +970,7 @@
     },
     "loot": {
       "": "Loot",
-      "apply": "Add to %data.character.{0}%",
+      "apply": "Add to %data.character.{0}.{1}%",
       "arrowvine": "Arrowvine",
       "axenut": "Axenut",
       "chooseCharacter": "Select Character for +{0} {1}",
@@ -992,7 +992,7 @@
       "flamefruit": "Flamefruit",
       "herb_resources": "herb",
       "hide": "Hide",
-      "keep": "Keep on %data.character.{0}%",
+      "keep": "Keep on %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "{0} loots treasure {1}?",
         "confirm": "Confirm",
@@ -1009,7 +1009,7 @@
         "apply": "Select and Equip",
         "draw": "Random Item for %game.characterIconColored.{0}% {1}"
       },
-      "remove": "Remove from %data.character.{0}%",
+      "remove": "Remove from %data.character.{0}.{1}%",
       "rockroot": "Rockroot",
       "snowthistle": "Snowthistle",
       "special": "special",
@@ -1605,8 +1605,8 @@
       "campaignStickersCount": "'%data.campaignSticker.{0}%' (Campaign Sticker) x{2} COMPLETE (got {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Campaign Sticker) INCOMPLETE",
       "cancel": "Cancel",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' present",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' absent",
+      "characters": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' present",
+      "charactersMissing": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' absent",
       "global": "'%data.globalAchievements.{0}%' (Global) COMPLETE",
       "globalCount": "'%data.globalAchievements.{0}%' (Global) x{2} COMPLETE (got {1})",
       "globalMissing": "'%data.globalAchievements.{0}%' (Global) INCOMPLETE",
@@ -1619,7 +1619,7 @@
         "or": "or",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Level 5 or higher",
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' Level 5 or higher",
       "start": "Start Scenario anyway"
     },
     "reset": "Restart Scenario",
@@ -2922,7 +2922,7 @@
       },
       "finishConclusion": "Finish conclusion #{0} {1} ({2})",
       "finishScenario": {
-        "battleGoal": "Set Battle Goal checkmarks for %data.character.{0}% to {1}",
+        "battleGoal": "Set Battle Goal checkmarks for %data.character.{0}.{1}% to {2}",
         "close": "Close Scenario Summary",
         "dialog": "Scenario summary for #{0} {1} ({2})",
         "failure": "Scenario #{0} {1} ({2}) failed",
@@ -2960,7 +2960,7 @@
       "monsterSetEntityActive": "Set %game.monster.{2}% standee {1} of %data.monster.{0}% active",
       "monsterUnsetEntityActive": "Set %game.monster.{2}% standee {1} of %data.monster.{0}% inactive",
       "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
-      "nextIdentity": "Set form of {0} from %data.character.{1}.{2}% to %data.character.{1}.{3}%",
+      "nextIdentity": "Set form of {0} from %data.character.{4}.{1}.{2}% to %data.character.{4}.{1}.{3}%",
       "nextRound": "Next Round",
       "objectiveContainerChangeEntityHp": "HP {2} for %game.objectiveMarker.{1}% of {0}",
       "objectiveEntityDead": "Kill %game.objectiveMarker.{1}% of {0}",
@@ -3125,7 +3125,7 @@
       "setEntitySummonState": "Set summon {3} for {1} standee {2} of {0}",
       "setExhausted": "{0} exhausted",
       "setGold": "Gold {1} for {0}",
-      "setIdentity": "Set form of {0} to %data.character.{1}.{2}%",
+      "setIdentity": "Set form of {0} to %data.character.{3}.{1}.{2}%",
       "setInitiative": "Initiative {1} for {0}",
       "setLevel": "Level {1} for {0}",
       "setNotes": "Notes \"{1}\" for {0}",

@@ -1,17 +1,19 @@
 {
     "character": {
-        "angry-face": "Doomstalker",
-        "crossed-swords": "Bladeswarm",
-        "circles": "Soultether",
-        "eclipse": "Nightshroud",
-        "lightning": "Berserker",
-        "music-note": "Soothsinger",
-        "saw": "Sawbones",
-        "squidface": "Plagueherald",
-        "sun": "Sunkeeper",
-        "three-spears": "Quartermaster",
-        "triangles": "Elementalist",
-        "two-mini": "Wildfury"
+        "gh2e": {
+            "angry-face": "Doomstalker",
+            "crossed-swords": "Bladeswarm",
+            "circles": "Soultether",
+            "eclipse": "Nightshroud",
+            "lightning": "Berserker",
+            "music-note": "Soothsinger",
+            "saw": "Sawbones",
+            "squidface": "Plagueherald",
+            "sun": "Sunkeeper",
+            "three-spears": "Quartermaster",
+            "triangles": "Elementalist",
+            "two-mini": "Wildfury"
+        }
     },
     "summon": {
         "angry-wasps": "Angry Wasps",

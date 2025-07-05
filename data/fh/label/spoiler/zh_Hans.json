@@ -189,67 +189,69 @@
     }
   },
   "character": {
-    "astral": "灌注使",
-    "coral": "崩潮卫士",
-    "drill": {
-      "": "金属拼杂体",
-      "high": "高压",
-      "low": "低压",
-      "over": "超压",
-      "regular": "常压"
-    },
-    "fist": {
-      "": "冰封拳师",
-      "gift-of-the-mountain": {
-        "": "山脉馈赠",
-        "hint": "在你每个回合结束时,执行: %game.action.heal% 2,自身"
+    "fh": {
+      "astral": "灌注使",
+      "coral": "崩潮卫士",
+      "drill": {
+        "": "金属拼杂体",
+        "high": "高压",
+        "low": "低压",
+        "over": "超压",
+        "regular": "常压"
       },
-      "one-with-the-mountain": {
-        "": "融身山脉",
-        "hint": "每当你没有%game.condition.regenerate%时，获得%game.condition.regenerate%。"
-      }
-    },
-    "kelp": {
-      "": "深海缚灵",
-      "trophy_tokens": {
-        "": "精兵饰物",
-        "hint": "%data.custom.fh.kelp.4%"
-      }
-    },
-    "meteor": "炎浆使",
-    "prism": {
-      "": "虫巢",
-      "long_rest": {
-        "hint": "%data.custom.fh.prism.8%"
+      "fist": {
+        "": "冰封拳师",
+        "gift-of-the-mountain": {
+          "": "山脉馈赠",
+          "hint": "在你每个回合结束时,执行: %game.action.heal% 2,自身"
+        },
+        "one-with-the-mountain": {
+          "": "融身山脉",
+          "hint": "每当你没有%game.condition.regenerate%时，获得%game.condition.regenerate%。"
+        }
       },
-      "prism_mode": {
-        "": "%data.characterToken.prism.mode% 模式标记"
+      "kelp": {
+        "": "深海缚灵",
+        "trophy_tokens": {
+          "": "精兵饰物",
+          "hint": "%data.custom.fh.kelp.4%"
+        }
       },
-      "repair_mode": {
-        "": "再建援助",
-        "hint": "%data.characterToken.prism.mode%修理无人机模块：在你每个回合开始时，执行：%game.action.heal%2，自己"
-      }
-    },
-    "shackles": "痛苦通导者",
-    "shards": {
-      "": "碎裂歌手",
-      "extra_resonance_tokens": {
-        "": "Perk 10",
-        "hint": "%data.custom.fh.shards.5%"
+      "meteor": "炎浆使",
+      "prism": {
+        "": "虫巢",
+        "long_rest": {
+          "hint": "%data.custom.fh.prism.8%"
+        },
+        "prism_mode": {
+          "": "%data.characterToken.prism.mode% 模式标记"
+        },
+        "repair_mode": {
+          "": "再建援助",
+          "hint": "%data.characterToken.prism.mode%修理无人机模块：在你每个回合开始时，执行：%game.action.heal%2，自己"
+        }
       },
-      "resonance_tokens": {
-        "": "%data.characterToken.shards.resonance%共鸣标记",
-        "hint": "在你每个回合结束时，你获得1个%data.characterToken.shards.resonance%"
-      }
-    },
-    "snowflake": {
-      "": "雪舞者",
-      "muddle-monster": {
-        "": "Perk 9",
-        "hint": "%data.custom.fh.snowflake.4%"
-      }
-    },
-    "trap": "陷阱师"
+      "shackles": "痛苦通导者",
+      "shards": {
+        "": "碎裂歌手",
+        "extra_resonance_tokens": {
+          "": "Perk 10",
+          "hint": "%data.custom.fh.shards.5%"
+        },
+        "resonance_tokens": {
+          "": "%data.characterToken.shards.resonance%共鸣标记",
+          "hint": "在你每个回合结束时，你获得1个%data.characterToken.shards.resonance%"
+        }
+      },
+      "snowflake": {
+        "": "雪舞者",
+        "muddle-monster": {
+          "": "Perk 9",
+          "hint": "%data.custom.fh.snowflake.4%"
+        }
+      },
+      "trap": "陷阱师"
+    }
   },
   "custom": {
     "fh": {

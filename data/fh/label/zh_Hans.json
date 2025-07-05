@@ -462,33 +462,35 @@
     "unfettered-deactivated": "自由机关闭"
   },
   "character": {
-    "banner-spear": "旗矛手",
-    "blinkblade": {
-      "": "烁刃客",
-      "fast": "快速",
-      "slow": "慢速",
-      "time_tokens": {
-        "": "%data.characterToken.blinkblade.time% 时间指示物",
-        "hint": "在轮次开始时且在决定慢速/快速之后自动添加/移除时间指示物"
-      }
-    },
-    "boneshaper": {
-      "": "塑骨师",
-      "solid-bones": {
-        "": "坚硬白骨",
-        "hint": "所有蹒跚骷髅获得 +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+    "fh": {
+      "banner-spear": "旗矛手",
+      "blinkblade": {
+        "": "烁刃客",
+        "fast": "快速",
+        "slow": "慢速",
+        "time_tokens": {
+          "": "%data.characterToken.blinkblade.time% 时间指示物",
+          "hint": "在轮次开始时且在决定慢速/快速之后自动添加/移除时间指示物"
+        }
       },
-      "unholy-prowess": {
-        "": "不洁威武",
-        "hint": "所有蹒跚骷髅获得 +1 %game.action.heal%."
+      "boneshaper": {
+        "": "塑骨师",
+        "solid-bones": {
+          "": "坚硬白骨",
+          "hint": "所有蹒跚骷髅获得 +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+        },
+        "unholy-prowess": {
+          "": "不洁威武",
+          "hint": "所有蹒跚骷髅获得 +1 %game.action.heal%."
+        }
+      },
+      "deathwalker": "死亡行者",
+      "drifter": "漂泊者",
+      "geminate": {
+        "": "双生体",
+        "melee": "近战",
+        "range": "远程"
       }
-    },
-    "deathwalker": "死亡行者",
-    "drifter": "漂泊者",
-    "geminate": {
-      "": "双生体",
-      "melee": "近战",
-      "range": "远程"
     },
     "traits": {
       "arcane": "奥术",

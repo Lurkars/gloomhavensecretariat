@@ -87,8 +87,8 @@ export class AttackModifierToolComponent implements OnInit {
       if (a.edition != b.edition) {
         return a.edition < b.edition ? -1 : 1;
       } else {
-        let aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
-        let bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+        let aName = settingsManager.getLabel('data.character.' + a.edition + '.' + a.name).toLowerCase();
+        let bName = settingsManager.getLabel('data.character.' + b.edition + '.' + b.name).toLowerCase();
         return aName < bName ? -1 : 1;
       }
     })

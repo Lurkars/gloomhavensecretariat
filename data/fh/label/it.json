@@ -1,16 +1,18 @@
 {
   "character": {
-    "banner-spear": "Alfiere",
-    "blinkblade": {
-      "": "Lama Fulminea"
-    },
-    "boneshaper": {
-      "": "Plasmaossa"
-    },
-    "deathwalker": "Viandante della Morte",
-    "drifter": "Ramingo",
-    "geminate": {
-      "": "Geminato"
+    "fh": {
+      "banner-spear": "Alfiere",
+      "blinkblade": {
+        "": "Lama Fulminea"
+      },
+      "boneshaper": {
+        "": "Plasmaossa"
+      },
+      "deathwalker": "Viandante della Morte",
+      "drifter": "Ramingo",
+      "geminate": {
+        "": "Geminato"
+      }
     }
   },
   "monster": {

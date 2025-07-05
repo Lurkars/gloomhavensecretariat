@@ -1,19 +1,21 @@
 {
   "character": {
-    "beetle": "琥珀盾卫者",
-    "bleeding-claw": "毁灭巨口",
-    "chain-helmet": "锁链庇护",
-    "crescent-sun": "光辉主宰",
-    "flask": "灵机一动",
-    "galaxy": "星芒乱射",
-    "ladder-axe": "炎骑破阵",
-    "leaf": "圣祭之怒",
-    "skull": "灵召术",
-    "sprig": "泥足行者",
-    "target": "烈焰轰炸",
-    "tools": "炼金奇匠",
-    "tusks": "酋长之威",
-    "vortex": "空洞契约者"
+    "cs": {
+      "beetle": "琥珀盾卫者",
+      "bleeding-claw": "毁灭巨口",
+      "chain-helmet": "锁链庇护",
+      "crescent-sun": "光辉主宰",
+      "flask": "灵机一动",
+      "galaxy": "星芒乱射",
+      "ladder-axe": "炎骑破阵",
+      "leaf": "圣祭之怒",
+      "skull": "灵召术",
+      "sprig": "泥足行者",
+      "target": "烈焰轰炸",
+      "tools": "炼金奇匠",
+      "tusks": "酋长之威",
+      "vortex": "空洞契约者"
+    }
   },
   "items": {
     "cs-1": {

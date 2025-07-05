@@ -1,22 +1,24 @@
 {
   "character": {
-    "brute": "Brute",
-    "cragheart": "Cragheart",
-    "demolitionist": {
-      "": "Demolitionist",
-      "mech": {
-        "": "Mech Suit",
-        "hint": "Your maximum hit point value is increased by 5. Heal %game.action.heal% 10, self."
-      }
-    },
-    "diviner": "Diviner",
-    "hatchet": "Hatchet",
-    "mindthief": "Mindthief",
-    "red-guard": "Red Guard",
-    "scoundrel": "Scoundrel",
-    "spellweaver": "Spellweaver",
-    "tinkerer": "Tinkerer",
-    "voidwarden": "Voidwarden"
+    "fh-crossover": {
+      "brute": "Brute",
+      "cragheart": "Cragheart",
+      "demolitionist": {
+        "": "Demolitionist",
+        "mech": {
+          "": "Mech Suit",
+          "hint": "Your maximum hit point value is increased by 5. Heal %game.action.heal% 10, self."
+        }
+      },
+      "diviner": "Diviner",
+      "hatchet": "Hatchet",
+      "mindthief": "Mindthief",
+      "red-guard": "Red Guard",
+      "scoundrel": "Scoundrel",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer",
+      "voidwarden": "Voidwarden"
+    }
   },
   "custom": {
     "fh": {

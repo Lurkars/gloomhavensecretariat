@@ -1,11 +1,13 @@
 {
   "character": {
-    "bruiser": "Bruiser",
-    "cragheart": "Cragheart",
-    "mindthief": "Mindthief",
-    "silent-knife": "Silent Knife",
-    "spellweaver": "Spellweaver",
-    "tinkerer": "Tinkerer"
+    "gh2e": {
+      "bruiser": "Bruiser",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "silent-knife": "Silent Knife",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer"
+    }
   },
   "custom": {
     "gh2e": {

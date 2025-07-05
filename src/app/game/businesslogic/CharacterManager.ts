@@ -55,21 +55,21 @@ export class CharacterManager {
   }
 
   characterName(character: Character, full: boolean = false, icon: boolean = false, identity: boolean = true): string {
-    let name = settingsManager.getLabel('data.character.' + character.name);
+    let name = settingsManager.getLabel('data.character.' + character.edition + '.' + character.name);
     let hasTitle = false;
     if (identity && character.identities.length > 0 && settingsManager.settings.characterIdentities) {
       if (character.title && character.title.split('|')[character.identity] && character.title.split('|')[character.identity]) {
         name = character.title.split('|')[character.identity];
         hasTitle = true;
       } else if (settingsManager.settings.characterIdentityHint && !full) {
-        name += " (" + settingsManager.getLabel('data.character.' + character.name + '.' + character.identities[character.identity]) + ")"
+        name += " (" + settingsManager.getLabel('data.character.' + character.edition + '.' + character.name + '.' + character.identities[character.identity]) + ")"
       }
     } else if (character.title) {
       name = character.title;
       hasTitle = true;
     }
     if (full && hasTitle) {
-      name += " (" + settingsManager.getLabel('data.character.' + character.name) + ")";
+      name += " (" + settingsManager.getLabel('data.character.' + character.edition + '.' + character.name) + ")";
     }
 
     if (icon) {

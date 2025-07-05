@@ -39,9 +39,9 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   getCharacterData(filter: string, edition: string): CharacterData[] {
-    return gameManager.charactersData(edition).filter((characterData) => ((!characterData.locked || this.unlocked(characterData)) && (ghsTextSearch(characterData.name, filter) || this.unlocked(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter))) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.name), filter, true)).sort((a, b) => {
-      const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
-      const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+    return gameManager.charactersData(edition).filter((characterData) => ((!characterData.locked || this.unlocked(characterData)) && (ghsTextSearch(characterData.name, filter) || this.unlocked(characterData) && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.edition + '.' + characterData.name), filter))) || characterData.locked && ghsTextSearch(settingsManager.getLabel('data.character.' + characterData.edition + '.' + characterData.name), filter, true)).sort((a, b) => {
+      const aName = settingsManager.getLabel('data.character.' + a.edition + '.' + a.name).toLowerCase();
+      const bName = settingsManager.getLabel('data.character.' + b.edition + '.' + b.name).toLowerCase();
 
       if (a.spoiler && !b.spoiler) {
         return 1;
@@ -83,7 +83,7 @@ export class CharacterMenuComponent implements OnInit {
   unlock(characterData: CharacterData) {
     if (gameManager.game.unlockedCharacters.indexOf(characterData.name) == -1) {
       if (this.confirm == characterData.name) {
-        gameManager.stateManager.before("unlockChar", "data.character." + characterData.name);
+        gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
         gameManager.game.unlockedCharacters.push(characterData.name);
         this.newUnlocks.push(characterData.name);
         gameManager.stateManager.after();
@@ -116,7 +116,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   addCharacter(characterData: CharacterData) {
-    gameManager.stateManager.before("addChar", "data.character." + characterData.name);
+    gameManager.stateManager.before("addChar", "data.character." + characterData.edition + '.' + characterData.name);
     gameManager.characterManager.addCharacter(characterData, this.characterLevel);
     gameManager.stateManager.after();
     if (gameManager.bbRules()) {

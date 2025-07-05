@@ -44,14 +44,14 @@
         <ng-container
             *ngIf="!!character && treasureIndex != -1 && !gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)">
             <p><span [ghs-label]="'game.loot.lootTreasure'"
-                    [ghs-label-args]="[character.title || '%data.character.' + character.name + '%', ('' + treasures[treasureIndex]).startsWith('G') || +treasures[treasureIndex] >= 0 ? treasures[treasureIndex] : '\'???\'']"></span>
+                    [ghs-label-args]="[character.title || '%data.character.' + character.edition + '.'+ character.name + '%', ('' + treasures[treasureIndex]).startsWith('G') || +treasures[treasureIndex] >= 0 ? treasures[treasureIndex] : '\'???\'']"></span>
             </p>
             <div class="button" (click)="lootTreasure()"><span [ghs-label]="'game.loot.lootTreasure.confirm'"></span>
             </div>
         </ng-container>
 
         <p *ngIf="!!character && treasureIndex == -1"><span [ghs-label]="'game.loot.lootTreasure.selectTreasure'"
-                [ghs-label-args]="[character.title || '%data.character.' + character.name + '%']"></span>
+                [ghs-label-args]="[character.title || '%data.character.' + character.edition + '.' + character.name + '%']"></span>
         </p>
 
         <p *ngIf="!character && treasureIndex != -1"><span [ghs-label]="'game.loot.lootTreasure.selectCharacter'"
@@ -61,7 +61,8 @@
         <ng-container
             *ngIf="!!character && treasureIndex != -1 && gameManager.lootManager.hasTreasure(character, treasures[treasureIndex], treasureIndex)">
             <p><span [ghs-label]="'game.loot.lootTreasure.looted'"
-                    [ghs-label-args]="[character.title || '%data.character.' + character.name + '%']"></span></p>
+                    [ghs-label-args]="[character.title || '%data.character.' + character.edition + '.' + character.name + '%']"></span>
+            </p>
 
             <span *ngIf="treasures[treasureIndex] == 'G'"><span
                     [ghs-label]="'game.loot.treasures.rewards.goal'"></span></span>

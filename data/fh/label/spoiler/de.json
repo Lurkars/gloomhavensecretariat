@@ -186,9 +186,11 @@
     }
   },
   "character": {
-    "coral": "Gezeitenbruch",
-    "prism": {
-      "": "DROHN"
+    "fh": {
+      "coral": "Gezeitenbruch",
+      "prism": {
+        "": "DROHN"
+      }
     }
   },
   "custom": {

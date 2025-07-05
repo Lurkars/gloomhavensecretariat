@@ -130,16 +130,18 @@
     }
   },
   "character": {
-    "demolitionist": {
-      "": "Demoledora",
-      "mech": {
-        "": "Armadura mecanizada",
-        "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
-      }
-    },
-    "hatchet": "Ejecutor",
-    "red-guard": "Guardia rojo",
-    "voidwarden": "Centinela del Vacío"
+    "jotl": {
+      "demolitionist": {
+        "": "Demoledora",
+        "mech": {
+          "": "Armadura mecanizada",
+          "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
+        }
+      },
+      "hatchet": "Ejecutor",
+      "red-guard": "Guardia rojo",
+      "voidwarden": "Centinela del Vacío"
+    }
   },
   "custom": {
     "jotl": {

@@ -12,7 +12,7 @@
     <a (click)="close()" *ngIf="selected || data.selected"
         [ngClass]="{'disabled' : !selected && (!edit || !data.selected), 'remove': edit && !selected && data.selected}"><span
             [ghs-label]="edit && !selected && data.selected ? 'game.loot.remove' : (!edit || !data.selected || selected != data.selected ? 'game.loot.apply' : 'game.loot.keep')"
-            [ghs-label-args]="[selected || data.selected || '']"></span>
+            [ghs-label-args]="[edition, selected || data.selected || '']"></span>
     </a>
     <a (click)="close()" *ngIf="!selected && !data.selected" class="cancel">
         <span [ghs-label]="'cancel'"></span>

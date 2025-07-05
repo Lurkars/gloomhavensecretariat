@@ -1,20 +1,22 @@
 {
   "character": {
-    "brute": "蛮子",
-    "demolitionist": {
-      "": "爆裂拳手",
-      "mech": {
-        "hint": "你的生命值上限增加5点。治疗10%game.action.heal%，自己。"
-      }
-    },
-    "diviner": "占卜师",
-    "hatchet": "神斧客",
-    "mindthief": "乱心贼",
-    "red-guard": "赤红守卫",
-    "scoundrel": "凶徒",
-    "spellweaver": "织魔师",
-    "tinkerer": "修补匠",
-    "voidwarden": "虚空守望者"
+    "fh-crossover": {
+      "brute": "蛮子",
+      "demolitionist": {
+        "": "爆裂拳手",
+        "mech": {
+          "hint": "你的生命值上限增加5点。治疗10%game.action.heal%，自己。"
+        }
+      },
+      "diviner": "占卜师",
+      "hatchet": "神斧客",
+      "mindthief": "乱心贼",
+      "red-guard": "赤红守卫",
+      "scoundrel": "凶徒",
+      "spellweaver": "织魔师",
+      "tinkerer": "修补匠",
+      "voidwarden": "虚空守望者"
+    }
   },
   "custom": {
     "fh": {

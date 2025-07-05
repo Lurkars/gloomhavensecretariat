@@ -50,7 +50,9 @@
     "You Date to Defy Me": "You Date to Defy Me"
   },
   "character": {
-    "diviner": "Diviner"
+    "fc": {
+      "diviner": "Diviner"
+    }
   },
   "custom": {
     "fc": {

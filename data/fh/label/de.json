@@ -406,19 +406,21 @@
     "unfettered-deactivated": "Entfesselte deaktiviert"
   },
   "character": {
-    "banner-spear": "Bannerspeer",
-    "blinkblade": {
-      "": "Blitzklinge",
-      "fast": "Schnell",
-      "slow": "Langsam"
-    },
-    "boneshaper": "Knochenformerin",
-    "deathwalker": "Todeswandlerin",
-    "drifter": "Wanderer",
-    "geminate": {
-      "": "Doppelseele",
-      "melee": "Nahkampf",
-      "range": "Fernkampf"
+    "fh": {
+      "banner-spear": "Bannerspeer",
+      "blinkblade": {
+        "": "Blitzklinge",
+        "fast": "Schnell",
+        "slow": "Langsam"
+      },
+      "boneshaper": "Knochenformerin",
+      "deathwalker": "Todeswandlerin",
+      "drifter": "Wanderer",
+      "geminate": {
+        "": "Doppelseele",
+        "melee": "Nahkampf",
+        "range": "Fernkampf"
+      }
     },
     "traits": {
       "arcane": "Arkan",

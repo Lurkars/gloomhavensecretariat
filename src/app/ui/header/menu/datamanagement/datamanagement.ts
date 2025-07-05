@@ -99,8 +99,9 @@ export class DatamanagementMenuComponent implements OnInit {
       const characterName = target.value;
       target.classList.remove("error");
       target.disabled = true;
-      if (gameManager.game.unlockedCharacters.indexOf(characterName) == -1 && gameManager.charactersData(undefined).find((characterData) => characterData.spoiler && characterData.name == characterName)) {
-        gameManager.stateManager.before("unlockChar", "data.character." + characterName);
+      const characterData = gameManager.charactersData(undefined).find((characterData) => characterData.spoiler && characterData.name == characterName);
+      if (gameManager.game.unlockedCharacters.indexOf(characterName) == -1 && characterData) {
+        gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterName);
         gameManager.game.unlockedCharacters.push(characterName)
         gameManager.stateManager.after();
         target.value = "";
@@ -115,8 +116,9 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   removeUnlock(characterName: string): void {
-    if (characterName && gameManager.game.unlockedCharacters.indexOf(characterName) != -1) {
-      gameManager.stateManager.before("unlockChar", "data.character." + characterName);
+    const characterData = gameManager.charactersData(undefined).find((characterData) => characterData.spoiler && characterData.name == characterName);
+    if (characterName && gameManager.game.unlockedCharacters.indexOf(characterName) != -1 && characterData) {
+      gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterName);
       gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(characterName), 1);
       gameManager.stateManager.after();
     }

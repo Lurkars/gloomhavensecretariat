@@ -98,12 +98,14 @@
     }
   },
   "character": {
-    "brute": "야만인",
-    "cragheart": "바위심장",
-    "mindthief": "정신도둑",
-    "scoundrel": "무법자",
-    "spellweaver": "주문직인",
-    "tinkerer": "땜장이"
+    "gh": {
+      "brute": "야만인",
+      "cragheart": "바위심장",
+      "mindthief": "정신도둑",
+      "scoundrel": "무법자",
+      "spellweaver": "주문직인",
+      "tinkerer": "땜장이"
+    }
   },
   "custom": {
     "gh": {

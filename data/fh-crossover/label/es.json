@@ -1,22 +1,24 @@
 {
   "character": {
-    "brute": "Salvaje",
-    "cragheart": "Corazón Hueco",
-    "demolitionist": {
-      "": "Demoledora",
-      "mech": {
-        "": "Armadura mecanizada",
-        "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
-      }
-    },
-    "diviner": "Adivina",
-    "hatchet": "Ejecutor",
-    "mindthief": "Ladrona Mental",
-    "red-guard": "Guardia rojo",
-    "scoundrel": "Pícara",
-    "spellweaver": "Tejedora de Hechizos",
-    "tinkerer": "Manitas",
-    "voidwarden": "Centinela del Vacío"
+    "fh-crossover": {
+      "brute": "Salvaje",
+      "cragheart": "Corazón Hueco",
+      "demolitionist": {
+        "": "Demoledora",
+        "mech": {
+          "": "Armadura mecanizada",
+          "hint": "Tu valor máximo de puntos de vida aumenta en 5. Realiza %game.action.heal% 10, Personal."
+        }
+      },
+      "diviner": "Adivina",
+      "hatchet": "Ejecutor",
+      "mindthief": "Ladrona Mental",
+      "red-guard": "Guardia rojo",
+      "scoundrel": "Pícara",
+      "spellweaver": "Tejedora de Hechizos",
+      "tinkerer": "Manitas",
+      "voidwarden": "Centinela del Vacío"
+    }
   },
   "custom": {
     "fh": {

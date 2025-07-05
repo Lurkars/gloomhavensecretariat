@@ -910,7 +910,7 @@
     },
     "loot": {
       "": "Botín",
-      "apply": "Añade a %data.character.{0}%",
+      "apply": "Añade a %data.character.{0}.{1}%",
       "arrowvine": "Enredaflecha",
       "axenut": "Bellota filosa",
       "chooseCharacter": "Selecciona persona para +{0} {1}",
@@ -932,7 +932,7 @@
       "flamefruit": "Pitallama",
       "herb_resources": "hierba",
       "hide": "Piel",
-      "keep": "Continua %data.character.{0}%",
+      "keep": "Continua %data.character.{0}.{1}%",
       "lootTreasure": {
         "": "¿{0} saquear tesoro {1}?",
         "confirm": "Confirmar",
@@ -949,7 +949,7 @@
         "apply": "Seleccionar y equipar",
         "draw": "Objeto aleatorio para %game.characterIconColored.{0}% {1}"
       },
-      "remove": "Eliminar de %data.character.{0}%",
+      "remove": "Eliminar de %data.character.{0}.{1}%",
       "rockroot": "Raíz de roca",
       "snowthistle": "Cardo de nieve",
       "special": "Especial",
@@ -1484,8 +1484,8 @@
       "campaignStickersCount": "'%data.campaignSticker.{0}%' (Pegatina de Campaña) x{2} COMPLETADO (obtén{1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Pegatina de Campaña) NO COMPLETADO",
       "cancel": "Cancelar",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' presente",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' ausente",
+      "characters": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' presente",
+      "charactersMissing": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' ausente",
       "global": "'%data.globalAchievements.{0}%' (Global) COMPLETADO",
       "globalCount": "'%data.globalAchievements.{0}%' (Global) x{2} COMPLETADO (obtén{1})",
       "globalMissing": "'%data.globalAchievements.{0}%' (Global) NO COMPLETADO",
@@ -1498,7 +1498,7 @@
         "or": "o",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Nivel 5 o superior",
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' Nivel 5 o superior",
       "start": "Empezar igualmente"
     },
     "reset": "Reiniciar Escenario",
@@ -2762,7 +2762,7 @@
       },
       "finishConclusion": "Conclusión final #{0} {1} ({2})",
       "finishScenario": {
-        "battleGoal": "Marca los objetivos de batalla para %data.character.{0}% a {1}",
+        "battleGoal": "Marca los objetivos de batalla para %data.character.{0}.{1}% a {2}",
         "close": "Cerrar Resumen del escenario",
         "dialog": "Resumen del escenario para #{0} {1} ({2})",
         "failure": "Escenario #{0} {1} ({2}) fallado",
@@ -2800,7 +2800,7 @@
       "monsterSetEntityActive": "Asigna %game.monster.{2}% peana {1} de %data.monster.{0}% activo",
       "monsterUnsetEntityActive": "Asigna %game.monster.{2}% peana {1} de %data.monster.{0}% inactivo",
       "moveResource": "Mueve {2} {1} de {0} a la reserva de Frosthaven",
-      "nextIdentity": "Fija la forma {0} de %data.character.{1}.{2}% a %data.character.{1}.{3}%",
+      "nextIdentity": "Fija la forma {0} de %data.character.{4}.{1}.{2}% a %data.character.{4}.{1}.{3}%",
       "nextRound": "Siguiente Ronda",
       "objectiveContainerChangeEntityHp": "PV {2} para %game.objectiveMarker.{1}% de {0}",
       "objectiveEntityDead": "Mata %game.objectiveMarker.{1}% de {0}",
@@ -2961,7 +2961,7 @@
       "setEntitySummonState": "Fijar invocación {3} para {1} peana {2} de {0}",
       "setExhausted": "{0} agotado",
       "setGold": "Oro {1} para {0}",
-      "setIdentity": "Fijar forma de {0} a %data.character.{1}.{2}%",
+      "setIdentity": "Fijar forma de {0} a %data.character.{3}.{1}.{2}%",
       "setInitiative": "Iniciativa {1} para {0}",
       "setLevel": "Nivel {1} para {0}",
       "setNotes": "Notas \"{1}\" para {0}",

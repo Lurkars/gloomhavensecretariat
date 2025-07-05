@@ -189,13 +189,15 @@
     }
   },
   "character": {
-    "fist": {
-      "": "Poing-de-Glace"
-    },
-    "snowflake": {
-      "": "Danseuse des Neiges",
-      "muddle-monster": {
-        "hint": "%data.custom.fh.snowflake.4%"
+    "fh": {
+      "fist": {
+        "": "Poing-de-Glace"
+      },
+      "snowflake": {
+        "": "Danseuse des Neiges",
+        "muddle-monster": {
+          "hint": "%data.custom.fh.snowflake.4%"
+        }
       }
     }
   },

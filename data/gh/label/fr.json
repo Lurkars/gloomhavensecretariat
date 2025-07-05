@@ -274,12 +274,14 @@
     }
   },
   "character": {
-    "brute": "Brute",
-    "cragheart": "Cœur de Roche",
-    "mindthief": "Perce-Esprit",
-    "scoundrel": "Crapule",
-    "spellweaver": "Tisse-Sort",
-    "tinkerer": "Bricoleur"
+    "gh": {
+      "brute": "Brute",
+      "cragheart": "Cœur de Roche",
+      "mindthief": "Perce-Esprit",
+      "scoundrel": "Crapule",
+      "spellweaver": "Tisse-Sort",
+      "tinkerer": "Bricoleur"
+    }
   },
   "custom": {
     "gh": {

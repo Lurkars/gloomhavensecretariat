@@ -485,7 +485,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
 
     toggleBattleGoal(event: any, index: number, value: number) {
         const character = this.characters[index];
-        gameManager.stateManager.before("finishScenario.battleGoal", character.name, value);
+        gameManager.stateManager.before("finishScenario.battleGoal", character.edition, character.name, value);
         let battleGoal: BattleGoal | undefined;
 
         if (settingsManager.settings.battleGoals) {

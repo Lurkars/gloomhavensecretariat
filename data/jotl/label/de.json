@@ -199,16 +199,18 @@
     }
   },
   "character": {
-    "demolitionist": {
-      "": "Sprengmeisterin",
-      "mech": {
-        "": "Mechanikanzug",
-        "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
-      }
-    },
-    "hatchet": "Axtwerfer",
-    "red-guard": "Rotgardist",
-    "voidwarden": "Leerehüterin"
+    "jotl": {
+      "demolitionist": {
+        "": "Sprengmeisterin",
+        "mech": {
+          "": "Mechanikanzug",
+          "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
+        }
+      },
+      "hatchet": "Axtwerfer",
+      "red-guard": "Rotgardist",
+      "voidwarden": "Leerehüterin"
+    }
   },
   "custom": {
     "jotl": {

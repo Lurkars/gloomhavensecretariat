@@ -79,7 +79,7 @@ export class AbilityComponent implements OnInit, OnDestroy, OnChanges {
       const deck = this.character.deck ? this.character.deck : this.character.name;
       this.deckLabel = 'data.deck.' + deck;
       if (deck == settingsManager.getLabel(this.deckLabel)) {
-        this.deckLabel = 'data.character.' + deck;
+        this.deckLabel = 'data.character.' + this.character.edition + '.' + deck;
       }
     }
     this.abilityIndex = -1;

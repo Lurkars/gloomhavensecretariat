@@ -16,6 +16,6 @@
     </a>
     <a (click)="close(selected)" class="select" [ngClass]="{'disabled' : selected == -1}"><span
             [ghs-label]="selected == -1 ? 'game.attackModifiers.additional.select' : 'game.attackModifiers.additional.apply'"
-            [ghs-label-args]="selected != -1 ? [characters[selected].title || '%data.character.' + characters[selected].name + '%'] : []"></span>
+            [ghs-label-args]="selected != -1 ? [characters[selected].title || '%data.character.'+ characters[selected].edition + '.' + characters[selected].name + '%'] : []"></span>
     </a>
 </div>

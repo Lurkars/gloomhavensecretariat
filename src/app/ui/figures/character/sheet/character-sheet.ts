@@ -72,7 +72,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
       }
       for (let i = 0; i < this.titles.length; i++) {
         if (!this.titles[i]) {
-          this.titles[i] = settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
+          this.titles[i] = settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
         }
       }
     }
@@ -170,7 +170,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
 
     if (this.titles.length > 0) {
       for (let i = 0; i < this.titles.length; i++) {
-        if (this.titles[i] == settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
+        if (this.titles[i] == settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
           this.titles[i] = '';
         }
       }
@@ -181,7 +181,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
       }
     }
 
-    if (title != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
+    if (title != settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase())) {
       if (this.character.title != title) {
         gameManager.stateManager.before("setTitle", gameManager.characterManager.characterName(this.character), title);
         this.character.title = title;
@@ -203,7 +203,7 @@ export class CharacterSheetComponent implements OnInit, AfterViewInit, OnDestroy
 
   ngAfterViewInit(): void {
     if (this.titleInput) {
-      this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
+      this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.edition + '.' + this.character.name.toLowerCase());
     }
   }
 

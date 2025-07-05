@@ -357,7 +357,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   setPlayerNumber(characterModel: GameCharacterModel, event: any) {
     if (!isNaN(+event.target.value) && characterModel.number != +event.target.value && (+event.target.value > 0)) {
-      gameManager.stateManager.before("setPlayerNumber", "data.character." + characterModel.name, event.target.value);
+      gameManager.stateManager.before("setPlayerNumber", "data.character." + characterModel.edition + '.' + characterModel.name, event.target.value);
       characterModel.number = +event.target.value;
       gameManager.stateManager.after();
     }
@@ -365,7 +365,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
   reactivateCharacter(characterModel: GameCharacterModel) {
     if (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == characterModel.name && figure.edition == characterModel.edition) && !gameManager.game.party.availableCharacters.find((availableCharacter) => availableCharacter.name == characterModel.name && availableCharacter.edition == characterModel.edition)) {
-      gameManager.stateManager.before("unsetRetired", "data.character." + characterModel.name);
+      gameManager.stateManager.before("unsetRetired", "data.character." + characterModel.edition + '.' + characterModel.name);
       let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
       character.fromModel(characterModel);
       character.progress.retired = false;

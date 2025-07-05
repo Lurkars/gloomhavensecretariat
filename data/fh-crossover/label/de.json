@@ -1,22 +1,24 @@
 {
   "character": {
-    "brute": "Barbar",
-    "cragheart": "Felsenherz",
-    "demolitionist": {
-      "": "Sprengmeisterin",
-      "mech": {
-        "": "Mechanikanzug",
-        "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
-      }
-    },
-    "diviner": "Prophetin",
-    "hatchet": "Axtwerfer",
-    "mindthief": "Gedankendiebin",
-    "red-guard": "Rotgardist",
-    "scoundrel": "Schurkin",
-    "spellweaver": "Spruchweberin",
-    "tinkerer": "Tüftler",
-    "voidwarden": "Leerehüterin"
+    "fh-crossover": {
+      "brute": "Barbar",
+      "cragheart": "Felsenherz",
+      "demolitionist": {
+        "": "Sprengmeisterin",
+        "mech": {
+          "": "Mechanikanzug",
+          "hint": "Dein maximaler TP-Wert erhöht sich um 5. Heilung %game.action.heal% 10, selbst."
+        }
+      },
+      "diviner": "Prophetin",
+      "hatchet": "Axtwerfer",
+      "mindthief": "Gedankendiebin",
+      "red-guard": "Rotgardist",
+      "scoundrel": "Schurkin",
+      "spellweaver": "Spruchweberin",
+      "tinkerer": "Tüftler",
+      "voidwarden": "Leerehüterin"
+    }
   },
   "edition": {
     "fh-crossover": "Frosthaven Crossover Charaktere"

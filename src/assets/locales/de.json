@@ -966,7 +966,7 @@
     },
     "loot": {
       "": "Beute",
-      "apply": "Zu %data.character.{0}% hinzufügen",
+      "apply": "Zu %data.character.{0}.{1}% hinzufügen",
       "arrowvine": "Pfeilrebe",
       "axenut": "Axtnuss",
       "chooseCharacter": "Charakter für +{0} {1} auswählen",
@@ -988,7 +988,7 @@
       "flamefruit": "Flammenfrucht",
       "herb_resources": "Kräuter",
       "hide": "Fell",
-      "keep": "Bei %data.character.{0}% belassen",
+      "keep": "Bei %data.character.{0}.{1}% belassen",
       "lootTreasure": {
         "": "{0} erbeutet Schatz {1}?",
         "confirm": "Bestätigen",
@@ -1005,7 +1005,7 @@
         "apply": "Auswählen und Anlegen",
         "draw": "Zufälliger Gegenstand für %game.characterIconColored.{0}% {1}"
       },
-      "remove": "Von %data.character.{0}% entfernen",
+      "remove": "Von %data.character.{0}.{1}% entfernen",
       "rockroot": "Steinwurzel",
       "snowthistle": "Schneedistel",
       "special": "Spezial",
@@ -1596,8 +1596,8 @@
       "campaignStickersCount": "'%data.campaignSticker.{0}%' (Kampagnenbogensticker) x{2} VOLLSTÄNDIG (bisher {1})",
       "campaignStickersMissing": "'%data.campaignSticker.{0}%' (Kampagnenbogensticker) NICHT VOLLSTÄNDIG",
       "cancel": "Abbrechen",
-      "characters": "%data.characterIconColored.{0}% '%data.character.{0}%' anwesend",
-      "charactersMissing": "%data.characterIconColored.{0}% '%data.character.{0}%' abwesend",
+      "characters": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' anwesend",
+      "charactersMissing": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' abwesend",
       "global": "'%data.globalAchievements.{0}%' (Global) VOLLSTÄNDIG",
       "globalCount": "'%data.globalAchievements.{0}%' (Global) x{2} VOLLSTÄNDIG (bisher {1})",
       "globalMissing": "'%data.globalAchievements.{0}%' (Global) NICHT VOLLSTÄNDIG",
@@ -1610,7 +1610,7 @@
         "or": "oder",
         "scenario": "%data.scenarioNumber:{0}%"
       },
-      "solo": "%data.characterIconColored.{0}% '%data.character.{0}%' Level 5 oder höher",
+      "solo": "%data.characterIconColored.{1}% '%data.character.{0}.{1}%' Level 5 oder höher",
       "start": "Szenario trotzdem starten"
     },
     "reset": "Szenario neustarten",
@@ -2907,7 +2907,7 @@
       },
       "finishConclusion": "Sektion #{0} {1} ({2}) abschließen",
       "finishScenario": {
-        "battleGoal": "Kampfziele Harken für %data.character.{0}% auf {1} setzen",
+        "battleGoal": "Kampfziele Harken für %data.character.{0}.{1}% auf {2} setzen",
         "close": "Szenario Zusammenfassung schließen",
         "dialog": "Szenario Zusammenfassung von #{0} {1} ({2})",
         "failure": "Szenario #{0} {1} ({2}) gescheitert",
@@ -2945,7 +2945,7 @@
       "monsterSetEntityActive": "Setze %game.monster.{2}% Aufsteller {1} von %data.monster.{0}% aktiv",
       "monsterUnsetEntityActive": "Setze %game.monster.{2}% Aufsteller {1} von %data.monster.{0}% inaktiv",
       "moveResource": "{2} {1} von {0} zum Frosthaven-Vorrat hinzufügen",
-      "nextIdentity": "Setze Form von %data.character.{1}.{2}% zu %data.character.{1}.{3}% für {0}",
+      "nextIdentity": "Setze Form von %data.character.{4}.{1}.{2}% zu %data.character.{4}.{1}.{3}% für {0}",
       "nextRound": "Nächste Runde",
       "objectiveContainerChangeEntityHp": "TP {2} für %game.objectiveMarker.{1}% von {0}",
       "objectiveEntityDead": "Töte %game.objectiveMarker.{1}% von {0}",
@@ -3110,7 +3110,7 @@
       "setEntitySummonState": "Beschwörung {3} für {1} Aufsteller {2} von {0}",
       "setExhausted": "{0} erschöpft",
       "setGold": "Gold {1} für {0}",
-      "setIdentity": "Setze Form auf %data.character.{1}.{2}% für {0}",
+      "setIdentity": "Setze Form auf %data.character.{3}.{1}.{2}% für {0}",
       "setInitiative": "Initiative {1} für {0}",
       "setLevel": "Level {1} für {0}",
       "setNotes": "Notizen \"{1}\" für {0}",

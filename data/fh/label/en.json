@@ -1226,33 +1226,35 @@
     "unfettered-deactivated": "Unfettered Deactivated"
   },
   "character": {
-    "banner-spear": "Banner Spear",
-    "blinkblade": {
-      "": "Blinkblade",
-      "fast": "Fast",
-      "slow": "Slow",
-      "time_tokens": {
-        "": "%data.characterToken.blinkblade.time% Time Tokens",
-        "hint": "Automatically add/remove time tokens at start of round after defining slow/fast before"
-      }
-    },
-    "boneshaper": {
-      "": "Boneshaper",
-      "solid-bones": {
-        "": "Solid Bones",
-        "hint": "All Shambling Skeletons have +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+    "fh": {
+      "banner-spear": "Banner Spear",
+      "blinkblade": {
+        "": "Blinkblade",
+        "fast": "Fast",
+        "slow": "Slow",
+        "time_tokens": {
+          "": "%data.characterToken.blinkblade.time% Time Tokens",
+          "hint": "Automatically add/remove time tokens at start of round after defining slow/fast before"
+        }
       },
-      "unholy-prowess": {
-        "": "Unholy Prowess",
-        "hint": "All Shambling Skeletons have +1 %game.action.heal%."
+      "boneshaper": {
+        "": "Boneshaper",
+        "solid-bones": {
+          "": "Solid Bones",
+          "hint": "All Shambling Skeletons have +1 %game.action.heal%, +1 %game.action.move%, %game.action.pierce% 1."
+        },
+        "unholy-prowess": {
+          "": "Unholy Prowess",
+          "hint": "All Shambling Skeletons have +1 %game.action.heal%."
+        }
+      },
+      "deathwalker": "Deathwalker",
+      "drifter": "Drifter",
+      "geminate": {
+        "": "Geminate",
+        "melee": "Melee",
+        "range": "Range"
       }
-    },
-    "deathwalker": "Deathwalker",
-    "drifter": "Drifter",
-    "geminate": {
-      "": "Geminate",
-      "melee": "Melee",
-      "range": "Range"
     },
     "traits": {
       "arcane": "Arcane",

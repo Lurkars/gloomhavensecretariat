@@ -224,7 +224,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
         next = 0;
       }
 
-      gameManager.stateManager.before("nextIdentity", gameManager.characterManager.characterName(this.character, false, false, false), this.character.name, this.character.identities[this.character.identity], this.character.identities[next]);
+      gameManager.stateManager.before("nextIdentity", gameManager.characterManager.characterName(this.character, false, false, false), this.character.name, this.character.identities[this.character.identity], this.character.identities[next], this.character.edition);
       this.character.identity = next;
       gameManager.stateManager.after();
       event.preventDefault();
@@ -572,7 +572,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   removeSpecialAction(specialAction: string) {
-    gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.name + '.' + specialAction + '%');
+    gameManager.stateManager.before("removeSpecialTags", gameManager.characterManager.characterName(this.character), '%data.character.' + this.character.edition + '.' + this.character.name + '.' + specialAction + '%');
     this.character.tags = this.character.tags.filter((specialTag) => specialTag != specialAction);
 
     if (this.character.name == 'lightning' && specialAction == 'careless-charge') {
