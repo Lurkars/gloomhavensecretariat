@@ -1,168 +1,168 @@
 {
-    "character": {
-        "gh2e": {
-            "angry-face": "Doomstalker",
-            "crossed-swords": "Bladeswarm",
-            "circles": "Soultether",
-            "eclipse": "Nightshroud",
-            "lightning": "Berserker",
-            "music-note": "Soothsinger",
-            "saw": "Sawbones",
-            "squidface": "Plagueherald",
-            "sun": "Sunkeeper",
-            "three-spears": "Quartermaster",
-            "triangles": "Elementalist",
-            "two-mini": "Wildfury"
-        }
-    },
-    "summon": {
-        "angry-wasps": "Angry Wasps",
-        "battle-boar": "Battle Boar",
-        "battle-bot": "Battle Bot",
-        "bloat-maggot": "Bloat Maggot",
-        "chromatic-construct": "Chromatic Construct",
-        "covetous-imp": "Covetous Imp",
-        "creeping-beetles": "Creeping Beetles",
-        "decoy": "Decoy",
-        "elemental-conduit": "Elemental Conduit",
-        "ember-sprite": "Ember Sprite",
-        "fey-subjugator": "Fey Subjugator",
-        "floating-jellyfish": "Floating Jellyfish",
-        "great-archinotl": "Great Archinotl",
-        "green-snake": "Green Snake",
-        "horned-hristek": "Horned Hristek",
-        "iron-beast": "Iron Beast",
-        "kill-bot": "Kill Bot",
-        "lightning-moth": "Lightning Moth",
-        "monolith": "Monolith",
-        "prismatic-unicorn": "Prismatic Unicorn",
-        "rage-hornets": "Rage Hornets",
-        "rat-king": "Rat King",
-        "rat-monstrosity": "Rat Monstrosity",
-        "rat-swarm": "Rat Swarm",
-        "rift-spirit": "Rift Spirit",
-        "rock-colossus": "Rock Colossus",
-        "rust-vermin": "Rust Vermin",
-        "shadow-wolf": "Shadow Wolf",
-        "slime-spirit": "Slime Spirit",
-        "soul-leeches": "Soul Leeches",
-        "staunch-garralev": "Staunch Garralev",
-        "steel-scarabs": "Steel Scarabs",
-        "thorn-shooter": "Thorn Shooter",
-        "vicious-jackal": "Vicious Jackal",
-        "vital-force": "Vital Force",
-        "void-eater": "Void Eater",
-        "war-raptor": "War Raptor",
-        "wind-idol": "Wind Idol"
-    },
-    "custom": {
-        "gh2e": {
-            "angry-face": {
-                "1": "%game.characterIcon.angry-face% performs: %game.action.attack% 2, %game.action.range% 5",
-                "2": "Grant on of your summons adjacent to the target: %game.action.attack% +0",
-                "3": "At the start of each scenario reveal the top card of each monster ability card deck in the scenario",
-                "4": "Whenever you long rest, after you %game.card.recover% your cards from your discard pile, you may play one card from your hand to perform a Doom action of the card",
-                "5": "On each of your summons' turns, you may have them skip their turn and instead perform %game.action.move% +0 treating you as their focus",
-                "6": "Kill 20 Doomed enemies",
-                "7": "In a single round, you and one of your summons must perfrom a combined total of 6 or more attack abilities"
-            },
-            "circles": {
-                "1": "After the attack ability, grant one of your summons: %game.action.teleport% 2",
-                "2": "%game.action.target% 1 of your summons",
-                "3": "At the beginning of each round in which you long rest, all your summons gain %game.action.shield% 1 for the round",
-                "4": "Once each scenario, during your turn, %game.action.teleport% one of your summons to an empty hex ajdacent to you",
-                "5": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, all your summons gain %game.condition.invisible%",
-                "6": "Perform 3 different summon actions before your first rest and keep those cards in your active area for the entire scenario",
-                "7": "Perform 6 different summon abilities from your ability cards over the coruse of the first rounds of 6 scenarios"
-            },
-            "crossed-swords": {
-                "1": "Add +1 %game.action.attack% for each card with a %game.card.lost% in %game.characterIcon.envx%'s active area",
-                "2": "Whenever you long rest, you may %game.action.teleport% to a hex occupied by one of your summons and simultaneously %game.action.teleport% that summon to the hex you occupied",
-                "3": "Once each scenario, when you perform an action with %game.card.lost%, you may immediately play one card from your hand to perform an action with %game.card.lost% of the card",
-                "4": "You may additionally bring four %game.itemSlot:onehand% items, two %game.itemSlot:twohand% items, or two %game.itemSlot:onehand% items and one %game.itemSlot:twohand% item into each scenario.",
-                "5": "Perform 6 different %game.card.persistent%%game.card.lost% abilities with no more than 3 of the 6 being summon abilities",
-                "6": "Gain this mastery when you feel you deserve it"
-            },
-            "eclipse": {
-                "1": "After the attack ability, grant one adjacent ally or self: %game.action.teleport% 2",
-                "2": "If this attack kills the target, shuffle one %game.condition.curse% card into the monster attack modifier deck",
-                "3": "Place one %data.action.custom.gh2e-tear% in a hex adjacent to the target",
-                "4": "Whenever you long rest, you may %game.element.dark%",
-                "5": "Once each scenario, during your turn, place one %data.action.custom.gh2e-tear% in an adjacent hex",
-                "6": "If a %game.condition.curse% causes an enemy to deal no %game.damage% during its attack, that enemy suffer %game.damage:3%",
-                "7": "In a single scenario, infuse or consume %game.element.dark% during each of your turns",
-                "8": "In a single scenario, peform an attack ability during your turn in 5 consecutive rounds"
-            },
-            "lightning": {
-                "1": "You may suffer %game.damage:2% to add +2 %game.action.attack%",
-                "2": "Suffer %game.damage% equal to half your current hit point value (rounded down)",
-                "3": "Whenever you heal from a long rest, add +1 %game.action.heal%",
-                "4": "Once each scenario, when %game.damage% from an attack would reduce your current hit point value to less than 1, instead set your current hit point value to 1 and perform: %game.action.attack% 2, %game.action.target% the attacker",
-                "5": "At the end of each of your turns, you may control all adjacent enemies: %game.action.attack% +0 %game.action.target% %game.characterIcon.lightning%",
-                "6": "Kill 20 enemies with your retaliate",
-                "7": "In a single scenario, end all your turns with your hit point value at half your maximum or lower without exhausting"
-            },
-            "music-note": {
-                "1": "Skip moving your character tokens on active %data.action.custom.gh2e-song% at the end of this round",
-                "2": "Grant one ally: %game.action.move% 2 or %game.action.attack% 2",
-                "3": "At the end of each scenario, each character in that scenario gains %game.card.experience:8% if you completed your battle goal",
-                "4": "Whenever you perform a %data.action.custom.gh2e-song%, if you have any unused Notes, gain one Note of your choice in addition to any other Note gained that round",
-                "5": "During ordering of initiative in rounds in which you declare a long rest, gain one Note of your choice, and each of your allies may decrease their initiative by 10",
-                "6": "In a single scenario, perform 7 differen %data.action.custom.gh2e-song% actions",
-                "7": "In a single scenario, create 20 or more Notes and use each Note you create in a %data.action.custom.gh2e-song%"
-            },
-            "saw": {
-                "1": "Give on adjacent ally or self one medical pack",
-                "2": "You may gain %game.condition.disarm% to add %game.condition.stun%",
-                "3": "Add +1 %game.action.attack% if an ally has an active %data.action.custom.gh2e-prescription%",
-                "4": "Add +1 %game.action.heal% to all heal abilities on \"Medical Pack\" ability cards",
-                "5": "Each City Phase after completing a scenario, your or one ally's donation to the Sanctuary of the Great Oak is free",
-                "6": "At the end of each of your rests, if an ally as an active %data.action.custom.gh2e-prescription%, gain one \"Medical Pack\" ability card and move the token on one ally's active %data.action.custom.gh2e-prescription% backward one slot",
-                "7": "In a single scenario, give an ally a medical pack or %data.action.custom.gh2e-prescription% each round except when performing a long rest",
-                "8": "In a single scneario, never attack an undamaged enemy while there are any damaged monsters alive, and perform at least 10 attacks"
-            },
-            "squidface": {
-                "1": "Give the target or one enemy within %game.action.range% 2 of the target %data.action.custom.gh2e-plaque%",
-                "2": "Give the target or one enemy within %game.action.range% 2 of the target %game.condition.poison%",
-                "3": "You have %game.action.fly%",
-                "4": "Whenever you heal from a long rest, you may remove %game.condition.poison% from on ally to add +1 %game.action.heal%",
-                "5": "Once each scenario, when an anemy that has a %data.action.custom.gh2e-plaque% would die, you first control that enemy and have it perform the abilities on its ability card, adding %data.action.custom.gh2e-plaque% to all its attack, then it dies",
-                "6": "In a single turn, kill 3 or more enemies without drawing an attack modifier card",
-                "7": "In a single scenario, either apply or remove %game.condition.poison% form an ally or enemy each round"
-            },
-            "sun": {
-                "1": "You or an adjacent ally may %game.card.recover% on level 1 card from the discard pile",
-                "2": "Whenever you open one or more doors during your turn, gain %game.action.shield% 1, %game.action.retaliate% 1 for the round",
-                "3": "Whenever you long rest, you may %game.element.light%",
-                "4": "Whenever one of your heals would cause an ally's hit point value to increase beyond their maximum hit point value, that ally gains %game.condition.ward%",
-                "5": "In a single scenario, infuse or consume %game.element.light% during each of your turns",
-                "6": "In a single scenario, deal 8 or more %game.damage% with an attack 3 or more times"
-            },
-            "three-spears": {
-                "1": "Gain 10 %data.action.custom.gh2e-supplies%",
-                "2": "Gain the <i>Bardbed Strip</i> or <i>Iron Plate</i> item",
-                "3": "Gain the <i>Scroll of Relocation</i> or <i>Sharpened Dirk</i> item",
-                "4": "You may bring one additional %game.itemSlot:small% item into each scenario",
-                "5": "Your party may purchase items from each faction as though the items' costs were five gold less and your reputation with that faction was two greater",
-                "6": "Whenever you long rest, gain 10 %data.action.custom.gh2e-supplies%",
-                "7": "In a single scenario, spend 50 %data.action.custom.gh2e-supplies% to refresh 50 gold of lost items 3 times",
-                "8": "For an entire scenario, give yourself or an ally an item from the Quartermaster Item Supply each round except when performing a long rest"
-            },
-            "triangles": {
-                "1": "At the start of each scenario, you may %game.element.wild%",
-                "2": "Whenever you long rest, %game.element.consume.wild%: %game.element.wild%",
-                "3": "%game.element.fire%,%game.element.ice%,%game.element.air%, and %game.element.earth% do not wane at the end of each round",
-                "4": "In a single scenario, consume 4 or more elements in a single turn 5 times",
-                "5": "Once in 3 different scenarios, have all 6 elements strong or aning at the same time"
-            },
-            "two-mini": {
-                "1": "Add +1 %game.action.attack% if the Wildfury and %data.action.custom.gh2e-bear-summon% are within %game.action.range% 4 of each other",
-                "2": "Whenever %data.action.custom.gh2e-bear-summon% is attacked, treat and %game.attackModifier.double% attack modifier card the enemy draws as %game.attackModifier.plus0% instead",
-                "3": "Once each scenario, during your turn, %data.action.custom.gh2e-command%: %game.action.move% 4.<br>If %data.action.custom.gh2e-bear-summon% exits a hex adjacent to you during this movement, you may %game.action.teleport% to an empty hex adjacent to %data.action.custom.gh2e-bear-summon% at the end of the movement",
-                "4": "At the start or end of each of your long rests, you may %game.elementHalf:air|earth% and reduce your current hit point value by X (X must be at least 1) to %data.action.custom.gh2e-command%: %game.action.heal% X, self",
-                "5": "In a single scenario, infuse or consuem %game.element.air% or %game.element.earth% during each of your turns",
-                "6": "In a single scenario, kill 4 or more enemies with %data.action.custom.gh2e-command% attacks of 7 or greater (after all bonuses, before attack modifiers)"
-            }
-        }
+  "character": {
+    "gh2e": {
+      "angry-face": "Doomstalker",
+      "circles": "Soultether",
+      "crossed-swords": "Bladeswarm",
+      "eclipse": "Nightshroud",
+      "lightning": "Berserker",
+      "music-note": "Soothsinger",
+      "saw": "Sawbones",
+      "squidface": "Plagueherald",
+      "sun": "Sunkeeper",
+      "three-spears": "Quartermaster",
+      "triangles": "Elementalist",
+      "two-mini": "Wildfury"
     }
+  },
+  "custom": {
+    "gh2e": {
+      "angry-face": {
+        "1": "%game.characterIcon.angry-face% performs: %game.action.attack% 2, %game.action.range% 5",
+        "2": "Grant on of your summons adjacent to the target: %game.action.attack% +0",
+        "3": "At the start of each scenario reveal the top card of each monster ability card deck in the scenario",
+        "4": "Whenever you long rest, after you %game.card.recover% your cards from your discard pile, you may play one card from your hand to perform a Doom action of the card",
+        "5": "On each of your summons' turns, you may have them skip their turn and instead perform %game.action.move% +0 treating you as their focus",
+        "6": "Kill 20 Doomed enemies",
+        "7": "In a single round, you and one of your summons must perfrom a combined total of 6 or more attack abilities"
+      },
+      "circles": {
+        "1": "After the attack ability, grant one of your summons: %game.action.teleport% 2",
+        "2": "%game.action.target% 1 of your summons",
+        "3": "At the beginning of each round in which you long rest, all your summons gain %game.action.shield% 1 for the round",
+        "4": "Once each scenario, during your turn, %game.action.teleport% one of your summons to an empty hex ajdacent to you",
+        "5": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, all your summons gain %game.condition.invisible%",
+        "6": "Perform 3 different summon actions before your first rest and keep those cards in your active area for the entire scenario",
+        "7": "Perform 6 different summon abilities from your ability cards over the coruse of the first rounds of 6 scenarios"
+      },
+      "crossed-swords": {
+        "1": "Add +1 %game.action.attack% for each card with a %game.card.lost% in %game.characterIcon.envx%'s active area",
+        "2": "Whenever you long rest, you may %game.action.teleport% to a hex occupied by one of your summons and simultaneously %game.action.teleport% that summon to the hex you occupied",
+        "3": "Once each scenario, when you perform an action with %game.card.lost%, you may immediately play one card from your hand to perform an action with %game.card.lost% of the card",
+        "4": "You may additionally bring four %game.itemSlot:onehand% items, two %game.itemSlot:twohand% items, or two %game.itemSlot:onehand% items and one %game.itemSlot:twohand% item into each scenario.",
+        "5": "Perform 6 different %game.card.persistent%%game.card.lost% abilities with no more than 3 of the 6 being summon abilities",
+        "6": "Gain this mastery when you feel you deserve it"
+      },
+      "eclipse": {
+        "1": "After the attack ability, grant one adjacent ally or self: %game.action.teleport% 2",
+        "2": "If this attack kills the target, shuffle one %game.condition.curse% card into the monster attack modifier deck",
+        "3": "Place one %data.action.custom.gh2e-tear% in a hex adjacent to the target",
+        "4": "Whenever you long rest, you may %game.element.dark%",
+        "5": "Once each scenario, during your turn, place one %data.action.custom.gh2e-tear% in an adjacent hex",
+        "6": "If a %game.condition.curse% causes an enemy to deal no %game.damage% during its attack, that enemy suffer %game.damage:3%",
+        "7": "In a single scenario, infuse or consume %game.element.dark% during each of your turns",
+        "8": "In a single scenario, peform an attack ability during your turn in 5 consecutive rounds"
+      },
+      "lightning": {
+        "1": "You may suffer %game.damage:2% to add +2 %game.action.attack%",
+        "2": "Suffer %game.damage% equal to half your current hit point value (rounded down)",
+        "3": "Whenever you heal from a long rest, add +1 %game.action.heal%",
+        "4": "Once each scenario, when %game.damage% from an attack would reduce your current hit point value to less than 1, instead set your current hit point value to 1 and perform: %game.action.attack% 2, %game.action.target% the attacker",
+        "5": "At the end of each of your turns, you may control all adjacent enemies: %game.action.attack% +0 %game.action.target% %game.characterIcon.lightning%",
+        "6": "Kill 20 enemies with your retaliate",
+        "7": "In a single scenario, end all your turns with your hit point value at half your maximum or lower without exhausting"
+      },
+      "music-note": {
+        "1": "Skip moving your character tokens on active %data.action.custom.gh2e-song% at the end of this round",
+        "2": "Grant one ally: %game.action.move% 2 or %game.action.attack% 2",
+        "3": "At the end of each scenario, each character in that scenario gains %game.card.experience:8% if you completed your battle goal",
+        "4": "Whenever you perform a %data.action.custom.gh2e-song%, if you have any unused Notes, gain one Note of your choice in addition to any other Note gained that round",
+        "5": "During ordering of initiative in rounds in which you declare a long rest, gain one Note of your choice, and each of your allies may decrease their initiative by 10",
+        "6": "In a single scenario, perform 7 differen %data.action.custom.gh2e-song% actions",
+        "7": "In a single scenario, create 20 or more Notes and use each Note you create in a %data.action.custom.gh2e-song%"
+      },
+      "saw": {
+        "1": "Give on adjacent ally or self one medical pack",
+        "2": "You may gain %game.condition.disarm% to add %game.condition.stun%",
+        "3": "Add +1 %game.action.attack% if an ally has an active %data.action.custom.gh2e-prescription%",
+        "4": "Add +1 %game.action.heal% to all heal abilities on \"Medical Pack\" ability cards",
+        "5": "Each City Phase after completing a scenario, your or one ally's donation to the Sanctuary of the Great Oak is free",
+        "6": "At the end of each of your rests, if an ally as an active %data.action.custom.gh2e-prescription%, gain one \"Medical Pack\" ability card and move the token on one ally's active %data.action.custom.gh2e-prescription% backward one slot",
+        "7": "In a single scenario, give an ally a medical pack or %data.action.custom.gh2e-prescription% each round except when performing a long rest",
+        "8": "In a single scneario, never attack an undamaged enemy while there are any damaged monsters alive, and perform at least 10 attacks"
+      },
+      "squidface": {
+        "1": "Give the target or one enemy within %game.action.range% 2 of the target %data.action.custom.gh2e-plaque%",
+        "2": "Give the target or one enemy within %game.action.range% 2 of the target %game.condition.poison%",
+        "3": "You have %game.action.fly%",
+        "4": "Whenever you heal from a long rest, you may remove %game.condition.poison% from on ally to add +1 %game.action.heal%",
+        "5": "Once each scenario, when an anemy that has a %data.action.custom.gh2e-plaque% would die, you first control that enemy and have it perform the abilities on its ability card, adding %data.action.custom.gh2e-plaque% to all its attack, then it dies",
+        "6": "In a single turn, kill 3 or more enemies without drawing an attack modifier card",
+        "7": "In a single scenario, either apply or remove %game.condition.poison% form an ally or enemy each round"
+      },
+      "sun": {
+        "1": "You or an adjacent ally may %game.card.recover% on level 1 card from the discard pile",
+        "2": "Whenever you open one or more doors during your turn, gain %game.action.shield% 1, %game.action.retaliate% 1 for the round",
+        "3": "Whenever you long rest, you may %game.element.light%",
+        "4": "Whenever one of your heals would cause an ally's hit point value to increase beyond their maximum hit point value, that ally gains %game.condition.ward%",
+        "5": "In a single scenario, infuse or consume %game.element.light% during each of your turns",
+        "6": "In a single scenario, deal 8 or more %game.damage% with an attack 3 or more times"
+      },
+      "three-spears": {
+        "1": "Gain 10 %data.action.custom.gh2e-supplies%",
+        "2": "Gain the <i>Bardbed Strip</i> or <i>Iron Plate</i> item",
+        "3": "Gain the <i>Scroll of Relocation</i> or <i>Sharpened Dirk</i> item",
+        "4": "You may bring one additional %game.itemSlot:small% item into each scenario",
+        "5": "Your party may purchase items from each faction as though the items' costs were five gold less and your reputation with that faction was two greater",
+        "6": "Whenever you long rest, gain 10 %data.action.custom.gh2e-supplies%",
+        "7": "In a single scenario, spend 50 %data.action.custom.gh2e-supplies% to refresh 50 gold of lost items 3 times",
+        "8": "For an entire scenario, give yourself or an ally an item from the Quartermaster Item Supply each round except when performing a long rest"
+      },
+      "triangles": {
+        "1": "At the start of each scenario, you may %game.element.wild%",
+        "2": "Whenever you long rest, %game.element.consume.wild%: %game.element.wild%",
+        "3": "%game.element.fire%,%game.element.ice%,%game.element.air%, and %game.element.earth% do not wane at the end of each round",
+        "4": "In a single scenario, consume 4 or more elements in a single turn 5 times",
+        "5": "Once in 3 different scenarios, have all 6 elements strong or aning at the same time"
+      },
+      "two-mini": {
+        "1": "Add +1 %game.action.attack% if the Wildfury and %data.action.custom.gh2e-bear-summon% are within %game.action.range% 4 of each other",
+        "2": "Whenever %data.action.custom.gh2e-bear-summon% is attacked, treat and %game.attackModifier.double% attack modifier card the enemy draws as %game.attackModifier.plus0% instead",
+        "3": "Once each scenario, during your turn, %data.action.custom.gh2e-command%: %game.action.move% 4.<br>If %data.action.custom.gh2e-bear-summon% exits a hex adjacent to you during this movement, you may %game.action.teleport% to an empty hex adjacent to %data.action.custom.gh2e-bear-summon% at the end of the movement",
+        "4": "At the start or end of each of your long rests, you may %game.elementHalf:air|earth% and reduce your current hit point value by X (X must be at least 1) to %data.action.custom.gh2e-command%: %game.action.heal% X, self",
+        "5": "In a single scenario, infuse or consuem %game.element.air% or %game.element.earth% during each of your turns",
+        "6": "In a single scenario, kill 4 or more enemies with %data.action.custom.gh2e-command% attacks of 7 or greater (after all bonuses, before attack modifiers)"
+      }
+    }
+  },
+  "summon": {
+    "angry-wasps": "Angry Wasps",
+    "battle-boar": "Battle Boar",
+    "battle-bot": "Battle Bot",
+    "bloat-maggot": "Bloat Maggot",
+    "chromatic-construct": "Chromatic Construct",
+    "covetous-imp": "Covetous Imp",
+    "creeping-beetles": "Creeping Beetles",
+    "decoy": "Decoy",
+    "elemental-conduit": "Elemental Conduit",
+    "ember-sprite": "Ember Sprite",
+    "fey-subjugator": "Fey Subjugator",
+    "floating-jellyfish": "Floating Jellyfish",
+    "great-archinotl": "Great Archinotl",
+    "green-snake": "Green Snake",
+    "horned-hristek": "Horned Hristek",
+    "iron-beast": "Iron Beast",
+    "kill-bot": "Kill Bot",
+    "lightning-moth": "Lightning Moth",
+    "monolith": "Monolith",
+    "prismatic-unicorn": "Prismatic Unicorn",
+    "rage-hornets": "Rage Hornets",
+    "rat-king": "Rat King",
+    "rat-monstrosity": "Rat Monstrosity",
+    "rat-swarm": "Rat Swarm",
+    "rift-spirit": "Rift Spirit",
+    "rock-colossus": "Rock Colossus",
+    "rust-vermin": "Rust Vermin",
+    "shadow-wolf": "Shadow Wolf",
+    "slime-spirit": "Slime Spirit",
+    "soul-leeches": "Soul Leeches",
+    "staunch-garralev": "Staunch Garralev",
+    "steel-scarabs": "Steel Scarabs",
+    "thorn-shooter": "Thorn Shooter",
+    "vicious-jackal": "Vicious Jackal",
+    "vital-force": "Vital Force",
+    "void-eater": "Void Eater",
+    "war-raptor": "War Raptor",
+    "wind-idol": "Wind Idol"
+  }
 }
