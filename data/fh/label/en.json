@@ -1235,6 +1235,9 @@
         "time_tokens": {
           "": "%data.characterToken.blinkblade.time% Time Tokens",
           "hint": "Automatically add/remove time tokens at start of round after defining slow/fast before"
+        },
+        "tokens": {
+          "time": "Time Token"
         }
       },
       "boneshaper": {
@@ -1248,7 +1251,12 @@
           "hint": "All Shambling Skeletons have +1 %game.action.heal%."
         }
       },
-      "deathwalker": "Deathwalker",
+      "deathwalker": {
+        "": "Deathwalker",
+        "tokens": {
+          "shadow": "Shadow Token"
+        }
+      },
       "drifter": "Drifter",
       "geminate": {
         "": "Geminate",

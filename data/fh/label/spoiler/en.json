@@ -212,6 +212,9 @@
       },
       "kelp": {
         "": "Deepwraith",
+        "tokens": {
+          "trophy": "Trophy Token"
+        },
         "trophy_tokens": {
           "": "Perk 11",
           "hint": "%data.custom.fh.kelp.4%"
@@ -231,6 +234,9 @@
         "repair_mode": {
           "": "Reconstructive Aid",
           "hint": "%data.characterToken.prism.mode% Repair Drone Mode: At the start of each of your turns, perform: %game.action.heal% 2, self"
+        },
+        "tokens": {
+          "mode": "Mode Token"
         }
       },
       "shackles": "Pain Conduit",
@@ -243,6 +249,9 @@
         "resonance_tokens": {
           "": "%data.characterToken.shards.resonance% Resonance Tokens",
           "hint": "At the end of each of your turns, you gain one %data.characterToken.shards.resonance%"
+        },
+        "tokens": {
+          "resonance": "Resonance Token"
         }
       },
       "snowflake": {
