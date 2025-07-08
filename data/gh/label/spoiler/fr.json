@@ -81,6 +81,10 @@
       "": "Deuxième Peau",
       "1": "Retirez deux %game.attackmodifier.minus1% de votre paquet de Modificateur d'Attaque."
     },
+    "gh-103": {
+      "": "Armure Écailles de Wyverne",
+      "1": "Vous êtes immunisé à %game.condition.poison% et à %game.condition.wound%."
+    },
     "gh-107": {
       "": "Casque à Cornes",
       "1": "Une fois par tour, après vous être déplacé d'au moins 4 hexagones pendant votre tour, ajoutez +1 %game.action.attack% à votre prochaine attaque de mêlée ce tour-ci."
@@ -109,7 +113,8 @@
       "": "Anneau de Crânes"
     },
     "gh-124": {
-      "": "Compas Maudit"
+      "": "Compas Maudit",
+      "1": "Pendant votre tour, forcez un adversaire à %game.action.range:5% à effectuer une action de \"%game.action.move% 2\". Vous contrôlez cette action."
     },
     "gh-13": {
       "": "Potion Endurance Mineure",

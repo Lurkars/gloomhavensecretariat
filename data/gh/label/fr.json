@@ -463,6 +463,9 @@
       "deep-terror": {
         "1": "Invoque une %data.monster.deep-terror% normale sur un hexagone adjacent à la cible"
       },
+      "elder-drake": {
+        "1": "Volez jusqu'au prochain perchoir de rochers"
+      },
       "flame-demon": {
         "1": "Tous les adversaires adjacents subissent %game.damage:2%.",
         "2": "Crée un piège à %game.damage:4% sur l'hexagone vide adjacent le plus proche d'un adversaire."
@@ -837,6 +840,10 @@
     "vermling-shaman": "Chaman Vermling",
     "wind-demon": "Démon du Vent",
     "winged-horror": "Horreur Ailée"
+  },
+  "objective": {
+    "Tree": "Arbre",
+    "zephyr": "Zéphyr"
   },
   "partyAchievements": {
     "a-demons-errand": "À la Botte du Démon",

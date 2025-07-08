@@ -1691,8 +1691,8 @@
       "figures": {
         "activate": "{0} activer",
         "all": "Toutes les unités",
-        "amAdd": "{0} ajouter %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% au paquet de modificateurs d'attaque",
-        "amRemove": "{0} retirer %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% du paquet de modificateurs d'attaque",
+        "amAdd": "{0} ajouter %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% au Paquet Modificateur d’Attaque",
+        "amRemove": "{0} retirer %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% du paquet Modificateur d'Attaque",
         "damage": "{0} subir %game.damage:{2}%",
         "discard": "{0} se défausser de %numéro.{2}% de cartes d'aptitude chacun",
         "discardAbilityToBottom": "Placez la capacité au bas de la pile de défausse pour {0}",
@@ -2863,7 +2863,7 @@
   },
   "tools": {
     "": "Outils [Spoiler !]",
-    "attackModifier": "Modificateur d'attaque",
+    "attackModifier": "Modificateur d'Attaque",
     "backToGhs": "Retour à GHS",
     "decks": "Paquets de capacité",
     "feedback": {

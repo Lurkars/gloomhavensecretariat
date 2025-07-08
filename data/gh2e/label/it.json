@@ -1,1 +1,18 @@
-{}
+{
+  "character": {
+    "gh2e": {
+      "cragheart": "Cuore di Roccia",
+      "mindthief": "Ladro Mentale",
+      "spellweaver": "Tessimagie",
+      "tinkerer": "Inventore"
+    }
+  },
+  "monster": {
+    "city-archer": "Arciere Cittadino",
+    "frost-demon": "Demone del Gelo",
+    "hound": "Mastino",
+    "inox-archer": "Inox Arciere",
+    "jekserah": "Jekserah",
+    "savvas-icestorm": "Savvas Tempesta Glaciale"
+  }
+}
