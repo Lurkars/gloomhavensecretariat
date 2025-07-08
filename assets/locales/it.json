@@ -1564,6 +1564,11 @@
       "reset": "Resetta",
       "success": "Successo"
     },
+    "gh2eImbuement": {
+      "": "Appendice F: Infusione di mostri",
+      "advancedImbuement": "Infusione avanzata",
+      "imbuement": "Infusione"
+    },
     "level": "Liv {0}",
     "locked": "Requisiti mancanti",
     "manual": {
@@ -2374,7 +2379,7 @@
     },
     "fhRules": "Regole di Frosthaven",
     "fhSecondEdition": {
-      "": "2° Edizione",
+      "": "2a Stampa",
       "hint": "Alcuni cambiamenti tra la prima e la seconda stampa di Frosthaven non possono essere impostati automaticamente. Quindi, per favore, controlla se si utilizza la seconda stampa di Frosthaven."
     },
     "fhStyle": {
@@ -2420,6 +2425,11 @@
     "ge5Player": {
       "": "Regole giocatori ≥ 5"
     },
+    "gh2eImbuement": {
+      "": "Abilita le Infusioni dei Mostri",
+      "hint": "Abilita l'opzione per aggiungere l'Infusione dei Mostri (Appendice F) nel menu Effetto Evento."
+    },
+    "gh2eRules": "Gloomhaven 2a edizione",
     "helperDefaults": {
       "": "Applica impostazioni predefinite"
     },
