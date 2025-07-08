@@ -419,7 +419,7 @@ export class ScenarioManager {
     }
 
     if (settingsManager.settings.addAllMonsters) {
-      this.getMonsters(new Scenario(scenarioData)).forEach((monster) => {
+      this.getMonsters(new Scenario(scenarioData), true).forEach((monster) => {
         if (!this.game.figures.find((figure) =>
           figure instanceof MonsterData && figure.name == monster.name && figure.edition == monster.edition)) {
           gameManager.monsterManager.addMonster(monster, this.game.level);

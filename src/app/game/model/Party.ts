@@ -45,6 +45,7 @@ export class Party {
   solo: boolean = false;
   envelopeB: boolean = false;
 
+  // FH
   weeks: number = 0;
   weekSections: Partial<Record<number, string[]>> = {};
   loot: Partial<Record<LootType, number>> = {};
@@ -66,5 +67,9 @@ export class Party {
 
   trials: number = -1;
   garden: GardenModel | undefined;
+
+  // GH2E
+  factionReputation: Partial<Record<string, number>> = {};;
+  imbuement: number = 0;
 
 }

@@ -67,6 +67,13 @@
     "gh2e": "Gloomhaven Second Edition (%wip%)",
     "gh2e-wip": "Gloomhaven 2nd Edition is currently incomplete. Only the data available on <a href=\"https://github.com/Tarmslitaren/FrosthavenAssistant\" target=\"_blank\">X-haven Assistant</a> has been added. Most importantly, Campaign Management has not yet been implemented. Therefore, Campaign Mode is disabled by default. If you still want to track basic campaign progress, you must unlock the scenarios manually at this point."
   },
+  "factions": {
+    "gh2e": {
+      "demons": "Demons",
+      "merchant-guild": "Merchant's Guild",
+      "military": "Military"
+    }
+  },
   "monster": {
     "alpha-lurker": "Alpha Lurker",
     "ancient-artillery": "Ancient Artillery",

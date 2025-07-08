@@ -1,3 +1,4 @@
+import { gameManager } from "../businesslogic/GameManager";
 import { Figure } from "./Figure";
 import { GameObjectiveEntityModel, ObjectiveEntity } from "./ObjectiveEntity";
 import { AdditionalIdentifier } from "./data/Identifier";
@@ -34,6 +35,14 @@ export class ObjectiveContainer implements Figure {
   }
 
   getInitiative(): number {
+
+    if (this.objectiveId) {
+      const objectiveModel = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.objectiveId);
+      if (objectiveModel && objectiveModel.initiativeShare) {
+        return 100;
+      }
+    }
+
     return this.initiative;
   }
 

@@ -27,7 +27,7 @@ export class LevelManager {
   }
 
   adjustedLevel(): number {
-    const level = this.game.level - this.ge5PlayerOffset() - (this.game.solo && !gameManager.fhRules() && !settingsManager.settings.alwaysFhSolo ? 1 : 0) + this.game.bonusAdjustment;
+    const level = this.game.level - this.ge5PlayerOffset() - (this.game.solo && !gameManager.fhRules(true) && !settingsManager.settings.alwaysFhSolo ? 1 : 0) + this.game.bonusAdjustment;
     if (level < 0) {
       return 0;
     } else if (level > 7) {
@@ -62,7 +62,7 @@ export class LevelManager {
   }
 
   terrain(level: number = -1): number {
-    if (settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()) {
+    if (settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules(true)) {
       if (level < 0 || level > 7) {
         level = this.game.level;
       }
@@ -91,7 +91,7 @@ export class LevelManager {
     const charLevel = this.game.figures.some((figure) => figure instanceof Character) ? this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => (figure as Character).level).reduce((a, b) => a + b) : 1;
 
 
-    return Math.ceil(((charLevel / charCount) + (this.game.solo && ((gameManager.fhRules() || settingsManager.settings.alwaysFhSolo ? 1 : 0)) ? 1 : 0)) / 2) + (this.game.solo && !gameManager.fhRules() && !settingsManager.settings.alwaysFhSolo ? 1 : 0) + this.ge5PlayerOffset();
+    return Math.ceil(((charLevel / charCount) + (this.game.solo && ((gameManager.fhRules(true) || settingsManager.settings.alwaysFhSolo ? 1 : 0)) ? 1 : 0)) / 2) + (this.game.solo && !gameManager.fhRules(true) && !settingsManager.settings.alwaysFhSolo ? 1 : 0) + this.ge5PlayerOffset();
   }
 
   calculateScenarioLevel() {

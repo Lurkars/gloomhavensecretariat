@@ -17,14 +17,16 @@
         background-repeat: no-repeat;
         border-radius: 0.5em;
 
-        &.city {
-            background-image: url('~src/assets/images/eventcards/city-front.png');
-            color: var(--ghs-color-white);
-        }
+        background-image: url('~src/assets/images/eventcards/city-front.png');
+        color: var(--ghs-color-white);
 
         &.road {
             background-image: url('~src/assets/images/eventcards/road-front.png');
-            color: var(--ghs-color-white);
+            color: var(--ghs-color-darkgray);
+
+            .options .option .card-action .ghs-svg {
+                filter: var(--ghs-filter-black);
+            }
         }
 
         .options {
@@ -51,10 +53,42 @@
                     padding-top: 2em;
                 }
 
-                .text {
-                    font-family: var(--ghs-font-text);
-                    font-style: italic;
-                    margin-bottom: 0.5em;
+                .outcome {
+                    position: relative;
+                    flex-grow: 1;
+
+                    .text,
+                    .condition {
+                        font-family: var(--ghs-font-text);
+                        font-style: italic;
+                        margin-bottom: 0.5em;
+                        letter-spacing: -0.03em;
+
+                        &.condition {
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    .effects {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .effect {
+                            position: relative;
+                            display: flex;
+                            flex-direction: column;
+                            margin-top: 0.3em;
+                            margin-bottom: 0.3em;
+                            width: 100%;
+                            font-family: var(--ghs-font-text);
+                            font-size: 1.2em;
+                        }
+                    }
+
+                    .card-action {
+                        bottom: 0em;
+                        right: -1em;
+                    }
                 }
 
                 .card-action {
@@ -69,50 +103,13 @@
                     }
                 }
 
-                .effects {
-                    display: flex;
-                    flex-wrap: wrap;
-
-                    .effect {
-                        position: relative;
-                        display: flex;
-                        flex-direction: column;
-                        margin-top: 0.3em;
-                        margin-bottom: 0.3em;
-                        width: 100%;
-
-                        .text {
-                            margin-bottom: 0.2em;
-
-                            .condition {
-                                text-transform: uppercase;
-                                margin-right: 0.2em;
-                            }
-                        }
-
-                        .rewards {
-                            font-family: var(--ghs-font-text);
-                            font-size: 1.2em;
-
-                            .separator {
-                                margin: 0 0.1em;
-                            }
-                        }
-
-                        .card-action {
-                            bottom: -0.5em;
-                            right: -1em;
-                        }
-                    }
-                }
-
                 &.selected {
                     filter: none;
                     opacity: 1;
 
                     .effects .effect {
                         cursor: pointer;
-                        opacity: 0.6;
+                        // opacity: 0.6;
 
                         &.selected-effect {
                             opacity: 1;
@@ -146,15 +143,16 @@
         background-position: center center;
         background-repeat: no-repeat;
         border-radius: 0.5em;
-
-        &.city {
-            background-image: url('~src/assets/images/eventcards/city-back.png');
-            color: var(--ghs-color-white);
-        }
+        background-image: url('~src/assets/images/eventcards/city-back.png');
+        color: var(--ghs-color-white);
 
         &.road {
             background-image: url('~src/assets/images/eventcards/road-back.png');
-            color: var(--ghs-color-white);
+            color: var(--ghs-color-darkgray);
+
+            .options {
+                border-top-color: var(--ghs-color-darkgray);
+            }
         }
 
         .text {

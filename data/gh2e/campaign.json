@@ -1,0 +1,117 @@
+{
+    "factions": [
+        "demons",
+        "merchant-guild",
+        "military"
+    ],
+    "reputationSections": [
+        {
+            "type": "demons",
+            "value": 9,
+            "section": "78.3",
+            "requires": []
+        },
+        {
+            "type": "demons",
+            "value": 16,
+            "section": "73.3",
+            "requires": []
+        },
+        {
+            "type": "demons",
+            "value": 20,
+            "section": "77.2",
+            "requires": []
+        },
+        {
+            "type": "merchant-guild",
+            "value": 9,
+            "section": "77.3",
+            "requires": []
+        },
+        {
+            "type": "merchant-guild",
+            "value": 16,
+            "section": "10.2",
+            "requires": []
+        },
+        {
+            "type": "merchant-guild",
+            "value": 20,
+            "section": "20.1",
+            "requires": []
+        },
+        {
+            "type": "military",
+            "value": 9,
+            "section": "83.3",
+            "requires": []
+        },
+        {
+            "type": "military",
+            "value": 16,
+            "section": "53.1",
+            "requires": []
+        },
+        {
+            "type": "military",
+            "value": 20,
+            "section": "31.5",
+            "requires": []
+        },
+        {
+            "type": "demons",
+            "value": 6,
+            "min": true,
+            "section": "29.1",
+            "requires": [
+                "11"
+            ]
+        },
+        {
+            "type": "demons",
+            "value": 12,
+            "section": "133.5",
+            "requires": [
+                "19",
+                "20"
+            ]
+        },
+        {
+            "type": "merchant-guild",
+            "value": 6,
+            "min": true,
+            "section": "49.1",
+            "requires": [
+                "8"
+            ]
+        },
+        {
+            "type": "merchant-guild",
+            "value": 12,
+            "section": "41.3",
+            "requires": [
+                "21",
+                "22"
+            ]
+        },
+        {
+            "type": "military",
+            "value": 6,
+            "min": true,
+            "section": "46.3",
+            "requires": [
+                "10"
+            ]
+        },
+        {
+            "type": "military",
+            "value": 12,
+            "section": "39.3",
+            "requires": [
+                "17",
+                "18"
+            ]
+        }
+    ]
+}

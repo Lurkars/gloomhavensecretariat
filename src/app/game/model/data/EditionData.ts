@@ -81,6 +81,7 @@ export class EditionData implements Editional {
 
 export class CampaignData {
 
+  // FH
   campaignStickers: string[] = [];
   buildings: BuildingData[] = [];
   highMorale: string[] = [];
@@ -90,6 +91,12 @@ export class CampaignData {
   townGuardPerks: TownGuardPerk[] = [];
   weeks: Partial<Record<number, string[]>> = {};
 
+  // GH2E
+  factions: string[] = [];
+  reputationSections: ReputationSections[] = [];
+
 }
 
 export type TownGuardPerk = { "sections": string[], "perk": Perk };
+
+export type ReputationSections = { "faction": string, "value": number, "min": boolean, "section": string, "requires": string[] };

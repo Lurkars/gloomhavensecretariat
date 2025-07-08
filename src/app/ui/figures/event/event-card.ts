@@ -6,7 +6,7 @@ import { Identifier } from "src/app/game/model/data/Identifier";
 
 
 @Component({
-  standalone: false,
+    standalone: false,
     selector: 'ghs-event-card',
     templateUrl: './event-card.html',
     styleUrls: ['./event-card.scss']
@@ -47,20 +47,7 @@ export class EventCardComponent implements OnInit, OnChanges {
             this.selected = index;
             this.rewardSelection = [];
             if (this.selected != -1) {
-                if (this.event.options[index].effects.length) {
-                    this.selectedEffect = 0;
-                }
-                this.event.options[index].effects.forEach((effect, effectIndex) => {
-                    if (effect.rewards) {
-                        effect.rewards.forEach((rewards, rewardIndex) => {
-                            if (rewards.length) {
-                                this.rewardSelection.push({ effectIndex: effectIndex, rewardIndex: rewardIndex, index: 0 });
-                            } else {
-                                this.rewardSelection.push({ effectIndex: effectIndex, rewardIndex: rewardIndex, index: -1 });
-                            }
-                        })
-                    }
-                })
+
             }
         }
     }

@@ -13,7 +13,9 @@
     <label>
       <span [ghs-label]="'game.events.type'"></span>
       <select [(ngModel)]="type" (change)="update(); updateQueryParams()">
-        <option *ngFor="let type of ['city', 'road']" [value]="type">
+        <option
+          *ngFor="let type of ['city', 'road', 'rift', 'boat', 'summer-outpost', 'winter-outpost', 'summer-road', 'winter-road']"
+          [value]="type">
           <span [ghs-label]="'game.events.type.' + type"></span>
         </option>
       </select>

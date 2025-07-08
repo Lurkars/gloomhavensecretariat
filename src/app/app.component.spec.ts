@@ -58,8 +58,6 @@ import { FavorsComponent } from './ui/figures/event-effects/favors/favors';
 import { EventRandomItemDialogComponent } from './ui/figures/event-effects/random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './ui/figures/event-effects/random-scenario/random-scenario-dialog';
 import { EventCardComponent } from './ui/figures/event/event-card';
-import { EventConditionLabelComponent } from './ui/figures/event/label/condition-label';
-import { EventRewardLabelComponent } from './ui/figures/event/label/reward-label';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
 import { CharacterItemComponent } from './ui/figures/items/character/item-character';
@@ -244,11 +242,9 @@ describe('AppComponent', () => {
         EntityMenuDialogComponent,
         EventCardComponent,
         EventCardsToolComponent,
-        EventConditionLabelComponent,
         EventEffectsDialog,
         EventRandomItemDialogComponent,
         EventRandomScenarioDialogComponent,
-        EventRewardLabelComponent,
         FavorsComponent,
         FeedbackDialogComponent,
         FeedbackToolComponent,

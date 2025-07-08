@@ -11,6 +11,7 @@ import { Action, ActionHint, ActionType, ActionValueType } from "../model/data/A
 import { AttackModifier, AttackModifierType } from "../model/data/AttackModifier";
 import { Condition, ConditionName } from "../model/data/Condition";
 import { Element, ElementModel, ElementState } from "../model/data/Element";
+import { AdditionalIdentifier } from "../model/data/Identifier";
 import { MonsterType } from "../model/data/MonsterType";
 import { MonsterSpawnData, ObjectiveSpawnData } from "../model/data/ScenarioRule";
 import { gameManager } from "./GameManager";
@@ -497,7 +498,7 @@ export class ActionsManager {
                 for (let spawn of objectiveSpawns) {
                     if (figure instanceof Monster) {
                         const count: number = !spawn.count ? 1 : EntityValueFunction(spawn.count);
-                        const objectiveContainer = gameManager.objectiveManager.addObjective(spawn.objective, spawn.objective.name, figure ? gameManager.additionalIdentifier(figure) : undefined);
+                        const objectiveContainer = gameManager.game.figures.find((f) => f instanceof ObjectiveContainer && gameManager.additionalIdentifier(figure).equals(f.objectiveId as AdditionalIdentifier)) as ObjectiveContainer || gameManager.objectiveManager.addObjective(spawn.objective, spawn.objective.name, gameManager.additionalIdentifier(figure));
                         if (count > 1) {
                             for (let i = 0; i < count; i++) {
                                 const spawnEntity = gameManager.objectiveManager.addObjectiveEntity(objectiveContainer);

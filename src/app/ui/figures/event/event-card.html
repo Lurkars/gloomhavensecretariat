@@ -4,17 +4,19 @@
         <div class="card-back" [ngClass]="event ? event.type : ''">
             <ng-container *ngIf="!!event">
                 <div class="text">
-                    <p class="placeholder" [ghs-label]="label + '.text'"></p>
+                    <p class="placeholder" [ghs-label]="event.narrative"></p>
                 </div>
                 <div class="options">
-                    <div class="option" *ngFor="let option of event.options; let i = index;" (click)="selectOption(i)">
-                        <span class="title" [ghs-label]="'game.events.option'"
-                            [ghs-label-args]="['game.events.option.' + (i+1)]"></span>
-                        <span class="choice" [ghs-label]="label + '.options.' + (i+1) + '.choice'"></span>
-                    </div>
+                    <ng-container *ngFor="let option of event.options; let i = index;">
+                        <div *ngIf="option.narrative" class="option" (click)="selectOption(i)">
+                            <span class="title" [ghs-label]="'game.events.option'"
+                                [ghs-label-args]="['game.events.option.' + (i+1)]"></span>
+                            <span class="choice" [ghs-label]="option.narrative"></span>
+                        </div>
+                    </ng-container>
                 </div>
                 <div class="card-id">
-                    <span *ngIf="event.cardId < 10">0</span>{{event.cardId}}
+                    <span *ngIf="+event.cardId < 10">0</span>{{+event.cardId}}
                 </div>
             </ng-container>
         </div>
@@ -23,44 +25,29 @@
                 <div class="options">
                     <div class="option" *ngFor="let option of event.options; let i = index;"
                         [ngClass]="{'selected' : selected == i}" (click)="selected != i && selectOption(i)">
-                        <span *ngIf="option.outcome" class="text"
-                            [ghs-label]="label + '.options.' + (i+1) + '.outcome'"></span>
-                        <div class="effects">
-                            <div class="effect" *ngFor="let effect of option.effects; let effectIndex = index;"
-                                (click)="selectedEffect != effectIndex && selectEffect(effectIndex)"
-                                [ngClass]="{'selected-effect' : selectedEffect == effectIndex}">
-                                <div *ngIf="effect.rule" class="rule">TODO: {{effect.rule}}</div>
-                                <div *ngIf="effect.text" class="text">
-                                    <ghs-event-condition-label *ngIf="effect.condition" class="condition"
-                                        [condition]="effect.condition">
-                                    </ghs-event-condition-label>
-                                    <span
-                                        [ghs-label]="label + '.options.' + (i+1) + '.effects.' + (i +1)+ '.' + (effectIndex + 1)"></span>
-                                </div>
-                                <div class="rewards" *ngFor="let rewards of effect.rewards; let rewardIndex = index">
-                                    <ng-container *ngFor="let reward of rewards; let index = index">
-                                        <span class="reward"
-                                            [ngClass]="{'selected-reward': i == selected && effectIndex == selectedEffect && getRewardSelection(effectIndex, rewardIndex).index == index}"
-                                            (click)="selectReward(effectIndex,rewardIndex, index)">
-                                            <ghs-event-reward-label [reward]="reward"
-                                                [edition]="event.edition"></ghs-event-reward-label>
-                                        </span>
-                                        <span class="separator" *ngIf="rewards.length > 1 && index < rewards.length -1"
-                                            [ghs-label]="'or'"></span>
-                                    </ng-container>
-                                </div>
-                                <div class="card-action">
-                                    <img *ngIf="effect.return" class="ghs-svg"
-                                        src="./assets/images/eventcards/return.svg">
-                                    <img *ngIf="effect.remove" class="ghs-svg"
-                                        src="./assets/images/eventcards/remove.svg">
-                                </div>
+                        <div class="outcome" *ngFor="let outcome of option.outcomes;  let outcomeIndex = index;">
+                            <span *ngIf="outcome.condition" class="condition"><span
+                                    [ghs-label]="outcome.condition"></span>:&nbsp;</span>
+                            <span *ngIf="outcome.narrative" class="text" [ghs-label]="outcome.narrative"></span>
+
+                            <div class="effects">
+                                <span *ngFor="let effect of outcome.effects;" class="effect"
+                                    [ghs-label]="effect"></span>
                             </div>
 
+                            <div class="card-action">
+                                <img *ngIf="outcome.returnToDeck" class="ghs-svg"
+                                    src="./assets/images/eventcards/return.svg">
+                                <img *ngIf="outcome.removeFromDeck" class="ghs-svg"
+                                    src="./assets/images/eventcards/remove.svg">
+                            </div>
                         </div>
+
                         <div class="card-action">
-                            <img *ngIf="option.return" class="ghs-svg" src="./assets/images/eventcards/return.svg">
-                            <img *ngIf="option.remove" class="ghs-svg" src="./assets/images/eventcards/remove.svg">
+                            <img *ngIf="option.returnToDeck" class="ghs-svg"
+                                src="./assets/images/eventcards/return.svg">
+                            <img *ngIf="option.removeFromDeck" class="ghs-svg"
+                                src="./assets/images/eventcards/remove.svg">
                         </div>
                     </div>
                 </div>
