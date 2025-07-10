@@ -408,7 +408,7 @@ export class SettingsManager {
               event.edition = value.edition;
             }
             if (!event.cardId) {
-              event.cardId = (index + 1);
+              event.cardId = '' + (index + 1);
             }
             return event;
           })

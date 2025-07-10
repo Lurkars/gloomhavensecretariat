@@ -818,20 +818,13 @@
     "enemy": "Враг",
     "events": {
       "conditions": {
-        "otherwise": "Иначе:",
-        "payCollectiveGold": "Заплатите в общем {0} золота:",
-        "payCollectiveGoldConditional": "Заплатите в общем {0} ({1}) или {2} ({3}) золота:",
-        "reputationGT": "Репутация > {0}:",
-        "reputationLT": "Репутация < {0}:"
+        "otherwise": "Иначе",
+        "payCollectiveGold": "Заплатите в общем {0} золота",
+        "payCollectiveGoldConditional": "Заплатите в общем {0} ({1}) или {2} ({3}) золота",
+        "reputationGT": "Репутация > {0}",
+        "reputationLT": "Репутация < {0}"
       },
-      "option": {
-        "": "Вариант {0}:",
-        "1": "А",
-        "2": "Б",
-        "3": "В"
-      },
-      "rewards": {
-        "additionalGold": "Каждый получает дополнительно по {0} золота.",
+      "effects": {
         "collectiveGold": "Получите в общем {0} золота.",
         "collectiveItem": "Получите в общем {2} \"%data.items.{1}-{0}%\" (Предмет {0}).",
         "consumeCollectiveItem": "Используйте в общем {0} %game.itemSlot:{1}% предметов.",
@@ -841,6 +834,7 @@
         "experience": "Каждый получает по {0} опыта.",
         "globalAchievement": "Глобальное достижение: «%data.globalAchievements.{0}%».",
         "gold": "Каждый получает по {0} золота.",
+        "goldAdditional": "Каждый получает дополнительно по {0} золота.",
         "itemDesign": "Получите проект «%data.items.{1}-{0}%» (предмет {0}).",
         "loseBattleGoal": "Каждый потеряйте по {0} %game.checkmark%.",
         "loseCollectiveGold": "Потеряйте в общем {0} золота.",
@@ -852,10 +846,16 @@
         "prosperity": "Получите {0} процветания.",
         "randomItemDesign": "Получите случайный проект предмета.",
         "reputation": "Получите {0} репутации.",
-        "scenario": "Разблокируйте «{1}» %data.scenarioNumber:{0}%.",
+        "scenario": "Разблокируйте «%data.scenario.title.{1}.{0}%» %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Все начинают сценарий с «%game.condition.{0}%».",
         "scenarioDamage": "Все начинают сценарий с {0} урона.",
-        "scenarioSingleMinus1": "Кто-то один начинает сценарий с %game.attackmodifier.minus1% x{0}."
+        "scenarioSingleMinus1": "Кто-то один начинает сценарий с %game.card.minus1% x{0}."
+      },
+      "option": {
+        "": "Вариант {0}:",
+        "1": "А",
+        "2": "Б",
+        "3": "В"
       },
       "type": {
         "city": "Городское",

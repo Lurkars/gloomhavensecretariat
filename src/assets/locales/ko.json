@@ -812,20 +812,13 @@
     "enemy": "적",
     "events": {
       "conditions": {
-        "otherwise": "그 외의 경우:",
-        "payCollectiveGold": "파티에서 합하여 금화 총 {0}개를 모아서 지불:",
-        "payCollectiveGoldConditional": "{0} ({1}) 또는 금화 총 {2} ({3})개를 모아서 지불:",
-        "reputationGT": "평판 > {0}:",
-        "reputationLT": "평판 < {0}:"
+        "otherwise": "그 외의 경우",
+        "payCollectiveGold": "파티에서 합하여 금화 총 {0}개를 모아서 지불",
+        "payCollectiveGoldConditional": "{0} ({1}) 또는 금화 총 {2} ({3})개를 모아서 지불",
+        "reputationGT": "평판 > {0}",
+        "reputationLT": "평판 < {0}"
       },
-      "option": {
-        "": "선택지 {0}:",
-        "1": "1번",
-        "2": "2번",
-        "3": "3번"
-      },
-      "rewards": {
-        "additionalGold": "추가로 각자 금화 {0}개 획득.",
+      "effects": {
         "collectiveGold": "파티에서 합하여 금화를 총 {0}개 획득.",
         "collectiveItem": "파티에서 합하여 \"%data.items.{1}-{0}%\" (아이템 {0}) 총 {2}개 획득.",
         "consumeCollectiveItem": "파티에서 합하여 %game.itemSlot:{1}% 아이템 총 {0}개 소비.",
@@ -835,6 +828,7 @@
         "experience": "각자 경험치 {0}점 획득.",
         "globalAchievement": "전역 업적: \"%data.globalAchievements.{0}%\".",
         "gold": "각자 금화 {0}개 획득.",
+        "goldAdditional": "추가로 각자 금화 {0}개 획득.",
         "itemDesign": "\"%data.items.{1}-{0}%\" 도안 (아이템 {0}) 획득.",
         "loseBattleGoal": "각자 %game.checkmark% {0}개 잃음.",
         "loseCollectiveGold": "파티에서 합하여 금화를 총 {0}개 잃음.",
@@ -846,10 +840,16 @@
         "prosperity": "번영도 {0}점 획득.",
         "randomItemDesign": "무작위 아이템 도안 획득.",
         "reputation": "평판 {0}점 획득.",
-        "scenario": "%data.scenarioNumber:{0}%번 시나리오 “{1}” 해금.",
+        "scenario": "%data.scenarioNumber:{0}%번 시나리오 “%data.scenario.title.{1}.{0}%” 해금.",
         "scenarioCondition": "모두 %game.condition.{0}% 상태로 시나리오 시작.",
         "scenarioDamage": "모두 피해 {0}점을 받고 시나리오 시작.",
-        "scenarioSingleMinus1": "%game.attackmodifier.minus1% {0}장을 공격 보정 덱에 섞어 넣고 시나리오 시작."
+        "scenarioSingleMinus1": "%game.card.minus1% {0}장을 공격 보정 덱에 섞어 넣고 시나리오 시작."
+      },
+      "option": {
+        "": "선택지 {0}:",
+        "1": "1번",
+        "2": "2번",
+        "3": "3번"
       },
       "type": {
         "city": "도시",

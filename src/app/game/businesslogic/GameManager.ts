@@ -898,8 +898,8 @@ export class GameManager {
     return ElementState.inert;
   }
 
-  campaignData(): CampaignData {
-    const editionData = this.editionData.find((editionData) => editionData.edition == this.currentEdition());
+  campaignData(edition: string | undefined = undefined): CampaignData {
+    const editionData = this.editionData.find((editionData) => edition && editionData.edition == edition || editionData.edition == this.currentEdition());
 
     if (editionData && editionData.campaign) {
       return editionData.campaign;

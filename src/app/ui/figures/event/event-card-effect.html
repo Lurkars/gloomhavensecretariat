@@ -1,0 +1,24 @@
+<span class="condition">
+    <span *ngIf="effectString" class="text" [ngClass]="{'text-white': light, 'inline': inline}">
+        <span [ghs-label]="effectString"></span>
+    </span>
+    <span *ngIf="effectObject" class="text" [ngClass]="{'text-white': light}">
+        <ghs-event-card-condition *ngIf="effectObject.condition" [condition]="effectObject.condition"
+            [edition]="edition" [light]="light"></ghs-event-card-condition>
+
+        <span *ngIf="effectObject.type != 'choose' || effects.length < 2" [ngClass]="{'text-white': light, 'inline': inline}"
+            [ghs-label]="'game.events.effects.' + effectObject.type" [ghs-label-args]="labelArgs"></span>
+
+        <span class="choose" *ngIf="effectObject.type == 'choose' && effects.length > 1">
+            <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.effects.choose.prefix'"></span>
+            <ng-container *ngFor="let chooseEffect of effects; let i = index;">
+                <span *ngIf="i > 0" [ngClass]="{'text-white': light}"
+                    [ghs-label]="'game.events.effects.choose.connector'"></span>
+                <ghs-event-card-effect [effect]="chooseEffect" [edition]="edition"
+                    [light]="light" [inline]="true"></ghs-event-card-effect>
+            </ng-container>
+            <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.effects.choose.suffix'"></span>
+        </span>
+
+    </span>
+</span>

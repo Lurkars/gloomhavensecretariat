@@ -25,6 +25,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     selected: number = -1;
     selectedEffect: number = -1;
     rewardSelection: { effectIndex: number, rewardIndex: number, index: number }[] = [];
+    light: boolean = false;
 
     ngOnInit(): void {
         if (this.event) {
@@ -40,6 +41,7 @@ export class EventCardComponent implements OnInit, OnChanges {
         } else if (changes['select'] && changes['select'].previousValue != changes['select'].currentValue) {
             this.selectOption(this.select);
         }
+        this.light = this.event && ['city'].indexOf(this.event.type) != -1 || false;
     }
 
     selectOption(index: number) {

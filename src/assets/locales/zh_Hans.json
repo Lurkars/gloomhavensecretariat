@@ -774,20 +774,13 @@
     "enemy": "敌人",
     "events": {
       "conditions": {
-        "otherwise": "否则：",
-        "payCollectiveGold": "共同支付{0}金币:",
-        "payCollectiveGoldConditional": "共同支付 {0} ({1})或者{2} ({3})金币：",
-        "reputationGT": "声望> {0}：",
-        "reputationLT": "声望< {0}："
+        "otherwise": "否则",
+        "payCollectiveGold": "共同支付{0}金币",
+        "payCollectiveGoldConditional": "共同支付 {0} ({1})或者{2} ({3})金币",
+        "reputationGT": "声望> {0}",
+        "reputationLT": "声望< {0}"
       },
-      "option": {
-        "": "选项 {0}：",
-        "1": "A",
-        "2": "B",
-        "3": "C"
-      },
-      "rewards": {
-        "additionalGold": "每人额外获得 {0} 金币。",
+      "effects": {
         "collectiveGold": "共同获得 {0} 金币。",
         "collectiveItem": "共同获得 {2} 件 \"%data.items.{1}-{0}%\"(物品 {0})。",
         "consumeCollectiveItem": "共同消耗 {0} 件 %game.itemSlot:{1}% 物品。",
@@ -797,6 +790,7 @@
         "experience": "每人获得 {0} 点经验。",
         "globalAchievement": "世界成就：\"%data.globalAchievements.{0}%\"。",
         "gold": "每人获得 {0} 金币。",
+        "goldAdditional": "每人额外获得 {0} 金币。",
         "itemDesign": "获得 \"%data.items.{1}-{0}%\" 设计图纸 (物品 {0})。",
         "loseBattleGoal": "每人失去 {0} %game.checkmark%。",
         "loseCollectiveGold": "共同失去 {0} 金币。",
@@ -808,10 +802,16 @@
         "prosperity": "获得 {0} 点繁荣。",
         "randomItemDesign": "获得随机物品设计图纸。",
         "reputation": "获得 {0} 点声望。",
-        "scenario": "解锁 \"{1}\" %data.scenarioNumber:{0}%。",
+        "scenario": "解锁 \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%。",
         "scenarioCondition": "剧本开始时所有角色获得 %game.condition.{0}%。",
         "scenarioDamage": "剧本开始时所有角色受到 {0} 点伤害。",
-        "scenarioSingleMinus1": "剧本开始时一名角色获得 %game.attackmodifier.minus1% x{0}。"
+        "scenarioSingleMinus1": "剧本开始时一名角色获得 %game.card.minus1% x{0}。"
+      },
+      "option": {
+        "": "选项 {0}：",
+        "1": "A",
+        "2": "B",
+        "3": "C"
       },
       "type": {
         "city": "城镇",

@@ -3,7 +3,7 @@
     "cardId": "01",
     "edition": "cs",
     "type": "city",
-    "narrative": "“Come one, come all, and welcome to the county fair!” a Quatryl with red-and-white facepaint and a clownish blue wig smiles as he waves you in through the entrance. You’ve decided to take the day off and visit the county fair, which you’ve enjoyed frequenting as a youth. “Step right up and try your luck!” an Inox strongman wielding a giant hammer beckons you forward. “Do you have what it takes to hit the bell?” On the other side, an Aesther throws a dart and pops a balloon. “Try your aim! Can you hit the balloon? Find out here!”",
+    "narrative": "\"Come one, come all, and welcome to the county fair!\" a Quatryl with red-and-white facepaint and a clownish blue wig smiles as he waves you in through the entrance. You’ve decided to take the day off and visit the county fair, which you’ve enjoyed frequenting as a youth. \"Step right up and try your luck!\" an Inox strongman wielding a giant hammer beckons you forward. \"Do you have what it takes to hit the bell?\" On the other side, an Aesther throws a dart and pops a balloon. \"Try your aim! Can you hit the balloon? Find out here!\"",
     "options": [
       {
         "label": "A",
@@ -12,14 +12,14 @@
         "outcomes": [
           {
             "condition": "if inox or valrath in party",
-            "narrative": "You swing the hammer down with all your might and hear a loud ring. “You’ve done it!” the Inox Strongman cheers. “Come claim your prize!”",
+            "narrative": "You swing the hammer down with all your might and hear a loud ring. \"You’ve done it!\" the Inox Strongman cheers. \"Come claim your prize!\"",
             "effects": [
-              "Gain 1 collective “Lightweight Boots” (Item 017)."
+              "Gain 1 collective \"Lightweight Boots\" (Item 017)."
             ]
           },
           {
             "condition": "otherwise",
-            "narrative": "You pick up the hammer and swing it down, but the booth hardly rumbles at all and the bell doesn’t ring. “Oh well, maybe next time,” says the Strongman as he takes the hammer back from you.",
+            "narrative": "You pick up the hammer and swing it down, but the booth hardly rumbles at all and the bell doesn’t ring. \"Oh well, maybe next time,\" says the Strongman as he takes the hammer back from you.",
             "effects": [
               "No effect."
             ]
@@ -33,9 +33,9 @@
         "outcomes": [
           {
             "condition": "if aesther or orchid in party",
-            "narrative": "You grip the dart tightly in your hand and fling it toward the balloon. You hear a ‘pop’ followed by applause. “Congratulations!” the Aesther claps. “Here’s your prize!”",
+            "narrative": "You grip the dart tightly in your hand and fling it toward the balloon. You hear a ‘pop’ followed by applause. \"Congratulations!\" the Aesther claps. \"Here’s your prize!\"",
             "effects": [
-              "Gain 1 collective “Lightweight Boots” (Item 017)."
+              "Gain 1 collective \"Lightweight Boots\" (Item 017)."
             ]
           },
           {
@@ -144,16 +144,16 @@
     "cardId": "04",
     "edition": "cs",
     "type": "city",
-    "narrative": "As you browse the wares in the Sinking Market, you find two Savvas engaged in a heated argument. As you walk by, they beckon you over to help settle their dispute. “This Aeromancer thinks the power of wind is stronger than the power of fire,” one of the Savvas’ remarks. “Of course it is!” the other Savvas scoffs in response. “Stranger, which do you deem to be the most powerful? Prove this Rimehearth wrong!”",
+    "narrative": "As you browse the wares in the Sinking Market, you find two Savvas engaged in a heated argument. As you walk by, they beckon you over to help settle their dispute. \"This Aeromancer thinks the power of wind is stronger than the power of fire,\" one of the Savvas’ remarks. \"Of course it is!\" the other Savvas scoffs in response. \"Stranger, which do you deem to be the most powerful? Prove this Rimehearth wrong!\"",
     "options": [
       {
         "label": "A",
         "narrative": "Side with the Aeromancer and pronounce the power of wind.",
         "outcomes": [
           {
-            "narrative": "You declare the Aeromancer to be correct and the Rimehearth storms off in anger. “Thank you, dear stranger. Here, take this wand so you can show the world how powerful it is to blast your enemies away with a gust of wind.”",
+            "narrative": "You declare the Aeromancer to be correct and the Rimehearth storms off in anger. \"Thank you, dear stranger. Here, take this wand so you can show the world how powerful it is to blast your enemies away with a gust of wind.\"",
             "effects": [
-              "Gain 1 collective “Wand of Storms” (Item 84)."
+              "Gain 1 collective \"Wand of Storms\" (Item 84)."
             ]
           }
         ]
@@ -163,9 +163,9 @@
         "narrative": "Side with the Rimehearth and pronounce the power of fire.",
         "outcomes": [
           {
-            "narrative": "You declare the Rimehearth to be correct and the Aeromancer expresses disgust before turning its head and walking away. “Thank you for supporting the power of the flames,” the Rimehearth nods. “Here, take this so you can spread the power of fire across the world.”",
+            "narrative": "You declare the Rimehearth to be correct and the Aeromancer expresses disgust before turning its head and walking away. \"Thank you for supporting the power of the flames,\" the Rimehearth nods. \"Here, take this so you can spread the power of fire across the world.\"",
             "effects": [
-              "Gain 1 collective “Wand of Infernos” (Item 85)."
+              "Gain 1 collective \"Wand of Infernos\" (Item 85)."
             ]
           }
         ]
@@ -208,16 +208,16 @@
     "cardId": "06",
     "edition": "cs",
     "type": "city",
-    "narrative": "“Haunted, I tell you! It’s haunted!” the Quatryl shivers in fright. This particular Quatryl named Shiela has been frequenting the Sleeping Lion and made your acquaintance. You’ve come to learn that she recently inherited a mansion on the outskirts of the Travelers District upon her great-uncle’s passing. “I’d owe you a great deal if you can pay the mansion a visit and clean the place out of the spooky creatures within,” Shiela’s eyes light up as she place a bag of coin on the table and slides it in your direction.",
+    "narrative": "\"Haunted, I tell you! It’s haunted!\" the Quatryl shivers in fright. This particular Quatryl named Shiela has been frequenting the Sleeping Lion and made your acquaintance. You’ve come to learn that she recently inherited a mansion on the outskirts of the Travelers District upon her great-uncle’s passing. \"I’d owe you a great deal if you can pay the mansion a visit and clean the place out of the spooky creatures within,\" Shiela’s eyes light up as she place a bag of coin on the table and slides it in your direction.",
     "options": [
       {
         "label": "A",
         "narrative": "Offer to investigate the mansion.",
         "outcomes": [
           {
-            "narrative": "You offer to investigate the mansion and Shiela claps her hands together in excitement, “Amazing! I knew I could count on you. That place simply spooks me,” she shudders. “Here, let me get you the coordinates and you can be on your way.”",
+            "narrative": "You offer to investigate the mansion and Shiela claps her hands together in excitement, \"Amazing! I knew I could count on you. That place simply spooks me,\" she shudders. \"Here, let me get you the coordinates and you can be on your way.\"",
             "effects": [
-              "Unlock “Haunted Manor” 44."
+              "Unlock \"Haunted Manor\" 44."
             ]
           }
         ]
@@ -227,7 +227,7 @@
         "narrative": "Demand a larger sum for the task.",
         "outcomes": [
           {
-            "narrative": "You agree to investigate the mansion in exchange for a larger sum. “How dare you! I thought we were friends!” Shiela scoffs before standing up and angrily storming out of the tavern.",
+            "narrative": "You agree to investigate the mansion in exchange for a larger sum. \"How dare you! I thought we were friends!\" Shiela scoffs before standing up and angrily storming out of the tavern.",
             "effects": [
               "No effect."
             ],
@@ -241,14 +241,14 @@
     "cardId": "07",
     "edition": "cs",
     "type": "city",
-    "narrative": "Strolling through the Sinking Market, you are surprised when you find yourself suddenly surrounded by wild turkeys. A short Vermling steps out from behind the flock and introduces himself as Gables the Turkey Wrangler and proceeds to explain how he trains the turkeys for combat. Gables lifts one of the turkeys up as it gobbles ferociously. “I usually charge twenty gold, but today I’ll sell you one for ten. What do you say?”",
+    "narrative": "Strolling through the Sinking Market, you are surprised when you find yourself suddenly surrounded by wild turkeys. A short Vermling steps out from behind the flock and introduces himself as Gables the Turkey Wrangler and proceeds to explain how he trains the turkeys for combat. Gables lifts one of the turkeys up as it gobbles ferociously. \"I usually charge twenty gold, but today I’ll sell you one for ten. What do you say?\"",
     "options": [
       {
         "label": "A",
         "narrative": "Inquire about their flavor.",
         "outcomes": [
           {
-            "narrative": "You inquire about their flavor and Gables looks around nervously as he places the turkey down behind him. “These are specially trained turkeys! How dare you suggest eating one!” he exclaims in a loud voice. His voice softens as he says, “do you know what it would do to my reputation if people started eating these?” Gables turns to walk away, but not before flashing you a wink and whispering in your ear, “quite delicious.”",
+            "narrative": "You inquire about their flavor and Gables looks around nervously as he places the turkey down behind him. \"These are specially trained turkeys! How dare you suggest eating one!\" he exclaims in a loud voice. His voice softens as he says, \"do you know what it would do to my reputation if people started eating these?\" Gables turns to walk away, but not before flashing you a wink and whispering in your ear, \"quite delicious.\"",
             "effects": [
               "No effect."
             ]
@@ -260,7 +260,7 @@
         "narrative": "Offer to buy a battle turkey.",
         "outcomes": [
           {
-            "narrative": "You offer to buy the battle turkey and Gables eyes light up with joy. “First sale of the day! Here’s Sally, best take good care of her.”",
+            "narrative": "You offer to buy the battle turkey and Gables eyes light up with joy. \"First sale of the day! Here’s Sally, best take good care of her.\"",
             "effects": [
               "Lose 10 collective GOLD.",
               "At start of scenario, one character performs: Summon Battle Turkey"
@@ -375,12 +375,12 @@
             "condition": "Pay 30 collective gold",
             "narrative": "You hand the Inox the gold and he looks around once more to ensure there are no witnesses. He slides out a large shield from beneath his coat and hands it to you before hastily departing the scene.",
             "effects": [
-              "Gain 1 collective “Drakescale Shield” (Item 37)."
+              "Gain 1 collective \"Drakescale Shield\" (Item 37)."
             ]
           },
           {
             "condition": "Otherwise",
-            "narrative": "“Well, if you won’t buy it, I’m sure I’ll find some else who will. Scram.”",
+            "narrative": "\"Well, if you won’t buy it, I’m sure I’ll find some else who will. Scram.\"",
             "effects": [
               "No effect."
             ]
@@ -392,7 +392,7 @@
         "narrative": "Threaten to report the Inox for illegal trading.",
         "outcomes": [
           {
-            "narrative": "You threaten to report the Inox for trading without a permit and he scoffs in return. “You wouldn’t dare!” Moments later, you return to the scene with two city guards and they proceed to arrest the Inox. “Thank you, loyal citizen,” one of the city guards commends you. “We appreciate you doing your part to keep these streets clean.”",
+            "narrative": "You threaten to report the Inox for trading without a permit and he scoffs in return. \"You wouldn’t dare!\" Moments later, you return to the scene with two city guards and they proceed to arrest the Inox. \"Thank you, loyal citizen,\" one of the city guards commends you. \"We appreciate you doing your part to keep these streets clean.\"",
             "effects": [
               "Gain 1 prosperity."
             ],
@@ -416,12 +416,12 @@
             "condition": "Pay 15 collective gold",
             "narrative": "You hand the Inox the gold and he looks around once more to ensure there are no witnesses. He slides out a small dagger from beneath his coat and hands it to you before hastily departing the scene.",
             "effects": [
-              "Gain 1 collective “Drakescale Dagger” (Item 38)."
+              "Gain 1 collective \"Drakescale Dagger\" (Item 38)."
             ]
           },
           {
             "condition": "Otherwise",
-            "narrative": "“Well, if you won’t buy it, I’m sure I’ll find some else who will. Scram.”",
+            "narrative": "\"Well, if you won’t buy it, I’m sure I’ll find some else who will. Scram.\"",
             "effects": [
               "No effect."
             ],
@@ -434,9 +434,9 @@
         "narrative": "Threaten to report the Inox for illegal trading.",
         "outcomes": [
           {
-            "narrative": "You threaten to report the Inox for trading without a permit and his face turns white. “Please, no! I can’t afford to spend any more time in jail. Here, take the dagger! Just promise me you won’t tell anyone!”",
+            "narrative": "You threaten to report the Inox for trading without a permit and his face turns white. \"Please, no! I can’t afford to spend any more time in jail. Here, take the dagger! Just promise me you won’t tell anyone!\"",
             "effects": [
-              "Gain 1 collective “Drakescale Dagger” (Item 38)."
+              "Gain 1 collective \"Drakescale Dagger\" (Item 38)."
             ],
             "removeFromDeck": true
           }
@@ -587,9 +587,9 @@
         "narrative": "See what new potion she’s selling.",
         "outcomes": [
           {
-            "narrative": "You ask to see the new potion and she pushes one forward to you. “Here, take a look. This new potion will turn out to be a great investment! Crafted by the finest alchemists in the land.”",
+            "narrative": "You ask to see the new potion and she pushes one forward to you. \"Here, take a look. This new potion will turn out to be a great investment! Crafted by the finest alchemists in the land.\"",
             "effects": [
-              "Gain “Alchemy Potion” (Item 28) item design."
+              "Gain \"Alchemy Potion\" (Item 28) item design."
             ]
           }
         ]
@@ -599,7 +599,7 @@
         "narrative": "Ask to exchange one of the potions in your possession.",
         "outcomes": [
           {
-            "narrative": "You ask to exchange one of your potions and she winks at you. “Normally I’d charge ten gold, but for you honey, it’s free today. Let me know which one you’d like to swap out and I’ll take care of it right away.”",
+            "narrative": "You ask to exchange one of your potions and she winks at you. \"Normally I’d charge ten gold, but for you honey, it’s free today. Let me know which one you’d like to swap out and I’ll take care of it right away.\"",
             "effects": [
               "One player may return any Minor potion from their possession to the shop and receive a Major potion of the same type for free."
             ]
@@ -612,7 +612,7 @@
     "cardId": "18",
     "edition": "cs",
     "type": "city",
-    "narrative": "New tax proposals on beverages in the Sinking Market have caused protests all over the city. You've tried to avoid them whenever possible, but one evening you see a small crowd holding signs formed outside the entrance to the Sleeping Lion. “No taxing drink! Taxes must sink!” the crowd chants. You attempt to make your way through the heavy crowd and manage to reach the entrance of the tavern, but a large Inox is guarding the door. “We're not letting anyone in!” the Inox barks. “No drinking until they remove the taxes.”",
+    "narrative": "New tax proposals on beverages in the Sinking Market have caused protests all over the city. You've tried to avoid them whenever possible, but one evening you see a small crowd holding signs formed outside the entrance to the Sleeping Lion. \"No taxing drink! Taxes must sink!\" the crowd chants. You attempt to make your way through the heavy crowd and manage to reach the entrance of the tavern, but a large Inox is guarding the door. \"We're not letting anyone in!\" the Inox barks. \"No drinking until they remove the taxes.\"",
     "options": [
       {
         "label": "A",
@@ -746,14 +746,14 @@
     "cardId": "22",
     "edition": "cs",
     "type": "city",
-    "narrative": "A new Quatryl magic shop has opened up in the Mixed District and has been advertised all over town. You decide to visit the shop on opening day, and as you approach the small store you see a sign that reads GLOOMAGIC. You wonder if this is a novelty store as you're greeted by a Quatryl with a black magic top hat holding a wand. “Welcome! We're having a magic trick giveaway to the first 50 customers, and well, you're the first!” It's half-past noon, the shop has been open for several hours. You begin to wonder if you're wasting your time when the Quatryl pulls out several small boxes. “Would you like to try the Disappearing Act trick? Or perhaps our Spinning Wheel trick?”",
+    "narrative": "A new Quatryl magic shop has opened up in the Mixed District and has been advertised all over town. You decide to visit the shop on opening day, and as you approach the small store you see a sign that reads GLOOMAGIC. You wonder if this is a novelty store as you're greeted by a Quatryl with a black magic top hat holding a wand. \"Welcome! We're having a magic trick giveaway to the first 50 customers, and well, you're the first!\" It's half-past noon, the shop has been open for several hours. You begin to wonder if you're wasting your time when the Quatryl pulls out several small boxes. \"Would you like to try the Disappearing Act trick? Or perhaps our Spinning Wheel trick?\"",
     "options": [
       {
         "label": "A",
         "narrative": "Take the Disappearing Act trick.",
         "outcomes": [
           {
-            "narrative": "“The Disappearing Trick! It's quite simple to use,” the Quatryl glees as he proceeds to show you how to use the trick. “Wishing you the best and please, tell your friends about us!”",
+            "narrative": "\"The Disappearing Trick! It's quite simple to use,\" the Quatryl glees as he proceeds to show you how to use the trick. \"Wishing you the best and please, tell your friends about us!\"",
             "effects": [
               "During the next scenario, one player may gain INVISIBLE during their turn."
             ]
@@ -765,7 +765,7 @@
         "narrative": "Select the Spinning Wheel trick.",
         "outcomes": [
           {
-            "narrative": "“The Spinning Wheel! Great trick for causing confusion,” the Quatryl joyfully exclaims as he proceeds to show you how to use the trick. “Don't forget to spread the word about the shop opening!”",
+            "narrative": "\"The Spinning Wheel! Great trick for causing confusion,\" the Quatryl joyfully exclaims as he proceeds to show you how to use the trick. \"Don't forget to spread the word about the shop opening!\"",
             "effects": [
               "All monsters in the first room start scenario with MUDDLE."
             ]
@@ -785,7 +785,7 @@
         "narrative": "Chase after the thing to stop it.",
         "outcomes": [
           {
-            "narrative": "You corner the metal miscreant against the outer walls of the city. It turns, as if noticing you for the first time, when it suddenly lunges. You grapple its arms easily when a third one made of wicked metal protrudes from its body, unfolding from some hidden compartment. You try to throw the thing away but it holds you fast, its intent clear. Then suddenly the mechanical monstrosity shudders as sparks fly from its backside, slumping forward, cold and quiet. A Quatryl in a blue coat approaches. She looks at you, then to the machine, then back at you and finally says, “Well, that wasn’t supposed to happen.”",
+            "narrative": "You corner the metal miscreant against the outer walls of the city. It turns, as if noticing you for the first time, when it suddenly lunges. You grapple its arms easily when a third one made of wicked metal protrudes from its body, unfolding from some hidden compartment. You try to throw the thing away but it holds you fast, its intent clear. Then suddenly the mechanical monstrosity shudders as sparks fly from its backside, slumping forward, cold and quiet. A Quatryl in a blue coat approaches. She looks at you, then to the machine, then back at you and finally says, \"Well, that wasn’t supposed to happen.\"",
             "effects": [
               "No effect."
             ]
@@ -797,7 +797,7 @@
         "narrative": "Follow at a safe distance and try to discern its intent.",
         "outcomes": [
           {
-            "narrative": "Following at a safe distance, you’re able to keep an eye on the bronze creature while not being discovered. It stops at the city walls, appearing as best you can tell to be looking to the top. You step out from your hiding spot when the creature finally notices you. It scrabbles the wall, digging rough pits with its strong metal clamps. As quickly as it takes you to decide to nock an arrow, the thing is up and over the wall. You try to make sense of the peculiar situation when a Quatryl in a blue coat approaches you. She looks to the wall, and then to you, and finally says, “Well, that wasn’t supposed to happen.”",
+            "narrative": "Following at a safe distance, you’re able to keep an eye on the bronze creature while not being discovered. It stops at the city walls, appearing as best you can tell to be looking to the top. You step out from your hiding spot when the creature finally notices you. It scrabbles the wall, digging rough pits with its strong metal clamps. As quickly as it takes you to decide to nock an arrow, the thing is up and over the wall. You try to make sense of the peculiar situation when a Quatryl in a blue coat approaches you. She looks to the wall, and then to you, and finally says, \"Well, that wasn’t supposed to happen.\"",
             "effects": [
               "No effect."
             ]
@@ -943,7 +943,7 @@
     "cardId": "28",
     "edition": "cs",
     "type": "city",
-    "narrative": "You're perusing through the market when a Vermling shaman approaches you with one trinket in each hand. “Blessed be the one who chooses fortune, cursed be the one who chooses faith,” the shaman rambles. “Blessed be the one who chooses wealth, cursed be the one who chooses prosperity.” “Which will you choose?” the shaman lifts up the trinkets to reveal two amulets dangling from their chains. “The amulet of security or the amulet of restoration?”",
+    "narrative": "You're perusing through the market when a Vermling shaman approaches you with one trinket in each hand. \"Blessed be the one who chooses fortune, cursed be the one who chooses faith,\" the shaman rambles. \"Blessed be the one who chooses wealth, cursed be the one who chooses prosperity.\" \"Which will you choose?\" the shaman lifts up the trinkets to reveal two amulets dangling from their chains. \"The amulet of security or the amulet of restoration?\"",
     "options": [
       {
         "label": "A",
@@ -951,7 +951,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You point to the amulet of security and a smile forms upon the Vermling’s face. “You shall be blessed! Blessings upon you!”",
+            "narrative": "You point to the amulet of security and a smile forms upon the Vermling’s face. \"You shall be blessed! Blessings upon you!\"",
             "effects": [
               "All money tokens acquired during the next scenario are worth 1 gold more each."
             ]
@@ -964,7 +964,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You point to the amulet of restoration and a frown falls upon the Vermling’s face. “You have been warned! Curses upon you!”",
+            "narrative": "You point to the amulet of restoration and a frown falls upon the Vermling’s face. \"You have been warned! Curses upon you!\"",
             "effects": [
               "Start scenario with CURSE."
             ]
@@ -1042,7 +1042,7 @@
     "cardId": "31",
     "edition": "cs",
     "type": "city",
-    "narrative": "You are spending the day perusing the large, opulent mansions in the Travelers District when you come across Sir Kenhaven’s mansion. The vast size of the house doesn’t surprise you, built complete with many servants quarters and lavish gardens. After all, he is one of the most famously wealthy Valrath in all of Gloomhaven. “Hey you! What are you doing here!” a voice calls out from behind. You turn around to see two guards looking sternly toward you. They must be here to protect the grounds.",
+    "narrative": "You are spending the day perusing the large, opulent mansions in the Travelers District when you come across Sir Kenhaven’s mansion. The vast size of the house doesn’t surprise you, built complete with many servants quarters and lavish gardens. After all, he is one of the most famously wealthy Valrath in all of Gloomhaven. \"Hey you! What are you doing here!\" a voice calls out from behind. You turn around to see two guards looking sternly toward you. They must be here to protect the grounds.",
     "options": [
       {
         "label": "A",
@@ -1050,7 +1050,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You explain that you must have lost on your way. “Leave here at once,” one of the guards snarl. “This is no place for lost fools.”",
+            "narrative": "You explain that you must have lost on your way. \"Leave here at once,\" one of the guards snarl. \"This is no place for lost fools.\"",
             "effects": [
               "No effect."
             ]
@@ -1063,9 +1063,9 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You ask the guards for a tour of the mansion, and before they could respond you hear a voice call out from behind. “They’re with me!” Sir Kenhaven himself appears and the guards quickly move out of his way. “Welcome to my mansion grounds. As an adventurer, I’m sure you’d appreciate the labyrinth maze I put together. There’s a great reward for anyone who solves the puzzle and escapes. Care to see it?”",
+            "narrative": "You ask the guards for a tour of the mansion, and before they could respond you hear a voice call out from behind. \"They’re with me!\" Sir Kenhaven himself appears and the guards quickly move out of his way. \"Welcome to my mansion grounds. As an adventurer, I’m sure you’d appreciate the labyrinth maze I put together. There’s a great reward for anyone who solves the puzzle and escapes. Care to see it?\"",
             "effects": [
-              "Unlock “Mansion Maze” (43)."
+              "Unlock \"Mansion Maze\" (43)."
             ]
           }
         ]
@@ -1083,9 +1083,9 @@
         "narrative": "Visit Shiela’s potion shop.",
         "outcomes": [
           {
-            "narrative": "You decide to enter Shiela’s potion shop and she embraces you as you walk through the door. “Thank you so much for getting me home safely the other day!” Shiela beams with enthusiasm. “Here, we just got a batch of new potions in this morning. Take one, on me!”",
+            "narrative": "You decide to enter Shiela’s potion shop and she embraces you as you walk through the door. \"Thank you so much for getting me home safely the other day!\" Shiela beams with enthusiasm. \"Here, we just got a batch of new potions in this morning. Take one, on me!\"",
             "effects": [
-              "Gain 1 collective “Intoxicating Potion” (Item 29)."
+              "Gain 1 collective \"Intoxicating Potion\" (Item 29)."
             ]
           }
         ]
@@ -1097,8 +1097,8 @@
           {
             "narrative": "You decide to head into the armory and are greeted by a tall Valrath wearing light plate armor. He happily escorts you into the shop and proceeds to show you his latest wares.",
             "effects": [
-              "Gain “Woven Plate Armor” (Item 23) item design.",
-              "Gain “Mantle of Purity” (Item 24) item design."
+              "Gain \"Woven Plate Armor\" (Item 23) item design.",
+              "Gain \"Mantle of Purity\" (Item 24) item design."
             ]
           }
         ]
@@ -1109,16 +1109,16 @@
     "cardId": "33",
     "edition": "cs",
     "type": "city",
-    "narrative": "“Hey! I remember you!” you hear a gruff voice exclaim from behind you. You weren’t expecting to see any familiar faces in your visit to the Sinking Market, but as you turn around you come face-to-face with a bearded man. “I was stuck in that cave and you pulled me out and rescued me,” the man reaches out and pats your shoulder. “If not for you, I’d still be stuck down there - or who knows what could’ve eaten me!” “Well,” the man says as he bends down to tie his boots, which look to be in brand new condition. “Has karma treated you well?”",
+    "narrative": "\"Hey! I remember you!\" you hear a gruff voice exclaim from behind you. You weren’t expecting to see any familiar faces in your visit to the Sinking Market, but as you turn around you come face-to-face with a bearded man. \"I was stuck in that cave and you pulled me out and rescued me,\" the man reaches out and pats your shoulder. \"If not for you, I’d still be stuck down there - or who knows what could’ve eaten me!\" \"Well,\" the man says as he bends down to tie his boots, which look to be in brand new condition. \"Has karma treated you well?\"",
     "options": [
       {
         "label": "A",
         "narrative": "Reply that things have been going well since your last encounter.",
         "outcomes": [
           {
-            "narrative": "You tell the man that things have been going well since your last encounter: “I knew karma would take care of you! Always does!” He stands up from tying his shoes and lifts them up for you to see. “Great pair, by the way. Why don’t I tell you where I got them from, in case you ever find yourself needing a pair?”",
+            "narrative": "You tell the man that things have been going well since your last encounter: \"I knew karma would take care of you! Always does!\" He stands up from tying his shoes and lifts them up for you to see. \"Great pair, by the way. Why don’t I tell you where I got them from, in case you ever find yourself needing a pair?\"",
             "effects": [
-              "Gain “Lightweight Boots” (Item 17) item design."
+              "Gain \"Lightweight Boots\" (Item 17) item design."
             ]
           }
         ]
@@ -1128,9 +1128,9 @@
         "narrative": "Remind the man that he has yet to repay you for your kindness.",
         "outcomes": [
           {
-            "narrative": "You remind the man that he left you empty-handed that day and his face turns red as he begins to stammer. “Well, I, uh... haven’t got much...” You point toward the shiny pair of boots he’s wearing and make it clear that he won’t be leaving without repaying your kindness. “What’s a pair of shoes anyways?” he laughs nervously as he slips them off and hands them to you.",
+            "narrative": "You remind the man that he left you empty-handed that day and his face turns red as he begins to stammer. \"Well, I, uh... haven’t got much...\" You point toward the shiny pair of boots he’s wearing and make it clear that he won’t be leaving without repaying your kindness. \"What’s a pair of shoes anyways?\" he laughs nervously as he slips them off and hands them to you.",
             "effects": [
-              "Gain 1 collective “Lightweight Boots” (Item 17)."
+              "Gain 1 collective \"Lightweight Boots\" (Item 17)."
             ]
           }
         ]
@@ -1182,7 +1182,7 @@
           {
             "narrative": "You head straight to the technology section of the fair and spend hours browsing through the impressive displays. Towards the end, a Quatryl motions you forward and places two pairs of odd looking shoes on the table.",
             "effects": [
-              "Gain 1 collective “Boots of Speed” (Item 15) or 1 collective “Comfortable Shoes” (Item 29)."
+              "Gain 1 collective \"Boots of Speed\" (Item 15) or 1 collective \"Comfortable Shoes\" (Item 29)."
             ]
           }
         ]
@@ -1194,7 +1194,7 @@
           {
             "narrative": "You spend the day perusing the science section of the fair, marveling at the various potions and medical devices. Towards the end, a smiling man beckons you towards his direction.",
             "effects": [
-              "Gain 1 collective “Major Healing Potion” (Item 27)."
+              "Gain 1 collective \"Major Healing Potion\" (Item 27)."
             ]
           }
         ]
@@ -1235,7 +1235,7 @@
             "narrative": "The man offers you an experimental drug from the laboratory in exchange for a larger donation. Curious, you happily comply and pay the man.",
             "effects": [
               "Lose 15 collective gold.",
-              "Gain 1 collective “Booster Shot” (Item 49)."
+              "Gain 1 collective \"Booster Shot\" (Item 49)."
             ]
           }
         ]
@@ -1246,7 +1246,7 @@
     "cardId": "37",
     "edition": "cs",
     "type": "city",
-    "narrative": "You're taking your time perusing the various wares in the market when you take notice of a commanding Orchid garbed in tribal robes with a whistle in her hand. The Orchid blows the whistle, and several nearby animals turn their heads and begin walking towards the Orchid, as if in a trance. Curious, you ask the Orchid about the whistle. “This piece? It’s a common tool amongst our kind,” the Orchid chuckles. “If you’re so fascinated with it, it could be yours for a small price.”",
+    "narrative": "You're taking your time perusing the various wares in the market when you take notice of a commanding Orchid garbed in tribal robes with a whistle in her hand. The Orchid blows the whistle, and several nearby animals turn their heads and begin walking towards the Orchid, as if in a trance. Curious, you ask the Orchid about the whistle. \"This piece? It’s a common tool amongst our kind,\" the Orchid chuckles. \"If you’re so fascinated with it, it could be yours for a small price.\"",
     "options": [
       {
         "label": "A",
@@ -1257,7 +1257,7 @@
             "condition": "PAY 15 COLLECTIVE GOLD",
             "narrative": "After a bit of price negotiation, the Orchid agrees to a fair price and sells you the whistle.",
             "effects": [
-              "Gain 1 collective “Summoners Whistle” (Item 46)."
+              "Gain 1 collective \"Summoners Whistle\" (Item 46)."
             ]
           },
           {
@@ -1277,7 +1277,7 @@
             "condition": "IF ORCHID IN PARTY",
             "narrative": "You begin to relay tales of your past, and the Orchid smiles and relates to your stories. After a few minutes the Orchid gleefully hands over the whistle, happy to have made a new friend.",
             "effects": [
-              "Gain 1 collective “Summoners Whistle” (Item 46)."
+              "Gain 1 collective \"Summoners Whistle\" (Item 46)."
             ]
           }
         ]
@@ -1375,7 +1375,7 @@
           {
             "narrative": "You take note of the details of the shipment and arrive at the docks late at night, finding several crates of unattended goods. You help yourself to a piece of equipment from within the crate and quickly exit the scene before a witness could show up.",
             "effects": [
-              "Gain 1 collective “Canister Projectile” (Item 44)."
+              "Gain 1 collective \"Canister Projectile\" (Item 44)."
             ]
           }
         ]
@@ -1393,7 +1393,7 @@
         "narrative": "Offer a small donation of five gold.",
         "outcomes": [
           {
-            "narrative": "The fundraiser smiles as he collects the gold from the palm of your hand. “Please, allow us to bless you!” he exclaims as he ushers over several clergymen. You can never refuse a good blessing.",
+            "narrative": "The fundraiser smiles as he collects the gold from the palm of your hand. \"Please, allow us to bless you!\" he exclaims as he ushers over several clergymen. You can never refuse a good blessing.",
             "effects": [
               "Lose 5 collective GOLD.",
               "All start scenario with BLESS."
@@ -1406,10 +1406,10 @@
         "narrative": "Donate a larger sum of twenty gold.",
         "outcomes": [
           {
-            "narrative": "The fundraiser jumps for joy when he sees you produce twenty gold coins from your pouch. “Marvelous! On behalf of the Great Oak, please take this blessed mitre as a token of our appreciation,” the fundraiser glees as he takes the mitre off of his head and places it on yours. “Bless you, traveler, bless you!”",
+            "narrative": "The fundraiser jumps for joy when he sees you produce twenty gold coins from your pouch. \"Marvelous! On behalf of the Great Oak, please take this blessed mitre as a token of our appreciation,\" the fundraiser glees as he takes the mitre off of his head and places it on yours. \"Bless you, traveler, bless you!\"",
             "effects": [
               "Lose 20 collective GOLD.",
-              "Gain 1 collective “Resplendent Mitre” (Item 43)."
+              "Gain 1 collective \"Resplendent Mitre\" (Item 43)."
             ]
           }
         ]
@@ -1420,17 +1420,17 @@
     "cardId": "42",
     "edition": "cs",
     "type": "city",
-    "narrative": "As you make your way through the bustling market, you notice an old friend, the Hierophant, arguing with a group of Inox. “These Inox defy the very existence of the Great Oak!” the Hierophant throws up his hands in anger. “They refuse to relinquish their territory in the far western edge of the Dagger Forest for our new outpost. We will not be stopped!” The Inox look to you, teeth gritting and fists clenched tightly. “We’ll never give up our land.”",
+    "narrative": "As you make your way through the bustling market, you notice an old friend, the Hierophant, arguing with a group of Inox. \"These Inox defy the very existence of the Great Oak!\" the Hierophant throws up his hands in anger. \"They refuse to relinquish their territory in the far western edge of the Dagger Forest for our new outpost. We will not be stopped!\" The Inox look to you, teeth gritting and fists clenched tightly. \"We’ll never give up our land.\"",
     "options": [
       {
         "label": "A",
         "narrative": "Side with the Hierophant.",
         "outcomes": [
           {
-            "narrative": "You take the side of the Hierophant, much to the dismay of the Inox. “Thank you, dear friends!” the Hierophant beams. “Your allegiance shall be rewarded. We shall meet again soon!”",
+            "narrative": "You take the side of the Hierophant, much to the dismay of the Inox. \"Thank you, dear friends!\" the Hierophant beams. \"Your allegiance shall be rewarded. We shall meet again soon!\"",
             "effects": [
-              "Unlock “Oak Invasion A” (49).",
-              "Party Achievement: “Oaks Alliance”."
+              "Unlock \"Oak Invasion A\" (49).",
+              "Party Achievement: \"Oaks Alliance\"."
             ]
           }
         ]
@@ -1440,10 +1440,10 @@
         "narrative": "Side with the Inox.",
         "outcomes": [
           {
-            "narrative": "You take the side of the Inox and the Hierophant shakes his fist and yells, “you shall regret this!” The Inox shake your hand as they thank you for your support and provide you with the coordinates of their campground.",
+            "narrative": "You take the side of the Inox and the Hierophant shakes his fist and yells, \"you shall regret this!\" The Inox shake your hand as they thank you for your support and provide you with the coordinates of their campground.",
             "effects": [
-              "Unlock “Oak Invasion B” (50).",
-              "Party Achievement: “Inox Alliance”."
+              "Unlock \"Oak Invasion B\" (50).",
+              "Party Achievement: \"Inox Alliance\"."
             ]
           }
         ]
@@ -1463,7 +1463,7 @@
           {
             "narrative": "A few sponsored drinks bring about information leading to the Vermlings whereabouts. Known as the 'Drake Porter,' this Vermling has been illegally smuggling drakes in from beyond the border and selling their hides in the Black Market. You take note of the location and prepare yourself for the journey.",
             "effects": [
-              "Unlock “Smugglers Hideout” 40 and mark this checkbox ⬜.",
+              "Unlock \"Smugglers Hideout\" 40 and mark this checkbox ⬜.",
               "If both checkboxes on this card are marked, remove this card."
             ]
           }
@@ -1476,7 +1476,7 @@
           {
             "narrative": "It takes a bit of prodding and bribing but you manage to learn the whereabouts of the corrupt Savvas. This power-hungry Savvas became addicted to the energy within the Void and has been wreaking havoc each night, causing vast amounts of property damage throughout the city.",
             "effects": [
-              "Unlock “Curse of the Void” 41 and mark this checkbox ⬜.",
+              "Unlock \"Curse of the Void\" 41 and mark this checkbox ⬜.",
               "If both checkboxes on this card are marked, remove this card."
             ]
           }
@@ -1495,7 +1495,7 @@
         "narrative": "Tackle the alleged thief.",
         "outcomes": [
           {
-            "narrative": "As the girl approaches, you quickly leap toward her and tackle her to the ground. The Inox swings his chain forward and shackles her feet together. After catching his breath, the Inox begins to thank you. “She’s been wanted in several districts for thievery,” the Inox explains as he pulls out a large pouch. “Thank you for your efforts. I’ll be collecting a great bounty for this one. Here’s some coin for your help.”",
+            "narrative": "As the girl approaches, you quickly leap toward her and tackle her to the ground. The Inox swings his chain forward and shackles her feet together. After catching his breath, the Inox begins to thank you. \"She’s been wanted in several districts for thievery,\" the Inox explains as he pulls out a large pouch. \"Thank you for your efforts. I’ll be collecting a great bounty for this one. Here’s some coin for your help.\"",
             "effects": [
               "Gain 15 GOLD each.",
               "Gain 1 reputation."
@@ -1562,7 +1562,7 @@
           {
             "narrative": "You rush to the lurker and attempt to tackle it but it throws you off its back with great force. As you fall to the ground, several Inox carrying a battering ram call toward you. You jump to your feet and take hold of the battering ram as the Inox counts down from three before you all charge together toward the lurker. The lurker is knocked back from the battering ram and is instantly rendered unconscious. The Inox proceed to carry the lurker away, leaving the battering ram behind.",
             "effects": [
-              "Gain 1 collective “Battering Ram” (Item 33)."
+              "Gain 1 collective \"Battering Ram\" (Item 33)."
             ]
           }
         ]
@@ -1572,7 +1572,7 @@
         "narrative": "Run to the little girl to make sure she gets to safety unharmed.",
         "outcomes": [
           {
-            "narrative": "You run to the little girl as you hear a woman crying out, “Help! My daughter!” You scoop the girl up into your arms and carry her to her mother, who tearfully thanks you in midst of the calamity. You turn back to see the lurker unconscious in the arms of several Inox who appear to be hauling it out of the arena.",
+            "narrative": "You run to the little girl as you hear a woman crying out, \"Help! My daughter!\" You scoop the girl up into your arms and carry her to her mother, who tearfully thanks you in midst of the calamity. You turn back to see the lurker unconscious in the arms of several Inox who appear to be hauling it out of the arena.",
             "effects": [
               "Gain 2 reputation.",
               "Gain 1 prosperity."
@@ -1586,14 +1586,14 @@
     "cardId": "47",
     "edition": "cs",
     "type": "city",
-    "narrative": "As you make your way back home after a night of laughs and good drinks at the Sleeping Lion, you notice an unusual green light glowing brightly from within an alleyway which would connect you to a shorter path home. You approach the alley and find a Vermling with its knees bent, waving a staff through the air and murmuring indiscernibly. “The ritual is almost complete,” the Vermling looks up and opens her eyes. “You there! Leave at once, for you cannot handle the awesome presence of these spirits!”",
+    "narrative": "As you make your way back home after a night of laughs and good drinks at the Sleeping Lion, you notice an unusual green light glowing brightly from within an alleyway which would connect you to a shorter path home. You approach the alley and find a Vermling with its knees bent, waving a staff through the air and murmuring indiscernibly. \"The ritual is almost complete,\" the Vermling looks up and opens her eyes. \"You there! Leave at once, for you cannot handle the awesome presence of these spirits!\"",
     "options": [
       {
         "label": "A",
         "narrative": "Tell the Vermling that she has no authority to tell you what to do.",
         "outcomes": [
           {
-            "narrative": "You tell the Vermling to mind to her own business and she angrily waves her staff toward you. “You have been warned! These spirits will haunt your dreams!” You make nothing of it and ignore her rambling as you make your way through the alley. After making it home safely, you crawl into bed and close your eyes but wake up with an insufferable headache. You can’t quite remember your dreams from last night, but the sweat stains on your sheets indicate that they weren’t too pleasant.",
+            "narrative": "You tell the Vermling to mind to her own business and she angrily waves her staff toward you. \"You have been warned! These spirits will haunt your dreams!\" You make nothing of it and ignore her rambling as you make your way through the alley. After making it home safely, you crawl into bed and close your eyes but wake up with an insufferable headache. You can’t quite remember your dreams from last night, but the sweat stains on your sheets indicate that they weren’t too pleasant.",
             "effects": [
               "Lose 1 MORALE each."
             ]
@@ -1625,7 +1625,7 @@
         "narrative": "Accept the Vermlings offer and ask for your knowledge to be strengthened.",
         "outcomes": [
           {
-            "narrative": "You thank the Spirit Caller for the offer and ask for your knowledge to be strengthened. “These spirits must depart back to the realm of the spiritual soon, but not before they impart their hidden knowledge upon you!”",
+            "narrative": "You thank the Spirit Caller for the offer and ask for your knowledge to be strengthened. \"These spirits must depart back to the realm of the spiritual soon, but not before they impart their hidden knowledge upon you!\"",
             "effects": [
               "At start of scenario, each character may reveal the top two cards of their attack modifier decks."
             ]
@@ -1637,7 +1637,7 @@
         "narrative": "Accept the Vermlings offer and ask for your foes to be exploited.",
         "outcomes": [
           {
-            "narrative": "You thank the Spirit Caller for the offer and ask for your foes to be exploited. “These spirits must depart back to the realm of the spiritual soon, but not before they reveal the secrets of your enemies!”",
+            "narrative": "You thank the Spirit Caller for the offer and ask for your foes to be exploited. \"These spirits must depart back to the realm of the spiritual soon, but not before they reveal the secrets of your enemies!\"",
             "effects": [
               "At start of scenario, reveal the top four cards of the monster attack modifier deck."
             ]
@@ -1650,7 +1650,7 @@
     "cardId": "49",
     "edition": "cs",
     "type": "city",
-    "narrative": "There's a solar eclipse due to take place today, and you decided to join the crowds that have gathered in the fields to witness the spectacular event. As the light shifts away, the entire field is blanketed in darkness. You hear a ruffle and a scream, and feel a figure swiftly brush by you. As a sliver of light peeks out from beneath the eclipse, you see an Aesther pushing his way through the crowds as gold coins fall from his pockets, leaving a trail behind. “Help! I’ve been robbed!” you hear a woman scream.",
+    "narrative": "There's a solar eclipse due to take place today, and you decided to join the crowds that have gathered in the fields to witness the spectacular event. As the light shifts away, the entire field is blanketed in darkness. You hear a ruffle and a scream, and feel a figure swiftly brush by you. As a sliver of light peeks out from beneath the eclipse, you see an Aesther pushing his way through the crowds as gold coins fall from his pockets, leaving a trail behind. \"Help! I’ve been robbed!\" you hear a woman scream.",
     "options": [
       {
         "label": "A",
@@ -1693,7 +1693,7 @@
             "condition": "PAY 30 COLLECTIVE GOLD",
             "narrative": "Here you go, the Aesther hands you the jar bursting with a soft, yet bright glow. \"Remember, this jar contains powerful healing properties. Use them wisely!\"",
             "effects": [
-              "Gain 1 collective “Bottled Moonlight” (Item ⧫18)."
+              "Gain 1 collective \"Bottled Moonlight\" (Item ⧫18)."
             ]
           },
           {
@@ -1723,7 +1723,7 @@
     "cardId": "51",
     "edition": "cs",
     "type": "city",
-    "narrative": "You are perusing the shops in the Ward of Scales district when one of the wooden shop stalls nearby suddenly collapses on top of the elderly Valrath shop attendant. A crowd gathers as she shouts maniacally from underneath the wreckage, cursing the Vermling who allegedly rigged her stand to collapse. “That rat has been a thorn in my side ever since I moved my shop to this district!” she wails. She appears uninjured, but cannot free herself from the heap of wooden beams piled over her. Meanwhile, you spot a small pack of Vermling opposite the collapsed shop rifling through the unattended belongings of the other distracted shop owners.",
+    "narrative": "You are perusing the shops in the Ward of Scales district when one of the wooden shop stalls nearby suddenly collapses on top of the elderly Valrath shop attendant. A crowd gathers as she shouts maniacally from underneath the wreckage, cursing the Vermling who allegedly rigged her stand to collapse. \"That rat has been a thorn in my side ever since I moved my shop to this district!\" she wails. She appears uninjured, but cannot free herself from the heap of wooden beams piled over her. Meanwhile, you spot a small pack of Vermling opposite the collapsed shop rifling through the unattended belongings of the other distracted shop owners.",
     "options": [
       {
         "label": "A",
@@ -1731,9 +1731,9 @@
         "outcomes": [
           {
             "condition": "angry-face,brute,spellweaver,scoundrel,cragheart,mindthief",
-            "narrative": "You quickly jump into action, removing board after board to free the elderly Valrath from the wreckage. Though she is visibly shaken from being trapped, she reaches into her bag, saying, “I appreciate your assistance. Please take this as my thanks.”",
+            "narrative": "You quickly jump into action, removing board after board to free the elderly Valrath from the wreckage. Though she is visibly shaken from being trapped, she reaches into her bag, saying, \"I appreciate your assistance. Please take this as my thanks.\"",
             "effects": [
-              "Gain 1 collective “Amulet of Life” (Item 24)."
+              "Gain 1 collective \"Amulet of Life\" (Item 24)."
             ]
           },
           {
@@ -1772,7 +1772,7 @@
     "cardId": "52",
     "edition": "cs",
     "type": "city",
-    "narrative": "As you exit the Sleeping Lion on your way home, you notice waves of people running hurriedly past you as the pungent smell of smoke burns your nostrils. Ah, the smell of opportunity! You follow the crowd into a bustling square to find smoke billowing from a shop window. The fire is quickly getting out of control as the Fire Brigade arrives, who work hastily in an effort to slow the spread of the flames.\n\nOne member of the Brigade, a familiar Valrath, stands separate from the rest of the crew, trying to keep the flames at bay through sorcery. You watch in continued amazement as your former compatriot is single-handedly doing more to bring the fire under control than the rest of the Brigade combined, but the screams from inside the shop quickly snap you back to reality. You feel compelled to aid your friend in order to prevent this disaster from getting worse.",
+    "narrative": "As you exit the Sleeping Lion on your way home, you notice waves of people running hurriedly past you as the pungent smell of smoke burns your nostrils. Ah, the smell of opportunity! You follow the crowd into a bustling square to find smoke billowing from a shop window. The fire is quickly getting out of control as the Fire Brigade arrives, who work hastily in an effort to slow the spread of the flames.<br><br>One member of the Brigade, a familiar Valrath, stands separate from the rest of the crew, trying to keep the flames at bay through sorcery. You watch in continued amazement as your former compatriot is single-handedly doing more to bring the fire under control than the rest of the Brigade combined, but the screams from inside the shop quickly snap you back to reality. You feel compelled to aid your friend in order to prevent this disaster from getting worse.",
     "options": [
       {
         "label": "A",
@@ -1932,7 +1932,7 @@
     "cardId": "56",
     "edition": "cs",
     "type": "city",
-    "narrative": "As you return to the city, you find the Savvas Hollowpact who once traveled with you standing in your way. Its cloak is in tatters and large patches of its skin are badly warped and discolored. Its rocky limbs appear decrepit and decaying.\n\n\"I can't... I can't...\", the Hollowpact mutters. The look on its face is dangerous and feels vaguely threatening. Suddenly, it relaxes and speak with a soft, gravelly voice. \"The Void takes a toll. Can't pay the price of admission. No more...\"\n\nA hapless pedestrian passerby accidentally jostles the Savvas, causing it to react in a swirl of rage and menace. It appears ready to obliterate this passing towns-person without a second thought. Something must be done.",
+    "narrative": "As you return to the city, you find the Savvas Hollowpact who once traveled with you standing in your way. Its cloak is in tatters and large patches of its skin are badly warped and discolored. Its rocky limbs appear decrepit and decaying.<br><br>\"I can't... I can't...\", the Hollowpact mutters. The look on its face is dangerous and feels vaguely threatening. Suddenly, it relaxes and speak with a soft, gravelly voice. \"The Void takes a toll. Can't pay the price of admission. No more...\"<br><br>A hapless pedestrian passerby accidentally jostles the Savvas, causing it to react in a swirl of rage and menace. It appears ready to obliterate this passing towns-person without a second thought. Something must be done.",
     "options": [
       {
         "label": "A",
@@ -1942,7 +1942,7 @@
             "condition": "tinkerer,spellweaver",
             "narrative": "You are able to give the Hollowpact a brief respite from its pain. Having found a moment of lucidity, it speaks slowly, \"You see now, what I am. Not safe. Here: cleansed, for you... Safe.\" The Hollowpact haltingly presents a tattered cape and vanishes.",
             "effects": [
-              "Gain 1 collective “Blinking Cape” (Item 73)."
+              "Gain 1 collective \"Blinking Cape\" (Item 73)."
             ]
           },
           {
@@ -1983,14 +1983,14 @@
     "cardId": "57",
     "edition": "cs",
     "type": "city",
-    "narrative": "You are strolling through the Sinking Market when suddenly you hear a loud shriek. A young Valrath mother has collapsed on the ground and before a crowd can form, someone shouts “SNAKE!”... Then you see them—some juvenile ghost vipers like the ones found in that pit recently. Somehow they’ve found their way into the city. Before you have time to process this information, you realize several more are dead. The whole area has erupted into chaos. The Viper Hunter isn’t with you, and you begin to suspect something sinister has happened.",
+    "narrative": "You are strolling through the Sinking Market when suddenly you hear a loud shriek. A young Valrath mother has collapsed on the ground and before a crowd can form, someone shouts \"SNAKE!\"... Then you see them—some juvenile ghost vipers like the ones found in that pit recently. Somehow they’ve found their way into the city. Before you have time to process this information, you realize several more are dead. The whole area has erupted into chaos. The Viper Hunter isn’t with you, and you begin to suspect something sinister has happened.",
     "options": [
       {
         "label": "A",
         "narrative": "Run to search for the Viper Hunter.",
         "outcomes": [
           {
-            "narrative": "You search in all the usual places, but the Viper Hunter is nowhere to be found. After giving up, you go back to the Sinking Market to investigate. The guards have taken care of the snake problem, but based on the bodies in the streets, it wasn’t nearly quick enough. Then you notice. The Viper Hunter’s lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack—big enough to contain a few juvenile vipers—and a note... “Maybe I am mad after all.”",
+            "narrative": "You search in all the usual places, but the Viper Hunter is nowhere to be found. After giving up, you go back to the Sinking Market to investigate. The guards have taken care of the snake problem, but based on the bodies in the streets, it wasn’t nearly quick enough. Then you notice. The Viper Hunter’s lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack—big enough to contain a few juvenile vipers—and a note... \"Maybe I am mad after all.\"",
             "effects": [
               "Immediately retire the Viper Hunter and do not add retirement events for this character.",
               "Lose 1 prosperity.",
@@ -2004,7 +2004,7 @@
         "narrative": "Fight off the vipers before they do more harm.",
         "outcomes": [
           {
-            "narrative": "You charge headstrong into the chaos and begin slaughtering the vipers. They’re thankfully a little more manageable than the adults, and peace is restored again quickly. Then you notice. The Viper Hunter’s lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack—big enough to contain a few juvenile vipers—and a note... “Maybe I am mad after all.”",
+            "narrative": "You charge headstrong into the chaos and begin slaughtering the vipers. They’re thankfully a little more manageable than the adults, and peace is restored again quickly. Then you notice. The Viper Hunter’s lifeless body sitting on a bench nearby, looking almost peaceful. On the ground beside the bench you find a large rucksack—big enough to contain a few juvenile vipers—and a note... \"Maybe I am mad after all.\"",
             "effects": [
               "Immediately retire the Viper Hunter and do not add retirement events for this character.",
               "Lose 1 reputation.",
@@ -2026,7 +2026,7 @@
         "narrative": "Focus on improving your own abilities.",
         "outcomes": [
           {
-            "narrative": "The captain smiles. “This challenge will test your physical strength and your will to persevere. You must ensure that you do not become a liability to the rest of your crew!” Not wanting to back down, you don the Fire Knight’s weighty gear and soon find yourself crawling, climbing, lifting, and dragging more than you ever thought you could. But you never gave up, and completing the challenge has earned the crew’s respect.",
+            "narrative": "The captain smiles. \"This challenge will test your physical strength and your will to persevere. You must ensure that you do not become a liability to the rest of your crew!\" Not wanting to back down, you don the Fire Knight’s weighty gear and soon find yourself crawling, climbing, lifting, and dragging more than you ever thought you could. But you never gave up, and completing the challenge has earned the crew’s respect.",
             "effects": [
               "Gain item designs 63-72 and mark this checkbox [].",
               "If both checkboxes on this card are marked, remove this card and add Road Event 58 to the deck."
@@ -2040,7 +2040,7 @@
         "narrative": "Focus on supporting your crew.",
         "outcomes": [
           {
-            "narrative": "“A prudent decision to invest in the well-being of your crew,” the captain replies. “The team can often accomplish more than the individual. Now you must learn to support your crew under pressure!” You join the crew as they rehearse various tactics of survival and rescue. Improving your ability to perform under stress and physical exhaustion will undoubtedly serve you well.",
+            "narrative": "\"A prudent decision to invest in the well-being of your crew,\" the captain replies. \"The team can often accomplish more than the individual. Now you must learn to support your crew under pressure!\" You join the crew as they rehearse various tactics of survival and rescue. Improving your ability to perform under stress and physical exhaustion will undoubtedly serve you well.",
             "effects": [
               "Gain item designs 73-82 and mark this checkbox [].",
               "If both checkboxes on this card are marked, remove this card and add Road Event 58 to the deck."
@@ -2081,7 +2081,7 @@
     "cardId": "60",
     "edition": "cs",
     "type": "city",
-    "narrative": "After taking the final sip from the now-empty mug of ale on the table before you, you reach into your pocket and pull out your last coin. As you place it on the table and stand up to leave when a Quatryl strapped with various weapons around his waist comes from behind you and grabs the coin from the table. “The bartender already received plenty of tips tonight, he doesn’t need this. I’m collecting for the military, and this coin will do much better in the hands of those protecting the very city which hosts this rundown place.” The tavern grows quiet as the bartender looks up to you with an expecting gaze.",
+    "narrative": "After taking the final sip from the now-empty mug of ale on the table before you, you reach into your pocket and pull out your last coin. As you place it on the table and stand up to leave when a Quatryl strapped with various weapons around his waist comes from behind you and grabs the coin from the table. \"The bartender already received plenty of tips tonight, he doesn’t need this. I’m collecting for the military, and this coin will do much better in the hands of those protecting the very city which hosts this rundown place.\" The tavern grows quiet as the bartender looks up to you with an expecting gaze.",
     "options": [
       {
         "label": "A",
@@ -2151,7 +2151,7 @@
           {
             "narrative": "You offer to help the Orchid on her mission and her face lights up with contentment. She relays the coordinates of where to find the beasts and wishes you luck as she excuses herself to tend to her tribe.",
             "effects": [
-              "Unlock “Unnatural Beasts” 42."
+              "Unlock \"Unnatural Beasts\" 42."
             ],
             "removeFromDeck": true
           }
@@ -2246,7 +2246,7 @@
             "narrative": "You pay the Vimthreader and it swiftly stitches up the laceration, chittering and hissing as it weaves each stitch. It thanks you for your payment and offers you a bizarre herbal concoction as a parting gift.",
             "effects": [
               "Lose 5 collective GOLD.",
-              "During the scenario, one player gains the following benefit, then remove this card: During your turn, perform “Heal 3, Self”."
+              "During the scenario, one player gains the following benefit, then remove this card: During your turn, perform \"Heal 3, Self\"."
             ]
           }
         ]
@@ -2292,7 +2292,7 @@
             "narrative": "You enter the tent and join hands with the Inox as you sing and dance around a fire. There is a pot bubbling in the center of the fire, and the Inox take turns pausing the dancing to throw in bones while chanting before erupting into more song and dance. You've had a great time but nightfall is approaching and it's time to carry on with your journey. The Inox give you gifts to depart with as you excuse yourself from the event.",
             "effects": [
               "Gain 5 collective gold.",
-              "Gain 1 collective “Necklace of Teeth” (Item 106)."
+              "Gain 1 collective \"Necklace of Teeth\" (Item 106)."
             ]
           }
         ]
@@ -2335,7 +2335,7 @@
     "cardId": "07",
     "edition": "cs",
     "type": "road",
-    "narrative": "You aim your bow and arrow at a bird in the sky and smile as your dinner falls to the ground. As you approach your meal, an Inox hops out of the bushes with a bow arched over its back. “Stay back, that bird is mine,” the Inox snarls. At first you think the Inox must be joking, but he insists that this is his kill to claim.",
+    "narrative": "You aim your bow and arrow at a bird in the sky and smile as your dinner falls to the ground. As you approach your meal, an Inox hops out of the bushes with a bow arched over its back. \"Stay back, that bird is mine,\" the Inox snarls. At first you think the Inox must be joking, but he insists that this is his kill to claim.",
     "options": [
       {
         "label": "A",
@@ -2416,9 +2416,9 @@
         "narrative": "Help pull the Savvas out from the rock formation.",
         "outcomes": [
           {
-            "narrative": "With all your might, you manage to pull the Savvas out from the rock formation. He stumbles forward and clutches his throbbing leg, but he's smiling from ear to ear. “Please, take this mantle I’ve been wearing in return for your kindness,” the Savvas says. “Don’t worry about me, I’ll make my way home.”",
+            "narrative": "With all your might, you manage to pull the Savvas out from the rock formation. He stumbles forward and clutches his throbbing leg, but he's smiling from ear to ear. \"Please, take this mantle I’ve been wearing in return for your kindness,\" the Savvas says. \"Don’t worry about me, I’ll make my way home.\"",
             "effects": [
-              "Gain 1 collective “Mantle of Purity” (Item 24)."
+              "Gain 1 collective \"Mantle of Purity\" (Item 24)."
             ]
           }
         ]
@@ -2428,9 +2428,9 @@
         "narrative": "Loot his bags and leave him for stranded.",
         "outcomes": [
           {
-            "narrative": "You ignore the Savvas groaning as you proceed to rummage through his bags. You find a peculiar pair of boots along with some rope and a blade. “Wait, please, don’t abandon me!” the Savvas begs as you hand him the blade from the bag and leave him to figure out his own solution.",
+            "narrative": "You ignore the Savvas groaning as you proceed to rummage through his bags. You find a peculiar pair of boots along with some rope and a blade. \"Wait, please, don’t abandon me!\" the Savvas begs as you hand him the blade from the bag and leave him to figure out his own solution.",
             "effects": [
-              "Gain 1 collective “Shoes of Phasing” (Item 16)."
+              "Gain 1 collective \"Shoes of Phasing\" (Item 16)."
             ]
           }
         ]
@@ -2462,7 +2462,7 @@
           {
             "narrative": "You ask the Vermling to point you in the direction of the gardens. As it draws its final breath, the Vermling scratches coordinates into the dirt before collapsing to the ground.",
             "effects": [
-              "Unlock “Vermling Gardens” 46."
+              "Unlock \"Vermling Gardens\" 46."
             ],
             "removeFromDeck": true
           }
@@ -2481,7 +2481,7 @@
         "narrative": "Attempt to rescue the Aesther by fighting the bear.",
         "outcomes": [
           {
-            "narrative": "“I am forever grateful,” the Aesther bows toward you as he dusts himself off. “I am Nerro, the noble dream interpreter who practices in the Ward of Scales. Come see me if you ever need a dream interpreted.”",
+            "narrative": "\"I am forever grateful,\" the Aesther bows toward you as he dusts himself off. \"I am Nerro, the noble dream interpreter who practices in the Ward of Scales. Come see me if you ever need a dream interpreted.\"",
             "effects": [
               "Add City Event 34 to the deck."
             ]
@@ -2506,14 +2506,14 @@
     "cardId": "12",
     "edition": "cs",
     "type": "road",
-    "narrative": "You happen upon a large tent pitched on the side of the road, with a small wooden sign posted on the grass nearby that reads 'FORTUNE TELLER: 5 GOLD.' You enter the tent and find an Aesther wrapped in white robes sitting on a red velvet chair with a glass orb in her hands. She looks up to you with narrow eyes and asks in a soft voice, “have you come to hear your fortune?”",
+    "narrative": "You happen upon a large tent pitched on the side of the road, with a small wooden sign posted on the grass nearby that reads 'FORTUNE TELLER: 5 GOLD.' You enter the tent and find an Aesther wrapped in white robes sitting on a red velvet chair with a glass orb in her hands. She looks up to you with narrow eyes and asks in a soft voice, \"have you come to hear your fortune?\"",
     "options": [
       {
         "label": "A",
         "narrative": "Scoff at the Aesther, you don’t believe in fortune telling.",
         "outcomes": [
           {
-            "narrative": "You scoff at the Aesther and state your disbelief in the practice of fortune telling. She narrows her eyes and begins waving her hands over the crystal ball. “Good fortune awaits!” she calls out as you proceed to exit her tent without payment.",
+            "narrative": "You scoff at the Aesther and state your disbelief in the practice of fortune telling. She narrows her eyes and begins waving her hands over the crystal ball. \"Good fortune awaits!\" she calls out as you proceed to exit her tent without payment.",
             "effects": [
               "All players ignore negative scenario effects."
             ]
@@ -2525,7 +2525,7 @@
         "narrative": "Pay the Aesther to hear your fortune told.",
         "outcomes": [
           {
-            "narrative": "You pay the Aesther her fee and she begins to wave her hands over the crystal ball while humming a quiet tune. “The battlefield lies ahead. The choices you make will dictate your fortune. Choose wisely and you shall surely prosper.”",
+            "narrative": "You pay the Aesther her fee and she begins to wave her hands over the crystal ball while humming a quiet tune. \"The battlefield lies ahead. The choices you make will dictate your fortune. Choose wisely and you shall surely prosper.\"",
             "effects": [
               "Lose 5 collective gold.",
               "Gain 3 experience each.",
@@ -2540,7 +2540,7 @@
     "cardId": "13",
     "edition": "cs",
     "type": "road",
-    "narrative": "You happen upon a large tent pitched on the side of the road, with a small wooden sign posted on the grass nearby that reads 'FORTUNE TELLER: 5 GOLD.' You enter the tent and find an Aesther wrapped in gold robes sitting on a blue velvet chair with a glass orb in her hands. She looks up to you with narrow eyes and asks in a soft voice, “have you come to hear your fortune?”",
+    "narrative": "You happen upon a large tent pitched on the side of the road, with a small wooden sign posted on the grass nearby that reads 'FORTUNE TELLER: 5 GOLD.' You enter the tent and find an Aesther wrapped in gold robes sitting on a blue velvet chair with a glass orb in her hands. She looks up to you with narrow eyes and asks in a soft voice, \"have you come to hear your fortune?\"",
     "options": [
       {
         "label": "A",
@@ -2548,7 +2548,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You scoff at the Aesther and state your disbelief in the practice of fortune telling. She narrows her eyes and begins waving her hands over the crystal ball. “Bad fortune awaits!” she calls out as you proceed to exit her tent without payment.",
+            "narrative": "You scoff at the Aesther and state your disbelief in the practice of fortune telling. She narrows her eyes and begins waving her hands over the crystal ball. \"Bad fortune awaits!\" she calls out as you proceed to exit her tent without payment.",
             "effects": [
               "All start scenario with CURSE x2."
             ]
@@ -2561,7 +2561,7 @@
         "returnToDeck": true,
         "outcomes": [
           {
-            "narrative": "You pay the Aesther her fee and she begins to wave her hands over the crystal ball while humming a quiet tune. “Good fortune awaits! Your enemies will be crippled and you will have the upper hand in battle.”",
+            "narrative": "You pay the Aesther her fee and she begins to wave her hands over the crystal ball while humming a quiet tune. \"Good fortune awaits! Your enemies will be crippled and you will have the upper hand in battle.\"",
             "effects": [
               "Lose 5 collective GOLD.",
               "Monsters start scenario with CURSE x2."
@@ -2681,7 +2681,7 @@
     "cardId": "17",
     "edition": "cs",
     "type": "road",
-    "narrative": "You come across a booth set up on the side of the road, where an Inox bearing articles of clothing resembling tribal gear sits aside a collection of totems in different shapes and sizes. “These spiritual totems are used by our tribes in battle,” the Inox explains. “For the small price of ten gold, one of them could be yours.” The Inox places two totems on the table of his booth. “Today, I can sell you the Drake Totem of Confusion or the Eagle Totem of Watchfulness. Which would you care to buy?”",
+    "narrative": "You come across a booth set up on the side of the road, where an Inox bearing articles of clothing resembling tribal gear sits aside a collection of totems in different shapes and sizes. \"These spiritual totems are used by our tribes in battle,\" the Inox explains. \"For the small price of ten gold, one of them could be yours.\" The Inox places two totems on the table of his booth. \"Today, I can sell you the Drake Totem of Confusion or the Eagle Totem of Watchfulness. Which would you care to buy?\"",
     "options": [
       {
         "label": "A",
@@ -2690,14 +2690,14 @@
         "outcomes": [
           {
             "condition": "Pay 10 collective gold",
-            "narrative": "The drake totem!” the Inox smiles as he places a totem resembling a drake on the table. “Used throughout the ages as an emblem to confuse enemies. Excellent choice.",
+            "narrative": "The drake totem!\" the Inox smiles as he places a totem resembling a drake on the table. \"Used throughout the ages as an emblem to confuse enemies. Excellent choice.",
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle add MUDDLE to all melee attacks."
             ]
           },
           {
             "condition": "Otherwise",
-            "narrative": "Not today, huh?” the Inox frowns. “May the animal spirits be with you.",
+            "narrative": "Not today, huh?\" the Inox frowns. \"May the animal spirits be with you.",
             "effects": [
               "No effect."
             ]
@@ -2711,9 +2711,9 @@
         "outcomes": [
           {
             "condition": "Pay 10 collective gold",
-            "narrative": "The eagle totem!” the Inox nods in agreement as he places a totem resembling an eagle on the table. “Sought after by many healers as a sign of watchfulness. Wise choice.",
+            "narrative": "The eagle totem!\" the Inox nods in agreement as he places a totem resembling an eagle on the table. \"Sought after by many healers as a sign of watchfulness. Wise choice.",
             "effects": [
-              "During the scenario, place one totem obstacle next to any character. Whenever a character ends their turn adjacent to the totem, they may perform “Heal 1, Self”."
+              "During the scenario, place one totem obstacle next to any character. Whenever a character ends their turn adjacent to the totem, they may perform \"Heal 1, Self\"."
             ]
           },
           {
@@ -2731,7 +2731,7 @@
     "cardId": "18",
     "edition": "cs",
     "type": "road",
-    "narrative": "You come across a booth set up on the side of the road, where an Inox bearing articles of clothing resembling tribal gear sits aside a collection of totems in different shapes and sizes. “These spiritual totems are used by our tribes in battle,” the Inox explains. “For the small price of ten gold, one of them could be yours.” The Inox places two totems on the table of his booth. “Today, I can sell you the Bull Totem of Aggression or the Dog Totem of Protection. Which would you care to buy?”",
+    "narrative": "You come across a booth set up on the side of the road, where an Inox bearing articles of clothing resembling tribal gear sits aside a collection of totems in different shapes and sizes. \"These spiritual totems are used by our tribes in battle,\" the Inox explains. \"For the small price of ten gold, one of them could be yours.\" The Inox places two totems on the table of his booth. \"Today, I can sell you the Bull Totem of Aggression or the Dog Totem of Protection. Which would you care to buy?\"",
     "options": [
       {
         "label": "A",
@@ -2740,14 +2740,14 @@
         "outcomes": [
           {
             "condition": "Pay 10 collective gold",
-            "narrative": "The bull totem!” the Inox smiles as he places a totem resembling a bull on the table. “Channels rage into tactical aggression. Powerful choice.",
+            "narrative": "The bull totem!\" the Inox smiles as he places a totem resembling a bull on the table. \"Channels rage into tactical aggression. Powerful choice.",
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle gain Retaliate 1."
             ]
           },
           {
             "condition": "Otherwise",
-            "narrative": "Not today, huh?” the Inox frowns. “May the animal spirits be with you.",
+            "narrative": "Not today, huh?\" the Inox frowns. \"May the animal spirits be with you.",
             "effects": [
               "No effect."
             ]
@@ -2761,7 +2761,7 @@
         "outcomes": [
           {
             "condition": "Pay 10 collective gold",
-            "narrative": "The dog totem!” the Inox nods in agreement as he places a totem resembling a dog on the table. “Represents the guard dogs used in battle to help protect their owners. Smart choice.",
+            "narrative": "The dog totem!\" the Inox nods in agreement as he places a totem resembling a dog on the table. \"Represents the guard dogs used in battle to help protect their owners. Smart choice.",
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle gain Shield 1."
             ]
@@ -2781,7 +2781,7 @@
     "cardId": "19",
     "edition": "cs",
     "type": "road",
-    "narrative": "You come across a booth set up on the side of the road, where an Inox bearing articles of clothing resembling tribal gear sits aside a collection of totems in different shapes and sizes. “These spiritual totems are used by our tribes in battle,” the Inox explains. “For the small price of ten gold, one of them could be yours.” The Inox places two totems on the table of his booth. “Today, I can sell you the Kangaroo Totem of Balance or the Camel Totem of Endurance. Which would you care to buy?”",
+    "narrative": "You come across a booth set up on the side of the road, where an Inox bearing articles of clothing resembling tribal gear sits aside a collection of totems in different shapes and sizes. \"These spiritual totems are used by our tribes in battle,\" the Inox explains. \"For the small price of ten gold, one of them could be yours.\" The Inox places two totems on the table of his booth. \"Today, I can sell you the Kangaroo Totem of Balance or the Camel Totem of Endurance. Which would you care to buy?\"",
     "options": [
       {
         "label": "A",
@@ -2789,7 +2789,7 @@
         "outcomes": [
           {
             "condition": "Pay 10 collective gold",
-            "narrative": "The Inox smiles as he places a totem resembling a kangaroo on the table. “Used to instill a sense of balance within those who gaze at it. Brilliant choice.”",
+            "narrative": "The Inox smiles as he places a totem resembling a kangaroo on the table. \"Used to instill a sense of balance within those who gaze at it. Brilliant choice.\"",
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle gain Advantage on all attacks."
             ],
@@ -2797,7 +2797,7 @@
           },
           {
             "condition": "Otherwise",
-            "narrative": "The Inox frowns. “May the animal spirits be with you.”",
+            "narrative": "The Inox frowns. \"May the animal spirits be with you.\"",
             "effects": [
               "No effect."
             ],
@@ -2811,7 +2811,7 @@
         "outcomes": [
           {
             "condition": "Pay 10 collective gold",
-            "narrative": "The Inox nods in agreement as he places a totem resembling a camel on the table. “Thought to aid any to endure the harshest of conditions. Perfect choice.”",
+            "narrative": "The Inox nods in agreement as he places a totem resembling a camel on the table. \"Thought to aid any to endure the harshest of conditions. Perfect choice.\"",
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle are immune to negative conditions."
             ],
@@ -2867,7 +2867,7 @@
     "cardId": "21",
     "edition": "cs",
     "type": "road",
-    "narrative": "You come across a group of Brightsparks on the side of the road. Dressed in full lab gear, they beckon you toward them and offer you two vials to choose from. One of the vials is filled with a glowing red liquid and the other with bubbling green ooze. “We’re running an experiment and would appreciate if you would test one of these out for us,” the Brightspark grins. “Just let us know how it goes when you make your way back to the city.”",
+    "narrative": "You come across a group of Brightsparks on the side of the road. Dressed in full lab gear, they beckon you toward them and offer you two vials to choose from. One of the vials is filled with a glowing red liquid and the other with bubbling green ooze. \"We’re running an experiment and would appreciate if you would test one of these out for us,\" the Brightspark grins. \"Just let us know how it goes when you make your way back to the city.\"",
     "options": [
       {
         "label": "A",
@@ -2901,14 +2901,14 @@
     "cardId": "22",
     "edition": "cs",
     "type": "road",
-    "narrative": "Walking amongst a cavernous area, you hear a voice calling from within one of the caves. You approach the sound of the voice and see a rope tied to a tree leading down into the deep cavern. “Please, help!” the voice calls from below. “I’m too tired to pull myself up, can you please help me by pulling up the rope?” You peer down into the cavern and see only darkness below. The climber must be far down, and it would take great effort to pull him up.",
+    "narrative": "Walking amongst a cavernous area, you hear a voice calling from within one of the caves. You approach the sound of the voice and see a rope tied to a tree leading down into the deep cavern. \"Please, help!\" the voice calls from below. \"I’m too tired to pull myself up, can you please help me by pulling up the rope?\" You peer down into the cavern and see only darkness below. The climber must be far down, and it would take great effort to pull him up.",
     "options": [
       {
         "label": "A",
         "narrative": "Assist the climber by pulling up the rope.",
         "outcomes": [
           {
-            "narrative": "You start to pull on the rope with all your might. After several minutes of pulling, a bearded man emerges from the cave. “You saved me!” the man exclaims. “Unfortunately I do not have anything of value with me to repay you with, as my expedition proved to be fruitless. However, I’m sure karma will take care of you.” The man smiles as he pats your shoulder before he gathers his belongings and begins to walk away, leaving you short of breath.",
+            "narrative": "You start to pull on the rope with all your might. After several minutes of pulling, a bearded man emerges from the cave. \"You saved me!\" the man exclaims. \"Unfortunately I do not have anything of value with me to repay you with, as my expedition proved to be fruitless. However, I’m sure karma will take care of you.\" The man smiles as he pats your shoulder before he gathers his belongings and begins to walk away, leaving you short of breath.",
             "effects": [
               "Discard one card each.",
               "Add City Event 33 to the deck."
@@ -2942,7 +2942,7 @@
         "outcomes": [
           {
             "condition": "if orchid in party",
-            "narrative": "A fellow orchid stops your engage and shouts, “That is a member of the order of Shardrenders, do not intervene!”. You watch as the Shardrender pierces the merchant’s heart with a crystal and runs off with the sack.",
+            "narrative": "A fellow orchid stops your engage and shouts, \"That is a member of the order of Shardrenders, do not intervene!\". You watch as the Shardrender pierces the merchant’s heart with a crystal and runs off with the sack.",
             "effects": [
               "No effect."
             ]
@@ -2961,7 +2961,7 @@
         "narrative": "Stop the merchant in his attempt to flee with the crystals.",
         "outcomes": [
           {
-            "narrative": "You help the orchid fend off the attackers. “You made the right decision, these were bandit thieves” the Orchid explains with an expression of gratitude. “These special crystals are of vital importance for my order, the order of Shardrenders, and your deed will not be forgotten.” He hands you a small purse of gold before taking his leave.",
+            "narrative": "You help the orchid fend off the attackers. \"You made the right decision, these were bandit thieves\" the Orchid explains with an expression of gratitude. \"These special crystals are of vital importance for my order, the order of Shardrenders, and your deed will not be forgotten.\" He hands you a small purse of gold before taking his leave.",
             "effects": [
               "Gain 15 collective GOLD."
             ]
@@ -2983,7 +2983,7 @@
           {
             "narrative": "You begin to dismantle each trap, carefully closing them while being mindful of your grip. As the last trap shuts closed, you realize one of these could be useful in your journey forward.",
             "effects": [
-              "Gain 1 collective “Iron Snare” (Item 30)."
+              "Gain 1 collective \"Iron Snare\" (Item 30)."
             ]
           }
         ]
@@ -3016,7 +3016,7 @@
           {
             "narrative": "You head straight into the swamp as the screeching grows louder. You peer through tall reeds and see a hideous giant purple creature with swarming tentacles grab a viper and swallow it whole. This creature does not look like it belongs here.",
             "effects": [
-              "Unlock “Defend the Swamp” (45)."
+              "Unlock \"Defend the Swamp\" (45)."
             ]
           }
         ]
@@ -3039,14 +3039,14 @@
     "cardId": "26",
     "edition": "cs",
     "type": "road",
-    "narrative": "As you depart the city, you find a snake charmer sitting outside the gates with a pungi in hand. There is a basket filled with vipers by his feet and he's playing a soft tune. The vipers seem to be entranced by the music as they slowly wave their bodies in perfect synch. The charmer abruptly stops playing and looks up to you as he says, “I'm in need of a new pungi, could you please spare a few coin?” Before you can answer, he narrows his eyes and points to the basket filled with snakes. “My snakes would be quite unhappy if you don't.”",
+    "narrative": "As you depart the city, you find a snake charmer sitting outside the gates with a pungi in hand. There is a basket filled with vipers by his feet and he's playing a soft tune. The vipers seem to be entranced by the music as they slowly wave their bodies in perfect synch. The charmer abruptly stops playing and looks up to you as he says, \"I'm in need of a new pungi, could you please spare a few coin?\" Before you can answer, he narrows his eyes and points to the basket filled with snakes. \"My snakes would be quite unhappy if you don't.\"",
     "options": [
       {
         "label": "A",
         "narrative": "Help the charmer with a small donation.",
         "outcomes": [
           {
-            "narrative": "You hand the charmer a few coins and proceed to continue on with your journey. “Wait!” the charmer calls after you. “Here, have one of my vipers as a thank-you gift. Take good care of him for me, will you?”",
+            "narrative": "You hand the charmer a few coins and proceed to continue on with your journey. \"Wait!\" the charmer calls after you. \"Here, have one of my vipers as a thank-you gift. Take good care of him for me, will you?\"",
             "effects": [
               "Lose 5 collective GOLD.",
               "At start of scenario, one character performs: Summon Slithering Viper"
@@ -3094,7 +3094,7 @@
           {
             "narrative": "After patiently waiting for about an hour, several large Inox wearing heavy armor wrapped in chains approach the caravan. You question the circumstances and the Inox explain that they're bounty hunters, and this Orchid is a dangerous wanted criminal. They thank you with a gift for guarding the caravan and begin to prepare for the next leg of their journey.",
             "effects": [
-              "Gain 1 collective “Staff of Retribution” (Item 35)."
+              "Gain 1 collective \"Staff of Retribution\" (Item 35)."
             ]
           }
         ]
@@ -3105,14 +3105,14 @@
     "cardId": "28",
     "edition": "cs",
     "type": "road",
-    "narrative": "You come across a booth set up on the side of the road, where a Vermling bearing articles of clothing resembling tribal gear sits aside a collection of totems in different shapes and sizes. “These spiritual totems are used by our tribes in battle,” the Vermling explains. “For the small price of ten gold, one of them could be yours.” The Inox places two totems on the table of his booth. “Today, I can sell you the Kangaroo Totem of Confusion. Would you care to buy one?”",
+    "narrative": "You come across a booth set up on the side of the road, where a Vermling bearing articles of clothing resembling tribal gear sits aside a collection of totems in different shapes and sizes. \"These spiritual totems are used by our tribes in battle,\" the Vermling explains. \"For the small price of ten gold, one of them could be yours.\" The Inox places two totems on the table of his booth. \"Today, I can sell you the Kangaroo Totem of Confusion. Would you care to buy one?\"",
     "options": [
       {
         "label": "A",
         "narrative": "Offer to buy the kangaroo totem.",
         "outcomes": [
           {
-            "narrative": "You agree to buy the kangaroo totem. “Excellent!” the Vermling rubs his hands together and hands you the totem. The totem looks different than others you’ve seen, with strange markings and a deformed head. You carry on with your journey while inspecting it, and by the time you realize it’s a fake, the Vermling has already packed its bags and scurried off.",
+            "narrative": "You agree to buy the kangaroo totem. \"Excellent!\" the Vermling rubs his hands together and hands you the totem. The totem looks different than others you’ve seen, with strange markings and a deformed head. You carry on with your journey while inspecting it, and by the time you realize it’s a fake, the Vermling has already packed its bags and scurried off.",
             "effects": [
               "Lose 10 collective gold."
             ]
@@ -3124,7 +3124,7 @@
         "narrative": "Decline the offer.",
         "outcomes": [
           {
-            "narrative": "You tell the Vermling you won’t be buying a totem today. “Not today? Not today?!” the Vermling yells as he jumps onto the table, knocking over several totems onto the floor. He begins to jump in madness and flail his arms in the air while shouting, “Not today! Not today!” He grabs an armful of totems and dashes off into the distance, leaving behind his booth and a small tin filled with gold.",
+            "narrative": "You tell the Vermling you won’t be buying a totem today. \"Not today? Not today?!\" the Vermling yells as he jumps onto the table, knocking over several totems onto the floor. He begins to jump in madness and flail his arms in the air while shouting, \"Not today! Not today!\" He grabs an armful of totems and dashes off into the distance, leaving behind his booth and a small tin filled with gold.",
             "effects": [
               "Gain 5 collective gold."
             ]
@@ -3137,7 +3137,7 @@
     "cardId": "29",
     "edition": "cs",
     "type": "road",
-    "narrative": "You happen across a Quatryl stranded on the side of the road as if waiting to hitch a ride. “Hey, I recognize you!” the Quatryl peps up. “It’s me, Shiela!” “I’ve gotten kind of lost after last night’s drinking. If you’re heading toward the Mixed District, do you mind letting me tag along?” You weren’t planning on heading in that direction, but Shiela’s a good friend.",
+    "narrative": "You happen across a Quatryl stranded on the side of the road as if waiting to hitch a ride. \"Hey, I recognize you!\" the Quatryl peps up. \"It’s me, Shiela!\" \"I’ve gotten kind of lost after last night’s drinking. If you’re heading toward the Mixed District, do you mind letting me tag along?\" You weren’t planning on heading in that direction, but Shiela’s a good friend.",
     "options": [
       {
         "label": "A",
@@ -3157,7 +3157,7 @@
         "narrative": "Tell Shiela she’ll have to find another ride and continue on your journey.",
         "outcomes": [
           {
-            "narrative": "“Please!” Shiela begs as you adamantly refuse to go out of your way. She bursts into tears as you walk away, shouting after you, “the other patrons in the Sleeping Lion will surely hear about this!”.",
+            "narrative": "\"Please!\" Shiela begs as you adamantly refuse to go out of your way. She bursts into tears as you walk away, shouting after you, \"the other patrons in the Sleeping Lion will surely hear about this!\".",
             "effects": [
               "Lose 2 reputation."
             ]
@@ -3275,7 +3275,7 @@
           {
             "narrative": "You approach the Orchid and catch her by surprise. Startled, her hands begin to glow but you explain that you’re not interested in a fight and only want to reclaim what’s been stolen. She proceeds to explain that she spent all the gold, but she can give you the armor she’s wearing if you promise not to report her to the authorities.",
             "effects": [
-              "Gain 1 collective “Silhouette Cuirass” (Item 26)."
+              "Gain 1 collective \"Silhouette Cuirass\" (Item 26)."
             ]
           }
         ]
@@ -3330,7 +3330,7 @@
     "cardId": "35",
     "edition": "cs",
     "type": "road",
-    "narrative": "You come across a group of men huddled together on the side of the road. They seem intensely focused on something as they mutter under their breath while exchanging colorful concoctions and pour various smoking liquids into a pot. “Come, travelers! Come see this marvelous experiment!” one of the men gleefully exclaims as he motions you forward. “You seem like a strong, capable group. We could use some help stirring and mixing the heavy brew.” You glance over and see a bubbling cauldron with sparks flying all over.",
+    "narrative": "You come across a group of men huddled together on the side of the road. They seem intensely focused on something as they mutter under their breath while exchanging colorful concoctions and pour various smoking liquids into a pot. \"Come, travelers! Come see this marvelous experiment!\" one of the men gleefully exclaims as he motions you forward. \"You seem like a strong, capable group. We could use some help stirring and mixing the heavy brew.\" You glance over and see a bubbling cauldron with sparks flying all over.",
     "options": [
       {
         "label": "A",
@@ -3362,14 +3362,14 @@
     "cardId": "36",
     "edition": "cs",
     "type": "road",
-    "narrative": "You come across a group of men huddled together on the side of the road. They seem intensely focused on something as they mutter under their breath while exchanging colorful concoctions and pour various smoking liquids into a pot. You vaguely recognize one of the men as a Brightspark but he's too busy concentrating on his work to notice you.\n\n“Come, travelers! Come see this marvelous experiment!” one of the men gleefully exclaims as he motions you forward. “You seem like a strong, capable group. We could use some help stirring and mixing the heavy brew.”\n\nYou glance over and see a bubbling cauldron with sparks flying all over.",
+    "narrative": "You come across a group of men huddled together on the side of the road. They seem intensely focused on something as they mutter under their breath while exchanging colorful concoctions and pour various smoking liquids into a pot. You vaguely recognize one of the men as a Brightspark but he's too busy concentrating on his work to notice you.<br><br>\"Come, travelers! Come see this marvelous experiment!\" one of the men gleefully exclaims as he motions you forward. \"You seem like a strong, capable group. We could use some help stirring and mixing the heavy brew.\"<br><br>You glance over and see a bubbling cauldron with sparks flying all over.",
     "options": [
       {
         "label": "A",
         "narrative": "Help the men mix the brew.",
         "outcomes": [
           {
-            "narrative": "As you approach the group of men, you recognize one particular Brightspark from your previous adventures. This warm sense of familiarity provides you with a sense of trust as you proceed to help the men mix their concoction. After several minutes of tiresome mixing, the brew turns a bright orange color. “We’ve done it!” the Brightspark jumps for joy as he grabs ahold of your shoulders and shakes them with joy. “Here, have some! It will surely help you.”",
+            "narrative": "As you approach the group of men, you recognize one particular Brightspark from your previous adventures. This warm sense of familiarity provides you with a sense of trust as you proceed to help the men mix their concoction. After several minutes of tiresome mixing, the brew turns a bright orange color. \"We’ve done it!\" the Brightspark jumps for joy as he grabs ahold of your shoulders and shakes them with joy. \"Here, have some! It will surely help you.\"",
             "effects": [
               "All start scenario with BLESS x2."
             ]
@@ -3433,7 +3433,7 @@
         "narrative": "Fight the Vermlings off. You deserve a place of rest more than they do.",
         "outcomes": [
           {
-            "narrative": "You draw your weapon, ready to fight the Vermlings off. They immediately scatter at the sight of your blade, leaving behind a small backpack filled with supplies. Within the backpack you find a crossbow and a single bolt. This will come in handy in the battlefield. One player may take this card. During that player’s turn, they may play this card as a top action instead of one of their ability cards to perform “Attack 4, Range 3” at the leading initiative of the other card played. This card can be discarded and is immediately removed upon being played. This card cannot be lost to avoid suffering damage.",
+            "narrative": "You draw your weapon, ready to fight the Vermlings off. They immediately scatter at the sight of your blade, leaving behind a small backpack filled with supplies. Within the backpack you find a crossbow and a single bolt. This will come in handy in the battlefield. One player may take this card. During that player’s turn, they may play this card as a top action instead of one of their ability cards to perform \"Attack 4, Range 3\" at the leading initiative of the other card played. This card can be discarded and is immediately removed upon being played. This card cannot be lost to avoid suffering damage.",
             "removeFromDeck": true
           }
         ]
@@ -3456,7 +3456,7 @@
     "cardId": "39",
     "edition": "cs",
     "type": "road",
-    "narrative": "As you walk down the road you hear loud clanging coming from ahead. As you near the noise, you find a tent set up on the side of the road. An elderly man exits the tent and greets you, claiming to be a blacksmith who forges weapons for the military and asks to examine yours. “My, this could use an upgrade,” the blacksmith narrows his eyes as he slides his finger across the handle of your weapon. “I’ll tell you what. Surrender this weapon to me, and I’ll pay you handsomely for it.” “Alternatively, for the low price of ten gold, I could forge you a blade so jagged it could penetrate the strongest armors. Military grade.”",
+    "narrative": "As you walk down the road you hear loud clanging coming from ahead. As you near the noise, you find a tent set up on the side of the road. An elderly man exits the tent and greets you, claiming to be a blacksmith who forges weapons for the military and asks to examine yours. \"My, this could use an upgrade,\" the blacksmith narrows his eyes as he slides his finger across the handle of your weapon. \"I’ll tell you what. Surrender this weapon to me, and I’ll pay you handsomely for it.\" \"Alternatively, for the low price of ten gold, I could forge you a blade so jagged it could penetrate the strongest armors. Military grade.\"",
     "options": [
       {
         "label": "A",
@@ -3477,7 +3477,7 @@
           {
             "narrative": "You ask the blacksmith to forge you a new weapon and he asks you to wait several minutes outside the shop. You hear his banging of the anvil as smoke pour out of the shop, and minutes later he exits and dusts the soot off his jacket as he hands you a newly forged blade.",
             "effects": [
-              "One player loses 10 GOLD and gains one “Jagged Sword” (Item 25)."
+              "One player loses 10 GOLD and gains one \"Jagged Sword\" (Item 25)."
             ]
           }
         ]
@@ -3488,7 +3488,7 @@
     "cardId": "40",
     "edition": "cs",
     "type": "road",
-    "narrative": "“Halt, stranger!” a Quatryl encased in a device surrounded by cannons extends his arm out and shakes his head. “You’re approaching official military territory. I’m afraid you can’t pass through here. You’ll have to turn around and head through the forest instead.” Going around through the forest could add days to your trips. There’s no choice but to pass through.",
+    "narrative": "\"Halt, stranger!\" a Quatryl encased in a device surrounded by cannons extends his arm out and shakes his head. \"You’re approaching official military territory. I’m afraid you can’t pass through here. You’ll have to turn around and head through the forest instead.\" Going around through the forest could add days to your trips. There’s no choice but to pass through.",
     "options": [
       {
         "label": "A",
@@ -3523,7 +3523,7 @@
           },
           {
             "condition": "Otherwise",
-            "narrative": "The Quatryl shakes his head. “This is no trivial matter. I should have you jailed for this.” The Quatryl motions for backup, and you hastily scurry off before things get out of hand.",
+            "narrative": "The Quatryl shakes his head. \"This is no trivial matter. I should have you jailed for this.\" The Quatryl motions for backup, and you hastily scurry off before things get out of hand.",
             "effects": [
               "Discard 1 card each."
             ]
@@ -3568,14 +3568,14 @@
     "cardId": "42",
     "edition": "cs",
     "type": "road",
-    "narrative": "As you make your way down a cobblestone road, you find a man with a long white flowing beard kneeling down on the side of the road, mumbling to himself. As you pass him by, he looks up to you and clears his throat. “Travelers, I am praying on behalf of all who merit to cross my path. Tell me, are you on the path of righteousness or on the path of despair?”",
+    "narrative": "As you make your way down a cobblestone road, you find a man with a long white flowing beard kneeling down on the side of the road, mumbling to himself. As you pass him by, he looks up to you and clears his throat. \"Travelers, I am praying on behalf of all who merit to cross my path. Tell me, are you on the path of righteousness or on the path of despair?\"",
     "options": [
       {
         "label": "A",
-        "narrative": "Respond with “path of righteousness”.",
+        "narrative": "Respond with \"path of righteousness\".",
         "outcomes": [
           {
-            "narrative": "You answer that you are on the path of righteousness and the man smiles warmly. “Very well then. I shall pray for you to continue to walk the path of prosperity and good merit!”",
+            "narrative": "You answer that you are on the path of righteousness and the man smiles warmly. \"Very well then. I shall pray for you to continue to walk the path of prosperity and good merit!\"",
             "effects": [
               "Start scenario with SUN in the Strong column.",
               "During the first round, consider any negative attack modifier drawn by players to be a +0 instead."
@@ -3585,10 +3585,10 @@
       },
       {
         "label": "B",
-        "narrative": "Respond with “path of despair”.",
+        "narrative": "Respond with \"path of despair\".",
         "outcomes": [
           {
-            "narrative": "You answer that you are on the path of despair and the man instantly frowns. “Well, if that’s the path you choose, I shall pray for you to continue to walk the path of anguish and dishearten your enemies!”",
+            "narrative": "You answer that you are on the path of despair and the man instantly frowns. \"Well, if that’s the path you choose, I shall pray for you to continue to walk the path of anguish and dishearten your enemies!\"",
             "effects": [
               "Start scenario with MOON in the Strong column.",
               "During the first round, consider any negative attack modifier drawn by players to be a -1 instead."
@@ -3609,7 +3609,7 @@
         "narrative": "Tie her hands together while she sleeps.",
         "outcomes": [
           {
-            "narrative": "You begin to slowly tie rope around her hands when her snoring comes to an abrupt halt. “What are you doing?!” she exclaims. As you explain you’re there to collect her bounty and won’t leave without a fight, she retrieves identification and proves you mistaken. She curses you for disturbing her slumber and rolls back into the straw.",
+            "narrative": "You begin to slowly tie rope around her hands when her snoring comes to an abrupt halt. \"What are you doing?!\" she exclaims. As you explain you’re there to collect her bounty and won’t leave without a fight, she retrieves identification and proves you mistaken. She curses you for disturbing her slumber and rolls back into the straw.",
             "effects": [
               "All start scenario with CURSE."
             ]
@@ -3641,7 +3641,7 @@
         "narrative": "Choose the rusty spikes trap.",
         "outcomes": [
           {
-            "narrative": "The rusty spikes trap! Great choice, use it wisely,” the Chainguard hands you the trap and bids you farewell.",
+            "narrative": "The rusty spikes trap! Great choice, use it wisely,\" the Chainguard hands you the trap and bids you farewell.",
             "effects": [
               "At the start of the scenario, place one 4 damage WOUND trap in an empty hex adjacent to any enemy."
             ]
@@ -3653,7 +3653,7 @@
         "narrative": "Choose the clamping snare trap.",
         "outcomes": [
           {
-            "narrative": "The clamping snare. Great for stopping anything right in its tracks!” the Chainguard hands you the trap and wishes you the best of luck on your journey.",
+            "narrative": "The clamping snare. Great for stopping anything right in its tracks!\" the Chainguard hands you the trap and wishes you the best of luck on your journey.",
             "effects": [
               "At the start of the scenario, place one STUN trap in an empty hex adjacent to any enemy."
             ]
@@ -3731,16 +3731,16 @@
     "cardId": "47",
     "edition": "cs",
     "type": "road",
-    "narrative": "“Thank you! Thank you!” the Vermling falls to your feet and begins kissing your toes. You’ve helped pull his carriage out of a deep pile of mud, and the green-robed Vermling couldn’t be more grateful. “Alas!” he exclaims. “A gift, for your troubles.” The Vermling rushes into the carriage and pulls out two glowing rods. “Please, take one. It will help you rest on your journey.”",
+    "narrative": "\"Thank you! Thank you!\" the Vermling falls to your feet and begins kissing your toes. You’ve helped pull his carriage out of a deep pile of mud, and the green-robed Vermling couldn’t be more grateful. \"Alas!\" he exclaims. \"A gift, for your troubles.\" The Vermling rushes into the carriage and pulls out two glowing rods. \"Please, take one. It will help you rest on your journey.\"",
     "options": [
       {
         "label": "A",
         "narrative": "Take the shorter rod on the left.",
         "outcomes": [
           {
-            "narrative": "“Ah! The shorter rod will serve you well if you ever decide to quickly rest,” the Vermling glees as he hands you the shorter rod.",
+            "narrative": "\"Ah! The shorter rod will serve you well if you ever decide to quickly rest,\" the Vermling glees as he hands you the shorter rod.",
             "effects": [
-              "Whenever a character takes a short rest during the scenario, they may perform “Heal 1, Self”."
+              "Whenever a character takes a short rest during the scenario, they may perform \"Heal 1, Self\"."
             ]
           }
         ]
@@ -3750,7 +3750,7 @@
         "narrative": "Take the longer rod on the right.",
         "outcomes": [
           {
-            "narrative": "“The longer rod, very well! This rod will ensure that you get the most fulfillment out of your resting,” the Vermling smiles while gracefully handing you the longer rod.",
+            "narrative": "\"The longer rod, very well! This rod will ensure that you get the most fulfillment out of your resting,\" the Vermling smiles while gracefully handing you the longer rod.",
             "effects": [
               "Whenever a character takes a long rest during the scenario, they may recover 3 hit points instead of 2 hit points."
             ]
@@ -3797,16 +3797,16 @@
     "cardId": "49",
     "edition": "cs",
     "type": "road",
-    "narrative": "It's a particularly starry night and you happen upon an Aesther looking up into the stars. He ushers you toward him and points up in the sky. “See those constellations? I can read them for you. Tell me, what do you see in the stars?” You look up to the sky and see a multitude of stars. It's hard to make out a shape, but it looks like there might be stars connecting in the letter 'T' or 'V,' but you're unsure which.",
+    "narrative": "It's a particularly starry night and you happen upon an Aesther looking up into the stars. He ushers you toward him and points up in the sky. \"See those constellations? I can read them for you. Tell me, what do you see in the stars?\" You look up to the sky and see a multitude of stars. It's hard to make out a shape, but it looks like there might be stars connecting in the letter 'T' or 'V,' but you're unsure which.",
     "options": [
       {
         "label": "A",
         "narrative": "Tell the Aesther you see a large 'T' shape in the sky.",
         "outcomes": [
           {
-            "narrative": "You tell the Aesther you see the letter 'T' formed in the stars. He shakes his head and tells you, “tsk, that's the constellation of terror. I see your enemies will be moving forward, even as we speak. Best hurry on, dear travelers, before they advance too quickly.”",
+            "narrative": "You tell the Aesther you see the letter 'T' formed in the stars. He shakes his head and tells you, \"tsk, that's the constellation of terror. I see your enemies will be moving forward, even as we speak. Best hurry on, dear travelers, before they advance too quickly.\"",
             "effects": [
-              "At start of scenario, before the first round, all monsters perform “Move 1”."
+              "At start of scenario, before the first round, all monsters perform \"Move 1\"."
             ]
           }
         ]
@@ -3816,9 +3816,9 @@
         "narrative": "Tell the Aesther you see a large 'V' shape in the sky.",
         "outcomes": [
           {
-            "narrative": "You tell the Aesther you see the letter 'V' formed in the stars. He nods his head in affirmation and tells you, “that's the constellation of victory. You will have an advantage in the battlefield and move as quickly as a shooting star! I bid you well, dear travelers, and success in your journey.”",
+            "narrative": "You tell the Aesther you see the letter 'V' formed in the stars. He nods his head in affirmation and tells you, \"that's the constellation of victory. You will have an advantage in the battlefield and move as quickly as a shooting star! I bid you well, dear travelers, and success in your journey.\"",
             "effects": [
-              "At start of scenario, before the first round, all characters may perform a “Move 2” ability."
+              "At start of scenario, before the first round, all characters may perform a \"Move 2\" ability."
             ]
           }
         ]
@@ -3861,7 +3861,7 @@
     "cardId": "51",
     "edition": "cs",
     "type": "road",
-    "narrative": "On the road to your next adventure, you spot a trade caravan with a broken wheel off to the side of the path. As you approach, you notice multiple human bodies lying motionless on the ground near the wagon as an Inox and Savvas are rummaging through the chests that fell from the wagon. At first, you suspect that you are witnessing a robbery in progress, but after further inspection, you realize they are placing the chests back onto the wagon, taking particular care with an especially ornate chest. You keep your distance for now, but can overhear the pair conversing. “Those bandits came out of nowhere,” the Savvas says to his companion. “Yeah,” the Inox replies in between heavy breaths. “Keep watch. Could be more on the way.” They take a moment to catch their breath before getting back to work. “I’ll grab some tools and try to repair the wheel,” the Savvas states matter-of-factly.",
+    "narrative": "On the road to your next adventure, you spot a trade caravan with a broken wheel off to the side of the path. As you approach, you notice multiple human bodies lying motionless on the ground near the wagon as an Inox and Savvas are rummaging through the chests that fell from the wagon. At first, you suspect that you are witnessing a robbery in progress, but after further inspection, you realize they are placing the chests back onto the wagon, taking particular care with an especially ornate chest. You keep your distance for now, but can overhear the pair conversing. \"Those bandits came out of nowhere,\" the Savvas says to his companion. \"Yeah,\" the Inox replies in between heavy breaths. \"Keep watch. Could be more on the way.\" They take a moment to catch their breath before getting back to work. \"I’ll grab some tools and try to repair the wheel,\" the Savvas states matter-of-factly.",
     "options": [
       {
         "label": "A",
@@ -3869,9 +3869,9 @@
         "outcomes": [
           {
             "condition": "brute,cragheart,spellweaver,scoundrel,tinkerer,mindthief",
-            "narrative": "While the Savvas wrenches on the wagon, your strength makes short work of reloading the fallen chests. The Inox standing guard gruffs, “Thanks for helping. Take this schematic as our thanks.”",
+            "narrative": "While the Savvas wrenches on the wagon, your strength makes short work of reloading the fallen chests. The Inox standing guard gruffs, \"Thanks for helping. Take this schematic as our thanks.\"",
             "effects": [
-              "Gain “Flaming Axe” item design (Item 52)."
+              "Gain \"Flaming Axe\" item design (Item 52)."
             ]
           },
           {
@@ -3893,7 +3893,7 @@
             "condition": "brute,cragheart,spellweaver,scoundrel,tinkerer,mindthief",
             "narrative": "Your allies provide an effective distraction and you are able to sneak away unnoticed with the ornate chest in hand.",
             "effects": [
-              "Gain “Flaming Axe” item design (Item 52)."
+              "Gain \"Flaming Axe\" item design (Item 52)."
             ]
           },
           {
@@ -3912,7 +3912,7 @@
     "cardId": "52",
     "edition": "cs",
     "type": "road",
-    "narrative": "You barely make it outside the city gates before spotting a thick column of smoke spreading across the horizon ahead. You can tell from the militaristic shouts behind you that the Fire Brigade was quick to summon their ranks today. The Brigade soon comes trudging past at a quickened pace, eager to protect the city and its outlying cottages from this growing wildfire. You spot your former companion, the Fire Knight, among their ranks, who breaks formation to speak with you. “Hey old friends. Want to earn some gold?!” he asks excitedly. “The Brigade will pay anyone willing to help extinguish spot fires during these big incidents. Sure, it’s dangerous, but nothing you can’t handle.” The Fire Knight smirks, bouncing a ball of flame between his hands. “Or, another way you can help is by clearing out brush from around the cottages on the outskirts of the city. If you know the forest, that should be a breeze for you.”",
+    "narrative": "You barely make it outside the city gates before spotting a thick column of smoke spreading across the horizon ahead. You can tell from the militaristic shouts behind you that the Fire Brigade was quick to summon their ranks today. The Brigade soon comes trudging past at a quickened pace, eager to protect the city and its outlying cottages from this growing wildfire. You spot your former companion, the Fire Knight, among their ranks, who breaks formation to speak with you. \"Hey old friends. Want to earn some gold?!\" he asks excitedly. \"The Brigade will pay anyone willing to help extinguish spot fires during these big incidents. Sure, it’s dangerous, but nothing you can’t handle.\" The Fire Knight smirks, bouncing a ball of flame between his hands. \"Or, another way you can help is by clearing out brush from around the cottages on the outskirts of the city. If you know the forest, that should be a breeze for you.\"",
     "options": [
       {
         "label": "A",
@@ -3921,7 +3921,7 @@
           {
             "narrative": "You are excited to work alongside your old friend again, but extinguishing spot fires is no easy task, especially in a forest filled with wild creatures frightened by the destruction of their homes. The Fire Knight gives you a few pointers as to the best techniques to extinguish hot spots before rejoining the Brigade on the front lines of the firefight. Hopefully your combined efforts will control this spreading wildfire before it burns the forest down.",
             "effects": [
-              "Unlock “Forest Fire” 48."
+              "Unlock \"Forest Fire\" 48."
             ]
           }
         ]
@@ -4017,9 +4017,9 @@
         "narrative": "What’s an adventure without taking any chances? Explore the path in the brush.",
         "outcomes": [
           {
-            "narrative": "It takes no more than 20 minutes before you realize that this path is a little too tight and overgrown for you to go any further. However, a familiar voice calls to you, “Friends, what in the world are you doing here?” the Mirefoot exclaims. It turns out he’s found the trail to a Ghost Viper nest and gives you directions to it. After parting ways and returning to the main road, your good fortune continues. Not far up the road you discover a ransacked caravan with some goods left over that you can easily sell.",
+            "narrative": "It takes no more than 20 minutes before you realize that this path is a little too tight and overgrown for you to go any further. However, a familiar voice calls to you, \"Friends, what in the world are you doing here?\" the Mirefoot exclaims. It turns out he’s found the trail to a Ghost Viper nest and gives you directions to it. After parting ways and returning to the main road, your good fortune continues. Not far up the road you discover a ransacked caravan with some goods left over that you can easily sell.",
             "effects": [
-              "Unlock “Viper Marsh” (47).",
+              "Unlock \"Viper Marsh\" (47).",
               "Gain 15 collective gold."
             ],
             "returnToDeck": true
@@ -4072,14 +4072,14 @@
     "cardId": "56",
     "edition": "cs",
     "type": "road",
-    "narrative": "As you round a turn in the road, you’re surprised to see two Savvas locked in combat, circling each other.\n\nOne of them you recognize as your former Hollowpact companion. The other figure appears to be a younger but similarly accoutred Savvas. Both have glowing amethyst stones filling their chest cavities with an otherworldly light.\n\nThe two Hollowpacts are undeterred by your presence and continue to circle each other, searching for an opening. Both are lithe and move with a duelist’s grace despite their rocky forms—a notable difference in style from many of their Savvas kin. Your former companion turns slightly and addresses you, “This one is mine. Stay out of this. Won’t ask twice.”",
+    "narrative": "As you round a turn in the road, you’re surprised to see two Savvas locked in combat, circling each other.<br><br>One of them you recognize as your former Hollowpact companion. The other figure appears to be a younger but similarly accoutred Savvas. Both have glowing amethyst stones filling their chest cavities with an otherworldly light.<br><br>The two Hollowpacts are undeterred by your presence and continue to circle each other, searching for an opening. Both are lithe and move with a duelist’s grace despite their rocky forms—a notable difference in style from many of their Savvas kin. Your former companion turns slightly and addresses you, \"This one is mine. Stay out of this. Won’t ask twice.\"",
     "options": [
       {
         "label": "A",
         "narrative": "Try to calm the situation. There’s no need for this violence.",
         "outcomes": [
           {
-            "narrative": "The younger Hollowpact takes advantage of your interruption to teleport away. Your former ally ignores this and turns to you, its voice grating like jagged rocks against metal, “You. DON’T understand. We are abominations. Must die. Must ALL die.”\n\nA moment passes and rage is instantly replaced by calm. The Hollowpact speaks again with a ponderous, gravelly voice, “I can track and destroy my quarry easily enough. I save this young one from itself. Stop me again and die.” With that, the Hollowpact vanishes.",
+            "narrative": "The younger Hollowpact takes advantage of your interruption to teleport away. Your former ally ignores this and turns to you, its voice grating like jagged rocks against metal, \"You. DON’T understand. We are abominations. Must die. Must ALL die.\"<br><br>A moment passes and rage is instantly replaced by calm. The Hollowpact speaks again with a ponderous, gravelly voice, \"I can track and destroy my quarry easily enough. I save this young one from itself. Stop me again and die.\" With that, the Hollowpact vanishes.",
             "effects": [
               "No effect."
             ]
@@ -4104,14 +4104,14 @@
     "cardId": "57",
     "edition": "cs",
     "type": "road",
-    "narrative": "You're drawn toward colorful pillars of smoke pouring out from a small cavern on the side of the road. Curiosity gets the better of you as you wade through the smoke and enter the cavern, only to see a familiar figure standing near a stone covered in chromatic ooze. It's the Brightspark, and he's clapping in delight as he reaches for a vial on the stone beside him. “My friends!” he calls toward you with glee. “I've found a secluded place to conduct my experiments, and I must tell you, the elemental converter is coming along quite nicely.” “Anyways, you must try one of these new potions! I've got a few options, so take your pick!”",
+    "narrative": "You're drawn toward colorful pillars of smoke pouring out from a small cavern on the side of the road. Curiosity gets the better of you as you wade through the smoke and enter the cavern, only to see a familiar figure standing near a stone covered in chromatic ooze. It's the Brightspark, and he's clapping in delight as he reaches for a vial on the stone beside him. \"My friends!\" he calls toward you with glee. \"I've found a secluded place to conduct my experiments, and I must tell you, the elemental converter is coming along quite nicely.\" \"Anyways, you must try one of these new potions! I've got a few options, so take your pick!\"",
     "options": [
       {
         "label": "A",
         "narrative": "Reach for the multi-hued colorful vial of ooze.",
         "outcomes": [
           {
-            "narrative": "“Amazing!” the Brightspark hands you the colorful vial and points toward your mouth. You uncap the vial and quickly drink it. It tickles your throat as the Brightspark suddenly turns red. “You were supposed to rub it on your lips, not drink it!” No wonder your throat won't stop itching. “Well,” the Brightspark clears his throat, “Let's just hope you find plenty of bathroom stops along the way!”",
+            "narrative": "\"Amazing!\" the Brightspark hands you the colorful vial and points toward your mouth. You uncap the vial and quickly drink it. It tickles your throat as the Brightspark suddenly turns red. \"You were supposed to rub it on your lips, not drink it!\" No wonder your throat won't stop itching. \"Well,\" the Brightspark clears his throat, \"Let's just hope you find plenty of bathroom stops along the way!\"",
             "effects": [
               "All start scenario with 2 damage."
             ]
@@ -4123,7 +4123,7 @@
         "narrative": "Reach for the dull gray vial of ooze.",
         "outcomes": [
           {
-            "narrative": "“Here you go, handle it with care!” the Brightspark carefully hands you the dull gray vial of ooze. “Shake it and then uncap it when you're ready for a bedazzling chemical reaction!”",
+            "narrative": "\"Here you go, handle it with care!\" the Brightspark carefully hands you the dull gray vial of ooze. \"Shake it and then uncap it when you're ready for a bedazzling chemical reaction!\"",
             "effects": [
               "At the start of the scenario, start with any two elements in the Strong column."
             ]
@@ -4136,7 +4136,7 @@
     "cardId": "58",
     "edition": "cs",
     "type": "road",
-    "narrative": "Just outside the city gates, you hear a cacophonous roar emanate from the other side of a hill and decide to investigate. As you draw near, you recognize familiar sounds — Inox grunting, Harrowers chittering, Vermlings screeching. But something is different. Are they... cheering? You crest the hill to discover a throng of bodies from every race milling about a variety of booths hosting various competitions. “Welcome to the Gloomhaven Games!” a Quatryl gamemaster yells into an amplifying device. “All are invited to enjoy the festivities!” One booth surrounded by Valraths hollering with excitement grabs your attention. You are not surprised to see the Fire Knight emerge from the crowd with a foolish grin on his face. “Hey, old friends! The Fire Brigade hosts a competition for the chance to win discounted gear. You should be familiar with the challenge from your visit to the station. Let’s see if you remember your training!”",
+    "narrative": "Just outside the city gates, you hear a cacophonous roar emanate from the other side of a hill and decide to investigate. As you draw near, you recognize familiar sounds — Inox grunting, Harrowers chittering, Vermlings screeching. But something is different. Are they... cheering? You crest the hill to discover a throng of bodies from every race milling about a variety of booths hosting various competitions. \"Welcome to the Gloomhaven Games!\" a Quatryl gamemaster yells into an amplifying device. \"All are invited to enjoy the festivities!\" One booth surrounded by Valraths hollering with excitement grabs your attention. You are not surprised to see the Fire Knight emerge from the crowd with a foolish grin on his face. \"Hey, old friends! The Fire Brigade hosts a competition for the chance to win discounted gear. You should be familiar with the challenge from your visit to the station. Let’s see if you remember your training!\"",
     "options": [
       {
         "label": "A",
@@ -4187,7 +4187,7 @@
     "cardId": "59",
     "edition": "cs",
     "type": "road",
-    "narrative": "\"Red berries, green berries, get your berries here!\" you hear a melodious choir chanting from a caravan slowly passing you by. A Vermling pokes it head out of the caravan, and it comes to a screeching halt. \"Traveler! Have you ever seen or tasted such a spectacular delicacy?\" the Vermling extends both hands to reveal a handful of sticky berries, juice dripping from his paws.\n\nYou shake your head in disgust, remembering your promise to never eat roadside berries again, when the Vermling shakes his head and grabs your shoulder. \"These are no ordinary berries. They're infused with the psychic power which will allow you manifest your greatest inner potential. Therefore, I insist! Take your pick, red or green?\"",
+    "narrative": "\"Red berries, green berries, get your berries here!\" you hear a melodious choir chanting from a caravan slowly passing you by. A Vermling pokes it head out of the caravan, and it comes to a screeching halt. \"Traveler! Have you ever seen or tasted such a spectacular delicacy?\" the Vermling extends both hands to reveal a handful of sticky berries, juice dripping from his paws.<br><br>You shake your head in disgust, remembering your promise to never eat roadside berries again, when the Vermling shakes his head and grabs your shoulder. \"These are no ordinary berries. They're infused with the psychic power which will allow you manifest your greatest inner potential. Therefore, I insist! Take your pick, red or green?\"",
     "options": [
       {
         "label": "A",
@@ -4221,7 +4221,7 @@
     "cardId": "60",
     "edition": "cs",
     "type": "road",
-    "narrative": "As the moonlight shines bright upon the field before you, you contemplate setting up your tent here for the evening when you suddenly hear a rustling from within the tall grass before you. An Inox jumps out from the grass, and as you reach for your weapon she puts out her hand, as if to express caution. “Fear not, I mean you no harm,” the Inox tells you. “I’m here looking for a cave nearby, which is rumored to host the corpses of wealthy merchants, riddled with abandoned jewelry.” “However,” the Inox continues, “I fear for bandits. Would you care to escort me on this journey? I’d be willing to split the loot with you.”",
+    "narrative": "As the moonlight shines bright upon the field before you, you contemplate setting up your tent here for the evening when you suddenly hear a rustling from within the tall grass before you. An Inox jumps out from the grass, and as you reach for your weapon she puts out her hand, as if to express caution. \"Fear not, I mean you no harm,\" the Inox tells you. \"I’m here looking for a cave nearby, which is rumored to host the corpses of wealthy merchants, riddled with abandoned jewelry.\" \"However,\" the Inox continues, \"I fear for bandits. Would you care to escort me on this journey? I’d be willing to split the loot with you.\"",
     "options": [
       {
         "label": "A",

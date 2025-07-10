@@ -81,6 +81,8 @@ export class EditionData implements Editional {
 
 export class CampaignData {
 
+  events: Partial<Record<string, string[]>> = {};
+
   // FH
   campaignStickers: string[] = [];
   buildings: BuildingData[] = [];

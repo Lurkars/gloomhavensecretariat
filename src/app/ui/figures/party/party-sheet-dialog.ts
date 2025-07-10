@@ -684,13 +684,15 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
 
     const campaign = gameManager.campaignData();
-    this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
-    if (this.party.townGuardDeck) {
-      gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
-    } else {
-      gameManager.attackModifierManager.shuffleModifiers(this.townGuardDeck);
-      this.townGuardDeck.active = false;
-      this.party.townGuardDeck = this.townGuardDeck.toModel();
+    if (campaign.townGuardPerks) {
+      this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
+      if (this.party.townGuardDeck) {
+        gameManager.attackModifierManager.fromModel(this.townGuardDeck, this.party.townGuardDeck);
+      } else {
+        gameManager.attackModifierManager.shuffleModifiers(this.townGuardDeck);
+        this.townGuardDeck.active = false;
+        this.party.townGuardDeck = this.townGuardDeck.toModel();
+      }
     }
 
     this.calendarSheet = Math.floor(Math.max(this.party.weeks - 1, 0) / 80);

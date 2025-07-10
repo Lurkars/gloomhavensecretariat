@@ -1,0 +1,9 @@
+.condition {
+
+    font-family: var(--ghs-font-text);
+
+    &.narrative {
+        font-style: italic;
+        text-transform: uppercase;
+    }
+}

@@ -822,20 +822,13 @@
     "enemy": "Nemico",
     "events": {
       "conditions": {
-        "otherwise": "Altrimenti:",
-        "payCollectiveGold": "Paga {0} oro collettivo:",
-        "payCollectiveGoldConditional": "Paga {0} ({1}) o {2} ({3}) oro collettivo:",
-        "reputationGT": "Reputazione > {0}:",
-        "reputationLT": "Reputazione < {0}:"
+        "otherwise": "Altrimenti",
+        "payCollectiveGold": "Paga {0} oro collettivo",
+        "payCollectiveGoldConditional": "Paga {0} ({1}) o {2} ({3}) oro collettivo",
+        "reputationGT": "Reputazione > {0}",
+        "reputationLT": "Reputazione < {0}"
       },
-      "option": {
-        "": "Opzione {0}:",
-        "1": "A",
-        "2": "B",
-        "3": "C"
-      },
-      "rewards": {
-        "additionalGold": "Ciascuno ottiene {0} di oro aggiuntivo.",
+      "effects": {
         "collectiveGold": "Ottieni {0} di oro collettivo.",
         "collectiveItem": "Ottieni {2}\"%data.items.{1}-{0}%\" (Oggetto {0}) collettivo.",
         "consumeCollectiveItem": "Consuma {0} oggetto %game.itemSlot:{1}% collettivo.",
@@ -845,6 +838,7 @@
         "experience": "Ciascuno ottiene {0} di esperienza.",
         "globalAchievement": "Traguardo globale: \"%data.globalAchievements.{0}%\".",
         "gold": "Ognuno ottiene {0} di oro.",
+        "goldAdditional": "Ciascuno ottiene {0} di oro aggiuntivo.",
         "itemDesign": "Ottieni il modello \"%data.items.{1}-{0}%\" (Oggetto {0}).",
         "loseBattleGoal": "Ognuno perde {0} %game.checkmark%.",
         "loseCollectiveGold": "Perdi {0} oro collettivo.",
@@ -856,10 +850,16 @@
         "prosperity": "Ottieni {0} prosperità.",
         "randomItemDesign": "Ottieni un modello di oggetto casuale.",
         "reputation": "Ottieni {0} reputazione.",
-        "scenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%.",
+        "scenario": "Sblocca \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Tutti iniziano lo scenario con %game.condition.{0}%.",
         "scenarioDamage": "Tutti iniziano lo scenario con {0} di danno.",
-        "scenarioSingleMinus1": "Uno inizia lo scenario con %game.attackmodifier.minus1% x{0}."
+        "scenarioSingleMinus1": "Uno inizia lo scenario con %game.card.minus1% x{0}."
+      },
+      "option": {
+        "": "Opzione {0}:",
+        "1": "A",
+        "2": "B",
+        "3": "C"
       },
       "type": {
         "city": "Città",
