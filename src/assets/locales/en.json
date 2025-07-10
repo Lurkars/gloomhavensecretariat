@@ -833,6 +833,11 @@
       },
       "effects": {
         "battleGoal": "Gain {0} %game.checkmark% each.",
+        "choose": {
+          "connector": " or ",
+          "prefix": "Either ",
+          "suffix": "&ZeroWidthSpace;"
+        },
         "collectiveGold": "Gain {0} collective gold.",
         "collectiveGoldAdditional": "Gain {0} additional collective gold.",
         "collectiveItem": "Gain {2} collective \"%data.items.{1}-{0}%\" (Item {0}).",
@@ -840,11 +845,6 @@
         "collectiveResourceType": "Gain any {0} collective %game.loot.{1}%s.",
         "consumeCollectiveItem": "Consume {0} collective %game.itemSlot:{1}% item.",
         "consumeItem": "Consume {0} %game.itemSlot:{1}% item each.",
-        "choose": {
-          "connector": " or ",
-          "prefix": "Either ",
-          "suffix": "&ZeroWidthSpace;"
-        },
         "discard": "Discard {0} cards each.",
         "drawAnotherEvent": "Draw another %game.events.type.{0}% Event.",
         "drawEvent": "Draw a %game.events.type.{0}% Event.",
