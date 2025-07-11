@@ -1535,6 +1535,12 @@ input[type="radio"] {
     }
   }
 
+  .placerholder-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
   &.text-white {
 
     .placeholder-character-icon {

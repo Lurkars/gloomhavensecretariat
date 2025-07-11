@@ -17,7 +17,7 @@ export class EventCardEffectComponent implements OnInit {
     effectString: string | undefined;
     effectObject: EventCardEffect | undefined;
     labelArgs: (string | number)[] = [];
-    effects: EventCardEffect[] = [];
+    effects: (string | EventCardEffect)[] = [];
 
     ngOnInit(): void {
         if (typeof this.effect === 'string') {
@@ -25,8 +25,7 @@ export class EventCardEffectComponent implements OnInit {
         } else if (this.effect) {
             this.effectObject = this.effect;
             this.labelArgs = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v === 'number' || typeof v === 'string') : [];
-            this.effects = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v !== 'number' && typeof v !== 'string') : [];
-
+            this.effects = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v !== 'number') : [];
             this.labelArgs.push(this.edition);
         }
     }

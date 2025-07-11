@@ -8,7 +8,7 @@
       {
         "label": "A",
         "narrative": "Join the fray! These insults will not go unanswered!",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Nothing like busting some drunken skulls to lift one's spirits. It turns out to be a great way to unwind. Unfortunately, the proprietor of the Sleeping Lion doesn't exactly see it that way, and he sullenly asks for compensation for the damage you caused.",
@@ -326,7 +326,7 @@
       {
         "label": "B",
         "narrative": "If the guards are distracted by an attacking force, now would be the perfect time to steal some valuables.",
-        "returnToDeck": true,
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "The town erupts into chaos with panicked cries of 'Vermlings!' — a perfect opportunity to collect some valuables. Slinking around to an abandoned shop, you find a way in and pilfer the safe. In the morning, the devastation from the assault is noticeable. Downtrodden looks greet you as you pass, and you wonder if your presence was missed along the walls.",
@@ -512,6 +512,7 @@
       {
         "label": "B",
         "narrative": "Refuse to deal with the merchant.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Wary of the merchant's overly exuberant nature, you politely decline his offer and go about your intended business.",
@@ -519,8 +520,7 @@
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -623,13 +623,14 @@
                 ]
               }
             ],
-            "removeFromDeck": true
+            "returnToDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Refuse the game of dice.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You laugh and wave away the man's offer. You get all the excitement you need fighting toe-to-toe against vicious monsters. In combat, what matters most is planning and tactics, which are far more interesting than some random roll of the dice.",
@@ -640,8 +641,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -704,6 +704,7 @@
       {
         "label": "B",
         "narrative": "Shake your head and walk away. Best not to take chances in such situations.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You loudly refuse the Harrower's offer and continue about your business. That thing should know better than to stray from the Sinking Market.",
@@ -720,8 +721,7 @@
                   ]
                 }
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -792,7 +792,7 @@
       {
         "label": "A",
         "narrative": "Stop and try the food.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You decide to indulge in the unknown and see what the Quatryl is offering. He looks very pleased at your approach and instructs you to inhale a tube of vapors, then take a bite from a bowl full of tiny golden spheres. As the spheres melt in your mouth, the taste mixes with the aroma of the vapors to create a wonderful experience. You pay what you can, but the Quatryl seems solely focused on how much you enjoyed the meal.",
@@ -984,7 +984,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -996,7 +996,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
@@ -1011,7 +1011,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -1218,7 +1218,6 @@
       {
         "label": "A",
         "narrative": "Agree to guard the goods. It should be easy money.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "condition": {
@@ -1235,7 +1234,8 @@
                   10
                 ]
               }
-            ]
+            ],
+            "returnToDeck": true
           },
           {
             "condition": {
@@ -1693,7 +1693,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -1757,7 +1757,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -1901,6 +1901,7 @@
       {
         "label": "B",
         "narrative": "Take a clear shot at him with a bow before he disappears into the grating.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You raise your bow and take aim at the thief. A woman screams, but you try not to let it faze you. As the Vermling pauses to open the grate, you fire the arrow and see the furry figure drop. You smile and go to retrieve your gold from the corpse. You get a lot of dirty looks, though. Apparently firing a bow on a crowded street is frowned upon.",
@@ -1911,8 +1912,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -1988,7 +1988,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -2026,7 +2026,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -2041,7 +2041,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
@@ -2119,7 +2119,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -2150,7 +2150,8 @@
                   "78"
                 ]
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -2162,7 +2163,7 @@
                 "type": "noEffect"
               }
             ],
-            "removeFromDeck": true
+            "returnToDeck": true
           }
         ]
       },
@@ -2180,7 +2181,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -2230,7 +2231,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -2242,7 +2243,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -2460,7 +2461,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -2475,7 +2476,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
@@ -2500,7 +2501,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -2512,7 +2513,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -2635,7 +2636,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
@@ -2732,6 +2733,7 @@
       {
         "label": "B",
         "narrative": "Move along. You don't need any more potions.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Shaking your head, you move past the Vermling and get back to your business. She begins to make sobbing sounds behind you. \"But, but you die without potion! Is life worth nothing?\"",
@@ -2739,8 +2741,7 @@
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2823,13 +2824,28 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "You don't have enought money to send him contraption, so you decide just to keep it for yourself.",
+            "effects": [
+              {
+                "type": "outome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
           }
         ]
       },
       {
         "label": "B",
         "narrative": "You don't want to pay for postage. Just keep the thing for yourself.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Like an eager treasure hunter, you pry up the floorboards in the Tinkerer's old room and find a trove of useless junk, plus a detailed robotic spider that is anything but useless. You switch it on and let it scurry around the room. This could be a significant help in battle. No way it's getting shipped off.",
@@ -2841,8 +2857,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -2904,6 +2919,7 @@
       {
         "label": "B",
         "narrative": "Direct him to the Savvas Elemental Guild and go back to sleep.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "\"Ah, yes, that is probably a good idea,\" he says. \"Thanks for your time and I hope your friend the Spellweaver is doing well!\"",
@@ -2914,8 +2930,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2975,7 +2990,7 @@
       {
         "label": "A",
         "narrative": "Have a drink with the Cragheart.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "One drink turns into five, and five turns into even more. It is a great night of revelry at the Sleeping Lion. You see sadness in the Cragheart's eyes when you finally stand up to leave. It tells you it's been hard to find people to relate to since leaving the party and it thanks you for your continued friendship.",
@@ -2999,7 +3014,7 @@
       {
         "label": "B",
         "narrative": "Encourage the Cragheart to move on with its life.",
-        "returnToDeck": true,
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Not fitting in with its own kind or with a city of mostly humans, the Cragheart thought it could depend on a misfit group of mercenaries for friendship. It understands that its adventuring life is now in the past, though, and that it should go find a new place to belong. It sadly admits that it has no idea where that would be, but the Cragheart gets up and leaves the tavern nonetheless.",
@@ -3052,7 +3067,7 @@
       {
         "label": "B",
         "narrative": "Let the guards continue their business and just continue with yours.",
-        "returnToDeck": true,
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "The Mindthief flicks her tail and throws insults around, but it doesn't seem to have any positive effect. She is led away and out of view. You get about your business, hoping that bit about the town being poisoned wasn't too serious.",
@@ -3096,7 +3111,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -3108,13 +3123,14 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Refuse to pay for the note.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You laugh in indignation and push the messenger away. He opens his mouth to object, then thinks better of it and runs off. You turn back to bartering, now leveraging the proof of your extreme thriftiness against the merchant.",
@@ -3125,8 +3141,7 @@
                   3
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -3301,7 +3316,8 @@
               {
                 "type": "noEffect"
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -3316,7 +3332,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -3400,7 +3416,7 @@
       {
         "label": "B",
         "narrative": "Stay silent and keep out of it.",
-        "returnToDeck": true,
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You casually move on, wondering how the guards found themselves on the wrong side of the Berserker's rage. It probably wasn't very difficult.",
@@ -3612,6 +3628,7 @@
       {
         "label": "B",
         "narrative": "Refuse to pay for the note.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You laugh in indignation and push the messenger away. He opens his mouth to object, then thinks better of it and runs off. You turn back to bartering, now leveraging the proof of your extreme thriftiness against the merchant.",
@@ -3622,8 +3639,7 @@
                   3
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -3638,6 +3654,7 @@
       {
         "label": "A",
         "narrative": "Join the crowd in laughing at the man.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You move closer and join in on the fun. After a while, the man gives up and resigns himself to his glass. But his story provides entertainment for weeks.",
@@ -3744,7 +3761,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -3756,7 +3773,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
@@ -3780,7 +3797,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       }
@@ -4065,13 +4082,14 @@
                   1
                 ]
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
               "type": "otherwise"
             },
-            "narrative": {
+            "effects": {
               "type": "outcome",
               "values": [
                 "B"
@@ -4083,6 +4101,7 @@
       {
         "label": "B",
         "narrative": "Get the Sawbones on a boat across the Misty Sea. New adventures surely await there.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You flatly refuse to pay off the Sawbones' debt and convince him the only way to escape his pursuers is to board a ship bound for the eastern continent, far out of their reach. He is reluctant, but eventually agrees when you remind him what unknown adventures await in the land across the ocean. You see him off in the night and desperately hope that is the last you hear of this situation.",
@@ -4123,13 +4142,28 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "Seeing as how you don't have enough money, you decide to pursue other options.",
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Refuse to pay. You won't be strong-armed by anyone.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You laugh and wave your hand dismissively. There's no way you will be paying such a large amount of money to these thugs. Unfortunately, the Inox is not amused. \"Then your payment will be blood!\" she says. \"Meet us in the back alley, and we'll see if we can't come to terms.\"",
@@ -4146,8 +4180,7 @@
                   "debt-collection"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -4220,6 +4253,7 @@
       {
         "label": "B",
         "narrative": "Get the staff out of your room and throw it into the bay.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You race out of the inn, trying to minimize the damage caused by the never-ending stream of water. Not knowing what else to do, you head toward the river. Standing on the banks, you shrug and toss the staff into the current. You guess you'll never know how the staff ended up where it did or why it suddenly turned into a faucet.",
@@ -4227,8 +4261,7 @@
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -4471,6 +4504,7 @@
       {
         "label": "B",
         "narrative": "Throw the crystal into the bay.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Not wanting to waste your time with the problem, you walk to the docks and throw the crystal into the bay. When you hear reports of harsher weather and larger waves hitting the docks, you try not to pay them any mind.",
@@ -4481,8 +4515,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -4547,6 +4580,7 @@
       {
         "label": "A",
         "narrative": "Lie and say that you are still working on it.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Oh, hmm...well, that's disappointing. The Captain looks at you with dejected frustration. \"If you could, please look into the sightings as soon as you can. I'd hate to think of some giant flying creature attacking the city.\"",
@@ -4564,6 +4598,7 @@
       {
         "label": "B",
         "narrative": "Tell the Captain you decided not to kill the Elder Drake.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Oh, my...well, okay.\" The Captain looks at you with stunned curiosity. \"So there is a massive, fire-breathing drake up in the mountains, and you decided there was no reason to kill it? Interesting.\" The Captain wanders off, mumbling about needing to find better help.",
@@ -4574,8 +4609,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -4632,6 +4666,7 @@
       {
         "label": "B",
         "narrative": "Decline the suspicious offer and continue your business.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Gavin looks flabbergasted as you walk away. \"Who will protect my ships when there is no one to trust? I guess I'll just have to keep looking.\"",
@@ -4639,8 +4674,7 @@
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -4677,7 +4711,8 @@
                   "grave-job"
                 ]
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -4688,7 +4723,8 @@
               {
                 "type": "noEffect"
               }
-            ]
+            ],
+            "returnToDeck": true
           }
         ]
       },
@@ -4826,7 +4862,8 @@
               {
                 "type": "noEffect"
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -4841,13 +4878,14 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "These guards are not interested in a friendly discourse. Prepare to defend yourself.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Seeing the situation turning south, you waste no time pulling your weapons and prepare for an attack. The guards are more than happy to oblige. Luckily your foes sustain only some minor injuries in the time it takes for another squad of guards to arrive and break up the scuffle. They let you go on your way, but you can see the disdain in all of their eyes.",
@@ -4858,8 +4896,7 @@
                   2
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -4918,7 +4955,7 @@
       {
         "label": "A",
         "narrative": "Run from the howling to safety.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You pick up and run as fast as you can through the underbrush and away from the ominous sounds. They seem to be receding as you stumble headlong into some sort of thicket filled with sticky spines.<br><br>You pull yourself out, but not before your skin is pierced in numerous places and becomes inflamed. Best to avoid this plant in the future.",
@@ -4936,7 +4973,7 @@
       {
         "label": "B",
         "narrative": "Let the wolves come.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Confident that the wolves pose no significant threat, you stand your ground and prepare for battle. The pack comes — ragged and hungry, slowly emerging from the dark — and surrounds your party.<br><br>There are more of them than you expected, but not enough to take you down. You suffer a bite or two, but are able to fight them off.",
@@ -4962,7 +4999,7 @@
       {
         "label": "A",
         "narrative": "Eat the berries.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You shrug and grab a handful of berries to stuff in your mouth. They are incredibly sweet and just the right amount of tart. You couldn't feel better about your decision.",
@@ -5106,6 +5143,7 @@
       {
         "label": "A",
         "narrative": "Help the Inox fight off the humans.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Fearing the battle could go either way, you charge into the fray, laying low the human attackers. When the dust settles, the Inox offer you a skeptical thanks.",
@@ -5124,6 +5162,7 @@
       {
         "label": "B",
         "narrative": "Help the humans fight off the Inox.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "With your arrival, the Inox retreat back into the woods, one of them casting hexes as he flees.",
@@ -5140,8 +5179,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -5247,7 +5285,7 @@
       {
         "label": "A",
         "narrative": "Pay the thieves.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You sigh and hand over what coins you have. The man maintains his grin. \"Well, thank you, kind sirs. It was a pleasure meeting you, and have pleasant day!\" The bandits move off in one direction as you continue in the other.",
@@ -5265,6 +5303,7 @@
       {
         "label": "B",
         "narrative": "Resist the robbery, killing as many thieves as you can.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Unfazed by the ambush, you draw your weapons and attack the bandits in the bushes. The leader tries to withdraw, but you cut him down as well. There are a lot of bandits, but they don't put up too much of a fight. They seem weak and malnourished. You guess the leader wasn't kidding about needing to buy food.",
@@ -5386,6 +5425,7 @@
       {
         "label": "A",
         "narrative": "Try to find a clearing where you can avoid the falling rocks.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You race forward, scanning the area for an open space where the danger from rock slides will be less severe. After dodging some rocks and getting hit by others, you find a relatively safe area and wait for the chaos to subside.",
@@ -5424,7 +5464,7 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -5454,6 +5494,7 @@
       {
         "label": "A",
         "narrative": "Leave the puppy to fend for itself.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Adorable as the puppy is, you are not the ones to care for it. You are headed into danger, and you can't let anything distract you from the task at hand. It follows you for a while, barking in indignation, but it eventually wanders off.",
@@ -5468,6 +5509,7 @@
       {
         "label": "B",
         "narrative": "Take the puppy and bring it back to Gloomhaven.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You sigh and lift the puppy into your arms. It barks happily and licks your face. This will surely prove a distraction in your upcoming battle, but once you get back to Gloomhaven, you should be able to find it a nice home.",
@@ -5484,8 +5526,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -5544,7 +5585,7 @@
       {
         "label": "A",
         "narrative": "Shoot at the birds.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You pull back your bow and take aim. The arrow flies true and connects with one of the birds. You retrieve it, pluck it, cook it, and eat it. Definitely beats the field rations you carry with you.",
@@ -5585,7 +5626,7 @@
       {
         "label": "A",
         "narrative": "Shoot at the birds.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You pull back your bow and take aim. The instant you loose the arrow, however, you notice something odd about the birds. They are much farther away than you realized and much bigger. The arrow misses, but it gets their attention. As the flock turns and descends toward you, you realize you just shot at a group of drakes. You run for cover among the trees, but are hit by their acidic spit a number of times in the process.",
@@ -5632,6 +5673,7 @@
       {
         "label": "A",
         "narrative": "Shoot at one of the deer.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You notch your bow and take a few steps forward to find a better shooting position. Unfortunately, the deer notice your presence and bound off. You shoot a few arrows as they go, but nothing connects. Then an arrow flies out of the brush and into your shoulder. \"Foul city-dwellers!\" a voice cries out from the trees. \"I had been stalking that herd for hours and you spooked them!\" More arrows rain down as you run away.",
@@ -5655,6 +5697,7 @@
       {
         "label": "B",
         "narrative": "Just watch the deer for a little bit.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You are enjoying watching the animals graze when an arrow flies out and hits the larger of the deer in its center chest. It bolts away, but doesn't make it very far before collapsing. Then you see a large Inox emerge from the brush and turn toward you. \"I thought you were going to do something stupid there for a second. Thanks for not scaring away my quarry. Allow me to share some of the spoils with you.\"",
@@ -5760,6 +5803,7 @@
       {
         "label": "B",
         "narrative": "Attack the insulting, contemptuous Inox.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Enraged by the Inox's insulting tongue, you take up your weapons and attack. Even the Inox were not expecting a move so bold. The fight is brutal, especially with your enemy mounted, but after felling a number of their warriors, the rest retreat.",
@@ -5770,8 +5814,7 @@
                   3
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -5800,7 +5843,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -5815,13 +5858,14 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Interfere with the guards to help the man escape.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Criminals deserve freedom as much as the next man. While the guards are distracted by the one escapee, you rush to the wagon and release the others. Chaos erupts as the prisoners scatter in every direction. Many manage to escape, and you find a mysterious gift of thanks waiting on your doorstep when you return to Gloomhaven.",
@@ -5845,8 +5889,7 @@
                   ]
                 }
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -5967,7 +6010,7 @@
       {
         "label": "A",
         "narrative": "Help push out the Quatryl ringmaster's wagon.",
-        "returnToDeck": true,
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Well, I certainly could not have done that on my own. Your assistance is greatly appreciated. I tell you what — the next time we're back in Gloomhaven, why don't you stop by our circus, and we'll let you in for free.",
@@ -5986,6 +6029,7 @@
       {
         "label": "B",
         "narrative": "Help push out the fortune-teller's wagon.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You take pity on an old Orchid woman trying to extricate her fortune-teller's wagon by herself. You help her get it back on the road, and then she grabs you and looks deep into your eyes. \"Your path is dark and cursed. There is a shadow around you — a Gloom. You must leave this place. Be rid of it before it consumes you.\"",
@@ -6157,6 +6201,7 @@
       {
         "label": "B",
         "narrative": "Fight off the Inox. They'll get no payments from you.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You raise your weapons and state that no payments will be made this day. The group of Inox snarls and attacks. After you land a few solid blows, though, they break off and run away back to the west, leaving you to tend to your wounds.",
@@ -6167,8 +6212,7 @@
                   3
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -6226,6 +6270,7 @@
       {
         "label": "B",
         "narrative": "Tie up the man and take all of the goods he is so concerned about.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You smile widely and approach the man. He doesn't even put up a fight. The first thing you do is gag him, because he is a talker. You select the lightest of the valuables to take with you and leave the man tied up on the side of the road. You could say his day just went from bad to worse, but that's not your problem.",
@@ -6242,8 +6287,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -6296,6 +6340,7 @@
       {
         "label": "B",
         "narrative": "Take the time to find a way around the trees.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You head into the underbrush of the grove to get around the felled trees, but it is rough going. The growth is very dense and there are quite a few prickly thorns to contend with.",
@@ -6306,8 +6351,7 @@
                   2
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -6397,7 +6441,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -6412,13 +6456,14 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Backtrack and find a way around the stone-filled valley.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You sigh and turn around. After some backward progress, you find another path through the foothills and work your way through it. Unfortunately, it leads you directly into a den of wolves, and they don't seem too happy about your sudden arrival. You fend them off, but they leave you wounded.",
@@ -6429,8 +6474,7 @@
                   "wound"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -6460,7 +6504,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -6482,13 +6526,14 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Finish the job the Vermlings started and loot whatever is left.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "It takes very little effort to finish off those who survived and put them out of their misery. Unfortunately, the Vermlings were quite thorough in their raid. You only manage to find a handful of goods, with the rest presumably either taken or burned.",
@@ -6499,8 +6544,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -6651,6 +6695,7 @@
       {
         "label": "B",
         "narrative": "You spent good money on these supplies. Refuse to help.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You apologize curtly and continue on your way. The Valraths seem disappointed, but vaguely understanding. It doesn't stop them from whispering things about you to each other as you walk away.",
@@ -6661,8 +6706,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -6691,7 +6735,8 @@
               {
                 "type": "noEffect"
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -6761,7 +6806,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -6798,7 +6843,7 @@
                 "type": "noEffect"
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -6886,7 +6931,8 @@
               {
                 "type": "noEffect"
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -6947,13 +6993,14 @@
                 ]
               }
             ],
-            "removeFromDeck": true
+            "returnToDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Find another way to your destination.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "The wood is large and you spend a little more time than you 'd like trying to get around it. With enough effort, you arrive at your destination just a little bit more tired than you d like.",
@@ -6992,7 +7039,8 @@
               {
                 "type": "noEffect"
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -7006,13 +7054,15 @@
                   2
                 ]
               }
-            ]
+            ],
+            "removeFromDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Wait out the storm under the outcropping.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "It is far from ideal, but the outcropping keeps you mostly dry and protects you from the howling wind. You wait hours and hours, huddled up under the rock until the storm passes. By the time you arrive at your destination, you are a bit slow on your feet due to lack of sleep.",
@@ -7023,8 +7073,7 @@
                   "disarm"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -7057,7 +7106,8 @@
                   1
                 ]
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -7078,13 +7128,14 @@
                 ]
               }
             ],
-            "returnToDeck": true
+            "removeFromDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Move on. That forest does not look friendly.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Whatever happened here could not have been good, but also it doesn't concern you and you're not about to head into that dark, dense forest ill-prepared. You find it best to move along and attend to your own matters.",
@@ -7092,8 +7143,7 @@
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -7159,6 +7209,7 @@
       {
         "label": "B",
         "narrative": "This is clearly some sort of plague. Avoid it at all costs.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You recoil in terror and quickly move along. You can hear the Valrath sobbing as you do so, but you know well enough to avoid a plague when you see it.",
@@ -7166,8 +7217,7 @@
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -7226,6 +7276,7 @@
       {
         "label": "B",
         "narrative": "Head downriver and find a better place to cross.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "It takes an hour, but you finally find a rocky area where the river has been diverted into many smaller streams. It is no problem to cross, but just finding the spot and then getting back on track takes some of the fire out of you.",
@@ -7236,8 +7287,7 @@
                   2
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -7294,6 +7344,7 @@
       {
         "label": "B",
         "narrative": "Arm yourself and fight off the bear.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You quickly grab your weapons as the bear comes down on you. The fight is brutal and ugly, but it could have been much worse.",
@@ -7304,8 +7355,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -7430,7 +7480,7 @@
       {
         "label": "B",
         "narrative": "Use the distraction to disengage from the demons and run away.",
-        "returnToDeck": true,
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "This mysterious third party seems to have things under control, and the demons appear more interested in them anyway. You take the opportunity to retreat from the fight and run off into the night. You don't feel great about it, but at least you're alive.",
@@ -7713,7 +7763,6 @@
       {
         "label": "B",
         "narrative": "Investigate the area and get to the bottom of this.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You spend a good hour looking over the area, scouring every bush and divot you can find. Unfortunately, you find no other clues about what happened here and end up just tiring yourself out.",
@@ -7745,6 +7794,7 @@
       {
         "label": "A",
         "narrative": "Investigate further.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You get closer to the pike. The skull looks pretty fresh. There are still bits of decayed flesh attached to the bone, and flies buzz around it. You can see there is a small paper card stuck in its mouth, so you carefully reach in and pull it out. The card is black and depicts a skull with blades running through it. Come to think of it, you remember rumors of an assassins' guild that has been known to use the same imagery. You get out of the area as quickly as you can.",
@@ -7756,14 +7806,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Arm yourself and make a defensive retreat from the area.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You remember rumors of an assassins' guild that places a skull on a pike outside the houses of their victims before they strike. Fearing the worst, you pull out your weapons and survey the scene as you back away from the pike. Everything looks clear, so you quickly get as far away from the area as possible. Perhaps the skull was not meant for you.",
@@ -7771,8 +7821,7 @@
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -7916,7 +7965,6 @@
       {
         "label": "B",
         "narrative": "Give detailed directions about the way out and hope that is sufficient.",
-        "removeFromDeck": true,
         "outcomes": [
           {
             "condition": {
@@ -7935,7 +7983,8 @@
                   1
                 ]
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -7950,7 +7999,8 @@
                   69
                 ]
               }
-            ]
+            ],
+            "removeFromDeck": true
           }
         ]
       }
@@ -8139,6 +8189,7 @@
       {
         "label": "A",
         "narrative": "Cover yourself as best you can and try to walk through the swarm.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "If you were to list the top ten worst moments of your life, this would probably be up there. You walk into the swarm and the insects are everywhere, biting and clawing at your flesh. You move as quickly as you can, emerging from the other side with your life intact but your sanity in shambles. Oddly, though, you also feel as though you were just in the presence of a powerful, divine force.",
@@ -8164,6 +8215,7 @@
       {
         "label": "B",
         "narrative": "Use whatever you can to burn a path through the swarm.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "It takes a monumental effort, but you are eventually able to disperse the cloud of insects enough to run through to the other side. As you do so, however, you hear an odd voice among the buzzing, cursing you for your violent actions.",
@@ -8569,6 +8621,7 @@
       {
         "label": "B",
         "narrative": "Demonstrate your lack of virtue by robbing the merchant.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "\"Well, I just — I mean, I'd never…\" the merchant trails off incredulously. \"To think there are places in the world where such barbarism still exists. It boggles the mind.\"",
@@ -8579,8 +8632,7 @@
                   20
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -8639,6 +8691,7 @@
       {
         "label": "A",
         "narrative": "Chase them down quickly and kill them.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You roar and charge up the hill. The demons are no match for you, either in speed or in strength. You kill them quickly but painfully.",

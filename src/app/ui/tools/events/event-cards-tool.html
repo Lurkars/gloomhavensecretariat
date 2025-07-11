@@ -24,13 +24,15 @@
       <span [ghs-label]="'game.events.select'"></span>
       <select [(ngModel)]="selected" (change)="updateQueryParams()">
         <option [value]="-1">none</option>
-        <option [value]="0">0</option>
-        <option [value]="1">1</option>
+        <option [value]="0">flip</option>
+        <option [value]="1">A.</option>
+        <option [value]="2">B.</option>
+        <option [value]="3">C.</option>
       </select>
     </label>
   </div>
 
   <div class="events">
-    <ghs-event-card [event]="event" *ngFor="let event of events" [select]="selected"></ghs-event-card>
+    <ghs-event-card [event]="event" *ngFor="let event of events" [select]="selected" [flipped]="selected == 0"></ghs-event-card>
   </div>
 </div>

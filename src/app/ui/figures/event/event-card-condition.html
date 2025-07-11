@@ -1,4 +1,4 @@
-<span class="condition" [ngClass]="{'narrative': narrative}">
+<span class="condition" [ngClass]="{'narrative': narrative, 'fh': edition == 'fh'}">
     <span *ngIf="conditionString" class="text" [ngClass]="{'text-white': light}">
         <span [ngClass]="{'text-white': light}" [ghs-label]="conditionString"></span>:
     </span>

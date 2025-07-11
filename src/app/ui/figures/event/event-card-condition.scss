@@ -2,6 +2,10 @@
 
     font-family: var(--ghs-font-text);
 
+    &.fh {
+        font-family: var(--ghs-font-fh-normal);
+    }
+
     &.narrative {
         font-style: italic;
         text-transform: uppercase;

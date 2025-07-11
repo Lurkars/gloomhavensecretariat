@@ -71,6 +71,8 @@ export class EventCardOutcome {
 
 export enum EventCardEffectType {
     battleGoal = "battleGoal",
+    campaignSticker = "campaignSticker",
+    checkbox = "checkbox",
     choose = "choose",
     collectiveGold = "collectiveGold",
     collectiveGoldAdditional = "collectiveGoldAdditional",
@@ -88,7 +90,9 @@ export enum EventCardEffectType {
     globalAchievement = "globalAchievement",
     gold = "gold",
     goldAdditional = "goldAdditional",
+    inspiration = "inspiration",
     item = "item",
+    itemFH = "itemFH",
     itemCollective = "itemCollective",
     itemDesign = "itemDesign",
     loseBattleGoal = "loseBattleGoal",
@@ -116,7 +120,7 @@ export enum EventCardEffectType {
     scenarioDamage = "scenarioDamage",
     scenarioSingleMinus1 = "scenarioSingleMinus1",
     soldier = "soldier",
-    unlockScenario = "unlockScenario"
+    soldiers = "soldiers"
 }
 
 export class EventCardEffect {

@@ -19,6 +19,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     @Input() event: EventCard | undefined;
     @Input() identifier: Identifier | undefined | false;
     @Input() select: number = -1;
+    @Input() flipped: boolean = false;
     @Input() disabled: boolean = false;
 
     label: string = "";
@@ -39,7 +40,7 @@ export class EventCardComponent implements OnInit, OnChanges {
                 this.event = undefined; // TODO
             }
         } else if (changes['select'] && changes['select'].previousValue != changes['select'].currentValue) {
-            this.selectOption(this.select);
+            this.selectOption(this.select - 1);
         }
         this.light = this.event && ['city'].indexOf(this.event.type) != -1 || false;
     }
@@ -48,8 +49,8 @@ export class EventCardComponent implements OnInit, OnChanges {
         if (this.event && !this.disabled && this.selected != index) {
             this.selected = index;
             this.rewardSelection = [];
-            if (this.selected != -1) {
-
+            if (this.selected < -1) {
+                this.selected = -1;
             }
         }
     }

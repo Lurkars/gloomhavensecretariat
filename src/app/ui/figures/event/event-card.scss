@@ -16,9 +16,20 @@
         background-position: center center;
         background-repeat: no-repeat;
         border-radius: 0.5em;
+        background-color: var(--ghs-color-lightgray);
 
-        background-image: url('~src/assets/images/eventcards/city-front.png');
-        color: var(--ghs-color-white);
+        &.city {
+            background-image: url('~src/assets/images/eventcards/city-front.png');
+            color: var(--ghs-color-white);
+
+            .options .option .card-action .ghs-svg {
+                filter: var(--ghs-filter-white);
+            }
+
+            .card-id {
+                color: var(--ghs-color-white);
+            }
+        }
 
         &.road {
             background-image: url('~src/assets/images/eventcards/road-front.png');
@@ -32,10 +43,6 @@
 
                 &:nth-child(2)::before {
                     filter: grayscale(0.7);
-                }
-
-                .card-action .ghs-svg {
-                    filter: var(--ghs-filter-black);
                 }
             }
         }
@@ -58,6 +65,37 @@
 
                 .card-action .ghs-svg {
                     filter: var(--ghs-filter-black);
+                }
+            }
+        }
+
+        &.boat,
+        &.winter-road,
+        &.summer-road,
+        &.winter-outpost,
+        &.summer-outpost {
+            .options .option {
+                padding-left: 2.5em;
+                font-size: 0.63em;
+
+                &::before {
+                    font-family: var(--ghs-font-fh-text);
+                    font-size: 1.6em;
+                    left: 0.5em;
+                    top: 1.3em;
+                }
+
+                &:nth-child(2)::before,
+                &:nth-child(3)::before {
+                    top: 0.9em;
+                }
+
+                .outcome {
+
+                    .text,
+                    .condition {
+                        font-family: var(--ghs-font-fh-normal);
+                    }
                 }
             }
         }
@@ -85,6 +123,15 @@
                 overflow: auto;
                 max-height: 50%;
                 flex: 1 1 auto;
+
+                &.single {
+                    max-height: 100%;
+                    padding-left: 2em;
+
+                    &::before {
+                        display: none;
+                    }
+                }
 
                 &:first-child {
                     padding-top: 2em;
@@ -115,7 +162,6 @@
 
                 .outcome {
                     position: relative;
-                    margin-bottom: 1em;
 
                     .text,
                     .condition {
@@ -138,9 +184,6 @@
                             margin-top: 0.3em;
                             margin-bottom: 0.3em;
                             width: 100%;
-                            font-family: var(--ghs-font-text);
-                            font-size: 1.2em;
-                            font-weight: bold;
                         }
                     }
 
@@ -158,7 +201,6 @@
                     .ghs-svg {
                         width: 2em;
                         height: auto;
-                        filter: var(--ghs-filter-white);
                     }
                 }
 
@@ -214,15 +256,27 @@
         background-position: center center;
         background-repeat: no-repeat;
         border-radius: 0.5em;
-        background-image: url('~src/assets/images/eventcards/city-back.png');
-        color: var(--ghs-color-white);
+        background-color: var(--ghs-color-lightgray);
+
+        &.city {
+            background-image: url('~src/assets/images/eventcards/city-back.png');
+            color: var(--ghs-color-white);
+
+            .wrapper .content .options::before {
+                filter: none;
+            }
+
+            .card-id {
+                color: var(--ghs-color-white);
+            }
+        }
 
         &.road {
             background-image: url('~src/assets/images/eventcards/road-back.png');
             color: var(--ghs-color-darkgray);
 
-            .wrapper .content .options {
-                border-top-color: var(--ghs-color-darkgray);
+            .card-id {
+                color: var(--ghs-color-white);
             }
         }
 
@@ -230,11 +284,33 @@
             background-image: url('~src/assets/images/eventcards/rift-back.png');
             color: var(--ghs-color-darkgray);
 
-            .wrapper .content .options {
-                border-top-color: var(--ghs-color-darkgray);
+            .card-id {
+                color: var(--ghs-color-white);
             }
         }
 
+        &.boat {
+            background-image: url('~src/assets/images/eventcards/boat-back.png');
+        }
+
+        &.winter-road {
+            background-image: url('~src/assets/images/eventcards/winter-road-back.png');
+        }
+
+
+        &.summer-road {
+            background-image: url('~src/assets/images/eventcards/summer-road-back.png');
+        }
+
+        &.summer-outpost {
+            background-image: url('~src/assets/images/eventcards/summer-outpost-back.png');
+        }
+
+        &.winter-outpost {
+            background-image: url('~src/assets/images/eventcards/winter-outpost-back.png');
+        }
+
+        &.boat,
         &.winter-road,
         &.summer-road,
         &.winter-outpost,
@@ -252,11 +328,30 @@
                     padding: 0 8%;
                     padding-top: 5%;
 
-                    .text,
+                    .text {
+                        font-family: var(--ghs-font-fh-normal);
+                    }
+
                     .options .option {
-                        font-family: var(--ghs-font-fh-text);
+                        font-family: var(--ghs-font-fh-normal);
                     }
                 }
+            }
+
+            .card-id {
+                font-family: var(--ghs-font-fh-title);
+                transform: rotate(90deg);
+                font-size: 0.8em;
+                left: initial;
+                right: -6%;
+                width: 22%;
+                height: 6%;
+                top: 78%;
+                background-size: 100% 100%;
+                background-position: top left;
+                background-repeat: no-repeat;
+                background-image: url('~src/assets/images/eventcards/fh-card-id.png');
+                filter: var(--ghs-filter-shadow);
             }
         }
 
@@ -317,15 +412,26 @@
                 }
 
                 .options {
+                    position: relative;
                     display: flex;
                     flex-direction: column;
-                    border-top: 0.1em solid var(--ghs-color-white);
-                    margin-top: 0.25em;
+                    margin-top: 0.5em;
+
+                    &::before {
+                        content: " ";
+                        position: absolute;
+                        top: -0.1em;
+                        left: 0;
+                        height: 0.1em;
+                        width: 100%;
+                        background-size: 100% 100%;
+                        background-image: url('~src/assets/images/eventcards/divider.png');
+                        filter: brightness(0);
+                    }
 
                     .option {
                         cursor: pointer;
                         margin-top: 0.4em;
-                        margin-bottom: 0.4em;
                         font-family: var(--ghs-font-text);
                         font-size: 0.6em;
                         line-height: 0.9em;
@@ -338,6 +444,14 @@
 
                         &:hover {
                             opacity: 0.7;
+                        }
+
+                        &.single {
+                            font-weight: bold;
+
+                            .title {
+                                display: none;
+                            }
                         }
                     }
                 }
@@ -359,7 +473,6 @@
             font-family: var(--ghs-font-title);
             font-size: 0.6em;
             padding-top: 0.1em;
-            color: var(--ghs-color-white);
             z-index: 1;
         }
     }

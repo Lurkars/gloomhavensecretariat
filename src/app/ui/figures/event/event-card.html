@@ -1,6 +1,6 @@
 <div class="event-card-container" #container>
-    <div class="card vertical reverse event" [ngClass]="{'flipped': selected != -1, 'disabled': disabled}"
-        [style.fontSize]="container.offsetWidth * 0.072 + 'px'">
+    <div class="card vertical reverse event" [ngClass]="{'flipped': selected != -1 || flipped, 'disabled': disabled}"
+        [style.fontSize]="container.offsetWidth * 0.070 + 'px'">
         <div class="card-back" [ngClass]="event ? event.type : ''">
             <ng-container *ngIf="!!event">
                 <div class="wrapper">
@@ -8,7 +8,8 @@
                         <div class="text placeholder" [ghs-label]="event.narrative"></div>
                         <div class="options">
                             <ng-container *ngFor="let option of event.options; let i = index;">
-                                <div *ngIf="option.narrative" class="option" (click)="selectOption(i)">
+                                <div *ngIf="option.narrative" class="option" (click)="selectOption(i)"
+                                    [ngClass]="{'single': event.options.length == 1}">
                                     <span class="title" [ghs-label]="'game.events.option'"
                                         [ghs-label-args]="['game.events.option.' + (i+1)]"></span>
                                     <span class="choice" [ghs-label]="option.narrative"></span>
@@ -24,7 +25,7 @@
             <ng-container *ngIf="!!event">
                 <div class="options">
                     <div class="option" *ngFor="let option of event.options; let i = index;"
-                        [ngClass]="{'selected' : selected == i}" ghs-pointer-input
+                        [ngClass]="{'selected' : selected == i || selected == -1 && flipped, 'single': event.options.length == 1}" ghs-pointer-input
                         (doubleClick)="selectOption(selected == i ? -1 : i)">
                         <div class="outcome" *ngFor="let outcome of option.outcomes;  let outcomeIndex = index;">
                             <ghs-event-card-condition [condition]="outcome.condition" [narrative]="true"

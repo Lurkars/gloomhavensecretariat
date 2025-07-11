@@ -8,7 +8,7 @@
       {
         "label": "A",
         "narrative": "Retrieve some herbs and mushrooms on a quick trip outside the city.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "In short order, you forage enough to meet Hail's needs and return. She excitedly gathers the goods from you and then disappears. You wait for some time... She reappears with a look of bewilderment. \"You are still here? Very well, maybe this will qualify as a fortune.\" A bag of gold appears at your feet, and she shoos you away as you pick it up. You leave the tavern, your original question now out of mind.",
@@ -41,6 +41,7 @@
       {
         "label": "B",
         "narrative": "Collect some monster entrails during your next quest.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "condition": "During scenario, if you kill 5 or more monsters",
@@ -471,7 +472,8 @@
             "narrative": "Teleporting into the city, you apply as supplicants to the royals at court and are soon escorted up to the leader's chamber in the white, centermost tower. She welcomes you with open arms, and you each share stories of a great evil in both your worlds. The similarities are striking.",
             "effects": [
               "gains one ENHANCEMENT to any level 1 or X card."
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": "otherwise",
@@ -488,6 +490,7 @@
       {
         "label": "B",
         "narrative": "Climb the mountain.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Climbing an active volcano is no easy feat, but with great effort, you steadily ascend towards the summit. And once you reach the smoking magma pit at the top, you behold a sight that takes your breath away. You can see the whole plain below and the grand city beyond, which is dwarfed by the mountain. You feel like a god surveying creation.",
@@ -504,8 +507,7 @@
                   15
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -536,7 +538,8 @@
                   "bless:2"
                 ]
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": {
@@ -548,7 +551,8 @@
             "narrative": "We could never let ones so notorious as you pass through without a feast. As you revel, you greatly embellish your escapades, and they grant you a gift in return.",
             "effects": [
               "Gain any one item from the shop."
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": "Otherwise",
@@ -619,7 +623,8 @@
               {
                 "type": "item",
                 "values": [
-                  48
+                  48,
+                  "gh"
                 ],
                 "condition": {
                   "type": "character",
@@ -699,7 +704,8 @@
               {
                 "type": "noEffect"
               }
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": "otherwise",
@@ -774,7 +780,7 @@
       {
         "label": "B",
         "narrative": "Smash the cursed sphere.",
-        "returnToDeck": true,
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Without a second thought, you take out a weapon and strike at the sphere. You strike and strike again until it bursts into shards that scatter in all directions, producing a malicious pulse of energy. Whatever that thing may have been, you are quite sure that getting rid of it was the correct course of action.",
@@ -815,7 +821,8 @@
               {
                 "type": "noEffect"
               }
-            ]
+            ],
+            "returnToDeck": true
           },
           {
             "condition": "otherwise",
@@ -913,7 +920,8 @@
             "narrative": "You are able to sew him up and stabilize his condition. Soon after, he stands and grabs hold of a crude weapon. It appears he wants to help you.",
             "effects": [
               "Spawn one normal Bandit Guard with 5 remaining hit points next to any character. It is an ally to you and enemy to all monsters."
-            ]
+            ],
+            "removeFromDeck": true
           },
           {
             "condition": "otherwise",
@@ -922,7 +930,8 @@
               {
                 "type": "noEffect"
               }
-            ]
+            ],
+            "removeFromDeck": true
           }
         ]
       }
@@ -937,7 +946,7 @@
       {
         "label": "A",
         "narrative": "Check out the exotic wares of the imp market.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "One sniffs at your hand. It seems curious.",
@@ -950,7 +959,7 @@
       {
         "label": "B",
         "narrative": "Most of the stuff here looks dangerous. Leave the imp market.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Although they seem friendly, trading with forest imps might not be the smartest move at the moment. You decide to bid farewell to this noisy plane, but the imps have some trickery up their sleeves as a parting gift.",
@@ -971,7 +980,7 @@
       {
         "label": "A",
         "narrative": "Check out the exotic wares of the imp market.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "There is a vendor to your right, selling bottles in fantastical shapes and colors. After having their properties explained by a quirky imp, you narrow your choices down to three.",
@@ -987,7 +996,7 @@
       {
         "label": "B",
         "narrative": "Most of the stuff here looks dangerous. Leave the imp market.",
-        "removeFromDeck": true,
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Although they seem friendly, trading with forest imps might not be the smartest move at the moment. You decide to bid farewell to this noisy plane, but the imps have some trickery up their sleeves as a parting gift.",
@@ -1075,14 +1084,14 @@
       {
         "label": "B",
         "narrative": "Visit the forges of the castle town.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "After a short walk to the castle town and meeting more adventuring bands with finely crafted weapons, you are soon convinced you must see the smiths' competition. You are not at all disappointed by what you find. Only the finest of weapons are displayed at the forges, and the designs for even grander weapons are sold at the market.",
             "effects": [
               "Each may buy one of the following: Any available one or two-hand item from the shop at a discount of 10 gold.",
               "35 gold: Random Item Design."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -1350,6 +1359,7 @@
       {
         "label": "B",
         "narrative": "Prepare to fight blindly.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Despite being at a disadvantage, you ready your weapons and charge into the fray. Your battle prowess shows as you cut down your enemies, but you don't come out unscathed. Afterwards, you realize that you have slain a group of Aesthers. Actually, they look quite familiar, but that doesn't matter. What counts is the purses at their side.",
@@ -1366,8 +1376,7 @@
                   3
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1382,6 +1391,7 @@
       {
         "label": "A",
         "narrative": "This portal is far too dangerous. Forget it and loot the bodies of the Aesthers.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You pay no heed to the portal, and soon, the rip in space disappears. Meanwhile, you pick clean what you can from this bloody scene and continue on your journey.",
@@ -1399,6 +1409,7 @@
       {
         "label": "B",
         "narrative": "Jump through the portal while you can.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You jump through the portal and arrive in some kind of prison. Only one cell seems to be inhabited, so you approach it. Inside, you see a figure with tattered robes. His face and hands are dirty, and he looks weary, like he hasn't eaten in many days. ‘You're not that foul Aesther gang! Have you come to rescue me? I'm Straya, an enchanter from the nearby village. My captors had me enhancing all their gear! Release me, and I will happily repay you with my skills.'",
@@ -1487,6 +1498,7 @@
       {
         "label": "B",
         "narrative": "Avoid trouble by paying the fee.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "condition": "valrath",
@@ -1520,6 +1532,7 @@
       {
         "label": "A",
         "narrative": "Step through the portal.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Sure, there are definite risks involved with jumping into a portal to an unknown and possibly hostile place, but they must be worth it. You just can't bear to be on the current road anymore. The unknown is far preferable to the unending drudgery before you, so you step through the portal with resolve.",
@@ -1537,6 +1550,7 @@
       {
         "label": "B",
         "narrative": "Trust that the road will provide you with enough excitement.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "There may be good reasons to leave your current path, but you are concerned with the dangers beyond that portal. You decide it is better to get to your destination in one piece rather than not get there at all. There is enough excitement around Gloomhaven to not want to take a chance with whatever else is out there.",
@@ -1547,8 +1561,7 @@
                   "road"
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -1581,6 +1594,7 @@
       {
         "label": "B",
         "narrative": "Trust that the road will provide you with enough excitement.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "There may be good reasons to leave your current path, but you are certain it is time to finally put this whole portal business to rest and move on with your life. You have made enough sacrifices.",

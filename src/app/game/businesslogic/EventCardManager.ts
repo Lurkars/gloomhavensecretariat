@@ -20,7 +20,7 @@ export class EventCardManager {
       this.game.party.eventDecks[type] = [];
       // TODO: add migration with scenario rewards
     }
-    
+
     if (campaignData && campaignData.events && campaignData.events[type]) {
       campaignData.events[type].forEach((cardId) => this.addEvent(type, cardId));
     }
@@ -60,7 +60,7 @@ export class EventCardManager {
   applyEvent(eventCard: EventCard, selected: number, subSelections: number[] = []) {
     const option = eventCard.options[selected];
     let returnToDeck = false;
-    let removeFromDeck = false;
+    let removeFromDeck = eventCard.edition == 'fh';
     if (option) {
       if (option.removeFromDeck) {
         removeFromDeck = true;
@@ -89,7 +89,7 @@ export class EventCardManager {
       }
     }
 
-    if (!returnToDeck && !removeFromDeck) {
+    if (!returnToDeck && !removeFromDeck || !option) {
       console.warn("Apply event without valid selection", eventCard, selected);
     } else if (returnToDeck) {
       this.returnEvent(eventCard.type, eventCard.cardId);
