@@ -2,7 +2,8 @@
     <span *ngIf="conditionString" class="text" [ngClass]="{'text-white': light}">
         <span [ngClass]="{'text-white': light}" [ghs-label]="conditionString"></span>:
     </span>
-    <span *ngIf="conditionObject" class="text" [ngClass]="{'text-white': light}">
+    <span *ngIf="conditionObject" class="text {{'condition-' + conditionObject.type}}"
+        [ngClass]="{'text-white': light}">
         <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.conditions.' + conditionObject.type"
             [ghs-label-args]="labelArgs"></span>:
     </span>

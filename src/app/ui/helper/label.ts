@@ -233,6 +233,10 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "trait" && value) {
         image = '<img src="./assets/images/fh/character/traits/trait.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-trait">' + image + settingsManager.getLabel('data.character.traits.' + value) + '</span>';
+      } else if (type == "checkbox") {
+        replace = '<span class="placeholder-checkbox"></span>';
+      } else if (type == "eventCard" && value) {
+        replace = '<span class="placeholder-action"><img src="./assets/images/eventcards/' + value + '.svg" class="icon ghs-svg"></span>';
       } else if (type == "eventCheckbox" && value) {
         replace = '<span class="event-checkbox">' + value + '</span>';
       } else if (type == "enhancement" && split.length == 3) {

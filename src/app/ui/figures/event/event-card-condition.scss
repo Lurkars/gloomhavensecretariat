@@ -9,5 +9,9 @@
     &.narrative {
         font-style: italic;
         text-transform: uppercase;
+
+        .condition-character {
+            font-size: 1.1em;
+        }
     }
 }

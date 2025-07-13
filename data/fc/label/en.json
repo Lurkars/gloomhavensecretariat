@@ -278,6 +278,7 @@
     "Ship": "Ship"
   },
   "partyAchievements": {
+    "accomplices": "Accomplices",
     "a-strongbox": "A Strongbox",
     "angels-of-death": "Angels of Death",
     "beauty-in-freedom": "Beauty in Freedom",
@@ -289,6 +290,7 @@
     "hunting-the-hunter": "Hunting the Hunter",
     "northern-expedition": "Nothern Expedition",
     "opportunists": "Opportunists",
+    "saboteurs": "Saboteurs",
     "xangroths-aid": "Xangroth's Aid"
   },
   "scenario": {

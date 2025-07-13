@@ -4,6 +4,10 @@
     font-size: 1.2em;
     font-weight: bold;
 
+    &.city {
+        font-weight: normal;
+    }
+
     &.fh {
         font-size: 0.94em;
         font-family: var(--ghs-font-fh-normal);

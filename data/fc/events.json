@@ -44,7 +44,8 @@
         "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "During scenario, if you kill 5 or more monsters",
+            "narrative": "Place this card in any one character's play ares: During scenario, if you kill 5 or more monsters, read below. Otherwise: %game.eventCard:remove%."
+          },          {
             "narrative": "It takes some effort to gather all the entrails Hail needs. She gratefully collects them but stops in her tracks. \"I'm forgetting something. What was it? Oh yes, here.\" She waves a hand and disappears. You feel strange but good. So much for your question, though.",
             "effects": [
               "You gain one +1 enhancement to any level 1 or X card."
@@ -84,7 +85,7 @@
         "returnToDeck": true,
         "outcomes": [
           {
-            "narrative": "The trip to the bar was a wonderful idea. One drink led to another, and all in all, it was a great time. Although your intoxication conflicted with your gambling, you are left with only fond memories of the night. Still, there is some melancholy in your mind the next morning. Maybe there was a bit of truth to your musings. Only time will tell.",
+            "narrative": "The trip to the bar was a wonderful idea. One drink led to another, and all in all, it was a great time. Although your intoxication conflicted with your gambling, you are left with only fond memories of the night.<br><br>Still, there is some melancholy in your mind the next morning. Maybe there was a bit of truth to your musings. Only time will tell.",
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -116,7 +117,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You approach the proprietor of the inn and explain that in the fight, you had been concerned about thieves taking advantage of the chaos to rob him, and you are here to give back his money. He sighs in relief: \"Thank you for returning my belongings! I'm glad you weren't stealing it for your own purposes. Have a free meal!\"",
+            "narrative": "You approach the proprietor of the inn and explain that in the fight, you had been concerned about thieves taking advantage of the chaos to rob him, and you are here to give back his money.<br><br>He sighs in relief: \"Thank you for returning my belongings! I'm glad you weren't stealing it for your own purposes. Have a free meal!\"",
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -172,7 +173,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You nod to the keeper, and feeling badly for his loss, you hand him whatever you can spare. While the gold isn't quite the amount you had taken, you are able to leave feeling better about yourself. But just a bit. He is grateful and offers a small prayer to you. \"May kindness guide your ways.\"",
+            "narrative": "You nod to the keeper, and feeling badly for his loss, you hand him whatever you can spare. While the gold isn't quite the amount you had taken, you are able to leave feeling better about yourself. But just a bit.<br><br>He is grateful and offers a small prayer to you. \"May kindness guide your ways.\"",
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -311,30 +312,86 @@
       {
         "label": "A",
         "narrative": "Ask Dominic Scrim.",
-        "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You set out to the Town Records building with hopes that Dominic is available today.",
+            "narrative": "You set out to the Town Records building with hopes that Dominic is available today."
+          },
+          {
             "effects": [
-              "If the checkbox in outcome A is already marked, read outcome B.",
-              "Read section 45 on page 16, and mark this checkbox.",
-              "If both checkboxes on this card are marked: Otherwise:"
+              {
+                "condition": "If the checkbox in outcome A is already marked",
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
             ]
+          },
+          {
+            "effects": [
+              "Read section 45 on page 16, and mark this checkbox %game.checkbox%."
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
+            ],
+            "removeFromDeck": true
+          },
+          {
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ],
+            "returnToDeck": true
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Inquire with the Vigil.",
-        "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "You set out to the excavation site at the Void. You see many Vigil guards and researchers.",
+            "narrative": "You set out to the excavation site at the Void. You see many Vigil guards and researchers."
+          },
+          {
             "effects": [
-              "If the checkbox in outcome B is already marked, read outcome A.",
-              "Read section 61 on page 21, and mark this checkbox.",
-              "If both checkboxes on this card are marked: Otherwise:"
+              {
+                "condition": "If the checkbox in outcome B is already marked",
+                "type": "outcome",
+                "values": [
+                  "A"
+                ]
+              }
             ]
+          },
+          {
+            "effects": [
+              "Read section 61 on page 21, and mark this checkbox %game.checkbox%."
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
+            ],
+            "removeFromDeck": true
+          },
+          {
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ],
+            "returnToDeck": true
           }
         ]
       }
@@ -348,16 +405,23 @@
     "options": [
       {
         "label": "A",
-        "narrative": "You travel to the Sinking Market with some coins. Maybe you can find a decent informant.",
+        "narrative": "Visit the Sinking Market (requires 10 collective gold).",
         "outcomes": [
           {
-            "condition": "If the checkbox in outcome A is already marked",
-            "narrative": {
-              "type": "outcome",
-              "values": [
-                "B"
-              ]
-            },
+            "narrative": "You travel to the Sinking Market with some coins. Maybe you can find a decent informant."
+          },
+          {
+            "effects": [
+              {
+                "condition": "If the checkbox in outcome A is already marked",
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
+          },
+          {
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -365,19 +429,23 @@
                   10
                 ]
               },
-              "Read section 78 on page 26, and mark this checkbox."
+              "Read section 78 on page 26, and mark this checkbox %game.checkbox%."
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
             ],
             "removeFromDeck": true
           },
           {
-            "condition": "Otherwise",
-            "narrative": "Read section 78 on page 26, and mark this checkbox.",
             "effects": [
               {
-                "type": "loseCollectiveGold",
-                "values": [
-                  10
-                ]
+                "condition": {
+                  "type": "otherwise"
+                }
               }
             ],
             "returnToDeck": true
@@ -386,25 +454,43 @@
       },
       {
         "label": "B",
-        "narrative": "Given your exploits, you figure the Merchant's Guild owes you a favor, so you head there.",
+        "narrative": "Ask the wealthy merchants of the Coin District.",
         "outcomes": [
           {
-            "condition": "If the checkbox in outcome B is already marked",
-            "narrative": {
-              "type": "outcome",
-              "values": [
-                "A"
-              ]
-            },
+            "narrative": "Given your exploits, you figure the Merchant's Guild owes you a favor, so you head there."
+          },
+          {
             "effects": [
-              "Read section 97 on page 32, and mark this checkbox."
+              {
+                "condition": "If the checkbox in outcome B is already marked",
+                "type": "outcome",
+                "values": [
+                  "A"
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              "Read section 97 on page 32, and mark this checkbox %game.checkbox%."
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
             ],
             "removeFromDeck": true
           },
           {
-            "condition": "Otherwise",
-            "narrative": "Read section 97 on page 32, and mark this checkbox.",
-            "effects": [],
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ],
             "returnToDeck": true
           }
         ]
@@ -422,17 +508,41 @@
         "narrative": "Seek the help of the Oak.",
         "outcomes": [
           {
-            "narrative": "After all your donations to the sanctuary, you are welcomed with open arms and guided to the Head Keeper of the Oak.",
+            "narrative": "After all your donations to the sanctuary, you are welcomed with open arms and guided to the Head Keeper of the Oak."
+          },
+          {
             "effects": [
-              "If the checkbox in outcome A is already marked, read outcome B.",
-              "Read section 107 on page 35, and mark this checkbox."
+              {
+                "condition": "If the checkbox in outcome A is already marked",
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              "Read section 107 on page 35, and mark this checkbox %game.checkbox%."
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
             ],
             "removeFromDeck": true
           },
           {
-            "condition": "If both checkboxes on this card are marked",
-            "narrative": "Otherwise:",
-            "effects": []
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ],
+            "returnToDeck": true
           }
         ]
       },
@@ -441,17 +551,41 @@
         "narrative": "Visit the library.",
         "outcomes": [
           {
-            "narrative": "You enter the library and find a knowledgeable researcher to help you look for clues.",
+            "narrative": "You enter the library and find a knowledgeable researcher to help you look for clues."
+          },
+          {
             "effects": [
-              "If the checkbox in outcome B is already marked, read outcome A.",
-              "Read section 122 on page 38, and mark this checkbox."
+              {
+                "condition": "If the checkbox in outcome B is already marked",
+                "type": "outcome",
+                "values": [
+                  "A"
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              "Read section 122 on page 38, and mark this checkbox %game.checkbox%."
+            ]
+          },
+          {
+            "effects": [
+              {
+                "condition": "If both checkboxes on this card are marked"
+              }
             ],
             "removeFromDeck": true
           },
           {
-            "condition": "If both checkboxes on this card are marked",
-            "narrative": "Otherwise:",
-            "effects": []
+            "effects": [
+              {
+                "condition": {
+                  "type": "otherwise"
+                }
+              }
+            ],
+            "returnToDeck": true
           }
         ]
       }
@@ -468,10 +602,15 @@
         "narrative": "Visit the city.",
         "outcomes": [
           {
-            "condition": "eye",
+            "condition": {
+              "type": "character",
+              "values": [
+                "diviner"
+              ]
+            },
             "narrative": "Teleporting into the city, you apply as supplicants to the royals at court and are soon escorted up to the leader's chamber in the white, centermost tower. She welcomes you with open arms, and you each share stories of a great evil in both your worlds. The similarities are striking.",
             "effects": [
-              "gains one ENHANCEMENT to any level 1 or X card."
+              "%data.characterIcon.diviner% gains one +1 enhancement to any level 1 or X card."
             ],
             "removeFromDeck": true
           },
@@ -696,7 +835,7 @@
             "condition": {
               "type": "character",
               "values": [
-                "mindthief"
+                "squidface"
               ]
             },
             "narrative": "The Harrowers converse with each other a short while. Hisses and clicks are exchanged. The shifting movements of the swarm slow down, and soon the insects return to their mounds.",
@@ -815,7 +954,13 @@
         "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "angry-face,spellweaver",
+            "condition": {
+              "type": "character",
+              "values": [
+                "angry-face",
+                "spellweaver"
+              ]
+            },
             "narrative": "As the hum attunes to the crystals of your body, it starts to guide you along the paths. Following the frequency, you soon arrive at a pond with a crystalline surface. An open portal hangs suspended in the air just above it.",
             "effects": [
               {
@@ -840,7 +985,7 @@
       },
       {
         "label": "B",
-        "narrative": "Create a portal to another dimension (requires 🌀).",
+        "narrative": "Create a portal to another dimension (requires %data.characterIcon.diviner%).",
         "returnToDeck": true,
         "outcomes": [
           {
@@ -916,7 +1061,14 @@
         "narrative": "Tend to the man's wounds.",
         "outcomes": [
           {
-            "condition": "music-note,brute,sun",
+            "condition": {
+              "type": "character",
+              "values": [
+                "saw",
+                "music-note",
+                "sun"
+              ]
+            },
             "narrative": "You are able to sew him up and stabilize his condition. Soon after, he stands and grabs hold of a crude weapon. It appears he wants to help you.",
             "effects": [
               "Spawn one normal Bandit Guard with 5 remaining hit points next to any character. It is an ally to you and enemy to all monsters."
@@ -949,7 +1101,7 @@
         "returnToDeck": true,
         "outcomes": [
           {
-            "narrative": "One sniffs at your hand. It seems curious.",
+            "narrative": "There is a small group of animals at the end of the market, being herded by one of the forest imps. They are great four-legged beasts with grey, stony skin and centralized horns sprouting from their nose and back. The vendor addresses you: \"Kivaks can't stay long at your side, but you can rent them if you like. And they feel no pain, so don't worry about them adventuring with you.\" One sniffs at your hand. It seems curious.",
             "effects": [
               "One character may pay 15 gold for a temporary Kivak summon. (HP: 5, Move: 3, Attack: 2, Range: -)"
             ]
@@ -964,7 +1116,7 @@
           {
             "narrative": "Although they seem friendly, trading with forest imps might not be the smartest move at the moment. You decide to bid farewell to this noisy plane, but the imps have some trickery up their sleeves as a parting gift.",
             "effects": [
-              "During scenario, if any character would gain MUDDLE, they gain STRENGTHEN instead, and vice versa."
+              "During scenario, if any character would gain %game.condition.muddle%, they gain %game.condition.strengthen% instead, and vice versa."
             ]
           }
         ]
@@ -986,7 +1138,7 @@
             "narrative": "There is a vendor to your right, selling bottles in fantastical shapes and colors. After having their properties explained by a quirky imp, you narrow your choices down to three.",
             "effects": [
               "Each may buy one of the following:",
-              "10 gold: 'Vial of Rejuvenation' (Once, at any time during the next scenario, gain REGENERATE).",
+              "10 gold: 'Vial of Rejuvenation' (Once, at any time during the next scenario, gain %game.condition.regenerate%).",
               "15 gold: 'Minor Antidote' (Item 153).",
               "40 gold: 'Vial of Knowledge' (Gain 25 experience and 1 ✔)."
             ]
@@ -1001,7 +1153,7 @@
           {
             "narrative": "Although they seem friendly, trading with forest imps might not be the smartest move at the moment. You decide to bid farewell to this noisy plane, but the imps have some trickery up their sleeves as a parting gift.",
             "effects": [
-              "During scenario, if any character would gain DISARM, they gain IMMOBILIZE instead, and vice versa."
+              "During scenario, if any character would gain %game.condition.disarm%, they gain %game.condition.immobilize% instead, and vice versa."
             ]
           }
         ]
@@ -1052,10 +1204,10 @@
                   2
                 ]
               },
-              "Mark C checkboxes (gain the reward when the whole row is marked):",
-              "+1 prosperity.",
-              "+1 reputation, +1 prosperity.",
-              "+2 prosperity."
+              "Mark [C] checkboxes (gain the reward when the whole row is marked):",
+              "%game.checkbox% %game.checkbox% %game.checkbox% +1 prosperity.",
+              "%game.checkbox% %game.checkbox% %game.checkbox% %game.checkbox% +1 reputation, +1 prosperity.",
+              "%game.checkbox% %game.checkbox% %game.checkbox% %game.checkbox% %game.checkbox% +2 prosperity."
             ]
           }
         ]
@@ -1076,7 +1228,13 @@
           {
             "narrative": "You decide to head for the obsidian tower. A place unconquered sounds like the challenge you've awaited. You are confident that you will reach the top and wring the secrets from it. There has to be something of value inside.",
             "effects": [
-              "Unlock \"Tower to the Stars\" (Challenge). Replace current scenario with this one, and play it immediately (does not require 🗝️) (see page 26 of the scenario book)."
+              {
+                "type": "scenario",
+                "values": [
+                  "Challenge-1"
+                ]
+              },
+              "Replace current scenario with this one, and play it immediately (does not require %data.characterIcon.diviner%).<br>(see page 26 of the scenario book)."
             ]
           }
         ]
@@ -1108,7 +1266,16 @@
         "narrative": "Try to barter for knowledge.",
         "outcomes": [
           {
-            "condition": "eye,spellweaver,lightning-bolt,angry-face and 20 collective GOLD",
+            "condition": {
+              "type": "character",
+              "values": [
+                "diviner",
+                "eclipse",
+                "saw",
+                "scoundrel",
+                "circles"
+              ]
+            },
             "narrative": "The scholars greet you with odd expressions on their faces. Their language is somewhat foreign to you, but you are able to communicate and arrive at a deal for information on Bastian's plans, though it costs a hefty sum.",
             "effects": [
               {
@@ -1143,7 +1310,14 @@
         "narrative": "Attempt to steal a piece of technology.",
         "outcomes": [
           {
-            "condition": "eye,spellweaver,angry-face",
+            "condition": {
+              "type": "character",
+              "values": [
+                "mindthief",
+                "eclipse",
+                "scoundrel"
+              ]
+            },
             "narrative": "Concealing yourself within the shadow of a building, you lie in wait for an opportunity. When it comes, you strike swiftly and with precision. An ancient bow is now yours.",
             "effects": [
               {
@@ -1325,7 +1499,7 @@
           {
             "narrative": "As this Aesther is so bent on hunting you down, it is quite easy to lead it back to the alleys where you found it. On the way there, you manage to vent some of your frustration—dealing minor blows and guiding it through old traps.",
             "effects": [
-              "Replace current scenario with \"The Shackles Loosen\" (111), and play it immediately in campaign mode until complete, changing the scenario goal to kill the Husk. It starts with 2xC damage."
+              "Replace current scenario with \"The Shackles Loosen\" %data.scenarioNumber:111%, and play it immediately in campaign mode until complete, changing the scenario goal to kill the Husk. It starts with [2xC] damage."
             ]
           }
         ]
@@ -1344,7 +1518,7 @@
         "returnToDeck": true,
         "outcomes": [
           {
-            "narrative": "You realize this is the same group of thieves who hired you to set up this ambush in the first place. You've fallen into your own trap! You call out to the Aesthers and explain that you are the travelers who helped them before.",
+            "narrative": "You realize this is the same group of thieves who hired you to set up this ambush in the first place. You've fallen into your own trap! You call out to the Aesthers and explain that you are the travelers who helped them before.<br><br>\"What are you nitwits doing? Now, our whole plan is ruined! We paid you for this! Reset the traps, and be on your way!\"",
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -1362,7 +1536,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "Despite being at a disadvantage, you ready your weapons and charge into the fray. Your battle prowess shows as you cut down your enemies, but you don't come out unscathed. Afterwards, you realize that you have slain a group of Aesthers. Actually, they look quite familiar, but that doesn't matter. What counts is the purses at their side.",
+            "narrative": "Despite being at a disadvantage, you ready your weapons and charge into the fray. Your battle prowess shows as you cut down your enemies, but you don't come out unscathed.<br><br>Afterwards, you realize that you have slain a group of Aesthers. Actually, they look quite familiar, but that doesn't matter. What counts is the purses at their side.",
             "effects": [
               {
                 "type": "gold",
@@ -1414,7 +1588,7 @@
           {
             "narrative": "You jump through the portal and arrive in some kind of prison. Only one cell seems to be inhabited, so you approach it. Inside, you see a figure with tattered robes. His face and hands are dirty, and he looks weary, like he hasn't eaten in many days. ‘You're not that foul Aesther gang! Have you come to rescue me? I'm Straya, an enchanter from the nearby village. My captors had me enhancing all their gear! Release me, and I will happily repay you with my skills.'",
             "effects": [
-              "Each gains one ENHANCEMENT to any level 1 or X card."
+              "Each gains one +1 enhancement to any level 1 or X card."
             ]
           }
         ]
@@ -1477,7 +1651,7 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "narrative": "Words are pointless in such a situation, so rather than responding, you draw weapons and attack. The Valrath warriors are every bit as fearsome as the stories describe. By the time you drive them off, you are bleeding from many wounds. You quickly fill your waterskins at the oasis and leave before more warriors return.",
+            "narrative": "Words are pointless in such a situation, so rather than responding, you draw weapons and attack. The Valrath warriors are every bit as fearsome as the stories describe. By the time you drive them off, you are bleeding from many wounds.<br><br>You quickly fill your waterskins at the oasis and leave before more warriors return.",
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -1501,7 +1675,13 @@
         "removeFromDeck": true,
         "outcomes": [
           {
-            "condition": "valrath",
+            "condition": {
+              "type": "character",
+              "values": [
+                "three-spears",
+                "sun"
+              ]
+            },
             "narrative": "A commotion starts among the tribal warriors. They unsheathe their blades and point at the Valrath in your group. They seem incredibly agitated by the sight, and there is no use finding a peaceful solution.",
             "effects": [
               {
@@ -1516,7 +1696,7 @@
             "condition": "otherwise",
             "narrative": "The negotiations are difficult, due to their inability to recognize or value your money. Your gear, on the other hand, is of great interest to them.",
             "effects": [
-              "Collectively lose items worth at least 10xC gold."
+              "Collectively lose items worth at least [10xC] gold."
             ]
           }
         ]

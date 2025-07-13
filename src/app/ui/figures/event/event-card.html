@@ -25,16 +25,19 @@
             <ng-container *ngIf="!!event">
                 <div class="options">
                     <div class="option" *ngFor="let option of event.options; let i = index;"
-                        [ngClass]="{'selected' : selected == i || selected == -1 && flipped, 'single': event.options.length == 1}" ghs-pointer-input
-                        (doubleClick)="selectOption(selected == i ? -1 : i)">
+                        [ngClass]="{'selected' : selected == i || selected == -1 && flipped, 'single': event.options.length == 1}"
+                        ghs-pointer-input (doubleClick)="selectOption(selected == i ? -1 : i)">
                         <div class="outcome" *ngFor="let outcome of option.outcomes;  let outcomeIndex = index;">
                             <ghs-event-card-condition [condition]="outcome.condition" [narrative]="true"
-                                [edition]="event.edition" [light]="light"></ghs-event-card-condition>
-                            <span *ngIf="outcome.narrative" class="text" [ghs-label]="outcome.narrative"></span>
+                                [edition]="event.edition" [eventType]="event.type"
+                                [light]="light"></ghs-event-card-condition>
+                            <span *ngIf="outcome.narrative" class="text" [ngClass]="{'text-white': light}"
+                                [ghs-label]="outcome.narrative"></span>
 
                             <div class="effects">
                                 <ghs-event-card-effect *ngFor="let effect of outcome.effects;" [effect]="effect"
-                                    [edition]="event.edition" [light]="light"></ghs-event-card-effect>
+                                    [edition]="event.edition" [eventType]="event.type"
+                                    [light]="light"></ghs-event-card-effect>
                             </div>
 
                             <div class="card-action" *ngIf="outcome.returnToDeck || outcome.removeFromDeck">

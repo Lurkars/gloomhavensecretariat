@@ -30,6 +30,8 @@
         <option [value]="3">C.</option>
       </select>
     </label>
+    <button (click)="changeIterator(-1)" [disabled]="iterator == -1">-</button>
+    <button (click)="changeIterator(1)">+</button>
   </div>
 
   <div class="events">

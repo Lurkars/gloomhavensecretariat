@@ -162,6 +162,7 @@
 
                 .outcome {
                     position: relative;
+                    margin-bottom: 0.5em;
 
                     .text,
                     .condition {
@@ -178,11 +179,10 @@
                     .effects {
                         display: flex;
                         flex-wrap: wrap;
+                        margin-top: 0.5em;
 
                         ghs-event-card-effect {
                             position: relative;
-                            margin-top: 0.3em;
-                            margin-bottom: 0.3em;
                             width: 100%;
                         }
                     }
@@ -219,33 +219,7 @@
                     &::before {
                         opacity: 1;
                     }
-
-                    .effects .effect {
-                        cursor: pointer;
-                        // opacity: 0.6;
-
-                        &.selected-effect {
-                            opacity: 1;
-
-                            .rewards {
-
-                                .separator {
-                                    opacity: 0.8;
-                                }
-
-                                .reward {
-                                    cursor: pointer;
-                                    opacity: 0.6;
-
-                                    &.selected-reward {
-                                        opacity: 1;
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
-
             }
         }
 

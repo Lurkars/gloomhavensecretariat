@@ -1541,6 +1541,45 @@ input[type="radio"] {
     height: auto;
   }
 
+  .placeholder-checkbox {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 0.75em;
+    height: 0.75em;
+    top: 0.1em;
+    border: 0.1em solid var(--ghs-color-black);
+    border-radius: 0.1em;
+    z-index: 2;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 115%;
+      height: 115%;
+      transform: scale(0);
+      transform-origin: top left;
+      transition: 120ms transform ease-in-out;
+      z-index: 1;
+      background-image: url('~src/assets/images/checkmark.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: var(--ghs-filter-darkgray);
+    }
+
+    &.checked::before {
+      transform: scale(1) translate(-50%, -50%);
+    }
+
+    &.checked.check::before {
+      transform: scale(1);
+    }
+  }
+
   &.text-white {
 
     .placeholder-character-icon {
@@ -1557,6 +1596,14 @@ input[type="radio"] {
 
     .placeholder-item-fh {
       filter: invert(1);
+    }
+
+    .placeholder-checkbox {
+      border-color: var(--ghs-color-white);
+
+      &::before {
+        filter: var(--ghs-filter-white);
+      }
     }
   }
 

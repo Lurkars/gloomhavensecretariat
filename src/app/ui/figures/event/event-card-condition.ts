@@ -11,6 +11,7 @@ export class EventCardConditionComponent implements OnInit {
 
     @Input() condition: string | EventCardCondition | undefined;
     @Input() edition!: string;
+    @Input() eventType!: string;
     @Input() narrative: boolean = false;
     @Input() light: boolean = true;
 

@@ -4089,12 +4089,14 @@
             "condition": {
               "type": "otherwise"
             },
-            "effects": {
-              "type": "outcome",
-              "values": [
-                "B"
-              ]
-            }
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
           }
         ]
       },
