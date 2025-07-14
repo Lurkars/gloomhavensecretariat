@@ -1,7 +1,11 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Game } from "../model/Game";
-import { EventCard, EventCardEffect, EventCardIdentifier } from "../model/data/EventCard";
+import { EventCard, EventCardApplyEffects, EventCardEffect, EventCardEffectType, EventCardIdentifier } from "../model/data/EventCard";
 import { gameManager } from "./GameManager";
+import { settingsManager } from "./SettingsManager";
+import { Condition, ConditionName } from "../model/data/Condition";
+import { Character } from "../model/Character";
+import { AttackModifierType } from "../model/data/AttackModifier";
 
 export class EventCardManager {
   game: Game;
@@ -10,11 +14,15 @@ export class EventCardManager {
     this.game = game;
   }
 
-  getEventCardsForEdition(type: string, edition: string): EventCard[] {
-    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(edition) != -1).flatMap((editionData) => editionData.events).filter((eventCard) => eventCard.type == type);
+  getEventCardsForEdition(edition: string, type: string): EventCard[] {
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.events).filter((eventCard) => eventCard.type == type);
   }
 
-  buildPartyDeck(type: string, edition: string, migrate: boolean = false) {
+  getEventCardForEdition(edition: string, type: string, cardId: string): EventCard | undefined {
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.events).find((eventCard) => eventCard.type == type && eventCard.cardId == cardId);
+  }
+
+  buildPartyDeck(edition: string, type: string, migrate: boolean = false) {
     const campaignData = gameManager.campaignData(edition);
     if (migrate) {
       this.game.party.eventDecks[type] = [];
@@ -22,8 +30,12 @@ export class EventCardManager {
     }
 
     if (campaignData && campaignData.events && campaignData.events[type]) {
-      campaignData.events[type].forEach((cardId) => this.addEvent(type, cardId));
+      this.buildEventDeck(type, campaignData.events[type]);
     }
+  }
+
+  buildEventDeck(type: string, cardIds: string[]) {
+    cardIds.forEach((cardId) => this.addEvent(type, cardId))
   }
 
   shuffleEvents(type: string) {
@@ -43,7 +55,7 @@ export class EventCardManager {
       this.game.party.eventDecks[type] = [];
     }
     this.removeEvent(type, cardId);
-    this.game.party.eventDecks[type].unshift(cardId);
+    this.game.party.eventDecks[type].push(cardId);
   }
 
   removeEvent(type: string, cardId: string) {
@@ -57,7 +69,7 @@ export class EventCardManager {
     }
   }
 
-  applyEvent(eventCard: EventCard, selected: number, subSelections: number[] = []) {
+  applyEvent(eventCard: EventCard, selected: number, subSelections: number[], scenario: boolean) {
     const option = eventCard.options[selected];
     let returnToDeck = false;
     let removeFromDeck = eventCard.edition == 'fh';
@@ -79,13 +91,11 @@ export class EventCardManager {
         })
       }
 
-      // apply effects
-      if (option.outcomes) {
-        option.outcomes.forEach((outcome, i) => {
-          if (!subSelections || subSelections.length == 0 || subSelections.indexOf(i) != -1) {
-            this.applyEffects(outcome.effects.filter((e) => typeof e !== 'string'));
-          }
-        })
+      if (settingsManager.settings.eventsApply) {
+        this.applyEventOutcomes(eventCard, selected, subSelections, false);
+        if (scenario) {
+          this.applyEventOutcomes(eventCard, selected, subSelections, true);
+        }
       }
     }
 
@@ -97,12 +107,95 @@ export class EventCardManager {
       this.removeEvent(eventCard.type, eventCard.cardId);
     }
 
-    this.game.party.eventCards.push(new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections));
+    this.game.party.eventCards.push(new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections, !scenario));
   }
 
-  applyEffects(effects: EventCardEffect[]) {
-    // TODO
-    console.warn("Missing implementation for applying effects", effects);
+  applyEventOutcomes(eventCard: EventCard, selected: number, subSelections: number[] = [], scenario: boolean = false) {
+    const option = eventCard.options[selected];
+
+    // apply effects
+    if (option && option.outcomes) {
+      option.outcomes.forEach((outcome, i) => {
+        if (!subSelections || subSelections.length == 0 || subSelections.indexOf(i) != -1) {
+          this.applyEffects(outcome.effects.filter((e) => typeof e !== 'string'), scenario);
+        }
+      })
+    }
+  }
+
+  applyEffects(effects: EventCardEffect[], scenario: boolean) {
+    effects.forEach((effect) => {
+      if (EventCardApplyEffects.indexOf(effect.type) != -1) {
+        if (scenario) {
+          switch (effect.type) {
+            case EventCardEffectType.scenarioCondition:
+              if (effect.values) {
+                effect.values.filter((value) => typeof value === 'string').forEach((value) => {
+                  const condition = value.split(':')[0] as ConditionName;
+                  if (condition != ConditionName.bless && condition != ConditionName.curse) {
+                    this.game.figures.forEach((figure) => {
+                      if (figure instanceof Character) {
+                        gameManager.entityManager.addCondition(figure, figure, new Condition(condition));
+                      }
+                    })
+                  } else if (condition == ConditionName.curse) {
+                    const count = value.split(':')[1] ? +value.split(':')[1] : 1;
+                    for (let i = 0; i < count; i++) {
+                      this.game.figures.forEach((figure) => {
+                        if (figure instanceof Character && gameManager.attackModifierManager.countUpcomingCurses(false) < 10) {
+                          gameManager.attackModifierManager.addModifierByType(figure.attackModifierDeck, AttackModifierType.curse);
+                        }
+                      })
+                    }
+                  } else if (condition == ConditionName.bless) {
+                    const count = value.split(':')[1] ? +value.split(':')[1] : 1;
+                    for (let i = 0; i < count; i++) {
+                      this.game.figures.forEach((figure) => {
+                        if (figure instanceof Character && gameManager.attackModifierManager.countUpcomingBlesses() < 10) {
+                          gameManager.attackModifierManager.addModifierByType(figure.attackModifierDeck, AttackModifierType.bless);
+                        }
+                      })
+                    }
+                  }
+                })
+              }
+              break;
+            case EventCardEffectType.scenarioDamage:
+              const damage = +effect.values[0];
+              if (damage) {
+                this.game.figures.forEach((figure) => {
+                  if (figure instanceof Character) {
+                    gameManager.entityManager.changeHealth(figure, figure, -damage, true);
+                  }
+                })
+              }
+              break;
+            case EventCardEffectType.scenarioSingleMinus1:
+              const minus1 = +effect.values[0];
+              if (minus1) {
+                for (let i = 0; i < minus1; i++) {
+                  this.game.figures.forEach((figure) => {
+                    if (figure instanceof Character && gameManager.attackModifierManager.countExtraMinus1() < 15) {
+                      gameManager.attackModifierManager.addModifierByType(figure.attackModifierDeck, AttackModifierType.minus1extra);
+                    }
+                  })
+                }
+              }
+              break;
+          }
+
+        } else {
+          switch (effect.type) {
+            case EventCardEffectType.drawAnotherEvent:
+            case EventCardEffectType.drawEvent:
+              this.game.eventDraw = effect.values[0] as string;
+              break;
+          }
+        }
+      } else if (effect.type != EventCardEffectType.noEffect) {
+        console.warn("Missing implementation for applying effect", effect, scenario);
+      }
+    })
   }
 
 }

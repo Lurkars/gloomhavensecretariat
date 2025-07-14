@@ -341,6 +341,17 @@ export class MainComponent implements OnInit {
       }
     }
     gameManager.game.party.campaignMode = edition != 'gh2e';
+
+    gameManager.game.party.eventDecks = {};
+    const campaignData = gameManager.campaignData(edition);
+    if (campaignData && campaignData.events) {
+      Object.keys(campaignData.events).forEach((eventType) => {
+        if (campaignData.events[eventType] && campaignData.events[eventType].length) {
+          gameManager.eventCardManager.buildPartyDeck(edition || gameManager.currentEdition(), eventType, true);
+          console.debug("Build " + eventType + " Event Deck");
+        }
+      })
+    }
     gameManager.stateManager.after();
   }
 
@@ -348,6 +359,7 @@ export class MainComponent implements OnInit {
     gameManager.stateManager.before("cancelCampaign", 'data.edition.' + edition);
     gameManager.game.edition = undefined;
     gameManager.game.party.campaignMode = false;
+    gameManager.game.party.eventDecks = {};
     gameManager.stateManager.after();
   }
 

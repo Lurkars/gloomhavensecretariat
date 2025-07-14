@@ -1154,12 +1154,19 @@ input[type="radio"] {
       top: initial;
       bottom: 100%;
       height: auto;
-      ;
     }
 
     &.center {
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    &.middle {
+      top: -100%;
+    }
+
+    &.left {
+      transform: translateX(-100%);
     }
 
     &:hover {

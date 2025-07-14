@@ -174,7 +174,7 @@ export class Party {
       if (campaignData && campaignData.events) {
         Object.keys(campaignData.events).forEach((eventType) => {
           if (campaignData.events[eventType] && campaignData.events[eventType].length && !this.eventDecks[eventType]) {
-            gameManager.eventCardManager.buildPartyDeck(eventType, this.edition || gameManager.currentEdition(), true);
+            gameManager.eventCardManager.buildPartyDeck(this.edition || gameManager.currentEdition(), eventType, true);
             console.debug("Build " + eventType + " Event Deck");
           }
         })

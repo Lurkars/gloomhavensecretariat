@@ -34,6 +34,7 @@ export class ScenarioData implements Editional, Spoilable {
   random: boolean = false;
   solo: string | undefined;
   allyDeck: boolean = false;
+  eventType: string | undefined;
   lootDeckConfig: LootDeckConfig = {};
   parent: string | undefined;
   parentSections: string[][] = [];
@@ -132,6 +133,7 @@ export class ScenarioRewards {
   chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  eventDeck: string = "";
   removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: number = 0;
@@ -181,6 +183,7 @@ export class ScenarioRewardHints {
   chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
+  eventDeck: string = "";
   removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: string = "";

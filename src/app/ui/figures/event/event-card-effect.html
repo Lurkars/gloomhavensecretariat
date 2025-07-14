@@ -1,8 +1,8 @@
 <span class="effect" [ngClass]="{'fh': edition == 'fh', 'city': eventType == 'city'}">
-    <span *ngIf="effectString" class="text" [ngClass]="{'inline': inline,}">
+    <span *ngIf="effectString" class="text" [ngClass]="{'inline': inline}">
         <span [ngClass]="{'text-white': light}" [ghs-label]="effectString"></span>
     </span>
-    <span *ngIf="effectObject" class="text" [ngClass]="{'text-white': light}">
+    <span *ngIf="effectObject" class="effect-object">
         <ghs-event-card-condition *ngIf="effectObject.condition" [condition]="effectObject.condition"
             [edition]="edition" [eventType]="eventType" [light]="light"></ghs-event-card-condition>
 
@@ -28,5 +28,15 @@
                     [eventType]="eventType" [light]="light"></ghs-event-card-effect>
             </label>
         </span>
+        <span class="hint-container automation-icon" [ngClass]="{'light': light}"
+            *ngIf="settingsManager.settings.eventsApply && EventCardApplyEffects.indexOf(effectObject.type) != -1">
+            <img class="hint-trigger ghs-svg" src="./assets/images/automation.svg">
+            <span class="hint middle left">
+                <div class="text">
+                    <span [ghs-label]="'game.events.effects.' + effectObject.type + '.automation'"></span>
+                </div>
+            </span>
+        </span>
     </span>
+
 </span>

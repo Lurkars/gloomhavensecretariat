@@ -45,7 +45,8 @@
         "outcomes": [
           {
             "narrative": "Place this card in any one character's play ares: During scenario, if you kill 5 or more monsters, read below. Otherwise: %game.eventCard:remove%."
-          },          {
+          },
+          {
             "narrative": "It takes some effort to gather all the entrails Hail needs. She gratefully collects them but stops in her tracks. \"I'm forgetting something. What was it? Oh yes, here.\" She waves a hand and disappears. You feel strange but good. So much for your question, though.",
             "effects": [
               "You gain one +1 enhancement to any level 1 or X card."
@@ -333,22 +334,22 @@
             ]
           },
           {
+            "removeFromDeck": true,
             "effects": [
               {
                 "condition": "If both checkboxes on this card are marked"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
+            "returnToDeck": true,
             "effects": [
               {
                 "condition": {
                   "type": "otherwise"
                 }
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -376,22 +377,22 @@
             ]
           },
           {
+            "removeFromDeck": true,
             "effects": [
               {
                 "condition": "If both checkboxes on this card are marked"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
+            "returnToDeck": true,
             "effects": [
               {
                 "condition": {
                   "type": "otherwise"
                 }
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -433,22 +434,22 @@
             ]
           },
           {
+            "removeFromDeck": true,
             "effects": [
               {
                 "condition": "If both checkboxes on this card are marked"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
+            "returnToDeck": true,
             "effects": [
               {
                 "condition": {
                   "type": "otherwise"
                 }
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -476,22 +477,22 @@
             ]
           },
           {
+            "removeFromDeck": true,
             "effects": [
               {
                 "condition": "If both checkboxes on this card are marked"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
+            "returnToDeck": true,
             "effects": [
               {
                 "condition": {
                   "type": "otherwise"
                 }
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -527,22 +528,22 @@
             ]
           },
           {
+            "removeFromDeck": true,
             "effects": [
               {
                 "condition": "If both checkboxes on this card are marked"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
+            "returnToDeck": true,
             "effects": [
               {
                 "condition": {
                   "type": "otherwise"
                 }
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -570,22 +571,22 @@
             ]
           },
           {
+            "removeFromDeck": true,
             "effects": [
               {
                 "condition": "If both checkboxes on this card are marked"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
+            "returnToDeck": true,
             "effects": [
               {
                 "condition": {
                   "type": "otherwise"
                 }
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -609,20 +610,20 @@
               ]
             },
             "narrative": "Teleporting into the city, you apply as supplicants to the royals at court and are soon escorted up to the leader's chamber in the white, centermost tower. She welcomes you with open arms, and you each share stories of a great evil in both your worlds. The similarities are striking.",
+            "removeFromDeck": true,
             "effects": [
               "%data.characterIcon.diviner% gains one +1 enhancement to any level 1 or X card."
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": "otherwise",
             "narrative": "The guards take issue with your appearance and bar your entry to the city—something about fearing foreigners.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -670,6 +671,7 @@
               ]
             },
             "narrative": "We could not let ones such as yourselves pass through without a feast! Come, join us! What a night to behold!",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -677,8 +679,7 @@
                   "bless:2"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
@@ -688,20 +689,20 @@
               ]
             },
             "narrative": "We could never let ones so notorious as you pass through without a feast. As you revel, you greatly embellish your escapades, and they grant you a gift in return.",
+            "removeFromDeck": true,
             "effects": [
               "Gain any one item from the shop."
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": "Otherwise",
             "narrative": "The envoy looks you up and down before shrugging. \"Very well, then. Be on your way.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -711,6 +712,7 @@
         "outcomes": [
           {
             "narrative": "Such tough ones we have here! You should join in our Tournament of Champions—a competition in various disciplines among all guests of this realm. You can compete to earn unimaginable rewards!",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "experience",
@@ -775,8 +777,7 @@
                   ]
                 }
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -839,12 +840,12 @@
               ]
             },
             "narrative": "The Harrowers converse with each other a short while. Hisses and clicks are exchanged. The shifting movements of the swarm slow down, and soon the insects return to their mounds.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": "otherwise",
@@ -866,6 +867,7 @@
         "outcomes": [
           {
             "narrative": "Sensing the agitation in the swarm, you draw your weapons and charge into the Harrower mass, stabbing here and there, hoping to hit something vital. While you kill a few individual insects, the mass responds in kind, and you find yourself desperately fending off a flurry of attacks. After an exhausting fight, you are left with many wounds and the wisdom to never poke a Harrower's nest again.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -879,8 +881,7 @@
                   "poison"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -962,12 +963,12 @@
               ]
             },
             "narrative": "As the hum attunes to the crystals of your body, it starts to guide you along the paths. Following the frequency, you soon arrive at a pond with a crystalline surface. An open portal hangs suspended in the air just above it.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": "otherwise",
@@ -1012,6 +1013,7 @@
       {
         "label": "A",
         "narrative": "Follow the tiny fire creatures to the marble shrine.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You happily oblige the request of the small spirits, who accompany you now with a pleasant tune. As you approach the sanctuary, one of the spirits transforms into the shape of a fiery woman. She smiles at you and reaches into the glowing white flame atop the altar, pulling forth various objects. With an inviting gesture, she urges you to take one of your choosing.",
@@ -1019,12 +1021,12 @@
               "Gain one of the following: \"Inferno Blade\" (Item 079) \"Wand of Infernos\" (Item 085) \"Magma Waders\" (Item 099)"
             ]
           }
-        ],
-        "removeFromDeck": true
+        ]
       },
       {
         "label": "B",
         "narrative": "Head across the rocks that lead away from the lake of fire.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You manage to hop the path of rocks to get clear of the volcano, but the small fire spirits are not happy with you leaving. They seem restless, and one of them even pursues you. The farther it ventures from the white flame, the bigger it grows. With its increased size also comes increased savagery. As you step through a nearby portal, it blossoms into a full grown flame demon.",
@@ -1032,8 +1034,7 @@
               "Spawn one normal Flame Demon next to any character. It is an enemy to all figures."
             ]
           }
-        ],
-        "removeFromDeck": true
+        ]
       }
     ]
   },
@@ -1070,20 +1071,20 @@
               ]
             },
             "narrative": "You are able to sew him up and stabilize his condition. Soon after, he stands and grabs hold of a crude weapon. It appears he wants to help you.",
+            "removeFromDeck": true,
             "effects": [
               "Spawn one normal Bandit Guard with 5 remaining hit points next to any character. It is an ally to you and enemy to all monsters."
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": "otherwise",
             "narrative": "Your efforts to heal the poor soul are of no use. Shortly after attempting to treat him, he dies in your arms.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1277,6 +1278,7 @@
               ]
             },
             "narrative": "The scholars greet you with odd expressions on their faces. Their language is somewhat foreign to you, but you are able to communicate and arrive at a deal for information on Bastian's plans, though it costs a hefty sum.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -1290,18 +1292,17 @@
                   15
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": "otherwise",
             "narrative": "They are not very interested in talking to such a foreign and uncivilized group.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -1319,6 +1320,7 @@
               ]
             },
             "narrative": "Concealing yourself within the shadow of a building, you lie in wait for an opportunity. When it comes, you strike swiftly and with precision. An ancient bow is now yours.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "item",
@@ -1332,12 +1334,12 @@
                   "ancient-technology"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": "otherwise",
             "narrative": "Your clumsy attempt is easily caught by the local guards. They beat you up and throw you out of the metropolis.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -1345,8 +1347,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }

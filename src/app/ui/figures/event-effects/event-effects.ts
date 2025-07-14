@@ -14,6 +14,7 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
+import { EventCardDrawComponent } from '../event/event-card-draw';
 import { FavorsComponent } from './favors/favors';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
@@ -49,6 +50,7 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   lootColumns: LootType[] = [];
   SummonColor = SummonColor;
   imbuement: boolean | 'advanced' = false;
+  eventTypes: string[] = [];
 
   constructor(@Inject(DIALOG_DATA) public menu: boolean = false, public dialogRef: DialogRef, public dialog: Dialog) { }
 
@@ -114,6 +116,17 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       this.imbuement = 'advanced';
     }
 
+    this.eventTypes = Object.keys(gameManager.game.party.eventDecks);
+    if (gameManager.game.edition == 'fh') {
+      if (Math.max(gameManager.game.party.weeks - 1, 0) % 20 < 10) {
+        this.eventTypes = this.eventTypes.filter((type) => !type.startsWith('winter-'));
+      } else {
+        this.eventTypes = this.eventTypes.filter((type) => !type.startsWith('summer-'));
+      }
+    }
+
+    // TODO: remove next to activate events later
+    this.eventTypes = [];
   }
 
   toggleCharacter(character: Character) {
@@ -397,8 +410,17 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     }
   }
 
-  close() {
+  drawEvent(type: string) {
+    this.dialog.open(EventCardDrawComponent, {
+      panelClass: ['dialog'],
+      data: {
+        edition: gameManager.game.party.edition || gameManager.currentEdition(),
+        type: type
+      }
+    })
+  }
 
+  close() {
     const characterIcons = this.activeCharacters.map((character) => '%game.characterIconColored.' + character.name + '%').join(',');
 
     this.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {

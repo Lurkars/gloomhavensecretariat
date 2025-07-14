@@ -26,23 +26,25 @@ export class EventCardIdentifier {
     type: string;
     selected: number;
     subSelections: number[];
+    scenarioApply: boolean;
 
     constructor(cardId: string, edition: string, type: string, selected: number,
-        subSelections: number[] = []) {
+        subSelections: number[] = [], scenarioApply: boolean = false) {
         this.cardId = cardId;
         this.edition = edition;
         this.type = type;
         this.selected = selected;
         this.subSelections = subSelections;
+        this.scenarioApply = scenarioApply;
     }
 }
 
 export class EventCardOption {
     label: string;
     narrative: string;
-    outcomes: EventCardOutcome[];
-    removeFromDeck?: boolean;
     returnToDeck?: boolean;
+    removeFromDeck?: boolean;
+    outcomes: EventCardOutcome[];
 
     constructor(label: string, narrative: string, outcomes: EventCardOutcome[], removeFromDeck?: boolean, returnToDeck?: boolean) {
         this.label = label;
@@ -55,10 +57,10 @@ export class EventCardOption {
 
 export class EventCardOutcome {
     narrative: string;
+    returnToDeck?: boolean;
+    removeFromDeck?: boolean;
     condition: string | EventCardCondition | undefined;
     effects: (string | EventCardEffect)[];
-    removeFromDeck?: boolean;
-    returnToDeck?: boolean;
 
     constructor(narrative: string, effects: EventCardEffect[], condition?: EventCardCondition | undefined, removeFromDeck?: boolean, returnToDeck?: boolean) {
         this.narrative = narrative;
@@ -123,10 +125,12 @@ export enum EventCardEffectType {
     soldiers = "soldiers"
 }
 
+export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1];
+
 export class EventCardEffect {
+    condition: string | EventCardCondition | undefined;
     type: EventCardEffectType = EventCardEffectType.noEffect;
     values: (string | number | EventCardEffect)[] = [];
-    condition: string | EventCardCondition | undefined;
 }
 
 export enum EventCardConditionType {

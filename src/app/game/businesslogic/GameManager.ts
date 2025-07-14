@@ -899,10 +899,16 @@ export class GameManager {
   }
 
   campaignData(edition: string | undefined = undefined): CampaignData {
-    const editionData = this.editionData.find((editionData) => edition && editionData.edition == edition || editionData.edition == this.currentEdition());
+    edition = edition || this.currentEdition();
+    const editionData = this.editionData.find((editionData) => editionData.edition == edition);
 
     if (editionData && editionData.campaign) {
       return editionData.campaign;
+    }
+
+    const extensionCampaign = this.editionExtensions(edition).map((e) => this.editionData.find((editionData) => editionData.edition == e)).map((editionData) => editionData ? editionData.campaign : undefined).find((campaignData) => campaignData);
+    if (extensionCampaign) {
+      return extensionCampaign;
     }
 
     return new CampaignData();

@@ -10,6 +10,7 @@
     "gridLocation": "N-5"
   },
   "edition": "gh",
+  "eventType": "road",
   "rewards": {
     "reputation": 1
   },

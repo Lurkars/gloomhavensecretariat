@@ -78,24 +78,24 @@
               ]
             },
             "narrative": "You hand over the gold and take hold of the piece of garbage. Amidst troubling brown smears you see a lot of meaningless scratches likely made by rats and bugs. Oh well. Sometimes the long shot doesn't pay off.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "Bah! You don't have enough. Come back when you do!",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -105,12 +105,12 @@
         "outcomes": [
           {
             "narrative": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just...foul.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -134,6 +134,7 @@
               ]
             },
             "narrative": "You hand over the gold and take hold of the metal. You wipe off the grime and slop to discover a foreign contraption made of large gears and many moving parts. If you can figure out what it is, this device might actually be of some worth.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "itemCollective",
@@ -148,16 +149,15 @@
                   "ancient-technology"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "\"Bah! You don't have enough. Come back when you do!\"",
-            "effects": [],
-            "returnToDeck": true
+            "returnToDeck": true,
+            "effects": []
           }
         ]
       },
@@ -167,12 +167,12 @@
         "outcomes": [
           {
             "narrative": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just...foul.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -479,6 +479,7 @@
               ]
             },
             "narrative": "After some amount of haggling back and forth, you settle on a price and pay for the map. You recognize some of the landmarks and should be able to find this place of \"untold treasure\" by hiring a ship.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenario",
@@ -492,20 +493,19 @@
                   "a-map-to-treasure"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "Despite your valiant efforts, you cannot get the merchant to lower his price to something you can afford.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -600,6 +600,7 @@
               ]
             },
             "narrative": "You get into the game, but after a few rounds, your enthusiasm wanes as the man displays a streak of luck that can only be described as 'uncanny.' You leave the table empty-handed.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseGold",
@@ -607,14 +608,14 @@
                   5
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The man clearly intends to cheat you out of your hard-earned money. He's not the only one capable of cheating, however. After a few rounds, you wipe that smile right off his face.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "gold",
@@ -622,8 +623,7 @@
                   5
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -665,6 +665,7 @@
               ]
             },
             "narrative": "Intrigued by the parchment, you quickly make a decision to buy it off the Harrower. The exchange is fast, and then you move on your way, hoping no one saw you.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "randomItemDesign"
@@ -681,14 +682,14 @@
                   ]
                 }
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You try to pay the Harrower less than it asks for, which only manages to anger it. It hisses loudly and shuns you.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -696,8 +697,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -892,18 +892,19 @@
               ]
             },
             "narrative": "You sober up pretty quickly and explain the situation. Luckily, the guard is familiar with your reputation and believes your story. After a few more questions, he allows you to leave and clean up.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "Attempts to explain yourself just seem to make the situation worse. More guards show up and everyone eyes you suspiciously. Luckily your weapons don't match the man's wounds, and the guards let you go, but they do so with a mistrustful glare.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -911,8 +912,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -931,18 +931,19 @@
               ]
             },
             "narrative": "You go looking for someone who can properly dispose of the mess. It's not cheap, but one of your contacts promises to make the bodies disappear.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "Knowing you don't have enough to professional help, you spend all night cleaning up the mess before anyone discovers it.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseBattleGoal",
@@ -950,8 +951,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -975,6 +975,7 @@
               ]
             },
             "narrative": "You entreat the guards to let the boy go, but they are unmoved. With further pressing, they agree to do so only if you pay his criminal fine. The guards cuff the boy's ear and set him free.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "event",
@@ -983,20 +984,19 @@
                   70
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You entreat the guards to let the boy go, but they are unmoved. It seems like you may be able to grease their palms a bit, but, unfortunately, you do not have enough money to sway their minds. The boy is hauled off to the Ghost Fortress.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -1006,12 +1006,12 @@
         "outcomes": [
           {
             "narrative": "There are repercussions to getting caught, and like the guard said, sometimes there's no way out of it. You owe the boy nothing, and so let the guards take him away.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1062,6 +1062,9 @@
     ]
   },
   {
+    "cardId": "18",
+    "edition": "gh",
+    "type": "city",
     "narrative": "You are attending to business in the Sinking Market when a frail white-haired woman approaches you and grabs you by the arm.<br><br>\"Oh my, don't you lot look strong,\" she says. \"Could you possibly assist me with a small problem I am having in my cellar?\"<br><br>Her eyes grow narrow. \"Rats! So many rats! I don't know where they're coming from, but they are a right nuisance. Ruined three jars of preserves just yesterday!\"<br><br>She tugs weakly at your sleeve. \"Please, can you help me?\"",
     "options": [
       {
@@ -1100,10 +1103,7 @@
           }
         ]
       }
-    ],
-    "cardId": "18",
-    "edition": "gh",
-    "type": "city"
+    ]
   },
   {
     "cardId": "19",
@@ -1129,6 +1129,7 @@
               }
             },
             "narrative": "You head to the New Market and find a magnificent vase to bring as a gift. When the father of the bride sees it, he declares it the most wonderful piece he's ever encountered. You are the talk of the town.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -1136,8 +1137,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
@@ -1153,12 +1153,12 @@
               }
             },
             "narrative": "You bring a very expensive vase as a gift, but you can't seem to catch the father of the bride's eye to present it at the right time.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -1174,6 +1174,7 @@
               ]
             },
             "narrative": "You pick up an unremarkable set of silverware on the way to the event. When you arrive, the father of the bride casts a scornful look your way and begins whispering to those around him. Maybe you received the invitation by mistake.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -1187,14 +1188,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You are one guest among many, and everyone is having too good of a time to notice your poor choice in gifts.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -1202,8 +1203,7 @@
                   5
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1227,6 +1227,7 @@
               ]
             },
             "narrative": "You head to the warehouse and watch in silence as a number of heavy crates are loaded onto a cart. You then escort the cart to the West Gate. No thefts are attempted, and you are paid well.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -1234,14 +1235,14 @@
                   10
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You head to the warehouse and are immediately set upon by a group of thieves. However, they prove no match for your expertise and are quickly dispatched. Greymane thanks you.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "experience",
@@ -1255,8 +1256,7 @@
                   10
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -1266,6 +1266,7 @@
         "outcomes": [
           {
             "narrative": "This is your night off, and you are going to spend it drinking, not guarding some snobby \"lord.\" In the morning, you hear news that a shipment of rare minerals bound for the capital was stolen in the night. People are calling it a huge blow to the economy of the town.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseProsperity",
@@ -1273,8 +1274,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1298,6 +1298,7 @@
               ]
             },
             "narrative": "\"What? I... Oh, very well,\" the man stutters. \"Since I trust you to keep your word, I'll give you a little money for your trouble.\" The man describes his brother and hands you a small coin pouch.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -1312,20 +1313,19 @@
                   65
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The man puffs up in indignation, letting you know he is insulted by your behavior. He storms out of the tavern in a rage.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -1335,6 +1335,7 @@
         "outcomes": [
           {
             "narrative": "The man thanks you profusely and gives a detailed description of his brother. \"If you find him, no matter the condition, please let me know right away.\"",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "event",
@@ -1343,8 +1344,7 @@
                   65
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1439,6 +1439,9 @@
     ]
   },
   {
+    "cardId": "24",
+    "edition": "gh",
+    "type": "city",
     "narrative": "Upon returning to the city after your latest adventure, you are approached by a high-ranking guard at the gate. \"Ah, good, I'm glad to have caught you,\" the guard begins. \"The capital has fallen behind on shipments of wood to Gloomhaven, so now it falls to us to pick up the slack so that construction of important city buildings doesn't stagnate.\" The guard points to the east. \"We're forming an expedition to gather logs from the Corpsewood. We could use your help, either to guard against enemies or to chop down trees.\"",
     "options": [
       {
@@ -1477,10 +1480,7 @@
           }
         ]
       }
-    ],
-    "cardId": "24",
-    "edition": "gh",
-    "type": "city"
+    ]
   },
   {
     "cardId": "25",
@@ -1502,6 +1502,7 @@
               ]
             },
             "narrative": "You race forward and wrap your arms around the vase. You manage to keep grip of it, preventing tragedy. The Valrath is relieved and offers to pay you for your trouble if you carry it the rest of the way.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -1509,14 +1510,14 @@
                   5
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You race forward and attempt to catch the vase, but it is too much for you. Your grip loosens and the vase shatters into a hundred pieces. The Valrath is irate, demanding compensation from you for breaking it. You pay him what you can.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -1524,8 +1525,7 @@
                   10
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -1535,12 +1535,12 @@
         "outcomes": [
           {
             "narrative": "You watch helplessly as the vase careens out of the Valrath's grasp and, once it connects with the hard ground, shatters into a hundred pieces. The Valrath looks distraught and a little angry. You exchange a sympathetic glance with him and then continue about your business.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1564,6 +1564,7 @@
               ]
             },
             "narrative": "You quickly identify the source of the problem — some frayed wiring in the kitchen — and have it replaced in no time. The proprietor seems very impressed by your work and gives free drinks all around in your name.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -1571,20 +1572,19 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You fumble about magnanimously for a while before concluding that you have no idea what you're doing. The proprietor looks disappointed and sends out for a real tinkerer.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -1602,6 +1602,7 @@
               ]
             },
             "narrative": "The darkness gives the less scrupulous among you a good chance to perform their craft. Within a matter of minutes, your coin purses are much heavier.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -1609,14 +1610,14 @@
                   10
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You attempt to lighten some purses, but even in the dark, you find the task a little outside your skill set. One patron catches your hand as it searches his belt. He starts yelling, and you flee as quickly as possible.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -1624,8 +1625,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1651,6 +1651,7 @@
               ]
             },
             "narrative": "You keep a calm demeanor as you try to talk down the mob. It takes some effort, but the men finally agree to turn the thief over to the authorities, which stops the situation from devolving into chaos.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -1658,14 +1659,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You kindly entreat the crowd to back down, and when that doesn't work, you resort to force. No one seems happy that you stopped the hanging, but it was the right thing to do.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -1673,8 +1674,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -1684,6 +1684,7 @@
         "outcomes": [
           {
             "narrative": "You watch as the men move past you toward the gibbet. One carries a thick rope that he ties around the Vermling's neck. The other end of the rope is thrown over the cross beam and then the men begin pulling, hoisting the helpless thief up off his feet. He struggles in vain, a panicked look in his eyes, but eventually he stops moving. The men tie off the rope, leaving the lifeless thief hanging. People begin to mill about, many stopping to spit on the ground before returning to work.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "event",
@@ -1692,8 +1693,7 @@
                   60
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1719,6 +1719,7 @@
               ]
             },
             "narrative": "The job proves easy enough with the proper expertise. The plans are simple, and you are in and out of the estate easily, free to meet up with the Inox and claim your payment.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "gold",
@@ -1726,14 +1727,14 @@
                   10
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "It turns out confidence isn't enough when it comes to sneaking in and out of a well-guarded estate without being seen. You didn't get the figurine, and one of the guards got a pretty good look at you.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -1741,8 +1742,7 @@
                   3
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -1752,12 +1752,12 @@
         "outcomes": [
           {
             "narrative": "You grab the Inox's arm as she is getting up to leave and push the paper back toward her. She looks incredibly angry as you explain that your group doesn't do this sort of thing. She wordlessly grabs the plans and storms out of the bar.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1782,6 +1782,7 @@
               ]
             },
             "narrative": "The workers' hard expressions soften a bit when they see a Savvas among you. You talk for a while and explain that they need the city just as much as the city needs them. In the end, you sell them on a smaller wage increase, and everyone returns to work.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -1789,20 +1790,19 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "Even after much effort, the workers won't speak to you at all, calling you part of the problem. The strike is eventually resolved, but no one seems happy.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -1820,6 +1820,7 @@
               ]
             },
             "narrative": "\"I-I just can't give them more money!\" the manager pleads. After some persuasion, though, he seems to open up to negotiation. The workers and management meet halfway and everyone seems content.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -1827,20 +1828,19 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You just can't get the manager to budge on his position, and he only gets angrier with continued pushing. The Savvas eventually agree tentatively to continue work, but the underlying problem remains.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -1864,6 +1864,7 @@
               ]
             },
             "narrative": "The Vermling escapes into the sewers, but the Mindthief is able to give chase, catching up as the cutpurse enters his nest. There you find more wealth than what was lost.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "gold",
@@ -1878,14 +1879,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The Vermling disappears into the sewers, and you try to give chase. But after a few minutes you are hopelessly lost and are forced to give up.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "loseGold",
@@ -1893,8 +1894,7 @@
                   5
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -1980,6 +1980,7 @@
               "type": "otherwise"
             },
             "narrative": "You return to your gambling, but you feel as though a pall has fallen over the revelry. Your luck has turned, and you end the night much poorer than when you started.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseGold",
@@ -1987,8 +1988,7 @@
                   10
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2012,6 +2012,7 @@
               ]
             },
             "narrative": "You not only help to train the new recruits, but the Quartermaster is able to repair a lot of the guards' damaged armor and weaponry. At the end of the day, the city is very pleased with your contribution.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -2025,14 +2026,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You spend the day training the new recruits. By the time the sun goes down, their skills are much improved, and they are grateful to you because of it.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -2040,8 +2041,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -2051,6 +2051,7 @@
         "outcomes": [
           {
             "narrative": "Whenever there is bad news, there is always someone who delights in it and profits from it. Who would be happy to hear the city guards are having trouble? Thieves. And they pay surprisingly well for the information.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -2058,8 +2059,7 @@
                   15
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2084,6 +2084,7 @@
               ]
             },
             "narrative": "You grab the child and lift her clear of the haunting area. She is still screaming madly when the Aesther in your group lays a hand upon the child in deep concentration. Slowly, the crying subsides, and the child gets up and runs off.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -2091,20 +2092,19 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You get the child off the sand as quickly as you can, but it doesn't do much good. The girl screams and screams no matter what aid is administered.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -2114,12 +2114,12 @@
         "outcomes": [
           {
             "narrative": "Unable to resist, you watch to see what will happen to the girl. Her skin turns ashen and begins to flake away. She stops screaming eventually and begins coughing up a black bile. She tries to stand, but her legs crumble away into dust. She makes a pitiful croak and then falls over into a cloud of sand. When the cloud settles, no evidence of her presence remains.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2143,6 +2143,7 @@
               ]
             },
             "narrative": "Using the night like a cloak, you follow the man unseen and unheard. Eventually he stops at a small dwelling nestled under the west wall of the city.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenario",
@@ -2150,20 +2151,19 @@
                   "78"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You sneak forward, confident in your stealth abilities. After a few minutes, though, the man suddenly bolts around a corner. By the time you get there, he is long gone.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -2173,6 +2173,7 @@
         "outcomes": [
           {
             "narrative": "Not confident in your stealth abilities, you decide speed and force are a better way to go. You charge forward, catching the man completely by surprise. You block off all avenues of escape and surround him. He snarls as you tie him up and hand him over to the city guards. Hopefully they'll be able to get some useful information out of him.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -2180,8 +2181,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2223,6 +2223,7 @@
               ]
             },
             "narrative": "You make your way to the market with the Harrowers in tow. It's easy to find a reputable spice merchant, but difficult to get the merchant and the Harrowers to trust each other. In the end, they find common ground through the Plagueherald and make a deal.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -2230,20 +2231,19 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You bring the Harrowers to the market, but even after great effort, you cannot find any merchants willing to deal with them. They depart empty-handed.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2267,6 +2267,7 @@
               ]
             },
             "narrative": "You break a chair over the man's back, kick him in the teeth, and then you really get into it. It's a bar brawl that could only be described as \"epic,\" fueled by pure, raw rage. The carnage is extreme.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "experience",
@@ -2280,14 +2281,14 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You jump into the melee, breaking heads and chairs in equal measure. You've seen worse brawls, but the proprietor still isn't very happy when it's over.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -2295,8 +2296,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -2312,6 +2312,7 @@
               ]
             },
             "narrative": "You get up to calm down the room, but the Berserker has other ideas, laying into the man before you can get a word out. She goes into a furious rage, and there's really not much to be done about it except pay what you can for the damages afterward.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -2319,14 +2320,14 @@
                   10
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "It takes some work, but you manage to calm down the Inox and buy off the rest of the room with some extra drinks. The proprietor looks positively relieved.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -2334,8 +2335,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2359,6 +2359,7 @@
               ]
             },
             "narrative": "The citizens are downtrodden, but the uncanny power of the Soothsinger's music seems to lift their spirits considerably. Still far from cheerful, the people find new resolve in repairing the damage and rebuilding.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -2366,14 +2367,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The citizens view you with a cynical eye as you walk around, attempting to encourage them and lift their spirits. Despite the effort, it seems as though they are in a worse mood than when you arrived.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -2381,8 +2382,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -2402,6 +2402,7 @@
               ]
             },
             "narrative": "You set to work repairing the gate, and by the time night falls, it is at least functional. The downtrodden citizens are inspired by your work, and you have little doubt that the community will bounce back with little permanent damage.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -2409,20 +2410,19 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You fiddle with the gate for a bit until it becomes clear that you are doing nothing to help. You decide to head back to your rooms instead and get some rest.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2447,6 +2447,7 @@
               ]
             },
             "narrative": "The Orchid on the ground puts up no defense, but your group is a different matter. The man quickly backs down at the sight of a powerful Orchid ready to attack, and the crowd disperses, muttering disappointment.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -2460,14 +2461,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You try to talk some sense into the man, and when that doesn't work, you beat him senseless. The crowd seems happy and the Orchid thanks you for your aid.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -2475,8 +2476,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -2493,6 +2493,7 @@
               ]
             },
             "narrative": "After a good beating, the crowd is riled up. Many people start looking in your direction, muttering about how you have the nerve to associate with Orchids as well. You make a quick exit.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -2500,20 +2501,19 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The Orchid puts up no defense and the \"fight\" becomes rather one-sided. A solid beating is administered, and the crowd is sated. You go about your business while the Orchid bleeds on the ground.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2616,6 +2616,7 @@
               ]
             },
             "narrative": "Some of your group begin to control the fire and snuff it with their elemental prowess, preventing further damage.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -2623,20 +2624,19 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You do your best, but without the proper skills, it isn't much.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -2646,6 +2646,7 @@
         "outcomes": [
           {
             "narrative": "You jump to your feet and sprint as fast as you can in pursuit. The figure races toward the city wall and begins to climb the stairs. You close the gap, but look on in frustration as he moves to jump over the wall and out of the city. You lunge and grab his robe as he falls. His body twists awkwardly, freeing him of the robe. You look over the edge to see him land face-first on the ground and not get up.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "itemCollective",
@@ -2660,8 +2661,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2691,6 +2691,7 @@
               }
             },
             "narrative": "The Vermling knows it is valuable, but she is more interested in flirting with the Beast Tyrant. She is happy to sell the potion at a discount.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "itemCollective",
@@ -2699,8 +2700,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
@@ -2710,6 +2710,7 @@
               ]
             },
             "narrative": "No amount of haggling can lower the Vermling's high price.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "itemCollective",
@@ -2718,8 +2719,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
@@ -2815,6 +2815,7 @@
               ]
             },
             "narrative": "Sure enough, under the floorboards of his old room, you find a bunch of parts, tools, and an intricately crafted metal spider. You package it up and ship it off to the Tinkerer. Anything for an old friend.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "event",
@@ -2823,8 +2824,7 @@
                   61
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
@@ -2883,6 +2883,7 @@
               ]
             },
             "narrative": "Despite the early hour, you head down to the Inox's forge and get an incredibly strong fire going for him so he can complete his order. He seems very pleased.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -2896,14 +2897,14 @@
                   10
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The Inox is completely dumbfounded when you walk all the way down to his forge and then proceed to exhibit zero aptitude at manipulating or controlling fire.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -2911,8 +2912,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -3103,6 +3103,7 @@
               ]
             },
             "narrative": "You throw the kid a few coins and grab the note. Enclosed with the note is a small medallion engraved with the image of the sun. Apparently the Sunkeeper thinks the object may help you at some point in the future. The note doesn't say exactly how and the thing has no apparent use. You stow it away in your pack.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "partyAchievement",
@@ -3110,20 +3111,19 @@
                   "sun-blessed"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You reach into your pocket to pay the kid, but come up empty-handed. He slinks off in indignation.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -3185,6 +3185,7 @@
               ]
             },
             "narrative": "The Valrath looks at you with trepidation, but after some persuasion, you get him to agree.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -3198,20 +3199,19 @@
                   "A"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The Valrath recoils, insulted by the notion. He storms off, grumbling about the lost value of friendship.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -3312,18 +3312,19 @@
               ]
             },
             "narrative": "You shake your head at the guard, saying you must have been mistaken. You thought the sword looked similar to one carried by a friend, but, looking closer, there are distinct differences. The guard shrugs and goes back to examining the scene.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You laugh and make up some poor explanation about seeing a similar sword on a bandit in a crypt. The guard eyes you suspiciously.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -3331,8 +3332,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -3468,6 +3468,7 @@
               ]
             },
             "narrative": "The rubes are much too distracted to mind their coin purses. You make off with a good amount of cash and get to listen to some nice music as well.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -3475,20 +3476,19 @@
                   20
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You put forth a valiant effort, but, due to a lack of skill, you don't make much headway parting people from their money. At least the music is good.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -3601,6 +3601,7 @@
               ]
             },
             "narrative": "You open the note to discover it is from the Elementalist, who has sailed to the eastern continent to gain a deeper understanding of the elements. During this time, the Elementalist also spent some effort on the construction of a powerful staff and wanted to share the design.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "itemDesign",
@@ -3608,20 +3609,19 @@
                   118
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You reach into your pocket to pay the kid, but come up empty-handed. He slinks off in indignation.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -3675,6 +3675,7 @@
         "outcomes": [
           {
             "narrative": "It's not easy, but you quiet down the crowd and take the staggering man over to a secluded corner of the tavern to get the full story out of him. Apparently he was part of a group of ruffians working to harvest the Dagger Forest for wood. In the middle of their logging expedition, however, they were attacked by the Beast Tyrant and an army of forest animals. Though he ran off in the middle of the fight, the man swears he also heard the howl of angry spirits in the chaos.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenario",
@@ -3682,8 +3683,7 @@
                   "91"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -3753,6 +3753,7 @@
               ]
             },
             "narrative": "You push your way to the front of the mob and stop the men as they enter the store. Clearly emotions have gotten the better of these people. Through a calm demeanor, you are able to talk the mob down. A sense of relief washes over the crowd.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -3760,20 +3761,19 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You kindly entreat the crowd to back down. It gets a little rough, but it becomes clear the crowd isn't fully into it. After knocking a few heads, the mob disperses.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -3783,6 +3783,7 @@
         "outcomes": [
           {
             "narrative": "You watch as one of the men picks up a wooden crate and throws it through the shop window. In a frenzy, the crowd rushes into the store, breaking and looting with mad glee. It's easy enough to move in with the crowd and pick up a few valuable items in the chaos. After you get clear of the crowd, you look back to see billows of smoke rising up from the door and broken window. Not a good day to be a Quatryl.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "gold",
@@ -3796,8 +3797,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -4074,6 +4074,7 @@
               ]
             },
             "narrative": "\"This is wonderful! I knew I could count on you. This should be enough to put this mess behind me and finally allow me to live free.\" He hands you a potion and thanks you once again for all your help.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "itemCollective",
@@ -4082,8 +4083,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
@@ -4139,12 +4139,12 @@
               ]
             },
             "narrative": "You sigh and hand over the Sawbones' debt, plus interest. Though it feels terrible, the thugs are satisfied and walk out the same way they came in. At least it is over now.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
@@ -4207,6 +4207,7 @@
               ]
             },
             "narrative": "You take a moment to attune yourself to the staff, which you feel now has a direct link another plane. The water stops and you are left with an open gateway.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenario",
@@ -4220,14 +4221,14 @@
                   "water-staff"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You figure out how to work the staff, but not before your entire room is flooded. The innkeeper will not be happy.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -4247,8 +4248,7 @@
                   "water-staff"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -4331,6 +4331,7 @@
               ]
             },
             "narrative": "You head to the Coin District and meet with a member of the merchant's guild you've had dealings with before. He looks at you skeptically, but says he will see what he can do about making the area more livable.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -4338,14 +4339,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "Every merchant you try to talk to about the issue laughs you out of the room. Why help others when there is no profit in it for them?",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -4353,8 +4354,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -4364,12 +4364,12 @@
         "outcomes": [
           {
             "narrative": "You explain that while you do have some power in the town, the Sinking Market may be a lost cause. More and more of the district is sinking into the sea every day, as it has been doing for as long as the town has existed. You can't convince merchants to spend money on something that will one day be underwater.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -4479,6 +4479,7 @@
         "outcomes": [
           {
             "narrative": "\"Yes, very interesting,\" a bookish Quatryl says as he rolls the crystal over in his hand. \"It seems as if this crystal is attuned to a specific location, and once removed, it begins vibrating until mountains and houses start falling down. I'd say you need to return it to its proper home. With the proper tools, which I'll need help paying for — I should be able to triangulate that location for you.\"",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -4498,8 +4499,7 @@
                   "tremors"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -4635,6 +4635,7 @@
               ]
             },
             "narrative": "\"Excellent! Someone has been attacking my ships at sea and I need to get to the bottom of it. Come, I'll tell you the details.\"",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenario",
@@ -4648,20 +4649,19 @@
                   "high-sea-escort"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "\"Oh, whoops,\" Gavin stammers. \"From far away, you looked like someone else. Just ignore what I said.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -4700,6 +4700,7 @@
               ]
             },
             "narrative": "That's the money-loving criminals I know and love! Come take a walk with me, and I'll explain how we can all get rich.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenario",
@@ -4713,26 +4714,26 @@
                   "grave-job"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "Oh, whoops,\" Nick stammers. \"From the back you looked like . . . uh, never mind. Forget I said anything.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
       {
         "label": "B",
         "narrative": "Claim you've changed your ways and grave robbing is a step too far.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "A downright shame, I say.\" Nick shakes his head. \"I guess I'll just have to find a group of mercenaries who actually are interested in making a mountain of money.",
@@ -4742,8 +4743,7 @@
               }
             ]
           }
-        ],
-        "returnToDeck": true
+        ]
       }
     ]
   },
@@ -4860,18 +4860,19 @@
               ]
             },
             "narrative": "You adopt a serious tone and do your best to communicate that you had nothing to do with what was written in the Town Records. You express remorse for their hardships, and, miraculously, the mob grows calmer and disperses.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You laugh and claim that this is all some big misunderstanding. The guards don't see it that way, but your lack of aggression at least stops them from attacking you. They leave, grumbling threats.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseReputation",
@@ -4879,8 +4880,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -5457,6 +5457,7 @@
               ]
             },
             "narrative": "You jump under an outcropping, but something is not right. Those among you attuned to the elements turn toward the face of the mountain and step into it, as though the rocks were gone. Inside, you see an odd crystal jutting out of the earth. You snatch it up, and the tremors stop.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "event",
@@ -5465,14 +5466,14 @@
                   73
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The outcropping proves to be an unstable place to hide. You are quickly buried in rubble.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -5480,8 +5481,7 @@
                   4
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -5778,18 +5778,19 @@
               ]
             },
             "narrative": "You begin to agree with the Inox that Gloomhaven is a blight on the land in need of cleansing, and the Inox seems to believe you. \"Go in peace, then,\" the leader says. \"And stay off my land.\"",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You try to explain that you mean the Inox no ill will, but the leader eyes you skeptically. \"Foul creature. I curse you and your kind! Run — get off my land and never come back!\"",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -5797,8 +5798,7 @@
                   "curse"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -5840,18 +5840,19 @@
               ]
             },
             "narrative": "You chase after the sprinting man, but the guards conclude you must be an accomplice trying to help him. They shoot arrows in your direction, forcing you to retreat from the situation.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The man's speed after spending months in a jail cell is no match for your own. With the help of the guards on horseback, you quickly have him cornered and returned to the wagon.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -5859,8 +5860,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6176,18 +6176,19 @@
               ]
             },
             "narrative": "The Inox in your party talks with the leader for a while and they are able to come to an agreement. They punch each other's chests, and the group lets you through.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The Inox don't seem to be budging on this payment issue, so you are forced to pass along a handful of coins. The big one smiles and lets you continue on your way.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "loseGold",
@@ -6195,8 +6196,7 @@
                   5
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -6239,6 +6239,7 @@
               ]
             },
             "narrative": "The man talks the whole way through the process, but after an hour or so, the axle is repaired and the man leaves in a radiant mood, bestowing blessings upon you.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -6252,20 +6253,19 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You happily agree to help the man, but quickly realize you don't know what you are doing. The man thanks you anyway, and you move on.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6315,18 +6315,19 @@
               ]
             },
             "narrative": "The trees are too massive and dense to remove through conventional means, but with elemental power, they are destroyed and swept aside in no time.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The trees aren't part of an ambush, but that doesn't make them any easier to clear. It's grueling work and by the time you arrive at your destination, you are exhausted.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "discard",
@@ -6334,8 +6335,7 @@
                   3
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6438,18 +6438,19 @@
               ]
             },
             "narrative": "The Cragheart's combination of raw strength and an affinity for stonework is perfect for this task. In a matter of minutes, enough stones have been destroyed or thrown aside to open a path.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The situation is not ideal, but you work through the pain. By the time a path has been cleared away, you never want to see another rock in your life.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "discard",
@@ -6457,8 +6458,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6501,18 +6501,19 @@
               ]
             },
             "narrative": "You approach to help those still alive, but the woman in the road screams, gesturing at the Vermling in your group. You try to calm her, but it is of no use. You abandon the cause.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You disperse through the scene, tending to people's wounds and getting them back on their feet. It takes a few supplies, but they seem grateful in the end.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "consumeItem",
@@ -6527,8 +6528,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6572,6 +6572,7 @@
               ]
             },
             "narrative": "Fortunately, some of your group excels when in a defensive position, and the tide of the battle clearly turns once they take command of the situation. The Vermlings are driven off and the caravan is saved.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -6591,14 +6592,14 @@
                   5
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You try to save the guards, but end up in their same predicament. You manage to fight off the Vermlings, but not before all the guards and merchants are killed.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -6612,8 +6613,7 @@
                   5
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6623,6 +6623,7 @@
         "outcomes": [
           {
             "narrative": "You wait for a good long while, until after the guards have all been slaughtered and the Vermlings are softened up a bit. They're going through the goods in the wagons when you hit them with a surprise attack. Caught off guard, they go down without much of a fight.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -6636,8 +6637,7 @@
                   5
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -6661,6 +6661,7 @@
               ]
             },
             "narrative": "The Quartermaster steps forward with a smile and hands over a sack of food and gear. He is always well-stocked and the Valraths are grateful for the aid.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -6668,14 +6669,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You'll need to replace the supplies the next time you're in town, but you decide you can spare them. The Valraths thank you with relief.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseGold",
@@ -6689,8 +6690,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6733,18 +6733,19 @@
               ]
             },
             "narrative": "The Aesther in your group leads you to an area off the road that feels...fuzzy. It is hard to focus your vision, as if the space in front of you is only half there. With a few words from the Aesther, the blur is gone.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You wander around for a while before a massive demon suddenly appears before you, ripped from another plane. Your presence surprises it, though, and you dispatch it before too much trouble is caused.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -6758,8 +6759,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6769,6 +6769,7 @@
         "outcomes": [
           {
             "narrative": "You head forward with all haste, eager to get back your bearings. You seem to be out of the worst of it when you are suddenly ambushed by a giant demon from behind. You fight it off, but not before it tears into you and burns your flesh.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -6776,8 +6777,7 @@
                   3
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -6803,18 +6803,19 @@
               ]
             },
             "narrative": "Your stealth skills prove sufficient enough to remain unnoticed by a large group of Inox. You decide to let them pass by without incident.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You attempt to hide and stay quiet, but a snapped twig at an unfortunate moment startles the passing band of Inox, and they pull out weapons and attack. The scene turns bloody, and you are barely able to fight them off.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -6822,8 +6823,7 @@
                   4
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6840,18 +6840,19 @@
               ]
             },
             "narrative": "A group of Inox appears at the edge of your campsite. Seeing their kind among you, they greet you in a friendly manner and stay for some time to talk. After they leave, you find the remainder of the night restful.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "A group of irate Inox appears at the edge of your campsite. They claim you are trespassing and force you to pack up and leave. You walk through the rest of the night and arrive at your destination tired.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "discard",
@@ -6859,8 +6860,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -6884,6 +6884,7 @@
               ]
             },
             "narrative": "The Plagueherald stretches out his arms and the men around him immediately double over in pain. You can almost sense it smiling, even though it doesn't have a face. The fight doesn't last long, especially once the men's wounds start bursting with maggots.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -6891,14 +6892,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The men are weakened, but they are still hardened fighters. You fight them off, but it gets ugly.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -6912,8 +6913,7 @@
                   3
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -6929,12 +6929,12 @@
               ]
             },
             "narrative": "You smile as non-threateningly as you can and reach for your coin purse. You try to give them just a couple coins, but he encourages you to donate more. Eventually the men seem satisfied and move on their way.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
@@ -6981,6 +6981,7 @@
               "type": "otherwise"
             },
             "narrative": "You follow the path into the wood and become hopelessly lost. The going is hard and painful.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -6994,8 +6995,7 @@
                   2
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -7037,18 +7037,19 @@
               ]
             },
             "narrative": "You feel positively dismal trudging through the mud and the rain, until you hear the Soothsinger's voice rise above the thunder. She's singing a song in the middle of the storm, and everyone starts to feel better.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "Walking down the road in a storm is just awful. You are wet and cold and miserable and you cannot wait for the whole experience to end. By the time you reach your destination, you are not feeling well at all.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "discard",
@@ -7056,8 +7057,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -7101,6 +7101,7 @@
               ]
             },
             "narrative": "You are able to track the trail with ease. It leads to a couple of priests, bloody and unconscious, but still alive. You revive them and bring them back to the main road. They are very grateful.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "prosperity",
@@ -7108,14 +7109,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You try to follow the trail, but end up getting turned around and lost. Then you have an incredibly difficult and painful time just finding your way back out.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseBattleGoal",
@@ -7129,8 +7130,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -7169,6 +7169,7 @@
               ]
             },
             "narrative": "The Sawbones knows exactly what to do, covering his hands and face as he cleans the wounds. After an hour of tending to him, the Valrath seems good enough to travel.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -7176,14 +7177,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You help the Valrath as best you can, but it takes many supplies and potions. When he finally looks better, you realize you are starting to feel sick as a result.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -7203,8 +7204,7 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -7245,18 +7245,19 @@
               ]
             },
             "narrative": "With the power of the elements on your side, crossing the river turns out to be incredibly easy. One frozen bridge later, you are on the other side and on your way.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The water is surprisingly cold, but it will take more than that to end your day. You are still water-logged and shivering when you reach your destination, however.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -7270,8 +7271,7 @@
                   "immobilize"
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -7313,18 +7313,19 @@
               ]
             },
             "narrative": "The Beast Tyrant steps forward with his hand outstretched and makes a low humming sound. The bear stops mid-charge with a perplexed look. You leave the animal there and continue on your way unharmed.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "Two seconds later, you can't help but feel this was a terrible idea. The bear wounds you severely before you are able to arm yourself and fight it off.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -7338,8 +7339,7 @@
                   3
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -7978,6 +7978,7 @@
               ]
             },
             "narrative": "You gauge your bearings and then give precise directions on the easiest way out of the forest and back to the main road. The Soothsinger seems impressed and waves good-bye as she heads off.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -7985,14 +7986,14 @@
                   1
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You hem and haw and then give some vague directions back to the road. The Soothsinger looks at you skeptically and heads off.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "event",
@@ -8001,8 +8002,7 @@
                   69
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -8440,6 +8440,7 @@
         "outcomes": [
           {
             "narrative": "Against your better judgment, you approach the skull, which looks suspiciously like the Sin-Ra's calling card. Sure enough, a group of dark-clad warriors appears before you from out of thin air. Wordlessly, they draw their long, curved blades and attack. Caught by surprise, you don't fare well in the battle. You do fight them off, but in the end, you are severely wounded, exhausted, and demoralized.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseBattleGoal",
@@ -8459,8 +8460,7 @@
                   4
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -8470,6 +8470,7 @@
         "outcomes": [
           {
             "narrative": "Recognizing the pike as a symbol of the Sin-Ra Syndicate, you arm yourself and run from the area. Unfortunately, you don't make it far before you see a number of black-clad assassins bearing down on you. You move into a defensive position and prepare for battle. The fight is arduous, but in the end, the assassins are dead, and you hope they don't come back.",
+            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseBattleGoal",
@@ -8489,8 +8490,7 @@
                   2
                 ]
               }
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }

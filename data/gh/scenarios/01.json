@@ -10,6 +10,7 @@
     "gridLocation": "G-10"
   },
   "edition": "gh",
+  "eventType": "road",
   "initial": true,
   "unlocks": [
     "2"

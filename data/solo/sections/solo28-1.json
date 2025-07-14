@@ -21,7 +21,7 @@
       "objectiveSpawns": [
         {
           "objective": {
-            "index": 2,
+            "id": 2,
             "name": "Ice Pillar",
             "tags": [
               "ice-pillar"

@@ -60,6 +60,7 @@ import { EventRandomItemDialogComponent } from './ui/figures/event-effects/rando
 import { EventRandomScenarioDialogComponent } from './ui/figures/event-effects/random-scenario/random-scenario-dialog';
 import { EventCardComponent } from './ui/figures/event/event-card';
 import { EventCardConditionComponent } from './ui/figures/event/event-card-condition';
+import { EventCardDrawComponent } from './ui/figures/event/event-card-draw';
 import { EventCardEffectComponent } from './ui/figures/event/event-card-effect';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
@@ -246,6 +247,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     EntityMenuDialogComponent,
     EventCardComponent,
     EventCardConditionComponent,
+    EventCardDrawComponent,
     EventCardEffectComponent,
     EventCardsToolComponent,
     EventEffectsDialog,

@@ -153,8 +153,19 @@ export class ScenarioManager {
             this.game.party.campaignStickers.push(...rewards.campaignSticker.map((sticker) => sticker.toLowerCase().replaceAll(' ', '-')));
           }
 
-          if (settingsManager.settings.partySheet) {
+          if (rewards.eventDeck) {
+            const type = rewards.eventDeck.split(':')[0];
+            const events = gameManager.eventCardManager.getEventCardsForEdition(scenario.edition, type);
+            const startEvent = events.find((e) => e.cardId == rewards.eventDeck.split(':')[1].split('|')[0]);
+            const endEvent = events.find((e) => e.cardId == rewards.eventDeck.split(':')[1].split('|')[1]);
+            if (startEvent && endEvent) {
+              gameManager.eventCardManager.buildEventDeck(type, events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId));
+            } else {
+              console.warn("Could not find start and end for: " + rewards.eventDeck);
+            }
+          }
 
+          if (settingsManager.settings.partySheet) {
             if (rewards.reputation) {
               this.game.party.reputation += rewards.reputation;
               if (this.game.party.reputation > 20) {
@@ -292,8 +303,9 @@ export class ScenarioManager {
             this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
           }
 
-          if (rewards && settingsManager.settings.partySheet && rewards.townGuardAm && rewards.townGuardAm.length > 0) {
-            const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, gameManager.campaignData());
+          const campaignData = gameManager.campaignData();
+          if (rewards && settingsManager.settings.partySheet && rewards.townGuardAm && rewards.townGuardAm.length > 0 && campaignData.townGuardPerks) {
+            const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, campaignData);
             gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);
             townGuardDeck.active = false;
             this.game.party.townGuardDeck = townGuardDeck.toModel();
@@ -471,6 +483,27 @@ export class ScenarioManager {
         if (figure instanceof Character && scenarioData.level) {
           gameManager.characterManager.setLevel(figure, scenarioData.level);
         }
+      })
+    }
+
+    if (settingsManager.settings.eventsDraw && scenarioData.eventType) {
+      gameManager.game.eventDraw = scenarioData.eventType;
+    }
+
+    if (settingsManager.settings.eventsApply) {
+      gameManager.game.party.eventCards.filter((e) => e.scenarioApply).forEach((e) => {
+        const eventCard = gameManager.eventCardManager.getEventCardForEdition(e.edition, e.type, e.cardId);
+        if (eventCard && e.selected != -1) {
+          const option = eventCard.options[e.selected];
+          if (option && option.outcomes) {
+            option.outcomes.forEach((outcome, i) => {
+              if (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1) {
+                gameManager.eventCardManager.applyEffects(outcome.effects.filter((e) => typeof e !== 'string'), true);
+              }
+            })
+          }
+        }
+        e.scenarioApply = false;
       })
     }
   }

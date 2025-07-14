@@ -1,8 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { EventCard } from "src/app/game/model/data/EventCard";
-import { Identifier } from "src/app/game/model/data/Identifier";
+import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 
 
 @Component({
@@ -17,15 +16,17 @@ export class EventCardComponent implements OnInit, OnChanges {
     settingsManager: SettingsManager = settingsManager;
 
     @Input() event: EventCard | undefined;
-    @Input() identifier: Identifier | undefined | false;
+    @Input() identifier: EventCardIdentifier | undefined | false;
     @Input() select: number = -1;
     @Input() flipped: boolean = false;
     @Input() disabled: boolean = false;
 
+    @Output() onSelect: EventEmitter<number> = new EventEmitter<number>();
+    @Output() onSubSelections: EventEmitter<number[]> = new EventEmitter<number[]>();
+
     label: string = "";
     selected: number = -1;
-    selectedEffect: number = -1;
-    rewardSelection: { effectIndex: number, rewardIndex: number, index: number }[] = [];
+    subSelections: number[] = [];
     light: boolean = false;
 
     ngOnInit(): void {
@@ -37,7 +38,11 @@ export class EventCardComponent implements OnInit, OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
         if (changes['identifier'] && changes['identifier'].previousValue != changes['identifier'].currentValue) {
             if (!this.event && this.identifier) {
-                this.event = undefined; // TODO
+                this.event = gameManager.eventCardManager.getEventCardForEdition(this.identifier.edition, this.identifier.type, this.identifier.cardId);
+                if (this.event) {
+                    this.selected = this.identifier.selected;
+                    this.subSelections = this.identifier.subSelections;
+                }
             }
         } else if (changes['select'] && changes['select'].previousValue != changes['select'].currentValue) {
             this.selectOption(this.select - 1);
@@ -48,41 +53,23 @@ export class EventCardComponent implements OnInit, OnChanges {
     selectOption(index: number) {
         if (this.event && !this.disabled && this.selected != index) {
             this.selected = index;
-            this.rewardSelection = [];
+            this.subSelections = [];
             if (this.selected < -1) {
                 this.selected = -1;
             }
+            this.onSelect.emit(this.selected);
         }
     }
 
-    selectEffect(effectIndex: number) {
-        if (this.selectedEffect == effectIndex) {
-            this.selectedEffect = -1;
-        } else {
-            this.selectedEffect = effectIndex;
-        }
-    }
-
-    selectReward(effectIndex: number, rewardIndex: number, index: number) {
+    selectSub(index: number) {
         if (this.event && !this.disabled) {
-            let selection = this.rewardSelection.find((item) => item.effectIndex == effectIndex && item.rewardIndex == rewardIndex);
-            if (!selection) {
-                selection = { effectIndex: effectIndex, rewardIndex: rewardIndex, index: index };
-                this.rewardSelection.push(selection);
+            if (this.subSelections.indexOf(index) != -1) {
+                this.subSelections.splice(this.subSelections.indexOf(index), 1);
             } else {
-                selection.index = index;
+                this.subSelections.push(index);
             }
+            this.onSubSelections.emit(this.subSelections);
         }
-    }
-
-    getRewardSelection(effectIndex: number, rewardIndex: number): { effectIndex: number, rewardIndex: number, index: number } {
-        let selection = this.rewardSelection.find((item) => item.effectIndex == effectIndex && item.rewardIndex == rewardIndex);
-
-        if (selection) {
-            return selection;
-        }
-
-        return { effectIndex: effectIndex, rewardIndex: rewardIndex, index: -1 };
     }
 
 }

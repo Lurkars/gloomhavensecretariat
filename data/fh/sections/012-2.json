@@ -32,14 +32,14 @@
       "objectiveSpawns": [
         {
           "objective": {
-            "index": 1,
+            "id": 1,
             "name": "Snowdrift"
           },
           "count": "6"
         },
         {
           "objective": {
-            "index": 2,
+            "id": 2,
             "name": "Snow Rock"
           },
           "count": "2"

@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { environment } from "src/environments/environment";
 import { EventCard } from "src/app/game/model/data/EventCard";
+import { environment } from "src/environments/environment";
 
 @Component({
   standalone: false,
@@ -65,7 +65,7 @@ export class EventCardsToolComponent implements OnInit {
   update() {
     this.events = [];
     if (this.edition) {
-      this.events = gameManager.eventCardManager.getEventCardsForEdition(this.type, this.edition).filter((e, i) => this.iterator == -1 || this.iterator == i);
+      this.events = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type).filter((e, i) => this.iterator == -1 || this.iterator == i);
     }
   }
 

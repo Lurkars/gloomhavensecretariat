@@ -1,0 +1,10 @@
+<div class="event-card-dialog" *ngIf="!!event">
+    <div class="scroll-container">
+        <ghs-event-card [event]="event" (onSelect)="select($event)"></ghs-event-card>
+    </div>
+    <div class="menu">
+        <a class="cancel" (click)="cancel()" [ghs-label]="'cancel'"></a>
+        <a class="accept" (click)="accept()" [ngClass]="{'disabled': selected == -1}"
+            [ghs-label]="'game.events.chooseCard'"></a>
+    </div>
+</div>

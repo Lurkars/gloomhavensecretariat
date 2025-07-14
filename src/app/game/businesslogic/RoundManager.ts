@@ -577,6 +577,7 @@ export class RoundManager {
     this.game.round = 0;
     this.game.roundResets = [];
     this.game.roundResetsHidden = [];
+    this.game.eventDraw = undefined;
     this.game.state = GameState.draw;
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
     gameManager.attackModifierManager.fromModel(this.game.monsterAttackModifierDeck, new AttackModifierDeck().toModel());
@@ -681,8 +682,9 @@ export class RoundManager {
       }
     })
 
-    if (this.game.party.townGuardDeck) {
-      const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, gameManager.campaignData());
+    const campaignData = gameManager.campaignData();
+    if (this.game.party.townGuardDeck && campaignData.townGuardPerks) {
+      const townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.game.party, campaignData);
       gameManager.attackModifierManager.shuffleModifiers(townGuardDeck);
       townGuardDeck.active = false;
       this.game.party.townGuardDeck = townGuardDeck.toModel();

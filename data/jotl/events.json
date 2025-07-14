@@ -369,6 +369,7 @@
       {
         "label": "B",
         "narrative": "Doesn't this Orchid know who you are? The Jaws of the Lion don't need to prove themselves to anybody—these games are only for kids anyway.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You walk away, reassuring yourself you already know how strong you are. The children taunting you from the sidelines don't even hurt your feelings.",
@@ -376,8 +377,7 @@
               "Each character gains CURSE."
             ]
           }
-        ],
-        "returnToDeck": true
+        ]
       }
     ]
   },
@@ -438,10 +438,10 @@
         "outcomes": [
           {
             "narrative": "Xain shakes his head. \"Wow, someone’s really going to get a ding on their reputation. I’m marking this down.\" He checks a box in a ledger of his, then mutters one more thing as he wanders off: \"This is going to have a real effect on you.\"",
+            "returnToDeck": true,
             "effects": [
               "No effect."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -632,6 +632,7 @@
       {
         "label": "B",
         "narrative": "Do your best to ignore the man and the wind.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "The messenger eventually leaves, looking even more confused than when he entered.",
@@ -639,8 +640,7 @@
               "Resolve another event card."
             ]
           }
-        ],
-        "returnToDeck": true
+        ]
       }
     ]
   },

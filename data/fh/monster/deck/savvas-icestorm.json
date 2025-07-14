@@ -119,7 +119,7 @@
           ]
         },
         {
-          "type": "custom",
+          "type": "nonCalc",
           "value": "%data.custom.fh.savvas-icestorm.1%",
           "small": true,
           "subActions": [

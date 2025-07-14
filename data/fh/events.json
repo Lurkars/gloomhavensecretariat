@@ -154,6 +154,7 @@
         "outcomes": [
           {
             "narrative": "Looming ahead is a starfish bigger than any you've ever seen. Its arms drift in and out of the water, propelling it forward. It pays you no mind, but the Captain grits his teeth and looks to you. \"Fire!\"",
+            "returnToDeck": true,
             "effects": [
               "Select one character to perform attack 5, including a draw from their attack modifier deck. Ignore any effects that don't modify the value of the attack.",
               "RESULT > 6: You sink the harpoon dead center in the beast, who howls a haunting scream, then sinks below the waves. The Captain lets a tear run openly down his face. \"Thank you. Finally, peace for my love.\"",
@@ -170,8 +171,7 @@
                   2
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -499,6 +499,7 @@
               "type": "otherwise"
             },
             "narrative": "You dive into the water and scramble to unhitch the anchor rope between nips from the piranha pigs. It takes a few attempts and lots of return trips to the surface, but you finally unhitch the rope. The Quatryl thanks you profusely and shares some of what she gathered from the shipwreck.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -512,8 +513,7 @@
                   "poison"
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -785,6 +785,7 @@
         "outcomes": [
           {
             "narrative": "You write a pleasant note designed to lift someone else's spirits in the future. You make sure to include all sorts of interesting anecdotes about your time battling monsters and embellish just a little bit in the right spots—but certainly not to the unbelievable extent the original author had. You make sure to leave the few gold coins at the bottom of the bottle to brighten the day of someone more in need than you. You seal it with a cork and toss it into the water. The current carries it away, mixing in with everything else to be found in the vast ocean.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",
@@ -792,8 +793,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -825,6 +825,7 @@
         "outcomes": [
           {
             "narrative": "Doghogger stares at you for a good couple of seconds, clearly contemplating if anyone would miss you if \"accidentally\" fell overboard, and then he growls out: \"COME ABOUT!\" The ship careens around and heads back toward the fight. The Crashing Tide is clearly surprised—or, as some might say, distracted—by your return. The tide of the battle shifts slightly and the Abaeli swarm over the Lurker. You're able to peel off some of the fishmen to fight you instead, and by the end of it, you all are worse for wear. The Crashing Tide projects feelings of frustration into your mind and then descends back into the ocean.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -832,8 +833,7 @@
                   "curse"
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -844,13 +844,6 @@
     "edition": "fh",
     "type": "boat",
     "narrative": "Reports have been mounting about Abael pirates attacking fishing vessels leaving Frosthaven harbor. Satha has granted each ship a small contingent of Town Guard as a precaution. You didn't think it was necessary, but Captain Doghogger looks relieved to have the extra forces aboard.",
-    "attack": {
-      "attackValue": 35,
-      "targetNumber": 2,
-      "targetDescription": "Don't target buildings. If you fail to successfully defend at least once, all characters start the next scenario with CURSE and discard two cards.",
-      "narrative": "While you're away, the Abael pirates take the opportunity to attack Frosthaven proper, pouring out of the water and throwing themselves at the walls.",
-      "effects": []
-    },
     "options": [
       {
         "label": "A",
@@ -872,7 +865,14 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 35,
+      "targetNumber": 2,
+      "targetDescription": "Don't target buildings. If you fail to successfully defend at least once, all characters start the next scenario with CURSE and discard two cards.",
+      "narrative": "While you're away, the Abael pirates take the opportunity to attack Frosthaven proper, pouring out of the water and throwing themselves at the walls.",
+      "effects": []
+    }
   },
   {
     "cardId": "B-17",
@@ -1075,6 +1075,7 @@
         "outcomes": [
           {
             "narrative": "The snow imps are half-conscious in a box conspicuously labeled \"DO NOT EAT.\" A liberal dousing of paint later, your arms are slashed up but the imps look sort-of almost-kinda like snowbirds, if you are distracted or blind. When the kiss finally comes, the cage is opened and the imps are startled enough by the cheering and confused enough by the paint that they make a mad dash for the sky. It's a beautiful finale. Xain mouths \"Thank you!\" from the sidelines.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",
@@ -1088,8 +1089,7 @@
                   "bless"
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -1358,15 +1358,6 @@
     "edition": "fh",
     "type": "summer-outpost",
     "narrative": "Your latest victory is the talk of The Crater. You celebrate your heroics with one toast too many before stumbling back to your bed and falling asleep in a giddy haze. You wake to the sound of battle—the too-familiar roar of Algox morphing from dream to groggy reality. Flames from outside cast an eerie mural on the wall of your longhouse. What happened to the alarm? As your wine-soaked faculties slowly return, you notice the families that share your longhouse are in various states of panic. You've been through raids before, but it was always with a weapon in hand, facing your foe; inside the longhouse, unarmed and unarmored, you see in these people a kind of helpless terror you hadn't experienced before now. A crash outside snaps you from your reverie. Across the road, a group of Algox smash a stack of barrels and throw a torch into the pile before turning toward your longhouse. The other residents see them too.",
-    "attack": {
-      "attackValue": 10,
-      "targetNumber": 4,
-      "targetDescription": "Target odd-numbered buildings from 1 to 40.",
-      "narrative": "You stand by Mayor Satha as she regards the slain watchman, the arrow still buried in his chest. He died before he could reach the alarm. \"It looks like we'll need to double the watch,\" is all she says.",
-      "effects": [
-        "Gain 2 collective LUMBER and 2 collective METAL."
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -1403,7 +1394,16 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 10,
+      "targetNumber": 4,
+      "targetDescription": "Target odd-numbered buildings from 1 to 40.",
+      "narrative": "You stand by Mayor Satha as she regards the slain watchman, the arrow still buried in his chest. He died before he could reach the alarm. \"It looks like we'll need to double the watch,\" is all she says.",
+      "effects": [
+        "Gain 2 collective LUMBER and 2 collective METAL."
+      ]
+    }
   },
   {
     "cardId": "SO-08",
@@ -1618,20 +1618,6 @@
     "edition": "fh",
     "type": "summer-outpost",
     "narrative": "An incoming merchant ship tipped the town fishermen off to a dense school of large fish, about an hour's row up the bay. Captain Olmstead asked you to accompany and provide protection to the fishing expedition. The merchants were right—after an afternoon in the calm water, the boat was full of enough fish to last the town half of winter. Which is why you're so dismayed when an Abael pops his head out of the water. \"Per the Treaty of Deep Bay, these are our fish. Fin them over and leave immediately.\" He glares at you with black, unblinking eyes. You try to explain you've never heard of this treaty, but he cuts you off. \"Your disrespect for those already here and ignorance of our ways is no excuse. Give me the fish or face the consequences.\"",
-    "attack": {
-      "attackValue": 20,
-      "targetNumber": 3,
-      "targetDescription": "Target even-numbered buildings in order of closest to farthest from the docks (players break ties).",
-      "narrative": "With the last of the Abaeli swimming away, you can finally dock. Satha demands to know what happened. At least you brought lunch.",
-      "effects": [
-        {
-          "type": "morale",
-          "values": [
-            1
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -1665,7 +1651,21 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 20,
+      "targetNumber": 3,
+      "targetDescription": "Target even-numbered buildings in order of closest to farthest from the docks (players break ties).",
+      "narrative": "With the last of the Abaeli swimming away, you can finally dock. Satha demands to know what happened. At least you brought lunch.",
+      "effects": [
+        {
+          "type": "morale",
+          "values": [
+            1
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "SO-13",
@@ -1680,6 +1680,7 @@
           {
             "condition": "valrath",
             "narrative": "The Valrath energetically prepares some of your snowthistle for sharing. Surely, a little bit couldn't hurt—oh, it's evening now. Well, just a bit more for the road—is that the morning sun? The buyer smiles. \"Let me know if you get more. Happy to share.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",
@@ -1694,19 +1695,18 @@
                 ]
               },
               "Lose all collective HIDE."
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You hand the Valrath some snowthistle, and he licks his lips. \"Good, nice quality. Happy to put any excess to you have to better use...\"",
+            "returnToDeck": true,
             "effects": [
               "Lose any number of collective HIDE.",
               "Gain 5 collective GOLD for each HIDE lost."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -1722,24 +1722,24 @@
               ]
             },
             "narrative": "You offer encouraging words, reminding the Valrath that his pursuits don't need to define who he is. He grumbles as he slinks down the alley. \"I'll, uh, consider what you said.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You tell the Valrath just how troubling his actions are for society. He waves you off. \"Keep your opinions to yourself! And, uh, let me know if you come across some snowthistle, obviously.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -2324,21 +2324,6 @@
     "edition": "fh",
     "type": "summer-outpost",
     "narrative": "When the sun sets for the evening, an ominous blood-red moon rises in its place. It washes rough, crimson light over the landscape, painting the ocean in a flat maroon that gives the illusion of stillness. Some of the locals have pulled chairs outside, chatting and gambling with the guards in the monochrome moonlight. The red haze makes it impossible to spot the Lurker marauders shuffling along the snowy beachfront, staying close to the ground, silent, inching closer to their victims. By sheer luck, a patrolling guard's torchlight illuminates a carapace sneaking up from the water. The Lurker seems to recoil from it as the alarm sounds.",
-    "attack": {
-      "attackValue": 15,
-      "targetNumber": 2,
-      "targetDescription": "Target even-numbered buildings first, from lowest-level to highest-level.",
-      "narrative": "The moon passes behind some clouds and the Lurkers retreat from the streets back into the water. Frosthaven continues burning lamp oil until morning, just in case.",
-      "effects": [
-        {
-          "type": "collectiveResource",
-          "values": [
-            3,
-            "lumber"
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -2364,7 +2349,22 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 15,
+      "targetNumber": 2,
+      "targetDescription": "Target even-numbered buildings first, from lowest-level to highest-level.",
+      "narrative": "The moon passes behind some clouds and the Lurkers retreat from the streets back into the water. Frosthaven continues burning lamp oil until morning, just in case.",
+      "effects": [
+        {
+          "type": "collectiveResource",
+          "values": [
+            3,
+            "lumber"
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "SO-26",
@@ -2499,6 +2499,7 @@
               "type": "otherwise"
             },
             "narrative": "You try to talk up just how great the smoothies are to passers-by, but the public just isn't interested. You recommend the Quatryl looks into setting up somewhere warmer. He dejectedly hands you some leftover supplies as he packs up the cart.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "collectiveResource",
@@ -2507,8 +2508,7 @@
                   "hide"
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -3420,15 +3420,6 @@
     "edition": "fh",
     "type": "summer-outpost",
     "narrative": "You're walking through town when the accumulated snow on every rooftop in Frosthaven drops in a single, collective thump. The ground undulates beneath your feet, and a second later your legs are knocked out from under you. Unlike the rumblings that've shaken the outpost in the past, this one keeps building in intensity. You can hear Frosthaven's citizenry start to scream in panic. The uneasy dizziness as you try to stand builds to a rolling thunder—this is the big one.",
-    "attack": {
-      "attackValue": 50,
-      "targetNumber": 0,
-      "targetDescription": "all",
-      "narrative": "Wreck all damaged buildings.",
-      "effects": [
-        "Wreck all damaged buildings."
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -3512,7 +3503,16 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 50,
+      "targetNumber": 0,
+      "targetDescription": "all",
+      "narrative": "Wreck all damaged buildings.",
+      "effects": [
+        "Wreck all damaged buildings."
+      ]
+    }
   },
   {
     "cardId": "SO-48",
@@ -3543,6 +3543,7 @@
         "outcomes": [
           {
             "narrative": "You walk to the edge of the dock and give the Lurkers an earful, making sure they understand that society here in Frosthaven has expectations of them, and that if there's to be any hope of a future between your peoples, they'll need to make an effort to abide by your rules. The lecture is cut abruptly short when one kicks the edge of the dock, shaking loose the post and sending you headlong into the water. The other Lurkers snicker at the good joke.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "loseMorale",
@@ -3550,8 +3551,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -3889,12 +3889,12 @@
         "outcomes": [
           {
             "narrative": "\"GOODBYE, BRIGANDS. I HAVE SOME REVENGE TO INVOKE ON A PILE OF ROCKS.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -4479,10 +4479,10 @@
           },
           {
             "narrative": "\"Thank you tremendously, that helps confirm several of the first-hand accounts I've collected. Nearly identical!\"",
+            "returnToDeck": true,
             "effects": [
               "Gain 3 collective GOLD for each checked box above."
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "effects": [
@@ -4504,6 +4504,7 @@
         "outcomes": [
           {
             "narrative": "You note that you're not as well-traveled as he is, and ask if there's any locales he'd recommend.<br><br>\"I'm not a huge fan of the tourist-y places, but I can tell you about some exciting regions I've noted from afar...\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "inspiration",
@@ -4511,8 +4512,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -4580,6 +4580,7 @@
           {
             "condition": "Lose 5 GOLD",
             "narrative": "You drop a few coins in the wooden offering plate, which gets you a sincere nod of thanks. He sends you on your way, but you feel a bit lighter in your step.",
+            "returnToDeck": true,
             "effects": [
               "All characters who donated gain 1 BLESS.",
               "Check one box below for each character who donated. The first time all 6 boxes have been checked, gain 1 prosperity.",
@@ -4594,20 +4595,19 @@
                   ""
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "You're not willing to support the roadside shrine.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -5270,12 +5270,12 @@
               "type": "otherwise"
             },
             "narrative": "No offense, but I think you've overstayed your welcome. See you when you've got something worth swappin' for.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -5663,6 +5663,7 @@
         "outcomes": [
           {
             "narrative": "You lift one of the overflowing cups from the forest floor and raise it to your lips. The flavor is akin to molasses, but it tingles as you swallow.<br><br>You continue on your way, but your vision feels sharper; minor irregularities of the landscape are highlighted in perfect detail.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -5671,16 +5672,15 @@
                 ]
               },
               "At the start of the next scenario all characters draw one random loot card."
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": "algox",
             "narrative": "The sap invokes some reflex deep within you.",
+            "returnToDeck": true,
             "effects": [
               "At the start of the next scenario, all ALGOG characters also reveal the top two cards of their attack modifier deck and put them back in any order."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -7081,10 +7081,10 @@
         "outcomes": [
           {
             "narrative": "\"Fact is, all Aesthers have a focus of some sort. Something that gave them the will to pull themselves from the infinite multiverse and coalesce back into a single form. For some it was vengeance, or love, or... I dunno, pursuit of knowledge or something. I didn't have anything like that before I became an Aesther. I drank, I enjoyed life. I worked a bit, but not too much. Then this happened to me.\" He holds his arms out, showing his translucent form. \"But I realized that wanting to enjoy life—to have a good time—is enough of a focus to piece me back together. And if people need someone to worship, might as well be me, right? Better than someone who's going to lead them to destruction, I'd say.\" He takes another swig from the canteen, then looks suddenly concerned. \"I'd appreciate it if we kept this between us. How's a bribe sound?\"",
+            "returnToDeck": true,
             "effects": [
               "Gain one random item blueprint"
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -7210,11 +7210,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "Frosthaven at night in the winter verges on peaceful—the blanket of snow provides a quiet reminder to bundle up indoors, and sound barely carries from house to house. Tonight is an exception, though: dull thuds, coming from somewhere far off, rock the walls. You meet at the wall and see an Algox raiding party just outside arrow-range, circled around a leader hollering into the night air. Each call is met with the remainder smashing their fists against the snow, sending ripples of vibration through the town. The calls reach a fever pitch, and the thumping increases in frequency. Tonight will not be peaceful, and many in the outpost won't see the sunrise.",
-    "attack": {
-      "attackValue": 25,
-      "targetNumber": 4,
-      "targetDescription": "Target odd-numbered buildings from 1 to 40."
-    },
     "options": [
       {
         "label": "A",
@@ -7266,7 +7261,12 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 25,
+      "targetNumber": 4,
+      "targetDescription": "Target odd-numbered buildings from 1 to 40."
+    }
   },
   {
     "cardId": "WO-03",
@@ -7421,16 +7421,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "You're on your guard shift on the harbor wall when some commotion from below catches your attention. \"We're the ones risking our lives day-in, day-out for Frosthaven! It's time we got some recognition!\" You see a young guard standing on a radish crate inside the barracks yard. He's drawing a crowd of other guards. \"Why should the town's protectors go hungry? Maybe instead of rationing our meals, the rest of town should ration THEIRS!\" A few meager cheers rise from the gathering. The speaker notices you watching from across the yard and shouts to you. \"Join us! I say we march down to 'Mayor Satha' and tell her that from now on, guards eat first!\"",
-    "attack": {
-      "attackValue": 20,
-      "targetNumber": 5,
-      "targetDescription": "Target buildings randomly by drawing from the building deck. You cannot use soldiers during this attack.",
-      "narrative": "You march to the center of Frosthaven, but some of the guards start shoving citizens and spark a full-blown riot.",
-      "effects": [
-        "+5 MORALE (or +10 MORALE if CHAOTIC)",
-        "Additionally +2 MORALE"
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -7469,7 +7459,17 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 20,
+      "targetNumber": 5,
+      "targetDescription": "Target buildings randomly by drawing from the building deck. You cannot use soldiers during this attack.",
+      "narrative": "You march to the center of Frosthaven, but some of the guards start shoving citizens and spark a full-blown riot.",
+      "effects": [
+        "+5 MORALE (or +10 MORALE if CHAOTIC)",
+        "Additionally +2 MORALE"
+      ]
+    }
   },
   {
     "cardId": "WO-07",
@@ -8197,20 +8197,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "The ships left the harbor a few days ago, dragged ashore or sailing into deeper waters to avoid freezing in place. Now the cold snap has the docks in its grip, coating the whole harbor with a thick layer of motionless ice. Even in winter, the harbor rarely freezes completely. But by the time you wake up, children have already seized the opportunity to play on the frozen waves, scampering after each other in a game of Catch the Lurker. Then you notice one human child farther out than the others, sullenly swiping at the ice with a stick. He entertains himself with rhythmic banging for a while, before suddenly stopping as though he'd heard something. He gets down on all fours and wipes the snow away, peering into the ice. With a yelp, the boy jumps back just as a huge claw breaches the ice where he stood. Similar eruptions arrest the other childrens' game, and Lurkers emerge from the ice. Panic takes hold of the children, who scramble back toward the docks as the attack bell sounds.",
-    "attack": {
-      "attackValue": 20,
-      "targetNumber": 6,
-      "targetDescription": "Target even-numbered buildings first in descending order.",
-      "narrative": "You shout for the guards to hold defensive positions as more Lurkers emerge from the ice and the children run through the gate. Almost all of them make it back.",
-      "effects": [
-        {
-          "type": "loseMorale",
-          "values": [
-            1
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -8267,22 +8253,27 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 20,
+      "targetNumber": 6,
+      "targetDescription": "Target even-numbered buildings first in descending order.",
+      "narrative": "You shout for the guards to hold defensive positions as more Lurkers emerge from the ice and the children run through the gate. Almost all of them make it back.",
+      "effects": [
+        {
+          "type": "loseMorale",
+          "values": [
+            1
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "WO-22",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "You see them skittering just beyond the shoreline. Their spikes and claws make small splashes as they break against the waves. It's hard to tell how many there are exactly, but it appears to be just two or three. If there were a lot of Lurkers, the water would be churning and sloshing as they position themselves.<br><br>You wait for them to make their charge. And you wait. And wait. This is new behavior for Lurker raiders—typically they attack within moments of reaching shallow water. They're safe in the deep, and dangerous on land—but vulnerable along the shore.<br><br>You're not sure what they're up to, but you certainly aren't going to sleep tonight while the enemy is on the beach.",
-    "attack": {
-      "attackValue": 30,
-      "targetNumber": 5,
-      "targetDescription": "Target even-numbered buildings from 1 to 50.",
-      "narrative": "A smart commander learns from every battle. It seems your enemies are getting smarter too.",
-      "effects": [
-        "Gain 10 experience each."
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -8311,28 +8302,22 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 30,
+      "targetNumber": 5,
+      "targetDescription": "Target even-numbered buildings from 1 to 50.",
+      "narrative": "A smart commander learns from every battle. It seems your enemies are getting smarter too.",
+      "effects": [
+        "Gain 10 experience each."
+      ]
+    }
   },
   {
     "cardId": "WO-23",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "A deckhand sprints through town, shouting at anyone who will listen. \"The ships—they're going under!\" He rushes up to you, fear in his eyes. \"You have to help! They're taking the ships!\" Few would leave a ship in Frosthaven over winter when the ice impedes passage, but excellent planning is not the hallmark of captains assigned to voyages this far north. You rush to the docks, and sure enough, a large ship is listing dangerously. Despite being lashed to the dock, it looks like it's being dragged downward by its anchor. The small bubbles of air billowing around the bay remove any doubt—this is the work of Lurkers. If you don't intervene, the vessel will surely capsize.",
-    "attack": {
-      "attackValue": 25,
-      "targetNumber": 6,
-      "targetDescription": "Target even-numbered buildings from 10 to 80.",
-      "narrative": "You beat back the Lurkers and swear off seafood for a month.",
-      "effects": [
-        {
-          "type": "collectiveResource",
-          "values": [
-            2,
-            "hide"
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -8383,20 +8368,28 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 25,
+      "targetNumber": 6,
+      "targetDescription": "Target even-numbered buildings from 10 to 80.",
+      "narrative": "You beat back the Lurkers and swear off seafood for a month.",
+      "effects": [
+        {
+          "type": "collectiveResource",
+          "values": [
+            2,
+            "hide"
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "WO-24",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "They come from the hills in the night—a horde of blinking red lights, sparkling over the dark, snowy landscape like fireflies. By the time the guards have assembled at the gates, the creatures are near enough that you can make them out: glowing, mantis-like constructs no bigger than a dog. They line up just at the edge of the town's torchlight, blinking in and out of your vision. Suddenly, the metallic insectoids all rush forward as one. The archers drop dozens of them, but as the glowing creatures reach the base of the wall, they vanish, the guards' arrows driving into empty ground. You spin around as the creatures reappear on the inside of the wall. As the blinking lights proliferate through town, you realize they aren't flashing their lights on and off—the glowing creatures are teleporting. \"How do we fight THAT?\" one guard wails as the machines wreak havoc on a nearby longhouse.",
-    "attack": {
-      "attackValue": 20,
-      "targetNumber": 5,
-      "targetDescription": "Target buildings randomly by drawing from the building deck.",
-      "narrative": "Wreck two buildings by drawing randomly from the building deck.",
-      "effects": []
-    },
     "options": [
       {
         "label": "A",
@@ -8461,27 +8454,20 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 20,
+      "targetNumber": 5,
+      "targetDescription": "Target buildings randomly by drawing from the building deck.",
+      "narrative": "Wreck two buildings by drawing randomly from the building deck.",
+      "effects": []
+    }
   },
   {
     "cardId": "WO-25",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "Another Algox raid on its way,\" Satha waves a weary hand to dismiss the scout. \"At least this time we have warning.\" She turns to the assembled guard lieutenants with a sigh. \"Well, what's the plan?\" \"Ms. Mayor,\" a Valrath lieutenant gestures toward your group. \"Our friends could lead a detachment through the forest and ambush the attackers from behind once they charge the wall. The Algox will be trapped!\" \"That's too risky,\" an older guard grumbles. \"The way to keep your head on your shoulders is fighting from inside the walls. Instead of sending guards on a suicide mission, let me put 'em to work preparing some traps for our attackers.\" Satha considers for a moment, then nods. \"Both are good plans.\" She turns to you. \"We'll leave it up to our mercenaries. What's your pleasure?\"",
-    "attack": {
-      "attackValue": 40,
-      "targetNumber": 4,
-      "targetDescription": "Target odd-numbered buildings in ascending order.",
-      "narrative": "The elder lieutenant spits as he regards the fallen. \"Rule one: never leave the walls,\" he says somberly. \"Rule two: honor the dead. Get to it.\"",
-      "effects": [
-        {
-          "type": "morale",
-          "values": [
-            2
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -8528,20 +8514,27 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 40,
+      "targetNumber": 4,
+      "targetDescription": "Target odd-numbered buildings in ascending order.",
+      "narrative": "The elder lieutenant spits as he regards the fallen. \"Rule one: never leave the walls,\" he says somberly. \"Rule two: honor the dead. Get to it.\"",
+      "effects": [
+        {
+          "type": "morale",
+          "values": [
+            2
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "WO-26",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "You're on a break during your rotation at the gate, watching children in the courtyard below roll balls of snow for their snowinox. They're happily placing sticks in the head when you hear the attack bell sound behind you. Break's over. Dark metallic shapes crawl toward the outpost, firing nasty-looking bolts tipped with a greenish substance. The bolts thunk into the solid wood of the tower with an acidic hiss. Suddenly an acrid stench seizes your senses, flooding your eyes and burning your nostrils as you choke for air. Many guards collapse in a retching fit. Another volley slams into the wall, and the resulting cloud drives even the most stalwart from the towers. More poisonous bolts sail overhead and land deeper in town, and you hear sounds of panic as people rush to escape. The machines are nearing the walls... With no defenders to stop them, they'll soon be inside.",
-    "attack": {
-      "attackValue": 30,
-      "targetNumber": 5,
-      "targetDescription": "Target buildings randomly by drawing from the building deck. Wreck all damaged buildings.",
-      "narrative": "",
-      "effects": []
-    },
     "options": [
       {
         "label": "A",
@@ -8577,22 +8570,20 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 30,
+      "targetNumber": 5,
+      "targetDescription": "Target buildings randomly by drawing from the building deck. Wreck all damaged buildings.",
+      "narrative": "",
+      "effects": []
+    }
   },
   {
     "cardId": "WO-27",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "An alarm bell draws you to the workshop, where workers are running out from the structure followed by a steady stream of many-legged robots swinging heavy, metal flails. You grab a panicked worker as he runs by. \"They tunneled right in!\" He screams. \"They're coming in through the floor!\" The building is overrun with the crawling machines that have now begun to flood out toward the rest of the outpost. You see some black powder stashed by the side of the building. A well-placed bit of fire could destroy the building and cut off the invasion, but it would be tough to get close enough with all these attackers.",
-    "attack": {
-      "attackValue": 35,
-      "targetNumber": 5,
-      "targetDescription": "Target the Workshop (unless wrecked), then select additional targets based on proximity to the Workshop (players break ties).",
-      "narrative": "You pick over the fallen attackers, and also make a note to discuss fire safety protocols with Mayor Satha.",
-      "effects": [
-        "Gain 1 collective LUMBER for each successfully defended building."
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -8666,28 +8657,22 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 35,
+      "targetNumber": 5,
+      "targetDescription": "Target the Workshop (unless wrecked), then select additional targets based on proximity to the Workshop (players break ties).",
+      "narrative": "You pick over the fallen attackers, and also make a note to discuss fire safety protocols with Mayor Satha.",
+      "effects": [
+        "Gain 1 collective LUMBER for each successfully defended building."
+      ]
+    }
   },
   {
     "cardId": "WO-28",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "You're on your way to the workshop when you hear the alarm bell toll. Rushing to the center of town, you see a group of hunters who have returned early—and not with good news. You catch up with them as they brief Mayor Satha. \"There's an Algox warband approaching from the north. At that pace, they'll be here within the hour.\" While you prepare for battle, a woman approaches you: \"Please, I need your help. My son went out to gather some firewood. Yesterday I was mad at him for not bringing enough, so I told him not to come back with less than double. But carrying so much wood and with the Algox so close, he will never make it back in time. Please, go help him before it's too late.\"",
-    "attack": {
-      "attackValue": 15,
-      "targetNumber": 5,
-      "targetDescription": "Target odd-numbered buildings from 10 to 70.",
-      "narrative": "While checking the fallen Algox for resources, you come across the wood dropped by the boy. You pause, wondering what would have happened to the boy had you made a different choice.",
-      "effects": [
-        {
-          "type": "collectiveResource",
-          "values": [
-            2,
-            "lumber"
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -8718,7 +8703,22 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 15,
+      "targetNumber": 5,
+      "targetDescription": "Target odd-numbered buildings from 10 to 70.",
+      "narrative": "While checking the fallen Algox for resources, you come across the wood dropped by the boy. You pause, wondering what would have happened to the boy had you made a different choice.",
+      "effects": [
+        {
+          "type": "collectiveResource",
+          "values": [
+            2,
+            "lumber"
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "WO-29",
@@ -8864,15 +8864,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "Frosthaven is in good spirits on this cloudless, sunny winter day. The call of seabirds and splash of waves forms a rhythm with the strikes of the blacksmith's hammer, the grunts of pack animals, the clanging of the alarm bell... Wait, what? You shake from your reverie and sprint to the harbor gate. The guard gives a confused shrug as you arrive at the tower. \"The water is... attacking?\" Sure enough, huge swells undulate through the harbor as though moved by a heavy storm. The fishing boats are tossing about dangerously on the roiling waves. The guards look down at their weapons... they're not exactly trained to fight angry tides. Then, a cry: \"Lurkers!\" You see them too, riding within a massive swell as it approaches and retreats, getting closer to the wall with every crashing wave. If this keeps up, the water will overwhelm the gates. It seems the Lurkers have invented a new kind of battering ram.",
-    "attack": {
-      "attackValue": 50,
-      "targetNumber": 5,
-      "targetDescription": "Target even-numbered buildings closest to the docks (players break ties).",
-      "narrative": "Target even-numbered buildings closest to the docks (players break ties).",
-      "effects": [
-        "Gain 10 experience each."
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -8910,27 +8901,22 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 50,
+      "targetNumber": 5,
+      "targetDescription": "Target even-numbered buildings closest to the docks (players break ties).",
+      "narrative": "Target even-numbered buildings closest to the docks (players break ties).",
+      "effects": [
+        "Gain 10 experience each."
+      ]
+    }
   },
   {
     "cardId": "WO-33",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "You wake up just before dawn to the most beautiful music you've ever heard. Joy swells through you as you realize who is creating the symphony: your friends have arrived. You climb the stairs to the gatehouse, which is already crowded with people enjoying the serene waves of music. There they are, in front of the gate: your friends. Dozens of them, each armored crustacean head pointed up at the audience. They bob in time with the pre-dawn sonata, the notes braiding together with the gently falling snow. You eye the lever that would open the town's gate; if you let them in, you could all listen to the music, which now seems like the only important thing in the world. Maybe it's time to let your friends in.",
-    "attack": {
-      "attackValue": 40,
-      "targetNumber": 8,
-      "targetDescription": "Target even-numbered buildings in descending order.",
-      "narrative": "You should let your friends in. Let them in.",
-      "effects": [
-        {
-          "type": "loseMorale",
-          "values": [
-            1
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -8961,7 +8947,21 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 40,
+      "targetNumber": 8,
+      "targetDescription": "Target even-numbered buildings in descending order.",
+      "narrative": "You should let your friends in. Let them in.",
+      "effects": [
+        {
+          "type": "loseMorale",
+          "values": [
+            1
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "WO-34",
@@ -9128,6 +9128,7 @@
         "outcomes": [
           {
             "narrative": "Xain is forlorn as the gate slams shut behind him. He looks up at you, utterly dejected, but you just point to the Algox at the top of the hill. Xain sighs and begins his long, slow walk across the field, head hanging low. He's grabbed forcefully by the priest when he finally arrives. She sniffs his head, makes a face of disgust, and then marches off with the warband without another word. All you hear is the wailing sobs of the captured Orchid.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "loseMorale",
@@ -9142,8 +9143,7 @@
                   "189.3"
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -9254,21 +9254,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "Algox to the east!\" The call comes as the alarm bells shriek through the twilight. You rush with the rest of the guards toward the eastern wall, where a warband of several dozen Algox are already in full charge. \"Archers!\" Mayor Satha barks, and a volley sails forth into the attacking force. Arrows bury themselves into the frontmost attackers, but the Algox don't slow at all. \"Again!\" Satha shouts, and another hail of arrows drives into the attackers. They continue their charge undeterred. \"This'll stop 'em,\" she mutters as she draws a pitch-sealed arrow from a quiver. \"Archers, light!\" Satha calls, holding her fire arrow to a torch. As the attackers draw closer, you notice that the wounded Algox are moving unnaturally—some of their heads roll freely as they run, and others charge full-speed on legs that drag in the snow. Arrows flare on the guard towers as the archers light their ammunition and prepare to fire. \"Care to join us?\" Satha grunts, nodding toward a rack of bows.",
-    "attack": {
-      "attackValue": 50,
-      "targetNumber": 6,
-      "targetDescription": "Target buildings from 20 to 60.",
-      "narrative": "Machines to the west!",
-      "effects": [
-        {
-          "type": "collectiveResource",
-          "values": [
-            3,
-            "lumber"
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -9301,26 +9286,28 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 50,
+      "targetNumber": 6,
+      "targetDescription": "Target buildings from 20 to 60.",
+      "narrative": "Machines to the west!",
+      "effects": [
+        {
+          "type": "collectiveResource",
+          "values": [
+            3,
+            "lumber"
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "WO-40",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "You respond to the alarm, arming yourself to defend against another Algox rush at the wall. When you arrive at your post, however, you're surprised to see them assembled not in their usual unruly war mob, but in rows, almost like trained soldiers. A wizened Algox shouts to the soldiers as he trots down the line on a polar bear. The Algox commander barks an order and the lines move forward as one, spears in hand, and then stop just outside of arrow range. They begin assembling what looks like a crude catapult with a disciplined precision. Others break off into teams and begin rolling massive snowballs for ammunition. A wave of mirthful arrogance ripples through the defenders of Frosthaven as they realize what's going on. \"They came all this way for a snowball fight\" one soldier quips. \"These Algox can barely build a tent,\" another responds. \"There's no way that thing will work!\" They certainly seem to think it'll work. The question now is whether you let them try.",
-    "attack": {
-      "attackValue": 55,
-      "targetNumber": 4,
-      "targetDescription": "Target odd-numbered buildings from 50 to 100.",
-      "narrative": {
-        "type": "collectiveResource",
-        "values": [
-          3,
-          "lumber"
-        ]
-      },
-      "effects": []
-    },
     "options": [
       {
         "label": "A",
@@ -9369,33 +9356,26 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 55,
+      "targetNumber": 4,
+      "targetDescription": "Target odd-numbered buildings from 50 to 100.",
+      "narrative": {
+        "type": "collectiveResource",
+        "values": [
+          3,
+          "lumber"
+        ]
+      },
+      "effects": []
+    }
   },
   {
     "cardId": "WO-41",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "The Lurkers are marching on Frosthaven. Line after line emerges from the waves, each putting more carapaced bodies between you and the longboat floating just at the end of the main dock. You see shapes huddled on the vessel, trying not to be noticed. The longboat crew had been unloading barrels of extremely valuable whale oil when the Lurkers emerged. Cut off from the safety of the walls, they were forced to retreat to the boat, where they've been left alone so far. More than two dozen Lurkers approach Frosthaven now, and still more are appearing from beneath the waves. The guard next to you mumbles a prayer. These numbers are overwhelming. Then you notice the unloaded longboat's cargo sitting on the dock: the oil in those barrels is highly unstable, and you know the archers have been drilling with fire arrows. An explosion could even the odds, but collateral damage is inevitable... destroying the dock could cut off the longboat crew's only route to the safety of the outpost.",
-    "attack": {
-      "attackValue": 45,
-      "targetNumber": 4,
-      "targetDescription": "Target even-numbered buildings from 50 to 100.",
-      "narrative": "You shout orders to the archers, who ignite their fire arrows and train them on the barrels. As the volley forms a burning arc through the air you think you hear a strangled \"NO!\" from the ship. The explosion sends a fiery spray of wood and claws all over the harbor... and then a second, smaller explosion aboard the longboat. It seems they hadn't finished unloading their cargo.",
-      "effects": [
-        {
-          "type": "loseProsperity",
-          "values": [
-            1
-          ]
-        },
-        {
-          "type": "outpostAttack",
-          "values": [
-            -10
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -9452,7 +9432,27 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 45,
+      "targetNumber": 4,
+      "targetDescription": "Target even-numbered buildings from 50 to 100.",
+      "narrative": "You shout orders to the archers, who ignite their fire arrows and train them on the barrels. As the volley forms a burning arc through the air you think you hear a strangled \"NO!\" from the ship. The explosion sends a fiery spray of wood and claws all over the harbor... and then a second, smaller explosion aboard the longboat. It seems they hadn't finished unloading their cargo.",
+      "effects": [
+        {
+          "type": "loseProsperity",
+          "values": [
+            1
+          ]
+        },
+        {
+          "type": "outpostAttack",
+          "values": [
+            -10
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "WO-42",
@@ -9660,13 +9660,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "Thump. Thump. THUMP. THUMP.<br><br>\"War drums.\" The Algox grins through the iron bars. The small cell in the barracks was built to hold an occasional angry drunk, or at most a couple of bandits awaiting execution. It was not built to house the four massive Algox that have been stinking up the place since a foolish group of guards recently took them prisoner. This outpost isn't built for prisoners, and the Algox rarely give you the chance to take them anyway.<br><br>\"They come for you. For us,\" another smiles. You can almost see the bloodlust rising in them as the drums draw closer and the attack alarm sounds.<br><br>You hear the pounding of feet and the shouts of the guards as they rush to the wall. One of the prisoners slams his huge paws against the cell door, the joints creaking under the strain. This cell won't hold them long.<br><br>\"A full warband! All hands to the wall!\"<br><br>The prisoners look to you.",
-    "attack": {
-      "attackValue": 40,
-      "targetNumber": 4,
-      "targetDescription": "Target buildings randomly by drawing from the building deck.",
-      "narrative": "",
-      "effects": []
-    },
     "options": [
       {
         "label": "A",
@@ -9697,7 +9690,14 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 40,
+      "targetNumber": 4,
+      "targetDescription": "Target buildings randomly by drawing from the building deck.",
+      "narrative": "",
+      "effects": []
+    }
   },
   {
     "cardId": "WO-47",
@@ -9741,6 +9741,7 @@
         "outcomes": [
           {
             "narrative": "You circle up with a group donning Algox costumes and readying wooden weapons. It looks like it'll be a fight for the ages! After lots of growling and back-and-forth banter, you've \"battled\" your fill for the day and retire to drinks with the group. Not a bad lot.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",
@@ -9748,8 +9749,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -9760,13 +9760,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "With a final howl, the Wind Demon explodes in a burst of air that almost knocks you down. You turn to face the next threat—another one is almost at the wall, but a well-placed arrow knocks it to the ground. A guard waves her arms and points, trying to catch your attention. You glance behind you just in time to block a crushing blow from a Frost Demon. A decisive hit stuns the creature, buying you a moment to survey the field. You watch as the Wind Demons and Frost Demons, working together, focus their attacks on the walls of Frosthaven. You start toward the walls when a white flash catches your eye, drawing your attention to several Savvas on the periphery of the battlefield, directing the demons. Their power cores are icy white and icicles grow from their fists. You don't know who these Savvas are, but their goals seem pretty clear. One turns and locks eyes with you before motioning in your direction to a pair of Frost Demons.",
-    "attack": {
-      "attackValue": 65,
-      "targetNumber": 6,
-      "targetDescription": "Target buildings in descending order.",
-      "narrative": "",
-      "effects": []
-    },
     "options": [
       {
         "label": "A",
@@ -9786,27 +9779,20 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 65,
+      "targetNumber": 6,
+      "targetDescription": "Target buildings in descending order.",
+      "narrative": "",
+      "effects": []
+    }
   },
   {
     "cardId": "WO-49",
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "\"In there! I trapped him in there!\" A panicked Orchid points to a closet door, barricaded with furniture. \"I was in the other room, and I heard a scratching sound from in here. That's when I saw someone—no, something—disappear into the closet. I locked it in there, then raised the alarm right away.\" You clear the barricade, take a step back, and nod to one of the guards who flings the door open. You find... a mop and an empty bucket. \"I—how did—this is impossible! Where did it go?\" the Orchid glances around nervously, suddenly aware he is losing credibility. You roll your eyes and turn to leave, but stop as you hear a commotion outside. You open the door and are almost trampled as people are running frantically through the streets. Everyone is screaming the same thing: \"Living Spirits!\"",
-    "attack": {
-      "attackValue": 70,
-      "targetNumber": 8,
-      "targetDescription": "Target buildings from 1 to 70 in descending order.",
-      "narrative": "No one haunts Frosthaven on your watch.",
-      "effects": [
-        {
-          "type": "morale",
-          "values": [
-            1
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -9854,7 +9840,21 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 70,
+      "targetNumber": 8,
+      "targetDescription": "Target buildings from 1 to 70 in descending order.",
+      "narrative": "No one haunts Frosthaven on your watch.",
+      "effects": [
+        {
+          "type": "morale",
+          "values": [
+            1
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "WO-50",
@@ -9911,20 +9911,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "You insisted it was too dangerous to do maintenance on the gate during winter, but no one wanted to wait until summer. Now here we are. A hoard of skeletons are shambling toward Frosthaven, and the gate is still hours from being able to close. By the time you hear the alarm bell, a section of the town guard has already left to intercept the Living Bones in the fields. You rush to catch up with the guards, but you're still minutes away at full sprint. The guards outnumber the Living Bones two-to-one, surround them, and engage with confidence. However, their newfound resolve is shattered when they discover the odds are more even than they thought. These skeletons are quite effective at fighting two guards at the same time.",
-    "attack": {
-      "attackValue": 65,
-      "targetNumber": 6,
-      "targetDescription": "Target odd-numbered buildings from closest to furthest from the main gate (players decide ties).",
-      "narrative": "As you collect the no-longer-living bones, you think maybe Frosthaven should start burning its dead.",
-      "effects": [
-        {
-          "type": "morale",
-          "values": [
-            1
-          ]
-        }
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -9972,7 +9958,21 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 65,
+      "targetNumber": 6,
+      "targetDescription": "Target odd-numbered buildings from closest to furthest from the main gate (players decide ties).",
+      "narrative": "As you collect the no-longer-living bones, you think maybe Frosthaven should start burning its dead.",
+      "effects": [
+        {
+          "type": "morale",
+          "values": [
+            1
+          ]
+        }
+      ]
+    }
   },
   {
     "cardId": "WO-52",
@@ -9995,6 +9995,7 @@
         "outcomes": [
           {
             "narrative": "You step up to confront the Unfettered, but they're ready for a fight. Despite knocking several down, the blades flash through another town guard's head, leaving the others wide-eyed in fear.<br><br>The fight is swift and horrible—spinning, flaming blades obliterate the town's defenses. It's only when they choose to leave of their own accord that the outposters come out of hiding to pick up the pieces.",
+            "returnToDeck": true,
             "effects": [
               "Permanently remove one -1 card from the town guard deck.",
               {
@@ -10003,8 +10004,7 @@
                   3
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -10100,6 +10100,7 @@
           },
           {
             "narrative": "You wake up some hours later in the middle of the street. Each time you close your eyes, you can see the image of a shattered crown on the inside of your eyelids. If you don't find a reason to prevent the Lurkers' hunt soon, it will mean the death of Frosthaven.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "loseProsperity",
@@ -10107,8 +10108,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -10119,13 +10119,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "Today is bitterly cold. The ground is iced over, windows are covered in thick layer of frost, and the metal on your weapons is too cold to touch. Even for Frosthaven, this is brutal. Huddling under a pelt in a guard tower, you stare out into the ice surrounding the outpost, questioning all the decisions in your life that brought you to this day. It's so cold the ice on the wall is shimmering, almost moving. Wait—is it moving? You breathe on your spyglass to warm it up, then bring it to your eye. Your heart sinks. Of course, today of all days is when Frost Demons decide to pick a fight.",
-    "attack": {
-      "attackValue": 75,
-      "targetNumber": 8,
-      "targetDescription": "Target buildings from 1 to 70 in ascending order.",
-      "narrative": "Shivering, you make your way indoors and collapse in front of the fire. You've surely earned a vacation somewhere warm by now.",
-      "effects": []
-    },
     "options": [
       {
         "label": "A",
@@ -10153,7 +10146,14 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 75,
+      "targetNumber": 8,
+      "targetDescription": "Target buildings from 1 to 70 in ascending order.",
+      "narrative": "Shivering, you make your way indoors and collapse in front of the fire. You've surely earned a vacation somewhere warm by now.",
+      "effects": []
+    }
   },
   {
     "cardId": "WO-56",
@@ -10398,13 +10398,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "More than a dozen torches shine in the night, just outside arrow-range from the main gate. The night is still young, and the sun won't rise for some time. The unmistakable voice of an Algox rings out from the assembly. \"It has taken time to find you, but the magic of the Algox can trace a trail long faded by snow.\" His face bears blue tattoos unlike those you've seen before—another week, another Algox clan with an axe to grind against Frosthaven's walls. \"We have avoided contact with you, despite your trespasses into our lands. But now your people have cut our majestic wall of sacred arrowvine, destroying the very essence of our people and the ladder to our hallowed sites. For that you must pay. Return the arrowvine, or the consequences will be swift.\" They can't be serious. The arrowvine wall you cut down, while impressive, was there for the taking. How should you have known it had any meaning to these Algox?",
-    "attack": {
-      "attackValue": 45,
-      "targetNumber": 5,
-      "targetDescription": "Target odd-numbered buildings from 30 to 100.",
-      "narrative": "With the Algox finally driven back, you make a note to harvest only from gardens you recognize.",
-      "effects": []
-    },
     "options": [
       {
         "label": "A",
@@ -10445,7 +10438,14 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 45,
+      "targetNumber": 5,
+      "targetDescription": "Target odd-numbered buildings from 30 to 100.",
+      "narrative": "With the Algox finally driven back, you make a note to harvest only from gardens you recognize.",
+      "effects": []
+    }
   },
   {
     "cardId": "WO-61",
@@ -10741,15 +10741,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "Algox custom requires regular combat with others in the region as a show of competence,\" an Algox explains to an assembly of Frosthaven's leadership. \"Our customs cannot be abandoned, but we Frostspeakers will not violate our treaty with an attack on Frosthaven.\" Eros, a well-heeled local Savvas with a penchant for drama, jumps in. \"So we will arrange a battle—a mock battle! The Algox will attack the outpost, and we shall defend, but without any true loss of life or property!\" If it's trying to contain its excitement, it's failing. Mayor Satha has been trying to make sense of all this, but she throws up her hands. \"Well, whatever keeps the peace, I guess. Go play your games.\" \"One more thing,\" the Frostspeaker says as he turns to your group. \"Those who bear our mark—the Allies of the Frost—are honorary members of our tribe. Thus, you may fight at our side in this battle for the glory of the Frostspeakers, or you may defend the outpost. The choice is yours.",
-    "attack": {
-      "attackValue": 35,
-      "targetNumber": 5,
-      "targetDescription": "Target even-numbered buildings from 1 to 50 in descending order.",
-      "narrative": "The false battle is followed by real ale in a toast to your alliance. The revelry certainly beats the cleanup that normally follows an attack!",
-      "effects": [
-        "Gain 1 MORALE each."
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -10776,7 +10767,16 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 35,
+      "targetNumber": 5,
+      "targetDescription": "Target even-numbered buildings from 1 to 50 in descending order.",
+      "narrative": "The false battle is followed by real ale in a toast to your alliance. The revelry certainly beats the cleanup that normally follows an attack!",
+      "effects": [
+        "Gain 1 MORALE each."
+      ]
+    }
   },
   {
     "cardId": "WO-68",
@@ -10869,11 +10869,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "Lurkers have been gathering outside Frosthaven all day, but the expected attack hasn't come. The swarm grows and grows, but still they come, and still they wait. You stare grimly out from the tower, weighing your odds. It might take everything you have, but you figure you could just about defend the wall... if everything goes right. And then a massive Lurker emerges from the water, its green-and-red head as big as a lifeboat. The mood of the other Lurkers changes drastically; they chitter loudly, preparing to attack. The gigantic Lurker approaches the town, the others falling in behind it. A sudden cry rings out from the gate below you, and you see an Inox youth slip through the gate and dash toward the approaching Lurkers, brandishing a stick in one hand. Someone shouts at the gatekeeper next to you: \"Open the gate and get that kid back inside!\" This does not qualify as \"Everything going right.\"",
-    "attack": {
-      "attackValue": 40,
-      "targetNumber": 5,
-      "targetDescription": "Target even-numbered buildings in ascending order."
-    },
     "options": [
       {
         "label": "A",
@@ -10905,7 +10900,12 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 40,
+      "targetNumber": 5,
+      "targetDescription": "Target even-numbered buildings in ascending order."
+    }
   },
   {
     "cardId": "WO-71",
@@ -11391,21 +11391,6 @@
     "edition": "fh",
     "type": "winter-outpost",
     "narrative": "Returning to town from a scouting mission, you notice the guard towers are empty. You make a mental note to check the schedule and report the deserters to Captain Olmstead, but as you approach the gate, you discover the guards are missing from their posts, too.<br><br>Before you can sound the alarm, you hear the screams. It doesn't take long to figure out what's going on—a trio of Lurkers skitter down the street, swiping at anything in range. They must have breached the defenses while you were gone!<br><br>The Lurkers turn their attention to you, twitching and jerking in odd fits. Their eyes look hollow and their movements frenetic. Before you can take action they scamper off. It doesn't seem like they were running away from you—they're searching for something.<br><br>Oh no, surely they're not looking for the shards you found...",
-    "attack": {
-      "attackValue": 40,
-      "targetNumber": "X",
-      "targetDescription": "Where X is the number of coral shards you have. Target buildings from 1 to 100 in descending order. Target the same building repeatedly until the building is damaged or wrecked. Wreck all damaged buildings.",
-      "narrative": "Lurker carapaces are piled high in the streets—hopefully they'll think twice before mounting an attack of that scale again.",
-      "effects": [
-        {
-          "type": "collectiveGold",
-          "values": [
-            4
-          ]
-        },
-        "Gain 2 MORALE."
-      ]
-    },
     "options": [
       {
         "label": "A",
@@ -11441,7 +11426,22 @@
           }
         ]
       }
-    ]
+    ],
+    "attack": {
+      "attackValue": 40,
+      "targetNumber": "X",
+      "targetDescription": "Where X is the number of coral shards you have. Target buildings from 1 to 100 in descending order. Target the same building repeatedly until the building is damaged or wrecked. Wreck all damaged buildings.",
+      "narrative": "Lurker carapaces are piled high in the streets—hopefully they'll think twice before mounting an attack of that scale again.",
+      "effects": [
+        {
+          "type": "collectiveGold",
+          "values": [
+            4
+          ]
+        },
+        "Gain 2 MORALE."
+      ]
+    }
   },
   {
     "cardId": "WR-01",
@@ -11982,22 +11982,22 @@
           {
             "condition": "educated,orchid",
             "narrative": "The writing is archaic, but you can piece together the majority of the meaning. You recognize the sigils as that of the Orchid High Council—this must be a treasure vault.",
+            "returnToDeck": true,
             "effects": [
               "Gain 3 experience each."
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
             "narrative": "The writing looks floral and the cursive is very pleasing to the eye, but you can't make out any meaning, despite your efforts.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -12227,6 +12227,7 @@
         "outcomes": [
           {
             "narrative": "The Orchid leans in close and whispers something only you can hear.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "eventFH",
@@ -12235,8 +12236,7 @@
                   "WR-34"
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -13032,12 +13032,12 @@
         "outcomes": [
           {
             "narrative": "He takes it in stride: \"No matter, friends. There will always be a greater battle. I will train until we meet again!\" Ormi begins doing one-handed push-ups at the side of the road.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -13115,12 +13115,12 @@
           {
             "condition": "lose 1 material resource each",
             "narrative": "The hulking Algox removes a velvet rope and waves you through. \"Enjoy bridge. Such good customers. Tell friends!\" The upgrades to the business bridge legitimately don't make it feel any safer, but it does get your party across safely, same as always. Some of the gold paint wipes off on your clothes; it seems the Algox is reapplying it regularly.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
               }
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": {
@@ -13151,6 +13151,7 @@
               ]
             },
             "narrative": "The river looks dire, but it's a manageable problem. You see the patterns in the chaotic water and strategically toss in some larger stones and branches to create a makeshift path and get across with only a few unexpected dips into the stream.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "discard",
@@ -13158,8 +13159,7 @@
                   1
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": {
@@ -13397,6 +13397,7 @@
         "outcomes": [
           {
             "narrative": "\"TOUGH GUYS, HUH?\" Stump's head glows with a blue light. \"YOU THINK YOU'RE TOUGHER THAN US?\" While Snickles isn't much of a threat, Stump more than makes up for it in the ensuing fight—by the time it's over, the impromptu battlefield is singed with blasts of blue light. Smoke permeates the air after a particularly large bolt and the pair of machines take the opportunity to slip away in the chaos. At least you got a few good hits in.",
+            "returnToDeck": true,
             "effects": [
               "Gain 3 experience each.",
               {
@@ -13405,8 +13406,7 @@
                   "poison"
                 ]
               }
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }

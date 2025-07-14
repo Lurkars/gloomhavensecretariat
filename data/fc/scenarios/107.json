@@ -10,6 +10,7 @@
     "gridLocation": "F-14"
   },
   "edition": "fc",
+  "eventType": "rift",
   "requirements": [
     {
       "global": [

@@ -7,6 +7,7 @@ import { EditionData } from 'src/app/game/model/data/EditionData';
 import { RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { EventEffectsDialog } from '../../figures/event-effects/event-effects';
+import { EventCardDrawComponent } from '../../figures/event/event-card-draw';
 import { RandomMonsterCardDialogComponent } from './dialog/random-monster-card/random-monster-card-dialog';
 import { ScenarioDialogComponent } from './dialog/scenario-dialog';
 import { SectionDialogComponent } from './section/section-dialog';
@@ -38,6 +39,19 @@ export class ScenarioComponent implements OnInit, OnDestroy {
               scenario: gameManager.game.scenario,
               conclusion: conclusion,
               success: gameManager.game.finish.success
+            }
+          })
+        } else if (gameManager.game.scenario && gameManager.game.eventDraw && this.dialog.openDialogs.length == 0) {
+          let type = gameManager.game.eventDraw;
+          if (gameManager.game.edition == 'fh' && (type == 'road' || type == 'outpost')) {
+            type = ((Math.max(gameManager.game.party.weeks - 1, 0) % 20 < 10) ? 'summer-' : 'winter-') + type;
+          }
+          this.dialog.open(EventCardDrawComponent, {
+            panelClass: ['dialog'],
+            disableClose: true,
+            data: {
+              edition: gameManager.game.scenario.edition,
+              type: type
             }
           })
         }

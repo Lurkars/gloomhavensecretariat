@@ -10,6 +10,7 @@
     "gridLocation": "J-7"
   },
   "edition": "gh",
+  "eventType": "road",
   "rewards": {
     "items": [
       "128"

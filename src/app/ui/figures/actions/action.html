@@ -184,7 +184,7 @@
         *ngFor="let subAction of subActions; let index = index;" [action]="subAction"
         [monster]="monster" [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack"
         [hexSize]="hexSize" [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
-        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
+        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="true"
         [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
         [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
       </ghs-action>

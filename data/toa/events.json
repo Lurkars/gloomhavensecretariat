@@ -97,11 +97,11 @@
         "outcomes": [
           {
             "narrative": "Sharing a drink with the Incarnate means sharing a drink with their ancestors as well. After they finish a cup of mead, the Ritualist demands wine, and the Conqueror resignedly drops a stack of coins on the table. Then the Reaver’s enthusiasm quickly turns the rest of the night into a drunken blur. The next morning you wake up in your room with a heartfelt (and nearly illegible) note of thanks on the table, along with what seems to be an ancient Inox hangover cure.",
+            "returnToDeck": true,
             "effects": [
               "Gain 1 collective \"Dawnbloom Nectar\" (Item 117).",
               "All start scenario with POISON."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -139,10 +139,10 @@
           {
             "condition": "otherwise",
             "narrative": "With a frustrated growl, she scoops up the bundle and trudges back out into the rain. You have plenty of problems to worry about, but a vengeful Inox isn’t one of them—at least not tonight.",
+            "returnToDeck": true,
             "effects": [
               "Lose 1 reputation."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -391,10 +391,10 @@
           {
             "condition": "otherwise",
             "narrative": "\"Ah, of course nobody owns up to it,\" the patron says condescendingly. \"Sounds about right for what I’ve heard of you lot.\"",
+            "returnToDeck": true,
             "effects": [
               "Lose 1 reputation."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -425,10 +425,10 @@
         "outcomes": [
           {
             "narrative": "You pull him up just far enough to slit his throat before letting him go and watching his limp body fall down into the rippled reflection of the moon before silence falls across the Silent Bridge once more. You may never know exactly why the Thornreaper wanted rid of this Valrath, but for the rest of the walk home, you feel the presence of a natural magic around you—it’s as if the Thornreaper is thanking you from a distance.",
+            "returnToDeck": true,
             "effects": [
               "One character gains one enhancement to any Level 1/X card."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -662,10 +662,10 @@
           {
             "condition": "otherwise",
             "narrative": "You don’t see any way to help before your ally sunders the demon into pebbles. The Incarnate scowls at you, disgruntled. \"Thanks for all the help,\" they scoff in the Ritualist’s acidic tone before turning their back on you.",
+            "returnToDeck": true,
             "effects": [
               "No effect."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -739,10 +739,10 @@
         "outcomes": [
           {
             "narrative": "Before long, you learn this is a camp of your previous companion, the Rimehearth! You sit and learn about the work it is doing—teaching all kinds of Savvas a new way of life focused on balance. As you say your goodbyes, it makes an offer that only a Rimehearth and its followers could make with sincerity.",
+            "returnToDeck": true,
             "effects": [
               "All may gain one negative condition to generate the corresponding element."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -858,18 +858,18 @@
           {
             "condition": "cragheart,spellweaver,triangles,lightning-bolt,three-spears",
             "narrative": "Your elemental affinity enables you to quickly create a warm environment in which to wait out the storm. With extra rest, you are ready to take on the challenge that lies ahead.",
+            "removeFromDeck": true,
             "effects": [
               "All start scenario with STRENGTHEN."
-            ],
-            "removeFromDeck": true
+            ]
           },
           {
             "condition": "otherwise",
             "narrative": "Unable to find or create shelter or fire due to the cold and wet conditions, you trudge along the path to your destination.",
+            "removeFromDeck": true,
             "effects": [
               "All start scenario with MUDDLE."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -879,11 +879,11 @@
         "outcomes": [
           {
             "narrative": "These are miserable conditions, but the roaring winds, pounding rainfall, and darkness afforded by the storm allow you to approach undetected.",
+            "removeFromDeck": true,
             "effects": [
               "Start with NIGHT and FROST in the Strong column. All ranged attacks have a max Range of 2 for the first round.",
               "Additionally, all start scenario with STRENGTHEN."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -947,10 +947,10 @@
           {
             "condition": "otherwise",
             "narrative": "The carriage turns out to be even heavier than it looked....",
+            "removeFromDeck": true,
             "effects": [
               "All start scenario with 3 damage."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -988,12 +988,12 @@
         "outcomes": [
           {
             "narrative": "You draw your weapons and charge!",
+            "returnToDeck": true,
             "effects": [
               "Each player secretly selects up to 6 ability cards, then all players reveal them simultaneously. Players in any order may perform one Attack action on each card, including basic actions and excluding Loss actions, targeting one objective with 10xC hit points. Each character will start the scenario with all selected cards in their discard pile.",
               "IF THE OBJECTIVE IS DESTROYED: No effect.",
               "OTHERWISE: With both sides hurting, you come to a financial agreement allowing you to pass. Lose 15 collective gold. All start scenario with 3 damage."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -1003,11 +1003,11 @@
         "outcomes": [
           {
             "narrative": "You make a mad dash in the opposite direction with the hounds following close behind you. It's exhausting, and inevitably they catch you. At least they're easier to fight off than the cutthroats, and you are able to continue your journey with only a few bite wounds and all of your gold.",
+            "removeFromDeck": true,
             "effects": [
               "All start scenario with WOUND.",
               "All characters discard cards with Move abilities totaling 6 movement points, including basic actions, excluding Loss actions."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1037,10 +1037,10 @@
         "outcomes": [
           {
             "narrative": "\"Again, you don’t remember me? Shame on you!\"<br><br>She lets out a sigh and lifts her hands in the air. \"May your heart burn with sorrow and your soul fill with shame! May you suffer the pain you’ve caused me tenfold! We shall cross paths again, and you WILL remember my name!\"",
+            "returnToDeck": true,
             "effects": [
               "All start scenario with CURSE and WOUND."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }

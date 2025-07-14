@@ -10,6 +10,7 @@
     "gridLocation": "H-12"
   },
   "edition": "gh",
+  "eventType": "road",
   "rewards": {
     "reputation": 1,
     "prosperity": 1

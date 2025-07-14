@@ -3,6 +3,7 @@
   "group": "randomDungeon",
   "name": "Random Dungeon",
   "edition": "gh",
+  "eventType": "road",
   "hideIndex": true,
   "initial": true,
   "rules": [

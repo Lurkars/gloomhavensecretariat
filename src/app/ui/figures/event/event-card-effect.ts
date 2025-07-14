@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { EventCardEffect, EventCardEffectType } from "src/app/game/model/data/EventCard";
+import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { EventCardApplyEffects, EventCardEffect, EventCardEffectType } from "src/app/game/model/data/EventCard";
 
 @Component({
     standalone: false,
@@ -19,6 +20,9 @@ export class EventCardEffectComponent implements OnInit {
     effectObject: EventCardEffect | undefined;
     labelArgs: (string | number)[] = [];
     effects: (string | EventCardEffect)[] = [];
+    
+    settingsManager: SettingsManager = settingsManager;
+    EventCardApplyEffects = EventCardApplyEffects;
 
     ngOnInit(): void {
         if (typeof this.effect === 'string') {

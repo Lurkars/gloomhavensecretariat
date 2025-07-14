@@ -2076,7 +2076,10 @@
         "126-1": "<b>%wip%!</b> manually apply:<br>Collectively gain any 6 material resources.",
         "128-2": "Open the Puzzle Book to the first page",
         "132-3": "Each character gains 10 gold for each numbered token they looted",
-        "139-2": "You may now play scenarios with the %game.fhIcon:boat% requirement. Name your boat, then write it on the sticker and the front of B-01 and B-02 in the blanks.<br>Shuffle events B-01 to 13 together and use them to create the boat event deck. Store this deck in envelope B when not in use and use the card divider to separate the boat event deck from the other boat event cards.",
+        "139-2": {
+          "1": "You may now play scenarios with the %game.fhIcon:boat% requirement. Name your boat, then write it on the sticker and the front of B-01 and B-02 in the blanks.",
+          "2": "Shuffle events B-01 to 13 together and use them to create the boat event deck. Store this deck in envelope B when not in use and use the card divider to separate the boat event deck from the other boat event cards."
+        },
         "140-3": "Do not turn to the next page in the puzzle book. Instead write the solution to the next puzzle on the same page",
         "145-2": "Open the trials deck now. Do not shuffle it. Each player draws one trial and reads it secretly.<br>Once read by a player, a trial cannot be returned to the deck and must be completed by that player. Some trials may take several scenarios to complete, and should be kept secret by the player until completed. If and when a trial is completed by a player, that player may reveal the trial to other players for the first time, then remove it from the game and draw a new trial off the top of the trials deck.",
         "146-2": "Each character gains 10 gold for each numbered token they looted <br>All characters start the next scenario with %game.condition.muddle% and %game.condition.curse%",

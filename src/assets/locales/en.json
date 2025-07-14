@@ -850,8 +850,14 @@
         "consumeCollectiveItem": "Consume {0} collective %game.itemSlot:{1}% item.",
         "consumeItem": "Consume {0} %game.itemSlot:{1}% item each.",
         "discard": "Discard {0} cards each.",
-        "drawAnotherEvent": "Draw another %game.events.type.{0}% Event.",
-        "drawEvent": "Draw a %game.events.type.{0}% Event.",
+        "drawAnotherEvent": {
+          "": "Draw another %game.events.type.{0}% Event.",
+          "automation": "Automatically draw another event card."
+        },
+        "drawEvent": {
+          "": "Draw a %game.events.type.{0}% Event.",
+          "automation": "Automatically draw event card."
+        },
         "event": "Add %game.events.type.{0}% Event {1} to the deck.",
         "eventFH": "Add event {1} to the %game.events.type.{0}% deck.",
         "experience": "Gain {0} experience each.",
@@ -884,9 +890,18 @@
         "reputationAdditional": "Gain {0} additional reputation.",
         "resourceType": "Gain any {0} %game.loot.{1}% each.",
         "scenario": "Unlock \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
-        "scenarioCondition": "All start scenario with {0}.",
-        "scenarioDamage": "All start scenario with {0} damage.",
-        "scenarioSingleMinus1": "One starts scenario with %game.card.minus1% x{0}.",
+        "scenarioCondition": {
+          "": "All start scenario with {0}.",
+          "automation": "Automatically add conditions to all characters."
+        },
+        "scenarioDamage": {
+          "": "All start scenario with {0} damage.",
+          "automation": "Automatically apply damage to all characters."
+        },
+        "scenarioSingleMinus1": {
+          "": "One starts scenario with %game.card.minus1% x{0}.",
+          "automation": "Automatically add %game.card.minus1% to all characters' attack modifier deck."
+        },
         "sectionOrWeek": "Add %game.section:{0}% OR {1} to the celander in one week.",
         "sectionOrWeeks": "Add %game.section:{0}% OR {1} to the celander in %game.number.{2}% weeks.",
         "sectionWeek": "Add %game.section:{0}% to the celander in one week.",
@@ -1575,6 +1590,7 @@
     "eventEffects": {
       "": "Event Effects",
       "campaign": "Affects campaign",
+      "drawEvent": "Draw %game.events.type.{0}% Event",
       "drawRandomItem": {
         "": "Draw Random Item Design",
         "apply": "Apply",

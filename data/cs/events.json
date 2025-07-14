@@ -228,10 +228,10 @@
         "outcomes": [
           {
             "narrative": "You agree to investigate the mansion in exchange for a larger sum. \"How dare you! I thought we were friends!\" Shiela scoffs before standing up and angrily storming out of the tavern.",
+            "returnToDeck": true,
             "effects": [
               "No effect."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -393,10 +393,10 @@
         "outcomes": [
           {
             "narrative": "You threaten to report the Inox for trading without a permit and he scoffs in return. \"You wouldn’t dare!\" Moments later, you return to the scene with two city guards and they proceed to arrest the Inox. \"Thank you, loyal citizen,\" one of the city guards commends you. \"We appreciate you doing your part to keep these streets clean.\"",
+            "returnToDeck": true,
             "effects": [
               "Gain 1 prosperity."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -422,10 +422,10 @@
           {
             "condition": "Otherwise",
             "narrative": "\"Well, if you won’t buy it, I’m sure I’ll find some else who will. Scram.\"",
+            "returnToDeck": true,
             "effects": [
               "No effect."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -435,10 +435,10 @@
         "outcomes": [
           {
             "narrative": "You threaten to report the Inox for trading without a permit and his face turns white. \"Please, no! I can’t afford to spend any more time in jail. Here, take the dagger! Just promise me you won’t tell anyone!\"",
+            "removeFromDeck": true,
             "effects": [
               "Gain 1 collective \"Drakescale Dagger\" (Item 38)."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -688,10 +688,10 @@
         "outcomes": [
           {
             "narrative": "You lift Shiela up over your shoulder and proceed to carry her all the way to the Mixed District. As you head up the stairs to her apartment, Shiela slurs a hearty thanks and promises to repay you the next time you visit her potion shop.",
+            "returnToDeck": true,
             "effects": [
               "Each player may purchase one item from the shop for 10 GOLD less."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -701,10 +701,10 @@
         "outcomes": [
           {
             "narrative": "You take hold of Sheila as the bartender calls out to thank you. As soon as you reach the alleyway outside, you look around to ensure there are no witnesses before gently placing her body down next to a heap of garbage, carefully avoiding the broken glass scattered on the ground. You head straight home with little regard for her wellbeing and proceed to get a full nights rest.",
+            "removeFromDeck": true,
             "effects": [
               "Start scenario with STRENGTHEN."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -1308,10 +1308,10 @@
         "outcomes": [
           {
             "narrative": "The Chieftain is saddened by your declination and vows to have a good time without you. To assuage her disappointment, you offer to sponsor drinks for the evening.",
+            "returnToDeck": true,
             "effects": [
               "Lose 10 collective gold."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -1948,10 +1948,10 @@
           {
             "condition": "otherwise",
             "narrative": "Despite your efforts, the Savvas deteriorates quickly. It visibly goes from agitated to enraged and beings swinging its fists at shadows. It teleports away in a fury. You fear your paths may cross again.",
+            "returnToDeck": true,
             "effects": [
               "No effect."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -2027,11 +2027,11 @@
         "outcomes": [
           {
             "narrative": "The captain smiles. \"This challenge will test your physical strength and your will to persevere. You must ensure that you do not become a liability to the rest of your crew!\" Not wanting to back down, you don the Fire Knight’s weighty gear and soon find yourself crawling, climbing, lifting, and dragging more than you ever thought you could. But you never gave up, and completing the challenge has earned the crew’s respect.",
+            "returnToDeck": true,
             "effects": [
               "Gain item designs 63-72 and mark this checkbox [].",
               "If both checkboxes on this card are marked, remove this card and add Road Event 58 to the deck."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -2041,11 +2041,11 @@
         "outcomes": [
           {
             "narrative": "\"A prudent decision to invest in the well-being of your crew,\" the captain replies. \"The team can often accomplish more than the individual. Now you must learn to support your crew under pressure!\" You join the crew as they rehearse various tactics of survival and rescue. Improving your ability to perform under stress and physical exhaustion will undoubtedly serve you well.",
+            "returnToDeck": true,
             "effects": [
               "Gain item designs 73-82 and mark this checkbox [].",
               "If both checkboxes on this card are marked, remove this card and add Road Event 58 to the deck."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -2150,10 +2150,10 @@
         "outcomes": [
           {
             "narrative": "You offer to help the Orchid on her mission and her face lights up with contentment. She relays the coordinates of where to find the beasts and wishes you luck as she excuses herself to tend to her tribe.",
+            "removeFromDeck": true,
             "effects": [
               "Unlock \"Unnatural Beasts\" 42."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2461,10 +2461,10 @@
         "outcomes": [
           {
             "narrative": "You ask the Vermling to point you in the direction of the gardens. As it draws its final breath, the Vermling scratches coordinates into the dirt before collapsing to the ground.",
+            "removeFromDeck": true,
             "effects": [
               "Unlock \"Vermling Gardens\" 46."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -2790,18 +2790,18 @@
           {
             "condition": "Pay 10 collective gold",
             "narrative": "The Inox smiles as he places a totem resembling a kangaroo on the table. \"Used to instill a sense of balance within those who gaze at it. Brilliant choice.\"",
+            "returnToDeck": true,
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle gain Advantage on all attacks."
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": "Otherwise",
             "narrative": "The Inox frowns. \"May the animal spirits be with you.\"",
+            "returnToDeck": true,
             "effects": [
               "No effect."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       },
@@ -2812,18 +2812,18 @@
           {
             "condition": "Pay 10 collective gold",
             "narrative": "The Inox nods in agreement as he places a totem resembling a camel on the table. \"Thought to aid any to endure the harshest of conditions. Perfect choice.\"",
+            "returnToDeck": true,
             "effects": [
               "During the scenario, place one totem obstacle next to any character. All characters adjacent to this obstacle are immune to negative conditions."
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": "Otherwise",
             "narrative": "Maybe a different day then.",
+            "returnToDeck": true,
             "effects": [
               "No effect."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -3877,11 +3877,11 @@
           {
             "condition": "otherwise",
             "narrative": "You offer to stand guard while the traders fix their wagon. Unfortunately, this takes much longer than anticipated, but at least they pay your wage as promised before leaving.",
+            "removeFromDeck": true,
             "effects": [
               "Discard 2 cards each.",
               "Gain 5 GOLD each."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       },
@@ -3899,10 +3899,10 @@
           {
             "condition": "otherwise",
             "narrative": "Distracting the guards is easy enough, but escaping unscathed is another matter entirely. Fortunately, your ally was quick enough to avoid capture, but you are disappointed to leave empty-handed.",
+            "removeFromDeck": true,
             "effects": [
               "One starts scenario with 2 damage."
-            ],
-            "removeFromDeck": true
+            ]
           }
         ]
       }
@@ -3933,19 +3933,19 @@
           {
             "condition": "music-note,angry-face,lightning-bolt,three-spears,scoundrel",
             "narrative": "Your familiarity with the forest paths and shrubbery makes clearing out the brush a simple task that your party accomplishes safely before returning to its quest.",
+            "returnToDeck": true,
             "effects": [
               "Gain 5 GOLD each."
-            ],
-            "returnToDeck": true
+            ]
           },
           {
             "condition": "OTHERWISE",
             "narrative": "Clearing out the brush may not require much skill, but your lack of familiarity with the forest greens results in a failure to properly handle the poisonous shrubbery surrounding the outlying cottages.",
+            "returnToDeck": true,
             "effects": [
               "All start scenario with POISON.",
               "Gain 5 GOLD each."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }
@@ -4018,11 +4018,11 @@
         "outcomes": [
           {
             "narrative": "It takes no more than 20 minutes before you realize that this path is a little too tight and overgrown for you to go any further. However, a familiar voice calls to you, \"Friends, what in the world are you doing here?\" the Mirefoot exclaims. It turns out he’s found the trail to a Ghost Viper nest and gives you directions to it. After parting ways and returning to the main road, your good fortune continues. Not far up the road you discover a ransacked caravan with some goods left over that you can easily sell.",
+            "returnToDeck": true,
             "effects": [
               "Unlock \"Viper Marsh\" (47).",
               "Gain 15 collective gold."
-            ],
-            "returnToDeck": true
+            ]
           }
         ]
       }

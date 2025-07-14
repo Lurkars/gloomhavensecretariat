@@ -35,7 +35,9 @@ export class AppComponent implements OnInit, OnDestroy {
             ghsDialogClosingHelper(dialogRef);
           });
           closeElement.title = settingsManager.getLabel('close');
-          dialogRef.overlayRef.hostElement.appendChild(closeElement);
+          if (dialogRef.overlayRef.hostElement) {
+            dialogRef.overlayRef.hostElement.appendChild(closeElement);
+          }
 
           if (dialogRef.overlayRef.backdropElement) {
             dialogRef.disableClose = true;

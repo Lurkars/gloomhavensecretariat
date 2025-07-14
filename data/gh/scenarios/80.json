@@ -10,6 +10,7 @@
     "gridLocation": "K-1"
   },
   "edition": "gh",
+  "eventType": "road",
   "rewards": {
     "experience": 10
   },

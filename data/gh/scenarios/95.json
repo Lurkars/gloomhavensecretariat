@@ -10,6 +10,7 @@
     "gridLocation": "G-12"
   },
   "edition": "gh",
+  "eventType": "road",
   "requires": [
     [
       "94"

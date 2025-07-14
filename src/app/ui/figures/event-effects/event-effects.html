@@ -194,6 +194,9 @@
     <div class="entity-container campaign" *ngIf="settingsManager.settings.partySheet">
       <span class="progress"><span [ghs-label]="'scenario.eventEffects.campaign'"></span></span>
 
+      <span *ngFor="let type of eventTypes" class="action" tabclick (click)="drawEvent(type)"
+        [ghs-label]="'scenario.eventEffects.drawEvent'" [ghs-label-args]="[type]"></span>
+
       <ng-container *ngIf="gameManager.roundManager.firstRound">
         <span class="item">
           <ghs-pointer-input class="button" tabclick (singleClick)="changeProsperity(-1)" [repeat]="true">
@@ -284,7 +287,6 @@
 
       <span class="action" tabclick (click)="drawRandomScenario(gameManager.fhRules())"
         [ghs-label]="'scenario.eventEffects.drawRandomScenario'"></span>
-
     </div>
   </div>
 </div>

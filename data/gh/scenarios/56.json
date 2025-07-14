@@ -10,6 +10,7 @@
     "gridLocation": "G-4"
   },
   "edition": "gh",
+  "eventType": "road",
   "rewards": {
     "gold": 10,
     "reputation": 2,

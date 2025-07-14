@@ -801,6 +801,14 @@
               <span class="placeholder text-white" [ghs-label]="'scenario.rewards.repeatScenario'"></span>
             </div>
 
+            <div class="item event-deck" *ngIf="rewards.eventDeck">
+              <span class="placeholder text-white" *ngIf="!rewards.hints || !rewards.hints.eventDeck"
+                [ghs-label]="'scenario.rewards.eventDeck'"
+                [ghs-label-args]="[rewards.eventDeck.split(':')[0], rewards.eventDeck.split(':')[1].split('|')[0], rewards.eventDeck.split(':')[1].split('|')[1]]"></span>
+              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.eventDeck"
+                [ghs-label]="rewards.hints.eventDeck"></span>
+            </div>
+
             <div class="item loot-deck-cards"
               *ngFor="let lootDeckCard of (rewards.lootDeckCards || []); let i = index;">
               <span class="placeholder text-white" [ghs-label]="'scenario.rewards.lootDeckCard'"

@@ -9,6 +9,7 @@
     "gridLocation": "B-6"
   },
   "edition": "gh",
+  "eventType": "road",
   "unlocks": [
     "24",
     "25"

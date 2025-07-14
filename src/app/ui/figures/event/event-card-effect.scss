@@ -21,65 +21,89 @@
         }
     }
 
-    .checkbox-container {
-        display: flex;
-        flex-wrap: wrap;
+    .effect-object {
+        position: relative;
 
-        label {
+        .checkbox-container {
             display: flex;
+            flex-wrap: wrap;
 
-            &.has-value {
-                width: 100%;
-            }
-
-            .checkbox {
-                cursor: pointer;
-                position: relative;
+            label {
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 0.8em;
-                height: 0.8em;
-                border: 0.15em solid var(--ghs-color-black);
-                background-color: var(--ghs-color-white);
-                border-radius: 0.1em;
-                box-shadow: 0.15em 0.15em var(--ghs-color-gray);
-                z-index: 2;
-                margin-right: 0.4em;
 
-                &::before {
-                    content: ' ';
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    width: 115%;
-                    height: 115%;
-                    transform: scale(0);
-                    transform-origin: top left;
-                    transition: 120ms transform ease-in-out;
-                    z-index: 1;
-                    background-image: url('~src/assets/images/checkmark.svg');
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    filter: var(--ghs-filter-darkgray);
+                &.has-value {
+                    width: 100%;
                 }
 
-                &.checked::before {
-                    transform: scale(1) translate(-50%, -50%);
-                }
-
-                &.checked.check::before {
-                    transform: scale(1);
-                }
-
-                &.light {
-                    border: 0.1em solid var(--ghs-color-white);
-                    background-color: transparent;
+                .checkbox {
+                    cursor: pointer;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 0.8em;
+                    height: 0.8em;
+                    border: 0.15em solid var(--ghs-color-black);
+                    background-color: var(--ghs-color-white);
+                    border-radius: 0.1em;
+                    box-shadow: 0.15em 0.15em var(--ghs-color-gray);
+                    z-index: 2;
+                    margin-right: 0.4em;
 
                     &::before {
-                        filter: var(--ghs-filter-white);
+                        content: ' ';
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        width: 115%;
+                        height: 115%;
+                        transform: scale(0);
+                        transform-origin: top left;
+                        transition: 120ms transform ease-in-out;
+                        z-index: 1;
+                        background-image: url('~src/assets/images/checkmark.svg');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        filter: var(--ghs-filter-darkgray);
                     }
+
+                    &.checked::before {
+                        transform: scale(1) translate(-50%, -50%);
+                    }
+
+                    &.checked.check::before {
+                        transform: scale(1);
+                    }
+
+                    &.light {
+                        border: 0.1em solid var(--ghs-color-white);
+                        background-color: transparent;
+
+                        &::before {
+                            filter: var(--ghs-filter-white);
+                        }
+                    }
+                }
+            }
+        }
+
+        .automation-icon {
+            position: absolute;
+            top: 0;
+            right: -1.3em;
+
+            .ghs-svg {
+                width: 1em;
+                height: auto;
+                filter: var(--ghs-filter-black);
+            }
+
+            &.light {
+                color: var(--ghs-color-white);
+
+                .ghs-svg {
+                    filter: var(--ghs-filter-white);
                 }
             }
         }
