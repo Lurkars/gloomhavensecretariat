@@ -811,20 +811,13 @@
     "enemy": "Ennemi",
     "events": {
       "conditions": {
-        "otherwise": "Dans le cas contraire :",
-        "payCollectiveGold": "Payer chacun {0} Or :",
-        "payCollectiveGoldConditional": "Payer chacun {0} ({1}) ou {2} ({3}) Or :",
-        "reputationGT": "Réputation > {0}:",
-        "reputationLT": "Réputation < {0}:"
+        "otherwise": "Dans le cas contraire",
+        "payCollectiveGold": "Payer chacun {0} Or",
+        "payCollectiveGoldConditional": "Payer chacun {0} ({1}) ou {2} ({3}) Or",
+        "reputationGT": "Réputation > {0}",
+        "reputationLT": "Réputation < {0}"
       },
-      "option": {
-        "": "Option {0} :",
-        "1": "A",
-        "2": "B",
-        "3": "C"
-      },
-      "rewards": {
-        "additionalGold": "Gagnez {0} or supplémentaire chacun.",
+      "effects": {
         "collectiveGold": "Gagner chacun {0} or.",
         "collectiveItem": "Gagner {2} chacun \"%data.items.{1}-{0}%\" (Objet {0}).",
         "consumeCollectiveItem": "Consommer {0} chacun %game.itemSlot:{1}% objet.",
@@ -834,6 +827,7 @@
         "experience": "Gagnez {0} d'expérience à chaque fois.",
         "globalAchievement": "Haut Fait Global: \"%data.globalAchievements.{0}%\".",
         "gold": "Gagnez {0} or chacun.",
+        "goldAdditional": "Gagnez {0} or supplémentaire chacun.",
         "loseBattleGoal": "Perdre {0} %game.checkmark% chaque fois.",
         "loseCollectiveGold": "Perte de {0} or chacun.",
         "loseGold": "Perte de {0} or chacun.",
@@ -844,10 +838,16 @@
         "prosperity": "Gagnez {0} de prospérité.",
         "randomItemDesign": "Gagner un Modèle d’Objet Aléatoire.",
         "reputation": "Gagnez {0} de réputation.",
-        "scenario": "Débloquer \"{1}\" %data.scenarioNumber:{0}%.",
+        "scenario": "Débloquer \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Tous les scénarios démarrent avec %game.condition.{0}%.",
         "scenarioDamage": "Tous commencent le scénario avec {0} dégâts.",
-        "scenarioSingleMinus1": "Le scénario commence par %game.attackmodifier.minus1% x{0}."
+        "scenarioSingleMinus1": "Le scénario commence par %game.card.minus1% x{0}."
+      },
+      "option": {
+        "": "Option {0} :",
+        "1": "A",
+        "2": "B",
+        "3": "C"
       },
       "type": {
         "city": "Ville",
