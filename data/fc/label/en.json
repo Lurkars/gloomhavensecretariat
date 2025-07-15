@@ -294,6 +294,9 @@
     "xangroths-aid": "Xangroth's Aid"
   },
   "scenario": {
+    "group": {
+      "Challenge": "Challenge"
+    },
     "rewards": {
       "fc": {
         "challenge1": "All characters may add one new card of their class to their active card pool. The card selected must have a level equal or less then the character's level minus 2."

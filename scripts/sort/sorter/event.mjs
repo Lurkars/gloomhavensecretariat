@@ -22,21 +22,23 @@ export const sortEventOption = function (option) {
 }
 
 export const sortEventOutcome = function (outcome) {
-
-    if (outcome.outcomes) {
-        outcome.outcomes = outcome.effects.map((effect) => sortEventEffect(effect));
+    if (outcome.effects) {
+        outcome.effects = outcome.effects.map((effect) => sortEventEffect(effect));
     }
 
-    if (outcome.condition && typeof outcome.condition !== 'string') {
+    if (outcome.condition) {
         outcome.condition = sortEventCondition(outcome.condition);
     }
 
-    return sortObjectKeys(outcome, 'condition', 'narrative', 'returnToDeck', 'removeFromDeck',  'effects');
+    return sortObjectKeys(outcome, 'condition', 'narrative', 'returnToDeck', 'removeFromDeck', 'effects');
 }
 
 export const sortEventEffect = function (effect) {
+    if (typeof effect === 'string') {
+        return effect;
+    }
 
-    if (effect.condition && typeof effect.condition !== 'string') {
+    if (effect.condition) {
         effect.condition = sortEventCondition(effect.condition);
     }
 
@@ -44,6 +46,11 @@ export const sortEventEffect = function (effect) {
 }
 
 export const sortEventCondition = function (condition) {
+
+    if (typeof condition === 'string') {
+        return condition;
+    }
+
     if (condition.effect) {
         condition.effect = sortEventEffect(condition.effect);
     }

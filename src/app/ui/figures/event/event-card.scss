@@ -163,6 +163,7 @@
                 .outcome {
                     position: relative;
                     margin-bottom: 0.5em;
+                    opacity: 0.5;
 
                     .text,
                     .condition {
@@ -184,6 +185,7 @@
                         ghs-event-card-effect {
                             position: relative;
                             width: 100%;
+                            margin-bottom: 0.4em;
                         }
                     }
 
@@ -218,6 +220,22 @@
 
                     &::before {
                         opacity: 1;
+                    }
+
+                    .outcome {
+                        cursor: pointer;
+
+                        &.selected {
+                            opacity: 1;
+                        }
+
+                        &.disabled {
+                            cursor: not-allowed;
+                        }
+
+                        &:hover {
+                            opacity: 0.8;
+                        }
                     }
                 }
             }

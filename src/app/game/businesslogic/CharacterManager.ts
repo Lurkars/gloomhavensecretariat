@@ -479,4 +479,8 @@ export class CharacterManager {
 
     return mapping;
   }
+
+  getActiveCharacters(): Character[] {
+    return this.game.figures.filter((figure) => figure instanceof Character && gameManager.gameplayFigure(figure) && !figure.absent).map((figure) => figure as Character);
+  }
 }

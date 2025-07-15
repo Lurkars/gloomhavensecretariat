@@ -27,7 +27,10 @@
                     <div class="option" *ngFor="let option of event.options; let i = index;"
                         [ngClass]="{'selected' : selected == i || selected == -1 && flipped, 'single': event.options.length == 1}"
                         ghs-pointer-input (doubleClick)="selectOption(selected == i ? -1 : i)">
-                        <div class="outcome" *ngFor="let outcome of option.outcomes;  let outcomeIndex = index;">
+                        <div class="outcome" *ngFor="let outcome of option.outcomes; let outcomeIndex = index;"
+                            [ngClass]="{'selected': !outcome.condition || subSelections.indexOf(outcomeIndex) != -1 || selected == -1 && flipped, 'disabled' : outcome.condition && !resolvable[i][outcomeIndex] && subSelections.indexOf(outcomeIndex) == -1 && selected != -1 }"
+                            ghs-pointer-input (singleClick)="selectSub(i, outcomeIndex)"
+                            (doubleClick)="selectSub(i, outcomeIndex, true)">
                             <ghs-event-card-condition [condition]="outcome.condition" [narrative]="true"
                                 [edition]="event.edition" [eventType]="event.type"
                                 [light]="light"></ghs-event-card-condition>

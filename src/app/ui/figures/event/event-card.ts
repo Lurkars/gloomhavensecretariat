@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
+import { EventCard, EventCardConditionType, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 
 
 @Component({
@@ -24,14 +24,20 @@ export class EventCardComponent implements OnInit, OnChanges {
     @Output() onSelect: EventEmitter<number> = new EventEmitter<number>();
     @Output() onSubSelections: EventEmitter<number[]> = new EventEmitter<number[]>();
 
-    label: string = "";
     selected: number = -1;
     subSelections: number[] = [];
     light: boolean = false;
 
+    resolvable: boolean[][] = [];
+
     ngOnInit(): void {
         if (this.event) {
-            this.label = 'data.events.' + this.event.edition + '.' + this.event.type + '.' + this.event.cardId;
+            this.event.options.forEach((option, optionIndex) => {
+                this.resolvable[optionIndex] = this.resolvable[optionIndex] || [];
+                option.outcomes.forEach((outcome, outcomeIndex) => {
+                    this.resolvable[optionIndex][outcomeIndex] = outcome.condition && gameManager.eventCardManager.resolvableCondition(outcome.condition) || false;
+                })
+            })
         }
     }
 
@@ -57,18 +63,50 @@ export class EventCardComponent implements OnInit, OnChanges {
             if (this.selected < -1) {
                 this.selected = -1;
             }
+
+            this.subSelections = [];
+            if (index > -1) {
+                this.event.options[index].outcomes.forEach((outcome, i) => {
+                    if (this.resolvable[index][i]) {
+                        if (typeof outcome.condition !== 'string' && outcome.condition && outcome.condition.type === EventCardConditionType.otherwise) {
+                            if (!this.resolvable[index].some((value, vi) => value && vi != i)) {
+                                this.subSelections.push(i);
+                            }
+                        } else {
+                            this.subSelections.push(i);
+                        }
+                    }
+                })
+            }
+
             this.onSelect.emit(this.selected);
+            if (this.subSelections.length) {
+                this.onSubSelections.emit(this.subSelections);
+            }
         }
     }
 
-    selectSub(index: number) {
-        if (this.event && !this.disabled) {
+    selectSub(optionIndex: number, index: number, force: boolean = false) {
+        if (this.event && !this.disabled && this.selected == optionIndex) {
             if (this.subSelections.indexOf(index) != -1) {
                 this.subSelections.splice(this.subSelections.indexOf(index), 1);
-            } else {
+            } else if (this.resolvable[this.selected] && this.resolvable[this.selected][index] || force) {
                 this.subSelections.push(index);
+                if (!force) {
+                    const condition = this.event.options[this.selected].outcomes[index].condition;
+                    if (condition && typeof condition !== 'string' && condition.type == EventCardConditionType.otherwise) {
+                        this.subSelections = [index];
+                    } else {
+                        const otherwise = this.event.options[this.selected].outcomes.find((outcome) => outcome.condition && typeof outcome.condition !== 'string' && outcome.condition.type == EventCardConditionType.otherwise);
+                        if (otherwise) {
+                            this.subSelections = this.subSelections.splice(this.event.options[this.selected].outcomes.indexOf(otherwise), 1);
+                        }
+                    }
+                }
             }
             this.onSubSelections.emit(this.subSelections);
+        } else if (force) {
+            this.selectOption(optionIndex);
         }
     }
 

@@ -28,14 +28,10 @@
                     [eventType]="eventType" [light]="light"></ghs-event-card-effect>
             </label>
         </span>
-        <span class="hint-container automation-icon" [ngClass]="{'light': light}"
-            *ngIf="settingsManager.settings.eventsApply && EventCardApplyEffects.indexOf(effectObject.type) != -1">
+        <span class="automation-icon" [ngClass]="{'light': light}"
+            *ngIf="settingsManager.settings.eventsApply && EventCardApplyEffects.indexOf(effectObject.type) != -1"
+            [ghs-tooltip]="'game.events.effects.' + effectObject.type + '.automation'">
             <img class="hint-trigger ghs-svg" src="./assets/images/automation.svg">
-            <span class="hint middle left">
-                <div class="text">
-                    <span [ghs-label]="'game.events.effects.' + effectObject.type + '.automation'"></span>
-                </div>
-            </span>
         </span>
     </span>
 

@@ -20,10 +20,6 @@
                 ]
               },
               {
-                "type": "collectiveGold",
-                "values": [
-                  15
-                ],
                 "condition": {
                   "type": "character",
                   "values": [
@@ -32,7 +28,11 @@
                     "circles",
                     "tinkerer"
                   ]
-                }
+                },
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
               }
             ]
           }
@@ -616,7 +616,9 @@
             ]
           },
           {
-            "condition": "otherwise",
+            "condition": {
+              "type": "otherwise"
+            },
             "narrative": "The guards take issue with your appearance and bar your entry to the city—something about fearing foreigners.",
             "returnToDeck": true,
             "effects": [
@@ -695,7 +697,9 @@
             ]
           },
           {
-            "condition": "Otherwise",
+            "condition": {
+              "type": "otherwise"
+            },
             "narrative": "The envoy looks you up and down before shrugging. \"Very well, then. Be on your way.\"",
             "returnToDeck": true,
             "effects": [
@@ -709,16 +713,12 @@
       {
         "label": "B",
         "narrative": "State that you are veteran adventurers not to be trifled with.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Such tough ones we have here! You should join in our Tournament of Champions—a competition in various disciplines among all guests of this realm. You can compete to earn unimaginable rewards!",
-            "removeFromDeck": true,
             "effects": [
               {
-                "type": "experience",
-                "values": [
-                  25
-                ],
                 "condition": {
                   "type": "character",
                   "values": [
@@ -728,13 +728,13 @@
                     "music-note",
                     "tinkerer"
                   ]
-                }
+                },
+                "type": "experience",
+                "values": [
+                  25
+                ]
               },
               {
-                "type": "battleGoal",
-                "values": [
-                  2
-                ],
                 "condition": {
                   "type": "character",
                   "values": [
@@ -744,13 +744,13 @@
                     "saw",
                     "scoundrel"
                   ]
-                }
+                },
+                "type": "battleGoal",
+                "values": [
+                  2
+                ]
               },
               {
-                "type": "gold",
-                "values": [
-                  25
-                ],
                 "condition": {
                   "type": "character",
                   "values": [
@@ -759,14 +759,13 @@
                     "mindthief",
                     "circles"
                   ]
-                }
+                },
+                "type": "gold",
+                "values": [
+                  25
+                ]
               },
               {
-                "type": "item",
-                "values": [
-                  48,
-                  "gh"
-                ],
                 "condition": {
                   "type": "character",
                   "values": [
@@ -775,7 +774,12 @@
                     "spellweaver",
                     "tinkerer"
                   ]
-                }
+                },
+                "type": "item",
+                "values": [
+                  48,
+                  "gh"
+                ]
               }
             ]
           }
@@ -848,7 +852,9 @@
             ]
           },
           {
-            "condition": "otherwise",
+            "condition": {
+              "type": "otherwise"
+            },
             "narrative": "Your words don't seem to faze the mass of writhing insects. It chatters at you intelligibly, and you try to explain that you mean no harm, but it doesn't seem to care.",
             "effects": [
               {
@@ -971,7 +977,9 @@
             ]
           },
           {
-            "condition": "otherwise",
+            "condition": {
+              "type": "otherwise"
+            },
             "narrative": "This mazelike plane seems to stretch on forever. The forking paths bring you to the brink of insanity. Hours later, tired and broken, just by pure chance you find an unstable portal that exits this nightmare.",
             "effects": [
               {
@@ -1077,7 +1085,9 @@
             ]
           },
           {
-            "condition": "otherwise",
+            "condition": {
+              "type": "otherwise"
+            },
             "narrative": "Your efforts to heal the poor soul are of no use. Shortly after attempting to treat him, he dies in your arms.",
             "removeFromDeck": true,
             "effects": [
@@ -1230,9 +1240,10 @@
             "narrative": "You decide to head for the obsidian tower. A place unconquered sounds like the challenge you've awaited. You are confident that you will reach the top and wring the secrets from it. There has to be something of value inside.",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenarioGroup",
                 "values": [
-                  "Challenge-1"
+                  "1",
+                  "Challenge"
                 ]
               },
               "Replace current scenario with this one, and play it immediately (does not require %data.characterIcon.diviner%).<br>(see page 26 of the scenario book)."
@@ -1295,7 +1306,9 @@
             ]
           },
           {
-            "condition": "otherwise",
+            "condition": {
+              "type": "otherwise"
+            },
             "narrative": "They are not very interested in talking to such a foreign and uncivilized group.",
             "removeFromDeck": true,
             "effects": [
@@ -1337,7 +1350,9 @@
             ]
           },
           {
-            "condition": "otherwise",
+            "condition": {
+              "type": "otherwise"
+            },
             "narrative": "Your clumsy attempt is easily caught by the local guards. They beat you up and throw you out of the metropolis.",
             "removeFromDeck": true,
             "effects": [
@@ -1694,7 +1709,9 @@
             ]
           },
           {
-            "condition": "otherwise",
+            "condition": {
+              "type": "otherwise"
+            },
             "narrative": "The negotiations are difficult, due to their inability to recognize or value your money. Your gear, on the other hand, is of great interest to them.",
             "effects": [
               "Collectively lose items worth at least [10xC] gold."

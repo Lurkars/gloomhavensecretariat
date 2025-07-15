@@ -40,9 +40,10 @@
         <a tabclick class="edition" *ngFor="let editionData of gameManager.editionsData()"
           (click)="startCampaign(editionData.edition)">
           <img *ngIf="editionData.logoUrl" [src]="editionData.logoUrl"
-            [ghs-label]="'data.edition.' + editionData.edition" [ghs-label-attribute]="'title'">
-          <span class="text" *ngIf="!editionData.logoUrl"><span
-              [ghs-label]="'data.edition.' + editionData.edition"></span></span>
+            [ghs-tooltip]="'data.edition.' + editionData.edition">
+          <span class="text" [ngClass]="{'small': editionData.logoUrl}">
+            <span [ghs-label]="'data.edition.' + editionData.edition"></span>
+          </span>
         </a>
 
         <a *ngIf="!gameManager.game.edition && this.welcomeOtherEditions" tabclick
@@ -52,12 +53,15 @@
       </div>
     </div>
 
-    <div class="container-row bordered"
-      *ngIf="gameManager.game.edition && gameManager.editionLogo(gameManager.game.edition)">
+    <div class="container-row bordered" *ngIf="gameManager.game.edition">
       <div class="editions">
-        <a tabclick class="edition" (click)="cancelCampaign(gameManager.game.edition)">
-          <img [src]="gameManager.editionLogo(gameManager.game.edition)"
-            [ghs-label]="'data.edition.' + gameManager.game.edition" [ghs-label-attribute]="'title'">
+        <a tabclick class="edition selected" (click)="cancelCampaign(gameManager.game.edition)">
+          <img *ngIf="gameManager.editionLogo(gameManager.game.edition)"
+            [src]="gameManager.editionLogo(gameManager.game.edition)"
+            [ghs-tooltip]="'data.edition.' + gameManager.game.edition">
+          <span class="text" [ngClass]="{'small': gameManager.editionLogo(gameManager.game.edition)}">
+            <span [ghs-label]="'data.edition.' + gameManager.game.edition"></span>
+          </span>
         </a>
       </div>
       <div *ngIf="gameManager.game.edition == 'fh'" class="fh-second-edition">

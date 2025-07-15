@@ -124,9 +124,6 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         this.eventTypes = this.eventTypes.filter((type) => !type.startsWith('summer-'));
       }
     }
-
-    // TODO: remove next to activate events later
-    this.eventTypes = [];
   }
 
   toggleCharacter(character: Character) {

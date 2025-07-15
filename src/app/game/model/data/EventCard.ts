@@ -122,10 +122,12 @@ export enum EventCardEffectType {
     scenarioDamage = "scenarioDamage",
     scenarioSingleMinus1 = "scenarioSingleMinus1",
     soldier = "soldier",
-    soldiers = "soldiers"
+    soldiers = "soldiers",
+    unlockScenario = "unlockScenario",
+    unlockScenarioGroup = "unlockScenarioGroup"
 }
 
-export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1];
+export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventFH, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.removeEventFH, EventCardEffectType.reputation, EventCardEffectType.reputationAdditional, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup];
 
 export class EventCardEffect {
     condition: string | EventCardCondition | undefined;

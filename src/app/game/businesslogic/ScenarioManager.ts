@@ -486,11 +486,11 @@ export class ScenarioManager {
       })
     }
 
-    if (settingsManager.settings.eventsDraw && scenarioData.eventType) {
+    if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsDraw && scenarioData.eventType) {
       gameManager.game.eventDraw = scenarioData.eventType;
     }
 
-    if (settingsManager.settings.eventsApply) {
+    if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsApply) {
       gameManager.game.party.eventCards.filter((e) => e.scenarioApply).forEach((e) => {
         const eventCard = gameManager.eventCardManager.getEventCardForEdition(e.edition, e.type, e.cardId);
         if (eventCard && e.selected != -1) {
@@ -498,7 +498,7 @@ export class ScenarioManager {
           if (option && option.outcomes) {
             option.outcomes.forEach((outcome, i) => {
               if (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1) {
-                gameManager.eventCardManager.applyEffects(outcome.effects.filter((e) => typeof e !== 'string'), true);
+                gameManager.eventCardManager.applyEffects(eventCard, outcome.effects.filter((e) => typeof e !== 'string'), true);
               }
             })
           }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EventCardApplyEffects, EventCardEffect, EventCardEffectType } from "src/app/game/model/data/EventCard";
 
@@ -20,7 +21,8 @@ export class EventCardEffectComponent implements OnInit {
     effectObject: EventCardEffect | undefined;
     labelArgs: (string | number)[] = [];
     effects: (string | EventCardEffect)[] = [];
-    
+    disabled: boolean = false;
+
     settingsManager: SettingsManager = settingsManager;
     EventCardApplyEffects = EventCardApplyEffects;
 
@@ -31,6 +33,8 @@ export class EventCardEffectComponent implements OnInit {
             this.effectObject = this.effect;
             this.labelArgs = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v === 'number' || typeof v === 'string') : [];
             this.effects = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v !== 'number') : [];
+
+            this.disabled = this.effectObject.condition && !gameManager.eventCardManager.resolvableCondition(this.effectObject.condition) || false;
 
             if (this.effectObject.type == EventCardEffectType.scenarioCondition) {
                 let concat = "";

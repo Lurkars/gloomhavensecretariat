@@ -790,10 +790,10 @@
         "prosperity": "Obtén {0} prosperidad.",
         "randomItemDesign": "Obtén un Diseño de objeto aleatorio.",
         "reputation": "Obtén {0} reputación..",
-        "scenario": "Desbloquea \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Todos empezáis el escenario con %game.condition.{0}%.",
         "scenarioDamage": "Todos empezáis el escenario con {0} daño.",
-        "scenarioSingleMinus1": "Uno empieza el escenario con %game.card.minus1% x{0}."
+        "scenarioSingleMinus1": "Uno empieza el escenario con %game.card.minus1% x{0}.",
+        "unlockScenario": "Desbloquea \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%."
       },
       "option": {
         "": "Opción {0}:",

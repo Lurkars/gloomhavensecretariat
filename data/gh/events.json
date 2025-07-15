@@ -276,16 +276,16 @@
                 ]
               },
               {
-                "type": "goldAdditional",
-                "values": [
-                  5
-                ],
                 "condition": {
                   "type": "reputationLT",
                   "values": [
                     -4
                   ]
-                }
+                },
+                "type": "goldAdditional",
+                "values": [
+                  5
+                ]
               }
             ]
           }
@@ -335,16 +335,16 @@
                 "type": "randomItemDesign"
               },
               {
-                "type": "loseReputation",
-                "values": [
-                  1
-                ],
                 "condition": {
                   "type": "reputationGT",
                   "values": [
                     4
                   ]
-                }
+                },
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
               }
             ]
           }
@@ -373,28 +373,28 @@
                 ]
               },
               {
-                "type": "loseReputation",
-                "values": [
-                  1
-                ],
                 "condition": {
                   "type": "reputationGT",
                   "values": [
                     9
                   ]
-                }
-              },
-              {
-                "type": "reputation",
+                },
+                "type": "loseReputation",
                 "values": [
                   1
-                ],
+                ]
+              },
+              {
                 "condition": {
                   "type": "reputationLT",
                   "values": [
                     -4
                   ]
-                }
+                },
+                "type": "reputation",
+                "values": [
+                  1
+                ]
               }
             ]
           }
@@ -409,28 +409,28 @@
             "narrative": "Unwilling to be bothered by such trivial matters, you continue on your way amidst curses from the ship's captain. \"Blast it all! You'll get nowhere in life with that sort of attitude!\"",
             "effects": [
               {
-                "type": "reputation",
-                "values": [
-                  1
-                ],
                 "condition": {
                   "type": "reputationGT",
                   "values": [
                     4
                   ]
-                }
-              },
-              {
-                "type": "loseReputation",
+                },
+                "type": "reputation",
                 "values": [
                   1
-                ],
+                ]
+              },
+              {
                 "condition": {
                   "type": "reputationLT",
                   "values": [
                     -9
                   ]
-                }
+                },
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
               }
             ]
           }
@@ -482,7 +482,7 @@
             "removeFromDeck": true,
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "93"
                 ]
@@ -547,16 +547,16 @@
                 ]
               },
               {
-                "type": "goldAdditional",
-                "values": [
-                  5
-                ],
                 "condition": {
                   "type": "reputationLT",
                   "values": [
                     -9
                   ]
-                }
+                },
+                "type": "goldAdditional",
+                "values": [
+                  5
+                ]
               }
             ]
           }
@@ -671,16 +671,16 @@
                 "type": "randomItemDesign"
               },
               {
-                "type": "loseReputation",
-                "values": [
-                  1
-                ],
                 "condition": {
                   "type": "reputationGT",
                   "values": [
                     9
                   ]
-                }
+                },
+                "type": "loseReputation",
+                "values": [
+                  1
+                ]
               }
             ]
           },
@@ -710,16 +710,16 @@
             "narrative": "You loudly refuse the Harrower's offer and continue about your business. That thing should know better than to stray from the Sinking Market.",
             "effects": [
               {
-                "type": "reputation",
-                "values": [
-                  1
-                ],
                 "condition": {
                   "type": "reputationLT",
                   "values": [
                     -4
                   ]
-                }
+                },
+                "type": "reputation",
+                "values": [
+                  1
+                ]
               }
             ]
           }
@@ -1050,7 +1050,7 @@
             "narrative": "You calmly assess that the coin may possess much more value than it appears to have. You head to the University and spend hours looking through old records to no avail. You end the day in a tavern, easing the frustration with a drink and loud laments about the coin. \"Those markings are very interesting.\" You look up to see an Aesther standing over you. \"They describe a special meeting place. I can show you where.\"",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "81"
                 ]
@@ -1939,7 +1939,7 @@
                 ]
               },
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "83"
                 ]
@@ -2146,7 +2146,7 @@
             "removeFromDeck": true,
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "78"
                 ]
@@ -2534,7 +2534,6 @@
             "narrative": "The pious man seems incredibly happy you've decided to help the sanctuary. When you arrive at the great building, he explains in detail all that has happened. Using that information, you inquire around town, putting out feelers to possible fences for the goods.",
             "effects": [
               {
-                "type": "event",
                 "condition": {
                   "type": "character",
                   "values": [
@@ -2545,16 +2544,17 @@
                     "music-note"
                   ]
                 },
+                "type": "event",
                 "values": [
                   "city",
                   65
                 ]
               },
               {
-                "type": "noEffect",
                 "condition": {
                   "type": "otherwise"
-                }
+                },
+                "type": "noEffect"
               }
             ]
           }
@@ -3049,7 +3049,7 @@
                 ]
               },
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "87"
                 ]
@@ -3678,7 +3678,7 @@
             "removeFromDeck": true,
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "91"
                 ]
@@ -3908,7 +3908,7 @@
             "narrative": "The Hook Coast is outside the walls of Gloomhaven and can be a dangerous place. And since this spread of poison, the city has become even more defenseless than normal. You hope you'll be able to find a solution to the problem quickly.",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "86"
                 ]
@@ -3958,7 +3958,7 @@
             "narrative": "The Nightshroud kicks one of the corpses. \"This is the Sin-Ra Syndicate, a group of assassins trying to gain a foothold in the region. I'm trying to stop them, and somehow they found out you and I were friends. They decided to go after you as retribution. Lucky for you, I've located their hideout, so we're going to sneak in there and end this whole business once and for all.\"",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "89"
                 ]
@@ -4039,16 +4039,16 @@
                 ]
               },
               {
-                "type": "reputationAdditional",
-                "values": [
-                  1
-                ],
                 "condition": {
                   "type": "character",
                   "values": [
                     "saw"
                   ]
-                }
+                },
+                "type": "reputationAdditional",
+                "values": [
+                  1
+                ]
               }
             ]
           }
@@ -4171,7 +4171,7 @@
             "narrative": "You laugh and wave your hand dismissively. There's no way you will be paying such a large amount of money to these thugs. Unfortunately, the Inox is not amused. \"Then your payment will be blood!\" she says. \"Meet us in the back alley, and we'll see if we can't come to terms.\"",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "92"
                 ]
@@ -4210,7 +4210,7 @@
             "removeFromDeck": true,
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "88"
                 ]
@@ -4237,7 +4237,7 @@
                 ]
               },
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "88"
                 ]
@@ -4435,7 +4435,7 @@
             "narrative": "Your curiosity gets the better of your judgment. You need to know the purpose of the device you found, so you follow Fish into a derelict shack where he pulls out a map of the area and lays it on a table. Fish directs you to pull out your rod and both you and he hold your respective rods over the table. A specific location on the map glows brightly and Fish laughs. \"See? I told ya, didn't I? Meet me there with your rod and we'll get rich!\"",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "79"
                 ]
@@ -4488,7 +4488,7 @@
                 ]
               },
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "84"
                 ]
@@ -4638,7 +4638,7 @@
             "removeFromDeck": true,
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "74"
                 ]
@@ -4703,7 +4703,7 @@
             "removeFromDeck": true,
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "75"
                 ]
@@ -4762,7 +4762,7 @@
             "narrative": "The sweaty man is all too eager to give you the details of where to find this nest. \"One you clear the Vermlings and find the artifact, you should be able to locate a large stash of valuables in a pit back behind the main camp. Take whatever you want, just return the artifact to me.\" You smile and nod. After taking the valuables, you should be able to squeeze quite a bit extra out of this fellow as well when you return.",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "94"
                 ]
@@ -5095,16 +5095,16 @@
                 ]
               },
               {
-                "type": "goldAdditional",
-                "values": [
-                  1
-                ],
                 "condition": {
                   "type": "reputationGT",
                   "values": [
                     9
                   ]
-                }
+                },
+                "type": "goldAdditional",
+                "values": [
+                  1
+                ]
               }
             ]
           }
@@ -5879,17 +5879,17 @@
                 ]
               },
               {
-                "type": "itemCollective",
-                "values": [
-                  41,
-                  1
-                ],
                 "condition": {
                   "type": "reputationLT",
                   "values": [
                     -9
                   ]
-                }
+                },
+                "type": "itemCollective",
+                "values": [
+                  41,
+                  1
+                ]
               }
             ]
           }
@@ -6128,7 +6128,7 @@
                 ]
               },
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "82"
                 ]
@@ -6146,7 +6146,7 @@
             "narrative": "You brush off the plight of the Inox tribe, but as you continue to your destination, you begin to feel a certain amount of unease. There is a slight tremble in the soles of your feet, and, in the distance, the black cloud of smoke grows.",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "82"
                 ]
@@ -6386,10 +6386,6 @@
                 ]
               },
               {
-                "type": "collectiveGoldAdditional",
-                "values": [
-                  10
-                ],
                 "condition": {
                   "type": "character",
                   "values": [
@@ -6397,7 +6393,11 @@
                     "saw",
                     "music-note"
                   ]
-                }
+                },
+                "type": "collectiveGoldAdditional",
+                "values": [
+                  10
+                ]
               }
             ]
           }
@@ -7470,7 +7470,7 @@
             "narrative": "With the help of the mysterious firecaster, the battle turns and the demons are slain without much pain. Out of the darkness steps the familiar face of a female Orchid. \"Sorry about that. I think they were looking for this.\" The Spellweaver holds up a black censer. \"It's a good thing I ran into you, though. I could use your help.\" She draws out a crude map. \"Meet me here as soon as you can, and I'll explain more.\"",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "90"
                 ]
@@ -7696,7 +7696,7 @@
             "narrative": "The armored men seem satisfied with your response and take their hands off their weapons. \"Good to find some fellow patriots,\" the one in front says with a disturbing smile. \"You know, we have a stronghold not far from here up in the mountains. Feel free to visit there if you ever get serious about your loyalties.\"",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "80"
                 ]
@@ -7714,7 +7714,7 @@
             "narrative": "\"Well then, today's your unlucky day,\" the man in front says. \"Because we of the Vigil make it a point to execute any and all commerce sympathizers we can find in this land.\" The men grimly draw swords and advance. After a hard battle, the survivors retreat, leaving you to pick through the corpses. Among the loot you find a map.",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "80"
                 ]
@@ -8319,7 +8319,7 @@
             "narrative": "You charge out of the trees and attack the Sun Demons. Fueled by righteous indignation and a bit of guilt, you slay them all. The battle leaves you wounded, but the Sunkeeper happily mends your wounds once you free her. \"They seemed to think the Sun Temple is under attack by Night Demons,\" she says. \"I have no reason to believe them, but still, would you mind helping me look into it?\"",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "85"
                 ]
@@ -8345,7 +8345,7 @@
             "narrative": "You sigh and agree, warning them that this had better be the last time they ask you for a favor. They give you the location of the Sun Temple and implore you to hurry.",
             "effects": [
               {
-                "type": "scenario",
+                "type": "unlockScenario",
                 "values": [
                   "85"
                 ]

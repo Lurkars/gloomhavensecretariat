@@ -846,10 +846,10 @@
         "prosperity": "Получите {0} процветания.",
         "randomItemDesign": "Получите случайный проект предмета.",
         "reputation": "Получите {0} репутации.",
-        "scenario": "Разблокируйте «%data.scenario.title.{1}.{0}%» %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Все начинают сценарий с «%game.condition.{0}%».",
         "scenarioDamage": "Все начинают сценарий с {0} урона.",
-        "scenarioSingleMinus1": "Кто-то один начинает сценарий с %game.card.minus1% x{0}."
+        "scenarioSingleMinus1": "Кто-то один начинает сценарий с %game.card.minus1% x{0}.",
+        "unlockScenario": "Разблокируйте «%data.scenario.title.{1}.{0}%» %data.scenarioNumber:{0}%."
       },
       "option": {
         "": "Вариант {0}:",

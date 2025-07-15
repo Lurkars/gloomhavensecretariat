@@ -51,6 +51,10 @@ export class EventCardDrawComponent {
         this.selected = index;
     }
 
+    subSelect(subSelections: number[]) {
+        this.subSelections = subSelections;
+    }
+
     cancel() {
         gameManager.stateManager.before('eventDraw.cancel');
         gameManager.game.eventDraw = undefined;
@@ -66,7 +70,8 @@ export class EventCardDrawComponent {
                     if (this.event && this.selected != -1) {
                         gameManager.stateManager.before('eventDraw.accept');
                         gameManager.game.eventDraw = undefined;
-                        gameManager.eventCardManager.applyEvent(this.event, this.selected, this.subSelections, gameManager.game.scenario != undefined && gameManager.roundManager.firstRound);
+                        const result = gameManager.eventCardManager.applyEvent(this.event, this.selected, this.subSelections, gameManager.game.scenario != undefined && gameManager.roundManager.firstRound);
+                        result.length && console.debug("Manual resolve:", result);
                         gameManager.stateManager.after();
                     }
                 }

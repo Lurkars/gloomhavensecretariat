@@ -4,6 +4,10 @@
     font-size: 1.2em;
     font-weight: bold;
 
+    &.disabled {
+        opacity: 0.5;
+    }
+
     &.city {
         font-weight: normal;
     }
@@ -23,6 +27,7 @@
 
     .effect-object {
         position: relative;
+        display: block;
 
         .checkbox-container {
             display: flex;
@@ -89,14 +94,22 @@
         }
 
         .automation-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: absolute;
-            top: 0;
-            right: -1.3em;
+            top: 55%;
+            left: -1em;
+            width: 0.9em;
+            height: 0.9em;
+            transform: translateY(-50%);
+            z-index: 2;
 
             .ghs-svg {
-                width: 1em;
+                width: 100%;
                 height: auto;
                 filter: var(--ghs-filter-black);
+                margin-left: 0;
             }
 
             &.light {

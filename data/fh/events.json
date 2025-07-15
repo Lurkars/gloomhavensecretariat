@@ -5025,7 +5025,12 @@
                   2
                 ]
               },
-              "Draw another summer road event."
+              {
+                "type": "drawAnotherEvent",
+                "values": [
+                  "summer-road"
+                ]
+              }
             ]
           }
         ]
@@ -12587,25 +12592,25 @@
             "narrative": "Without that gear, you're as good as dead anyway. You pull your digging tools toward you and flatten yourself against the back of the cave, where you hope the rock is the strongest.<br><br>Sure enough, the rockfall leaves you with only a few bruises, and you're able to recover your gear after a bit of digging. Digging yourself out, however, will be more of a chore.",
             "effects": [
               {
-                "type": "discard",
-                "values": [
-                  1
-                ],
                 "condition": {
                   "type": "trait",
                   "values": [
                     "armored"
                   ]
-                }
+                },
+                "type": "discard",
+                "values": [
+                  1
+                ]
               },
               {
+                "condition": {
+                  "type": "otherwise"
+                },
                 "type": "discard",
                 "values": [
                   2
-                ],
-                "condition": {
-                  "type": "otherwise"
-                }
+                ]
               }
             ]
           }

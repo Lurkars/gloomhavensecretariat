@@ -850,10 +850,10 @@
         "prosperity": "Ottieni {0} prosperità.",
         "randomItemDesign": "Ottieni un modello di oggetto casuale.",
         "reputation": "Ottieni {0} reputazione.",
-        "scenario": "Sblocca \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": "Tutti iniziano lo scenario con %game.condition.{0}%.",
         "scenarioDamage": "Tutti iniziano lo scenario con {0} di danno.",
-        "scenarioSingleMinus1": "Uno inizia lo scenario con %game.card.minus1% x{0}."
+        "scenarioSingleMinus1": "Uno inizia lo scenario con %game.card.minus1% x{0}.",
+        "unlockScenario": "Sblocca \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%."
       },
       "option": {
         "": "Opzione {0}:",
