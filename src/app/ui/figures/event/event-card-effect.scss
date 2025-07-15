@@ -17,6 +17,10 @@
         font-family: var(--ghs-font-fh-normal);
     }
 
+    &.disabled {
+        opacity: 0.5;
+    }
+
     .inline {
         display: inline-block;
 

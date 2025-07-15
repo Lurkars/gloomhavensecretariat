@@ -140,10 +140,15 @@ export class EventCardManager {
     let results: (EventCardEffect | EventCardCondition)[] = [];
     effects.forEach((effect) => {
       if (EventCardApplyEffects.indexOf(effect.type) != -1 && (!effect.condition || this.resolvableCondition(effect.condition))) {
+        let characters = gameManager.characterManager.getActiveCharacters();
         if (effect.condition) {
           const conditionResult = this.applyCondition(effect.condition);
           if (conditionResult) {
             results.push(conditionResult);
+          }
+
+          if (typeof effect.condition !== 'string' && effect.condition.type == EventCardConditionType.character) {
+            characters = characters.filter((c) => (effect.condition as EventCardCondition).values.indexOf(c.name) != -1);
           }
         }
         if (scenario) {
@@ -153,13 +158,13 @@ export class EventCardManager {
                 effect.values.filter((value) => typeof value === 'string').forEach((value) => {
                   const condition = value.split(':')[0] as ConditionName;
                   if (condition != ConditionName.bless && condition != ConditionName.curse) {
-                    gameManager.characterManager.getActiveCharacters().forEach((c) => {
+                    characters.forEach((c) => {
                       gameManager.entityManager.addCondition(c, c, new Condition(condition));
                     })
                   } else if (condition == ConditionName.curse) {
                     const count = value.split(':')[1] ? +value.split(':')[1] : 1;
                     for (let i = 0; i < count; i++) {
-                      gameManager.characterManager.getActiveCharacters().forEach((c) => {
+                      characters.forEach((c) => {
                         if (gameManager.attackModifierManager.countUpcomingCurses(false) < 10) {
                           gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType.curse);
                         }
@@ -168,7 +173,7 @@ export class EventCardManager {
                   } else if (condition == ConditionName.bless) {
                     const count = value.split(':')[1] ? +value.split(':')[1] : 1;
                     for (let i = 0; i < count; i++) {
-                      gameManager.characterManager.getActiveCharacters().forEach((c) => {
+                      characters.forEach((c) => {
                         if (gameManager.attackModifierManager.countUpcomingBlesses() < 10) {
                           gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType.bless);
                         }
@@ -181,7 +186,7 @@ export class EventCardManager {
             case EventCardEffectType.scenarioDamage:
               const damage = +effect.values[0];
               if (damage) {
-                gameManager.characterManager.getActiveCharacters().forEach((c) => {
+                characters.forEach((c) => {
                   gameManager.entityManager.changeHealth(c, c, -damage, true);
                 })
               }
@@ -190,7 +195,7 @@ export class EventCardManager {
               const minus1 = +effect.values[0];
               if (minus1) {
                 for (let i = 0; i < minus1; i++) {
-                  gameManager.characterManager.getActiveCharacters().forEach((c) => {
+                  characters.forEach((c) => {
                     if (gameManager.attackModifierManager.countExtraMinus1() < 15) {
                       gameManager.attackModifierManager.addModifierByType(c.attackModifierDeck, AttackModifierType.minus1extra);
                     }
@@ -203,7 +208,7 @@ export class EventCardManager {
         } else {
           switch (effect.type) {
             case EventCardEffectType.battleGoal:
-              gameManager.characterManager.getActiveCharacters().forEach((c) => {
+              characters.forEach((c) => {
                 c.progress.battleGoals += +effect.values[0];
               })
               break;
@@ -212,7 +217,6 @@ export class EventCardManager {
               break
             case EventCardEffectType.drawAnotherEvent:
             case EventCardEffectType.drawEvent:
-              console.log("apply");
               this.game.eventDraw = effect.values[0] as string;
               break;
             case EventCardEffectType.event:
@@ -220,7 +224,7 @@ export class EventCardManager {
               this.addEvent(effect.values[0] as string, effect.values[1] as string);
               break;
             case EventCardEffectType.experience:
-              gameManager.characterManager.getActiveCharacters().forEach((c) => {
+              characters.forEach((c) => {
                 c.progress.experience += +effect.values[0];
               })
               break;
@@ -229,7 +233,7 @@ export class EventCardManager {
               break
             case EventCardEffectType.gold:
             case EventCardEffectType.goldAdditional:
-              gameManager.characterManager.getActiveCharacters().forEach((c) => {
+              characters.forEach((c) => {
                 c.progress.gold += +effect.values[0];
               })
               break;
@@ -237,7 +241,7 @@ export class EventCardManager {
               this.game.party.inspiration += +effect.values[0];
               break;
             case EventCardEffectType.loseBattleGoal:
-              gameManager.characterManager.getActiveCharacters().forEach((c) => {
+              characters.forEach((c) => {
                 c.progress.battleGoals -= +effect.values[0];
                 if (c.progress.battleGoals < 0) {
                   c.progress.battleGoals = 0;
@@ -245,7 +249,7 @@ export class EventCardManager {
               })
               break;
             case EventCardEffectType.loseGold:
-              gameManager.characterManager.getActiveCharacters().forEach((c) => {
+              characters.forEach((c) => {
                 c.progress.gold -= +effect.values[0];
                 if (c.progress.gold < 0) {
                   c.progress.gold = 0;

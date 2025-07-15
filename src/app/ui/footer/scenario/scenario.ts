@@ -41,7 +41,7 @@ export class ScenarioComponent implements OnInit, OnDestroy {
               success: gameManager.game.finish.success
             }
           })
-        } else if (gameManager.game.scenario && gameManager.game.eventDraw && !this.dialog.openDialogs.find((dialogRef) => dialogRef.componentInstance && dialogRef.componentInstance instanceof EventCardDrawComponent)) {
+        } else if (gameManager.game.eventDraw && !this.dialog.openDialogs.find((dialogRef) => dialogRef.componentInstance && dialogRef.componentInstance instanceof EventCardDrawComponent)) {
           let type = gameManager.game.eventDraw;
           if (gameManager.game.edition == 'fh' && (type == 'road' || type == 'outpost')) {
             type = ((Math.max(gameManager.game.party.weeks - 1, 0) % 20 < 10) ? 'summer-' : 'winter-') + type;
@@ -50,7 +50,7 @@ export class ScenarioComponent implements OnInit, OnDestroy {
             panelClass: ['dialog'],
             disableClose: true,
             data: {
-              edition: gameManager.game.scenario.edition,
+              edition: gameManager.game.edition || gameManager.currentEdition(),
               type: type
             }
           })
