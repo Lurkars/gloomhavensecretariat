@@ -14,7 +14,7 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
-import { EventCardDrawComponent } from '../event/event-card-draw';
+import { EventCardDrawComponent } from '../event/draw/event-card-draw';
 import { FavorsComponent } from './favors/favors';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';

@@ -790,8 +790,13 @@
             </div>
           </div>
 
-          <div class="column" *ngIf="settingsManager.settings.battleGoals">
-            <div class="row battle-goals">
+          <div class="column">
+            <div class="row events" *ngIf="settingsManager.settings.events">
+              <a (click)="setupEvents()">
+                <span [ghs-label]="'game.events.deck.setup'"></span>
+              </a>
+            </div>
+            <div class="row battle-goals" *ngIf="settingsManager.settings.battleGoals">
               <a (click)="battleGoalSetup()"><span [ghs-label]="'game.battleGoals.setup'"></span></a>
             </div>
           </div>

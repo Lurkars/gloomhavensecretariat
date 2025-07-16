@@ -102,6 +102,7 @@ export enum EventCardEffectType {
     loseCollectiveGold = "loseCollectiveGold",
     loseCollectiveResource = "loseCollectiveResource",
     loseCollectiveResourceAny = "loseCollectiveResourceAny",
+    loseCollectiveResourceType = "loseCollectiveResourceType",
     loseGold = "loseGold",
     loseMorale = "loseMoral",
     loseProsperity = "loseProsperity",
@@ -115,6 +116,7 @@ export enum EventCardEffectType {
     removeEventFH = "removeEventFH",
     reputation = "reputation",
     reputationAdditional = "reputationAdditional",
+    resource = "resource",
     resourceType = "resourceType",
     partyAchievement = "partyAchievement",
     prosperity = "prosperity",
@@ -136,7 +138,9 @@ export class EventCardEffect {
 }
 
 export enum EventCardConditionType {
+    building = "building",
     character = "character",
+    class = "class",
     loseCollectiveResource = "loseCollectiveResource",
     or = "or",
     otherwise = "otherwise",
@@ -145,6 +149,7 @@ export enum EventCardConditionType {
     payCollectiveItem = "payCollectiveItem",
     reputationGT = "reputationGT",
     reputationLT = "reputationLT",
+    season = "season",
     trait = "trait"
 }
 

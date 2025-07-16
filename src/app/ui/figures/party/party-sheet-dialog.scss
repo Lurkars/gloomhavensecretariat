@@ -622,6 +622,7 @@
 
           &:hover {
             color: var(--ghs-color-gray);
+
             img {
               filter: var(--ghs-filter-gray);
             }
@@ -1766,7 +1767,8 @@
           }
         }
 
-        .battle-goals {
+        .battle-goals,
+        .events {
           a {
             cursor: pointer;
             display: flex;

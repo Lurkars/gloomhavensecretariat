@@ -1,7 +1,6 @@
 <div class="event-card-dialog" *ngIf="!!event">
     <div class="scroll-container">
-        <ghs-event-card [event]="event" (onSelect)="select($event)"
-            (onSubSelections)="subSelect($event)"></ghs-event-card>
+        <ghs-event-card [event]="event" (onSelect)="select($event)"></ghs-event-card>
     </div>
     <div class="menu">
         <a class="cancel" (click)="cancel()" [ghs-label]="'cancel'"></a>

@@ -18,15 +18,17 @@ export class EventCardComponent implements OnInit, OnChanges {
     @Input() event: EventCard | undefined;
     @Input() identifier: EventCardIdentifier | undefined | false;
     @Input() select: number = -1;
+    @Input() subSelect: number[] = [];
     @Input() flipped: boolean = false;
     @Input() disabled: boolean = false;
+    @Input() spoiler: boolean = false;
 
-    @Output() onSelect: EventEmitter<number> = new EventEmitter<number>();
-    @Output() onSubSelections: EventEmitter<number[]> = new EventEmitter<number[]>();
+    @Output() onSelect: EventEmitter<EventCardIdentifier> = new EventEmitter<EventCardIdentifier>();
 
     selected: number = -1;
     subSelections: number[] = [];
     light: boolean = false;
+    spoilerFree: boolean = false;
 
     resolvable: boolean[][] = [];
 
@@ -39,6 +41,9 @@ export class EventCardComponent implements OnInit, OnChanges {
                 })
             })
         }
+        this.spoilerFree = this.spoiler;
+        this.selected = this.select;
+        this.subSelections = this.subSelect;
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -50,13 +55,15 @@ export class EventCardComponent implements OnInit, OnChanges {
                     this.subSelections = this.identifier.subSelections;
                 }
             }
-        } else if (changes['select'] && changes['select'].previousValue != changes['select'].currentValue) {
-            this.selectOption(this.select - 1);
+        } else if (changes['select'] && changes['select'].previousValue != changes['select'].currentValue && this.selected != this.select) {
+            this.selectOption(this.select, true);
+        } else if (changes['spoiler'] && changes['spoiler'].previousValue != changes['spoiler'].currentValue) {
+            this.spoilerFree = this.spoiler;
         }
         this.light = this.event && ['city'].indexOf(this.event.type) != -1 || false;
     }
 
-    selectOption(index: number) {
+    selectOption(index: number, quiet: boolean, event: MouseEvent | TouchEvent | undefined = undefined) {
         if (this.event && !this.disabled && this.selected != index) {
             this.selected = index;
             this.subSelections = [];
@@ -65,9 +72,9 @@ export class EventCardComponent implements OnInit, OnChanges {
             }
 
             this.subSelections = [];
-            if (index > -1) {
+            if (index > -1 && this.event.options[index]) {
                 this.event.options[index].outcomes.forEach((outcome, i) => {
-                    if (this.resolvable[index][i]) {
+                    if (this.resolvable[index] && this.resolvable[index][i]) {
                         if (typeof outcome.condition !== 'string' && outcome.condition && outcome.condition.type === EventCardConditionType.otherwise) {
                             if (!this.resolvable[index].some((value, vi) => value && vi != i)) {
                                 this.subSelections.push(i);
@@ -78,15 +85,16 @@ export class EventCardComponent implements OnInit, OnChanges {
                     }
                 })
             }
-
-            this.onSelect.emit(this.selected);
-            if (this.subSelections.length) {
-                this.onSubSelections.emit(this.subSelections);
+            if (!quiet) {
+                this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections));
             }
+        }
+        if (event) {
+            event.preventDefault();
         }
     }
 
-    selectSub(optionIndex: number, index: number, force: boolean = false) {
+    selectSub(optionIndex: number, index: number, force: boolean = false, event: MouseEvent | TouchEvent | undefined = undefined) {
         if (this.event && !this.disabled && this.selected == optionIndex) {
             if (this.subSelections.indexOf(index) != -1) {
                 this.subSelections.splice(this.subSelections.indexOf(index), 1);
@@ -104,10 +112,20 @@ export class EventCardComponent implements OnInit, OnChanges {
                     }
                 }
             }
-            this.onSubSelections.emit(this.subSelections);
+
+            this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections));
         } else if (force) {
-            this.selectOption(optionIndex);
+            this.selectOption(optionIndex, false);
+        }
+        if (event) {
+            event.preventDefault();
         }
     }
 
+    setSpoilerFree(value: boolean, event: MouseEvent | TouchEvent | undefined = undefined) {
+        this.spoilerFree = value;
+        if (event) {
+            event.preventDefault();
+        }
+    }
 }

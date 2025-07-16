@@ -20,6 +20,7 @@ export class EventCardsToolComponent implements OnInit {
   type: string = "";
   selected: number = -1;
   iterator: number = -1;
+  spoiler: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 

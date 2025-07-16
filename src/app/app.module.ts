@@ -58,10 +58,12 @@ import { EventEffectsDialog } from './ui/figures/event-effects/event-effects';
 import { FavorsComponent } from './ui/figures/event-effects/favors/favors';
 import { EventRandomItemDialogComponent } from './ui/figures/event-effects/random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './ui/figures/event-effects/random-scenario/random-scenario-dialog';
+import { EventCardConditionComponent } from './ui/figures/event/condition/event-card-condition';
+import { EventCardDeckComponent } from './ui/figures/event/deck/event-card-deck';
+import { EventCardDialogComponent } from './ui/figures/event/dialog/event-card-dialog';
+import { EventCardDrawComponent } from './ui/figures/event/draw/event-card-draw';
+import { EventCardEffectComponent } from './ui/figures/event/effect/event-card-effect';
 import { EventCardComponent } from './ui/figures/event/event-card';
-import { EventCardConditionComponent } from './ui/figures/event/event-card-condition';
-import { EventCardDrawComponent } from './ui/figures/event/event-card-draw';
-import { EventCardEffectComponent } from './ui/figures/event/event-card-effect';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { ItemsBrewDialog } from './ui/figures/items/brew/brew';
 import { CharacterItemComponent } from './ui/figures/items/character/item-character';
@@ -247,6 +249,8 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     EntityMenuDialogComponent,
     EventCardComponent,
     EventCardConditionComponent,
+    EventCardDeckComponent,
+    EventCardDialogComponent,
     EventCardDrawComponent,
     EventCardEffectComponent,
     EventCardsToolComponent,

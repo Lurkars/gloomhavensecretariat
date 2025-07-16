@@ -1,18 +1,23 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
+import { Character } from "../model/Character";
 import { Game } from "../model/Game";
+import { GameScenarioModel } from "../model/Scenario";
+import { AttackModifierType } from "../model/data/AttackModifier";
+import { Condition, ConditionName } from "../model/data/Condition";
 import { EventCard, EventCardApplyEffects, EventCardCondition, EventCardConditionType, EventCardEffect, EventCardEffectType, EventCardIdentifier } from "../model/data/EventCard";
+import { LootType } from "../model/data/Loot";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
-import { Condition, ConditionName } from "../model/data/Condition";
-import { Character } from "../model/Character";
-import { AttackModifierType } from "../model/data/AttackModifier";
-import { GameScenarioModel } from "../model/Scenario";
 
 export class EventCardManager {
   game: Game;
 
   constructor(game: Game) {
     this.game = game;
+  }
+
+  getEventTypesForEdition(edition: string): string[] {
+    return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.events).flatMap((event) => event.type).filter((type, index, self) => index == self.indexOf(type));
   }
 
   getEventCardsForEdition(edition: string, type: string): EventCard[] {
@@ -291,6 +296,11 @@ export class EventCardManager {
                 this.game.party.reputation = 20;
               }
               break;
+            case EventCardEffectType.resource:
+              characters.forEach((c) => {
+                c.progress.loot[effect.values[1] as LootType] = (c.progress.loot[effect.values[1] as LootType] || 0) + (+effect.values[0]);
+              })
+              break;
             case EventCardEffectType.partyAchievement:
               this.game.party.achievementsList.push(...effect.values.filter((v) => typeof v === 'string'));
               break
@@ -349,10 +359,12 @@ export class EventCardManager {
     if (typeof condition === 'string') {
       return true;
     }
-
+    let characters = gameManager.characterManager.getActiveCharacters();
     switch (condition.type) {
       case EventCardConditionType.character:
-        return condition.values && this.game.figures.some((figure) => figure instanceof Character && condition.values.indexOf(figure.name) != -1);
+        return condition.values && characters.some((c) => condition.values.indexOf(c.name) != -1);
+      case EventCardConditionType.class:
+        return condition.values && characters.some((c) => condition.values.indexOf(c.characterClass as string) != -1);
       case EventCardConditionType.otherwise:
         return true;
       case EventCardConditionType.reputationGT:
@@ -364,7 +376,7 @@ export class EventCardManager {
       case EventCardConditionType.payGold:
         return condition.values && this.game.figures.filter((figure) => figure instanceof Character && gameManager.gameplayFigure(figure) && !figure.absent).every((figure) => typeof condition.values[0] === 'number' && (figure as Character).progress.gold >= condition.values[0]);
       case EventCardConditionType.payCollectiveGold:
-        return condition.values && typeof condition.values[0] === 'number' && this.game.figures.filter((figure) => figure instanceof Character && gameManager.gameplayFigure(figure) && !figure.absent).map((figure) => (figure as Character).progress.gold).reduce((a, b) => a + b) >= condition.values[0];
+        return condition.values && typeof condition.values[0] === 'number' && characters.length > 0 && characters.map((c) => c.progress.gold).reduce((a, b) => a + b) >= condition.values[0];
       case EventCardConditionType.loseCollectiveResource:
       case EventCardConditionType.payCollectiveItem:
       default:

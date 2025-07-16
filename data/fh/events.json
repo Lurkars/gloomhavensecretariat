@@ -10,20 +10,35 @@
         "narrative": "Climb to the topmost peak and get a look around.",
         "outcomes": [
           {
-            "condition": "drifter,deathwalker",
+            "effects": [
+              {
+                "condition": {
+                  "type": "building",
+                  "values": [
+                    "sled",
+                    "climbing-gear"
+                  ]
+                },
+                "type": "outcome",
+                "values": [
+                  "C"
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "building",
+              "values": [
+                "climbing-gear"
+              ]
+            },
             "narrative": "You work your way to the peak and soak in the incredible view.",
             "effects": [
               {
                 "type": "morale",
                 "values": [
                   1
-                ]
-              },
-              {
-                "type": "scenarioCondition",
-                "values": [
-                  "bless",
-                  "strengthen"
                 ]
               }
             ]
@@ -37,8 +52,8 @@
               {
                 "type": "scenarioCondition",
                 "values": [
-                  "curse",
-                  "brittle"
+                  "poison",
+                  "impair"
                 ]
               }
             ]
@@ -50,20 +65,35 @@
         "narrative": "Explore the coastline.",
         "outcomes": [
           {
-            "condition": "drifter,deathwalker",
+            "effects": [
+              {
+                "condition": {
+                  "type": "building",
+                  "values": [
+                    "sled",
+                    "climbing-gear"
+                  ]
+                },
+                "type": "outcome",
+                "values": [
+                  "C"
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "building",
+              "values": [
+                "sled"
+              ]
+            },
             "narrative": "You enjoy an incredible tour of the iceberg that ends just as the crew finishes repairs.",
             "effects": [
               {
                 "type": "morale",
                 "values": [
                   1
-                ]
-              },
-              {
-                "type": "scenarioCondition",
-                "values": [
-                  "bless",
-                  "strengthen"
                 ]
               }
             ]
@@ -77,8 +107,8 @@
               {
                 "type": "scenarioCondition",
                 "values": [
-                  "curse",
-                  "brittle"
+                  "brittle",
+                  "poison"
                 ]
               }
             ]
@@ -114,13 +144,15 @@
         "narrative": "There's nothing to shoot at unless you catch it: grab an oar.",
         "outcomes": [
           {
+            "narrative": "You pull with concerted effort in time with the rest of the crew. The wind mercilessly pushes you back, but as you feel the fatigue settling into your arms, a voice calls out from the crow's nest: \"She's there! We're pulling up on her!\""
+          },
+          {
             "condition": {
               "type": "trait",
               "values": [
                 "strong"
               ]
             },
-            "narrative": "You pull with concerted effort in time with the rest of the crew. The wind mercilessly pushes you back, but as you feel the fatigue settling into your arms, a voice calls out from the crow's nest: \"She's there! We're pulling up on her!\"",
             "effects": [
               {
                 "type": "outcome",
@@ -135,7 +167,6 @@
             "condition": {
               "type": "otherwise"
             },
-            "narrative": "You pull with concerted effort in time with the rest of the crew. The wind mercilessly pushes you back, but as you feel the fatigue settling into your arms, a voice calls out from the crow's nest: \"She's there! We're pulling up on her!\"",
             "effects": [
               {
                 "type": "outcome",
@@ -151,20 +182,32 @@
       {
         "label": "B",
         "narrative": "Combat is your specialty: ready the cannons.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Looming ahead is a starfish bigger than any you've ever seen. Its arms drift in and out of the water, propelling it forward. It pays you no mind, but the Captain grits his teeth and looks to you. \"Fire!\"",
-            "returnToDeck": true,
             "effects": [
-              "Select one character to perform attack 5, including a draw from their attack modifier deck. Ignore any effects that don't modify the value of the attack.",
-              "RESULT > 6: You sink the harpoon dead center in the beast, who howls a haunting scream, then sinks below the waves. The Captain lets a tear run openly down his face. \"Thank you. Finally, peace for my love.\"",
+              "Select one character to perform attack 5, including a draw from their attack modifier deck. Ignore any effects that don't modify the value of the attack."
+            ]
+          },
+          {
+            "condition": "RESULT > 6:",
+            "narrative": "You sink the harpoon dead center in the beast, who howls a haunting scream, then sinks below the waves. The Captain lets a tear run openly down his face. \"Thank you. Finally, peace for my love.\"",
+            "effects": [
               {
                 "type": "scenarioCondition",
                 "values": [
                   "bless:2"
                 ]
-              },
-              "OTHERWISE: The harpoon falls short of the massive starfish, and it continues on its way. The Captain dejectedly retires to his cabin, and you don't see him again for the remainder of the journey.",
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "The harpoon falls short of the massive starfish, and it continues on its way. The Captain dejectedly retires to his cabin, and you don't see him again for the remainder of the journey.",
+            "effects": [
               {
                 "type": "loseMorale",
                 "values": [
@@ -301,14 +344,24 @@
         "narrative": "It's not worth turning back; the weather should support the transit.",
         "outcomes": [
           {
-            "condition": "winter",
+            "condition": {
+              "type": "season",
+              "values": [
+                "winter"
+              ]
+            },
             "narrative": "The ice floes slap against the sides of your ship as you attempt to navigate. You're nearly clear of the danger when you hear the grunt of wood ripping against ice—the hull is punctured! With plenty of effort and lots of swearing, you patch things up, but can't shake the feeling of how close you were to an icy grave.",
             "effects": [
               "All characters start the next scenario discarding two cards and with IMMOBILIZE."
             ]
           },
           {
-            "condition": "summer",
+            "condition": {
+              "type": "season",
+              "values": [
+                "summer"
+              ]
+            },
             "narrative": "The ice floes plink against the sides of your ship as you navigate the waterway. The warm weather has broken the ice into manageable pieces, and there's little danger despite what the surface suggests.",
             "effects": [
               {
@@ -587,7 +640,12 @@
             },
             "narrative": "\"The myths are true. You cannot hide, cannot run. It is everywhere and it is nowhere.\" He falls silent, staring at his own hands for a time. Finally, he speaks, \"Fire is the only way. The sacrifice is necessary.\" You don't press for more details. It's clear he isn't willing to share them.",
             "effects": [
-              "Gain 5 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -3445,7 +3503,12 @@
             },
             "narrative": "You drag a young man out from a building as it collapses.",
             "effects": [
-              "Gain 5 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              }
             ]
           },
           {
@@ -3722,9 +3785,16 @@
       {
         "label": "A",
         "narrative": "Bet on the fight.",
+        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "algox,inox",
+            "condition": {
+              "type": "class",
+              "values": [
+                "algox",
+                "inox"
+              ]
+            },
             "narrative": "You volunteer for the next fight yourself.",
             "effects": [
               "Select one Inox or Algox character and use that character's attack modifier deck for that side of the below fight instead. If that character wins the fight, they gain 10 gold in addition the rewards below."
@@ -3742,6 +3812,7 @@
       {
         "label": "B",
         "narrative": "These mock fights are boring. Start an actual brawl.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "What's a night of drinking without a little chaos? You make a crude remark about a nearby Inox's horns and the resulting fight turns into a true bar brawl. Eventually you're tossed out as troublemakers... but it was still a good night.",
@@ -3753,14 +3824,29 @@
                 ]
               },
               {
-                "type": "scenarioCondition",
+                "type": "scenarioDamage",
                 "values": [
-                  "bless:2"
+                  2
                 ]
-              },
-              "chaotic: You fight like it's your last day alive. It's truly a brawl to remember.",
-              "Additionally, gain 10 experience each."
+              }
             ]
+          },
+          {
+            "condition": {
+              "type": "trait",
+              "values": [
+                "chaotic"
+              ],
+              "narrative": "You fight like it's your last day alive. It's truly a brawl to remember.",
+              "effects": [
+                {
+                  "type": "experience",
+                  "values": [
+                    10
+                  ]
+                }
+              ]
+            }
           }
         ]
       }
@@ -5051,7 +5137,12 @@
             "condition": "quatrix,savvas,strong,unfettered",
             "narrative": "A challenge must be met. You pop the firepepper into your mouth, and after a second, it's clear why she warned you: this thing is HOT! After an hour, most of the burning has subsided, and the woman nods, impressed. \"Alright, perhaps you could handle a challenge of a different sort...\"",
             "effects": [
-              "Gain 10 experience each.",
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              },
               {
                 "type": "campaignSticker",
                 "values": [
@@ -5355,7 +5446,12 @@
           {
             "narrative": "You set the core on the ground and shatter it with a nearby rock. It bleeds black energy into the snow, sizzling in the ice. You inhale and taste the crispness of the air, a weight lifted from your shoulders—you made the right decision removing it from this world.",
             "effects": [
-              "Gain 10 experience each.",
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              },
               "Remove events WR-12, WR-14, and WR-15 from the winter road deck."
             ]
           }
@@ -5966,7 +6062,12 @@
                   "wound"
                 ]
               },
-              "Gain 1 experience each.",
+              {
+                "type": "experience",
+                "values": [
+                  1
+                ]
+              },
               "Do not resolve the below threat."
             ]
           }
@@ -6256,7 +6357,12 @@
           {
             "narrative": "The Aesther and Vermling enter mortal combat, wordlessly exchanging blows and wounds. The Vermling is fast—jumping between the tree branches and staying away from the Aesther's flashing blades. Finally, you intervene when Malak least expects it, running the Aesther through with your own weapon. With his dying gurgle he looks to you, confused, then collapses. Dramm dusts himself off, overwhelmed with emotion. \"Thank you—I owe you my life. He's hunted me for a decade, but today it ends.\"",
             "effects": [
-              "Gain 10 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              }
             ]
           }
         ]
@@ -6782,7 +6888,12 @@
             "condition": "arcane,educated",
             "narrative": "While the text is concerningly archaic, you find what you believe to be a reanimation spell. A purple cloud fills the skeleton's chest and it rises again. For as long as the magic lasts it recounts stories of its time, and when it sets its head down for eternal rest you feel better connected to the past.",
             "effects": [
-              "Gain 10 experience each.",
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              },
               {
                 "type": "sectionWeek",
                 "values": [
@@ -7996,7 +8107,12 @@
                   2
                 ]
               },
-              "Gain 10 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              }
             ]
           },
           {
@@ -8314,7 +8430,12 @@
       "targetDescription": "Target even-numbered buildings from 1 to 50.",
       "narrative": "A smart commander learns from every battle. It seems your enemies are getting smarter too.",
       "effects": [
-        "Gain 10 experience each."
+        {
+          "type": "experience",
+          "values": [
+            10
+          ]
+        }
       ]
     }
   },
@@ -8913,7 +9034,12 @@
       "targetDescription": "Target even-numbered buildings closest to the docks (players break ties).",
       "narrative": "Target even-numbered buildings closest to the docks (players break ties).",
       "effects": [
-        "Gain 10 experience each."
+        {
+          "type": "experience",
+          "values": [
+            10
+          ]
+        }
       ]
     }
   },
@@ -11989,7 +12115,12 @@
             "narrative": "The writing is archaic, but you can piece together the majority of the meaning. You recognize the sigils as that of the Orchid High Council—this must be a treasure vault.",
             "returnToDeck": true,
             "effects": [
-              "Gain 3 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  3
+                ]
+              }
             ]
           },
           {
@@ -12358,7 +12489,12 @@
             "condition": "orchid",
             "narrative": "You begin a low, lilting hum. Orchids use it as something of a reverse-lullaby, a melody to gently wake someone in deep meditative slumber. The Orchid slowly rouses itself to the tune, opening one eye with a smile. After a long, dramatic stretch he's happy to provide directions to your destination.",
             "effects": [
-              "Gain 5 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              }
             ]
           },
           {
@@ -12498,7 +12634,12 @@
           {
             "narrative": "You toss the arm back to its mechanical owner, watching in awe as some mysterious force guides the arm through the air, reattaching it seamlessly to the machine. Encouraged by the sight, you join the robot in its attack on the Algox. She puts up a great fight, trading blow for blow, but in the end, your combined might is enough to put her down. With one final wail, the Algox falls, tumbling onto the bloodied snow. Its task finished, the automaton lumbers away without a sound, its optical sensors swiveling to give you a long, ponderous glance as it passes by.",
             "effects": [
-              "Gain 5 experience each.",
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              },
               {
                 "type": "scenarioCondition",
                 "values": [
@@ -12872,7 +13013,12 @@
                   "curse:2"
                 ]
               },
-              "Gain 5 experience each."
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -13404,7 +13550,12 @@
             "narrative": "\"TOUGH GUYS, HUH?\" Stump's head glows with a blue light. \"YOU THINK YOU'RE TOUGHER THAN US?\" While Snickles isn't much of a threat, Stump more than makes up for it in the ensuing fight—by the time it's over, the impromptu battlefield is singed with blasts of blue light. Smoke permeates the air after a particularly large bolt and the pair of machines take the opportunity to slip away in the chaos. At least you got a few good hits in.",
             "returnToDeck": true,
             "effects": [
-              "Gain 3 experience each.",
+              {
+                "type": "experience",
+                "values": [
+                  3
+                ]
+              },
               {
                 "type": "scenarioCondition",
                 "values": [
@@ -13570,7 +13721,12 @@
             "condition": "arcane,educated",
             "narrative": "While the text is concerningly archaic, you find what you believe to be a reanimation spell. A purple cloud fills the skeleton's chest and it rises again. For as long as the magic lasts it recounts stories of its time, and when it sets its head down for eternal rest you feel better connected to the past.",
             "effects": [
-              "Gain 10 experience each.",
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              },
               {
                 "type": "sectionWeek",
                 "values": [

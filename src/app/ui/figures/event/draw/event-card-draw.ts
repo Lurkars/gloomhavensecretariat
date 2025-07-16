@@ -1,8 +1,8 @@
 import { DIALOG_DATA, DialogRef } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { EventCard } from "src/app/game/model/data/EventCard";
-import { ghsDialogClosingHelper } from "../../helper/Static";
+import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
+import { ghsDialogClosingHelper } from "../../../helper/Static";
 import { Subscription } from "rxjs";
 
 @Component({
@@ -47,12 +47,9 @@ export class EventCardDrawComponent {
         }
     }
 
-    select(index: number) {
-        this.selected = index;
-    }
-
-    subSelect(subSelections: number[]) {
-        this.subSelections = subSelections;
+    select(change: EventCardIdentifier) {
+        this.selected = change.selected;
+        this.subSelections = change.subSelections;
     }
 
     cancel() {

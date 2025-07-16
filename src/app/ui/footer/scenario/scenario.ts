@@ -7,7 +7,7 @@ import { EditionData } from 'src/app/game/model/data/EditionData';
 import { RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { EventEffectsDialog } from '../../figures/event-effects/event-effects';
-import { EventCardDrawComponent } from '../../figures/event/event-card-draw';
+import { EventCardDrawComponent } from '../../figures/event/draw/event-card-draw';
 import { RandomMonsterCardDialogComponent } from './dialog/random-monster-card/random-monster-card-dialog';
 import { ScenarioDialogComponent } from './dialog/scenario-dialog';
 import { SectionDialogComponent } from './section/section-dialog';

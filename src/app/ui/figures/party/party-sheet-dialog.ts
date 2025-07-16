@@ -30,6 +30,7 @@ import { StatisticsDialogComponent } from "./statistics/statistics-dialog";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { WorldMapComponent } from "./world-map/world-map";
+import { EventCardDeckComponent } from "../event/deck/event-card-deck";
 
 @Component({
   standalone: false,
@@ -1323,6 +1324,16 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   battleGoalSetup() {
     this.dialog.open(BattleGoalSetupDialog, {
       panelClass: ['dialog']
+    });
+  }
+
+  setupEvents(type: string = "") {
+    this.dialog.open(EventCardDeckComponent, {
+      panelClass: ['dialog'],
+      data: {
+        type: type,
+        edition: gameManager.game.edition || gameManager.currentEdition()
+      }
     });
   }
 

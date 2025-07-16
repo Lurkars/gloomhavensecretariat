@@ -823,6 +823,7 @@
     "events": {
       "accept": "Resolve Event",
       "conditions": {
+        "building": "{0}",
         "character": "{0}",
         "loseCollectiveGold": "Lose {0} collective gold.",
         "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%.",
@@ -832,8 +833,23 @@
         "payGold": "Pay {0} gold each",
         "reputationGT": "Reputation > {0}",
         "reputationLT": "Reputation < {0}",
+        "season": "%party.campaign.sheet.{0}%",
         "trait": "%game.trait:{0}%",
         "traits": "%game.trait:{0}% or %data.character.traits.{1}%"
+      },
+      "deck": {
+        "addCard": "Add to upcoming cards",
+        "allTypes": "Show all decks",
+        "drawn": "Drawn ({0})",
+        "filter": "Filter by Card Id",
+        "new": "Unrevealed ({0})",
+        "removeCard": "Remove from upcoming cards",
+        "removeDrawn": "Remove from drawn cards",
+        "removeSelection": "Reset outcoume",
+        "setup": "Setup Event Decks",
+        "show": "Show Full Event Card",
+        "shuffle": "Shuffle Deck",
+        "upcoming": "Upcoming ({0})"
       },
       "effects": {
         "battleGoal": "Gain {0} %game.checkmark% each.",

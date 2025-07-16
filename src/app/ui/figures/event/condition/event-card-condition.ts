@@ -32,6 +32,23 @@ export class EventCardConditionComponent implements OnInit {
                 this.labelArgs = [this.labelArgs.map((c) => '%game.characterIcon.' + c + '%').join('')];
             }
 
+            if (this.conditionObject.type == EventCardConditionType.building) {
+                let concat = "";
+                this.conditionObject.values.filter((v) => typeof v === 'string').map((building) => {
+                    return '%game.fhIcon:' + building + '%';
+                }).forEach((building, index, values) => {
+                    concat += building;
+                    if (values.length > 1) {
+                        if (index < values.length - 2) {
+                            concat += ', ';
+                        } else if (index < values.length - 1) {
+                            concat += ' %and% ';
+                        }
+                    }
+                })
+                this.labelArgs = [concat];
+            }
+
             this.labelArgs.push(this.edition);
         }
     }

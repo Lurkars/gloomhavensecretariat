@@ -32,9 +32,14 @@
     </label>
     <button (click)="changeIterator(-1)" [disabled]="iterator == -1">-</button>
     <button (click)="changeIterator(1)">+</button>
+    <label>
+      <input type="checkbox" [(ngModel)]="spoiler">
+      <span [ghs-label]="'game.events.spoiler'"></span>
+    </label>
   </div>
 
   <div class="events">
-    <ghs-event-card [event]="event" *ngFor="let event of events" [select]="selected" [flipped]="selected == 0"></ghs-event-card>
+    <ghs-event-card [event]="event" *ngFor="let event of events" [select]="selected != -1 ? selected - 1 : -1"
+      [flipped]="selected == 0" [spoiler]="spoiler"></ghs-event-card>
   </div>
 </div>
