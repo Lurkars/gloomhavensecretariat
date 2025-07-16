@@ -56,6 +56,7 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - **Treasures**
   - **Character Items** (must be enabled in Settings!) manage state of items during a scenario 
   - **Battle Goals** (must be enabled in Settings!)
+  - **Event Decks** (not finished, but in progress)
 - Elimination of the following physical components
   - Monster ability cards
   - Monster stat cards
@@ -67,12 +68,13 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
   - Character boards
   - Character sheets
   - Character attack modifier deck
+  - Event decks
   - Loot deck
   - Town guard deck
   - Party/Campaign sheet
   - Item Cards
   - Battle Goals
-  - Building deck (partly!)
+  - Building deck
   - Frosthaven Decks:
     <details>
       <summary>SPOILER WARNING: Building 81</summary>
@@ -177,11 +179,11 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
 
 ### Planned next
 
-- Support for event cards (draw, manage, apply rewards)
+- Finish Event Deck Support
 
 ### Long term plans
 
-- Support for managing character ability cards
+- Finish all character ability cards
 
 ## Install
 

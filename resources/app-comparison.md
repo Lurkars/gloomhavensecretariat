@@ -36,7 +36,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Character Progress (XP, Gold/Resources, Items, Perks etc.)                      | ✅        | ⛔         | ⛔        | ✅       | ⛔       |
 | Character Ability Cards                                                         | ❗[^1.4]  | ⛔         | ⛔        | ✅       | ⛔       |
 | Campaign Progress                                                               | ✅        | ⛔         | ✅❗       | ✅       | ⛔       |
-| Event-Decks                                                                     | ⛔        | ⛔         | ⛔        | ✅       | ⛔       |
+| Event-Decks                                                                     | ✅❗[^1.5] | ⛔         | ⛔        | ✅       | ⛔       |
 | Battle Goal Deck                                                                | ✅[^1]    | ⛔         | ⛔        | ✅       | ⛔       |
 | Multiple Parties/Campaigns                                                      | ✅        | ✅❗[^1.3]  | ✅        | ✅       | ⛔       |
 | Loot Deck                                                                       | ✅        | ✅         | ✅        | ✅       | ⛔       |
@@ -139,6 +139,8 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 [^1.3]: Manually save/load states for multiple parties
 
 [^1.4]: All titles and initiatives implemented but most ability data still missing
+
+[^1.5]: Still a lot in progress here and all data must be validated, but basic support ready
 
 [^2.1]: Some special rules data not complete, but fully playable
 
