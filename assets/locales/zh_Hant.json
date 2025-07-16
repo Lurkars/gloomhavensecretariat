@@ -846,10 +846,10 @@
         "prosperity": "獲得 {0} 點繁榮。",
         "randomItemDesign": "獲得隨機物品設計圖紙。",
         "reputation": "獲得 {0} 點聲望。",
-        "scenario": "解鎖 \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%。",
         "scenarioCondition": "劇本開始時所有角色獲得 %game.condition.{0}%。",
         "scenarioDamage": "劇本開始時所有角色受到 {0} 點傷害。",
-        "scenarioSingleMinus1": "劇本開始時一名角色獲得 %game.card.minus1% x{0}."
+        "scenarioSingleMinus1": "劇本開始時一名角色獲得 %game.card.minus1% x{0}.",
+        "unlockScenario": "解鎖 \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%。"
       },
       "option": {
         "": "選項 {0}:",

@@ -821,7 +821,9 @@
     },
     "enemy": "Enemy",
     "events": {
+      "accept": "Resolve Event",
       "conditions": {
+        "building": "{0}",
         "character": "{0}",
         "loseCollectiveGold": "Lose {0} collective gold.",
         "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%.",
@@ -831,8 +833,23 @@
         "payGold": "Pay {0} gold each",
         "reputationGT": "Reputation > {0}",
         "reputationLT": "Reputation < {0}",
+        "season": "%party.campaign.sheet.{0}%",
         "trait": "%game.trait:{0}%",
         "traits": "%game.trait:{0}% or %data.character.traits.{1}%"
+      },
+      "deck": {
+        "addCard": "Add to upcoming cards",
+        "allTypes": "Show all decks",
+        "drawn": "Drawn ({0})",
+        "filter": "Filter by Card Id",
+        "new": "Unrevealed ({0})",
+        "removeCard": "Remove from upcoming cards",
+        "removeDrawn": "Remove from drawn cards",
+        "removeSelection": "Reset outcoume",
+        "setup": "Setup Event Decks",
+        "show": "Show Full Event Card",
+        "shuffle": "Shuffle Deck",
+        "upcoming": "Upcoming ({0})"
       },
       "effects": {
         "battleGoal": "Gain {0} %game.checkmark% each.",
@@ -889,7 +906,6 @@
         "reputation": "Gain {0} reputation.",
         "reputationAdditional": "Gain {0} additional reputation.",
         "resourceType": "Gain any {0} %game.loot.{1}% each.",
-        "scenario": "Unlock \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
         "scenarioCondition": {
           "": "All start scenario with {0}.",
           "automation": "Automatically add conditions to all characters."
@@ -907,7 +923,9 @@
         "sectionWeek": "Add %game.section:{0}% to the celander in one week.",
         "sectionWeeks": "Add %game.section:{0}% to the celander in %game.number.{1}% weeks.",
         "soldier": "Gain 1 soldier.",
-        "soldiers": "Gain {0} soldiers."
+        "soldiers": "Gain {0} soldiers.",
+        "unlockScenario": "Unlock \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
+        "unlockScenarioGroup": "Unlock \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%)."
       },
       "option": {
         "": "Option {0}:",
@@ -2409,6 +2427,18 @@
     "expireConditions": {
       "": "Automatic expire conditions",
       "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strengthen will be removed after turn"
+    },
+    "events": {
+      "": "Event Cards",
+      "hint": "Support for Event Card Decks."
+    },
+    "eventsApply": {
+      "": "Apply Events automatically",
+      "hint": "Automatically apply (if possible) outcomes of event cards."
+    },
+    "eventsDraw": {
+      "": "Auto. Draw Events",
+      "hint": "Automatically draw events like Road Event at start of scenario."
     },
     "feedback": {
       "": "Disable Feedback Button"

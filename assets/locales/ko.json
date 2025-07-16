@@ -840,10 +840,10 @@
         "prosperity": "번영도 {0}점 획득.",
         "randomItemDesign": "무작위 아이템 도안 획득.",
         "reputation": "평판 {0}점 획득.",
-        "scenario": "%data.scenarioNumber:{0}%번 시나리오 “%data.scenario.title.{1}.{0}%” 해금.",
         "scenarioCondition": "모두 %game.condition.{0}% 상태로 시나리오 시작.",
         "scenarioDamage": "모두 피해 {0}점을 받고 시나리오 시작.",
-        "scenarioSingleMinus1": "%game.card.minus1% {0}장을 공격 보정 덱에 섞어 넣고 시나리오 시작."
+        "scenarioSingleMinus1": "%game.card.minus1% {0}장을 공격 보정 덱에 섞어 넣고 시나리오 시작.",
+        "unlockScenario": "%data.scenarioNumber:{0}%번 시나리오 “%data.scenario.title.{1}.{0}%” 해금."
       },
       "option": {
         "": "선택지 {0}:",

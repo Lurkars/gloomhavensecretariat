@@ -846,10 +846,10 @@
         "prosperity": "Erhalte {0} Wohlstand.",
         "randomItemDesign": "Erhalte einen zufälligen Gegenstandsplan.",
         "reputation": "Erhalte {0} Ansehen.",
-        "scenario": "\"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}% freischalten.",
         "scenarioCondition": "Alle beginnen das Szenario mit %game.condition.{0}%.",
         "scenarioDamage": "Alle beginnen das Szenario mit {0} Schaden.",
-        "scenarioSingleMinus1": "Jeder beginnt das Szenario mit %game.card.minus1% x{0}."
+        "scenarioSingleMinus1": "Jeder beginnt das Szenario mit %game.card.minus1% x{0}.",
+        "unlockScenario": "\"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}% freischalten."
       },
       "option": {
         "": "Option {0}:",

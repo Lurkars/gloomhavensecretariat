@@ -802,10 +802,10 @@
         "prosperity": "获得 {0} 点繁荣。",
         "randomItemDesign": "获得随机物品设计图纸。",
         "reputation": "获得 {0} 点声望。",
-        "scenario": "解锁 \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%。",
         "scenarioCondition": "剧本开始时所有角色获得 %game.condition.{0}%。",
         "scenarioDamage": "剧本开始时所有角色受到 {0} 点伤害。",
-        "scenarioSingleMinus1": "剧本开始时一名角色获得 %game.card.minus1% x{0}。"
+        "scenarioSingleMinus1": "剧本开始时一名角色获得 %game.card.minus1% x{0}。",
+        "unlockScenario": "解锁 \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%。"
       },
       "option": {
         "": "选项 {0}：",
