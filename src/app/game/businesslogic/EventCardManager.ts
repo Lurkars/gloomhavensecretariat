@@ -28,15 +28,75 @@ export class EventCardManager {
     return gameManager.editionData.filter((editionData) => editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.events).find((eventCard) => eventCard.type == type && eventCard.cardId == cardId);
   }
 
-  buildPartyDeck(edition: string, type: string, migrate: boolean = false) {
+  buildPartyDeck(edition: string, type: string) {
     const campaignData = gameManager.campaignData(edition);
-    if (migrate) {
-      this.game.party.eventDecks[type] = [];
-      // TODO: add migration with scenario rewards
-    }
 
     if (campaignData && campaignData.events && campaignData.events[type]) {
       this.buildEventDeck(type, campaignData.events[type]);
+    }
+  }
+
+  buildPartyDeckMigration(edition: string) {
+    if (!this.game.party.eventDecks || !Object.keys(this.game.party.eventDecks).length) {
+      const campaignData = gameManager.campaignData(edition);
+      if (campaignData.events) {
+        Object.keys(campaignData.events).forEach((eventType) => {
+          if (campaignData.events[eventType] && campaignData.events[eventType].length) {
+            this.buildPartyDeck(edition || gameManager.currentEdition(), eventType);
+            console.debug("Build " + eventType + " Event Deck");
+          }
+        })
+
+        if (this.game.party.eventDecks && Object.keys(this.game.party.eventDecks).length) {
+          this.game.party.scenarios.filter((s) => s.edition == edition || gameManager.editionExtensions(edition).indexOf(s.edition) != -1).map((s) => gameManager.scenarioManager.getScenario(s.index, s.edition, s.group)).forEach((scenarioData) => {
+            if (scenarioData && scenarioData.rewards) {
+              if (scenarioData.rewards.events) {
+                scenarioData.rewards.events.forEach((event) => {
+                  if (event.split(':').length > 1) {
+                    this.addEvent(event.split(':')[0], event.split(':')[1], true)
+                  }
+                })
+              }
+
+              if (scenarioData.rewards.eventDeck) {
+                const type = scenarioData.rewards.eventDeck.split(':')[0];
+                const events = gameManager.eventCardManager.getEventCardsForEdition(scenarioData.edition, type);
+                const startEvent = events.find((e) => scenarioData.rewards && e.cardId == scenarioData.rewards.eventDeck.split(':')[1].split('|')[0]);
+                const endEvent = events.find((e) => scenarioData.rewards && e.cardId == scenarioData.rewards.eventDeck.split(':')[1].split('|')[1]);
+                if (startEvent && endEvent) {
+                  gameManager.eventCardManager.buildEventDeck(type, events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId));
+                } else {
+                  console.warn("Could not find start and end for: " + scenarioData.rewards.eventDeck);
+                }
+              }
+            }
+          })
+
+          this.game.party.unlockedCharacters.map((unlock) => gameManager.getCharacterData(unlock.split(':')[1], unlock.split(':')[0])).forEach((characterData) => {
+            if (characterData.unlockEvent) {
+              if (characterData.unlockEvent.split(':').length > 1) {
+                this.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true)
+              } else {
+                this.addEvent('city', characterData.unlockEvent, true);
+                this.addEvent('road', characterData.unlockEvent, true);
+              }
+            }
+          })
+
+          this.game.party.retirements.map((c) => gameManager.getCharacterData(c.name, c.edition)).forEach((characterData) => {
+            if (characterData.retireEvent) {
+              if (characterData.retireEvent.split(':').length > 1) {
+                this.addEvent(characterData.retireEvent.split(':')[0], characterData.retireEvent.split(':')[1], true)
+              } else {
+                this.addEvent('city', characterData.retireEvent, true);
+                this.addEvent('road', characterData.retireEvent, true);
+              }
+            }
+          })
+
+          console.debug("Migrated event decks");
+        }
+      }
     }
   }
 
@@ -48,12 +108,15 @@ export class EventCardManager {
     ghsShuffleArray(this.game.party.eventDecks[type] || []);
   }
 
-  addEvent(type: string, cardId: string) {
+  addEvent(type: string, cardId: string, newOnly: boolean = false) {
     if (!this.game.party.eventDecks[type]) {
       this.game.party.eventDecks[type] = [];
     }
-    this.game.party.eventDecks[type].push(cardId);
-    this.shuffleEvents(type);
+
+    if (!newOnly || this.game.party.eventDecks[type].indexOf(cardId) == -1 && !this.game.party.eventCards.find((e) => e.type == type && e.cardId == cardId && e.edition == (this.game.edition || gameManager.currentEdition()))) {
+      this.game.party.eventDecks[type].push(cardId);
+      this.shuffleEvents(type);
+    }
   }
 
   returnEvent(type: string, cardId: string) {
@@ -79,7 +142,7 @@ export class EventCardManager {
     let results: (EventCardEffect | EventCardCondition)[] = [];
     const option = eventCard.options[selected];
     let returnToDeck = false;
-    let removeFromDeck = eventCard.edition == 'fh';
+    let removeFromDeck = ['fh', 'jotl'].indexOf(eventCard.edition) != -1; // default to remove from deck for JOTL and FH
     if (option) {
       if (option.removeFromDeck) {
         removeFromDeck = true;
@@ -361,6 +424,8 @@ export class EventCardManager {
     }
     let characters = gameManager.characterManager.getActiveCharacters();
     switch (condition.type) {
+      case EventCardConditionType.building:
+        return condition.values && condition.values.every((value) => typeof value === 'string' && this.game.party.buildings && this.game.party.buildings.find((model) => model.level && model.name == value));
       case EventCardConditionType.character:
         return condition.values && characters.some((c) => condition.values.indexOf(c.name) != -1);
       case EventCardConditionType.class:

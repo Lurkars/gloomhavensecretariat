@@ -17,6 +17,7 @@ export class EventCardsToolComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
   events: EventCard[] = [];
   edition: string | undefined;
+  types: string[] = [];
   type: string = "";
   selected: number = -1;
   iterator: number = -1;
@@ -41,11 +42,11 @@ export class EventCardsToolComponent implements OnInit {
           update = true;
         }
         if (queryParams['type']) {
-          this.type = typeof queryParams['type'] === 'string' ? [queryParams['type']] : queryParams['type'];
+          this.type = queryParams['type'];
           update = true;
         }
-        if (queryParams['selected']) {
-          this.selected = typeof queryParams['selected'] === 'string' ? [queryParams['selected']] : queryParams['selected'];
+        if (queryParams['selected'] != undefined) {
+          this.selected = +queryParams['selected'];
         }
         if (queryParams['iterator']) {
           this.iterator = +queryParams['iterator'];
@@ -66,6 +67,10 @@ export class EventCardsToolComponent implements OnInit {
   update() {
     this.events = [];
     if (this.edition) {
+      this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition);
+      if (!this.type || this.types.indexOf(this.type) == -1) {
+        this.type = this.types[0];
+      }
       this.events = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type).filter((e, i) => this.iterator == -1 || this.iterator == i);
     }
   }

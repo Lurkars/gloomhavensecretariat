@@ -263,22 +263,27 @@ export class Game {
     lootCardIdMigration(this.lootDeckEnhancements);
 
     this.unlockedCharacters = model.unlockedCharacters || [];
+
+    // migration
+    this.unlockedCharacters = this.unlockedCharacters.map((c) => {
+      if (c.indexOf(':') == -1) {
+        let edition = this.edition || gameManager.currentEdition();
+        let characterData = gameManager.getCharacterData(c, edition);
+        if (!characterData) {
+          characterData = gameManager.getCharacterData(c);
+        }
+        if (characterData) {
+          return characterData.edition + ':' + characterData.name;
+        } else {
+          console.warn("Could not find character data for unlock: " + c);
+        }
+      }
+      return c;
+    })
+
     this.challengeDeck = this.challengeDeck || new ChallengeDeck();
     if (model.challengeDeck) {
       this.challengeDeck.fromModel(model.challengeDeck);
-    }
-
-    // migration
-    if (settingsManager.settings.spoilers) {
-      gameManager.charactersData().filter((characterData) => characterData.spoiler).forEach((characterData) => {
-        const index = settingsManager.settings.spoilers.indexOf(characterData.name);
-        if (index != -1) {
-          if (this.unlockedCharacters.indexOf(characterData.name) == -1) {
-            this.unlockedCharacters.push(characterData.name);
-          }
-          settingsManager.settings.spoilers.splice(index, 1);
-        }
-      })
     }
 
     this.server = model.server;

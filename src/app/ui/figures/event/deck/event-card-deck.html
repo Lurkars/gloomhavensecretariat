@@ -3,13 +3,17 @@
         <a *ngFor="let eventType of types" (click)="selectType(eventType)" [ngClass]="{'active': type == eventType}">
             <span [ghs-label]="'game.events.type.' + eventType"></span>
         </a>
-        <label>
+        <label *ngIf="allTypesToggle">
             <input type="checkbox" (click)="toggleAllTypes()" [checked]="allTypes">
             <span [ghs-label]="'game.events.deck.allTypes'"></span>
         </label>
+        <label *ngIf="drawnCards.length">
+            <input type="checkbox" [(ngModel)]="resolved">
+            <span [ghs-label]="'game.events.deck.resolved'"></span>
+        </label>
     </div>
     <div class="scroll-container">
-        <div class="events-container">
+        <div class="events-container" [ngClass]="{'resolved': resolved}">
             <div class="upcoming drop-list" id="upcoming-list" cdkDropList #upcomingList="cdkDropList"
                 [cdkDropListConnectedTo]="[newList, drawnList]" (cdkDropListDropped)="dropUpcoming($event)"
                 [cdkDropListAutoScrollStep]="20">
@@ -77,7 +81,7 @@
                 </div>
                 <div class="empty" *ngIf="drawnCards.length == 0"></div>
                 <ng-container *ngFor="let model of drawnCards; let index = index;">
-                    <div class="container">
+                    <div class="container" drag-hidden cdkDrag>
 
                         <ghs-event-card [event]="model.card" [select]="model.identifier.selected"
                             [subSelect]="model.identifier.subSelections"
@@ -95,6 +99,12 @@
                         <a class="button remove" (click)="removeDrawn(model.identifier)"
                             [ghs-tooltip]="'game.events.deck.removeDrawn'">
                             <img class="ghs-svg" src="./assets/images/minus.svg">
+                        </a>
+
+                        <a class="button add restore"
+                            *ngIf="model.card && upcomingCards.indexOf(model.card) == -1 && newCards.indexOf(model.card) == -1"
+                            (click)="addCard(model.card)" [ghs-tooltip]="'game.events.deck.addCard'">
+                            <img class="ghs-svg" src="./assets/images/plus.svg">
                         </a>
                     </div>
                 </ng-container>

@@ -46,7 +46,7 @@
     .events-container {
         display: flex;
         margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
-        width: calc(var(--ghs-unit) * 116 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 78 * var(--ghs-text-factor));
         max-height: 80vh;
 
         .upcoming,
@@ -58,6 +58,10 @@
             overflow-x: hidden;
             margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
             width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor));
+
+            &.drawn {
+                display: none;
+            }
 
             .title {
                 position: sticky;
@@ -167,21 +171,33 @@
                             filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
                         }
                     }
+
+                    &.restore {
+                        top: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+                    }
                 }
             }
 
             .empty {
                 position: absolute;
-                top: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor));
-                left: calc(var(--ghs-unit) * 0 * var(--ghs-text-factor));
+                top: calc(var(--ghs-unit) * 5.5 * var(--ghs-text-factor));
+                left: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor));
                 display: block;
                 margin: calc(var(--ghs-unit) * 0.7 * var(--ghs-text-factor));
-                width: calc(var(--ghs-unit) * 36 * var(--ghs-text-factor));
-                height: calc(var(--ghs-unit) * 53 * var(--ghs-text-factor));
+                width: calc(var(--ghs-unit) * 35 * var(--ghs-text-factor));
+                height: calc(var(--ghs-unit) * 51.7 * var(--ghs-text-factor));
                 border-radius: calc(var(--ghs-unit) * 1);
                 border-style: dashed;
                 border-width: calc(var(--ghs-unit) * 0.2);
                 border-color: var(--ghs-color-white);
+            }
+        }
+
+        &.resolved {
+            width: calc(var(--ghs-unit) * 117 * var(--ghs-text-factor));
+
+            .drawn {
+                display: flex;
             }
         }
     }

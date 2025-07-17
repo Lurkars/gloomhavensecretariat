@@ -169,6 +169,17 @@ export class CharacterManager {
 
     if (retirement && settingsManager.settings.applyRetirement) {
       gameManager.game.party.prosperity += gameManager.fhRules() ? 2 : 1;
+
+      if (settingsManager.settings.events) {
+        if (character.retireEvent) {
+          if (character.retireEvent.split(':').length > 1) {
+            gameManager.eventCardManager.addEvent(character.retireEvent.split(':')[0], character.retireEvent.split(':')[1], true)
+          } else {
+            gameManager.eventCardManager.addEvent('city', character.retireEvent, true);
+            gameManager.eventCardManager.addEvent('road', character.retireEvent, true);
+          }
+        }
+      }
     }
 
     if (character.marker) {

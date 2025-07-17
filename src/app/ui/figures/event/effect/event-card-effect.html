@@ -1,4 +1,5 @@
-<span class="effect" [ngClass]="{'fh': edition == 'fh', 'city': eventType == 'city', 'disabled': disabled}">
+<span class="effect"
+    [ngClass]="{'fh': edition == 'fh', 'city': eventType == 'city', 'disabled': disabled && !selected}">
     <span *ngIf="effectString" class="text" [ngClass]="{'inline': inline}">
         <span [ngClass]="{'text-white': light}" [ghs-label]="effectString"></span>
     </span>

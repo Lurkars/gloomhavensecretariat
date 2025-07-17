@@ -268,10 +268,18 @@ export class ScenarioManager {
                 gameManager.game.party.pets.push(new PetIdentifier(rewards.pet, scenario.edition));
               }
             }
+
+            if (rewards.events && settingsManager.settings.events) {
+              rewards.events.forEach((event) => {
+                if (event.split(':').length > 1) {
+                  gameManager.eventCardManager.addEvent(event.split(':')[0], event.split(':')[1], true)
+                }
+              })
+            }
           }
 
-          if (settingsManager.settings.automaticUnlocking && rewards.unlockCharacter && this.game.unlockedCharacters.indexOf(rewards.unlockCharacter) == -1) {
-            this.game.unlockedCharacters.push(rewards.unlockCharacter);
+          if (settingsManager.settings.automaticUnlocking && rewards.unlockCharacter && this.game.unlockedCharacters.indexOf(scenario.edition + ':' + rewards.unlockCharacter) == -1) {
+            this.game.unlockedCharacters.push(scenario.edition + ':' + rewards.unlockCharacter);
           }
 
           if (rewards.lootDeckCards) {

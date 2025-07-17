@@ -195,8 +195,14 @@
       <span class="progress"><span [ghs-label]="'scenario.eventEffects.campaign'"></span></span>
 
       <ng-container *ngIf="settingsManager.settings.events">
-        <span *ngFor="let type of eventTypes" class="action" tabclick (click)="drawEvent(type)"
-          [ghs-label]="'scenario.eventEffects.drawEvent'" [ghs-label-args]="[type]"></span>
+        <span class="event-deck-container" *ngFor="let type of eventTypes">
+          <a class="action" tabclick (click)="drawEvent(type)" [ghs-label]="'scenario.eventEffects.drawEvent'"
+            [ghs-label-args]="[type]"
+            [ngClass]="{'disabled' : !gameManager.game.party.eventDecks[type] || gameManager.game.party.eventDecks[type]?.length == 0}"></a>
+
+          <img (click)="setupEvents(type)" class="ghs-svg" src="./assets/images/settings.svg"
+            [ghs-tooltip]="'game.events.deck.setup'">
+        </span>
       </ng-container>
 
       <ng-container *ngIf="gameManager.roundManager.firstRound">

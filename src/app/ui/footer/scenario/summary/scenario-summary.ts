@@ -315,7 +315,7 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 }
                 if (this.rewards.chooseUnlockCharacter && this.rewards.chooseUnlockCharacter.length > 0 && !this.chooseUnlockCharacter) {
                     let index = 0;
-                    while (index < this.rewards.chooseUnlockCharacter.length && gameManager.game.unlockedCharacters.indexOf(this.rewards.chooseUnlockCharacter[index]) != -1) {
+                    while (index < this.rewards.chooseUnlockCharacter.length && gameManager.game.unlockedCharacters.indexOf(this.scenario.edition + ':' + this.rewards.chooseUnlockCharacter[index]) != -1) {
                         index++;
                     }
                     if (index < this.rewards.chooseUnlockCharacter.length) {
@@ -780,8 +780,8 @@ export class ScenarioSummaryComponent implements OnDestroy {
                 gameManager.game.party.manualScenarios.push(new GameScenarioModel(this.chooseLocation, this.scenario.edition, this.scenario.group));
             }
 
-            if (settingsManager.settings.automaticUnlocking && this.chooseUnlockCharacter && gameManager.game.unlockedCharacters.indexOf(this.chooseUnlockCharacter) == -1) {
-                gameManager.game.unlockedCharacters.push(this.chooseUnlockCharacter);
+            if (settingsManager.settings.automaticUnlocking && this.chooseUnlockCharacter && gameManager.game.unlockedCharacters.indexOf(this.scenario.edition + ':' + this.chooseUnlockCharacter) == -1) {
+                gameManager.game.unlockedCharacters.push(this.scenario.edition + ':' + this.chooseUnlockCharacter);
             }
 
             if (this.challenges) {
@@ -856,6 +856,6 @@ export class ScenarioSummaryComponent implements OnDestroy {
     }
 
     unlocked(character: string) {
-        return gameManager.game.unlockedCharacters.indexOf(character) != -1;
+        return gameManager.game.unlockedCharacters.indexOf(this.scenario.edition + ':' + character) != -1;
     }
 }

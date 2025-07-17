@@ -26,13 +26,16 @@ export class EventCardDeckComponent {
     filterNew: string = "";
     filterDrawn: string = "";
     allTypes: boolean = false;
+    allTypesToggle: boolean = false;
+    resolved: boolean = false;
 
     constructor(@Inject(DIALOG_DATA) data: { edition: string, type: string }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.edition = data.edition;
         this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition).filter((type) => this.allTypes || gameManager.game.party.eventDecks[type] && gameManager.game.party.eventDecks[type].length);
+        this.allTypesToggle = gameManager.eventCardManager.getEventTypesForEdition(this.edition).length != this.types.length;
         this.type = data.type || this.types[0];
         this.update();
-        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: (server: boolean) => server && this.update() });
+        this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
     }
 
     uiChangeSubscription: Subscription | undefined;
@@ -65,7 +68,6 @@ export class EventCardDeckComponent {
         gameManager.stateManager.before("events.deck.shuffle", this.type);
         gameManager.eventCardManager.shuffleEvents(this.type);
         gameManager.stateManager.after();
-        this.update();
     }
 
     dropUpcoming(event: CdkDragDrop<EventCard[]>) {
@@ -76,7 +78,6 @@ export class EventCardDeckComponent {
             (gameManager.game.party.eventDecks[this.type] || []).splice(event.currentIndex < 0 ? 0 : event.currentIndex, 0, this.newCards[event.previousIndex].cardId);
         }
         gameManager.stateManager.after();
-        this.update();
     }
 
     dropNew(event: CdkDragDrop<EventCard[]>) {
@@ -87,7 +88,6 @@ export class EventCardDeckComponent {
             (gameManager.game.party.eventDecks[this.type] || []).splice(event.previousIndex, 1);
         }
         gameManager.stateManager.after();
-        this.update();
     }
 
     dropDrawn(event: CdkDragDrop<EventCard[]>) {
@@ -100,9 +100,8 @@ export class EventCardDeckComponent {
 
         if (eventCard) {
             gameManager.stateManager.before("events.deck.markDrawn", eventCard.type, eventCard.cardId);
-            gameManager.game.party.eventCards.push(new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, -1, []));
+            gameManager.game.party.eventCards.splice(event.currentIndex, 0, new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, -1, []));
             gameManager.stateManager.after();
-            this.update();
         }
     }
 
@@ -110,14 +109,12 @@ export class EventCardDeckComponent {
         gameManager.stateManager.before("events.deck.removeEvent", this.type, eventCard.cardId);
         gameManager.eventCardManager.removeEvent(eventCard.type, eventCard.cardId);
         gameManager.stateManager.after();
-        this.update();
     }
 
     addCard(eventCard: EventCard) {
         gameManager.stateManager.before("events.deck.addEvent", this.type, eventCard.cardId);
         gameManager.eventCardManager.addEvent(eventCard.type, eventCard.cardId);
         gameManager.stateManager.after();
-        this.update();
     }
 
     removeDrawn(id: EventCardIdentifier) {
@@ -129,7 +126,6 @@ export class EventCardDeckComponent {
                 gameManager.eventCardManager.addEvent(id.type, id.cardId);
             }
             gameManager.stateManager.after();
-            this.update();
         }
     }
 
@@ -140,7 +136,7 @@ export class EventCardDeckComponent {
             gameManager.stateManager.before("events.deck.changeSelection", this.type, id.cardId);
             id.selected = newSelected;
             id.subSelections = newSubSelections;
-            gameManager.stateManager.after();
+            gameManager.stateManager.after(!change ? 750 : 0);
         }
     }
 

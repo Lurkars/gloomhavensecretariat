@@ -14,8 +14,7 @@
     <div class="line" ghs-setting-menu="treasures" [requires]="['scenarioRooms']"></div>
     <div class="line" ghs-setting-menu="scenarioRules"></div>
     <div class="line" ghs-setting-menu="battleGoals"></div>
-    <div *ngIf="settingsManager.settings.events" class="line" ghs-setting-menu="eventsApply"
-      [requires]="['events','partySheet']"></div>
+    <div class="line" ghs-setting-menu="events" [requires]="['partySheet']"></div>
   </div>
 
   <div class="column">
@@ -23,9 +22,6 @@
     <div class="line" ghs-setting-menu="characterSheet"></div>
     <div class="line" ghs-setting-menu="characterAttackModifierDeck" [requires]="['characterSheet']"></div>
     <div class="line" ghs-setting-menu="characterItems"></div>
-    <div *ngIf="settingsManager.settings.events" class="line" ghs-setting-menu="eventsDraw"
-      [requires]="['events','partySheet']">
-    </div>
   </div>
 
   <!-- CHARACTER -->
@@ -288,16 +284,17 @@
     </div>
     <div class="line" ghs-setting-menu="automaticUnlocking"></div>
     <div class="line" ghs-setting-menu="summons"></div>
-    <div class="line" ghs-setting-menu="lootDeck"></div>
+    <div class="line" ghs-setting-menu="eventsApply" [requires]="['events','partySheet']"></div>
+    <div class="line" ghs-setting-menu="eventsDraw" [requires]="['events','partySheet']"></div>
   </div>
 
   <div class="column">
+    <div class="line" ghs-setting-menu="lootDeck"></div>
     <div class="line" ghs-setting-menu="allyAttackModifierDeck"></div>
     <div class="line" ghs-setting-menu="monsters"></div>
     <div class="line" ghs-setting-menu="monsterAttackModifierDeck"></div>
     <div class="line" ghs-setting-menu="amAdvantage"></div>
     <div class="line" ghs-setting-menu="damageHP"></div>
-    <div class="line" ghs-setting-menu="events" [requires]="['partySheet']"></div>
   </div>
 
   <!-- INTERFACE -->

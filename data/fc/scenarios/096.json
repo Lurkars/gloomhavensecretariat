@@ -30,13 +30,13 @@
       "city:82",
       "road:82"
     ],
+    "eventDeck": "rift:01|10",
     "hints": {
       "globalAchievements": [
         "(read section 33 on page 12)"
       ],
       "eventDeck": "Separate Rift Events 01 through 10 from the rest of the cards, then shuffle them to form a Rift Event deck. Any time a scenario has \"Dimensional Travel\" listed as its link, a Rift Event must be resolved instead of a Road Event"
-    },
-    "eventDeck": "rift:01|10"
+    }
   },
   "monsters": [
     "earth-demon",

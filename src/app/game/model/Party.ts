@@ -169,16 +169,8 @@ export class Party {
     this.eventDecks = this.eventDecks || {};
     this.eventCards = this.eventCards || [];
 
-    if (this.campaignMode) {
-      const campaignData = gameManager.campaignData(this.edition);
-      if (campaignData && campaignData.events) {
-        Object.keys(campaignData.events).forEach((eventType) => {
-          if (campaignData.events[eventType] && campaignData.events[eventType].length && !this.eventDecks[eventType]) {
-            gameManager.eventCardManager.buildPartyDeck(this.edition || gameManager.currentEdition(), eventType, true);
-            console.debug("Build " + eventType + " Event Deck");
-          }
-        })
-      }
+    if (this.campaignMode && settingsManager.settings.events) {
+      gameManager.eventCardManager.buildPartyDeckMigration(this.edition || gameManager.currentEdition());
     }
   }
 

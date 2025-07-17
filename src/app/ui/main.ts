@@ -343,15 +343,7 @@ export class MainComponent implements OnInit {
     gameManager.game.party.campaignMode = edition != 'gh2e';
 
     gameManager.game.party.eventDecks = {};
-    const campaignData = gameManager.campaignData(edition);
-    if (campaignData && campaignData.events) {
-      Object.keys(campaignData.events).forEach((eventType) => {
-        if (campaignData.events[eventType] && campaignData.events[eventType].length) {
-          gameManager.eventCardManager.buildPartyDeck(edition || gameManager.currentEdition(), eventType, true);
-          console.debug("Build " + eventType + " Event Deck");
-        }
-      })
-    }
+    gameManager.eventCardManager.buildPartyDeckMigration(edition);
     gameManager.stateManager.after();
   }
 

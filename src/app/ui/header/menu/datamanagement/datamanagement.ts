@@ -96,13 +96,31 @@ export class DatamanagementMenuComponent implements OnInit {
 
   addUnlock(target: any): void {
     if (target.value) {
-      const characterName = target.value;
+      let characterName: string = target.value;
+      let edition = '';
+      if (characterName.indexOf(':') != -1) {
+        edition = target.value.split(':')[0];
+        characterName = target.value.split(':')[1];
+      }
       target.classList.remove("error");
       target.disabled = true;
-      const characterData = gameManager.charactersData(undefined).find((characterData) => characterData.spoiler && characterData.name == characterName);
-      if (gameManager.game.unlockedCharacters.indexOf(characterName) == -1 && characterData) {
-        gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterName);
-        gameManager.game.unlockedCharacters.push(characterName)
+      let characterData = gameManager.getCharacterData(characterName, edition || gameManager.currentEdition());
+      if (!characterData) {
+        characterData = gameManager.getCharacterData(characterName);
+      }
+      if (characterData && gameManager.game.unlockedCharacters.indexOf(characterData.edition + ':' + characterData.name) == -1) {
+        gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
+        gameManager.game.unlockedCharacters.push(characterData.edition + ':' + characterData.name);
+        if (settingsManager.settings.events) {
+          if (characterData.unlockEvent) {
+            if (characterData.unlockEvent.split(':').length > 1) {
+              gameManager.eventCardManager.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true)
+            } else {
+              gameManager.eventCardManager.addEvent('city', characterData.unlockEvent, true);
+              gameManager.eventCardManager.addEvent('road', characterData.unlockEvent, true);
+            }
+          }
+        }
         gameManager.stateManager.after();
         target.value = "";
         target.disabled = false;
@@ -116,11 +134,13 @@ export class DatamanagementMenuComponent implements OnInit {
   }
 
   removeUnlock(characterName: string): void {
-    const characterData = gameManager.charactersData(undefined).find((characterData) => characterData.spoiler && characterData.name == characterName);
-    if (characterName && gameManager.game.unlockedCharacters.indexOf(characterName) != -1 && characterData) {
-      gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterName);
-      gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(characterName), 1);
-      gameManager.stateManager.after();
+    if (characterName.split(':').length > 1) {
+      const characterData = gameManager.getCharacterData(characterName.split(':')[1], characterName.split(':')[0]);
+      if (characterName && gameManager.game.unlockedCharacters.indexOf(characterName) != -1 && characterData) {
+        gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
+        gameManager.game.unlockedCharacters.splice(gameManager.game.unlockedCharacters.indexOf(characterName), 1);
+        gameManager.stateManager.after();
+      }
     }
   }
 

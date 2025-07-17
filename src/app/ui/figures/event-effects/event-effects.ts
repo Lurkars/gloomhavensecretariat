@@ -18,6 +18,7 @@ import { EventCardDrawComponent } from '../event/draw/event-card-draw';
 import { FavorsComponent } from './favors/favors';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
+import { EventCardDeckComponent } from '../event/deck/event-card-deck';
 
 @Component({
   standalone: false,
@@ -704,5 +705,15 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       })
     }
     gameManager.stateManager.after();
+  }
+
+  setupEvents(type: string) {
+    this.dialog.open(EventCardDeckComponent, {
+      panelClass: ['dialog'],
+      data: {
+        type: type,
+        edition: gameManager.game.edition || gameManager.currentEdition()
+      }
+    });
   }
 }

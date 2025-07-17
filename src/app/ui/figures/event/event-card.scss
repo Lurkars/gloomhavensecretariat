@@ -165,6 +165,10 @@
                     margin-bottom: 0.5em;
                     opacity: 0.5;
 
+                    &.expand-to-bottom {
+                        flex-grow: 1;
+                    }
+
                     .text,
                     .condition {
                         font-family: var(--ghs-font-text);
@@ -193,17 +197,11 @@
                         position: absolute;
                         bottom: 0em;
                         right: -1em;
-                    }
-                }
 
-                .card-action {
-                    position: fixed;
-                    bottom: 1em;
-                    right: 1em;
-
-                    .ghs-svg {
-                        width: 2em;
-                        height: auto;
+                        .ghs-svg {
+                            width: 2em;
+                            height: auto;
+                        }
                     }
                 }
 
@@ -325,8 +323,15 @@
                         font-family: var(--ghs-font-fh-normal);
                     }
 
-                    .options .option {
-                        font-family: var(--ghs-font-fh-normal);
+                    .options {
+                        &::before {
+                            left: 0;
+                            width: 100%;
+                        }
+
+                        .option {
+                            font-family: var(--ghs-font-fh-normal);
+                        }
                     }
                 }
             }
@@ -416,17 +421,16 @@
 
                 .options {
                     position: relative;
-                    display: flex;
-                    flex-direction: column;
                     margin-top: 0.5em;
+                    padding-top: 0.1em;
 
                     &::before {
                         content: " ";
                         position: absolute;
                         top: -0.1em;
-                        left: 0;
+                        left: 12%;
                         height: 0.1em;
-                        width: 100%;
+                        width: 76%;
                         background-size: 100% 100%;
                         background-image: url('~src/assets/images/eventcards/divider.png');
                         filter: brightness(0);

@@ -110,9 +110,9 @@ export class Settings {
   errata: boolean = false;
   excludeEditionDataUrls: string[] = [];
   expireConditions: boolean = true;
-  events: boolean = true;
+  events: boolean = false;
   eventsApply: boolean = true;
-  eventsDraw: boolean = false;
+  eventsDraw: boolean = true;
   feedbackErrors: boolean = true;
   feedbackErrorsIgnore: string[] = [];
   fhChallenges: boolean = false;

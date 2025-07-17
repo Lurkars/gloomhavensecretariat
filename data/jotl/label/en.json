@@ -962,6 +962,9 @@
   "scenario": {
     "rules": {
       "jotl": {
+        "3": {
+          "1": "Starting now, each time you successfully complete a scenario, you must encouter a city event. Before doing this for the first time, however retrieve the \"events\" deck from the game box and shuffle the cards."
+        },
         "10": {
           "1": "Move traps in %game.mapMarker.1% one hex downward",
           "2": "Move traps in %game.mapMarker.2% one hex closer to nearest character"

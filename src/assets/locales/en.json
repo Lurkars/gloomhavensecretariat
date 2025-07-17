@@ -838,18 +838,19 @@
         "traits": "%game.trait:{0}% or %data.character.traits.{1}%"
       },
       "deck": {
-        "addCard": "Add to upcoming cards",
+        "addCard": "Add to upcoming cards and shuffle deck",
         "allTypes": "Show all decks",
-        "drawn": "Drawn ({0})",
+        "drawn": "Resolved ({0})",
         "filter": "Filter by Card Id",
-        "new": "Unrevealed ({0})",
+        "new": "Locked ({0})",
         "removeCard": "Remove from upcoming cards",
-        "removeDrawn": "Remove from drawn cards",
+        "removeDrawn": "Remove from drawn cards and shuffle back in",
         "removeSelection": "Reset outcoume",
+        "resolved": "Show Resolved",
         "setup": "Setup Event Decks",
         "show": "Show Full Event Card",
         "shuffle": "Shuffle Deck",
-        "upcoming": "Upcoming ({0})"
+        "upcoming": "In Deck ({0})"
       },
       "effects": {
         "battleGoal": "Gain {0} %game.checkmark% each.",
@@ -861,6 +862,7 @@
         },
         "collectiveGold": "Gain {0} collective gold.",
         "collectiveGoldAdditional": "Gain {0} additional collective gold.",
+        "collectiveGoldOther": "All other characters gain {0} collective gold.",
         "collectiveItem": "Gain {2} collective \"%data.items.{1}-{0}%\" (Item {0}).",
         "collectiveResource": "Gain {0} collective %game.resource.{1}%",
         "collectiveResourceType": "Gain any {0} collective %game.loot.{1}%s.",
@@ -891,6 +893,7 @@
         "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%.",
         "loseCollectiveResourceAny": "Lose {0} collective resources.",
         "loseGold": "Lose {0} gold each.",
+        "loseGoldOne": "One character loses {0} gold.",
         "loseMorale": "Lose {0} morale",
         "loseProsperity": "Lose {0} prosperity.",
         "loseReputation": "Lose {0} reputation.",
@@ -910,6 +913,7 @@
           "": "All start scenario with {0}.",
           "automation": "Automatically add conditions to all characters."
         },
+        "scenarioConditionOne": "One character gains %game.condition.{0}%",
         "scenarioDamage": {
           "": "All start scenario with {0} damage.",
           "automation": "Automatically apply damage to all characters."

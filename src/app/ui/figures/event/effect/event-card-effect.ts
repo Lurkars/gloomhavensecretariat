@@ -16,6 +16,7 @@ export class EventCardEffectComponent implements OnInit {
     @Input() eventType!: string;
     @Input() light: boolean = true;
     @Input() inline: boolean = false;
+    @Input() selected: boolean = false;
 
     effectString: string | undefined;
     effectObject: EventCardEffect | undefined;

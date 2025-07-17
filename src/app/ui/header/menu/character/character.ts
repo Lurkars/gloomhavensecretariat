@@ -73,7 +73,7 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   unlocked(characterData: CharacterData): boolean {
-    return !characterData.spoiler || gameManager.game.unlockedCharacters.indexOf(characterData.name) != -1;
+    return !characterData.spoiler || gameManager.game.unlockedCharacters.indexOf(characterData.edition + ':' + characterData.name) != -1;
   }
 
   locked(edition: string): boolean {
@@ -81,11 +81,21 @@ export class CharacterMenuComponent implements OnInit {
   }
 
   unlock(characterData: CharacterData) {
-    if (gameManager.game.unlockedCharacters.indexOf(characterData.name) == -1) {
+    if (gameManager.game.unlockedCharacters.indexOf(characterData.edition + ':' + characterData.name) == -1) {
       if (this.confirm == characterData.name) {
         gameManager.stateManager.before("unlockChar", "data.character." + characterData.edition + '.' + characterData.name);
-        gameManager.game.unlockedCharacters.push(characterData.name);
+        gameManager.game.unlockedCharacters.push(characterData.edition + ':' + characterData.name);
         this.newUnlocks.push(characterData.name);
+        if (settingsManager.settings.events) {
+          if (characterData.unlockEvent) {
+            if (characterData.unlockEvent.split(':').length > 1) {
+              gameManager.eventCardManager.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true)
+            } else {
+              gameManager.eventCardManager.addEvent('city', characterData.unlockEvent, true);
+              gameManager.eventCardManager.addEvent('road', characterData.unlockEvent, true);
+            }
+          }
+        }
         gameManager.stateManager.after();
       } else {
         this.confirm = characterData.name;
@@ -102,7 +112,19 @@ export class CharacterMenuComponent implements OnInit {
     if (chars.length > 0) {
       if (this.confirm == 'confirm-all-' + edition) {
         gameManager.stateManager.before("unlockAllCharacters", "data.edition." + edition);
-        gameManager.game.unlockedCharacters.push(...chars);
+        gameManager.game.unlockedCharacters.push(...chars.map((c) => edition + ':' + c));
+        if (settingsManager.settings.events) {
+          chars.map((name) => gameManager.getCharacterData(name, edition)).forEach((characterData) => {
+            if (characterData.unlockEvent) {
+              if (characterData.unlockEvent.split(':').length > 1) {
+                gameManager.eventCardManager.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true)
+              } else {
+                gameManager.eventCardManager.addEvent('city', characterData.unlockEvent, true);
+                gameManager.eventCardManager.addEvent('road', characterData.unlockEvent, true);
+              }
+            }
+          })
+        }
         gameManager.stateManager.after();
       } else {
         this.confirm = 'confirm-all-' + edition;

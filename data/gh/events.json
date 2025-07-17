@@ -102,10 +102,10 @@
       {
         "label": "B",
         "narrative": "Refuse to pay. Never trust a Vermling.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just...foul.",
-            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -164,10 +164,10 @@
       {
         "label": "B",
         "narrative": "Refuse to pay. Never trust a Vermling.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You laugh and gesture the Vermling away. You can recognize a low-life swindler when you see one. And that piece of garbage was just...foul.",
-            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -1003,10 +1003,10 @@
       {
         "label": "B",
         "narrative": "Let the guards haul the boy away to prison.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "There are repercussions to getting caught, and like the guard said, sometimes there's no way out of it. You owe the boy nothing, and so let the guards take him away.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -1263,10 +1263,10 @@
       {
         "label": "B",
         "narrative": "Politely decline. You have much better things to do tonight.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "This is your night off, and you are going to spend it drinking, not guarding some snobby \"lord.\" In the morning, you hear news that a shipment of rare minerals bound for the capital was stolen in the night. People are calling it a huge blow to the economy of the town.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseProsperity",
@@ -1332,10 +1332,10 @@
       {
         "label": "B",
         "narrative": "Agree to help the man in his search.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "The man thanks you profusely and gives a detailed description of his brother. \"If you find him, no matter the condition, please let me know right away.\"",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "event",
@@ -1532,10 +1532,10 @@
       {
         "label": "B",
         "narrative": "With no time to react, watch the vase fall to the ground.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You watch helplessly as the vase careens out of the Valrath's grasp and, once it connects with the hard ground, shatters into a hundred pieces. The Valrath looks distraught and a little angry. You exchange a sympathetic glance with him and then continue about your business.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -1681,10 +1681,10 @@
       {
         "label": "B",
         "narrative": "Take no action and see this through to its logical conclusion.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You watch as the men move past you toward the gibbet. One carries a thick rope that he ties around the Vermling's neck. The other end of the rope is thrown over the cross beam and then the men begin pulling, hoisting the helpless thief up off his feet. He struggles in vain, a panicked look in his eyes, but eventually he stops moving. The men tie off the rope, leaving the lifeless thief hanging. People begin to mill about, many stopping to spit on the ground before returning to work.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "event",
@@ -1749,10 +1749,10 @@
       {
         "label": "B",
         "narrative": "Incredulously explain she must have the wrong people and you won't take the job.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You grab the Inox's arm as she is getting up to leave and push the paper back toward her. She looks incredibly angry as you explain that your group doesn't do this sort of thing. She wordlessly grabs the plans and storms out of the bar.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -2048,10 +2048,10 @@
       {
         "label": "B",
         "narrative": "Decline to help and instead sell this information to interested parties.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Whenever there is bad news, there is always someone who delights in it and profits from it. Who would be happy to hear the city guards are having trouble? Thieves. And they pay surprisingly well for the information.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -2111,10 +2111,10 @@
       {
         "label": "B",
         "narrative": "Watch what happens with morbid curiosity.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Unable to resist, you watch to see what will happen to the girl. Her skin turns ashen and begins to flake away. She stops screaming eventually and begins coughing up a black bile. She tries to stand, but her legs crumble away into dust. She makes a pitiful croak and then falls over into a cloud of sand. When the cloud settles, no evidence of her presence remains.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -2170,10 +2170,10 @@
       {
         "label": "B",
         "narrative": "Confront him on the spot and turn him over to the authorities.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Not confident in your stealth abilities, you decide speed and force are a better way to go. You charge forward, catching the man completely by surprise. You block off all avenues of escape and surround him. He snarls as you tie him up and hand him over to the city guards. Hopefully they'll be able to get some useful information out of him.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "reputation",
@@ -2643,10 +2643,10 @@
       {
         "label": "B",
         "narrative": "Pursue the hooded figure and make him answer for this attack.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You jump to your feet and sprint as fast as you can in pursuit. The figure races toward the city wall and begins to climb the stairs. You close the gap, but look on in frustration as he moves to jump over the wall and out of the city. You lunge and grab his robe as he falls. His body twists awkwardly, freeing him of the robe. You look over the edge to see him land face-first on the ground and not get up.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "itemCollective",
@@ -3672,10 +3672,10 @@
       {
         "label": "B",
         "narrative": "Calm down the crowd and get more details from the man about the attack.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "It's not easy, but you quiet down the crowd and take the staggering man over to a secluded corner of the tavern to get the full story out of him. Apparently he was part of a group of ruffians working to harvest the Dagger Forest for wood. In the middle of their logging expedition, however, they were attacked by the Beast Tyrant and an army of forest animals. Though he ran off in the middle of the fight, the man swears he also heard the howl of angry spirits in the chaos.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "unlockScenario",
@@ -3780,10 +3780,10 @@
       {
         "label": "B",
         "narrative": "Take part in the looting and burning of the store.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You watch as one of the men picks up a wooden crate and throws it through the shop window. In a frenzy, the crowd rushes into the store, breaking and looting with mad glee. It's easy enough to move in with the crowd and pick up a few valuable items in the chaos. After you get clear of the crowd, you look back to see billows of smoke rising up from the door and broken window. Not a good day to be a Quatryl.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "gold",
@@ -4361,10 +4361,10 @@
       {
         "label": "B",
         "narrative": "Regretfully explain that you don't have the power to effect change like this.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You explain that while you do have some power in the town, the Sinking Market may be a lost cause. More and more of the district is sinking into the sea every day, as it has been doing for as long as the town has existed. You can't convince merchants to spend money on something that will one day be underwater.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -4476,10 +4476,10 @@
       {
         "label": "A",
         "narrative": "Seek help from the University.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "\"Yes, very interesting,\" a bookish Quatryl says as he rolls the crystal over in his hand. \"It seems as if this crystal is attuned to a specific location, and once removed, it begins vibrating until mountains and houses start falling down. I'd say you need to return it to its proper home. With the proper tools, which I'll need help paying for — I should be able to triangulate that location for you.\"",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -6620,10 +6620,10 @@
       {
         "label": "B",
         "narrative": "Watch for a while and wait for an opportune moment to strike.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You wait for a good long while, until after the guards have all been slaughtered and the Vermlings are softened up a bit. They're going through the goods in the wagons when you hit them with a surprise attack. Caught off guard, they go down without much of a fight.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -6766,10 +6766,10 @@
       {
         "label": "B",
         "narrative": "Get out of this place as quickly as you can.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "You head forward with all haste, eager to get back your bearings. You seem to be out of the worst of it when you are suddenly ambushed by a giant demon from behind. You fight it off, but not before it tears into you and burns your flesh.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -8437,10 +8437,10 @@
       {
         "label": "A",
         "narrative": "Investigate further.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Against your better judgment, you approach the skull, which looks suspiciously like the Sin-Ra's calling card. Sure enough, a group of dark-clad warriors appears before you from out of thin air. Wordlessly, they draw their long, curved blades and attack. Caught by surprise, you don't fare well in the battle. You do fight them off, but in the end, you are severely wounded, exhausted, and demoralized.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseBattleGoal",
@@ -8467,10 +8467,10 @@
       {
         "label": "B",
         "narrative": "Arm yourself and make a defensive retreat from the area.",
+        "removeFromDeck": true,
         "outcomes": [
           {
             "narrative": "Recognizing the pike as a symbol of the Sin-Ra Syndicate, you arm yourself and run from the area. Unfortunately, you don't make it far before you see a number of black-clad assassins bearing down on you. You move into a defensive position and prepare for battle. The fight is arduous, but in the end, the assassins are dead, and you hope they don't come back.",
-            "removeFromDeck": true,
             "effects": [
               {
                 "type": "loseBattleGoal",

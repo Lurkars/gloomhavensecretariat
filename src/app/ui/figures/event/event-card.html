@@ -34,7 +34,7 @@
                         [ngClass]="{'selected' : selected == i || selected == -1 && flipped, 'single': event.options.length == 1}"
                         ghs-pointer-input (doubleClick)="selectOption(selected == i ? -1 : i, false, $event)">
                         <div class="outcome" *ngFor="let outcome of option.outcomes; let outcomeIndex = index;"
-                            [ngClass]="{'selected': !outcome.condition || subSelections.indexOf(outcomeIndex) != -1 || selected == -1 && flipped, 'disabled' : outcome.condition && !resolvable[i][outcomeIndex] && subSelections.indexOf(outcomeIndex) == -1 && selected != -1 }"
+                            [ngClass]="{'selected': !outcome.condition || subSelections.indexOf(outcomeIndex) != -1 || selected == -1 && flipped, 'disabled' : resolvable[i] && resolvable[i][outcomeIndex] == false && subSelections.indexOf(outcomeIndex) == -1 && selected != -1, 'expand-to-bottom': outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck)}"
                             ghs-pointer-input (singleClick)="selectSub(i, outcomeIndex, $event)"
                             (doubleClick)="selectSub(i, outcomeIndex, true, $event)">
                             <ghs-event-card-condition [condition]="outcome.condition" [narrative]="true"
@@ -45,23 +45,17 @@
 
                             <div class="effects">
                                 <ghs-event-card-effect *ngFor="let effect of outcome.effects;" [effect]="effect"
-                                    [edition]="event.edition" [eventType]="event.type"
-                                    [light]="light"></ghs-event-card-effect>
+                                    [edition]="event.edition" [eventType]="event.type" [light]="light"
+                                    [selected]="selected == i && subSelections.indexOf(outcomeIndex) != -1"></ghs-event-card-effect>
                             </div>
 
-                            <div class="card-action" *ngIf="outcome.returnToDeck || outcome.removeFromDeck">
-                                <img *ngIf="outcome.returnToDeck" class="ghs-svg"
+                            <div class="card-action"
+                                *ngIf="outcome.returnToDeck || outcome.removeFromDeck || outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck)">
+                                <img *ngIf="outcome.returnToDeck || option.returnToDeck" class="ghs-svg"
                                     src="./assets/images/eventcards/return.svg">
-                                <img *ngIf="outcome.removeFromDeck" class="ghs-svg"
+                                <img *ngIf="outcome.removeFromDeck || option.removeFromDeck" class="ghs-svg"
                                     src="./assets/images/eventcards/remove.svg">
                             </div>
-                        </div>
-
-                        <div class="card-action" *ngIf="option.returnToDeck || option.removeFromDeck">
-                            <img *ngIf="option.returnToDeck" class="ghs-svg"
-                                src="./assets/images/eventcards/return.svg">
-                            <img *ngIf="option.removeFromDeck" class="ghs-svg"
-                                src="./assets/images/eventcards/remove.svg">
                         </div>
                     </div>
                 </div>
