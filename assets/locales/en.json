@@ -821,7 +821,10 @@
     },
     "enemy": "Enemy",
     "events": {
-      "accept": "Resolve Event",
+      "accept": {
+        "": "Resolve Event",
+        "notApply": "Resolve, not Apply"
+      },
       "conditions": {
         "building": "{0}",
         "character": "{0}",
@@ -840,11 +843,12 @@
       "deck": {
         "addCard": "Add to upcoming cards and shuffle deck",
         "allTypes": "Show all decks",
+        "draw": "Draw Card",
         "drawn": "Resolved ({0})",
         "filter": "Filter by Card Id",
         "new": "Locked ({0})",
         "removeCard": "Remove from upcoming cards",
-        "removeDrawn": "Remove from drawn cards and shuffle back in",
+        "removeDrawn": "Remove from drawn cards",
         "removeSelection": "Reset outcoume",
         "resolved": "Show Resolved",
         "setup": "Setup Event Decks",
