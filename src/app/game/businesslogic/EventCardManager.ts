@@ -72,7 +72,7 @@ export class EventCardManager {
             }
           })
 
-          this.game.party.unlockedCharacters.map((unlock) => gameManager.getCharacterData(unlock.split(':')[1], unlock.split(':')[0])).forEach((characterData) => {
+          this.game.unlockedCharacters.map((unlock) => gameManager.getCharacterData(unlock.split(':')[1], unlock.split(':')[0])).forEach((characterData) => {
             if (characterData.unlockEvent) {
               if (characterData.unlockEvent.split(':').length > 1) {
                 this.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true)
@@ -138,7 +138,7 @@ export class EventCardManager {
     }
   }
 
-  applyEvent(eventCard: EventCard, selected: number, subSelections: number[], scenario: boolean): (EventCardEffect | EventCardCondition)[] {
+  applyEvent(eventCard: EventCard, selected: number, subSelections: number[], scenario: boolean, apply: boolean = true): (EventCardEffect | EventCardCondition)[] {
     let results: (EventCardEffect | EventCardCondition)[] = [];
     const option = eventCard.options[selected];
     let returnToDeck = false;
@@ -161,7 +161,7 @@ export class EventCardManager {
         })
       }
 
-      if (settingsManager.settings.eventsApply) {
+      if (settingsManager.settings.eventsApply && apply) {
         results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, false));
         if (scenario) {
           results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, true));
@@ -169,12 +169,14 @@ export class EventCardManager {
       }
     }
 
-    if (!returnToDeck && !removeFromDeck || !option) {
-      console.warn("Apply event without valid selection", eventCard, selected, subSelections);
-    } else if (returnToDeck) {
-      this.returnEvent(eventCard.type, eventCard.cardId);
-    } else {
-      this.removeEvent(eventCard.type, eventCard.cardId);
+    if (apply || selected != -1) {
+      if (!returnToDeck && !removeFromDeck || !option) {
+        console.warn("Apply event without valid selection", eventCard, selected, subSelections);
+      } else if (returnToDeck) {
+        this.returnEvent(eventCard.type, eventCard.cardId);
+      } else {
+        this.removeEvent(eventCard.type, eventCard.cardId);
+      }
     }
 
     this.game.party.eventCards.push(new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections, !scenario));

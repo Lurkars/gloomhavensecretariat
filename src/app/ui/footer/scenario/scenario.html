@@ -19,7 +19,7 @@
       </span>
     </div>
     <div class="event-effects"
-      *ngIf="!gameManager.bbRules() && !gameManager.game.scenario && gameManager.characterManager.characterCount() > 0">
+      *ngIf="!gameManager.bbRules() && !gameManager.game.scenario && (gameManager.characterManager.characterCount(true) > 0 || settingsManager.settings.partySheet)">
       <img class="ghs-svg" src="./assets/images/event.svg"> <span [ghs-label]="'scenario.eventEffects'"></span>
     </div>
   </div>

@@ -106,8 +106,8 @@ export class CharacterManager {
     return './assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
   }
 
-  characterCount(): number {
-    if (this.game.playerCount > 0) {
+  characterCount(figuresOnly: boolean = false): number {
+    if (!figuresOnly && this.game.playerCount > 0) {
       return this.game.playerCount;
     }
 

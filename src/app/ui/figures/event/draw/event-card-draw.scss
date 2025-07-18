@@ -15,6 +15,28 @@
         width: calc(var(--ghs-unit) * 45 * var(--ghs-dialog-factor));
     }
 
+    .open {
+        z-index: 1;
+        position: absolute;
+        display: flex;
+        cursor: pointer;
+        top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        left: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        justify-content: center;
+        align-items: center;
+        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        color: var(--ghs-filter-white) var(--ghs-filter-shadow);
+
+        .ghs-svg {
+            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+        }
+
+        &:hover .ghs-svg {
+            filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        }
+    }
+
     .menu {
         display: flex;
         flex-wrap: wrap;
@@ -37,8 +59,8 @@
 
         a {
             cursor: pointer;
-            min-width: 33%;
             display: flex;
+            flex-grow: 1;
             justify-content: center;
             margin: 0 calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
 

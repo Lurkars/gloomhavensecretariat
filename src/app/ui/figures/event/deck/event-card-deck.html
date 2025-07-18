@@ -1,13 +1,17 @@
 <div class="events-dialog">
     <div #menu class="menu">
-        <a *ngFor="let eventType of types" (click)="selectType(eventType)" [ngClass]="{'active': type == eventType}">
+        <a *ngFor="let eventType of types" class="event-type" (click)="selectType(eventType)"
+            [ngClass]="{'active': type == eventType}">
             <span [ghs-label]="'game.events.type.' + eventType"></span>
+        </a>
+        <a *ngIf="upcomingCards.length" (click)="drawEvent()">
+            <span [ghs-label]="'scenario.eventEffects.drawEvent'" [ghs-label-args]="[type]"></span>
         </a>
         <label *ngIf="allTypesToggle">
             <input type="checkbox" (click)="toggleAllTypes()" [checked]="allTypes">
             <span [ghs-label]="'game.events.deck.allTypes'"></span>
         </label>
-        <label *ngIf="drawnCards.length">
+        <label *ngIf="drawnCards.length || resolved">
             <input type="checkbox" [(ngModel)]="resolved">
             <span [ghs-label]="'game.events.deck.resolved'"></span>
         </label>
@@ -39,7 +43,11 @@
                         </a>
                         <a class="button remove" (click)="removeCard(event)"
                             [ghs-tooltip]="'game.events.deck.removeCard'">
-                            <img class="ghs-svg" src="./assets/images/minus.svg">
+                            <img class="ghs-svg" src="./assets/images/eventcards/remove.svg">
+                        </a>
+                        <a class="button draw" (click)="drawEvent(event.cardId)"
+                            [ghs-tooltip]="'game.events.deck.draw'">
+                            <span class="text-white" [ghs-label]="'%action.card.recover%'"></span>
                         </a>
                     </div>
                 </ng-container>
@@ -66,7 +74,11 @@
                             <img class="ghs-svg" src="./assets/images/fullscreen.svg">
                         </a>
                         <a class="button add" (click)="addCard(event)" [ghs-tooltip]="'game.events.deck.addCard'">
-                            <img class="ghs-svg" src="./assets/images/plus.svg">
+                            <img class="ghs-svg" src="./assets/images/eventcards/return.svg">
+                        </a>
+                        <a class="button draw" (click)="drawEvent(event.cardId)"
+                            [ghs-tooltip]="'game.events.deck.draw'">
+                            <span class="text-white" [ghs-label]="'%action.card.recover%'"></span>
                         </a>
                     </div>
                 </ng-container>
@@ -91,16 +103,15 @@
                             [ghs-tooltip]="'game.events.deck.show'">
                             <img class="ghs-svg" src="./assets/images/fullscreen.svg">
                         </a>
-                        <div *ngIf="model.identifier.selected != -1" class="button reset"
+                        <a *ngIf="model.identifier.selected != -1" class="button reset"
                             (click)="updateDrawnSelect(model.identifier)"
                             [ghs-tooltip]="'game.events.deck.removeSelection'">
                             <img class="ghs-svg" src="./assets/images/long-rest.svg">
-                        </div>
+                        </a>
                         <a class="button remove" (click)="removeDrawn(model.identifier)"
                             [ghs-tooltip]="'game.events.deck.removeDrawn'">
                             <img class="ghs-svg" src="./assets/images/minus.svg">
                         </a>
-
                         <a class="button add restore"
                             *ngIf="model.card && upcomingCards.indexOf(model.card) == -1 && newCards.indexOf(model.card) == -1"
                             (click)="addCard(model.card)" [ghs-tooltip]="'game.events.deck.addCard'">

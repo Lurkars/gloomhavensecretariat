@@ -6,24 +6,7 @@
         justify-content: space-evenly;
         flex-wrap: wrap;
 
-        a {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            font-family: var(--ghs-font-text);
-            font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-            color: var(--ghs-color-gray);
-            text-shadow: var(--ghs-outline);
-
-            &:hover {
-                color: var(--ghs-color-white);
-            }
-
-            &.active {
-                color: var(--ghs-color-white);
-            }
-        }
-
+        a,
         label {
             cursor: pointer;
             display: flex;
@@ -33,7 +16,15 @@
             color: var(--ghs-color-gray);
             text-shadow: var(--ghs-outline);
 
+            &.event-type {
+                font-family: var(--ghs-font-text);
+            }
+
             &:hover {
+                color: var(--ghs-color-white);
+            }
+
+            &.active {
                 color: var(--ghs-color-white);
             }
         }
@@ -175,6 +166,16 @@
                     &.restore {
                         top: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
                     }
+
+                    &.draw {
+                        top: initial;
+                        left: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                        right: initial;
+                        bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                        width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                        height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                        font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+                    }
                 }
             }
 
@@ -190,6 +191,18 @@
                 border-style: dashed;
                 border-width: calc(var(--ghs-unit) * 0.2);
                 border-color: var(--ghs-color-white);
+            }
+
+            &.upcoming,
+            &.new {
+                .container .button {
+
+                    &.add,
+                    &.remove {
+                        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                        height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                    }
+                }
             }
         }
 

@@ -6,6 +6,7 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { EventCardDialogComponent } from "../dialog/event-card-dialog";
+import { EventCardDrawComponent } from "../draw/event-card-draw";
 
 @Component({
     standalone: false,
@@ -122,9 +123,6 @@ export class EventCardDeckComponent {
         if (index != -1) {
             gameManager.stateManager.before("events.deck.removeDrawn", this.type, id.cardId);
             gameManager.game.party.eventCards.splice(index, 1);
-            if (!gameManager.game.party.eventCards.find((other) => other.edition == id.edition && other.type == id.type && other.cardId == id.cardId) && !this.upcomingCards.find((e) => e.cardId == id.cardId)) {
-                gameManager.eventCardManager.addEvent(id.type, id.cardId);
-            }
             gameManager.stateManager.after();
         }
     }
@@ -146,6 +144,17 @@ export class EventCardDeckComponent {
             disableClose: true,
             data: { eventCard: eventCard, interactive: true, id: id }
         });
+    }
+
+    drawEvent(cardId: string | undefined = undefined) {
+        this.dialog.open(EventCardDrawComponent, {
+            panelClass: ['dialog'],
+            data: {
+                edition: this.edition,
+                type: this.type,
+                cardId: cardId
+            }
+        })
     }
 
     close() {

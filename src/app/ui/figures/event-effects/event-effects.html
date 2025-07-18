@@ -4,11 +4,11 @@
       <img class="ghs-svg" [src]="'./assets/images/event' + (menu ? '-effects' : '') + '.svg'"> <span [ghs-label]="'scenario.eventEffects' + (menu ? '.hint' : 
     '')"></span>
     </div>
-    <div class="text" *ngIf="!menu">
+    <div class="text" *ngIf="!menu && characters.length">
       <span [ghs-label]="'scenario.eventEffects.hint'"></span>
     </div>
 
-    <div class="characters"
+    <div *ngIf="characters.length" class="characters"
       [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
       <div class="character-container" *ngFor="let character of characters">
         <a class="character" tabclick (click)="toggleCharacter(character)"
@@ -57,7 +57,7 @@
   <div class="scroll-container container"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
 
-    <div class="entity-container" *ngIf="!!gameManager.game.scenario">
+    <div class="entity-container" *ngIf="!!gameManager.game.scenario && characters.length">
 
       <span class="item">
         <ghs-pointer-input class="button" tabclick (singleClick)="changeHealth(-1)" [repeat]="true">
@@ -113,9 +113,9 @@
 
     <ghs-conditions [entities]="activeCharacters" [entityConditions]="entityConditions" [immunities]="newImmunities"
       [type]="'character'" (conditionChange)="changeConditions($event)"
-      *ngIf="!!gameManager.game.scenario"></ghs-conditions>
+      *ngIf="!!gameManager.game.scenario && characters.length"></ghs-conditions>
 
-    <div class="entity-container">
+    <div class="entity-container" *ngIf="characters.length">
       <span class="progress"><span [ghs-label]="'scenario.eventEffects.progress'"></span></span>
 
       <span class="item">
