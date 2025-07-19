@@ -74,28 +74,49 @@
         &.summer-road,
         &.winter-outpost,
         &.summer-outpost {
-            .options .option {
-                padding-left: 2.5em;
-                font-size: 0.63em;
+            .options {
+                .option {
+                    padding-left: 2.5em;
+                    padding-right: 1em;
+                    padding-top: 0.1em;
+                    font-size: 0.63em;
+                    max-height: initial;
 
-                &::before {
-                    font-family: var(--ghs-font-fh-text);
-                    font-size: 1.6em;
-                    left: 0.5em;
-                    top: 1.3em;
-                }
-
-                &:nth-child(2)::before,
-                &:nth-child(3)::before {
-                    top: 0.9em;
-                }
-
-                .outcome {
-
-                    .text,
-                    .condition {
-                        font-family: var(--ghs-font-fh-normal);
+                    &::before {
+                        font-family: var(--ghs-font-fh-text);
+                        font-size: 1.6em;
+                        left: 0.5em;
+                        top: 1.3em;
                     }
+
+                    &:nth-child(2)::before,
+                    &:nth-child(3)::before {
+                        top: 0.1em;
+                    }
+
+                    &.no-label:before {
+                        display: none;
+                    }
+
+                    .outcome {
+
+                        .text,
+                        .condition {
+                            font-family: var(--ghs-font-fh-normal);
+                        }
+
+                        .effects ghs-event-card-effect {
+                            margin-bottom: 0.1em;
+                        }
+
+                        .card-action {
+                            right: -0.5em;
+                        }
+                    }
+                }
+
+                &.no-label .option {
+                    padding-left: 1.5em;
                 }
             }
         }

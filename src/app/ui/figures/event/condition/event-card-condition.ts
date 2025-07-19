@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { CharacterClass } from "src/app/game/model/data/CharacterData";
 import { EventCardCondition, EventCardConditionType } from "src/app/game/model/data/EventCard";
 
 @Component({
@@ -43,6 +44,28 @@ export class EventCardConditionComponent implements OnInit {
                             concat += ', ';
                         } else if (index < values.length - 1) {
                             concat += ' %and% ';
+                        }
+                    }
+                })
+                this.labelArgs = [concat];
+            }
+
+
+            if (this.conditionObject.type == EventCardConditionType.traits) {
+                let concat = "";
+                this.conditionObject.values.filter((v) => typeof v === 'string').map((trait) => {
+                    if (trait in CharacterClass) {
+                        return "%character.class." + trait + '%';
+                    }
+
+                    return '%data.character.traits.' + trait + '%';
+                }).forEach((building, index, values) => {
+                    concat += building;
+                    if (values.length > 1) {
+                        if (index < values.length - 2) {
+                            concat += ', ';
+                        } else if (index < values.length - 1) {
+                            concat += ', %or% ';
                         }
                     }
                 })

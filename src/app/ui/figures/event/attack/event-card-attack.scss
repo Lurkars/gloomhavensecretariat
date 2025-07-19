@@ -1,0 +1,57 @@
+.attack {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .attack-value,
+        .target-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--ghs-font-fh-normal);
+            font-weight: bold;
+            margin: 0.3em;
+
+            img {
+                height: 0.9em;
+                width: auto;
+            }
+
+            &.attack-value {
+                font-size: 2.5em;
+            }
+
+            &.target-number {
+                font-size: 1.6em;
+
+                img {
+                    margin-right: 0.1em;
+                }
+            }
+        }
+    }
+
+    .target-description {
+        font-family: var(--ghs-font-fh-normal);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .text {
+        font-family: var(--ghs-font-fh-normal);
+        font-style: italic;
+        margin: 0.5em 0;
+    }
+
+    .effects {
+        align-self: flex-start;
+    }
+
+}

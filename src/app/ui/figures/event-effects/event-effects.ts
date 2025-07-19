@@ -1,4 +1,4 @@
-import { Dialog, DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
@@ -6,6 +6,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Character } from 'src/app/game/model/Character';
 import { AdvancedImbueAttackModifier, AttackModifier, AttackModifierType, ImbuementAttackModifier } from 'src/app/game/model/data/AttackModifier';
 import { ConditionName, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
+import { EventCardCondition, EventCardConditionType, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
 import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
@@ -14,11 +15,11 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
+import { EventCardDeckComponent } from '../event/deck/event-card-deck';
 import { EventCardDrawComponent } from '../event/draw/event-card-draw';
 import { FavorsComponent } from './favors/favors';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
-import { EventCardDeckComponent } from '../event/deck/event-card-deck';
 
 @Component({
   standalone: false,
@@ -30,6 +31,8 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+
+  menu: boolean = false;
 
   characters: Character[] = [];
   activeCharacters: Character[] = [];
@@ -53,7 +56,13 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   imbuement: boolean | 'advanced' = false;
   eventTypes: string[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public menu: boolean = false, public dialogRef: DialogRef, public dialog: Dialog) { }
+  eventEffectsManual: EventCardEffect[] = [];
+  eventConditionManual: EventCardCondition[] = [];
+
+  constructor(@Inject(DIALOG_DATA) data: { menu: boolean, eventResults: (EventCardEffect | EventCardCondition)[] }, private dialog: Dialog) {
+    this.menu = data && data.menu || false;
+    this.createEventResults(data && data.eventResults || [], true);
+  }
 
   ngOnInit(): void {
     this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.update() });
@@ -414,6 +423,24 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
       data: {
         edition: gameManager.game.party.edition || gameManager.currentEdition(),
         type: type
+      }
+    }).closed.subscribe({
+      next: (results: (EventCardEffect | EventCardCondition)[] | any) => {
+        if (settingsManager.settings.eventsApply && results) {
+          this.createEventResults(results);
+        }
+      }
+    })
+  }
+
+  createEventResults(results: (EventCardEffect | EventCardCondition)[], initial: boolean = false) {
+    this.eventEffectsManual = [];
+    this.eventConditionManual = [];
+    results.forEach((result) => {
+      if (result.type in EventCardEffectType) {
+        this.eventEffectsManual.push(result as EventCardEffect);
+      } else if (result.type in EventCardConditionType) {
+        this.eventConditionManual.push(result as EventCardCondition);
       }
     })
   }

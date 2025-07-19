@@ -3,10 +3,12 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, Inject } from "@angular/core";
 import { Subscription } from "rxjs";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EventCard, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 import { ghsDialogClosingHelper } from "src/app/ui/helper/Static";
 import { EventCardDialogComponent } from "../dialog/event-card-dialog";
 import { EventCardDrawComponent } from "../draw/event-card-draw";
+import { EventEffectsDialog } from "../../event-effects/event-effects";
 
 @Component({
     standalone: false,
@@ -23,12 +25,12 @@ export class EventCardDeckComponent {
     newCards: EventCard[] = [];
     drawnCards: { identifier: EventCardIdentifier, card: EventCard | undefined }[] = [];
 
-    filterUpcoming: string = "";
-    filterNew: string = "";
-    filterDrawn: string = "";
+    filter: string = "";
     allTypes: boolean = false;
     allTypesToggle: boolean = false;
     resolved: boolean = false;
+
+    settingsManager: SettingsManager = settingsManager;
 
     constructor(@Inject(DIALOG_DATA) data: { edition: string, type: string }, private dialogRef: DialogRef, private dialog: Dialog) {
         this.edition = data.edition;
@@ -50,9 +52,9 @@ export class EventCardDeckComponent {
     update() {
         const deck = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type);
         const current = gameManager.game.party.eventDecks[this.type] || [];
-        this.upcomingCards = current.map((cardId) => deck.find((e) => e.cardId == cardId)).filter((e) => e).map((e) => e as EventCard).filter((e) => !this.filterUpcoming || e.cardId.indexOf(this.filterUpcoming) != -1);;
-        this.newCards = deck.filter((e) => current.indexOf(e.cardId) == -1 && !gameManager.game.party.eventCards.find((id) => id.type == this.type && id.cardId == e.cardId)).filter((e) => !this.filterNew || e.cardId.indexOf(this.filterNew) != -1);
-        this.drawnCards = gameManager.game.party.eventCards.filter((id) => deck.find((e) => e.edition == id.edition && e.type == id.type && e.cardId == id.cardId)).map((id) => { return { identifier: id, card: deck.find((card) => card.cardId == id.cardId) }; }).filter((model) => !this.filterDrawn || model.identifier.cardId.indexOf(this.filterDrawn) != -1);
+        this.upcomingCards = current.map((cardId) => deck.find((e) => e.cardId == cardId)).filter((e) => e).map((e) => e as EventCard);
+        this.newCards = deck.filter((e) => current.indexOf(e.cardId) == -1 && !gameManager.game.party.eventCards.find((id) => id.type == this.type && id.cardId == e.cardId));
+        this.drawnCards = gameManager.game.party.eventCards.filter((id) => deck.find((e) => e.edition == id.edition && e.type == id.type && e.cardId == id.cardId)).map((id) => { return { identifier: id, card: deck.find((card) => card.cardId == id.cardId) }; });
     }
 
     selectType(type: string) {
@@ -153,6 +155,15 @@ export class EventCardDeckComponent {
                 edition: this.edition,
                 type: this.type,
                 cardId: cardId
+            }
+        }).closed.subscribe({
+            next: (results: any) => {
+                if (settingsManager.settings.eventsApply && results && results.length) {
+                    this.dialog.open(EventEffectsDialog, {
+                        panelClass: ['dialog'],
+                        data: { eventResults: results }
+                    });
+                }
             }
         })
     }

@@ -42,7 +42,7 @@ export const sortEventEffect = function (effect) {
         effect.condition = sortEventCondition(effect.condition);
     }
 
-    return sortObjectKeys(effect, 'condition', 'type', 'values');
+    return sortObjectKeys(effect, 'condition', 'type', 'alt', 'values');
 }
 
 export const sortEventCondition = function (condition) {

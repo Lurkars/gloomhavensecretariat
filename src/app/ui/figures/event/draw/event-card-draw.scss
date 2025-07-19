@@ -8,32 +8,42 @@
         color: var(--ghs-color-white);
     }
 
-
-    ghs-event-card {
-        display: block;
-        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-        width: calc(var(--ghs-unit) * 45 * var(--ghs-dialog-factor));
-    }
-
-    .open {
-        z-index: 1;
-        position: absolute;
+    .event-card-container {
         display: flex;
-        cursor: pointer;
-        top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        left: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
         justify-content: center;
         align-items: center;
-        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-        height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-        color: var(--ghs-filter-white) var(--ghs-filter-shadow);
 
-        .ghs-svg {
-            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-        }
+        .event-card {
+            position: relative;
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            width: calc(var(--ghs-unit) * 45 * var(--ghs-dialog-factor));
 
-        &:hover .ghs-svg {
-            filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+            ghs-event-card {
+                display: block;
+                width: 100%;
+            }
+
+            .open {
+                z-index: 1;
+                position: absolute;
+                display: flex;
+                cursor: pointer;
+                top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                justify-content: center;
+                align-items: center;
+                width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                color: var(--ghs-filter-white) var(--ghs-filter-shadow);
+
+                .ghs-svg {
+                    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                }
+
+                &:hover .ghs-svg {
+                    filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+                }
+            }
         }
     }
 

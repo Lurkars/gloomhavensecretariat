@@ -1,5 +1,4 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { Character } from "../model/Character";
 import { Game } from "../model/Game";
 import { GameScenarioModel } from "../model/Scenario";
 import { AttackModifierType } from "../model/data/AttackModifier";
@@ -169,14 +168,16 @@ export class EventCardManager {
       }
     }
 
-    if (apply || selected != -1) {
-      if (!returnToDeck && !removeFromDeck || !option) {
+    if (!returnToDeck && !removeFromDeck) {
+      if (apply && !option) {
         console.warn("Apply event without valid selection", eventCard, selected, subSelections);
-      } else if (returnToDeck) {
-        this.returnEvent(eventCard.type, eventCard.cardId);
       } else {
-        this.removeEvent(eventCard.type, eventCard.cardId);
+        console.warn("No remove or return for event", eventCard, selected, subSelections);
       }
+    } else if (returnToDeck) {
+      this.returnEvent(eventCard.type, eventCard.cardId);
+    } else {
+      this.removeEvent(eventCard.type, eventCard.cardId);
     }
 
     this.game.party.eventCards.push(new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections, !scenario));
@@ -351,7 +352,6 @@ export class EventCardManager {
               }
               break;
             case EventCardEffectType.removeEvent:
-            case EventCardEffectType.removeEventFH:
               this.removeEvent(effect.values[0] as string, effect.values[1] as string);
               break;
             case EventCardEffectType.reputation:
@@ -375,6 +375,12 @@ export class EventCardManager {
             case EventCardEffectType.scenarioCondition:
             case EventCardEffectType.scenarioDamage:
             case EventCardEffectType.scenarioSingleMinus1:
+              break;
+            case EventCardEffectType.sectionWeek:
+            case EventCardEffectType.sectionWeeks:
+              const week = this.game.party.weeks + (effect.values[1] ? +effect.values[1] : 1);
+              const section = effect.values[0] as string;
+              this.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
               break;
             case EventCardEffectType.soldier:
             case EventCardEffectType.soldiers:
@@ -409,7 +415,7 @@ export class EventCardManager {
     if (typeof condition !== 'string') {
       switch (condition.type) {
         case EventCardConditionType.character:
-        case EventCardConditionType.trait:
+        case EventCardConditionType.traits:
         case EventCardConditionType.otherwise:
           break;
         default:
@@ -432,16 +438,20 @@ export class EventCardManager {
         return condition.values && characters.some((c) => condition.values.indexOf(c.name) != -1);
       case EventCardConditionType.class:
         return condition.values && characters.some((c) => condition.values.indexOf(c.characterClass as string) != -1);
+      case EventCardConditionType.moraleGT:
+        return condition.values && typeof condition.values[0] === 'number' && this.game.party.morale > condition.values[0];
+      case EventCardConditionType.moraleLT:
+        return condition.values && typeof condition.values[0] === 'number' && this.game.party.morale < condition.values[0];
       case EventCardConditionType.otherwise:
         return true;
       case EventCardConditionType.reputationGT:
         return condition.values && typeof condition.values[0] === 'number' && this.game.party.reputation > condition.values[0];
       case EventCardConditionType.reputationLT:
         return condition.values && typeof condition.values[0] === 'number' && this.game.party.reputation < condition.values[0];
-      case EventCardConditionType.trait:
-        return condition.values && this.game.figures.some((figure) => figure instanceof Character && figure.traits.some((trait) => condition.values.indexOf(trait) != -1));
+      case EventCardConditionType.traits:
+        return condition.values && characters.some((c) => c.traits.some((trait) => condition.values.indexOf(trait) != -1) || condition.values.indexOf(c.characterClass as string) != -1);
       case EventCardConditionType.payGold:
-        return condition.values && this.game.figures.filter((figure) => figure instanceof Character && gameManager.gameplayFigure(figure) && !figure.absent).every((figure) => typeof condition.values[0] === 'number' && (figure as Character).progress.gold >= condition.values[0]);
+        return condition.values && characters.every((c) => typeof condition.values[0] === 'number' && c.progress.gold >= condition.values[0]);
       case EventCardConditionType.payCollectiveGold:
         return condition.values && typeof condition.values[0] === 'number' && characters.length > 0 && characters.map((c) => c.progress.gold).reduce((a, b) => a + b) >= condition.values[0];
       case EventCardConditionType.loseCollectiveResource:

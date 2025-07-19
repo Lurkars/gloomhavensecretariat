@@ -58,6 +58,7 @@ import { EventEffectsDialog } from './ui/figures/event-effects/event-effects';
 import { FavorsComponent } from './ui/figures/event-effects/favors/favors';
 import { EventRandomItemDialogComponent } from './ui/figures/event-effects/random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './ui/figures/event-effects/random-scenario/random-scenario-dialog';
+import { EventCardAttackComponent } from './ui/figures/event/attack/event-card-attack';
 import { EventCardConditionComponent } from './ui/figures/event/condition/event-card-condition';
 import { EventCardDeckComponent } from './ui/figures/event/deck/event-card-deck';
 import { EventCardDialogComponent } from './ui/figures/event/dialog/event-card-dialog';
@@ -247,6 +248,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     EntityAnimationDirective,
     EntityIndexKeyComponent,
     EntityMenuDialogComponent,
+    EventCardAttackComponent,
     EventCardComponent,
     EventCardConditionComponent,
     EventCardDeckComponent,

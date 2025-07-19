@@ -296,5 +296,13 @@
       <span class="action" tabclick (click)="drawRandomScenario(gameManager.fhRules())"
         [ghs-label]="'scenario.eventEffects.drawRandomScenario'"></span>
     </div>
+
+    <div class="entity-container event-outcomes" *ngIf="eventEffectsManual.length || eventConditionManual.length">
+      <span class="title" [ghs-label]="'game.events.applyManually'"></span>
+      <ghs-event-card-condition *ngFor="let condition of eventConditionManual" [condition]="condition"
+        [light]="true"></ghs-event-card-condition>
+      <ghs-event-card-effect *ngFor="let effect of eventEffectsManual" [effect]="effect"
+        [light]="true"></ghs-event-card-effect>
+    </div>
   </div>
 </div>

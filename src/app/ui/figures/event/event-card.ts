@@ -29,17 +29,21 @@ export class EventCardComponent implements OnInit, OnChanges {
     subSelections: number[] = [];
     light: boolean = false;
     spoilerFree: boolean = false;
+    noLabel: boolean = false;
 
     resolvable: boolean[][] = [];
 
     ngOnInit(): void {
         if (this.event) {
             this.event.options.forEach((option, optionIndex) => {
-                this.resolvable[optionIndex] = this.resolvable[optionIndex] || [];
-                option.outcomes.forEach((outcome, outcomeIndex) => {
-                    this.resolvable[optionIndex][outcomeIndex] = outcome.condition && gameManager.eventCardManager.resolvableCondition(outcome.condition) || !outcome.condition && outcome.effects && outcome.effects.length > 0 && outcome.effects.every((effect) => effect && typeof effect !== 'string' && effect.condition && gameManager.eventCardManager.resolvableCondition(effect.condition));
-                })
+                if (option.outcomes) {
+                    this.resolvable[optionIndex] = this.resolvable[optionIndex] || [];
+                    option.outcomes.forEach((outcome, outcomeIndex) => {
+                        this.resolvable[optionIndex][outcomeIndex] = outcome.condition && gameManager.eventCardManager.resolvableCondition(outcome.condition) || !outcome.condition && outcome.effects && outcome.effects.length > 0 && outcome.effects.every((effect) => effect && typeof effect !== 'string' && effect.condition && gameManager.eventCardManager.resolvableCondition(effect.condition));
+                    })
+                }
             })
+            this.noLabel = this.event.options.every((o) => !o.label)
         }
         this.spoilerFree = this.spoiler;
         this.selected = this.select;

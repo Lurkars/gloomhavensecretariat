@@ -825,11 +825,14 @@
         "": "Resolve Event",
         "notApply": "Resolve, not Apply"
       },
+      "applyManually": "Apply the following manually:",
       "conditions": {
         "building": "{0}",
         "character": "{0}",
         "loseCollectiveGold": "Lose {0} collective gold.",
         "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%.",
+        "moraleGT": "Morale > {0}",
+        "moraleLT": "Morale < {0}",
         "otherwise": "Otherwise",
         "payCollectiveGold": "Pay {0} Collective gold",
         "payCollectiveGoldConditional": "Pay {0} ({1}) or {2} ({3}) Collective gold",
@@ -837,15 +840,14 @@
         "reputationGT": "Reputation > {0}",
         "reputationLT": "Reputation < {0}",
         "season": "%party.campaign.sheet.{0}%",
-        "trait": "%game.trait:{0}%",
-        "traits": "%game.trait:{0}% or %data.character.traits.{1}%"
+        "traits": "%game.trait% {0}"
       },
       "deck": {
         "addCard": "Add to upcoming cards and shuffle deck",
         "allTypes": "Show all decks",
         "draw": "Draw Card",
         "drawn": "Resolved ({0})",
-        "filter": "Filter by Card Id",
+        "filter": "Search for Card Id",
         "new": "Locked ({0})",
         "removeCard": "Remove from upcoming cards",
         "removeDrawn": "Remove from drawn cards",
@@ -857,6 +859,7 @@
         "upcoming": "In Deck ({0})"
       },
       "effects": {
+        "automation": "The effect is applied automatically",
         "battleGoal": "Gain {0} %game.checkmark% each.",
         "campaignSticker": "Gain \"%data.campaignSticker.{0}%\" campaign sticker.",
         "choose": {
@@ -868,19 +871,20 @@
         "collectiveGoldAdditional": "Gain {0} additional collective gold.",
         "collectiveGoldOther": "All other characters gain {0} collective gold.",
         "collectiveItem": "Gain {2} collective \"%data.items.{1}-{0}%\" (Item {0}).",
-        "collectiveResource": "Gain {0} collective %game.resource.{1}%",
+        "collectiveResource": "Gain {0} collective %game.resource.{1}%.",
         "collectiveResourceType": "Gain any {0} collective %game.loot.{1}%s.",
         "consumeCollectiveItem": "Consume {0} collective %game.itemSlot:{1}% item.",
         "consumeItem": "Consume {0} %game.itemSlot:{1}% item each.",
-        "discard": "Discard {0} cards each.",
-        "drawAnotherEvent": {
-          "": "Draw another %game.events.type.{0}% Event.",
-          "automation": "Automatically draw another event card."
+        "discard": {
+          "": "Discard {0} cards each.",
+          "alt": "All characters start the next scenario discarding %number.{0}% cards."
         },
-        "drawEvent": {
-          "": "Draw a %game.events.type.{0}% Event.",
-          "automation": "Automatically draw event card."
+        "discardOne": {
+          "": "Discard 1 card each.",
+          "alt": "All characters start the next scenario discarding one card."
         },
+        "drawAnotherEvent": "Draw another %game.events.type.{0}% Event.",
+        "drawEvent": "Draw a %game.events.type.{0}% Event.",
         "event": "Add %game.events.type.{0}% Event {1} to the deck.",
         "eventFH": "Add event {1} to the %game.events.type.{0}% deck.",
         "experience": "Gain {0} experience each.",
@@ -888,9 +892,11 @@
         "gold": "Gain {0} gold each.",
         "goldAdditional": "Gain {0} additional gold each.",
         "inspiration": "Gain {0} inspiration.",
-        "item": "Gain \"%data.items.{1}-{0}%\" (Item {0}).",
+        "item": {
+          "": "Gain \"%data.items.{1}-{0}%\" (Item {0}).",
+          "alt": "Gain \"%data.items.{1}-{0}%\" %game.itemFh.{0}%."
+        },
         "itemCollective": "Gain {1} collective \"%data.items.{2}-{0}%\" (Item {0}).",
-        "itemFH": "Gain \"%data.items.{1}-{0}%\" %game.itemFh.{0}%",
         "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0}).",
         "loseBattleGoal": "Lose {0} %game.checkmark% each.",
         "loseCollectiveGold": "Lose {0} collective gold.",
@@ -898,41 +904,45 @@
         "loseCollectiveResourceAny": "Lose {0} collective resources.",
         "loseGold": "Lose {0} gold each.",
         "loseGoldOne": "One character loses {0} gold.",
-        "loseMorale": "Lose {0} morale",
+        "loseMorale": "Lose {0} morale.",
         "loseProsperity": "Lose {0} prosperity.",
         "loseReputation": "Lose {0} reputation.",
-        "morale": "Gain {0} morale",
+        "morale": "Gain {0} morale.",
         "noEffect": "No effect.",
         "outcome": "Read outome %game.events.option.{0}%.",
-        "outpostAttack": "{0} %game.action.attack%",
+        "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
+        "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
         "partyAchievement": "Party Achievement:<br>\"%data.partyAchievements.{0}%\".",
         "prosperity": "Gain {0} prosperity.",
         "randomItemDesign": "Gain Random Item Design.",
-        "removeEvent": "Remove %game.events.type.{0}% Event {1} from the game.",
-        "removeEventFH": "Remove event {1} from the %game.events.type.{0}% deck.",
+        "removeEvent": {
+          "": "Remove %game.events.type.{0}% Event {1} from the game.",
+          "alt": "Remove event {1} from the %game.events.type.{0}% deck."
+        },
         "reputation": "Gain {0} reputation.",
         "reputationAdditional": "Gain {0} additional reputation.",
+        "resource": "Gain {0} %game.resource.{1}% each.",
         "resourceType": "Gain any {0} %game.loot.{1}% each.",
         "scenarioCondition": {
           "": "All start scenario with {0}.",
-          "automation": "Automatically add conditions to all characters."
+          "alt": "All characters start the next scenario with {0}."
         },
-        "scenarioConditionOne": "One character gains %game.condition.{0}%",
+        "scenarioConditionOne": "One character gains %game.condition.{0}%.",
         "scenarioDamage": {
-          "": "All start scenario with {0} damage.",
-          "automation": "Automatically apply damage to all characters."
+          "": "All start scenario with %game.damage:{0}%.",
+          "alt": "All characters start the next scenario with %game.damage:{0}%."
         },
-        "scenarioSingleMinus1": {
-          "": "One starts scenario with %game.card.minus1% x{0}.",
-          "automation": "Automatically add %game.card.minus1% to all characters' attack modifier deck."
-        },
+        "scenarioSingleMinus1": "One starts scenario with %game.card.minus1% x{0}.",
         "sectionOrWeek": "Add %game.section:{0}% OR {1} to the celander in one week.",
         "sectionOrWeeks": "Add %game.section:{0}% OR {1} to the celander in %game.number.{2}% weeks.",
         "sectionWeek": "Add %game.section:{0}% to the celander in one week.",
         "sectionWeeks": "Add %game.section:{0}% to the celander in %game.number.{1}% weeks.",
         "soldier": "Gain 1 soldier.",
         "soldiers": "Gain {0} soldiers.",
-        "unlockScenario": "Unlock \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
+        "unlockScenario": {
+          "": "Unlock \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
+          "alt": "New Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
+        },
         "unlockScenarioGroup": "Unlock \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%)."
       },
       "option": {

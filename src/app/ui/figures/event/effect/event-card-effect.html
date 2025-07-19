@@ -8,7 +8,8 @@
             [edition]="edition" [eventType]="eventType" [light]="light"></ghs-event-card-condition>
 
         <span *ngIf="effectObject.type && effectObject.type != 'choose' && effectObject.type != 'checkbox'"
-            [ngClass]="{'text-white': light, 'inline': inline}" [ghs-label]="'game.events.effects.' + effectObject.type"
+            [ngClass]="{'text-white': light, 'inline': inline}"
+            [ghs-label]="'game.events.effects.' + effectObject.type + (effectObject.alt ? '.alt': '')"
             [ghs-label-args]="labelArgs"></span>
 
         <span class="choose" *ngIf="effectObject.type == 'choose'">
@@ -31,7 +32,7 @@
         </span>
         <span class="automation-icon" [ngClass]="{'light': light}"
             *ngIf="settingsManager.settings.eventsApply && EventCardApplyEffects.indexOf(effectObject.type) != -1"
-            [ghs-tooltip]="'game.events.effects.' + effectObject.type + '.automation'">
+            [ghs-tooltip]="'game.events.effects.automation'">
             <img class="hint-trigger ghs-svg" src="./assets/images/automation.svg">
         </span>
     </span>

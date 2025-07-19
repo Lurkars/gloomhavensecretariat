@@ -1,5 +1,5 @@
 <div class="events-dialog">
-    <div #menu class="menu">
+    <div #menu class="menu" [ngClass]="{'resolved': resolved}">
         <a *ngFor="let eventType of types" class="event-type" (click)="selectType(eventType)"
             [ngClass]="{'active': type == eventType}">
             <span [ghs-label]="'game.events.type.' + eventType"></span>
@@ -15,9 +15,14 @@
             <input type="checkbox" [(ngModel)]="resolved">
             <span [ghs-label]="'game.events.deck.resolved'"></span>
         </label>
+        <label>
+            <input type="text" [(ngModel)]="filter" (ngModelChange)="update()" [ghs-label]="'game.events.deck.filter'"
+                [ghs-label-attribute]="'placeholder'" />
+        </label>
     </div>
     <div class="scroll-container">
-        <div class="events-container" [ngClass]="{'resolved': resolved}">
+        <div class="events-container"
+            [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern','resolved': resolved}">
             <div class="upcoming drop-list" id="upcoming-list" cdkDropList #upcomingList="cdkDropList"
                 [cdkDropListConnectedTo]="[newList, drawnList]" (cdkDropListDropped)="dropUpcoming($event)"
                 [cdkDropListAutoScrollStep]="20">
@@ -26,12 +31,10 @@
                     <a (click)="shuffle()" [ghs-tooltip]="'game.events.deck.shuffle'">
                         <img class="ghs-svg" src="./assets/images/shuffle.svg">
                     </a>
-                    <input type="text" [(ngModel)]="filterUpcoming" (ngModelChange)="update()"
-                        [ghs-label]="'game.events.deck.filter'" [ghs-label-attribute]="'placeholder'" />
                 </div>
                 <div class="empty" *ngIf="upcomingCards.length == 0"></div>
                 <ng-container *ngFor="let event of upcomingCards;let index = index;">
-                    <div class="container drag-hidden" cdkDrag>
+                    <div *ngIf="!filter || event.cardId.indexOf(filter) != -1" class="container drag-hidden" cdkDrag>
 
                         <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
 
@@ -58,12 +61,10 @@
                 [cdkDropListAutoScrollStep]="20">
                 <div class="title">
                     <span [ghs-label]="'game.events.deck.new'" [ghs-label-args]="[newCards.length]"></span>
-                    <input type="text" [(ngModel)]="filterNew" (ngModelChange)="update()"
-                        [ghs-label]="'game.events.deck.filter'" [ghs-label-attribute]="'placeholder'" />
                 </div>
                 <div class="empty" *ngIf="newCards.length == 0"></div>
                 <ng-container *ngFor="let event of newCards; let index = index;">
-                    <div class="container drag-hidden" cdkDrag>
+                    <div *ngIf="!filter || event.cardId.indexOf(filter) != -1" class="container drag-hidden" cdkDrag>
 
                         <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
 
@@ -88,12 +89,11 @@
                 [cdkDropListAutoScrollStep]="20">
                 <div class="title">
                     <span [ghs-label]="'game.events.deck.drawn'" [ghs-label-args]="[drawnCards.length]"></span>
-                    <input type="text" [(ngModel)]="filterDrawn" (ngModelChange)="update()"
-                        [ghs-label]="'game.events.deck.filter'" [ghs-label-attribute]="'placeholder'" />
                 </div>
                 <div class="empty" *ngIf="drawnCards.length == 0"></div>
                 <ng-container *ngFor="let model of drawnCards; let index = index;">
-                    <div class="container" drag-hidden cdkDrag>
+                    <div *ngIf="!filter || model.identifier.cardId.indexOf(filter) != -1" class="container" drag-hidden
+                        cdkDrag>
 
                         <ghs-event-card [event]="model.card" [select]="model.identifier.selected"
                             [subSelect]="model.identifier.subSelections"

@@ -6754,10 +6754,7 @@
                 ]
               },
               {
-                "type": "discard",
-                "values": [
-                  1
-                ]
+                "type": "discardOne"
               }
             ]
           }
@@ -7008,10 +7005,7 @@
             "narrative": "The wood is large and you spend a little more time than you 'd like trying to get around it. With enough effort, you arrive at your destination just a little bit more tired than you d like.",
             "effects": [
               {
-                "type": "discard",
-                "values": [
-                  1
-                ]
+                "type": "discardOne"
               }
             ]
           }
@@ -7125,10 +7119,7 @@
                 ]
               },
               {
-                "type": "discard",
-                "values": [
-                  1
-                ]
+                "type": "discardOne"
               }
             ]
           }

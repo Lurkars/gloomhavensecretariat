@@ -64,18 +64,11 @@ export class EventCardDrawComponent {
 
     accept(apply: boolean = true) {
         if (this.event && (this.selected != -1 || !apply)) {
-            ghsDialogClosingHelper(this.dialogRef);
-            this.dialogRef.closed.subscribe({
-                next: () => {
-                    if (this.event && (this.selected != -1 || !apply)) {
-                        gameManager.stateManager.before('eventDraw.accept');
-                        gameManager.game.eventDraw = undefined;
-                        const result = gameManager.eventCardManager.applyEvent(this.event, this.selected, this.subSelections, gameManager.game.scenario != undefined && gameManager.roundManager.firstRound, apply);
-                        result.length && console.debug("Manual resolve:", result);
-                        gameManager.stateManager.after();
-                    }
-                }
-            })
+            gameManager.stateManager.before('eventDraw.accept');
+            gameManager.game.eventDraw = undefined;
+            const result = gameManager.eventCardManager.applyEvent(this.event, this.selected, this.subSelections, gameManager.game.scenario != undefined && gameManager.roundManager.firstRound, apply);
+            gameManager.stateManager.after(settingsManager.settings.animations ? 1000 : 250);
+            ghsDialogClosingHelper(this.dialogRef, result.length ? result : undefined);
         }
     }
 

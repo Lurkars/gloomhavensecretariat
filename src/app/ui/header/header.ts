@@ -119,7 +119,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   openEventEffects() {
     this.dialog.open(EventEffectsDialog, {
       panelClass: ['dialog'],
-      data: gameManager.game.round > 0 || gameManager.game.state == GameState.next
+      data: { menu: gameManager.game.round > 0 || gameManager.game.state == GameState.next }
     });
   }
 

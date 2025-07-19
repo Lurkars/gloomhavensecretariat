@@ -61,6 +61,7 @@ export class EventCardOutcome {
     removeFromDeck?: boolean;
     condition: string | EventCardCondition | undefined;
     effects: (string | EventCardEffect)[];
+    attack: EventCardAttack | undefined;
 
     constructor(narrative: string, effects: EventCardEffect[], condition?: EventCardCondition | undefined, removeFromDeck?: boolean, returnToDeck?: boolean) {
         this.narrative = narrative;
@@ -85,6 +86,7 @@ export enum EventCardEffectType {
     consumeItem = "consumeItem",
     consumeCollectiveItem = "consumeCollectiveItem",
     discard = "discard",
+    discardOne = "discardOne",
     drawAnotherEvent = "drawAnotherEvent",
     drawEvent = "drawEvent",
     event = "event",
@@ -95,7 +97,6 @@ export enum EventCardEffectType {
     goldAdditional = "goldAdditional",
     inspiration = "inspiration",
     item = "item",
-    itemFH = "itemFH",
     itemCollective = "itemCollective",
     itemDesign = "itemDesign",
     loseBattleGoal = "loseBattleGoal",
@@ -113,9 +114,9 @@ export enum EventCardEffectType {
     noEffect = "noEffect",
     outcome = "outcome",
     outpostAttack = "outpostAttack",
+    outpostTarget = "outpostTarget",
     randomItemDesign = "randomItemDesign",
     removeEvent = "removeEvent",
-    removeEventFH = "removeEventFH",
     reputation = "reputation",
     reputationAdditional = "reputationAdditional",
     resource = "resource",
@@ -125,18 +126,21 @@ export enum EventCardEffectType {
     scenarioCondition = "scenarioCondition",
     scenarioDamage = "scenarioDamage",
     scenarioSingleMinus1 = "scenarioSingleMinus1",
+    sectionWeek = "sectionWeek",
+    sectionWeeks = "sectionWeeks",
     soldier = "soldier",
     soldiers = "soldiers",
     unlockScenario = "unlockScenario",
     unlockScenarioGroup = "unlockScenarioGroup"
 }
 
-export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventFH, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.removeEventFH, EventCardEffectType.reputation, EventCardEffectType.reputationAdditional, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup];
+export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventFH, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationAdditional, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup];
 
 export class EventCardEffect {
     condition: string | EventCardCondition | undefined;
     type: EventCardEffectType = EventCardEffectType.noEffect;
     values: (string | number | EventCardEffect)[] = [];
+    alt: boolean = false;
 }
 
 export enum EventCardConditionType {
@@ -144,6 +148,8 @@ export enum EventCardConditionType {
     character = "character",
     class = "class",
     loseCollectiveResource = "loseCollectiveResource",
+    moraleGT = "moraleGT",
+    moraleLT = "moraleLT",
     or = "or",
     otherwise = "otherwise",
     payGold = "payGold",
@@ -152,7 +158,7 @@ export enum EventCardConditionType {
     reputationGT = "reputationGT",
     reputationLT = "reputationLT",
     season = "season",
-    trait = "trait"
+    traits = "traits"
 }
 
 export class EventCardCondition {
@@ -162,8 +168,8 @@ export class EventCardCondition {
 }
 
 export class EventCardAttack {
-    attackValue: number;
-    targetNumber: number;
+    attackValue: string | number;
+    targetNumber: string | number;
     targetDescription: string;
     narrative: string;
     effects: string[];

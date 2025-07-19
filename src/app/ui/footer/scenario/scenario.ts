@@ -53,6 +53,15 @@ export class ScenarioComponent implements OnInit, OnDestroy {
               edition: gameManager.game.edition || gameManager.currentEdition(),
               type: type
             }
+          }).closed.subscribe({
+            next: (results: any) => {
+              if (settingsManager.settings.eventsApply && results && results.length) {
+                this.dialog.open(EventEffectsDialog, {
+                  panelClass: ['dialog'],
+                  data: { eventResults: results }
+                });
+              }
+            }
           })
         }
       }
