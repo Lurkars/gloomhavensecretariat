@@ -2,6 +2,8 @@
   "name": "triangles",
   "icon": "gh-triangles",
   "edition": "gh2e",
+  "unlockEvent": "road:42|road:43",
+  "retireEvent": "road:67|road:68",
   "color": "#dcdcdc",
   "spoiler": true,
   "stats": [

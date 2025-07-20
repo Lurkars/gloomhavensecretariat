@@ -2,6 +2,8 @@
   "name": "three-spears",
   "icon": "gh-three-spears",
   "edition": "gh2e",
+  "unlockEvent": "road:47|city:78",
+  "retireEvent": "city:91|road:73",
   "color": "#cd8229",
   "spoiler": true,
   "stats": [

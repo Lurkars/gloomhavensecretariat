@@ -2,6 +2,8 @@
   "name": "squidface",
   "icon": "gh-squidface",
   "edition": "gh2e",
+  "unlockEvent": "city:76|city:76",
+  "retireEvent": "city:89|road:72",
   "color": "#72e0be",
   "spoiler": true,
   "stats": [

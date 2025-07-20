@@ -3,6 +3,8 @@
   "icon": "gh-circles",
   "noThumbnail": true,
   "edition": "gh2e",
+  "unlockEvent": "road:44|road:45",
+  "retireEvent": "road:70",
   "color": "#e570b3",
   "spoiler": true,
   "stats": [

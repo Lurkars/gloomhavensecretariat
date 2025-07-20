@@ -2,6 +2,8 @@
   "name": "saw",
   "icon": "gh-saw",
   "edition": "gh2e",
+  "unlockEvent": "road:48|city:79",
+  "retireEvent": "city:92|city:93",
   "color": "#e3dfcf",
   "spoiler": true,
   "stats": [

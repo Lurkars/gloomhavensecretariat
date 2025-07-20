@@ -73,23 +73,27 @@ export class EventCardManager {
 
           this.game.unlockedCharacters.map((unlock) => gameManager.getCharacterData(unlock.split(':')[1], unlock.split(':')[0])).forEach((characterData) => {
             if (characterData.unlockEvent) {
-              if (characterData.unlockEvent.split(':').length > 1) {
-                this.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true)
-              } else {
-                this.addEvent('city', characterData.unlockEvent, true);
-                this.addEvent('road', characterData.unlockEvent, true);
-              }
+              characterData.unlockEvent.split('|').forEach((unlockEvent) => {
+                if (unlockEvent.split(':').length > 1) {
+                  this.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true)
+                } else {
+                  this.addEvent('city', unlockEvent, true);
+                  this.addEvent('road', unlockEvent, true);
+                }
+              })
             }
           })
 
           this.game.party.retirements.map((c) => gameManager.getCharacterData(c.name, c.edition)).forEach((characterData) => {
             if (characterData.retireEvent) {
-              if (characterData.retireEvent.split(':').length > 1) {
-                this.addEvent(characterData.retireEvent.split(':')[0], characterData.retireEvent.split(':')[1], true)
-              } else {
-                this.addEvent('city', characterData.retireEvent, true);
-                this.addEvent('road', characterData.retireEvent, true);
-              }
+              characterData.retireEvent.split('|').forEach((retireEvent) => {
+                if (retireEvent.split(':').length > 1) {
+                  this.addEvent(retireEvent.split(':')[0], retireEvent.split(':')[1], true)
+                } else {
+                  this.addEvent('city', retireEvent, true);
+                  this.addEvent('road', retireEvent, true);
+                }
+              })
             }
           })
 
@@ -108,13 +112,18 @@ export class EventCardManager {
   }
 
   addEvent(type: string, cardId: string, newOnly: boolean = false) {
-    if (!this.game.party.eventDecks[type]) {
-      this.game.party.eventDecks[type] = [];
-    }
+    const edition = (this.game.edition || gameManager.currentEdition());
+    if (this.getEventCardForEdition(edition, type, cardId) != undefined) {
+      if (!this.game.party.eventDecks[type]) {
+        this.game.party.eventDecks[type] = [];
+      }
 
-    if (!newOnly || this.game.party.eventDecks[type].indexOf(cardId) == -1 && !this.game.party.eventCards.find((e) => e.type == type && e.cardId == cardId && e.edition == (this.game.edition || gameManager.currentEdition()))) {
-      this.game.party.eventDecks[type].push(cardId);
-      this.shuffleEvents(type);
+      if (!newOnly || this.game.party.eventDecks[type].indexOf(cardId) == -1 && !this.game.party.eventCards.find((e) => e.type == type && e.cardId == cardId && e.edition == edition)) {
+        this.game.party.eventDecks[type].push(cardId);
+        this.shuffleEvents(type);
+      }
+    } else {
+      console.warn("Could not find " + type + " Event " + cardId + "for Edition " + edition);
     }
   }
 

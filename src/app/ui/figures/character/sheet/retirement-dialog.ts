@@ -126,12 +126,14 @@ export class CharacterRetirementDialog {
             if (settingsManager.settings.events) {
                 const characterData = gameManager.getCharacterData(this.personalQuest.unlockCharacter);
                 if (characterData.unlockEvent) {
-                    if (characterData.unlockEvent.split(':').length > 1) {
-                        gameManager.eventCardManager.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true);
-                    } else {
-                        gameManager.eventCardManager.addEvent('city', characterData.unlockEvent, true);
-                        gameManager.eventCardManager.addEvent('road', characterData.unlockEvent, true);
-                    }
+                    characterData.unlockEvent.split('|').forEach((unlockEvent) => {
+                        if (unlockEvent.split(':').length > 1) {
+                            gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
+                        } else {
+                            gameManager.eventCardManager.addEvent('city', unlockEvent, true);
+                            gameManager.eventCardManager.addEvent('road', unlockEvent, true);
+                        }
+                    })
                 }
             }
         }
@@ -208,12 +210,14 @@ export class CharacterRetirementDialog {
                 if (settingsManager.settings.events) {
                     const characterData = gameManager.getCharacterData(this.additionalPQ.unlockCharacter);
                     if (characterData.unlockEvent) {
-                        if (characterData.unlockEvent.split(':').length > 1) {
-                            gameManager.eventCardManager.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true);
-                        } else {
-                            gameManager.eventCardManager.addEvent('city', characterData.unlockEvent, true);
-                            gameManager.eventCardManager.addEvent('road', characterData.unlockEvent, true);
-                        }
+                        characterData.unlockEvent.split('|').forEach((unlockEvent) => {
+                            if (unlockEvent.split(':').length > 1) {
+                                gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true);
+                            } else {
+                                gameManager.eventCardManager.addEvent('city', unlockEvent, true);
+                                gameManager.eventCardManager.addEvent('road', unlockEvent, true);
+                            }
+                        })
                     }
                 }
             }
@@ -237,12 +241,14 @@ export class CharacterRetirementDialog {
 
     buildingsEnvelopeHelper(envelope: string, both: boolean = true): BuildingData | undefined {
         const buildingData = gameManager.campaignData().buildings;
-        const buildings = envelope.split(':').map((id) => buildingData.find((buildingData) => buildingData.id === id)).filter((buildingData) => buildingData).map((buildingData) => buildingData as BuildingData);
-        if (buildings.length > 0) {
-            if (!gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[0].name) && (!this.personalQuestBuilding || this.personalQuestBuilding != buildings[0])) {
-                return buildings[0];
-            } else if (both && buildings.length > 1 && !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[1].name)) {
-                return buildings[1];
+        if (buildingData) {
+            const buildings = envelope.split(':').map((id) => buildingData.find((buildingData) => buildingData.id === id)).filter((buildingData) => buildingData).map((buildingData) => buildingData as BuildingData);
+            if (buildings.length > 0) {
+                if (!gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[0].name) && (!this.personalQuestBuilding || this.personalQuestBuilding != buildings[0])) {
+                    return buildings[0];
+                } else if (both && buildings.length > 1 && !gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == buildings[1].name)) {
+                    return buildings[1];
+                }
             }
         }
 

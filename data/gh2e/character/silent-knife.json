@@ -5,6 +5,7 @@
   "icon": "gh-scoundrel",
   "edition": "gh2e",
   "handSize": 9,
+  "retireEvent": "road:58|road:59",
   "color": "#9ecf5f",
   "stats": [
     {

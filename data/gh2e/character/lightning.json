@@ -2,6 +2,8 @@
   "name": "lightning",
   "icon": "gh-lightning",
   "edition": "gh2e",
+  "unlockEvent": "city:73|road:40",
+  "retireEvent": "road:63|road:64",
   "color": "#d75f49",
   "spoiler": true,
   "stats": [

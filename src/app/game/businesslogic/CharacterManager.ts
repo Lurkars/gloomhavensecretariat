@@ -172,12 +172,14 @@ export class CharacterManager {
 
       if (settingsManager.settings.events) {
         if (character.retireEvent) {
-          if (character.retireEvent.split(':').length > 1) {
-            gameManager.eventCardManager.addEvent(character.retireEvent.split(':')[0], character.retireEvent.split(':')[1], true)
-          } else {
-            gameManager.eventCardManager.addEvent('city', character.retireEvent, true);
-            gameManager.eventCardManager.addEvent('road', character.retireEvent, true);
-          }
+          character.retireEvent.split('|').forEach((retireEvent) => {
+            if (retireEvent.split(':').length > 1) {
+              gameManager.eventCardManager.addEvent(retireEvent.split(':')[0], retireEvent.split(':')[1], true)
+            } else {
+              gameManager.eventCardManager.addEvent('city', retireEvent, true);
+              gameManager.eventCardManager.addEvent('road', retireEvent, true);
+            }
+          })
         }
       }
     }

@@ -5,6 +5,7 @@
   "icon": "gh-spellweaver",
   "edition": "gh2e",
   "handSize": 8,
+  "retireEvent": "city:95|road:62",
   "color": "#b28ac2",
   "stats": [
     {

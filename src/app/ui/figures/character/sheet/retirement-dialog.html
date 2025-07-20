@@ -12,8 +12,10 @@
             [ghs-label-args]="[gameManager.fhRules() ? '2' : '1']"></span>
     </div>
 
-    <div class="event text-white" *ngIf="character.retireEvent" [ghs-label]="'character.progress.retirement.events'"
-        [ghs-label-args]="[character.retireEvent]" [ngClass]="{'already-unlocked': alreadyRetired}">
+    <div class="event" *ngIf="character.retireEvent" [ngClass]="{'already-unlocked': alreadyRetired}">
+        <span *ngFor="let rE of character.retireEvent.split('|')" class="text-white"
+            [ghs-label]="'character.progress.retirement.event' + (rE.indexOf(':') == -1 ? 's': '')"
+            [ghs-label-args]="rE.indexOf(':') == -1 ? [rE] : [rE.split(':')[0], rE.split(':')[1]]"></span>
     </div>
 
     <div class="conclusion" *ngIf="!!conclusion">
@@ -38,8 +40,10 @@
             [ghs-label-args]="[characterItemDesign.id, characterItemDesign.edition]">
         </div>
 
-        <div class="event text-white" *ngIf="unlockEvent" [ghs-label]="'character.progress.retirement.events'"
-            [ghs-label-args]="[unlockEvent]">
+        <div class="event" *ngIf="unlockEvent">
+            <span *ngFor="let uE of unlockEvent.split('|')" class="text-white"
+                [ghs-label]="'character.progress.retirement.event' + (uE.indexOf(':') == -1 ? 's': '')"
+                [ghs-label-args]="uE.indexOf(':') == -1 ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
         </div>
 
         <div class="envelope" *ngIf="personalQuest.openEnvelope">

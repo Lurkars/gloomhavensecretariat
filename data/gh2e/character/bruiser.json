@@ -5,6 +5,7 @@
   "icon": "gh-brute",
   "edition": "gh2e",
   "handSize": 10,
+  "retireEvent": "city:82|road:56",
   "color": "#35acd5",
   "stats": [
     {

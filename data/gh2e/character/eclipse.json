@@ -2,6 +2,8 @@
   "name": "eclipse",
   "icon": "gh-eclipse",
   "edition": "gh2e",
+  "unlockEvent": "road:46|city:81",
+  "retireEvent": "city:88|road:71",
   "color": "#6e77ba",
   "spoiler": true,
   "stats": [

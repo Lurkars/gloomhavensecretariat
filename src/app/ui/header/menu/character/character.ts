@@ -88,12 +88,14 @@ export class CharacterMenuComponent implements OnInit {
         this.newUnlocks.push(characterData.name);
         if (settingsManager.settings.events) {
           if (characterData.unlockEvent) {
-            if (characterData.unlockEvent.split(':').length > 1) {
-              gameManager.eventCardManager.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true)
-            } else {
-              gameManager.eventCardManager.addEvent('city', characterData.unlockEvent, true);
-              gameManager.eventCardManager.addEvent('road', characterData.unlockEvent, true);
-            }
+            characterData.unlockEvent.split('|').forEach((unlockEvent) => {
+              if (unlockEvent.split(':').length > 1) {
+                gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true)
+              } else {
+                gameManager.eventCardManager.addEvent('city', unlockEvent, true);
+                gameManager.eventCardManager.addEvent('road', unlockEvent, true);
+              }
+            })
           }
         }
         gameManager.stateManager.after();
@@ -116,12 +118,14 @@ export class CharacterMenuComponent implements OnInit {
         if (settingsManager.settings.events) {
           chars.map((name) => gameManager.getCharacterData(name, edition)).forEach((characterData) => {
             if (characterData.unlockEvent) {
-              if (characterData.unlockEvent.split(':').length > 1) {
-                gameManager.eventCardManager.addEvent(characterData.unlockEvent.split(':')[0], characterData.unlockEvent.split(':')[1], true)
-              } else {
-                gameManager.eventCardManager.addEvent('city', characterData.unlockEvent, true);
-                gameManager.eventCardManager.addEvent('road', characterData.unlockEvent, true);
-              }
+              characterData.unlockEvent.split('|').forEach((unlockEvent) => {
+                if (unlockEvent.split(':').length > 1) {
+                  gameManager.eventCardManager.addEvent(unlockEvent.split(':')[0], unlockEvent.split(':')[1], true)
+                } else {
+                  gameManager.eventCardManager.addEvent('city', unlockEvent, true);
+                  gameManager.eventCardManager.addEvent('road', unlockEvent, true);
+                }
+              })
             }
           })
         }

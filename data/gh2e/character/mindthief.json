@@ -5,6 +5,7 @@
   "icon": "gh-mindthief",
   "edition": "gh2e",
   "handSize": 10,
+  "retireEvent": "city:86|road:61",
   "color": "#6279a5",
   "stats": [
     {
