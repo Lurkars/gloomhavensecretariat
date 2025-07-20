@@ -239,6 +239,7 @@
         },
         "apply": "Apply",
         "conclusion": "Open Section %data.section:{0}%",
+        "event": "Add %game.events.type.{0}% Event {1} to the deck",
         "events": "Add City Event {0} and Road Event {0} to the deck",
         "moveSupply": "Move resources to Frosthaven supply",
         "prosperity": "+{0} prosperity"
