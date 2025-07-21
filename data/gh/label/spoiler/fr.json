@@ -44,6 +44,50 @@
           },
           "187": {
             "1": "À la fin de vos cinq prochains tours lors desquels %game.element.light% n'est pas Fort, générez %game.element.light%"
+          },
+          "190": {
+            "1": "Un allié adjacent peut immédiatement effectuer un tour supplémentaire en jouant deux cartes de sa main."
+          },
+          "191": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé."
+          },
+          "192": {
+            "1": "Tous les alliés à %game.action.range:5% peuvent effectuer"
+          },
+          "194": {
+            "1": "Toutes les attaques vous ciblant ou ciblant tout allié à %game.action.range:4% de vous-même gagnent Désavantage ce round."
+          },
+          "195": {
+            "1": "Affectez tous les alliés franchis"
+          },
+          "196": {
+            "1": "Retirez -1 %game.action.attack% à toutes vos attaques."
+          },
+          "197": {
+            "1": "Tous les alliés ajoutent +1 %game.action.attack% à toutes leurs attaques ce round.",
+            "2": "Tous les alliés ajoutent +2 %game.action.move% à tous leurs déplacements ce round."
+          },
+          "198": {
+            "1": "Un allié adjacent peut effectuer"
+          },
+          "199": {
+            "1": "Durant n'importe lesquelles de vos actions d'Attaque, vous pouvez %game.element.consume.light% pour ajouter +2 %game.action.attack%, gagnez %game.custom.advantage% et %game.card.experience:1%"
+          },
+          "200": {
+            "1": "Un allié adjacent peut Récupérer %game.card.recover% une de ses cartes perdues.",
+            "2": "jusqu'à deux cartes perdues à la place"
+          },
+          "202": {
+            "1": "Un allié adjacent peut effectuer",
+            "2": "Éliminez une cible normale ou d'élite de l'attaque à la place, %game.card.experience:1%.",
+            "3": "Tous les alliés à %game.action.range:3% peuvent effectuer",
+            "4": "Gagnez %game.card.experience:1% pour chaque attaque effectuée."
+          },
+          "203": {
+            "1": "Pour vos quatre prochaines actions d'Attaque, ajoutez +3 %game.action.attack%, %game.condition.wound%, et gagnez %game.custom.advantage%."
+          },
+          "204": {
+            "1": "Quand un allié subit des dégâts, vous pouvez subir ces dégâts réduits de 1 à la place."
           }
         }
       }

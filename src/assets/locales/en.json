@@ -2443,10 +2443,6 @@
       "": "Show errata hints",
       "hint": "Display known erratas for scenarios, sections, etc. In the data itself, all these errata should be fixed, but with the hints it should be easier to understand the differences in printing."
     },
-    "expireConditions": {
-      "": "Automatic expire conditions",
-      "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strengthen will be removed after turn"
-    },
     "events": {
       "": "Event Cards",
       "hint": "Support for Event Card Decks."
@@ -2458,6 +2454,10 @@
     "eventsDraw": {
       "": "Auto. Draw Events",
       "hint": "Automatically draw events like Road Event at start of scenario."
+    },
+    "expireConditions": {
+      "": "Automatic expire conditions",
+      "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strengthen will be removed after turn"
     },
     "feedback": {
       "": "Disable Feedback Button"
