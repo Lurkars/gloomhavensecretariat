@@ -1,6 +1,7 @@
 {
   "index": "57",
   "name": "Crypt Basement",
+  "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "monsters": [
     "crystal-rot",

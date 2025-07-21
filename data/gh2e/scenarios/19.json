@@ -1,6 +1,7 @@
 {
   "index": "19",
   "name": "Military Outpost",
+  "flowChartGroup": "demons",
   "edition": "gh2e",
   "monsters": [
     "chaos-demon",

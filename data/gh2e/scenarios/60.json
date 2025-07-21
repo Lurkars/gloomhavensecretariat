@@ -1,6 +1,7 @@
 {
   "index": "60",
   "name": "Bandit's Wood",
+  "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "monsters": [
     "bandit-archer",

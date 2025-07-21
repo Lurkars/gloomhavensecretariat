@@ -1,6 +1,7 @@
 {
   "index": "94",
   "name": "A Watery Rescue",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "frost-demon",

@@ -1,6 +1,7 @@
 {
   "index": "18",
   "name": "Investigation",
+  "flowChartGroup": "city-guards",
   "edition": "gh2e",
   "monsters": [
     "bandit-scout",

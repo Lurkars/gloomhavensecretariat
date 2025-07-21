@@ -1,7 +1,14 @@
 {
   "index": "47",
   "name": "Slave Pens",
+  "flowChartGroup": "the-gloom",
   "edition": "gh2e",
+  "unlocks": [
+    "49"
+  ],
+  "forcedLinks": [
+    "49"
+  ],
   "monsters": [
     "city-archer",
     "earth-demon",

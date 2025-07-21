@@ -1,6 +1,7 @@
 {
   "index": "15",
   "name": "Plane of Elemental Power",
+  "flowChartGroup": "demons",
   "edition": "gh2e",
   "monsters": [
     "earth-demon",

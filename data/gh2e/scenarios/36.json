@@ -1,7 +1,12 @@
 {
   "index": "36",
   "name": "Abandoned Sewers",
+  "flowChartGroup": "the-sewers",
   "edition": "gh2e",
+  "unlocks": [
+    "37",
+    "38"
+  ],
   "monsters": [
     "giant-viper",
     "ooze",

@@ -1,6 +1,7 @@
 {
   "index": "83",
   "name": "Lost Island",
+  "flowChartGroup": "random",
   "edition": "gh2e",
   "monsters": [
     "cave-bear",

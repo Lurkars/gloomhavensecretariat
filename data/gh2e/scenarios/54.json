@@ -1,7 +1,14 @@
 {
   "index": "54",
   "name": "The Void",
+  "flowChartGroup": "the-gloom",
   "edition": "gh2e",
+  "unlocks": [
+    "55"
+  ],
+  "forcedLinks": [
+    "55"
+  ],
   "monsters": [
     "black-imp",
     "chaos-demon",

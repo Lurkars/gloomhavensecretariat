@@ -1,7 +1,17 @@
 {
   "index": "3",
   "name": "Frozen Hollow",
+  "flowChartGroup": "hail",
   "edition": "gh2e",
+  "unlocks": [
+    "4",
+    "5"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "the-power-of-enhancement"
+    ]
+  },
   "monsters": [
     "frost-demon",
     "hound",

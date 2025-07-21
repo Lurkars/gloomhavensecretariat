@@ -1,7 +1,13 @@
 {
   "index": "71",
   "name": "Clockwork Factory",
+  "flowChartGroup": "random",
   "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "living-spirit",

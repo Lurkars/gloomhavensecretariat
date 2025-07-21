@@ -1,6 +1,7 @@
 {
   "index": "84",
   "name": "Wild Melee",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "bandit-archer",

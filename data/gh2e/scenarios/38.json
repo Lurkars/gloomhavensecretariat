@@ -1,7 +1,13 @@
 {
   "index": "38",
   "name": "Drake Nest",
+  "flowChartGroup": "the-sewers",
   "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "into-the-depths"
+    ]
+  },
   "monsters": [
     "flame-demon",
     "rending-drake",

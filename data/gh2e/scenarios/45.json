@@ -1,7 +1,19 @@
 {
   "index": "45",
   "name": "Plane of Night",
+  "flowChartGroup": "the-gloom",
   "edition": "gh2e",
+  "unlocks": [
+    "38",
+    "46",
+    "47",
+    "48"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "the-darkness-retreats"
+    ]
+  },
   "monsters": [
     "black-imp",
     "deep-terror",

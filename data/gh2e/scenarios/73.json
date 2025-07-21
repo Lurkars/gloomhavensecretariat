@@ -1,6 +1,7 @@
 {
   "index": "73",
   "name": "Chained Isle",
+  "flowChartGroup": "random",
   "edition": "gh2e",
   "monsters": [
     "living-spirit",

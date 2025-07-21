@@ -903,12 +903,12 @@ export class GameManager {
     const editionData = this.editionData.find((editionData) => editionData.edition == edition);
 
     if (editionData && editionData.campaign) {
-      return editionData.campaign;
+      return Object.assign(new CampaignData(), editionData.campaign);
     }
 
     const extensionCampaign = this.editionExtensions(edition).map((e) => this.editionData.find((editionData) => editionData.edition == e)).map((editionData) => editionData ? editionData.campaign : undefined).find((campaignData) => campaignData);
     if (extensionCampaign) {
-      return extensionCampaign;
+      return Object.assign(new CampaignData(), extensionCampaign);
     }
 
     return new CampaignData();

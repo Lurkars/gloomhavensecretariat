@@ -1,7 +1,13 @@
 {
   "index": "87",
   "name": "Sulfur Mine",
+  "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ]
+  },
   "monsters": [
     "hound",
     "inox-priest",

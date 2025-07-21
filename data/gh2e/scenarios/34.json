@@ -1,6 +1,7 @@
 {
   "index": "34",
   "name": "Timeworn Tomb",
+  "flowChartGroup": "the-voice",
   "edition": "gh2e",
   "monsters": [
     "ancient-artillery",

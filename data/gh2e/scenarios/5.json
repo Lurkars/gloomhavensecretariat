@@ -1,7 +1,14 @@
 {
   "index": "5",
   "name": "Forgotten Crypt",
+  "flowChartGroup": "hail",
   "edition": "gh2e",
+  "unlocks": [
+    "7",
+    "9",
+    "10",
+    "28"
+  ],
   "monsters": [
     "cultist",
     "living-bones",

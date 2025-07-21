@@ -1,6 +1,7 @@
 {
   "index": "22",
   "name": "Doomcannon Demolition",
+  "flowChartGroup": "merchant-guild",
   "edition": "gh2e",
   "monsters": [
     "flame-demon",

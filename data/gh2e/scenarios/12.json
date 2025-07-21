@@ -1,7 +1,12 @@
 {
   "index": "12",
   "name": "Inox Encampment",
+  "flowChartGroup": "merchant-guild",
   "edition": "gh2e",
+  "unlocks": [
+    "29",
+    "32"
+  ],
   "monsters": [
     "inox-archer",
     "inox-guard",

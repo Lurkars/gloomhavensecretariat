@@ -1,6 +1,7 @@
 {
   "index": "76",
   "name": "Oozing Grove",
+  "flowChartGroup": "puzzle",
   "edition": "gh2e",
   "monsters": [
     "forest-imp",

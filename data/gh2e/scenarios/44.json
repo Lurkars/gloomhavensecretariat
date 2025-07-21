@@ -1,7 +1,16 @@
 {
   "index": "44",
   "name": "Temple of the Elements",
+  "flowChartGroup": "hail",
   "edition": "gh2e",
+  "unlocks": [
+    "45"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "elements-mastered"
+    ]
+  },
   "monsters": [
     "cultist",
     "earth-demon",

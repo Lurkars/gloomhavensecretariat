@@ -1,6 +1,7 @@
 {
   "index": "21",
   "name": "The Ghost Fortress",
+  "flowChartGroup": "merchant-guild",
   "edition": "gh2e",
   "monsters": [
     "ancient-artillery",

@@ -1,6 +1,7 @@
 {
   "index": "69",
   "name": "Corrupted Cove",
+  "flowChartGroup": "random",
   "edition": "gh2e",
   "monsters": [
     "black-imp",

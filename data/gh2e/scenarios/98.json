@@ -1,6 +1,7 @@
 {
   "index": "98",
   "name": "Metamorphic Fault",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "deep-terror",

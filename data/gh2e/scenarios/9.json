@@ -1,6 +1,7 @@
 {
   "index": "9",
   "name": "Ruinous Rift",
+  "flowChartGroup": "hail",
   "edition": "gh2e",
   "monsters": [
     "chaos-demon",

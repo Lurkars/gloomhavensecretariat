@@ -1,6 +1,7 @@
 {
   "index": "81",
   "name": "Overgrown Graveyard",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "crystal-rot",

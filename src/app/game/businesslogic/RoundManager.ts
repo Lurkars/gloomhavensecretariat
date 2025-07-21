@@ -45,8 +45,8 @@ export class RoundManager {
       this.game.state = GameState.draw;
       gameManager.entityManager.next();
       gameManager.characterManager.next();
-      gameManager.objectiveManager.next();
       gameManager.monsterManager.next();
+      gameManager.objectiveManager.next();
       gameManager.attackModifierManager.next();
 
       if (settingsManager.settings.moveElements) {
@@ -104,8 +104,8 @@ export class RoundManager {
       this.game.state = GameState.next;
       this.game.round++;
       gameManager.characterManager.draw();
-      gameManager.objectiveManager.draw();
       gameManager.monsterManager.draw();
+      gameManager.objectiveManager.draw();
 
       if (settingsManager.settings.moveElements) {
         this.game.elementBoard.forEach((element) => {

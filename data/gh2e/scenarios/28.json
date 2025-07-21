@@ -1,7 +1,13 @@
 {
   "index": "28",
   "name": "Temple of the Seer",
+  "flowChartGroup": "hail",
   "edition": "gh2e",
+  "unlocks": [
+    "39",
+    "42",
+    "53"
+  ],
   "monsters": [
     "cave-bear",
     "living-spirit",

@@ -1,6 +1,7 @@
 {
   "index": "89",
   "name": "Community Service",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "black-imp",

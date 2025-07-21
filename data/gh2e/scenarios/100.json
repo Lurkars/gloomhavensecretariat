@@ -1,6 +1,7 @@
 {
   "index": "100",
   "name": "Silence Falls",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "chaos-demon",

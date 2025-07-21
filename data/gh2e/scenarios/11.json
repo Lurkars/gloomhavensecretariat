@@ -1,7 +1,11 @@
 {
   "index": "11",
   "name": "Ritual Chamber",
+  "flowChartGroup": "demons",
   "edition": "gh2e",
+  "unlocks": [
+    "15"
+  ],
   "monsters": [
     "cultist",
     "living-bones",

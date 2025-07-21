@@ -1,7 +1,12 @@
 {
   "index": "4",
   "name": "Crypt of the Damned",
+  "flowChartGroup": "demons",
   "edition": "gh2e",
+  "unlocks": [
+    "6",
+    "7"
+  ],
   "monsters": [
     "bandit-archer",
     "cultist",

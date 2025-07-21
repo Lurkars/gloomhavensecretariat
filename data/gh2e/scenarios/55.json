@@ -1,7 +1,14 @@
 {
   "index": "55",
   "name": "The Last Stand",
+  "flowChartGroup": "the-gloom",
   "edition": "gh2e",
+  "unlocks": [
+    "56"
+  ],
+  "forcedLinks": [
+    "56"
+  ],
   "monsters": [
     "black-imp",
     "chaos-demon",

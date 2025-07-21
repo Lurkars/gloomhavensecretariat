@@ -1,7 +1,12 @@
 {
   "index": "14",
   "name": "Echo Chamber",
+  "flowChartGroup": "the-voice",
   "edition": "gh2e",
+  "unlocks": [
+    "30",
+    "31"
+  ],
   "monsters": [
     "living-spirit",
     "ooze",

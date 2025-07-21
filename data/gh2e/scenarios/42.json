@@ -1,7 +1,14 @@
 {
   "index": "42",
   "name": "Secluded Valley",
+  "flowChartGroup": "hail",
   "edition": "gh2e",
+  "unlocks": [
+    "43"
+  ],
+  "forcedLinks": [
+    "43"
+  ],
   "monsters": [
     "cave-bear",
     "city-guard",

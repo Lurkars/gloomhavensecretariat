@@ -1,7 +1,14 @@
 {
   "index": "26",
   "name": "Gloomhaven Battlements B",
+  "flowChartGroup": "demons",
   "edition": "gh2e",
+  "unlocks": [
+    "23"
+  ],
+  "forcedLinks": [
+    "23"
+  ],
   "monsters": [
     "ancient-artillery",
     "city-archer",

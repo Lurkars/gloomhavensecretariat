@@ -1,7 +1,14 @@
 {
   "index": "25B",
   "name": "Gloomhaven Battlements A (Military Allies)",
+  "flowChartGroup": "city-guards",
   "edition": "gh2e",
+  "unlocks": [
+    "27"
+  ],
+  "forcedLinks": [
+    "27"
+  ],
   "monsters": [
     "city-archer",
     "city-guard",

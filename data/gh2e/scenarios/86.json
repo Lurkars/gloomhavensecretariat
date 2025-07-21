@@ -1,6 +1,7 @@
 {
   "index": "86",
   "name": "Magma Pit",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "flame-demon",

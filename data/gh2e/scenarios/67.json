@@ -1,6 +1,7 @@
 {
   "index": "67",
   "name": "Temple of the Eclipse",
+  "flowChartGroup": "random",
   "edition": "gh2e",
   "monsters": [
     "ancient-artillery",

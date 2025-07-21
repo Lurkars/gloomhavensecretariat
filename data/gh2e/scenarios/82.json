@@ -1,6 +1,7 @@
 {
   "index": "82",
   "name": "Syndicate Hideout",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "bandit-archer",

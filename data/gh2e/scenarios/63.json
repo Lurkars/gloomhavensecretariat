@@ -1,6 +1,7 @@
 {
   "index": "63",
   "name": "Fading Lighthouse",
+  "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "monsters": [
     "flame-demon",

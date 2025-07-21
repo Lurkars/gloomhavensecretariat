@@ -1,7 +1,13 @@
 {
   "index": "35",
   "name": "Realm of the Voice",
+  "flowChartGroup": "the-voice",
   "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "the-voice-silenced"
+    ]
+  },
   "monsters": [
     "deep-terror",
     "living-spirit",

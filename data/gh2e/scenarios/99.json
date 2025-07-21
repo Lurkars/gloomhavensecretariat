@@ -1,6 +1,7 @@
 {
   "index": "99",
   "name": "Sintering Forge",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "ancient-artillery",

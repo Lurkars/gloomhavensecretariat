@@ -1,6 +1,7 @@
 {
   "index": "72",
   "name": "Well of the Unfortunate",
+  "flowChartGroup": "random",
   "edition": "gh2e",
   "monsters": [
     "forest-imp",

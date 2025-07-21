@@ -46,6 +46,7 @@ export class ObjectiveManager {
       this.game.figures.push(objectiveContainer);
     }
     gameManager.addEntityCount(objectiveContainer);
+    this.setInitiativeShare(objectiveContainer);
     gameManager.sortFigures(objectiveContainer);
     return objectiveContainer;
   }
@@ -162,8 +163,28 @@ export class ObjectiveManager {
     this.game.figures.forEach((figure) => {
       if (figure instanceof ObjectiveContainer) {
         figure.off = false;
+        this.setInitiativeShare(figure);
       }
     })
+  }
+
+  setInitiativeShare(figure: ObjectiveContainer) {
+    if (figure.objectiveId) {
+      const objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId);
+
+      if (objectiveData && objectiveData.initiativeShare) {
+        let offset = 0;
+        const name = objectiveData.initiativeShare.split(':')[0];
+        if (objectiveData.initiativeShare.split(':').length > 0) {
+          offset = +objectiveData.initiativeShare.split(':')[1];
+        }
+
+        const monster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name == name);
+        if (monster) {
+          figure.initiative = gameManager.game.state == GameState.next && monster.getInitiative() && monster.getInitiative() < 100 ? (offset < 0 ? Math.ceil(monster.getInitiative() + offset) : Math.floor(monster.getInitiative() + offset)) : 0;
+        }
+      }
+    }
   }
 
   draw() {
@@ -172,6 +193,7 @@ export class ObjectiveManager {
         if (figure.entities.some((objectiveEntity) => gameManager.entityManager.isAlive(objectiveEntity))) {
           figure.off = false;
         }
+        this.setInitiativeShare(figure);
       }
     })
   }

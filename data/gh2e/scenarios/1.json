@@ -1,8 +1,12 @@
 {
   "index": "1",
   "name": "Bandit Camp",
+  "flowChartGroup": "intro",
   "edition": "gh2e",
   "initial": true,
+  "unlocks": [
+    "2"
+  ],
   "monsters": [
     "bandit-archer",
     "bandit-scout"

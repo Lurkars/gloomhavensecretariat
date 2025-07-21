@@ -1,6 +1,7 @@
 {
   "index": "68",
   "name": "Sunken Vessel",
+  "flowChartGroup": "random",
   "edition": "gh2e",
   "monsters": [
     "frost-demon",

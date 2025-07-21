@@ -1,6 +1,7 @@
 {
   "index": "85",
   "name": "Crossroads Station",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "black-imp",

@@ -1,7 +1,13 @@
 {
   "index": "51",
   "name": "Lair of the Unseeing Eye",
+  "flowChartGroup": "the-gloom",
   "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "end-of-corruption"
+    ]
+  },
   "monsters": [
     "city-archer",
     "deep-terror",

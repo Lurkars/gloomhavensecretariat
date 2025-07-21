@@ -1,0 +1,12 @@
+{
+  "index": "50.2",
+  "edition": "gh2e",
+  "parent": "27",
+  "conclusion": true,
+  "rewards": {
+    "globalAchievements": [
+      "city-rule-military",
+      "peace-through-bloodshed"
+    ]
+  }
+}

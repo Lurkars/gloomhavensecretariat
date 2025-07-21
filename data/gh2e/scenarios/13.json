@@ -2,6 +2,14 @@
   "index": "13",
   "name": "Icecrag Ascent",
   "edition": "gh2e",
+  "unlocks": [
+    "29"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "the-drake-aided"
+    ]
+  },
   "monsters": [
     "hound",
     "rending-drake",

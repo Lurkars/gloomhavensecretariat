@@ -1,7 +1,13 @@
 {
   "index": "88",
   "name": "Arcane Library",
+  "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "forest-imp"

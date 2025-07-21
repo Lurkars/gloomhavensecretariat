@@ -1,6 +1,7 @@
 {
   "index": "92",
   "name": "Chronal Anchor",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "chaos-demon",

@@ -1,7 +1,13 @@
 {
   "index": "29",
   "name": "Scorched Summit",
+  "flowChartGroup": "the-voice",
   "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "the-drake-slain"
+    ]
+  },
   "monsters": [
     "rending-drake",
     "spitting-drake",

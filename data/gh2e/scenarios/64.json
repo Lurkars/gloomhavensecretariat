@@ -1,6 +1,7 @@
 {
   "index": "64",
   "name": "Roots of Chaos",
+  "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "monsters": [
     "earth-demon",

@@ -1,7 +1,11 @@
 {
   "index": "6",
   "name": "Decaying Crypt",
+  "flowChartGroup": "demons",
   "edition": "gh2e",
+  "unlocks": [
+    "11"
+  ],
   "monsters": [
     "crystal-rot",
     "living-bones",

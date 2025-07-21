@@ -1,7 +1,17 @@
 {
   "index": "23A",
   "name": "Gloomhaven Square A (Demon Allies)",
+  "flowChartGroup": "demons",
   "edition": "gh2e",
+  "unlocks": [
+    "36"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "city-rules-demons",
+      "peace-through-bloodshed"
+    ]
+  },
   "monsters": [
     "cultist",
     "earth-demon",

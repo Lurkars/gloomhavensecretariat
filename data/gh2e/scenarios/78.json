@@ -1,6 +1,7 @@
 {
   "index": "78",
   "name": "Vault of Secrets",
+  "flowChartGroup": "puzzle",
   "edition": "gh2e",
   "monsters": [
     "ancient-artillery",

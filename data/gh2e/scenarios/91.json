@@ -1,6 +1,7 @@
 {
   "index": "91",
   "name": "Shadows Within",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "cultist",

@@ -1,7 +1,14 @@
 {
   "index": "23B",
   "name": "Gloomhaven Square A (Military Allies)",
+  "flowChartGroup": "city-guards",
   "edition": "gh2e",
+  "unlocks": [
+    "25"
+  ],
+  "forcedLinks": [
+    "25"
+  ],
   "monsters": [
     "city-archer",
     "city-guard",

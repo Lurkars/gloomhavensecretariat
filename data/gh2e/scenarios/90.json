@@ -1,6 +1,7 @@
 {
   "index": "90",
   "name": "Burning Mountain",
+  "flowChartGroup": "events",
   "edition": "gh2e",
   "monsters": [
     "earth-demon",

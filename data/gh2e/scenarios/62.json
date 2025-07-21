@@ -1,6 +1,7 @@
 {
   "index": "62",
   "name": "Alchemy Lab",
+  "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "monsters": [
     "cave-bear",

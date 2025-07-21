@@ -1,6 +1,7 @@
 {
   "index": "0",
   "name": "Training Course",
+  "flowChartGroup": "intro",
   "edition": "gh2e",
   "initial": true,
   "monsters": [

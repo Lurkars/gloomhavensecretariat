@@ -1,7 +1,11 @@
 {
   "index": "40",
   "name": "Wetlands Ambush",
+  "flowChartGroup": "hail",
   "edition": "gh2e",
+  "unlocks": [
+    "44"
+  ],
   "monsters": [
     "earth-demon",
     "flame-demon",

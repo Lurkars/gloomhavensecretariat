@@ -1,7 +1,16 @@
 {
   "index": "41",
   "name": "Ancient Cistern",
+  "flowChartGroup": "the-sewers",
   "edition": "gh2e",
+  "unlocks": [
+    "54"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "hallowed-waters"
+    ]
+  },
   "monsters": [
     "black-imp",
     "living-corpse",

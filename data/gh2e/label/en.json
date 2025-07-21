@@ -27,6 +27,20 @@
         "5": "For an entire scenario, create, destroy, or move at least one obstacle tile each round",
         "6": "In a single scenario, heal 8 or more hit points during a single round, deal 8 or more damage with a ranged attack ability, and deal 8 or more damage with a melee attack ability"
       },
+      "flowChartGroup": {
+        "city-guards": "City Guard/The Shields",
+        "demons": "Demons/The Sect",
+        "events": "Events",
+        "hail": "Hail",
+        "intro": "Intro",
+        "merchant-guild": "Merchant's Guild",
+        "personal-quests": "Personal Quests",
+        "puzzle": "Puzzle Book",
+        "random": "Random Side Scenarios",
+        "the-gloom": "The Gloom",
+        "the-sewers": "The Sewers",
+        "the-voice": "The Voice and the Drake"
+      },
       "mindthief": {
         "1": "Add +1 %game.action.attack% if the target has a negative condition",
         "2": "Where X is half the Rat King's current hit point value (rounded up).",
@@ -73,6 +87,28 @@
       "merchant-guild": "Merchant's Guild",
       "military": "Military"
     }
+  },
+  "globalAchievements": {
+    "activating-the-device": "Activating the Device",
+    "ancient-technology": "Ancient Technology",
+    "an-uneasy-peace": "An Uneasy Peace",
+    "city-rule-demons": "City Rule: Demons",
+    "city-rule-merchants": "City Rule: Merchants",
+    "city-rule-military": "City Rule: Military",
+    "elements-mastered": "Elements Mastered",
+    "end-of-corruption": "End of Corruption",
+    "end-of-gloom": "End of Gloom",
+    "hallowed-waters": "Hallowed Waters",
+    "into-the-depths": "Into the Depths",
+    "peace-through-bloodshed": "Peace Through Bloodshed",
+    "the-candle-extinguished": "The Candle Extinguished",
+    "the-candle-kept": "The Candle Kept",
+    "the-darkness-retreats": "The Darkness Retreats",
+    "the-drake-aided": "The Drake Aided",
+    "the-drake-slain": "The Drake Slain",
+    "the-power-of-enhancement": "The Power of Enhancement",
+    "the-voice-freed": "The Voice Freed",
+    "the-voice-silenced": "The Voice Silenced"
   },
   "monster": {
     "alpha-lurker": "Alpha Lurker",

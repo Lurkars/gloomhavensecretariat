@@ -1,7 +1,11 @@
 {
   "index": "39",
   "name": "Vibrant Grotto",
+  "flowChartGroup": "hail",
   "edition": "gh2e",
+  "unlocks": [
+    "40"
+  ],
   "monsters": [
     "cave-bear",
     "earth-demon",

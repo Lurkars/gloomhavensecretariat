@@ -1,6 +1,7 @@
 {
   "index": "53",
   "name": "Shrine of Strength",
+  "flowChartGroup": "the-gloom",
   "edition": "gh2e",
   "monsters": [
     "frost-demon",

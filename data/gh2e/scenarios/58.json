@@ -1,6 +1,7 @@
 {
   "index": "58",
   "name": "Palace of Ice",
+  "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "monsters": [
     "cave-bear",

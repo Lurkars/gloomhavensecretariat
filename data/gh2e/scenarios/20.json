@@ -1,6 +1,7 @@
 {
   "index": "20",
   "name": "Gloomhaven Warehouse",
+  "flowChartGroup": "demons",
   "edition": "gh2e",
   "monsters": [
     "crystal-rot",

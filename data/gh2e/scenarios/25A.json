@@ -1,7 +1,14 @@
 {
   "index": "25A",
   "name": "Gloomhaven Battlements A (Merchant Allies)",
+  "flowChartGroup": "merchant-guild",
   "edition": "gh2e",
+  "unlocks": [
+    "27"
+  ],
+  "forcedLinks": [
+    "27"
+  ],
   "monsters": [
     "dark-ritual-cultist",
     "earth-demon",

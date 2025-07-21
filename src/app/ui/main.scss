@@ -136,6 +136,7 @@ main {
     width: 100%;
     max-width: calc(var(--ghs-unit) * 35 * var(--ghs-text-factor));
     border-radius: 5px;
+    filter: var(--ghs-filter-shadow);
   }
 
   .ghs-logo {

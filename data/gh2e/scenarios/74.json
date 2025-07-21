@@ -1,6 +1,7 @@
 {
   "index": "74",
   "name": "Windswept Highlands",
+  "flowChartGroup": "random",
   "edition": "gh2e",
   "monsters": [
     "spitting-drake",

@@ -1,7 +1,13 @@
 {
   "index": "52",
   "name": "Shadow Weald",
+  "flowChartGroup": "the-gloom",
   "edition": "gh2e",
+  "rewards": {
+    "globalAchievements": [
+      "end-of-corruption"
+    ]
+  },
   "monsters": [
     "city-guard",
     "earth-demon",

@@ -1,6 +1,7 @@
 {
   "index": "66",
   "name": "A Friend in Need",
+  "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "monsters": [
     "bandit-archer",

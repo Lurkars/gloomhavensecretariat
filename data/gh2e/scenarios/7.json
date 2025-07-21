@@ -1,7 +1,14 @@
 {
   "index": "7",
   "name": "Black Barrow",
+  "flowChartGroup": "demons",
   "edition": "gh2e",
+  "unlocks": [
+    "8"
+  ],
+  "forcedLinks": [
+    "8"
+  ],
   "monsters": [
     "bandit-archer",
     "bandit-scout",

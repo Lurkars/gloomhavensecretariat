@@ -1,7 +1,19 @@
 {
   "index": "33",
   "name": "Ancient Defense Network",
+  "flowChartGroup": "the-voice",
   "edition": "gh2e",
+  "unlocks": [
+    "34"
+  ],
+  "forcedLinks": [
+    "34"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "flame-demon",

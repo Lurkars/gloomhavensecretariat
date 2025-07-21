@@ -1,6 +1,7 @@
 {
   "index": "65",
   "name": "Hero's Mausoleum",
+  "flowChartGroup": "personal-quests",
   "edition": "gh2e",
   "monsters": [
     "crystal-rot",

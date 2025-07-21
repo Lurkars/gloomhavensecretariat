@@ -1,6 +1,7 @@
 {
   "index": "17",
   "name": "Demonic Rift",
+  "flowChartGroup": "city-guards",
   "edition": "gh2e",
   "monsters": [
     "city-guard-scenario-17",

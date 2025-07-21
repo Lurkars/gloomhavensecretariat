@@ -1,7 +1,16 @@
 {
   "index": "37",
   "name": "Deep Ruins",
+  "flowChartGroup": "the-sewers",
   "edition": "gh2e",
+  "unlocks": [
+    "41"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "ancient-technology"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "crystal-rot",
