@@ -1,23 +1,31 @@
 {
   "ability": {
     "Aid from the Ether": "Secours de l'Éther",
+    "Angelic Ascension": "Ascension Angélique",
     "Auto Turret": "Tourelle Automatique",
     "Avalanche": "Avalanche",
     "Backstab": "Coup en Traître",
     "Backup Ammunition": "Réserve de Munitions",
     "Balanced Measure": "Mesures Équilibrées",
     "Beacon of Light": "Flambeau Lumineux",
+    "Black Hole": "Trou Noir",
     "Blind Destruction": "Destruction Aveugle",
     "Blunt Force": "Force Brute",
     "Brain Leech": "Suceur de Cervelle",
+    "Bright Aegis": "Égide Lumineuse",
     "Brilliant Prayer": "Prière Éclatante",
     "Brutal Momentum": "Élan Brutal",
     "Brute Force": "Force Brute",
+    "Burning Flash": "Éclair Brûlant",
     "Burning Oil": "Huile Brûlante",
     "Cataclysm": "Cataclysme",
     "Cautious Advance": "Avance Prudente",
     "Chimeric Formula": "Formule Chimérique",
+    "Chromatic Explosion": "Explosion Chromatique",
+    "Cleansing Force": "Force Purificatrice",
     "Clear the Way": "Voie Dégagée",
+    "Cold Fire": "Feu Glacial",
+    "Cold Front": "Front Froid",
     "Corrupting Embrace": "Étreinte Corruptive",
     "Crackling Air": "Air Crépitant",
     "Cranium Overload": "Surcharge Crânienne",
@@ -39,12 +47,16 @@
     "Dirt Tornado": "Tornade de Poussière",
     "Disintegration Beam": "Rayon Désintégrateur",
     "Disorienting Flash": "Flash Déroutant",
+    "Divine Intervention": "Intervention Divine",
     "Domination": "Domination",
     "Duelist's Advance": "Pas de Duelliste",
     "Earthen Clod": "Motte de Terre",
+    "Elemental Aid": "Aide Élémentaire",
     "Empathetic Assault": "Assaut Empathique",
     "Empowering Command": "Ordre Stimulant",
     "Energizing Tonic": "Tonic Énergisant",
+    "Engulfed in Flames": "Ravagé par les Flammes",
+    "Engulfing Radiance": "Radiance Submergeante",
     "Enhancement Field": "Champ d'Amélioration",
     "Explosive Punch": "Poing Explosif",
     "Eye for an Eye": "Œil pour Œil",
@@ -56,6 +68,7 @@
     "Flame Strike": "Frappe de la Flamme",
     "Flamethrower": "Lance-flammes",
     "Flanking Strike": "Frappe de Côté",
+    "Flashing Burst": "Éclat Luminescent",
     "Flintlock": "Silex",
     "Flurry of Blades": "Déluge de Lames",
     "Forceful Storm": "Tempête Puissante",
@@ -64,6 +77,7 @@
     "Frigid Apparition": "Apparition Glaciale",
     "Frost Armor": "Armure de Givre",
     "Frozen Mind": "Esprit Gelé",
+    "Frozen Night": "Nuit Glaciale",
     "Gas Canister": "Cartouche de Gaz",
     "Glorious Bolt": "Éclair Glorieux",
     "Gnawing Horde": "Horde de Rongeurs",
@@ -75,13 +89,18 @@
     "Harsh Stimulants": "Stimulants Sévères",
     "Heaving Swing": "Projection",
     "Hidden Daggers": "Dagues Dissimulées",
+    "Holy Strike": "Châtiment Divin",
     "Hook Gun": "Pistolet à Grappin",
     "Hook and Chain": "Crochet et Chaîne",
     "Hostile Takeover": "Possession Hostile",
+    "Icy Blast": "Souffle Glacé",
+    "Illuminate the Target": "Lumière sur la Cible",
     "Immovable Phalanx": "Phalange Inébranlable",
     "Impaling Eruption": "Éruption de Piques",
+    "Inferno": "Fournaise",
     "Info the Night": "Au Cœur de la Nuit",
     "Ink Bomb": "Bombe à Encre",
+    "Inspiring Sanctity": "Sainteté Inspirante",
     "Jet Propulsion": "Propulsion par Réaction",
     "Juggernaut": "Rouleau Compresseur",
     "Kinetic Assault": "Assaut Cinétique",
@@ -89,6 +108,7 @@
     "Lay on Hands": "Imposition des Mains",
     "Leaping Cleave": "Feinte Bondissante",
     "Lethal Injection": "Injection Létale",
+    "Living Torch": "Torche Vivante",
     "Long Con": "Duperie Élaborée",
     "Lumbering Bash": "Coup Fracassant",
     "Mana Bolt": "Projectile de Mana",
@@ -107,6 +127,7 @@
     "Overwhelming Assault": "Assaut Déferlant",
     "Pain's End": "Fin de la Douleur",
     "Parasitic Influence": "Influence Parasite",
+    "Path of Glory": "Sentier de la Gloire",
     "Perverse Edge": "Côté Pervers",
     "Petrify": "Pétrification",
     "Phantasmal Killer": "Tueur Fantasmagorique",
@@ -127,10 +148,12 @@
     "Reviving Ether": "Éther Revigorant",
     "Reviving Shock": "Choc Revitalisant",
     "Ride the Wind": "Chevauchée sur le Vent",
+    "Righteous Strength": "Force Vertueuse",
     "Rock Slide": "Éboulement Rocheux",
     "Rock Tunnel": "Tunnel de Roche",
     "Rocky End": "Pointe Rocheuse",
     "Rumbling Advance": "Progression Grondante",
+    "Scales of Justice": "Balance de la Justice",
     "Scurry": "Précipitation",
     "Selfish Retribution": "Amende Déshonorable",
     "Sentient Growth": "Croissance Consciente",
@@ -144,13 +167,16 @@
     "Smoke Bomb": "Fumigène",
     "Spare Dagger": "Dague Cachée",
     "Special Mixture": "Mixture Spéciale",
+    "Spirit of Doom": "Esprit du Chaos",
     "Spring the Trap": "Piège Armé",
     "Stamina Booster": "Fortifiant",
     "Stick to the Shadows": "La Faveur de l'Ombre",
     "Stiletto Storm": "Tempête de Stylets",
+    "Stone Fists": "Poings de Roc",
     "Stone Pummel": "Lapidation",
     "Stun Shot": "Tir Étourdissant",
     "Submissive Affliction": "Affliction Aggravée",
+    "Supportive Chant": "Chant d'Encouragement",
     "Sweeping Blow": "Balayage",
     "Swift Bow": "Arc Prompt",
     "Tactical Order": "Ordre Tactique",
@@ -161,8 +187,10 @@
     "Toxic Bolt": "Carreau Toxique",
     "Trample": "Piétinement",
     "Trickster's Reversal": "Coup de Jarnac",
+    "Twin Restoration": "Reconstitution Jumelée",
     "Unstable Upheaval": "Perturbation Instable",
     "Unstoppable Chard": "Charge Irrésistible",
+    "Unwavering Mandate": "Mandat Inébranlable",
     "Vengeance": "Vengeance",
     "Venom Shiv": "Surin Empoisonné",
     "Vicious Blood": "Sang Vicieux",
@@ -171,9 +199,11 @@
     "Wall of Doom": "Mur de Chaos",
     "Warding Strength": "Force de Guet",
     "Watch It Burn": "Contemplation des Dégâts",
+    "Weapon of Purity": "Arme de Pureté",
     "Whirlwind": "Tornade",
     "Withering Claw": "Griffe Flétrissante",
-    "Wretched Creature": "Misérable Créature"
+    "Wretched Creature": "Misérable Créature",
+    "Zephyr Wings": "Ailes Zéphiriennes"
   },
   "battleGoals": {
     "458": {
@@ -682,6 +712,45 @@
           "69": {
             "1": "Pour vos 4 prochaines attaques, ajoutez +1 %game.action.attack%.",
             "2": "Ajoutez +2 %game.action.attack% à la place."
+          },
+          "75": {
+            "1": "Affectez un allié",
+            "2": "Affectez tous les alliés à la place"
+          },
+          "76": {
+            "1": "Éliminez un adversaire normal à la place, %game.card.experience:1%",
+            "2": "Affectez un allié",
+            "3": "où X est la moitié de la valeur maximale de points de vie de cet allié (arrondissez à l'inférieur).",
+            "4": "X est la valeur maximale de points de vie de cet allié à la place."
+          },
+          "79": {
+            "1": "Pour les cinq prochaines attaques de mêlée vous ciblant, gagnez %game.action.retaliate:3%."
+          },
+          "80": {
+            "1": "Tous les adversaires adjacents à la cible subissent 2 dégâts, %game.card.experience:1%."
+          },
+          "81": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé"
+          },
+          "82": {
+            "1": "Récupérez %game.card.recover% jusqu'à deux de vos cartes perdues."
+          },
+          "84": {
+            "1": "%game.action.loot:3% à la place, %game.card.experience:1%",
+            "2": "Vous ne pouvez pas piller plus de quatre pions Monnaie ou tuiles Trésor avec cette action."
+          },
+          "85": {
+            "1": "Pour les trois prochaines sources de dégâts d'attaques vous ciblant, ne subissez pas de dégâts et gagnez %game.action.retaliate:3%, %game.action.range:3% à la place."
+          },
+          "86": {
+            "1": "Gagnez %game.card.experience:1% pour chaque adversaire ciblé",
+            "2": "Éliminez tous les adversaires normaux dans la zone ciblée.",
+            "3": "Choisissez un hexagone à %game.action.range:4%.",
+            "4": "Ciblez tous les adversaires à %game.action.range:4% de l'hexagone choisi et tirez-les vers celui-ci"
+          },
+          "87": {
+            "1": "Ciblez tous les adversaires dans la même salle que vous",
+            "2": "Tous les alliés dans la même salle que vous subissent 2 dégâts."
           }
         }
       },
