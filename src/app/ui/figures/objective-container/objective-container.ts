@@ -86,6 +86,10 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
       this.marker = this.objective.entities.flatMap((entity) => entity.marker)[0];
     }
 
+    if (this.objective.objectiveId) {
+      this.objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.objective.objectiveId);
+    }
+
     this.compact = settingsManager.settings.characterCompact && settingsManager.settings.theme != 'modern';
     this.short = (!settingsManager.settings.abilities || !settingsManager.settings.stats) && settingsManager.settings.theme != 'modern';
   }

@@ -166,7 +166,7 @@
         },
         {
           "type": "damage",
-          "value": 2
+          "value": 1
         },
         {
           "type": "condition",
@@ -201,7 +201,7 @@
         },
         {
           "type": "damage",
-          "value": 2
+          "value": 1
         },
         {
           "type": "condition",

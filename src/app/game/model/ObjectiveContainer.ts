@@ -39,6 +39,9 @@ export class ObjectiveContainer implements Figure {
     if (this.objectiveId) {
       const objectiveModel = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.objectiveId);
       if (objectiveModel && objectiveModel.initiativeShare && objectiveModel.initiativeShare.split(':').length > 1) {
+        if (this.initiative < 1) {
+          return 100;
+        }
         offset = +objectiveModel.initiativeShare.split(':')[1];
       }
     }
