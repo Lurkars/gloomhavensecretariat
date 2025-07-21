@@ -471,7 +471,9 @@
         "2": "Crée un piège à %game.damage:4% sur l'hexagone vide adjacent le plus proche d'un adversaire."
       },
       "flowChartGroup": {
-        "personal-quests": "Quêtes Personnelles"
+        "city-events": "Événements de Ville",
+        "personal-quests": "Quêtes Personnelles",
+        "road-events": "Événements de Route"
       },
       "giant-viper": {
         "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la %data.monster.giant-viper%.",
