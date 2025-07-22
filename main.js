@@ -1,8 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const { autoUpdater } = require('electron-updater');
-const path = require('path');
-
-app.commandLine.appendSwitch('no-sandbox');
 
 let mainWindow;
 
@@ -16,7 +13,7 @@ function createWindow() {
     }
   });
 
-  mainWindow.loadFile(path.join(__dirname, 'dist/gloomhavensecretariat/index.html'));
+  mainWindow.loadFile('./dist/gloomhavensecretariat/index.html');
 
   mainWindow.on("closed", () => {
     mainWindow = null;
