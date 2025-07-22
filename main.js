@@ -2,6 +2,8 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
+app.commandLine.appendSwitch('no-sandbox');
+
 let mainWindow;
 
 function createWindow() {
@@ -62,10 +64,10 @@ app.whenReady().then(() => {
 
   // Check for updates
   autoUpdater.checkForUpdates();
-  // Check for updates every hour
+  // Check for updates every 30m
   setInterval(() => {
     autoUpdater.checkForUpdates();
-  }, 60 * 60 * 1000);
+  }, 30 * 60 * 1000);
 });
 
 app.on('window-all-closed', () => {
