@@ -3,9 +3,14 @@
   "edition": "gh2e",
   "parent": "34",
   "conclusion": true,
+  "blocks": [
+    "30",
+    "35"
+  ],
   "rewards": {
     "globalAchievements": [
       "the-voice-silenced"
-    ]
+    ],
+    "gold": 30
   }
 }

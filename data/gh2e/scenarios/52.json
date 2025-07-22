@@ -6,7 +6,8 @@
   "rewards": {
     "globalAchievements": [
       "end-of-corruption"
-    ]
+    ],
+    "prosperity": 1
   },
   "monsters": [
     "city-guard",
@@ -21,6 +22,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        73
+      ],
       "monster": [
         {
           "name": "earth-demon",

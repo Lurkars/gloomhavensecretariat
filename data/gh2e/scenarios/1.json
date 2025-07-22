@@ -7,6 +7,13 @@
   "unlocks": [
     "2"
   ],
+  "rewards": {
+    "gold": 10,
+    "reputationFactions": [
+      "merchant-guild:1",
+      "military:1"
+    ]
+  },
   "monsters": [
     "bandit-archer",
     "bandit-scout"

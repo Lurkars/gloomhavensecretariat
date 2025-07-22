@@ -4,6 +4,9 @@
   "flowChartGroup": "intro",
   "edition": "gh2e",
   "initial": true,
+  "rewards": {
+    "gold": 2
+  },
   "monsters": [
     "training-dummy"
   ],

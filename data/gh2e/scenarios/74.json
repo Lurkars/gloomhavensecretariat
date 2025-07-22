@@ -3,6 +3,12 @@
   "name": "Windswept Highlands",
   "flowChartGroup": "random",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1,
+    "items": [
+      "53"
+    ]
+  },
   "monsters": [
     "spitting-drake",
     "sun-demon",

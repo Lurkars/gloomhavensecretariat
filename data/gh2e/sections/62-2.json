@@ -8,6 +8,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        26
+      ],
       "monster": [
         {
           "name": "flame-demon",

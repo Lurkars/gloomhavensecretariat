@@ -3,6 +3,13 @@
   "name": "The Ghost Fortress",
   "flowChartGroup": "merchant-guild",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 15,
+    "reputationFactions": [
+      "merchant-guild:2",
+      "military:-1"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "city-archer",

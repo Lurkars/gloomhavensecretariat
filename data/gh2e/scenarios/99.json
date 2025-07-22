@@ -3,6 +3,14 @@
   "name": "Sintering Forge",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "items": [
+      "117"
+    ],
+    "events": [
+      "road:33"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "black-imp-scenario-99",
@@ -13,6 +21,10 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        9,
+        30
+      ],
       "monster": [
         {
           "name": "ancient-artillery",

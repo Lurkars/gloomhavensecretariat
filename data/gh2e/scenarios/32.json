@@ -3,14 +3,6 @@
   "name": "Savvas Armory",
   "flowChartGroup": "the-voice",
   "edition": "gh2e",
-  "unlocks": [
-    "33"
-  ],
-  "rewards": {
-    "globalAchievements": [
-      "the-drake-aided"
-    ]
-  },
   "monsters": [
     "earth-demon",
     "flame-demon",

@@ -7,6 +7,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        59
+      ],
       "monster": [
         {
           "name": "crystal-rot",

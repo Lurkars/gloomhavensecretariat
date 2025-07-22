@@ -3,6 +3,11 @@
   "name": "Rockslide Ridge",
   "flowChartGroup": "puzzle",
   "edition": "gh2e",
+  "rewards": {
+    "items": [
+      "152"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "hound",

@@ -3,6 +3,13 @@
   "name": "Demonic Rift",
   "flowChartGroup": "city-guards",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1,
+    "reputationFactions": [
+      "demons:-1",
+      "military:2"
+    ]
+  },
   "monsters": [
     "city-guard-scenario-17",
     "earth-demon",
@@ -13,6 +20,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        70
+      ],
       "monster": [
         {
           "name": "city-guard-scenario-17",

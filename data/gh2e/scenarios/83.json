@@ -3,6 +3,9 @@
   "name": "Lost Island",
   "flowChartGroup": "random",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 15
+  },
   "monsters": [
     "cave-bear",
     "vermling-priest",

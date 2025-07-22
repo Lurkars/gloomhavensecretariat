@@ -3,15 +3,6 @@
   "name": "Chasing Secrets",
   "flowChartGroup": "hail",
   "edition": "gh2e",
-  "unlocks": [
-    "44"
-  ],
-  "rewards": {
-    "globalAchievements": [
-      "the-candle-kept",
-      "the-candle-extinguished"
-    ]
-  },
   "monsters": [
     "candlekeeper-trice",
     "city-guard",

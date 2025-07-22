@@ -7,6 +7,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        76
+      ],
       "monster": [
         {
           "name": "inox-archer",

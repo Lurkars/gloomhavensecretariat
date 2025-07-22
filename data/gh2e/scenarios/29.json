@@ -6,6 +6,11 @@
   "rewards": {
     "globalAchievements": [
       "the-drake-slain"
+    ],
+    "gold": 10,
+    "prosperity": 1,
+    "reputationFactions": [
+      "military:1"
     ]
   },
   "monsters": [
@@ -17,6 +22,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        75
+      ],
       "monster": [
         {
           "name": "rending-drake",

@@ -3,6 +3,10 @@
   "name": "Vermling Camp",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 5,
+    "prosperity": 1
+  },
   "monsters": [
     "cave-bear",
     "hound",

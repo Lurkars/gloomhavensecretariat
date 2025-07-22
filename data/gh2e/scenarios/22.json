@@ -3,6 +3,13 @@
   "name": "Doomcannon Demolition",
   "flowChartGroup": "merchant-guild",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 15,
+    "reputationFactions": [
+      "demons:-1",
+      "merchant-guild:2"
+    ]
+  },
   "monsters": [
     "flame-demon",
     "frost-demon",

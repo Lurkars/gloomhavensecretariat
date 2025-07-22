@@ -1172,6 +1172,7 @@
       "alliesAdjacent": "%game.target% all adjacent allies",
       "alliesAdjacentAffect": "%game.affect% all adjacent allies",
       "alliesAffect": "%game.affect% all allies",
+      "alliesEnemies": "%game.target% all allies and enemies",
       "alliesRange": "%game.target% all allies within %game.action.range% {0}",
       "alliesRangeAffect": "%game.affect% all allies within %game.action.range% {0}",
       "ally": "%game.target% 1 ally",

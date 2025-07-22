@@ -7,6 +7,12 @@
     "6",
     "7"
   ],
+  "rewards": {
+    "experience": 10,
+    "reputationFactions": [
+      "demons:1"
+    ]
+  },
   "monsters": [
     "bandit-archer",
     "cultist",

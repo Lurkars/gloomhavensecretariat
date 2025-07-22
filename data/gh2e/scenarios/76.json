@@ -3,6 +3,9 @@
   "name": "Oozing Grove",
   "flowChartGroup": "puzzle",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1
+  },
   "monsters": [
     "forest-imp",
     "giant-viper",

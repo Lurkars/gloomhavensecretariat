@@ -3,6 +3,13 @@
   "name": "Military Outpost",
   "flowChartGroup": "demons",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 25,
+    "reputationFactions": [
+      "demons:2",
+      "military:-1"
+    ]
+  },
   "monsters": [
     "chaos-demon",
     "city-archer",

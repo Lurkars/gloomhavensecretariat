@@ -3,6 +3,9 @@
   "name": "Sunken Vessel",
   "flowChartGroup": "random",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 10
+  },
   "monsters": [
     "frost-demon",
     "living-spirit",

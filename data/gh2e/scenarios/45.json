@@ -12,7 +12,11 @@
   "rewards": {
     "globalAchievements": [
       "the-darkness-retreats"
-    ]
+    ],
+    "envelopes": [
+      "candle"
+    ],
+    "prosperity": 1
   },
   "monsters": [
     "black-imp",

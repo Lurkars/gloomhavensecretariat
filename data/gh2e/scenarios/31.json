@@ -3,10 +3,6 @@
   "name": "Decrepit Wood",
   "flowChartGroup": "the-voice",
   "edition": "gh2e",
-  "unlocks": [
-    "32",
-    "33"
-  ],
   "monsters": [
     "black-imp",
     "deep-terror",

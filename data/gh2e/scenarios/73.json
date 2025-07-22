@@ -3,6 +3,9 @@
   "name": "Chained Isle",
   "flowChartGroup": "random",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1
+  },
   "monsters": [
     "living-spirit",
     "night-demon",

@@ -3,6 +3,9 @@
   "name": "A Friend in Need",
   "flowChartGroup": "personal-quests",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 15
+  },
   "monsters": [
     "bandit-archer",
     "bandit-scout",

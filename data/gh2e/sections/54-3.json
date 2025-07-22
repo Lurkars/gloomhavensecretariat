@@ -7,6 +7,9 @@
     {
       "roomNumber": 7,
       "initial": true,
+      "treasures": [
+        50
+      ],
       "monster": [
         {
           "name": "stone-construct",

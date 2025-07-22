@@ -7,6 +7,12 @@
     "12",
     "16"
   ],
+  "rewards": {
+    "gold": 15,
+    "reputationFactions": [
+      "merchant-guild:1"
+    ]
+  },
   "monsters": [
     "bandit-archer",
     "bandit-commander",

@@ -7,6 +7,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        23
+      ],
       "monster": [
         {
           "name": "bandit-archer",

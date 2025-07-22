@@ -7,6 +7,9 @@
     {
       "roomNumber": 5,
       "initial": true,
+      "treasures": [
+        37
+      ],
       "monster": [
         {
           "name": "night-demon",

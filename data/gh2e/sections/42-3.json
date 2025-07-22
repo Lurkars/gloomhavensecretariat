@@ -10,6 +10,9 @@
     {
       "roomNumber": 3,
       "initial": true,
+      "treasures": [
+        51
+      ],
       "monster": [
         {
           "name": "arcane-construct",

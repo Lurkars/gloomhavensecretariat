@@ -3,6 +3,12 @@
   "name": "A Watery Rescue",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "139"
+    ]
+  },
   "monsters": [
     "frost-demon",
     "lurker-soldier",

@@ -3,6 +3,17 @@
   "name": "Palace of Ice",
   "flowChartGroup": "personal-quests",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "battleGoals": 1,
+    "items": [
+      "147"
+    ],
+    "events": [
+      "road:39",
+      "city:66"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "frost-demon",

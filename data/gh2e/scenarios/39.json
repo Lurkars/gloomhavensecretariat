@@ -6,6 +6,9 @@
   "unlocks": [
     "40"
   ],
+  "rewards": {
+    "prosperity": 1
+  },
   "monsters": [
     "cave-bear",
     "earth-demon",

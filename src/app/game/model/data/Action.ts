@@ -81,6 +81,7 @@ export enum ActionSpecialTarget {
   alliesAdjacent = "alliesAdjacent",
   alliesAdjacentAffect = "alliesAdjacentAffect",
   alliesAffect = "alliesAffect",
+  alliesEnemies = "alliesEnemies",
   alliesRange = "alliesRange",
   alliesRangeAffect = "alliesRangeAffect",
   ally = "ally",

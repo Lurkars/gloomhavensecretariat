@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="card-back front" *ngIf="!!item.actionsBack && item.actionsBack.length > 0">
-                <img class="artwork"
+                <img class="artwork" *ngIf="!item.noArtwork"
                     [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + (item.backArtwork ? '-back' : '') + '.png'">
                 <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
                 <div class="content">
@@ -49,7 +49,7 @@
             </div>
 
             <div class="card-front front">
-                <img class="artwork" *ngIf="!bb"
+                <img class="artwork" *ngIf="!bb && !item.noArtwork"
                     [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + '.png'">
                 <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
                 <div class="content">

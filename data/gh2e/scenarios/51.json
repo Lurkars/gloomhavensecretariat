@@ -6,7 +6,8 @@
   "rewards": {
     "globalAchievements": [
       "end-of-corruption"
-    ]
+    ],
+    "prosperity": 1
   },
   "monsters": [
     "city-archer",

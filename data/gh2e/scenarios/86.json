@@ -3,6 +3,9 @@
   "name": "Magma Pit",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 15
+  },
   "monsters": [
     "flame-demon",
     "inox-archer",

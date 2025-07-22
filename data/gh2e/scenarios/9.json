@@ -3,6 +3,15 @@
   "name": "Ruinous Rift",
   "flowChartGroup": "hail",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1,
+    "events": [
+      "road:30"
+    ],
+    "reputationFactions": [
+      "military:1"
+    ]
+  },
   "monsters": [
     "chaos-demon",
     "earth-demon",

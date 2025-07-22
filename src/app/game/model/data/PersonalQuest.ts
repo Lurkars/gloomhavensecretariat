@@ -7,6 +7,7 @@ export class PersonalQuest implements Editional {
     requirements: PersonalQuestRequirement[] = [];
     unlockCharacter: string = "";
     openEnvelope: string = "";
+    unlockPQ: string = "";
     errata: string = "";
 
     // from Editional

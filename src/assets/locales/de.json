@@ -1071,6 +1071,7 @@
       "alliesAdjacent": "%game.target% alle angrenzenden Verbündeten an",
       "alliesAdjacentAffect": "%game.affect% alle angrenzenden Verbündeten an",
       "alliesAffect": "%game.affect% alle Verbündeten an",
+      "alliesEnemies": "%game.target% alle Verbündeten und alle Gegner",
       "alliesRange": "%game.target% alle Verbündeten in %game.action.range% {0} an",
       "alliesRangeAffect": "%game.affect% alle Verbündeten in %game.action.range% {0} an",
       "ally": "%game.target% 1 Verbündeten",

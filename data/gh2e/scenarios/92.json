@@ -3,6 +3,12 @@
   "name": "Chronal Anchor",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "144"
+    ]
+  },
   "monsters": [
     "chaos-demon",
     "earth-demon",

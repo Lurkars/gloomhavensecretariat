@@ -3,6 +3,9 @@
   "name": "Harried Village",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "battleGoals": 1
+  },
   "monsters": [
     "cave-bear",
     "lurker-soldier",

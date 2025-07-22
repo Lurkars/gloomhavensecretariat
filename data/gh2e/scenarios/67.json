@@ -3,6 +3,13 @@
   "name": "Temple of the Eclipse",
   "flowChartGroup": "random",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 15,
+    "experience": 10,
+    "items": [
+      "136"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "night-demon",

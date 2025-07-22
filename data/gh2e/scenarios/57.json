@@ -3,6 +3,11 @@
   "name": "Crypt Basement",
   "flowChartGroup": "personal-quests",
   "edition": "gh2e",
+  "rewards": {
+    "items": [
+      "147"
+    ]
+  },
   "monsters": [
     "crystal-rot",
     "giant-viper",

@@ -9,6 +9,10 @@
   "forcedLinks": [
     "60"
   ],
+  "rewards": {
+    "gold": 10,
+    "prosperity": 1
+  },
   "monsters": [],
   "rooms": [
     {

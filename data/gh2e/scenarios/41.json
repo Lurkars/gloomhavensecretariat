@@ -9,7 +9,8 @@
   "rewards": {
     "globalAchievements": [
       "hallowed-waters"
-    ]
+    ],
+    "prosperity": 2
   },
   "monsters": [
     "black-imp",

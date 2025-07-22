@@ -3,6 +3,13 @@
   "name": "Gloomhaven Warehouse",
   "flowChartGroup": "demons",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 25,
+    "reputationFactions": [
+      "demons:2",
+      "merchant-guild:-1"
+    ]
+  },
   "monsters": [
     "crystal-rot",
     "inox-bodyguard",

@@ -3,6 +3,12 @@
   "name": "Metamorphic Fault",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "111"
+    ]
+  },
   "monsters": [
     "deep-terror",
     "earth-demon",

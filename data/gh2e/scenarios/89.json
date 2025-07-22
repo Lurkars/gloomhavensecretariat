@@ -3,6 +3,11 @@
   "name": "Community Service",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "items": [
+      "37-2"
+    ]
+  },
   "monsters": [
     "black-imp",
     "giant-viper",

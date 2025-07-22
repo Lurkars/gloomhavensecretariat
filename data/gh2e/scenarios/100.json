@@ -3,6 +3,12 @@
   "name": "Silence Falls",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1,
+    "events": [
+      "city:60"
+    ]
+  },
   "monsters": [
     "chaos-demon",
     "crystal-rot",
@@ -13,6 +19,10 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        15,
+        58
+      ],
       "monster": [
         {
           "name": "chaos-demon",

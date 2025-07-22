@@ -9,6 +9,12 @@
     "10",
     "28"
   ],
+  "rewards": {
+    "prosperity": 1,
+    "reputationFactions": [
+      "military:1"
+    ]
+  },
   "monsters": [
     "cultist",
     "living-bones",

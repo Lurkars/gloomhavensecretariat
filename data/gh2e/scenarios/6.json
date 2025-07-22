@@ -6,6 +6,16 @@
   "unlocks": [
     "11"
   ],
+  "rewards": {
+    "gold": 5,
+    "experience": 10,
+    "events": [
+      "city:51"
+    ],
+    "reputationFactions": [
+      "demons:1"
+    ]
+  },
   "monsters": [
     "crystal-rot",
     "living-bones",

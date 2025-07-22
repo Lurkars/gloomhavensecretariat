@@ -2,9 +2,6 @@
   "index": "27",
   "name": "Infernal Throne",
   "edition": "gh2e",
-  "unlocks": [
-    "36"
-  ],
   "monsters": [
     "earth-demon",
     "flame-demon",

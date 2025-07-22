@@ -125,6 +125,464 @@
       }
     }
   },
+  "items": {
+    "gh2e-1": {
+      "": "Weathered Boots"
+    },
+    "gh2e-2": {
+      "": "Winged Shoes"
+    },
+    "gh2e-3": {
+      "": "Hide Armor"
+    },
+    "gh2e-4": {
+      "": "Leather Armor"
+    },
+    "gh2e-5": {
+      "": "Scouting Lens"
+    },
+    "gh2e-6": {
+      "": "Amulet of Life"
+    },
+    "gh2e-7": {
+      "": "Poison Dagger"
+    },
+    "gh2e-8": {
+      "": "Heater Shield"
+    },
+    "gh2e-9": {
+      "": "Focusing Rod"
+    },
+    "gh2e-10": {
+      "": "Simple Bow"
+    },
+    "gh2e-11": {
+      "": "Healing Potion"
+    },
+    "gh2e-12": {
+      "": "Stamina Potion"
+    },
+    "gh2e-13": {
+      "": "Element Potion"
+    },
+    "gh2e-14": {
+      "": "Studded Armor"
+    },
+    "gh2e-15": {
+      "": "Comfortable Shoes"
+    },
+    "gh2e-16": {
+      "": "Circlet of Elements"
+    },
+    "gh2e-17": {
+      "": "Boots of Speed"
+    },
+    "gh2e-18": {
+      "": "Heavy Bassinet"
+    },
+    "gh2e-19": {
+      "": "Warden's Robes"
+    },
+    "gh2e-20": {
+      "": "Hooked Chain"
+    },
+    "gh2e-21": {
+      "": "Power Potion"
+    },
+    "gh2e-22": {
+      "": "Iron Spear"
+    },
+    "gh2e-23": {
+      "": "Jagged Sword"
+    },
+    "gh2e-24": {
+      "": "Black Knife"
+    },
+    "gh2e-25": {
+      "": "Weighted Net"
+    },
+    "gh2e-26": {
+      "": "Eagle-Eye Goggles"
+    },
+    "gh2e-27": {
+      "": "Iron Helmet"
+    },
+    "gh2e-28": {
+      "": "Chainmail"
+    },
+    "gh2e-29": {
+      "": "Nimble Legguards"
+    },
+    "gh2e-30": {
+      "": "Armorbane Bow"
+    },
+    "gh2e-31": {
+      "": "Staff of Summoning"
+    },
+    "gh2e-32": {
+      "": "Black Censer"
+    },
+    "gh2e-33": {
+      "": "Second Skin"
+    },
+    "gh2e-34": {
+      "": "Battle Axe"
+    },
+    "gh2e-35": {
+      "": "Tower Shield"
+    },
+    "gh2e-36": {
+      "": "Moon Earing"
+    },
+    "gh2e-37": {
+      "": "Major Healing Potion"
+    },
+    "gh2e-38": {
+      "": "Heavy Greaves"
+    },
+    "gh2e-39": {
+      "": "Ring of Skulls"
+    },
+    "gh2e-40": {
+      "": "Shadow Amor"
+    },
+    "gh2e-41": {
+      "": "Kinetic Treads"
+    },
+    "gh2e-42": {
+      "": "Endurance Footwraps"
+    },
+    "gh2e-43": {
+      "": "Hawk Helm"
+    },
+    "gh2e-44": {
+      "": "Precision Bow"
+    },
+    "gh2e-45": {
+      "": "Major Element Potion"
+    },
+    "gh2e-46": {
+      "": "Light Targe"
+    },
+    "gh2e-47": {
+      "": "Cloak of Pockets"
+    },
+    "gh2e-48": {
+      "": "Staff of Elements"
+    },
+    "gh2e-49": {
+      "": "Horned Helm"
+    },
+    "gh2e-50": {
+      "": "Robes of the Oak"
+    },
+    "gh2e-51": {
+      "": "Heavy Mace"
+    },
+    "gh2e-52": {
+      "": "Sun Earring"
+    },
+    "gh2e-53": {
+      "": "Major Power Potion"
+    },
+    "gh2e-54": {
+      "": "Circlet of Sanctity"
+    },
+    "gh2e-55": {
+      "": "Volatile Bomb"
+    },
+    "gh2e-56": {
+      "": "Steel Sabatons"
+    },
+    "gh2e-57": {
+      "": "Strategist's Ring"
+    },
+    "gh2e-58": {
+      "": "Major Stamina Potion"
+    },
+    "gh2e-59": {
+      "": "Telescopic Lens"
+    },
+    "gh2e-60": {
+      "": "Staff of Eminence"
+    },
+    "gh2e-61": {
+      "": "War Hammer"
+    },
+    "gh2e-62": {
+      "": "Mask of Terror"
+    },
+    "gh2e-63": {
+      "": "Star Earring"
+    },
+    "gh2e-64": {
+      "": "Empowering Talisman"
+    },
+    "gh2e-65": {
+      "": "Long Spear"
+    },
+    "gh2e-66": {
+      "": "Cloak of Invisibility"
+    },
+    "gh2e-67": {
+      "": "Spiked Shoes"
+    },
+    "gh2e-68": {
+      "": "Ring of Haste"
+    },
+    "gh2e-69": {
+      "": "Plate Mail"
+    },
+    "gh2e-70": {
+      "": "Standard Rations"
+    },
+    "gh2e-71": {
+      "": "Mastercraft Crossbow"
+    },
+    "gh2e-72": {
+      "": "Commander's Cap"
+    },
+    "gh2e-73": {
+      "": "Mantle of Summoning"
+    },
+    "gh2e-74": {
+      "": "Concealed Dagger"
+    },
+    "gh2e-75": {
+      "": "Opulent Hood"
+    },
+    "gh2e-76": {
+      "": "Merchant's Insignia"
+    },
+    "gh2e-77": {
+      "": "Robes of Evocation"
+    },
+    "gh2e-78": {
+      "": "Reaping Scythe"
+    },
+    "gh2e-79": {
+      "": "Doom Powder"
+    },
+    "gh2e-80": {
+      "": "Demonic Skull"
+    },
+    "gh2e-81": {
+      "": "Frigid Blade"
+    },
+    "gh2e-82": {
+      "": "Storm Blade"
+    },
+    "gh2e-83": {
+      "": "Inferno Blade"
+    },
+    "gh2e-84": {
+      "": "Tremor Blade"
+    },
+    "gh2e-85": {
+      "": "Brilliant Blade"
+    },
+    "gh2e-86": {
+      "": "Night Blade"
+    },
+    "gh2e-87": {
+      "": "Versatile Dagger"
+    },
+    "gh2e-88": {
+      "": "Spiked Shield"
+    },
+    "gh2e-89": {
+      "": "Swordedge Armor"
+    },
+    "gh2e-90": {
+      "": "Blinking Cape"
+    },
+    "gh2e-91": {
+      "": "Boots of Quickness"
+    },
+    "gh2e-92": {
+      "": "Stun Powder"
+    },
+    "gh2e-93": {
+      "": "Scroll of Ferocity"
+    },
+    "gh2e-94": {
+      "": "Scroll of Healing"
+    },
+    "gh2e-95": {
+      "": "Scroll of Shielding"
+    },
+    "gh2e-96": {
+      "": "Scroll of Swiftness"
+    },
+    "gh2e-97": {
+      "": "Shoes of Happiness"
+    },
+    "gh2e-98": {
+      "": "Cloak of Phasing"
+    },
+    "gh2e-99": {
+      "": "Unstable Explosives"
+    },
+    "gh2e-100": {
+      "": "Charged Boots"
+    },
+    "gh2e-101": {
+      "": "Cure Potion"
+    },
+    "gh2e-102": {
+      "": "Steel Ring"
+    },
+    "gh2e-103": {
+      "": "Ranger's Hood"
+    },
+    "gh2e-104": {
+      "": "Warding Rod"
+    },
+    "gh2e-105": {
+      "": "Lucky Eye"
+    },
+    "gh2e-106": {
+      "": "Steam Armor"
+    },
+    "gh2e-107": {
+      "": "Necklace of Teeth"
+    },
+    "gh2e-108": {
+      "": "Thief's Hood"
+    },
+    "gh2e-109": {
+      "": "Ancient Drill"
+    },
+    "gh2e-110": {
+      "": "Fueled Falchion"
+    },
+    "gh2e-111": {
+      "": "Skull of Hatred"
+    },
+    "gh2e-112": {
+      "": "Curious Gear"
+    },
+    "gh2e-113": {
+      "": "Black Card"
+    },
+    "gh2e-114": {
+      "": "Gust Striders"
+    },
+    "gh2e-115": {
+      "": "Rod of Transference"
+    },
+    "gh2e-116": {
+      "": "Fated Verses"
+    },
+    "gh2e-117": {
+      "": "Dawnblade"
+    },
+    "gh2e-118": {
+      "": "Duskbrand"
+    },
+    "gh2e-119": {
+      "": "Drakescale Boots"
+    },
+    "gh2e-120": {
+      "": "Drakescale Armor"
+    },
+    "gh2e-121": {
+      "": "Drakescale Helm"
+    },
+    "gh2e-122": {
+      "": "Frost Beetle Lantern"
+    },
+    "gh2e-123": {
+      "": "Storm Beetle Lantern"
+    },
+    "gh2e-124": {
+      "": "Ignition Beetle Lantern"
+    },
+    "gh2e-125": {
+      "": "Tremor Beetle Lantern"
+    },
+    "gh2e-126": {
+      "": "Brilliant Beetle Lantern"
+    },
+    "gh2e-127": {
+      "": "Twilight Beetle Lantern"
+    },
+    "gh2e-128": {
+      "": "Pendant of Dark Pacts"
+    },
+    "gh2e-129": {
+      "": "Helm of the Mountain"
+    },
+    "gh2e-130": {
+      "": "Mountain Hammer"
+    },
+    "gh2e-131": {
+      "": "Wave Crest"
+    },
+    "gh2e-132": {
+      "": "Doomed Compass"
+    },
+    "gh2e-133": {
+      "": "Heart of the Betrayer"
+    },
+    "gh2e-134": {
+      "": "Power Core"
+    },
+    "gh2e-135": {
+      "": "Resonant Crystal"
+    },
+    "gh2e-136": {
+      "": "Helix Ring"
+    },
+    "gh2e-137": {
+      "": "Flea-Bitten Shawl"
+    },
+    "gh2e-138": {
+      "": "Bloody Axe"
+    },
+    "gh2e-139": {
+      "": "Otherworldly Scepter"
+    },
+    "gh2e-140": {
+      "": "Remote Attack Spider"
+    },
+    "gh2e-141": {
+      "": "Remote Aid Spider"
+    },
+    "gh2e-142": {
+      "": "Magma Waders"
+    },
+    "gh2e-143": {
+      "": "Boots of Bracing"
+    },
+    "gh2e-144": {
+      "": "Temporal Matrix"
+    },
+    "gh2e-145": {
+      "": "Harrow-Hook"
+    },
+    "gh2e-146": {
+      "": "Amberhollow"
+    },
+    "gh2e-147": {
+      "": "Scepter of Xorn"
+    },
+    "gh2e-148": {
+      "": "Shield of the Righteous"
+    },
+    "gh2e-149": {
+      "": "Aesther Spyglass"
+    },
+    "gh2e-150": {
+      "": "Experimental Armor"
+    },
+    "gh2e-151": {
+      "": "Sword of the Sands"
+    },
+    "gh2e-152": {
+      "": "Ruby Talisman"
+    }
+  },
   "summon": {
     "angry-wasps": "Angry Wasps",
     "battle-boar": "Battle Boar",

@@ -40,6 +40,69 @@
         "1": "when %game.action.attack% performed",
         "2": "at end of turn"
       },
+      "squidface": {
+        "abilities": {
+          "289": {
+            "1": "%game.condition.poison% all allies and enemies in the targeted area."
+          },
+          "290": {
+            "1": "Deduct -1 %game.action.range% from all your ranged attacks."
+          },
+          "292": {
+            "1": "Once during each of your Attack actions, you may %game.condition.poison% one ally within %game.action.range% 2 (or deal 3 damage if the ally already has %game.condition.poison%) to add +1 %game.action.attack% to the entire Attack action."
+          },
+          "294": {
+            "1": "Gain %game.action.fly%"
+          },
+          "298": {
+            "1": "During your next six Attack actions where %game.element.air% is Strong or Waning, you may %game.element.consume.air% to add +1 %game.action.attack% to the entire Attack action."
+          },
+          "299": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "300": {
+            "1": "After each of your Move actions, %game.condition.poison% all adjacent allies and enemies."
+          },
+          "301": {
+            "1": "Remove %game.condition.poison% from any one enemy to cause it suffer 3 damage.",
+            "2": "Target all enemies adjacent to all enemies with %game.condition.poison%"
+          },
+          "304": {
+            "1": "%game.condition.poison% all allies adjacent to the target."
+          },
+          "305": {
+            "1": "Kill one normal enemy with %game.condition.poison% within %game.action.range% 3.",
+            "2": "Affect all allies with %game.condition.poison%"
+          },
+          "307": {
+            "1": "Additionally, target all enemies on the path to the primary target"
+          },
+          "309": {
+            "1": "All enemies with %game.condition.poison% suffer 1 damage.",
+            "2": "2 damage instead"
+          },
+          "310": {
+            "1": "Once during each of your Move actions, you may suffer 1 damage to deal 3 damage to any one enemey with %game.condition.poison%.",
+            "2": "All allies with %game.condition.poison% may Recover %game.card.recover% up to two of their discarded cards.",
+            "3": "Up to three discarded cards instead"
+          },
+          "314": {
+            "1": "If %game.condition.curse% cuases an enemy to deal no damage during its attack, this enemy suffers 3 damage."
+          },
+          "316": {
+            "1": "During your next six Attack actions, %game.condition.curse% one ally within %game.action.range% 2 to gain two %game.action.target% effects.",
+            "2": "Double the value of your next Attack action this round."
+          },
+          "317": {
+            "1": "All enemies with %game.condition.poison% suffer 2 damage.",
+            "2": "Suffer 1 additional damage"
+          },
+          "318": {
+            "1": "All allies with %game.condition.poison% suffer 2 damage.",
+            "2": "For each two allies damages, add +1 %game.action.attack% to all your attacks this round and gain %game.card.experience:1%."
+          }
+        }
+      },
       "sun": {
         "abilities": {
           "175": {

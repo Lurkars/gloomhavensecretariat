@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretariat",
-  "version": "0.124.5",
+  "version": "0.125.0",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven/Frosthaven Companion app.",
   "homepage": "https://gloomhaven-secretariat.de",
@@ -37,18 +37,20 @@
     "test": "ng test",
     "watch": "nodemon",
     "electron": "npm run build -- --base-href ./ && electron .",
-    "electron:build": "npm run build -- --base-href ./ && electron-builder"
+    "electron:build": "npm run build -- --base-href ./ && electron-builder --linux AppImage"
   },
   "build": {
     "appId": "gloomhavensecretariat",
+    "publish": [{
+      "provider": "github",
+      "owner": "Lurkars",
+      "repo": "gloomhavensecretariat"
+    }],
     "linux": {
       "target": [
         "AppImage",
         "rpm",
         "deb"
-      ],
-      "publish": [
-        "github"
       ]
     },
     "mac": {
@@ -66,17 +68,11 @@
             "universal"
           ]
         }
-      ],
-      "publish": [
-        "github"
       ]
     },
     "win": {
       "target": "nsis",
-      "icon": "build/icon.ico",
-      "publish": [
-        "github"
-      ]
+      "icon": "build/icon.ico"
     },
     "files": [
       "main.js",
@@ -117,6 +113,7 @@
     "@types/uuid": "^10.0.0",
     "electron": "^36.7.1",
     "electron-builder": "^26.0.19",
+    "electron-updater": "^6.6.7",
     "http-server": "^14.1.1",
     "husky": "^9.1.7",
     "jasmine-core": "~5.7.1",

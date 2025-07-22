@@ -7,6 +7,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        40
+      ],
       "monster": [
         {
           "name": "cultist-scenario-82",

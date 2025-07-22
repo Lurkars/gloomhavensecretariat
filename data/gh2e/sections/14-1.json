@@ -8,6 +8,9 @@
     {
       "roomNumber": 4,
       "initial": true,
+      "treasures": [
+        19
+      ],
       "monster": [
         {
           "name": "rending-drake",

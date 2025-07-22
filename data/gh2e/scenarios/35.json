@@ -3,10 +3,15 @@
   "name": "Realm of the Voice",
   "flowChartGroup": "the-voice",
   "edition": "gh2e",
+  "blocks": [
+    "33",
+    "34"
+  ],
   "rewards": {
     "globalAchievements": [
       "the-voice-silenced"
-    ]
+    ],
+    "experience": 30
   },
   "monsters": [
     "deep-terror",

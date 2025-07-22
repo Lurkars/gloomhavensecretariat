@@ -10,6 +10,10 @@
   "rewards": {
     "globalAchievements": [
       "the-power-of-enhancement"
+    ],
+    "prosperity": 1,
+    "reputationFactions": [
+      "military:1"
     ]
   },
   "monsters": [

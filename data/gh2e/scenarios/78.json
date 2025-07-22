@@ -3,6 +3,9 @@
   "name": "Vault of Secrets",
   "flowChartGroup": "puzzle",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 3
+  },
   "monsters": [
     "ancient-artillery",
     "city-guard",

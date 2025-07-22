@@ -6,6 +6,9 @@
   "rewards": {
     "globalAchievements": [
       "ancient-technology"
+    ],
+    "events": [
+      "city:37"
     ]
   },
   "monsters": [

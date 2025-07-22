@@ -7,6 +7,12 @@
     "29",
     "32"
   ],
+  "rewards": {
+    "gold": 20,
+    "reputationFactions": [
+      "merchant-guild:1"
+    ]
+  },
   "monsters": [
     "inox-archer",
     "inox-guard",

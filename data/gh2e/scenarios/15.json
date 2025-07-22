@@ -3,6 +3,13 @@
   "name": "Plane of Elemental Power",
   "flowChartGroup": "demons",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 20,
+    "battleGoals": 2,
+    "reputationFactions": [
+      "demons:1"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

@@ -3,6 +3,11 @@
   "name": "Wild Melee",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 15,
+    "prosperity": 1,
+    "battleGoals": 1
+  },
   "monsters": [
     "bandit-archer",
     "bandit-scout",

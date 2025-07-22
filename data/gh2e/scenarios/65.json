@@ -3,6 +3,10 @@
   "name": "Hero's Mausoleum",
   "flowChartGroup": "personal-quests",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 10,
+    "battleGoals": 1
+  },
   "monsters": [
     "crystal-rot",
     "living-bones",

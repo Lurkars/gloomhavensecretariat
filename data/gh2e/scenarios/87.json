@@ -6,6 +6,9 @@
   "rewards": {
     "globalAchievements": [
       "ancient-technology"
+    ],
+    "items": [
+      "109"
     ]
   },
   "monsters": [

@@ -8,6 +8,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        18
+      ],
       "monster": [
         {
           "name": "inox-guard",

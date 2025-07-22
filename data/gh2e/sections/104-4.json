@@ -7,6 +7,10 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        27,
+        45
+      ],
       "monster": [
         {
           "name": "harrower-infester",

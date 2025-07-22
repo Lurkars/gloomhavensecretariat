@@ -160,6 +160,9 @@ export class ScenarioRewards {
   overlayCampaignSticker: WorldMapOverlay | undefined = undefined;
   pet: string | undefined = undefined;
   repeatScenario: boolean = false;
+  reputationFactions: string[] = [];
+  factionUnlock: string = "";
+  randomSideScenario: number = 0;
   hints: ScenarioRewardHints | undefined = undefined;
 
 }
@@ -202,6 +205,8 @@ export class ScenarioRewardHints {
   chooseUnlockCharacter: string[] = [];
   overlaySticker: string = "";
   overlayCampaignSticker: string = "";
+  reputationFactions: string[] = [];
+  randomSideScenario: string = "";
   pet: string = "";
 }
 

@@ -3,6 +3,12 @@
   "name": "Diamond Mine",
   "flowChartGroup": "merchant-guild",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 20,
+    "reputationFactions": [
+      "merchant-guild:1"
+    ]
+  },
   "monsters": [
     "bandit-archer",
     "bandit-scout",

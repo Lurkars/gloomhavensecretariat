@@ -6,6 +6,13 @@
   "unlocks": [
     "3"
   ],
+  "rewards": {
+    "experience": 10,
+    "reputationFactions": [
+      "demons:1",
+      "military:1"
+    ]
+  },
   "monsters": [
     "dark-ritual-cultist",
     "earth-demon",

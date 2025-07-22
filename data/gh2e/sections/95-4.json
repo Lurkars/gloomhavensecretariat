@@ -7,6 +7,9 @@
     {
       "roomNumber": 7,
       "initial": true,
+      "treasures": [
+        29
+      ],
       "monster": [
         {
           "name": "living-spirit",

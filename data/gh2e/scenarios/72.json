@@ -3,6 +3,9 @@
   "name": "Well of the Unfortunate",
   "flowChartGroup": "random",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 15
+  },
   "monsters": [
     "forest-imp",
     "living-spirit",

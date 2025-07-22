@@ -6,7 +6,9 @@
   "rewards": {
     "globalAchievements": [
       "end-of-gloom"
-    ]
+    ],
+    "experience": 50,
+    "prosperity": 5
   },
   "monsters": [
     "black-imp",

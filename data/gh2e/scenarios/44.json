@@ -9,7 +9,12 @@
   "rewards": {
     "globalAchievements": [
       "elements-mastered"
-    ]
+    ],
+    "gold": 100,
+    "prosperity": 1,
+    "hints": {
+      "gold": "This money must immediately be spent on enhancements"
+    }
   },
   "monsters": [
     "cultist",

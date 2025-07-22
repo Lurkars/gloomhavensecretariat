@@ -16,6 +16,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        38
+      ],
       "monster": [
         {
           "name": "giant-viper",

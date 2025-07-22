@@ -6,7 +6,9 @@
   "rewards": {
     "globalAchievements": [
       "ancient-technology"
-    ]
+    ],
+    "experience": 10,
+    "battleGoals": 1
   },
   "monsters": [
     "ancient-artillery",

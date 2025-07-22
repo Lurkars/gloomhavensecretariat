@@ -3,6 +3,10 @@
   "name": "Overgrown Graveyard",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 10,
+    "prosperity": 1
+  },
   "monsters": [
     "crystal-rot",
     "living-bones",

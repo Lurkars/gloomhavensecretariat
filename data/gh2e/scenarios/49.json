@@ -6,6 +6,9 @@
   "unlocks": [
     "52"
   ],
+  "rewards": {
+    "prosperity": 1
+  },
   "monsters": [
     "hound",
     "inox-archer",

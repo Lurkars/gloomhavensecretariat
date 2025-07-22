@@ -3,6 +3,12 @@
   "name": "Syndicate Hideout",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1,
+    "events": [
+      "city:72"
+    ]
+  },
   "monsters": [
     "bandit-archer",
     "bandit-scout",

@@ -3,6 +3,10 @@
   "name": "Crossroads Station",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1,
+    "battleGoals": 1
+  },
   "monsters": [
     "black-imp",
     "earth-demon",

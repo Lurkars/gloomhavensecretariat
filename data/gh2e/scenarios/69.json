@@ -3,6 +3,10 @@
   "name": "Corrupted Cove",
   "flowChartGroup": "random",
   "edition": "gh2e",
+  "rewards": {
+    "experience": 15,
+    "prosperity": 1
+  },
   "monsters": [
     "black-imp",
     "deep-terror",

@@ -3,6 +3,9 @@
   "name": "Back Alley Brawl",
   "flowChartGroup": "events",
   "edition": "gh2e",
+  "rewards": {
+    "gold": 10
+  },
   "monsters": [
     "city-archer",
     "city-guard",

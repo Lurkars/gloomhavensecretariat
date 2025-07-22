@@ -7,6 +7,9 @@
     {
       "roomNumber": 2,
       "initial": true,
+      "treasures": [
+        17
+      ],
       "monster": [
         {
           "name": "earth-demon",

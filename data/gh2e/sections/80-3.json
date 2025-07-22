@@ -3,11 +3,15 @@
   "name": "Chasing Secrets",
   "edition": "gh2e",
   "parent": "43",
-  "rooms": [
-    {
-      "roomNumber": 6,
-      "initial": true,
-      "monster": []
-    }
-  ]
+  "conclusion": true,
+  "unlocks": [
+    "44"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "the-candle-kept"
+    ],
+    "prosperity": 1,
+    "randomSideScenario": 1
+  }
 }

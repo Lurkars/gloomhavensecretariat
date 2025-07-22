@@ -22,6 +22,9 @@
     {
       "roomNumber": 1,
       "initial": true,
+      "treasures": [
+        74
+      ],
       "monster": [
         {
           "name": "cave-bear",

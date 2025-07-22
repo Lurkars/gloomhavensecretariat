@@ -2,6 +2,9 @@
   "index": "79",
   "name": "Lurker Assault",
   "edition": "gh2e",
+  "rewards": {
+    "prosperity": 1
+  },
   "monsters": [
     "lurker-soldier",
     "wind-demon"
