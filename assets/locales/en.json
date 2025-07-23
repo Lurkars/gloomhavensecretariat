@@ -222,7 +222,8 @@
           "": "Open Box %game.characterIcon.{0}%",
           "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0})",
           "randomScenario": "Unlock \"{1}\" %data.scenarioNumber:{0}%"
-        }
+        },
+        "unlockPQ": "Unlock Personal Quest {0}"
       },
       "resources": {
         "": "Resources",
