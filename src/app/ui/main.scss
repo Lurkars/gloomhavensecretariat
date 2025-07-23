@@ -348,7 +348,7 @@ main {
     }
   }
 
-  .gh2e-warning {
+  .edition-hint {
 
     display: flex;
     flex-direction: column;
@@ -356,7 +356,7 @@ main {
     justify-content: center;
 
     p {
-      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
       color: var(--ghs-color-darkgray);
       text-align: justify;
     }
@@ -365,6 +365,9 @@ main {
       cursor: pointer;
       display: flex;
       align-items: center;
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+      color: var(--ghs-color-black);
+      margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
 
       input[type="checkbox"] {
         color: var(--ghs-color-black);

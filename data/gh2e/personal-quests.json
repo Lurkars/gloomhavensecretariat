@@ -1,0 +1,123 @@
+[
+    {
+        "cardId": "01",
+        "altId": "01",
+        "unlockCharacter": "sun",
+        "unlockPQ": "16"
+    },
+    {
+        "cardId": "02",
+        "altId": "02",
+        "unlockCharacter": "three-spears",
+        "unlockPQ": "14"
+    },
+    {
+        "cardId": "03",
+        "altId": "03",
+        "unlockCharacter": "circles",
+        "unlockPQ": "12"
+    },
+    {
+        "cardId": "04",
+        "altId": "04",
+        "unlockCharacter": "eclipse",
+        "unlockPQ": "13"
+    },
+    {
+        "cardId": "05",
+        "altId": "05",
+        "unlockCharacter": "squidface",
+        "unlockPQ": "17"
+    },
+    {
+        "cardId": "06",
+        "altId": "06",
+        "unlockCharacter": "lightning",
+        "unlockPQ": "21"
+    },
+    {
+        "cardId": "07",
+        "altId": "07",
+        "unlockCharacter": "music-note",
+        "unlockPQ": "19"
+    },
+    {
+        "cardId": "08",
+        "altId": "08",
+        "unlockCharacter": "angry-face",
+        "unlockPQ": "20"
+    },
+    {
+        "cardId": "09",
+        "altId": "09",
+        "unlockCharacter": "saw",
+        "unlockPQ": "15"
+    },
+    {
+        "cardId": "10",
+        "altId": "10",
+        "unlockCharacter": "triangles",
+        "unlockPQ": "22"
+    },
+    {
+        "cardId": "11",
+        "altId": "11",
+        "unlockCharacter": "two-mini",
+        "unlockPQ": "18"
+    },
+    {
+        "cardId": "12",
+        "altId": "12",
+        "unlockCharacter": "sun"
+    },
+    {
+        "cardId": "13",
+        "altId": "13",
+        "unlockCharacter": "three-spears"
+    },
+    {
+        "cardId": "14",
+        "altId": "14",
+        "unlockCharacter": "circles"
+    },
+    {
+        "cardId": "15",
+        "altId": "15",
+        "unlockCharacter": "eclipse"
+    },
+    {
+        "cardId": "16",
+        "altId": "16",
+        "unlockCharacter": "squidface"
+    },
+    {
+        "cardId": "17",
+        "altId": "17",
+        "unlockCharacter": "lightning"
+    },
+    {
+        "cardId": "18",
+        "altId": "18",
+        "unlockCharacter": "music-note"
+    },
+    {
+        "cardId": "19",
+        "altId": "19",
+        "unlockCharacter": "angry-face"
+    },
+    {
+        "cardId": "20",
+        "altId": "20",
+        "unlockCharacter": "saw"
+    },
+    {
+        "cardId": "21",
+        "altId": "21",
+        "unlockCharacter": "triangles"
+    },
+    {
+        "cardId": "22",
+        "altId": "22",
+        "unlockCharacter": "two-mini"
+    }
+]

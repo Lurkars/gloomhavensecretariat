@@ -195,7 +195,6 @@ export class Game {
 
     this.solo = model.solo;
     this.party = Object.assign(new Party(), model.party ? JSON.parse(JSON.stringify(model.party)) : new Party());
-    this.party.migrate();
 
     this.parties = [this.party];
     if (model.parties) {
@@ -280,6 +279,8 @@ export class Game {
       }
       return c;
     })
+    
+    this.party.migrate();
 
     this.challengeDeck = this.challengeDeck || new ChallengeDeck();
     if (model.challengeDeck) {

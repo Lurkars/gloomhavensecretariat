@@ -1142,7 +1142,10 @@
     "shaman": "Shaman"
   },
   "edition": {
-    "gh": "Gloomhaven"
+    "gh": {
+      "": "Gloomhaven",
+      "hint": "This is the first edition of Gloomhaven!"
+    }
   },
   "globalAchievements": {
     "ancient-technology": "Ancient Technology",

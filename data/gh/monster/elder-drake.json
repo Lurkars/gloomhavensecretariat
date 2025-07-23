@@ -38,7 +38,7 @@
               "objective": {
                 "name": "zephyr",
                 "health": 0,
-                "initiativeShare": "elder-drake:-0.5",
+                "initiativeShare": "elder-drake:-0.1",
                 "actions": [
                   {
                     "type": "move",

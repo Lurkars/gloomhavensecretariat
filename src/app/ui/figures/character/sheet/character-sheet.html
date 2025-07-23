@@ -267,7 +267,7 @@
 
               <span *ngIf="personalQuest" class="personal-quest-name">
                 <span [ghs-label]="'data.personalQuest.' + personalQuest.edition + '.' + personalQuest.cardId"></span>
-                <span *ngIf="personalQuest.altId">&nbsp;({{personalQuest.altId}})</span>
+                <span *ngIf="personalQuest.altId && personalQuest.altId != personalQuest.cardId">&nbsp;({{personalQuest.altId}})</span>
               </span>
             </div>
 

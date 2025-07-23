@@ -71,6 +71,10 @@
             [ghs-label-args]="[envelopeItemBlueprint.id, envelopeItemBlueprint.edition]">
         </div>
 
+        <div class="text-white" *ngIf="personalQuest.unlockPQ" [ghs-label]="'character.progress.personalQuest.unlockPQ'"
+            [ghs-label-args]="[personalQuest.unlockPQ]">
+        </div>
+
         <div class="text-white" *ngIf="envelopeAlreadyUnlocked && !envelopeItemBlueprint"
             [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
         </div>
@@ -86,7 +90,7 @@
         <a (click)="moveResources()"><span [ghs-label]="'character.progress.retirement.moveSupply'"></span></a>
     </div>
 
-    <div class="additional" *ngIf="gameManager.fhRules() && gameManager.game.party.inspiration > 14">
+    <div class="additional" *ngIf="gameManager.fhRules(true) && gameManager.game.party.inspiration > 14">
         <a (click)="additional = !additional"><span
                 [ghs-label]="'character.progress.retirement.additionalPQ' + (additional ? '.cancel': '')"></span></a>
     </div>
@@ -122,6 +126,12 @@
             [ghs-label-args]="[additionalCharacterItemDesign.id, additionalCharacterItemDesign.edition]">
         </div>
 
+        <div class="event" *ngIf="additionalUnlockEvent">
+            <span *ngFor="let uE of additionalUnlockEvent.split('|')" class="text-white"
+                [ghs-label]="'character.progress.retirement.event' + (uE.indexOf(':') == -1 ? 's': '')"
+                [ghs-label-args]="uE.indexOf(':') == -1 ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
+        </div>
+
         <div class="envelope" *ngIf="!!additionalPQ && additionalPQ.openEnvelope">
             <span class="text-white"
                 [ghs-label]="'character.progress.personalQuest.openEnvelope' + (additionalPQ.openEnvelope.split(':').length > 1 ? '.alt' : '')"
@@ -150,6 +160,10 @@
 
         <div class="text-white" *ngIf="additionalEnvelopeAlreadyUnlocked && !additionalEnvelopeItemBlueprint"
             [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
+        </div>
+
+        <div class="text-white" *ngIf="!!additionalPQ && additionalPQ.unlockPQ" [ghs-label]="'character.progress.personalQuest.unlockPQ'"
+            [ghs-label-args]="[additionalPQ.unlockPQ]">
         </div>
 
         <div class="errata text-white" *ngIf="settingsManager.settings.errata && additionalPQ && additionalPQ.errata">

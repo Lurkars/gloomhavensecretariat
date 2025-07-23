@@ -40,6 +40,7 @@ export class MainComponent implements OnInit {
   cancelLoading: boolean = false;
   welcome: boolean = false;
   welcomeOtherEditions: boolean = false;
+  welcomeEditionHint: boolean = false;
   fullviewChar: Character | undefined;
   showBackupHint: boolean = false;
 
@@ -76,6 +77,7 @@ export class MainComponent implements OnInit {
           } else if (gameManager.game.figures.length == 0) {
             this.welcome = true;
             this.welcomeOtherEditions = settingsManager.settings.editions.length < gameManager.editionData.length;
+            this.welcomeEditionHint = gameManager.game.edition && settingsManager.getLabel('data.edition.' + gameManager.game.edition + '.hint') != 'hint' || false;
           } else {
             this.fullviewChar = undefined;
             this.welcome = false;
@@ -340,8 +342,8 @@ export class MainComponent implements OnInit {
         settingsManager.set('fhStyle', true);
       }
     }
-    gameManager.game.party.campaignMode = edition != 'gh2e';
-
+    gameManager.game.party.campaignMode = true;
+    this.welcomeEditionHint = edition && settingsManager.getLabel('data.edition.' + edition + '.hint') != 'hint' || false;
     gameManager.game.party.eventDecks = {};
     gameManager.eventCardManager.buildPartyDeckMigration(edition);
     gameManager.stateManager.after();

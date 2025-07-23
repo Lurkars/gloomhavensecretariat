@@ -7,6 +7,8 @@ import { EventCard, EventCardApplyEffects, EventCardCondition, EventCardConditio
 import { LootType } from "../model/data/Loot";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
+import { TreasureData, TreasureRewardType } from "../model/data/RoomData";
+import { ScenarioData } from "../model/data/ScenarioData";
 
 export class EventCardManager {
   game: Game;
@@ -47,29 +49,10 @@ export class EventCardManager {
         })
 
         if (this.game.party.eventDecks && Object.keys(this.game.party.eventDecks).length) {
-          this.game.party.scenarios.filter((s) => s.edition == edition || gameManager.editionExtensions(edition).indexOf(s.edition) != -1).map((s) => gameManager.scenarioManager.getScenario(s.index, s.edition, s.group)).forEach((scenarioData) => {
-            if (scenarioData && scenarioData.rewards) {
-              if (scenarioData.rewards.events) {
-                scenarioData.rewards.events.forEach((event) => {
-                  if (event.split(':').length > 1) {
-                    this.addEvent(event.split(':')[0], event.split(':')[1], true)
-                  }
-                })
-              }
 
-              if (scenarioData.rewards.eventDeck) {
-                const type = scenarioData.rewards.eventDeck.split(':')[0];
-                const events = gameManager.eventCardManager.getEventCardsForEdition(scenarioData.edition, type);
-                const startEvent = events.find((e) => scenarioData.rewards && e.cardId == scenarioData.rewards.eventDeck.split(':')[1].split('|')[0]);
-                const endEvent = events.find((e) => scenarioData.rewards && e.cardId == scenarioData.rewards.eventDeck.split(':')[1].split('|')[1]);
-                if (startEvent && endEvent) {
-                  gameManager.eventCardManager.buildEventDeck(type, events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId));
-                } else {
-                  console.warn("Could not find start and end for: " + scenarioData.rewards.eventDeck);
-                }
-              }
-            }
-          })
+          this.game.party.scenarios.filter((s) => s.edition == edition || gameManager.editionExtensions(edition).indexOf(s.edition) != -1).map((s) => gameManager.scenarioManager.getScenario(s.index, s.edition, s.group)).forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
+
+          this.game.party.conclusions.filter((s) => s.edition == edition || gameManager.editionExtensions(edition).indexOf(s.edition) != -1).map((s) => gameManager.scenarioManager.getSection(s.index, s.edition, s.group, true)).forEach((scenarioData) => this.buildPartyDeckMigrationScenarioHelper(scenarioData));
 
           this.game.unlockedCharacters.map((unlock) => gameManager.getCharacterData(unlock.split(':')[1], unlock.split(':')[0])).forEach((characterData) => {
             if (characterData.unlockEvent) {
@@ -97,7 +80,48 @@ export class EventCardManager {
             }
           })
 
+          let treasures = gameManager.editionData.filter((editionData) => editionData.treasures && editionData.edition == edition || gameManager.editionExtensions(edition).indexOf(editionData.edition) != -1).flatMap((editionData) => editionData.treasures.map((treasure, i) => new TreasureData(treasure, i + 1 + editionData.treasureOffset || 0)));
+
+          this.game.party.treasures.forEach((id) => {
+            if (id.edition == edition || gameManager.editionExtensions(edition).indexOf(id.edition) != -1) {
+              const treasure = treasures.find((treasureData) => treasureData.index == +id.name);
+              if (treasure && treasure.rewards) {
+                treasure.rewards.forEach((reward) => {
+                  if (reward.type == TreasureRewardType.event) {
+                    if (typeof reward.value === 'string' && reward.value.split('-').length > 1) {
+                      this.addEvent(reward.value.split('-')[0], reward.value.split('-')[1], true);
+                    }
+                  }
+                })
+              }
+            }
+          })
+
           console.debug("Migrated event decks");
+        }
+      }
+    }
+  }
+
+  buildPartyDeckMigrationScenarioHelper(scenarioData: ScenarioData | undefined) {
+    if (scenarioData && scenarioData.rewards) {
+      if (scenarioData.rewards.events) {
+        scenarioData.rewards.events.forEach((event) => {
+          if (event.split(':').length > 1) {
+            this.addEvent(event.split(':')[0], event.split(':')[1], true)
+          }
+        })
+      }
+
+      if (scenarioData.rewards.eventDeck) {
+        const type = scenarioData.rewards.eventDeck.split(':')[0];
+        const events = gameManager.eventCardManager.getEventCardsForEdition(scenarioData.edition, type);
+        const startEvent = events.find((e) => scenarioData.rewards && e.cardId == scenarioData.rewards.eventDeck.split(':')[1].split('|')[0]);
+        const endEvent = events.find((e) => scenarioData.rewards && e.cardId == scenarioData.rewards.eventDeck.split(':')[1].split('|')[1]);
+        if (startEvent && endEvent) {
+          gameManager.eventCardManager.buildEventDeck(type, events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId));
+        } else {
+          console.warn("Could not find start and end for: " + scenarioData.rewards.eventDeck);
         }
       }
     }

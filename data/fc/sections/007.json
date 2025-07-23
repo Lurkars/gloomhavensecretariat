@@ -6,7 +6,9 @@
   "rewards": {
     "gold": 10,
     "events": [
-      "city:88, 89 and 90"
+      "city:88",
+      "city:89",
+      "city:90"
     ]
   }
 }

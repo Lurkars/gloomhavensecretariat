@@ -27,7 +27,7 @@ export class EnhancementsManager {
     }
 
     update() {
-        this.fh = gameManager.fhRules() || settingsManager.settings.alwaysFhEnhancements;
+        this.fh = gameManager.fhRules(true) || settingsManager.settings.alwaysFhEnhancements;
         this.temporary = settingsManager.settings.temporaryEnhancements;
         this.enhancerLevel = this.fh && this.game.party.buildings.find((buildingModel) => buildingModel.name == "enhancer" && buildingModel.level && buildingModel.state != "wrecked")?.level || 0;
         if (this.fh) {
@@ -53,7 +53,7 @@ export class EnhancementsManager {
                 costs /= 2;
             }
 
-            if (this.fh && special == 'persistent') {
+            if (this.fh && !gameManager.gh2eRules() && special == 'persistent') {
                 costs *= 3;
             }
 

@@ -32,6 +32,10 @@ export class ScenarioManager {
     return gameManager.scenarioData(edition).find((scenarioData) => scenarioData.index == index && scenarioData.edition == edition && scenarioData.group == group);
   }
 
+  getSection(index: string, edition: string, group: string | undefined, conlusionOnly: boolean = false): ScenarioData | undefined {
+    return gameManager.sectionData(edition).find((sectionData) => sectionData.index == index && sectionData.edition == edition && sectionData.group == group && (!conlusionOnly || sectionData.conclusion));
+  }
+
   setScenario(scenario: Scenario | undefined) {
     this.game.scenario = scenario ? new Scenario(scenario, scenario.revealedRooms, scenario.additionalSections, scenario.custom) : undefined;
     if (scenario && !scenario.custom) {

@@ -40,6 +40,112 @@
         "1": "when %game.action.attack% performed",
         "2": "at end of turn"
       },
+      "lightning": {
+        "abilities": {
+          "319": {
+            "1": "where X is the difference between your maximum hit point value and current hit point value.",
+            "2": "Gain %game.card.experience:1% for every %game.damage:5% done."
+          },
+          "320": {
+            "1": "where X is the number of cards you have lost.",
+            "2": "If you have fewer hit points than half your maximum hit point value (rounded up), perform",
+            "3": "and gain %game.card.experience:1%"
+          },
+          "321": {
+            "1": "You may suffer %game.damage:2% to add +2 %game.action.attack% and gain %game.card.experience:1%.",
+            "2": "You may suffer up to %game.damage:3%.",
+            "3": "where X is the amount of damage you suffered."
+          },
+          "322": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if your current hit point value is less than half your maximum hit point value (rounded up).",
+            "2": "On the next three sources of damage to you that would reduce you to less than 1 hit point, suffer no damage instead."
+          },
+          "323": {
+            "1": "where X is the difference between your maximum hit point value and current hit point value."
+          },
+          "324": {
+            "1": "Suffer damage equal to half of your current hit point value (rounded up).",
+            "2": "Add +1 %game.action.attack% to all your attacks.",
+            "3": "Suffer %game.damage:1% at the start of each of your turns."
+          },
+          "325": {
+            "1": "The next four times you are healed, add +2 %game.action.heal%."
+          },
+          "326": {
+            "1": "You may suffer %game.damage:2% to add %game.condition.stun% and gain %game.card.experience:1%."
+          },
+          "329": {
+            "1": "You may overheal to a maximum of 26 hit points, but your maximum hit point value remains the same for the purpose of all ability effects."
+          },
+          "330": {
+            "1": "Where X is your current hit point value.",
+            "2": "Gain %game.card.experience:1% for every %game.damage:5% done.",
+            "3": "Reduce your current hit point value to 1.<br>This is not considered damage."
+          },
+          "331": {
+            "1": "You may suffer %game.damage:2% to gain %game.action.shield% 1, %game.card.experience:1%.",
+            "2": "You may suffer %game.damage:2% to %game.condition.stun% one adjacent enemy."
+          },
+          "332": {
+            "1": "You may suffer up to %game.damage:3%.",
+            "2": "where X is the amount of damage you suffered.",
+            "3": "All melee attacks targeting you add +1 %game.action.attack%."
+          },
+          "333": {
+            "1": "Add +2 %game.action.move% if you have fewer hit points then half your maximum hit point value (rounded up)."
+          },
+          "334": {
+            "1": "Increase the value of each of your %game.action.retaliate% abilities by 2 this round."
+          },
+          "335": {
+            "1": "Kill on adjacent normal enemey whose current hit point value is less than half the difference between your maximum hit point value and current hit point value."
+          },
+          "336": {
+            "1": "You may suffer up to %game.damage:4%.",
+            "2": "where X is the amount of damage you suffered."
+          },
+          "337": {
+            "1": "Gain Advantage on all your attacks this round.",
+            "2": "All attacks targeting you gain Disadvantage this round."
+          },
+          "338": {
+            "1": "Gain %game.action.shield% 1, %game.card.experience:1% if you have fewer hit points than half of your maximum hit point value (rounded up).",
+            "2": "Add +1 %game.action.attack% to all your attacks when you have fewer hit points than half of your maximum hit point value (rounded up)."
+          },
+          "339": {
+            "1": "Kill one adjacent normal or elite enemy.",
+            "2": "You immediately become exhausted.",
+            "3": "where X is the number of cards you have lost."
+          },
+          "341": {
+            "1": "You may suffer %game.damage:2% to ignore the target's Shield value and gain %game.card.experience:1%.",
+            "2": "If you short rest at the end of this round, gain all the benefits of a long rest."
+          },
+          "342": {
+            "1": "Target all enemies up to two hexes away instead"
+          },
+          "343": {
+            "1": "%game.condition.wound% self and all adjacent allies to add %game.action.push% 2, %game.condition.immobilize%.",
+            "2": "You are immune to all negative conditions."
+          },
+          "344": {
+            "1": "Target can no longer fly.",
+            "2": "To signify this, place a character token on the target."
+          },
+          "345": {
+            "1": "On the next five sources of damage to you, perform an \"%game.action.attack% 3\" action.",
+            "2": "Add +1 %game.action.attack% to all your attacks this round, %game.card.experience:1%."
+          },
+          "346": {
+            "1": "On the next five sources of damage to you, suffer no damage instead."
+          },
+          "347": {
+            "1": "Perform a \"%game.action.heal% 2, Self\" action for each enemy damaged.",
+            "2": "You may suffer up to %game.damage:5%.",
+            "3": "where X is the amount of damage you suffered."
+          }
+        }
+      },
       "squidface": {
         "abilities": {
           "289": {
@@ -49,7 +155,7 @@
             "1": "Deduct -1 %game.action.range% from all your ranged attacks."
           },
           "292": {
-            "1": "Once during each of your Attack actions, you may %game.condition.poison% one ally within %game.action.range% 2 (or deal 3 damage if the ally already has %game.condition.poison%) to add +1 %game.action.attack% to the entire Attack action."
+            "1": "Once during each of your Attack actions, you may %game.condition.poison% one ally within %game.action.range% 2 (or deal %game.damage:3% if the ally already has %game.condition.poison%) to add +1 %game.action.attack% to the entire Attack action."
           },
           "294": {
             "1": "Gain %game.action.fly%"
@@ -64,7 +170,7 @@
             "1": "After each of your Move actions, %game.condition.poison% all adjacent allies and enemies."
           },
           "301": {
-            "1": "Remove %game.condition.poison% from any one enemy to cause it suffer 3 damage.",
+            "1": "Remove %game.condition.poison% from any one enemy to cause it suffer %game.damage:3%.",
             "2": "Target all enemies adjacent to all enemies with %game.condition.poison%"
           },
           "304": {
@@ -78,27 +184,27 @@
             "1": "Additionally, target all enemies on the path to the primary target"
           },
           "309": {
-            "1": "All enemies with %game.condition.poison% suffer 1 damage.",
-            "2": "2 damage instead"
+            "1": "All enemies with %game.condition.poison% suffer %game.damage:1%.",
+            "2": "%game.damage:2% instead"
           },
           "310": {
-            "1": "Once during each of your Move actions, you may suffer 1 damage to deal 3 damage to any one enemey with %game.condition.poison%.",
+            "1": "Once during each of your Move actions, you may suffer %game.damage:1% to deal %game.damage:3% to any one enemey with %game.condition.poison%.",
             "2": "All allies with %game.condition.poison% may Recover %game.card.recover% up to two of their discarded cards.",
             "3": "Up to three discarded cards instead"
           },
           "314": {
-            "1": "If %game.condition.curse% cuases an enemy to deal no damage during its attack, this enemy suffers 3 damage."
+            "1": "If %game.condition.curse% cuases an enemy to deal no damage during its attack, this enemy suffers %game.damage:3%."
           },
           "316": {
             "1": "During your next six Attack actions, %game.condition.curse% one ally within %game.action.range% 2 to gain two %game.action.target% effects.",
             "2": "Double the value of your next Attack action this round."
           },
           "317": {
-            "1": "All enemies with %game.condition.poison% suffer 2 damage.",
+            "1": "All enemies with %game.condition.poison% suffer %game.damage:2%.",
             "2": "Suffer 1 additional damage"
           },
           "318": {
-            "1": "All allies with %game.condition.poison% suffer 2 damage.",
+            "1": "All allies with %game.condition.poison% suffer %game.damage:2%.",
             "2": "For each two allies damages, add +1 %game.action.attack% to all your attacks this round and gain %game.card.experience:1%."
           }
         }
@@ -206,7 +312,7 @@
     },
     "gh-102": {
       "": "Sacrificial Robes",
-      "1": "During your ranged attack, suffer 3 damage to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your ranged attack, suffer %game.damage:3% to add +1 %game.action.attack% to the entire Attack action."
     },
     "gh-103": {
       "": "Drakescale Armor",
@@ -265,11 +371,11 @@
     },
     "gh-116": {
       "": "Fueled Falchion",
-      "1": "During your single-target melee attack, the target and all enemies adjacent to the target suffer 1 damage"
+      "1": "During your single-target melee attack, the target and all enemies adjacent to the target suffer %game.damage:1%"
     },
     "gh-117": {
       "": "Bloody Axe",
-      "1": "During your melee attack, suffer 2 damage to add +1 %game.action.attack% to the entire Attack action."
+      "1": "During your melee attack, suffer %game.damage:2% to add +1 %game.action.attack% to the entire Attack action."
     },
     "gh-118": {
       "": "Staff of Elements",
@@ -549,7 +655,7 @@
     "gh-60": {
       "": "Unstable Explosives",
       "1": "Turn a single target ranged attack into the following:",
-      "3": "All allies in the attack area suffer 3 damage."
+      "3": "All allies in the attack area suffer %game.damage:3%."
     },
     "gh-61": {
       "": "Wall Shield",

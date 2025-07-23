@@ -78,8 +78,10 @@
     }
   },
   "edition": {
-    "gh2e": "Gloomhaven 2nd Edition",
-    "gh2e-wip": "Gloomhaven 2nd Edition is currently incomplete. Only the data available on <a href=\"https://github.com/Tarmslitaren/FrosthavenAssistant\" target=\"_blank\">X-haven Assistant</a> has been added. Most importantly, Campaign Management has not yet been implemented. Therefore, Campaign Mode is disabled by default. If you still want to track basic campaign progress, you must unlock the scenarios manually at this point."
+    "gh2e": {
+      "": "Gloomhaven 2nd Edition",
+      "hint": "Gloomhaven 2nd Edition is currently <i>%wip%</i>. The Party Sheet is currently in implementation and some data, such as Battle Goals or Events, is currently missing."
+    }
   },
   "factions": {
     "gh2e": {
@@ -178,6 +180,76 @@
     "vermling-priest": "Vermling Priest",
     "vermling-scout": "Vermling Scout",
     "wind-demon": "Wind Demon"
+  },
+  "personalQuest": {
+    "gh2e": {
+      "01": {
+        "": "Political Intrigue"
+      },
+      "02": {
+        "": "Inn to Hospitality"
+      },
+      "03": {
+        "": "Augmented Abilities"
+      },
+      "04": {
+        "": "The Fall of Man"
+      },
+      "05": {
+        "": "Seeker of Xorn"
+      },
+      "06": {
+        "": "Zealot of the Blood God"
+      },
+      "07": {
+        "": "A Tale to Tell"
+      },
+      "08": {
+        "": "Take Back the Trees"
+      },
+      "09": {
+        "": "Finding the Cure"
+      },
+      "10": {
+        "": "Aberrant Slayer"
+      },
+      "11": {
+        "": "Adoptive Parent"
+      },
+      "12": {
+        "": "Implement of Light"
+      },
+      "13": {
+        "": "Merchant Class"
+      },
+      "14": {
+        "": "Eternal Wanderer"
+      },
+      "15": {
+        "": "Escaping the Sin-Ra"
+      },
+      "16": {
+        "": "The Perfect Poison"
+      },
+      "17": {
+        "": "Living on the Edge"
+      },
+      "18": {
+        "": "Battle Legend"
+      },
+      "19": {
+        "": "Martial Study"
+      },
+      "20": {
+        "": "Piety in All Things"
+      },
+      "21": {
+        "": "Pursuit of Proficiency"
+      },
+      "22": {
+        "": "Trophy Hunt"
+      }
+    }
   },
   "scenario": {
     "title": {

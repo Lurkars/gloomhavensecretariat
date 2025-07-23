@@ -35,7 +35,7 @@ export class ObjectiveContainer implements Figure {
   }
 
   getInitiative(): number {
-    let offset = 0;
+    let offset = 0.9;
     if (this.objectiveId) {
       const objectiveModel = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.objectiveId);
       if (objectiveModel && objectiveModel.initiativeShare && objectiveModel.initiativeShare.split(':').length > 1) {

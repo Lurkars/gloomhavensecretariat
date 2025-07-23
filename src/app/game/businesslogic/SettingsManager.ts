@@ -420,6 +420,9 @@ export class SettingsManager {
             if (!personalQuest.cardId) {
               personalQuest.cardId = value.edition + '-' + (index + 1);
             }
+            if (!personalQuest.requirements) {
+              personalQuest.requirements = [];
+            }
             return personalQuest;
           })
 
