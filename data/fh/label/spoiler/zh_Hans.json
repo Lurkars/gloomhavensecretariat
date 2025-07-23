@@ -221,10 +221,12 @@
       "prism": {
         "": "虫巢",
         "long_rest": {
+          "": "特技 8",
           "hint": "%data.custom.fh.prism.8%"
         },
         "prism_mode": {
-          "": "%data.characterToken.prism.mode% 模式标记"
+          "": "%data.characterToken.prism.mode% 模式标记",
+          "hint": "%data.characterToken.prism.mode%模式对此召唤物生效，召唤物在回合中不行动。"
         },
         "repair_mode": {
           "": "再建援助",
