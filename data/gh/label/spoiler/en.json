@@ -45,7 +45,7 @@
             "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
           },
           "377": {
-            "1": "Create one 4 damage %game.condition.stun% in an adjacent empty hex.",
+            "1": "Create one 4 damage %game.condition.stun% trap in an adjacent empty hex.",
             "2": "Gain %game.card.experience:2% when the trap is sprung by an enemy.",
             "3": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
             "4": "This enemy's %game.action.attack%, %game.action.move% and %game.action.range% are all reduced by 1.",
@@ -72,7 +72,7 @@
             "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
           },
           "382": {
-            "1": "Create one 3 damage trap in adjacent trap in an adjacent empty hex.",
+            "1": "Create one 3 damage trap in an adjacent trap in an adjacent empty hex.",
             "2": "All enemies adjacent to this trap suffer 2 damage when the trap is sprung.",
             "3": "Gain %game.card.experience:2% when the trap is sprung by an enemy.",
             "4": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
@@ -235,13 +235,13 @@
             "3": "All melee attacks targeting you add +1 %game.action.attack%."
           },
           "333": {
-            "1": "Add +2 %game.action.move% if you have fewer hit points then half your maximum hit point value (rounded up)."
+            "1": "Add +2 %game.action.move% if you have fewer hit points than half of your maximum hit point value (rounded up)."
           },
           "334": {
             "1": "Increase the value of each of your %game.action.retaliate% abilities by 2 this round."
           },
           "335": {
-            "1": "Kill on adjacent normal enemey whose current hit point value is less than half the difference between your maximum hit point value and current hit point value."
+            "1": "Kill one adjacent normal enemy whose current hit point value is less than half the difference between your maximum hit point value and current hit point value."
           },
           "336": {
             "1": "You may suffer up to %game.damage:4%.",
