@@ -6,7 +6,7 @@
     {
       "name": "Felling Swoop",
       "cardId": 378,
-      "replace": true,
+      "replace": false,
       "level": 1,
       "initiative": 75,
       "actions": [

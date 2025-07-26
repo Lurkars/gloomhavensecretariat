@@ -36,6 +36,149 @@
   },
   "custom": {
     "gh": {
+      "angry-face": {
+        "abilities": {
+          "376": {
+            "1": "The next four times a %data.custom.gh.angry-face.doomed% enemy dies, perform an \"%game.action.attack:2%, %game.action.range:5%\" action.",
+            "2": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "3": "Add +2 %game.action.attack% to all your attacks targeting this enemy.",
+            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "377": {
+            "1": "Create one 4 damage %game.condition.stun% in an adjacent empty hex.",
+            "2": "Gain %game.card.experience:2% when the trap is sprung by an enemy.",
+            "3": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "4": "This enemy's %game.action.attack%, %game.action.move% and %game.action.range% are all reduced by 1.",
+            "5": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "378": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "When this enemy dies, %game.action.teleport% to the hex occupied by the enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "379": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "When this enemy dies, perform a \"%game.action.heal:4%, Self\" action.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "380": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "This enemy suffers 2 damage at the start of each of its turns.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "381": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "All allies add +1 %game.action.attack% to all their attacks targeting this enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "382": {
+            "1": "Create one 3 damage trap in adjacent trap in an adjacent empty hex.",
+            "2": "All enemies adjacent to this trap suffer 2 damage when the trap is sprung.",
+            "3": "Gain %game.card.experience:2% when the trap is sprung by an enemy.",
+            "4": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "5": "When this enemy dies, all enemies adjacent to the hex in wich it died suffer 3 damage.",
+            "6": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "383": {
+            "1": "The next three times a %data.custom.gh.angry-face.doomed% enemy dies within %game.action.range:2% of another enemy, transfer one %data.custom.gh.angry-face.doom% to that enemy instead of discarding it.",
+            "2": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "3": "When this enemy dies, force all enemies adjacent to the hex in wich it died to perform a \"%game.action.move:1%\" action with you controlling the actions.",
+            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "384": {
+            "1": "Create one 2 damage %game.condition.immobilize% trap in an adjacent empty hex."
+          },
+          "387": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is %data.custom.gh.angry-face.doomed%."
+          },
+          "388": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "Each time this enemy suffers damage, perform a \"%game.action.heal:2%, Self\" action.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "389": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "All summoned allies add +2 %game.action.attack% to all their attacks targeting this enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "390": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if the target is undamaged."
+          },
+          "391": {
+            "1": "You gain Advantage on one attack each turn targeting a %data.custom.gh.angry-face.doomed% enemy.",
+            "2": "All enemies lose %game.condition.invisible% and may no longer gain %game.condition.invisible%.",
+            "3": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "4": "You and all allies gain %game.action.pierce:2% on all your attacks targeting this enemy.",
+            "5": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "392": {
+            "1": "Add +2 %game.action.attack% to all your attacks targeting %data.custom.gh.angry-face.doomed% enemies this round."
+          },
+          "393": {
+            "1": "Target all enemies within %game.action.range:3% Gain %game.card.experience:1% for each two enemies targeted.",
+            "2": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "3": "When this enemy dies, perform an \"%game.action.attack:2%, %game.action.range:3%, %game.action.target:3%\" action.",
+            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "394": {
+            "1": "Add +3 %game.action.attack% and gain %game.card.experience:1% if the target is %data.custom.gh.angry-face.doomed%."
+          },
+          "395": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "You and all allies gain Advantage on all your attacks targeting this enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "396": {
+            "1": "Create one 2 damage %game.condition.wound% trap in an adjacent empty hex.",
+            "2": "%game.condition.wound% all enemies adjacent to this trap when the trap is sprung."
+          },
+          "397": {
+            "1": "You may have two %data.custom.gh.angry-face.dooms% active on the same target.",
+            "2": "If a third %data.custom.gh.angry-face.doom% is played on the same target, discard one of the others,",
+            "3": "or if a third %data.custom.gh.angry-face.doom% is played on a different target, discard both of the others.",
+            "4": "%data.custom.gh.angry-face.doom%: Place your character token on any one normal or elite enemy.",
+            "5": "At the start of your next three turns, advance the marker on this card. After it advances three times, the kill the target and discard the card.",
+            "6": "Discard this if another %data.custom.gh.angry-face.doom% is played."
+          },
+          "398": {
+            "1": "One adjacent summoned ally performs",
+            "2": "with you controlling the actions.",
+            "3": "Target one %data.custom.gh.angry-face.doomed% enemy at any range."
+          },
+          "399": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "When this enemy dies, you and all allies perform a \"%game.action.heal:2%, Self\" action.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "401": {
+            "1": "Kill the target and gain %game.card.experience:1% if its hit point value is less than or equal to 2 after the attack.",
+            "2": "Add +3 %game.action.attack% to all yours attacks targeting %data.custom.gh.angry-face.doomed% enemies this round."
+          },
+          "402": {
+            "1": "Gain %game.card.experience:1% for each enemy targeted.",
+            "2": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "3": "You and all allies gain %game.condition.curse% on all your attacks targeting this enemy.",
+            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "403": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "If this enemy dies within %game.action.range:2% of another enemy, transfer this and any other %data.custom.gh.angry-face.dooms% to that enemy instead of discarding them.",
+            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "405": {
+            "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
+            "2": "You and all allies add +X %game.action.attack% to all your attacks targeting this enemy, where X is the difference between the range of the attack and the number of hexes to the enemy.",
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+          },
+          "406": {
+            "1": "Force the target to move up to three hexes directly toward the closest hex adjacent to one of your allies.",
+            "2": "Transfer all active %data.custom.gh.angry-face.dooms% from their current target to one enemy within %game.action.range:4% of you."
+          }
+        },
+        "doom": "%data.characterColored.angry-face:Doom%%game.characterIconColoredBg.angry-face%",
+        "doomed": "%data.characterColored.angry-face:Doomed%%game.characterIconColoredBg.angry-face%",
+        "dooms": "%data.characterColored.angry-face:Dooms%%game.characterIconColoredBg.angry-face%"
+      },
       "circles": {
         "1": "when %game.action.attack% performed",
         "2": "at end of turn"
