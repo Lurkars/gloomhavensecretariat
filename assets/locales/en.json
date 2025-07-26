@@ -829,19 +829,29 @@
       },
       "applyManually": "Apply the following manually:",
       "conditions": {
+        "and": "and",
         "building": "{0}",
+        "campaignSticker": "%data.campaignSticker.{0}%",
         "character": "{0}",
-        "loseCollectiveGold": "Lose {0} collective gold.",
-        "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%.",
+        "loseCollectiveGold": "Lose {0} collective gold",
+        "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%",
+        "loseCollectiveResourceType": "Lose {0} collective %game.loot.{1}% resources",
         "moraleGT": "Morale > {0}",
         "moraleLT": "Morale < {0}",
         "otherwise": "Otherwise",
-        "payCollectiveGold": "Pay {0} Collective gold",
-        "payCollectiveGoldConditional": "Pay {0} ({1}) or {2} ({3}) Collective gold",
+        "payCollectiveGold": "Pay {0} collective gold",
+        "payCollectiveGoldConditional": {
+          "connector": "or",
+          "prefix": "Pay",
+          "suffix": "collective gold"
+        },
+        "payCollectiveGoldReputationGT": "{0} (reputation > {1})",
+        "payCollectiveGoldReputationLT": "{0} (reputation < {1})",
         "payGold": "Pay {0} gold each",
         "reputationGT": "Reputation > {0}",
         "reputationLT": "Reputation < {0}",
         "season": "%party.campaign.sheet.{0}%",
+        "seasonLT": "If %party.campaign.sheet.{0}% is {1} weeks or fewer away",
         "traits": "%game.trait% {0}"
       },
       "deck": {
@@ -861,13 +871,16 @@
         "upcoming": "In Deck ({0})"
       },
       "effects": {
+        "and": "and",
         "automation": "The effect is applied automatically",
         "battleGoal": "Gain {0} %game.checkmark% each.",
         "campaignSticker": "Gain \"%data.campaignSticker.{0}%\" campaign sticker.",
+        "campaignStickerMap": "Place \"%data.campaignSticker.{0}%\" campaign sticker on the town map in location {1}.",
+        "campaignStickerReplace": "Place \"%data.campaignSticker.{0}%\" campaign sticker over \"%data.campaignSticker.{1}%\".",
         "choose": {
-          "connector": " or ",
-          "prefix": "Either ",
-          "suffix": "&ZeroWidthSpace;"
+          "connector": "or",
+          "prefix": "Either",
+          "suffix": "."
         },
         "collectiveGold": "Gain {0} collective gold.",
         "collectiveGoldAdditional": "Gain {0} additional collective gold.",
@@ -877,6 +890,7 @@
         "collectiveResourceType": "Gain any {0} collective %game.loot.{1}%s.",
         "consumeCollectiveItem": "Consume {0} collective %game.itemSlot:{1}% item.",
         "consumeItem": "Consume {0} %game.itemSlot:{1}% item each.",
+        "custom": "{0}",
         "discard": {
           "": "Discard {0} cards each.",
           "alt": "All characters start the next scenario discarding %number.{0}% cards."
@@ -885,10 +899,17 @@
           "": "Discard 1 card each.",
           "alt": "All characters start the next scenario discarding one card."
         },
-        "drawAnotherEvent": "Draw another %game.events.type.{0}% Event.",
+        "drawAnotherEvent": {
+          "": "Draw another %game.events.type.{0}% Event.",
+          "alt": "Resolve another %game.events.type.{0}% Event."
+        },
         "drawEvent": "Draw a %game.events.type.{0}% Event.",
-        "event": "Add %game.events.type.{0}% Event {1} to the deck.",
-        "eventFH": "Add event {1} to the %game.events.type.{0}% deck.",
+        "event": {
+          "": "Add %game.events.type.{0}% Event {1} to the deck.",
+          "alt": "Add event {1} to the %game.events.type.{0}% deck."
+        },
+        "eventReturn": "Retrieve event {1} and return it back to the %game.events.type.{0}% deck.",
+        "eventsToTop": "Look through the %game.events.type.{0}% deck until you find {1}, {2}, or {3}, and put it on top of the deck.",
         "experience": "Gain {0} experience each.",
         "globalAchievement": "Global Achievement:<br>\"%data.globalAchievements.{0}%\".",
         "gold": "Gain {0} gold each.",
@@ -909,14 +930,22 @@
         "loseMorale": "Lose {0} morale.",
         "loseProsperity": "Lose {0} prosperity.",
         "loseReputation": "Lose {0} reputation.",
+        "loseResource": "Lose {0} %game.resource.{1}%.",
         "morale": "Gain {0} morale.",
         "noEffect": "No effect.",
         "outcome": "Read outome %game.events.option.{0}%.",
         "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
+        "outpostAttackTarget": {
+          "": "%game.valueSign:{0}% %game.action.attack% for %game.events.effects.outpostAttackTarget.{1}%",
+          "all": "all targets.",
+          "one": "any one target."
+        },
         "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
         "partyAchievement": "Party Achievement:<br>\"%data.partyAchievements.{0}%\".",
         "prosperity": "Gain {0} prosperity.",
+        "randomItem": "Gain one Random Item.",
         "randomItemDesign": "Gain Random Item Design.",
+        "randomScenario": "Gain one random side scenario.",
         "removeEvent": {
           "": "Remove %game.events.type.{0}% Event {1} from the game.",
           "alt": "Remove event {1} from the %game.events.type.{0}% deck."
@@ -939,19 +968,26 @@
         "sectionOrWeeks": "Add %game.section:{0}% OR {1} to the celander in %game.number.{2}% weeks.",
         "sectionWeek": "Add %game.section:{0}% to the celander in one week.",
         "sectionWeeks": "Add %game.section:{0}% to the celander in %game.number.{1}% weeks.",
+        "sectionWeeksSeason": "Add %game.section:{0}% to the celander in %game.number.{1}% weeks. If that week is in {2}, add it to the %game.numbered.{3}% week of the next {4} instead.",
         "soldier": "Gain 1 soldier.",
         "soldiers": "Gain {0} soldiers.",
+        "townGuardDeckCard": "Add one %game.townGuardAM:{0}% card to the town guard deck.",
+        "townGuardDeckCards": "Add %game.number.{1}% %game.townGuardAM:{0}% cards to the town guard deck.",
+        "unlockEnvelope": "Unlock envelope {0} if it is not unlocked.",
         "unlockScenario": {
           "": "Unlock \"%data.scenario.title.{1}.{0}%\" %data.scenarioNumber:{0}%.",
           "alt": "New Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
         },
-        "unlockScenarioGroup": "Unlock \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%)."
+        "unlockScenarioGroup": "Unlock \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
+        "upgradeBuilding": "Upgrade the %data.buildings.{0}% to the next level, or, if the %data.buildings.{0}%  is already level {1}, gain {2} morale instead."
       },
       "option": {
-        "": "Option {0}:",
-        "1": "A",
-        "2": "B",
-        "3": "C"
+        "": "Option {0}:"
+      },
+      "requirements": {
+        "": "Requirements:",
+        "partyAchievement": "%data.partyAchievements.{0}% (Party) COMPLETE",
+        "warning": "Requirments not met. Click to draw another card!"
       },
       "type": {
         "boat": "Boat",
