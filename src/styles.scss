@@ -1504,6 +1504,12 @@ input[type="radio"] {
 
     .value {
       font-size: 0.9em;
+
+      img {
+        width: 1.3em;
+        height: auto;
+        filter: var(--ghs-filter-white);
+      }
     }
   }
 

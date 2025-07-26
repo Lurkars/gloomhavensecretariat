@@ -163,7 +163,7 @@
           "403": {
             "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",
             "2": "If this enemy dies within %game.action.range:2% of another enemy, transfer this and any other %data.custom.gh.angry-face.dooms% to that enemy instead of discarding them.",
-            "4": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
+            "3": "When this enemy dies or another %data.custom.gh.angry-face.doom% is played, discard this card."
           },
           "405": {
             "1": "%data.custom.gh.angry-face.doom%: Place your character token on any one enemy.",

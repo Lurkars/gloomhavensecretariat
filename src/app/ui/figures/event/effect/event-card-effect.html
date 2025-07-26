@@ -28,7 +28,7 @@
             <ng-container *ngFor="let andEffect of effects; let i = index;">
                 <span *ngIf="i > 0" [ngClass]="{'text-white': light}" [ghs-label]="'game.events.effects.and'"></span>
                 <ghs-event-card-effect [effect]="andEffect" [edition]="edition" [eventType]="eventType" [light]="light"
-                    [inline]="true"></ghs-event-card-effect>
+                    [concatenated]="true"></ghs-event-card-effect>
             </ng-container>
         </span>
 

@@ -110,8 +110,12 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         image = '<img  src="./assets/images/items/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-item-slot">' + image + value + '</span>';
       } else if (prefix == "game" && type == "itemFh" && split.length == 3) {
-        const itemId: number = +split[2];
-        replace = '<span class="placeholder-item-fh">' + '<span class="value">' + (itemId < 100 ? '0' : '') + (itemId < 10 ? '0' : '') + itemId + '</span></span>';
+        if (split[2] == 'random') {
+          replace = '<span class="placeholder-item-fh"><span class="value"><img src="./assets/images/fh/loot/random_item.svg"></span></span>';
+        } else {
+          const itemId: number = +split[2];
+          replace = '<span class="placeholder-item-fh">' + '<span class="value">' + (itemId < 100 ? '0' : '') + (itemId < 10 ? '0' : '') + itemId + '</span></span>';
+        }
       } else if (type == "card" && split.length == 3) {
         let card = split[2]
         let cardValue = "";
@@ -132,7 +136,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           const effectImage = effect != undefined ? '<img  src="./assets/images/action/custom/' + effect.value + '.svg" class="icon">' : "";
           const amImage = '<span class="townguard-attackmodifier"><img src="./assets/images/fh/attackmodifier/icons/' + townGuardAM.valueType + '.png" class="icon"><span class="value">' + (townGuardAM.value >= 0 ? '+' : '') + townGuardAM.value + '</span></span>';
           const rollingImage = townGuardAM.rolling ? '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">' : "";
-          replace = '<span class="placeholder-townguard-attackmodifier">' + effectImage + amImage  + rollingImage + '</span>';
+          replace = '<span class="placeholder-townguard-attackmodifier">' + effectImage + amImage + rollingImage + '</span>';
         }
       } else if (type == "experience") {
         image = '<img  src="./assets/images/experience.svg" class="icon ghs-svg">';

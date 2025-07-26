@@ -32,7 +32,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slot"
             },
             {
               "type": "concatenationSpacer",
@@ -48,7 +48,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slot"
             },
             {
               "type": "card",
@@ -343,7 +343,7 @@
       ]
     },
     {
-      "name": "Race to the Grade",
+      "name": "Race to the Grave",
       "cardId": 380,
       "level": 1,
       "initiative": 9,

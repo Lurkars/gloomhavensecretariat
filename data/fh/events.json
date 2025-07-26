@@ -6382,7 +6382,30 @@
                   10
                 ]
               },
-              "Remove events WR-12, WR-14, and WR-15 from the winter road deck."
+              {
+                "type": "removeEvent",
+                "alt": true,
+                "values": [
+                  "winter-road",
+                  "WR-12"
+                ]
+              },
+              {
+                "type": "removeEvent",
+                "alt": true,
+                "values": [
+                  "winter-road",
+                  "WR-14"
+                ]
+              },
+              {
+                "type": "removeEvent",
+                "alt": true,
+                "values": [
+                  "winter-road",
+                  "WR-15"
+                ]
+              }
             ]
           }
         ]
@@ -6419,7 +6442,7 @@
           {
             "narrative": "True to his word, the shopkeep carries everything you'd find back at home, but for significantly better prices. You briefly wonder how he's able to keep his costs so low, but then decide it's better not to ask.",
             "effects": [
-              "All characters may purchase one item from the available supply for 5 gold less than its normal cost. All characters who do so start the next scenario with CURSE."
+              "All characters may purchase one item from the available supply for 5 gold less than its normal cost. All characters who do so start the next scenario with %game.condition.curse%."
             ]
           }
         ]
@@ -6437,7 +6460,10 @@
             },
             "narrative": "You ask if he carries anything a bit more unique... something you wouldn't find back in Frosthaven. He smiles a crooked grin. \"Perhaps... but it would cost you...\" The way he smiles makes your skin crawl.",
             "effects": [
-              "Gain one collective random item.",
+              {
+                "type": "randomItem",
+                "alt": true
+              },
               {
                 "type": "scenarioCondition",
                 "alt": true,
@@ -6496,12 +6522,17 @@
             "narrative": "The Inox shrugs. \"Yeah, okay.\" The inside is a mishmash of chains and pulleys, but you think you can time it right.",
             "effects": [
               {
-                "type": "outcome",
+                "type": "and",
                 "values": [
-                  "A"
+                  {
+                    "type": "outcome",
+                    "values": [
+                      "A"
+                    ]
+                  },
+                  "add two additional loot cards of your choice to the machine."
                 ]
-              },
-              "add two additional loot cards of your choice to the machine."
+              }
             ]
           },
           {
@@ -6509,6 +6540,7 @@
               "type": "otherwise"
             },
             "narrative": "You try to convince the Inox to let you look inside before you bet, but pressing the situation quickly gets out of hand. The Inox grabs a battleaxe from behind the prize table—while it looks nice, the delivery doesn't seem pleasant and you quickly depart.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -6603,7 +6635,7 @@
         "narrative": "Take out the leader first.",
         "outcomes": [
           {
-            "narrative": "You rush toward the biggest, scariest wraith in the hopes the others will scatter with their leader cut down. As soon as you've committed to your attack the largest one transforms, receding into its armor and absorbing your blows. You turn in horror to see the other three have grown into terrifying billows of ice and armor to compensate. By the time the fight is done, you're bruised and ready for a hot bath.",
+            "narrative": "You rush toward the biggest, scariest wraith in the hopes the others will scatter with their leader cut down. As soon as you've committed to your attack the largest one transforms, receding into its armor and absorbing your blows. You turn in horror to see the other three have grown into terrifying billows of ice and armor to compensate.<br><br>By the time the fight is done, you're bruised and ready for a hot bath.",
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -6628,7 +6660,7 @@
         "narrative": "Focus on the minions first.",
         "outcomes": [
           {
-            "narrative": "You know that appearances can be deceiving with Ice Wraiths, and the leadership can shift between them in an instant. You focus down the minions while you have the chance, overcoming their armor and avoiding the majority of their ice shards while they're in their weaker form. It's a closer fight than you'd like, but you're victorious. With the enemies dispatched, you make camp, huddled around the fire. It'll be tough to get warm tonight.",
+            "narrative": "You know that appearances can be deceiving with Ice Wraiths, and the leadership can shift between them in an instant. You focus down the minions while you have the chance, overcoming their armor and avoiding the majority of their ice shards while they're in their weaker form. It's a closer fight than you'd like, but you're victorious.<br><br>With the enemies dispatched, you make camp, huddled around the fire. It'll be tough to get warm tonight.",
             "effects": [
               {
                 "type": "discardOne",
@@ -6675,7 +6707,7 @@
         "narrative": "Deny there were ever any monsters.",
         "outcomes": [
           {
-            "narrative": "\"Monsters?!\" Narb starts pummeling you, or attempts as much, and Nits takes to stomping the snow. \"Take that!\" Eventually, you calm them both, but it's to no avail. A moment later, the cycle repeats itself, leaving them to fight whatever is in arms' reach. You make an exit in the chaos. At least all that activity should keep them from freezing to death in the snow.",
+            "narrative": "\"Monsters?!\" Narb starts pummeling you, or attempts as much, and Nits takes to stomping the snow. \"Take that!\"<br><br>Eventually, you calm them both, but it's to no avail. A moment later, the cycle repeats itself, leaving them to fight whatever is in arms' reach. You make an exit in the chaos. At least all that activity should keep them from freezing to death in the snow.",
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -6725,13 +6757,13 @@
         "narrative": "Invite her to share your campfire and rations.",
         "outcomes": [
           {
-            "narrative": "You walk the scout back to camp and give her a bowl of stew and some of your wine. Once she realizes you aren't about to kill her, she tentatively tries the food, then goes back for seconds. She won't divulge much other than a description of her leader: a Vermling wearing bright orange feathers. When you press for details she changes the topic to a parable of her people about the moon: \"The moon is a giant Algox that hunts in the night sky, stalking its prey across the heavens. Whenever the sky hunter succeeds, the blood from its quarry sprays over the world, forming the glimmering streaks of the aurora... it means good hunting for the Vermlings of the land.\" She gets up to leave, but turns back for a final thought: \"Careful when you see the aurora... the Vermlings will be ready.\"",
+            "narrative": "You walk the scout back to camp and give her a bowl of stew and some of your wine. Once she realizes you aren't about to kill her, she tentatively tries the food, then goes back for seconds.<br><br>She won't divulge much other than a description of her leader: a Vermling wearing bright orange feathers. When you press for details she changes the topic to a parable of her people about the moon:<br><br>\"The moon is a giant Algox that hunts in the night sky, stalking its prey across the heavens. Whenever the sky hunter succeeds, the blood from its quarry sprays over the world, forming the glimmering streaks of the aurora... it means good hunting for the Vermlings of the land.\"<br><br>She gets up to leave, but turns back for a final thought: \"Careful when you see the aurora... the Vermlings will be ready.\"<br><br>You post an extra guard under the bright night sky.",
             "effects": [
               {
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "curse"
+                  "ward"
                 ]
               }
             ]
@@ -6815,15 +6847,38 @@
       {
         "label": "A",
         "narrative": "Approach the imp as a friend and try to trade.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "After some hand waving and what you interpret as delighted tail-wagging, it seems you've reached an agreement. You recount stories of your adventures, and as you speak each word, you feel it fading from your memory, consumed by the imp in front of you. You detail the exciting conclusion, and it seems sated. It holds up its end of the bargain with a choice:",
+            "returnToDeck": true,
             "effects": [
               "Check one box and gain one collective copy of that item:",
-              "A looping metal necklace {196}",
-              "A strange glowing powder {241}",
-              "A handheld magnifying glass {230}",
+              {
+                "type": "checkbox",
+                "values": [
+                  {
+                    "type": "item",
+                    "alt": true,
+                    "values": [
+                      196
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "alt": true,
+                    "values": [
+                      241
+                    ]
+                  },
+                  {
+                    "type": "item",
+                    "alt": true,
+                    "values": [
+                      230
+                    ]
+                  }
+                ]
+              },
               {
                 "type": "loseCollectiveExperience",
                 "values": [
@@ -6838,10 +6893,10 @@
       {
         "label": "B",
         "narrative": "Likely just fairy tales... but if it does have something of value, force is the quickest way to get it.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You draw your weapons and try to get the jump on the imp, but it flitters off between the trees, casting something back over its shoulder as it goes.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -6860,11 +6915,16 @@
     "cardId": "SR-27",
     "edition": "fh",
     "type": "summer-road",
-    "narrative": "Walking through a narrow valley between two ridges, you catch sight of a cluster of Lurkers burrowing into the rock. It's mating season, and hundreds have gathered here to find a partner. It would be wise to take a different path, but it would take a hike to get up the ridgeway.<br><b<r>Before you've had a chance to discuss a way forward, the Lurkers spot you. The message spreads, and within seconds a few dozen are barreling down on your position, chittering and snapping their terrifying claws.<br><br>Apparently mating makes them quite ravenous, and they will do anything to feed. Good to know.",
+    "narrative": "Walking through a narrow valley between two ridges, you catch sight of a cluster of Lurkers burrowing into the rock. It's mating season, and hundreds have gathered here to find a partner. It would be wise to take a different path, but it would take a hike to get up the ridgeway.<br><br>Before you've had a chance to discuss a way forward, the Lurkers spot you. The message spreads, and within seconds a few dozen are barreling down on your position, chittering and snapping their terrifying claws.<br><br>Apparently mating makes them quite ravenous, and they will do anything to feed. Good to know.",
     "options": [
       {
-        "narrative": "All characters select the top or bottom action of their card. Add up all movement values on the action (ignoring any conditional bonuses). All characters resolve the following individually based on the value of their total movement:",
+        "narrative": "All characters may select a card from their pool to play for its movement to outrun the stampede. The card selected will be excluded from your pool for the upcoming scenario.",
         "outcomes": [
+          {
+            "effects": [
+              "All characters select the top or bottom action of their card. Add up all movement values on the action (ignoring any conditional bonuses). All characters resolve the following individually based on the value of their total movement:"
+            ]
+          },
           {
             "condition": {
               "type": "traits",
@@ -6872,27 +6932,39 @@
                 "nimble"
               ]
             },
-            "narrative": "Add +1 MOVE.",
+            "inlineEffects": true,
             "effects": [
-              "Add +1 MOVE."
+              "Add +1 %game.action.move%."
             ]
           },
           {
-            "condition": "MOVE < 3",
+            "condition": "%game.action.move% < 3",
             "narrative": "You catch a razor-sharp claw in the torso.",
             "effects": [
-              "Start the next scenario with WOUND."
+              {
+                "type": "scenarioDamage",
+                "alt": true,
+                "values": [
+                  4
+                ]
+              }
             ]
           },
           {
-            "condition": "MOVE = 3",
+            "condition": "%game.action.move% 3",
             "narrative": "The Lurkers swipe at your limbs, but you only take a few scrapes.",
             "effects": [
-              "Start the next scenario with IMMOBILIZE."
+              {
+                "type": "scenarioCondition",
+                "alt": true,
+                "values": [
+                  "wound"
+                ]
+              }
             ]
           },
           {
-            "condition": "MOVE = 4",
+            "condition": "%game.action.move% 4",
             "narrative": "You scurry just out of reach.",
             "effects": [
               {
@@ -6901,10 +6973,20 @@
             ]
           },
           {
-            "condition": "MOVE > 4",
+            "condition": "%game.action.move% > 4",
             "narrative": "This is nothing worse than your morning jog, but it certainly leaves you with a good story!",
             "effects": [
-              "Gain 5 experience."
+              {
+                "type": "experience",
+                "values": [
+                  5
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              "<br>The slowest character (or tied characters) start the next scenario with %game.damage:1% (in addition to other %game.damage%)."
             ]
           }
         ]
@@ -6928,7 +7010,7 @@
                 "type": "collectiveResource",
                 "values": [
                   4,
-                  "lumber"
+                  "arrowvine"
                 ]
               },
               {
@@ -6948,9 +7030,15 @@
                 "resourceful"
               ]
             },
-            "narrative": "There's significant work in separating the dried from the fresh vines, and after an hour or so, you've collected a tidy pile. The rock wall looks barren without the thick vines covering it, reduced to the sort of winter cliff face you see anywhere around Frosthaven. Unfortunate, but you'll put the arrowvine to good use.",
+            "inlineEffects": true,
             "effects": [
-              "Gain 2 additional collective LUMBER."
+              {
+                "type": "collectiveResource",
+                "values": [
+                  2,
+                  "arrowvine"
+                ]
+              }
             ]
           }
         ]
@@ -6958,10 +7046,10 @@
       {
         "label": "B",
         "narrative": "Enjoy the vine wall for its beauty, but leave it be.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You stop and soak up the majesty of the wall, preserved here for so long. A light breeze drifts across the tight-knit network of plants, causing it to undulate with a pleasing rhythm that puts you at peace. You can see why no one has harvested it.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",

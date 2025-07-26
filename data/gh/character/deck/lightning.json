@@ -1000,7 +1000,7 @@
                 },
                 {
                   "type": "specialTarget",
-                  "value": "enemiesAdjacent",
+                  "value": "enemies",
                   "small": true
                 },
                 {
@@ -1249,7 +1249,7 @@
       ],
       "bottomActions": [
         {
-          "type": "move",
+          "type": "attack",
           "value": 4,
           "enhancementTypes": [
             "circle"
