@@ -19,6 +19,7 @@ export class EventCardDrawComponent {
     selected: number = -1;
     subSelections: number[] = [];
     globalDraw: boolean = false;
+    requirementWarning: boolean = false;
 
     settingsManager: SettingsManager = settingsManager;
 
@@ -31,6 +32,10 @@ export class EventCardDrawComponent {
         if (!this.event) {
             console.debug("No event card found for", data.edition, data.type);
             this.dialogRef.close();
+        }
+
+        if (this.event && this.event.requirement && this.event.requirement.partyAchievement) {
+            this.requirementWarning = gameManager.game.party.achievementsList.indexOf(this.event.requirement.partyAchievement) == -1;
         }
 
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
@@ -72,6 +77,27 @@ export class EventCardDrawComponent {
         }
     }
 
+    drawNew() {
+        if (this.event) {
+            const edition = this.event.edition;
+            const type = this.event.type;
+            const cardId = this.event.cardId;
+            gameManager.stateManager.before('eventDraw.new');
+            gameManager.eventCardManager.removeEvent(type, cardId);
+            const deck = gameManager.game.party.eventDecks[type];
+            if (deck) {
+                this.event = gameManager.eventCardManager.getEventCardForEdition(edition, type, deck[0]);
+                if (this.event) {
+                    this.requirementWarning = false;
+                    if (this.event.requirement && this.event.requirement.partyAchievement) {
+                        this.requirementWarning = gameManager.game.party.achievementsList.indexOf(this.event.requirement.partyAchievement) == -1;
+                    }
+                }
+            }
+            gameManager.eventCardManager.addEvent(type, cardId);
+            gameManager.stateManager.after();
+        }
+    }
 
     showEventCard(eventCard: EventCard) {
         this.dialog.open(EventCardDialogComponent, {

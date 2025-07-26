@@ -450,31 +450,21 @@
         "outcomes": [
           {
             "condition": {
-              "type": "or",
+              "type": "payCollectiveGoldConditional",
               "values": [
                 {
-                  "type": "reputationLT",
+                  "type": "payCollectiveGoldReputationLT",
                   "values": [
+                    20,
                     10
-                  ],
-                  "effect": {
-                    "type": "payCollectiveGold",
-                    "values": [
-                      20
-                    ]
-                  }
+                  ]
                 },
                 {
-                  "type": "reputationGT",
+                  "type": "payCollectiveGoldReputationGT",
                   "values": [
+                    15,
                     9
-                  ],
-                  "effect": {
-                    "type": "payCollectiveGold",
-                    "values": [
-                      16
-                    ]
-                  }
+                  ]
                 }
               ]
             },

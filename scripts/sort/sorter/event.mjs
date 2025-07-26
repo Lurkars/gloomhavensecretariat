@@ -30,7 +30,7 @@ export const sortEventOutcome = function (outcome) {
         outcome.condition = sortEventCondition(outcome.condition);
     }
 
-    return sortObjectKeys(outcome, 'condition', 'narrative', 'returnToDeck', 'removeFromDeck', 'effects');
+    return sortObjectKeys(outcome, 'condition', 'narrative', 'returnToDeck', 'removeFromDeck', 'inlineEffects', 'effects');
 }
 
 export const sortEventEffect = function (effect) {

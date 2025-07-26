@@ -1278,7 +1278,38 @@ input[type="radio"] {
       left: 0;
       top: -0.2em;
     }
+  }
 
+  .placeholder-townguard-attackmodifier {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    top: 0.3em;
+    margin-bottom: 0.5em;
+
+    img {
+      position: relative;
+      height: 1.3em;
+      width: auto;
+      left: 0;
+      top: -0.2em;
+      margin: 0;
+    }
+
+    .townguard-attackmodifier {
+      position: relative;
+
+      .value {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 0.85em;
+        font-family: var(--ghs-font-gh-title);
+        color: var(--ghs-color-white);
+        text-shadow: var(--ghs-outline-thin);
+        transform: translate(-50%, -70%);
+      }
+    }
   }
 
   .placeholder-character-icon {

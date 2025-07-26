@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { EventCardApplyEffects } from "src/app/game/businesslogic/EventCardManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { EventCardApplyEffects, EventCardEffect, EventCardEffectType } from "src/app/game/model/data/EventCard";
+import { EventCardEffect, EventCardEffectType } from "src/app/game/model/data/EventCard";
 
 @Component({
     standalone: false,
@@ -15,8 +16,11 @@ export class EventCardEffectComponent implements OnInit {
     @Input() edition!: string;
     @Input() eventType!: string;
     @Input() light: boolean = true;
+    @Input() concatenated: boolean = false;
     @Input() inline: boolean = false;
     @Input() selected: boolean = false;
+
+    @Input() debug: boolean = false;
 
     effectString: string | undefined;
     effectObject: EventCardEffect | undefined;
@@ -26,6 +30,8 @@ export class EventCardEffectComponent implements OnInit {
 
     settingsManager: SettingsManager = settingsManager;
     EventCardApplyEffects = EventCardApplyEffects;
+
+    special: EventCardEffectType[] = [EventCardEffectType.and, EventCardEffectType.checkbox, EventCardEffectType.choose];
 
     ngOnInit(): void {
         if (typeof this.effect === 'string') {

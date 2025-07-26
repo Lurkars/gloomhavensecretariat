@@ -11,13 +11,20 @@
                             <ng-container *ngFor="let option of event.options; let i = index;">
                                 <div *ngIf="option.narrative" class="option" ghs-pointer-input
                                     (singleClick)="selectOption(i, false, $event)"
-                                    [ngClass]="{'single': event.options.length == 1}">
-                                    <span class="title" [ghs-label]="'game.events.option'"
-                                        [ghs-label-args]="['game.events.option.' + (i+1)]"></span>
+                                    [ngClass]="{'single': event.options.length == 1 || !option.label}">
+                                    <span *ngIf="option.label" class="title" [ghs-label]="'game.events.option'"
+                                        [ghs-label-args]="[option.label]"></span>
                                     <span class="choice" [ghs-label]="option.narrative"></span>
                                 </div>
                             </ng-container>
                         </div>
+                    </div>
+                    <div class="requirement party-achievement"
+                        *ngIf="event.requirement && event.requirement.partyAchievement">
+                        <span [ghs-label]="'game.events.requirements'"
+                            [ghs-label-args]="[event.requirement.partyAchievement]"></span>
+                        <span [ghs-label]="'game.events.requirements.partyAchievement'"
+                            [ghs-label-args]="[event.requirement.partyAchievement]"></span>
                     </div>
                 </div>
                 <div class="spoiler-free" *ngIf="spoilerFree" [ngClass]="{'light': light}">
@@ -30,28 +37,34 @@
         <div class="card-front" [ngClass]="event ? event.type : ''">
             <ng-container *ngIf="!!event">
                 <div class="options" [ngClass]="{'no-label': noLabel}">
-                    <div class="option" *ngFor="let option of event.options; let i = index;"
-                        [ngClass]="{'selected' : selected == i || selected == -1 && flipped, 'single': event.options.length == 1, 'no-label': !option.label}"
+                    <div class="option {{'option-' + option.label}}"
+                        *ngFor="let option of event.options; let i = index;"
+                        [ngClass]="{'selected' : !option.label || selected == i || selected == -1 && flipped, 'single': event.options.length == 1, 'no-label': !option.label}"
                         ghs-pointer-input (doubleClick)="selectOption(selected == i ? -1 : i, false, $event)">
                         <div class="outcome" *ngFor="let outcome of option.outcomes; let outcomeIndex = index;"
-                            [ngClass]="{'selected': !outcome.condition || subSelections.indexOf(outcomeIndex) != -1 || selected == -1 && flipped || !option.label && outcome.attack, 'disabled' : resolvable[i] && resolvable[i][outcomeIndex] == false && subSelections.indexOf(outcomeIndex) == -1 && selected != -1, 'expand-to-bottom': outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck)}"
+                            [ngClass]="{'selected': !outcome.condition || subSelections.indexOf(outcomeIndex) != -1 || selected == -1 && flipped || !option.label && outcome.attack, 'disabled' : resolvable[i] && resolvable[i][outcomeIndex] == false && subSelections.indexOf(outcomeIndex) == -1 && selected != -1, 'expand-to-bottom': outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck), 'margin': outcome.condition || outcome.narrative}"
                             ghs-pointer-input (singleClick)="selectSub(i, outcomeIndex, $event)"
                             (doubleClick)="selectSub(i, outcomeIndex, true, $event)">
-                            <ghs-event-card-condition [condition]="outcome.condition" [narrative]="true"
-                                [edition]="event.edition" [eventType]="event.type"
-                                [light]="light"></ghs-event-card-condition>
-                            <span *ngIf="outcome.narrative" class="text" [ngClass]="{'text-white': light}"
+                            <ghs-event-card-condition *ngIf="outcome.condition" [condition]="outcome.condition" [narrative]="true"
+                                [edition]="event.edition" [eventType]="event.type" [light]="light"
+                                [selected]="selected == -1 && flipped || selected == i && subSelections.indexOf(outcomeIndex) != -1"
+                                [debug]="debug"></ghs-event-card-condition>
+                            <span *ngIf="outcome.condition" class="condition-spacer">:</span>
+                            <span *ngIf="outcome.narrative" class="text"
+                                [ngClass]="{'text-white': light, 'inline': outcome.inlineEffects && outcome.effects.length}"
                                 [ghs-label]="outcome.narrative"></span>
 
-                            <div class="effects" *ngIf="outcome.effects && outcome.effects.length">
+                            <div class="effects" *ngIf="outcome.effects && outcome.effects.length"
+                                [ngClass]="{'inline': outcome.inlineEffects}">
                                 <ghs-event-card-effect *ngFor="let effect of outcome.effects;" [effect]="effect"
                                     [edition]="event.edition" [eventType]="event.type" [light]="light"
-                                    [selected]="selected == i && subSelections.indexOf(outcomeIndex) != -1"></ghs-event-card-effect>
+                                    [selected]="selected == -1 && flipped || selected == i && subSelections.indexOf(outcomeIndex) != -1"
+                                    [inline]="outcome.inlineEffects || false" [debug]="debug"></ghs-event-card-effect>
                             </div>
 
                             <ghs-event-card-attack *ngIf="outcome.attack" [attack]="outcome.attack"
-                                [edition]="event.edition" [eventType]="event.type"
-                                [light]="light"></ghs-event-card-attack>
+                                [edition]="event.edition" [eventType]="event.type" [light]="light"
+                                [debug]="debug"></ghs-event-card-attack>
 
                             <div class="card-action"
                                 *ngIf="outcome.returnToDeck || outcome.removeFromDeck || outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck)">
@@ -63,6 +76,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-id">{{event.cardId}}</div>
             </ng-container>
         </div>
     </div>

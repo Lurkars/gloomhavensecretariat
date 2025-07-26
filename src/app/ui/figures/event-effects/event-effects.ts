@@ -20,6 +20,8 @@ import { EventCardDrawComponent } from '../event/draw/event-card-draw';
 import { FavorsComponent } from './favors/favors';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
+import { PartySheetDialogComponent } from '../party/party-sheet-dialog';
+import { CharacterSheetDialog } from '../character/dialogs/character-sheet-dialog';
 
 @Component({
   standalone: false,
@@ -741,6 +743,20 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         type: type,
         edition: gameManager.game.edition || gameManager.currentEdition()
       }
+    });
+  }
+
+  openPartySheet() {
+    this.dialog.open(PartySheetDialogComponent, {
+      panelClass: ['dialog-invert'],
+      data: { partySheet: true }
+    });
+  }
+
+  openCharacterSheet(character: Character) {
+    this.dialog.open(CharacterSheetDialog, {
+      panelClass: ['dialog-invert'],
+      data: { character: character }
     });
   }
 }

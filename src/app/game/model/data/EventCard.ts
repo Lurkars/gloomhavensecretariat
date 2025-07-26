@@ -7,6 +7,7 @@ export class EventCard implements Editional {
     narrative: string;
     options: EventCardOption[];
     attack?: EventCardAttack;
+    requirement: EventCardRequirement | undefined;
 
     constructor(cardId: string, edition: string, type: string, narrative: string, options: EventCardOption[], attack?: EventCardAttack) {
         this.cardId = cardId;
@@ -56,25 +57,45 @@ export class EventCardOption {
 }
 
 export class EventCardOutcome {
-    narrative: string;
+    narrative: string = "";
     returnToDeck?: boolean;
     removeFromDeck?: boolean;
     condition: string | EventCardCondition | undefined;
-    effects: (string | EventCardEffect)[];
+    inlineEffects?: boolean;
+    effects: (string | EventCardEffect)[] = [];
     attack: EventCardAttack | undefined;
+}
 
-    constructor(narrative: string, effects: EventCardEffect[], condition?: EventCardCondition | undefined, removeFromDeck?: boolean, returnToDeck?: boolean) {
-        this.narrative = narrative;
-        this.effects = effects;
-        if (condition) this.condition = condition;
-        if (removeFromDeck !== undefined) this.removeFromDeck = removeFromDeck;
-        if (returnToDeck !== undefined) this.returnToDeck = returnToDeck;
-    }
+export enum EventCardConditionType {
+    and = "and",
+    building = "building",
+    campaignSticker = "campaignSticker",
+    character = "character",
+    class = "class",
+    loseCollectiveResource = "loseCollectiveResource",
+    loseCollectiveResourceType = "loseCollectiveResourceType",
+    moraleGT = "moraleGT",
+    moraleLT = "moraleLT",
+    otherwise = "otherwise",
+    payGold = "payGold",
+    payCollectiveGold = "payCollectiveGold",
+    payCollectiveGoldConditional = "payCollectiveGoldConditional",
+    payCollectiveGoldReputationGT = "payCollectiveGoldReputationGT",
+    payCollectiveGoldReputationLT = "payCollectiveGoldReputationLT",
+    payCollectiveItem = "payCollectiveItem",
+    reputationGT = "reputationGT",
+    reputationLT = "reputationLT",
+    season = "season",
+    seasonLT = "seasonLT",
+    traits = "traits"
 }
 
 export enum EventCardEffectType {
+    and = "and",
     battleGoal = "battleGoal",
     campaignSticker = "campaignSticker",
+    campaignStickerMap = "campaignStickerMap",
+    campaignStickerReplace = "campaignStickerReplace",
     checkbox = "checkbox",
     choose = "choose",
     collectiveGold = "collectiveGold",
@@ -85,12 +106,14 @@ export enum EventCardEffectType {
     collectiveResourceType = "collectiveResourceType",
     consumeItem = "consumeItem",
     consumeCollectiveItem = "consumeCollectiveItem",
+    custom = "custom",
     discard = "discard",
     discardOne = "discardOne",
     drawAnotherEvent = "drawAnotherEvent",
     drawEvent = "drawEvent",
     event = "event",
-    eventFH = "eventFH",
+    eventReturn = "eventReturn",
+    eventsToTop = "eventsToTop",
     experience = "experience",
     globalAchievement = "globalAchievement",
     gold = "gold",
@@ -107,15 +130,18 @@ export enum EventCardEffectType {
     loseCollectiveResourceType = "loseCollectiveResourceType",
     loseGold = "loseGold",
     loseGoldOne = "loseGoldOne",
-    loseMorale = "loseMoral",
+    loseMorale = "loseMorale",
     loseProsperity = "loseProsperity",
     loseReputation = "loseReputation",
+    loseResource = "loseResource",
     morale = "morale",
     noEffect = "noEffect",
     outcome = "outcome",
     outpostAttack = "outpostAttack",
     outpostTarget = "outpostTarget",
+    randomItem = "randomItem",
     randomItemDesign = "randomItemDesign",
+    randomScenario = "randomScenario",
     removeEvent = "removeEvent",
     reputation = "reputation",
     reputationAdditional = "reputationAdditional",
@@ -128,37 +154,27 @@ export enum EventCardEffectType {
     scenarioSingleMinus1 = "scenarioSingleMinus1",
     sectionWeek = "sectionWeek",
     sectionWeeks = "sectionWeeks",
+    sectionWeeksSeason = "sectionWeeksSeason",
     soldier = "soldier",
     soldiers = "soldiers",
+    townGuardDeckCard = "townGuardDeckCard",
+    townGuardDeckCards = "townGuardDeckCards",
+    unlockEnvelope = "unlockEnvelope",
     unlockScenario = "unlockScenario",
-    unlockScenarioGroup = "unlockScenarioGroup"
+    unlockScenarioGroup = "unlockScenarioGroup",
+    upgradeBuilding = "upgradeBuilding"
 }
-
-export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventFH, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationAdditional, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup];
 
 export class EventCardEffect {
     condition: string | EventCardCondition | undefined;
     type: EventCardEffectType = EventCardEffectType.noEffect;
     values: (string | number | EventCardEffect)[] = [];
     alt: boolean = false;
-}
 
-export enum EventCardConditionType {
-    building = "building",
-    character = "character",
-    class = "class",
-    loseCollectiveResource = "loseCollectiveResource",
-    moraleGT = "moraleGT",
-    moraleLT = "moraleLT",
-    or = "or",
-    otherwise = "otherwise",
-    payGold = "payGold",
-    payCollectiveGold = "payCollectiveGold",
-    payCollectiveItem = "payCollectiveItem",
-    reputationGT = "reputationGT",
-    reputationLT = "reputationLT",
-    season = "season",
-    traits = "traits"
+    constructor(type: EventCardEffectType, values: (string | number | EventCardEffect)[] = []) {
+        this.type = type;
+        this.values = values;
+    }
 }
 
 export class EventCardCondition {
@@ -181,4 +197,8 @@ export class EventCardAttack {
         this.narrative = narrative;
         this.effects = effects;
     }
+}
+
+export class EventCardRequirement {
+    partyAchievement: string | undefined;
 }

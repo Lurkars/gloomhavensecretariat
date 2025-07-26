@@ -13,25 +13,106 @@
     }
 
     &.fh {
-        font-size: 0.94em;
+        font-size: 0.96em;
         font-family: var(--ghs-font-fh-normal);
+
+        ghs-event-card-condition {
+            font-weight: normal;
+            font-style: italic;
+            text-transform: uppercase;
+        }
     }
 
     &.disabled {
         opacity: 0.5;
     }
 
-    .inline {
-        display: inline-block;
+    .text {
+        &.concatenated {
+            display: inline-block;
 
-        &::first-letter {
-            text-transform: lowercase;
+            &::first-letter {
+                text-transform: lowercase;
+            }
+        }
+
+        &.debug {
+            color: red;
         }
     }
 
     .effect-object {
         position: relative;
         display: block;
+
+        &.inline {
+            display: inline;
+            margin-left: 0.1em;
+
+            .automation-icon {
+                position: relative;
+                top: 0.2em;
+                left: initial;
+                margin: 0 0.1em;
+                transform: none;
+            }
+        }
+
+        .automation-icon {
+            position: absolute;
+            top: 50%;
+            left: -1.1em;
+            display: inline-flex;
+            width: 0.9em;
+            height: 0.9em;
+            transform: translateY(-50%);
+
+            .ghs-svg {
+                width: 100%;
+                height: auto;
+                filter: var(--ghs-filter-black);
+                margin-left: 0;
+            }
+
+            &.light {
+                color: var(--ghs-color-white);
+
+                .ghs-svg {
+                    filter: var(--ghs-filter-white);
+                }
+            }
+        }
+
+        .condition-spacer {
+            margin-right: 0.2em;
+        }
+
+        .choose-container {
+            display: flex;
+            flex-wrap: wrap;
+
+            ghs-event-card-effect {
+                font-size: 0.834em;
+                margin: 0 0.2em;
+            }
+
+            &>span:last-child {
+                margin-left: -0.2em;
+            }
+        }
+
+        .and-container {
+            display: inline-flex;
+            flex-wrap: wrap;
+
+            ghs-event-card-effect {
+                margin: 0 0.2em;
+            }
+
+            &>span:last-child {
+                margin-left: -0.2em;
+            }
+        }
 
         .checkbox-container {
             display: flex;
@@ -93,34 +174,6 @@
                             filter: var(--ghs-filter-white);
                         }
                     }
-                }
-            }
-        }
-
-        .automation-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 55%;
-            left: -1em;
-            width: 0.9em;
-            height: 0.9em;
-            transform: translateY(-50%);
-            z-index: 2;
-
-            .ghs-svg {
-                width: 100%;
-                height: auto;
-                filter: var(--ghs-filter-black);
-                margin-left: 0;
-            }
-
-            &.light {
-                color: var(--ghs-color-white);
-
-                .ghs-svg {
-                    filter: var(--ghs-filter-white);
                 }
             }
         }

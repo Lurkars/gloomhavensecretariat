@@ -11,7 +11,8 @@
     <div *ngIf="characters.length" class="characters"
       [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.characters || !gameManager.stateManager.permissions.party)}">
       <div class="character-container" *ngFor="let character of characters">
-        <a class="character" tabclick (click)="toggleCharacter(character)"
+        <a class="character" tabclick ghs-pointer-input (singleClick)="toggleCharacter(character)"
+          (doubleClick)="openCharacterSheet(character)"
           [ngClass]="{'inactive' : activeCharacters.indexOf(character) == -1}">
           <img class="icon" [src]="character.iconUrl">
           <img class="absent" src="./assets/images/status/absent.svg" *ngIf="character.absent">
@@ -299,10 +300,12 @@
 
     <div class="entity-container event-outcomes" *ngIf="eventEffectsManual.length || eventConditionManual.length">
       <span class="title" [ghs-label]="'game.events.applyManually'"></span>
-      <ghs-event-card-condition *ngFor="let condition of eventConditionManual" [condition]="condition"
-        [light]="true"></ghs-event-card-condition>
-      <ghs-event-card-effect *ngFor="let effect of eventEffectsManual" [effect]="effect"
-        [light]="true"></ghs-event-card-effect>
+      <ghs-event-card-condition *ngFor="let condition of eventConditionManual" [condition]="condition" [light]="true"
+        [selected]="true"></ghs-event-card-condition>
+      <ghs-event-card-effect *ngFor="let effect of eventEffectsManual" [effect]="effect" [light]="true"
+        [selected]="true"></ghs-event-card-effect>
+
+      <a class="action" (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
     </div>
   </div>
 </div>

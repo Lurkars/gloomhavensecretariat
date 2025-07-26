@@ -23,6 +23,8 @@ export class EventCardComponent implements OnInit, OnChanges {
     @Input() disabled: boolean = false;
     @Input() spoiler: boolean = false;
 
+    @Input() debug: boolean = false;
+
     @Output() onSelect: EventEmitter<EventCardIdentifier> = new EventEmitter<EventCardIdentifier>();
 
     selected: number = -1;
@@ -91,6 +93,11 @@ export class EventCardComponent implements OnInit, OnChanges {
             }
             if (!quiet) {
                 this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections));
+            }
+
+            if (this.event.options[index] && !this.event.options[index].label) {
+                this.flipped = true;
+                this.selected = -1;
             }
         }
         if (event) {

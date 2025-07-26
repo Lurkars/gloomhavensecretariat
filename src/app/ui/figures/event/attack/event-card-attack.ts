@@ -14,4 +14,6 @@ export class EventCardAttackComponent {
     @Input() eventType!: string;
     @Input() light: boolean = true;
 
+    @Input() debug: boolean = false;
+
 }

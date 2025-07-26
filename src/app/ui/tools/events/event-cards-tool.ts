@@ -22,6 +22,7 @@ export class EventCardsToolComponent implements OnInit {
   selected: number = -1;
   iterator: number = -1;
   spoiler: boolean = false;
+  debug: boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -67,11 +68,11 @@ export class EventCardsToolComponent implements OnInit {
   update() {
     this.events = [];
     if (this.edition) {
-      this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition);
+      this.types = gameManager.eventCardManager.getEventTypesForEdition(this.edition, false);
       if (!this.type || this.types.indexOf(this.type) == -1) {
         this.type = this.types[0];
       }
-      this.events = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type).filter((e, i) => this.iterator == -1 || this.iterator == i);
+      this.events = gameManager.eventCardManager.getEventCardsForEdition(this.edition, this.type, false).filter((e, i) => this.iterator == -1 || this.iterator == i);
     }
   }
 
@@ -80,7 +81,7 @@ export class EventCardsToolComponent implements OnInit {
       [],
       {
         relativeTo: this.route,
-        queryParams: { edition: this.edition || undefined, type: this.type || undefined, selected: this.selected || undefined, iterator: this.iterator != -1 ? this.iterator : undefined },
+        queryParams: { edition: this.edition || undefined, type: this.type || undefined, selected: this.selected, iterator: this.iterator != -1 ? this.iterator : undefined },
         queryParamsHandling: 'merge'
       });
   }

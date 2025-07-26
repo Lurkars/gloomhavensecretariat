@@ -146,37 +146,41 @@
         "narrative": "There's nothing to shoot at unless you catch it: grab an oar.",
         "outcomes": [
           {
-            "narrative": "You pull with concerted effort in time with the rest of the crew. The wind mercilessly pushes you back, but as you feel the fatigue settling into your arms, a voice calls out from the crow's nest: \"She's there! We're pulling up on her!\""
-          },
-          {
-            "condition": {
-              "type": "traits",
-              "values": [
-                "strong"
-              ]
-            },
+            "narrative": "You pull with concerted effort in time with the rest of the crew. The wind mercilessly pushes you back, but as you feel the fatigue settling into your arms, a voice calls out from the crow's nest: \"She's there! We're pulling up on her!\"",
             "effects": [
               {
-                "type": "outcome",
+                "condition": {
+                  "type": "traits",
+                  "values": [
+                    "strong"
+                  ]
+                },
+                "type": "and",
                 "values": [
-                  "B"
+                  {
+                    "type": "outcome",
+                    "values": [
+                      "B"
+                    ]
+                  },
+                  "add +2 %game.action.attack%."
                 ]
               },
-              "and add +2 %game.action.attack%."
-            ]
-          },
-          {
-            "condition": {
-              "type": "otherwise"
-            },
-            "effects": [
               {
-                "type": "outcome",
+                "condition": {
+                  "type": "otherwise"
+                },
+                "type": "and",
                 "values": [
-                  "B"
+                  {
+                    "type": "outcome",
+                    "values": [
+                      "B"
+                    ]
+                  },
+                  "add +1 %game.action.attack%."
                 ]
-              },
-              "and add +1 %game.action.attack%."
+              }
             ]
           }
         ]
@@ -184,7 +188,6 @@
       {
         "label": "B",
         "narrative": "Combat is your specialty: ready the cannons.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Looming ahead is a starfish bigger than any you've ever seen. Its arms drift in and out of the water, propelling it forward. It pays you no mind, but the Captain grits his teeth and looks to you. \"Fire!\"",
@@ -193,7 +196,7 @@
             ]
           },
           {
-            "condition": "RESULT > 6:",
+            "condition": "RESULT > 6",
             "narrative": "You sink the harpoon dead center in the beast, who howls a haunting scream, then sinks below the waves. The Captain lets a tear run openly down his face. \"Thank you. Finally, peace for my love.\"",
             "effects": [
               {
@@ -210,6 +213,7 @@
               "type": "otherwise"
             },
             "narrative": "The harpoon falls short of the massive starfish, and it continues on its way. The Captain dejectedly retires to his cabin, and you don't see him again for the remainder of the journey.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "loseMorale",
@@ -273,6 +277,7 @@
         "outcomes": [
           {
             "narrative": "You agree to the race as a pretense, but meanwhile prepare to attack. Halfway through the race you open fire on the Lurker. It disappears under the water, and after some rumblings under the ship, reappears off to the side of your vessel. You spin the ship's wheel to turn toward it, but notice your rudder is floating in your wake. It wins this round, and you'll have to make repairs before challenging a Lurker again.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveResource",
@@ -301,7 +306,8 @@
             "narrative": "\"Thank you, Boat! You are a credit to your species.\" With that, the sea turtle begins the arduous process of turning its enormous body, setting off for Frosthaven.",
             "effects": [
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-52"
@@ -395,9 +401,11 @@
         "outcomes": [
           {
             "narrative": "It's not worth the risk to the ship. You convince the crew to divert around the ice floes, despite the additional time it'll take.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "drawAnotherEvent",
+                "alt": true,
                 "values": [
                   "boat"
                 ]
@@ -624,7 +632,6 @@
               "type": "otherwise"
             },
             "narrative": "You dive into the water and scramble to unhitch the anchor rope between nips from the piranha pigs. It takes a few attempts and lots of return trips to the surface, but you finally unhitch the rope. The Quatryl thanks you profusely and shares some of what she gathered from the shipwreck.",
-            "returnToDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -871,10 +878,10 @@
       {
         "label": "A",
         "narrative": "Write a note back.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You write a pleasant note designed to lift someone else's spirits in the future. You make sure to include all sorts of interesting anecdotes about your time battling monsters and embellish just a little bit—but certainly not enough to be unbelievable. You seal it with a cork and toss it into the water. The current carries it away, mixing in with everything else to be found in the vast ocean.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",
@@ -900,7 +907,8 @@
                 ]
               },
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "boat",
                   "B-14"
@@ -931,7 +939,13 @@
                   3
                 ]
               },
-              "Retrieve event B-13 and return it to the boat deck."
+              {
+                "type": "eventReturn",
+                "values": [
+                  "boat",
+                  "B-13"
+                ]
+              }
             ]
           }
         ]
@@ -1029,8 +1043,7 @@
               "attackValue": 35,
               "targetNumber": 7,
               "targetDescription": "Target even-numbered buildings in ascending order.",
-              "narrative": "The devastation in town is enough for Mayor Satha to forbid lending guard resources in the future.",
-              "effects": []
+              "narrative": "The devastation in town is enough for Mayor Satha to forbid lending guard resources in the future."
             }
           }
         ]
@@ -1238,7 +1251,8 @@
             "narrative": "You tear open the edge of the package, just to get a peek. The closer you look, the less there is to see... it's empty. Sometime later a pair of Aesthers dressed in drab yellow arrive at your door.<br><br>\"Hello mercenaries. We are Leonidas—\" \"—and Maximus. We have come for our package.\"<br><br>You feign confusion and they return the sentiment.<br><br>\"Oh. Perhaps we have come too early—\" \"—or too late. We will return.\"",
             "effects": [
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-40"
@@ -1279,7 +1293,6 @@
         "outcomes": [
           {
             "narrative": "The snow imps are half-conscious in a box conspicuously labeled \"DO NOT EAT.\" A liberal dousing of paint later, your arms are slashed up but the imps look sort-of almost-kinda like snowbirds, if you are distracted or blind.<br><br>When the kiss finally comes, the cage is opened and the imps are startled enough by the cheering and confused enough by the paint that they make a mad dash for the sky. It's a beautiful finale. Xain mouths \"Thank you!\" from the sidelines.",
-            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",
@@ -1291,7 +1304,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "bless"
+                  "wound"
                 ]
               }
             ]
@@ -1387,7 +1400,7 @@
                 "type": "collectiveResource",
                 "values": [
                   1,
-                  "lumber"
+                  "snowthistle"
                 ]
               },
               {
@@ -1415,6 +1428,7 @@
         "outcomes": [
           {
             "narrative": "You point to the card on the left. He flips it dramatically over—looks like a spade. \"Sorry, pal. It takes a certain smarts, better luck next time.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -1432,6 +1446,7 @@
         "outcomes": [
           {
             "narrative": "You point to the card on the right. He flips it dramatically over—looks like a spade. \"Sorry, pal. It takes a certain smarts, better luck next time.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -1447,7 +1462,7 @@
         "label": "C",
         "outcomes": [
           {
-            "condition": "IF YOU SHOUTED \"CHEATING!\" OR \"NEITHER!\" INSTEAD OF CHOOSING A OR B",
+            "condition": "If you shouted \"cheating!\" or \"neither!\" instead of choosing a or b",
             "narrative": "You flip over both cards at the same time—aha! Two spades just like you suspected! You knock the table to the ground and drive the charlatan out of town. Sometimes the only way to beat a cheater is to beat them at your own game. Looks like he left behind a pouch of something...",
             "effects": [
               {
@@ -1552,7 +1567,7 @@
           {
             "narrative": "Captain Olmstead balls his fists and bites his tongue. \"Yes, these are... guards.\" He stares daggers at you. \"In... training.\"<br><br>The emissary makes a few marks on his pad of paper. \"Well, it's still shameful to see them so underdressed! See to it they get the supplies they need. I expect them armored within the hour!\"<br><br>Captain Olmstead smiles through gritted teeth. \"Of course, sir. I'll see to it personally.\" The Captain leads you to the armory a little more forcefully than necessary.",
             "effects": [
-              "All characters without ARMORED gain one item crafted from 1 or 2 material resources."
+              "All characters without %game.trait:armored% gain one %game.itemSlot:body% item crafted from 1 or 2 material resources."
             ]
           }
         ]
@@ -1578,7 +1593,12 @@
                   1
                 ]
               },
-              "+5 XP"
+              {
+                "type": "outpostAttack",
+                "values": [
+                  5
+                ]
+              }
             ]
           }
         ]
@@ -1610,7 +1630,20 @@
               "targetDescription": "Target odd-numbered buildings from 1 to 40.",
               "narrative": "You stand by Mayor Satha as she regards the slain watchman, the arrow still buried in his chest. He died before he could reach the alarm. \"It looks like we'll need to double the watch,\" is all she says.",
               "effects": [
-                "Gain 2 collective LUMBER and 2 collective METAL."
+                {
+                  "type": "collectiveResource",
+                  "values": [
+                    2,
+                    "lumber"
+                  ]
+                },
+                {
+                  "type": "collectiveResource",
+                  "values": [
+                    2,
+                    "hide"
+                  ]
+                }
               ]
             }
           }
@@ -1638,10 +1671,10 @@
             "narrative": "It takes the sharp tongue of a mercenary that knows the importance of vigilance, but you convince Captain Olmstead to give the guards a break. No sooner have they stripped off their armor and waded into the water than the attack begins: lightning eels, driven further inland by the heat, start stunning and dragging people under the icy waves. You are forced to rush out and fight off the eels, all while Captain Olmstead glares at you with unadulterated fury.",
             "effects": [
               {
-                "type": "scenarioCondition",
+                "type": "scenarioDamage",
                 "alt": true,
                 "values": [
-                  "bless:2"
+                  2
                 ]
               }
             ]
@@ -1692,7 +1725,17 @@
         "narrative": "Come to Violet's aid—there's more to the Lurkers.",
         "outcomes": [
           {
-            "narrative": "You intervene in the heated discussion and provide some reports from the field. Yes, the Lurkers can be an impressive adversary, but there are indications there's more to their actions. Violet is visibly relieved at your help.<br><br>Satha grunts. \"Fine, if you think there's value here, introduce her to the guard. But if her crackpot ideas don't pan out, I'm holding it against you lot.\""
+            "narrative": "You intervene in the heated discussion and provide some reports from the field. Yes, the Lurkers can be an impressive adversary, but there are indications there's more to their actions. Violet is visibly relieved at your help.<br><br>Satha grunts. \"Fine, if you think there's value here, introduce her to the guard. But if her crackpot ideas don't pan out, I'm holding it against you lot.\"",
+            "effects": [
+              {
+                "type": "event",
+                "alt": true,
+                "values": [
+                  "winter-outpost",
+                  "WO-62"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -1701,7 +1744,17 @@
         "narrative": "Back up Satha's assessment—Lurker research is a waste of resources.",
         "outcomes": [
           {
-            "narrative": "You can't help but side with Satha under the circumstances: the Lurkers have proven, time and again, to be vicious killing machines with physiology to match. You don't doubt that Violet means well, but if there are resources that could be used to protect the town, it's better for Satha to use them on defense rather than research projects.<br><br>Violet lowers her gaze, then walks off without another word, dejected."
+            "narrative": "You can't help but side with Satha under the circumstances: the Lurkers have proven, time and again, to be vicious killing machines with physiology to match. You don't doubt that Violet means well, but if there are resources that could be used to protect the town, it's better for Satha to use them on defense rather than research projects.<br><br>Violet lowers her gaze, then walks off without another word, dejected.",
+            "effects": [
+              {
+                "type": "event",
+                "alt": true,
+                "values": [
+                  "summer-outpost",
+                  "SO-39"
+                ]
+              }
+            ]
           }
         ]
       }
@@ -1726,7 +1779,16 @@
                   15
                 ]
               },
-              "Add 103.2 to the calendar in three weeks. If that week is in winter, add it to the second week of next summer instead."
+              {
+                "type": "sectionWeeksSeason",
+                "values": [
+                  "103.2",
+                  3,
+                  "winter",
+                  2,
+                  "summer"
+                ]
+              }
             ]
           }
         ]
@@ -1744,7 +1806,16 @@
                   15
                 ]
               },
-              "Add 179.5 to the calendar in three weeks. If that week is in winter, add it to the second week of next summer instead."
+              {
+                "type": "sectionWeeksSeason",
+                "values": [
+                  "179.5",
+                  3,
+                  "winter",
+                  2,
+                  "summer"
+                ]
+              }
             ]
           }
         ]
@@ -1752,10 +1823,10 @@
       {
         "label": "C",
         "narrative": "Take him up on the offer some other time.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "\"Suit yourself. I'm sure there's a buyer looking for a deal somewhere in this popsicle.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -1920,7 +1991,7 @@
                   15
                 ]
               },
-              "Lose all collective HIDE."
+              "Lose all collective %game.resource.snowthistle%."
             ]
           },
           {
@@ -1930,8 +2001,8 @@
             "narrative": "You hand the Valrath some snowthistle, and he licks his lips. \"Good, nice quality. Happy to put any excess to you have to better use...\"",
             "returnToDeck": true,
             "effects": [
-              "Lose any number of collective HIDE.",
-              "Gain 5 collective GOLD for each HIDE lost."
+              "Lose any number of collective %game.resource.snowthistle%.",
+              "Gain 5 collective GOLD for each %game.resource.snowthistle% lost."
             ]
           }
         ]
@@ -1948,7 +2019,6 @@
               ]
             },
             "narrative": "You offer encouraging words, reminding the Valrath that his pursuits don't need to define who he is. He grumbles as he slinks down the alley. \"I'll, uh, consider what you said.\"",
-            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -1982,7 +2052,24 @@
         "narrative": "Mercenaries should be supported. Help them purchase supplies in return for a cut of what they find.",
         "outcomes": [
           {
-            "condition": "Lose 10 collective GOLD and any 2 collective HERB resources",
+            "condition": {
+              "type": "and",
+              "values": [
+                {
+                  "type": "loseCollectiveGold",
+                  "values": [
+                    10
+                  ]
+                },
+                {
+                  "type": "loseCollectiveResourceType",
+                  "values": [
+                    2,
+                    "herb_resources"
+                  ]
+                }
+              ]
+            },
             "narrative": "You see them safely on their way and hope for the best as they make their way out of Frosthaven's gate and into the unknown. The backing of someone like you is enough for the town to also throw in their support, and an Orchid with a longbow strapped to his back nods in thanks as they pass.",
             "effects": [
               {
@@ -1991,7 +2078,36 @@
                   1
                 ]
               },
-              "Add events SO-37 and SO-38 to the summer outpost deck."
+              {
+                "type": "event",
+                "alt": true,
+                "values": [
+                  "summer-outpost",
+                  "SO-37"
+                ]
+              },
+              {
+                "type": "event",
+                "alt": true,
+                "values": [
+                  "summer-outpost",
+                  "SO-38"
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
             ]
           }
         ]
@@ -2003,7 +2119,9 @@
           {
             "narrative": "You stop an Orchid mercenary as he loads the last of the meager supplies onto the wagon. He clearly hasn't seen much combat—you describe just how dangerous this could be.<br><br>\"I... uh, I didn't think of it that way.\" He walks off to talk with his companions who start looking more concerned. Eventually, he returns. \"Thanks for the dose of reality. I'm probably better off just joining the town guard. I guess we won't be needing this.\" He hands you the object that inspired their adventure.",
             "effects": [
-              "Gain one random side scenario.",
+              {
+                "type": "randomScenario"
+              },
               {
                 "type": "soldier",
                 "values": [
@@ -2035,7 +2153,28 @@
             },
             "narrative": "You offer to make up the budget deficit to upgrade the Barracks out of your own pocket. Captain Olmstead's eyes widen.<br><br>\"You mercenaries are not nearly the scum Satha thinks you are. I'm going to tell her right now!\"",
             "effects": [
-              "Upgrade the Barracks to the next level, or, if the Barracks is already level 4, gain 1 morale instead."
+              {
+                "type": "upgradeBuilding",
+                "values": [
+                  "barracks",
+                  4,
+                  2
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
             ]
           }
         ]
@@ -2043,10 +2182,10 @@
       {
         "label": "B",
         "narrative": "Leave and come back later.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Captain Olmstead grabs a decorative shield off the wall and begins bashing it against the straw face of the practice dummy. He soon abandons the dented shield and starts furiously clawing the dummy, pulling out big tufts of straw with his bare hands.<br><br>You take that as a cue to return at a more convenient time.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -2118,8 +2257,13 @@
             },
             "narrative": "When the sun begins to set, the old-timer stops by to discuss how the group fared. \"Not a bad haul, eh? Aside from the skeletons.\"",
             "effects": [
-              "Add 1 additional material resource or gold card to the deck.",
-              "THEN: Add three herb resource cards to the loot deck and shuffle it. You may collectively draw from the deck as many times as you choose. Each time you draw a card, if it is:"
+              "Add 1 additional material resource or gold card to the deck."
+            ]
+          },
+          {
+            "condition": "THEN",
+            "effects": [
+              "Add three herb resource cards to the loot deck and shuffle it. You may collectively draw from the deck as many times as you choose. Each time you draw a card, if it is:"
             ]
           },
           {
@@ -2147,6 +2291,11 @@
         "narrative": "Bet some gold on your success.",
         "outcomes": [
           {
+            "effects": [
+              "All characters resolve the following individually:"
+            ]
+          },
+          {
             "condition": "LOSE UP TO 10 GOLD",
             "narrative": "Ahhh, wow! You're quite the gambler. I wouldn't bet on these odds.\" Xain flashes you a smile that could warm an Algox's heart.",
             "effects": [
@@ -2170,6 +2319,11 @@
         "label": "B",
         "narrative": "Bet some resources on your success.",
         "outcomes": [
+          {
+            "effects": [
+              "All characters resolve the following individually:"
+            ]
+          },
           {
             "condition": "LOSE UP TO 2 RESOURCES",
             "narrative": "Huh. Does Satha know you have all this? Well, had, I guess. Pleasure doing business with you!\" Xain laughs loud enough to scare off a wind demon.",
@@ -2206,7 +2360,8 @@
             "narrative": "You explain the virtues of a summertime holiday, highlighting the freshness of the fruit and how the town could dance into the night with the later summer sunsets. Satha is readily swayed.<br><br>\"It's settled, then! We'll have a Summer Harvest Festival!\"",
             "effects": [
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-36"
@@ -2224,7 +2379,8 @@
             "narrative": "You explain the virtues of a wintertime holiday, highlighting that hot drinks and bonfires could warm the hearts of the townsfolk, providing much needed merriment during the dark winter days. Satha is readily swayed.<br><br>\"It's settled, then! We'll have a Winter Festival!\"",
             "effects": [
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "winter-outpost",
                   "WO-61"
@@ -2313,16 +2469,17 @@
             "narrative": "After a few tense words and some reminders about the last time they threatened the peace around Frosthaven, the ruffians come to their senses. They hand over some gold coins and the merchant turns over the goods—but not before snatching a few things in front of their eyes to hand off to you in thanks. The would-be crooks wisely choose not to make an issue of it.",
             "effects": [
               {
-                "type": "collectiveGold",
+                "type": "collectiveResource",
                 "values": [
-                  2
+                  2,
+                  "metal"
                 ]
               },
               {
                 "type": "collectiveResource",
                 "values": [
                   2,
-                  "lumber"
+                  "hide"
                 ]
               }
             ]
@@ -2356,7 +2513,27 @@
             },
             "narrative": "After some significant back-and-forth, you calm the merchant down and convince him you'll help make his trip worthwhile. He doesn't look happy about it, but he agrees to sell you some of what he hauled up here so that he doesn't have to take everything back through the treacherous Frozen Pass.",
             "effects": [
-              "Gain 3 collective GOLD, 3 collective LUMBER, and 3 collective HIDE."
+              {
+                "type": "collectiveResource",
+                "values": [
+                  3,
+                  "lumber"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  3,
+                  "metal"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  3,
+                  "hide"
+                ]
+              }
             ]
           },
           {
@@ -2443,7 +2620,7 @@
             "narrative": "You work quickly, probing the clockwork mechanics to find just the right cog. You can't deactivate it entirely, but you can at least release the heat valve to reduce the pressure build up.",
             "effects": [
               {
-                "type": "outpostAttack",
+                "type": "outpostTarget",
                 "values": [
                   -1
                 ]
@@ -2494,14 +2671,22 @@
       {
         "outcomes": [
           {
+            "effects": [
+              "Wreck the Workshop."
+            ],
             "attack": {
               "attackValue": 15,
               "targetNumber": 4,
               "targetDescription": "Target even-numbered buildings in order of closest to farthest from the Workshop (players break ties).",
-              "narrative": "Wreck the Workshop.",
+              "narrative": "The detonation sends a shockwave throughout Frosthaven. The outposters will be much more careful about dragging in unknown machinery in the future.",
               "effects": [
-                "The detonation sends a shockwave throughout Frosthaven. The outposters will be much more careful about dragging in unknown machinery in the future.",
-                "Gain 1 GOLD each."
+                {
+                  "type": "resource",
+                  "values": [
+                    5,
+                    "metal"
+                  ]
+                }
               ]
             }
           }
@@ -2564,7 +2749,18 @@
           {
             "narrative": "The Lurkers seem pacified by the effects of the lit town, and they recede from any buildings brighter than the dull red moonlight, concentrating their attention on the targets that were slower with their flame.",
             "effects": [
-              "+5 MORALE, -1 PROSPERITY"
+              {
+                "type": "outpostAttack",
+                "values": [
+                  5
+                ]
+              },
+              {
+                "type": "outpostTarget",
+                "values": [
+                  -1
+                ]
+              }
             ]
           }
         ]
@@ -2576,7 +2772,18 @@
           {
             "narrative": "Whatever frenzy these Lurkers have churned up in the red moonlight fades in the fire, but they don't seem interested in leaving quietly.",
             "effects": [
-              "-5 MORALE, +2 PROSPERITY"
+              {
+                "type": "outpostAttack",
+                "values": [
+                  -5
+                ]
+              },
+              {
+                "type": "outpostTarget",
+                "values": [
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -2594,7 +2801,7 @@
                   "type": "collectiveResource",
                   "values": [
                     3,
-                    "lumber"
+                    "hide"
                   ]
                 }
               ]
@@ -2650,13 +2857,22 @@
       {
         "outcomes": [
           {
+            "returnToDeck": true,
             "attack": {
-              "attackValue": 15,
+              "attackValue": "15+X",
               "targetNumber": 4,
               "targetDescription": "where X is 15 times the number of checked boxes below.",
               "narrative": "\"We've had shockwaves before, but it seems like they're getting more dangerous,\" Mayor Satha says. \"I hope I'm wrong.\"",
               "effects": [
-                "Check a box below. When all boxes are checked, remove this card from the game and add event SO-47 to the summer outpost deck."
+                "Check a box below. When all boxes are checked, remove this card from the game and add event SO-47 to the summer outpost deck.",
+                {
+                  "type": "checkbox",
+                  "values": [
+                    "",
+                    "",
+                    ""
+                  ]
+                }
               ]
             }
           }
@@ -2682,6 +2898,7 @@
               ]
             },
             "narrative": "The Quatryl is delighted to make his first sale of the day. Attempting to get a sip of your purchase proves fruitless, though: the drink is totally iced over. You can't imagine this business lasting long.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",
@@ -2696,6 +2913,7 @@
               "type": "otherwise"
             },
             "narrative": "You're not willing to buy ice when it's literally lining the streets around you. You leave the Quatryl to think through his future business plans before jumping on an idea.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -2733,7 +2951,7 @@
                 "type": "collectiveResource",
                 "values": [
                   1,
-                  "hide"
+                  "rockroot"
                 ]
               }
             ]
@@ -2743,13 +2961,12 @@
               "type": "otherwise"
             },
             "narrative": "You try to talk up just how great the smoothies are to passers-by, but the public just isn't interested. You recommend the Quatryl looks into setting up somewhere warmer. He dejectedly hands you some leftover supplies as he packs up the cart.",
-            "returnToDeck": true,
             "effects": [
               {
                 "type": "collectiveResource",
                 "values": [
                   2,
-                  "hide"
+                  "rockroot"
                 ]
               }
             ]
@@ -2787,13 +3004,15 @@
             "condition": {
               "type": "otherwise"
             },
-            "narrative": {
-              "type": "outcome",
-              "values": [
-                "B"
-              ]
-            },
-            "effects": []
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -2802,7 +3021,13 @@
         "narrative": "Winter isn't far off, it'll freeze back over.",
         "outcomes": [
           {
-            "condition": "if winter is three or fewer weeks away",
+            "condition": {
+              "type": "seasonLT",
+              "values": [
+                "winter",
+                3
+              ]
+            },
             "narrative": "Sure enough, the warm weather turns to chillier days, and the snowpack seems to solidify more with each passing hour. Nothing to worry about.",
             "effects": [
               {
@@ -2855,18 +3080,28 @@
             "effects": [
               "Select two buildings that cannot be targeted."
             ]
-          },
+          }
+        ]
+      },
+      {
+        "returnToDeck": true,
+        "outcomes": [
           {
-            "narrative": "The sky is a dark gray from the soot, and it's hours before you manage to stamp out the last of the flames. You salvage what you can and begin to rebuild.",
-            "effects": [
-              {
-                "type": "collectiveResource",
-                "values": [
-                  3,
-                  "lumber"
-                ]
-              }
-            ]
+            "attack": {
+              "attackValue": "15+X",
+              "targetNumber": 2,
+              "targetDescription": "where X is defense value of Frosthaven's walls.<br><br>Target the undamaged building closest to the main gate, then target the next closest undamaged targets based on proximity to the previous target (players break ties). Increase the number of targets by 1 each time a building is damaged in this attack. This attack can target an undamaged building more than once.",
+              "narrative": "The sky is a dark gray from the soot, and it's hours before you manage to stamp out the last of the flames. You salvage what you can and begin to rebuild.",
+              "effects": [
+                {
+                  "type": "collectiveResource",
+                  "values": [
+                    3,
+                    "lumber"
+                  ]
+                }
+              ]
+            }
           }
         ]
       }
@@ -2963,7 +3198,7 @@
                   "type": "collectiveResource",
                   "values": [
                     3,
-                    "lumber"
+                    "metal"
                   ]
                 }
               ]
@@ -2977,11 +3212,11 @@
     "cardId": "SO-32",
     "edition": "fh",
     "type": "summer-outpost",
-    "narrative": "Balancing on a single wheel, a small metal box with a wobbly head rolls up to the main gate. The guards are hesitant to ring the alarm bell over a lone robot, but the debate is cut short as it announces itself with a full-throated metallic voice: \"PROVIDE US SUFFICIENT METAL OR FACE OUR BEAM OF DEATH.\" With that, a device on the mountainside gives off a flickering light, projecting a blue dot on the side of a building in town. The edges of the light singe the wall, and the intensity seems to be growing. \"SNICKLES AND STUMP ARE IMPATIENT BY DESIGN. YOU HAVE ONE MINUTE TO COMPLY.\"",
+    "narrative": "Balancing on a single wheel, a small metal box with a wobbly head rolls up to the main gate. The guards are hesitant to ring the alarm bell over a lone robot, but the debate is cut short as it announces itself with a full-throated metallic voice:<br>b<r>\"PROVIDE US SUFFICIENT METAL OR FACE OUR BEAM OF DEATH.\" With that, a device on the mountainside gives off a flickering light, projecting a blue dot on the side of a building in town. The edges of the light singe the wall, and the intensity seems to be growing.<br><br>\"SNICKLES AND STUMP ARE IMPATIENT BY DESIGN. YOU HAVE ONE MINUTE TO COMPLY.\"",
     "options": [
       {
         "label": "A",
-        "narrative": "Toss some metal down to the small robotic box (requires 3 METAL).",
+        "narrative": "Toss some metal down to the small robotic box (requires 3 %game.resource.metal%).",
         "outcomes": [
           {
             "narrative": "You throw the metal off the battlements and the small box uses a fold-out arm to gather the resources.<br><br>\"OUR BUSINESS CONCLUDES. GOOD DAY.\" It wheels back to wherever it came from, wobbly head bobbing. The blue light coming from the mountainside deactivates.",
@@ -3170,13 +3405,21 @@
             },
             "narrative": "Captain Olmstead looks relieved, calming his breathing. \"It's not that I don't like art. I like art. I love music. I even love musicals. I just hate that Savvas.\" He centers himself. \"In any case, thank you.\"",
             "effects": [
-              "Upgrade the Barracks to the next level, or, if the Barracks is already level 4, gain 1 morale instead."
+              {
+                "type": "upgradeBuilding",
+                "values": [
+                  "barracks",
+                  4,
+                  2
+                ]
+              }
             ]
           },
           {
             "condition": {
               "type": "otherwise"
             },
+            "inlineEffects": true,
             "effects": [
               {
                 "type": "outcome",
@@ -3224,7 +3467,7 @@
                   2
                 ]
               },
-              "Place \"Harvest Festival\" campaign sticker on this week's column of the calendar. Transfer over any sections in the covered weeks and add 57.3 to the week in each subsequent year."
+              "Place \"Harvest Festival\" campaign sticker on this week's column of the calendar. Transfer over any sections in the covered weeks and add %game.section:57.3% to the week in each subsequent year."
             ]
           }
         ]
@@ -3249,7 +3492,7 @@
                   "herb-resource"
                 ]
               },
-              "Place \"Harvest Festival\" campaign sticker on this week's column of the calendar. Transfer over any sections in the covered weeks and add 57.3 to the week in each subsequent year."
+              "Place \"Harvest Festival\" campaign sticker on this week's column of the calendar. Transfer over any sections in the covered weeks and add %game.section:57.3% to the week in each subsequent year."
             ]
           }
         ]
@@ -3269,7 +3512,9 @@
           {
             "narrative": "You catch up with the Orchid in the infirmary after he's had some fluids and some rest.<br><br>\"We didn't stand a chance.\" He grows quiet again, but calmer this time. Before his mind drifts back to reliving the experience, you interject, letting him know you'll avenge his friends.<br><br>\"Th—thank you.\" Over the next few hours he explains the experience and then hands over the object that inspired the adventure in the first place.",
             "effects": [
-              "Gain one random side scenario.",
+              {
+                "type": "randomScenario"
+              },
               {
                 "type": "removeEvent",
                 "alt": true,
@@ -3289,7 +3534,16 @@
           {
             "narrative": "You poke through the contents of the pack he discarded. The provisions are low, but there are some pelts that you could put to better use. You also find the object that likely inspired the adventure in the first place.",
             "effects": [
-              "Gain one random side scenario and 2 collective HIDE.",
+              {
+                "type": "randomScenario"
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  2,
+                  "hide"
+                ]
+              },
               {
                 "type": "removeEvent",
                 "alt": true,
@@ -3313,10 +3567,10 @@
       {
         "label": "A",
         "narrative": "Encourage them to go out again.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "The Orchid happily hands you your earnings, but you push part of it back into his hands. \"Actually, we do have another site rumored to have even better treasure. We'll put this towards supplies and bring you a cut when we return. Thank you!\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -3335,7 +3589,36 @@
           {
             "narrative": "The Orchid happily hands you your earnings, and you ask if he has any leads on other potential adventures.<br><br>\"Actually, we did find something curious on our last outing. It may lead somewhere interesting, but I think the party is ready to spend some of what we've earned for a time—maybe join up with the town guard. No harm in sharing with the mercenaries who funded us in the first place!\"",
             "effects": [
-              "Gain one random side scenario, 20 collective GOLD, 2 collective LUMBER, 2 collective METAL, and 2 collective HIDE.",
+              {
+                "type": "randomScenario"
+              },
+              {
+                "type": "collectiveGold",
+                "values": [
+                  20
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  2,
+                  "lumber"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  2,
+                  "metal"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  2,
+                  "hide"
+                ]
+              },
               {
                 "type": "soldier",
                 "values": [
@@ -3409,7 +3692,13 @@
           {
             "narrative": "You agree to the Aesthers' terms, and they flag down a passing mail carrier. They hand over the lumpy package.<br><br>\"No name, but an address—\"<br>\"—it's theirs now.\"<br><br>The Quatryl mail carrier looks at them like they're the oddest individuals in Frosthaven. She's probably not wrong. \"Sure guys. I'll get it there. Just gonna stop off for a drink first.\" The mail carrier rolls her eyes and heads off.",
             "effects": [
-              "Retrieve event SO-01 and return it to the summer outpost deck."
+              {
+                "type": "eventReturn",
+                "values": [
+                  "summer-outpost",
+                  "SO-01"
+                ]
+              }
             ]
           }
         ]
@@ -3427,7 +3716,13 @@
                   10
                 ]
               },
-              "Retrieve event SO-01 and return it to the summer outpost deck."
+              {
+                "type": "eventReturn",
+                "values": [
+                  "summer-outpost",
+                  "SO-01"
+                ]
+              }
             ]
           }
         ]
@@ -3552,7 +3847,27 @@
                   1
                 ]
               },
-              "Gain 3 collective LUMBER, 3 collective METAL, and 3 collective HIDE."
+              {
+                "type": "collectiveResource",
+                "values": [
+                  3,
+                  "lumber"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  3,
+                  "metal"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  3,
+                  "hide"
+                ]
+              }
             ]
           }
         ]
@@ -3564,7 +3879,15 @@
           {
             "narrative": "Harrowers aren't particularly sentimental, but they will readily honor the concept of a debt—a fact that has made their business acumen renowned across the region. The Harrower orders its steward to unload a crate from the ship, gives a nod of acknowledgement, then disappears below decks.",
             "effects": [
-              "Gain 1 prosperity and one random item."
+              {
+                "type": "prosperity",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "randomItem"
+              }
             ]
           }
         ]
@@ -3590,7 +3913,7 @@
                   10
                 ]
               },
-              "If you have insufficient funds to lose 10 gold, lose as much as possible, then all characters start the next scenario with POISON and IMMOBILIZE and discard one card."
+              "If you have insufficient funds to lose 10 gold, lose as much as possible, then all characters start the next scenario with %game.condition.wound% and %game.condition.poison% and discard one card."
             ]
           }
         ]
@@ -3682,7 +4005,12 @@
                   1
                 ]
               },
-              "Unlock envelope 83 if it is not unlocked.",
+              {
+                "type": "unlockEnvelope",
+                "values": [
+                  83
+                ]
+              },
               "During this week's Construction step, you may build or upgrade the Library for no gold or resource cost."
             ]
           }
@@ -3701,7 +4029,20 @@
                   1
                 ]
               },
-              "Gain 3 collective HIDE and 2 collective METAL."
+              {
+                "type": "collectiveResource",
+                "values": [
+                  2,
+                  "lumber"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  2,
+                  "metal"
+                ]
+              }
             ]
           }
         ]
@@ -3725,8 +4066,15 @@
               ]
             },
             "narrative": "Planting your feet on the ground, you channel your powers to calm the earth.",
+            "inlineEffects": true,
             "effects": [
-              "-10 HP for all targets."
+              {
+                "type": "outpostAttackTarget",
+                "values": [
+                  -10,
+                  "all"
+                ]
+              }
             ]
           },
           {
@@ -3737,6 +4085,7 @@
               ]
             },
             "narrative": "You drag a young man out from a building as it collapses.",
+            "inlineEffects": true,
             "effects": [
               {
                 "type": "experience",
@@ -3754,6 +4103,7 @@
               ]
             },
             "narrative": "A group is trying to gather their things before evacuating. You get them moving.",
+            "inlineEffects": true,
             "effects": [
               "Reduce the cost of repairing any one building this week by 2 resources."
             ]
@@ -3766,6 +4116,7 @@
               ]
             },
             "narrative": "You tackle a family to the ground as a chimney collapses where they stood.",
+            "inlineEffects": true,
             "effects": [
               {
                 "type": "morale",
@@ -3783,8 +4134,15 @@
               ]
             },
             "narrative": "You prop a fallen beam against a nearby building as the facade shakes.",
+            "inlineEffects": true,
             "effects": [
-              "-20 HP for any one target."
+              {
+                "type": "outpostAttackTarget",
+                "values": [
+                  -20,
+                  "one"
+                ]
+              }
             ]
           },
           {
@@ -3795,6 +4153,7 @@
               ]
             },
             "narrative": "You rush to brace a falling exterior wall of a building.",
+            "inlineEffects": true,
             "effects": [
               "Gain advantage on any one target."
             ]
@@ -3879,7 +4238,12 @@
         "narrative": "Hire Loggo for a private harvest.",
         "outcomes": [
           {
-            "condition": "Pay 10 collective gold",
+            "condition": {
+              "type": "loseCollectiveGold",
+              "values": [
+                10
+              ]
+            },
             "narrative": "You insert ten gold coins into a slot on Loggo, and it trudges out Frosthaven's gate to the wilderness. It doesn't return until a full day later, carrying perfectly cut, full-sized logs of precise, uniform dimensions.<br><br>\"TRANSACTION COMPLETE.\"",
             "effects": [
               {
@@ -3890,7 +4254,8 @@
                 ]
               },
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-50"
@@ -3939,7 +4304,8 @@
             "narrative": "It takes some doing, but you convince the loggers to unionize against Loggo and other Unfettered taking their livelihoods.",
             "effects": [
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-50"
@@ -3974,7 +4340,7 @@
                 "type": "collectiveResource",
                 "values": [
                   3,
-                  "hide"
+                  "lumber"
                 ]
               }
             ]
@@ -4004,7 +4370,7 @@
                 "type": "collectiveResource",
                 "values": [
                   3,
-                  "hide"
+                  "lumber"
                 ]
               }
             ]
@@ -4025,7 +4391,7 @@
                 "type": "collectiveResource",
                 "values": [
                   3,
-                  "hide"
+                  "lumber"
                 ]
               }
             ]
@@ -4046,6 +4412,9 @@
         "returnToDeck": true,
         "outcomes": [
           {
+            "narrative": "Excellent choice! Best of luck!"
+          },
+          {
             "condition": {
               "type": "traits",
               "values": [
@@ -4054,15 +4423,22 @@
               ]
             },
             "narrative": "You volunteer for the next fight yourself.",
+            "inlineEffects": true,
             "effects": [
               "Select one Inox or Algox character and use that character's attack modifier deck for that side of the below fight instead. If that character wins the fight, they gain 10 gold in addition the rewards below."
             ]
           },
           {
-            "narrative": "Excellent choice! Best of luck!",
+            "condition": "then",
+            "inlineEffects": true,
             "effects": [
-              "Lose 15 collective gold. Select one contestant to bet on: Inox or Algox. Then, for each combatant, draw three attack modifier cards from the monster attack modifier deck. Whichever set has the higher total value is the winner. In the event of a tie, continue drawing and adding a card to each side, one pair at a time, until a winner is declared.",
-              "If your contestant won, gain 2 morale and 30 collective GOLD."
+              "Lose 15 collective gold. Select one contestant to bet on: Inox or Algox. Then, for each combatant, draw three attack modifier cards from the monster attack modifier deck. Whichever set has the higher total value is the winner. In the event of a tie, continue drawing and adding a card to each side, one pair at a time, until a winner is declared."
+            ]
+          },
+          {
+            "inlineEffects": true,
+            "effects": [
+              "If your contestant won, gain 2 morale and 30 collective gold."
             ]
           }
         ]
@@ -4070,10 +4446,10 @@
       {
         "label": "B",
         "narrative": "These mock fights are boring. Start an actual brawl.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "What's a night of drinking without a little chaos? You make a crude remark about a nearby Inox's horns and the resulting fight turns into a true bar brawl. Eventually you're tossed out as troublemakers... but it was still a good night.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",
@@ -4095,17 +4471,17 @@
               "type": "traits",
               "values": [
                 "chaotic"
-              ],
-              "narrative": "You fight like it's your last day alive. It's truly a brawl to remember.",
-              "effects": [
-                {
-                  "type": "experience",
-                  "values": [
-                    10
-                  ]
-                }
               ]
-            }
+            },
+            "narrative": "You fight like it's your last day alive. It's truly a brawl to remember.",
+            "effects": [
+              {
+                "type": "experience",
+                "values": [
+                  10
+                ]
+              }
+            ]
           }
         ]
       }
@@ -4122,7 +4498,7 @@
         "narrative": "Rally the guard and give a push.",
         "outcomes": [
           {
-            "narrative": "Oh my, thank you, City! Such a polite young city. I will be sure to tell my friends.",
+            "narrative": "The town guard puts their backs into it and heaves the massive turtle back into the water.<br>br>\"Oh my, thank you, City! Such a polite young city. I will be sure to tell my friends.\"",
             "effects": [
               {
                 "type": "morale",
@@ -4139,7 +4515,7 @@
         "narrative": "This creature is on its last legs. It could be put to better use supplying the town with meat and armor.",
         "outcomes": [
           {
-            "narrative": "You pull the children back from the creature—Frosthaven has enough horrors without needing to see the circle of life so clearly. The guards finish their dark task and you thank the turtle for helping this town survive.",
+            "narrative": "You pull the children back from the creature—Frosthaven has enough horrors without needing to see the circle of life so clearly.<br><br>The guards finish their dark task and you thank the turtle for helping this town survive.",
             "effects": [
               {
                 "type": "collectiveResource",
@@ -4167,25 +4543,31 @@
     "narrative": "Mayor Satha offered a few coins for clearing the burned-out husk of a cabin behind the Hunting Lodge. There's a good chance today will involve excavating some bodies. It's a task not worth the money, but you're getting used to corpses and it saves someone else the trauma. The building itself is on the verge of collapse, which makes for slow progress, but your search for remains is interrupted when a portal opens up in the side wall. Out steps the thunderous footsteps of a full-sized winged demon, complete with four hooves and a terrifying trident. You draw your weapons for the fight. \"You eager rabbits, I'm not here for you.\" The demon doesn't bother looking at you, instead surveying the room. \"I'm a demon prince, and I'm here to kill the leader of this...\" He trails off, looking out the window with disdain. \"Is this even a city?\"",
     "options": [
       {
-        "label": "A",
-        "narrative": "Investigate the crime scene.",
+        "narrative": "Flip over this card",
         "outcomes": [
           {
-            "narrative": "You look at the demon, dumbfounded. He sees he's not getting through and continues. \"You see, someone in this hovel killed my new friend Tarro, but I don't get his soul until he finishes his mortal business. So I need to kill someone responsible for his death, then I'll be on my way. Normally I simply kill off the leadership—that counts nicely. In any case, let's get on with it: bring me your king or governor or chieftain... if you have a council go ahead and bring me all of them to be sure. I just need the people in charge, really, and you can go back to whatever bipeds do for fun.\" He pokes at a bit of charred metal that used to be a dresser. \"Judging by the room, I'm guessing... mope?\"",
+            "narrative": "You look at the demon, dumbfounded. He sees he's not getting through and continues.<br><br>\"You see, someone in this hovel killed my new friend Tarro, but I don't get his soul until he finishes his mortal business. So I need to kill someone responsible for his death, then I'll be on my way. Normally I simply kill off the leadership—that counts nicely. In any case, let's get on with it: bring me your king or governor or chieftain... if you have a council go ahead and bring me all of them to be sure. I just need the people in charge, really, and you can go back to whatever bipeds do for fun.\" He pokes at a bit of charred metal that used to be a dresser. \"Judging by the room, I'm guessing... mope?\"<br><br>You finally regain your wits and try to explain that he can't just kill the mayor to get revenge. You ask for a bit of time to get to the bottom of the accusation.<br><br>\"Oh, interesting. You want to make a deal with a demon?\" His eyes flash with interest. \"Here's the terms: I'll give you until sundown. Find me the killer, or I'll kill everyone in this sad little town for the delay, you included. Deal?\"<br><br>It's late afternoon already, so there isn't much room for negotiation. You get to work."
+          }
+        ]
+      },
+      {
+        "outcomes": [
+          {
+            "narrative": "<b>Option A</b>: Investigate the crime scene.",
+            "inlineEffects": true,
             "effects": [
-              "Read 187.3 now."
+              "Read %game.section:187.3% now."
             ]
           }
         ]
       },
       {
-        "label": "B",
-        "narrative": "Ask Satha about the incident.",
         "outcomes": [
           {
-            "narrative": "You finally regain your wits and try to explain that he can't just kill the mayor to get revenge. You ask for a bit of time to get to the bottom of the accusation. \"Oh, interesting. You want to make a deal with a demon?\" His eyes flash with interest. \"Here's the terms: I'll give you until sundown. Find me the killer, or I'll kill everyone in this sad little town for the delay, you included. Deal?\" It's late afternoon already, so there isn't much room for negotiation. You get to work.",
+            "narrative": "<b>Option B</b>: Ask Satha about the incident.",
+            "inlineEffects": true,
             "effects": [
-              "Read 144.2 now."
+              "Read %game.section:144.2% now."
             ]
           }
         ]
@@ -4210,9 +4592,14 @@
                 "unfettered"
               ]
             },
-            "narrative": "\"RETURN MY LIMBS AND I WILL DO SO. ALSO I REQUIRE REGULAR OILINGS FROM THIS TINY MAN. HE HAS DELICATE HANDS THAT PLEASE ME.\"",
+            "narrative": "You explain that while it's no prisoner, you repaired it because Frosthaven is in dire need ofits help. You ask that the Unfettered repay the favor by helping protect the town. Its bravado fades and it seems swayed.<br><br>\"RETURN MY LIMBS AND I WILL DO SO. ALSO I REQUIRE REGULAR OILINGS FROM THIS TINY MAN. HE HAS DELICATE HANDS THAT PLEASE ME.\"",
             "effects": [
-              "Add one 20 card to the town guard deck.",
+              {
+                "type": "townGuardDeckCard",
+                "values": [
+                  "fh-tg-add-plus20"
+                ]
+              },
               {
                 "type": "soldier",
                 "values": [
@@ -4226,6 +4613,7 @@
               "type": "otherwise"
             },
             "narrative": "\"AT LEAST THE ROCKS THAT CRUSHED ME HAD THE DECENCY TO ATTACK ME WHEN I HAD ARMS.\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -4239,8 +4627,7 @@
         "narrative": "It's unjust to keep it here against its will. Release it unconditionally.",
         "outcomes": [
           {
-            "narrative": "\"GOODBYE, BRIGANDS. I HAVE SOME REVENGE TO INVOKE ON A PILE OF ROCKS.\"",
-            "returnToDeck": true,
+            "narrative": "It's clear this Unfettered will never assist the citizens\nof Frosthaven, and it's time to turn him loose. You help Pinter cart it outside, supervise the reattachment of its limbs, and watch it rush to freedom.<br><br>\"GOODBYE, BRIGANDS. I HAVE SOME REVENGE TO INVOKE ON A PILE OF ROCKS.\"",
             "effects": [
               {
                 "type": "noEffect"
@@ -4264,7 +4651,7 @@
           {
             "narrative": "The man nods his thanks. \"I look forward to its retrieval—bring it to the Inn when you have it.\"",
             "effects": [
-              "If you kill an Algox during the next scenario, gain 20 collective GOLD."
+              "If you kill an Algox during the next scenario, gain 20 collective gold."
             ]
           }
         ]
@@ -4305,12 +4692,12 @@
       },
       {
         "label": "C",
-        "narrative": "Offer the man one of your own teeth (requires ALGOGX).",
+        "narrative": "Offer the man one of your own teeth (requires %game.trait:algox%).",
         "outcomes": [
           {
             "narrative": "With very little pomp and circumstance you rip a tooth from your mouth, handing it to him. He accepts it, wholly horrified.",
             "effects": [
-              "One ALGOGX character gains 20 GOLD and starts the next scenario with STUN."
+              "One %game.trait:algox% character gains 20 gold and starts the next scenario with %game.condition.wound%."
             ]
           }
         ]
@@ -4330,7 +4717,7 @@
           {
             "narrative": "You tell her about a time you were in the Watcher Mountains, and while you can't be sure, you caught a glimpse of something between the trees that matches the exact description of the mythical Firegox.<br><br>You don't have any evidence to offer, but it clear she's delighted just to have the possibility of the legendary creature maintained. With her spirits elevated she's willing to sweeten the usual offer for you.",
             "effects": [
-              "During the next Downtime step, gain 2 extra gold for each HIDE sold to the Hide Depot."
+              "During the next Downtime step, gain 2 extra gold for each %game.resource.hide% sold to the Hide Depot."
             ]
           }
         ]
@@ -4340,10 +4727,15 @@
         "narrative": "With a bit of flamefruit, you could make any of your existing hides the perfect gift...",
         "outcomes": [
           {
-            "condition": "LOSE 1 HIDE AND 1 FLAMEFRUIT",
+            "condition": "Lose 1 %game.resource.hide%  and 1 %game.resource.flamefruit% ",
             "narrative": "You spend a few minutes dying a hide of yours in some crushed-up flamefruit. It's splotchy and has an amateurish tie-dyed effect, but it's passably in line with what the tanner described. You let it dry then present it to her.<br><br>\"A Firegox pelt? You saw one? You killed one?! You must tell me everything.\" You spend the next hour making up increasingly outlandish tales about the death-defying battle. Eventually, she agrees to buy it off you at a high price.",
             "effects": [
-              "Party gains 15 collective gold.",
+              {
+                "type": "collectiveGold",
+                "values": [
+                  15
+                ]
+              },
               {
                 "type": "morale",
                 "values": [
@@ -4392,7 +4784,27 @@
           {
             "narrative": "You walk the Vermling tea aficionado over to the town garden. He is visibly overwhelmed at the sight.<br><br>\"It's beautiful! After traveling through so much ice, to see this lush greenery... I could weep!\" As if to demonstrate the point, he does. Openly.<br><br>Then Listerius, the Savvas gardener, emerges from the greenhouse and the two hit it off incredibly well, discussing herbs and teas until the sun goes down. Eventually, the Vermling turns to you and hands you some withered herbs. \"Thank you for showing this to me. I think I am home.\"",
             "effects": [
-              "Gain 1 collective LUMBER, 1 collective METAL, and 1 collective HIDE."
+              {
+                "type": "collectiveResource",
+                "values": [
+                  1,
+                  "arrowvine"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  1,
+                  "flamefruit"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  1,
+                  "snowthistle"
+                ]
+              }
             ]
           }
         ]
@@ -4410,9 +4822,17 @@
         "narrative": "Recognize there isn't a good option here and agree with Eddica that books are great.",
         "outcomes": [
           {
-            "narrative": "You mumble what you thought was a very diplomatic answer about how great books are that definitely shouldn't upset either Valrath, but the looks on their faces make it clear this was precisely the wrong thing to say. After some back-and-forth sisterly bickering, Violet departs, rolling her eyes as Eddica hollers after her.",
+            "narrative": "You mumble what you thought was a very diplomatic answer about how great books are that definitely shouldn't upset either Valrath, but the looks on their faces make it clear this was precisely the wrong thing to say. After some back-and-forth sisterly bickering, Violet departs, rolling her eyes as Eddica hollers after her.<br><br>Eddica straightens her skirt and turns back to you with a huff. \"Well. I do appreciate you siding with me—she always gets her way, so that's a nice change. In any case, I have some information that might help narrow down the location of the next Tome...\"",
             "effects": [
-              "Look through the summer road deck until you find SR-47, 48, or 49, and put it on top of the deck."
+              {
+                "type": "eventsToTop",
+                "values": [
+                  "summer-road",
+                  "SR-47",
+                  "SR-48",
+                  "SR-49"
+                ]
+              }
             ]
           }
         ]
@@ -4422,9 +4842,17 @@
         "narrative": "Recognize there isn't a good option here and agree with Violet that Lurkers are great.",
         "outcomes": [
           {
-            "narrative": "You mumble what you thought was a very diplomatic answer about how great Lurkers are that definitely shouldn't upset either Valrath, but the looks on their faces make it clear this was precisely the wrong thing to say. After some back-and-forth sisterly bickering, Eddica throws your party and Violet out, shouting things at a volume unbecoming of a library.",
+            "narrative": "You mumble what you thought was a very diplomatic answer about how great Lurkers are that definitely shouldn't upset either Valrath, but the looks on their faces make it clear this was precisely the wrong thing to say. After some back-and-forth sisterly bickering, Eddica throws your party and Violet out, shouting things at a volume unbecoming of a library.<br><br>Violet buttons up her purple coat against the cold, smiling at you. \"Thanks for the assist—she's always down on my work. So prim and proper, but you can tell she's just a volcano waiting to explode. Anyway, I was actually coming around to tell her I found a tip for one of the books. I guess I can just tell you instead.\"",
             "effects": [
-              "Look through the summer road deck until you find SR-47, 48, or 49, and put it on top of the deck."
+              {
+                "type": "eventsToTop",
+                "values": [
+                  "summer-road",
+                  "SR-47",
+                  "SR-48",
+                  "SR-49"
+                ]
+              }
             ]
           }
         ]
@@ -4450,9 +4878,16 @@
                   1
                 ]
               },
-              "Place \"Red Well\" campaign sticker on the town map in location G.",
               {
-                "type": "eventFH",
+                "type": "campaignStickerMap",
+                "values": [
+                  "red-well",
+                  "G"
+                ]
+              },
+              {
+                "type": "event",
+                "alt": true,
                 "values": [
                   "winter-road",
                   "WO-75 to the winter outpost deck and event WR-43"
@@ -4475,9 +4910,16 @@
                   1
                 ]
               },
-              "Place \"Blue Well\" campaign sticker on the town map in location G.",
               {
-                "type": "eventFH",
+                "type": "campaignStickerMap",
+                "values": [
+                  "blue-well",
+                  "G"
+                ]
+              },
+              {
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-road",
                   "WO-76 to the winter outpost deck and event SR-40"
@@ -4561,10 +5003,24 @@
         "narrative": "Give Pinter metal for his experiments.",
         "outcomes": [
           {
-            "condition": "if the box in outcome B is checked",
+            "condition": "Lose 6 collective %game.resource.metal% (or, if the box in outcome B is checked, 3 collection %game.resource.metal%)",
             "narrative": "You hand over the metal and the Quatryl quickly gets to work on his metal refinement machine. Pinter adds it to a boiling cauldron and automated hands stir and sift the white-hot mixture. He flips down a pair of heavy goggles and pulls a final lever with a dramatic smile. An iron paddle slaps at the resulting ingot until it cools. When the cacophony stops you see it: a shining, dense chunk of Pinter's supermetal.<br><br>\"It's perfect! I should be able to replicate this for future processing!\"",
             "effects": [
-              "Add a +1 sticker to one LOOT card (the card gives one extra LOOT when resolved)."
+              "Add a %game.resource.plus1% sticker to one %game.resource.metal% card (the card gives one extra %game.resource.metal% when resolved)."
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
             ]
           }
         ]
@@ -4575,8 +5031,15 @@
         "outcomes": [
           {
             "narrative": "\"Suit yourself, I'll keep looking into it until you next come around.\" Pinter grabs a wrench and heads towards the back room.",
+            "returnToDeck": true,
             "effects": [
-              "Check the box below if it is not yet checked."
+              "Check the box below if it is not yet checked:",
+              {
+                "type": "checkbox",
+                "values": [
+                  ""
+                ]
+              }
             ]
           }
         ]
@@ -4596,12 +5059,26 @@
           {
             "narrative": "You note that the team was designed to work together and splitting them apart would reduce their efficiency. The others nod their understanding and the conversation soon turns to other matters.",
             "effects": [
-              "Add one FROSTGUARD +30 card to the town guard deck.",
               {
-                "type": "eventFH",
+                "type": "townGuardDeckCard",
+                "values": [
+                  "fh-tg-add-plus30-soldier"
+                ]
+              },
+              {
+                "type": "event",
+                "alt": true,
+                "values": [
+                  "winter-outpost",
+                  "WO-78"
+                ]
+              },
+              {
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-road",
-                  "WO-78 to the winter outpost deck and event SR-45"
+                  "SR-45"
                 ]
               }
             ]
@@ -4621,12 +5098,27 @@
                   2
                 ]
               },
-              "Add two FROSTGUARD +10 cards to the town guard deck.",
               {
-                "type": "eventFH",
+                "type": "townGuardDeckCards",
+                "values": [
+                  "fh-tg-add-plus10-soldier",
+                  2
+                ]
+              },
+              {
+                "type": "event",
+                "alt": true,
+                "values": [
+                  "winter-outpost",
+                  "WO-78"
+                ]
+              },
+              {
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-road",
-                  "WO-78 to the winter outpost deck and event SR-45"
+                  "SR-45"
                 ]
               }
             ]
@@ -4642,8 +5134,32 @@
     "narrative": "You're rummaging through the mixture of artifacts and worthless trinkets that make up the Enhancer's storefront. Even with careful scrutiny it can be difficult to tell which items have real, magical value and which are just odd-shaped detritus. You examine a silver platter and an Aesther is quickly by your side to explain.<br><br>\"Please do not touch, but perhaps you would like to look.\" The Aesther grabs the platter and wipes it with her sleeve. A quick incantation later and you're staring at what looks like a foggy mirror... but it's not you.<br><br>\"That's you, on a different plane. It's a multiverse. What if you forged a different path in life? How would it have changed every single thing about you? To an Aesther with their mind's eye open, this is what we see: shifting in and out like a kaleidoscope of faces. It can be so hard to keep track... there are days I'm glad I remember this outpost exists at all.\"<br><br>You look deeply into the mirror and watch the alternate version of yourself.",
     "options": [
       {
+        "narrative": "All characters draw and read an additional personal quest now, to see what could have happened somewhere else in the multiverse. Once all characters have drawn and read their quest, flip over this card.",
+        "outcomes": [
+          {
+            "narrative": "You're a bit shaken from the revelations in the mirror, knowing that there are more of you. Seeing all the universes resonating and cascading against each other... the clarity is overwhelming.",
+            "effects": [
+              "All characters make the following choice and resolve the outcome individually:<br><br>",
+              {
+                "condition": "Option A",
+                "type": "custom",
+                "values": [
+                  "Adopt the new personal quest."
+                ]
+              },
+              {
+                "condition": "Option B",
+                "type": "custom",
+                "values": [
+                  "Continue on your existing path."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "label": "A",
-        "narrative": "Adopt the new personal quest.",
         "outcomes": [
           {
             "narrative": "You recognize the value in the alternate-you's pursuit—it's more meaningful than your own drives.",
@@ -4661,7 +5177,6 @@
       },
       {
         "label": "B",
-        "narrative": "Continue on your existing path.",
         "outcomes": [
           {
             "narrative": "You know there were many paths you could have chosen, but your internal goals are what makes you into you. What you saw in the mirror reaffirms you're already walking the right path.",
@@ -4686,7 +5201,18 @@
           {
             "narrative": "\"Eh, you're right. Fine.\" An imperceptibly quick jab to the side of the head knocks the man out cold, and the Blinkblade proceeds to drag him by the arm toward the main gate. They get many strange looks, but no one bothers him at all. When they reach the gate, the Blinkblade turns to wave a cheerful goodbye and then drags the man out into the tundra.",
             "effects": [
-              "Gain 1 prosperity and 1 inspiration."
+              {
+                "type": "prosperity",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "inspiration",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -4696,7 +5222,7 @@
         "narrative": "You should interrogate him to make sure there aren't others.",
         "outcomes": [
           {
-            "narrative": "\"What? Are you doubting my ability to do my job?\" The Blinkblade asks. \"He's the only piece of garbage the Sin-Ra bothered sending. Plus, they receive extensive anti-interrogation training. Probably even has a poison capsule in his tooth or some—yep, there he goes...\" The man begins to convulse and foam at the mouth. The Blinkblade lets him go, and he slumps to the ground dead. The Blinkblade quickly raises up their hands as if to absolve themselves of responsibility. \"Hey, that was definitely, technically, not murder.\"",
+            "narrative": "\"What? Are you doubting my ability to do my job?\" The Blinkblade asks. \"He's the only piece of garbage the Sin-Ra bothered sending. Plus, they receive extensive anti-interrogation training. Probably even has a poison capsule in his tooth or some—yep, there he goes...\"<br><br>The man begins to convulse and foam at the mouth. The Blinkblade lets him go, and he slumps to the ground dead.<br><br>The Blinkblade quickly raises up their hands as if to absolve themselves of responsibility. \"Hey, that was definitely, technically, not murder.\"",
             "effects": [
               {
                 "type": "prosperity",
@@ -4727,7 +5253,7 @@
         "narrative": "It's gift from our Lurker friends. Let's enjoy the free food.",
         "outcomes": [
           {
-            "narrative": "The butcher isn't used to dealing with a fish so large, but he manages well enough, removing all the meat from the bones—some for eating now and the rest to be preserved for the winter. No one wants to try it first, so you dig in. When you don't die, the fishermen finally breathe a sigh of relief, now that their jobs just got significantly easier for a while.",
+            "narrative": "The butcher isn't used to dealing with a fish so large, but he manages well enough, removing all the meat from the bones—some for eating now and the rest to be preserved for the winter.<br><br>No one wants to try it first, so you dig in. When you don't die, the fishermen finally breathe a sigh of relief, now that their jobs just got significantly easier for a while.",
             "effects": [
               {
                 "type": "morale",
@@ -4751,7 +5277,7 @@
         "narrative": "Approach with skepticism. Let's put the fish on ice and stakeout the docks to see if the culprit returns.",
         "outcomes": [
           {
-            "narrative": "It takes a few sleepless nights watching the docks in the dark, but eventually, a perpetrator emerges from the sea onto the docks carrying a clawful of smaller fish. You leap from your hiding spot, torch in one hand and weapon in the other. You stand surprised, staring at the illuminated form of the Deepwraith. They too are surprised—it's quite difficult to sneak up on a Deepwraith, after all. Black ink sprays forth, covering you and the dock in a thick slime. By the time you wipe it from your eyes, the Deepwraith is long gone. At least you determined the fish was safe. Unfortunately, it's not quite as fresh anymore.",
+            "narrative": "It takes a few sleepless nights watching the docks in the dark, but eventually, a perpetrator emerges from the sea onto the docks carrying a clawful of smaller fish.<br><br>You leap from your hiding spot, torch in one hand and weapon in the other. You stand surprised, staring at the illuminated form of the Deepwraith.<br><br>They too are surprised—it's quite difficult to sneak up on a Deepwraith, after all. Black ink sprays forth, covering you and the dock in a thick slime. By the time you wipe it from your eyes, the Deepwraith is long gone.<br><br>At least you determined the fish was safe. Unfortunately, it's not quite as fresh anymore.",
             "effects": [
               {
                 "type": "morale",
@@ -4776,11 +5302,12 @@
         "narrative": "Follow the bloody trail to the left.",
         "outcomes": [
           {
-            "narrative": "As you follow the trail of blood, an arrow buries itself in a tree by your head. \"Ah, hello. Thought you were them.\" A young Inox in a bloodstained blue cloak sits against a nearby rock, nursing some heavy wounds. \"A load of undead got the drop on me. I was just about to go... ergh... finish them off,\" he grimaces. \"If you can spare anything to brace this pain, I'll let you come help.\"",
+            "narrative": "As you follow the trail of blood, an arrow buries itself in a tree by your head. \"Ah, hello. Thought you were them.\" A young Inox in a bloodstained blue cloak sits against a nearby rock, nursing some heavy wounds.<br><br>\"A load of undead got the drop on me. I was just about to go... ergh... finish them off,\" he grimaces. \"If you can spare anything to brace this pain, I'll let you come help.\"",
             "effects": [
-              "Return one collective HIDE to the available supply.",
+              "Return one collective %game.itemSlot:small% to the available supply.",
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "winter-road",
                   "WR-36"
@@ -4795,7 +5322,7 @@
         "narrative": "Follow the trail of broken twigs to the right.",
         "outcomes": [
           {
-            "narrative": "Following the bloodless tracks, a rotten stench fills your nostrils. Only when you reach the end of the path do you realize that the creatures who made this trail left no blood, not because they were uninjured, but because they have no blood. The pack of frozen corpses turns from its aimless wandering to attack you. You beat them back and retreat, but you lose some blood of your own in the process.",
+            "narrative": "Following the bloodless tracks, a rotten stench fills your nostrils. Only when you reach the end of the path do you realize that the creatures who made this trail left no blood, not because they were uninjured, but because they have no blood.<br><br>The pack of frozen corpses turns from its aimless wandering to attack you. You beat them back and retreat, but you lose some blood of your own in the process.",
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -4847,7 +5374,8 @@
             "effects": [
               "When all boxes are checked, remove this card from the game and",
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-42"
@@ -4903,7 +5431,8 @@
                 ]
               },
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-road",
                   "SR-33"
@@ -4942,12 +5471,17 @@
         "narrative": "Make an offering at the improvised shrine.",
         "outcomes": [
           {
-            "condition": "Lose 5 GOLD",
+            "inlineEffects": true,
+            "effects": [
+              "All characters resolve the following individually:"
+            ]
+          },
+          {
+            "condition": "Lose 5 gold",
             "narrative": "You drop a few coins in the wooden offering plate, which gets you a sincere nod of thanks. He sends you on your way, but you feel a bit lighter in your step.",
             "returnToDeck": true,
             "effects": [
-              "All characters who donated gain %game.condition.bless%.",
-              "Check one box below for each character who donated. The first time all 6 boxes have been checked, gain 1 prosperity.",
+              "All characters who donated gain %game.condition.bless%. Check one box below for each character who donated. The first time all 6 boxes have been checked, gain 1 prosperity.",
               {
                 "type": "checkbox",
                 "values": [
@@ -5011,6 +5545,7 @@
         "narrative": "Set the card on the table. Players may no longer communicate in any way. Once you have selected a route rais your hand. When all players' hands are raised, each player simultaneously says their choosen route's letter alout. Then flip this card.",
         "outcomes": [
           {
+            "inlineEffects": true,
             "effects": [
               "All players resolve the following individually, based on their chose route's letter:"
             ]
@@ -5067,8 +5602,13 @@
         "outcomes": [
           {
             "narrative": "The cave looks barren following a harvest, but your satchel is full. It'll grow back eventually. It always does.",
+            "returnToDeck": true,
             "effects": [
-              "Gain 1+X collective LUMBER, where X is the number of weeks since the last \"H\" marked on the calendar divided by four (rounded down). If there is no previously marked \"H\" on the calendar, gain 3 collective LUMBER.",
+              "Gain 1+X collective %game.resource.corpsecap%, where X is the number of weeks since the last \"H\" marked on the calendar divided by four (rounded down). If there is no previously marked \"H\" on the calendar, gain 3 collective %game.resource.corpsecap%."
+            ]
+          },
+          {
+            "effects": [
               "Mark an \"H\" on the calendar in the current week."
             ]
           }
@@ -5077,18 +5617,19 @@
       {
         "label": "B",
         "narrative": "Take a few cuttings, but allow it to grow longer.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You trim back the less useful mushrooms soaking up nutrients, pocketing just a few corpscap stems. By the time you next come around it should be ready for a strong harvest.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "collectiveResource",
                 "values": [
                   2,
-                  "lumber"
+                  "corpsecap"
                 ]
-              }
+              },
+              "Shuffle the summer road deck after returning the card to it."
             ]
           }
         ]
@@ -5129,7 +5670,8 @@
                 ]
               },
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-road",
                   "SR-34"
@@ -5196,6 +5738,7 @@
         "outcomes": [
           {
             "narrative": "You splash through the waterfall and into the cave to find a horrifying sight: Frost Demons have made a nest here. They're not at full strength, thanks to the weather, but they are startled by your entrance and jump to attack. You quickly retreat back the way you came through the waterfall, but not before taking an icy beating.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "scenarioDamage",
@@ -5221,12 +5764,13 @@
         "outcomes": [
           {
             "narrative": "You take a dip in the warm water of the lagoon and can't recall a better decision. The fish are plentiful and easy to catch, and setting camp by the water's edge gives an idyllic view for the evening supplemented by the stars peeking through the branches of the willowburn tree. You drift off to a peaceful night's sleep and awake alert and refreshed.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "bless"
+                  "ward"
                 ]
               }
             ]
@@ -5263,7 +5807,7 @@
         "narrative": "Oh sure, you'll serve them—but these haughty Savvas need to be taught a lesson. Rations from your pack it is.",
         "outcomes": [
           {
-            "narrative": "You dig out some of the hardened rations that have ridden around in your pack for weeks now—they're as good as rocks and equally hard. You slip a few onto the platters as you serve the uptight Savvas, and they relish them the same as any of their fancy rocks. They finish their meal happily and hand over a small pouch of gold, but can't help but remind you they're withholding some of the payment for your tardiness. You make a quick exit and are nearly out of earshot before the retching starts.",
+            "narrative": "You dig out some of the hardened rations that have ridden around in your pack for weeks now—they're as good as rocks and equally hard. You slip a few onto the platters as you serve the uptight Savvas, and they relish them the same as any of their fancy rocks. They finish their meal happily and hand over a small pouch of gold, but can't help but remind you they're withholding some of the payment for your tardiness.<br><br>You make a quick exit and are nearly out of earshot before the retching starts.",
             "effects": [
               {
                 "type": "morale",
@@ -5366,8 +5910,15 @@
         "narrative": "Donate some food to the donkey-food side to partake in the two drink-sides.",
         "outcomes": [
           {
-            "condition": "LOSE 2 COLLECTIVE HERB RESOURCES",
+            "condition": {
+              "type": "loseCollectiveResourceType",
+              "values": [
+                2,
+                "herb_resources"
+              ]
+            },
             "narrative": "You drop some food into a metal can hanging around the drink donkey's neck, then uncork a side-barrel to test the quality of the offerings. It's sweet and smooth, and after a few hours, you've forgotten quite where you were supposed to be. Probably not that important then...",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "morale",
@@ -5389,6 +5940,7 @@
               "type": "otherwise"
             },
             "narrative": "You don't have much to offer the donkey as payment, and it doesn't seem right to take advantage of a group of drunks. You hurry on your way.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -5402,7 +5954,8 @@
         "narrative": "Lead these drunks back to the safety of Frosthaven.",
         "outcomes": [
           {
-            "narrative": "It takes several hours, but you manage to drag these drunks—donkey and all—back to the walls of Frosthaven. The Inox stumbles up to you and, with a hiccup, hands you a few gold coins. \"Trouble. For my trouble...\" he pouts for a moment. \"For your trouble. Of me.\" He nods, then joins back up with the group. \"Same time next week?\"",
+            "narrative": "It takes several hours, but you manage to drag these drunks—donkey and all—back to the walls of Frosthaven. The Inox stumbles up to you and, with a hiccup, hands you a few gold coins.<br><br>\"Trouble. For my trouble...\" he pouts for a moment. \"For your trouble. Of me.\" He nods, then joins back up with the group. \"Same time next week?\"",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "collectiveGold",
@@ -5419,6 +5972,7 @@
               },
               {
                 "type": "drawAnotherEvent",
+                "alt": true,
                 "values": [
                   "summer-road"
                 ]
@@ -5563,7 +6117,7 @@
             },
             "narrative": "The bush's thorns stab you as you reach for the berries. Before you can pluck enough to coat your weapons, waves of disorientation and nausea overcome you. Apparently the thorns are poisonous as well.",
             "effects": [
-              "All characters without ARMORED start the next scenario with %game.damage:2% and %game.condition.poison%."
+              "All characters without %game.trait:armored% start the next scenario with %game.damage:2% and %game.condition.poison%."
             ]
           }
         ]
@@ -5580,7 +6134,7 @@
                 "type": "item",
                 "alt": true,
                 "values": [
-                  109
+                  95
                 ]
               }
             ]
@@ -5608,15 +6162,22 @@
     "options": [
       {
         "label": "A",
-        "narrative": "Leave Malrog with a 🪓 or 🗡️ item (select the item now).",
+        "narrative": "Leave Malrog with a %game.itemSlot:onehand% or %game.itemSlot:twohand% item (select the item now).",
         "outcomes": [
           {
-            "condition": "the selected item is 🪓",
+            "inlineEffects": true,
+            "effects": [
+              "Resolve the following based on the item selected.<br><br>"
+            ]
+          },
+          {
+            "condition": "the selected item is %game.itemSlot:twohand%",
             "narrative": "Thank you! Your kindness is incredible. I will not forget this day. Our people have a history of adversity, but we are friends.",
             "effects": [
               "Return the selected item to the available supply.",
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "winter-road",
                   "WR-37"
@@ -5625,12 +6186,13 @@
             ]
           },
           {
-            "condition": "the selected item is 🗡️",
+            "condition": "the selected item is %game.itemSlot:onehand%",
             "narrative": "I am grateful for your kindness. Thank you.",
             "effects": [
               "Return the selected item to the available supply.",
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "winter-road",
                   "WR-38"
@@ -5648,7 +6210,8 @@
             "narrative": "You tell the Algox it would be dishonorable for you to interfere and assist him where others had no help. The Algox nods his understanding and continues on his way into the snow.",
             "effects": [
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "winter-road",
                   "WR-39"
@@ -5669,12 +6232,19 @@
       {
         "label": "A",
         "narrative": "Offer him herbs for wood-cutting skills.",
+        "returnToDeck": true,
         "outcomes": [
           {
-            "condition": "LOSE 2 COLLECTIVE HERB RESOURCES",
-            "narrative": "I built up a bit of skill with the saw. It's part technique and part sharpening the blade right. Watch this.",
+            "condition": {
+              "type": "loseCollectiveResourceType",
+              "values": [
+                2,
+                "herb_resources"
+              ]
+            },
+            "narrative": "\"I built up a bit of skill with the saw. It's part technique and part sharpening the blade right. Watch this.\"<br><br>What he lacks in decorum he certainly makes up in skill. You learn a thing or two before heading on your way.",
             "effects": [
-              "Add a +1 sticker to one loot card (the card gives one extra loot when resolved)."
+              "Add a %game.resource.plus1% sticker to one %game.resource.lumber% card (the card gives one extra %game.resource.lumber% when resolved)."
             ]
           },
           {
@@ -5693,6 +6263,7 @@
       {
         "label": "B",
         "narrative": "Offer him hides for wood-cutting skills.",
+        "returnToDeck": true,
         "outcomes": [
           {
             "condition": {
@@ -5702,9 +6273,9 @@
                 "hide"
               ]
             },
-            "narrative": "Nice pelt. Is this Valrath? It is not Valrath.",
+            "narrative": "\"Nice pelt. Is this Valrath?\" It is not Valrath.<br><br>True to his word, the Inox shows you how to sharpen a saw with a technique new to you. You thank him and head on your way.",
             "effects": [
-              "Add a +1 sticker to one loot card (the card gives one extra loot when resolved)."
+              "Add a %game.resource.plus1% sticker to one %game.resource.lumber% card (the card gives one extra %game.resource.lumber% when resolved)."
             ]
           },
           {
@@ -5712,7 +6283,6 @@
               "type": "otherwise"
             },
             "narrative": "No offense, but I think you've overstayed your welcome. See you when you've got something worth swappin' for.",
-            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -5734,12 +6304,24 @@
         "narrative": "Attempt to communicate with the \"Harrower.\"",
         "outcomes": [
           {
-            "condition": "BUG IN A JAR",
+            "condition": {
+              "type": "campaignSticker",
+              "values": [
+                "bug-in-a-jar"
+              ]
+            },
             "narrative": "You release the beetle you've been carrying into the swarm, and a few moments later, it forms into a full-sized Harrower. \"Thank you, friends. This will not be forgotten.\"",
             "effects": [
-              "Place \"Empty Jar\" campaign sticker over \"Bug in a Jar\".",
               {
-                "type": "eventFH",
+                "type": "campaignStickerReplace",
+                "values": [
+                  "empty-jar",
+                  "bug-in-a-jar"
+                ]
+              },
+              {
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-43"
@@ -5752,6 +6334,7 @@
               "type": "otherwise"
             },
             "narrative": "If it is a Harrower, it's much too scattered to communicate with you. You try giving it some rations, scooping the bugs closer, and even some old wives' tricks from around the tavern. No luck.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -6349,7 +6932,8 @@
                 ]
               },
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "winter-outpost",
                   "WO-60"
@@ -6405,7 +6989,8 @@
             "narrative": "With the looming monstrosity staring you down, you point the way toward Frosthaven. Without another word the Harrower dissolves into a sea of bugs that swarm past your legs down the path you indicated. It's some time before the unsettling sound of their thousands of tiny legs fades from your mind.",
             "effects": [
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-44"
@@ -6639,7 +7224,8 @@
             "effects": [
               "Place \"Empty Jar\" campaign sticker over \"Bug in a Jar\".",
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-43"
@@ -6889,7 +7475,8 @@
             "narrative": "You drag the machine back to Frosthaven. It spends the whole trip launching impotent threats. \"I WILL FILL YOUR BOOTS WITH BLOOD!\" With some significant repairs you should be able to get it back to working order. Back in town you leave it with the capable Quatryl inventor, Pinter Droman, and hope for the best.",
             "effects": [
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-54"
@@ -8816,7 +9403,8 @@
                 ]
               },
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-41"
@@ -8971,7 +9559,14 @@
             },
             "narrative": "You step forward and offer to cover the remaining expenses for the barracks renovation. Satha smiles and thanks you, and Captain Olmstead beams. She turns to Olmstead:<br><br>\"See, I told you those mercenaries could do some good around here.\"",
             "effects": [
-              "Upgrade the Barracks to the next level, or, if the Barracks is already level 4, gain 1 morale instead."
+              {
+                "type": "upgradeBuilding",
+                "values": [
+                  "barracks",
+                  4,
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -9677,7 +10272,8 @@
               },
               "Place \"Portcullis\" campaign sticker on the town map in location E.",
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "winter-outpost",
                   "WO-59"
@@ -10662,7 +11258,14 @@
             },
             "narrative": "Captain Olmstead looks relieved and sets down the wooden chair he was about to smash. \"You mercenaries have saved us again. If there's anything I can ever do for you, just run it by Mayor Satha.\"",
             "effects": [
-              "Upgrade the Barracks to the next level, or, if the Barracks is already level 4, gain 1 morale instead."
+              {
+                "type": "upgradeBuilding",
+                "values": [
+                  "barracks",
+                  4,
+                  2
+                ]
+              }
             ]
           },
           {
@@ -11541,7 +12144,8 @@
               "narrative": "\"I failed. I couldn't stop them...\" Violet regards the slain Lurkers with anguish.",
               "effects": [
                 {
-                  "type": "eventFH",
+                  "type": "event",
+                  "alt": true,
                   "values": [
                     "summer-outpost",
                     "SO-39"
@@ -12682,7 +13286,8 @@
             "narrative": "You make note of the location on your map, confident that returning after the ice has softened will allow you to retrieve the weapon easily. You hustle along to your destination and hope the delay won't cause too many issues.",
             "effects": [
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-road",
                   "SR-35"
@@ -13195,7 +13800,8 @@
             "effects": [
               "Place \"Uncharged Core\" campaign sticker over \"Charged Core\".",
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "summer-outpost",
                   "SO-45"
@@ -13306,7 +13912,8 @@
             "effects": [
               "You may only reveal the contents of this card when the time comes and you are faced with the crystal altar.",
               {
-                "type": "eventFH",
+                "type": "event",
+                "alt": true,
                 "values": [
                   "winter-road",
                   "WR-34"

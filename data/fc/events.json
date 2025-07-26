@@ -160,7 +160,10 @@
           }
         ]
       }
-    ]
+    ],
+    "requirement": {
+      "partyAchievement": "opportunists"
+    }
   },
   {
     "cardId": "85",
@@ -216,7 +219,10 @@
           }
         ]
       }
-    ]
+    ],
+    "requirement": {
+      "partyAchievement": "a-strongbox"
+    }
   },
   {
     "cardId": "86",
@@ -261,7 +267,10 @@
           }
         ]
       }
-    ]
+    ],
+    "requirement": {
+      "partyAchievement": "custodians"
+    }
   },
   {
     "cardId": "87",
@@ -302,7 +311,10 @@
           }
         ]
       }
-    ]
+    ],
+    "requirement": {
+      "partyAchievement": "guard-detail"
+    }
   },
   {
     "cardId": "88",
@@ -1520,7 +1532,10 @@
           }
         ]
       }
-    ]
+    ],
+    "requirement": {
+      "partyAchievement": "hunted-prey"
+    }
   },
   {
     "cardId": "17",
@@ -1570,7 +1585,10 @@
           }
         ]
       }
-    ]
+    ],
+    "requirement": {
+      "partyAchievement": "accomplices"
+    }
   },
   {
     "cardId": "18",
@@ -1609,7 +1627,10 @@
           }
         ]
       }
-    ]
+    ],
+    "requirement": {
+      "partyAchievement": "saboteurs"
+    }
   },
   {
     "cardId": "19",
