@@ -10,7 +10,7 @@
   background-size: 100% 100%;
   display: flex;
   border-radius: calc(var(--ghs-unit) * 0.5);
-  transition: background-color 150ms ease-in-out, background-image 150ms ease-in-out, background-blend-mode 150ms ease-in-out;
+  transition: background-color calc(var(--ghs-animation-speed) * 150ms) ease-in-out, background-image calc(var(--ghs-animation-speed) * 150ms) ease-in-out, background-blend-mode calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
 
   &.escort {
     background-color: var(--ghs-color-red);
@@ -20,7 +20,7 @@
   .conditions,
   .image-container,
   .icon-container {
-    transition: filter 150ms ease-in-out;
+    transition: filter calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
   }
 
   &.off {
@@ -636,7 +636,7 @@
   position: relative;
   z-index: 2;
   display: flex;
-  transition: max-height 1000ms ease-out;
+  transition: max-height calc(var(--ghs-animation-speed) * 1000ms) ease-out;
   max-height: 100%;
   max-width: calc(var(--ghs-unit) * 96);
   margin-top: calc(var(--ghs-unit) * 0.25 * var(--ghs-text-factor));
@@ -711,7 +711,7 @@
 
     ghs-standee {
       margin-top: calc(var(--ghs-unit) * 0.5);
-      transition: all 1000ms ease-out;
+      transition: all calc(var(--ghs-animation-speed) * 1000ms) ease-out;
     }
   }
 }

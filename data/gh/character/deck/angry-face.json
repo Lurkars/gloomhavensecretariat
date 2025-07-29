@@ -156,30 +156,21 @@
           "value": "summonData",
           "valueObject": {
             "name": "War Hawk",
-            "cardId": "",
             "edition": "gh",
             "health": "3",
             "attack": "3",
             "movement": "3",
-            "range": 0,
-            "flying": false,
-            "action": {
-              "type": "fly",
-              "value": "",
-              "valueType": "fixed",
-              "subActions": [],
-              "small": false,
-              "hidden": false
-            },
-            "special": false,
             "count": 1,
             "enhancements": [
               "heal",
               "attack",
               "move"
             ],
-            "thumbnail": false,
-            "noThumbnail": false
+            "action": {
+              "type": "fly",
+              "value": "",
+              "valueType": "fixed"
+            }
           },
           "small": true
         },
@@ -259,22 +250,16 @@
           "value": "summonData",
           "valueObject": {
             "name": "Battle Boar",
-            "cardId": "",
             "edition": "gh",
             "health": "7",
             "attack": "1",
             "movement": "3",
-            "range": 0,
-            "flying": false,
-            "special": false,
             "count": 1,
             "enhancements": [
               "heal",
               "attack",
               "move"
-            ],
-            "thumbnail": false,
-            "noThumbnail": false
+            ]
           },
           "small": true
         },
@@ -895,38 +880,28 @@
           "value": "summonData",
           "valueObject": {
             "name": "Vicious Jackal",
-            "cardId": "",
             "edition": "gh",
             "health": "5",
             "attack": "1",
             "movement": "2",
-            "range": 0,
-            "flying": false,
-            "action": {
-              "type": "retaliate",
-              "value": 1,
-              "valueType": "fixed",
-              "subActions": [],
-              "small": true,
-              "hidden": false
-            },
-            "additionalAction": {
-              "type": "condition",
-              "value": "wound",
-              "valueType": "fixed",
-              "subActions": [],
-              "small": true,
-              "hidden": false
-            },
-            "special": false,
             "count": 1,
             "enhancements": [
               "heal",
               "move",
               "attack"
             ],
-            "thumbnail": false,
-            "noThumbnail": false
+            "action": {
+              "type": "retaliate",
+              "value": 1,
+              "valueType": "fixed",
+              "small": true
+            },
+            "additionalAction": {
+              "type": "condition",
+              "value": "wound",
+              "valueType": "fixed",
+              "small": true
+            }
           },
           "small": true
         },
@@ -1549,30 +1524,21 @@
           "value": "summonData",
           "valueObject": {
             "name": "Giant Toad",
-            "cardId": "",
             "edition": "gh",
             "health": "7",
             "attack": "1",
             "movement": "1",
-            "range": 0,
-            "flying": false,
-            "action": {
-              "type": "condition",
-              "value": "stun",
-              "valueType": "fixed",
-              "subActions": [],
-              "small": false,
-              "hidden": false
-            },
-            "special": false,
             "count": 1,
             "enhancements": [
               "heal",
               "attack",
               "move"
             ],
-            "thumbnail": false,
-            "noThumbnail": false
+            "action": {
+              "type": "condition",
+              "value": "stun",
+              "valueType": "fixed"
+            }
           },
           "small": true
         },
@@ -1959,30 +1925,22 @@
           "value": "summonData",
           "valueObject": {
             "name": "Spitting Cobra",
-            "cardId": "",
             "edition": "gh",
             "health": "5",
             "attack": "3",
             "movement": "3",
             "range": "3",
-            "flying": false,
-            "action": {
-              "type": "condition",
-              "value": "poison",
-              "valueType": "fixed",
-              "subActions": [],
-              "small": false,
-              "hidden": false
-            },
-            "special": false,
             "count": 1,
             "enhancements": [
               "heal",
               "attack",
               "move"
             ],
-            "thumbnail": false,
-            "noThumbnail": false
+            "action": {
+              "type": "condition",
+              "value": "poison",
+              "valueType": "fixed"
+            }
           },
           "small": true
         },

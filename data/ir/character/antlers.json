@@ -69,8 +69,8 @@
         "subActions": [
           {
             "type": "custom",
-            "small": true,
-            "value": "%game.custom.ondeath%"
+            "value": "%game.custom.ondeath%",
+            "small": true
           },
           {
             "type": "condition",

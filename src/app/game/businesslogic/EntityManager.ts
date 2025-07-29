@@ -133,7 +133,7 @@ export class EntityManager {
         entity.dead = true;
         setTimeout(() => {
           gameManager.uiChange.emit();
-        }, !settingsManager.settings.animations ? 0 : 1500);
+        }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
       }
     }
 
@@ -507,7 +507,7 @@ export class EntityManager {
         setTimeout(() => {
           condition.highlight = false;
           gameManager.uiChange.emit();
-        }, 1000);
+        }, 1000 * settingsManager.settings.animationSpeed);
       } else {
         condition.highlight = false;
       }
@@ -623,7 +623,7 @@ export class EntityManager {
       regenerateCondition.highlight = true;
       setTimeout(() => {
         regenerateCondition.highlight = false;
-      }, 1000);
+      }, 1000 * settingsManager.settings.animationSpeed);
     }
 
     if (entity instanceof Character && entity.progress.equippedItems.find((identifier) => identifier.edition == 'fh' && identifier.name == '178') && entity.initiative >= 60 && !entity.longRest) {
@@ -654,7 +654,7 @@ export class EntityManager {
               this.sufferDamageHighlightConditions(entity, figure, - entityCondition.value, true);
               this.checkHealth(entity, figure);
             }
-          }, 1000);
+          }, 1000 * settingsManager.settings.animationSpeed);
         }
       }
     })
@@ -722,7 +722,7 @@ export class EntityManager {
             entityCondition.highlight = true;
             setTimeout(() => {
               entityCondition.highlight = false;
-            }, 1000);
+            }, 1000 * settingsManager.settings.animationSpeed);
           }
         } else if (entityCondition.state == EntityConditionState.normal) {
           entityCondition.lastState = entityCondition.state;

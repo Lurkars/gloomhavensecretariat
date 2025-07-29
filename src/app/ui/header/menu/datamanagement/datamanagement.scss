@@ -40,7 +40,7 @@
   width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
   height: auto;
   filter: var(--ghs-filter-gray);
-  animation: ghs-spinning 1500ms linear infinite;
+  animation: ghs-spinning calc(var(--ghs-animation-speed) * 1500ms) linear infinite;
   margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 }
 
@@ -85,12 +85,12 @@
     }
 
     &.error {
-      animation: shake .5s linear;
+      animation: shake calc(var(--ghs-animation-speed) * 500ms) linear;
       color: var(--ghs-color-red) !important;
     }
 
     &.warning {
-      animation: shake .5s linear;
+      animation: shake calc(var(--ghs-animation-speed) * 500ms) linear;
       color: var(--ghs-color-yellow) !important;
     }
   }

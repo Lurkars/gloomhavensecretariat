@@ -71,7 +71,7 @@
             margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
-            transition: all 500ms ease-in-out;
+            transition: all calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
 
             &.spent {
                 transform: rotate(90deg);

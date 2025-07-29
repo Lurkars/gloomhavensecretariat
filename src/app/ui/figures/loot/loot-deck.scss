@@ -19,7 +19,7 @@
         right: 0;
         cursor: pointer;
         display: block;
-        transition: filter 1000ms ease-in-out;
+        transition: filter calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
 
         &.disabled {
             filter: grayscale(0.8);
@@ -35,7 +35,7 @@
             background-repeat: no-repeat;
             background-image: url('~src/assets/images/fh/loot/loot-back.png');
             border-radius: 5%;
-            transition: filter 1000ms ease-in-out;
+            transition: filter calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
 
             .number {
                 display: flex;
@@ -72,7 +72,7 @@
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-image: url('~src/assets/images/attackmodifier/am-character-icon.png');
-            transition: transform 500ms ease-in-out;
+            transition: transform calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
             transform: scale(1.1);
 
             &.minimize {
@@ -182,7 +182,7 @@
         filter: grayscale(0.8);
 
         &:hover {
-            transition: filter 250ms linear, transform 0.8s cubic-bezier(0.75, 0, 0.85, 1), top 0.5s linear, left 0.5s linear;
+            transition: filter calc(var(--ghs-animation-speed) * 250ms) linear, transform calc(var(--ghs-animation-speed) * 800ms) cubic-bezier(0.75, 0, 0.85, 1), top calc(var(--ghs-animation-speed) * 500ms) linear, left calc(var(--ghs-animation-speed) * 500ms) linear;
             filter: grayscale(15%);
         }
     }
@@ -196,17 +196,17 @@
 
         .current {
             cursor: wait !important;
-            animation: loot-draw 1800ms ease-in-out;
+            animation: loot-draw calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
             animation-iteration-count: 1;
 
             &.bottom {
-                animation: loot-draw-bottom 1800ms ease-in-out;
+                animation: loot-draw-bottom calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
             }
         }
 
         .last {
             cursor: wait !important;
-            animation: loot-last 1800ms ease-in-out;
+            animation: loot-last calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
             animation-iteration-count: 1;
         }
     }
@@ -275,11 +275,11 @@
     &.drawing {
 
         .current {
-            animation: loot-draw-vertical 1000ms ease-in-out;
+            animation: loot-draw-vertical calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
         }
 
         .last {
-            animation: loot-last-vertical 1000ms ease-in-out;
+            animation: loot-last-vertical calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
         }
     }
 }

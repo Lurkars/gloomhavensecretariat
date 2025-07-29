@@ -114,7 +114,7 @@
                 border-bottom-left-radius: calc(var(--ghs-unit) * 4);
                 z-index: 3;
                 opacity: 0.9;
-                transition: top 500ms ease-out, left 500ms ease-out;
+                transition: top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
               }
 
               &.fh {

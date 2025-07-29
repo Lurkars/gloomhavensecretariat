@@ -160,7 +160,7 @@ main {
       background-color: var(--ghs-color-darkgray);
       position: absolute;
       left: -50%;
-      animation: loading 2s ease-in 0.5s infinite;
+      animation: loading calc(var(--ghs-animation-speed) * 200ms) ease-in calc(var(--ghs-animation-speed) * 500ms) infinite;
       border-radius: 2px;
     }
 
@@ -486,7 +486,7 @@ main {
     position: absolute;
     top: 0;
     left: 50%;
-    transition: transform 250ms ease-in-out, width 100ms ease-in-out, height 250ms ease-in-out;
+    transition: transform calc(var(--ghs-animation-speed) * 250ms) ease-in-out, width calc(var(--ghs-animation-speed) * 100ms) ease-in-out, height calc(var(--ghs-animation-speed) * 250ms) ease-in-out;
     transform: scale(0);
     overflow: unset;
 
@@ -661,7 +661,7 @@ main {
 }
 
 .cdk-drag-animating {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform calc(var(--ghs-animation-speed) * 250ms) cubic-bezier(0, 0, 0.2, 1);
 }
 
 .cdk-drop-list-dragging,
@@ -672,7 +672,7 @@ main {
 }
 
 .cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform calc(var(--ghs-animation-speed) * 250ms) cubic-bezier(0, 0, 0.2, 1);
 }
 
 .backup-error {

@@ -185,6 +185,8 @@ export class SettingsManager {
       }
     } else if (setting === 'locale') {
       await this.updateLocale(value as string);
+    } else if (setting === 'animationSpeed') {
+      document.body.style.setProperty('--ghs-animation-speed', value + '');
     } else if (setting === 'fontsize') {
       document.body.style.setProperty('--ghs-fontsize', value + '');
     } else if (setting === 'barsize') {

@@ -2232,6 +2232,10 @@
       "": "Animations",
       "hint": "Disable all animations to increase performance"
     },
+    "animationSpeed": {
+      "": "Animation Speed",
+      "hint": "Change speed of animations"
+    },
     "applyBuildingRewards": {
       "": "Apply Building Bonuses",
       "hint": "On building or upgrading a building, apply the corresponding bonuses and open section dialog if present."

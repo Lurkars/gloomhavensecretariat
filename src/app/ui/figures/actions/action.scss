@@ -60,12 +60,12 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: highlight-animation 3s linear infinite;
+      animation: highlight-animation calc(var(--ghs-animation-speed) * 3000ms) linear infinite;
       animation-delay: -1.5s;
     }
 
     img {
-      animation: highlight-image 3s ease-in-out infinite;
+      animation: highlight-image calc(var(--ghs-animation-speed) * 300ms) ease-in-out infinite;
       animation-delay: -1.5s;
     }
 
@@ -377,6 +377,17 @@
     text-transform: uppercase;
   }
 
+  .action-bless,
+  .action-curse,
+  .action-pierce,
+  .action-pull,
+  .action-push,
+  .action-swing {
+    .type {
+      text-transform: uppercase;
+    }
+  }
+
   .elite {
     color: var(--ghs-color-yellow);
   }
@@ -448,7 +459,7 @@
             margin-right: -0.01em;
 
             &.highlight {
-              animation: element-half-pulse 1200ms ease-in-out infinite;
+              animation: element-half-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
               transform-origin: center right;
 
               &:hover {
@@ -471,7 +482,7 @@
             }
 
             &.highlight {
-              animation: element-half-pulse-right 1200ms ease-in-out infinite;
+              animation: element-half-pulse-right calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
               transform-origin: center left;
 
               &:hover {
@@ -567,7 +578,7 @@
       &.action-custom,
       &.main-action {
         cursor: zoom-out;
-        animation: highlight-text-pulse 1200ms ease-in-out infinite;
+        animation: highlight-text-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
 
         &:hover {
           transform: scale(1);
@@ -578,7 +589,7 @@
 
       &.elements .element {
         cursor: zoom-out;
-        animation: element-pulse 1200ms ease-in-out infinite;
+        animation: element-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
 
         &:hover {
           animation: none;
@@ -591,7 +602,7 @@
         cursor: zoom-out;
 
         &:nth-child(1) {
-          animation: element-half-pulse 1200ms ease-in-out infinite;
+          animation: element-half-pulse calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
           transform-origin: center right;
 
           &:hover {
@@ -600,7 +611,7 @@
         }
 
         &:nth-child(2) {
-          animation: element-half-pulse-right 1200ms ease-in-out infinite;
+          animation: element-half-pulse-right calc(var(--ghs-animation-speed) * 1200ms) ease-in-out infinite;
           transform-origin: center left;
 
           &:hover {

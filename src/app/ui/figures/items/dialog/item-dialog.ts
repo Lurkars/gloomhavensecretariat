@@ -34,6 +34,6 @@ export class ItemDialogComponent implements OnInit {
     this.opened = false;
     setTimeout(() => {
       this.dialogRef.close();
-    }, settingsManager.settings.animations ? 1000 : 0);
+    }, settingsManager.settings.animations ? 1000 * settingsManager.settings.animationSpeed : 0);
   }
 }

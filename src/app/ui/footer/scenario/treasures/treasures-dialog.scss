@@ -32,7 +32,7 @@
             width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
             margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-            transition: translate 500ms ease-in-out;
+            transition: translate calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
 
             .overlay {
                 display: none;

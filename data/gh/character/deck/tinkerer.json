@@ -875,8 +875,8 @@
           "valueObject": {
             "name": "battle-bot",
             "health": "6",
-            "movement": "2",
             "attack": "2",
+            "movement": "2",
             "count": 1,
             "enhancements": [
               "heal",
@@ -1200,8 +1200,8 @@
           "valueObject": {
             "name": "kill-bot",
             "health": "6",
-            "movement": "3",
             "attack": "3",
+            "movement": "3",
             "count": 1,
             "enhancements": [
               "heal",

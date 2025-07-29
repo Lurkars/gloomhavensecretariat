@@ -9,7 +9,7 @@
   ghs-monster-ability-card,
   ghs-monster-stats,
   ghs-monster-image {
-    transition: filter 150ms ease-in-out;
+    transition: filter calc(var(--ghs-animation-speed) * 150ms) ease-in-out;
 
     &:not(ghs-monster-image) {
       filter: var(--ghs-filter-outline);
@@ -161,7 +161,7 @@
 .entities-container {
   position: relative;
   display: flex;
-  transition: max-height 1000ms ease-out;
+  transition: max-height calc(var(--ghs-animation-speed) * 1000ms) ease-out;
   max-height: 100%;
   max-width: calc(var(--ghs-unit) * 96);
   margin-top: calc(var(--ghs-unit) * 0.25 * var(--ghs-text-factor));
@@ -238,7 +238,7 @@
 
     ghs-standee {
       margin-top: calc(var(--ghs-unit) * 0.5);
-      transition: all 1000ms ease-out;
+      transition: all calc(var(--ghs-animation-speed) * 1000ms) ease-out;
     }
   }
 

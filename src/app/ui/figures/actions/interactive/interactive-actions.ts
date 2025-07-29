@@ -183,7 +183,7 @@ export class InteractiveActionsComponent implements OnInit, OnDestroy {
                     })
                     this.update();
                     gameManager.stateManager.after();
-                }, !settingsManager.settings.animations ? 0 : 1500)
+                }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0)
             }
 
             if (after) {

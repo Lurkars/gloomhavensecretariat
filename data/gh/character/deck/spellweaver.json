@@ -1240,6 +1240,11 @@
             "attack": "2 %game.element.fire%",
             "movement": 3,
             "range": 3,
+            "enhancements": [
+              "heal",
+              "move",
+              "range"
+            ],
             "action": {
               "type": "grid",
               "value": "1",
@@ -1262,12 +1267,7 @@
                   ]
                 }
               ]
-            },
-            "enhancements": [
-              "heal",
-              "move",
-              "range"
-            ]
+            }
           },
           "small": true
         },

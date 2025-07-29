@@ -22,7 +22,7 @@ export class CardRevealDirective {
         this.el.nativeElement.classList.remove("flipped");
         setTimeout(() => {
           this.change.emit(false);
-        }, settingsManager.settings.animations ? 1000 : 0)
+        }, settingsManager.settings.animations ? 1000 * settingsManager.settings.animationSpeed : 0)
       } else
         if (!this.clicked) {
           this.clicked = true;
@@ -31,7 +31,7 @@ export class CardRevealDirective {
           this.el.nativeElement.classList.add("flipped");
           setTimeout(() => {
             this.change.emit(true);
-          }, settingsManager.settings.animations ? 1000 : 0)
+          }, settingsManager.settings.animations ? 1000 * settingsManager.settings.animationSpeed : 0)
           this.clicked = false;
           this.el.nativeElement.classList.remove("confirm");
         }

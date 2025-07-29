@@ -6,7 +6,7 @@
   cursor: pointer;
   border-radius: calc(var(--ghs-unit) * 1);
   overflow: hidden;
-  transition: box-shadow 100ms ease-in-out;
+  transition: box-shadow calc(var(--ghs-animation-speed) * 100ms) ease-in-out;
 
   &.disabled {
     pointer-events: none;

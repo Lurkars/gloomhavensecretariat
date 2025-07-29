@@ -113,7 +113,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
         this.lastVisible = this.deck.lastVisible;
         this.drawTimeout = null;
         this.init = true;
-      }, !settingsManager.settings.animations ? 0 : this.initTimeout)
+      }, settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0)
     }
 
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
@@ -247,7 +247,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
           this.queue = 0;
         }
       }
-    }, !settingsManager.settings.animations ? 0 : 1050);
+    }, settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0);
   }
 
   draw(event: any, state: 'advantage' | 'disadvantage' | undefined = undefined) {
@@ -260,7 +260,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
           gameManager.attackModifierManager.drawModifier(this.deck, state);
           this.after.emit(new AttackModiferDeckChange(this.deck, "draw" + (state ? state : '')));
           this.drawTimeout = null;
-        }, !settingsManager.settings.animations ? 0 : 150)
+        }, settingsManager.settings.animations ? 150 * settingsManager.settings.animationSpeed : 0)
       } else if (!this.drawTimeout && this.deck.current >= this.deck.cards.length) {
         this.before.emit(new AttackModiferDeckChange(this.deck, "shuffle"));
         gameManager.attackModifierManager.shuffleModifiers(this.deck);

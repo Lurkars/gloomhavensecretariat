@@ -233,17 +233,17 @@
           "valueObject": {
             "name": "rat-swarm",
             "health": 6,
-            "movement": 1,
             "attack": 2,
-            "action": {
-              "type": "condition",
-              "value": "poison"
-            },
+            "movement": 1,
             "enhancements": [
               "heal",
               "attack",
               "move"
-            ]
+            ],
+            "action": {
+              "type": "condition",
+              "value": "poison"
+            }
           },
           "small": true
         },
@@ -1810,16 +1810,16 @@
             "health": "9",
             "attack": "X",
             "movement": "2",
-            "action": {
-              "type": "custom",
-              "value": "%data.custom.gh.mindthief.abilities.173.1%",
-              "small": true
-            },
             "count": 1,
             "enhancements": [
               "heal",
               "move"
-            ]
+            ],
+            "action": {
+              "type": "custom",
+              "value": "%data.custom.gh.mindthief.abilities.173.1%",
+              "small": true
+            }
           },
           "small": true
         },

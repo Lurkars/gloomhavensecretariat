@@ -193,7 +193,7 @@ export class EntitiesMenuDialogComponent {
 
       gameManager.stateManager.after();
       gameManager.uiChange.emit();
-    }, !settingsManager.settings.animations ? 0 : 1500);
+    }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
 
     ghsDialogClosingHelper(this.dialogRef, true);
   }
@@ -334,7 +334,7 @@ export class EntitiesMenuDialogComponent {
           }
 
           gameManager.stateManager.after();
-        }, !settingsManager.settings.animations ? 0 : 1500);
+        }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
       } else {
         gameManager.stateManager.after();
       }

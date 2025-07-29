@@ -82,7 +82,7 @@ export class ChallengeDeckComponent implements OnInit, OnDestroy, OnChanges {
                 this.current = this.deck.current;
                 this.drawTimeout = null;
                 this.init = true;
-            }, !settingsManager.settings.animations ? 0 : this.initTimeout)
+            }, settingsManager.settings.animations ? this.initTimeout * settingsManager.settings.animationSpeed : 0)
         }
 
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
@@ -180,7 +180,7 @@ export class ChallengeDeckComponent implements OnInit, OnDestroy, OnChanges {
                     this.queue = 0;
                 }
             }
-        }, !settingsManager.settings.animations ? 0 : (this.vertical ? 1050 : 1850));
+        }, settingsManager.settings.animations ? 1050 * settingsManager.settings.animationSpeed : 0);
     }
 
     draw(event: any) {
@@ -193,7 +193,7 @@ export class ChallengeDeckComponent implements OnInit, OnDestroy, OnChanges {
                     gameManager.challengesManager.drawCard(this.deck);
                     this.after.emit(new ChallengeDeckChange(this.deck, 'challengeDeck.draw'));
                     this.drawTimeout = null;
-                }, !settingsManager.settings.animations ? 0 : 150)
+                }, settingsManager.settings.animations ? 150 * settingsManager.settings.animationSpeed : 0)
             }
         } else {
             this.dialog.open(ChallengeDeckDialogComponent, {

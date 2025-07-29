@@ -38,9 +38,9 @@
           "value": "summonData",
           "valueObject": {
             "name": "reinforcement",
+            "thumbnail": true,
             "health": 1,
             "movement": 2,
-            "thumbnail": true,
             "enhancements": [
               "heal",
               "move"
@@ -93,14 +93,14 @@
             "name": "banner-of-strength",
             "thumbnail": true,
             "health": 3,
+            "enhancements": [
+              "heal"
+            ],
             "action": {
               "type": "custom",
               "value": "%data.custom.fh.banner-spear.abilities.62.1%",
               "small": true
-            },
-            "enhancements": [
-              "heal"
-            ]
+            }
           },
           "small": true
         }

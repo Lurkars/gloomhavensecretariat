@@ -6,7 +6,7 @@
   border-radius: 1em;
 
   * {
-    transition: opacity 1s ease-in-out;
+    transition: opacity calc(var(--ghs-animation-speed) * 1000ms) ease-in-out;
   }
 
   .hidden {

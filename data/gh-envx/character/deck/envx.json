@@ -537,21 +537,21 @@
           "value": "summonData",
           "valueObject": {
             "name": "lightning-moths",
+            "thumbnail": true,
             "level": 5,
             "health": 3,
             "movement": 3,
-            "count": 2,
-            "thumbnail": true,
             "flying": true,
+            "count": 2,
+            "enhancements": [
+              "heal",
+              "move"
+            ],
             "action": {
               "type": "custom",
               "value": "%data.custom.gh.envx.abilities.644.3%",
               "small": true
-            },
-            "enhancements": [
-              "heal",
-              "move"
-            ]
+            }
           },
           "small": true
         },

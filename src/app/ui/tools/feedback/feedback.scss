@@ -9,7 +9,7 @@
     top: 0;
     right: -30%;
     color: var(--ghs-color-blue);
-    transition: right ease-in-out 200ms;
+    transition: right calc(var(--ghs-animation-speed) * 200ms) ease-in-out;
 
     img {
         height: 100%;

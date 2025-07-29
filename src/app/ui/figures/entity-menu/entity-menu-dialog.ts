@@ -669,7 +669,7 @@ export class EntityMenuDialogComponent {
           gameManager.monsterManager.removeMonsterEntity(this.data.figure, this.data.entity);
           gameManager.stateManager.after();
         }
-      }, !settingsManager.settings.animations ? 0 : 1500);
+      }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
       ghsDialogClosingHelper(this.dialogRef, true)
     } else if (this.data.figure instanceof Character && this.data.entity instanceof Summon) {
       gameManager.stateManager.before("summonDead", gameManager.characterManager.characterName(this.data.figure), "data.summon." + this.data.entity.name);
@@ -679,7 +679,7 @@ export class EntityMenuDialogComponent {
           gameManager.characterManager.removeSummon(this.data.figure, this.data.entity);
           gameManager.stateManager.after();
         }
-      }, !settingsManager.settings.animations ? 0 : 1500);
+      }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
       ghsDialogClosingHelper(this.dialogRef, true)
     } else if (this.data.figure instanceof ObjectiveContainer && this.data.entity instanceof ObjectiveEntity) {
       let name = this.data.figure.name;
@@ -703,7 +703,7 @@ export class EntityMenuDialogComponent {
           gameManager.objectiveManager.removeObjectiveEntity(this.data.figure, this.data.entity);
           gameManager.stateManager.after();
         }
-      }, !settingsManager.settings.animations || !this.data.figure.entities.some((entity) => gameManager.entityManager.isAlive(entity)) ? 0 : 1500);
+      }, !settingsManager.settings.animations || !this.data.figure.entities.some((entity) => gameManager.entityManager.isAlive(entity)) ? 0 : 1500 * settingsManager.settings.animationSpeed);
       ghsDialogClosingHelper(this.dialogRef, true)
     }
   }

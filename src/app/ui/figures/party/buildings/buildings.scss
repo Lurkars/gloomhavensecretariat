@@ -61,7 +61,7 @@
       grid-template-columns: 30% 5% 5% 10% 10% 20% 20%;
       align-items: center;
       margin: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) 0;
-      transition: 300ms;
+      transition: calc(var(--ghs-animation-speed) * 300ms);
 
       &.buildable {
         margin-top: calc(var(--ghs-unit) * 2);

@@ -11,19 +11,65 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.gh.eclipse.abilities.261.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "persistent"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "lost"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
         }
       ]
     },
@@ -34,19 +80,51 @@
       "initiative": 13,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "invisible",
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ]
@@ -58,19 +136,37 @@
       "initiative": 21,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.263.1%",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.263.2%",
+              "small": true
+            }
           ]
         }
       ]
@@ -82,19 +178,60 @@
       "initiative": 15,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent",
+              "small": true
+            }
           ]
         }
       ]
@@ -104,22 +241,59 @@
       "cardId": 265,
       "level": 1,
       "initiative": 77,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 4,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            },
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "dark"
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "experience:2"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "move",
+          "value": 4
         }
       ]
     },
@@ -130,19 +304,48 @@
       "initiative": 84,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.266.1%",
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 6,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
           ]
         }
       ]
@@ -154,19 +357,43 @@
       "initiative": 9,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "attack",
+          "value": 1
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.gh.eclipse.abilities.267.1%",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
           ]
         }
       ]
@@ -178,44 +405,89 @@
       "initiative": 91,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.268.1%",
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 6,
           "enhancementTypes": [
-            "any"
+            "circle"
           ]
+        },
+        {
+          "type": "loot",
+          "value": 1
         }
       ]
     },
     {
-      "name": "Smoke",
+      "name": "Smoke Step",
       "cardId": 269,
       "level": 1,
       "initiative": 28,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 2
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": ",",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     },
@@ -226,19 +498,65 @@
       "initiative": 24,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.gh.eclipse.abilities.270.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "persistent"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "lost"
+                }
+              ]
+            }
           ]
         }
       ]
@@ -248,21 +566,55 @@
       "cardId": 271,
       "level": "X",
       "initiative": 35,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 4
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "subActions": [
+                    {
+                      "type": "area",
+                      "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)|(2,1,target)|(2,2,target)"
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:2"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.271.1%",
+              "small": true
+            }
           ]
         }
       ]
@@ -274,20 +626,32 @@
       "initiative": 74,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     },
@@ -298,20 +662,30 @@
       "initiative": 7,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     },
@@ -322,19 +696,45 @@
       "initiative": 85,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.274.1%",
+              "small": true
+            }
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 6,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            }
           ]
         }
       ]
@@ -346,19 +746,44 @@
       "initiative": 17,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "push",
+              "value": 3,
+              "small": true,
+              "enhancementTypes": [
+                "circle"
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.275.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
           ]
         }
       ]
@@ -370,19 +795,76 @@
       "initiative": 23,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 4
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 4,
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": true
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "shield",
+          "value": 1,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
           ]
         }
       ]
@@ -395,18 +877,92 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.gh.eclipse.abilities.277.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "persistent"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 3
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 2
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "lost"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "element",
+                      "value": "dark",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -418,20 +974,36 @@
       "initiative": 29,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.278.1%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     },
@@ -442,67 +1014,200 @@
       "initiative": 26,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "square"
+          ],
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "wild",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.279.1%",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.gh.eclipse.abilities.279.2%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "persistent"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "lost"
+                }
+              ]
+            }
           ]
         }
       ]
     },
     {
-      "name": "Black Arrot",
+      "name": "Black Arrow",
       "cardId": 280,
       "level": 5,
       "initiative": 11,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "",
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "attack",
+              "value": 3,
+              "small": true,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": true
+            }
           ]
         }
       ]
     },
     {
-      "name": "Unseen bread",
+      "name": "Unseen Dread",
       "cardId": 281,
       "level": 6,
       "initiative": 5,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 6,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
           ]
         }
       ]
@@ -514,19 +1219,39 @@
       "initiative": 90,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark:wild",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.282.1%",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
           ]
         }
       ]
@@ -536,21 +1261,87 @@
       "cardId": 283,
       "level": 7,
       "initiative": 35,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.gh.eclipse.abilities.283.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.283.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "experience:2"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "persistent"
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 5
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "small": true,
+                      "subActions": [
+                        {
+                          "type": "specialTarget",
+                          "value": "enemiesAdjacent",
+                          "small": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "value": "dark",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
@@ -562,44 +1353,118 @@
       "initiative": 19,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.284.1%",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 3,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
-          ]
+          "type": "attack",
+          "value": 3
+        },
+        {
+          "type": "move",
+          "value": 3
         }
       ]
     },
     {
-      "name": "Cloom Darts",
+      "name": "Gloom Darts",
       "cardId": 285,
       "level": 8,
       "initiative": 78,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true,
+              "enhancementTypes": [
+                "circle"
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "target",
+                      "value": 3,
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 3,
           "enhancementTypes": [
-            "any"
+            "circle",
+            "circle"
           ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
         }
       ]
     },
@@ -610,19 +1475,31 @@
       "initiative": 18,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "attack",
+          "value": 5,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.286.1%",
+              "small": true
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
           ]
         }
       ]
@@ -632,21 +1509,64 @@
       "cardId": 287,
       "level": 9,
       "initiative": 38,
+      "lost": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "attack",
+          "value": 4,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh.eclipse.abilities.287.1%",
+                  "small": true
+                }
+              ]
+            }
           ]
+        },
+        {
+          "type": "card",
+          "value": "experience:2"
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 5,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.eclipse.abilities.287.2%",
+              "small": true
+            }
           ]
         }
       ]
@@ -659,18 +1579,110 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%character.abilities.wip%",
-          "enhancementTypes": [
-            "any"
+          "value": "%data.custom.gh.eclipse.abilities.288.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "card",
+                  "value": "persistent"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 2
+                },
+                {
+                  "type": "concatenationSpacer",
+                  "value": 1
+                },
+                {
+                  "type": "card",
+                  "value": "slot"
+                },
+                {
+                  "type": "card",
+                  "value": "slotXp:1"
+                },
+                {
+                  "type": "card",
+                  "value": "lost"
+                }
+              ]
+            }
           ]
         }
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%character.abilities.wip%",
+          "type": "move",
+          "value": 2,
           "enhancementTypes": [
-            "any"
+            "circle"
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "enhancementTypes": [
+            "circle"
+          ],
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "wild",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "condition",
+                          "value": "invisible",
+                          "small": true,
+                          "subActions": [
+                            {
+                              "type": "specialTarget",
+                              "value": "self",
+                              "small": true
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "value": "dark",
+                          "small": true
+                        },
+                        {
+                          "type": "card",
+                          "value": "experience:1",
+                          "small": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]

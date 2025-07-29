@@ -6,6 +6,10 @@
     right: 0;
     display: block;
 
+    .card {
+        transition: transform calc(var(--ghs-animation-speed) * 500ms) cubic-bezier(0.75, 0, 0.85, 1);
+    }
+
     .back {
         background-position: center;
         background-size: 100% auto;
@@ -147,7 +151,7 @@
                         height: 130%;
                         transform: scale(0);
                         transform-origin: bottom left;
-                        transition: 120ms transform ease-in-out;
+                        transition: transform calc(var(--ghs-animation-speed) * 120ms) ease-in-out;
                         clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
                         color: var(--ghs-color-gray);
                         background-color: var(--ghs-color-gray);
@@ -224,7 +228,7 @@
             filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
 
             .text {
-              text-align: center;
+                text-align: center;
             }
         }
     }

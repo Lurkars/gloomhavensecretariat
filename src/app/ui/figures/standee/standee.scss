@@ -57,7 +57,7 @@
 
       .monster-standee,
       .objective-standee {
-        animation: monster-entity-active-focus 1000ms ease-in-out infinite;
+        animation: monster-entity-active-focus calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
       }
     }
 
@@ -138,18 +138,18 @@
 
       .monster-standee,
       .objective-standee {
-        animation: monster-entity-revealed 1000ms ease-in-out infinite;
+        animation: monster-entity-revealed calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
       }
 
       &.elite {
         .monster-standee {
-          animation: monster-entity-revealed-elite 1000ms ease-in-out infinite;
+          animation: monster-entity-revealed-elite calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
         }
       }
 
       &.boss {
         .monster-standee {
-          animation: monster-entity-revealed-boss 1000ms ease-in-out infinite;
+          animation: monster-entity-revealed-boss calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
         }
       }
     }
@@ -245,7 +245,7 @@
         text-shadow: none;
 
         &.highlight .value {
-          animation: number-pulse 2000ms ease-in-out infinite;
+          animation: number-pulse calc(var(--ghs-animation-speed) * 2000ms) ease-in-out infinite;
         }
       }
 
@@ -632,14 +632,14 @@
   }
 
   &.summon {
-    transition: height 500ms ease-out;
+    transition: height calc(var(--ghs-animation-speed) * 500ms) ease-out;
 
     .entity {
-      transition: width 500ms ease-out;
+      transition: width calc(var(--ghs-animation-speed) * 500ms) ease-out;
 
       .summon-standee {
         background-color: var(--ghs-color-darkgray);
-        transition: height 500ms ease-out, width 500ms ease-out;
+        transition: height calc(var(--ghs-animation-speed) * 500ms) ease-out, width calc(var(--ghs-animation-speed) * 500ms) ease-out;
 
         .number {
           display: none;
@@ -651,7 +651,7 @@
           left: 0;
           width: calc(var(--ghs-unit) * 4);
           height: calc(var(--ghs-unit) * 4);
-          transition: top 500ms ease-out, left 500ms ease-out;
+          transition: top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
 
           &.new::before {
             content: " ";
@@ -690,7 +690,7 @@
             border-bottom-left-radius: calc(var(--ghs-unit) * 4);
             z-index: 3;
             opacity: 0.9;
-            transition: top 500ms ease-out, left 500ms ease-out;
+            transition: top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
           }
 
           &.fh {
@@ -720,7 +720,7 @@
         }
 
         .background-image-container {
-          transition: height 500ms ease-out, width 500ms ease-out, top 500ms ease-out, left 500ms ease-out;
+          transition: height calc(var(--ghs-animation-speed) * 500ms) ease-out, width calc(var(--ghs-animation-speed) * 500ms) ease-out, top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
 
           .background-image {
             top: calc(var(--ghs-unit) * -1.3 * var(--ghs-text-factor));
@@ -729,7 +729,7 @@
             height: 150%;
             background-size: 100% AUTO;
             background-color: transparent;
-            transition: height 500ms ease-out, width 500ms ease-out, top 500ms ease-out, left 500ms ease-out;
+            transition: height calc(var(--ghs-animation-speed) * 500ms) ease-out, width calc(var(--ghs-animation-speed) * 500ms) ease-out, top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
           }
         }
 
@@ -737,12 +737,12 @@
           position: absolute;
           top: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
           left: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-          transition: top 500ms ease-out, left 500ms ease-out;
+          transition: top calc(var(--ghs-animation-speed) * 500ms) ease-out, left calc(var(--ghs-animation-speed) * 500ms) ease-out;
         }
       }
 
       ghs-healthbar {
-        transition: width 500ms ease-out;
+        transition: width calc(var(--ghs-animation-speed) * 500ms) ease-out;
       }
     }
 
@@ -860,7 +860,7 @@
 
       &.active-focus {
         .standee {
-          animation: monster-entity-active-focus-fh 1000ms ease-in-out infinite;
+          animation: monster-entity-active-focus-fh calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
         }
       }
 
@@ -888,18 +888,18 @@
       .entity {
         .standee {
           box-shadow: 0px 0px calc(var(--ghs-unit) * 0.6) calc(var(--ghs-unit) * 0.3) var(--ghs-color-darkgray);
-          animation: monster-entity-revealed-fh 1000ms ease-in-out infinite;
+          animation: monster-entity-revealed-fh calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
         }
 
         &.elite {
           .standee {
-            animation: monster-entity-revealed-elite 1000ms ease-in-out infinite;
+            animation: monster-entity-revealed-elite calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
           }
         }
 
         &.boss {
           .standee {
-            animation: monster-entity-revealed-boss 1000ms ease-in-out infinite;
+            animation: monster-entity-revealed-boss calc(var(--ghs-animation-speed) * 1000ms) ease-in-out infinite;
           }
         }
       }

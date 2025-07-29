@@ -15,7 +15,7 @@ footer {
   }
 
   .deck {
-    transition: transform 500ms ease-in-out;
+    transition: transform calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
 
     &:before {
       content: ' ';
@@ -54,7 +54,7 @@ footer {
       height: 50%;
       z-index: 1;
 
-      transition: transform 500ms ease-in-out;
+      transition: transform calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
       transform: translateY(-50%) scale(1);
 
       &.inactive {

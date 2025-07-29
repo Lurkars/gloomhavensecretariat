@@ -113,7 +113,7 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
         settingsManager.storeSettings();
 
         if (settingsManager.settings.animations) {
-            setTimeout(() => { gameManager.uiChange.emit() }, 500);
+            setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
         }
     }
 
@@ -122,7 +122,7 @@ export class CharacterItemListComponent implements OnInit, OnDestroy {
         settingsManager.storeSettings();
 
         if (settingsManager.settings.animations) {
-            setTimeout(() => { gameManager.uiChange.emit() }, 500);
+            setTimeout(() => { gameManager.uiChange.emit() }, 500 * settingsManager.settings.animationSpeed);
         }
     }
 

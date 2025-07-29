@@ -419,7 +419,7 @@
             margin: 0;
             z-index: 1;
             opacity: 1;
-            transition: ease-in-out opacity 750ms;
+            transition: opacity calc(var(--ghs-animation-speed) * 750ms) ease-in-out;
 
             &::before {
                 content: " ";

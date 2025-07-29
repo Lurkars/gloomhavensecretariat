@@ -37,7 +37,7 @@ export class AbiltiesDialogComponent implements OnInit, OnDestroy {
       if (this.menuElement) {
         this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
       }
-    }, !settingsManager.settings.animations ? 0 : 250);
+    }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0);
 
     this.bottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
     this.update();

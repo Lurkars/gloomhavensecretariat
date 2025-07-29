@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     setTimeout(() => {
       this.init = true;
-    }, !settingsManager.settings.animations ? 0 : 1500);
+    }, settingsManager.settings.animations ? 1500 * settingsManager.settings.animationSpeed : 0);
 
     this.uiChangeSubscription = gameManager.uiChange.subscribe({
       next: () => {
@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           setTimeout(() => {
             this.hintState = this.hintStateValue();
             this.init = true;
-          }, !settingsManager.settings.animations ? 0 : 500);
+          }, settingsManager.settings.animations ? 500 * settingsManager.settings.animationSpeed : 0);
         }
 
         this.updateClock();

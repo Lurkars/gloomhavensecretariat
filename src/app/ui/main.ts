@@ -217,6 +217,7 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
     document.body.style.setProperty('--ghs-global-fontsize', settingsManager.settings.globalFontsize + '');
+    document.body.style.setProperty('--ghs-animation-speed', settingsManager.settings.animationSpeed + '');
 
 
     if (settingsManager.settings.gameClock && settingsManager.settings.automaticGameClock) {
@@ -512,11 +513,11 @@ export class MainComponent implements OnInit {
               if (skipAnimation) {
                 containerElement.classList.remove('no-animations');
               }
-            }, !settingsManager.settings.animations || skipAnimation ? 0 : 250);
+            }, !settingsManager.settings.animations || skipAnimation ? 0 : 250 * settingsManager.settings.animationSpeed);
           } else if (skipAnimation) {
             setTimeout(() => {
               containerElement.classList.remove('no-animations');
-            }, !settingsManager.settings.animations ? 0 : 250)
+            }, settingsManager.settings.animations ? 250 * settingsManager.settings.animationSpeed : 0)
           }
         }
       }

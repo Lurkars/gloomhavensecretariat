@@ -9,7 +9,7 @@
   font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
   color: var(--ghs-color-white);
   text-shadow: var(--ghs-outline);
-  transition: width 500ms ease-in-out;
+  transition: width calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
   width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
 
   img {
@@ -78,7 +78,7 @@
     input {
       visibility: hidden;
       opacity: 0;
-      transition: opacity 500ms ease-in-out;
+      transition: opacity calc(var(--ghs-animation-speed) * 500ms) ease-in-out;
     }
 
     &:hover {

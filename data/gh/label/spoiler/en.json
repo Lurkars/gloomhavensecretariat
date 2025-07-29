@@ -181,7 +181,83 @@
       },
       "circles": {
         "1": "when %game.action.attack% performed",
-        "2": "at end of turn"
+        "2": "at end of turn",
+        "abilities": {
+          "233": {
+            "1": "Affect self and all summoned allies."
+          },
+          "235": {
+            "1": "All attacks targeting you and all summoned allies gain Disadvantage this round."
+          },
+          "236": {
+            "1": "Recover %game.card.recover% up to four of your lost cards."
+          },
+          "237": {
+            "1": "Force one enemy within %game.action.range:4% to perform",
+            "2": "with you controlling the action"
+          },
+          "238": {
+            "1": "One adjacent summoned ally performs",
+            "2": "with you controlling the actions."
+          },
+          "239": {
+            "1": "One adjacent summoned ally performs",
+            "2": "with you controlling the actions."
+          },
+          "242": {
+            "1": "Affect all adjacent allies"
+          },
+          "243": {
+            "1": "On death:"
+          },
+          "244": {
+            "1": "Affect all adjacent summoned allies"
+          },
+          "245": {
+            "1": "On any of your Move actions, or the Move actions of any ally you have summoned, you may %game.element.consume.earth% to add +2 %game.action.move% and gain %game.card.experience:1%."
+          },
+          "247": {
+            "1": "Kill all normal adjacent enemies whose current hit point value is equal to or less than 5."
+          },
+          "250": {
+            "1": "Two summoned allies within %game.action.range:2% perform",
+            "2": "with you controlling the actions."
+          },
+          "251": {
+            "1": "One adjacent summoned ally performs",
+            "2": "with you controlling the actions.",
+            "3": "where X is the number of all summoned allies."
+          },
+          "252": {
+            "1": "Performs",
+            "2": "at end of turn"
+          },
+          "253": {
+            "1": "Affect all summoned allies"
+          },
+          "254": {
+            "1": "One adjacent summoned ally performs"
+          },
+          "255": {
+            "1": "Target all enemies adjacent to any summoned ally"
+          },
+          "257": {
+            "1": "The next three times summoned allies suffer damage, they suffer no damage instead.",
+            "2": "Remove all %game.condition.curse% cards from attack modifier deck, and then shuffle the discard pile back into the deck."
+          },
+          "258": {
+            "1": "One summoned ally within %game.action.range:3% performs",
+            "2": "with you controlling the action.",
+            "3": "%game.action.teleport% to the hex occupied by any summoned ally and simultaneously %game.action.teleport% that summoned ally to the hex occupied by you."
+          },
+          "259": {
+            "1": "Recover %game.card.recover% up to two of your lost cards."
+          },
+          "260": {
+            "1": "All summoned allies within %game.action.range:3% perform",
+            "2": "with you controlling the actions."
+          }
+        }
       },
       "lightning": {
         "abilities": {
@@ -286,6 +362,68 @@
             "1": "Perform a \"%game.action.heal% 2, Self\" action for each enemy damaged.",
             "2": "You may suffer up to %game.damage:5%.",
             "3": "where X is the amount of damage you suffered."
+          }
+        }
+      },
+      "eclipse": {
+        "abilities": {
+          "261": {
+            "1": "During your next four Attacks action while %game.condition.invisible%, perform an \"%game.action.attack: 2%, %game.action.range: 3%\" as the final part of the action."
+          },
+          "263": {
+            "1": "Double the value of all your %game.action.move% abilities played during the remainder of this turn, %game.card.experience:1%.",
+            "2": "Double the value of all your %game.action.attack% abilities played during the remainder of this turn, %game.card.experience:1%."
+          },
+          "266": {
+            "1": "Kill one normal target instead, %game.card.experience:1%."
+          },
+          "267": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "268": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "270": {
+            "1": "Before your next four Attack actions, perform a \"%game.action.move: 2%\" action."
+          },
+          "271": {
+            "1": "%game.action.teleport% to any unoccupied hex instead."
+          },
+          "274": {
+            "1": "Add %game.condition.stun% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "275": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "277": {
+            "1": "At the end of your next three turns where %game.element.dark% is not Strong, generate %game.element.dark%."
+          },
+          "278": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "279": {
+            "1": "+1 %game.action.attack%, %game.element.dark%, %game.card.experience:1%.",
+            "2": "During your next four Move actions while %game.condition.invisible%, perform an \"%game.action.attack: 2%, Target all adjacent enemies\" as the final part of the action."
+          },
+          "282": {
+            "1": "Kill one normal or elite target instead, %game.card.experience:1%."
+          },
+          "283": {
+            "1": "Gain Advantage on all your attacks.",
+            "2": "You can target %game.condition.invisible% enemies."
+          },
+          "284": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "286": {
+            "1": "Add %game.condition.poison%, %game.condition.muddle%, %game.condition.wound% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "287": {
+            "1": "Kill all normal targets instead, %game.card.experience:2%.",
+            "2": "Kill one adjacent normal enemy, %game.card.experience:1%."
+          },
+          "288": {
+            "1": "On your next five attacks while %game.condition.invisible%, add %game.condition.stun% to the attack."
           }
         }
       },
