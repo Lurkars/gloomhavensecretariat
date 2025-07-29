@@ -922,6 +922,7 @@
         "itemCollective": "Gain {1} collective \"%data.items.{2}-{0}%\" (Item {0}).",
         "itemDesign": "Gain \"%data.items.{1}-{0}%\" design (Item {0}).",
         "loseBattleGoal": "Lose {0} %game.checkmark% each.",
+        "loseCollectiveExperience": "Lose {0} collective experience.",
         "loseCollectiveGold": "Lose {0} collective gold.",
         "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%.",
         "loseCollectiveResourceAny": "Lose {0} collective resources.",
@@ -943,7 +944,10 @@
         "outpostTarget": "%game.valueSign:{0}% %game.action.target%",
         "partyAchievement": "Party Achievement:<br>\"%data.partyAchievements.{0}%\".",
         "prosperity": "Gain {0} prosperity.",
-        "randomItem": "Gain one Random Item.",
+        "randomItem": {
+          "": "Gain one Random Item.",
+          "alt": "Gain one collective random item %game.itemFh.random%."
+        },
         "randomItemDesign": "Gain Random Item Design.",
         "randomScenario": "Gain one random side scenario.",
         "removeEvent": {
