@@ -513,7 +513,7 @@
     "action": {
       "area": "Area Effect",
       "attack": "Attack",
-      "box": "Box",
+      "box": "&#91;Box&#93;",
       "boxFhSubActions": "&#91;FH Subaction Box&#93;",
       "card": "Card",
       "concatenation": "Concatenation",
@@ -526,7 +526,7 @@
       "fly": "Fly",
       "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "Grant",
-      "grid": "Grid",
+      "grid": "&#91;Grid&#93;",
       "heal": "Heal",
       "hint": "&#91;Information Board&#93;",
       "jump": "Jump",
