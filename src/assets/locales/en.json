@@ -516,7 +516,7 @@
       "box": "&#91;Box&#93;",
       "boxFhSubActions": "&#91;FH Subaction Box&#93;",
       "card": "Card",
-      "concatenation": "Concatenation",
+      "concatenation": "&#91;Concatenation&#93;",
       "concatenationSpacer": "&#91;Concatenation Spacer&#93;",
       "condition": "Condition",
       "custom": "Custom",
