@@ -259,6 +259,68 @@
           }
         }
       },
+      "eclipse": {
+        "abilities": {
+          "261": {
+            "1": "During your next four Attacks action while %game.condition.invisible%, perform an \"%game.action.attack: 2%, %game.action.range: 3%\" as the final part of the action."
+          },
+          "263": {
+            "1": "Double the value of all your %game.action.move% abilities played during the remainder of this turn, %game.card.experience:1%.",
+            "2": "Double the value of all your %game.action.attack% abilities played during the remainder of this turn, %game.card.experience:1%."
+          },
+          "266": {
+            "1": "Kill one normal target instead, %game.card.experience:1%."
+          },
+          "267": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "268": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "270": {
+            "1": "Before your next four Attack actions, perform a \"%game.action.move: 2%\" action."
+          },
+          "271": {
+            "1": "%game.action.teleport% to any unoccupied hex instead."
+          },
+          "274": {
+            "1": "Add %game.condition.stun% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "275": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "277": {
+            "1": "At the end of your next three turns where %game.element.dark% is not Strong, generate %game.element.dark%."
+          },
+          "278": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "279": {
+            "1": "+1 %game.action.attack%, %game.element.dark%, %game.card.experience:1%.",
+            "2": "During your next four Move actions while %game.condition.invisible%, perform an \"%game.action.attack: 2%, Target all adjacent enemies\" as the final part of the action."
+          },
+          "282": {
+            "1": "Kill one normal or elite target instead, %game.card.experience:1%."
+          },
+          "283": {
+            "1": "Gain Advantage on all your attacks.",
+            "2": "You can target %game.condition.invisible% enemies."
+          },
+          "284": {
+            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "286": {
+            "1": "Add %game.condition.poison%, %game.condition.muddle%, %game.condition.wound% and gain %game.card.experience:1% if you are %game.condition.invisible%."
+          },
+          "287": {
+            "1": "Kill all normal targets instead, %game.card.experience:2%.",
+            "2": "Kill one adjacent normal enemy, %game.card.experience:1%."
+          },
+          "288": {
+            "1": "On your next five attacks while %game.condition.invisible%, add %game.condition.stun% to the attack."
+          }
+        }
+      },
       "lightning": {
         "abilities": {
           "319": {
@@ -365,68 +427,6 @@
           }
         }
       },
-      "eclipse": {
-        "abilities": {
-          "261": {
-            "1": "During your next four Attacks action while %game.condition.invisible%, perform an \"%game.action.attack: 2%, %game.action.range: 3%\" as the final part of the action."
-          },
-          "263": {
-            "1": "Double the value of all your %game.action.move% abilities played during the remainder of this turn, %game.card.experience:1%.",
-            "2": "Double the value of all your %game.action.attack% abilities played during the remainder of this turn, %game.card.experience:1%."
-          },
-          "266": {
-            "1": "Kill one normal target instead, %game.card.experience:1%."
-          },
-          "267": {
-            "1": "All attacks targeting you gain Disadvantage this round."
-          },
-          "268": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
-          },
-          "270": {
-            "1": "Before your next four Attack actions, perform a \"%game.action.move: 2%\" action."
-          },
-          "271": {
-            "1": "%game.action.teleport% to any unoccupied hex instead."
-          },
-          "274": {
-            "1": "Add %game.condition.stun% and gain %game.card.experience:1% if you are %game.condition.invisible%."
-          },
-          "275": {
-            "1": "All attacks targeting you gain Disadvantage this round."
-          },
-          "277": {
-            "1": "At the end of your next three turns where %game.element.dark% is not Strong, generate %game.element.dark%."
-          },
-          "278": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
-          },
-          "279": {
-            "1": "+1 %game.action.attack%, %game.element.dark%, %game.card.experience:1%.",
-            "2": "During your next four Move actions while %game.condition.invisible%, perform an \"%game.action.attack: 2%, Target all adjacent enemies\" as the final part of the action."
-          },
-          "282": {
-            "1": "Kill one normal or elite target instead, %game.card.experience:1%."
-          },
-          "283": {
-            "1": "Gain Advantage on all your attacks.",
-            "2": "You can target %game.condition.invisible% enemies."
-          },
-          "284": {
-            "1": "Add +2 %game.action.attack% and gain %game.card.experience:1% if you are %game.condition.invisible%."
-          },
-          "286": {
-            "1": "Add %game.condition.poison%, %game.condition.muddle%, %game.condition.wound% and gain %game.card.experience:1% if you are %game.condition.invisible%."
-          },
-          "287": {
-            "1": "Kill all normal targets instead, %game.card.experience:2%.",
-            "2": "Kill one adjacent normal enemy, %game.card.experience:1%."
-          },
-          "288": {
-            "1": "On your next five attacks while %game.condition.invisible%, add %game.condition.stun% to the attack."
-          }
-        }
-      },
       "squidface": {
         "abilities": {
           "289": {
@@ -436,7 +436,7 @@
             "1": "Deduct -1 %game.action.range% from all your ranged attacks."
           },
           "292": {
-            "1": "Once during each of your Attack actions, you may %game.condition.poison% one ally within %game.action.range% 2 (or deal %game.damage:3% if the ally already has %game.condition.poison%) to add +1 %game.action.attack% to the entire Attack action."
+            "1": "Once during each of your Attack actions, you may %game.condition.poison% one ally within %game.action.range:2% (or deal %game.damage:3% if the ally already has %game.condition.poison%) to add +1 %game.action.attack% to the entire Attack action."
           },
           "294": {
             "1": "Gain %game.action.fly%"
@@ -474,7 +474,7 @@
             "3": "Up to three discarded cards instead"
           },
           "314": {
-            "1": "If %game.condition.curse% cuases an enemy to deal no damage during its attack, this enemy suffers %game.damage:3%."
+            "1": "If %game.condition.curse% causes an enemy to deal no damage during its attack, this enemy suffers %game.damage:3%."
           },
           "316": {
             "1": "During your next six Attack actions, %game.condition.curse% one ally within %game.action.range% 2 to gain two %game.action.target% effects.",

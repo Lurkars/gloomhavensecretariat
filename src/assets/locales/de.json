@@ -2080,6 +2080,10 @@
       "": "Hausregel Zusatzmodifikator bei Vor-/Nachteil",
       "hint": "Anstatt den Zusatzmodifikator beim zweiten Ziehen zu ignorieren, weitere Karten ziehen bis eine Karte ohne Zusatzmodifikator gezogen wurde."
     },
+    "animationSpeed": {
+      "": "Animationsgeschwindigkeit",
+      "hint": "Passe die Animationsgeschwindigkeit an"
+    },
     "animations": {
       "": "Animationen",
       "hint": "Alle Animationen deaktivieren um die Performance zu erhöhen"
@@ -2335,6 +2339,18 @@
     "errata": {
       "": "Zeige Hinweise zu Druckfehlern an",
       "hint": "Anzeige bekannter Druckfehler für Szenarien, Abschnitte, etc. In den Daten selbst sollten alle diese Fehler behoben sein, aber mit den Hinweisen sollte es einfacher sein, die Unterschiede zum Druck zu verstehen."
+    },
+    "events": {
+      "": "Unterstütze Ereigniskarten",
+      "hint": "Verwalte und wende Ereigniskarten an."
+    },
+    "eventsApply": {
+      "": "Ereignisse automatisch anwenden",
+      "hint": "Die Folgen von Ereigniskarten (wenn möglich) automatisch anwenden."
+    },
+    "eventsDraw": {
+      "": "Auto. Ereignisse ziehen",
+      "hint": "Ziehe automatisch Ereigniskarten wie Weg-Ereignisse zu Beginn eines Szenarios."
     },
     "expireConditions": {
       "": "Automatisch Zustände löschen",

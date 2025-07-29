@@ -838,7 +838,9 @@
     "shaman": "Chaman"
   },
   "edition": {
-    "gh": "Gloomhaven"
+    "gh": {
+      "hint": "Ceci est la première édition de Gloomhaven !"
+    }
   },
   "globalAchievements": {
     "ancient-technology": "Technologie Ancienne",
@@ -948,6 +950,11 @@
   },
   "personalQuest": {
     "gh": {
+      "513": {
+        "": "Trouver le Remède",
+        "1": "Diablotins des Forêts tués",
+        "2": "Débloquez \"Le Bosquet Oublié\" (scénario 59) et menez-le à son terme"
+      },
       "515": {
         "": "Soldat de la Loi",
         "1": "Éliminez vingt Bandits et/ou Cultistes"
@@ -975,6 +982,13 @@
   "scenario": {
     "group": {
       "randomMonsterCard": "Cartes de Monstres Aléatoires"
+    },
+    "rules": {
+      "gh": {
+        "22": {
+          "1": "Pour chaque autel qui n'est pas détruit, qu'il ait été révélé ou non, la valeur maximale de points de vie et les valeurs d'attaque de chaque démon sont augmentées de 1 et leurs valeurs de mouvement et de portée sont augmentées de 0,5 (arrondissez à l'entier supérieur). Les attaques de corps à corps ne bénéficient pas de ce bonus de portée."
+        }
+      }
     },
     "title": {
       "gh": {

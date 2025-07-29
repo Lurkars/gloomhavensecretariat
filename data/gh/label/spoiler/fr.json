@@ -16,6 +16,68 @@
   },
   "custom": {
     "gh": {
+      "squidface": {
+        "abilities": {
+          "289": {
+            "1": "Appliquez %game.condition.poison% à tous les adversaires et alliés dans la zone ciblée."
+          },
+          "290": {
+            "1": "Retirez -1 %game.action.range% à toutes vos attaques à distance."
+          },
+          "292": {
+            "1": "Une fois pendant chacune de vos actions d'Attaque, vous pouvez appliquer %game.condition.poison% à un allié à %game.action.range:2% (ou lui infliger 3 dégâts s'il a déjà %game.condition.poison%) pour ajouter +1 %game.action.attack% à la totalité de votre action d'Attaque."
+          },
+          "294": {
+            "1": "Gagnez %game.action.fly%"
+          },
+          "298": {
+            "1": "Durant cos six prochaines actions d'Attaque lors desquelles %game.element.air% est Fort ou Faible, vous pouvez %game.element.consume.air% pour ajouter +1 %game.action.attack% à la totalité de l'action d'Attaque."
+          },
+          "299": {
+            "1": "Toutes les attaques vous ciblant gagnent Désavantage ce round."
+          },
+          "300": {
+            "1": "Après chacune de vos actions de Déplacement, appliquez %game.condition.poison% à chaque adversaire et allié adjacent."
+          },
+          "301": {
+            "1": "Retirez %game.condition.poison% à un adversaire pour qu'il subisse 3 dégâts.",
+            "2": "Ciblez tous les adversaires adjacents à un adversaire avec %game.condition.poison%"
+          },
+          "304": {
+            "1": "Appliquez %game.condition.poison% à tous les alliés adjacents à la cible."
+          },
+          "305": {
+            "1": "Éliminez un adversaire normal avec %game.condition.poison% et à %game.action.range% 3."
+          },
+          "307": {
+            "1": "De plus, ciblez tous les adversaires sur le chemin vers votre première cible"
+          },
+          "309": {
+            "1": "Tous les adversaires avec %game.condition.poison% subissent %game.damage:1%.",
+            "2": "%game.damage:2% à la place"
+          },
+          "310": {
+            "1": "Une fois durant chacune de vos actions de Déplacement, vous pouvez subir %game.damage:1% pour infliger %game.damage:3% à une adversaire avec %game.condition.poison%.",
+            "2": "Tous les alliés avec %game.condition.poison% peuvent Récupérer %game.card.recover% jusqu'à 2 de leurs cartes défaussées.",
+            "3": "jusqu'à 3 cartes défaussées à la place"
+          },
+          "314": {
+            "1": "Si un adversaire n'inflige pas de dégâts durant son attaque à cause d'une %game.condition.curse%, cet adversaire subit %game.damage:3%."
+          },
+          "316": {
+            "1": "Durant vos six prochaines actions d'Attaque, appliquez %game.condition.curse% à un allié à %game.action.range% 2 pour gagner 2 effets %game.action.target%.",
+            "2": "Doublez la valeur de votre prochaine action d'Attaque ce round."
+          },
+          "317": {
+            "1": "Tous les adversaires avec %game.condition.poison% subissent %game.damage:2%.",
+            "2": "subissent 1 dégât supplémentaire"
+          },
+          "318": {
+            "1": "Tous les alliés avec %game.condition.poison% subissent %game.damage:2%.",
+            "2": "Pour toute paire d'alliés ayant subi des dégâts, ajoutez +1 %game.action.attack% à toutes vos attaques ce round et gagnez %game.card.experience:1%."
+          }
+        }
+      },
       "sun": {
         "abilities": {
           "175": {
@@ -267,6 +329,10 @@
     "gh-9": {
       "": "Arc Perforant",
       "1": "Pendant votre attaque à distance, ignorez toutes les valeurs de Bouclier pour la totalité de l'action d'Attaque."
+    },
+    "gh-98": {
+      "": "Bottes d'Écailles de Wyverne",
+      "1": "Vous n'êtes pas affecté par les terrains difficiles ou dangereux."
     }
   },
   "summon": {
