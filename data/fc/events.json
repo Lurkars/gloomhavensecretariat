@@ -342,7 +342,13 @@
           },
           {
             "effects": [
-              "Read section 45 on page 16, and mark this checkbox %game.checkbox%."
+              {
+                "condition": "Read section 45 on page 16, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
             ]
           },
           {
@@ -385,7 +391,13 @@
           },
           {
             "effects": [
-              "Read section 61 on page 21, and mark this checkbox %game.checkbox%."
+              {
+                "condition": "Read section 61 on page 21, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
             ]
           },
           {
@@ -442,7 +454,13 @@
                   10
                 ]
               },
-              "Read section 78 on page 26, and mark this checkbox %game.checkbox%."
+              {
+                "condition": "Read section 78 on page 26, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
             ]
           },
           {
@@ -485,7 +503,13 @@
           },
           {
             "effects": [
-              "Read section 97 on page 32, and mark this checkbox %game.checkbox%."
+              {
+                "condition": "Read section 97 on page 32, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
             ]
           },
           {
@@ -536,7 +560,13 @@
           },
           {
             "effects": [
-              "Read section 107 on page 35, and mark this checkbox %game.checkbox%."
+              {
+                "condition": "Read section 107 on page 35, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
             ]
           },
           {
@@ -579,7 +609,13 @@
           },
           {
             "effects": [
-              "Read section 122 on page 38, and mark this checkbox %game.checkbox%."
+              {
+                "condition": "Read section 122 on page 38, and mark this checkbox",
+                "type": "checkbox",
+                "values": [
+                  "."
+                ]
+              }
             ]
           },
           {
@@ -1228,9 +1264,33 @@
                 ]
               },
               "Mark [C] checkboxes (gain the reward when the whole row is marked):",
-              "%game.checkbox% %game.checkbox% %game.checkbox% +1 prosperity.",
-              "%game.checkbox% %game.checkbox% %game.checkbox% %game.checkbox% +1 reputation, +1 prosperity.",
-              "%game.checkbox% %game.checkbox% %game.checkbox% %game.checkbox% %game.checkbox% +2 prosperity."
+              {
+                "type": "checkbox",
+                "values": [
+                  "",
+                  "",
+                  "+1 prosperity"
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "",
+                  "",
+                  "",
+                  "+1 reputation, +1 prosperity"
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "+2 prosperity"
+                ]
+              }
             ]
           }
         ]

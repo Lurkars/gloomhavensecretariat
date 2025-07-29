@@ -423,11 +423,16 @@ export class RoundManager {
         figure.experience += 1;
       }
 
-      if (figure.name == 'prism' && figure.tags.indexOf('repair_mode') != -1 && figure.tags.indexOf('roundAction-repair_mode') == -1) {
-        figure.health += 2;
-        gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, 2));
-        gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
-        figure.tags.push('roundAction-repair_mode');
+      if (figure.name == 'prism') {
+        if (figure.tags.indexOf('repair_mode') != -1 && figure.tags.indexOf('roundAction-repair_mode') == -1) {
+          figure.health += 2;
+          gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.heal, 2));
+          gameManager.entityManager.applyCondition(figure, figure, ConditionName.heal, true);
+          figure.tags.push('roundAction-repair_mode');
+        } if (figure.tags.indexOf('spider_mode') != -1 && figure.tags.indexOf('roundAction-spider_mode') == -1) {
+          gameManager.entityManager.addCondition(figure, figure, new Condition(ConditionName.ward));
+          figure.tags.push('roundAction-spider_mode');
+        }
       }
     }
 

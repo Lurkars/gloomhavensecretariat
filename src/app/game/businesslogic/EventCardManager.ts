@@ -173,7 +173,7 @@ export class EventCardManager {
     }
   }
 
-  applyEvent(eventCard: EventCard, selected: number, subSelections: number[], scenario: boolean, apply: boolean = true): (EventCardEffect | EventCardCondition)[] {
+  applyEvent(eventCard: EventCard, selected: number, subSelections: number[], checks: number[], scenario: boolean, apply: boolean = true): (EventCardEffect | EventCardCondition)[] {
     let results: (EventCardEffect | EventCardCondition)[] = [];
     const option = eventCard.options[selected];
     let returnToDeck = false;
@@ -220,7 +220,7 @@ export class EventCardManager {
       this.removeEvent(eventCard.type, eventCard.cardId);
     }
 
-    this.game.party.eventCards.push(new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections, !scenario));
+    this.game.party.eventCards.push(new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections, checks, !scenario));
 
     return results;
   }
@@ -239,7 +239,9 @@ export class EventCardManager {
               results.push(conditionResult);
             }
           }
-          results.push(... this.applyEffects(eventCard, outcome.effects, scenario));
+          if (outcome.effects) {
+            results.push(... this.applyEffects(eventCard, outcome.effects, scenario));
+          }
         }
       })
     }

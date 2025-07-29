@@ -407,36 +407,36 @@
 
     .current {
       cursor: wait !important;
-      animation: attackmodifier-draw 1800ms ease-in-out;
+      animation: attackmodifier-draw 1000ms ease-in-out;
       animation-iteration-count: 1;
 
       &.bottom {
-        animation: attackmodifier-draw-bottom 1800ms ease-in-out;
+        animation: attackmodifier-draw-bottom 1000ms ease-in-out;
       }
 
     }
 
     .last {
       cursor: wait !important;
-      animation: attackmodifier-last 1800ms ease-in-out;
+      animation: attackmodifier-last 1000ms ease-in-out;
       animation-iteration-count: 1;
     }
 
     .animate.rolling {
       cursor: wait !important;
-      animation: attackmodifier-rolling 1800ms ease-in-out;
+      animation: attackmodifier-rolling 1000ms ease-in-out;
       animation-iteration-count: 1;
     }
 
     .animate.active {
       cursor: wait !important;
-      animation: attackmodifier-active 1800ms ease-in-out;
+      animation: attackmodifier-active 1000ms ease-in-out;
       animation-iteration-count: 1;
     }
 
     .animate-reverse.active {
       cursor: wait !important;
-      animation: attackmodifier-active-reverse 1800ms ease-in-out;
+      animation: attackmodifier-active-reverse 1000ms ease-in-out;
       animation-iteration-count: 1;
     }
   }

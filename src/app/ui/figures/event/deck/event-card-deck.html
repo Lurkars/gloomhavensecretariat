@@ -96,7 +96,7 @@
                         cdkDrag>
 
                         <ghs-event-card [event]="model.card" [select]="model.identifier.selected"
-                            [subSelect]="model.identifier.subSelections"
+                            [subSelect]="model.identifier.subSelections" [checks]="model.identifier.checks"
                             (onSelect)="updateDrawnSelect(model.identifier,$event)"></ghs-event-card>
 
                         <a class="button open" *ngIf="model.card" (click)="showEventCard(model.card, model.identifier)"

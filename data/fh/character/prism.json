@@ -25,6 +25,11 @@
     {
       "name": "repair_mode",
       "expire": true
+    },
+    {
+      "name": "spider_mode",
+      "level": 8,
+      "expire": true
     }
   ],
   "stats": [

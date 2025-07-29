@@ -19,6 +19,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     @Input() identifier: EventCardIdentifier | undefined | false;
     @Input() select: number = -1;
     @Input() subSelect: number[] = [];
+    @Input() checks: number[] = [];
     @Input() flipped: boolean = false;
     @Input() disabled: boolean = false;
     @Input() spoiler: boolean = false;
@@ -41,7 +42,7 @@ export class EventCardComponent implements OnInit, OnChanges {
                 if (option.outcomes) {
                     this.resolvable[optionIndex] = this.resolvable[optionIndex] || [];
                     option.outcomes.forEach((outcome, outcomeIndex) => {
-                        this.resolvable[optionIndex][outcomeIndex] = outcome.condition && gameManager.eventCardManager.resolvableCondition(outcome.condition) || !outcome.condition && outcome.effects && outcome.effects.length > 0 && outcome.effects.every((effect) => effect && typeof effect !== 'string' && effect.condition && gameManager.eventCardManager.resolvableCondition(effect.condition));
+                        this.resolvable[optionIndex][outcomeIndex] = !outcome.condition || outcome.condition && gameManager.eventCardManager.resolvableCondition(outcome.condition) || false;
                     })
                 }
             })

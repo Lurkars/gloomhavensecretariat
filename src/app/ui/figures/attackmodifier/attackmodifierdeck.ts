@@ -247,7 +247,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
           this.queue = 0;
         }
       }
-    }, !settingsManager.settings.animations ? 0 : (this.vertical ? 1050 : 1850));
+    }, !settingsManager.settings.animations ? 0 : 1050);
   }
 
   draw(event: any, state: 'advantage' | 'disadvantage' | undefined = undefined) {

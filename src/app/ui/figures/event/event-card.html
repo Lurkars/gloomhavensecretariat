@@ -42,7 +42,7 @@
                         [ngClass]="{'selected' : !option.label || selected == i || selected == -1 && flipped, 'single': event.options.length == 1, 'no-label': !option.label}"
                         ghs-pointer-input (doubleClick)="selectOption(selected == i ? -1 : i, false, $event)">
                         <div class="outcome" *ngFor="let outcome of option.outcomes; let outcomeIndex = index;"
-                            [ngClass]="{'selected': !outcome.condition || subSelections.indexOf(outcomeIndex) != -1 || selected == -1 && flipped || !option.label && outcome.attack, 'disabled' : resolvable[i] && resolvable[i][outcomeIndex] == false && subSelections.indexOf(outcomeIndex) == -1 && selected != -1, 'expand-to-bottom': outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck), 'margin': outcome.condition || outcome.narrative}"
+                            [ngClass]="{'selected': subSelections.indexOf(outcomeIndex) != -1 || selected == -1 && flipped || !option.label && outcome.attack, 'disabled' : resolvable[i] && resolvable[i][outcomeIndex] == false && subSelections.indexOf(outcomeIndex) == -1 && selected != -1, 'expand-to-bottom': outcomeIndex == option.outcomes.length -1 && (option.returnToDeck || option.removeFromDeck), 'margin': outcome.condition || outcome.narrative}"
                             ghs-pointer-input (singleClick)="selectSub(i, outcomeIndex, $event)"
                             (doubleClick)="selectSub(i, outcomeIndex, true, $event)">
                             <ghs-event-card-condition *ngIf="outcome.condition" [condition]="outcome.condition" [narrative]="true"

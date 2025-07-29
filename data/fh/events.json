@@ -5354,10 +5354,30 @@
               {
                 "type": "checkbox",
                 "values": [
-                  "Radiant Forest",
-                  "Copperneck Mountains",
-                  "Whitefire Wood",
-                  "Crystal Fields",
+                  "Radiant Forest"
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "Copperneck Mountains"
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "Whitefire Wood"
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
+                  "Crystal Fields"
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
                   "Biting Sea"
                 ]
               }
@@ -6862,14 +6882,24 @@
                     "values": [
                       196
                     ]
-                  },
+                  }
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
                   {
                     "type": "item",
                     "alt": true,
                     "values": [
                       241
                     ]
-                  },
+                  }
+                ]
+              },
+              {
+                "type": "checkbox",
+                "values": [
                   {
                     "type": "item",
                     "alt": true,

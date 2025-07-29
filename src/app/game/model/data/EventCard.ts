@@ -27,15 +27,17 @@ export class EventCardIdentifier {
     type: string;
     selected: number;
     subSelections: number[];
+    checks: number[];
     scenarioApply: boolean;
 
     constructor(cardId: string, edition: string, type: string, selected: number,
-        subSelections: number[] = [], scenarioApply: boolean = false) {
+        subSelections: number[] = [], checks: number[] = [], scenarioApply: boolean = false) {
         this.cardId = cardId;
         this.edition = edition;
         this.type = type;
         this.selected = selected;
         this.subSelections = subSelections;
+        this.checks = checks;
         this.scenarioApply = scenarioApply;
     }
 }

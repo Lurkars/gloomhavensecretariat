@@ -235,6 +235,10 @@
           "": "Reconstructive Aid",
           "hint": "%data.characterToken.prism.mode% Repair Drone Mode: At the start of each of your turns, perform: %game.action.heal% 2, self"
         },
+        "spider_mode": {
+          "": "Swarming Bulwark",
+          "hint": "%data.characterToken.prism.mode% Shield Spider Mode: At the start of each of your turns, perform: %game.condition.ward% 2, self"
+        },
         "tokens": {
           "mode": "Mode Token"
         }

@@ -18,6 +18,7 @@ export class EventCardDrawComponent {
     event: EventCard | undefined;
     selected: number = -1;
     subSelections: number[] = [];
+    checks: number[] = [];
     globalDraw: boolean = false;
     requirementWarning: boolean = false;
 
@@ -58,6 +59,7 @@ export class EventCardDrawComponent {
     select(change: EventCardIdentifier) {
         this.selected = change.selected;
         this.subSelections = change.subSelections;
+        this.checks = change.checks;
     }
 
     cancel() {
@@ -71,7 +73,7 @@ export class EventCardDrawComponent {
         if (this.event && (this.selected != -1 || !apply)) {
             gameManager.stateManager.before('eventDraw.accept');
             gameManager.game.eventDraw = undefined;
-            const result = gameManager.eventCardManager.applyEvent(this.event, this.selected, this.subSelections, gameManager.game.scenario != undefined && gameManager.roundManager.firstRound, apply);
+            const result = gameManager.eventCardManager.applyEvent(this.event, this.selected, this.subSelections, this.checks, gameManager.game.scenario != undefined && gameManager.roundManager.firstRound, apply);
             gameManager.stateManager.after(settingsManager.settings.animations ? 1000 : 250);
             ghsDialogClosingHelper(this.dialogRef, result.length ? result : undefined);
         }

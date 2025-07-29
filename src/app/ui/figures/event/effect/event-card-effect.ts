@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { EventCardApplyEffects } from "src/app/game/businesslogic/EventCardManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -19,8 +19,11 @@ export class EventCardEffectComponent implements OnInit {
     @Input() concatenated: boolean = false;
     @Input() inline: boolean = false;
     @Input() selected: boolean = false;
+    @Input() checks: number = 0;
 
     @Input() debug: boolean = false;
+
+    @Output() onCheck: EventEmitter<number> = new EventEmitter<number>();
 
     effectString: string | undefined;
     effectObject: EventCardEffect | undefined;
@@ -65,6 +68,17 @@ export class EventCardEffectComponent implements OnInit {
             }
 
             this.labelArgs.push(this.edition);
+        }
+    }
+
+    check(index: number) {
+        if (this.selected) {
+            if (this.checks == index + 1) {
+                this.checks = index;
+            } else {
+                this.checks = index + 1;
+            }
+            this.onCheck.emit(this.checks);
         }
     }
 

@@ -1,6 +1,7 @@
 <span class="effect"
-    [ngClass]="{'fh': edition == 'fh', 'city': eventType == 'city', 'disabled': disabled && !selected}">
-    <span *ngIf="effectString" class="text" [ngClass]="{'concatenated': concatenated, 'inline': inline, 'debug': debug}">
+    [ngClass]="{'fh': edition == 'fh', 'city': eventType == 'city', 'disabled': disabled, 'selected': selected}">
+    <span *ngIf="effectString" class="text"
+        [ngClass]="{'concatenated': concatenated, 'inline': inline, 'debug': debug}">
         <span [ngClass]="{'text-white': light}" [ghs-label]="effectString"></span>
     </span>
     <span *ngIf="effectObject" class="effect-object" [ngClass]="{'light': light, 'inline': inline || concatenated}">
@@ -34,12 +35,12 @@
 
         <span class="checkbox-container" *ngIf="effectObject.type == 'checkbox'">
             <label *ngFor="let checkboxEffect of effects; let i = index;" [ngClass]="{'has-value': checkboxEffect}">
-                <span class="checkbox" [ngClass]="{'light': light}"></span>
+                <span class="checkbox" [ngClass]="{'checked': checks > i, 'light': light}" ghs-pointer-input (singleClick)="check(i)"></span>
                 <ghs-event-card-effect *ngIf="checkboxEffect" [effect]="checkboxEffect" [edition]="edition"
-                    [eventType]="eventType" [light]="light"></ghs-event-card-effect>
+                    [eventType]="eventType" [light]="light" [inline]="true"></ghs-event-card-effect>
             </label>
         </span>
-        
+
         <span class="automation-icon" [ngClass]="{'light': light}"
             *ngIf="!concatenated && settingsManager.settings.eventsApply && EventCardApplyEffects.indexOf(effectObject.type) != -1"
             [ghs-tooltip]="'game.events.effects.automation'">
