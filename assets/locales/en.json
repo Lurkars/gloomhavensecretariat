@@ -513,10 +513,10 @@
     "action": {
       "area": "Area Effect",
       "attack": "Attack",
-      "box": "Box",
+      "box": "&#91;Box&#93;",
       "boxFhSubActions": "&#91;FH Subaction Box&#93;",
       "card": "Card",
-      "concatenation": "Concatenation",
+      "concatenation": "&#91;Concatenation&#93;",
       "concatenationSpacer": "&#91;Concatenation Spacer&#93;",
       "condition": "Condition",
       "custom": "Custom",
@@ -526,7 +526,7 @@
       "fly": "Fly",
       "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "Grant",
-      "grid": "Grid",
+      "grid": "&#91;Grid&#93;",
       "heal": "Heal",
       "hint": "&#91;Information Board&#93;",
       "jump": "Jump",
@@ -2231,6 +2231,10 @@
     "animations": {
       "": "Animations",
       "hint": "Disable all animations to increase performance"
+    },
+    "animationSpeed": {
+      "": "Animation Speed",
+      "hint": "Change speed of animations"
     },
     "applyBuildingRewards": {
       "": "Apply Building Bonuses",
