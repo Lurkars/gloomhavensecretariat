@@ -873,7 +873,10 @@
         "000": "Ihr solltet jetzt bereit für Szenario 1 auf der nächsten Seite des Szenariobuchs sein. Führt keine Außenposten-Phase durch, bis ihr Szenario 1 abgeschlossen habt.",
         "022": "Verliert insgesamt X/5 %game.resource.lumber% (abgerundet). X ist die Anzahl der Wasseraufleger auf Element 07-G.",
         "033": "Erhaltet je 5 Erfahrung für jede nicht aufgedeckte Wünschelrute",
-        "041": "Lest jetzt %data.section:36.7%"
+        "041": "Lest jetzt %data.section:36.7%",
+        "remove-algox": "Entferne alle %game.action.custom.fh-algox%-Ereignisse aus allen Außenposten-Ereignisdecks",
+        "remove-lurkers": "Entferne alle %game.action.custom.fh-lurkers%-Ereignisse aus allen Außenposten-Ereignisdecks",
+        "remove-unfettered": "Entferne alle %game.action.custom.fh-unfettered%-Ereignisse aus allen Außenposten-Ereignisdecks"
       }
     },
     "rules": {
@@ -1033,8 +1036,13 @@
   "section": {
     "rewards": {
       "fh": {
+        "094-4": "Diese Woche kein Außenposten-Ereignis abhandeln.",
         "128-2": "Schlagt die erste Seite des Rätselbuchs auf",
+        "139-2": {
+          "2": "Mische die Ereigniskarten B-01 bis B-13 und bilde daraus den Boot-Ereignisstapel. Bewahre diesen Stapel in Umschlag B auf, wenn er nicht verwendet wird, und nutze die Kartenunterteilung, um den Boot-Ereignisstapel von den anderen Boot-Ereigniskarten zu trennen."
+        },
         "140-3": "Schlagt nicht die nächste Seite im Rätselbuch auf. Schreibt stattdessen die Lösung des nächsten Rätsels auf die aktuelle Seite",
+        "168-2": "Diese Woche kein Außenposten-Ereignis abhandeln.",
         "169-3": "Schlagt die erste Seite des Rätselbuchs auf"
       }
     },

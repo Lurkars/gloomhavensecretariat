@@ -195,6 +195,12 @@
   },
   "custom": {
     "fh": {
+      "coral": {
+        "2": "und immer wenn du %game.condition.impair% erhalten würdest, verhindere diesen Zustand"
+      },
+      "drill": {
+        "4": "Immer wenn du %game.condition.poison% erhalten würdest, kannst du stattdessen %game.damage:1% erleiden, um den Zustand zu verhindern"
+      },
       "prism": {
         "10": "Wann immer du %game.condition.wound% erhalten würdest, wird der Zustand verhindert",
         "11": "%game.action.custom.fh-mode% jede Runde",
