@@ -1,4 +1,9 @@
 {
+  "battleGoals": {
+    "470": {
+      "": "Pacifista"
+    }
+  },
   "character": {
     "gh": {
       "brute": "Bruto",
