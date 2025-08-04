@@ -1,7 +1,223 @@
 {
   "battleGoals": {
     "sc-1": {
-      "": "Acrobatico"
+      "": "Acrobatico",
+      "text": "Perdi una carta per annullare 5 o più danni."
+    },
+    "sc-10": {
+      "": "Discriminante",
+      "text": "Non uccidere mostri élite o boss durante lo scenario."
+    },
+    "sc-11": {
+      "": "Distratto",
+      "text": "Uccidi un mostro a cui non sei adiacente mentre sei adiacente a un altro mostro."
+    },
+    "sc-12": {
+      "": "Assonnato",
+      "text": "Dichiara un riposo lungo quando hai il massimo dei punti vita."
+    },
+    "sc-13": {
+      "": "Elitista",
+      "text": "Uccidi solo mostri élite."
+    },
+    "sc-14": {
+      "": "Sterminatore",
+      "text": "Uccidi tre mostri nello stesso turno."
+    },
+    "sc-15": {
+      "": "Timoroso",
+      "text": "Non terminare mai il tuo turno adiacente a un mostro."
+    },
+    "sc-16": {
+      "": "Debole",
+      "text": "Sii il primo giocatore a esaurirsi."
+    },
+    "sc-17": {
+      "": "Selvaggio",
+      "text": "Avere più carte nella pila delle perse alla fine dello scenario."
+    },
+    "sc-18": {
+      "": "Finisher",
+      "text": "Uccidi l’ultimo mostro dello scenario."
+    },
+    "sc-19": {
+      "": "Titubante",
+      "text": "Non essere mai il primo nell'iniziativa di un turno."
+    },
+    "sc-2": {
+      "": "Imboscata",
+      "text": "Apri una porta e termina l'azione di movimento adiacente a un mostro nella stanza rivelata."
+    },
+    "sc-20": {
+      "": "Testa Calda",
+      "text": "Aggiungi due carte alla pila delle perse prima del tuo primo riposo."
+    },
+    "sc-21": {
+      "": "Istigatore",
+      "text": "Tranne quando fai un riposo lungo, non essere mai l’ultimo nell’iniziativa."
+    },
+    "sc-22": {
+      "": "Offensivo",
+      "text": "Applica un'altra condizione negativa a un mostro che ne ha già una."
+    },
+    "sc-23": {
+      "": "Zoppicante",
+      "text": "Muoviti solo usando azioni di movimento base."
+    },
+    "sc-24": {
+      "": "Fortunato",
+      "text": "Uccidi un mostro con un attacco con svantaggio."
+    },
+    "sc-25": {
+      "": "Cecchino",
+      "text": "Uccidi un mostro distante almeno tre esagoni da te."
+    },
+    "sc-26": {
+      "": "Avaro",
+      "text": "Non uscire mai da una stanza se ci sono ancora gettoni oro al suo interno."
+    },
+    "sc-27": {
+      "": "Scippatore",
+      "text": "Uccidi un mostro e raccogli il suo gettone oro nello stesso turno."
+    },
+    "sc-28": {
+      "": "Multitasking",
+      "text": "Uccidi un mostro e apri una porta nello stesso turno."
+    },
+    "sc-29": {
+      "": "Paranoico",
+      "text": "Termina ogni turno adiacente a un muro o a un ostacolo."
+    },
+    "sc-3": {
+      "": "Assassino",
+      "text": "Uccidi un mostro prima che compia qualsiasi azione nello scenario."
+    },
+    "sc-30": {
+      "": "Pacificatore",
+      "text": "Non infliggere mai il colpo di grazia a un mostro."
+    },
+    "sc-31": {
+      "": "Trapassato",
+      "text": "Perdi 6 o più punti vita in un solo turno."
+    },
+    "sc-32": {
+      "": "Borseggiatore",
+      "text": "Esegui un'azione di saccheggio mentre sei adiacente ad almeno due mostri."
+    },
+    "sc-33": {
+      "": "Bersaglio",
+      "text": "Subisci attacchi da almeno tre mostri nello stesso turno."
+    },
+    "sc-34": {
+      "": "Prospero",
+      "text": "Raccogli almeno tre gettoni oro nello stesso turno."
+    },
+    "sc-35": {
+      "": "Devastatore",
+      "text": "Gioca due carte per le loro azioni perse nello stesso turno."
+    },
+    "sc-36": {
+      "": "Solitudine",
+      "text": "Non terminare mai il tuo turno adiacente a un alleato."
+    },
+    "sc-37": {
+      "": "Riservato",
+      "text": "Avere il minor numero di carte nella pila delle perse alla fine dello scenario."
+    },
+    "sc-38": {
+      "": "Irrequieto",
+      "text": "Muoviti di almeno un esagono a ogni turno (tranne durante un riposo lungo)."
+    },
+    "sc-39": {
+      "": "Vendicatore",
+      "text": "Non effettuare attacchi finché non hai subito danni almeno una volta nello scenario."
+    },
+    "sc-4": {
+      "": "Assistente",
+      "text": "Uccidi un mostro che è stato attaccato da un alleato prima nel turno."
+    },
+    "sc-40": {
+      "": "Ritualista",
+      "text": "Uccidi un mostro quando almeno due elementi sono forti o in fase calante."
+    },
+    "sc-41": {
+      "": "Carroñero",
+      "text": "Raccogli più gettoni oro di qualsiasi altro giocatore."
+    },
+    "sc-42": {
+      "": "Ombra",
+      "text": "Termina ogni tuo turno adiacente a un alleato."
+    },
+    "sc-43": {
+      "": "Tiratore scelto",
+      "text": "Uccidi un mostro in una stanza diversa (nessuno dei due deve trovarsi su una casella porta)."
+    },
+    "sc-44": {
+      "": "Sterminatore",
+      "text": "Uccidi due mostri nello stesso turno."
+    },
+    "sc-45": {
+      "": "Insonne",
+      "text": "Subisci danni nello stesso turno in cui esegui un riposo lungo."
+    },
+    "sc-46": {
+      "": "Sobrio",
+      "text": "Non usare nessuna pozione durante lo scenario."
+    },
+    "sc-47": {
+      "": "Socievole",
+      "text": "Non lasciare mai una stanza se c’è ancora un alleato al suo interno."
+    },
+    "sc-48": {
+      "": "Specializzato",
+      "text": "Non usare mai azioni base."
+    },
+    "sc-49": {
+      "": "Tenace",
+      "text": "Non lasciare mai un esagono adiacente a un mostro."
+    },
+    "sc-5": {
+      "": "Baluardo",
+      "text": "Essere adiacente ad almeno due mostri mentre sei su una casella porta."
+    },
+    "sc-50": {
+      "": "Testardo",
+      "text": "Non perdere nessuna carta per annullare danni durante lo scenario."
+    },
+    "sc-51": {
+      "": "Meticoloso",
+      "text": "Non uscire mai da una stanza se ci sono ancora mostri al suo interno."
+    },
+    "sc-52": {
+      "": "Intoccabile",
+      "text": "Non subire alcun danno."
+    },
+    "sc-53": {
+      "": "Sprecone",
+      "text": "Perdi una carta per annullare 2 o meno danni da un attacco."
+    },
+    "sc-54": {
+      "": "Sfiancato",
+      "text": "Non avere mai meno di una carta in mano."
+    },
+    "sc-6": {
+      "": "Bullo",
+      "text": "Uccidi un mostro afflitto da una condizione negativa."
+    },
+    "sc-7": {
+      "": "Contagioso",
+      "text": "Mentre sei afflitto da una condizione negativa, applicane una a un mostro."
+    },
+    "sc-8": {
+      "": "Avido",
+      "text": "Non raccogliere mai gettoni oro da saccheggio a fine turno."
+    },
+    "sc-9": {
+      "": "Coccolone",
+      "text": "Riposa solo nei turni in cui anche un alleato sta effettuando un riposo lungo o corto."
     }
+  },
+  "edition": {
+    "sc": "Obiettivi di Battaglia Estesi di Satire"
   }
 }
