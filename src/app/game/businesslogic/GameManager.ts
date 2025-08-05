@@ -18,7 +18,7 @@ import { ChallengeCard } from "../model/data/Challenges";
 import { CharacterData } from "../model/data/CharacterData";
 import { Condition, ConditionName, ConditionType, Conditions } from "../model/data/Condition";
 import { DeckData } from "../model/data/DeckData";
-import { CampaignData, EditionData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "../model/data/EditionData";
+import { CampaignData, EditionData, FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "../model/data/EditionData";
 import { ElementModel, ElementState } from "../model/data/Element";
 import { ItemData } from "../model/data/ItemData";
 import { MonsterData } from "../model/data/MonsterData";
@@ -703,7 +703,12 @@ export class GameManager {
 
   prosperityLevel(): number {
     let prosperityLevel = 1;
-    const prosperitySteps = this.fhRules() ? FH_PROSPERITY_STEPS : GH_PROSPERITY_STEPS;
+    let prosperitySteps = GH_PROSPERITY_STEPS;
+    if (this.fhRules()) {
+      prosperitySteps = FH_PROSPERITY_STEPS;
+    } else if (this.gh2eRules()) {
+      prosperitySteps = GH2E_PROSPERITY_STEPS;
+    }
     prosperitySteps.forEach((step) => {
       if (this.prosperityTicks() > step) {
         prosperityLevel++;

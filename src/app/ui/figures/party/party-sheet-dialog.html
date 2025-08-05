@@ -1,8 +1,9 @@
 <div class="light party-sheet-dialog">
   <div class="scroll-container"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-    <div class="container" [ngClass]="{'fh-container' : !campaign && fhSheet, 'campaign-container' : campaign}">
-      <div class="sheet" *ngIf="!campaign && !fhSheet" [ngClass]="{'fh-sheet' : fhSheet}">
+    <div class="container"
+      [ngClass]="{'fh-container' : !campaign && fhSheet, 'gh2e-container' : !campaign && gh2eSheet, 'campaign-container' : campaign}">
+      <div class="sheet" *ngIf="!campaign && !fhSheet && !gh2eSheet" [ngClass]="{'fh-sheet' : fhSheet}">
         <div class="columns">
           <div class="column column-left">
             <div class="row title">
@@ -417,6 +418,46 @@
         </div>
       </div>
 
+      <div class="sheet gh2e-sheet" *ngIf="!campaign && gh2eSheet">
+        <div class="title">
+          <label class="headline ignore-denied" (click)="campaign = true">
+            <span [ghs-label]="'party.campaign.sheet'"></span>
+            <span class="management">
+              <img src="./assets/images/left.svg">
+              <span [ghs-label]="'party.campaign.manage'"></span>
+            </span>
+          </label>
+        </div>
+
+        <div class="prosperity gh2e wrapped">
+          <div class="checklist">
+            <div class="legend">
+              <span [ghs-label]="'party.prosperity'" [ghs-tooltip]="'party.prosperity.reset'"
+                (click)="setProsperity(0)"></span>
+              <img [ghs-tooltip]="'party.prosperity.reset'" src="./assets/images/fh/prosperity.svg">
+              <span>:</span>
+            </div>
+            <div class="tick large" [ghs-tooltip]="'party.prosperity.reset'" (click)="setProsperity(0)">
+              <div class="level">1</div>
+              <div class="checkbox checked disabled"></div>
+            </div>
+            <div class="tick"
+              *ngFor="let check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); let index = index;"
+              [autoscroll]="gameManager.prosperityTicks() == index +1 || gameManager.prosperityTicks() == 0 && index == 0"
+              [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1, 'section': prosperitySections[index]}">
+              <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1" (click)="setProsperity(index+1)">
+                {{prosperitySteps.indexOf(index) + 2}}
+              </div>
+              <div class="checkbox" (click)="setProsperity(index+1)"
+                [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : (!gh2eSheet || prosperitySteps.indexOf(index) == -1) && prosperityHighlightSteps.indexOf(index) != -1}">
+                <span class="section" *ngIf="prosperitySections[index]"
+                  [ghs-label]="'%game.section:' + prosperitySections[index] + '%'"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <span class="toggle-fh-sheet ignore-denied" *ngIf="!campaign" (click)="fhSheet = !fhSheet; update(false)">
         <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable')"></span>
       </span>
@@ -589,20 +630,19 @@
         </div>
 
         <div class="prosperity" *ngIf="gameManager.fhRules() || gameManager.editionRules('gh')"
-          [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'wrapped': settingsManager.settings.wrapProsperity}">
+          [ngClass]="{'fh' : fhSheet, 'wrapped': settingsManager.settings.wrapProsperity}">
           <div class="legend">
             <div class="level">
               <span [ghs-label]="'party.prosperity'" [ghs-tooltip]="'party.prosperity.reset'"
                 (click)="setProsperity(0)"></span>
-              <img *ngIf="settingsManager.settings.fhStyle" [ghs-tooltip]="'party.prosperity.reset'"
-                src="./assets/images/fh/prosperity.svg" (click)="setProsperity(0)">
+              <img *ngIf="fhSheet" [ghs-tooltip]="'party.prosperity.reset'" src="./assets/images/fh/prosperity.svg"
+                (click)="setProsperity(0)">
               <span>:</span>
               <img class="toggle-wrapped" (click)="settingsManager.toggle('wrapProsperity')"
                 [ghs-tooltip]="'party.prosperity.wrap.' + (settingsManager.settings.wrapProsperity ? 'shrink' : 'expand')"
                 [src]="'./assets/images/' + (settingsManager.settings.wrapProsperity ? 'shrink' : 'expand') + '.svg'">
             </div>
-            <div class="check" *ngIf="!settingsManager.settings.fhStyle" [ghs-tooltip]="'party.prosperity.reset'"
-              (click)="setProsperity(0)">
+            <div class="check" *ngIf="!fhSheet" [ghs-tooltip]="'party.prosperity.reset'" (click)="setProsperity(0)">
               <span class="checkbox checked disabled"></span><span>:</span>
             </div>
           </div>
@@ -610,12 +650,14 @@
             <div class="tick"
               *ngFor="let check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); let index = index;"
               [autoscroll]="gameManager.prosperityTicks() == index +1 || gameManager.prosperityTicks() == 0 && index == 0"
-              [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1}">
+              [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1, 'section': prosperitySections[index]}">
               <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1" (click)="setProsperity(index+1)">
                 {{prosperitySteps.indexOf(index) + 2}}
               </div>
               <div class="checkbox" (click)="setProsperity(index+1)"
-                [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : prosperityHighlightSteps.indexOf(index) != -1}">
+                [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : (!gh2eSheet || prosperitySteps.indexOf(index) == -1) && prosperityHighlightSteps.indexOf(index) != -1}">
+                <span class="section" *ngIf="prosperitySections[index]"
+                  [ghs-label]="'%game.section:' + prosperitySections[index] + '%'"></span>
               </div>
             </div>
           </div>

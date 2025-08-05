@@ -4,6 +4,12 @@
         "merchant-guild",
         "military"
     ],
+    "prosperitySections": {
+        "21": "48.2",
+        "32": "54.2",
+        "44": "16.5",
+        "58": "62.3"
+    },
     "reputationSections": [
         {
             "type": "demons",

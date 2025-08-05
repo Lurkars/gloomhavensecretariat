@@ -8,7 +8,7 @@ import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { SelectResourceResult } from "src/app/game/model/data/BuildingData";
-import { EditionData, FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
+import { EditionData, FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
 import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { LootType } from "src/app/game/model/data/Loot";
@@ -46,6 +46,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   party: Party;
   prosperitySteps = GH_PROSPERITY_STEPS;
   prosperityHighlightSteps = GH_PROSPERITY_STEPS;
+  prosperitySections: Record<number,string> = {};
   priceModifier: number = 0;
   moraleDefense: number = 0;
   campaign: boolean = false;
@@ -71,6 +72,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   availableCharacters: GameCharacterModel[][] = [];
 
   fhSheet: boolean = false;
+  gh2eSheet: boolean = false;
   csSheet: boolean = false;
   disableShortcuts: boolean = false;
 
@@ -635,6 +637,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (updateSheet) {
       this.fhSheet = gameManager.fhRules();
       this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
+      this.gh2eSheet = !this.csSheet && gameManager.gh2eRules();
     }
     const editions = this.partyEdition && [this.partyEdition] || gameManager.editions();
     this.scenarioEditions = [];
@@ -701,11 +704,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
     if (this.fhSheet) {
       this.prosperitySteps = FH_PROSPERITY_STEPS;
+    } if (this.gh2eSheet) {
+      this.prosperitySteps = GH2E_PROSPERITY_STEPS;
     } else {
       this.prosperitySteps = GH_PROSPERITY_STEPS;
     }
 
-    if (settingsManager.settings.fhStyle) {
+    if (this.fhSheet) {
       this.prosperityHighlightSteps = [];
       this.prosperitySteps.forEach((step, index) => {
         const start = index > 0 ? this.prosperitySteps[index - 1] + 1 : 0;
@@ -715,8 +720,19 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
           }
         }
       })
+    } if (this.gh2eSheet) {
+      this.prosperityHighlightSteps = [];
+      for (let i = 0; i <= Math.max(...this.prosperitySteps); i++) {
+        if (i % 5 == 3) {
+          this.prosperityHighlightSteps.push(i);
+        }
+      }
     } else {
       this.prosperityHighlightSteps = this.prosperitySteps;
+    }
+
+    if (campaign && campaign.prosperitySections) {
+      this.prosperitySections = campaign.prosperitySections;
     }
 
     this.partyAchievements = [];

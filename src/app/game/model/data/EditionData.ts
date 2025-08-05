@@ -15,6 +15,7 @@ import { Favor, TrialCard } from "./Trials";
 
 export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];
 export const FH_PROSPERITY_STEPS = [5, 14, 26, 41, 59, 80, 104, 131];
+export const GH2E_PROSPERITY_STEPS = [4, 11, 21, 32, 44, 58, 73, 88];
 
 export class EditionData implements Editional {
   // from Editional
@@ -96,6 +97,7 @@ export class CampaignData {
   // GH2E
   factions: string[] = [];
   reputationSections: ReputationSections[] = [];
+  prosperitySections: Record<number,string> = {};
 
 }
 

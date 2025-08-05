@@ -186,6 +186,19 @@ export class AttackModifierManager {
       attackModifierDeck.lastVisible = attackModifierDeck.current;
     }
     attackModifierDeck.state = undefined;
+    if (settingsManager.settings.amAdvantage) {
+      let currentCard = attackModifierDeck.cards[attackModifierDeck.current];
+      if (currentCard && currentCard.rolling) {
+        while (currentCard.rolling) {
+          if (attackModifierDeck.current == attackModifierDeck.cards.length - 1) {
+            return;
+          }
+          attackModifierDeck.current = attackModifierDeck.current + 1;
+          currentCard = attackModifierDeck.cards[attackModifierDeck.current];
+          this.updateLastVisible(attackModifierDeck);
+        }
+      }
+    }
     this.updateLastVisible(attackModifierDeck);
   }
 
