@@ -198,6 +198,7 @@ export class Settings {
   wakeLock: boolean = true;
   wrapProsperity: boolean = false;
   zoom: number = 100;
+  manualMonsterDraw: boolean = false;
 }
 
 export const localSettings: string[] = [

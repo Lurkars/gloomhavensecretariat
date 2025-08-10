@@ -1,0 +1,97 @@
+.manual-draw-dialog {
+  width: 100%;
+
+  .header {
+    text-align: center;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-white);
+  }
+
+  .abilities {
+    margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: unset;
+    }
+
+    .ability {
+      &.selected ghs-ability .card {
+        border-radius: 3.5%;
+        box-shadow: 0 0 0 0.2em var(--ghs-color-green);
+      }
+
+      &.no-spoiler:not(.selected) ghs-ability .ability-front {
+        flex-direction: row-reverse !important;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-evenly;
+
+        .name, .index {
+          top: auto !important;
+          left: auto !important;
+          bottom: auto !important;
+          right: auto !important;
+          font-size: 2em !important;
+          position: relative !important;
+          width: auto !important;
+        }
+
+        .initiative, .ability-actions-container, .shuffle {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor)) 0;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    justify-content: space-evenly;
+    align-items: center;
+
+    &.small {
+      justify-content: center;
+      margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) 0;
+      font-family: var(--ghs-font-text);
+      font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-dialog-factor));
+
+      a {
+        min-width: auto;
+      }
+    }
+
+    a {
+      cursor: pointer;
+      min-width: 33%;
+      display: flex;
+      justify-content: center;
+      margin: 0 calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+      &.cancel {
+        color: var(--ghs-color-red);
+      }
+
+      &.accept {
+        color: var(--ghs-color-green);
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      &.disabled {
+        pointer-events: none;
+        color: var(--ghs-color-darkgray);
+      }
+    }
+  }
+}

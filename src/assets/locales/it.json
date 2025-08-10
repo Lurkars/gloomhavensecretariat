@@ -1634,7 +1634,8 @@
       "failed": "Tutti i personaggi sembrano esausti. Vuoi riavviare lo scenario?",
       "finish": "Non sono rimasti mostri. Hai finito con successo lo scenario?",
       "initiativeRoundConfirm": "Tutte le iniziative sono impostate. Inizia il prossimo round?",
-      "missingInitiative": "L'iniziativa deve essere impostata per tutte le unità!"
+      "missingInitiative": "L'iniziativa deve essere impostata per tutte le unità!",
+      "missingMonsterAbility": "Ogni mostro deve avere una carta abilità impostata!"
     },
     "next": "Prossimo round"
   },
@@ -2149,6 +2150,15 @@
     "list": {
       "deselect": "Entra nel server a mano",
       "select": "Seleziona il server pubblico"
+    },
+    "manualMonsterDraw": {
+      "select": "Seleziona una carta",
+      "dialog": {
+        "header": "Seleziona la carta pescata",
+        "toggleNoSpoiler": "Mostra/nascondi spoiler",
+        "cancel": "Annulla",
+        "chooseCard": "Scegli carta selezionata"
+      }
     },
     "menu": {
       "connect": "Connettiti al server",

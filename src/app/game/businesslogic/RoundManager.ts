@@ -28,7 +28,7 @@ export class RoundManager {
   }
 
   drawAvailable(): boolean {
-    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof ObjectiveContainer && (figure.getInitiative() > 0 || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
+    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => (figure instanceof Monster && (!settingsManager.settings.manualMonsterDraw || figure.ability >= 0)) || figure instanceof ObjectiveContainer && (figure.getInitiative() > 0 || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
     ));
   }
 
@@ -107,7 +107,9 @@ export class RoundManager {
       this.game.state = GameState.next;
       this.game.round++;
       gameManager.characterManager.draw();
-      gameManager.monsterManager.draw();
+      if (!settingsManager.settings.manualMonsterDraw) {
+         gameManager.monsterManager.draw();
+      }
       gameManager.objectiveManager.draw();
 
       if (settingsManager.settings.moveElements) {

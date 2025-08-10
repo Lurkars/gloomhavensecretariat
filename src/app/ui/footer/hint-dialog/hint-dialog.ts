@@ -88,6 +88,16 @@ export class HintDialogComponent {
         return gameManager.game.figures.length == 0;
     }
 
+    missingMonsterAbility(): boolean {
+        if (!settingsManager.settings.initiativeRequired) {
+            return false;
+        }
+        if (!settingsManager.settings.manualMonsterDraw) {
+            return false;
+        }
+        return gameManager.game.monsters.some((monster) => monster.ability === -1);
+    }
+
     missingInitiative(): boolean {
         return gameManager.game.figures.some((figure) => settingsManager.settings.initiativeRequired && (figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent || figure instanceof ObjectiveContainer) && figure.getInitiative() <= 0);
     }

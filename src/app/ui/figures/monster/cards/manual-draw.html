@@ -1,0 +1,9 @@
+<div class="container">
+    <button (click)="openDropdown()" [class.selected]="!!manualDrawnAbility">
+        @if (manualDrawnAbility) {
+            <span>{{ manualDrawnAbility.initiative }} - {{ manualDrawnAbility.name }}</span><img src="./assets/images/check.svg">
+        } @else {
+            <span [ghs-label]="'manualMonsterDraw.select'"></span>
+        }
+    </button>
+</div>

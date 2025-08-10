@@ -1,0 +1,25 @@
+<div class="manual-draw-dialog">
+    <div class="scroll-container">
+        <div class="header" [ghs-label]="'manualMonsterDraw.dialog.header'"></div>
+        <div class="menu small">
+            <a (click)="toggleNoSpoiler()" [ghs-label]="'manualMonsterDraw.dialog.toggleNoSpoiler'"></a>
+        </div>
+        <div class="abilities">
+            @for (ability of abilities; let i = $index; track ability.cardId) {
+                <div
+                        class="ability"
+                        (click)="selectAbility(ability, i)"
+                        [class.selected]="ability.cardId === manualDrawnAbility?.cardId"
+                        [class.no-spoiler]="noSpoiler"
+                >
+                    <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true" [relative]="true"></ghs-ability>
+                </div>
+            }
+        </div>
+        <div class="menu">
+            <a class="cancel" (click)="cancel()" [ghs-label]="'manualMonsterDraw.dialog.cancel'"></a>
+            <a class="accept" (click)="accept()" [ngClass]="{'disabled': !manualDrawnAbility}"
+               [ghs-label]="'manualMonsterDraw.dialog.chooseCard'"></a>
+        </div>
+    </div>
+</div>

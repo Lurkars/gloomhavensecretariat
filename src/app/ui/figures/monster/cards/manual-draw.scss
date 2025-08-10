@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+
+  button {
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    width: 80%;
+    padding: 6px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: var(--ghs-color-gray);
+    font-family: var(--ghs-font-title);
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+    &.selected {
+        background: var(--ghs-color-green);
+    }
+
+    img {
+      height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      width: auto;
+    }
+  }
+}

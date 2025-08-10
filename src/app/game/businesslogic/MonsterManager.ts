@@ -663,7 +663,9 @@ export class MonsterManager {
     this.game.figures.forEach((figure) => {
       if (figure instanceof Monster) {
         const ability = this.getAbility(figure);
-        if (ability) {
+        if (settingsManager.settings.manualMonsterDraw) {
+            figure.ability = figure.abilities.length === 1 ? 0 : -1;
+        } else if (ability) {
           if (ability.shuffle || figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);
           }

@@ -15,6 +15,7 @@
       (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event,true)">
     </ghs-ability>
   </ng-container>
+  <ghs-manual-draw [monster]="monster" *ngIf="manualDraw"></ghs-manual-draw>
 </div>
 <span class="left-abilities" *ngIf="settingsManager.settings.abilities">
   {{this.monster.abilities.length - drawnAbilities - (secondAbility ? 1 : 0)}}/{{this.monster.abilities.length}}

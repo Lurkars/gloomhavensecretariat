@@ -30,6 +30,15 @@
     z-index: 2;
   }
 
+  ghs-manual-draw {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+  }
+
   &.disabled {
     pointer-events: none;
   }

@@ -25,6 +25,7 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   flipped: boolean = false;
+  manualDraw: boolean = false;
   hasBottomActions: boolean = false;
   drawnAbilities: number = 0;
 
@@ -47,6 +48,7 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
     this.hasBottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
     this.drawnAbilities = gameManager.monsterManager.drawnAbilities(this.monster);
     this.flipped = this.calcFlipped();
+    this.manualDraw = this.settingsManager.settings.manualMonsterDraw && this.gameManager.game.state == GameState.draw;
   }
 
   calcFlipped(): boolean {

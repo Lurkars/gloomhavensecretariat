@@ -250,6 +250,16 @@ export class FooterComponent implements OnInit, OnDestroy {
     return gameManager.game.figures.some((figure) => settingsManager.settings.initiativeRequired && (figure instanceof Character && gameManager.entityManager.isAlive(figure) && !figure.absent || figure instanceof ObjectiveContainer) && figure.getInitiative() <= 0);
   }
 
+  missingMonsterAbility(): boolean {
+    if (!settingsManager.settings.initiativeRequired) {
+      return false;
+    }
+    if (!settingsManager.settings.manualMonsterDraw) {
+     return false;
+    }
+    return gameManager.game.monsters.some((monster: Monster) => monster.ability === -1);
+  }
+
   active(): boolean {
     return gameManager.game.figures.find((figure) => figure.active && !figure.off && (!(figure instanceof Character) || !figure.absent)) != undefined;
   }
@@ -279,7 +289,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   drawDisabled(): boolean {
-    return this.empty() || this.missingInitiative() || this.battleGoals() || this.finish() || this.failed() || this.eventDraw();
+    return this.empty() || this.missingInitiative() || this.battleGoals() || this.finish() || this.failed() || this.eventDraw() || this.missingMonsterAbility();
   }
 
   nextDisabled(): boolean {

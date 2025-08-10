@@ -1284,6 +1284,15 @@
     "next": "Click \"%round.next%\"",
     "setScenario": "%scenario.set%"
   },
+  "manualMonsterDraw": {
+    "select": "Select a card",
+    "dialog": {
+      "header": "Select the drawn card",
+      "toggleNoSpoiler": "Enable/disable spoiler",
+      "cancel": "Cancel",
+      "chooseCard": "Choose selected Card"
+    }
+  },
   "menu": {
     "backToMain": "Back to %menu.main%",
     "main": "Main menu"
@@ -1630,7 +1639,8 @@
       "failed": "All characters seems exhausted. Do you want to restart the scenario?",
       "finish": "There are no monsters left. Did you successfully finish the scenario?",
       "initiativeRoundConfirm": "All initiatives are set. Start next round?",
-      "missingInitiative": "Initiative must be set for all figures!"
+      "missingInitiative": "Initiative must be set for all figures!",
+      "missingMonsterAbility": "An ability card must be set for all monsters!"
     },
     "next": "Next Round"
   },

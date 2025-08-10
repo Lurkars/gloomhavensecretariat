@@ -82,6 +82,8 @@ import { LootDeckFullscreenComponent } from './ui/figures/loot/loot-deck-fullscr
 import { LootRandomItemDialogComponent } from './ui/figures/loot/random-item/random-item-dialog';
 import { MonsterAbilityCardComponent } from './ui/figures/monster/cards/ability-card';
 import { MonsterImageComponent, MonsterImageDialogComponent } from './ui/figures/monster/cards/image';
+import { MonsterManualDrawComponent } from './ui/figures/monster/cards/manual-draw';
+import { MonsterManualDrawDialogComponent } from './ui/figures/monster/cards/manual-draw-dialog';
 import { MonsterLevelDialogComponent } from './ui/figures/monster/dialogs/level-dialog';
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterNumberPickerDialog } from './ui/figures/monster/dialogs/numberpicker-dialog';
@@ -312,6 +314,8 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     MonsterImageComponent,
     MonsterImageDialogComponent,
     MonsterLevelDialogComponent,
+    MonsterManualDrawComponent,
+    MonsterManualDrawDialogComponent,
     MonsterMenuComponent,
     MonsterNumberPicker,
     MonsterNumberPickerDialog,

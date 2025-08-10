@@ -295,6 +295,10 @@ export class Game {
       this.gameClock = model.gameClock;
     }
   }
+
+  get monsters(): Monster[] {
+    return this.figures.filter((figure) => figure instanceof Monster);
+  }
 }
 
 export enum GameState {

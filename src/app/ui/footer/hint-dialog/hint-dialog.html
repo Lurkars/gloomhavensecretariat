@@ -1,6 +1,7 @@
 <div class="hint-dialog">
   <div class="hint">
     <p *ngIf="empty()"><span [ghs-label]="'round.hint.empty'"></span></p>
+    <p *ngIf="missingMonsterAbility()"><span [ghs-label]="'round.hint.missingMonsterAbility'"></span></p>
     <p *ngIf="missingInitiative()"><span [ghs-label]="'round.hint.missingInitiative'"></span> </p>
     <p *ngIf="active()"><span [ghs-label]="'round.hint.active'"></span></p>
     <a *ngIf="active()" (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
