@@ -3,6 +3,10 @@
   "name": "Icecrag Ascent",
   "edition": "gh2e",
   "parent": "13",
+  "monsters": [
+    "rending-drake",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

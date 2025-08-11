@@ -3,6 +3,9 @@
   "name": "Shrine of Strength",
   "edition": "gh2e",
   "parent": "53",
+  "monsters": [
+    "stone-construct"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

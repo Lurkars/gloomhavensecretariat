@@ -3,6 +3,10 @@
   "name": "Chained Isle",
   "edition": "gh2e",
   "parent": "73",
+  "monsters": [
+    "night-demon",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

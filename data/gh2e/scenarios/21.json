@@ -13,8 +13,7 @@
   "monsters": [
     "ancient-artillery",
     "city-archer",
-    "city-guard",
-    "hound"
+    "city-guard"
   ],
   "rooms": [
     {

@@ -17,9 +17,7 @@
   },
   "monsters": [
     "cultist",
-    "living-bones",
-    "living-corpse",
-    "living-spirit"
+    "living-bones"
   ],
   "objectives": [
     {

@@ -4,9 +4,6 @@
   "flowChartGroup": "hail",
   "edition": "gh2e",
   "monsters": [
-    "cave-bear",
-    "living-spirit",
-    "spitting-drake",
     "stone-construct"
   ],
   "rooms": [

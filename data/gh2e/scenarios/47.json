@@ -10,12 +10,8 @@
     "49"
   ],
   "monsters": [
-    "city-archer",
-    "earth-demon",
     "inox-archer",
     "inox-guard",
-    "inox-priest",
-    "living-corpse",
     "stone-construct"
   ],
   "objectives": [

@@ -3,6 +3,9 @@
   "edition": "gh2e",
   "parent": "44",
   "marker": "3",
+  "monsters": [
+    "flame-demon"
+  ],
   "objectives": [
     {
       "name": "Elemental Tether B",

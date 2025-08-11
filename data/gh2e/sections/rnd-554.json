@@ -4,6 +4,11 @@
   "name": "Mangy",
   "edition": "gh2e",
   "named": true,
+  "monsters": [
+    "cave-bear",
+    "vermling-priest",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

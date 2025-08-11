@@ -3,6 +3,10 @@
   "name": "Doom Trench",
   "edition": "gh2e",
   "parent": "46",
+  "monsters": [
+    "deep-terror",
+    "harrower-infester"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

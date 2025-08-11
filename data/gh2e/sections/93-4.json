@@ -3,6 +3,10 @@
   "name": "Deep Ruins",
   "edition": "gh2e",
   "parent": "37",
+  "monsters": [
+    "ancient-artillery",
+    "stone-construct"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

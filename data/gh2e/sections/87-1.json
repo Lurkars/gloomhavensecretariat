@@ -3,6 +3,11 @@
   "edition": "gh2e",
   "parent": "66",
   "marker": "2",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

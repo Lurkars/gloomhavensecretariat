@@ -3,6 +3,10 @@
   "name": "Harrower Hive",
   "edition": "gh2e",
   "parent": "77",
+  "monsters": [
+    "giant-viper",
+    "living-bones"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

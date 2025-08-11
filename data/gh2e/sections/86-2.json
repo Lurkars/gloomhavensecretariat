@@ -3,6 +3,12 @@
   "name": "Chasing Secrets",
   "edition": "gh2e",
   "parent": "43",
+  "monsters": [
+    "candlekeeper-trice",
+    "city-guard",
+    "hound",
+    "stone-construct"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

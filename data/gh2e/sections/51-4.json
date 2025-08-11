@@ -3,6 +3,9 @@
   "name": "Ritual Chamber",
   "edition": "gh2e",
   "parent": "11",
+  "monsters": [
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

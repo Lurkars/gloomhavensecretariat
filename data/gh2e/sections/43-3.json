@@ -3,6 +3,9 @@
   "edition": "gh2e",
   "parent": "44",
   "marker": "4",
+  "monsters": [
+    "wind-demon"
+  ],
   "objectives": [
     {
       "name": "Elemental Tether C",

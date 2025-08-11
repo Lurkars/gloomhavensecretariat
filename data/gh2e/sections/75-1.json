@@ -3,6 +3,10 @@
   "name": "Investigation",
   "edition": "gh2e",
   "parent": "18",
+  "monsters": [
+    "city-archer",
+    "city-guard"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

@@ -15,11 +15,7 @@
     ]
   },
   "monsters": [
-    "cave-bear",
-    "flame-demon",
-    "forest-imp",
-    "living-corpse",
-    "stone-construct"
+    "living-corpse"
   ],
   "rooms": [
     {

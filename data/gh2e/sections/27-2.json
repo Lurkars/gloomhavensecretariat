@@ -3,6 +3,11 @@
   "edition": "gh2e",
   "parent": "46",
   "marker": "1",
+  "monsters": [
+    "deep-terror",
+    "harrower-infester",
+    "lurker-soldier"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -4,6 +4,12 @@
   "edition": "gh2e",
   "parent": "16",
   "marker": "1",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "merciless-taskmaster",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

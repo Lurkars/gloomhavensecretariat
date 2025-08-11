@@ -3,6 +3,10 @@
   "name": "Decrepit Wood",
   "edition": "gh2e",
   "parent": "31",
+  "monsters": [
+    "deep-terror",
+    "giant-viper"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

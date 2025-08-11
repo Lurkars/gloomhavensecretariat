@@ -4,6 +4,12 @@
   "edition": "gh2e",
   "parent": "26",
   "marker": "1",
+  "monsters": [
+    "ancient-artillery",
+    "city-archer",
+    "city-guard",
+    "first-shield-harmon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

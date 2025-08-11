@@ -15,9 +15,6 @@
   },
   "monsters": [
     "dark-ritual-cultist",
-    "earth-demon",
-    "frost-demon",
-    "living-bones",
     "night-demon"
   ],
   "rooms": [

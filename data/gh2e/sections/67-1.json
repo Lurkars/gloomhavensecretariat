@@ -3,6 +3,12 @@
   "name": "The Last Stand",
   "edition": "gh2e",
   "parent": "55",
+  "monsters": [
+    "black-imp",
+    "chaos-demon",
+    "deep-terror",
+    "harrower-infester"
+  ],
   "rooms": [
     {
       "roomNumber": 6,

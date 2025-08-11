@@ -3,6 +3,10 @@
   "name": "Secluded Valley",
   "edition": "gh2e",
   "parent": "42",
+  "monsters": [
+    "city-guard",
+    "stone-construct"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

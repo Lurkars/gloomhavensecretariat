@@ -3,6 +3,11 @@
   "name": "Drake Nest",
   "edition": "gh2e",
   "parent": "38",
+  "monsters": [
+    "flame-demon",
+    "rending-drake",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

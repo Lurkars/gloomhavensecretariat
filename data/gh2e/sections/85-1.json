@@ -3,6 +3,11 @@
   "name": "Bandit's Wood",
   "edition": "gh2e",
   "parent": "60",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "rending-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

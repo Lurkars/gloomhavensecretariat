@@ -11,9 +11,7 @@
   },
   "monsters": [
     "cave-bear",
-    "earth-demon",
-    "forest-imp",
-    "inox-priest"
+    "forest-imp"
   ],
   "rooms": [
     {

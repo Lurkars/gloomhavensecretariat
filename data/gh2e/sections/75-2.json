@@ -3,6 +3,12 @@
   "name": "Treacherous Divide",
   "edition": "gh2e",
   "parent": "48",
+  "monsters": [
+    "cave-bear",
+    "cultist",
+    "frost-demon",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

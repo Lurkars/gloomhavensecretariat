@@ -6,14 +6,7 @@
   "unlocks": [
     "44"
   ],
-  "monsters": [
-    "earth-demon",
-    "flame-demon",
-    "frost-demon",
-    "savvas-icestorm-scenario-40",
-    "savvas-lavaflow-scenario-40",
-    "wind-demon"
-  ],
+  "monsters": [],
   "rooms": [
     {
       "roomNumber": 1,

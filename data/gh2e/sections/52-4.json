@@ -3,6 +3,10 @@
   "edition": "gh2e",
   "parent": "48",
   "marker": "1",
+  "monsters": [
+    "cultist",
+    "frost-demon"
+  ],
   "objectives": [
     {
       "name": "Altar C",

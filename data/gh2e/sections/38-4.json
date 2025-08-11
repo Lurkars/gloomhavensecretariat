@@ -3,6 +3,9 @@
   "name": "The Ghost Fortress",
   "edition": "gh2e",
   "parent": "21",
+  "monsters": [
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

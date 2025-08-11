@@ -13,8 +13,7 @@
   "monsters": [
     "flame-demon",
     "frost-demon",
-    "living-bomb",
-    "sun-demon"
+    "living-bomb"
   ],
   "rooms": [
     {

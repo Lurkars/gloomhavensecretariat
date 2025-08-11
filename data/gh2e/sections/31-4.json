@@ -3,6 +3,10 @@
   "name": "Abandoned Sewers",
   "edition": "gh2e",
   "parent": "36",
+  "monsters": [
+    "ooze",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

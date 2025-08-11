@@ -3,6 +3,10 @@
   "name": "Vibrant Grotto",
   "edition": "gh2e",
   "parent": "39",
+  "monsters": [
+    "earth-demon",
+    "forest-imp"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

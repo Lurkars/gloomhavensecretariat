@@ -10,10 +10,7 @@
     ]
   },
   "monsters": [
-    "bandit-archer",
-    "bandit-scout",
-    "cultist-scenario-82",
-    "giant-viper"
+    "bandit-archer"
   ],
   "rooms": [
     {

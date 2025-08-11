@@ -12,8 +12,7 @@
   },
   "monsters": [
     "earth-demon",
-    "flame-demon",
-    "frost-demon"
+    "flame-demon"
   ],
   "rooms": [
     {

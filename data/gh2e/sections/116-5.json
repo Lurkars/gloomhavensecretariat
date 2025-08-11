@@ -4,7 +4,9 @@
   "parent": "98",
   "marker": "7",
   "monsters": [
-    "disjointed-twin"
+    "disjointed-twin",
+    "earth-demon",
+    "flame-demon"
   ],
   "rooms": [
     {

@@ -3,6 +3,11 @@
   "name": "Fading Lighthouse",
   "edition": "gh2e",
   "parent": "63",
+  "monsters": [
+    "flame-demon",
+    "giant-viper",
+    "ooze"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

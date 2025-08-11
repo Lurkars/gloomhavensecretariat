@@ -11,16 +11,8 @@
   ],
   "monsters": [
     "black-imp",
-    "chaos-demon",
-    "city-archer",
-    "city-guard",
     "cultist-scenario-54",
-    "frost-demon",
-    "harrower-infester",
-    "living-bones",
-    "living-corpse",
-    "night-demon",
-    "vermling-scout"
+    "harrower-infester"
   ],
   "rooms": [
     {

@@ -4,6 +4,10 @@
   "name": "Archaic",
   "edition": "gh2e",
   "named": true,
+  "monsters": [
+    "ancient-artillery",
+    "stone-construct"
+  ],
   "rooms": [
     {
       "roomNumber": 14,

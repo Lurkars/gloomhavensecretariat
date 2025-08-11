@@ -3,6 +3,11 @@
   "name": "Shrine of Strength",
   "edition": "gh2e",
   "parent": "53",
+  "monsters": [
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

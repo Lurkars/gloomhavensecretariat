@@ -2,6 +2,11 @@
   "index": "119.5",
   "edition": "gh2e",
   "parent": "93",
+  "monsters": [
+    "lurker-soldier",
+    "vermling-priest",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

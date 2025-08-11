@@ -3,6 +3,12 @@
   "name": "Crypt Basement",
   "edition": "gh2e",
   "parent": "57",
+  "monsters": [
+    "giant-viper",
+    "living-bones",
+    "living-corpse",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

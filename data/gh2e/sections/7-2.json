@@ -3,6 +3,11 @@
   "edition": "gh2e",
   "parent": "35",
   "marker": "2",
+  "monsters": [
+    "deep-terror",
+    "night-demon",
+    "wind-demon"
+  ],
   "objectives": [
     {
       "name": "Vocal Cord C",

@@ -9,9 +9,7 @@
   ],
   "monsters": [
     "earth-demon",
-    "inox-archer",
-    "inox-guard",
-    "wind-demon"
+    "inox-archer"
   ],
   "rooms": [
     {

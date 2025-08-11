@@ -13,8 +13,7 @@
   "monsters": [
     "chaos-demon",
     "city-archer",
-    "city-guard",
-    "hound"
+    "city-guard"
   ],
   "objectives": [
     {

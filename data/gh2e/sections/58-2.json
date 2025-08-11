@@ -3,6 +3,11 @@
   "edition": "gh2e",
   "parent": "50",
   "marker": "1",
+  "monsters": [
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ],
   "objectives": [
     {
       "name": "Door 2 (push 2)",

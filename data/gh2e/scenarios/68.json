@@ -7,8 +7,6 @@
     "gold": 10
   },
   "monsters": [
-    "frost-demon",
-    "living-spirit",
     "lurker-soldier"
   ],
   "rooms": [

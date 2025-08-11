@@ -11,10 +11,7 @@
   ],
   "monsters": [
     "cave-bear",
-    "city-guard",
-    "forest-imp",
-    "hound",
-    "stone-construct"
+    "forest-imp"
   ],
   "rooms": [
     {

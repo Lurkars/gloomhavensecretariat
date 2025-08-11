@@ -3,6 +3,11 @@
   "name": "Temple of the Seer",
   "edition": "gh2e",
   "parent": "28",
+  "monsters": [
+    "cave-bear",
+    "living-spirit",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

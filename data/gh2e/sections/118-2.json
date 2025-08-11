@@ -3,6 +3,11 @@
   "name": "Crossroads Station",
   "edition": "gh2e",
   "parent": "85",
+  "monsters": [
+    "black-imp",
+    "earth-demon",
+    "harrower-infester"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

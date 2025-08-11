@@ -3,6 +3,12 @@
   "name": "Hero's Mausoleum",
   "edition": "gh2e",
   "parent": "65",
+  "monsters": [
+    "crystal-rot",
+    "living-bones",
+    "living-corpse",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

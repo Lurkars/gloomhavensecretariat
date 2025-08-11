@@ -4,7 +4,6 @@
   "flowChartGroup": "hail",
   "edition": "gh2e",
   "monsters": [
-    "candlekeeper-trice",
     "city-guard",
     "hound",
     "stone-construct"

@@ -17,12 +17,7 @@
     }
   },
   "monsters": [
-    "cultist",
-    "earth-demon",
-    "flame-demon",
-    "frost-demon",
-    "living-bones",
-    "wind-demon"
+    "cultist"
   ],
   "rooms": [
     {

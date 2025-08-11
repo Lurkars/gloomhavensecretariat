@@ -3,6 +3,11 @@
   "name": "Vermling Camp",
   "edition": "gh2e",
   "parent": "97",
+  "monsters": [
+    "cave-bear",
+    "vermling-priest",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

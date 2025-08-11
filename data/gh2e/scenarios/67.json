@@ -11,11 +11,8 @@
     ]
   },
   "monsters": [
-    "ancient-artillery",
     "night-demon",
-    "stone-construct",
-    "sun-demon",
-    "the-colorless"
+    "sun-demon"
   ],
   "rooms": [
     {

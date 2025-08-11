@@ -4,6 +4,11 @@
   "name": "Scaled",
   "edition": "gh2e",
   "named": true,
+  "monsters": [
+    "giant-viper",
+    "rending-drake",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 15,

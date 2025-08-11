@@ -3,6 +3,10 @@
   "name": "Crypt of the Damned",
   "edition": "gh2e",
   "parent": "4",
+  "monsters": [
+    "cultist",
+    "earth-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

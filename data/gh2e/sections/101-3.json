@@ -3,6 +3,12 @@
   "name": "Chronal Anchor",
   "edition": "gh2e",
   "parent": "92",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

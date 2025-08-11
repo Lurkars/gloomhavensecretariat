@@ -3,6 +3,9 @@
   "name": "Ancient Defense Network",
   "edition": "gh2e",
   "parent": "33",
+  "monsters": [
+    "cave-bear"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

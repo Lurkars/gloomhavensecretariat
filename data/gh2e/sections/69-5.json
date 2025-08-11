@@ -2,6 +2,9 @@
   "index": "69.5",
   "edition": "gh2e",
   "parent": "32",
+  "monsters": [
+    "savvas-icestorm"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

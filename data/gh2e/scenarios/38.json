@@ -9,9 +9,7 @@
     ]
   },
   "monsters": [
-    "flame-demon",
-    "rending-drake",
-    "spitting-drake"
+    "flame-demon"
   ],
   "rooms": [
     {

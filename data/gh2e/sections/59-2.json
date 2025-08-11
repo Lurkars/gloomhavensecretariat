@@ -3,6 +3,12 @@
   "edition": "gh2e",
   "parent": "58",
   "marker": "1",
+  "monsters": [
+    "cave-bear-58",
+    "frost-demon",
+    "harrower-infester",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

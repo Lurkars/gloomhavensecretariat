@@ -3,6 +3,11 @@
   "edition": "gh2e",
   "parent": "41",
   "marker": "6",
+  "monsters": [
+    "black-imp",
+    "living-corpse",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

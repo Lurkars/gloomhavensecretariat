@@ -3,6 +3,10 @@
   "name": "Plane of Night",
   "edition": "gh2e",
   "parent": "45",
+  "monsters": [
+    "black-imp",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

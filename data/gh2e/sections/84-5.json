@@ -3,6 +3,10 @@
   "name": "Timeworn Tomb",
   "edition": "gh2e",
   "parent": "34",
+  "monsters": [
+    "living-corpse",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

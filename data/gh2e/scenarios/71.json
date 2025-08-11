@@ -11,10 +11,7 @@
     "battleGoals": 1
   },
   "monsters": [
-    "ancient-artillery",
-    "living-spirit",
-    "ooze",
-    "stone-construct"
+    "ooze"
   ],
   "rooms": [
     {

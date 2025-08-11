@@ -3,6 +3,10 @@
   "name": "Investigation",
   "edition": "gh2e",
   "parent": "18",
+  "monsters": [
+    "bandit-scout",
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -11,12 +11,7 @@
       "military:2"
     ]
   },
-  "monsters": [
-    "bandit-scout",
-    "city-archer",
-    "city-guard",
-    "hound"
-  ],
+  "monsters": [],
   "rooms": [
     {
       "roomNumber": 1,

@@ -4,6 +4,8 @@
   "parent": "69",
   "marker": "1",
   "monsters": [
+    "black-imp",
+    "deep-terror",
     "giant-ooze"
   ],
   "rooms": [

@@ -13,9 +13,6 @@
   },
   "monsters": [
     "ancient-artillery",
-    "crystal-rot",
-    "living-bones",
-    "living-spirit",
     "stone-construct"
   ],
   "rooms": [

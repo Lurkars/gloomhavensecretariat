@@ -3,6 +3,10 @@
   "name": "Forgotten Crypt",
   "edition": "gh2e",
   "parent": "5",
+  "monsters": [
+    "cultist",
+    "living-bones"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

@@ -3,6 +3,11 @@
   "name": "Syndicate Hideout",
   "edition": "gh2e",
   "parent": "82",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "cultist-scenario-82"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

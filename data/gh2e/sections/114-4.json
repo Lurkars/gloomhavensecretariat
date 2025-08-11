@@ -3,6 +3,11 @@
   "name": "Sunken Vessel",
   "edition": "gh2e",
   "parent": "68",
+  "monsters": [
+    "frost-demon",
+    "living-spirit",
+    "lurker-soldier"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

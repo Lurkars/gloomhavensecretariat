@@ -3,6 +3,10 @@
   "name": "Gloomhaven Warehouse",
   "edition": "gh2e",
   "parent": "20",
+  "monsters": [
+    "crystal-rot",
+    "living-corpse"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

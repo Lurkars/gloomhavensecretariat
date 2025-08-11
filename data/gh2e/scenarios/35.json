@@ -14,10 +14,8 @@
     "experience": 30
   },
   "monsters": [
-    "deep-terror",
     "living-spirit",
-    "night-demon",
-    "wind-demon"
+    "night-demon"
   ],
   "objectives": [
     {

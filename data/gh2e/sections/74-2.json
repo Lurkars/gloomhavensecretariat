@@ -3,6 +3,11 @@
   "edition": "gh2e",
   "parent": "81",
   "marker": "1",
+  "monsters": [
+    "crystal-rot",
+    "living-bones",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

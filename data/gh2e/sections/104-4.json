@@ -3,6 +3,10 @@
   "edition": "gh2e",
   "parent": "51",
   "marker": "1",
+  "monsters": [
+    "harrower-infester",
+    "the-sightless-eye"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -3,6 +3,9 @@
   "name": "Echo Chamber",
   "edition": "gh2e",
   "parent": "14",
+  "monsters": [
+    "ooze"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

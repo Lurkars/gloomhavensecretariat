@@ -2,15 +2,7 @@
   "index": "27",
   "name": "Infernal Throne",
   "edition": "gh2e",
-  "monsters": [
-    "earth-demon",
-    "flame-demon",
-    "frost-demon",
-    "night-demon",
-    "sun-demon",
-    "the-prime-demon",
-    "wind-demon"
-  ],
+  "monsters": [],
   "rooms": [
     {
       "roomNumber": 1,

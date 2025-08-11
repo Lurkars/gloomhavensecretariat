@@ -15,7 +15,6 @@
     ]
   },
   "monsters": [
-    "bandit-archer",
     "bandit-scout"
   ],
   "rooms": [

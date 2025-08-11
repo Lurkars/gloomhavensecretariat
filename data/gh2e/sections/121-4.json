@@ -3,6 +3,11 @@
   "name": "Dangerous Grove",
   "edition": "gh2e",
   "parent": "61",
+  "monsters": [
+    "cave-bear",
+    "forest-imp",
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

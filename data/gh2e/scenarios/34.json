@@ -4,10 +4,7 @@
   "flowChartGroup": "the-voice",
   "edition": "gh2e",
   "monsters": [
-    "ancient-artillery",
-    "living-corpse",
-    "living-spirit",
-    "stone-construct"
+    "ancient-artillery"
   ],
   "rooms": [
     {

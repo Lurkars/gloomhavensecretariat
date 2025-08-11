@@ -10,13 +10,7 @@
     "prosperity": 1
   },
   "monsters": [
-    "city-archer",
-    "deep-terror",
-    "harrower-infester",
-    "living-corpse",
-    "lurker-soldier",
-    "sun-demon",
-    "the-sightless-eye"
+    "lurker-soldier"
   ],
   "rooms": [
     {

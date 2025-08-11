@@ -3,6 +3,11 @@
   "name": "Wetlands Ambush",
   "edition": "gh2e",
   "parent": "40",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "savvas-lavaflow-scenario-40"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

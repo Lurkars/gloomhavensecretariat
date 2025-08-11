@@ -3,6 +3,11 @@
   "name": "Temple of the Eclipse",
   "edition": "gh2e",
   "parent": "67",
+  "monsters": [
+    "night-demon",
+    "sun-demon",
+    "the-colorless"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

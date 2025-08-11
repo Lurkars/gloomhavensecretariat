@@ -4,6 +4,9 @@
   "parent": "85",
   "marker": "2",
   "monsters": [
+    "black-imp",
+    "earth-demon",
+    "harrower-infester",
     "the-harvester"
   ],
   "rooms": [

@@ -12,11 +12,9 @@
   ],
   "monsters": [
     "cave-bear",
-    "city-guard",
     "cultist",
     "frost-demon",
-    "living-corpse",
-    "wind-demon"
+    "spitting-drake"
   ],
   "rooms": [
     {

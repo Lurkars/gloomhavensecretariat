@@ -4,7 +4,8 @@
   "parent": "50",
   "marker": "2",
   "monsters": [
-    "egg-scenario-50"
+    "egg-scenario-50",
+    "the-winged-horror"
   ],
   "rooms": [
     {

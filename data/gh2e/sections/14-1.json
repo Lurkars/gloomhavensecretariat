@@ -4,6 +4,10 @@
   "edition": "gh2e",
   "parent": "13",
   "marker": "1",
+  "monsters": [
+    "rending-drake",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

@@ -3,6 +3,10 @@
   "name": "Barrow Lair",
   "edition": "gh2e",
   "parent": "8",
+  "monsters": [
+    "living-bones",
+    "living-corpse"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

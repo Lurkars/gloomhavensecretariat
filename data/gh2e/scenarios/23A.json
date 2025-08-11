@@ -37,11 +37,8 @@
   },
   "monsters": [
     "cultist",
-    "earth-demon",
-    "jekserah-scenario-23",
     "living-bones",
-    "living-corpse",
-    "night-demon"
+    "living-corpse"
   ],
   "rooms": [
     {

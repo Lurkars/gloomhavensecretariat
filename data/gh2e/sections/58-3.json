@@ -3,6 +3,9 @@
   "edition": "gh2e",
   "parent": "91",
   "marker": "2",
+  "monsters": [
+    "cultist"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

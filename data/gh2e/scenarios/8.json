@@ -14,10 +14,7 @@
     ]
   },
   "monsters": [
-    "bandit-archer",
-    "bandit-commander",
-    "living-bones",
-    "living-corpse"
+    "bandit-archer"
   ],
   "rooms": [
     {

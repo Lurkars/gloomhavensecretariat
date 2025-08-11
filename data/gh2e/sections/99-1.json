@@ -4,7 +4,10 @@
   "parent": "94",
   "marker": "3",
   "monsters": [
-    "alpha-lurker"
+    "alpha-lurker",
+    "frost-demon",
+    "lurker-soldier",
+    "ooze"
   ],
   "rooms": [
     {

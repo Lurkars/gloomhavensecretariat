@@ -2,6 +2,9 @@
   "index": "128.1",
   "edition": "gh2e",
   "parent": "91",
+  "monsters": [
+    "flame-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

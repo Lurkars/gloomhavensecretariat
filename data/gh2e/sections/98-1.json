@@ -3,6 +3,9 @@
   "name": "Ancient Defense Network",
   "edition": "gh2e",
   "parent": "33",
+  "monsters": [
+    "living-corpse"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

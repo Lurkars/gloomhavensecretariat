@@ -3,6 +3,11 @@
   "name": "Inox Encampment",
   "edition": "gh2e",
   "parent": "12",
+  "monsters": [
+    "inox-archer",
+    "inox-guard",
+    "inox-priest"
+  ],
   "rooms": [
     {
       "roomNumber": 6,

@@ -12,8 +12,7 @@
   },
   "monsters": [
     "forest-imp",
-    "ooze",
-    "rending-drake"
+    "ooze"
   ],
   "rooms": [
     {

@@ -4,6 +4,10 @@
   "name": "Hopeless",
   "edition": "gh2e",
   "named": true,
+  "monsters": [
+    "black-imp",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

@@ -3,6 +3,11 @@
   "name": "Harrower Hive",
   "edition": "gh2e",
   "parent": "77",
+  "monsters": [
+    "harrower-infester",
+    "living-bones",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

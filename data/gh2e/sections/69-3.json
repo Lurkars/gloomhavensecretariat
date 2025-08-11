@@ -5,6 +5,8 @@
   "parent": "18",
   "marker": "5",
   "monsters": [
+    "city-archer",
+    "city-guard",
     "corrupt-city-guard"
   ],
   "rooms": [

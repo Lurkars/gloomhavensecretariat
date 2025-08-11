@@ -5,8 +5,7 @@
   "edition": "gh2e",
   "monsters": [
     "earth-demon",
-    "flame-demon",
-    "stone-construct"
+    "flame-demon"
   ],
   "rooms": [
     {

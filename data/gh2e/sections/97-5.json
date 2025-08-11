@@ -3,6 +3,9 @@
   "name": "Temple of the Elements",
   "edition": "gh2e",
   "parent": "44",
+  "monsters": [
+    "cultist"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

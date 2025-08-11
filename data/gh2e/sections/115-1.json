@@ -3,6 +3,12 @@
   "name": "Vault of Secrets",
   "edition": "gh2e",
   "parent": "78",
+  "monsters": [
+    "ancient-artillery",
+    "city-guard",
+    "hound",
+    "stone-construct"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

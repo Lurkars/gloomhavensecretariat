@@ -4,7 +4,8 @@
   "parent": "88",
   "marker": "2",
   "monsters": [
-    "arcane-construct"
+    "arcane-construct",
+    "forest-imp"
   ],
   "rooms": [
     {

@@ -10,9 +10,7 @@
     ]
   },
   "monsters": [
-    "deep-terror",
-    "earth-demon",
-    "flame-demon"
+    "deep-terror"
   ],
   "rooms": [
     {

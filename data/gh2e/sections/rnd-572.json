@@ -4,6 +4,10 @@
   "name": "Putrid",
   "edition": "gh2e",
   "named": true,
+  "monsters": [
+    "living-corpse",
+    "ooze"
+  ],
   "rooms": [
     {
       "roomNumber": 20,

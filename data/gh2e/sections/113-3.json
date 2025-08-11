@@ -3,6 +3,10 @@
   "name": "Burning Mountain",
   "edition": "gh2e",
   "parent": "90",
+  "monsters": [
+    "flame-demon",
+    "stone-construct"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -4,6 +4,11 @@
   "edition": "gh2e",
   "parent": "19",
   "marker": "1",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "hound"
+  ],
   "objectives": [
     {
       "name": "Cleansing Pillar 2",

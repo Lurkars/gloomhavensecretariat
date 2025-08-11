@@ -4,6 +4,11 @@
   "name": "Fortified",
   "edition": "gh2e",
   "named": true,
+  "monsters": [
+    "ancient-artillery",
+    "city-archer",
+    "city-guard"
+  ],
   "rooms": [
     {
       "roomNumber": 7,

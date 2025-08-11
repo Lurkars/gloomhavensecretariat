@@ -4,6 +4,13 @@
   "edition": "gh2e",
   "parent": "24",
   "marker": "2",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "first-shield-harmon",
+    "living-bones",
+    "living-corpse"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

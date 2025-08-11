@@ -3,6 +3,10 @@
   "name": "Arcane Library",
   "edition": "gh2e",
   "parent": "88",
+  "monsters": [
+    "cave-bear",
+    "forest-imp"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

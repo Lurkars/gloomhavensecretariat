@@ -3,6 +3,10 @@
   "name": "Well of the Unfortunate",
   "edition": "gh2e",
   "parent": "72",
+  "monsters": [
+    "vermling-priest",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

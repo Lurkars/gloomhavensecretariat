@@ -10,14 +10,8 @@
     "prosperity": 1
   },
   "monsters": [
-    "city-guard",
-    "flame-demon",
-    "frost-demon",
-    "living-bones",
     "night-demon",
-    "savvas-icestorm",
-    "the-winged-horror",
-    "wind-demon"
+    "savvas-icestorm"
   ],
   "objectives": [
     {

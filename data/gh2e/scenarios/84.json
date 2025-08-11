@@ -12,8 +12,7 @@
     "bandit-archer",
     "bandit-scout",
     "cave-bear",
-    "hound",
-    "living-spirit"
+    "hound"
   ],
   "rooms": [
     {

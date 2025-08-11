@@ -3,6 +3,9 @@
   "name": "Alchemy Lab",
   "edition": "gh2e",
   "parent": "62",
+  "monsters": [
+    "giant-viper"
+  ],
   "rooms": [
     {
       "roomNumber": 5,

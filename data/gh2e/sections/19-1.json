@@ -3,6 +3,12 @@
   "name": "Gloomhaven Square B",
   "edition": "gh2e",
   "parent": "24",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "living-bones",
+    "living-corpse"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

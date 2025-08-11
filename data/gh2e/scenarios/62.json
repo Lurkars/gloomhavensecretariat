@@ -3,13 +3,7 @@
   "name": "Alchemy Lab",
   "flowChartGroup": "personal-quests",
   "edition": "gh2e",
-  "monsters": [
-    "cave-bear",
-    "giant-viper",
-    "hound",
-    "ooze",
-    "spitting-drake"
-  ],
+  "monsters": [],
   "objectives": [
     {
       "name": "Rubble 3",

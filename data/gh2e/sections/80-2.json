@@ -3,6 +3,10 @@
   "name": "Underwater Lagoon",
   "edition": "gh2e",
   "parent": "70",
+  "monsters": [
+    "forest-imp",
+    "rending-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

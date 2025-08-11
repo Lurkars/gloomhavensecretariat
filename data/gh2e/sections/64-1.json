@@ -3,6 +3,11 @@
   "edition": "gh2e",
   "parent": "76",
   "marker": "2",
+  "monsters": [
+    "forest-imp",
+    "giant-viper",
+    "ooze"
+  ],
   "objectives": [
     {
       "name": "Tree (13-B)",

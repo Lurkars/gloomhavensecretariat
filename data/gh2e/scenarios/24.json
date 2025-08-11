@@ -12,9 +12,7 @@
   "monsters": [
     "city-archer",
     "city-guard",
-    "first-shield-harmon",
-    "living-bones",
-    "living-corpse"
+    "living-bones"
   ],
   "rooms": [
     {

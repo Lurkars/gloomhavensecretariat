@@ -14,11 +14,7 @@
     ]
   },
   "monsters": [
-    "cultist",
-    "living-bones",
-    "living-corpse",
-    "night-demon",
-    "sun-demon"
+    "living-corpse"
   ],
   "rooms": [
     {

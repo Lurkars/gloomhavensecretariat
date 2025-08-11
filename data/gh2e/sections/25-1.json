@@ -3,6 +3,11 @@
   "name": "Frozen Hollow",
   "edition": "gh2e",
   "parent": "3",
+  "monsters": [
+    "frost-demon",
+    "hound",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

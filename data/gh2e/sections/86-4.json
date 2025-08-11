@@ -3,6 +3,9 @@
   "name": "Sunken Vessel",
   "edition": "gh2e",
   "parent": "68",
+  "monsters": [
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

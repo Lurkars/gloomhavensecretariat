@@ -3,6 +3,7 @@
   "name": "The Void",
   "edition": "gh2e",
   "parent": "54",
+  "monsters": [],
   "rooms": [
     {
       "roomNumber": 5,

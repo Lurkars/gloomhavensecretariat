@@ -4,6 +4,11 @@
   "name": "Wild",
   "edition": "gh2e",
   "named": true,
+  "monsters": [
+    "cave-bear",
+    "forest-imp",
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 6,

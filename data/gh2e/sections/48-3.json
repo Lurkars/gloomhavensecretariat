@@ -3,6 +3,10 @@
   "name": "Decrepit Wood",
   "edition": "gh2e",
   "parent": "31",
+  "monsters": [
+    "black-imp",
+    "harrower-infester"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

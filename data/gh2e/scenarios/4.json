@@ -15,10 +15,7 @@
   },
   "monsters": [
     "bandit-archer",
-    "cultist",
-    "earth-demon",
-    "living-bones",
-    "wind-demon"
+    "living-bones"
   ],
   "rooms": [
     {

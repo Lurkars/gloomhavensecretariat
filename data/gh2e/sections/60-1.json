@@ -3,6 +3,10 @@
   "name": "Sulfur Mine",
   "edition": "gh2e",
   "parent": "87",
+  "monsters": [
+    "hound",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

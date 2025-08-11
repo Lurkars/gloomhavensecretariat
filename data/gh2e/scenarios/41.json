@@ -13,9 +13,7 @@
     "prosperity": 2
   },
   "monsters": [
-    "black-imp",
     "living-corpse",
-    "night-demon",
     "ooze"
   ],
   "rooms": [

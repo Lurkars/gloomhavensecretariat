@@ -3,6 +3,11 @@
   "name": "Wild Melee",
   "edition": "gh2e",
   "parent": "84",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "hound"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

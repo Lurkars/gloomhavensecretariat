@@ -5,7 +5,10 @@
   "parent": "22",
   "marker": "1",
   "monsters": [
-    "doomcannon"
+    "doomcannon",
+    "flame-demon",
+    "frost-demon",
+    "sun-demon"
   ],
   "rooms": [
     {

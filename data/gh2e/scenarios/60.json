@@ -5,9 +5,7 @@
   "edition": "gh2e",
   "monsters": [
     "bandit-archer",
-    "bandit-scout",
-    "hound",
-    "rending-drake"
+    "hound"
   ],
   "rooms": [
     {

@@ -3,6 +3,11 @@
   "name": "Vibrant Grotto",
   "edition": "gh2e",
   "parent": "39",
+  "monsters": [
+    "cave-bear",
+    "forest-imp",
+    "inox-priest"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

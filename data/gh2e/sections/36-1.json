@@ -3,6 +3,10 @@
   "name": "Decaying Crypt",
   "edition": "gh2e",
   "parent": "6",
+  "monsters": [
+    "living-bones",
+    "living-spirit"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

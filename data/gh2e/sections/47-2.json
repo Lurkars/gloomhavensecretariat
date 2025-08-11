@@ -3,6 +3,10 @@
   "name": "Ancient Cistern",
   "edition": "gh2e",
   "parent": "41",
+  "monsters": [
+    "night-demon",
+    "ooze"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

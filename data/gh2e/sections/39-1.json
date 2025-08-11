@@ -4,6 +4,10 @@
   "edition": "gh2e",
   "parent": "27",
   "marker": "3",
+  "monsters": [
+    "frost-demon",
+    "sun-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

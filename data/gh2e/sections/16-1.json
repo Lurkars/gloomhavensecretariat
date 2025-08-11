@@ -3,6 +3,10 @@
   "name": "Ruinous Crypt",
   "edition": "gh2e",
   "parent": "2",
+  "monsters": [
+    "earth-demon",
+    "living-bones"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

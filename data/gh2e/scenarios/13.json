@@ -3,9 +3,7 @@
   "name": "Icecrag Ascent",
   "edition": "gh2e",
   "monsters": [
-    "hound",
-    "rending-drake",
-    "spitting-drake"
+    "hound"
   ],
   "rooms": [
     {

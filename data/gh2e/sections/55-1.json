@@ -3,6 +3,11 @@
   "name": "Slave Pens",
   "edition": "gh2e",
   "parent": "47",
+  "monsters": [
+    "inox-guard",
+    "inox-priest",
+    "stone-construct"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

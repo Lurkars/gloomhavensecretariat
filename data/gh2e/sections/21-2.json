@@ -4,6 +4,10 @@
   "edition": "gh2e",
   "parent": "10",
   "marker": "1",
+  "monsters": [
+    "inox-guard",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -4,7 +4,9 @@
   "parent": "79",
   "marker": "1",
   "monsters": [
-    "tyrant-of-the-tides"
+    "lurker-soldier",
+    "tyrant-of-the-tides",
+    "wind-demon"
   ],
   "rooms": [
     {

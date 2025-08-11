@@ -3,6 +3,10 @@
   "edition": "gh2e",
   "parent": "45",
   "marker": "2",
+  "monsters": [
+    "deep-terror",
+    "night-demon"
+  ],
   "objectives": [
     {
       "name": "Rock Column A",

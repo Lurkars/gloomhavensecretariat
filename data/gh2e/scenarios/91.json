@@ -5,10 +5,7 @@
   "edition": "gh2e",
   "monsters": [
     "cultist",
-    "flame-demon",
-    "hound",
-    "living-bones",
-    "living-spirit"
+    "hound"
   ],
   "rooms": [
     {

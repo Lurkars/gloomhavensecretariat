@@ -10,12 +10,7 @@
       "merchant-guild:-1"
     ]
   },
-  "monsters": [
-    "crystal-rot",
-    "inox-bodyguard",
-    "living-bones",
-    "living-corpse"
-  ],
+  "monsters": [],
   "rooms": [
     {
       "roomNumber": 1,

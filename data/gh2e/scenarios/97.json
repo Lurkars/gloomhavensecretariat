@@ -8,9 +8,7 @@
     "prosperity": 1
   },
   "monsters": [
-    "cave-bear",
     "hound",
-    "vermling-priest",
     "vermling-scout"
   ],
   "rooms": [

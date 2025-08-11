@@ -13,9 +13,7 @@
     }
   },
   "monsters": [
-    "giant-viper",
-    "stone-construct",
-    "the-betrayer"
+    "stone-construct"
   ],
   "objectives": [
     {

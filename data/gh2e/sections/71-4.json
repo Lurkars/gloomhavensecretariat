@@ -3,6 +3,10 @@
   "name": "Savvas Armory",
   "edition": "gh2e",
   "parent": "32",
+  "monsters": [
+    "savvas-icestorm",
+    "savvas-lavaflow"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

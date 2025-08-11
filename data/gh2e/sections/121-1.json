@@ -3,6 +3,10 @@
   "name": "Alchemy Lab",
   "edition": "gh2e",
   "parent": "62",
+  "monsters": [
+    "hound",
+    "spitting-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

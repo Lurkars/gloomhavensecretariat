@@ -3,12 +3,7 @@
   "name": "Harrower Hive",
   "flowChartGroup": "puzzle",
   "edition": "gh2e",
-  "monsters": [
-    "giant-viper",
-    "harrower-infester",
-    "living-bones",
-    "night-demon"
-  ],
+  "monsters": [],
   "rooms": [
     {
       "roomNumber": 1,

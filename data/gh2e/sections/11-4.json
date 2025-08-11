@@ -2,6 +2,12 @@
   "index": "11.4",
   "edition": "gh2e",
   "parent": "95",
+  "monsters": [
+    "bandit-archer",
+    "bandit-scout",
+    "deep-terror",
+    "lurker-soldier"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

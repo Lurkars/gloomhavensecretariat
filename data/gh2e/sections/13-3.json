@@ -3,6 +3,12 @@
   "name": "Tribal Assault",
   "edition": "gh2e",
   "parent": "49",
+  "monsters": [
+    "hound",
+    "inox-archer",
+    "inox-guard",
+    "inox-priest"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

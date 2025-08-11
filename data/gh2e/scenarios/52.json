@@ -10,12 +10,9 @@
     "prosperity": 1
   },
   "monsters": [
-    "city-guard",
     "earth-demon",
     "forest-imp",
     "harrower-infester",
-    "living-bones",
-    "night-demon",
     "the-dark-rider"
   ],
   "rooms": [

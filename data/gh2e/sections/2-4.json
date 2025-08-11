@@ -3,6 +3,9 @@
   "name": "Windswept Highlands",
   "edition": "gh2e",
   "parent": "74",
+  "monsters": [
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 4,

@@ -11,8 +11,7 @@
   ],
   "monsters": [
     "bandit-archer",
-    "bandit-scout",
-    "living-bones"
+    "bandit-scout"
   ],
   "rooms": [
     {

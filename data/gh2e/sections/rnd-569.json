@@ -4,6 +4,11 @@
   "name": "Unstable",
   "edition": "gh2e",
   "named": true,
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "savvas-lavaflow"
+  ],
   "rooms": [
     {
       "roomNumber": 17,

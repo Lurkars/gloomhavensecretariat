@@ -3,6 +3,13 @@
   "edition": "gh2e",
   "parent": "96",
   "marker": "1",
+  "monsters": [
+    "bandit-archer",
+    "city-archer",
+    "city-guard",
+    "inox-guard",
+    "savvas-lavaflow"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

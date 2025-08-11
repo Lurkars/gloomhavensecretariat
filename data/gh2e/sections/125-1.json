@@ -3,6 +3,12 @@
   "edition": "gh2e",
   "parent": "89",
   "marker": "1",
+  "monsters": [
+    "black-imp",
+    "giant-viper",
+    "living-corpse",
+    "rending-drake"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

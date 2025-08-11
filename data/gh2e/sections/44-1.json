@@ -3,6 +3,10 @@
   "name": "Mountain Pass",
   "edition": "gh2e",
   "parent": "10",
+  "monsters": [
+    "earth-demon",
+    "wind-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

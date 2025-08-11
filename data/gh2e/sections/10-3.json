@@ -5,6 +5,9 @@
   "parent": "15",
   "marker": "2",
   "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
     "usurper"
   ],
   "rooms": [

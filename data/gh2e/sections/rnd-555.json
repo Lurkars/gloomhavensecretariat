@@ -4,6 +4,10 @@
   "name": "Drowned",
   "edition": "gh2e",
   "named": true,
+  "monsters": [
+    "living-spirit",
+    "lurker-soldier"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

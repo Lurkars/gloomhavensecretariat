@@ -3,6 +3,13 @@
   "name": "Gloomhaven Square A (Military Allies)",
   "edition": "gh2e",
   "parent": "23B",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "cultist",
+    "living-bones",
+    "living-corpse"
+  ],
   "rooms": [
     {
       "roomNumber": 2,

@@ -3,6 +3,10 @@
   "name": "Black Barrow",
   "edition": "gh2e",
   "parent": "7",
+  "monsters": [
+    "bandit-archer",
+    "living-bones"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

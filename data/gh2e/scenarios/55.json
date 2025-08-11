@@ -12,15 +12,8 @@
   "monsters": [
     "black-imp",
     "chaos-demon",
-    "city-archer",
-    "city-guard",
     "deep-terror",
-    "earth-demon",
-    "harrower-infester",
-    "living-bones",
-    "living-corpse",
-    "vermling-scout",
-    "wind-demon"
+    "harrower-infester"
   ],
   "objectives": [
     {

@@ -3,6 +3,10 @@
   "edition": "gh2e",
   "parent": "42",
   "marker": "1",
+  "monsters": [
+    "city-guard",
+    "hound"
+  ],
   "objectives": [
     {
       "name": "Wheel 1",

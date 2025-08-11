@@ -9,10 +9,8 @@
     ]
   },
   "monsters": [
-    "crystal-rot",
     "giant-viper",
     "living-bones",
-    "living-corpse",
     "living-spirit"
   ],
   "rooms": [

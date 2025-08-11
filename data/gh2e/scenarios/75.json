@@ -11,9 +11,7 @@
   "monsters": [
     "ancient-artillery",
     "hound",
-    "inox-archer",
-    "inox-guard",
-    "inox-priest"
+    "inox-archer"
   ],
   "rooms": [
     {

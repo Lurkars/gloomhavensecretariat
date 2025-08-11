@@ -3,6 +3,10 @@
   "name": "Vermling Camp",
   "edition": "gh2e",
   "parent": "97",
+  "monsters": [
+    "hound",
+    "vermling-scout"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

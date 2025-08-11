@@ -3,6 +3,10 @@
   "name": "Shrine of Strength",
   "edition": "gh2e",
   "parent": "53",
+  "monsters": [
+    "harrower-infester",
+    "stone-construct"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

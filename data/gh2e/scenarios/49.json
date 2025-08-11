@@ -12,8 +12,7 @@
   "monsters": [
     "hound",
     "inox-archer",
-    "inox-guard",
-    "inox-priest"
+    "inox-guard"
   ],
   "objectives": [
     {

@@ -3,6 +3,11 @@
   "name": "Magma Pit",
   "edition": "gh2e",
   "parent": "86",
+  "monsters": [
+    "flame-demon",
+    "inox-archer",
+    "inox-guard"
+  ],
   "rooms": [
     {
       "roomNumber": 3,

@@ -3,6 +3,12 @@
   "name": "The Void",
   "edition": "gh2e",
   "parent": "54",
+  "monsters": [
+    "black-imp",
+    "chaos-demon",
+    "cultist-scenario-54",
+    "harrower-infester"
+  ],
   "rooms": [
     {
       "roomNumber": 3,
