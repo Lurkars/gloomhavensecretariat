@@ -10,8 +10,10 @@
     "prosperity": 1
   },
   "monsters": [
+    "frost-demon",
     "night-demon",
-    "savvas-icestorm"
+    "savvas-icestorm",
+    "wind-demon"
   ],
   "objectives": [
     {

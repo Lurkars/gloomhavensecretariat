@@ -77,6 +77,14 @@
       }
     }
   },
+  "deck": {
+    "archer": "Archer",
+    "boss": "Boss",
+    "guard": "Guard",
+    "imp": "Imp",
+    "priest": "Priest",
+    "scout": "Scout"
+  },
   "edition": {
     "gh2e": {
       "": "Gloomhaven 2nd Edition",

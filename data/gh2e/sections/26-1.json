@@ -5,7 +5,8 @@
   "parent": "4",
   "monsters": [
     "bandit-archer",
-    "cultist"
+    "cultist",
+    "living-bones"
   ],
   "rooms": [
     {

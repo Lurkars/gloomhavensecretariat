@@ -4,7 +4,8 @@
   "edition": "gh2e",
   "parent": "44",
   "monsters": [
-    "cultist"
+    "cultist",
+    "living-bones"
   ],
   "rooms": [
     {

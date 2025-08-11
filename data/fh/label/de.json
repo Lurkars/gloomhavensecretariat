@@ -711,6 +711,14 @@
       }
     }
   },
+  "deck": {
+    "archer": "Schütze",
+    "boss": "Boss",
+    "guard": "Wache",
+    "imp": "Wicht",
+    "priest": "Priester",
+    "scout": "Späher"
+  },
   "edition": {
     "fh": "Frosthaven"
   },

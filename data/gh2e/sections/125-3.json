@@ -5,6 +5,7 @@
   "parent": "91",
   "monsters": [
     "cultist",
+    "living-bones",
     "living-spirit"
   ],
   "rooms": [

@@ -4,7 +4,8 @@
   "parent": "91",
   "marker": "2",
   "monsters": [
-    "cultist"
+    "cultist",
+    "living-bones"
   ],
   "rooms": [
     {

@@ -3,7 +3,9 @@
   "edition": "gh2e",
   "parent": "32",
   "monsters": [
-    "savvas-icestorm"
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
   ],
   "rooms": [
     {

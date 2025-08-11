@@ -5,7 +5,8 @@
   "parent": "4",
   "monsters": [
     "cultist",
-    "earth-demon"
+    "earth-demon",
+    "living-bones"
   ],
   "rooms": [
     {

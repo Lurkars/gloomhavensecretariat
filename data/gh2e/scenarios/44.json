@@ -17,7 +17,8 @@
     }
   },
   "monsters": [
-    "cultist"
+    "cultist",
+    "living-bones"
   ],
   "rooms": [
     {

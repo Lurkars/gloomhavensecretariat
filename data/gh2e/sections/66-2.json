@@ -4,10 +4,12 @@
   "parent": "32",
   "marker": "3",
   "monsters": [
+    "earth-demon",
     "flame-demon",
     "frost-demon",
     "savvas-icestorm",
-    "savvas-lavaflow"
+    "savvas-lavaflow",
+    "wind-demon"
   ],
   "rooms": [
     {

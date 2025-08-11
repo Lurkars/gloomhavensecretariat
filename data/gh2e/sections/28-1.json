@@ -5,6 +5,7 @@
   "parent": "4",
   "monsters": [
     "cultist",
+    "living-bones",
     "wind-demon"
   ],
   "rooms": [

@@ -46,6 +46,13 @@
   ],
   "availableSummons": [
     {
+      "name": "two-mini",
+      "health": "8+Lx2",
+      "attack": 2,
+      "movement": 3,
+      "special": true
+    },
+    {
       "name": "wind-idol",
       "level": 1,
       "health": 2,

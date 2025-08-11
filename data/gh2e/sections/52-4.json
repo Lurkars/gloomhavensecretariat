@@ -5,7 +5,8 @@
   "marker": "1",
   "monsters": [
     "cultist",
-    "frost-demon"
+    "frost-demon",
+    "living-bones"
   ],
   "objectives": [
     {
