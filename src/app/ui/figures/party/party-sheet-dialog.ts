@@ -704,7 +704,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
     if (this.fhSheet) {
       this.prosperitySteps = FH_PROSPERITY_STEPS;
-    } if (this.gh2eSheet) {
+    } else if (this.gh2eSheet) {
       this.prosperitySteps = GH2E_PROSPERITY_STEPS;
     } else {
       this.prosperitySteps = GH_PROSPERITY_STEPS;
