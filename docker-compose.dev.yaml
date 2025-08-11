@@ -2,7 +2,7 @@
 version: "3.8"
 services:
   ghs-client-dev:
-    image: node:lts-alpine
+    image: node:24-alpine
     working_dir: /usr/src/gloomhavensecretariat
     volumes:
       - ./:/usr/src/gloomhavensecretariat
