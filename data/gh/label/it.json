@@ -1,4 +1,102 @@
 {
+  "battleGoals": {
+    "458": {
+      "": "Ottimizzatore",
+      "text": "Avere cinque o più carte totali nella mano e negli scarti alla fine dello scenario."
+    },
+    "459": {
+      "": "Indolente",
+      "text": "Ottenere 7 o meno punti esperienza durante lo scenario."
+    },
+    "460": {
+      "": "Instancabile",
+      "text": "Ottenere 13 o più punti esperienza durante lo scenario."
+    },
+    "461": {
+      "": "Fanatico",
+      "text": "Avere tre o meno carte totali nella mano e negli scarti alla fine dello scenario."
+    },
+    "462": {
+      "": "Masochista",
+      "text": "Il tuo valore attuale di punti vita deve essere pari o inferiore a 2 alla fine dello scenario."
+    },
+    "463": {
+      "": "Guaritore Rapido",
+      "text": "Il tuo valore attuale di punti vita deve essere pari al tuo valore massimo alla fine dello scenario."
+    },
+    "464": {
+      "": "Neutralizzatore",
+      "text": "Far scattare o disinnescare una trappola durante il tuo turno o durante il turno di una tua evocazione nello scenario."
+    },
+    "465": {
+      "": "Saccheggiatore",
+      "text": "Saccheggiare una tessera tesoro durante lo scenario."
+    },
+    "466": {
+      "": "Protettore",
+      "text": "Non permettere che nessun tuo alleato personaggio esaurisca le carte durante lo scenario."
+    },
+    "467": {
+      "": "Esploratore",
+      "text": "Rivelare una tessera stanza aprendo una porta durante il tuo turno nello scenario."
+    },
+    "468": {
+      "": "Accumulatore",
+      "text": "Saccheggiare cinque o più gettoni denaro durante lo scenario."
+    },
+    "469": {
+      "": "Indigente",
+      "text": "Non saccheggiare alcun gettone denaro o tessera tesoro durante lo scenario."
+    },
+    "470": {
+      "": "Pacifista",
+      "text": "Uccidere tre o meno mostri durante lo scenario."
+    },
+    "471": {
+      "": "Sadico",
+      "text": "Uccidere cinque o più mostri durante lo scenario."
+    },
+    "472": {
+      "": "Cacciatore",
+      "text": "Uccidere uno o più mostri élite durante lo scenario."
+    },
+    "473": {
+      "": "Professionista",
+      "text": "Usare gli oggetti equipaggiati un numero di volte pari o superiore al tuo livello più 2 durante lo scenario."
+    },
+    "474": {
+      "": "Aggressore",
+      "text": "Avere uno o più mostri presenti sulla mappa all'inizio di ogni round durante lo scenario."
+    },
+    "475": {
+      "": "Dinamo",
+      "text": "Uccidere un mostro durante lo scenario infliggendo almeno 4 danni in più rispetto a quelli necessari."
+    },
+    "476": {
+      "": "Purista",
+      "text": "Non usare alcun oggetto durante lo scenario."
+    },
+    "477": {
+      "": "Apripista",
+      "text": "Essere il primo a uccidere un mostro durante lo scenario."
+    },
+    "478": {
+      "": "Tenace",
+      "text": "Non permettere mai che i tuoi punti vita scendano sotto la metà del tuo valore massimo (arrotondato per eccesso) durante lo scenario."
+    },
+    "479": {
+      "": "Esecutore",
+      "text": "Uccidere un mostro non danneggiato con un singolo attacco durante lo scenario."
+    },
+    "480": {
+      "": "Lento",
+      "text": "Effettuare solo riposi lunghi durante lo scenario."
+    },
+    "481": {
+      "": "Impulsivo",
+      "text": "Effettuare solo riposi brevi durante lo scenario."
+    }
+  },
   "character": {
     "gh": {
       "brute": "Bruto",
@@ -7,6 +105,535 @@
       "scoundrel": "Canaglia",
       "spellweaver": "Tessimagie",
       "tinkerer": "Inventore"
+    }
+  },
+  "custom": {
+    "gh": {
+      "ancient-artillery": {
+        "1": "Tutti i nemici adiacenti subiscono %game.damage:2%."
+      },
+      "archer": {
+        "1": "Crea una trappola da %game.damage:3% in un esagono vuoto adiacente più vicino a un nemico."
+      },
+      "bandit-commander": {
+        "1": "Si sposta alla porta successiva e rivela la stanza"
+      },
+      "brute": {
+        "abilities": {
+          "12": {
+            "1": "dove X è il numero di esagoni che hai attraversato in questo turno.",
+            "2": "dove X è l'ammontare di %game.damage% che hai inflitto in questo turno."
+          },
+          "13": {
+            "1": "Aggiungi +1 %game.action.attack% a tutti i tuoi attacchi in questo turno."
+          },
+          "14": {
+            "1": "Uccidi un nemico normale adiacente."
+          },
+          "15": {
+            "1": "Sulle prossime tre fonti di %game.damage% che subisci, non subire %game.damage%."
+          },
+          "16": {
+            "1": "Se il movimento è stato in linea retta, esegui",
+            "2": "dove X è il numero di esagoni che hai attraversato con questa azione."
+          },
+          "2": {
+            "1": "Ottieni %game.card.experience:1% ogni volta che usi Ritorsione in questo turno."
+          },
+          "20": {
+            "1": "Ottieni %game.card.experience:1% per ogni nemico bersagliato."
+          },
+          "22": {
+            "1": "Uccidi un nemico normale adiacente con %game.condition.stun%.",
+            "2": "Aggiungi +1 %game.action.attack% a tutti i tuoi attacchi in questo turno."
+          },
+          "23": {
+            "1": "Puoi considerare tutte le abilità %game.action.move% come abilità %game.action.attack% di valore equivalente."
+          },
+          "26": {
+            "1": "Aggiungi +3 %game.action.attack% a tutti i tuoi attacchi contro nemici con %game.condition.disarm%, %game.condition.immobilize% o %game.condition.stun% in questo turno."
+          },
+          "28": {
+            "1": "Ottieni %game.card.experience:1% per ogni nemico bersagliato."
+          },
+          "29": {
+            "1": "Uccidi un nemico normale o d'élite adiacente."
+          },
+          "4": {
+            "1": "Ogni nemico che bersaglia un tuo alleato adiacente con un attacco in questo turno, bersaglia te con quell'attacco invece, indipendentemente dalla gittata."
+          },
+          "7": {
+            "1": "Sulle prossime sei fonti di %game.damage% da attacchi che ti bersagliano, ottieni %game.action.shield%1."
+          }
+        }
+      },
+      "captain-of-the-guard": {
+        "1": "Tutti gli alleati aggiungono +1 %game.action.attack% a tutti gli attacchi in questo turno"
+      },
+      "cragheart": {
+        "abilities": {
+          "116": {
+            "1": "Sui tuoi prossimi sei attacchi in mischia che ti bersagliano, ottieni %game.action.retaliate:2%."
+          },
+          "118": {
+            "1": "Crea due ostacoli a singolo esagono in esagoni vuoti adiacenti a te."
+          },
+          "119": {
+            "1": "Tutti gli alleati e nemici adiacenti subiscono 1 danno."
+          },
+          "120": {
+            "1": "Tutti gli alleati e nemici adiacenti al bersaglio subiscono 1 danno."
+          },
+          "121": {
+            "1": "Nelle tue prossime quattro azioni di Attacco a distanza, ottieni AGGIUNGI BERSAGLIO."
+          },
+          "122": {
+            "1": "Distruggi un ostacolo adiacente.",
+            "2": "Bersaglia tutti i nemici attraversati"
+          },
+          "123": {
+            "1": "Bersaglia tutti i nemici fino a due",
+            "2": "esagoni di distanza invece, %game.card.experience:1%",
+            "3": "Tutti gli alleati adiacenti subiscono 2 danni",
+            "4": "Tutti gli alleati subiscono 1 danno",
+            "5": "Colpisci tutti gli alleati"
+          },
+          "124": {
+            "1": "%game.action.push% 2, %game.card.experience:1%",
+            "2": "Tutti gli alleati e nemici adiacenti subiscono 1 danno.",
+            "3": "2 danni invece, %game.card.experience:1%"
+          },
+          "125": {
+            "1": "+1 %game.action.attack%, %game.card.experience:1%",
+            "2": "%game.condition.muddle% tutti gli alleati e nemici nell'area bersagliata."
+          },
+          "126": {
+            "1": "%game.condition.immobilize%, %game.card.experience:1%"
+          },
+          "127": {
+            "1": "Puoi spingere il bersaglio in esagoni contenenti ostacoli. In ogni caso, distruggi l'ostacolo, il bersaglio subisce 2 danni e ottieni %game.card.experience:1%.",
+            "2": "Aggiungi +1 %game.action.attack% a tutti i tuoi attacchi a distanza in questo turno."
+          },
+          "128": {
+            "1": "Ottieni %game.card.experience:1% per ogni",
+            "2": "nemico bersagliato.",
+            "3": "Aggiungi +2 %game.action.attack% a tutti i tuoi attacchi in mischia in questo turno."
+          },
+          "129": {
+            "1": "Nelle tue prossime sei azioni di Attacco a distanza quando %game.element.air% è Forte o Calante, %game.element.consume.air% per aggiungere +2 %game.action.range%."
+          },
+          "130": {
+            "1": "Distruggi un ostacolo adiacente.",
+            "2": "Bersaglia tutti i nemici adiacenti all'ostacolo distrutto"
+          },
+          "131": {
+            "1": "Colpisci tutti gli alleati nell'area bersagliata"
+          },
+          "132": {
+            "1": "Sposta un ostacolo a singolo esagono adiacente in un esagono vuoto entro %game.action.range:4%.",
+            "2": "Bersaglia tutti i nemici adiacenti",
+            "3": "all'ostacolo spostato",
+            "4": "Distruggi tutti gli ostacoli e disinnesca tutte le trappole attraversate."
+          },
+          "134": {
+            "1": "Crea tre ostacoli a singolo esagono in esagoni vuoti entro %game.action.range:4%.",
+            "2": "Tutti gli alleati e nemici adiacenti a uno o più ostacoli creati subiscono 2 danni.",
+            "3": "Il movimento deve essere in linea retta."
+          },
+          "136": {
+            "1": "Uccidi un nemico normale entro %game.action.range:4%.",
+            "2": "Crea un ostacolo a singolo esagono nell'esagono in cui il nemico è morto."
+          },
+          "137": {
+            "1": "Nei tuoi prossimi quattro attacchi in mischia quando possibile, distruggi un ostacolo adiacente per aggiungere +3 %game.action.attack%."
+          },
+          "138": {
+            "1": "Crea una trappola da 2 danni %game.condition.stun% in un esagono vuoto adiacente."
+          },
+          "139": {
+            "1": "%game.condition.immobilize% tutti gli alleati e nemici nell'area bersagliata."
+          },
+          "140": {
+            "1": "Crea un ostacolo triangolare di tre esagoni in esagoni vuoti entro %game.action.range% 3.",
+            "2": "Bersaglia tutti i nemici adiacenti all'ostacolo."
+          },
+          "141": {
+            "1": "Per ogni esagono in cui non puoi spingere il bersaglio a causa di un muro o ostacolo, il bersaglio subisce 2 danni e ottieni %game.card.experience:1%.",
+            "2": "Aggiungi +1 %game.action.attack% a tutti i tuoi attacchi a distanza in questo turno.",
+            "3": "Aggiungi +2 %game.action.attack% invece, %game.card.experience:1%."
+          },
+          "142": {
+            "1": "Distruggi tutti gli ostacoli entro %game.action.range% 2",
+            "2": "Dove X è il doppio del numero",
+            "3": "di esagoni occupati dagli ostacoli",
+            "4": "distrutti.",
+            "5": "Il movimento deve terminare in un esagono adiacente a un ostacolo."
+          },
+          "143": {
+            "1": "All'inizio dei tuoi prossimi cinque turni, esegui un'azione \"%game.action.heal:2%, %game.action.range:2%\"."
+          },
+          "144": {
+            "1": "Tutti gli alleati e nemici adiacenti al bersaglio subiscono danni pari ai danni subiti dal bersaglio.",
+            "2": "Tutti gli alleati e nemici adiacenti a qualsiasi esagono che attraversi durante il movimento subiscono 2 danni."
+          },
+          "145": {
+            "1": "Puoi spingere i bersagli in esagoni contenenti ostacoli. In ogni caso, distruggi l'ostacolo, il bersaglio subisce 2 danni e ottieni %game.card.experience:1%."
+          }
+        }
+      },
+      "dark-rider": {
+        "1": "X = Esagoni attraversati"
+      },
+      "deep-terror": {
+        "1": "in un esagono adiacente al bersaglio"
+      },
+      "elder-drake": {
+        "1": "Vola verso il successivo appostamento di macigni"
+      },
+      "flame-demon": {
+        "1": "Tutti i nemici adiacenti subiscono %game.damage:2%.",
+        "2": "Crea una trappola da %game.damage:4% in un esagono vuoto adiacente più vicino a un nemico."
+      },
+      "flowChartGroup": {
+        "atop-mountains": "Sulle Montagne",
+        "city-events": "Eventi di Città",
+        "demon-and-rift": "Demone e Fenditura",
+        "dragons": "Draghi",
+        "intro": "Introduzione",
+        "personal-quests": "Missioni Personali",
+        "random-scenarios": "Scenari Casuali",
+        "rebellion-rises": "La Ribellione Cresce",
+        "road-events": "Eventi di Viaggio",
+        "sealed": "Sigillato",
+        "sewers": "Fogne",
+        "the-merchant": "Il Mercante",
+        "through-jungles": "Attraverso le Giungle",
+        "under-oceans": "Sotto gli Oceani",
+        "voice": "Voce"
+      },
+      "giant-viper": {
+        "1": "Aggiungi +2 %game.action.attack% se il bersaglio è adiacente a qualsiasi alleato del %data.monster.giant-viper%.",
+        "2": "Tutti gli attacchi che bersagliano %data.monster.giant-viper% in questo turno ottengono Svantaggio."
+      },
+      "harrower-infester": {
+        "1": "Esegui \"%game.action.heal% 2, %game.specialTarget.self%\" per ogni bersaglio danneggiato"
+      },
+      "hound": {
+        "1": "Aggiungi +2 %game.action.attack% se il bersaglio è adiacente a qualsiasi alleato del %data.monster.hound%."
+      },
+      "merciless-overseer": {
+        "1": "Tutti gli Esploratori agiscono di nuovo",
+        "2": "V = Numero di Esploratori presenti"
+      },
+      "mindthief": {
+        "1": "X è la metà del valore attuale dei punti ferita del ratto (arrotondato per eccesso).",
+        "abilities": {
+          "146": {
+            "1": "Aggiungi +1 %game.action.attack% per ogni condizione negativa sul bersaglio",
+            "2": "Forza un nemico entro %game.action.range:5% a eseguire",
+            "3": "bersagliando un altro nemico con te che controlli l'azione."
+          },
+          "149": {
+            "1": "Sui tuoi attacchi in mischia:",
+            "2": "Ottieni %game.action.shield% 1",
+            "3": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta.",
+            "4": "Se termini il movimento nello stesso esagono in cui hai iniziato, esegui"
+          },
+          "151": {
+            "1": "Sui tuoi attacchi in mischia:",
+            "2": "Aggiungi +2 %game.action.attack%",
+            "3": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta."
+          },
+          "152": {
+            "1": "Sui tuoi attacchi in mischia:",
+            "2": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta.",
+            "3": "Forza un nemico entro %game.action.range:4% a eseguire",
+            "4": "con te che controlli l'azione."
+          },
+          "154": {
+            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% per ogni condizione negativa sul bersaglio."
+          },
+          "156": {
+            "1": "Sui tuoi attacchi in mischia:",
+            "2": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta."
+          },
+          "157": {
+            "1": "Un alleato adiacente può eseguire",
+            "2": "Un alleato entro %game.action.range:3% può eseguire"
+          },
+          "160": {
+            "1": "Forza un nemico normale o d'élite entro %game.action.range:3% a eseguire il suo turno in questo round come se i suoi alleati fossero nemici e i suoi nemici fossero alleati, con te che controlli le azioni.",
+            "2": "Per indicare questo, posiziona un tuo segnalino personaggio su questo nemico per il round."
+          },
+          "162": {
+            "1": "Sui tuoi attacchi in mischia:",
+            "2": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta."
+          },
+          "163": {
+            "1": "Ottieni un gettone denaro aggiuntivo dalla scorta per ogni nemico adiacente."
+          },
+          "164": {
+            "1": "Uccidi un nemico normale entro %game.action.range:4%.",
+            "2": "Bersaglia tutti i nemici adiacenti al bersaglio ucciso",
+            "3": "Ottieni %game.card.experience:1% per ogni nemico bersagliato con questo attacco."
+          },
+          "165": {
+            "1": "Puoi avere due %data.custom.gh.mindthief.augments% attivi contemporaneamente.",
+            "2": "Se viene giocato un terzo %data.custom.gh.mindthief.augment%, scarta uno degli altri."
+          },
+          "166": {
+            "1": "Sui tuoi attacchi in mischia:",
+            "2": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta.",
+            "3": "Forza un nemico entro %game.action.range:5% a eseguire",
+            "4": "con te che controlli l'azione."
+          },
+          "169": {
+            "1": "Sui tuoi attacchi in mischia:",
+            "2": "Ottieni",
+            "3": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta."
+          },
+          "170": {
+            "1": "Tutti i tuoi attacchi a distanza ottengono gli effetti dei tuoi %data.custom.gh.mindthief.augments% in questo turno."
+          },
+          "172": {
+            "1": "Un alleato adiacente può eseguire",
+            "2": "Questo attacco ottiene gli effetti dei tuoi %custom.augments%.",
+            "3": "Forza un nemico normale o d'élite entro %game.action.range:5% a eseguire il suo turno in questo round come se i suoi alleati fossero nemici e i suoi nemici fossero alleati, con te che controlli le azioni.<br><br>Per indicare questo, posiziona un tuo segnalino personaggio su questo nemico per il round."
+          },
+          "173": {
+            "1": "X è la metà del valore attuale dei punti ferita del ratto (arrotondato per eccesso).",
+            "2": "Tutti gli alleati entro %game.action.range:2% aggiungono +X %game.action.attack% a tutti i loro attacchi in questo turno, dove X è il numero dei tuoi alleati entro %game.action.range:2% da te."
+          },
+          "174": {
+            "1": "Sui tuoi attacchi in mischia:",
+            "2": "Uccidi un bersaglio normale invece",
+            "3": "Quando viene giocato un altro %data.custom.gh.mindthief.augment%, scarta questa carta."
+          }
+        },
+        "augment": "Potenziamento %game.characterIconColoredBg.mindthief%",
+        "augments": "Potenziamenti %game.characterIconColoredBg.mindthief%"
+      },
+      "night-demon": {
+        "1": "Tutti i nemici e alleati adiacenti subiscono %game.damage:1%."
+      },
+      "ooze": {
+        "1": "con H pari al valore attuale dei punti ferita del %data.monster.ooze% evocatore (limitato dal valore massimo di punti ferita specificato per un %data.monster.ooze% normale)"
+      },
+      "prime-demon": {
+        "1": "Il trono si sposta"
+      },
+      "savvas-lavaflow": {
+        "1": "Tutti gli alleati e nemici adiacenti al bersaglio subiscono %game.damage:2%",
+        "2": "Tutti i nemici subiscono %game.damage:2%."
+      },
+      "scoundrel": {
+        "abilities": {
+          "100": {
+            "1": "Aggiungi %game.condition.wound% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato."
+          },
+          "103": {
+            "1": "Aggiungi +2 %game.action.attack% a tutti i tuoi attacchi in questo turno a nemici non adiacenti a nessun loro alleato."
+          },
+          "104": {
+            "1": "Ottieni Vantaggio su tutti i tuoi attacchi in questo turno."
+          },
+          "105": {
+            "1": "Aggiungi +3 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
+            "2": "Aggiungi +3 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio non è adiacente a nessun suo alleato."
+          },
+          "106": {
+            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
+            "2": "Nei tuoi prossimi sei attacchi a nemici con %game.condition.disarm%, %game.condition.immobilize% o %game.condition.stun%, aggiungi +2 %game.action.attack%"
+          },
+          "107": {
+            "1": "Uccidi un nemico normale adiacente che non è adiacente a nessun suo alleato ed è adiacente a qualsiasi tuo alleato."
+          },
+          "108": {
+            "1": "Aggiungi +2 %game.action.attack% a tutti i tuoi attacchi a nemici con %game.condition.poison%."
+          },
+          "110": {
+            "1": "Aggiungi +4 %game.action.attack% e ottieni %game.card.experience:2% quando il bersaglio è adiacente a qualsiasi tuo alleato."
+          },
+          "111": {
+            "1": "Disinnesca una trappola adiacente.",
+            "2": "Bersaglia un nemico entro %game.action.range:3% per subire gli effetti della trappola disinnescata.",
+            "3": "Nel tuo prossimo attacco a un nemico non adiacente a nessun suo alleato e adiacente a qualsiasi tuo alleato, raddoppia il valore dell'attacco."
+          },
+          "113": {
+            "1": "Uccidi un nemico adiacente il cui valore attuale di punti ferita è uguale o inferiore a 3."
+          },
+          "114": {
+            "1": "Forza un nemico normale o d'élite adiacente a eseguire il suo turno in questo round come se i suoi alleati fossero nemici e i suoi nemici fossero alleati, con te che controlli le azioni.",
+            "2": "Per indicare questo, posiziona un tuo segnalino personaggio su questo nemico per il round."
+          },
+          "115": {
+            "1": "Aggiungi %game.condition.poison% e %game.condition.wound% a tutti i tuoi attacchi."
+          },
+          "88": {
+            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
+            "2": "Nei tuoi prossimi quattro attacchi a nemici non adiacenti a nessun loro alleato, aggiungi +2 %game.action.attack%"
+          },
+          "89": {
+            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato."
+          },
+          "90": {
+            "1": "Nel tuo prossimo attacco mentre sei %game.condition.invisible%, raddoppia il valore dell'attacco."
+          },
+          "91": {
+            "1": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio è adiacente a qualsiasi tuo alleato.",
+            "2": "Aggiungi +2 %game.action.attack% e ottieni %game.card.experience:1% quando il bersaglio non è adiacente a nessun suo alleato."
+          },
+          "92": {
+            "1": "Disinnesca una trappola adiacente."
+          },
+          "97": {
+            "1": "Aggiungi +1 %game.action.attack% per ogni tuo alleato adiacente al bersaglio.",
+            "2": "Aggiungi +2 %game.action.attack% invece, %game.card.experience:1%",
+            "3": "Forza un nemico adiacente a eseguire",
+            "4": "con te che controlli l'azione, e terminando in un esagono adiacente a te."
+          },
+          "98": {
+            "1": "Aggiungi +X %game.action.attack% dove X è il doppio del valore di Scudo del bersaglio.",
+            "2": "La prossima volta che subisci danni in questo turno, non subire danni invece."
+          },
+          "99": {
+            "1": "%game.action.loot% ogni esagono che attraversi con questa azione."
+          }
+        }
+      },
+      "spellweaver": {
+        "abilities": {
+          "61": {
+            "1": "Ottieni %game.card.experience:1% per ogni nemico bersagliato."
+          },
+          "62": {
+            "1": "Inoltre, bersaglia tutti i nemici sul percorso verso il bersaglio primario.",
+            "2": "Ottieni %game.card.experience:1% per ogni nemico bersagliato."
+          },
+          "63": {
+            "1": "Recupera %game.card.recover% tutte le tue carte perse."
+          },
+          "66": {
+            "1": "Sulle prossime due fonti di danni a te, non subire danni invece."
+          },
+          "69": {
+            "1": "Nei tuoi prossimi quattro attacchi, aggiungi +1 %game.action.attack%.",
+            "2": "Aggiungi +2 %game.action.attack% invece."
+          },
+          "75": {
+            "1": "Colpisci un qualsiasi alleato",
+            "2": "Colpisci tutti gli alleati invece"
+          },
+          "76": {
+            "1": "Uccidi un bersaglio normale invece, %game.card.experience:1%",
+            "2": "Colpisci un qualsiasi alleato",
+            "3": "dove X è la metà del valore massimo di punti ferita di quell'alleato (arrotondato per difetto).",
+            "4": "X è il valore massimo di punti ferita di quell'alleato invece."
+          },
+          "79": {
+            "1": "Sui tuoi prossimi cinque attacchi in mischia che ti bersagliano, ottieni %game.action.retaliate:3%."
+          },
+          "80": {
+            "1": "Tutti i nemici adiacenti al bersaglio subiscono 2 danni, %game.card.experience:1%."
+          },
+          "81": {
+            "1": "Ottieni %game.card.experience:1% per ogni nemico bersagliato"
+          },
+          "82": {
+            "1": "Recupera %game.card.recover% fino a due delle tue carte perse."
+          },
+          "84": {
+            "1": "%game.action.loot:3% invece, %game.card.experience:1%",
+            "2": "Non puoi raccogliere più di quattro gettoni denaro o tessere tesoro con questa azione."
+          },
+          "85": {
+            "1": "Sulle prossime tre fonti di danni da attacchi che ti bersagliano, non subire danni invece e ottieni %game.action.retaliate:3%, %game.action.range:3%."
+          },
+          "86": {
+            "1": "Ottieni %game.card.experience:1% per ogni nemico bersagliato",
+            "2": "Uccidi tutti i nemici normali nell'area bersagliata.",
+            "3": "Scegli un esagono entro %game.action.range:4%.",
+            "4": "Bersaglia tutti i nemici entro %game.action.range:4% dall'esagono scelto e attirali verso di esso"
+          },
+          "87": {
+            "1": "Bersaglia tutti i nemici nella stessa stanza di te",
+            "2": "Tutti gli alleati nella stessa stanza di te subiscono 2 danni."
+          }
+        }
+      },
+      "the-betrayer": {
+        "1": "Controllo Mentale"
+      },
+      "tinkerer": {
+        "abilities": {
+          "30": {
+            "1": "Crea una trappola da 6 danni in un esagono vuoto adiacente.",
+            "2": "Ottieni %game.card.experience:2% quando la trappola viene attivata da un nemico."
+          },
+          "34": {
+            "1": "Ottieni %game.card.experience:1% per ogni nemico bersagliato."
+          },
+          "35": {
+            "1": "Ottieni %game.card.experience:1% per ogni nemico bersagliato."
+          },
+          "37": {
+            "1": "Un alleato adiacente può Recuperare %game.card.recover% tutte le sue carte scartate."
+          },
+          "40": {
+            "1": "Tu e tutti gli alleati adiacenti aggiungete +1 %game.action.attack% a tutti i vostri attacchi in questo turno."
+          },
+          "43": {
+            "1": "Crea una trappola da 2 danni %game.condition.poison% in un esagono vuoto adiacente.",
+            "2": "Un alleato entro %game.action.range:2% può Recuperare %game.card.recover% una delle sue carte scartate.",
+            "3": "Fino a due carte scartate invece"
+          },
+          "44": {
+            "1": "Nelle tue prossime quattro azioni di Cura, aggiungi +2 %game.action.heal%."
+          },
+          "45": {
+            "1": "Un alleato entro %game.action.range:3% può Recuperare %game.card.recover% una delle sue carte perse."
+          },
+          "47": {
+            "1": "Disinnesca una trappola adiacente.",
+            "2": "Crea una trappola %game.condition.stun% in un esagono vuoto adiacente."
+          },
+          "51": {
+            "1": "Un alleato adiacente può Ricaricare %game.card.refresh% uno dei suoi %game.items.slots.small% oggetti consumati.",
+            "2": "Ottieni %game.card.experience:1% per ogni nemico bersagliato."
+          },
+          "52": {
+            "1": "Uccidi tutti i nemici nell'area bersagliata il cui valore attuale di punti ferita è uguale o inferiore a 5.",
+            "2": "Ottieni %game.card.experience:1% per ogni nemico ucciso"
+          },
+          "53": {
+            "1": "Crea una trappola da 4 danni %game.condition.muddle% in un esagono vuoto adiacente.",
+            "2": "Alla fine dei tuoi prossimi quattro turni, un alleato entro %game.action.range:3% può Recuperare %game.card.recover% una delle sue carte scartate."
+          },
+          "54": {
+            "1": "Alla fine dei tuoi prossimi cinque turni, esegui un'azione \"%game.action.attack:2%, %game.action.range:5%\"."
+          },
+          "57": {
+            "1": "Tutti gli alleati evocati entro %game.action.range:3% possono eseguire",
+            "2": "con te che controlli le azioni."
+          },
+          "58": {
+            "1": "Subisci 2 danni",
+            "2": "Tutti gli alleati adiacenti aggiungono +2 %game.action.attack% a tutti i loro attacchi in questo turno.",
+            "3": "Tutti gli alleati adiacenti subiscono 2 danni."
+          },
+          "59": {
+            "1": "Uccidi un nemico normale o d'élite adiacente."
+          },
+          "60": {
+            "1": "Un alleato adiacente può Recuperare %game.card.recover% fino a due delle sue carte perse, poi perdere due carte.",
+            "2": "Un alleato entro %game.action.range:3% può Recuperare %game.card.recover% una carta persa appartenente a un alleato adiacente a lui."
+          }
+        }
+      },
+      "winged-horror": {
+        "1": "Schiusa le uova",
+        "2": "%game.action.summon% [C] uova"
+      }
     }
   },
   "deck": {

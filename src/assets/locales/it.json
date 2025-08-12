@@ -222,7 +222,8 @@
           "": "Apri la custodia %game.characterIcon.{0}%",
           "itemDesign": "Ottieni il modello di \"%data.items.{1}-{0}%\" (Oggetto{0})",
           "randomScenario": "Sblocca \"{1}\" %data.scenarioNumber:{0}%"
-        }
+        },
+        "unlockPQ": "Sblocca Missione Personale {0}"
       },
       "resources": {
         "": "Risorse",
@@ -512,10 +513,10 @@
     "action": {
       "area": "Effetto ad area",
       "attack": "Attacco",
-      "box": "Custodia",
+      "box": "&#91;Custodia&#93;",
       "boxFhSubActions": "&#91;Box sotto-azione FH&#93;",
       "card": "Carta",
-      "concatenation": "Concatenazione",
+      "concatenation": "&#91;Concatenazione&#93;",
       "concatenationSpacer": "&#91;Spaziatore concatenazione&#93;",
       "condition": "Condizione",
       "custom": "Personalizzato",
@@ -525,7 +526,7 @@
       "fly": "Volo",
       "forceBox": "&#91;Box obbligatorio FH&#93;",
       "grant": "Accordo",
-      "grid": "Griglia",
+      "grid": "&#91;Griglia&#93;",
       "heal": "Cura",
       "hint": "&#91;Bacheca Informativa&#93;",
       "jump": "Salto",
@@ -828,19 +829,29 @@
       },
       "applyManually": "Applicare manualmente le seguenti operazioni:",
       "conditions": {
+        "and": "e",
         "building": "{0}",
+        "campaignSticker": "%data.campaignSticker.{0}%",
         "character": "{0}",
-        "loseCollectiveGold": "Perdi {0} oro collettivo.",
-        "loseCollectiveResource": "Perdi {0} %game.resource.{1}% collettivi.",
+        "loseCollectiveGold": "Perdi {0} oro collettivo",
+        "loseCollectiveResource": "Perdi {0} %game.resource.{1}% collettivi",
+        "loseCollectiveResourceType": "Perdi {0} %game.loot.{1}% risorse collettive",
         "moraleGT": "Morale > {0}",
         "moraleLT": "Morale < {0}",
         "otherwise": "Altrimenti",
         "payCollectiveGold": "Paga {0} oro collettivo",
-        "payCollectiveGoldConditional": "Paga {0} ({1}) o {2} ({3}) oro collettivo",
+        "payCollectiveGoldConditional": {
+          "connector": "oppure",
+          "prefix": "Paga",
+          "suffix": "oro collettivo"
+        },
+        "payCollectiveGoldReputationGT": "{0} (reputazione > {1})",
+        "payCollectiveGoldReputationLT": "{0} (reputazione < {1})",
         "payGold": "Paga {0} oro ciascuno",
         "reputationGT": "Reputazione > {0}",
         "reputationLT": "Reputazione < {0}",
         "season": "%party.campaign.sheet.{0}%",
+        "seasonLT": "Se %party.campaign.sheet.{0}% è {1} settimane o meno di distanza",
         "traits": "%game.trait% {0}"
       },
       "deck": {
@@ -860,13 +871,16 @@
         "upcoming": "Nel mazzo ({0})"
       },
       "effects": {
+        "and": "e",
         "automation": "L'effetto viene applicato automaticamente",
         "battleGoal": "Ottieni {0} %game.checkmark% ciascuno.",
         "campaignSticker": "Ottieni adesivo campagna \"%data.campaignSticker.{0}%\".",
+        "campaignStickerMap": "Posiziona l'adesivo della campagna \"%data.campaignSticker.{0}%\" sulla mappa della città nella posizione {1}.",
+        "campaignStickerReplace": "Posiziona l'adesivo della campagna \"%data.campaignSticker.{0}% sopra \"%data.campaignSticker.{1}%\".",
         "choose": {
-          "connector": " oppure ",
-          "prefix": "Entrambi ",
-          "suffix": "&ZeroWidthSpace;"
+          "connector": "oppure",
+          "prefix": "Entrambi",
+          "suffix": "."
         },
         "collectiveGold": "Ottieni {0} di oro collettivo.",
         "collectiveGoldAdditional": "Ottieni {0} oro collettivo addizionale.",
@@ -876,6 +890,7 @@
         "collectiveResourceType": "Ottieni qualsiasi {0} %game.loot.{1}% collettivo.",
         "consumeCollectiveItem": "Consuma {0} oggetto %game.itemSlot:{1}% collettivo.",
         "consumeItem": "Ognuno consuma {0} oggetto %game.itemSlot:{1}%.",
+        "custom": "{0}",
         "discard": {
           "": "Ognuno scarta {0} carte.",
           "alt": "Tutti i personaggi iniziano lo scenario successivo scartando %number.{0}% carte."
@@ -884,10 +899,17 @@
           "": "Ognuno scarta 1 carta.",
           "alt": "Tutti i personaggi iniziano lo scenario successivo scartando una carta."
         },
-        "drawAnotherEvent": "Pesca un altro Evento %game.events.type.{0}%.",
+        "drawAnotherEvent": {
+          "": "Pesca un altro Evento %game.events.type.{0}%.",
+          "alt": "Risolvi un altro Evento %game.events.type.{0}%."
+        },
         "drawEvent": "Pesca un Evento %game.events.type.{0}%.",
-        "event": "Aggiungi l'evento %game.events.type.{0}% {1} al mazzo.",
+        "event": {
+          "": "Aggiungi l'Evento %game.events.type.{0}% al mazzo.",
+          "alt": "Aggiungi l'evento {1} al mazzo %game.events.type.{0}%."
+        },
         "eventFH": "Aggiungi l'Evento {1} al mazzo %game.events.type.{0}%.",
+        "eventReturn": "Recupera l'evento {1} e rimettilo nel mazzo %game.events.type.{0}%.",
         "experience": "Ognuno ottiene {0} di esperienza.",
         "globalAchievement": "Traguardo globale:<br>\"%data.globalAchievements.{0}%\".",
         "gold": "Ognuno ottiene {0} di oro.",
