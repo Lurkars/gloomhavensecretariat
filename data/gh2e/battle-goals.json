@@ -1,0 +1,302 @@
+[
+    {
+        "cardId": "1301",
+        "name": "Accountant",
+        "checks": 1
+    },
+    {
+        "cardId": "1302",
+        "name": "Acrobat",
+        "checks": 1
+    },
+    {
+        "cardId": "1303",
+        "name": "Ascetic",
+        "checks": 1
+    },
+    {
+        "cardId": "1346",
+        "name": "Assassin",
+        "checks": 2
+    },
+    {
+        "cardId": "1304",
+        "name": "Assistant",
+        "checks": 1
+    },
+    {
+        "cardId": "1305",
+        "name": "Bastion",
+        "checks": 1
+    },
+    {
+        "cardId": "1306",
+        "name": "Bully",
+        "checks": 1
+    },
+    {
+        "cardId": "1307",
+        "name": "Cleaner",
+        "checks": 1
+    },
+    {
+        "cardId": "1308",
+        "name": "Closer",
+        "checks": 1
+    },
+    {
+        "cardId": "1309",
+        "name": "Conservator",
+        "checks": 1
+    },
+    {
+        "cardId": "1347",
+        "name": "Daredevil",
+        "checks": 2
+    },
+    {
+        "cardId": "1348",
+        "name": "Dawdler",
+        "checks": 2
+    },
+    {
+        "cardId": "1310",
+        "name": "Diehard",
+        "checks": 1
+    },
+    {
+        "cardId": "1349",
+        "name": "Duelist",
+        "checks": 2
+    },
+    {
+        "cardId": "1311",
+        "name": "Dynamo",
+        "checks": 1
+    },
+    {
+        "cardId": "1312",
+        "name": "Egoist",
+        "checks": 1
+    },
+    {
+        "cardId": "1313",
+        "name": "Executioner",
+        "checks": 1
+    },
+    {
+        "cardId": "1350",
+        "name": "Exterminator",
+        "checks": 2
+    },
+    {
+        "cardId": "1314",
+        "name": "Gambler",
+        "checks": 1
+    },
+    {
+        "cardId": "1315",
+        "name": "Hunter",
+        "checks": 1
+    },
+    {
+        "cardId": "1316",
+        "name": "Insomniac",
+        "checks": 1
+    },
+    {
+        "cardId": "1351",
+        "name": "Layabout",
+        "checks": 2
+    },
+    {
+        "cardId": "1317",
+        "name": "Masochist",
+        "checks": 1
+    },
+    {
+        "cardId": "1352",
+        "name": "Miser",
+        "checks": 2
+    },
+    {
+        "cardId": "1318",
+        "name": "Mugger",
+        "checks": 1
+    },
+    {
+        "cardId": "1319",
+        "name": "Opener",
+        "checks": 1
+    },
+    {
+        "cardId": "1320",
+        "name": "Optimist",
+        "checks": 1
+    },
+    {
+        "cardId": "1353",
+        "name": "Overachiever",
+        "checks": 2
+    },
+    {
+        "cardId": "1321",
+        "name": "Pacifist",
+        "checks": 1
+    },
+    {
+        "cardId": "1322",
+        "name": "Pauper",
+        "checks": 1
+    },
+    {
+        "cardId": "1354",
+        "name": "Peacemonger",
+        "checks": 2
+    },
+    {
+        "cardId": "1323",
+        "name": "Pedestrian",
+        "checks": 1
+    },
+    {
+        "cardId": "1324",
+        "name": "Perfectionist",
+        "checks": 1
+    },
+    {
+        "cardId": "1325",
+        "name": "Pickpocket",
+        "checks": 1
+    },
+    {
+        "cardId": "1326",
+        "name": "Pincushion",
+        "checks": 1
+    },
+    {
+        "cardId": "1327",
+        "name": "Plebeian",
+        "checks": 1
+    },
+    {
+        "cardId": "1355",
+        "name": "Prepper",
+        "checks": 2
+    },
+    {
+        "cardId": "1328",
+        "name": "Prohibitionist",
+        "checks": 1
+    },
+    {
+        "cardId": "1329",
+        "name": "Promoter",
+        "checks": 1
+    },
+    {
+        "cardId": "1330",
+        "name": "Rambler",
+        "checks": 1
+    },
+    {
+        "cardId": "1331",
+        "name": "Ravager",
+        "checks": 1
+    },
+    {
+        "cardId": "1332",
+        "name": "Recluse",
+        "checks": 1
+    },
+    {
+        "cardId": "1333",
+        "name": "Ritualist",
+        "checks": 1
+    },
+    {
+        "cardId": "1334",
+        "name": "Sadist",
+        "checks": 1
+    },
+    {
+        "cardId": "1335",
+        "name": "Scrambler",
+        "checks": 1
+    },
+    {
+        "cardId": "1336",
+        "name": "Shirker",
+        "checks": 1
+    },
+    {
+        "cardId": "1356",
+        "name": "Slayer",
+        "checks": 2
+    },
+    {
+        "cardId": "1337",
+        "name": "Sleeper",
+        "checks": 1
+    },
+    {
+        "cardId": "1357",
+        "name": "Slowpoke",
+        "checks": 2
+    },
+    {
+        "cardId": "1338",
+        "name": "Sluggard",
+        "checks": 1
+    },
+    {
+        "cardId": "1358",
+        "name": "Specialist",
+        "checks": 2
+    },
+    {
+        "cardId": "1339",
+        "name": "Straggler",
+        "checks": 1
+    },
+    {
+        "cardId": "1340",
+        "name": "Streamliner",
+        "checks": 1
+    },
+    {
+        "cardId": "1341",
+        "name": "Tormentor",
+        "checks": 1
+    },
+    {
+        "cardId": "1359",
+        "name": "Vanguard",
+        "checks": 2
+    },
+    {
+        "cardId": "1360",
+        "name": "Wallflower",
+        "checks": 2
+    },
+    {
+        "cardId": "1342",
+        "name": "Wastrel",
+        "checks": 1
+    },
+    {
+        "cardId": "1343",
+        "name": "Weakling",
+        "checks": 1
+    },
+    {
+        "cardId": "1344",
+        "name": "Workhorse",
+        "checks": 1
+    },
+    {
+        "cardId": "1345",
+        "name": "Zealot",
+        "checks": 1
+    }
+]

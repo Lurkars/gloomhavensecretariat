@@ -1,6 +1,6 @@
 <div class="battlegoal-container" #container>
     <div class="card vertical reverse battlegoal"
-        [ngClass]="{'flipped': flipped, 'selected': selected, 'disabled': disabled, 'filtered': filtered, 'fh': settingsManager.settings.fhStyle}"
+        [ngClass]="{'flipped': flipped, 'selected': selected, 'disabled': disabled, 'filtered': filtered, 'fh': !!battleGoal && battleGoal.edition == 'fh'}"
         [style.fontSize]="container.offsetWidth * 0.072 + 'px'" card-reveal [disabled]="!reveal">
         <div class="card-front">
             <ng-container *ngIf="!!battleGoal">

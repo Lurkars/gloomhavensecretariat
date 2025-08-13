@@ -502,7 +502,7 @@ export class ScenarioManager {
       gameManager.game.eventDraw = scenarioData.eventType;
     }
 
-    if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsApply) {
+    if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsApply && gameManager.game.party.eventCards) {
       gameManager.game.party.eventCards.filter((e) => e.scenarioApply).forEach((e) => {
         const eventCard = gameManager.eventCardManager.getEventCardForEdition(e.edition, e.type, e.cardId);
         if (eventCard && e.selected != -1) {

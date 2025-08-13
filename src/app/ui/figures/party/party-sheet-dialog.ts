@@ -8,7 +8,7 @@ import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { SelectResourceResult } from "src/app/game/model/data/BuildingData";
-import { EditionData, FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/data/EditionData";
+import { EditionData, FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS, ReputationSections } from "src/app/game/model/data/EditionData";
 import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { LootType } from "src/app/game/model/data/Loot";
@@ -22,6 +22,7 @@ import { ScenarioSummaryComponent } from "../../footer/scenario/summary/scenario
 import { ghsDialogClosingHelper, ghsInputFullScreenCheck } from "../../helper/Static";
 import { AutocompleteItem } from "../../helper/autocomplete";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
+import { EventCardDeckComponent } from "../event/deck/event-card-deck";
 import { BuildingUpgradeDialog } from "./buildings/upgrade-dialog/upgrade-dialog";
 import { ScenarioRequirementsDialogComponent } from "./requirements/requirements";
 import { PartyResourcesDialogComponent } from "./resources/resources";
@@ -30,7 +31,6 @@ import { StatisticsDialogComponent } from "./statistics/statistics-dialog";
 import { TreasuresDialogComponent } from "./treasures/treasures-dialog";
 import { PartyWeekDialogComponent } from "./week-dialog/week-dialog";
 import { WorldMapComponent } from "./world-map/world-map";
-import { EventCardDeckComponent } from "../event/deck/event-card-deck";
 
 @Component({
   standalone: false,
@@ -46,7 +46,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   party: Party;
   prosperitySteps = GH_PROSPERITY_STEPS;
   prosperityHighlightSteps = GH_PROSPERITY_STEPS;
-  prosperitySections: Record<number,string> = {};
+  prosperitySections: Record<number, string> = {};
+
+  factions: string[] = [];
+  reputationSections: ReputationSections[] = [];
+  reputationSectionsMapped: Record<string, ReputationSections[]> = {};
+
   priceModifier: number = 0;
   moraleDefense: number = 0;
   campaign: boolean = false;
@@ -335,16 +340,29 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-
   setReputation(value: number) {
     if (this.party.reputation != value) {
-      gameManager.stateManager.before("setPartyReputation", "" + value);
+      gameManager.stateManager.before("setPartyReputation", value);
       if (value > 20) {
         value = 20
       } else if (value < -20) {
         value = -20;
       }
       this.party.reputation = value;
+      gameManager.stateManager.after();
+      this.update();
+    }
+  }
+
+  setFactionReputation(faction: string, value: number) {
+    if (this.party.factionReputation[faction] != value) {
+      gameManager.stateManager.before("setFactionReputation", faction, value);
+      if (value > 20) {
+        value = 20
+      } else if (value < -10) {
+        value = -10;
+      }
+      this.party.factionReputation[faction] = value;
       gameManager.stateManager.after();
       this.update();
     }
@@ -697,6 +715,26 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         this.townGuardDeck.active = false;
         this.party.townGuardDeck = this.townGuardDeck.toModel();
       }
+    }
+
+    if (campaign.factions) {
+      this.factions = campaign.factions;
+      this.factions.forEach((faction) => {
+        if (!this.party.factionReputation[faction]) {
+          this.party.factionReputation[faction] = 0;
+        }
+      })
+    }
+
+    if (campaign.reputationSections) {
+      this.reputationSections = campaign.reputationSections;
+      this.reputationSectionsMapped = {};
+      this.reputationSections.forEach((value) => {
+        this.reputationSectionsMapped[value.faction] = this.reputationSectionsMapped[value.faction] || [];
+        if (!value.requires || value.requires.length == 0) {
+          this.reputationSectionsMapped[value.faction][30 - value.value - 10] = value;
+        }
+      })
     }
 
     this.calendarSheet = Math.floor(Math.max(this.party.weeks - 1, 0) / 80);

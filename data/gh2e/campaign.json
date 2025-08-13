@@ -5,68 +5,68 @@
         "military"
     ],
     "prosperitySections": {
-        "21": "48.2",
-        "32": "54.2",
-        "44": "16.5",
-        "58": "62.3"
+        "11": "48.2",
+        "21": "54.2",
+        "32": "16.5",
+        "44": "62.3"
     },
     "reputationSections": [
         {
-            "type": "demons",
+            "faction": "demons",
             "value": 9,
             "section": "78.3",
             "requires": []
         },
         {
-            "type": "demons",
+            "faction": "demons",
             "value": 16,
             "section": "73.3",
             "requires": []
         },
         {
-            "type": "demons",
+            "faction": "demons",
             "value": 20,
             "section": "77.2",
             "requires": []
         },
         {
-            "type": "merchant-guild",
+            "faction": "merchant-guild",
             "value": 9,
             "section": "77.3",
             "requires": []
         },
         {
-            "type": "merchant-guild",
+            "faction": "merchant-guild",
             "value": 16,
             "section": "10.2",
             "requires": []
         },
         {
-            "type": "merchant-guild",
+            "faction": "merchant-guild",
             "value": 20,
             "section": "20.1",
             "requires": []
         },
         {
-            "type": "military",
+            "faction": "military",
             "value": 9,
             "section": "83.3",
             "requires": []
         },
         {
-            "type": "military",
+            "faction": "military",
             "value": 16,
             "section": "53.1",
             "requires": []
         },
         {
-            "type": "military",
+            "faction": "military",
             "value": 20,
             "section": "31.5",
             "requires": []
         },
         {
-            "type": "demons",
+            "faction": "demons",
             "value": 6,
             "min": true,
             "section": "29.1",
@@ -75,7 +75,7 @@
             ]
         },
         {
-            "type": "demons",
+            "faction": "demons",
             "value": 12,
             "section": "133.5",
             "requires": [
@@ -84,7 +84,7 @@
             ]
         },
         {
-            "type": "merchant-guild",
+            "faction": "merchant-guild",
             "value": 6,
             "min": true,
             "section": "49.1",
@@ -93,7 +93,7 @@
             ]
         },
         {
-            "type": "merchant-guild",
+            "faction": "merchant-guild",
             "value": 12,
             "section": "41.3",
             "requires": [
@@ -102,7 +102,7 @@
             ]
         },
         {
-            "type": "military",
+            "faction": "military",
             "value": 6,
             "min": true,
             "section": "46.3",
@@ -111,7 +111,7 @@
             ]
         },
         {
-            "type": "military",
+            "faction": "military",
             "value": 12,
             "section": "39.3",
             "requires": [

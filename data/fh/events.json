@@ -7145,6 +7145,13 @@
         "narrative": "Trade with the \"tree.\"",
         "outcomes": [
           {
+            "narrative": "The \"tree\" is replacing each of its metal components with natural wood. \"YOUR CONTRIBUTIONS ARE\nAPPRECIATED.\" It tears off a metal appendage, holding it out to you in exchange.",
+            "returnToDeck": true,
+            "effects": [
+              "All characters may trade any amount of %game.resource.lumber% for an equal amount of %game.resource.metal%"
+            ]
+          },
+          {
             "condition": {
               "type": "traits",
               "values": [
@@ -7152,8 +7159,9 @@
               ]
             },
             "narrative": "\"DO I LOOK LIKE A TREE?\" You nod, and it senses a kindred spirit.",
+            "returnToDeck": true,
             "effects": [
-              "All OUTCAST characters gain 1 additional METAL."
+              "All %game.trait:outcast% characters gain 1 additional %game.resource.metal%."
             ]
           }
         ]
@@ -7164,13 +7172,27 @@
         "outcomes": [
           {
             "narrative": "Time to find out what happens if a tree falls in a forest and you are there to hear it. As you move in to attack, you notice most of it has already been replaced with wood and some small creatures have even taken up residence in its rickety leg. The metal creature falls to the ground after a single swing and you help yourself to some of the raw materials. As you walk away you hear it attempting to put itself back together again.",
+            "returnToDeck": true,
             "effects": [
-              "Gain 1 collective LUMBER and 1 collective METAL.",
+              {
+                "type": "collectiveResource",
+                "values": [
+                  1,
+                  "lumber"
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  1,
+                  "metal"
+                ]
+              },
               {
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "curse"
+                  "wound"
                 ]
               }
             ]
@@ -7263,8 +7285,14 @@
           {
             "narrative": "You drag the chunk of metal back to Frosthaven for analysis and study. Pinter Droman, the local tinkerer, notes the peculiar composition can be used as a filler for other metalworks, and with careful rationing, the chunk can function as a multiplier for future metal construction.",
             "effects": [
-              "Add a +1 sticker to one METAL loot card (the card gives one extra METAL when resolved).",
-              "Resolve another summer road event."
+              "Add a %game.resource.plus1% sticker to one %game.resource.metal% loot card (the card gives one extra  %game.resource.metal% when resolved).",
+              {
+                "type": "drawAnotherEvent",
+                "alt": true,
+                "values": [
+                  "summer-road"
+                ]
+              }
             ]
           }
         ]
@@ -7300,7 +7328,7 @@
         "outcomes": [
           {
             "condition": "IF YOU SAID \"MAP\"",
-            "narrative": "The lion's face splits into a smile, and it emits a gravelly purr. \"Mmm... excellent. A map showcases seas and mountains, folds away, and keeps a birds-eye view. It of course cannot show small details by its very nature.\"",
+            "narrative": "The lion's face splits into a smile, and it emits a gravelly purr. \"Mmm... excellent. A map showcases seas and mountains, folds away, and keeps a birds-eye view. It of course cannot show small details by its very nature.\"<br><br>The lion-faced Savvas looks you up and down. \"What would be a fitting reward for such a performance? Hm....wisdom must be earned, but Ican help it along.\" It touches the swirling black-and-white light in its chest, then taps each of your heads in turn, You feel clarity you haven't felt before.",
             "effects": [
               {
                 "type": "inspiration",
@@ -7308,7 +7336,12 @@
                   1
                 ]
               },
-              "Gain 1 ✔ each."
+              {
+                "type": "battleGoal",
+                "values": [
+                  1
+                ]
+              }
             ]
           },
           {
