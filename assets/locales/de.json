@@ -222,7 +222,8 @@
           "": "Schachtel %game.characterIcon.{0}% öffnen",
           "itemDesign": "Erhalte Gegenstanddesign \"%data.items.{1}-{0}%\" (Gegenstand {0})",
           "randomScenario": "\"{1}\" %data.scenarioNumber:{0}% freischalten"
-        }
+        },
+        "unlockPQ": "Persönliche Quest {0} freischalten"
       },
       "resources": {
         "": "Ressourcen",
@@ -239,6 +240,7 @@
         },
         "apply": "Anwenden",
         "conclusion": "Öffne Sektion %data.section:{0}%",
+        "event": "Füge %game.events.type.{0}% Ereignis {1} zum Deck hinzu",
         "events": "Füge Stadt-Ereignis {0} als auch Weg-Ereignis {0} zum Deck hinzu",
         "moveSupply": "Ressourcen zum Frosthaven-Vorrat verschieben",
         "prosperity": "+{0} Wohlstand"
@@ -817,12 +819,49 @@
     },
     "enemy": "Gegner",
     "events": {
+      "accept": {
+        "": "Ereignis ausführen",
+        "notApply": "Ausführen, nicht anwenden"
+      },
+      "applyManually": "Führe das Folgende manuell aus:",
       "conditions": {
+        "and": "und",
+        "building": "{0}",
+        "campaignSticker": "%data.campaignSticker.{0}%",
+        "character": "{0}",
+        "loseCollectiveGold": "Verliert insgesamt {0} Gold",
+        "loseCollectiveResource": "Verliert insgesamt {0} %game.resource.{1}%",
+        "loseCollectiveResourceType": "Verliert {0} insgesamt %game.loot.{1}% resources",
+        "moraleGT": "Moral > {0}",
+        "moraleLT": "Moral < {0}",
         "otherwise": "Sonst",
         "payCollectiveGold": "{0} kollektives Gold zahlen",
-        "payCollectiveGoldConditional": "{0} ({1}) oder {2} ({3}) kollektives Gold zahlen",
+        "payCollectiveGoldConditional": {
+          "connector": "oder",
+          "prefix": "Zahlt",
+          "suffix": "kollektives Gold"
+        },
+        "payCollectiveGoldReputationGT": "{0} (Ansehen > {1})",
+        "payCollectiveGoldReputationLT": "{0} (Ansehen < {1})",
+        "payGold": "Zahlt jeweils {0} Gold",
         "reputationGT": "Ansehen > {0}",
-        "reputationLT": "Ansehen < {0}"
+        "reputationLT": "Ansehen < {0}",
+        "season": "%party.campaign.sheet.{0}%",
+        "seasonLT": "Wenn %party.campaign.sheet.{0}% in {1} Wochen oder weniger stattfindet",
+        "traits": "%game.trait% {0}"
+      },
+      "deck": {
+        "addCard": "Zu den zukünftigen Ereigniskarten hinzufügen und Kartenstapel mischen",
+        "allTypes": "Zeige alle Karten",
+        "draw": "Ziehe Karte",
+        "drawn": "Ausgeführt ({0})",
+        "filter": "Suche nach Karten-ID",
+        "new": "Gesperrt ({0})",
+        "removeCard": "Aus den zukünftigen Ereigniskarten entfernen",
+        "removeDrawn": "Von den gezogenen Karten entfernen",
+        "removeSelection": "Ergebnis zurücksetzen",
+        "setup": "Ereignis-Deck zusammenstellen",
+        "shuffle": "Mische Karten"
       },
       "effects": {
         "collectiveGold": "Erhalte {0} kollektives Gold.",
