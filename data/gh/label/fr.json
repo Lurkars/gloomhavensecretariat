@@ -945,7 +945,20 @@
     "winged-horror": "Horreur Ailée"
   },
   "objective": {
+    "Altar": "Autel",
+    "Captive Orchid": "Prisonnier Orchid",
+    "Door": "Porte",
+    "Fish": "Fretin",
+    "Hail": "Tourmente",
+    "Orchid": "Orchid",
+    "Redthorn": "Rougépine",
+    "Rock Column": "Colonne de Roche",
+    "The Crystal": "Le Cristal",
+    "Totem": "Totem",
     "Tree": "Arbre",
+    "Villager": "Villageois",
+    "Vocal Cord": "Corde Vocale",
+    "Water Pump": "Pompe à Eau",
     "zephyr": "Zéphyr"
   },
   "partyAchievements": {
@@ -1015,8 +1028,57 @@
     },
     "rules": {
       "gh": {
+        "19": {
+          "1": "en direction de l'autel %game.mapMarker.b%"
+        },
         "22": {
           "1": "Pour chaque autel qui n'est pas détruit, qu'il ait été révélé ou non, la valeur maximale de points de vie et les valeurs d'attaque de chaque démon sont augmentées de 1 et leurs valeurs de mouvement et de portée sont augmentées de 0,5 (arrondissez à l'entier supérieur). Les attaques de corps à corps ne bénéficient pas de ce bonus de portée."
+        },
+        "36": {
+          "1": "Le Démon Primordial débute le scénario avec le double des points de vie indiqués sur sa fiche de caractéristiques."
+        },
+        "38": {
+          "1": "dans la direction du Chaman situé sur la tuile D"
+        },
+        "42": {
+          "1": "Tous les monstres ajoutent +1 %game.action.attack% à toutes leurs attaques",
+          "2": "Tous les monstres gagnent Avantage pour toutes leurs attaques",
+          "3": "Chaque monstre regagne 1 point de vie au début de chacun de ses tours",
+          "4": "Chaque aventurier et invocation d'un aventurier subit 1 dégât au début de chacun de ses tours.",
+          "5": "Tous les aventuriers et invocations gagnent Désavantage pour toutes leurs attaques.",
+          "6": "Tous les aventuriers et leurs invocations retirent -1 Attaque à toutes leurs attaques."
+        },
+        "54": {
+          "1": "Tous les Ours des Cavernes ajoutent %game.condition.poison% à toutes leurs attaques."
+        },
+        "67": {
+          "1": "Le Golem de Pierre d'élite est d'un niveau supérieur de 1 à celui du scénario, jusqu'à un maximum de 7, et possède PVxA points de vie, où PV représente les points de vie habituels d'un Golem de Pierre d'élite. Il s'agit du Golem Arcanique. Il ne peut ni franchir ni entrer sur l'hexagone de la porte %game.mapMarker.2%."
+        },
+        "71": {
+          "1": "Déplacement gauche",
+          "2": "Déplacement haut",
+          "3": "Déplacement droit",
+          "4": "Déplacement bas"
+        },
+        "73": {
+          "1": "Faites rouler les rochers vers le bas."
+        },
+        "74": {
+          "1": "Ajouter une tuile Eau."
+        },
+        "78": {
+          "1": "Les deux Cultistes %game.mapMarker.b%, ainsi que la victime %game.mapMarker.a%, sont immunisés aux déplacements forcés, à %game.condition.immobilize%, et à %game.condition.stun%, et peuvent ouvrir les portes.",
+          "2": "Immunisé contre les mouvements forcés",
+          "3": "Peut ouvrir les portes"
+        },
+        "79": {
+          "1": "Déplacez-vous vers l'emplacement de départ, si vous avez été déplacé, puis effectuez une"
+        },
+        "86": {
+          "1": "vers l'extrémité des quais en %game.mapMarker.b%"
+        },
+        "89": {
+          "1": "Tous les Cultistes invoquent des Vipères Géantes d'élite au lieu de Squelettes Réanimés normaux."
         }
       }
     },
