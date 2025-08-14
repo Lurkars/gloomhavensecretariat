@@ -188,7 +188,7 @@
       "1": "Retirez deux %game.attackmodifier.minus1% de votre paquet de Modificateur d'Attaque."
     },
     "gh-103": {
-      "": "Armure Écailles de Wyverne",
+      "": "Armure d'Écailles de Wyverne",
       "1": "Vous êtes immunisé à %game.condition.poison% et à %game.condition.wound%."
     },
     "gh-107": {
@@ -196,7 +196,7 @@
       "1": "Une fois par tour, après vous être déplacé d'au moins 4 hexagones pendant votre tour, ajoutez +1 %game.action.attack% à votre prochaine attaque de mêlée ce tour-ci."
     },
     "gh-108": {
-      "": "Heaume Écailles de Wyverne",
+      "": "Heaume d'Écailles de Wyverne",
       "1": "Quand vous subissez %game.condition.muddle%, gagnez %game.condition.strengthen% à la place."
     },
     "gh-11": {
@@ -212,8 +212,8 @@
       "1": "Pendant votre attaque de mêlée sur une unique cible, la cible et tous les adversaires adjacents à la cible subissent 1 dégât"
     },
     "gh-12": {
-      "": "Potion Soin Mineure",
-      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 3, self\"."
+      "": "Potion de Soin Mineure",
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 3, Sur vous-même\"."
     },
     "gh-123": {
       "": "Anneau de Crânes"
@@ -223,11 +223,11 @@
       "1": "Pendant votre tour, forcez un adversaire à %game.action.range:5% à effectuer une action de \"%game.action.move% 2\". Vous contrôlez cette action."
     },
     "gh-13": {
-      "": "Potion Endurance Mineure",
+      "": "Potion d'Endurance Mineure",
       "1": "Pendant votre tour, Récupérez %game.card.recover% une de vos cartes défaussées."
     },
     "gh-14": {
-      "": "Potion Puissance Mineure",
+      "": "Potion de Puissance Mineure",
       "1": "Pendant votre attaque, ajoutez +1 %game.action.attack% à la totalité de votre action d'Attaque."
     },
     "gh-15": {
@@ -255,7 +255,7 @@
       "1": "Pendant votre déplacement, ajoutez %game.action.jump% à ce déplacement."
     },
     "gh-20": {
-      "": "Potion Mana Mineure",
+      "": "Potion de Mana Mineure",
       "1": "Pendant votre tour, créez un élément au choix."
     },
     "gh-21": {
@@ -283,7 +283,7 @@
       "1": "Pendant votre action d'attaque de mêlée sur une seule cible, transformez cette attaque en :"
     },
     "gh-27": {
-      "": "Potion Soin Majeur",
+      "": "Potion de Soin Majeure",
       "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 5, Sur vous-même\"."
     },
     "gh-28": {
@@ -294,9 +294,26 @@
       "": "Armure de Peaux",
       "1": "Pour les deux prochaines sources de dégâts d'attaques vous ciblant, gagnez %game.action.shield% 1."
     },
+    "gh-32": {
+      "": "Pavois",
+      "1": "Lorsque vous subissez des dégâts d'une attaque, gagnez %game.action.shield% 2 pour cette attaque."
+    },
+    "gh-33": {
+      "": "Bombe Explosive",
+      "1": "Pendant votre action d'attaque à distance sur une seule cible, transformez cette attaque en :"
+    },
+    "gh-34": {
+      "": "Potion d'Endurance Majeure"
+    },
     "gh-4": {
       "": "Armure de Cuir",
       "1": "Lorsque vous êtes attaqué, l'attaquant gagne Désavantage pour cette attaque."
+    },
+    "gh-41": {
+      "": "Potion de Puissance Majeure"
+    },
+    "gh-48": {
+      "": "Potion de Mana Majeure"
     },
     "gh-5": {
       "": "Cape d'Invisibilité",
