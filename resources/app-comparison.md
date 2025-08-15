@@ -54,7 +54,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Forgotten Circles (including Diviner Mechanics)                                 | ✅            | ✅         | ⛔        | ✅       | ✅       |
 | Jaws Of The Lion                                                                | ✅            | ✅         | ⛔        | ✅       | ✅       |
 | Frosthaven                                                                      | ✅            | ✅         | ✅        | ✅       | ⛔       |
-| Gloomhaven 2nd Edition                                                          | ❗[^3.2]      | ❗[^3.3]   | ⛔        | ❗[^3.2] | ⛔       |
+| Gloomhaven 2nd Edition                                                          | ✅❗[^3.2]     | ✅❗[^3.3]  | ⛔        | ✅❔      | ⛔       |
 | Button & Bugs                                                                   | ✅            | ✅[^2.2]   | ⛔        | ✅[^2.2] | ⛔       |
 | The Crimson Scales                                                              | ✅[^2.1]      | ✅         | ⛔        | ✅       | ⛔       |
 | Trail Of Ashes                                                                  | ✅[^2.1]      | ✅         | ⛔        | ⛔       | ⛔       |
@@ -141,7 +141,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 
 [^1.4]: All titles and initiatives implemented but most ability data still missing
 
-[^1.5]: Still a lot in progress here and all data must be validated, but basic support ready
+[^1.5]: Still a lot in progress here and all data must be validated, but basic support ready, mostly FH data incomplete
 
 [^2.1]: Some special rules data not complete, but fully playable
 
@@ -151,7 +151,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 
 [^3.1]: Need to be enabled in **Data Management** Menu, afterwards added in **Battle Goals Setup**
 
-[^3.2]: Work in Progress, by now only all data/features in XHA covered, mostly all Campaign Management is missing
+[^3.2]: Work in Progress, by now only all data/features in XHA covered, scenario data may contain errors and be missing some special rules, all non-scenario sections missing, as is some data, such as events
 
 [^3.3]: Some mechanics that are anyway used sparingly in the game may be ignored by the app
 
