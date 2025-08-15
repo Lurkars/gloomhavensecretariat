@@ -330,7 +330,7 @@
   "edition": {
     "gh2e": {
       "": "Gloomhaven 2nd Edition",
-      "hint": "Gloomhaven 2nd Edition is currently <i>%wip%</i>. The Party Sheet is currently in implementation and some data, such as Events, is currently missing."
+      "hint": "Gloomhaven 2nd Edition is currently <i>%wip%</i>. The scenario data may contain errors and be missing some special rules. All non-scenario sections are currently missing, as is some data, such as events."
     }
   },
   "factions": {
@@ -502,6 +502,16 @@
     }
   },
   "scenario": {
+    "rules": {
+      "gh2e": {
+        "8": {
+          "1": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.2% opening it.",
+          "2": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.3% opening it.",
+          "3": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.4% opening it.",
+          "4": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.5% opening it."
+        }
+      }
+    },
     "title": {
       "gh2e": {
         "0": "Training Course",

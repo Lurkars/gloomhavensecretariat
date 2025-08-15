@@ -1515,12 +1515,19 @@ input[type="radio"] {
   }
 
   .placeholder-section,
-  .placeholder-fh-icon {
+  .placeholder-fh-icon,
+  .placeholder-faction {
     display: inline-block;
 
     .icon {
       margin-top: -0.2em;
       vertical-align: middle;
+    }
+
+    &.placeholder-faction .icon {
+      height: 1em;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 

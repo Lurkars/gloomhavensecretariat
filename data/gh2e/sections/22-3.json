@@ -9,6 +9,68 @@
     "bandit-commander",
     "living-corpse"
   ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "once": true,
+      "note": "%data.scenario.rules.gh2e.8.1%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": "bandit-commander"
+          },
+          "type": "afterTurn"
+        }
+      ]
+    },
+    {
+      "round": "R == 6",
+      "once": true,
+      "note": "%data.scenario.rules.gh2e.8.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": "bandit-commander"
+          },
+          "type": "afterTurn"
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "once": true,
+      "note": "%data.scenario.rules.gh2e.8.3%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": "bandit-commander"
+          },
+          "type": "afterTurn"
+        }
+      ]
+    },
+    {
+      "round": "R == 12",
+      "once": true,
+      "note": "%data.scenario.rules.gh2e.8.4%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh2e",
+            "name": "bandit-commander"
+          },
+          "type": "afterTurn"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 2,

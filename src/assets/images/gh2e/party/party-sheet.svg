@@ -25,9 +25,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="5.5945567"
-     inkscape:cx="182.76694"
-     inkscape:cy="161.85375"
+     inkscape:zoom="1.3986392"
+     inkscape:cx="574.48698"
+     inkscape:cy="79.005366"
      inkscape:window-width="1854"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -182,6 +182,16 @@
        d="m 20107,2657 h 80 v 70 h -3878 v -70 h 79"
        id="path116"
        transform="matrix(0.01,0,0,0.01,35.855573,15.599363)" />
+    <path
+       fill="none"
+       stroke="#231f20"
+       stroke-width="0.35"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       d="m 189.26915,42.171931 h 0.8 v 0.7 h -56.77167 v -0.7 h 0.79"
+       id="path116-3"
+       style="display:inline"
+       sodipodi:nodetypes="cccccc" />
     <path
        id="rect121"
        class="BoundingBox"

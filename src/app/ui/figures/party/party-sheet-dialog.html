@@ -470,8 +470,10 @@
 
         <div class="factions">
           <div class="faction-reputation" *ngFor="let faction of factions">
-            <label><img [src]="'./assets/images/gh2e/faction/' + faction + '.svg'"> <span
-                [ghs-label]="'party.reputation'"></span></label>
+            <label>
+              <img [src]="'./assets/images/gh2e/faction/' + faction + '.svg'">
+              <span [ghs-label]="'party.reputation'"></span>
+            </label>
             <div class="grid">
               <div class="row" *ngFor="let reputation of [] | ghsRange:31">
                 <span class="value" (click)="setFactionReputation(faction, 30 - reputation - 10)"
@@ -494,13 +496,73 @@
         </div>
 
         <div class="additional-factions">
+          <label><span [ghs-label]="'party.reputation.additional'"></span></label>
+          <div class="faction-reputation">
+            <ng-container *ngFor="let reputationSection of reputationSections">
+              <div class="section" *ngIf="reputationSection.faction == 'special'">
+                <span class="checkbox" [ngClass]="{'checked': additionalReputation(reputationSection)}"></span>
+                <span class="text"
+                  [ghs-label]="'party.reputation.additional.special.' + reputationSection.section.split(':')[0]"
+                  [ghs-label-args]="[reputationSection.section.split(':')[1], reputationSection.value]"></span>
+              </div>
+            </ng-container>
+          </div>
 
+          <div class="faction-reputation" *ngFor="let faction of factions">
+            <div class="header">
+              <img [src]="'./assets/images/gh2e/faction/' + faction + '.svg'">
+            </div>
+            <ng-container *ngFor="let reputationSection of reputationSections">
+              <div class="section"
+                *ngIf="reputationSection.faction == faction && reputationSection.requires && reputationSection.requires.length">
+                <span class="checkbox" [ngClass]="{'checked': additionalReputation(reputationSection)}"></span>
+                <span class="text"
+                  [ghs-label]="'party.reputation.additional.sectionRequires' + (reputationSection.requires.length > 1 ? '.multiple' : '')"
+                  [ghs-label-args]="[reputationSection.section, reputationSection.value, reputationSection.faction, reputationSection.requires.join(' & ')]"></span>
+              </div>
+            </ng-container>
+          </div>
         </div>
 
         <div class="row notes">
           <label><span [ghs-label]="'party.notes'"></span>:</label>
           <textarea type="text" [value]="party.notes" (change)="setNotes($event)" [ghs-label]="'party.notes'"
             [ghs-label-attribute]="'placeholder'"></textarea>
+        </div>
+
+        <div class="imbuement">
+          <label><span [ghs-label]="'party.imbuement'"></span></label>
+          <div class="checklist-container" *ngFor="let row of [] | ghsRange:8">
+            <div class="checklist">
+              <div class="tick" *ngFor="let check of [] | ghsRange:10"
+                [ngClass]="{'section': check % 10 == 4 || imbuementSections[row*10 + check +1], 'prosperity-tick' : check % 10 == 4}">
+                <div class="checkbox" (click)="setImbuement(row*10 + check +1)"
+                  [ngClass]="{'checked': party.imbuement >= row*10 + check +1}">
+                  <span class="section" *ngIf="check % 10 == 4">
+                    +1 <img src="./assets/images/fh/prosperity.svg">
+                  </span>
+                  <span class="section" *ngIf="imbuementSections[row*10 + check +1]"
+                    [ghs-label]="'%game.section:' + imbuementSections[row*10 + check +1] + '%'"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="donations">
+          <label><span [ghs-label]="'party.greatOak'"></span></label>
+          <div class="checklist-container" *ngFor="let row of [] | ghsRange:10">
+            <div class="checklist">
+              <div class="tick" *ngFor="let check of [] | ghsRange:10" [ngClass]="{'section': check % 5 == 4, 'prosperity-tick': check % 5 == 4}">
+                <div class="checkbox" (click)="setDonations(row*10 + check +1)"
+                  [ngClass]="{'checked': party.donations >= row*10 + check +1}">
+                  <div class="section" *ngIf="check % 5 == 4">
+                    +1 <img src="./assets/images/fh/prosperity.svg">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="prosperity gh2e wrapped">
@@ -518,12 +580,12 @@
             <ng-container
               *ngFor="let check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); let index = index;">
               <div class="tick"
-                [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1, 'section': prosperitySections[index]}">
+                [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1, 'section': prosperitySections[index], 'break': check == 33}">
                 <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1" (click)="setProsperity(index+1)">
                   {{prosperitySteps.indexOf(index) + 2}}
                 </div>
                 <div class="checkbox" (click)="setProsperity(index+1)"
-                  [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : (!gh2eSheet || prosperitySteps.indexOf(index) == -1) && prosperityHighlightSteps.indexOf(index) != -1}">
+                  [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : prosperitySteps.indexOf(index) == -1 && prosperityHighlightSteps.indexOf(index) != -1}">
                   <span class="section" *ngIf="prosperitySections[index]"
                     [ghs-label]="'%game.section:' + prosperitySections[index] + '%'"></span>
                 </div>
@@ -534,7 +596,7 @@
         </div>
       </div>
 
-      <span class="toggle-fh-sheet ignore-denied" *ngIf="!campaign" (click)="fhSheet = !fhSheet; update(false)">
+      <span class="toggle-fh-sheet ignore-denied" *ngIf="!campaign" (click)="toggleFhSheet()">
         <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable')"></span>
       </span>
 
@@ -732,7 +794,7 @@
                 {{prosperitySteps.indexOf(index) + 2}}
               </div>
               <div class="checkbox" (click)="setProsperity(index+1)"
-                [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : (!gh2eSheet || prosperitySteps.indexOf(index) == -1) && prosperityHighlightSteps.indexOf(index) != -1}">
+                [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : prosperityHighlightSteps.indexOf(index) != -1}">
                 <span class="section" *ngIf="prosperitySections[index]"
                   [ghs-label]="'%game.section:' + prosperitySections[index] + '%'"></span>
               </div>

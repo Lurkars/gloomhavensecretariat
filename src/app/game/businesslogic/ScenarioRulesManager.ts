@@ -323,6 +323,39 @@ export class ScenarioRulesManager {
     }
   }
 
+  addActiveFigureRule(figure: Figure, after: boolean = false) {
+    const scenario = this.game.scenario;
+    if (scenario && scenario.rules) {
+      scenario.rules.filter((rule) => {
+        if (rule.figures) {
+          const figureRule = rule.figures.find((figureRule) => figureRule.type == (after ? 'afterTurn' : 'onTurn'));
+          return figureRule != undefined && this.figuresByFigureRule(figureRule, rule).some((ruleFigure) => ruleFigure.edition == figure.edition && ruleFigure.name == figure.name);
+        }
+        return false;
+      }).forEach((rule) => {
+        this.addScenarioRule(scenario, rule, scenario.rules.indexOf(rule), false);
+      });
+    }
+
+    if (this.game.sections) {
+      this.game.sections.forEach((section) => {
+        if (section.rules) {
+          section.rules.filter((rule) => {
+            if (rule.figures) {
+              const figureRule = rule.figures.find((figureRule) => figureRule.type == (after ? 'afterTurn' : 'onTurn'));
+              return figureRule != undefined && this.figuresByFigureRule(figureRule, rule).some((ruleFigure) => ruleFigure.edition == figure.edition && ruleFigure.name == figure.name);
+            }
+            return false;
+          }).forEach((rule) => {
+            this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
+          });
+        }
+      })
+    }
+
+    this.filterDisabledScenarioRules();
+  }
+
   getScenarioForRule(rule: ScenarioRuleIdentifier): { scenario: ScenarioData | undefined, section: boolean } {
     if (rule.section) {
       const sectionData = this.game.sections.find((section) => section.edition == rule.edition && section.group == rule.group && section.index == rule.scenario && section.rules && section.rules.length > rule.index);

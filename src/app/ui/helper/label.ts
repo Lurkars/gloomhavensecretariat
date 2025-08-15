@@ -221,6 +221,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "section" && value) {
         image = '<img src="./assets/images/fh/party/section.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-section">' + image + value + '</span>';
+      } else if (type == "gh2eFaction" && value) {
+        image = '<img src="./assets/images/gh2e/faction/' + value + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-faction">' + image + '</span>';
       } else if (type == "checkmark") {
         replace = '<span class="placeholder-checkmark"><img src="./assets/images/check.svg" class="icon ghs-svg"></span>';
       } else if (type == "itemSlot" && value) {

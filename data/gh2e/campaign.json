@@ -4,6 +4,16 @@
         "merchant-guild",
         "military"
     ],
+    "imbuementSections": {
+        "10": "133.2",
+        "20": "34.3",
+        "30": "102.2",
+        "40": "50.4",
+        "50": "2.5",
+        "60": "119.3",
+        "70": "136.6",
+        "80": "128.5"
+    },
     "prosperitySections": {
         "11": "48.2",
         "21": "54.2",
@@ -14,61 +24,51 @@
         {
             "faction": "demons",
             "value": 9,
-            "section": "78.3",
-            "requires": []
+            "section": "78.3"
         },
         {
             "faction": "demons",
             "value": 16,
-            "section": "73.3",
-            "requires": []
+            "section": "73.3"
         },
         {
             "faction": "demons",
             "value": 20,
-            "section": "77.2",
-            "requires": []
+            "section": "77.2"
         },
         {
             "faction": "merchant-guild",
             "value": 9,
-            "section": "77.3",
-            "requires": []
+            "section": "77.3"
         },
         {
             "faction": "merchant-guild",
             "value": 16,
-            "section": "10.2",
-            "requires": []
+            "section": "10.2"
         },
         {
             "faction": "merchant-guild",
             "value": 20,
-            "section": "20.1",
-            "requires": []
+            "section": "20.1"
         },
         {
             "faction": "military",
             "value": 9,
-            "section": "83.3",
-            "requires": []
+            "section": "83.3"
         },
         {
             "faction": "military",
             "value": 16,
-            "section": "53.1",
-            "requires": []
+            "section": "53.1"
         },
         {
             "faction": "military",
             "value": 20,
-            "section": "31.5",
-            "requires": []
+            "section": "31.5"
         },
         {
             "faction": "demons",
             "value": 6,
-            "min": true,
             "section": "29.1",
             "requires": [
                 "11"
@@ -86,7 +86,6 @@
         {
             "faction": "merchant-guild",
             "value": 6,
-            "min": true,
             "section": "49.1",
             "requires": [
                 "8"
@@ -104,7 +103,6 @@
         {
             "faction": "military",
             "value": 6,
-            "min": true,
             "section": "46.3",
             "requires": [
                 "10"
@@ -118,6 +116,11 @@
                 "17",
                 "18"
             ]
+        },
+        {
+            "faction": "special",
+            "value": 13,
+            "section": "city-event:57"
         }
     ]
 }

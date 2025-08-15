@@ -320,6 +320,8 @@ export class RoundManager {
 
     figure.active = true;
 
+    gameManager.scenarioRulesManager.addActiveFigureRule(figure);
+
     if (figure instanceof Monster && !figure.entities.find((entity) => entity.active)) {
       figure.entities.forEach((monsterEntity) => {
         if (!figure.off && monsterEntity.summon != SummonState.new && gameManager.entityManager.isAlive(monsterEntity)) {
@@ -457,6 +459,9 @@ export class RoundManager {
 
   afterTurn(figure: Figure) {
     if (!figure.off) {
+
+      gameManager.scenarioRulesManager.addActiveFigureRule(figure, true);
+
       if (figure instanceof Monster) {
         figure.entities.forEach((monsterEntity) => {
           monsterEntity.active = false;

@@ -518,6 +518,12 @@ export class ScenarioManager {
         e.scenarioApply = false;
       })
     }
+
+    if (settingsManager.settings.removeUnusedMonster) {
+      this.game.figures.filter((figure) => figure instanceof Monster && figure.off && figure.entities.length == 0 && figure.tags.indexOf('addedManually') == -1).forEach((figure) => {
+        gameManager.monsterManager.removeMonster(figure as Monster);
+      })
+    }
   }
 
   openRoom(roomData: RoomData, scenarioData: ScenarioData, section: boolean) {

@@ -47,6 +47,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   prosperitySteps = GH_PROSPERITY_STEPS;
   prosperityHighlightSteps = GH_PROSPERITY_STEPS;
   prosperitySections: Record<number, string> = {};
+  imbuementSections: Record<number, string> = {};
 
   factions: string[] = [];
   reputationSections: ReputationSections[] = [];
@@ -368,6 +369,14 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
+  additionalReputation(reputationSection: ReputationSections): boolean {
+    if (reputationSection.faction == 'special' && (!reputationSection.requires || reputationSection.requires.length == 0)) {
+      return Object.keys(this.party.factionReputation).some((faction) => (this.party.factionReputation[faction] || 0) > reputationSection.value);
+    }
+
+    return (this.party.factionReputation[reputationSection.faction] || 0) >= reputationSection.value && reputationSection.requires != undefined && reputationSection.requires.every((s) => this.party.scenarios.find((scenarioData) => scenarioData.edition == gameManager.currentEdition() && scenarioData.index == s && !scenarioData.group) != undefined);
+  }
+
   characterPerks(characterModel: GameCharacterModel): number {
     if (characterModel.progress && characterModel.progress.perks && characterModel.progress.perks.length > 0) {
       return characterModel.progress.perks.reduce((a, b) => a + b);
@@ -516,6 +525,20 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     gameManager.stateManager.after();
   }
 
+  setImbuement(value: number) {
+    if (this.party.imbuement == value) {
+      value--;
+    }
+
+    if (value < 0) {
+      value = 0;
+    }
+
+    gameManager.stateManager.before("setPartyImbuement", "" + value);
+    this.party.imbuement = value;
+    gameManager.stateManager.after();
+  }
+
   exportParty() {
     const downloadButton = document.createElement('a');
     downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.party)));
@@ -651,6 +674,15 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     this.update();
   }
 
+  toggleFhSheet() {
+    this.fhSheet = !this.fhSheet;
+    if (this.fhSheet) {
+      this.csSheet = false;
+      this.gh2eSheet = false;
+    }
+    this.update(!this.fhSheet && !gameManager.fhRules());
+  }
+
   update(updateSheet: boolean = true): void {
     if (updateSheet) {
       this.fhSheet = gameManager.fhRules();
@@ -771,6 +803,10 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
 
     if (campaign && campaign.prosperitySections) {
       this.prosperitySections = campaign.prosperitySections;
+    }
+
+    if (campaign && campaign.imbuementSections) {
+      this.imbuementSections = campaign.imbuementSections;
     }
 
     this.partyAchievements = [];

@@ -728,6 +728,9 @@ export class GameManager {
       if (this.game.party.donations > 40) {
         ticks += Math.floor((this.game.party.donations - 40) / 10);
       }
+    } else if (this.gh2eRules()) {
+      ticks += Math.floor(Math.min(this.game.party.donations, 100) / 5);
+      ticks += Math.floor(Math.min(this.game.party.imbuement + 5, 80) / 10);
     }
 
     return ticks;

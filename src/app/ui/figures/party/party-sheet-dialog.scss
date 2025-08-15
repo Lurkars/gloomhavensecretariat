@@ -1404,10 +1404,10 @@
               align-items: center;
               font-family: var(--ghs-font-text);
               font-size: 0.65em;
-              margin-top: calc(var(--ghs-unit) * -0.7 * var(--ghs-dialog-factor));
+              margin-top: calc(var(--ghs-unit) * -0.8 * var(--ghs-dialog-factor));
 
               img {
-                height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
                 margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
               }
             }
@@ -1556,10 +1556,73 @@
 
         .additional-factions {
           position: absolute;
-          top: calc(var(--ghs-unit) * 11 * var(--ghs-dialog-factor));
+          display: flex;
+          flex-direction: column;
+          top: calc(var(--ghs-unit) * 12.2 * var(--ghs-dialog-factor));
           left: calc(var(--ghs-unit) * 56 * var(--ghs-dialog-factor));
-          width: calc(var(--ghs-unit) * 34 * var(--ghs-dialog-factor));
+          width: calc(var(--ghs-unit) * 35 * var(--ghs-dialog-factor));
           height: calc(var(--ghs-unit) * 48 * var(--ghs-dialog-factor));
+
+          .faction-reputation {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: calc(var(--ghs-unit) * 0.7 * var(--ghs-dialog-factor));
+
+            &:first-of-type {
+              margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+            }
+          }
+
+          label {
+            justify-content: center;
+            margin-bottom: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          }
+
+          .header {
+            position: relative;
+
+            img {
+              height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+              width: auto;
+            }
+
+            &::after {
+              content: " ";
+              position: absolute;
+              top: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor));
+              left: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+              width: calc(var(--ghs-unit) * 31 * var(--ghs-dialog-factor));
+              height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+              background-image: url('~src/assets/images/gh2e/party/reputation-separator.svg');
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+            }
+          }
+
+          .section {
+            display: flex;
+            align-items: center;
+            margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+            margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
+            margin-bottom: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            .checkbox {
+              pointer-events: none;
+              margin-right: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
+              min-width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+              min-height: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+            }
+
+            .text {
+              font-family: var(--ghs-font-fh-normal);
+              font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+              line-height: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+            }
+          }
         }
 
         .notes {
@@ -1571,19 +1634,148 @@
           margin-top: 0;
         }
 
+
+        .imbuement,
+        .donations {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          top: calc(var(--ghs-unit) * 12.2 * var(--ghs-dialog-factor));
+          left: calc(var(--ghs-unit) * 93 * var(--ghs-dialog-factor));
+          width: calc(var(--ghs-unit) * 26.5 * var(--ghs-dialog-factor));
+          height: calc(var(--ghs-unit) * 33 * var(--ghs-dialog-factor));
+
+          label {
+            justify-content: center;
+            margin-bottom: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          }
+
+          &.donations {
+            top: calc(var(--ghs-unit) * 50.8 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 42 * var(--ghs-dialog-factor));
+          }
+        }
+
+        .checklist-container {
+          margin-top: calc(var(--ghs-unit) * 1.7 * var(--ghs-dialog-factor));
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+
+          .checklist {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            .tick {
+              position: relative;
+              width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+              min-width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+              &:not(:first-child) {
+                margin-left: calc(var(--ghs-unit) * -0.2 * var(--ghs-dialog-factor));
+              }
+
+              .checkbox {
+                border: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
+                width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+                min-width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+                box-shadow: none;
+                z-index: 1;
+              }
+
+              &.section {
+                width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+                min-width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+                margin-left: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
+                margin-right: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
+
+                .checkbox {
+                  width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+                  min-width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+                  height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+                  &::before {
+                    top: 0;
+                    left: 0;
+                    transform: scale(0) translate(-37%, -10%);
+                  }
+
+                  &.checked::before,
+                  &:hover::before {
+                    transform: scale(1) translate(-37%, -10%);
+                  }
+
+                  .section {
+                    position: absolute;
+                    top: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
+                    left: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                    height: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    font-family: var(--ghs-font-fh-text);
+                    font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+
+                    &::before {
+                      content: " ";
+                      position: absolute;
+                      top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+                      left: calc(var(--ghs-unit) * -0.6 * var(--ghs-dialog-factor));
+                      width: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
+                      height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+                      background-size: 100% 100%;
+                      background-image: url('~src/assets/images/right.svg');
+                    }
+                  }
+                }
+
+                &.prosperity-tick {
+                  width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+                  min-width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+
+                  .checkbox {
+                    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+                    min-width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+
+                    .section {
+                      font-family: var(--ghs-font-fh-title);
+                      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                      margin-top: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
+                      width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+
+                      img {
+                        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                        width: auto;
+                      }
+
+                      &::before {
+                        margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
         .prosperity {
           position: absolute;
           top: calc(var(--ghs-unit) * 82 * var(--ghs-dialog-factor));
-          left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+          left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
           width: calc(var(--ghs-unit) * 90 * var(--ghs-dialog-factor));
 
           .legend {
-            font-family: var(--ghs-font-gh-title);
+            font-family: var(--ghs-font-fh-title);
             flex-direction: row;
             align-self: flex-start;
             font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
             align-items: center;
             width: auto;
+            margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
             img {
               width: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
@@ -1599,16 +1791,23 @@
           .checklist {
             .tick {
               position: relative;
+              margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
               margin-bottom: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
               width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+              min-width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
               &:not(:first-child) {
-                margin-left: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
+                margin-left: calc(var(--ghs-unit) * -0.2 * var(--ghs-dialog-factor));
+              }
+
+              &.break {
+                margin-left: 0;
               }
 
               .checkbox {
                 border: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
                 width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+                min-width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
                 height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
                 box-shadow: none;
                 z-index: 1;
@@ -1632,7 +1831,10 @@
 
               &.large {
                 width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                margin-right: calc(var(--ghs-unit) * 0.7 * var(--ghs-dialog-factor));
+                min-width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
+                margin-right: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                margin-left: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
 
                 .checkbox {
                   margin-bottom: calc(var(--ghs-unit) * -0.2 * var(--ghs-dialog-factor));
@@ -1643,9 +1845,11 @@
 
               &.section {
                 width: calc(var(--ghs-unit) * 8.5 * var(--ghs-dialog-factor));
+                min-width: calc(var(--ghs-unit) * 8.5 * var(--ghs-dialog-factor));
 
                 .checkbox {
                   width: calc(var(--ghs-unit) * 8.5 * var(--ghs-dialog-factor));
+                  min-width: calc(var(--ghs-unit) * 8.5 * var(--ghs-dialog-factor));
 
                   &::before {
                     top: 0;
