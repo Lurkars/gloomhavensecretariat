@@ -26,6 +26,7 @@ export enum ConditionName {
   shield = "shield",
   retaliate = "retaliate",
   safeguard = "safeguard",
+  plague = "plague",
   invalid = "invalid",
 }
 
@@ -52,7 +53,8 @@ export enum ConditionType {
   expiredIndicator = "expiredIndicator",
   hidden = "hidden",
   amDeck = "amDeck",
-  highlightOnly = "highlightOnly"
+  highlightOnly = "highlightOnly",
+  special = "special"
 }
 
 export type FigureCondition = { name: ConditionName, level: number | undefined };
@@ -99,7 +101,7 @@ export class Condition {
       this.types.push(ConditionType.character);
     }
 
-    if (this.types.indexOf(ConditionType.entity) != -1) {
+    if (this.types.indexOf(ConditionType.entity) != -1 || [ConditionName.plague].indexOf(this.name) != -1) {
       this.types.push(ConditionType.monster);
     }
 
@@ -108,11 +110,11 @@ export class Condition {
       this.types.push(ConditionType.value);
     }
 
-    if ([ConditionName.chill].indexOf(this.name) != -1) {
+    if ([ConditionName.chill, ConditionName.plague].indexOf(this.name) != -1) {
       this.types.push(ConditionType.stack);
     }
 
-    if ([ConditionName.chill, ConditionName.bless, ConditionName.curse, ConditionName.enfeeble, ConditionName.empower].indexOf(this.name) != -1) {
+    if ([ConditionName.chill, ConditionName.plague, ConditionName.bless, ConditionName.curse, ConditionName.enfeeble, ConditionName.empower].indexOf(this.name) != -1) {
       this.types.push(ConditionType.stackable);
     }
 
@@ -179,6 +181,9 @@ export class Condition {
       this.types.push(ConditionType.negative);
     }
 
+    if ([ConditionName.plague].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.special);
+    }
   }
 
 }

@@ -249,5 +249,8 @@
   "masteries": [
     "%data.custom.gh2e.squidface.6%",
     "%data.custom.gh2e.squidface.7%"
+  ],
+  "specialConditions": [
+    "plague"
   ]
 }

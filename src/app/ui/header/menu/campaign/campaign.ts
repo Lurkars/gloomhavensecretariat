@@ -57,7 +57,7 @@ export class CampaignMenuComponent implements OnInit {
             return 0;
         });
 
-        this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1);
+        this.conditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.hidden) == -1 && condition.types.indexOf(ConditionType.special) == -1);
         this.amConditions = Object.values(ConditionName).map((name) => new Condition(name)).filter((condition) => condition.types.indexOf(ConditionType.amDeck) != -1);
         this.editionConditions = gameManager.conditions(gameManager.game.edition, true).map((condition) => condition.name);
         this.worldMap = false;

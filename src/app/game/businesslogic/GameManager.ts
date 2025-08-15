@@ -300,23 +300,35 @@ export class GameManager {
   }
 
   conditions(edition: string | undefined = undefined, forceEdition: boolean = false): Condition[] {
-    if (!edition) {
-      return Conditions;
-    }
 
-    let conditions = this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).indexOf(editionData.edition) != -1) && editionData.conditions && editionData.conditions.length > 0).flatMap((other) => other.conditions);
+    let conditions: Condition[] = [];
+    let conditionNames: (ConditionName | string)[] = [];
 
-    if (!forceEdition && this.game.conditions) {
-      conditions.push(...this.game.conditions);
-    }
+    if (edition) {
+      conditionNames = this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).indexOf(editionData.edition) != -1) && editionData.conditions && editionData.conditions.length > 0).flatMap((other) => other.conditions);
 
-    return conditions.filter((value, index, self) => self.indexOf(value) == index).map((value) => {
-      if (value.split(':').length > 1) {
-        return new Condition(value.split(':')[0], + value.split(':')[1]);
-      } else {
-        return new Condition(value);
+      if (!forceEdition && this.game.conditions) {
+        conditionNames.push(...this.game.conditions);
       }
-    });
+
+      conditions.push(...conditionNames.map((value) => {
+        if (value.split(':').length > 1) {
+          return new Condition(value.split(':')[0], + value.split(':')[1]);
+        } else {
+          return new Condition(value);
+        }
+      }));
+    } else {
+      conditions = Conditions;
+    }
+
+    conditions = conditions.filter((condition) => condition.types.indexOf(ConditionType.special) == -1);
+
+    if (!forceEdition) {
+      this.game.figures.filter((figure) => figure instanceof Character && figure.specialConditions && figure.specialConditions.length && !figure.absent && gameManager.gameplayFigure(figure)).forEach((figure) => (figure as Character).specialConditions.forEach((name) => conditions.push(new Condition(name))));
+    }
+
+    return conditions.filter((c, i, s) => s.indexOf(c) == i);
   }
 
   figureConditions(figure: Figure, entity: Entity | undefined = undefined): ConditionName[] {
