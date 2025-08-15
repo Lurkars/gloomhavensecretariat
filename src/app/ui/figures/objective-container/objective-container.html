@@ -97,7 +97,9 @@
               </span>
             </div>
             <div class="conditions">
-              <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;">
+              <span class="condition" *ngFor="let entityCondition of activeConditions; let index = index;"
+                ghs-pointer-input (doubleClick)="removeCondition(entityCondition)"
+                [ngClass]="{'fh': settingsManager.settings.fhStyle}">
                 <img
                   [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
                   [style.z-index]="index * 10 + entityCondition.value" />

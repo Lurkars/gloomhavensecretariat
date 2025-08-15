@@ -46,7 +46,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           image += '<span class="value">' + value + '</span>';
         }
         image += '</span>';
-        replace = '<span class="placeholder-condition">' + (fh ? '&#8203;' : settingsManager.getLabel('game.condition.' + condition.name, [value ? value : ''])) + image + '</span>';
+        replace = '<span class="placeholder-condition' + (fh ? ' fh' : '') + '">' + (fh ? '&#8203;' : settingsManager.getLabel('game.condition.' + condition.name, [value ? value : ''])) + image + '</span>';
       } else if (type == "conditionIcon" || type == "immunityIcon") {
         let condition = new Condition(split[2]);
         image = '<span class="condition-icon' + (type == "immunityIcon" ? ' immunity' : '') + '">';
