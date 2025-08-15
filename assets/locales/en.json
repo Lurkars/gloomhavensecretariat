@@ -1327,6 +1327,10 @@
     "toggleAlly": {
       "off": "Switch back to <span class=\"monster-ally-off\">Enemy</span>",
       "on": "Switch to <span class=\"monster-ally-on\">Ally</span>"
+    },
+    "toggleDormant": {
+      "off": "Switch back to active entities",
+      "on": "Switch to dormant entities"
     }
   },
   "number": {
@@ -1511,6 +1515,8 @@
     "campaignMode": "Campaign Mode",
     "change": "Change party",
     "export": "Export",
+    "greatOak": "Great Oak Sanctuary",
+    "imbuement": "Imbuement",
     "import": "Import",
     "inspiration": "Inspiration",
     "location": "Location",
@@ -1530,7 +1536,19 @@
       }
     },
     "remove": "Remove party",
-    "reputation": "Reputation",
+    "reputation": {
+      "": "Reputation",
+      "additional": {
+        "": "Additional Reputation Unlocks",
+        "sectionRequires": {
+          "": "Read %game.section:{0}% when you have at least {1} %game.gh2eFaction:{2}% reputation and have completed Scenario {3}.",
+          "multiple": "Read %game.section:{0}% when you have {1} %game.gh2eFaction:{2}% reputation and have completed Scenarios {3}."
+        },
+        "special": {
+          "city-event": "Add C-{0} to the city event deck once you have at least {1} reputation with one faction."
+        }
+      }
+    },
     "sheet": "Party Sheet",
     "shop": {
       "": "Shop Price Modifier",
