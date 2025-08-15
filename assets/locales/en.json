@@ -736,6 +736,10 @@
         "": "Permanent",
         "hint": "Permanent condition"
       },
+      "plague": {
+        "": "Plague Token",
+        "hint": "No condition, but helper to track %game.conditionIcon.plague% Plague Tokens"
+      },
       "poison": {
         "": "Poison",
         "hint": "%game.conditionIcon.poison% Poison: All attackers gain +1 %game.action.attack%. Prevents healing. Remove when healed."
