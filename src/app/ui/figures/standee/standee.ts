@@ -151,7 +151,11 @@ export class StandeeComponent implements OnInit, OnDestroy {
 
   removeCondition(entityCondition: EntityCondition) {
     gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "removeCondition"), entityCondition.name, this.entity instanceof MonsterEntity ? 'monster.' + this.entity.type + ' ' : '');
-    gameManager.entityManager.removeCondition(this.entity, this.figure, entityCondition, entityCondition.permanent);
+    if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
+      entityCondition.value--;
+    } else {
+      gameManager.entityManager.removeCondition(this.entity, this.figure, entityCondition, entityCondition.permanent);
+    }
     gameManager.stateManager.after();
   }
 

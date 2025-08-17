@@ -36,6 +36,7 @@ export enum ConditionType {
   entity = "entity",
   character = "character",
   monster = "monster",
+  objective = "objective",
   upgrade = "upgrade",
   stack = "stack",
   stackable = "stackable",
@@ -49,6 +50,7 @@ export enum ConditionType {
   autoApply = "autoApply",
   positive = "positive",
   negative = "negative",
+  neutral = "neutral",
   double = "double",
   expiredIndicator = "expiredIndicator",
   hidden = "hidden",
@@ -177,12 +179,14 @@ export class Condition {
       this.types.push(ConditionType.hidden);
     }
 
-    if (this.types.indexOf(ConditionType.positive) == -1) {
-      this.types.push(ConditionType.negative);
+    if ([ConditionName.plague].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.neutral);
+      this.types.push(ConditionType.objective);
+      this.types.push(ConditionType.special);
     }
 
-    if ([ConditionName.plague].indexOf(this.name) != -1) {
-      this.types.push(ConditionType.special);
+    if (this.types.indexOf(ConditionType.positive) == -1 && this.types.indexOf(ConditionType.neutral) == -1) {
+      this.types.push(ConditionType.negative);
     }
   }
 

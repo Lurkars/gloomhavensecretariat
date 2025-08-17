@@ -27,21 +27,23 @@
       <div class="separator" *ngIf="conditionSeparator.indexOf(i) != -1"></div>
     </ng-container>
 
-    <div class="separator"></div>
+    <ng-container *ngIf="conditions.length">
+      <div class="separator"></div>
 
-    <a class="item">
-      <span class="condition toggle" [ngClass]="{'active': permanentEnabled}" tabclick
-        (click)="togglePermanentEnabled()" [ghs-tooltip]="'game.condition.permanent.hint'" [originX]="'center'"
-        [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
-        <img src="./assets/images/condition/permanent.svg" />
-      </span>
-    </a>
-    <a class="item">
-      <span class="condition toggle" [ngClass]="{'active': immunityEnabled}" tabclick (click)="toggleImmunityEnabled()"
-        [ghs-tooltip]="'game.condition.immune.hint'" [originX]="'center'" [overlayX]="'center'" [originY]="'top'"
-        [overlayY]="'bottom'">
-        <img
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh/condition/immune.svg' : '/condition/immunity.svg')" /></span>
-    </a>
+      <a class="item">
+        <span class="condition toggle" [ngClass]="{'active': permanentEnabled}" tabclick
+          (click)="togglePermanentEnabled()" [ghs-tooltip]="'game.condition.permanent.hint'" [originX]="'center'"
+          [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
+          <img src="./assets/images/condition/permanent.svg" />
+        </span>
+      </a>
+      <a class="item">
+        <span class="condition toggle" [ngClass]="{'active': immunityEnabled}" tabclick
+          (click)="toggleImmunityEnabled()" [ghs-tooltip]="'game.condition.immune.hint'" [originX]="'center'"
+          [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'">
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh/condition/immune.svg' : '/condition/immunity.svg')" /></span>
+      </a>
+    </ng-container>
   </div>
 </div>

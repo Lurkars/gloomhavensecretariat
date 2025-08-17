@@ -485,7 +485,7 @@
     </div>
 
     <ng-container
-      *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isObjectiveEntity(data.entity) || gameManager.isObjectiveContainer(data.figure) && gameManager.toObjectiveContainer(data.figure).escort) && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
+      *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isMonster(data.figure) || !gameManager.toMonster(data.figure).immortal)">
       <ghs-conditions [entityConditions]="entityConditions" [immunities]="entityImmunities" [entity]="data.entity"
         [figure]="data.figure" [type]="conditionType" [empower]="hasCondition(ConditionName.empower)"
         [enfeeble]="hasCondition(ConditionName.enfeeble)"></ghs-conditions>

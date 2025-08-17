@@ -113,12 +113,32 @@ export class ConditionsComponent implements OnInit, OnDestroy {
   initializeConditions() {
     this.conditions = [];
     this.conditionSeparator = [];
-    this.conditions.push(...gameManager.conditionsForTypes('standard', 'negative', this.type));
-    this.conditions.push(...gameManager.conditionsForTypes('upgrade', 'negative', this.type));
-    this.conditions.push(...gameManager.conditionsForTypes('stack', 'negative', this.type));
-    this.conditionSeparator.push(this.conditions.length - 1);
-    this.conditions.push(...gameManager.conditionsForTypes('standard', 'positive', this.type));
-    this.conditions.push(...gameManager.conditionsForTypes('upgrade', 'positive', this.type));
+    let negativeConditions: Condition[] = [];
+    negativeConditions.push(...gameManager.conditionsForTypes('standard', 'negative', this.type));
+    negativeConditions.push(...gameManager.conditionsForTypes('upgrade', 'negative', this.type));
+    negativeConditions.push(...gameManager.conditionsForTypes('stack', 'negative', this.type));
+    if (negativeConditions.length) {
+      this.conditions.push(...negativeConditions);
+    }
+    let positiveConditions: Condition[] = [];
+    positiveConditions.push(...gameManager.conditionsForTypes('standard', 'positive', this.type));
+    positiveConditions.push(...gameManager.conditionsForTypes('upgrade', 'positive', this.type));
+    positiveConditions.push(...gameManager.conditionsForTypes('stack', 'positive', this.type));
+
+    if (positiveConditions.length) {
+      this.conditionSeparator.push(this.conditions.length - 1);
+      this.conditions.push(...positiveConditions);
+    }
+
+    let neutralConditions: Condition[] = [];
+    neutralConditions.push(...gameManager.conditionsForTypes('standard', 'neutral', this.type));
+    neutralConditions.push(...gameManager.conditionsForTypes('upgrade', 'neutral', this.type));
+    neutralConditions.push(...gameManager.conditionsForTypes('stack', 'neutral', this.type));
+
+    if (neutralConditions.length) {
+      this.conditionSeparator.push(this.conditions.length - 1);
+      this.conditions.push(...neutralConditions);
+    }
 
     if (this.immunityEnabled) {
       this.conditionSeparator.push(this.conditions.length - 1);
@@ -131,7 +151,6 @@ export class ConditionsComponent implements OnInit, OnDestroy {
         this.conditions.push(new Condition(ConditionName.empower));
       }
     }
-
   }
 
   hasCondition(condition: Condition, permanent: boolean = false, immunity: boolean = false): boolean {
@@ -171,6 +190,10 @@ export class ConditionsComponent implements OnInit, OnDestroy {
   }
 
   inc(condition: Condition) {
+    if (condition.name == ConditionName.plague && condition.value == 3) {
+      return;
+    }
+
     condition.value = this.getValue(condition) + 1;
     this.checkUpdate(condition);
 

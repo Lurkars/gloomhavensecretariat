@@ -228,7 +228,11 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
   removeCondition(entityCondition: EntityCondition) {
     if (this.entity) {
       gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.objective, "removeCondition"), entityCondition.name);
-      gameManager.entityManager.removeCondition(this.entity, this.objective, entityCondition, entityCondition.permanent);
+      if (entityCondition.types.indexOf(ConditionType.stackable) && entityCondition.value > 1) {
+        entityCondition.value--;
+      } else {
+        gameManager.entityManager.removeCondition(this.entity, this.objective, entityCondition, entityCondition.permanent);
+      }
       gameManager.stateManager.after();
     }
   }

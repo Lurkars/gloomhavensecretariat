@@ -40,7 +40,7 @@ export class EntityMenuDialogComponent {
   @ViewChild('objectiveTitle', { static: false }) objectiveTitleInput!: ElementRef;
   @ViewChild('summonTitle', { static: false }) summonTitleInput!: ElementRef;
 
-  conditionType: 'character' | 'monster' | '' = '';
+  conditionType: 'character' | 'monster' | 'objective' | '' = '';
 
   levelDialog: boolean = false;
 
@@ -115,8 +115,8 @@ export class EntityMenuDialogComponent {
           }
         }
       }
-    } else if (data.figure instanceof ObjectiveContainer && data.figure.escort) {
-      this.conditionType = 'character';
+    } else if (data.figure instanceof ObjectiveContainer) {
+      this.conditionType = data.figure.escort ? 'character' : 'objective';
     } else if (data.entity instanceof MonsterEntity) {
       this.conditionType = 'monster';
     } else if (data.entity instanceof Summon) {
