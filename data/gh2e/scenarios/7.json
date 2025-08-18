@@ -24,11 +24,8 @@
         },
         {
           "name": "bandit-archer",
+          "player2": "normal",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
           "player4": "elite"
         },
         {
@@ -52,6 +49,7 @@
         },
         {
           "name": "bandit-scout",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

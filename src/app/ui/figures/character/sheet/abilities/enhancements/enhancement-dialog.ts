@@ -81,9 +81,9 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
                 }
             }
 
-            this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && (!gameManager.enhancementsManager.fh || this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom'))).length || 0;
+            this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom')).length || 0;
 
-            this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((e) => e.cardId).filter((cardId, index, self) => index == self.indexOf(cardId)).length;
+            this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((e) => e.cardId).filter((cardId, index, self) => (!this.data.cardId || this.data.cardId != cardId) && index == self.indexOf(cardId)).length;
 
             if ([ActionType.custom, ActionType.specialTarget].indexOf(this.data.action.type) != -1 && this.data.action.enhancementTypes && !this.wipSpecial) {
                 this.customSpecial = true;
@@ -111,9 +111,9 @@ export class EnhancementDialogComponent implements OnInit, OnDestroy {
         this.uiChangeSubscription = gameManager.uiChange.subscribe({
             next: () => {
                 if (this.data.character && this.data.cardId) {
-                    this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && (!gameManager.enhancementsManager.fh || this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom'))).length || 0;
+                    this.enhancements = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((enhancement) => enhancement.cardId == this.data.cardId && this.data.actionIndex && enhancement.actionIndex.indexOf('bottom') == this.data.actionIndex.indexOf('bottom')).length || 0;
 
-                    this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((enhancement) => enhancement.cardId).filter((cardId, index, self) => index == self.indexOf(cardId)).length;
+                    this.enhancedCards = this.data.character.progress.enhancements && this.data.character.progress.enhancements.filter((e) => !e.inherited).map((enhancement) => enhancement.cardId).filter((cardId, index, self) => (!this.data.cardId || this.data.cardId != cardId) && index == self.indexOf(cardId)).length;
                 }
             }
         })

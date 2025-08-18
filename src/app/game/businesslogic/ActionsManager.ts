@@ -263,7 +263,7 @@ export class ActionsManager {
             case ActionType.element:
                 const values = this.getValues(action);
                 if (!action.valueType || action.valueType == ActionValueType.plus || action.valueType == ActionValueType.fixed) {
-                    return gameManager.game.elementBoard.some((element) => (action.value == Element.wild || values.indexOf(element.type) != -1) && (element.state == ElementState.inert || element.state == ElementState.waning || element.state == ElementState.consumed));
+                    return gameManager.game.elementBoard.some((element) => (action.value == Element.wild || values.indexOf(element.type) != -1) && (element.state == ElementState.inert || element.state == ElementState.waning || element.state == ElementState.consumed  || element.state == ElementState.partlyConsumed));
                 } else if (action.valueType == ActionValueType.minus) {
                     let elements = this.getElementsToConsume(action);
                     if (elements.length == values.length) {

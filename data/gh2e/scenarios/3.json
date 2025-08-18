@@ -46,6 +46,14 @@
           "player4": "elite"
         },
         {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
           "name": "living-spirit",
           "type": "elite"
         },

@@ -196,7 +196,7 @@
       ]
     },
     {
-      "type": "replace",
+      "type": "add",
       "count": 3,
       "cards": [
         {

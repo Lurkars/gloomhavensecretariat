@@ -758,6 +758,14 @@
         z-index: 0;
       }
     }
+
+    &.empty {
+      margin-bottom: 0;
+
+      .action-box {
+        display: none;
+      }
+    }
   }
 
   .action-box-fh-subactions-container {

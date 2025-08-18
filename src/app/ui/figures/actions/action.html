@@ -357,7 +357,7 @@
     </span>
   </span>
 
-  <span class="action-box-container" *ngSwitchCase="ActionType.box" [ngClass]="{'small' : action.small}">
+  <span class="action-box-container" *ngSwitchCase="ActionType.box" [ngClass]="{'small' : action.small, 'empty': subActions.length == 0}">
     <span *ngIf="action.value" class="action-box-label" [ghs-label]="'' + action.value"
       [relative]="relative || forceRelative" [style]="style"></span>
     <span class="action-box">

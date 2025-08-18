@@ -427,6 +427,82 @@
           }
         }
       },
+      "music-note": {
+        "abilities": {
+          "348": {
+            "1": "All allies add +1 %game.action.attack% to one of their attacks each turn."
+          },
+          "349": {
+            "1": "The next time any ally within %game.action.range:2% suffers damage this round, they suffer no damage instead."
+          },
+          "350": {
+            "1": "All allies add +1 %game.action.move% to all their Move actions, and add +1 %game.action.range% to all their ranged attacks."
+          },
+          "352": {
+            "1": "One ally within %game.action.range:3% may perform"
+          },
+          "354": {
+            "1": "Force all enemies in the targeted area to perform a \"%game.action.move:1%\" action with you controlling the actions."
+          },
+          "356": {
+            "1": "One ally within %game.action.range:3% may perform"
+          },
+          "357": {
+            "1": "All allies add %game.condition.wound% to all their attacks."
+          },
+          "358": {
+            "1": "The next five times you %game.condition.curse% an enemy, %game.condition.curse% them an additional time."
+          },
+          "360": {
+            "1": "All allies may perform a \"game.action.heal:1%, Self\" action at the beginning of each of their turns."
+          },
+          "362": {
+            "1": "All allies gain %game.action.retaliate:2%, %game.action.range:2%."
+          },
+          "364": {
+            "1": "All enemies gain Disadvantage on all their attacks."
+          },
+          "365": {
+            "1": "Any one ally may perform"
+          },
+          "366": {
+            "1": "You may have two %data.custom.gh.music-note.songs% active at once, but you only gain experience from one.",
+            "2": "If a third %data.custom.gh.music-note.song% is played, discard one of the others."
+          },
+          "367": {
+            "1": "All allies may perform a \"%game.action.move:1%\" action before any of their Attack actions."
+          },
+          "368": {
+            "1": "At the beginning of each of your turns, you may force one enemy within %game.action.range:5% to perform a \"%game.action.move:2%\" action with you controlling the action.",
+            "2": "Force one enemy within %game.action.range:5% to perform",
+            "3": "targeting another enemy with you controlling the action."
+          },
+          "370": {
+            "1": "At the beginning of each of your turns, %game.condition.curse% one enemy within %game.action.range:5%."
+          },
+          "371": {
+            "1": "All allies within %game.action.range:3% may perform"
+          },
+          "372": {
+            "1": "All allies may perform a \"%game.action.heal:2%, Self\" action at the beginning of each of their turns."
+          },
+          "373": {
+            "1": "One ally within %game.action.range:3% may perform",
+            "2": "Force all enemies in the<br>targeted area to perform a<br>\"%game.action.move:2%\" action with you<br>controlling the actions."
+          },
+          "374": {
+            "1": "All allies add +1 %game.action.attack% to all their attacks."
+          },
+          "375": {
+            "1": "Force all enemies moved through<br>to perform an \"%game.action.attack:3%\" action<br>targeting another enemy with you<br>controlling the actions.",
+            "2": "Two allies within %game.action.range:3% may perform"
+          }
+        },
+        "another": "When another %data.custom.gh.music-note.song%<br>is played, discard this card.",
+        "song": "%data.characterColored.music-note:Song% %game.characterIconColoredBg.music-note%",
+        "songs": "%data.characterColored.music-note:Songs% %game.characterIconColoredBg.music-note%",
+        "xp": "Gain %game.card.experience:1% at the beginining of each of your turns."
+      },
       "squidface": {
         "abilities": {
           "289": {
