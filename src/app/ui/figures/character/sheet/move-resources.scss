@@ -1,4 +1,6 @@
 .move-resources-dialog {
+    max-height: calc(95vh - var(--ghs-unit) * 2);
+    overflow: auto;
     padding: 0.5em;
 
     .ghs-svg {
@@ -27,7 +29,6 @@
             font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
             color: var(--ghs-color-white);
             min-width: calc(var(--ghs-unit) * 44 * var(--ghs-dialog-factor));
-
 
             img.icon {
                 height: calc(var(--ghs-unit) * 4.5 * var(--ghs-dialog-factor));
