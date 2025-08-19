@@ -137,7 +137,7 @@
                 },
                 {
                   "type": "card",
-                  "value": "persistent"
+                  "value": "round"
                 }
               ]
             }
@@ -344,7 +344,7 @@
                 },
                 {
                   "type": "card",
-                  "value": "persistent"
+                  "value": "round"
                 }
               ]
             }
@@ -379,7 +379,10 @@
             },
             {
               "type": "area",
-              "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)"
+              "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
             }
           ]
         }
@@ -408,7 +411,10 @@
             },
             {
               "type": "area",
-              "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)"
+              "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
             }
           ]
         }
@@ -444,7 +450,10 @@
             },
             {
               "type": "area",
-              "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)"
+              "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
             }
           ]
         }
@@ -655,7 +664,7 @@
                 },
                 {
                   "type": "card",
-                  "value": "persistent"
+                  "value": "round"
                 }
               ]
             }
@@ -859,7 +868,7 @@
                 },
                 {
                   "type": "card",
-                  "value": "persistent"
+                  "value": "round"
                 }
               ]
             }
@@ -1222,7 +1231,10 @@
             },
             {
               "type": "area",
-              "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)"
+              "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
             }
           ]
         }
@@ -1323,7 +1335,10 @@
             },
             {
               "type": "area",
-              "value": "(0,0,active)|(0,1,target)|(1,0,target)|(1,1,target)"
+              "value": "(0,0,enhance)|(0,1,target)|(1,0,target)|(1,1,target)",
+              "enhancementTypes": [
+                "hex"
+              ]
             }
           ]
         }

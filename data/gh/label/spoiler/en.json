@@ -442,7 +442,7 @@
             "1": "One ally within %game.action.range:3% may perform"
           },
           "354": {
-            "1": "Force all enemies in the targeted area to perform a \"%game.action.move:1%\" action with you controlling the actions."
+            "1": "Force all enemies in the<br>targeted area to perform a<br>\"%game.action.move:1%\" action with you<br>controlling the actions."
           },
           "356": {
             "1": "One ally within %game.action.range:3% may perform"
@@ -454,7 +454,7 @@
             "1": "The next five times you %game.condition.curse% an enemy, %game.condition.curse% them an additional time."
           },
           "360": {
-            "1": "All allies may perform a \"game.action.heal:1%, Self\" action at the beginning of each of their turns."
+            "1": "All allies may perform a \"%game.action.heal:1%, Self\" action at the beginning of each of their turns."
           },
           "362": {
             "1": "All allies gain %game.action.retaliate:2%, %game.action.range:2%."
@@ -478,7 +478,7 @@
             "3": "targeting another enemy with you controlling the action."
           },
           "370": {
-            "1": "At the beginning of each of your turns, %game.condition.curse% one enemy within %game.action.range:5%."
+            "1": "At the beginning of each of your turns, %game.condition.curse% one enemy within %game.action.range:5%"
           },
           "371": {
             "1": "All allies within %game.action.range:3% may perform"
@@ -502,6 +502,89 @@
         "song": "%data.characterColored.music-note:Song% %game.characterIconColoredBg.music-note%",
         "songs": "%data.characterColored.music-note:Songs% %game.characterIconColoredBg.music-note%",
         "xp": "Gain %game.card.experience:1% at the beginining of each of your turns."
+      },
+      "saw": {
+        "abilities": {
+          "407": {
+            "1": "Give one adjacent ally one \"Medical Pack\" ability card."
+          },
+          "408": {
+            "1": "All your Heal actions this round affect you and all adjacent allies."
+          },
+          "409": {
+            "1": "All your melee aatack this round target all adjacent enemies."
+          },
+          "410": {
+            "1": "Place this card in one adjacent ally's active area and treat it as if they own the card."
+          },
+          "412": {
+            "1": "Remove all negative conditions on the healed figure.",
+            "2": "Remove all negative conditions on one adjacent ally."
+          },
+          "413": {
+            "1": "Place this card in one adjacent ally's active area, then put it into your discard pile at the end of the round."
+          },
+          "414": {
+            "1": "Give one adjacent ally one \"Large Medical Pack\" ability card.",
+            "2": "You and all allies are immune to all negative conditions this round."
+          },
+          "415": {
+            "1": "Once during each of your next four turns, perform a \"%game.action.heal:2%, %game.action.range:1%\" action."
+          },
+          "416": {
+            "1": "At the start of each of your turns, removed one negative condition from any one of your allies."
+          },
+          "417": {
+            "1": "This card cannot be lost to avoid suffering damage. When this card is discarded for any reason, return it to the Sawbones' supply."
+          },
+          "429": {
+            "1": "You and all adjacent allies may Recover %game.card.recover% up to a number of discarded cards equal to the number of allies adjacent to you.",
+            "2": "All adjacent allies may perform a \"%game.action.move:2%\" action."
+          },
+          "430": {
+            "1": "You are immune to all negative conditions."
+          },
+          "432": {
+            "1": "Give one adjacent ally one \"Medical Pack\" ability card."
+          },
+          "433": {
+            "1": "At the start of each of your turns, perform a \"%game.action.heal:1%, Self\" action."
+          },
+          "436": {
+            "1": "Kill one adjacent normal or elite enemy.",
+            "2": "%game.condition.disarm% and %game.condition.immobilize%"
+          },
+          "437": {
+            "1": "Remove all negative conditions on all adjacent allies.",
+            "2": "You are immune to all negative conditions."
+          },
+          "439": {
+            "1": "Kill one adjacent normal enemy with at least two negative condition tokens."
+          },
+          "440": {
+            "1": "Give all adjacent allies one \"Medical Pack\" ability card.",
+            "2": "Give all adjacent allies one \"Large Medical Pack\" ability card."
+          },
+          "441": {
+            "1": "Before your next six Heal actions, remove all negative conditions on the healed figure(s).",
+            "2": "Add +4 %game.action.heal% to all your Heal actions this round."
+          },
+          "442": {
+            "1": "Give one adjacent ally one \"Medical Pack\" ability card."
+          },
+          "443": {
+            "1": "Remove all negative conditions on the healed figure and give them one \"Large Medical Pack\" ability card.",
+            "2": "One adjacent ally may Recover %game.card.recover% up to two of their discarded cards."
+          },
+          "445": {
+            "1": "All your %game.action.attack% and %game.action.move% abilities may be performed as %game.action.heal% abilities of an equal value plus one.",
+            "2": "In such cases, ignore all conditions applied by the %game.action.attack% abilities."
+          },
+          "446": {
+            "1": "Kill all normal or elite<br>enemies in the targeted<br>area suffering from 10<br>or more damage.",
+            "2": "%game.condition.poison%, %game.condition.wound% and %game.condition.muddle%"
+          }
+        }
       },
       "squidface": {
         "abilities": {

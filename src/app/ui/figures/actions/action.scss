@@ -112,8 +112,8 @@
   }
 
   .small {
-    font-size: 82%;
-    line-height: 82%;
+    font-size: 76%;
+    line-height: 76%;
 
     .type,
     .value,
@@ -709,7 +709,7 @@
       width: 1em;
 
       &.small {
-        width: 0.5em;
+        width: 0.4em;
       }
     }
   }
@@ -765,6 +765,10 @@
       .action-box {
         display: none;
       }
+    }
+
+    &.first {
+      margin-top: -0.8em;
     }
   }
 
@@ -1082,8 +1086,8 @@
       line-height: 125%;
 
       &.small {
-        font-size: 90%;
-        line-height: 90%;
+        font-size: 82%;
+        line-height: 82%;
 
         .icon {
           height: 0.8em;
