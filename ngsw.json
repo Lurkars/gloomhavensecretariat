@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1755542485422,
+  "timestamp": 1755629578557,
   "appData": {
-    "version": "0.126.8"
+    "version": "0.126.9"
   },
   "index": "gloomhavensecretariat/index.html",
   "assetGroups": [
@@ -48,7 +48,7 @@
         "gloomhavensecretariat/common.b75b8cd8b6f01906.js",
         "gloomhavensecretariat/favicon.ico",
         "gloomhavensecretariat/index.html",
-        "gloomhavensecretariat/main.98014cb716d0788d.js",
+        "gloomhavensecretariat/main.eeb13cae8354443d.js",
         "gloomhavensecretariat/manifest.webmanifest",
         "gloomhavensecretariat/polyfills.72e47915d66af816.js",
         "gloomhavensecretariat/runtime.f06bd0019d949f34.js",
@@ -1945,8 +1945,8 @@
     "gloomhavensecretariat/assets/data/fh.json": "d34ed8face2f0370eb69da89a4cabe78b54fa3bd",
     "gloomhavensecretariat/assets/data/gh-envx.json": "3de114e8f33d3d49748d5fcde357d6b8ae6c181a",
     "gloomhavensecretariat/assets/data/gh-solo-items.json": "99247f283fa748762ca0393cb6cbdafd3c820887",
-    "gloomhavensecretariat/assets/data/gh.json": "318ea414bd31f05ee77fe17a03c72c24f765b30f",
-    "gloomhavensecretariat/assets/data/gh2e.json": "e0f24ca2d8c68b288fa6a6e78495ecee358ca27e",
+    "gloomhavensecretariat/assets/data/gh.json": "b5f24bdd10583b6186411ea3ef8fa8180d64004c",
+    "gloomhavensecretariat/assets/data/gh2e.json": "c4308a5a0abe002318e8daa13e54ccc0ee56bd9a",
     "gloomhavensecretariat/assets/data/ir.json": "0a966e817f9a422f12fb38637713fe3a479bacf9",
     "gloomhavensecretariat/assets/data/jotl.json": "3679933bc67531d9c700c4a2b49440094176c26f",
     "gloomhavensecretariat/assets/data/r100kc.json": "963d1efb53baa1eede7cc7c0e903f124a22f0642",
@@ -3551,7 +3551,7 @@
     "gloomhavensecretariat/assets/locales/de.json": "cb1bedaf8f8b17b0e8d439dec0bcfaa38f63e6c9",
     "gloomhavensecretariat/assets/locales/en.json": "055e163e7d9fd3fe10cea9c94c8bf8836d35d103",
     "gloomhavensecretariat/assets/locales/es.json": "e5191ef99f409131092bb17275072f8d34f3ac9a",
-    "gloomhavensecretariat/assets/locales/fr.json": "dcf6f46fc25143063535188441552877482b160a",
+    "gloomhavensecretariat/assets/locales/fr.json": "5e0bd7f8794aa8e0f6582de9ee008273d95dd49d",
     "gloomhavensecretariat/assets/locales/it.json": "2bb3663f8b488a7284fc9958dcce14e622171726",
     "gloomhavensecretariat/assets/locales/ko.json": "f13cfd331bd6186588f97510f7c071b87ded638a",
     "gloomhavensecretariat/assets/locales/pt.json": "5f36b2ea290645ee34d943220a14b54ee5ea5be5",
@@ -3645,7 +3645,7 @@
     "gloomhavensecretariat/icon.5a11343c46ebf913.png": "53e79fd7b007e043eefe1e474f511ff2654a8ae1",
     "gloomhavensecretariat/immune.3638b2264dfc0cf4.svg": "683fda2b898292506e4a8f0984c5057c0e877509",
     "gloomhavensecretariat/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretariat/index.html": "a71418b7fcc079eea8b04e2e3450566b6a36d0b7",
+    "gloomhavensecretariat/index.html": "3abd416918c3877df1a30c61f7d589b5ab8eaa4c",
     "gloomhavensecretariat/initiative.a7663b57012bb669.svg": "85c1e0fe11ba2111c2dc55370ff84796c86eb556",
     "gloomhavensecretariat/inner-mask.f2d18d4a7559b09e.svg": "a0c4d9bcd2afcc66f402053f2bf680546215d16b",
     "gloomhavensecretariat/item-back-fh.e293bb7bd25a2ea5.png": "6887a5deedb532c38ab40bde42a8b2c01121ca5f",
@@ -3667,7 +3667,7 @@
     "gloomhavensecretariat/layers.ef6db8722c2c3f9a.png": "c9e7528e491a39232ba24a2706c6c739d6fb0f06",
     "gloomhavensecretariat/level.38e1f58a07dc5898.svg": "004f02ea9f24d4ecbfef70b7d0c9cbd5e731827e",
     "gloomhavensecretariat/loot-back.b3962872f80142fe.png": "a10c9bcc106f820ba1ce8e9a9a9cc47fdbc734d1",
-    "gloomhavensecretariat/main.98014cb716d0788d.js": "a294b0d5c40d49c77cc7c0a200de241ac94631ab",
+    "gloomhavensecretariat/main.eeb13cae8354443d.js": "fc65423ae4df52435739f8d21ff00e21e7d9b72c",
     "gloomhavensecretariat/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretariat/majallab.3bc19f63b5b1d474.svg": "68458a0f79e0e45258f0948d48f2a65c125b4322",
     "gloomhavensecretariat/majallab.4ef31693f35ab4df.woff": "5f4a605494c5e4adbe49e3b23bfdcf1f7f8a92b6",
