@@ -31,7 +31,7 @@
             "1": "Gagnez %game.action.fly%"
           },
           "298": {
-            "1": "Durant cos six prochaines actions d'Attaque lors desquelles %game.element.air% est Fort ou Faible, vous pouvez %game.element.consume.air% pour ajouter +1 %game.action.attack% à la totalité de l'action d'Attaque."
+            "1": "Durant vos six prochaines actions d'Attaque lors desquelles %game.element.air% est Fort ou Faible, vous pouvez %game.element.consume.air% pour ajouter +1 %game.action.attack% à la totalité de l'action d'Attaque."
           },
           "299": {
             "1": "Toutes les attaques vous ciblant gagnent Désavantage ce round."
