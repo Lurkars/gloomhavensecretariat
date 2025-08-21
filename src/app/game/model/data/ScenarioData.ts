@@ -133,7 +133,7 @@ export class ScenarioRewards {
   chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
-  eventDeck: string = "";
+  eventDecks: string[] = [];
   removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: number = 0;
@@ -186,7 +186,7 @@ export class ScenarioRewardHints {
   chooseLocation: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
-  eventDeck: string = "";
+  eventDecks: string[] = [];
   removeEvents: string[] = [];
   itemBlueprints: string[] = [];
   randomItemBlueprint: string = "";

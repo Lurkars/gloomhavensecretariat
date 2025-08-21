@@ -8,7 +8,6 @@
       "B"
     ],
     "prosperity": 1,
-    "eventDeck": "boat:B-01|B-13",
     "overlayCampaignSticker": {
       "name": "boat",
       "location": "A",
@@ -24,7 +23,12 @@
       "globalAchievements": [
         "(read section 33 on page 12)"
       ],
-      "eventDeck": "%data.section.rewards.fh.139-2.2%"
-    }
+      "eventDecks": [
+        "%data.section.rewards.fh.139-2.2%"
+      ]
+    },
+    "eventDecks": [
+      "boat:B-01|B-13"
+    ]
   }
 }

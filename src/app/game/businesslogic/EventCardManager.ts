@@ -116,16 +116,18 @@ export class EventCardManager {
         })
       }
 
-      if (scenarioData.rewards.eventDeck) {
-        const type = scenarioData.rewards.eventDeck.split(':')[0];
-        const events = gameManager.eventCardManager.getEventCardsForEdition(scenarioData.edition, type);
-        const startEvent = events.find((e) => scenarioData.rewards && e.cardId == scenarioData.rewards.eventDeck.split(':')[1].split('|')[0]);
-        const endEvent = events.find((e) => scenarioData.rewards && e.cardId == scenarioData.rewards.eventDeck.split(':')[1].split('|')[1]);
-        if (startEvent && endEvent) {
-          gameManager.eventCardManager.buildEventDeck(type, events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId));
-        } else {
-          console.warn("Could not find start and end for: " + scenarioData.rewards.eventDeck);
-        }
+      if (scenarioData.rewards.eventDecks) {
+        scenarioData.rewards.eventDecks.forEach((eventDeck) => {
+          const type = eventDeck.split(':')[0];
+          const events = gameManager.eventCardManager.getEventCardsForEdition(scenarioData.edition, type);
+          const startEvent = events.find((e) => scenarioData.rewards && e.cardId == eventDeck.split(':')[1].split('|')[0]);
+          const endEvent = events.find((e) => scenarioData.rewards && e.cardId == eventDeck.split(':')[1].split('|')[1]);
+          if (startEvent && endEvent) {
+            gameManager.eventCardManager.buildEventDeck(type, events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId));
+          } else {
+            console.warn("Could not find start and end for: " + eventDeck);
+          }
+        })
       }
     }
   }

@@ -157,16 +157,18 @@ export class ScenarioManager {
             this.game.party.campaignStickers.push(...rewards.campaignSticker.map((sticker) => sticker.toLowerCase().replaceAll(' ', '-')));
           }
 
-          if (rewards.eventDeck) {
-            const type = rewards.eventDeck.split(':')[0];
-            const events = gameManager.eventCardManager.getEventCardsForEdition(scenario.edition, type);
-            const startEvent = events.find((e) => e.cardId == rewards.eventDeck.split(':')[1].split('|')[0]);
-            const endEvent = events.find((e) => e.cardId == rewards.eventDeck.split(':')[1].split('|')[1]);
-            if (startEvent && endEvent) {
-              gameManager.eventCardManager.buildEventDeck(type, events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId));
-            } else {
-              console.warn("Could not find start and end for: " + rewards.eventDeck);
-            }
+          if (rewards.eventDecks) {
+            rewards.eventDecks.forEach((eventDeck) => {
+              const type = eventDeck.split(':')[0];
+              const events = gameManager.eventCardManager.getEventCardsForEdition(scenario.edition, type);
+              const startEvent = events.find((e) => e.cardId == eventDeck.split(':')[1].split('|')[0]);
+              const endEvent = events.find((e) => e.cardId == eventDeck.split(':')[1].split('|')[1]);
+              if (startEvent && endEvent) {
+                gameManager.eventCardManager.buildEventDeck(type, events.slice(events.indexOf(startEvent), events.indexOf(endEvent) + 1).map((e) => e.cardId));
+              } else {
+                console.warn("Could not find start and end for: " + eventDeck);
+              }
+            })
           }
 
           if (settingsManager.settings.partySheet) {
@@ -313,6 +315,14 @@ export class ScenarioManager {
             }
           } else if (!scenario.hideIndex && (!rewards || !rewards.repeatScenario)) {
             this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
+          }
+
+          if (gameManager.imbuementManager.imbuement) {
+            if (gameManager.imbuementManager.imbuement == 'advanced') {
+              this.game.party.imbuement += 2;
+            } else {
+              this.game.party.imbuement += 1;
+            }
           }
 
           const campaignData = gameManager.campaignData();

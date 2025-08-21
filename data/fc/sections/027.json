@@ -4,11 +4,13 @@
   "edition": "fc",
   "conclusion": true,
   "rewards": {
-    "eventDeck": "rift:11|15",
     "hints": {
-      "eventDeck": [
+      "eventDecks": [
         "Add Rift Events 11 through 15 to the deck"
       ]
-    }
+    },
+    "eventDecks": [
+      "rift:11|15"
+    ]
   }
 }

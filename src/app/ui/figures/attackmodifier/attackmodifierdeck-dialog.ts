@@ -158,6 +158,11 @@ export class AttackModifierDeckDialogComponent implements OnInit, OnDestroy {
       gameManager.game.party.townGuardDeck = this.deck.toModel();
     } else if (!gameManager.bbRules()) {
       this.deck = new AttackModifierDeck();
+      if (gameManager.imbuementManager.imbuement == true) {
+        gameManager.imbuementManager.enable(this.deck);
+      } else if (gameManager.imbuementManager.imbuement == 'advanced') {
+        gameManager.imbuementManager.advanced(this.deck);
+      }
     } else {
       const editionData = gameManager.editionData.find((editionData) => editionData.edition == 'bb' && editionData.monsterAmTables && editionData.monsterAmTables.length);
       if (editionData) {

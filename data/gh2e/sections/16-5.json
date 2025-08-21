@@ -1,0 +1,10 @@
+{
+  "index": "16.5",
+  "name": "Prosperity 5",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "You can now optionally use Advanced Monster Imbuement. Read the second part of Appendix F."
+  }
+}

@@ -724,6 +724,67 @@
           }
         }
       },
+      "three-spears": {
+        "abilities": {
+          "205": {
+            "1": "All allies within %game.action.range:2% Refresh %game.card.refresh% one of their spent or consume item."
+          },
+          "206": {
+            "1": "Refresh %game.card.refresh% all your consumed %game.items.slots.small% items."
+          },
+          "207": {
+            "1": "You and all allies within %game.action.range:2% add +1 %game.action.attack% to all your attacks this round."
+          },
+          "208": {
+            "1": "Once during each of your Attack actions, if you use an item, add +1 %game.action.attack% to the entire Attack action."
+          },
+          "215": {
+            "1": "Refresh %game.card.refresh% one of your consumed %game.items.slots.small% items."
+          },
+          "216": {
+            "1": "One adjacent ally may Refresh %game.card.refresh% all their spent items."
+          },
+          "217": {
+            "1": "You or one adjacent ally may Refresh %game.card.refresh% one of your spent or consumed %game.items.slots.twohand% or %game.items.slots.onehand% items.",
+            "2": "Recover %game.card.recover% up to two of your discarded cards."
+          },
+          "219": {
+            "1": "At the end of each of your turns, you may discard one card to allow an adjacent ally to Refresh %game.card.refresh% one of their consumed %game.items.slots.small% items.",
+            "2": "Recover %game.card.recover% up to two of your lost cards."
+          },
+          "221": {
+            "1": "One adjacent ally may Refresh %game.card.refresh% all their spent and consumed items."
+          },
+          "223": {
+            "1": "At the end of each round, Refresh %game.card.refresh% one of your spent items."
+          },
+          "224": {
+            "1": "You and all enemies within %game.action.range:4% suffer %game.damage:2%."
+          },
+          "225": {
+            "1": "You and all normal enemies in the targeted area suffer %game.damage:7%."
+          },
+          "226": {
+            "1": "If any adjacent ally performs a ranged attack, that ally gains ADD TARGET %game.action.target% for the attack."
+          },
+          "228": {
+            "1": "Each time you long rest, Refresh %game.card.refresh% one of your consumed items.",
+            "2": "Any one ally may Recover %game.card.recover% all their discarded cards."
+          },
+          "229": {
+            "1": "During all your attacks this round, ignore the Shield values of all your targets."
+          },
+          "230": {
+            "1": "At the end of your next five turns, perform a \"%game.action.heal:2%, Affect all adjacent allies\" action."
+          },
+          "231": {
+            "1": "Kill one adjacent normal or elite enemy."
+          },
+          "232": {
+            "1": "You and all adjacent allies may Refresh %game.card.refresh% all your consumed %game.items.slots.small% items."
+          }
+        }
+      },
       "triangles": {
         "1": "You may perform Attack actions as if you occupy the summon's hex.",
         "2": "when %game.action.attack% performed"

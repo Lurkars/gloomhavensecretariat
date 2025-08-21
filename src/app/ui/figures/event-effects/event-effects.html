@@ -39,15 +39,18 @@
         <span [ghs-label]="'scenario.favors'"></span>
       </a>
 
-      <div class="imbuement" *ngIf="gameManager.gh2eRules() && settingsManager.settings.gh2eImbuement">
+      <div class="imbuement" *ngIf="gameManager.imbuementManager.enabled">
         <span class="title" [ghs-label]="'scenario.gh2eImbuement'"></span>
         <div class="checkboxes">
-          <label (click)="toggleImbuement()" *ngIf="!imbuement || imbuement == true">
-            <span class="input-checkbox" [ngClass]="{'checked' : imbuement == true}"></span>
+          <label (click)="toggleImbuement()" *ngIf="gameManager.imbuementManager.imbuement != 'advanced'">
+            <span class="input-checkbox"
+              [ngClass]="{'checked' : gameManager.imbuementManager.imbuement == true}"></span>
             <span [ghs-label]="'scenario.gh2eImbuement.imbuement'"></span>
           </label>
-          <label (click)="toggleImbuement(true)" *ngIf="!imbuement || imbuement == 'advanced'">
-            <span class="input-checkbox" [ngClass]="{'checked' : imbuement == 'advanced'}"></span>
+          <label (click)="toggleImbuement(true)"
+            *ngIf="gameManager.imbuementManager.available == 'advanced' && gameManager.imbuementManager.imbuement != true">
+            <span class="input-checkbox"
+              [ngClass]="{'checked' : gameManager.imbuementManager.imbuement == 'advanced'}"></span>
             <span [ghs-label]="'scenario.gh2eImbuement.advancedImbuement'"></span>
           </label>
         </div>

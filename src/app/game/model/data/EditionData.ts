@@ -97,11 +97,11 @@ export class CampaignData {
   // GH2E
   factions: string[] = [];
   imbuementSections: Record<number, string> = {};
-  reputationSections: ReputationSections[] = [];
+  reputationSections: ReputationSection[] = [];
   prosperitySections: Record<number, string> = {};
 
 }
 
 export type TownGuardPerk = { "sections": string[], "perk": Perk };
 
-export type ReputationSections = { "faction": string, "value": number, "section": string, "requires"?: string[] };
+export type ReputationSection = { "faction": string, "value": number, "section": string, "requires"?: string[] };

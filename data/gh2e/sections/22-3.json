@@ -4,6 +4,7 @@
   "edition": "gh2e",
   "parent": "8",
   "marker": "1",
+  "resetRound": "visible",
   "monsters": [
     "bandit-archer",
     "bandit-commander",

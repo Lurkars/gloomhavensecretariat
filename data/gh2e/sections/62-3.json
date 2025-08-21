@@ -1,0 +1,19 @@
+{
+  "index": "62.3",
+  "name": "Prosperity 6",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "hints": {
+      "eventDecks": [
+        "Add events C-29 through C-35 to the city deck",
+        "and events R-26 through R-29 to the road deck."
+      ]
+    },
+    "eventDecks": [
+      "city:29|35",
+      "road:26|29"
+    ]
+  }
+}

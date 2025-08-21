@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { AdvancedImbueAttackModifier, AttackModifier, AttackModifierType, ImbuementAttackModifier } from 'src/app/game/model/data/AttackModifier';
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { ConditionName, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
 import { EventCardCondition, EventCardConditionType, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
 import { CountIdentifier } from 'src/app/game/model/data/Identifier';
@@ -15,13 +15,13 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameScenarioModel } from 'src/app/game/model/Scenario';
 import { Summon, SummonColor } from 'src/app/game/model/Summon';
 import { ghsValueSign } from 'src/app/ui/helper/Static';
+import { CharacterSheetDialog } from '../character/dialogs/character-sheet-dialog';
 import { EventCardDeckComponent } from '../event/deck/event-card-deck';
 import { EventCardDrawComponent } from '../event/draw/event-card-draw';
+import { PartySheetDialogComponent } from '../party/party-sheet-dialog';
 import { FavorsComponent } from './favors/favors';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
-import { PartySheetDialogComponent } from '../party/party-sheet-dialog';
-import { CharacterSheetDialog } from '../character/dialogs/character-sheet-dialog';
 
 @Component({
   standalone: false,
@@ -55,7 +55,6 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   loot: Partial<Record<LootType, number>>[] = [];
   lootColumns: LootType[] = [];
   SummonColor = SummonColor;
-  imbuement: boolean | 'advanced' = false;
   eventTypes: string[] = [];
 
   eventEffectsManual: EventCardEffect[] = [];
@@ -121,12 +120,6 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
         }
       })
     })
-
-    this.imbuement = gameManager.game.monsterAttackModifierDeck.cards.find((am) => am.type == AttackModifierType.imbue) != undefined;
-
-    if (this.imbuement && gameManager.game.monsterAttackModifierDeck.cards.find((am) => am.type == AttackModifierType.advancedImbue) != undefined) {
-      this.imbuement = 'advanced';
-    }
 
     this.eventTypes = Object.keys(gameManager.game.party.eventDecks);
     if (gameManager.game.edition == 'fh') {
@@ -691,47 +684,15 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   }
 
   toggleImbuement(advanced: boolean = false) {
-    if (this.imbuement) {
+    if (gameManager.imbuementManager.imbuement) {
       gameManager.stateManager.before('gh2eImbuement.disable');
-      gameManager.game.monsterAttackModifierDeck.cards = gameManager.game.monsterAttackModifierDeck.cards.filter((am) => am.type != AttackModifierType.imbue && am.type != AttackModifierType.advancedImbue);
-      gameManager.attackModifierManager.shuffleModifiers(gameManager.game.monsterAttackModifierDeck);
-
-      if (this.imbuement == 'advanced') {
-        gameManager.attackModifierManager.addModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus2);
-        gameManager.attackModifierManager.addModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-        gameManager.attackModifierManager.addModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-        gameManager.attackModifierManager.addModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-        gameManager.attackModifierManager.addModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus0);
-        gameManager.attackModifierManager.addModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus0);
-      } else {
-        gameManager.attackModifierManager.addModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-        gameManager.attackModifierManager.addModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-        gameManager.attackModifierManager.addModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-      }
-
-      this.imbuement = false;
+      gameManager.imbuementManager.disable(gameManager.game.monsterAttackModifierDeck);
     } else if (advanced) {
       gameManager.stateManager.before('gh2eImbuement.advanced');
-      gameManager.attackModifierManager.removeModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus2);
-      gameManager.attackModifierManager.removeModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-      gameManager.attackModifierManager.removeModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-      gameManager.attackModifierManager.removeModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-      gameManager.attackModifierManager.removeModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus0);
-      gameManager.attackModifierManager.removeModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus0);
-      ImbuementAttackModifier.forEach((am) => {
-        gameManager.attackModifierManager.addModifier(gameManager.game.monsterAttackModifierDeck, am);
-      })
-      AdvancedImbueAttackModifier.forEach((am) => {
-        gameManager.attackModifierManager.addModifier(gameManager.game.monsterAttackModifierDeck, am);
-      })
+      gameManager.imbuementManager.advanced(gameManager.game.monsterAttackModifierDeck);
     } else {
       gameManager.stateManager.before('gh2eImbuement');
-      gameManager.attackModifierManager.removeModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-      gameManager.attackModifierManager.removeModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-      gameManager.attackModifierManager.removeModifierByType(gameManager.game.monsterAttackModifierDeck, AttackModifierType.plus1);
-      ImbuementAttackModifier.forEach((am) => {
-        gameManager.attackModifierManager.addModifier(gameManager.game.monsterAttackModifierDeck, am);
-      })
+      gameManager.imbuementManager.enable(gameManager.game.monsterAttackModifierDeck);
     }
     gameManager.stateManager.after();
   }

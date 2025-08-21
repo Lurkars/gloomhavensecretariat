@@ -484,8 +484,10 @@
                   <ng-container
                     *ngIf="reputationSectionsMapped[faction] && reputationSectionsMapped[faction][reputation]">
                     <span class="checkbox"
-                      [ngClass]="{'checked': (party.factionReputation[faction] || 0) >= 30 - reputation - 10}"></span>
-                    <span
+                      [ngClass]="{'checked': isConclusion(reputationSectionsMapped[faction][reputation].section)}"></span>
+                    <span class="text" ghs-pointer-input
+                      (singleClick)="unlockConclusion(reputationSectionsMapped[faction][reputation].section, (party.factionReputation[faction] || 0) >= 30 - reputation - 10)"
+                      (doubleClick)="unlockConclusion(reputationSectionsMapped[faction][reputation].section, (party.factionReputation[faction] || 0) >= 30 - reputation - 10, true)"
                       [ghs-label]="'%game.section:' + reputationSectionsMapped[faction][reputation].section + '%'"></span>
                   </ng-container>
                 </span>
@@ -500,7 +502,8 @@
           <div class="faction-reputation">
             <ng-container *ngFor="let reputationSection of reputationSections">
               <div class="section" *ngIf="reputationSection.faction == 'special'">
-                <span class="checkbox" [ngClass]="{'checked': additionalReputation(reputationSection)}"></span>
+                <span class="checkbox"
+                  [ngClass]="{'checked': isConclusion(reputationSection.section) || additionalReputation(reputationSection)}"></span>
                 <span class="text"
                   [ghs-label]="'party.reputation.additional.special.' + reputationSection.section.split(':')[0]"
                   [ghs-label-args]="[reputationSection.section.split(':')[1], reputationSection.value]"></span>
@@ -515,8 +518,11 @@
             <ng-container *ngFor="let reputationSection of reputationSections">
               <div class="section"
                 *ngIf="reputationSection.faction == faction && reputationSection.requires && reputationSection.requires.length">
-                <span class="checkbox" [ngClass]="{'checked': additionalReputation(reputationSection)}"></span>
-                <span class="text"
+                <span class="checkbox"
+                  [ngClass]="{'checked': isConclusion(reputationSection.section) || additionalReputation(reputationSection)}"></span>
+                <span class="text" ghs-pointer-input
+                  (singleClick)="unlockConclusion(reputationSection.section,additionalReputation(reputationSection))"
+                  (doubleClick)="unlockConclusion(reputationSection.section,additionalReputation(reputationSection), true)"
                   [ghs-label]="'party.reputation.additional.sectionRequires' + (reputationSection.requires.length > 1 ? '.multiple' : '')"
                   [ghs-label-args]="[reputationSection.section, reputationSection.value, reputationSection.faction, reputationSection.requires.join(' & ')]"></span>
               </div>
@@ -553,7 +559,8 @@
           <label><span [ghs-label]="'party.greatOak'"></span></label>
           <div class="checklist-container" *ngFor="let row of [] | ghsRange:10">
             <div class="checklist">
-              <div class="tick" *ngFor="let check of [] | ghsRange:10" [ngClass]="{'section': check % 5 == 4, 'prosperity-tick': check % 5 == 4}">
+              <div class="tick" *ngFor="let check of [] | ghsRange:10"
+                [ngClass]="{'section': check % 5 == 4, 'prosperity-tick': check % 5 == 4}">
                 <div class="checkbox" (click)="setDonations(row*10 + check +1)"
                   [ngClass]="{'checked': party.donations >= row*10 + check +1}">
                   <div class="section" *ngIf="check % 5 == 4">
@@ -584,9 +591,12 @@
                 <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1" (click)="setProsperity(index+1)">
                   {{prosperitySteps.indexOf(index) + 2}}
                 </div>
-                <div class="checkbox" (click)="setProsperity(index+1)"
+                <div class="checkbox"
                   [ngClass]="{'checked': gameManager.prosperityTicks() > index, 'highlight' : prosperitySteps.indexOf(index) == -1 && prosperityHighlightSteps.indexOf(index) != -1}">
-                  <span class="section" *ngIf="prosperitySections[index]"
+                  <span class="click" ghs-pointer-input (singleClick)="setProsperity(index+1)"></span>
+                  <span class="section" *ngIf="prosperitySections[index]" ghs-pointer-input
+                    (singleClick)="unlockConclusion(prosperitySections[index],gameManager.prosperityTicks() > index)"
+                    (doubleClick)="unlockConclusion(prosperitySections[index],gameManager.prosperityTicks() > index,  true)"
                     [ghs-label]="'%game.section:' + prosperitySections[index] + '%'"></span>
                 </div>
               </div>

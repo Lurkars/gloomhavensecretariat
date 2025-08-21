@@ -8,7 +8,7 @@ import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario, ScenarioCache } from "src/app/game/model/Scenario";
 import { AttackModifierDeck } from "src/app/game/model/data/AttackModifier";
 import { SelectResourceResult } from "src/app/game/model/data/BuildingData";
-import { EditionData, FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS, ReputationSections } from "src/app/game/model/data/EditionData";
+import { EditionData, FH_PROSPERITY_STEPS, GH2E_PROSPERITY_STEPS, GH_PROSPERITY_STEPS, ReputationSection } from "src/app/game/model/data/EditionData";
 import { CountIdentifier, Identifier } from "src/app/game/model/data/Identifier";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { LootType } from "src/app/game/model/data/Loot";
@@ -50,8 +50,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   imbuementSections: Record<number, string> = {};
 
   factions: string[] = [];
-  reputationSections: ReputationSections[] = [];
-  reputationSectionsMapped: Record<string, ReputationSections[]> = {};
+  reputationSections: ReputationSection[] = [];
+  reputationSectionsMapped: Record<string, ReputationSection[]> = {};
 
   priceModifier: number = 0;
   moraleDefense: number = 0;
@@ -365,16 +365,33 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
       }
       this.party.factionReputation[faction] = value;
       gameManager.stateManager.after();
+
+      this.reputationSections.filter((reputationSection) => reputationSection.faction == faction && value >= reputationSection.value && !this.party.conclusions.find((s) => s.edition == gameManager.game.edition && s.index == reputationSection.section) && (!reputationSection.requires || reputationSection.requires.length == 0 || reputationSection.requires.every((index) => this.party.scenarios.find((s) => s.edition == gameManager.game.edition && s.index == index)))).reverse().forEach((conclusionSection) => {
+        this.unlockConclusion(conclusionSection.section, true);
+      })
+
       this.update();
     }
   }
 
-  additionalReputation(reputationSection: ReputationSections): boolean {
+  additionalReputation(reputationSection: ReputationSection): boolean {
     if (reputationSection.faction == 'special' && (!reputationSection.requires || reputationSection.requires.length == 0)) {
       return Object.keys(this.party.factionReputation).some((faction) => (this.party.factionReputation[faction] || 0) > reputationSection.value);
     }
 
     return (this.party.factionReputation[reputationSection.faction] || 0) >= reputationSection.value && reputationSection.requires != undefined && reputationSection.requires.every((s) => this.party.scenarios.find((scenarioData) => scenarioData.edition == gameManager.currentEdition() && scenarioData.index == s && !scenarioData.group) != undefined);
+  }
+
+  unlockConclusion(section: string, unlocked: boolean, force: boolean = false) {
+    if (this.party.conclusions.find((value) => value.edition == gameManager.game.edition && value.index == section)) {
+      if (gameManager.game.edition && force) {
+        this.removeConclusion(section, gameManager.game.edition);
+      } else {
+        this.finishConclusion(section, true);
+      }
+    } else if (unlocked || force) {
+      this.finishConclusion(section, force);
+    }
   }
 
   characterPerks(characterModel: GameCharacterModel): number {
@@ -514,8 +531,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     if (this.party.prosperity == value) {
       value--;
     }
-    if (value > (gameManager.fhRules() ? 132 : 64)) {
-      value = (gameManager.fhRules() ? 132 : 64)
+    if (value > this.prosperitySteps[this.prosperitySteps.length - 1] + 1) {
+      value = this.prosperitySteps[this.prosperitySteps.length - 1] + 1;
     } else if (value < 0) {
       value = 0;
     }
@@ -523,6 +540,13 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     gameManager.stateManager.before("setPartyProsperity", "" + value);
     this.party.prosperity = value;
     gameManager.stateManager.after();
+
+    Object.keys(this.prosperitySections).reverse().forEach((prosperity) => {
+      if (value >= +prosperity && !this.party.conclusions.find((s) => s.edition == gameManager.game.edition && s.index == this.prosperitySections[+prosperity])) {
+        this.unlockConclusion(this.prosperitySections[+prosperity], true);
+      }
+    })
+
   }
 
   setImbuement(value: number) {

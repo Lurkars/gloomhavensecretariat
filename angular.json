@@ -30,7 +30,12 @@
               "autocompleter",
               "leaflet",
               "mermaid",
-              "debug"
+              "debug",
+              "vscode-jsonrpc",
+              "cytoscape-fcose",
+              "cytoscape-cose-bilkent",
+              "@braintree/sanitize-url",
+              "dayjs"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -53,8 +58,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "4mb",
-                  "maximumError": "8mb"
+                  "maximumWarning": "6mb",
+                  "maximumError": "12mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -70,7 +75,11 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": true,
+              "sourceMap": {
+                "scripts": true,
+                "styles": false,
+                "hidden": false
+              },
               "namedChunks": false,
               "extractLicenses": false,
               "vendorChunk": false,

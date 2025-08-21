@@ -344,6 +344,7 @@ export class MainComponent implements OnInit {
       }
     }
     gameManager.game.party.campaignMode = true;
+    gameManager.game.party.edition = edition;
     this.welcomeEditionHint = edition && settingsManager.getLabel('data.edition.' + edition + '.hint') != 'hint' || false;
     gameManager.game.party.eventDecks = {};
     gameManager.eventCardManager.buildPartyDeckMigration(edition);

@@ -1,19 +1,18 @@
-# This file is used by the build system to adjust CSS and JS output to support the specified browsers below.
-# For additional information regarding the format and rule options, please see:
-# https://github.com/browserslist/browserslist#queries
+# Primary supported browsers (Angular 20 baseline)
+Chrome >= 107
+ChromeAndroid >= 107
+Edge >= 107
+Firefox >= 104
+FirefoxAndroid >= 104
+Safari >= 16
+iOS >= 16
 
-# For the full list of supported browsers by the Angular framework, please see:
-# https://angular.dev/reference/versions#browser-support
-
-# You can see what browsers were selected by your queries by running:
-#   npx browserslist
-
->0.3%
-last 2 Chrome versions
-last 1 Firefox version
-last 2 Edge major versions
-last 5 Safari major versions
-last 5 iOS major versions
-last 5 Android major versions
-Firefox ESR
+# Broader coverage—warns but still builds
+> 0.5%
 not dead
+
+# Explicit exclusions to prevent Angular warnings
+not and_uc > 0
+not op_mob > 0
+not samsung > 0
+not android > 0

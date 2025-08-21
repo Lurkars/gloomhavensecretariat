@@ -1,0 +1,12 @@
+{
+  "index": "83.3",
+  "name": "Military Reputation 9",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "events": [
+      "city:47"
+    ]
+  }
+}

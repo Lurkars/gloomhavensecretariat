@@ -801,12 +801,16 @@
               <span class="placeholder text-white" [ghs-label]="'scenario.rewards.repeatScenario'"></span>
             </div>
 
-            <div class="item event-deck" *ngIf="rewards.eventDeck">
-              <span class="placeholder text-white" *ngIf="!rewards.hints || !rewards.hints.eventDeck"
-                [ghs-label]="'scenario.rewards.eventDeck'"
-                [ghs-label-args]="[rewards.eventDeck.split(':')[0], rewards.eventDeck.split(':')[1].split('|')[0], rewards.eventDeck.split(':')[1].split('|')[1]]"></span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.eventDeck"
-                [ghs-label]="rewards.hints.eventDeck"></span>
+            <div class="item event-deck" *ngIf="rewards.eventDecks">
+              <ng-container *ngFor="let eventDeck of rewards.eventDecks; let i = index">
+                <span class="placeholder text-white"
+                  *ngIf="!rewards.hints || !rewards.hints.eventDecks || !rewards.hints.eventDecks[i]"
+                  [ghs-label]="'scenario.rewards.eventDeck'"
+                  [ghs-label-args]="[eventDeck.split(':')[0], eventDeck.split(':')[1].split('|')[0], eventDeck.split(':')[1].split('|')[1]]"></span>
+                <span class="placeholder text-white hint"
+                  *ngIf="rewards.hints && rewards.hints.eventDecks && rewards.hints.eventDecks[i]"
+                  [ghs-label]="rewards.hints.eventDecks[i]"></span>
+              </ng-container>
             </div>
 
             <div class="item loot-deck-cards"

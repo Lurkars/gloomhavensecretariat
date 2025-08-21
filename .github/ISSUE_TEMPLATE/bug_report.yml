@@ -14,7 +14,7 @@ body:
     id: enviroment
     attributes:
       label: "Game Enviroment"
-      description: "Please include the current edition, scenario number, and any other game-specific settings of your session worth mentioning."
+      description: "Please include the current edition (FH, GH, JOTL, GH2E etc.), scenario number, and any other game-specific settings of your session worth mentioning."
     validations:
       required: true
   - type: textarea

@@ -248,12 +248,14 @@
 
   <div class="separator"></div>
 
-  <!-- BUTTON&BUGS -->
-  <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
+  <!-- GH2E -->
+  <ng-container *ngIf="gameManager.gh2eRules() && gameManager.imbuementManager.available">
+    <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
 
-  <div class="column">
-    <div class="line" ghs-setting-menu="gh2eImbuement"></div>
-  </div>
+    <div class="column">
+      <div class="line" *ngIf="gameManager.imbuementManager.available" ghs-setting-menu="gh2eImbuement"></div>
+    </div>
+  </ng-container>
 
   <ng-container *ngIf="gameManager.bbRules()">
     <div class="separator"></div>
@@ -367,7 +369,8 @@
     <div class="line" ghs-setting-menu="portraitMode"></div>
     <div class="line" ghs-setting-menu="animations"></div>
     <div class="line" ghs-setting-menu="statAnimations"></div>
-    <div class="line" ghs-setting-menu="animationSpeed" type="range" [min]="0.3" [max]="2" [requires]="['animations']"></div>
+    <div class="line" ghs-setting-menu="animationSpeed" type="range" [min]="0.3" [max]="2" [requires]="['animations']">
+    </div>
     <div class="line" ghs-setting-menu="barsize" type="range" [min]="0.1" [max]="2"></div>
     <div class="line" ghs-setting-menu="fontsize" type="range" [min]="0.1" [max]="2"></div>
   </div>
