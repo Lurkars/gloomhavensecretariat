@@ -1073,7 +1073,7 @@
       "allyShort": "Allié",
       "enemies": "%game.target% tous les ennemis",
       "enemiesAdjacent": "%game.target% tous les ennemis adjacents",
-      "enemiesMovedThrough": "%game.target% tous les ennemis déplacé",
+      "enemiesMovedThrough": "%game.target% tous les ennemis déplacés",
       "enemiesMovedThroughAdjacent": "%game.target% tous les ennemis occupant ou adjacents aux<br>hexagones entrés lors de la capacité de déplacement",
       "enemiesRange": "%game.target% tous les ennemis à %game.action.range% {0}",
       "enemiesRangeAffect": "%game.affect% tous les ennemis à %game.action.range% {0}",
