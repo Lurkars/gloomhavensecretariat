@@ -332,7 +332,7 @@ export class GameManager {
       this.game.figures.filter((figure) => figure instanceof Character && figure.specialConditions && figure.specialConditions.length && !figure.absent && gameManager.gameplayFigure(figure)).forEach((figure) => (figure as Character).specialConditions.forEach((name) => conditions.push(new Condition(name))));
     }
 
-    return conditions.filter((c, i, s) => s.indexOf(c) == i);
+    return conditions.filter((c, i, s) => s.map((co) => co.name).indexOf(c.name) == i);
   }
 
   figureConditions(figure: Figure, entity: Entity | undefined = undefined): ConditionName[] {
