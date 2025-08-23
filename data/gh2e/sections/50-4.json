@@ -1,0 +1,10 @@
+{
+  "index": "50.4",
+  "name": "Imbuement 40",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "Each character may immediately gain one free +1 %game.action.move% enhancement."
+  }
+}

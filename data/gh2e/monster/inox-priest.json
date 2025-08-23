@@ -11,9 +11,7 @@
         "value": "Adds %game.condition.safeguard% all its heals",
         "small": true
       }
-    ],
-    "immunities": [],
-    "special": []
+    ]
   },
   "stats": [
     {

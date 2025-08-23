@@ -1688,6 +1688,15 @@
                 height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
                 box-shadow: none;
                 z-index: 1;
+
+                .click {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  z-index: 1;
+                }
               }
 
               &.section {
@@ -1722,6 +1731,7 @@
                     align-items: center;
                     font-family: var(--ghs-font-fh-text);
                     font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
+                    z-index: 2;
 
                     &::before {
                       content: " ";

@@ -561,6 +561,12 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     gameManager.stateManager.before("setPartyImbuement", "" + value);
     this.party.imbuement = value;
     gameManager.stateManager.after();
+
+    Object.keys(this.imbuementSections).reverse().forEach((imbuement) => {
+      if (value >= +imbuement && !this.party.conclusions.find((s) => s.edition == gameManager.game.edition && s.index == this.imbuementSections[+imbuement])) {
+        this.unlockConclusion(this.imbuementSections[+imbuement], true);
+      }
+    })
   }
 
   exportParty() {

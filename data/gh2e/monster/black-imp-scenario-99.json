@@ -7,10 +7,7 @@
   "standeeShare": "black-imp",
   "baseStat": {
     "type": "normal",
-    "movement": 2,
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "movement": 2
   },
   "stats": [
     {

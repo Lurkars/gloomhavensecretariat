@@ -8,10 +8,7 @@
   "standeeShare": "flame-demon",
   "standeeShareEdition": "gh",
   "baseStat": {
-    "type": "boss",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "boss"
   },
   "stats": [
     {

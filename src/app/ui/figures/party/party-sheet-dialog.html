@@ -542,12 +542,14 @@
             <div class="checklist">
               <div class="tick" *ngFor="let check of [] | ghsRange:10"
                 [ngClass]="{'section': check % 10 == 4 || imbuementSections[row*10 + check +1], 'prosperity-tick' : check % 10 == 4}">
-                <div class="checkbox" (click)="setImbuement(row*10 + check +1)"
-                  [ngClass]="{'checked': party.imbuement >= row*10 + check +1}">
+                <div class="checkbox" [ngClass]="{'checked': party.imbuement >= row*10 + check +1}">
+                  <span class="click" ghs-pointer-input (singleClick)="setImbuement(row*10 + check +1)"></span>
                   <span class="section" *ngIf="check % 10 == 4">
                     +1 <img src="./assets/images/fh/prosperity.svg">
                   </span>
-                  <span class="section" *ngIf="imbuementSections[row*10 + check +1]"
+                  <span class="section" *ngIf="imbuementSections[row*10 + check +1]" ghs-pointer-input
+                    (singleClick)="unlockConclusion(imbuementSections[row*10 + check +1], party.imbuement >= row*10 + check +1)"
+                    (doubleClick)="unlockConclusion(imbuementSections[row*10 + check +1], party.imbuement >= row*10 + check +1, true)"
                     [ghs-label]="'%game.section:' + imbuementSections[row*10 + check +1] + '%'"></span>
                 </div>
               </div>

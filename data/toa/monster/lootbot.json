@@ -9,13 +9,11 @@
   "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "stun",
       "disarm",
       "immobilize"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

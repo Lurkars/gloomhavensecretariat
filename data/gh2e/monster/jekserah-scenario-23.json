@@ -7,7 +7,6 @@
   "standeeShare": "jekserah",
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "stun"
     ],

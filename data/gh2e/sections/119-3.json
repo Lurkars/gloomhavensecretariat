@@ -1,0 +1,13 @@
+{
+  "index": "119.3",
+  "name": "Imbuement 60",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "unlocks": [
+    "S"
+  ],
+  "rewards": {
+    "custom": "You've unlocked a secret scenario.<br>It can be found in %game.section:100.1%. The scenario can be played as often as you want, and you do not perform a road event when attempting it.<br>The scenario does not appear in the scneario flow chart or on the map, so make a note of the scenario name and section number on your campaign sheet."
+  }
+}

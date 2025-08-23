@@ -8,12 +8,10 @@
   "standeeShare": "savvas-icestorm",
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "disarm",
       "stun"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

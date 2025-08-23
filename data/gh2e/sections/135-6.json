@@ -1,0 +1,10 @@
+{
+  "index": "135.6",
+  "name": "Imbuement 70",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "Add a note to your character sheets:<br>each character's next enhancement is half its normal costs, after other discounts."
+  }
+}

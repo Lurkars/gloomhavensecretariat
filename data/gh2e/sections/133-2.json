@@ -1,0 +1,10 @@
+{
+  "index": "133.2",
+  "name": "Imbuement 10",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "At the end of the next completed scenario, double all %game.card.experience% characters gained (both from abilitiy cards during the scenario and the scenario completed bonus)."
+  }
+}

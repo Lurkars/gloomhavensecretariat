@@ -55,56 +55,48 @@
     {
       "level": 0,
       "health": "8xC",
-      "movement": 0,
       "attack": 1,
       "range": 5
     },
     {
       "level": 1,
       "health": "9xC",
-      "movement": 0,
       "attack": 2,
       "range": 5
     },
     {
       "level": 2,
       "health": "11xC",
-      "movement": 0,
       "attack": 2,
       "range": 6
     },
     {
       "level": 3,
       "health": "12xC",
-      "movement": 0,
       "attack": 3,
       "range": 6
     },
     {
       "level": 4,
       "health": "14xC",
-      "movement": 0,
       "attack": 3,
       "range": 7
     },
     {
       "level": 5,
       "health": "16xC",
-      "movement": 0,
       "attack": 4,
       "range": 7
     },
     {
       "level": 6,
       "health": "18xC",
-      "movement": 0,
       "attack": 4,
       "range": 8
     },
     {
       "level": 7,
       "health": "21xC",
-      "movement": 0,
       "attack": 5,
       "range": 8
     }

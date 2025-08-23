@@ -34,9 +34,7 @@
         "type": "custom",
         "value": "^^attacks"
       }
-    ],
-    "immunities": [],
-    "special": []
+    ]
   },
   "stats": [
     {

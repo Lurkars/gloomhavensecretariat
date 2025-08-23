@@ -7,10 +7,7 @@
   "count": 6,
   "standeeShare": "sun-demon",
   "baseStat": {
-    "type": "boss",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "boss"
   },
   "stats": [
     {

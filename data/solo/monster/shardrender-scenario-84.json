@@ -8,15 +8,13 @@
   "standeeShare": "shardrender",
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "muddle",
       "immobilize",
       "stun",
       "disarm",
       "wound"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

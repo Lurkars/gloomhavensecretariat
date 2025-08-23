@@ -1,0 +1,10 @@
+{
+  "index": "102.2",
+  "name": "Imbuement 30",
+  "edition": "gh2e",
+  "conclusion": true,
+  "named": true,
+  "rewards": {
+    "custom": "You may add up to five %game.condition.bless% cards to the monster attack modifier deck. Any %game.condition.bless% added, including those drawn during this exmperiment, remain in the monster modifier deck for the next scenario.<br><br>One character at a time, each character gains an amount %game.card.experience% determined by doing the following: Shuffle the monster attack modifier deck (with all available monster imbuements). Start with a base value of 15 %game.card.experience%. Draw the top card of the monster attack modifier deck and modifiy that %game.card.experience% based on the value of the card (ignore added effects and shuffle symbols).<br>You may draw cards and modify the %game.card.experience% value up to three times, drawing one card at a time. Treat all %game.attackmodifier.double% as a +10 and the %game.attackmodifier.null% ad a -10."
+  }
+}

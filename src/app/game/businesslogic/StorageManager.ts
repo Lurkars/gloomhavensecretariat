@@ -253,9 +253,11 @@ export class StorageManager {
             resolve();
           }
           request.onblocked = (event: any) => {
-            if (this.db) {
-              this.db.close();
-            }
+            setTimeout(() => {
+              if (this.db) {
+                this.db.close();
+              }
+            }, 1000)
           }
           request.onerror = (event: any) => {
             console.error("delete database 'ghs-db' failed", event);
@@ -274,9 +276,11 @@ export class StorageManager {
               resolve();
             }
             request.onblocked = (event: any) => {
-              if (this.db) {
-                this.db.close();
-              }
+              setTimeout(() => {
+                if (this.db) {
+                  this.db.close();
+                }
+              }, 1000)
             }
             request.onerror = (event: any) => {
               console.error("delete database 'ghs-db' failed", event);

@@ -245,11 +245,10 @@
     </div>
   </div>
 
-
-  <div class="separator"></div>
-
   <!-- GH2E -->
   <ng-container *ngIf="gameManager.gh2eRules() && gameManager.imbuementManager.available">
+    <div class="separator"></div>
+
     <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
 
     <div class="column">

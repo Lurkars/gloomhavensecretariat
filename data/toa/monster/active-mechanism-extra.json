@@ -8,11 +8,7 @@
   "standeeShare": "deep-terror",
   "standeeShareEdition": "gh",
   "baseStat": {
-    "type": "boss",
-    "movement": 0,
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "boss"
   },
   "stats": [
     {

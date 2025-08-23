@@ -27,7 +27,7 @@
             },
             {
               "type": "custom",
-              "value": "%game.advantage%",
+              "value": "%game.custom.advantage%",
               "small": true
             }
           ]

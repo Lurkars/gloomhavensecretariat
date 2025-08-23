@@ -8,11 +8,9 @@
   "standeeShare": "living-corpse",
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "poison"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

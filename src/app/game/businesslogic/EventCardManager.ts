@@ -547,7 +547,6 @@ export class EventCardManager {
             this.applyCondition(c)
           });
           return condition;
-          break;
         case EventCardConditionType.character:
         case EventCardConditionType.traits:
         case EventCardConditionType.otherwise:

@@ -68,7 +68,7 @@ export class Settings {
   characterAttackModifierDeckPermanent: boolean = false;
   characterAttackModifierDeckPermanentActive: boolean = false;
   characterCompact: boolean = false;
-  characterFullView: boolean = true;
+  characterFullView: boolean = false;
   characterHandSize: boolean = false;
   characterIdentities: boolean = true;
   characterIdentityHint: boolean = true;

@@ -5,13 +5,25 @@
       "circles": "Soultether",
       "crossed-swords": "Bladeswarm",
       "eclipse": "Nightshroud",
-      "lightning": "Berserker",
+      "lightning": {
+        "": "Berserker",
+        "long_rest_heal": {
+          "": "Perk 9",
+          "hint": "%data.custom.gh2e.lightning.3%"
+        }
+      },
       "music-note": "Soothsinger",
       "saw": "Sawbones",
       "squidface": "Plagueherald",
       "sun": "Sunkeeper",
       "three-spears": "Quartermaster",
-      "triangles": "Elementalist",
+      "triangles": {
+        "": "Elementalist",
+        "element_waning": {
+          "": "Perk 12",
+          "hint": "%data.custom.gh2e.triangles.3%"
+        }
+      },
       "two-mini": "Wildfury"
     }
   },
@@ -117,7 +129,7 @@
       },
       "two-mini": {
         "1": "Add +1 %game.action.attack% if the Wildfury and %data.action.custom.gh2e-bear-summon% are within %game.action.range% 4 of each other",
-        "2": "Whenever %data.action.custom.gh2e-bear-summon% is attacked, treat and %game.attackModifier.double% attack modifier card the enemy draws as %game.attackModifier.plus0% instead",
+        "2": "Whenever %data.action.custom.gh2e-bear-summon% is attacked, treat and %game.attackmodifier.double% attack modifier card the enemy draws as %game.attackmodifier.plus0% instead",
         "3": "Once each scenario, during your turn, %data.action.custom.gh2e-command%: %game.action.move% 4.<br>If %data.action.custom.gh2e-bear-summon% exits a hex adjacent to you during this movement, you may %game.action.teleport% to an empty hex adjacent to %data.action.custom.gh2e-bear-summon% at the end of the movement",
         "4": "At the start or end of each of your long rests, you may %game.elementHalf:air|earth% and reduce your current hit point value by X (X must be at least 1) to %data.action.custom.gh2e-command%: %game.action.heal% X, self",
         "5": "In a single scenario, infuse or consuem %game.element.air% or %game.element.earth% during each of your turns",

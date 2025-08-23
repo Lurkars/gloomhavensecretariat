@@ -8,7 +8,6 @@
   "standeeShare": "city-guard",
   "baseStat": {
     "type": "boss",
-    "movement": 0,
     "attack": 4,
     "special": [
       [

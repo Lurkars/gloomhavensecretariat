@@ -9,8 +9,6 @@
   "standeeShareEdition": "gh",
   "baseStat": {
     "type": "boss",
-    "movement": 0,
-    "actions": [],
     "immunities": [
       "stun",
       "push",
