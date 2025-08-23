@@ -44,11 +44,14 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
             flowchart: {
                 useMaxWidth: true,
                 htmlLabels: true,
-                curve: "linear"
+                curve: "linear",
+                subGraphTitleMargin: {
+                    bottom: 10
+                }
             },
             theme: "base",
             themeVariables: {
-                fontSize: "calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor))",
+                fontSize: "calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor))",
                 fontFamily: "var(--ghs-font-text)",
                 darkMode: true,
                 primaryColor: "#202830",
@@ -56,7 +59,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 tertiaryColor: "#52565f",
                 tertiaryBorderColor: "#202830",
                 tertiaryTextColor: "#eeeeee"
-            }
+            },
+            wrap: false
         });
         this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.updateMap() });
         this.update();
@@ -73,7 +77,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     update() {
         this.flow = [
             "flowchart LR",
-            "classDef default stroke-width:4;",
+            "classDef default stroke-width:4, r:32px;",
             "classDef success stroke:#7da82a;",
             "classDef unplayed stroke:#56c8ef;",
             "classDef blocked stroke:#e2421f;",
@@ -106,7 +110,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
         scenarios.forEach((scenarioData) => {
 
-            let state = this.campaignMode ? ":::unplayed" : "";
+            let state = ":::unplayed";
             const success = this.campaignMode && gameManager.scenarioManager.isSuccess(scenarioData);
 
             if (success) {
@@ -141,7 +145,8 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
                 }
             }
 
-            this.flow.push("\t" + scenarioData.index + "((" + (pad + scenarioData.index).slice(-pad.length) + "))" + state);
+            const index = scenarioData.index.match(/\d+/g) ? (pad + scenarioData.index).slice(-pad.length) : scenarioData.index;
+            this.flow.push("\t" + scenarioData.index + "((" + index + "))" + state);
         });
 
         if (subgraph) {
@@ -317,26 +322,32 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         const overlay = L.svgOverlay(svgElement, [[height + offsetY, offsetX], [offsetY, width + offsetX]], { interactive: true });
 
         svgElement.addEventListener('click', (event) => {
-            const element = event.target as HTMLElement;
+            let element = (event.target as HTMLElement);
+            if (element.tagName.toUpperCase() == 'P' && element.parentElement) {
+                element = element.parentElement;
+            }
             if (element && element.classList.contains('nodeLabel')) {
                 let parent = element.parentElement;
                 while (parent && !parent.classList.contains('node')) {
                     parent = parent.parentElement;
                 }
-                if (parent && 'id' in parent.dataset) {
-                    const scenarioData = gameManager.scenarioData(this.edition).find((scenarioData) => parent && scenarioData.group == this.group && scenarioData.index == parent.dataset['id']);
-                    if (scenarioData) {
-                        this.dialog.open(ScenarioChartPopupDialog, {
-                            panelClass: ['dialog'],
-                            data: scenarioData,
-                            positionStrategy: this.overlay.position().flexibleConnectedTo(element).withPositions(ghsDefaultDialogPositions())
-                        }).closed.subscribe({
-                            next: (result) => {
-                                if (result) {
-                                    this.dialogRef.close();
+                if (parent && 'id' in parent) {
+                    const scenarioId = parent.id.split('-').length > 1 ? parent.id.split('-')[1] : '';
+                    if (scenarioId) {
+                        const scenarioData = gameManager.scenarioData(this.edition).find((scenarioData) => parent && scenarioData.group == this.group && scenarioData.index == scenarioId);
+                        if (scenarioData) {
+                            this.dialog.open(ScenarioChartPopupDialog, {
+                                panelClass: ['dialog'],
+                                data: scenarioData,
+                                positionStrategy: this.overlay.position().flexibleConnectedTo(element).withPositions(ghsDefaultDialogPositions())
+                            }).closed.subscribe({
+                                next: (result) => {
+                                    if (result) {
+                                        this.dialogRef.close();
+                                    }
                                 }
-                            }
-                        })
+                            })
+                        }
                     }
                 }
             }
