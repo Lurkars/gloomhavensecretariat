@@ -790,7 +790,52 @@
         "2": "when %game.action.attack% performed"
       },
       "two-mini": {
-        "1": "All adjacent allies add +2 %game.action.attack% to all their attacks."
+        "1": "All adjacent allies add +2 %game.action.attack% to all their attacks.",
+        "abilities": {
+          "477": {
+            "1": "%game.action.teleport% any figure to a hex occupied by a different figure and simultaneously %game.action.teleport% that figure to the hex occupied by the first figure."
+          },
+          "478": {
+            "1": "%game.action.teleport% any enemy to a hex occupied by a different enemy and simultaneously %game.action.teleport% that enemy to the hex occupied by the first enemy."
+          },
+          "481": {
+            "1": "Before your bear acts, you may choose to forgo the top action of your turn to add +3 %game.action.attack% to all your bear's attacks this round.",
+            "2": "Before your bear acts, you may choose to forgo the bottom action of your turn to add +3 %game.action.move% to all your bear's moves this round"
+          },
+          "483": {
+            "1": "Affect all summoned allies"
+          },
+          "489": {
+            "1": "Redistribute all damage taken by you and all summoned allies however you like.",
+            "2": "No figure may end with more damage than their maximum hit point value."
+          },
+          "495": {
+            "1": "Add +1 %game.action.attack% to all your %data.custom.gh.two-mini.commands% this round."
+          },
+          "496": {
+            "1": "Any one summoned ally performs",
+            "2": "with you controlling the actions."
+          },
+          "498": {
+            "1": "%game.action.teleport% to the hex occupied by your bear and simultaneously %game.action.teleport% your bear to the hex occupied by you."
+          },
+          "499": {
+            "1": "After your bear's next five attacks, it performs a \"%game.action.heal:2%, Self\" action."
+          },
+          "501": {
+            "1": "All summoned allies within %game.action.range:3% perform",
+            "2": "with you controlling the actions."
+          },
+          "504": {
+            "1": "Kill one adjacent normal enemy whose current hit point value is equal to or less than 6."
+          },
+          "505": {
+            "1": "All adjacent allies add +2 %game.action.attack% to all their attacks",
+            "2": "Recover %game.card.recover% up to two of your lost cards with Summon actions on them."
+          }
+        },
+        "command": "Command %game.characterIconColoredBg.two-mini%",
+        "commands": "Commands %game.characterIconColoredBg.two-mini%"
       }
     }
   },

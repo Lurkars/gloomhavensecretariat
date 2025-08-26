@@ -36,7 +36,7 @@ export class ScenarioManager {
     return gameManager.sectionData(edition).find((sectionData) => sectionData.index == index && sectionData.edition == edition && sectionData.group == group && (!conlusionOnly || sectionData.conclusion));
   }
 
-  setScenario(scenario: Scenario | undefined) {
+  setScenario(scenario: Scenario | undefined, linked: boolean = false) {
     this.game.scenario = scenario ? new Scenario(scenario, scenario.revealedRooms, scenario.additionalSections, scenario.custom) : undefined;
     if (scenario && !scenario.custom) {
       const scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group);
@@ -45,7 +45,7 @@ export class ScenarioManager {
         return;
       }
       gameManager.roundManager.resetScenario();
-      this.applyScenarioData(scenarioData);
+      this.applyScenarioData(scenarioData, false, linked);
 
       if (settingsManager.settings.scenarioRules) {
         gameManager.scenarioRulesManager.addScenarioRules(true);
@@ -393,7 +393,7 @@ export class ScenarioManager {
     }
   }
 
-  applyScenarioData(scenarioData: ScenarioData, section: boolean = false) {
+  applyScenarioData(scenarioData: ScenarioData, section: boolean = false, linked: boolean = false) {
     gameManager.stateManager.standeeDialogCanceled = true;
     if (!settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
       if (scenarioData.monsters) {
@@ -508,8 +508,14 @@ export class ScenarioManager {
       })
     }
 
-    if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsDraw && scenarioData.eventType) {
-      gameManager.game.eventDraw = scenarioData.eventType;
+    if (settingsManager.settings.partySheet && settingsManager.settings.events && scenarioData.eventType && !linked) {
+      let type = scenarioData.eventType;
+
+      if (scenarioData.edition == 'fh' && (type == 'road' || type == 'outpost')) {
+        type = ((Math.max(gameManager.game.party.weeks - 1, 0) % 20 < 10) ? 'summer-' : 'winter-') + type;
+      }
+
+      gameManager.game.eventDraw = type;
     }
 
     if (settingsManager.settings.partySheet && settingsManager.settings.events && settingsManager.settings.eventsApply && gameManager.game.party.eventCards) {

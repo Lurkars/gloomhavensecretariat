@@ -43,6 +43,9 @@
           "name": "hound",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

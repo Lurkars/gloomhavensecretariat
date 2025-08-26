@@ -14,5 +14,8 @@
       'round.hint.continueNext' : 'round.hint.continueDraw')"></span></a>
     <p *ngIf="battleGoals()"><span [ghs-label]="'round.hint.battleGoals'"></span></p>
     <a *ngIf="battleGoals()" (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
+    <p *ngIf="eventDraw() && gameManager.game.eventDraw"><span [ghs-label]="'round.hint.eventDraw'"
+        [ghs-label-args]="[gameManager.game.eventDraw]"></span></p>
+    <a *ngIf="eventDraw()" (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
   </div>
 </div>

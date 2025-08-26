@@ -50,6 +50,11 @@
           "name": "hound",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        2,
+        3
       ]
     }
   ]

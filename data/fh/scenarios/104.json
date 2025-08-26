@@ -12,6 +12,7 @@
   },
   "edition": "fh",
   "complexity": 2,
+  "eventType": "road",
   "random": true,
   "requirements": [
     {

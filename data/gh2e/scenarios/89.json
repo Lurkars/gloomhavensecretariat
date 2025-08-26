@@ -17,7 +17,6 @@
   "objectives": [
     {
       "name": "Objective",
-      "escort": true,
       "health": 17
     }
   ],
@@ -73,6 +72,9 @@
           "name": "rending-drake",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

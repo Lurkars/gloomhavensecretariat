@@ -825,10 +825,10 @@ export class ScenarioSummaryComponent implements OnDestroy {
             if (!forcedLink && (gameManager.scenarioManager.isBlocked(linkedScenarioData) || gameManager.scenarioManager.isLocked(linkedScenarioData))) {
                 this.dialog.open(ScenarioRequirementsDialogComponent, {
                     panelClass: ['dialog'],
-                    data: { scenarioData: linkedScenarioData }
+                    data: { scenarioData: linkedScenarioData, linked: true }
                 })
             } else {
-                gameManager.scenarioManager.setScenario(new Scenario(linkedScenarioData));
+                gameManager.scenarioManager.setScenario(new Scenario(linkedScenarioData), true);
             }
         } else {
             gameManager.game.figures.forEach((figure) => {

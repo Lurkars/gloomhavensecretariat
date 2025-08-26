@@ -12,6 +12,7 @@
   },
   "edition": "fh",
   "complexity": 1,
+  "eventType": "road",
   "rewards": {
     "prosperity": 1,
     "custom": "%data.scenario.rewards.fh.070%"

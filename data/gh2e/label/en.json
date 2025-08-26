@@ -330,7 +330,7 @@
   "edition": {
     "gh2e": {
       "": "Gloomhaven 2nd Edition",
-      "hint": "Gloomhaven 2nd Edition is currently <i>%wip%</i>. The scenario data may contain errors and be missing some special rules. All non-scenario sections are currently missing, as is some data, such as events."
+      "hint": "Gloomhaven 2nd Edition is currently <i>%wip%</i>. The scenario data may contain errors and be missing some special rules. Most non-scenario sections are currently missing, as is some data, such as items and events."
     }
   },
   "factions": {

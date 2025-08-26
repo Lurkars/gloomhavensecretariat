@@ -17,9 +17,27 @@
   ],
   "objectives": [
     {
-      "name": "Door 1 (push 1)",
-      "health": "100",
-      "initiative": 73
+      "name": "Door 1",
+      "health": 0,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allCharacters",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [
@@ -48,6 +66,9 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

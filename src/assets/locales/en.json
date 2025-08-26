@@ -1213,6 +1213,7 @@
     "solo": "Solo",
     "specialTarget": {
       "all": "%game.target% all",
+      "allCharacters": "%game.target% all characters",
       "allies": "%game.target% all allies",
       "alliesAdjacent": "%game.target% all adjacent allies",
       "alliesAdjacentAffect": "%game.affect% all adjacent allies",
@@ -1625,6 +1626,7 @@
       "continueDraw": "Continue with Draw",
       "continueNext": "Continue with next Round",
       "empty": "Please add monsters and characters before round.",
+      "eventDraw": "Draw a %game.events.type.{0}% event card.",
       "failed": "All characters seems exhausted. Do you want to restart the scenario?",
       "finish": "There are no monsters left. Did you successfully finish the scenario?",
       "initiativeRoundConfirm": "All initiatives are set. Start next round?",
@@ -2522,6 +2524,10 @@
     "eventsDraw": {
       "": "Auto. Draw Events",
       "hint": "Automatically draw events like Road Event at start of scenario."
+    },
+    "eventsDrawReminder": {
+      "": "Draw Events Reminder",
+      "hint": "Show a reminder before first round to draw an event."
     },
     "expireConditions": {
       "": "Automatic expire conditions",

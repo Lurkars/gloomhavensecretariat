@@ -30,7 +30,12 @@
     {
       "roomNumber": 1,
       "initial": true,
-      "monster": []
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ]
     }
   ]
 }

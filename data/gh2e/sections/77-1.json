@@ -9,7 +9,6 @@
   "objectives": [
     {
       "name": "Bookshelf",
-      "escort": true,
       "health": "4+LxC"
     }
   ],
@@ -36,6 +35,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

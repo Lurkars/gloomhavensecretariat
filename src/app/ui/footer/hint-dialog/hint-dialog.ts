@@ -100,6 +100,10 @@ export class HintDialogComponent {
         return !this.missingInitiative() && settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsReminder && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) && !gameManager.bbRules();
     }
 
+    eventDraw(): boolean {
+        return !this.missingInitiative() && !settingsManager.settings.eventsDraw && settingsManager.settings.eventsDrawReminder && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && gameManager.game.eventDraw != undefined;
+    }
+
     finish(): boolean {
         return false;
     }
@@ -119,6 +123,8 @@ export class HintDialogComponent {
             } else if (this.failed()) {
                 this.finishScenario(false);
             } else if (this.battleGoals()) {
+                this.confirm();
+            } else if (this.eventDraw()) {
                 this.confirm();
             }
             event.preventDefault();

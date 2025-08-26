@@ -162,14 +162,11 @@
         {
           "type": "custom",
           "value": "%data.custom.gh.cragheart.abilities.118.1%",
-          "small": true,
-          "subActions": [
-            {
-              "type": "element",
-              "value": "earth",
-              "valueType": "add"
-            }
-          ]
+          "small": true
+        },
+        {
+          "type": "element",
+          "value": "earth"
         }
       ]
     },
@@ -193,12 +190,12 @@
               "enhancementTypes": [
                 "circle"
               ]
-            },
-            {
-              "type": "element",
-              "value": "earth"
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
         }
       ],
       "bottomActions": [
@@ -212,15 +209,13 @@
             {
               "type": "custom",
               "value": "%data.custom.gh.cragheart.abilities.119.1%",
-              "small": true,
-              "subActions": [
-                {
-                  "type": "element",
-                  "value": "earth"
-                }
-              ]
+              "small": true
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
         }
       ]
     },
@@ -249,12 +244,12 @@
               "type": "custom",
               "value": "%data.custom.gh.cragheart.abilities.120.1%",
               "small": true
-            },
-            {
-              "type": "element",
-              "value": "earth"
             }
           ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
         }
       ],
       "bottomActions": [
@@ -362,22 +357,23 @@
               "type": "jump",
               "value": "",
               "small": true
-            },
-            {
-              "type": "condition",
-              "value": "immobilize",
-              "small": true
-            },
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
             {
               "type": "custom",
               "value": "%data.custom.gh.cragheart.abilities.122.2%",
               "small": true
-            },
-            {
-              "type": "card",
-              "value": "experience:1"
             }
           ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
         }
       ]
     },
@@ -490,11 +486,11 @@
               "type": "element",
               "value": "earth",
               "valueType": "minus",
-              "small": true,
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.cragheart.abilities.124.1%"
+                  "value": "%data.custom.gh.cragheart.abilities.124.1%",
+                  "small": true
                 }
               ]
             }
@@ -511,7 +507,6 @@
             {
               "type": "concatenation",
               "value": 0,
-              "small": true,
               "subActions": [
                 {
                   "type": "move",
@@ -582,7 +577,6 @@
               "type": "element",
               "value": "earth",
               "valueType": "minus",
-              "small": true,
               "subActions": [
                 {
                   "type": "custom",
@@ -695,13 +689,11 @@
         {
           "type": "custom",
           "value": "%data.custom.gh.cragheart.abilities.127.2%",
-          "small": true,
-          "subActions": [
-            {
-              "type": "card",
-              "value": "round"
-            }
-          ]
+          "small": true
+        },
+        {
+          "type": "card",
+          "value": "round"
         }
       ]
     },
@@ -757,13 +749,11 @@
         {
           "type": "custom",
           "value": "%data.custom.gh.cragheart.abilities.128.3%",
-          "small": true,
-          "subActions": [
-            {
-              "type": "card",
-              "value": "round"
-            }
-          ]
+          "small": true
+        },
+        {
+          "type": "card",
+          "value": "round"
         }
       ]
     },
@@ -958,7 +948,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "alliesAdjacent",
+              "value": "alliesAdjacentAffect",
               "small": true
             }
           ]
@@ -1350,13 +1340,11 @@
             {
               "type": "condition",
               "value": "muddle",
-              "small": true,
-              "subActions": [
-                {
-                  "type": "card",
-                  "value": "experience:1"
-                }
-              ]
+              "small": true
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
             }
           ]
         }
@@ -1540,45 +1528,38 @@
         {
           "type": "custom",
           "value": "%data.custom.gh.cragheart.abilities.140.1%",
-          "small": true,
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 4,
+          "enhancementTypes": [
+            "diamond"
+          ],
           "subActions": [
             {
-              "type": "attack",
-              "value": 4,
-              "small": true,
-              "enhancementTypes": [
-                "diamond"
-              ],
-              "subActions": [
-                {
-                  "type": "condition",
-                  "value": "immobilize",
-                  "small": true,
-                  "subActions": [
-                    {
-                      "type": "custom",
-                      "value": "%data.custom.gh.cragheart.abilities.140.2%",
-                      "small": true,
-                      "subActions": [
-                        {
-                          "type": "concatenation",
-                          "value": "",
-                          "subActions": [
-                            {
-                              "type": "element",
-                              "value": "earth"
-                            },
-                            {
-                              "type": "card",
-                              "value": "experience:2"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.cragheart.abilities.140.2%",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            },
+            {
+              "type": "card",
+              "value": "experience:2"
             }
           ]
         }

@@ -258,6 +258,10 @@ export class FooterComponent implements OnInit, OnDestroy {
     return !this.missingInitiative() && settingsManager.settings.battleGoals && settingsManager.settings.battleGoalsReminder && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && !gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure.battleGoal || figure.absent) && !gameManager.bbRules();
   }
 
+  eventDraw(): boolean {
+    return !this.missingInitiative() && !settingsManager.settings.eventsDraw && settingsManager.settings.eventsDrawReminder && gameManager.game.scenario != undefined && gameManager.roundManager.firstRound && gameManager.game.eventDraw != undefined;
+  }
+
   activeHint(): boolean {
     return (this.active() && settingsManager.settings.turnConfirmation && (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions));
   }
@@ -275,7 +279,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   drawDisabled(): boolean {
-    return this.empty() || this.missingInitiative() || this.battleGoals() || this.finish() || this.failed();
+    return this.empty() || this.missingInitiative() || this.battleGoals() || this.finish() || this.failed() || this.eventDraw();
   }
 
   nextDisabled(): boolean {

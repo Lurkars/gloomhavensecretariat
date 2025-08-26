@@ -77,6 +77,7 @@ export enum ActionValueType {
 
 export enum ActionSpecialTarget {
   all = "all",
+  allCharacters = "allCharacters",
   allies = "allies",
   alliesAdjacent = "alliesAdjacent",
   alliesAdjacentAffect = "alliesAdjacentAffect",

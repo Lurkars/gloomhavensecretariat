@@ -53,6 +53,9 @@
           "player2": "elite",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]
