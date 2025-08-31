@@ -183,6 +183,10 @@
       "": "Marteau de Guerre",
       "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.stun% à la totalité de l'action d'Attaque."
     },
+    "gh-100": {
+      "": "Robes d'Invocation",
+      "1": "Pendant votre tour, effectuez une action de \"%game.action.heal% 2, ciblez un allié invoqué\"."
+    },
     "gh-101": {
       "": "Deuxième Peau",
       "1": "Retirez deux %game.attackmodifier.minus1% de votre paquet de Modificateur d'Attaque."
@@ -202,6 +206,10 @@
     "gh-11": {
       "": "Dague Empoisonnée",
       "1": "Pendant votre attaque de mêlée, ajoutez %game.condition.poison% à une seule attaque."
+    },
+    "gh-112": {
+      "": "Ancienne Chignole",
+      "1": "Pendant votre attaque de mêlée, ajoutez +2 %game.action.attack% et %game.action.pierce% 2 à la totalité de l'action d'Attaque"
     },
     "gh-113": {
       "": "Hache Fléau des Crânes",

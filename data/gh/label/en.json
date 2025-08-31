@@ -682,7 +682,7 @@
             "1": "All allies and enemies adjacent to the target suffer 1 damage."
           },
           "121": {
-            "1": "On your next four ranges Attack actions, gain ADD TARGET."
+            "1": "On your next four ranged Attack actions, gain ADD TARGET."
           },
           "122": {
             "1": "Destroy one adjacent obstacle.",
@@ -745,7 +745,7 @@
             "1": "On your next four melee attacks when possible, destroy an adjacent obstacle to add +3 %game.action.attack%."
           },
           "138": {
-            "1": "Create one 2 damage %game.condition.stun% trap in a adjacent empty hex."
+            "1": "Create one 2 damage %game.condition.stun% trap in an adjacent empty hex."
           },
           "139": {
             "1": "%game.condition.immobilize% all allies and enemies in the targeted area."
@@ -894,7 +894,7 @@
           },
           "172": {
             "1": "One adjacent ally may perform",
-            "2": "This attack gains the effects of your %custom.augments%.",
+            "2": "This attack gains the effects of your %data.custom.gh.mindthief.augments%.",
             "3": "Force one normal or elite enemy within %game.action.range:5% to perform its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.<br><br>To signify this, place one of your character tokens on this enemy for the round."
           },
           "173": {
