@@ -72,6 +72,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
   forceRelative: boolean = false;
 
   level: number = 0;
+  round: string = "";
 
   ngOnInit(): void {
     this.update();
@@ -151,6 +152,8 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.enhancementContainer) {
       this.enhancmenetElementReplace();
     }
+
+    this.round = gameManager.game.round % 2 == 0 ? 'even' : 'odd';
   }
 
   hasEntities(type: MonsterType | string | undefined = undefined): boolean {

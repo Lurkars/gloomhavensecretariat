@@ -104,6 +104,23 @@
     </span>
   </ng-container>
 
+  <ng-container *ngSwitchCase="ActionType.round">
+    <span class="action-round" [ngClass]="{'small' : action.small}" *ngIf="action.value == round">
+      <div class="round-subactions" *ngIf="subActions.length > 0">
+        <ng-container *ngFor="let subAction of subActions; let index = index;">
+          <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster"
+          [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack" [hexSize]="hexSize"
+          [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
+          (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
+          [statsCalculation]="statsCalculation"
+          [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)" [monsterType]="monsterType"
+          [character]="character" [cardId]="cardId" [style]="style">
+        </ghs-action>
+        </ng-container>
+      </div>
+    </span>
+  </ng-container>
+
   <span class="action-specialTarget" *ngSwitchCase="ActionType.specialTarget">
     <div class="enhancements-container" #enhancementContainer>
       <span class="special-target-value" [ghs-label]="('game.specialTarget.' + values[0])"

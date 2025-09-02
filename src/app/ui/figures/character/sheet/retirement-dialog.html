@@ -9,7 +9,7 @@
 
     <div class="rewards">
         <span [ghs-label]="'character.progress.retirement.prosperity'"
-            [ghs-label-args]="[gameManager.fhRules() ? '2' : '1']"></span>
+            [ghs-label-args]="[gameManager.fhRules(true) ? '2' : '1']"></span>
     </div>
 
     <div class="event" *ngIf="character.retireEvent" [ngClass]="{'already-unlocked': alreadyRetired}">

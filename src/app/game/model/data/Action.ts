@@ -54,6 +54,7 @@ export enum ActionType {
   push = "push",
   range = "range",
   retaliate = "retaliate",
+  round = "round",
   shield = "shield",
   spawn = "spawn",
   special = "special",

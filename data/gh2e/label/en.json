@@ -509,6 +509,9 @@
           "2": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.3% opening it.",
           "3": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.4% opening it.",
           "4": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.5% opening it."
+        },
+        "10": {
+          "1": "Each Character occupying tile 01-D, 02-H, or any corridor tiles connecting those two tiles suffers hazardous terrain damage."
         }
       }
     },

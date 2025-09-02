@@ -11,6 +11,12 @@
     "earth-demon",
     "inox-archer"
   ],
+  "rules": [
+    {
+      "round": "R > 5",
+      "note": "%data.scenario.rules.gh2e.10.1%"
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
