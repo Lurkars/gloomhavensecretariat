@@ -397,7 +397,7 @@
           },
           "172": {
             "1": "Un alleato adiacente può eseguire",
-            "2": "Questo attacco ottiene gli effetti dei tuoi %custom.augments%.",
+            "2": "Questo attacco ottiene gli effetti dei tuoi %data.custom.gh.mindthief.augments%.",
             "3": "Forza un nemico normale o d'élite entro %game.action.range:5% a eseguire il suo turno in questo round come se i suoi alleati fossero nemici e i suoi nemici fossero alleati, con te che controlli le azioni.<br><br>Per indicare questo, posiziona un tuo segnalino personaggio su questo nemico per il round."
           },
           "173": {
@@ -668,7 +668,7 @@
     "earth-demon": "Demone della Terra",
     "elder-drake": "Draco Anziano",
     "flame-demon": "Demone della Fiamma",
-    "forest-imp": "Imp della Foresta",
+    "forest-imp": "Imp delle Foreste",
     "frost-demon": "Demone del Gelo",
     "giant-ooze": "Melma Gigante",
     "giant-viper": "Vipera Gigante",
@@ -705,5 +705,12 @@
     "vermling-shaman": "Vermling Sciamano",
     "wind-demon": "Demone del Vento",
     "winged-horror": "Orrore Alato"
+  },
+  "section": {
+    "title": {
+      "gh": {
+        "randomMonsterCard-558": "Selvaggio"
+      }
+    }
   }
 }
