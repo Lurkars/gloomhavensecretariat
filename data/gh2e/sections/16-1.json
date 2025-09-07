@@ -17,19 +17,23 @@
       "monster": [
         {
           "name": "earth-demon",
-          "type": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "type": "normal"
-        },
-        {
-          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "earth-demon",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
         },
         {
           "name": "living-bones",
@@ -38,7 +42,11 @@
         {
           "name": "living-bones",
           "player2": "elite",
-          "player3": "elite",
+          "player3": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
           "player4": "normal"
         },
         {

@@ -21,30 +21,36 @@
         },
         {
           "name": "frost-demon",
-          "type": "normal"
-        },
-        {
-          "name": "frost-demon",
-          "player4": "elite"
-        },
-        {
-          "name": "frost-demon",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "elite"
-        },
-        {
-          "name": "living-bones",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "elite",
+          "player3": "elite"
+        },
+        {
           "name": "living-bones",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "normal"
         }
       ]
     }
