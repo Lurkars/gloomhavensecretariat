@@ -7,6 +7,47 @@
       "tinkerer": "Tüftler"
     }
   },
+  "custom": {
+    "gh2e": {
+
+      "ancient-artillery": {
+        "1": "Fokussiere den am<br>weitesten Gegner in %game.action.range:7%",
+        "2": "Alle an das Ziel angrenzenden<br>Gegner erleiden %game.damage:2%."
+      },
+      "archer": {
+        "1": "Erstelle eine %game.damage:3% Falle auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist."
+      },
+      "chaos-demon": {
+        "1": "%game.custom.advantage%"
+      },
+      "deep-terror": {
+        "1": "Wenn die Angriffsfertigkeit ausgeführt wurde",
+        "2": "auf einem an das Ziel<br> der Angriffsfertigkeit angrenzenden leeren Feld"
+      },
+      "flame-demon": {
+        "1": "Erstelle eine %game.damage:4% auf einem angrenzenden<br>leeren Feld, das einem Gegner am nächsten ist",
+        "2": "%game.damage:1%",
+        "3": "Alle angrenzenden<br>Gegner erleiden %game.damage:2%"
+      },
+      "frost-demon": {
+        "1": "%game.damage:1%"
+      },
+      "night-demon": {
+        "1": "Alle angrenzenden Verbündeten und<br>Gegner erleiden %game.damage:1%.",
+        "2": "%game.custom.disadvantage%"
+      },
+      "ooze": {
+        "1": "Beschwöre 1 normalen Schleim mit einem TP-Wert,<br>der dem aktuellen TP-Wert des beschwörenden Schleims entspricht<br>(maximal mit dem TP-Wert der Normalvariante)."
+      },
+      "savvas-icestorm": {
+        "1": "Gewähre allen Verbündeten in %game.action.range:2% und dir selbst:"
+      },
+      "savvas-lavaflow": {
+        "1": "Alle an das Ziel angrenzenden Verbündeten<br>und Gegner erleiden %game.damage:2%",
+        "2": "Alle Gegner in %game.action.range:4% erleiden %game.damage:2%."
+      }
+    }
+  },
   "deck": {
     "archer": "Schütze",
     "boss": "Boss",

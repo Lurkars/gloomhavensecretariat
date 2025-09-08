@@ -190,7 +190,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fh.ooze.1%",
+              "value": "%data.custom.gh2e.ooze.1%",
               "small": true
             }
           ]
@@ -223,7 +223,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fh.ooze.1%",
+              "value": "%data.custom.gh2e.ooze.1%",
               "small": true
             }
           ]

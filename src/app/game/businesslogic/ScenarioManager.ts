@@ -181,6 +181,19 @@ export class ScenarioManager {
               }
             }
 
+            if (rewards.reputationFactions) {
+              rewards.reputationFactions.forEach((reputationFaction) => {
+                const faction = reputationFaction.split(':')[0];
+                const value = +reputationFaction.split(':')[1];
+                this.game.party.factionReputation[faction] = (this.game.party.factionReputation[faction] || 0) + value;
+                if (this.game.party.factionReputation[faction] > 20) {
+                  this.game.party.factionReputation[faction] = 20;
+                } else if (this.game.party.factionReputation[faction] < -10) {
+                  this.game.party.factionReputation[faction] = -10;
+                }
+              })
+            }
+
             if (rewards.prosperity) {
               this.game.party.prosperity += rewards.prosperity;
               if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {

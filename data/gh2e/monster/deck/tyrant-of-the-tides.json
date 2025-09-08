@@ -113,7 +113,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.fh.savvas-icestorm.1%",
+          "value": "%data.custom.gh2e.savvas-icestorm.1%",
           "small": true,
           "subActions": [
             {

@@ -108,7 +108,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.fh.flame-demon.1%",
+          "value": "%data.custom.gh2e.flame-demon.1%",
           "small": true
         },
         {
@@ -213,7 +213,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fh.flame-demon.2%",
+              "value": "%data.custom.gh2e.flame-demon.2%",
               "small": true,
               "subActions": [
                 {
@@ -240,7 +240,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fh.flame-demon.3%",
+              "value": "%data.custom.gh2e.flame-demon.3%",
               "small": true
             }
           ]

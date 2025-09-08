@@ -9,7 +9,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.ancient-artillery.1%",
+          "value": "%data.custom.gh2e.ancient-artillery.1%",
           "small": true
         },
         {
@@ -50,7 +50,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.fh.ancient-artillery.2%",
+              "value": "%data.custom.gh2e.ancient-artillery.2%",
               "small": true
             }
           ]
@@ -81,7 +81,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.fh.ancient-artillery.2%",
+              "value": "%data.custom.gh2e.ancient-artillery.2%",
               "small": true
             }
           ]

@@ -1860,6 +1860,7 @@
       "removeLootDeckCard": "Remove loot card {0} from the game. No longer add it to any scenario's loot deck.",
       "repeatScenario": "Scenario can be replayed!",
       "reputation": "{0} reputation",
+      "reputationFactions": "Gain {1} %game.gh2eFaction:{0}% reputation",
       "resources": "Gain {1} %game.resource.{0}% each",
       "resourcesLose": "Lose {1} %game.resource.{0}% each",
       "townGuardAm": "Add one %game.townGuardAm.{1}:{0}% card to the town guard deck.",
