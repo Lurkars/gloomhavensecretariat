@@ -538,7 +538,7 @@ export class ScenarioManager {
           const option = eventCard.options[e.selected];
           if (option && option.outcomes) {
             option.outcomes.forEach((outcome, i) => {
-              if (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1) {
+              if (outcome.effects && (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1)) {
                 gameManager.eventCardManager.applyEffects(eventCard, outcome.effects.filter((e) => typeof e !== 'string'), true);
               }
             })
