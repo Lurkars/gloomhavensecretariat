@@ -233,7 +233,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fh.frost-demon.1%",
+              "value": "%data.custom.gh2e.frost-demon.1%",
               "small": true,
               "subActions": [
                 {

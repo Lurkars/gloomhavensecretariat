@@ -181,6 +181,19 @@ export class ScenarioManager {
               }
             }
 
+            if (rewards.reputationFactions) {
+              rewards.reputationFactions.forEach((reputationFaction) => {
+                const faction = reputationFaction.split(':')[0];
+                const value = +reputationFaction.split(':')[1];
+                this.game.party.factionReputation[faction] = (this.game.party.factionReputation[faction] || 0) + value;
+                if (this.game.party.factionReputation[faction] > 20) {
+                  this.game.party.factionReputation[faction] = 20;
+                } else if (this.game.party.factionReputation[faction] < -10) {
+                  this.game.party.factionReputation[faction] = -10;
+                }
+              })
+            }
+
             if (rewards.prosperity) {
               this.game.party.prosperity += rewards.prosperity;
               if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
@@ -525,7 +538,7 @@ export class ScenarioManager {
           const option = eventCard.options[e.selected];
           if (option && option.outcomes) {
             option.outcomes.forEach((outcome, i) => {
-              if (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1) {
+              if (outcome.effects && (!e.subSelections || e.subSelections.length == 0 || e.subSelections.indexOf(i) != -1)) {
                 gameManager.eventCardManager.applyEffects(eventCard, outcome.effects.filter((e) => typeof e !== 'string'), true);
               }
             })

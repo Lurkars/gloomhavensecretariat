@@ -253,6 +253,13 @@
   },
   "custom": {
     "gh2e": {
+      "ancient-artillery": {
+        "1": "Focus on the enemy<br>farthest away within %game.action.range:7%",
+        "2": "All enemies adjacent to<br>the target suffer %game.damage:2%."
+      },
+      "archer": {
+        "1": "Create one %game.damage:3% trap in an adjacent<br>empty hex closest to an enemy."
+      },
       "bruiser": {
         "1": "Add this card to your active area. On the next attack targeting you performed by an adjacent enemy, discard this card to gain %game.action.retaliate% 2 for the attack",
         "2": "Once each scenario, during your turn, you may perform: %game.action.loot%1, if this ability loots at least one money token, you may %game.card.recover% one %game.itemSlot:body% item",
@@ -261,6 +268,9 @@
         "5": "In 3 different scenarios, kill an enemy that you Pushed or Pulled that round",
         "6": "In a single scenario, across 3 consecutive rounds, play 6 different ability cards and cause enemies to suffer 7 or more damage during each of those rounds"
       },
+      "chaos-demon": {
+        "1": "%game.custom.advantage%"
+      },
       "cragheart": {
         "1": "Create one 1-hex obstacle tile in an empty hex adjacent to the target",
         "2": "Once each scenario, during your turn, you may destroy one 1-hex obstacle withing %game.action.range:5% to %game.action.teleport% to the hex it occupied",
@@ -268,6 +278,15 @@
         "4": "Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty hex",
         "5": "For an entire scenario, create, destroy, or move at least one obstacle tile each round",
         "6": "In a single scenario, heal 8 or more hit points during a single round, deal 8 or more damage with a ranged attack ability, and deal 8 or more damage with a melee attack ability"
+      },
+      "deep-terror": {
+        "1": "If the attack ability was performed",
+        "2": "in an empty hex adjacent to the target<br>of the attack ability"
+      },
+      "flame-demon": {
+        "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
+        "2": "%game.damage:1%",
+        "3": "All adjacent<br>enemies suffer %game.damage:2%"
       },
       "flowChartGroup": {
         "city-guards": "City Guard/The Shields",
@@ -283,6 +302,12 @@
         "the-sewers": "The Sewers",
         "the-voice": "The Voice and the Drake"
       },
+      "frost-demon": {
+        "1": "%game.damage:1%"
+      },
+      "hound": {
+        "1": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies."
+      },
       "mindthief": {
         "1": "Add +1 %game.action.attack% if the target has a negative condition",
         "2": "Where X is half the Rat King's current hit point value (rounded up).",
@@ -293,6 +318,20 @@
         "7": "At the end of each of your rests, you may %game.elementHalf.consume:ice|dark% to control one enemy withing %game.action.range:5%: %game.action.attack% 1",
         "8": "In a single scenario, kill 5 or more enemies with control abilities",
         "9": "In a single scenario, trigger the on-attack effect from four different Augments at least 3 times each"
+      },
+      "night-demon": {
+        "1": "All adjacent allies and<br>enemies suffer %game.damage:1%.",
+        "2": "%game.custom.disadvantage%"
+      },
+      "ooze": {
+        "1": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."
+      },
+      "savvas-icestorm": {
+        "1": "Grant all allies within %game.action.range:2% and self:"
+      },
+      "savvas-lavaflow": {
+        "1": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
+        "2": "All enemies within %game.action.range:4% suffer %game.damage:2%."
       },
       "silent-knife": {
         "1": "Gain one money token if this attack targeted an adjacent enemy",

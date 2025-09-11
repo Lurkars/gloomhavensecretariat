@@ -604,7 +604,7 @@
               <ng-container *ngFor="let item of rewards.collectiveResources; let i = index;">
                 <span class="placeholder text-white" *ngIf="item.value"
                   [ghs-label]="'scenario.rewards.collectiveResources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
-                  [ghs-label-args]="[item.type, ''+  EntityValueFunction(item.value)]"></span>
+                  [ghs-label-args]="[item.type, EntityValueFunction(item.value)]"></span>
                 <span class="placeholder text-white hint"
                   *ngIf="rewards.hints && rewards.hints.resources && rewards.hints.resources[i]"
                   [ghs-label]="rewards.hints.resources[i]"></span>
@@ -612,10 +612,19 @@
             </div>
 
             <div class="item reputation" *ngIf="rewards.reputation">
-              <span><span [ghs-label]="'scenario.rewards.reputation'"
-                  [ghs-label-args]="[''+(rewards.reputation | ghsValueSign)]"></span></span>
+              <span><span class="text-white"  [ghs-label]="'scenario.rewards.reputation'"
+                  [ghs-label-args]="[(rewards.reputation | ghsValueSign)]"></span></span>
               <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.reputation"
                 [ghs-label]="rewards.hints.reputation"></span>
+            </div>
+
+            <div class="item reputation faction" *ngIf="rewards.reputationFactions">
+              <ng-container *ngFor="let reputationFaction of rewards.reputationFactions; let i = index">
+                <span><span class="text-white" [ghs-label]="'scenario.rewards.reputationFactions'"
+                    [ghs-label-args]="[reputationFaction.split(':')[0], reputationFaction.split(':')[1]]"></span></span>
+                <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.reputationFactions[i]"
+                  [ghs-label]="rewards.hints.reputationFactions[i]"></span>
+              </ng-container>
             </div>
 
             <div class="item prosperity" *ngIf="rewards.prosperity">

@@ -8,13 +8,21 @@
     }
   },
   "monster": {
+    "black-imp": "Imp Nero",
+    "chaos-demon": "Demone del Caos",
     "city-archer": "Arciere Cittadino",
     "deep-terror": "Terrore delle Profondità",
+    "forest-imp": "Imp delle Foreste",
     "frost-demon": "Demone del Gelo",
     "hound": "Mastino",
     "inox-archer": "Inox Arciere",
     "jekserah": "Jekserah",
-    "savvas-icestorm": "Savvas Tempesta Glaciale"
+    "living-spirit": "Spirito Vivente",
+    "lurker-soldier": "Osservatore Soldato",
+    "night-demon": "Demone della Notte",
+    "savvas-icestorm": "Savvas Tempesta Glaciale",
+    "vermling-priest": "Vermling Sacerdote",
+    "vermling-scout": "Vermling Esploratore"
   },
   "section": {
     "title": {

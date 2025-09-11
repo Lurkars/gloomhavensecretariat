@@ -112,7 +112,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.fh.savvas-lavaflow.1%",
+              "value": "%data.custom.gh2e.savvas-lavaflow.1%",
               "small": true
             }
           ]
@@ -171,7 +171,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fh.savvas-lavaflow.2%",
+          "value": "%data.custom.gh2e.savvas-lavaflow.2%",
           "small": true
         },
         {

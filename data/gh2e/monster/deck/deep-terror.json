@@ -211,7 +211,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.fh.deep-terror.1%",
+          "value": "%data.custom.gh2e.deep-terror.1%",
           "small": true,
           "subActions": [
             {
@@ -228,7 +228,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.fh.deep-terror.2%",
+                  "value": "%data.custom.gh2e.deep-terror.2%",
                   "small": true
                 }
               ]

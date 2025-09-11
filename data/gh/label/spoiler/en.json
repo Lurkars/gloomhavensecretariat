@@ -787,7 +787,46 @@
       },
       "triangles": {
         "1": "You may perform Attack actions as if you occupy the summon's hex.",
-        "2": "when %game.action.attack% performed"
+        "2": "when %game.action.attack% performed",
+        "abilities": {
+          "449": {
+            "1": "Once during each of your Attack actions, you may %game.element.wild:minus% to add +1 %game.action.attack% to the entire Attack action."
+          },
+          "450": {
+            "1": "At the end of each of your turns, you may generate %game.element.wild%.",
+            "2": "Deduct -1 %game.action.attack% from all your attacks."
+          },
+          "459": {
+            "1": "All attacks targeting you gain Disadvantage this round."
+          },
+          "463": {
+            "1": "%game.action.attack% X-1 on a new enemy within %game.action.range:2% of the first target, then %game.action.attack% X-2 on a third enemy within %game.action.range:2% of the second target.",
+            "2": "%game.action.attack% X-3 on a fourth enemy within %game.action.range:2% of the third target, %game.card.experience:1%"
+          },
+          "467": {
+            "1": "+2 %game.action.range%, %game.action.pierce:4%, %game.card.experience:1%"
+          },
+          "468": {
+            "1": "Target all enemies within %game.action.range:2% of the healed figure"
+          },
+          "469": {
+            "1": "You may perform Attack actions as if you occupy the summon's hex."
+          },
+          "470": {
+            "1": "Kill all normal targets instead, %game.card.experience:1%"
+          },
+          "471": {
+            "1": "The healed figure may Recover %game.card.recover% one of their discarded cards."
+          },
+          "472": {
+            "1": "Once per action, if you consume an element during the action, you may cause one enemy within %game.action.range:2% to suffer %game.damage:1% or you may perform a \"%game.action.heal:1%, %game.action.range:2%\" action.",
+            "2": "+2 %game.action.move%, %game.condition.wound%<br>all enemies moved through, %game.card.experience:1%",
+            "3": "+2 %game.action.move%, %game.condition.immobilize%<br>all enemies moved through, %game.card.experience:1%"
+          },
+          "474": {
+            "1": "Perform any of the following abilities:"
+          }
+        }
       },
       "two-mini": {
         "1": "All adjacent allies add +2 %game.action.attack% to all their attacks.",

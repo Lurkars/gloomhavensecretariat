@@ -76,7 +76,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.fh.hound.1%",
+              "value": "%data.custom.gh2e.hound.1%",
               "small": true
             }
           ]
@@ -105,7 +105,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.fh.hound.1%",
+              "value": "%data.custom.gh2e.hound.1%",
               "small": true
             }
           ]
