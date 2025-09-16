@@ -18,11 +18,13 @@
         },
         {
           "name": "hound",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
         },
         {
           "name": "hound",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "normal"
         },
         {
@@ -42,6 +44,10 @@
         {
           "name": "vermling-scout",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
           "player4": "normal"
         }
       ]

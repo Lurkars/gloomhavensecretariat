@@ -15,21 +15,24 @@
       "monster": [
         {
           "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "hound",
+          "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
         },
         {
           "name": "inox-priest",
