@@ -1864,6 +1864,7 @@
       "removeLootDeckCard": "Rimuovi la carta bottino {0} dal gioco. Non aggiungerlo più al mazzo di bottino di nessuno scenario.",
       "repeatScenario": "Lo scenario può essere rigiocato!",
       "reputation": "{0} reputazione",
+      "reputationFactions": "Ottieni {1} reputazione con %game.gh2eFaction:{0}%",
       "resources": "Ciascuno ottiene {1} %game.resource.{0}%",
       "resourcesLose": "Ciascuno perde {1} %game.resource.{0}%",
       "townGuardAm": "Aggiungi una carta %game.townGuardAm.{1}:{0}% al mazzo della guardia cittadina.",
