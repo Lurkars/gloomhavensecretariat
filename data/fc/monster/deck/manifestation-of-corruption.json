@@ -1287,14 +1287,30 @@
       "actions": [
         {
           "type": "summon",
-          "value": "naaret"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "naaret",
+                "type": "boss"
+              }
+            }
+          ]
         }
       ],
       "bottomLost": true,
       "bottomActions": [
         {
           "type": "summon",
-          "value": "naaret"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "naaret",
+                "type": "boss"
+              }
+            }
+          ]
         }
       ]
     }

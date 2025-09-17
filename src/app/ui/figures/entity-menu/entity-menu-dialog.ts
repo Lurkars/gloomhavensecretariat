@@ -24,6 +24,7 @@ import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 import { CharacterSheetDialog } from "../character/dialogs/character-sheet-dialog";
 import { MonsterNumberPickerDialog } from "../monster/dialogs/numberpicker-dialog";
 import { AdditionalAMSelectDialogComponent } from "./additional-am-select/additional-am-select";
+import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 
 @Component({
   standalone: false,
@@ -94,6 +95,7 @@ export class EntityMenuDialogComponent {
   Math = Math;
   catching: boolean = false;
   catchingDisabled: boolean = true;
+  objectiveData: ObjectiveData | undefined;
 
   constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, positionElement: ElementRef, entityIndexKey: boolean }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef, private dialog: Dialog, private overlay: Overlay) {
     if (data.entity instanceof Character) {
@@ -142,6 +144,10 @@ export class EntityMenuDialogComponent {
           this.specialTags.push(specialAction.name);
         }
       })
+    }
+
+    if (data.figure instanceof ObjectiveContainer && data.figure.objectiveId) {
+      this.objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(data.figure.objectiveId);
     }
 
     if (this.data.entity) {
@@ -305,7 +311,7 @@ export class EntityMenuDialogComponent {
         maxHealth = Math.max(maxHealth, 26);
       }
 
-      if (this.data.entity.health + this.health > maxHealth + this.maxHp) {
+      if (this.maxHp && this.data.entity.health + this.health > maxHealth + this.maxHp) {
         this.health = maxHealth + this.maxHp - this.data.entity.health;
       }
     }
@@ -1249,7 +1255,7 @@ export class EntityMenuDialogComponent {
       if (this.health != 0) {
         gameManager.stateManager.before("changeObjectiveEntityHP", this.data.figure.title || this.data.figure.name || this.data.figure.escort ? 'escort' : 'objective', this.data.entity.number, ghsValueSign(this.health));
         gameManager.entityManager.changeHealth(this.data.entity, this.data.figure, this.health);
-        if (this.data.entity.health <= 0) {
+        if ((!this.objectiveData || !this.objectiveData.trackDamage) &&  this.data.entity.health <= 0) {
           gameManager.objectiveManager.removeObjectiveEntity(this.data.figure, this.data.entity);
         }
         gameManager.stateManager.after();

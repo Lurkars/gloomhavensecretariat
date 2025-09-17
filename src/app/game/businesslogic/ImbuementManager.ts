@@ -29,25 +29,25 @@ export class ImbuementManager {
         attackModifierDeck.cards = attackModifierDeck.cards.filter((am) => am.type != AttackModifierType.imbue && am.type != AttackModifierType.advancedImbue);
         gameManager.attackModifierManager.shuffleModifiers(attackModifierDeck);
         if (this.imbuement == 'advanced') {
-            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.plus2);
-            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.plus1);
-            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.plus1);
-            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.plus1);
+            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.minus2);
+            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.minus1);
+            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.minus1);
+            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.minus1);
             gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.plus0);
             gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.plus0);
         } else {
-            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.plus1);
-            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.plus1);
-            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.plus1);
+            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.minus1);
+            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.minus1);
+            gameManager.attackModifierManager.addModifierByType(attackModifierDeck, AttackModifierType.minus1);
         }
 
         this.imbuement = false;
     }
 
     enable(attackModifierDeck: AttackModifierDeck) {
-        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus1);
-        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus1);
-        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus1);
+        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
+        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
+        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
         ImbuementAttackModifier.forEach((am) => {
             gameManager.attackModifierManager.addModifier(attackModifierDeck, am);
         })
@@ -55,10 +55,10 @@ export class ImbuementManager {
     }
 
     advanced(attackModifierDeck: AttackModifierDeck) {
-        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus2);
-        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus1);
-        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus1);
-        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus1);
+        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus2);
+        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
+        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
+        gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.minus1);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus0);
         gameManager.attackModifierManager.removeModifierByType(attackModifierDeck, AttackModifierType.plus0);
         ImbuementAttackModifier.forEach((am) => {

@@ -34,6 +34,13 @@
     "valrath-savage",
     "valrath-tracker"
   ],
+  "objectives": [
+    {
+      "name": "Altar",
+      "initiative": 99,
+      "trackDamage": true
+    }
+  ],
   "rules": [
     {
       "round": "R < 10 || R > 10",
@@ -155,6 +162,10 @@
           "name": "valrath-tracker",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        "1-a",
+        "1-b"
       ]
     }
   ]

@@ -273,6 +273,10 @@
   img {
     height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
     width: auto;
+
+    &.damage {
+      filter: var(--ghs-filter-red) brightness(0.7) var(--ghs-filter-outline-thin-black);
+    }
   }
 
   .condition {
