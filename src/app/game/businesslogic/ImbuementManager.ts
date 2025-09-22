@@ -17,6 +17,10 @@ export class ImbuementManager {
     update() {
         this.available = gameManager.gh2eRules() && gameManager.game.party.conclusions.some((s) => s.edition == 'gh2e' && s.index == '48.2') && (gameManager.game.party.conclusions.some((s) => s.edition == 'gh2e' && s.index == '16.5') ? 'advanced' : true);
 
+        if (!this.available && !settingsManager.settings.partySheet) {
+            this.available = 'advanced';
+        }
+
         this.enabled = this.available && settingsManager.settings.gh2eImbuement;
 
         this.imbuement = gameManager.game.monsterAttackModifierDeck.cards.find((am) => am.type == AttackModifierType.imbue) != undefined;
