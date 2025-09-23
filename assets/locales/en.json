@@ -1897,6 +1897,7 @@
         "loseCondition": "{0} lose %game.condition.{1}%",
         "permanentCondition": "{0} gain permanent %game.condition.{1}%",
         "remove": "Remove {0}",
+        "removeAbility": "Remove ability card '{1}' of {0}",
         "scenarioEffect": "as scenario effect",
         "setAbility": "Set active ability card of {0} to '{1}'",
         "setHp": "{0} HP to {2}",
