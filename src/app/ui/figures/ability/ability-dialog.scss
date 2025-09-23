@@ -50,6 +50,14 @@
         height: 135vw;
         max-height: 810px;
       }
+
+      @media (max-height: 600px),
+      (orientation: portrait) {
+        &.second-ability ghs-ability {
+          height: 67.5vw;
+          max-height: 405px;
+        }
+      }
     }
   }
 

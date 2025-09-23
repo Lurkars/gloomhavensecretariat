@@ -17,7 +17,7 @@
       <ng-container *ngIf="!!ability">
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
         <span class="name">{{abilityLabel}}</span>
-        <div class="ability-actions-container">
+        <div class="ability-actions-container" [ngClass]="{'disabled': activeActions && activeActions == 'bottom'}">
           <div class="ability-actions">
             <ghs-actions [actions]="ability.actions" [monster]="monster" [character]="character"
               [statsCalculation]="statsCalculation" [relative]="relative" [interactiveAbilities]="interactiveAbilities"
@@ -31,14 +31,14 @@
         </div>
         <ghs-interactive-actions
           [ngClass]="{'interactive-actions-top' : ability.bottomActions && ability.bottomActions.length > 0 || character}"
-          *ngIf="interactiveAbilities && !!monster" [figure]="monster" [actions]="ability.actions"
-          [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
+          *ngIf="interactiveAbilities && !!monster && activeActions && activeActions == 'top'" [figure]="monster"
+          [actions]="ability.actions" [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
 
         <ng-container *ngIf="!!ability.bottomActions && ability.bottomActions.length > 0 || character">
           <span class="level">
             <span class="text" [ghs-label]="ability.level || 0"></span>
           </span>
-          <div class="ability-actions-container">
+          <div class="ability-actions-container" [ngClass]="{'disabled': activeActions && activeActions == 'top'}">
             <div class="ability-actions ability-bottom-actions">
               <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [character]="character"
                 [statsCalculation]="statsCalculation" [relative]="relative"
@@ -49,8 +49,9 @@
             </div>
           </div>
 
-          <ghs-interactive-actions class="interactive-actions-bottom" *ngIf="interactiveAbilities && !!monster"
-            [figure]="monster" [actions]="ability.bottomActions" [(interactiveActions)]="interactiveBottomActions"
+          <ghs-interactive-actions class="interactive-actions-bottom"
+            *ngIf="interactiveAbilities && !!monster  && activeActions && activeActions == 'bottom'" [figure]="monster"
+            [actions]="ability.bottomActions" [(interactiveActions)]="interactiveBottomActions"
             [preIndex]="'bottom'"></ghs-interactive-actions>
         </ng-container>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>

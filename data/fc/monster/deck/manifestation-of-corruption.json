@@ -302,17 +302,17 @@
               "type": "specialTarget",
               "value": "enemiesAdjacent",
               "small": true
-            },
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "element",
-                  "value": "fire"
-                }
-              ]
+              "value": "fire"
             }
           ]
         }
@@ -497,6 +497,10 @@
               ]
             }
           ]
+        },
+        {
+          "type": "card",
+          "value": "round"
         }
       ]
     },
@@ -537,8 +541,36 @@
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.10%",
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "black-imp",
+                "player2": "normal"
+              },
+              "count": 2
+            },
+            {
+              "monster": {
+                "name": "black-imp",
+                "player3": "normal"
+              }
+            },
+            {
+              "monster": {
+                "name": "black-imp",
+                "player3": "elite"
+              }
+            },
+            {
+              "monster": {
+                "name": "black-imp",
+                "player4": "elite"
+              },
+              "count": 2
+            }
+          ],
           "small": true
         },
         {
@@ -547,8 +579,16 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.fc.manifestation-of-corruption.11%",
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "black-imp",
+                    "type": "elite"
+                  }
+                }
+              ],
               "small": true
             }
           ]
@@ -751,7 +791,6 @@
         {
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.2%",
-          "small": true,
           "subActions": [
             {
               "type": "custom",
@@ -793,33 +832,65 @@
       "initiative": 90,
       "actions": [
         {
-          "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.5%",
-          "small": true,
-          "subActions": [
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
             {
-              "type": "element",
-              "value": "dark",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%data.custom.fc.manifestation-of-corruption.7%",
-                  "small": true
-                }
-              ]
+              "monster": {
+                "name": "flame-demon",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
             },
             {
-              "type": "element",
-              "value": "fire",
-              "valueType": "minus",
-              "subActions": [
+              "monster": {
+                "name": "night-demon",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
                 {
-                  "type": "custom",
-                  "value": "%data.custom.fc.manifestation-of-corruption.8%",
-                  "small": true
+                  "monster": {
+                    "name": "night-demon",
+                    "type": "normal"
+                  }
                 }
-              ]
+              ],
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "flame-demon",
+                    "type": "normal"
+                  }
+                }
+              ],
+              "small": true
             }
           ]
         }
@@ -830,8 +901,18 @@
           "value": 2
         },
         {
-          "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.9%",
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "valrath-tracker",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ],
           "small": true
         },
         {
@@ -978,6 +1059,27 @@
               ]
             }
           ]
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "persistent"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            }
+          ]
         }
       ]
     },
@@ -990,6 +1092,7 @@
         {
           "type": "attack",
           "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
@@ -1034,8 +1137,18 @@
           "value": 3
         },
         {
-          "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.21%",
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "aesther-scout",
+                "player2": "normal",
+                "player3": "normale",
+                "player4": "elite"
+              }
+            }
+          ],
           "small": true
         },
         {
@@ -1087,7 +1200,6 @@
         {
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.2%",
-          "small": true,
           "subActions": [
             {
               "type": "custom",
@@ -1185,9 +1297,26 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.17%",
-          "small": true
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "valrath-savage",
+                "type": "normal"
+              },
+              "manual": true,
+              "manualMax": "C"
+            }
+          ],
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.17%",
+              "small": true
+            }
+          ]
         }
       ],
       "bottomLost": true,
@@ -1206,9 +1335,26 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.17%",
-          "small": true
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "valrath-savage",
+                "type": "normal"
+              },
+              "manual": true,
+              "manualMax": "C"
+            }
+          ],
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.17%",
+              "small": true
+            }
+          ]
         }
       ]
     },
@@ -1295,6 +1441,13 @@
                 "type": "boss"
               }
             }
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.23%",
+              "small": true
+            }
           ]
         }
       ],
@@ -1309,6 +1462,13 @@
                 "name": "naaret",
                 "type": "boss"
               }
+            }
+          ],
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.23%",
+              "small": true
             }
           ]
         }

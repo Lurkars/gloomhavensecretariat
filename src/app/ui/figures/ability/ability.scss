@@ -47,6 +47,14 @@
       overflow: auto;
       z-index: 2;
 
+      &.disabled {
+        opacity: 0.3;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
       .ability-actions {
         position: relative;
         margin-top: 2em;

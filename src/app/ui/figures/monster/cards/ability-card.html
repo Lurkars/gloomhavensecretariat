@@ -7,15 +7,17 @@
     *ngIf="!secondAbility && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard"
     class="hover-effect title"></div>
   <ghs-ability [ability]="ability" [monster]="monster" [flipped]="flipped"
+    [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'bottom': 'top') : false"
     [interactiveAbilities]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
     (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event)"></ghs-ability>
   <ng-container *ngIf="!!secondAbility">
     <ghs-ability [ability]="secondAbility" [monster]="monster" [flipped]="flipped"
+      [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'top': 'bottom') : false"
       [interactiveAbilities]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
-      (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event,true)">
+      (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event)">
     </ghs-ability>
   </ng-container>
 </div>
 <span class="left-abilities" *ngIf="settingsManager.settings.abilities">
-  {{this.monster.abilities.length - drawnAbilities - (secondAbility ? 1 : 0)}}/{{this.monster.abilities.length}}
+  {{this.monster.abilities.length - drawnAbilities}}/{{this.monster.abilities.length}}
 </span>

@@ -71,7 +71,8 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
 
     if (gameManager.hasBottomAbility(this.ability)) {
       // Manifestation of Corruption mechanic?!
-      this.secondAbility = gameManager.abilities(this.monster)[this.monster.abilities[this.monster.ability + (this.monster.ability < this.monster.abilities.length + 1 ? 1 : -1)]];
+      this.ability = gameManager.monsterManager.getAbility(this.monster, true);
+      this.secondAbility = gameManager.monsterManager.getAbility(this.monster);
     }
 
     let flipped = !gameManager.roundManager.working && gameManager.game.state == GameState.next && gameManager.gameplayFigure(this.monster);
@@ -93,13 +94,13 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  openAbility(event: any, second: boolean = false): void {
+  openAbility(event: any): void {
     if (settingsManager.settings.abilities) {
       if (this.flipped) {
         this.dialog.open(AbilityDialogComponent, {
           panelClass: ['fullscreen-panel'],
           disableClose: true,
-          data: { ability: second ? this.secondAbility : this.ability, monster: this.monster, interactive: settingsManager.settings.interactiveAbilities }
+          data: { monster: this.monster, interactive: settingsManager.settings.interactiveAbilities }
         });
       } else {
         this.openAbilities(event);

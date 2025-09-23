@@ -300,7 +300,7 @@ export class MonsterManager {
     if (!this.applySameDeck(monster)) {
       if (!monster.abilities || monster.abilities.length == 0) {
         const abilities = gameManager.abilities(monster);
-        monster.abilities = abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= (monster && monster.level || 0)).map((ability) => abilities.indexOf(ability));
+        monster.abilities = abilities.map((ability) => abilities.indexOf(ability)).filter((i) => !abilities[i].level || isNaN(+abilities[i].level) || EntityValueFunction(abilities[i].level) <= monster.level);
       }
       this.shuffleAbilities(monster);
     }
@@ -558,13 +558,9 @@ export class MonsterManager {
   }
 
   setLevel(monster: Monster, level: number) {
-    const abilities = gameManager.abilities(monster);
-    if (monster.abilities.length != abilities.filter((ability) => !ability.level || isNaN(+ability.level) || EntityValueFunction(ability.level) <= level).length) {
-      monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || EntityValueFunction(ability.level) <= level).map((ability, index) => index);
-      this.shuffleAbilities(monster);
-    }
-
     monster.level = level;
+
+    this.resetMonsterAbilities(monster);
 
     monster.entities.forEach((monsterEntity) => {
       let stat = this.getStat(monster, monsterEntity.type);
@@ -664,7 +660,26 @@ export class MonsterManager {
       if (figure instanceof Monster) {
         const ability = this.getAbility(figure);
         if (ability) {
-          if (ability.shuffle || figure.ability >= figure.abilities.length) {
+          if (this.hasBottomActions(figure)) {
+            const secondAbility = this.getAbility(figure, true);
+            if (figure.firstActiveAction == 'bottom' && ability.bottomLost || figure.firstActiveAction == 'top' && ability.lost) {
+              const index = gameManager.abilities(figure).indexOf(ability);
+              figure.abilities = figure.abilities.filter((number) => number != index);
+              figure.ability -= 1;
+            }
+            if (secondAbility) {
+              if (figure.firstActiveAction == 'bottom' && secondAbility.lost || figure.firstActiveAction == 'top' && secondAbility.bottomLost) {
+                const index = gameManager.abilities(figure).indexOf(secondAbility);
+                figure.abilities = figure.abilities.filter((number) => number != index);
+                figure.ability -= 1;
+              }
+            }
+          }
+
+          if (this.hasBottomActions(figure) && figure.firstActiveAction && figure.ability >= (figure.abilities.length + (figure.abilities.length % 2 == 0 ? -1 : -2))) {
+            figure.abilities.splice(0, 1);
+            this.shuffleAbilities(figure);
+          } else if (ability.shuffle || figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);
           }
         }
@@ -774,7 +789,7 @@ export class MonsterManager {
       }
       return false;
     }).map((figure) => figure as Monster).forEach((sameDeckMonster) => {
-      sameDeckMonster.abilities = deckData.abilities.filter((ability) => !ability.level || isNaN(+ability.level) || EntityValueFunction(ability.level) <= monster.level).map((ability, index) => index);
+      sameDeckMonster.abilities = deckData.abilities.map((a, index) => index).filter((i) => !deckData.abilities[i].level || isNaN(+deckData.abilities[i].level) || EntityValueFunction(deckData.abilities[i].level) <= monster.level);
       sameDeckMonster.ability = -1;
     });
   }
@@ -875,7 +890,7 @@ export class MonsterManager {
     return drawn;
   }
 
-  getAbility(monster: Monster): Ability | undefined {
+  getAbility(monster: Monster, bottom: boolean = false): Ability | undefined {
     if (monster.ability < 0 || monster.ability >= monster.abilities.length || !settingsManager.settings.abilities) {
       return undefined;
     }
@@ -886,7 +901,7 @@ export class MonsterManager {
       return undefined;
     }
 
-    return abilities[monster.abilities[monster.ability]]
+    return abilities[monster.abilities[monster.ability + (bottom ? (monster.ability > 0 ? -1 : 1) : 0)]]
   }
 
   hasBottomActions(monster: Monster): boolean {

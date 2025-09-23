@@ -43,18 +43,249 @@
   ],
   "rules": [
     {
-      "round": "R < 10 || R > 10",
+      "round": "R == 1",
       "start": true,
-      "note": "%data.scenario.rules.fc.115.1%"
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:3",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "manifestation-of-corruption"
+          },
+          "type": "removeAbility",
+          "value": "618"
+        }
+      ],
+      "requiredScenarios": [
+        {
+          "edition": "fc",
+          "index": "110"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "manifestation-of-corruption"
+          },
+          "type": "removeAbility",
+          "value": "619"
+        }
+      ],
+      "requiredScenarios": [
+        {
+          "edition": "fc",
+          "index": "111"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "manifestation-of-corruption"
+          },
+          "type": "removeAbility",
+          "value": "620"
+        }
+      ],
+      "requiredScenarios": [
+        {
+          "edition": "fc",
+          "index": "112"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "manifestation-of-corruption"
+          },
+          "type": "removeAbility",
+          "value": "621"
+        }
+      ],
+      "requiredScenarios": [
+        {
+          "edition": "fc",
+          "index": "113"
+        }
+      ]
+    },
+    {
+      "round": "R > 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "a",
+            "hp": "HP > 0"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "a",
+            "hp": "HP > 0"
+          },
+          "type": "damage",
+          "value": -1
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "manifestation-of-corruption"
+          },
+          "type": "heal",
+          "value": "[C/2{$math.floor}]"
+        }
+      ]
+    },
+    {
+      "round": "R > 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "b",
+            "hp": "HP > 0"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "b",
+            "hp": "HP > 0"
+          },
+          "type": "damage",
+          "value": -1
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "manifestation-of-corruption"
+          },
+          "type": "heal",
+          "value": "[C/2{$math.floor}]"
+        }
+      ]
     },
     {
       "round": "R == 10",
       "start": true,
-      "note": "%data.scenario.rules.fc.115.2%"
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "a",
+            "hp": "HP > 1"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "a",
+            "hp": "HP > 1"
+          },
+          "type": "damage",
+          "value": -1
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "manifestation-of-corruption"
+          },
+          "type": "heal",
+          "value": "[C/2{$math.floor}]"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "b",
+            "hp": "HP > 1"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "b",
+            "hp": "HP > 1"
+          },
+          "type": "damage",
+          "value": -1
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "manifestation-of-corruption"
+          },
+          "type": "heal",
+          "value": "[C/2{$math.floor}]"
+        }
+      ]
     },
     {
       "round": "R == 5 || R == 10",
-      "note": "%data.scenario.rules.fc.115.3%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "a",
+            "hp": "HP == 0"
+          },
+          "type": "present"
+        }
+      ],
       "spawns": [
         {
           "monster": {
@@ -62,7 +293,8 @@
             "player2": "normal",
             "player3": "elite",
             "player4": "elite"
-          }
+          },
+          "marker": "c"
         },
         {
           "monster": {
@@ -70,26 +302,39 @@
             "player2": "normal",
             "player3": "normal",
             "player4": "elite"
-          }
+          },
+          "marker": "c"
         }
       ]
     },
     {
       "round": "R == 5 || R == 10",
-      "note": "%data.scenario.rules.fc.115.4%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Altar",
+            "marker": "b",
+            "hp": "HP == 0"
+          },
+          "type": "present"
+        }
+      ],
       "spawns": [
         {
           "monster": {
             "name": "black-imp",
             "player3": "elite"
-          }
+          },
+          "marker": "d"
         },
         {
           "count": "2",
           "monster": {
             "name": "black-imp",
             "player3": "normal"
-          }
+          },
+          "marker": "d"
         },
         {
           "count": "3",
@@ -97,7 +342,8 @@
             "name": "black-imp",
             "player2": "normal",
             "player4": "elite"
-          }
+          },
+          "marker": "d"
         }
       ]
     },

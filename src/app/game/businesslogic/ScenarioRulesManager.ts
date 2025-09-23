@@ -13,7 +13,7 @@ import { Condition, ConditionName } from "../model/data/Condition";
 import { FigureError, FigureErrorType } from "../model/data/FigureError";
 import { MonsterStatEffect } from "../model/data/MonsterStat";
 import { MonsterType } from "../model/data/MonsterType";
-import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
+import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { MonsterStandeeData } from "../model/data/RoomData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { MonsterSpawnData, ScenarioFigureRule, ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
@@ -196,6 +196,7 @@ export class ScenarioRulesManager {
         rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").forEach((figureRule) => {
           const gameplayFigures: Entity[] = this.presentEntitiesByFigureRule(figureRule, rule);
           const tolerance: number = figureRule.value ? EntityValueFunction(figureRule.value.split(':')[0]) : (figureRule.type == "present" ? 1 : 0);
+          console.log(rule, gameplayFigures, tolerance);
           active = active && tolerance >= 0 && (figureRule.type == "present" ? gameplayFigures.length >= tolerance : gameplayFigures.length <= tolerance);
           if (figureRule.identifier && (figureRule.identifier.marker || figureRule.identifier.tags && figureRule.identifier.tags.length > 0) && !settingsManager.settings.automaticStandees) {
             active = false;
@@ -261,6 +262,12 @@ export class ScenarioRulesManager {
       if (rule.requiredRules && rule.requiredRules.length) {
         rule.requiredRules.forEach((other) => {
           active = active && this.game.appliedScenarioRules.some((identifier) => other.edition == identifier.edition && other.scenario == identifier.scenario && other.group == identifier.group && other.index == identifier.index && other.section == identifier.section);
+        })
+      }
+
+      if (rule.requiredScenarios && rule.requiredScenarios.length) {
+        rule.requiredScenarios.forEach((scenario) => {
+          active = active && this.game.party.scenarios.find((other) => other.edition == scenario.edition && other.index == scenario.index && other.group == scenario.group) != undefined;
         })
       }
 
@@ -413,7 +420,8 @@ export class ScenarioRulesManager {
         } else if (figure instanceof Monster || figure instanceof ObjectiveContainer) {
           return figure.entities.some((entity) => {
             if (figureRule.identifier && figureRule.identifier.hp && gameManager.entityManager.isAlive(entity)) {
-              return eval(figureRule.identifier.hp.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
+              const expression = figureRule.identifier.hp.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth));
+              return eval(expression);
             }
 
             return false;
@@ -460,7 +468,8 @@ export class ScenarioRulesManager {
       }
 
       if (figureRule.identifier && figureRule.identifier.hp && gameManager.entityManager.isAlive(entity)) {
-        filter = filter && eval(figureRule.identifier.hp.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth)));
+        const expression = figureRule.identifier.hp.replaceAll('HP', '' + entity.health).replaceAll('H', '' + EntityValueFunction(entity.maxHealth));
+        filter = filter && eval(expression);
       }
 
       if (figureRule.identifier && figureRule.identifier.conditions) {
@@ -471,12 +480,16 @@ export class ScenarioRulesManager {
         filter = filter && eval(figureRule.identifier.number.replaceAll('N', '' + entity.number));
       }
 
+      if (figureRule.identifier && figureRule.identifier.marker && (entity instanceof MonsterEntity || entity instanceof ObjectiveEntity)) {
+        filter = filter && figureRule.identifier.marker == entity.marker;
+      }
+
       return filter;
     });
   }
 
   presentEntitiesByFigureRule(figureRule: ScenarioFigureRule, rule: ScenarioRule): Entity[] {
-    return this.entitiesByFigureRule(figureRule, rule).filter((entity) => (gameManager.entityManager.isAlive(entity) || entity instanceof MonsterEntity && entity.dormant) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (entity instanceof MonsterEntity && figureRule.identifier && entity.marker == figureRule.identifier.marker && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || (entity instanceof MonsterEntity && figureRule.identifier.tags.forEach((tag) => entity.tags.indexOf(tag) != -1)))))))
+    return this.entitiesByFigureRule(figureRule, rule).filter((entity) => (gameManager.entityManager.isAlive(entity) || entity instanceof MonsterEntity && entity.dormant) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (figureRule.identifier && entity.marker == figureRule.identifier.marker && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || figureRule.identifier.tags.forEach((tag) => entity.tags.indexOf(tag) != -1))))));
   }
 
   applyRule(rule: ScenarioRule, identifier: ScenarioRuleIdentifier, entityFilter: Entity[] | undefined = undefined) {
@@ -582,11 +595,20 @@ export class ScenarioRulesManager {
                   } else {
                     damage = +EntityValueFunction(figureRule.value);
                   }
-                  if (damage < 0) {
+
+                  let objectiveData: ObjectiveData | undefined = undefined;
+                  if (figure instanceof ObjectiveContainer && figure.objectiveId) {
+                    objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(figure.objectiveId);
+                  }
+
+                  if ((objectiveData && objectiveData.trackDamage)) {
+                    damage *= -1;
+                  } else if (damage < 0) {
                     damage = 0;
                   } else if (damage > EntityValueFunction(entity.maxHealth)) {
                     damage = EntityValueFunction(entity.maxHealth);
                   }
+
                   gameManager.entityManager.changeHealth(entity, figure, -damage, true);
                   break;
                 case "heal":
@@ -812,18 +834,20 @@ export class ScenarioRulesManager {
           })
         })
 
-        rule.figures.filter((figureRule) => figureRule.type == "setAbility" || figureRule.type == "drawAbility" || figureRule.type == "discardAbilityToBottom").forEach((figureRule) => {
+        rule.figures.filter((figureRule) => figureRule.type == "setAbility" || figureRule.type == "drawAbility" || figureRule.type == "discardAbilityToBottom" || figureRule.type == "removeAbility").forEach((figureRule) => {
           const figures: Figure[] = gameManager.scenarioRulesManager.figuresByFigureRule(figureRule, rule);
           figures.forEach((figure) => {
             if (figure instanceof Monster) {
-              if (figureRule.type == "setAbility") {
+              if (figureRule.type == "setAbility" || figureRule.type == "removeAbility") {
                 const ability = gameManager.abilities(figure).find((ability) => isNaN(+figureRule.value) ? ability.name == figureRule.value : ability.cardId == (+figureRule.value));
                 if (ability) {
                   const index = gameManager.abilities(figure).indexOf(ability);
                   if (index != -1) {
                     figure.abilities = figure.abilities.filter((number) => number != index);
-                    figure.abilities.unshift(index);
-                    figure.ability = gameManager.game.state == GameState.draw ? -1 : 0;
+                    if (figureRule.type == "setAbility") {
+                      figure.abilities.unshift(index);
+                      figure.ability = gameManager.game.state == GameState.draw ? -1 : 0;
+                    }
                   }
                 }
               } else if (figureRule.type == "drawAbility") {

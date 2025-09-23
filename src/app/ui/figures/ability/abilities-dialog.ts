@@ -61,9 +61,6 @@ export class AbiltiesDialogComponent implements OnInit, OnDestroy {
 
   update() {
     let abilityNumber = this.monster.ability;
-    if (abilityNumber >= 0 && this.bottomActions) {
-      abilityNumber++;
-    }
     this.upcomingCards = this.monster.abilities.filter((value, index) => index > abilityNumber).map((value) => gameManager.abilities(this.monster)[value]);
     this.discardedCards = this.monster.abilities.filter((value, index) => index <= abilityNumber).map((value) => gameManager.abilities(this.monster)[value]).reverse();
     this.deletedCards = gameManager.deckData(this.monster).abilities.filter((ability, index) => this.monster.abilities.indexOf(index) == -1);
