@@ -20,6 +20,7 @@ export class PointerInputService {
   behindActive: PointerInputDirective | undefined;
 
   currentZoom: number = 0;
+  currentPinchZoom: boolean = false;
   zoomDiff: number = -1;
 
   // Track active pointers for multi-touch
@@ -35,6 +36,7 @@ export class PointerInputService {
       // Multi-touch: handle pinch-zoom
       if (settingsManager.settings.pinchZoom && this.countActiveTouches() === 2) {
         this.zoomDiff = this.getTouchDistance();
+        this.currentPinchZoom = true;
       }
 
       // Only handle primary pointer for normal interactions
@@ -70,6 +72,7 @@ export class PointerInputService {
       if (settingsManager.settings.pinchZoom && this.activePointers.size >= 2) {
         this.activePointers.set(event.pointerId, event);
         this.handlePinchZoom();
+        this.currentPinchZoom = true;
         return;
       }
       if (this.active && event.isPrimary) {
@@ -99,6 +102,9 @@ export class PointerInputService {
       if (settingsManager.settings.pinchZoom && this.activePointers.size < 2 && this.zoomDiff > -1 && settingsManager.settings.zoom != this.currentZoom) {
         this.zoomDiff = -1;
         settingsManager.setZoom(this.currentZoom);
+      }
+      if (this.activePointers.size === 0) {
+        this.currentPinchZoom = false;
       }
       window.document.body.classList.remove('dragging');
       window.document.body.classList.remove('no-pointer');
@@ -296,6 +302,15 @@ export class PointerInputDirective implements OnInit, OnDestroy {
       this.down = false;
       this.startX = 0;
       this.startY = 0;
+      if (this.service.currentPinchZoom) {
+        this.clicks = 0;
+        if (this.timeout) {
+          clearTimeout(this.timeout);
+          this.timeout = null;
+        }
+        this.panend(event);
+        return;
+      }
       if (!this.move) {
         if (!this.forcePress && (event.pointerType === 'mouse' || !settingsManager.settings.pressDoubleClick || this.forceDoubleClick)) {
           this.clicks++;
