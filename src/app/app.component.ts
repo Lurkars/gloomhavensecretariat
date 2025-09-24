@@ -31,7 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
           let closeElement = document.createElement('a');
           closeElement.classList.add('dialog-close-button');
           closeElement.appendChild(closeIcon);
-          closeElement.addEventListener('click', () => {
+          closeElement.addEventListener('pointerdown', () => {
             ghsDialogClosingHelper(dialogRef);
           });
           closeElement.title = settingsManager.getLabel('close');
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
           if (dialogRef.overlayRef.backdropElement) {
             dialogRef.disableClose = true;
-            dialogRef.overlayRef.backdropElement.addEventListener('click', () => {
+            dialogRef.overlayRef.backdropElement.addEventListener('pointerdown', () => {
               ghsDialogClosingHelper(dialogRef);
             });
           }
