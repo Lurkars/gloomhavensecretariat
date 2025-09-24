@@ -262,7 +262,7 @@
       },
       "bruiser": {
         "1": "将本卡牌置入激活区。下次你被相邻的敌人攻击时，弃掉本卡牌并对该次攻击获得%game.action.retaliate%2",
-        "2": "每个剧本限一次，在你的回合中，执行：%game. action.loot%1，如果通过本拾取能力拾取至少一个钱币标记，你可以%game.card.recover%1个%game.itemSlot:body%道具",
+        "2": "每个剧本限一次，在你的回合中，执行：%game.action.loot%1，如果通过本拾取能力拾取至少一个钱币标记，你可以%game.card.recover%1个%game.itemSlot:body%道具",
         "3": "你每次充分休息后，为下一轮的第一次移动能力附加+1%game.action.move%",
         "4": "在每个剧本的第一轮中，每个角色的第一次攻击获得优势",
         "5": "在3个不同的剧本中，消灭一个你在当轮推远或拉近过的敌人",
@@ -346,7 +346,7 @@
         "2": "每个剧本限一次，当你将要承受%game.damage%时，你可以获得%game.condition.invisible%和%game.condition.stun%来抵挡该%game.damage%",
         "3": "每当你短暂休息时，如果 灵能重构 在你的弃牌堆中，先%game.card.recover%该卡牌",
         "4": "你的每个回合结束时，若在该回合中执行了带有%game.card.lost%的行动，获得%game.condition.bless%",
-        "5": "在单一剧本中，在一轮中同时消耗%game.element.fire%和%game.element.ice% 6次",
+        "5": "在单一剧本中，在同一轮中同时消耗%game.element.fire%和%game.element.ice%，完成6次",
         "6": "在单一剧本中，执行4个不同的%game.card.lost%行动，每个行动两次"
       },
       "tinkerer": {

@@ -491,11 +491,11 @@
         "addSpecial": "Aggiungi speciale",
         "allLevel": "Tutti i livelli",
         "applyAll": "Applica a tutti i livelli",
-        "boss": "E' il Boss",
+        "boss": "È il Boss",
         "count": "Numero delle pedine",
         "deck": "Nome del mazzo delle Capacità",
         "flying": "Sta volando",
-        "hidden": "E' nascosto",
+        "hidden": "È nascosto",
         "json": {
           "": "Statistiche dei mostri in formato JSON",
           "download": "Scarica statistiche dei mostri come file JSON"
