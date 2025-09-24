@@ -321,7 +321,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
 
         const overlay = L.svgOverlay(svgElement, [[height + offsetY, offsetX], [offsetY, width + offsetX]], { interactive: true });
 
-        svgElement.addEventListener('click', (event) => {
+        svgElement.addEventListener('pointerdown', (event) => {
             let element = (event.target as HTMLElement);
             if (element.tagName.toUpperCase() == 'P' && element.parentElement) {
                 element = element.parentElement;

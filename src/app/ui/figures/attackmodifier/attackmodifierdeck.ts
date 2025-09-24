@@ -80,7 +80,7 @@ export class AttackModifierDeckComponent implements OnInit, OnDestroy, OnChanges
   @ViewChild('drawCard') drawCard!: ElementRef;
 
   constructor(public element: ElementRef, private dialog: Dialog) {
-    this.element.nativeElement.addEventListener('click', (event: any) => {
+    this.element.nativeElement.addEventListener('pointerdown', (event: any) => {
       let elements = document.elementsFromPoint(event.clientX, event.clientY);
       if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
         (elements[2] as HTMLElement).click();
