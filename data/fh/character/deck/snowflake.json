@@ -100,7 +100,7 @@
       ]
     },
     {
-      "name": "Dature's Breath",
+      "name": "Nature's Breath",
       "cardId": 334,
       "level": 1,
       "initiative": 90,
@@ -244,7 +244,7 @@
       ]
     },
     {
-      "name": "Cold",
+      "name": "Cold Therapy",
       "cardId": 340,
       "level": 1,
       "initiative": 20,

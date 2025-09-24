@@ -28,7 +28,7 @@
       ]
     },
     {
-      "name": "Quenched",
+      "name": "Quenched Rage",
       "cardId": 216,
       "level": 1,
       "initiative": 30,
@@ -340,7 +340,7 @@
       ]
     },
     {
-      "name": "Deep",
+      "name": "Deep Fury",
       "cardId": 229,
       "level": 2,
       "initiative": 38,
