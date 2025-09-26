@@ -51,7 +51,7 @@
       "cardId": "003",
       "level": 1,
       "health": 4,
-      "attack": 3,
+      "attack": 2,
       "movement": 3
     },
     {
@@ -60,6 +60,7 @@
       "level": 1,
       "health": 2,
       "attack": 2,
+      "movement": 3,
       "range": 5
     },
     {
