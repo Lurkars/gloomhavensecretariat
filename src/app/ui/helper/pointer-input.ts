@@ -308,10 +308,7 @@ export class PointerInputDirective implements OnInit, OnDestroy {
           clearTimeout(this.timeout);
           this.timeout = null;
         }
-        this.panend(event);
-        return;
-      }
-      if (!this.move) {
+      } else if (!this.move) {
         if (!this.forcePress && (event.pointerType === 'mouse' || !settingsManager.settings.pressDoubleClick || this.forceDoubleClick)) {
           this.clicks++;
           if (this.timeout) {
@@ -390,31 +387,25 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   }
 
   panend(event: PointerEvent) {
-    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
-      if (this.value >= 0 || this.relative) {
-        this.dragEnd.emit(this.value);
-        this.elementRef.nativeElement.classList.remove('dragging');
-        this.value = -1;
-        this.relativeValue = -1;
-        this.fast = false;
-        this.fastOffset = 0;
-      }
-      this.repeats = -1;
-      this.startX = -1;
-      this.startY = -1;
-      this.move = false;
+    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed) && (this.value >= 0 || this.relative)) {
+      this.dragEnd.emit(this.value);
     }
+    this.reset();
   }
 
   cancel() {
     this.down = false;
+    this.clicks = 0;
     if (this.timeout) {
       clearTimeout(this.timeout);
       this.timeout = null;
     }
     this.dragCancel.emit(this.value);
+    this.reset();
+  }
+
+  reset() {
     this.repeats = -1;
-    this.clicks = 0;
     this.startX = -1;
     this.startY = -1;
     this.move = false;
