@@ -16,7 +16,7 @@ export class CardRevealDirective {
     this.el.nativeElement.classList.add("reveal");
   }
 
-  @HostListener('click') onClick() {
+  @HostListener('pointerdown') onClick() {
     if (!this.disabled) {
       if (this.el.nativeElement.classList.contains("flipped")) {
         this.el.nativeElement.classList.remove("flipped");

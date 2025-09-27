@@ -18,6 +18,7 @@ import { Summon, SummonColor, SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 import { MonsterNumberPickerDialog } from '../monster/dialogs/numberpicker-dialog';
+import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 
 @Component({
   standalone: false,
@@ -49,6 +50,7 @@ export class StandeeComponent implements OnInit, OnDestroy {
   activeIndex: number = -1;
   marker: string = "";
   specialActionsMarker: string[] = [];
+  objectiveData: ObjectiveData | undefined;
 
   EntityValueFunction = EntityValueFunction;
 
@@ -111,19 +113,23 @@ export class StandeeComponent implements OnInit, OnDestroy {
         }
       }
     })
+
+    if (this.figure instanceof ObjectiveContainer && this.figure.objectiveId) {
+      this.objectiveData = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(this.figure.objectiveId);
+    }
   }
 
   dragHpMove(value: number) {
-    if (EntityValueFunction(this.entity.maxHealth) > 0 && (!(this.figure instanceof Monster) || !this.figure.immortal)) {
+    if ((EntityValueFunction(this.entity.maxHealth) > 0 || this.objectiveData && this.objectiveData.trackDamage) && (!(this.figure instanceof Monster) || !this.figure.immortal)) {
       this.health = value;
-      if (this.entity.health + this.health > EntityValueFunction(this.entity.maxHealth)) {
+      if ((!this.objectiveData || !this.objectiveData.trackDamage) && this.entity.health + this.health > EntityValueFunction(this.entity.maxHealth)) {
         this.health = EntityValueFunction(this.entity.maxHealth) - this.entity.health;
       }
     }
   }
 
   dragHpEnd(value: number) {
-    if (this.health != 0 && EntityValueFunction(this.entity.maxHealth) > 0 && (!(this.figure instanceof Monster) || !this.figure.immortal)) {
+    if (this.health != 0 && (EntityValueFunction(this.entity.maxHealth) > 0 || this.objectiveData && this.objectiveData.trackDamage) && (!(this.figure instanceof Monster) || !this.figure.immortal)) {
       let name = this.figure.name;
       if (!name && this.figure instanceof ObjectiveContainer) {
         name = this.figure.title;

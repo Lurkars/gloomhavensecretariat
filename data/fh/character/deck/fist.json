@@ -172,7 +172,7 @@
       ]
     },
     {
-      "name": "Blast",
+      "name": "Ice Blast",
       "cardId": 367,
       "level": 1,
       "initiative": 32,
@@ -340,7 +340,7 @@
       ]
     },
     {
-      "name": "Frozen",
+      "name": "Frozen Over",
       "cardId": 374,
       "level": 3,
       "initiative": 20,

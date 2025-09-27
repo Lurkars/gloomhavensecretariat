@@ -28,6 +28,8 @@ export class MonsterData implements Editional, Spoilable {
 
   pet: string = "";
 
+  firstActiveAction: 'top' | 'bottom' | false = false;
+
   // from Editional
   edition: string = "";
 
@@ -61,6 +63,7 @@ export class MonsterData implements Editional, Spoilable {
       this.noThumbnail = monsterData.noThumbnail;
       this.noArtwork = monsterData.noArtwork;
       this.pet = monsterData.pet;
+      this.firstActiveAction = monsterData.firstActiveAction;
       this.edition = monsterData.edition;
       this.spoiler = monsterData.spoiler;
       this.errors = monsterData.errors || [];

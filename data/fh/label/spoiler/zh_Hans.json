@@ -212,6 +212,9 @@
       },
       "kelp": {
         "": "深海缚灵",
+        "tokens": {
+          "trophy": "战利品标记"
+        },
         "trophy_tokens": {
           "": "精兵饰物",
           "hint": "%data.custom.fh.kelp.4%"
@@ -231,6 +234,13 @@
         "repair_mode": {
           "": "再建援助",
           "hint": "%data.characterToken.prism.mode%修理无人机模块：在你每个回合开始时，执行：%game.action.heal%2，自己"
+        },
+        "spider_mode": {
+          "": "群虫壁垒",
+          "hint": "%data.characterToken.prism.mode%护盾蜘蛛模式：在你每个回合开始时，执行：%game.condition.ward% 2,自身"
+        },
+        "tokens": {
+          "mode": "模式标记"
         }
       },
       "shackles": "痛苦通导者",
@@ -243,6 +253,9 @@
         "resonance_tokens": {
           "": "%data.characterToken.shards.resonance%共鸣标记",
           "hint": "在你每个回合结束时，你获得1个%data.characterToken.shards.resonance%"
+        },
+        "tokens": {
+          "resonance": "共鸣标记"
         }
       },
       "snowflake": {

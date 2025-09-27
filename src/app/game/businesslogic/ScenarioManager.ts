@@ -661,6 +661,18 @@ export class ScenarioManager {
               }
             }
           }
+        } else if (typeof index == 'string' && index.indexOf('-') != -1) {
+          let split = index.split('-');
+          const id = +(split[0]);
+          const marker = split[1];
+          if (id > 0 && marker) {
+            const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": id - 1 };
+            const objective = gameManager.objectiveManager.objectiveDataByObjectiveIdentifier(objectiveIdentifier);
+            if (objective) {
+              const objectiveContainer = gameManager.objectiveManager.addObjective(objective, undefined, objectiveIdentifier);
+              gameManager.objectiveManager.addObjectiveEntity(objectiveContainer, undefined, undefined, marker);
+            }
+          }
         }
       })
     }

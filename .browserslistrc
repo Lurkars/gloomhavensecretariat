@@ -16,3 +16,5 @@ not and_uc > 0
 not op_mob > 0
 not samsung > 0
 not android > 0
+not chrome < 106
+not opera < 121

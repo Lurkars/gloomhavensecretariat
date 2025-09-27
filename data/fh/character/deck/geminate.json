@@ -100,7 +100,7 @@
       ]
     },
     {
-      "name": "Tendrils",
+      "name": "Flailing Tendrils",
       "cardId": 155,
       "level": 1,
       "initiative": 12,
@@ -172,7 +172,7 @@
       ]
     },
     {
-      "name": "Reckless",
+      "name": "Reckless Jab",
       "cardId": 158,
       "level": 1,
       "initiative": 38,

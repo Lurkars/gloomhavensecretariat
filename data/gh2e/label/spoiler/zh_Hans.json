@@ -1,1 +1,448 @@
-{}
+{
+  "character": {
+    "gh2e": {
+      "angry-face": "末日行者",
+      "circles": "召唤师",
+      "crossed-swords": "刀锋领主",
+      "eclipse": "胧夜客",
+      "lightning": {
+        "": "狂战士",
+        "long_rest_heal": {
+          "": "Perk 9",
+          "hint": "%data.custom.gh2e.lightning.3%"
+        }
+      },
+      "music-note": "畅歌者",
+      "saw": "锯骨医者",
+      "squidface": "瘟疫使者",
+      "sun": "值日者",
+      "three-spears": "军需官",
+      "triangles": {
+        "": "元素大师",
+        "element_waning": {
+          "": "Perk 12",
+          "hint": "%data.custom.gh2e.triangles.3%"
+        }
+      },
+      "two-mini": "兽王"
+    }
+  },
+  "custom": {
+    "gh2e": {
+      "angry-face": {
+        "1": "%game.characterIcon.angry-face%执行：%game.action.attack%2, %game.action.range%5",
+        "2": "赋予你的一个与目标相邻的召唤物：%game.action.attack% +0",
+        "3": "每个剧本开始时，翻开剧本中每一种怪物能力牌堆最上方的卡牌",
+        "4": "每当你充分休息时，在你从弃牌堆%game.card.recover%卡牌后，你可以从手牌中打出一张卡牌来执行其上的一个末日行动",
+        "5": "在每一个你召唤物的回合中，你可以令他们跳过回合，以你为焦点来执行%game.action.move% +0",
+        "6": "消灭20个带有末日印记的敌人",
+        "7": "在单一轮次中，你和你的一个召唤物合计执行至少6次攻击能力"
+      },
+      "circles": {
+        "1": "在攻击能力后，赋予你的一个召唤物： %game.action.teleport% 2",
+        "2": "%game.action.target%一个你的召唤物",
+        "3": "你每次长休时，在该轮次开始时，你的所有召唤物获得%game.action.shield% 1",
+        "4": "每个剧本限一次，在你的回合中，将你的一个召唤物%game.action.teleport%至你相邻的空格",
+        "5": "每个剧本限一次，在所有能力卡牌翻开后的确定先攻顺序期间，你的所有召唤物获得%game.condition.invisible%",
+        "6": "在你首次休息之前，执行3个不同的召唤能力，并保持对应的卡牌在激活区域直至剧本结束",
+        "7": "在6个剧本的首轮中，执行6个不同的召唤能力"
+      },
+      "crossed-swords": {
+        "1": "%game.characterIcon.envx%的激活区域每有一张%game.card.lost%卡牌，增加+1%game.action.attack%",
+        "2": "每当你充分休息时，你可以%game.action.teleport%至你的一个召唤物占据的格子，并同时%game.action.teleport%该召唤物至你之前占据的格子",
+        "3": "每个剧本限一次，当你执行一个%game.card.lost%行动时，你可以立刻打出一张手牌并执行该卡牌上的一个%game.card.lost%行动",
+        "4": "每个剧本中，你可以额外携带4个%game.itemSlot:onehand%道具，或者2个%game.itemSlot:twohand%道具，或者2个%game.itemSlot:onehand%道具和1个%game.itemSlot:twohand%道具。",
+        "5": "执行6个不同的%game.card.persistent%%game.card.lost%能力，其中，召唤能力不得超过3个",
+        "6": "当你觉得自己够格时，直接获得本巅峰战绩"
+      },
+      "eclipse": {
+        "1": "在攻击能力后，赋予一个相邻的盟友或者自身：%game.action.teleport% 2",
+        "2": "如果本次攻击消灭了目标，将一张%game.condition.curse%卡牌洗入怪物修正牌堆",
+        "3": "在目标的相邻格放置一个%data.action.custom.gh2e-tear%",
+        "4": "每当你充分休息时，你可以%game.element.dark%",
+        "5": "每个剧本限一次，你的回合期间，在你的相邻格放置一个%data.action.custom.gh2e-tear%",
+        "6": "敌人在攻击期间，因抽取%game.condition.curse%而导致未造成%game.damage%时，该敌人承受%game.damage:3%",
+        "7": "在单一剧本中，你的每个回合均灌注或消耗%game.element.dark%",
+        "8": "在单一剧本中，连续5轮均执行过一次攻击能力"
+      },
+      "lightning": {
+        "1": "你可以承受%game.damage:2%来增加+2 %game.action.attack%",
+        "2": "承受等同于你当前生命值一半(向下取整)的%game.damage%",
+        "3": "当你通过充分休息获得治疗时，增加+1 %game.action.heal%",
+        "4": "每个剧本限一次，当一次攻击%game.damage%会使你的生命值降至1点以下，将你的生命值设置为1点，并执行：%game.action.attack% 2, %game.action.target%该攻击者",
+        "5": "在你每个回合结束时，你可以控制所有相邻的敌人：%game.action.attack% +0 %game.action.target% %game.characterIcon.lightning%",
+        "6": "以反击消灭20个敌人",
+        "7": "在单一剧本中，每个回合结束时你的生命值不高于最高生命值的一半，且未筋疲力尽"
+      },
+      "music-note": {
+        "1": "在本轮结束时，跳过推进激活%data.action.custom.gh2e-song%上的角色标记",
+        "2": "赋予一个盟友：%game.action.move% 2或%game.action.attack% 2",
+        "3": "在每个剧本结束时，每个完成战斗目标的角色获得%game.card.experience:8%",
+        "4": "每当你执行一个%data.action.custom.gh2e-song%时，如果持有未使用的音符，则本轮可获得一个自选音符",
+        "5": "在你声明充分休息的轮次，决定先攻顺序期间，获得一个自选音符，同时你的每个盟友可以将自身的先攻值减少10点",
+        "6": "在单一剧本中，执行7个不同的%data.action.custom.gh2e-song%行动",
+        "7": "在单一剧本中，获取至少20个音符并将每个音符用于%data.action.custom.gh2e-song%"
+      },
+      "saw": {
+        "1": "给予一个相邻的盟友或自身一张医疗包卡牌",
+        "2": "你可以获得%game.condition.disarm%来增加%game.condition.stun%",
+        "3": "如果一个盟友的激活区域有%data.action.custom.gh2e-prescription%，增加+1 %game.action.attack%",
+        "4": "医疗包卡牌上的所有治疗能力增加+1 %game.action.heal%",
+        "5": "完成剧本后的每个城镇阶段，你或一个盟友可以免费执行圣橡树神殿的捐赠",
+        "6": "你每次休息结束时，如果一个盟友的激活区有%data.action.custom.gh2e-prescription%，获得一张医疗包卡牌并将一个盟友激活区中的 %data.action.custom.gh2e-prescription%向后移动一个槽位",
+        "7": "在单一剧本中，除了充分休息，每轮给与一个盟友一张医疗包卡牌或%data.action.custom.gh2e-prescription%",
+        "8": "在单一剧本中，只要场上有受伤的怪物就不能攻击未受伤的敌人，并执行至少10次攻击"
+      },
+      "squidface": {
+        "1": "目标或目标%game.action.range% 2内的一个敌人获得%data.action.custom.gh2e-plaque%",
+        "2": "目标或目标%game.action.range% 2内的一个敌人获得%game.condition.poison%",
+        "3": "你获得%game.action.fly%",
+        "4": "每当你获得充分休息的治疗时，你可以移除一个盟友的%game.condition.poison%来增加+1 %game.action.heal%",
+        "5": "每个剧本限一次，每当一个带有%data.action.custom.gh2e-plaque%的敌人将要死亡时，你先控制那个敌人执行其怪物能力卡牌上的行动，并为其所有攻击附加%data.action.custom.gh2e-plaque%，然后该敌人死亡",
+        "6": "在单一轮次中，未抽取攻击修正卡牌的情况下消灭至少3个敌人",
+        "7": "在单一剧本中，每轮都对一个敌人或盟友施加或移除%game.condition.poison%"
+      },
+      "sun": {
+        "1": "你或一个相邻盟友可以从弃牌堆中%game.card.recover%一张一级卡牌",
+        "2": "在你的回合期间，若开启至少1扇门，在该轮次中获得%game.action.shield% 1, %game.action.retaliate% 1",
+        "3": "每当你充分休息时，你可以%game.element.light%",
+        "4": "每当你过量治疗盟友时，该盟友获得%game.condition.ward%",
+        "5": "在单一剧本中，每轮都灌注或消耗%game.element.light%",
+        "6": "在单一剧本中，通过攻击造成8点伤害至少3次"
+      },
+      "three-spears": {
+        "1": "获得10%data.action.custom.gh2e-supplies%",
+        "2": "获得道具 倒刺腕甲 或 铁护腕",
+        "3": "获得道具 位移卷轴 或 锋利匕首",
+        "4": "每个剧本中，你可以携带一个额外的%game.itemSlot:small%道具",
+        "5": "你的团队可从各阵营处购买物品，购买时视为该物品价格减少5金币，且你们与该阵营的声望视为比当前值高2点",
+        "6": "每当你充分休息时，获得10%data.action.custom.gh2e-supplies%",
+        "7": "在单一剧本中，花费50%data.action.custom.gh2e-supplies%来刷新价值50金币的遗失型物品3次",
+        "8": "在单一剧本中，除了充分休息轮次外，每轮都给与盟友或自身一件来自军需官道具供应堆的道具"
+      },
+      "triangles": {
+        "1": "每个剧本开始时，你可以%game.element.wild%",
+        "2": "每当你充分休息时，%game.element.consume.wild%: %game.element.wild%",
+        "3": "每个轮次结束时，%game.element.fire%,%game.element.ice%,%game.element.air%, 和%game.element.earth%不再衰退",
+        "4": "在单一剧本中，在同一轮次中消耗至少4个元素5次",
+        "5": "在3个不同剧本中，存在6个元素同时处于强烈或衰退的时刻"
+      },
+      "two-mini": {
+        "1": "如果兽王与%data.action.custom.gh2e-bear-summon%在彼此%game.action.range%4内，增加+1 %game.action.attack%",
+        "2": "%data.action.custom.gh2e-bear-summon%被攻击时，将抽出的%game.attackmodifier.double%修正卡牌视为%game.attackmodifier.plus0%",
+        "3": "每个剧本限一次，在你的回合期间，%data.action.custom.gh2e-command%: %game.action.move% 4<br>如果%data.action.custom.gh2e-bear-summon%在该移动能力期间离开你的相邻格，你可以在该移动能力结束后%game.action.teleport%至%data.action.custom.gh2e-bear-summon%的一个相邻空格中",
+        "4": "在你每次充分休息之前或之后，你可以%game.elementHalf:air|earth%并降低你的当前生命值X(X至少为1)，来执行%data.action.custom.gh2e-command%: %game.action.heal% X,自身",
+        "5": "在单一剧本中，你的每轮都灌注或消耗%game.element.air%或%game.element.earth%",
+        "6": "在单一剧本中，以%data.action.custom.gh2e-command%攻击值至少为7的攻击(结算所有奖励后、抽取修正前)消灭至少4个敌人"
+      }
+    }
+  },
+  "items": {
+    "gh2e-1": {
+      "": "风化靴"
+    },
+    "gh2e-10": {
+      "": "简易弓"
+    },
+    "gh2e-101": {
+      "": "治愈药水"
+    },
+    "gh2e-102": {
+      "": "钢质戒指"
+    },
+    "gh2e-106": {
+      "": "蒸汽护甲"
+    },
+    "gh2e-109": {
+      "": "远古钻头"
+    },
+    "gh2e-11": {
+      "": "治疗药水"
+    },
+    "gh2e-110": {
+      "": "燃能弯刀"
+    },
+    "gh2e-111": {
+      "": "憎恨头颅"
+    },
+    "gh2e-112": {
+      "": "奇妙齿轮"
+    },
+    "gh2e-113": {
+      "": "黑暗卡牌"
+    },
+    "gh2e-115": {
+      "": "位移短棒"
+    },
+    "gh2e-119": {
+      "": "亚龙鳞靴子"
+    },
+    "gh2e-12": {
+      "": "耐力药水"
+    },
+    "gh2e-120": {
+      "": "亚龙鳞护甲"
+    },
+    "gh2e-121": {
+      "": "亚龙鳞头盔"
+    },
+    "gh2e-128": {
+      "": "黑暗誓约垂饰"
+    },
+    "gh2e-129": {
+      "": "山岭头盔"
+    },
+    "gh2e-13": {
+      "": "元素药水"
+    },
+    "gh2e-130": {
+      "": "山岭战锤"
+    },
+    "gh2e-131": {
+      "": "波峰项链"
+    },
+    "gh2e-132": {
+      "": "厄运罗盘"
+    },
+    "gh2e-133": {
+      "": "背叛者之心"
+    },
+    "gh2e-134": {
+      "": "能量核心"
+    },
+    "gh2e-135": {
+      "": "共振水晶"
+    },
+    "gh2e-136": {
+      "": "双生环戒"
+    },
+    "gh2e-137": {
+      "": "跳蚤披肩"
+    },
+    "gh2e-138": {
+      "": "嗜血巨斧"
+    },
+    "gh2e-140": {
+      "": "遥控攻击蜘蛛"
+    },
+    "gh2e-141": {
+      "": "遥控支援蜘蛛"
+    },
+    "gh2e-142": {
+      "": "熔岩行者"
+    },
+    "gh2e-147": {
+      "": "索恩的法杖"
+    },
+    "gh2e-148": {
+      "": "正义之盾"
+    },
+    "gh2e-149": {
+      "": "以太灵望远镜"
+    },
+    "gh2e-15": {
+      "": "舒适鞋"
+    },
+    "gh2e-150": {
+      "": "实验装甲"
+    },
+    "gh2e-16": {
+      "": "元素头环"
+    },
+    "gh2e-17": {
+      "": "速度靴"
+    },
+    "gh2e-19": {
+      "": "守望者长袍"
+    },
+    "gh2e-2": {
+      "": "飞翼鞋"
+    },
+    "gh2e-20": {
+      "": "带钩锁链"
+    },
+    "gh2e-21": {
+      "": "威力药水"
+    },
+    "gh2e-23": {
+      "": "锯齿剑"
+    },
+    "gh2e-24": {
+      "": "黑暗匕首"
+    },
+    "gh2e-25": {
+      "": "配重网"
+    },
+    "gh2e-26": {
+      "": "鹰眼护目镜"
+    },
+    "gh2e-27": {
+      "": "铁质头盔"
+    },
+    "gh2e-28": {
+      "": "锁子甲"
+    },
+    "gh2e-29": {
+      "": "轻捷腿铠"
+    },
+    "gh2e-3": {
+      "": "兽皮甲"
+    },
+    "gh2e-30": {
+      "": "破甲弓"
+    },
+    "gh2e-31": {
+      "": "召唤法杖"
+    },
+    "gh2e-32": {
+      "": "黑暗能炉"
+    },
+    "gh2e-34": {
+      "": "战斧"
+    },
+    "gh2e-35": {
+      "": "塔盾"
+    },
+    "gh2e-36": {
+      "": "月之耳坠"
+    },
+    "gh2e-37": {
+      "": "强效治疗药水"
+    },
+    "gh2e-39": {
+      "": "颅骨指环"
+    },
+    "gh2e-4": {
+      "": "皮革护甲"
+    },
+    "gh2e-40": {
+      "": "暗影盔甲"
+    },
+    "gh2e-42": {
+      "": "耐性裹足"
+    },
+    "gh2e-43": {
+      "": "雄鹰头盔"
+    },
+    "gh2e-45": {
+      "": "强效元素药水"
+    },
+    "gh2e-47": {
+      "": "配袋披风"
+    },
+    "gh2e-48": {
+      "": "元素法杖"
+    },
+    "gh2e-49": {
+      "": "角饰头盔"
+    },
+    "gh2e-50": {
+      "": "橡树长袍"
+    },
+    "gh2e-52": {
+      "": "太阳耳环"
+    },
+    "gh2e-53": {
+      "": "强效威力药水"
+    },
+    "gh2e-54": {
+      "": "圣洁头环"
+    },
+    "gh2e-55": {
+      "": "烈性炸弹"
+    },
+    "gh2e-56": {
+      "": "钢质铠靴"
+    },
+    "gh2e-58": {
+      "": "强效耐力药水"
+    },
+    "gh2e-6": {
+      "": "生命项链"
+    },
+    "gh2e-60": {
+      "": "显赫法杖"
+    },
+    "gh2e-61": {
+      "": "战锤"
+    },
+    "gh2e-62": {
+      "": "恐怖面具"
+    },
+    "gh2e-63": {
+      "": "星辰耳环"
+    },
+    "gh2e-65": {
+      "": "长矛"
+    },
+    "gh2e-66": {
+      "": "隐形斗篷"
+    },
+    "gh2e-68": {
+      "": "疾速戒指"
+    },
+    "gh2e-69": {
+      "": "板甲"
+    },
+    "gh2e-7": {
+      "": "剧毒匕首"
+    },
+    "gh2e-73": {
+      "": "召唤斗篷"
+    },
+    "gh2e-76": {
+      "": "商人徽章"
+    },
+    "gh2e-78": {
+      "": "收割巨镰"
+    },
+    "gh2e-79": {
+      "": "厄运粉"
+    },
+    "gh2e-8": {
+      "": "熨斗盾"
+    },
+    "gh2e-87": {
+      "": "万用匕首"
+    },
+    "gh2e-88": {
+      "": "尖刺盾"
+    },
+    "gh2e-89": {
+      "": "剑刃护甲"
+    },
+    "gh2e-9": {
+      "": "聚焦短棒"
+    },
+    "gh2e-90": {
+      "": "闪烁披肩"
+    },
+    "gh2e-91": {
+      "": "急速靴"
+    },
+    "gh2e-92": {
+      "": "致晕粉"
+    },
+    "gh2e-93": {
+      "": "力量卷轴"
+    },
+    "gh2e-94": {
+      "": "治疗卷轴"
+    },
+    "gh2e-95": {
+      "": "防护卷轴"
+    },
+    "gh2e-96": {
+      "": "迅捷卷轴"
+    },
+    "gh2e-97": {
+      "": "欢快之靴"
+    },
+    "gh2e-98": {
+      "": "相位斗篷"
+    },
+    "gh2e-99": {
+      "": "易爆炸药"
+    }
+  }
+}

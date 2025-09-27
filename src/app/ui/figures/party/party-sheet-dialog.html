@@ -214,8 +214,10 @@
             <span class="spacer"></span>
             <div class="move-resources" *ngIf="characters.length > 0">
               <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>
-              <span class="character" (click)="moveResources(character)" *ngFor="let character of characters"><img
-                  [src]="character.iconUrl"></span>
+              <div class="characters">
+                <span class="character" (click)="moveResources(character)" *ngFor="let character of characters"><img
+                    [src]="character.iconUrl"></span>
+              </div>
             </div>
           </div>
 

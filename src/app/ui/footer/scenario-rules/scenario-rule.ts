@@ -176,7 +176,7 @@ export class ScenarioRuleComponent implements OnInit {
                         return settingsManager.getLabel('%game.characterIconColored.' + figure.name + '%') + gameManager.characterManager.characterName(figure);
                     }
                     if (figure instanceof ObjectiveContainer) {
-                        return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
+                        return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '')  + (figureRule.identifier && figureRule.identifier.marker ? ' %game.mapMarker.' + figureRule.identifier.marker + '%' : '');
                     }
                     if (figure instanceof Monster) {
                         const name = figure.statEffect && figure.statEffect.name ? figure.statEffect.name : figure.name;
@@ -200,7 +200,7 @@ export class ScenarioRuleComponent implements OnInit {
                 return settingsManager.getLabel('%game.characterIconColored.' + figure.name + '%') + gameManager.characterManager.characterName(figure);
             }
             if (figure instanceof ObjectiveContainer) {
-                return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
+                return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '') + (identifier.marker ? ' %game.mapMarker.' + identifier.marker + '%' : '');
             }
             if (figure instanceof Monster) {
                 const name = figure.statEffect && figure.statEffect.name ? figure.statEffect.name : figure.name;

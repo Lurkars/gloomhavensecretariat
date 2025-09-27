@@ -21,7 +21,7 @@ export class Monster extends MonsterData implements Figure {
   type: string = 'monster';
 
   getInitiative(): number {
-    const ability: Ability | undefined = gameManager.monsterManager.getAbility(this);
+    const ability: Ability | undefined = gameManager.monsterManager.getAbility(this, gameManager.monsterManager.hasBottomActions(this));
     let initiative = gameManager.gameplayFigure(this) && ability && ability.initiative || 100;
 
     if (this.statEffect && this.statEffect.initiative) {

@@ -34,14 +34,17 @@
 
 
         <span class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'"
-          [ngClass]="{'damage' : settingsManager.settings.damageHP}">
+          [ngClass]="{'damage' : settingsManager.settings.damageHP || objectiveData && objectiveData.trackDamage}">
           <span *ngIf="maxHp && !settingsManager.settings.damageHP">
             {{((entity.health + health) | ghsMinZero)}}
           </span>
           <span *ngIf="maxHp && settingsManager.settings.damageHP">
             {{maxHp}}/{{((maxHp - entity.health + health) | ghsMinZero)}}
           </span>
-          <span *ngIf="!maxHp">-</span>
+          <span *ngIf="objectiveData && objectiveData.trackDamage">
+            {{(entity.health + health) | ghsMinZero}}
+          </span>
+          <span *ngIf="(!objectiveData || !objectiveData.trackDamage) && !maxHp">-</span>
         </span>
     </div>
 
@@ -102,7 +105,7 @@
         </span>
       </span>
     </div>
-    <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [reverse]="settingsManager.settings.damageHP"
+    <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [reverse]="settingsManager.settings.damageHP" [invert]="!!objectiveData && objectiveData.trackDamage"
       [container]="true"></span>
     <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
     <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>

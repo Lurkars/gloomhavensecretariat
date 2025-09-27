@@ -156,8 +156,19 @@ export class ActionsManager {
         if (gameManager.entityManager.isAlive(entity, true) && (!entity.active || monster.active)) {
             const activeFigure = gameManager.game.figures.find((figure) => figure.active);
             if (monster.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster))) {
-                let ability = gameManager.monsterManager.getAbility(monster);
-                if (ability) {
+                const ability = gameManager.monsterManager.getAbility(monster);
+                if (gameManager.monsterManager.hasBottomActions(monster) && monster.firstActiveAction) {
+                    const secondAbility = gameManager.monsterManager.getAbility(monster, true);
+                    if (ability) {
+                        this.calcMonsterActionHint(monster, entity.type, ActionType.shield, monster.firstActiveAction == 'bottom' ? ability.bottomActions : ability.actions, actionHints);
+                        this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, monster.firstActiveAction == 'bottom' ? ability.bottomActions : ability.actions, actionHints);
+                    }
+
+                    if (secondAbility) {
+                        this.calcMonsterActionHint(monster, entity.type, ActionType.shield, monster.firstActiveAction == 'bottom' ? secondAbility.actions : secondAbility.bottomActions, actionHints);
+                        this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, monster.firstActiveAction == 'bottom' ? secondAbility.actions : secondAbility.bottomActions, actionHints);
+                    }
+                } else if (ability) {
                     this.calcMonsterActionHint(monster, entity.type, ActionType.shield, ability.actions, actionHints);
                     this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, ability.actions, actionHints);
 
@@ -263,7 +274,7 @@ export class ActionsManager {
             case ActionType.element:
                 const values = this.getValues(action);
                 if (!action.valueType || action.valueType == ActionValueType.plus || action.valueType == ActionValueType.fixed) {
-                    return gameManager.game.elementBoard.some((element) => (action.value == Element.wild || values.indexOf(element.type) != -1) && (element.state == ElementState.inert || element.state == ElementState.waning || element.state == ElementState.consumed  || element.state == ElementState.partlyConsumed));
+                    return gameManager.game.elementBoard.some((element) => (action.value == Element.wild || values.indexOf(element.type) != -1) && (element.state == ElementState.inert || element.state == ElementState.waning || element.state == ElementState.consumed || element.state == ElementState.partlyConsumed));
                 } else if (action.valueType == ActionValueType.minus) {
                     let elements = this.getElementsToConsume(action);
                     if (elements.length == values.length) {

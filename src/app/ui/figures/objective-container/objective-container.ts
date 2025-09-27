@@ -155,7 +155,7 @@ export class ObjectiveContainerComponent implements OnInit, OnDestroy {
 
   dragHpMove(value: number) {
     this.health = value;
-    if (this.entity && this.entity.health + this.health > EntityValueFunction(this.entity.maxHealth)) {
+    if ((!this.objectiveData || !this.objectiveData.trackDamage) && this.entity && this.entity.health + this.health > EntityValueFunction(this.entity.maxHealth)) {
       this.health = EntityValueFunction(this.entity.maxHealth) - this.entity.health;
     }
   }

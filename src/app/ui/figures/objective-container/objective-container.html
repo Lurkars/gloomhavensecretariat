@@ -76,19 +76,22 @@
             <div class="health" ghs-pointer-input (singleClick)="openEntityMenu()" (doubleClick)="toggleDamageHP()"
               (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" (dragCancel)="dragHpCancel($event)"
               [relative]="true" [screenWidth]="true" [fastShift]="true">
-              <img [ngClass]="{'damage' : settingsManager.settings.damageHP}"
-                [src]="'./assets/images/' + (settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
-              <ng-container *ngIf="entity.maxHealth > 0">
-                <span *ngIf="!settingsManager.settings.damageHP">
+              <img [ngClass]="{'damage' : objectiveData && objectiveData.trackDamage || settingsManager.settings.damageHP}"
+                [src]="'./assets/images/' + (objectiveData && objectiveData.trackDamage || settingsManager.settings.damageHP ? 'action/damage.svg' : 'status/health.svg')" />
+              <ng-container *ngIf="objectiveData && objectiveData.trackDamage || entity.maxHealth > 0">
+                <span *ngIf="!settingsManager.settings.damageHP && (!objectiveData || !objectiveData.trackDamage)">
                   {{(entity.health + health) | ghsMinZero}}/{{entity.maxHealth}}
                 </span>
                 <span *ngIf="settingsManager.settings.damageHP">
                   {{entity.maxHealth}}/{{entity.maxHealth - (entity.health + health) | ghsMinZero}}
                 </span>
+                <span *ngIf="objectiveData && objectiveData.trackDamage">
+                  {{(entity.health + health) | ghsMinZero}}
+                </span>
                 <span class="value-overlay" [value-sign]="health" [hideEmpty]="true"
-                  [reverse]="settingsManager.settings.damageHP" [container]="true"></span>
+                  [reverse]="settingsManager.settings.damageHP" [container]="true" [invert]="!!objectiveData && objectiveData.trackDamage"></span>
               </ng-container>
-              <span *ngIf="entity.maxHealth == 0">-</span>
+              <span *ngIf="(!objectiveData || !objectiveData.trackDamage) && entity.maxHealth == 0">-</span>
             </div>
             <div class="markers">
               <span class="marker" *ngFor="let marker of entity.markers;" ghs-pointer-input

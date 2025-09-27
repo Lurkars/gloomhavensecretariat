@@ -33,9 +33,6 @@ export class ObjectiveEntity implements Entity {
     this.marker = marker || "";
     this.maxHealth = EntityValueFunction(objective.health);
     this.health = this.maxHealth;
-    if (this.health == 0) {
-      this.health = 1;
-    }
   }
 
   toModel(): GameObjectiveEntityModel {

@@ -1,7 +1,11 @@
 <div class="menu-container monster-add">
   <div class="line filter-monster-menu"
-    [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+    [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'all-editions': gameManager.game.edition}">
     <input [(ngModel)]="filter" type="text" [ghs-label]="'monster.filter'" [ghs-label-attribute]="'placeholder'">
+    <label *ngIf="gameManager.game.edition">
+      <input tabclick type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions;">
+      <span [ghs-label]="'character.filter.allEditions'"></span>
+    </label>
     <label [ngClass]="{'disabled' : !hasBossMonster()}">
       <input tabclick type="checkbox" [checked]="settingsManager.settings.showBossMonster"
         (change)="settingsManager.toggle('showBossMonster')">
@@ -14,10 +18,11 @@
     </label>
   </div>
   <div class="columns">
-    <ng-container *ngFor="let edition of gameManager.currentEditions()">
+    <ng-container
+      *ngFor="let edition of (allEditions ? gameManager.editions(true,true) : gameManager.currentEditions())">
       <div class="column spoilers bosses" *ngIf="monsterData(edition, filter).length > 0">
         <div class="line title sticky"
-          [ngClass]="{'hide-title' : gameManager.currentEditions().length == 1, 'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+          [ngClass]="{'hide-title' : !allEditions && gameManager.currentEditions().length == 1, 'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
           <label><span [ghs-label]="'data.edition.' + edition"></span></label>
         </div>
         <div class="line" *ngFor="let monsterData of monsterData(edition, filter)"

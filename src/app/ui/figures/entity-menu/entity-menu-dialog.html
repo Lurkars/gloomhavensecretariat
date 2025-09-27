@@ -310,6 +310,26 @@
         </ng-container>
       </ng-container>
 
+      <ng-container
+        *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) == 0 && objectiveData && objectiveData.trackDamage">
+        <span class="item">
+          <ghs-pointer-input class="button" tabclick (singleClick)="changeHealth(-1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </ghs-pointer-input>
+        </span>
+        <span class="item" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'">
+          <span class="badge badge-left">{{data.entity.health + health | ghsMinZero}}</span>
+          <img class="damage" src="./assets/images/action/damage.svg" />
+          <span class="badge badge-right health-count" [value-sign]="health" [hideEmpty]="true" [invert]="true"></span>
+        </span>
+        <span class="item">
+          <ghs-pointer-input class="button"
+            tabclick (singleClick)="changeHealth(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </ghs-pointer-input>
+        </span>
+      </ng-container>
+
       <ng-container *ngIf="data.entity && gameManager.isObjectiveEntity(data.entity)">
         <span class="item">
           <ghs-pointer-input class="button" tabclick (singleClick)="changeId(-1)" [repeat]="true">

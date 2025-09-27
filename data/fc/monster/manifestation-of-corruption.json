@@ -5,6 +5,7 @@
   "boss": true,
   "flying": true,
   "count": 1,
+  "firstActiveAction": "bottom",
   "baseStat": {
     "type": "boss",
     "note": "%game.custom.scenarioBook%",

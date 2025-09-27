@@ -1,3 +1,4 @@
+import { GameScenarioModel } from "../Scenario";
 import { ElementModel } from "./Element";
 import { AdditionalIdentifier } from "./Identifier";
 import { MonsterStatEffect } from "./MonsterStat";
@@ -14,6 +15,7 @@ export class ScenarioRule {
   requiredRooms: number[] = [];
   requiredRules: ScenarioRuleIdentifier[] = [];
   disablingRules: ScenarioRuleIdentifier[] = [];
+  requiredScenarios: GameScenarioModel[] = [];
   note: string = "";
   noteTop: string = "";
   rooms: number[] = [];
@@ -87,7 +89,7 @@ export class ScenarioFigureRule {
 
 }
 
-export type ScenarioFigureRuleTypes = "present" | "dead" | "killed" | "initiative" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "transferEntities" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate" | "onTurn" | "afterTurn";
+export type ScenarioFigureRuleTypes = "present" | "dead" | "killed" | "initiative" | "gainCondition" | "loseCondition" | "permanentCondition" | "damage" | "setHp" | "heal" | "discard" | "toggleOff" | "toggleOn" | "transfer" | "transferEntities" | "remove" | "removeEntity" | "amAdd" | "amRemove" | "setAbility" | "removeAbility" | "drawAbility" | "discardAbilityToBottom" | "dormant" | "activate" | "onTurn" | "afterTurn";
 
 export const HiddenScenarioFigureRuleTypes: ScenarioFigureRuleTypes[] = ["present", "dead", "killed", "initiative", "onTurn", "afterTurn"];
 

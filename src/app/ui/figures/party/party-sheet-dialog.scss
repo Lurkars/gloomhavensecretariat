@@ -774,25 +774,32 @@
 
             .supply {
               cursor: help;
+              min-width: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
             }
 
             .move-resources {
               display: flex;
+              height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
 
               .label {
                 font-family: var(--ghs-font-text);
                 font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                white-space: nowrap;
               }
 
-              .character {
+              .characters {
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                cursor: pointer;
 
-                img {
-                  width: auto;
-                  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                .character {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  cursor: pointer;
+
+                  img {
+                    width: auto;
+                    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                  }
                 }
               }
             }

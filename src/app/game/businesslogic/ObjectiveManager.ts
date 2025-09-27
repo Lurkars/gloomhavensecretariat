@@ -58,7 +58,7 @@ export class ObjectiveManager {
     }
   }
 
-  addObjectiveEntity(objectiveContainer: ObjectiveContainer, number: number | undefined = undefined, objectiveData: ObjectiveData | undefined = undefined): ObjectiveEntity {
+  addObjectiveEntity(objectiveContainer: ObjectiveContainer, number: number | undefined = undefined, objectiveData: ObjectiveData | undefined = undefined, marker: string  = ""): ObjectiveEntity {
     if (!number || objectiveContainer.entities.find((objectiveEntity) => objectiveEntity.number == number)) {
       const objectiveCount = objectiveContainer.entities.filter((entity) => gameManager.entityManager.isAlive(entity)).length;
       number = objectiveCount % 12;
@@ -69,7 +69,7 @@ export class ObjectiveManager {
       }
     }
 
-    let entity: ObjectiveEntity = new ObjectiveEntity(uuidv4(), number + 1, objectiveContainer, objectiveData && objectiveData.marker || objectiveContainer.marker);
+    let entity: ObjectiveEntity = new ObjectiveEntity(uuidv4(), number + 1, objectiveContainer, marker || objectiveData && objectiveData.marker || objectiveContainer.marker);
 
     if (objectiveData) {
       entity.tags = objectiveData.tags;

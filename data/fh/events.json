@@ -7373,7 +7373,13 @@
             "condition": "bug-in-a-jar",
             "narrative": "You drop the beetle you've been carrying with you into the mass of confused insects. Through a process you don't fully understand, it begins coalescing in an organized fashion. After a few minutes it swirls to a standing position, thanks you, and heads off deeper into the woods.",
             "effects": [
-              "Place \"Empty Jar\" campaign sticker over \"Bug in a Jar\".",
+              {
+                "type": "campaignStickerReplace",
+                "values": [
+                  "empty-jar",
+                  "bug-in-a-jar"
+                ]
+              },
               {
                 "type": "event",
                 "alt": true,
@@ -7393,7 +7399,13 @@
             },
             "narrative": "You provide some healthy members from your own being into the Harrower, and after several minutes of struggle it gathers itself up and thanks you.",
             "effects": [
-              "All HARROWER characters start the next scenario with 3 and Gain 1 inspiration."
+              "All %game.trait:harrower% characters start the next scenario with %game.damage:3% and %game.condition.muddle%.",
+              {
+                "type": "inspiration",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -7495,7 +7507,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "wound"
+                  "impair"
                 ]
               },
               {
@@ -7522,7 +7534,7 @@
         "narrative": "Let Malak take down Dramm.",
         "outcomes": [
           {
-            "narrative": "The Aesther and Vermling enter mortal combat, wordlessly exchanging blows and wounds. The Vermling is fast—jumping between the tree branches and staying away from the Aesther's flashing blades. Ultimately, the Aesther pins the Vermling underfoot, and with an expert swipe, ends Dramm's life. He turns to you, emotionless. \"Not as satisfying as I would prefer, but it will do. Until the next.\" He tears the cloak off Dramm's body, tossing it to you. \"For your service.\" And with that, he drags Dramm's body through a rift and is gone in a flash of light.",
+            "narrative": "The Aesther and Vermling enter mortal combat, wordlessly exchanging blows and wounds. The Vermling is fast—jumping between the tree branches and staying away from the Aesther's flashing blades. Ultimately, the Aesther pins the Vermling underfoot, and with an expert swipe, ends Dramm's life.<br><br>He turns to you, emotionless. \"Not as satisfying as I would prefer, but it will do. Until the next.\" He tears the cloak off Dramm's body, tossing it to you. \"For your service.\" And with that, he drags Dramm's body through a rift and is gone in a flash of light.",
             "effects": [
               {
                 "type": "item",
@@ -7540,7 +7552,7 @@
         "narrative": "Help Dramm take down Malak.",
         "outcomes": [
           {
-            "narrative": "The Aesther and Vermling enter mortal combat, wordlessly exchanging blows and wounds. The Vermling is fast—jumping between the tree branches and staying away from the Aesther's flashing blades. Finally, you intervene when Malak least expects it, running the Aesther through with your own weapon. With his dying gurgle he looks to you, confused, then collapses. Dramm dusts himself off, overwhelmed with emotion. \"Thank you—I owe you my life. He's hunted me for a decade, but today it ends.\"",
+            "narrative": "The Aesther and Vermling enter mortal combat, wordlessly exchanging blows and wounds. The Vermling is fast—jumping between the tree branches and staying away from the Aesther's flashing blades. Finally, you intervene when Malak least expects it, running the Aesther through with your own weapon. With his dying gurgle he looks to you, confused, then collapses.<br><br>Dramm dusts himself off, overwhelmed with emotion. \"Thank you—I owe you my life. He's hunted me for a decade, but today it ends.\"",
             "effects": [
               {
                 "type": "experience",
@@ -7567,9 +7579,14 @@
           {
             "narrative": "You humor the ancient hermit and his amphibious king, showing off with mock battles, some acrobatics, and anything else you can think of. At the end of your performance, King Radicchio gives an approving croak and jumps into the water, followed by his entourage. Hurdle breathes a sigh of relief.",
             "effects": [
-              "Gain 2xT experience each, where T is the number of unique traits among your party.",
-              "IF T>Cx2: Hurdle is moved to tears by your performance and grants you a special blessing.",
-              "Additionally, add a +1 sticker to one HIDE, METAL, or LUMBER loot card (the card gives one extra resource when resolved)."
+              "Gain 2xT experience each, where T is the number of unique traits among your party."
+            ]
+          },
+          {
+            "condition": "if T>[Cx2]",
+            "narrative": "Hurdle is moved to tears by your performance and grants you a special blessing.",
+            "effects": [
+              "Additionally, add a %game.resource.plus1% sticker to one %game.resource.lumber%, %game.resource.metal%, or %game.resource.hide% loot card (the card gives one extra resource when resolved)."
             ]
           }
         ]
@@ -7579,13 +7596,13 @@
         "narrative": "Fried toad legs are an uncommon delicacy this far north... time for some regicide.",
         "outcomes": [
           {
-            "narrative": "It's time you joined the long and noble tradition of actor-assassins. The king's court flees in terror as the tyrant is brought low. Hurdle screams in protest, but soon realizes the opportunity in front of him and seizes his moment. \"Long live King Hurdle!\" the usurper shouts, gleefully swinging his walking stick at the fleeing amphibians. \"Hurdle is your ruler now!\" You dine together on the toad legs, with a toast to King Hurdle's health.",
+            "narrative": "It's time you joined the long and noble tradition of actor-assassins. The king's court flees in terror as the tyrant is brought low. Hurdle screams in protest, but soon realizes the opportunity in front of him and seizes his moment. \"Long live King Hurdle!\" the usurper shouts, gleefully swinging his walking stick at the fleeing amphibians. \"Hurdle is your ruler now!\"<br><br>You dine together on the toad legs, with a toast to King Hurdle's health.",
             "effects": [
               {
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "bless"
+                  "ward"
                 ]
               }
             ]
@@ -7623,7 +7640,7 @@
         "narrative": "Try to salvage the machine without deactivating it.",
         "outcomes": [
           {
-            "narrative": "You drag the machine back to Frosthaven. It spends the whole trip launching impotent threats. \"I WILL FILL YOUR BOOTS WITH BLOOD!\" With some significant repairs you should be able to get it back to working order. Back in town you leave it with the capable Quatryl inventor, Pinter Droman, and hope for the best.",
+            "narrative": "You drag the machine back to Frosthaven. It spends the whole trip launching impotent threats.<br><br>\"I WILL FILL YOUR BOOTS WITH BLOOD!\"<br><br>With some significant repairs you should be able to get it back to working order. Back in town you leave it with the capable Quatryl inventor, Pinter Droman, and hope for the best.",
             "effects": [
               {
                 "type": "event",
@@ -7633,7 +7650,13 @@
                   "SO-54"
                 ]
               },
-              "Resolve another summer road event."
+              {
+                "type": "drawAnotherEvent",
+                "alt": true,
+                "values": [
+                  "summer-road"
+                ]
+              }
             ]
           }
         ]
@@ -7651,7 +7674,7 @@
         "narrative": "Bring Satha back to Frosthaven and throw a big party.",
         "outcomes": [
           {
-            "narrative": "Satha is redder than a Valrath when you announce to the entire outpost that it's her birthday. Cheers erupt, along with chants calling for a party. You recall a guard who grew up with Satha telling stories about how, as a child, she would go crazy for Chocolate Savvas Lavaflow Cake. It takes a fair amount of bribery, but you finally convince a cook to make one. He's not much of a baker, but he did alright. When you present the cake at the height of the party, Satha's eyes go wide. \"I... where... who made this?! We can make cake like this in Frosthaven!?\"",
+            "narrative": "Satha is redder than a Valrath when you announce to the entire outpost that it's her birthday. Cheers erupt, along with chants calling for a party.<br><br>You recall a guard who grew up with Satha telling stories about how, as a child, she would go crazy for Chocolate Savvas Lavaflow Cake. It takes a fair amount of bribery, but you finally convince a cook to make one. He's not much of a baker, but he did alright. When you present the cake at the height of the party, Satha's eyes go wide. \"I... where... who made this?! We can make cake like this in Frosthaven!?\"",
             "effects": [
               {
                 "type": "loseCollectiveGold",
@@ -7674,13 +7697,13 @@
         "narrative": "Take her on an adventure through the wilderness.",
         "outcomes": [
           {
-            "narrative": "You insist Satha stays inside the walls of Frosthaven too much, and needs a taste of adventure every once in a while. Over the next few days, you surf river rapids on sheets of ice, capture a polar bear and ride it through the mountains, and go spear-fishing for piranha pigs. You make a roaring camp fire every night, tend to the injuries sustained from the day's escapades, and trade stories of epic battles and close calls. \"This has been a great birthday. But I've got an outpost to run, and I think you have a mission you need to get back to?\" Despite scrapes and bruises, you all part ways refreshed, ready to tackle whatever challenge may come.",
+            "narrative": "You insist Satha stays inside the walls of Frosthaven too much, and needs a taste of adventure every once in a while. Over the next few days, you surf river rapids on sheets of ice, capture a polar bear and ride it through the mountains, and go spear-fishing for piranha pigs. You make a roaring camp fire every night, tend to the injuries sustained from the day's escapades, and trade stories of epic battles and close calls.<br><br>\"This has been a great birthday. But I've got an outpost to run, and I think you have a mission you need to get back to?\" Despite scrapes and bruises, you all part ways refreshed, ready to tackle whatever challenge may come.",
             "effects": [
               {
-                "type": "scenarioCondition",
+                "type": "scenarioDamage",
                 "alt": true,
                 "values": [
-                  "bless:1"
+                  1
                 ]
               },
               {
@@ -7855,8 +7878,14 @@
         "narrative": "Donate resources to the Keepers to protect the sapling.",
         "outcomes": [
           {
-            "condition": "LOSE 3 COLLECTIVE MATERIAL RESOURCES",
-            "narrative": "The Keepers are overjoyed. They whisk away the materials and build a barrier around the small tree to better protect it from the elements.",
+            "condition": {
+              "type": "loseCollectiveResourceType",
+              "values": [
+                3,
+                "material_resources"
+              ]
+            },
+            "narrative": "The Keepers are overjoyed. They whisk away the materials and build a barrier around the small tree to better protect it from the elements.<br><br>\"Please be discreet. Publicly, we must project confidence\nthe Oak will protect us all. It would not be good if the\n‘outposters knew we were concerned.\"",
             "effects": [
               {
                 "type": "prosperity",
@@ -7872,6 +7901,19 @@
                 ]
               }
             ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -7880,9 +7922,21 @@
         "narrative": "These resources would be better utilized protecting the Oak from getting destroyed in the first place.",
         "outcomes": [
           {
-            "narrative": "The Keepers are not amused. As you finish stammering through a pathetic justification about how these resources will help keep outposters happy and productive, you realize your excuse sounded much better in your head. The Keepers turn and walk away without a word.",
+            "narrative": "The Keepers are not amused. As you finish stammering through a pathetic justification about how these resources will help keep outposters happy and productive, you realize your excuse sounded much better in your head. The Keepers turn and walk away without a word.<br><br>You make a mental note to put on a big show of donating some resources to Frosthaven when you get back, hoping the Keepers will see you.",
             "effects": [
-              "Lose 1 morale and 1 collective material resource.",
+              {
+                "type": "loseMorale",
+                "values": [
+                  1
+                ]
+              },
+              {
+                "type": "loseCollectiveResourceType",
+                "values": [
+                  1,
+                  "material_resources"
+                ]
+              },
               {
                 "type": "scenarioCondition",
                 "alt": true,
@@ -7962,10 +8016,10 @@
             "narrative": "You approach the machine, waves of burning energy buffeting your face. You push forward and deal a devastating blow that knocks the machine offline.",
             "effects": [
               {
-                "type": "scenarioCondition",
+                "type": "scenarioDamage",
                 "alt": true,
                 "values": [
-                  "wound:2"
+                  2
                 ]
               },
               {
@@ -8007,7 +8061,12 @@
                   2
                 ]
               },
-              "Add one 20 card to the town guard deck."
+              {
+                "type": "townGuardDeckCard",
+                "values": [
+                  "fh-tg-add-plus20-soldier"
+                ]
+              }
             ]
           }
         ]
@@ -8033,7 +8092,12 @@
                   1
                 ]
               },
-              "Add one 20 card to the town guard deck."
+              {
+                "type": "townGuardDeckCard",
+                "values": [
+                  "fh-tg-add-plus20-soldier"
+                ]
+              }
             ]
           },
           {
@@ -8041,6 +8105,7 @@
               "type": "otherwise"
             },
             "narrative": "It refuses to join the Frostguard, and eventually you leave it to its training. Better off without someone like that in the guard anyway.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -8062,7 +8127,7 @@
         "narrative": "Offer to work for a sampling of the beautiful fruits.",
         "outcomes": [
           {
-            "narrative": "You toil in the dirt, pumping water from a nearby well and hauling it between each of the levels of the stepped garden. It's a true surprise this woman can do it herself, but after you've exhausted the list of chores she silently gestures at the plants and lets you take your pick. The fruits live up to their appearance.",
+            "narrative": "You toil in the dirt, pumping water from a nearby well and hauling it between each of the levels of the stepped garden. It's a true surprise this woman can do it herself, but after you've exhausted the list of chores she silently gestures at the plants and lets you take your pick.<br><br>The fruits live up to their appearance.",
             "effects": [
               {
                 "type": "collectiveResourceType",
@@ -8087,7 +8152,7 @@
         "narrative": "Offer to work for her secret to growing such a bountiful harvest.",
         "outcomes": [
           {
-            "narrative": "You spend hours smashing rocks with a sledgehammer to make the rough soil suitable for the next plantings, then it's carefully removing frosted berries from the vineyard to be crushed into icewine. When you've exhausted the list of chores she holds up her end of the bargain. Out from her pocket comes a small satchel of yellow dust, which she silently hands over to you. She pantomimes sprinkling it over crops. Seems to be easy enough.",
+            "narrative": "You spend hours smashing rocks with a sledgehammer to make the rough soil suitable for the next plantings, then it's carefully removing frosted berries from the vineyard to be crushed into icewine. When you've exhausted the list of chores she holds up her end of the bargain. Out from her pocket comes a small satchel of yellow dust, which she silently hands over to you.<br><br>She pantomimes sprinkling it over crops. Seems to be easy enough.",
             "effects": [
               "Resolve the building operation of the Garden immediately (in addition to its normal resolution in the building operation step)."
             ]
@@ -13846,7 +13911,13 @@
             },
             "narrative": "You have nothing to rely on. After hours of hiking you finally find the dense fog that spits you back onto the winter trail.",
             "effects": [
-              "Resolve another winter road event."
+              {
+                "type": "drawAnotherEvent",
+                "alt": true,
+                "values": [
+                  "winter-road"
+                ]
+              }
             ]
           }
         ]
@@ -13880,7 +13951,13 @@
             },
             "narrative": "Lush forest turns to bramble thickets as you try to navigate through. After hours of hiking, you welcome the heavy fog that spits you back onto the winter trail.",
             "effects": [
-              "Resolve another winter road event."
+              {
+                "type": "drawAnotherEvent",
+                "alt": true,
+                "values": [
+                  "winter-road"
+                ]
+              }
             ]
           }
         ]
@@ -14785,7 +14862,13 @@
                   2
                 ]
               },
-              "Resolve another winter road event."
+              {
+                "type": "drawAnotherEvent",
+                "alt": true,
+                "values": [
+                  "winter-road"
+                ]
+              }
             ]
           }
         ]
