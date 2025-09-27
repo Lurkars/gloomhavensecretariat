@@ -31,7 +31,7 @@
         </div>
         <ghs-interactive-actions
           [ngClass]="{'interactive-actions-top' : ability.bottomActions && ability.bottomActions.length > 0 || character}"
-          *ngIf="interactiveAbilities && !!monster && activeActions && activeActions == 'top'" [figure]="monster"
+          *ngIf="interactiveAbilities && !!monster && (!activeActions || activeActions && activeActions == 'top')" [figure]="monster"
           [actions]="ability.actions" [(interactiveActions)]="interactiveActions"></ghs-interactive-actions>
 
         <ng-container *ngIf="!!ability.bottomActions && ability.bottomActions.length > 0 || character">
@@ -50,7 +50,7 @@
           </div>
 
           <ghs-interactive-actions class="interactive-actions-bottom"
-            *ngIf="interactiveAbilities && !!monster  && activeActions && activeActions == 'bottom'" [figure]="monster"
+            *ngIf="interactiveAbilities && !!monster  && (!activeActions || activeActions && activeActions == 'bottom')" [figure]="monster"
             [actions]="ability.bottomActions" [(interactiveActions)]="interactiveBottomActions"
             [preIndex]="'bottom'"></ghs-interactive-actions>
         </ng-container>

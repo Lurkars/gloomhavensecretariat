@@ -23,6 +23,13 @@
         &+.columns .column .line:not(sticky):first-child {
             padding-top: calc(var(--ghs-unit) * 14 * var(--ghs-dialog-factor));
         }
+
+        &.all-editions {
+            &+.columns .column .line.sticky,
+            &+.columns .column .line:not(sticky):first-child {
+                padding-top: calc(var(--ghs-unit) * 17 * var(--ghs-dialog-factor));
+            }
+        }
     }
 
     .bosses {

@@ -21,6 +21,7 @@ export class MonsterMenuComponent {
     notSpoiled = ghsNotSpoiled;
 
     filter: string = "";
+    allEditions: boolean = false;
 
     hasMonster(monsterData: MonsterData) {
         return gameManager.game.figures.some((figure) => {

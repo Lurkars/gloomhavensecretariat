@@ -930,6 +930,7 @@
         "loseCollectiveGold": "Lose {0} collective gold.",
         "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%.",
         "loseCollectiveResourceAny": "Lose {0} collective resources.",
+        "loseCollectiveResourceType": "Lose {0} collective %game.loot.{1}% resources.",
         "loseGold": "Lose {0} gold each.",
         "loseGoldOne": "One character loses {0} gold.",
         "loseMorale": "Lose {0} morale.",
