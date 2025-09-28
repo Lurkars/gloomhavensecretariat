@@ -15,6 +15,23 @@
     "hound",
     "vermling-scout"
   ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -26,7 +43,9 @@
         },
         {
           "name": "hound",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "hound",
@@ -35,10 +54,6 @@
           "player4": "elite"
         },
         {
-          "name": "hound",
-          "player4": "elite"
-        },
-        {
           "name": "vermling-scout",
           "player2": "normal",
           "player3": "normal",
@@ -47,8 +62,17 @@
         {
           "name": "vermling-scout",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
         }
       ]
     }

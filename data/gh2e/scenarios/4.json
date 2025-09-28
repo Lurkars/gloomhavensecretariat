@@ -40,6 +40,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
         }
       ]
     }
