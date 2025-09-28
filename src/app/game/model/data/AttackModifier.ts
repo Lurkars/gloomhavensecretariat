@@ -52,6 +52,8 @@ export class AttackModifier {
       this.id = id;
     } else if (type == AttackModifierType.townguard) {
       this.id = 'tg-' + valueType + value;
+    } else if (type == AttackModifierType.wreck || type == AttackModifierType.success) {
+      this.id = 'tg-' + type;
     } else {
       this.id = (type != AttackModifierType.plus && type != AttackModifierType.minus) ? type : (type + value);
     }

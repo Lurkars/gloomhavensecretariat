@@ -93,6 +93,7 @@ export enum EventCardConditionType {
 }
 
 export enum EventCardEffectType {
+    additionally = "additionally",
     and = "and",
     battleGoal = "battleGoal",
     campaignSticker = "campaignSticker",
@@ -130,6 +131,7 @@ export enum EventCardEffectType {
     loseCollectiveResource = "loseCollectiveResource",
     loseCollectiveResourceAny = "loseCollectiveResourceAny",
     loseCollectiveResourceType = "loseCollectiveResourceType",
+    loseExperience = "loseExperience",
     loseGold = "loseGold",
     loseGoldOne = "loseGoldOne",
     loseMorale = "loseMorale",
@@ -139,9 +141,12 @@ export enum EventCardEffectType {
     morale = "morale",
     noEffect = "noEffect",
     outcome = "outcome",
+    outcomes = "outcomes",
+    outcomeSelect = "outcomeSelect",
     outpostAttack = "outpostAttack",
     outpostTarget = "outpostTarget",
     randomItem = "randomItem",
+    randomItemBlueprint = "randomItemBlueprint",
     randomItemDesign = "randomItemDesign",
     randomScenario = "randomScenario",
     removeEvent = "removeEvent",
@@ -156,15 +161,20 @@ export enum EventCardEffectType {
     scenarioSingleMinus1 = "scenarioSingleMinus1",
     sectionWeek = "sectionWeek",
     sectionWeeks = "sectionWeeks",
+    sectionWeekSeasonFinal = "sectionWeekSeasonFinal",
     sectionWeeksSeason = "sectionWeeksSeason",
+    skipThreat = "skipThreat",
     soldier = "soldier",
     soldiers = "soldiers",
     townGuardDeckCard = "townGuardDeckCard",
+    townGuardDeckCardRemove = "townGuardDeckCardRemove",
+    townGuardDeckCardRemovePermanently = "townGuardDeckCardRemovePermanently",
     townGuardDeckCards = "townGuardDeckCards",
     unlockEnvelope = "unlockEnvelope",
     unlockScenario = "unlockScenario",
     unlockScenarioGroup = "unlockScenarioGroup",
-    upgradeBuilding = "upgradeBuilding"
+    upgradeBuilding = "upgradeBuilding",
+    wreckBuilding = "wreckBuilding"
 }
 
 export class EventCardEffect {

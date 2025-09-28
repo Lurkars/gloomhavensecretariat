@@ -303,7 +303,7 @@
             "status": "Das automatische Backup ist mit dem Statuscode '{0}' fehlgeschlagen. Öffne die Console des Browsers für mehr Details.",
             "unknown": "Das automatische Backup ist aus unbekannten Gründen fehlgeschlagen. Öffne die Console des Browsers für mehr Details."
           },
-          "hint": "Anstatt Sicherungsdateien automatisch herunterzuladen, kann auch eine URL für den Upload festgelegt werden. {FILENAME} kann als Platzhalter für den Dateinamen verwendet werden. (Achte auf korrekte CORS Einstellungen damit der Upload funktioniert!)"
+          "hint": "Anstatt Sicherungsdateien automatisch herunterzuladen, kann auch eine URL für den Upload festgelegt werden (Achte auf korrekte CORS Einstellungen damit der Upload funktioniert!). {FILENAME} bzw. {WINDOWS_FILENAME} kann als Platzhalter für den Dateinamen verwendet werden."
         },
         "uploadUrlAuthorization": {
           "": "Authorization Header",

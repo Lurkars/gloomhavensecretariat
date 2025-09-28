@@ -713,7 +713,11 @@ export class AttackModifierManager {
 
     // migration
     model.cards = model.cards.map((id) => {
-      if (id == "scenario-reward-55-0") {
+      if (id == "success") {
+        id = "tg-success";
+      } else if (id == "wreck") {
+        id = "tg-wreck";
+      } else if (id == "scenario-reward-55-0") {
         id = "fh-tg-add-plus50-algox";
       } else if (id == "scenario-reward-56-0") {
         id = "fh-tg-add-plus50";

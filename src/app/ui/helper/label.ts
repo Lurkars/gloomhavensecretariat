@@ -4,7 +4,7 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ActionHex, ActionHexFromString } from "src/app/game/model/ActionHex";
 import { ActionType } from "src/app/game/model/data/Action";
-import { additionalTownGuardAttackModifier, AttackModifierValueType } from "src/app/game/model/data/AttackModifier";
+import { additionalTownGuardAttackModifier, AttackModifierType, AttackModifierValueType, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { Condition, ConditionType } from "src/app/game/model/data/Condition";
 import { EntityValueFunction, EntityValueRegex, EntityValueRegexExtended } from "src/app/game/model/Entity";
 import { ActionTypesIcons } from "../figures/actions/action";
@@ -129,15 +129,21 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         image = '<img  src="./assets/images' + (fh ? '/fh' : '') + '/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
       } else if (type == "townGuardAM" && value) {
-
-        const townGuardAM = additionalTownGuardAttackModifier.find((am) => am.id == value);
+        replace = '<span class="placeholder-townguard-attackmodifier">' + value + '</span>';
+        const townGuardAM = [...defaultTownGuardAttackModifier, ...additionalTownGuardAttackModifier].find((am) => am.id == value);
         if (townGuardAM) {
           const effect = townGuardAM.effects.find((effect) => effect.type == 'custom' && effect.icon);
           const effectImage = effect != undefined ? '<img  src="./assets/images/action/custom/' + effect.value + '.svg" class="icon">' : "";
-          const amImage = '<span class="townguard-attackmodifier"><img src="./assets/images/fh/attackmodifier/icons/' + townGuardAM.valueType + '.png" class="icon"><span class="value">' + (townGuardAM.value >= 0 ? '+' : '') + townGuardAM.value + '</span></span>';
+          let amImage = '<span class="townguard-attackmodifier"><img src="./assets/images/fh/attackmodifier/icons/' + townGuardAM.valueType + '.png" class="icon"><span class="value">' + (townGuardAM.value >= 0 ? '+' : '') + townGuardAM.value + '</span></span>';
+          if (townGuardAM.type == AttackModifierType.wreck || townGuardAM.type == AttackModifierType.success) {
+            amImage = '<span class="townguard-attackmodifier"><img src="./assets/images/fh/attackmodifier/icons/' + townGuardAM.type + '.png" class="icon"></span>';
+          }
           const rollingImage = townGuardAM.rolling ? '<img  src="./assets/images/attackmodifier/rolling.svg" class="icon">' : "";
           replace = '<span class="placeholder-townguard-attackmodifier">' + effectImage + amImage + rollingImage + '</span>';
         }
+      } else if (type == "customAction" && value) {
+        const effectImage = '<img  src="./assets/images/action/custom/' + value + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-custom-action">' + effectImage + '</span>';
       } else if (type == "experience") {
         image = '<img  src="./assets/images/experience.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-experience">' + image + (value ? '<span class="value">' + value + '</span>' : '') + '</span>';
