@@ -336,5 +336,9 @@
       "count": 1,
       "custom": "%data.custom.cs.toolstwo.7%"
     }
+  ],
+  "masteries": [
+    "%data.custom.fh.tools.2%",
+    "%data.custom.fh.tools.3%"
   ]
 }
