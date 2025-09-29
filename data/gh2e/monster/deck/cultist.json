@@ -19,7 +19,7 @@
         },
         {
           "type": "custom",
-          "value": "If Cultist dies this round, first remove all negative conditions and perform:",
+          "value": "%data.custom.gh2e.cultist.1%",
           "small": true,
           "subActions": [
             {
@@ -52,7 +52,7 @@
         },
         {
           "type": "custom",
-          "value": "If Cultist dies this round, first remove all negative conditions and perform:",
+          "value": "%data.custom.gh2e.cultist.1%",
           "small": true,
           "subActions": [
             {
@@ -100,7 +100,7 @@
             },
             {
               "type": "custom",
-              "value": "where X is the amount of damage suffered by the target of the attack ability.",
+              "value": "%data.custom.gh2e.cultist.2%",
               "small": true
             }
           ]
@@ -139,7 +139,7 @@
             },
             {
               "type": "custom",
-              "value": "where X is the amount of damage suffered by the target of the attack ability.",
+              "value": "%data.custom.gh2e.cultist.2%",
               "small": true
             }
           ]

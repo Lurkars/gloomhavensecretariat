@@ -283,6 +283,10 @@
         "1": "If the attack ability was performed",
         "2": "in an empty hex adjacent to the target<br>of the attack ability"
       },
+      "cultist": {
+        "1": "If Cultist dies this round, first remove all negative conditions and perform:",
+        "2": "where X is the amount of damage suffered by the target of the attack ability."
+      },
       "flame-demon": {
         "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
         "2": "%game.damage:1%",
@@ -305,8 +309,17 @@
       "frost-demon": {
         "1": "%game.damage:1%"
       },
+      "giant-viper": {
+        "1": "All attacks targeting Giant Viper this round gain disadvantage.",
+        "2": "Add +2 %game.action.attack% if the target is adjacent to any of the Giant Viper's allies"
+      },
       "hound": {
         "1": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies."
+      },
+      "living-corpse": {
+        "1": "If the move ability was performed, Living Corpse suffers %game.damage:1%.",
+        "2": "If the attack ability was performed, Living Corpse suffers %game.damage:1%.",
+        "3": "If Living Corpse dies this round, all figures adjacent to the hex it occupied suffer %game.damage:1% and gain %game.condition.poison%."
       },
       "mindthief": {
         "1": "Add +1 %game.action.attack% if the target has a negative condition",
