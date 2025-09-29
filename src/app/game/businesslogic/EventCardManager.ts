@@ -11,7 +11,7 @@ import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
-export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.campaignStickerMap, EventCardEffectType.campaignStickerReplace, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventReturn, EventCardEffectType.eventsToTop, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationAdditional, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.sectionWeeksSeason, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.townGuardDeckCard, EventCardEffectType.townGuardDeckCards, EventCardEffectType.unlockEnvelope, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup, EventCardEffectType.upgradeBuilding];
+export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.campaignStickerMap, EventCardEffectType.campaignStickerReplace, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventReturn, EventCardEffectType.eventsToTop, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationAdditional, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.sectionWeekSeasonFinal, EventCardEffectType.sectionWeeksSeason, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.townGuardDeckCard, EventCardEffectType.townGuardDeckCardRemove, EventCardEffectType.townGuardDeckCardRemovePermanently, EventCardEffectType.townGuardDeckCards, EventCardEffectType.unlockEnvelope, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup, EventCardEffectType.upgradeBuilding, EventCardEffectType.wreckBuilding];
 
 export class EventCardManager {
   game: Game;
@@ -200,6 +200,16 @@ export class EventCardManager {
 
       if (settingsManager.settings.eventsApply && apply) {
         results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, false));
+
+        // TODO: option to disable attack
+        eventCard.options.filter((option) => !option.label && option.outcomes).forEach((option) => {
+          option.outcomes.forEach((outcome) => {
+            if (outcome.attack && outcome.attack.effects) {
+              results.push(... this.applyEffects(eventCard, outcome.attack.effects, scenario));
+            }
+          })
+        })
+
         if (scenario) {
           results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, true));
         }
@@ -251,13 +261,25 @@ export class EventCardManager {
     return results;
   }
 
+  applicableEffect(effect: EventCardEffect): boolean {
+    if (EventCardApplyEffects.indexOf(effect.type) != -1) {
+      return true;
+    }
+
+    if (effect.type == EventCardEffectType.and || effect.type == EventCardEffectType.additionally) {
+      return effect.values.some((value) => typeof value === 'object' && this.applicableEffect(value));
+    }
+
+    return false;
+  }
+
   applyEffects(eventCard: EventCard, effects: (string | EventCardEffect)[], scenario: boolean): (EventCardEffect | EventCardCondition)[] {
     let results: (EventCardEffect | EventCardCondition)[] = [];
     effects.forEach((effect) => {
       if (typeof effect === 'string') {
         results.push(new EventCardEffect(EventCardEffectType.custom, [effect]));
       } else {
-        if (EventCardApplyEffects.indexOf(effect.type) != -1 && (!effect.condition || this.resolvableCondition(effect.condition))) {
+        if (this.applicableEffect(effect) && (!effect.condition || this.resolvableCondition(effect.condition))) {
           let characters = gameManager.characterManager.getActiveCharacters();
           if (effect.condition) {
             const conditionResult = this.applyCondition(effect.condition);
@@ -270,7 +292,7 @@ export class EventCardManager {
             }
           }
 
-          if (effect.type == EventCardEffectType.and) {
+          if (effect.type == EventCardEffectType.and || effect.type == EventCardEffectType.additionally) {
             results.push(...this.applyEffects(eventCard, effect.values.filter((e) => typeof e !== 'number' && typeof e !== 'string'), scenario));
           } else if (scenario) {
             switch (effect.type) {
@@ -390,6 +412,14 @@ export class EventCardManager {
                   }
                 })
                 break;
+              case EventCardEffectType.loseExperience:
+                characters.forEach((c) => {
+                  c.progress.experience -= +effect.values[0];
+                  if (c.progress.experience < 0) {
+                    c.progress.experience = 0;
+                  }
+                })
+                break;
               case EventCardEffectType.loseGold:
                 characters.forEach((c) => {
                   c.progress.gold -= +effect.values[0];
@@ -454,6 +484,19 @@ export class EventCardManager {
                 this.game.party.weekSections[week] = [...(gameManager.game.party.weekSections[week] || []), section];
                 break;
               }
+              case EventCardEffectType.sectionWeekSeasonFinal: {
+                const section = effect.values[0] as string;
+                const season = effect.values[1] as string;
+                const isSummer = Math.max(this.game.party.weeks - 1, 0) % 20 < 10;
+                let week = 0;
+                if (isSummer) {
+                  week = Math.floor(this.game.party.weeks / 10) + (season == 'summer' ? 3 : 2);
+                } else {
+                  week = Math.floor(this.game.party.weeks / 10) + (season == 'winter' ? 3 : 2);
+                }
+                this.game.party.weekSections[week * 10] = [...(gameManager.game.party.weekSections[week * 10] || []), section];
+                break;
+              }
               case EventCardEffectType.sectionWeeksSeason: {
                 const section = effect.values[0] as string;
                 const season = effect.values[2] as string;
@@ -480,6 +523,16 @@ export class EventCardManager {
                     this.game.party.townGuardDeck.cards.push(effect.values[0] as string);
                     this.game.party.townGuardDeck.current = -1;
                     ghsShuffleArray(this.game.party.townGuardDeck.cards);
+                  }
+                }
+                break;
+              }
+              case EventCardEffectType.townGuardDeckCardRemove:
+              case EventCardEffectType.townGuardDeckCardRemovePermanently: {
+                if (this.game.party.townGuardDeck) {
+                  const card = this.game.party.townGuardDeck.cards.find((value) => value == (effect.values[0] as string));
+                  if (card) {
+                    this.game.party.townGuardDeck.cards.splice(this.game.party.townGuardDeck.cards.indexOf(card), 1);
                   }
                 }
                 break;
@@ -519,6 +572,14 @@ export class EventCardManager {
                 } else {
                   console.warn("Building not found to apply event effect", effect, scenario);
                   results.push(effect);
+                }
+                break;
+              }
+              case EventCardEffectType.wreckBuilding: {
+                const buildingName = effect.values[0] as string;
+                const building = this.game.party.buildings.find((value) => value.name == buildingName);
+                if (building) {
+                  building.state = "wrecked";
                 }
                 break;
               }

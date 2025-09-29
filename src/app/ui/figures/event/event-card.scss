@@ -106,6 +106,7 @@
                         }
 
                         .effects ghs-event-card-effect {
+                            font-size: 0.96em;
                             margin-bottom: 0.1em;
                         }
 
@@ -387,6 +388,13 @@
                             font-family: var(--ghs-font-fh-normal);
                         }
                     }
+                }
+            }
+
+            &.winter-outpost,
+            &.summer-outpost {
+                .wrapper .content {
+                    padding-top: 0;
                 }
             }
 

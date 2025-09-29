@@ -1,0 +1,17 @@
+{
+  "index": "179.1",
+  "name": "Crain's Expedition",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "collectiveResources": [
+      {
+        "type": "metal",
+        "value": 5
+      }
+    ],
+    "townGuardAm": [
+      "tg-plus20"
+    ]
+  }
+}
