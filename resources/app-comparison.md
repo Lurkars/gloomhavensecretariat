@@ -29,7 +29,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Ally Attack Modifier Deck                                                       | ✅            | ✅         | ✅        | ✅        | ⛔       |
 | Scenario Setup (Monster, Objectives, Escorts)                                   | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Separate Rooms/Sections                                                         | ✅            | ✅         | ✅        | ✅        | ⛔       |
-| Character Attack Modifier Deck                                                  | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
+| Character Attack Modifier Deck                                                  | ✅            | ✅         | ⛔        | ✅        | ⛔       |
 | Character Perks                                                                 | ✅            | ⛔         | ⛔        | ✅        | ⛔       |
 | Character Scenario XP                                                           | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Character Scenario Gold                                                         | ✅            | ⛔         | ✅        | ✅        | ✅       |
@@ -141,7 +141,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 
 [^1.4]: All titles and initiatives implemented but most ability data still missing
 
-[^1.5]: Still a lot in progress here and all data must be validated, but basic support ready, mostly FH data incomplete
+[^1.5]: data must be validated, GH2E and community editions missing
 
 [^2.1]: Some special rules data not complete, but fully playable
 
