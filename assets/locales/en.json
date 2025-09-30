@@ -840,6 +840,8 @@
         "loseCollectiveGold": "Lose {0} collective gold",
         "loseCollectiveResource": "Lose {0} collective %game.resource.{1}%",
         "loseCollectiveResourceType": "Lose {0} collective %game.loot.{1}% resources",
+        "loseResource": "Lose {0} %game.resource.{1}%",
+        "loseResourceType": "Lose {0} %game.loot.{1}% resource each",
         "moraleGT": "Morale > {0}",
         "moraleLT": "Morale < {0}",
         "otherwise": "Otherwise",
@@ -1002,6 +1004,10 @@
       },
       "option": {
         "": "Option {0}:"
+      },
+      "outpostAttack": {
+        "": "Outpost Attack",
+        "effects": "Following will be applied to the Outpost Attack"
       },
       "requirements": {
         "": "Requirements:",
@@ -1543,6 +1549,31 @@
       "hint": "Creation of new campaign is disabled during a scenario. Finish or cancel current scenario to create a new campaign."
     },
     "notes": "Notes",
+    "outpostAttack": {
+      "advantage": "Gain advantage for this attack for losing soliders!",
+      "buildings": {
+        "damage": "Damage Building",
+        "repair": "Repair Building",
+        "wreck": "Wreck Building"
+      },
+      "defense": "Total Defense:",
+      "disadvantage": "Gain disadvantage because the Barracks are wrecked!",
+      "filter": {
+        "desc": "Descending Order",
+        "even": "Even",
+        "lowerBoundary": "Lower Boundary",
+        "odd": "Odd",
+        "parity": "Parity",
+        "randomize": "Randomize",
+        "upperBoundary": "Upper Boundary"
+      },
+      "finish": "Finish",
+      "map": "Open Global Map",
+      "next": "Next Target",
+      "other": "Other Buildings",
+      "sheet": "Open Party Sheet",
+      "targets": "Targeted Buildings"
+    },
     "prosperity": {
       "": "Prosperity",
       "reset": "Reset Prosperity",
@@ -1717,6 +1748,7 @@
         "section": "Open %data.section:{0}%, unlocks {2}"
       },
       "hint": "Apply to all selected figures",
+      "outpostAttack": "Outpost Attack",
       "progress": "Affects character progress"
     },
     "favors": {
