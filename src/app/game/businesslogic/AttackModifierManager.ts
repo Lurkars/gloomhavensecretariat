@@ -153,6 +153,7 @@ export class AttackModifierManager {
   addModifier(attackModifierDeck: AttackModifierDeck, attackModifier: AttackModifier, index: number = -1) {
     if (index < 0 || index > attackModifierDeck.cards.length) {
       index = Math.floor(Math.random() * (attackModifierDeck.cards.length - attackModifierDeck.current)) + attackModifierDeck.current + 1;
+      this.shuffleModifiers(attackModifierDeck, true);
     }
     attackModifierDeck.cards.splice(index, 0, attackModifier);
   }
