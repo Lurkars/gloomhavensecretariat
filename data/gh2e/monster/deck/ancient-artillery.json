@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Long Shot",
-      "cardId": 626,
+      "cardId": 600,
       "initiative": 46,
       "actions": [
         {
@@ -28,7 +28,7 @@
     },
     {
       "name": "Exploding Ammunition",
-      "cardId": 627,
+      "cardId": 601,
       "initiative": 71,
       "shuffle": true,
       "actions": [
@@ -59,7 +59,7 @@
     },
     {
       "name": "Exploding Ammunition",
-      "cardId": 628,
+      "cardId": 602,
       "initiative": 71,
       "shuffle": true,
       "actions": [
@@ -90,7 +90,7 @@
     },
     {
       "name": "Grenade",
-      "cardId": 629,
+      "cardId": 603,
       "initiative": 37,
       "actions": [
         {
@@ -129,7 +129,7 @@
     },
     {
       "name": "Massive Blast",
-      "cardId": 630,
+      "cardId": 604,
       "initiative": 57,
       "actions": [
         {
@@ -168,7 +168,7 @@
     },
     {
       "name": "Heavy Shot",
-      "cardId": 631,
+      "cardId": 605,
       "initiative": 95,
       "actions": [
         {
@@ -187,7 +187,7 @@
     },
     {
       "name": "Defensive Ordinance",
-      "cardId": 632,
+      "cardId": 606,
       "initiative": 17,
       "actions": [
         {
@@ -226,7 +226,7 @@
     },
     {
       "name": "Concussive Burst",
-      "cardId": 633,
+      "cardId": 607,
       "initiative": 46,
       "actions": [
         {

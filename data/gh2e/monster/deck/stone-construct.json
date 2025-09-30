@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Runic Feeedback",
-      "cardId": 404,
+      "cardId": 776,
       "initiative": 10,
       "actions": [
         {
@@ -22,7 +22,7 @@
     },
     {
       "name": "Taxing Advance",
-      "cardId": 405,
+      "cardId": 777,
       "initiative": 28,
       "actions": [
         {
@@ -37,14 +37,14 @@
         },
         {
           "type": "custom",
-          "value": "If the Move ability was performed, Stone Construct suffers %game.damage:1%.",
+          "value": "%data.custom.gh2e.stone-construct.1%",
           "small": true
         }
       ]
     },
     {
       "name": "Hasty Assault",
-      "cardId": 406,
+      "cardId": 778,
       "initiative": 51,
       "shuffle": true,
       "actions": [
@@ -62,7 +62,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 407,
+      "cardId": 779,
       "initiative": 64,
       "actions": [
         {
@@ -79,7 +79,7 @@
     },
     {
       "name": "Sacrificial Hurl",
-      "cardId": 408,
+      "cardId": 780,
       "initiative": 72,
       "actions": [
         {
@@ -96,14 +96,14 @@
         },
         {
           "type": "custom",
-          "value": "If the attack was performed, Stone Construct suffers %game.damage:1%.",
+          "value": "%data.custom.gh2e.stone-construct.1%",
           "small": true
         }
       ]
     },
     {
       "name": "Calculated Strike",
-      "cardId": 409,
+      "cardId": 781,
       "initiative": 90,
       "shuffle": true,
       "actions": [
@@ -121,7 +121,7 @@
     },
     {
       "name": "Ground Pound",
-      "cardId": 410,
+      "cardId": 782,
       "initiative": 83,
       "actions": [
         {
@@ -145,7 +145,7 @@
     },
     {
       "name": "Runic Draw",
-      "cardId": 411,
+      "cardId": 783,
       "initiative": 28,
       "actions": [
         {

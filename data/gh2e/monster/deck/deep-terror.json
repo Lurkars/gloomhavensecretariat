@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Horrible Glare",
-      "cardId": 722,
+      "cardId": 632,
       "initiative": 65,
       "actions": [
         {
@@ -33,7 +33,7 @@
     },
     {
       "name": "Beam of Annihilation",
-      "cardId": 723,
+      "cardId": 633,
       "initiative": 60,
       "shuffle": true,
       "actions": [
@@ -57,7 +57,7 @@
     },
     {
       "name": "Beam of Annihilation",
-      "cardId": 724,
+      "cardId": 634,
       "initiative": 60,
       "shuffle": true,
       "actions": [
@@ -81,7 +81,7 @@
     },
     {
       "name": "Burning Gaze",
-      "cardId": 725,
+      "cardId": 635,
       "initiative": 84,
       "actions": [
         {
@@ -117,7 +117,7 @@
     },
     {
       "name": "Rooted Fear",
-      "cardId": 726,
+      "cardId": 636,
       "initiative": 75,
       "actions": [
         {
@@ -153,7 +153,7 @@
     },
     {
       "name": "Disruptive Frenzy",
-      "cardId": 727,
+      "cardId": 637,
       "initiative": 75,
       "actions": [
         {
@@ -194,7 +194,7 @@
     },
     {
       "name": "Terrible Growth",
-      "cardId": 728,
+      "cardId": 638,
       "initiative": 96,
       "actions": [
         {
@@ -239,7 +239,7 @@
     },
     {
       "name": "Ray of Hate",
-      "cardId": 739,
+      "cardId": 639,
       "initiative": 54,
       "actions": [
         {

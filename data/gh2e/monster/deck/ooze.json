@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Hasty Assault",
-      "cardId": 866,
+      "cardId": 736,
       "initiative": 36,
       "actions": [
         {
@@ -32,7 +32,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 867,
+      "cardId": 737,
       "initiative": 57,
       "actions": [
         {
@@ -56,7 +56,7 @@
     },
     {
       "name": "Toxic Explosion",
-      "cardId": 868,
+      "cardId": 738,
       "initiative": 59,
       "actions": [
         {
@@ -98,7 +98,7 @@
     },
     {
       "name": "Plasma Ward",
-      "cardId": 869,
+      "cardId": 739,
       "initiative": 85,
       "actions": [
         {
@@ -138,7 +138,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 870,
+      "cardId": 740,
       "initiative": 66,
       "actions": [
         {
@@ -166,7 +166,7 @@
     },
     {
       "name": "Split",
-      "cardId": 871,
+      "cardId": 741,
       "initiative": 94,
       "shuffle": true,
       "actions": [
@@ -199,7 +199,7 @@
     },
     {
       "name": "Split",
-      "cardId": 872,
+      "cardId": 742,
       "initiative": 94,
       "shuffle": true,
       "actions": [
@@ -232,7 +232,7 @@
     },
     {
       "name": "Feed",
-      "cardId": 873,
+      "cardId": 743,
       "initiative": 66,
       "actions": [
         {

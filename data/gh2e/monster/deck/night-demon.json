@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Hasty Assault",
-      "cardId": 578,
+      "cardId": 584,
       "initiative": 4,
       "actions": [
         {
@@ -25,7 +25,7 @@
     },
     {
       "name": "Into Darkness",
-      "cardId": 579,
+      "cardId": 585,
       "initiative": 37,
       "actions": [
         {
@@ -60,7 +60,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 580,
+      "cardId": 586,
       "initiative": 22,
       "actions": [
         {
@@ -81,7 +81,7 @@
     },
     {
       "name": "Black Thorns",
-      "cardId": 581,
+      "cardId": 587,
       "initiative": 26,
       "actions": [
         {
@@ -117,7 +117,7 @@
     },
     {
       "name": "Death's Embrace",
-      "cardId": 582,
+      "cardId": 588,
       "initiative": 46,
       "shuffle": true,
       "actions": [
@@ -150,7 +150,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 583,
+      "cardId": 589,
       "initiative": 41,
       "shuffle": true,
       "actions": [
@@ -172,7 +172,7 @@
     },
     {
       "name": "Impale",
-      "cardId": 584,
+      "cardId": 590,
       "initiative": 35,
       "actions": [
         {
@@ -214,7 +214,7 @@
     },
     {
       "name": "The Night Feeds",
-      "cardId": 585,
+      "cardId": 591,
       "initiative": 15,
       "actions": [
         {

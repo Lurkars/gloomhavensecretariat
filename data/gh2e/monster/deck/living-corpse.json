@@ -13,9 +13,17 @@
           "valueType": "plus"
         },
         {
-          "type": "condition",
-          "value": "muddle",
+          "type": "concatenation",
+          "value": "and:2",
           "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            },
+            {
+              "type": "condition",
+              "value": "muddle"
+            },
             {
               "type": "range",
               "value": 1,
@@ -25,7 +33,7 @@
         },
         {
           "type": "custom",
-          "value": "If Living Corpse dies this round, all figures adjacent to the hex it occupied suffer %game.damage:1% and gain %game.condition.poison%.",
+          "value": "%data.custom.gh2e.living-corpse.3%",
           "small": true
         }
       ]
@@ -48,7 +56,7 @@
       ]
     },
     {
-      "name": "hasty Assault",
+      "name": "Hasty Assault",
       "cardId": 754,
       "initiative": 47,
       "actions": [
@@ -124,7 +132,7 @@
         },
         {
           "type": "custom",
-          "value": "If the move ability was performed, Living Corpse suffers damage 1.",
+          "value": "%data.custom.gh2e.living-corpse.1%",
           "small": true
         }
       ]
@@ -185,7 +193,7 @@
         },
         {
           "type": "custom",
-          "value": "If the attack ability was performed, Living Corpse suffers damage 1.",
+          "value": "%data.custom.gh2e.living-corpse.2%",
           "small": true
         }
       ]

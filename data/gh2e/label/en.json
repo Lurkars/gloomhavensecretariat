@@ -279,9 +279,16 @@
         "5": "For an entire scenario, create, destroy, or move at least one obstacle tile each round",
         "6": "In a single scenario, heal 8 or more hit points during a single round, deal 8 or more damage with a ranged attack ability, and deal 8 or more damage with a melee attack ability"
       },
+      "crystal-rot": {
+        "1": "Add %game.condition.disarm% if there are no Living Bones, Living Corpses or Living Spirits within %game.action.range% 3."
+      },
       "deep-terror": {
         "1": "If the attack ability was performed",
         "2": "in an empty hex adjacent to the target<br>of the attack ability"
+      },
+      "cultist": {
+        "1": "If Cultist dies this round, first remove all negative conditions and perform:",
+        "2": "where X is the amount of damage suffered by the target of the attack ability."
       },
       "flame-demon": {
         "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
@@ -305,8 +312,20 @@
       "frost-demon": {
         "1": "%game.damage:1%"
       },
+      "giant-viper": {
+        "1": "All attacks targeting Giant Viper this round gain disadvantage.",
+        "2": "Add +2 %game.action.attack% if the target is adjacent to any of the Giant Viper's allies"
+      },
       "hound": {
         "1": "Add +2 %game.action.attack% if the target is adjacent<br>to any of the Hound's allies."
+      },
+      "living-corpse": {
+        "1": "If the move ability was performed, Living Corpse suffers %game.damage:1%.",
+        "2": "If the attack ability was performed, Living Corpse suffers %game.damage:1%.",
+        "3": "If Living Corpse dies this round, all figures adjacent to the hex it occupied suffer %game.damage:1% and gain %game.condition.poison%."
+      },
+      "lurker": {
+        "1": "2 enemies within 2 hexes"
       },
       "mindthief": {
         "1": "Add +1 %game.action.attack% if the target has a negative condition",
@@ -340,6 +359,10 @@
         "4": "Once each scenario, during your turn, you may perform: %game.condition.invisible%, self",
         "5": "For an entire scenario, only attack enemies that are adjacent to one of your allies or adjacent to none of their allies, and perform at least 10 attacks",
         "6": "End 3 scenarios with 12 or more money tokens"
+      },
+      "stone-construct": {
+        "1": "If the move ability was performed, Stone Construct suffers %game.damage:1%.",
+        "2": "If the attack ability was performed, Stone Construct suffers %game.damage:1%."
       },
       "spellweaver": {
         "1": "Add +2 %game.action.attack% if drawn during an action with %game.card.lost%",

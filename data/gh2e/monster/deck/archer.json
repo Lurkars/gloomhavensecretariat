@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Shoot Foot",
-      "cardId": 754,
+      "cardId": 648,
       "initiative": 29,
       "shuffle": true,
       "actions": [
@@ -34,7 +34,7 @@
     },
     {
       "name": "Set Trap",
-      "cardId": 755,
+      "cardId": 649,
       "initiative": 14,
       "actions": [
         {
@@ -63,7 +63,7 @@
     },
     {
       "name": "Close In",
-      "cardId": 756,
+      "cardId": 650,
       "initiative": 32,
       "actions": [
         {
@@ -87,7 +87,7 @@
     },
     {
       "name": "Hasty Assault",
-      "cardId": 757,
+      "cardId": 651,
       "initiative": 16,
       "actions": [
         {
@@ -111,7 +111,7 @@
     },
     {
       "name": "Power Shot",
-      "cardId": 758,
+      "cardId": 652,
       "initiative": 64,
       "shuffle": true,
       "actions": [
@@ -131,7 +131,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 759,
+      "cardId": 653,
       "initiative": 31,
       "actions": [
         {
@@ -155,7 +155,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 760,
+      "cardId": 654,
       "initiative": 44,
       "actions": [
         {
@@ -179,7 +179,7 @@
     },
     {
       "name": "Twin Bolts",
-      "cardId": 761,
+      "cardId": 655,
       "initiative": 56,
       "actions": [
         {

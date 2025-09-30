@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Biting Gnats",
-      "cardId": 802,
+      "cardId": 688,
       "initiative": 38,
       "actions": [
         {
@@ -28,7 +28,7 @@
     },
     {
       "name": "Centipede Strike",
-      "cardId": 803,
+      "cardId": 689,
       "initiative": 7,
       "actions": [
         {
@@ -56,7 +56,7 @@
     },
     {
       "name": "Restore the Swarm",
-      "cardId": 804,
+      "cardId": 690,
       "initiative": 16,
       "actions": [
         {
@@ -84,7 +84,7 @@
     },
     {
       "name": "Drain the Essence",
-      "cardId": 805,
+      "cardId": 691,
       "initiative": 7,
       "shuffle": true,
       "actions": [
@@ -120,7 +120,7 @@
     },
     {
       "name": "Spiked Mandibles",
-      "cardId": 806,
+      "cardId": 692,
       "initiative": 16,
       "actions": [
         {
@@ -144,7 +144,7 @@
     },
     {
       "name": "Angry Bulwark",
-      "cardId": 807,
+      "cardId": 693,
       "initiative": 2,
       "shuffle": true,
       "actions": [
@@ -168,7 +168,7 @@
     },
     {
       "name": "Piercing Parasites",
-      "cardId": 808,
+      "cardId": 694,
       "initiative": 30,
       "actions": [
         {
@@ -202,7 +202,7 @@
     },
     {
       "name": "Clouds of Hate",
-      "cardId": 809,
+      "cardId": 695,
       "initiative": 38,
       "actions": [
         {
@@ -233,7 +233,7 @@
                 {
                   "type": "attack",
                   "value": 1,
-                  "valueType": "plus",
+                  "valueType": "add",
                   "small": true
                 }
               ]

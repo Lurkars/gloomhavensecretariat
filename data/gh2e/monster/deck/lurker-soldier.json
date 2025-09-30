@@ -1,10 +1,10 @@
 {
-  "name": "lurker",
+  "name": "lurker-soldier",
   "edition": "gh2e",
   "abilities": [
     {
       "name": "Defensive Claws",
-      "cardId": 674,
+      "cardId": 624,
       "initiative": 11,
       "shuffle": true,
       "actions": [
@@ -48,7 +48,7 @@
     },
     {
       "name": "Hasty Assault",
-      "cardId": 675,
+      "cardId": 625,
       "initiative": 28,
       "actions": [
         {
@@ -65,7 +65,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 676,
+      "cardId": 626,
       "initiative": 38,
       "actions": [
         {
@@ -82,7 +82,7 @@
     },
     {
       "name": "Focused Strikes",
-      "cardId": 677,
+      "cardId": 627,
       "initiative": 38,
       "actions": [
         {
@@ -106,7 +106,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 678,
+      "cardId": 628,
       "initiative": 61,
       "actions": [
         {
@@ -123,7 +123,7 @@
     },
     {
       "name": "Berserk Rage",
-      "cardId": 679,
+      "cardId": 629,
       "initiative": 64,
       "actions": [
         {
@@ -133,7 +133,7 @@
           "subActions": [
             {
               "type": "target",
-              "value": "enemies within 2 hexes",
+              "value": "%data.custom.gh2e.lurker.1%",
               "small": true
             },
             {
@@ -147,7 +147,7 @@
     },
     {
       "name": "Strength of the Deep",
-      "cardId": 680,
+      "cardId": 630,
       "initiative": 41,
       "actions": [
         {
@@ -189,7 +189,7 @@
     },
     {
       "name": "Hardened by Frost",
-      "cardId": 681,
+      "cardId": 631,
       "initiative": 23,
       "shuffle": true,
       "actions": [

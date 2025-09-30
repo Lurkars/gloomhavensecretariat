@@ -3,8 +3,91 @@
   "edition": "gh2e",
   "abilities": [
     {
+      "name": "Surround",
+      "cardId": 768,
+      "initiative": 32,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.giant-viper.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Surround",
+      "cardId": 769,
+      "initiative": 32,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh2e.giant-viper.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Defensive Strike",
+      "cardId": 770,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
+      "cardId": 771,
+      "initiative": 58,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
       "name": "Swift Fangs",
-      "cardId": 396,
+      "cardId": 772,
       "initiative": 33,
       "actions": [
         {
@@ -34,7 +117,7 @@
     },
     {
       "name": "Find Cover",
-      "cardId": 397,
+      "cardId": 773,
       "initiative": 18,
       "actions": [
         {
@@ -55,7 +138,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All attacks targeting Giant Viper this round gain disadvantage.",
+              "value": "%data.custom.gh2e.giant-viper.1%",
               "small": true
             }
           ]
@@ -63,25 +146,8 @@
       ]
     },
     {
-      "name": "Calculated Strike",
-      "cardId": 398,
-      "initiative": 58,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
-        }
-      ]
-    },
-    {
       "name": "Toxic Frenzy",
-      "cardId": 399,
+      "cardId": 774,
       "initiative": 43,
       "actions": [
         {
@@ -109,74 +175,8 @@
       ]
     },
     {
-      "name": "Surround",
-      "cardId": 400,
-      "initiative": 32,
-      "shuffle": true,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "Add +2 %game.action.attack% if the target is adjacent to any of the Giant Viper's allies",
-              "small": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Surround",
-      "cardId": 401,
-      "initiative": 32,
-      "shuffle": true,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "Add +2 %game.action.attack% if the target is adjacent to any of the Giant Viper's allies",
-              "small": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Defensive Strike",
-      "cardId": 402,
-      "initiative": 11,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 1
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
-        }
-      ]
-    },
-    {
       "name": "Constrict",
-      "cardId": 403,
+      "cardId": 775,
       "initiative": 23,
       "actions": [
         {

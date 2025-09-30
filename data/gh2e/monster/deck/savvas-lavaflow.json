@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Call to the Flame",
-      "cardId": 786,
+      "cardId": 672,
       "initiative": 97,
       "actions": [
         {
@@ -27,7 +27,7 @@
     },
     {
       "name": "Call to the Earth",
-      "cardId": 787,
+      "cardId": 673,
       "initiative": 97,
       "actions": [
         {
@@ -50,7 +50,7 @@
     },
     {
       "name": "Circle of Fire",
-      "cardId": 788,
+      "cardId": 674,
       "initiative": 22,
       "actions": [
         {
@@ -85,7 +85,7 @@
     },
     {
       "name": "Rock Bomb",
-      "cardId": 789,
+      "cardId": 675,
       "initiative": 68,
       "shuffle": true,
       "actions": [
@@ -125,7 +125,7 @@
     },
     {
       "name": "Stone Spikes",
-      "cardId": 790,
+      "cardId": 676,
       "initiative": 41,
       "actions": [
         {
@@ -166,7 +166,7 @@
     },
     {
       "name": "Flowing Magma",
-      "cardId": 791,
+      "cardId": 677,
       "initiative": 51,
       "actions": [
         {
@@ -224,7 +224,7 @@
     },
     {
       "name": "Strength of the Mountain",
-      "cardId": 792,
+      "cardId": 678,
       "initiative": 31,
       "actions": [
         {
@@ -255,7 +255,7 @@
     },
     {
       "name": "Fire Bolts",
-      "cardId": 793,
+      "cardId": 679,
       "initiative": 68,
       "shuffle": true,
       "actions": [
