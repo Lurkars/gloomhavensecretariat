@@ -6,7 +6,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Character } from 'src/app/game/model/Character';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/data/AttackModifier';
 import { ConditionName, EntityCondition, EntityConditionState } from 'src/app/game/model/data/Condition';
-import { EventCardCondition, EventCardConditionType, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
+import { EventCardAttack, EventCardCondition, EventCardConditionType, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
 import { CountIdentifier } from 'src/app/game/model/data/Identifier';
 import { ItemData } from 'src/app/game/model/data/ItemData';
 import { LootType } from 'src/app/game/model/data/Loot';
@@ -20,6 +20,7 @@ import { EventCardDeckComponent } from '../event/deck/event-card-deck';
 import { EventCardDrawComponent } from '../event/draw/event-card-draw';
 import { PartySheetDialogComponent } from '../party/party-sheet-dialog';
 import { FavorsComponent } from './favors/favors';
+import { OutpostAttackComponent } from './outpost-attack/outpost-attack';
 import { EventRandomItemDialogComponent } from './random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './random-scenario/random-scenario-dialog';
 
@@ -58,7 +59,9 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
   eventTypes: string[] = [];
 
   eventEffectsManual: EventCardEffect[] = [];
+  eventOutpostAttackEffects: EventCardEffect[] = [];
   eventConditionManual: EventCardCondition[] = [];
+  eventAttack: EventCardAttack | undefined;
 
   constructor(@Inject(DIALOG_DATA) data: { menu: boolean, eventResults: (EventCardEffect | EventCardCondition)[] }, private dialog: Dialog) {
     this.menu = data && data.menu || false;
@@ -428,14 +431,39 @@ export class EventEffectsDialog implements OnInit, OnDestroy {
     })
   }
 
-  createEventResults(results: (EventCardEffect | EventCardCondition)[], initial: boolean = false) {
+  createEventResults(results: (EventCardEffect | EventCardCondition | EventCardAttack)[], initial: boolean = false) {
     this.eventEffectsManual = [];
+    this.eventOutpostAttackEffects = [];
     this.eventConditionManual = [];
+    this.eventAttack = undefined;
     results.forEach((result) => {
-      if (result.type in EventCardEffectType) {
-        this.eventEffectsManual.push(result as EventCardEffect);
-      } else if (result.type in EventCardConditionType) {
+      if ('type' in result && result.type in EventCardEffectType) {
+        if (result.type == EventCardEffectType.outpostAttack || result.type == EventCardEffectType.outpostTarget) {
+          this.eventOutpostAttackEffects.push(result as EventCardEffect);
+        } else {
+          this.eventEffectsManual.push(result as EventCardEffect);
+        }
+      } else if ('type' in result && result.type in EventCardConditionType) {
         this.eventConditionManual.push(result as EventCardCondition);
+      } else if (!('type' in result)) {
+        this.eventAttack = result as EventCardAttack;
+      }
+    })
+  }
+
+  openOutpostAttack() {
+    this.dialog.open(OutpostAttackComponent, {
+      panelClass: ['dialog'],
+      data: {
+        attack: this.eventAttack,
+        effects: this.eventOutpostAttackEffects
+      }
+    }).closed.subscribe({
+      next: (result) => {
+        if (result) {
+          this.eventAttack = undefined;
+          this.eventOutpostAttackEffects = [];
+        }
       }
     })
   }

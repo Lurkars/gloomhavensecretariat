@@ -275,6 +275,8 @@ export class MainComponent implements OnInit {
         }
       });
     }
+
+    this.debugTesting();
   }
 
   automaticClockIn() {
@@ -628,5 +630,9 @@ export class MainComponent implements OnInit {
 
   isAppDevMode(): boolean {
     return isDevMode();
+  }
+
+  debugTesting() {
+    // Helper for local testing
   }
 }

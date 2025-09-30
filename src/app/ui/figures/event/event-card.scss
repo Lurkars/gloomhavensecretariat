@@ -112,6 +112,7 @@
 
                         .card-action {
                             right: -0.5em;
+                            bottom: -0.5em;
                         }
                     }
                 }
@@ -280,6 +281,14 @@
                         &:hover {
                             opacity: 0.8;
                         }
+                    }
+                }
+
+                &.attack .outcome {
+                    cursor: initial;
+
+                    &:hover {
+                        opacity: initial;
                     }
                 }
             }

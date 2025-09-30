@@ -4,14 +4,14 @@ import { Game } from "../model/Game";
 import { GameScenarioModel } from "../model/Scenario";
 import { AttackModifierType } from "../model/data/AttackModifier";
 import { Condition, ConditionName } from "../model/data/Condition";
-import { EventCard, EventCardCondition, EventCardConditionType, EventCardEffect, EventCardEffectType, EventCardIdentifier } from "../model/data/EventCard";
+import { EventCard, EventCardAttack, EventCardCondition, EventCardConditionType, EventCardEffect, EventCardEffectType, EventCardIdentifier } from "../model/data/EventCard";
 import { LootType } from "../model/data/Loot";
 import { TreasureData, TreasureRewardType } from "../model/data/RoomData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
-export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.campaignStickerMap, EventCardEffectType.campaignStickerReplace, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventReturn, EventCardEffectType.eventsToTop, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationAdditional, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.sectionWeekSeasonFinal, EventCardEffectType.sectionWeeksSeason, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.townGuardDeckCard, EventCardEffectType.townGuardDeckCardRemove, EventCardEffectType.townGuardDeckCardRemovePermanently, EventCardEffectType.townGuardDeckCards, EventCardEffectType.unlockEnvelope, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup, EventCardEffectType.upgradeBuilding, EventCardEffectType.wreckBuilding];
+export const EventCardApplyEffects: EventCardEffectType[] = [EventCardEffectType.additionally, EventCardEffectType.and, EventCardEffectType.battleGoal, EventCardEffectType.campaignSticker, EventCardEffectType.campaignStickerMap, EventCardEffectType.campaignStickerReplace, EventCardEffectType.drawAnotherEvent, EventCardEffectType.drawEvent, EventCardEffectType.event, EventCardEffectType.eventReturn, EventCardEffectType.eventsToTop, EventCardEffectType.experience, EventCardEffectType.globalAchievement, EventCardEffectType.gold, EventCardEffectType.goldAdditional, EventCardEffectType.inspiration, EventCardEffectType.loseBattleGoal, EventCardEffectType.loseGold, EventCardEffectType.loseMorale, EventCardEffectType.loseProsperity, EventCardEffectType.loseReputation, EventCardEffectType.morale, EventCardEffectType.partyAchievement, EventCardEffectType.prosperity, EventCardEffectType.removeEvent, EventCardEffectType.reputation, EventCardEffectType.reputationAdditional, EventCardEffectType.resource, EventCardEffectType.scenarioCondition, EventCardEffectType.scenarioDamage, EventCardEffectType.scenarioSingleMinus1, EventCardEffectType.sectionWeek, EventCardEffectType.sectionWeeks, EventCardEffectType.sectionWeekSeasonFinal, EventCardEffectType.sectionWeeksSeason, EventCardEffectType.soldier, EventCardEffectType.soldiers, EventCardEffectType.townGuardDeckCard, EventCardEffectType.townGuardDeckCardRemove, EventCardEffectType.townGuardDeckCardRemovePermanently, EventCardEffectType.townGuardDeckCards, EventCardEffectType.unlockEnvelope, EventCardEffectType.unlockScenario, EventCardEffectType.unlockScenarioGroup, EventCardEffectType.upgradeBuilding, EventCardEffectType.wreckBuilding];
 
 export class EventCardManager {
   game: Game;
@@ -175,8 +175,8 @@ export class EventCardManager {
     }
   }
 
-  applyEvent(eventCard: EventCard, selected: number, subSelections: number[], checks: number[], scenario: boolean, apply: boolean = true): (EventCardEffect | EventCardCondition)[] {
-    let results: (EventCardEffect | EventCardCondition)[] = [];
+  applyEvent(eventCard: EventCard, selected: number, subSelections: number[], checks: number[], scenario: boolean, attack: boolean, apply: boolean): (EventCardEffect | EventCardCondition | EventCardAttack)[] {
+    let results: (EventCardEffect | EventCardCondition | EventCardAttack)[] = [];
     const option = eventCard.options[selected];
     let returnToDeck = false;
     let removeFromDeck = ['fh', 'jotl'].indexOf(eventCard.edition) != -1; // default to remove from deck for JOTL and FH
@@ -201,17 +201,21 @@ export class EventCardManager {
       if (settingsManager.settings.eventsApply && apply) {
         results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, false));
 
-        // TODO: option to disable attack
-        eventCard.options.filter((option) => !option.label && option.outcomes).forEach((option) => {
-          option.outcomes.forEach((outcome) => {
-            if (outcome.attack && outcome.attack.effects) {
-              results.push(... this.applyEffects(eventCard, outcome.attack.effects, scenario));
-            }
-          })
-        })
-
         if (scenario) {
           results.push(...this.applyEventOutcomes(eventCard, selected, subSelections, true));
+        }
+
+        if (attack) {
+          eventCard.options.filter((option) => !option.label && option.outcomes).forEach((option) => {
+            option.outcomes.forEach((outcome) => {
+              if (outcome.attack) {
+                results.push(outcome.attack);
+                if (outcome.attack.effects) {
+                  results.push(... this.applyEffects(eventCard, outcome.attack.effects, scenario));
+                }
+              }
+            })
+          })
         }
       }
     }
@@ -232,7 +236,7 @@ export class EventCardManager {
       this.removeEvent(eventCard.type, eventCard.cardId);
     }
 
-    this.game.party.eventCards.push(new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections, checks, !scenario));
+    this.game.party.eventCards.push(new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, selected, subSelections, checks, attack, !scenario));
 
     return results;
   }
@@ -262,15 +266,7 @@ export class EventCardManager {
   }
 
   applicableEffect(effect: EventCardEffect): boolean {
-    if (EventCardApplyEffects.indexOf(effect.type) != -1) {
-      return true;
-    }
-
-    if (effect.type == EventCardEffectType.and || effect.type == EventCardEffectType.additionally) {
-      return effect.values.some((value) => typeof value === 'object' && this.applicableEffect(value));
-    }
-
-    return false;
+    return EventCardApplyEffects.indexOf(effect.type) != -1;
   }
 
   applyEffects(eventCard: EventCard, effects: (string | EventCardEffect)[], scenario: boolean): (EventCardEffect | EventCardCondition)[] {
@@ -592,7 +588,9 @@ export class EventCardManager {
           if (!scenario) {
             results.push(effect);
           }
-          console.warn("Missing implementation for applying effect", effect, scenario);
+          if (effect.type != EventCardEffectType.outpostAttack && effect.type != EventCardEffectType.outpostTarget) {
+            console.warn("Missing implementation for applying effect", effect, scenario);
+          }
         }
       }
     })
@@ -608,9 +606,17 @@ export class EventCardManager {
             this.applyCondition(c)
           });
           return condition;
+        case EventCardConditionType.building:
+        case EventCardConditionType.campaignSticker:
         case EventCardConditionType.character:
-        case EventCardConditionType.traits:
+        case EventCardConditionType.moraleGT:
+        case EventCardConditionType.moraleLT:
         case EventCardConditionType.otherwise:
+        case EventCardConditionType.reputationGT:
+        case EventCardConditionType.reputationLT:
+        case EventCardConditionType.season:
+        case EventCardConditionType.seasonLT:
+        case EventCardConditionType.traits:
           break;
         default:
           console.warn("Missing implementation for applying condition", condition);

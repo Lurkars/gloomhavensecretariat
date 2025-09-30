@@ -56,6 +56,7 @@ import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';
 import { EventEffectsDialog } from './ui/figures/event-effects/event-effects';
 import { FavorsComponent } from './ui/figures/event-effects/favors/favors';
+import { OutpostAttackComponent } from './ui/figures/event-effects/outpost-attack/outpost-attack';
 import { EventRandomItemDialogComponent } from './ui/figures/event-effects/random-item/random-item-dialog';
 import { EventRandomScenarioDialogComponent } from './ui/figures/event-effects/random-scenario/random-scenario-dialog';
 import { EventCardAttackComponent } from './ui/figures/event/attack/event-card-attack';
@@ -319,6 +320,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     MonsterStatsComponent,
     MonsterStatsDialogComponent,
     ObjectiveContainerComponent,
+    OutpostAttackComponent,
     PartyBuildingsComponent,
     PartyResourcesDialogComponent,
     PartySheetComponent,

@@ -207,6 +207,8 @@
           <img (click)="setupEvents(type)" class="ghs-svg" src="./assets/images/settings.svg"
             [ghs-tooltip]="'game.events.deck.setup'">
         </span>
+        <span *ngIf="gameManager.fhRules() && !eventAttack" class="action" tabclick (click)="openOutpostAttack()"
+          [ghs-label]="'scenario.eventEffects.outpostAttack'"></span>
       </ng-container>
 
       <ng-container *ngIf="gameManager.roundManager.firstRound">
@@ -301,13 +303,23 @@
         [ghs-label]="'scenario.eventEffects.drawRandomScenario'"></span>
     </div>
 
-    <div class="entity-container event-outcomes" *ngIf="eventEffectsManual.length || eventConditionManual.length">
-      <span class="title" [ghs-label]="'game.events.applyManually'"></span>
+    <div class="entity-container event-outcomes"
+      *ngIf="eventEffectsManual.length || eventConditionManual.length || !!eventAttack || eventOutpostAttackEffects.length">
+      <span *ngIf="eventEffectsManual.length || eventConditionManual.length" class="title"
+        [ghs-label]="'game.events.applyManually'"></span>
       <ghs-event-card-condition *ngFor="let condition of eventConditionManual" [condition]="condition" [light]="true"
         [selected]="true"></ghs-event-card-condition>
       <ghs-event-card-effect *ngFor="let effect of eventEffectsManual" [effect]="effect" [light]="true"
         [selected]="true"></ghs-event-card-effect>
 
+      <span *ngIf="!!eventAttack" class="title outpost" [ghs-label]="'game.events.outpostAttack'"></span>
+      <span *ngIf="eventOutpostAttackEffects.length" class="title"
+        [ghs-label]="'game.events.outpostAttack.effects'"></span>
+      <ghs-event-card-effect *ngFor="let effect of eventOutpostAttackEffects" [effect]="effect" [light]="true"
+        [selected]="true"></ghs-event-card-effect>
+
+      <ghs-event-card-attack *ngIf="!!eventAttack" [attack]="eventAttack" [light]="true" [selected]="true"
+        [narrative]="false" [effects]="false" [disabled]="true" (click)="openOutpostAttack()"></ghs-event-card-attack>
       <a class="action" (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
     </div>
   </div>

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { EventCard, EventCardConditionType, EventCardIdentifier } from "src/app/game/model/data/EventCard";
+import { EventCard, EventCardConditionType, EventCardEffectType, EventCardIdentifier } from "src/app/game/model/data/EventCard";
 
 
 @Component({
@@ -30,6 +30,8 @@ export class EventCardComponent implements OnInit, OnChanges {
 
     selected: number = -1;
     subSelections: number[] = [];
+    attackIndex: number = -1;
+    attack: boolean = false;
     light: boolean = false;
     spoilerFree: boolean = false;
     noLabel: boolean = false;
@@ -42,11 +44,16 @@ export class EventCardComponent implements OnInit, OnChanges {
                 if (option.outcomes) {
                     this.resolvable[optionIndex] = this.resolvable[optionIndex] || [];
                     option.outcomes.forEach((outcome, outcomeIndex) => {
-                        this.resolvable[optionIndex][outcomeIndex] = !outcome.condition || outcome.condition && gameManager.eventCardManager.resolvableCondition(outcome.condition) || false;
+                        this.resolvable[optionIndex][outcomeIndex] = !outcome.condition || !!outcome.condition && gameManager.eventCardManager.resolvableCondition(outcome.condition);
+                        if (outcome.attack) {
+                            this.attackIndex = optionIndex;
+                            this.attack = true;
+                        }
                     })
                 }
             })
-            this.noLabel = this.event.options.every((o) => !o.label)
+            this.noLabel = this.event.options.every((o) => !o.label);
+
         }
         this.spoilerFree = this.spoiler;
         this.selected = this.select;
@@ -71,7 +78,11 @@ export class EventCardComponent implements OnInit, OnChanges {
     }
 
     selectOption(index: number, quiet: boolean, event: MouseEvent | TouchEvent | undefined = undefined) {
+        if (this.attackIndex != -1 && this.attackIndex == index) {
+            return;
+        }
         if (this.event && !this.disabled && this.selected != index) {
+            this.attack = this.attackIndex != -1;
             this.selected = index;
             this.subSelections = [];
             if (this.selected < -1) {
@@ -83,17 +94,20 @@ export class EventCardComponent implements OnInit, OnChanges {
                 this.event.options[index].outcomes.forEach((outcome, i) => {
                     if (this.resolvable[index] && this.resolvable[index][i]) {
                         if (typeof outcome.condition !== 'string' && outcome.condition && outcome.condition.type === EventCardConditionType.otherwise) {
-                            if (!this.resolvable[index].some((value, vi) => value && vi != i)) {
+                            if (!this.resolvable[index].some((value, vi) => this.event && value && vi < i && !!this.event.options[index].outcomes[vi].condition)) {
                                 this.subSelections.push(i);
                             }
                         } else {
                             this.subSelections.push(i);
                         }
+                        if (this.subSelections.indexOf(i) != -1 && outcome.effects && outcome.effects.some((effect) => typeof effect === 'object' && effect.type == EventCardEffectType.skipThreat)) {
+                            this.attack = false;
+                        }
                     }
                 })
             }
             if (!quiet) {
-                this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections));
+                this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections, this.checks, this.attack, false));
             }
 
             if (this.event.options[index] && !this.event.options[index].label) {
@@ -107,6 +121,9 @@ export class EventCardComponent implements OnInit, OnChanges {
     }
 
     selectSub(optionIndex: number, index: number, force: boolean = false, event: MouseEvent | TouchEvent | undefined = undefined) {
+        if (this.attackIndex != -1 && this.attackIndex == index) {
+            return;
+        }
         if (this.event && !this.disabled && this.selected == optionIndex) {
             if (this.subSelections.indexOf(index) != -1) {
                 this.subSelections.splice(this.subSelections.indexOf(index), 1);
@@ -125,12 +142,19 @@ export class EventCardComponent implements OnInit, OnChanges {
                 }
             }
 
-            this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections));
+            this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections, this.checks, this.attack, false));
         } else if (force) {
             this.selectOption(optionIndex, false);
         }
         if (event) {
             event.preventDefault();
+        }
+    }
+
+    toggleAttack(value: boolean) {
+        this.attack = value;
+        if (this.event) {
+            this.onSelect.emit(new EventCardIdentifier(this.event.cardId, this.event.edition, this.event.type, this.selected, this.subSelections, this.checks, this.attack, false));
         }
     }
 

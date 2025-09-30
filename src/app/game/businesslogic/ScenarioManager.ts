@@ -543,6 +543,16 @@ export class ScenarioManager {
               }
             })
           }
+
+          if (e.attack) {
+            const attackOption = eventCard.options.find((option) => !!option.outcomes && option.outcomes.some((outcome) => !!outcome.attack && !!outcome.attack.effects));
+            if (attackOption) {
+              const outcome = attackOption.outcomes.find((outcome) => !!outcome.attack && !!outcome.attack.effects);
+              if (outcome && outcome.attack) {
+                gameManager.eventCardManager.applyEffects(eventCard, outcome.attack.effects.filter((e) => typeof e !== 'string'), true);
+              }
+            }
+          }
         }
         e.scenarioApply = false;
       })

@@ -44,6 +44,10 @@ export class EventCardEffectComponent implements OnInit {
             this.effects = this.effectObject.values ? this.effectObject.values.filter((v) => typeof v !== 'number') : [];
             this.applicable = gameManager.eventCardManager.applicableEffect(this.effectObject);
 
+            if (this.effectObject.type == EventCardEffectType.and || this.effectObject.type == EventCardEffectType.additionally) {
+                this.applicable = this.effects.some((e) => typeof e === 'object' && gameManager.eventCardManager.applicableEffect(e));
+            }
+
             this.disabled = this.effectObject.condition && !gameManager.eventCardManager.resolvableCondition(this.effectObject.condition) || false;
 
             if (this.effectObject.type == EventCardEffectType.scenarioCondition) {

@@ -4561,7 +4561,7 @@
     "narrative": "Mayor Satha offered a few coins for clearing the burned-out husk of a cabin behind the Hunting Lodge. There's a good chance today will involve excavating some bodies. It's a task not worth the money, but you're getting used to corpses and it saves someone else the trauma.<br><br>The building itself is on the verge of collapse, which makes for slow progress, but your search for remains is interrupted when a portal opens up in the side wall. Out steps the thunderous footsteps of a full-sized winged demon, complete with four hooves and a terrifying trident. You draw your weapons for the fight.<br><br>\"You eager rabbits, I'm not here for you.\" The demon doesn't bother looking at you, instead surveying the room. \"I'm a demon prince, and I'm here to kill the leader of this...\" He trails off, looking out the window with disdain. \"Is this even a city?\"",
     "options": [
       {
-        "narrative": "Flip over this card",
+        "narrative": "Flip over this card.",
         "outcomes": [
           {
             "narrative": "You look at the demon, dumbfounded. He sees he's not getting through and continues.<br><br>\"You see, someone in this hovel killed my new friend Tarro, but I don't get his soul until he finishes his mortal business. So I need to kill someone responsible for his death, then I'll be on my way. Normally I simply kill off the leadership—that counts nicely. In any case, let's get on with it: bring me your king or governor or chieftain... if you have a council go ahead and bring me all of them to be sure. I just need the people in charge, really, and you can go back to whatever bipeds do for fun.\" He pokes at a bit of charred metal that used to be a dresser. \"Judging by the room, I'm guessing... mope?\"<br><br>You finally regain your wits and try to explain that he can't just kill the mayor to get revenge. You ask for a bit of time to get to the bottom of the accusation.<br><br>\"Oh, interesting. You want to make a deal with a demon?\" His eyes flash with interest. \"Here's the terms: I'll give you until sundown. Find me the killer, or I'll kill everyone in this sad little town for the delay, you included. Deal?\"<br><br>It's late afternoon already, so there isn't much room for negotiation. You get to work."
@@ -8565,7 +8565,7 @@
     "cardId": "SR-52",
     "edition": "fh",
     "type": "summer-road",
-    "narrative": "You are walking through a grove of trees when an oddly familiar figure beckons you over. As you approach the stranger, the light of the waning sun falls on their face. Your eyes widen with shock. They are... you. \"Okay, ironically I don't have the time to answer all the questions that I know you want to ask me right now. Listen carefully...\" The other you presses an amulet into your hand. \"There are two instabilities—fractures in temporal space. The amulet will guide you to them. Use it to siphon off the energy and close the fractures.\" You pull back from this other you, amulet now in hand. As you do, your double starts to fade. \"No! I didn't get a chance to warn you about—\" They disappear. You glance down at the amulet they left you. It's constructed of a metal you've never seen before, with two crystals on its face. It looks like it could be very valuable.",
+    "narrative": "You are walking through a grove of trees when an oddly familiar figure beckons you over. As you approach the stranger, the light of the waning sun falls on their face. Your eyes widen with shock. They are... you.<br><br>\"Okay, ironically I don't have the time to answer all the questions that I know you want to ask me right now. Listen carefully...\" The other you presses an amulet into your hand.<br><br>\"There are two instabilities—fractures in temporal space. The amulet will guide you to them. Use it to siphon off the energy and close the fractures.\" You pull back from this other you, amulet now in hand. As you do, your double starts to fade.<br><br>\"No! I didn't get a chance to warn you about—\" They disappear.<br><br>You glance down at the amulet they left you. It's constructed of a metal you've never seen before, with two crystals on its face. It looks like it could be very valuable.",
     "options": [
       {
         "label": "A",
@@ -9004,24 +9004,32 @@
         "narrative": "It's about time you got some perks! Join him in leading the crowd.",
         "outcomes": [
           {
-            "narrative": "You march to the center of Frosthaven, but some of the guards start shoving citizens and spark a full-blown riot.",
+            "narrative": "You march to the center of Frosthaven, but some of the guards start shoving citizens and spark a full-blown riot."
+          },
+          {
+            "condition": {
+              "type": "traits",
+              "values": [
+                "chaotic"
+              ]
+            },
+            "inlineEffects": true,
             "effects": [
               {
-                "condition": {
-                  "type": "traits",
-                  "values": [
-                    "chaotic"
-                  ]
-                },
                 "type": "outpostAttack",
                 "values": [
                   10
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "inlineEffects": true,
+            "effects": [
               {
-                "condition": {
-                  "type": "otherwise"
-                },
                 "type": "outpostAttack",
                 "values": [
                   5
@@ -13911,7 +13919,7 @@
     "cardId": "WR-01",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "An ancient Vermling approaches from a copse of trees. From the looks of him, he's been on his own in the wilderness for a long, long time.",
+    "narrative": "\"YOU! Strong mer-canaries! You help Hurdle, yes!\"<br><br>An ancient Vermling approaches from a copse of trees. From the looks of him, he's been on his own in the wilderness for a long, long time.<br><br>\"Help kill evil Clovis! Ruined Hurdle's home! Mer-canaries bring justice for Hurdle! You follow, you kill, I reward!\" The Vermling called Hurdle leads you to the bank of a briskly running stream, where he points a bony claw toward a large pile of sticks lying across the stream bed. \"Cloooovis,\" he whispers.<br><br>As you watch, the malodorous beast called Clovis emerges from the water and climbs atop the dam…<br><br>It's a beaver. Clovis is a beaver. And not a very large one at that.<br><br>\"Clovis dam stream,\" the hermit spits, \"Stream flood Hurdle's home. Clovis must SUFFER, yes!\"<br><br>He turns back to you and repeats his demand. \"You kill evil Clovis! I reward greedy mer-canaries. Kill kill!\"",
     "options": [
       {
         "label": "A",
@@ -13921,16 +13929,17 @@
             "narrative": "Clovis sounds like a pretty bad guy. You decide to do this Vermling—no, the world—a favor and rid it of this nefarious beast. A single arrow is all it takes to lay Clovis to rest. Hurdle is overjoyed. \"YES! Take that, Clovis!\" Regarding your reward, the hermit touches you. \"You lucky now,\" he says cryptically. \"You find what you seek.\"",
             "effects": [
               {
-                "type": "collectiveGold",
+                "type": "collectiveResource",
                 "values": [
-                  1
+                  1,
+                  "hide"
                 ]
               },
               {
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "curse"
+                  "muddle"
                 ]
               },
               "The first time any character would draw a loot card next scenario, they instead draw two cards, choose one to keep, and place the other on the bottom of the deck."
@@ -13951,7 +13960,7 @@
             },
             "narrative": "You know there's no use trying to convince the stubborn hermit of the beaver's innocence. Instead you appeal to Hurdle's better nature, convincing him that the best vengeance is a life well lived, and that Clovis must live with the weight of his guilt. The Vermling nods sagely. \"Wise mer-canary... You help Hurdle see truth, yes. Hurdle return gift.\"",
             "effects": [
-              "Add a %game.resource.plus1% sticker to one %game.resource.?% loot card (the card gives one extra %game.resource.?% when resolved)."
+              "Add a %game.resource.plus1% sticker to one %game.resource.metal% loot card (the card gives one extra %game.resource.metal% when resolved)."
             ]
           },
           {
@@ -13964,7 +13973,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "bless"
+                  "curse"
                 ]
               }
             ]
@@ -14041,14 +14050,14 @@
     "cardId": "WR-03",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "Walking along, you see a green burlap sack sticking out of the ice. You pry it free and unwrap the contents: a tattered letter and a smaller pouch. The letter reads: \"Dear Traveler, I fear that if you are reading this, my hiding place has been discovered. The enclosed item—an otherwise unremarkable stone—is accursed. Do not touch it, do not carry it with you, and I daresay your life would be much improved were you to return it to its satchel and bury it again for some future unfortunate explorer to suffer its curse. I repeat: heed my warning, leave this item be! It is not a treasure, but a horror I cannot convey in the few words I have here. Step past and do not return!\" You peek into the smaller pouch: sure enough, it looks like a rock.",
+    "narrative": "Walking along, you see a green burlap sack sticking out of the ice. You pry it free and unwrap the contents: a tattered letter and a smaller pouch. The letter reads:<br><br>\"Dear Traveler,<br><br>I fear that if you are reading this, my hiding place has been discovered. The enclosed item—an otherwise unremarkable stone—is accursed. Do not touch it, do not carry it with you, and I daresay your life would be much improved were you to return it to its satchel and bury it again for some future unfortunate explorer to suffer its curse. I repeat: heed my warning, leave this item be! It is not a treasure, but a horror I cannot convey in the few words I have here. Step past and do not return!\"<br><br>You peek into the smaller pouch: sure enough, it looks like a rock.",
     "options": [
       {
         "label": "A",
         "narrative": "Take the rock.",
         "outcomes": [
           {
-            "narrative": "Despite the clear warning, you uncinch the sack and pour the rock into your hand. For something buried in the ice it feels strangely warm to the touch. You roll it over in your hand and feel its heat curl up your body... it feels familiar somehow. A wave of concern passes over you, which turns into a dark dread. This was not something you should have disturbed. You put it back in the satchel and push it down into the snow. You walk off and leave it behind, but further down the road you reach into your pocket to feel a hard lump. Seems like it won't be lost so easily.",
+            "narrative": "Despite the clear warning, you uncinch the sack and pour the rock into your hand. For something buried in the ice it feels strangely warm to the touch. You roll it over in your hand and feel its heat curl up your body... it feels familiar somehow.<br><br>A wave of concern passes over you, which turns into a dark dread. This was not something you should have disturbed. You put it back in the satchel and push it down into the snow. You walk off and leave it behind, but further down the road you reach into your pocket to feel a hard lump. Seems like it won't be lost so easily.",
             "effects": [
               {
                 "type": "item",
@@ -14066,7 +14075,7 @@
         "narrative": "Leave the rock.",
         "outcomes": [
           {
-            "narrative": "This is either the world's greatest threat or the world's greatest treasure someone is trying to protect. If it was treasure, they wouldn't have left it buried in the snow. You push it back in the snow as deeply as the ice will allow and move on.",
+            "narrative": "This is either the world's greatest threat or the world's greatest treasure someone is trying to protect. If it was treasure, they wouldn't have left it buried in the snow.<br><br>You push it back in the snow as deeply as the ice will allow and move on.",
             "effects": [
               {
                 "type": "noEffect"
@@ -14081,7 +14090,7 @@
     "cardId": "WR-04",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You're fighting sundown and trying to make use of the remaining light when you stumble over an odd piece of metal. Curiosity gets the better of you, and after a moment of digging, you've excavated it far enough to see the hilt of a sword held fast in the permafrost, but the blade doesn't want to budge. It looks to be of an older design, ornate and masterfully crafted.",
+    "narrative": "You're fighting sundown and trying to make use of the remaining light when you stumble over an odd piece of metal. Curiosity gets the better of you, and after a moment of digging, you've excavated it far enough to see the hilt of a sword held fast in the permafrost, but the blade doesn't want to budge. It looks to be of an older design, ornate and masterfully crafted.<br><br>You could heat it up and try to pry it free, but there isn't much sunlight left, and the rest of your journey would it be more dangerous. Alternatively, you could mark the location and wait for warmer weather to collectit.",
     "options": [
       {
         "label": "A",
@@ -14090,7 +14099,19 @@
           {
             "narrative": "You make a small fire beside the embedded sword and try to heat the ground enough to free the blade. The sun drifts farther below the ridgeline and you're forced to work by firelight against the bitter cold. You're confident you'll be able to wiggle it free, but after significant work you hear a CRACK and the blade snaps.",
             "effects": [
-              "All characters start the next scenario with STUN and discard two cards.",
+              {
+                "type": "scenarioCondition",
+                "values": [
+                  "wound"
+                ]
+              },
+              {
+                "type": "discard",
+                "alt": true,
+                "values": [
+                  2
+                ]
+              },
               {
                 "type": "item",
                 "alt": true,
@@ -14132,12 +14153,40 @@
       {
         "label": "A",
         "narrative": "Pay to use the legitimate business bridge.",
-        "returnToDeck": true,
         "outcomes": [
           {
+            "condition": {
+              "type": "loseResourceType",
+              "values": [
+                1,
+                "material_resources"
+              ]
+            },
             "narrative": "The hulking Algox steps aside and waves you through. \"No run, go slow. Enjoy bridge.\" You're not sure if going slow is recommended for safety or overall enjoyment, but the bridge does hold your party's weight the whole way across.",
+            "returnToDeck": true,
             "effects": [
-              "LOSE 1 MATERIAL RESOURCE EACH"
+              "Mark one box below. When all boxes are marked, remove this card from the deck and add event WR-35 to the winter road deck.",
+              {
+                "type": "checkbox",
+                "values": [
+                  "",
+                  ""
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "narrative": "The Algox refuses to let you though, and you're forced to cross the river.",
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
             ]
           }
         ]
@@ -14145,7 +14194,6 @@
       {
         "label": "B",
         "narrative": "Ford the river.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "condition": {
@@ -14156,6 +14204,7 @@
               ]
             },
             "narrative": "The river looks dire, but it's a manageable problem. You see the patterns in the chaotic water and strategically toss in some larger stones and branches to create a makeshift path and get across with only a few unexpected dips into the stream.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "discardOne",
@@ -14168,8 +14217,23 @@
               "type": "otherwise"
             },
             "narrative": "You try to wade through the icy river, but it's impossibly cold. The swift current takes your balance out from under you, and by the time you've made it to the other side, all warmth has left your body, and the contents of your pack are scattered.",
+            "returnToDeck": true,
             "effects": [
-              "All characters start the next scenario with 3 DAMAGE, and LOSE one CHECKMARK."
+              {
+                "type": "scenarioCondition",
+                "alt": true,
+                "values": [
+                  "brittle"
+                ]
+              },
+              {
+                "type": "scenarioDamage",
+                "alt": true,
+                "values": [
+                  3
+                ]
+              },
+              "All characters %game.card.lost% one %game.itemSlot:small%."
             ]
           }
         ]
@@ -14180,16 +14244,31 @@
     "cardId": "WR-06",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "A translucent Aesther wearing hunter's garb is studying some tracks on the path, and turns to catch your attention as you approach. \"You there! A moment of your time!\" He flags you down. \"I've been searching for a Vermling by the name of Dramm. About yea high. Have you seen him?\" When you don't immediately respond, he thumbs a wicked-looking blade and continues: \"You see, this particular Vermling killed someone quite dear to me, and I promised that I would return the favor.\" The Aesther's eyes flash a dark longing.",
+    "narrative": "A translucent Aesther wearing hunter's garb is studying some tracks on the path, and turns to catch your attention as you approach. \"You there! A moment of your time!\" He flags you down. \"I've been searching for a Vermling by the name of Dramm. About yea high. Have you seen him?\"<br><br>When you don't immediately respond, he thumbs a wicked-looking blade and continues: \"You see, this particular Vermling killed someone quite dear to me, and I promised that I would return the favor.\" The Aesther's eyes flash a dark longing.",
     "options": [
       {
         "label": "A",
         "narrative": "Agree to keep an eye out for him.",
         "outcomes": [
           {
-            "narrative": "You assure the Aesther hunter that you'll keep an eye out for the Vermling killer. He smiles. \"My thanks. I am Malak. If you do locate him I ask only that you call for me so I can finish my task at last.\"",
+            "narrative": "You assure the Aesther hunter that you'll keep an eye out for the Vermling killer. He smiles.<br><br>\"My thanks. I am Malak. If you do locate him I ask only that you call for me so I can finish my task at last.\"",
             "effects": [
-              "Add event SR-36 to the summer road deck and remove event SR-08 from the deck."
+              {
+                "type": "event",
+                "alt": true,
+                "values": [
+                  "summer-road",
+                  "SR-36"
+                ]
+              },
+              {
+                "type": "removeEvent",
+                "alt": true,
+                "values": [
+                  "summer-road",
+                  "SR-08"
+                ]
+              }
             ]
           }
         ]
@@ -14214,7 +14293,7 @@
     "cardId": "WR-07",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "Walking out of Frosthaven's main gate you hear a voice hustling up behind you. \"Wait, just a minute!\" You turn to see young man wearing ill-fitting armor. He powers up the trail toward you, but then needs a moment to catch his breath. \"Hi, hello—I'm Ormi. Looks like you're off to do some important mercenary... ing. I was just thinking that it might be helpful if I came along on your quest. You know, one more person to watch your back? And... maybe you could teach me a thing or two? I'd make a great apprentice.\" His scabbard doesn't have a single scuff on it, and his balance looks uncertain with the added weight. He's eager, but clearly inexperienced—you're not sure how much of a liability he'll be.",
+    "narrative": "Walking out of Frosthaven's main gate you hear a voice hustling up behind you. \"Wait, just a minute!\"<br><br>You turn to see young man wearing ill-fitting armor. He powers up the trail toward you, but then needs a moment to catch his breath.<br><br>\"Hi, hello—I'm Ormi. Looks like you're off to do some important mercenary... ing. I was just thinking that it might be helpful if I came along on your quest. You know, one more person to watch your back? And... maybe you could teach me a thing or two? I'd make a great apprentice.\"<br><br>His scabbard doesn't have a single scuff on it, and his balance looks uncertain with the added weight. He's eager, but clearly inexperienced—you're not sure how much of a liability he'll be.",
     "options": [
       {
         "label": "A",
@@ -14223,9 +14302,9 @@
           {
             "narrative": "\"You won't regret this!\" Ormi joins you for the scenario.",
             "effects": [
-              "At the start of the next scenario, place a numbered token (or other suitable token if all are being used) in an empty hex adjacent to any character to represent Ormi. Ormi has (Lx2)+4 hit points and acts on initiative 50 each round performing 🗡️2, 🗡️2. Any character can lose one card from their hand or two from their discard pile to negate any single source of damage to Ormi.",
-              "If the scenario is completed and Ormi survives: Gain 1 soldier and add event WR-33 to the winter road deck.",
-              "If the scenario is lost or if Ormi does not survive: Lose 1 morale."
+              "At the start of the next scenario, place a numbered token (or other suitable token if all are being used) in an empty hex adjacent to any character to represent Ormi. Ormi has (Lx2)+4 hit points and acts on initiative 50 each round performing %game.action.move% 2, %game.action.attack% 2. Any character can lose one card from their hand or two from their discard pile to negate any single source of damage to Ormi.",
+              "<br>If the scenario is completed and Ormi survives: Gain 1 soldier and add event WR-33 to the winter road deck.",
+              "<br>If the scenario is lost or if Ormi does not survive: Lose 1 morale."
             ]
           }
         ]
@@ -14236,6 +14315,7 @@
         "outcomes": [
           {
             "narrative": "You let the young man down easy, telling him this mission may be one you yourself don't return from. He smiles weakly and agrees it would be best to give it a go some other time.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -14250,7 +14330,7 @@
     "cardId": "WR-08",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "The giant boughs of the willowburn tree hang low, heavy with the ice of the season. This picturesque grotto features an iced-over pond. During the warmer season, it would be fed by a waterfall, which is now frozen and anchored to the cliff face overlooking the area.",
+    "narrative": "The giant boughs of the willowburn tree hang low, heavy with the ice of the season. This picturesque grotto features an iced-over pond. During the warmer season, it would be fed by a waterfall, which is now frozen and anchored to the cliff face overlooking the area.<br><br>The ice over the pond is sturdy and supports your weight easily. The frozen waterfall beckons you closer with an unnatural blue light, and as you approach you can see glowing shapes moving behind the ice—it's a cave of some sort, now sealed off. The ice is much too thick to get a decent look, but you can feel a supernatural chill that turns your stomach.<br><br>The waterfall likely hasn't run since summer and has a rough surface that would be perfect for climbing. The top would put you right underneath the willowburn branches.",
     "options": [
       {
         "label": "A",
@@ -14258,6 +14338,7 @@
         "outcomes": [
           {
             "narrative": "You triple-check that the ice is frozen completely solid: the perfect place to set camp. Visibility is ideal in every direction, and you can make out the stars between the branches of the willowburn tree. You drift off to a peaceful night's sleep.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -14276,8 +14357,22 @@
         "outcomes": [
           {
             "narrative": "The frozen waterfall provides easy handholds for climbing its surface, and before long, you're standing at the top, looking down on the grotto. You can even reach up and touch the willowburn tree branches. It looks like a great spot to make camp... before the buzzing starts. In a burst of angry yellow, thousands of bees swarm your party, driving you back down the waterfall. You're out of breath before they give up the chase.",
+            "returnToDeck": true,
             "effects": [
-              "All characters start the next scenario with CURSE and discard two cards."
+              {
+                "type": "scenarioCondition",
+                "alt": true,
+                "values": [
+                  "impair"
+                ]
+              },
+              {
+                "type": "discard",
+                "alt": true,
+                "values": [
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -14332,7 +14427,7 @@
           {
             "narrative": "Three sets of small tracks lead to a blackthorn shrub, whose prickly branches quiver with fear. You part the barbed branches and see three little Orchids, barely more than toddlers. Their father defended them from a polar bear, they tell you, and commanded them to hide while he drew the bear away. Judging by the amount of blood you saw back there, you doubt their father is returning anytime soon.<br><br>You're too remote to send the children home on their own. You can take them with you, though, and bring them to Frosthaven once your business nearby is complete.",
             "effects": [
-              "If you complete the next scenario: Gain 3 morale."
+              "If you complete the next scenario:<br>Gain 3 morale."
             ]
           }
         ]
@@ -14352,7 +14447,13 @@
           {
             "narrative": "They see you approaching and know your intent. Their movements get more frantic, but while stuck together they just collapse in disarray. You watch them flail and consider feeling bad for them for a moment. Instead, you lift your weapon and prepare to strike.<br><br>A low hum gives you pause, and as it turns into a high-pitched whine, your eyes go wide. It escalates into a screech, and you spin around and dive back into the trees as the robots self-destruct. Shrapnel tears through the trees. You were fast enough to survive the explosion... but not fast enough to escape unscathed.",
             "effects": [
-              "All characters start the next scenario with STUN 3."
+              {
+                "type": "scenarioDamage",
+                "alt": true,
+                "values": [
+                  3
+                ]
+              }
             ]
           }
         ]
@@ -14381,7 +14482,7 @@
     "cardId": "WR-11",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "For as far as the eye can see, the view is the same: nothing but Kivak, pack animals known for their rocky skin and prominent horn. Hundreds, packed in together for warmth or comfort, block the path ahead of you. As you approach, they stop their grazing in an eerie unison, their heads turning in perfect concert. They refuse to part to allow you passage. A Quatryl shephard in muddy overalls steps forward from the crowd. \"Yep. They'll let you through, but they want something in return.\" The Kivak blink in unison. You look at him, not understanding. \"It's a Kivak hive. All linked up,\" he says, as if this clarified things. He rolls his eyes. \"Harrowers... they's a bunch a bugs that all work as one thing. Savvas is thinking rocks. Heck, even humans're just gray worms swimming around in a skull driving a skeleton around. This here's a buncha Kivak all as one. Anyways, they want something first.\" The animals part, leaving a single member of their group staring at you in the center of the clearing. \"That one wronged the others. They want you to kill her.\" He shrugs. \"I understand 'em, but I can't say I understand 'em.\" The Kivak waits, unblinkingly.",
+    "narrative": "For as far as the eye can see, the view is the same: nothing but Kivak, pack animals known for their rocky skin and prominent horn. Hundreds, packed in together for warmth or comfort, block the path ahead of you. As you approach, they stop their grazing in an eerie unison, their heads turning in perfect concert. They refuse to part to allow you passage.<br><br>A Quatryl shephard in muddy overalls steps forward from the crowd. \"Yep. They'll let you through, but they want something in return.\" The Kivak blink in unison. You look at him, not understanding. \"It's a Kivak hive. All linked up,\" he says, as if this clarified things.<br><br>He rolls his eyes. \"Harrowers... they's a bunch a bugs that all work as one thing. Savvas is thinking rocks. Heck, even humans're just gray worms swimming around in a skull driving a skeleton around. This here's a buncha Kivak all as one. Anyways, they want something first.\" The animals part, leaving a single member of their group staring at you in the center of the clearing.<br><br>\"That one wronged the others. They want you to kill her.\" He shrugs. \"I understand 'em, but I can't say I understand 'em.\" The Kivak waits, unblinkingly.",
     "options": [
       {
         "label": "A",
@@ -14410,7 +14511,12 @@
             },
             "narrative": "You don't know what this solitary Kivak did to wrong the others, but you understand rejection by your peers. You grab the Kivak and push through the herd. Once on the other side, the reject snorts in thanks before wandering off.",
             "effects": [
-              "Gain 1 CHECK each."
+              {
+                "type": "battleGoal",
+                "values": [
+                  1
+                ]
+              }
             ]
           },
           {
@@ -14419,7 +14525,20 @@
             },
             "narrative": "You ignore the lone Kivak and the crazy shepherd, instead pushing through the herd. They stand strong, and their stone skin makes passage akin to squeezing through a tight cave. Finally, you emerge exhausted on the other side of the herd.",
             "effects": [
-              "All characters start the next scenario with POISON and WOUND 2."
+              {
+                "type": "scenarioCondition",
+                "alt": true,
+                "values": [
+                  "impair"
+                ]
+              },
+              {
+                "type": "scenarioDamage",
+                "alt": true,
+                "values": [
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -14430,17 +14549,29 @@
     "cardId": "WR-12",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "Blown off track by the winter winds, you come across a monolithic door deep-set into the mountainside. You knock on the towering, gem-crusted stonework, but it feels so thick you can't even be sure the sound carried through. Whoever—or whatever—created it made sure it was impervious to both the elements and unwanted guests.",
+    "narrative": "Blown off track by the winter winds, you come across a monolithic door deep-set into the mountainside. You knock on the towering, gem-crusted stonework, but it feels so thick you can't even be sure the sound carried through. Whoever—or whatever—created it made sure it was impervious to both the elements and unwanted guests.<br><br>An inscription is written in a language you can't easily make out. A receptacle on the doorframe looks as though it wants an offering. But what would fit?",
     "options": [
       {
         "label": "A",
         "narrative": "Apply power to the door's receptacle (requires \"Charged Core\" campaign sticker).",
         "outcomes": [
           {
-            "narrative": "You press the Charged Core into the doorframe's receptacle and it mounts with a satisfying click. It's clear this isn't the right object: the contours are all wrong, and the core barely fills half the gap—and then it just happens: a spark of light, and the door rumbles itself open, shaking off ages of dust and ice.",
+            "narrative": "You press the Charged Core into the doorframe's receptacle and it mounts with a satisfying click. It's clear this isn't the right object: the contours are all wrong, and the core barely fills half the gap—and then it just happens: a spark of light, and the door rumbles itself open, shaking off ages of dust and ice.<br><br>Inside is a modest chamber anda single pedestal. On it, you find a gnarled wand emblazoned with the symbol of the Orchid High Council.",
             "effects": [
-              "Place \"Uncharged Core\" campaign sticker over \"Charged Core\".",
-              "Gain \"Orchid Wand\" {232}."
+              {
+                "type": "campaignStickerReplace",
+                "values": [
+                  "uncharged-core",
+                  "charged-core"
+                ]
+              },
+              {
+                "type": "item",
+                "alt": true,
+                "values": [
+                  232
+                ]
+              }
             ]
           }
         ]
@@ -14457,7 +14588,7 @@
                 "orchid"
               ]
             },
-            "narrative": "The writing is archaic, but you can piece together the majority of the meaning. You recognize the sigils as that of the Orchid High Council—this must be a treasure vault.",
+            "narrative": "The writing is archaic, but you can piece together the majority of the meaning. You recognize the sigils as that of the Orchid High Council—this must be a treasure vault.<br><br>The writing reads: \"Herein lies the treasure of the Orchid\nKeeper of Joy.\"",
             "returnToDeck": true,
             "effects": [
               {
@@ -14518,6 +14649,7 @@
               "type": "otherwise"
             },
             "narrative": "You have nothing to rely on. After hours of hiking you finally find the dense fog that spits you back onto the winter trail.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "drawAnotherEvent",
@@ -14558,6 +14690,7 @@
               "type": "otherwise"
             },
             "narrative": "Lush forest turns to bramble thickets as you try to navigate through. After hours of hiking, you welcome the heavy fog that spits you back onto the winter trail.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "drawAnotherEvent",
@@ -14581,12 +14714,17 @@
       {
         "label": "A",
         "narrative": "Soak in the warm water and enjoy this peaceful respite.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "You and your party sink into the warm water, stretching out and letting the heat ease sore limbs. The snow continues to fall around you, sizzling on the water's surface as it descends between the tree canopy, and you can't help but feel at peace.",
+            "returnToDeck": true,
             "effects": [
-              "Gain 1 MORALE each."
+              {
+                "type": "battleGoal",
+                "values": [
+                  1
+                ]
+              }
             ]
           }
         ]
@@ -14596,10 +14734,24 @@
         "narrative": "Dive beneath the surface to investigate the source of the heat.",
         "outcomes": [
           {
-            "condition": "uncharged core",
+            "narrative": "You plunge into the water and push downward to the source of the heat: a mechanical device embedded deep in the natural rock. It's malfunctioning, throwing off enormous amounts of energy."
+          },
+          {
+            "condition": {
+              "type": "campaignSticker",
+              "values": [
+                "uncharged-core"
+              ]
+            },
             "narrative": "The metal core you're carrying reacts to the machine, drawing the heat into itself and sparking back to life.",
             "effects": [
-              "Place \"Charged Core\" campaign sticker over \"Uncharged Core\"."
+              {
+                "type": "campaignStickerReplace",
+                "values": [
+                  "charged-core",
+                  "uncharged-core"
+                ]
+              }
             ]
           },
           {
@@ -14607,6 +14759,7 @@
               "type": "otherwise"
             },
             "narrative": "The scalding liquid burns you as the unstable device flares with heat.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "scenarioCondition",
@@ -14625,7 +14778,7 @@
     "cardId": "WR-15",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You're traveling along a narrow path skirting an icy crevasse when you round a bend and see two fur-wrapped human figures struggling to push a large wooden crate over the edge. They notice you and make one last unsuccessful effort to kick the box down into the crevasse before sprinting away. You shrug and take a look at what they left behind.",
+    "narrative": "You're traveling along a narrow path skirting an icy crevasse when you round a bend and see two fur-wrapped human figures struggling to push a large wooden crate over the edge. They notice you and make one last unsuccessful effort to kick the box down into the crevasse before sprinting away. You shrug and take a look at what they left behind.<br><br>Prying open the lid of the nondescript crate, you find a pile of crumbled rocks with an unmistakable sheen—this is a Savvas corpse. No wonder those two didn't want to be caught.",
     "options": [
       {
         "label": "A",
@@ -14634,7 +14787,13 @@
           {
             "narrative": "You apply the Charged Core to the center of the mass of rocks and watch a flicker of red permeate the dead Savvas' chest. After a moment it stretches itself out of the crate and looks at you, startled.<br><br>\"Who are you? Where am I?\"<br><br>You explain all that you know and it shakes its head. \"Those untrustworthy brigands. Find me back in Frosthaven, and I'll see you're rewarded.\"",
             "effects": [
-              "Place \"Uncharged Core\" campaign sticker over \"Charged Core\".",
+              {
+                "type": "campaignStickerReplace",
+                "values": [
+                  "uncharged-core",
+                  "charged-core"
+                ]
+              },
               {
                 "type": "event",
                 "alt": true,
@@ -14688,7 +14847,7 @@
     "cardId": "WR-16",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "Screaming is usually a pretty good indication something is wrong, and an Algox battle cry is a good reason to hurry up and get involved. Breaking into a full sprint through the snowy road, you quickly find an overturned cart surrounded by bright white Algox hides. A short distance away, you spot four Algox bandits attacking a Valrath. You shout to distract them from the bloodied Valrath. The good news is it worked—they stop attacking the Valrath. The bad news is that it worked—they're now very focused on you. They growl as you circle each other, both groups waiting for the other to make a move. The Valrath whimpers in pain between you.",
+    "narrative": "Screaming is usually a pretty good indication something is wrong, and an Algox battle cry is a good reason to hurry up and get involved. Breaking into a full sprint through the snowy road, you quickly find an overturned cart surrounded by bright white Algox hides. A short distance away, you spot four Algox bandits attacking a Valrath.<br><br>You shout to distract them from the bloodied Valrath. The good news is it worked—they stop attacking the Valrath. The bad news is that it worked—they're now very focused on you.<br><br>They growl as you circle each other, both groups waiting for the other to make a move. The Valrath whimpers in pain between you.",
     "options": [
       {
         "label": "A",
@@ -14715,7 +14874,13 @@
           {
             "narrative": "You charge at the Algox, hoping to drive them off quickly so you can come back to tend to the Valrath. These towering bandits are holding their own, putting up a ferocious fight, when they suddenly flee into the woods. Confused, you turn around just in time to see a fifth Algox dragging the Valrath into the woods. You try to track them, but the robbers are very adept at covering their tracks in the snow, and you soon lose the trail. The Valrath might be gone, but the overturned cart is still there.",
             "effects": [
-              "Gain 1 HIDE each.",
+              {
+                "type": "resource",
+                "values": [
+                  1,
+                  "hide"
+                ]
+              },
               {
                 "type": "loseMorale",
                 "values": [
@@ -14732,7 +14897,7 @@
     "cardId": "WR-17",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "A gnarled Orchid stands in the middle of the road, watching you approach. A ratty cloak barely covers her shoulders, but she doesn't seem to mind the cold air. She beckons you closer, then quietly recites something under her breath. \"May your words never falter, When you face the crystal altar, They will not agree...\" She pauses before finishing, staring you down with deep blue eyes and urging you to step within whispering distance.",
+    "narrative": "A gnarled Orchid stands in the middle of the road, watching you approach. A ratty cloak barely covers her shoulders, but she doesn't seem to mind the cold air. She beckons you closer, then quietly recites something under her breath.<br><br>\"May your words never falter,<br>When you face the crystal altar,<br>They will not agree...\"<br><br>She pauses before finishing, staring you down with deep blue eyes and urging you to step within whispering distance.",
     "options": [
       {
         "narrative": "Choose one player now to hear the secret. Hand the card to them to read the conclusion.",
@@ -14765,7 +14930,7 @@
     "cardId": "WR-18",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "The snow-wizened Vermling calling himself Hurdle rushes up to you with such speed that you think he might attack, but he stops short, waving his arms indignantly.",
+    "narrative": "\"Mer-canaries! You help! Help Hurdle, yes!\"<br><br>The snow-wizened Vermling calling himself Hurdle rushes up to you with such speed that you think he might attack, but he stops short, waving his arms indignantly.<br><br>\"Tonight is soup! Jeremy hide food for soup night, but forgot hiding spots. STUPID Jeremy!\" Hurdle shouts at a tree behind you. Following his gaze you see Jeremy, a red squirrel, sitting on a branch. Jeremy chitters back angrily, clearly masking embarrassment.<br><br>\"Stupid Jeremy lost food, and now finding it is up to Hurdle. Hurdle… and greedy mer-canaries!\" Hurdle grins, sweeping his arm to indicate a nearby clearing. \"Jeremy leave food all over! I reward mer-canary who digs up most! Berries, and nuts, and eggs…\" Hurdle pauses, scrunching up his nose. \"On second thought, don't dig up eggs.\"",
     "options": [
       {
         "label": "A",
@@ -14775,12 +14940,12 @@
             "narrative": "You sigh and heft your shovel. You suppose this is what they mean when they say \"No job is too small.\"",
             "effects": [
               "All characters each take one turn drawing as many cards as they want from the monster attack modifier deck, one at a time, until they choose to stop. If a character draws a null card, they've unearthed an old egg, and their number of drawn cards is considered 0. Shuffle the entire monster attack modifier deck between each turn.",
-              "Characters are then awarded the following, based on who drew the most cards (tied characters gain the full rewards of their shared rank):",
+              "<br>Characters are then awarded the following, based on who drew the most cards (tied characters gain the full rewards of their shared rank):<br><br>",
               "1st: Gain 12 experience.",
-              "2nd: Gain 6 GOLD.",
-              "3rd: Gain 2 HIDE.",
-              "4th: Gain 1 LUMBER.",
-              "If you collectively drew at least Cx3 cards, Hurdle is overjoyed: add a +1 sticker to one LOOT card (the card gives one extra LUMBER when resolved)."
+              "2nd: Gain 6 gold.",
+              "3rd: Gain 2 %game.resource.lumber%.",
+              "4th: Gain 1 %game.resource.hide%.",
+              "<br>If you collectively drew at least [Cx3] cards, Hurdle is overjoyed: add a %game.resource.plus1% sticker to one %game.resource.axenut% loot card (the card gives one extra %game.resource.axenut% when resolved)."
             ]
           }
         ]
@@ -14847,7 +15012,7 @@
           {
             "narrative": "You dig out the aeronautical and cram into the restricted interior. The Quatryl just barely seals the hatch with you all inside and struggles to start up the machine with the extra weight. It's claustrophobic, but after it gets airborne much of the terror subsides. The descent is violent but you arrive in one piece closer to your destination.",
             "effects": [
-              "All characters without QUATRYL or VERMLING start the next scenario with CURSE."
+              "All characters without %game.trait:quatryl% or %game.trait:vermling% start the next scenario with %game.condition.impair%."
             ]
           }
         ]
@@ -14858,7 +15023,7 @@
     "cardId": "WR-20",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "The sky has turned a perfect, uniform gray as the snowfall of a blizzard blots out any vision more than an arms-length ahead. The flurries hide his presence until you're right on top of him, but seated in deep meditation is an Orchid. While they have a frail humanoid appearance, they gain the majority of their sustenance from direct contact with the ground as a plant would, growing beautiful crystalline structures across their skin if they remain sedentary. Judging by the length and prominence of the crystals on this Orchid's head and arms, he's been seated here meditating for a very long time—perhaps years. Although he shows no signs of noticing, the snow has begun to accumulate on him. Unfortunately the weather has left you turned around and without a bit of help you're as likely to be heading away from your destination as toward it.",
+    "narrative": "The sky has turned a perfect, uniform gray as the snowfall of a blizzard blots out any vision more than an arms-length ahead. The flurries hide his presence until you're right on top of him, but seated in deep meditation is an Orchid. While they have a frail humanoid appearance, they gain the majority of their sustenance from direct contact with the ground as a plant would, growing beautiful crystalline structures across their skin if they remain sedentary. Judging by the length and prominence of the crystals on this Orchid's head and arms, he's been seated here meditating for a very long time—perhaps years.<br><br>Although he shows no signs of noticing, the snow has begun to accumulate on him. Unfortunately the weather has left you turned around and without a bit of help you're as likely to be heading away from your destination as toward it.",
     "options": [
       {
         "label": "A",
@@ -14912,7 +15077,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "bless"
+                  "brittle"
                 ]
               }
             ]
@@ -14927,8 +15092,14 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "curse",
-                  "immobilize"
+                  "brittle"
+                ]
+              },
+              {
+                "type": "scenarioDamage",
+                "alt": true,
+                "values": [
+                  2
                 ]
               }
             ]
@@ -14960,10 +15131,22 @@
         "narrative": "You trust the path the Great Oak has for you. Offer to make a donation to the Sanctuary instead.",
         "outcomes": [
           {
-            "condition": "LOSE 10xC COLLECTIVE GOLD",
+            "condition": {
+              "type": "loseCollectiveGold",
+              "values": [
+                "[10xC]"
+              ]
+            },
             "narrative": "\"Only if you can spare it,\" she responds. \"May the Great Oak bless you, and may you always trust in its path.\" As you depart, the wind picks up again, obscuring your vision in a snowy haze.",
             "effects": [
-              "All characters start the next scenario with BLESS x2 and CURSE."
+              {
+                "type": "scenarioCondition",
+                "alt": true,
+                "values": [
+                  "bless:2",
+                  "ward"
+                ]
+              }
             ]
           },
           {
@@ -14976,7 +15159,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "curse"
+                  "ward"
                 ]
               }
             ]
@@ -14989,7 +15172,7 @@
     "cardId": "WR-22",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "Now this is something you don't see every day. The biggest Algox you've ever seen is locked down in a heated battle with an even bigger metallic automaton with eight arms, each delivering vicious blows to the other. As you watch, the Algox roars and rips off one of the robot's arms, turning it against its owner as a makeshift club. The machine answers with a quick stab from a stinger hidden in one of its remaining arms, driving the Algox into a frenzy. With a wild swing the Algox loses her grip on the severed arm, causing it to fly through the air and land at your feet. You step back, but not before the pair notices you and comes to a standstill. In this unpredictable wilderness, the only constant is the axiom of \"kill or be killed\". Your presence has unbalanced the equation, and tension ripples through the air as everyone waits to see who will make the next move. It's probably best to join forces with one of them, before they both turn on you.",
+    "narrative": "Now this is something you don't see every day. The biggest Algox you've ever seen is locked down in a heated battle with an even bigger metallic automaton with eight arms, each delivering vicious blows to the other. As you watch, the Algox roars and rips off one of the robot's arms, turning it against its owner as a makeshift club. The machine answers with a quick stab from a stinger hidden in one of its remaining arms, driving the Algox into a frenzy. With a wild swing the Algox loses her grip on the severed arm, causing it to fly through the air and land at your feet.<br><br>You step back, but not before the pair notices you and comes to a standstill. In this unpredictable wilderness, the only constant is the axiom of \"kill or be killed\". Your presence has unbalanced the equation, and tension ripples through the air as everyone waits to see who will make the next move. It's probably best to join forces with one of them, before they both turn on you.",
     "options": [
       {
         "label": "A",
@@ -15002,14 +15185,14 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "poison"
+                  "wound"
                 ]
               },
               {
                 "type": "item",
                 "alt": true,
                 "values": [
-                  126
+                  226
                 ]
               }
             ]
@@ -15030,10 +15213,10 @@
                 ]
               },
               {
-                "type": "scenarioCondition",
+                "type": "scenarioDamage",
                 "alt": true,
                 "values": [
-                  "bless:2"
+                  2
                 ]
               }
             ]
@@ -15046,7 +15229,7 @@
     "cardId": "WR-23",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "A thin wisp of smoke drifts over the treeline. Your senses are dulled by the cold and the wind, but it looks like someone's built a campfire way out here. Curiosity piqued, you're about to head toward the smoke when a voice rings out behind you. \"T-turn around and d-drop your weapons.\" You turn to face your mugger. A half-frozen Valrath man stands before you pointing a bow. Everything about him suggests a traveling merchant, except for the crudely cut animal hide thrown over his shoulders—the horse that brought him here, if you had to guess. Precious few arrows rattle around in his expensive-looking quiver. \"F-food,\" the Valrath says. \"G-give me your food. NOW!\" His hand shivers on the bowstring.",
+    "narrative": "A thin wisp of smoke drifts over the treeline. Your senses are dulled by the cold and the wind, but it looks like someone's built a campfire way out here. Curiosity piqued, you're about to head toward the smoke when a voice rings out behind you.<br><br>\"T-turn around and d-drop your weapons.\"<br><br>You turn to face your mugger. A half-frozen Valrath man stands before you pointing a bow. Everything about him suggests a traveling merchant, except for the crudely cut animal hide thrown over his shoulders—the horse that brought him here, if you had to guess. Precious few arrows rattle around in his expensive-looking quiver.<br><br>\"F-food,\" the Valrath says. \"G-give me your food. NOW!\" His hand shivers on the bowstring.",
     "options": [
       {
         "label": "A",
@@ -15101,7 +15284,7 @@
     "cardId": "WR-24",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "The wind roars just outside the mouth of the shallow cave where you've stopped to rest. You know you should get moving, but the swaying of the trees outside reminds you of the morning's miserable hike through the razor-sharp gusts, and of the hours left ahead of you once you move on from your comfortable seat by the fire where you've spread your equipment to dry. You're debating the merits of a short nap when an ominous rumbling disturbs your musings. A crack spreads quickly over the rock ceiling above you. You glance at your gear drying by the fire, but the groaning ceiling makes it clear that you don't have time to pack up.",
+    "narrative": "The wind roars just outside the mouth of the shallow cave where you've stopped to rest. You know you should get moving, but the swaying of the trees outside reminds you of the morning's miserable hike through the razor-sharp gusts, and of the hours left ahead of you once you move on from your comfortable seat by the fire where you've spread your equipment to dry.<br><br>You're debating the merits of a short nap when an ominous rumbling disturbs your musings. A crack spreads quickly over the rock ceiling above you. You glance at your gear drying by the fire, but the groaning ceiling makes it clear that you don't have time to pack up.",
     "options": [
       {
         "label": "A",
@@ -15110,8 +15293,8 @@
           {
             "narrative": "You scoop up whatever equipment you can hold and dive away just as the cave collapses. You're safe for now, but you weren't packing for vacation; the gear you left behind could be the difference between life and death later.",
             "effects": [
-              "All characters choose one of their non-🛡️ items, and these items cannot be equipped next scenario.",
-              "All 🏃 NIMBLE characters may choose one of their 🛡️ items instead."
+              "All characters choose one of their non-%game.itemSlot:small% items, and these items cannot be equipped next scenario.",
+              "All %game.trait:nimble% characters may choose one of their %game.itemSlot:small% items instead."
             ]
           }
         ]
@@ -15121,22 +15304,30 @@
         "narrative": "Squeeze against the back wall and hope to tough it out.",
         "outcomes": [
           {
-            "narrative": "Without that gear, you're as good as dead anyway. You pull your digging tools toward you and flatten yourself against the back of the cave, where you hope the rock is the strongest.<br><br>Sure enough, the rockfall leaves you with only a few bruises, and you're able to recover your gear after a bit of digging. Digging yourself out, however, will be more of a chore.",
+            "narrative": "Without that gear, you're as good as dead anyway. You pull your digging tools toward you and flatten yourself against the back of the cave, where you hope the rock is the strongest.<br><br>Sure enough, the rockfall leaves you with only a few bruises, and you're able to recover your gear after a bit of digging. Digging yourself out, however, will be more of a chore."
+          },
+          {
+            "condition": {
+              "type": "traits",
+              "values": [
+                "armored"
+              ]
+            },
+            "inlineEffects": true,
             "effects": [
               {
-                "condition": {
-                  "type": "traits",
-                  "values": [
-                    "armored"
-                  ]
-                },
                 "type": "discardOne",
                 "alt": true
-              },
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "inlineEffects": true,
+            "effects": [
               {
-                "condition": {
-                  "type": "otherwise"
-                },
                 "type": "discard",
                 "alt": true,
                 "values": [
@@ -15162,7 +15353,20 @@
           {
             "narrative": "As you wait for the bandit to approach, hidden Algox materialize out of the snow on all sides and catch you completely off guard. The ensuing fight is brutal, but you manage to drive off your attackers.",
             "effects": [
-              "All characters start the next scenario with IMMOBILIZE and CURSE x2."
+              {
+                "type": "scenarioCondition",
+                "alt": true,
+                "values": [
+                  "brittle"
+                ]
+              },
+              {
+                "type": "scenarioDamage",
+                "alt": true,
+                "values": [
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -15212,7 +15416,7 @@
     "cardId": "WR-26",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You've been hiking for a long time. In fact, you should have reached your destination long ago, but still the path stretches on ahead. Now that you think of it, you're certain you've seen that copse of trees before. After another hour of telling yourselves that the destination must be around the next bend, you're forced to admit it: you're lost. You pause to weigh your options. It might be better to stop and orient yourselves once the stars come out... but your supplies are already dwindling from the overlong journey, and waiting for nightfall would take up valuable time you don't have.",
+    "narrative": "You've been hiking for a long time. In fact, you should have reached your destination long ago, but still the path stretches on ahead.<br><br>Now that you think of it, you're certain you've seen that copse of trees before.<br><br>After another hour of telling yourselves that the destination must be around the next bend, you're forced to admit it: you're lost.<br><br>You pause to weigh your options. It might be better to stop and orient yourselves once the stars come out... but your supplies are already dwindling from the overlong journey, and waiting for nightfall would take up valuable time you don't have.",
     "options": [
       {
         "label": "A",
@@ -15220,6 +15424,7 @@
         "outcomes": [
           {
             "narrative": "You don't have time or supplies to waste. You set forth with renewed vigor and are eventually rewarded: you emerge from the underbrush at the top of a hill to behold a magnificent view of the surrounding wilderness. Not only does it set you on the right path, it fills you with a sense of wonder.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "inspiration",
@@ -15288,31 +15493,36 @@
     "cardId": "WR-27",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "This winter day has been a good one for travel, with little snowfall and not a creature in sight. The only sound is the snow crunching as you progress toward your destination. But now, even your footsteps grow eerily silent. One more step and a flash of light erupts from underfoot, searing pain ripping through your body. You discover you're standing in what appears to be a runic minefield—a dangerous tool of wars from ages past. You see a pack of Snow Imps descend from the trees, chittering in glee at your misfortune.",
+    "narrative": "This winter day has been a good one for travel, with little snowfall and not a creature in sight. The only sound is the snow crunching as you progress toward your destination. But now, even your footsteps grow eerily silent.<br><br>One more step and a flash of light erupts from underfoot, searing pain ripping through your body. You discover you're standing in what appears to be a runic minefield—a dangerous tool of wars from ages past. You see a pack of Snow Imps descend from the trees, chittering in glee at your misfortune.",
     "options": [
       {
         "label": "A",
-        "narrative": "Attempt to navigate the runic minefield:",
+        "narrative": "Attempt to navigate the runic minefield:<br>All characters individually choose a color of rune to move through right now, then resolves the effect on the back of the card (%game.trait:arcane% characters pick two and resolve whichever effect they prefer)—PURPLE, WHITE, or PINK.",
         "outcomes": [
+          {
+            "effects": [
+              "All characters resolve the following individually based on their choice:<br><br>"
+            ]
+          },
           {
             "condition": "purple",
             "narrative": "Intense light blinds you, and you need to be led out of the minefield.",
             "effects": [
-              "Start the next scenario with IMMOBILIZE."
+              "Start the next scenario with %game.condition.disarm%."
             ]
           },
           {
             "condition": "white",
             "narrative": "Where did your legs go? And why do you feel sick...",
             "effects": [
-              "Start the next scenario with POISON, WOUND, and IMMOBILIZE."
+              "Start the next scenario with %game.condition.wound%, %game.condition.poison%, and %game.condition.invisible%."
             ]
           },
           {
             "condition": "pink",
             "narrative": "This isn't so bad. Well, your legs are completely numb, but other than that...",
             "effects": [
-              "Start the next scenario with WOUND."
+              "Start the next scenario with %game.condition.immobilize%."
             ]
           }
         ]
@@ -15345,7 +15555,7 @@
         "narrative": "Read the contents of the envelope.",
         "outcomes": [
           {
-            "narrative": "You're not able to find the old man, but you avoid whatever awaits you at the delivery site.",
+            "narrative": "You slip a finger inside the envelope and peek at the contents. in scrawled handwriting it reads, \"These are the last idiots I'm sending you today.\"<br><br>You're not able to find the old man, but you avoid whatever awaits you at the delivery site.",
             "effects": [
               {
                 "type": "noEffect"
@@ -15359,13 +15569,13 @@
         "narrative": "Deliver the envelope unopened.",
         "outcomes": [
           {
-            "narrative": "The ambushers weren't expecting battle-hardened mercenaries, though—after some unpaid work, you finish off the last of the creatures.",
+            "narrative": "The delivery location turns out to be a narrow cave that requires a bit of squeezing to enter. You call out when you get inside, but instead of a grandson waiting for an envelope, you find the needle-like teeth of a half-dozen Abaeli. They spring on you, tearing at your skin in an effort to collect an easy meal.<br><br>The ambushers weren't expecting battle-hardened mercenaries, though—after some unpaid work, you finish off the last of the creatures.<br><br>You open the old man's envelope to find a scrawled note:<br>\"These are the last idiots I'm sending you today.\"",
             "effects": [
               {
-                "type": "scenarioCondition",
+                "type": "scenarioDamage",
                 "alt": true,
                 "values": [
-                  "bless:3"
+                  3
                 ]
               }
             ]
@@ -15378,7 +15588,7 @@
     "cardId": "WR-29",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "The original settlers of Frosthaven needed a means of directing people back to the outpost in harsh conditions. Maps of the icy north were incomplete and normal signage would be quickly lost in the snow, so the founders turned to other means. Mounted beside the road is one such tool: a tall metal flagpole painted with a prominent red stripe down the side. The pennant that flapped in the wind has long since blown away, but the metal post itself has held up well. A sign mounted to the side points the way toward Frosthaven, allowing even weary travelers to find their way to safety. You're about to continue on to your destination when a realization strikes you: that's not pointed to Frosthaven at all! Someone has altered the sign's direction to point down a trail off the beaten path.",
+    "narrative": "The original settlers of Frosthaven needed a means of directing people back to the outpost in harsh conditions. Maps of the icy north were incomplete and normal signage would be quickly lost in the snow, so the founders turned to other means. Mounted beside the road is one such tool: a tall metal flagpole painted with a prominent red stripe down the side.<br><br>The pennant that flapped in the wind has long since blown away, but the metal post itself has held up well. A sign mounted to the side points the way toward Frosthaven, allowing even weary travelers to find their way to safety.<br><br>You're about to continue on to your destination when a realization strikes you: that's not pointed to Frosthaven at all! Someone has altered the sign's direction to point down a trail off the beaten path.",
     "options": [
       {
         "label": "A",
@@ -15386,6 +15596,7 @@
         "outcomes": [
           {
             "narrative": "You adjust the sign away from the odd little trail it mistakenly points to. It's difficult to make out, but you almost think you could hear someone cursing under their breath from the tree line. At least other travelers won't lose their way in the future.",
+            "returnToDeck": true,
             "effects": [
               {
                 "type": "noEffect"
@@ -15399,13 +15610,13 @@
         "narrative": "Follow the sign's incorrect directions to see where they lead.",
         "outcomes": [
           {
-            "narrative": "Following the trail away from Frosthaven, you get an eerie feeling of being watched. Whenever you turn to look, though, there's nothing but snow and trees. The trail goes cold as it leads down into a ravine and eventually dead-ends against a sheer cliff face. You start to head back to the main path when you're confronted by a group of hungry-looking Vermlings, weapons drawn.",
+            "narrative": "Following the trail away from Frosthaven, you get an eerie feeling of being watched. Whenever you turn to look, though, there's nothing but snow and trees. The trail goes cold as it leads down into a ravine and eventually dead-ends against a sheer cliff face. You start to head back to the main path when you're confronted by a group of hungry-looking Vermlings, weapons drawn.<br><br>It's a fine ambush, but they weren't expecting mercenaries traveling to a mission. You make short work of them and correct the signage when you return to the marker pole.",
             "effects": [
               {
-                "type": "scenarioCondition",
+                "type": "scenarioDamage",
                 "alt": true,
                 "values": [
-                  "curse:2"
+                  2
                 ]
               },
               {
@@ -15424,7 +15635,7 @@
     "cardId": "WR-30",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "The sun is disappearing behind the mountains for the evening. You set your pack down on a rock embedded in the snow and start setting up camp. CRACK! The weight of your pack was just enough to break the rock free of the snow and ice, creating a small avalanche and sending your supplies tumbling off a cliff. Winter days are brutally cold, but without a source of warmth, winter nights are deadly. You're unprepared in unfamiliar territory, sunlight is dwindling, and you can already feel your fingertips going numb. If you don't find a way to warm up or find a way through this darkness, you're going to have a rough night.",
+    "narrative": "The sun is disappearing behind the mountains for the evening. You set your pack down on a rock embedded in the snow and start setting up camp.<br><br>CRACK! The weight of your pack was just enough to break the rock free of the snow and ice, creating a small avalanche and sending your supplies tumbling off a cliff.<br><br>Winter days are brutally cold, but without a source of warmth, winter nights are deadly. You're unprepared in unfamiliar territory, sunlight is dwindling, and you can already feel your fingertips going numb. If you don't find a way to warm up or find a way through this darkness, you're going to have a rough night.",
     "options": [
       {
         "label": "A",
@@ -15450,8 +15661,8 @@
             },
             "narrative": "You have to make some hard decisions, but it's this or freeze.",
             "effects": [
-              "All characters start the next scenario either discarding one card with FIRE or SUN or suffer 3 DAMAGE.",
-              "Also infuse ICE at the start of the next scenario."
+              "All characters start the next scenario either discarding one card with %game.element.fire% or %game.element.light% or suffer %game.damage:3%.",
+              "Also infuse %game.element.ice% at the start of the next scenario."
             ]
           }
         ]
@@ -15487,14 +15698,14 @@
     "cardId": "WR-31",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You come across a man who appears in the middle of a mental breakdown. He screams himself hoarse while stabbing at the frozen earth with a trowel. You ask him what's wrong. \"I just need to get through this layer of frost. They're still good under there, they're just out of reach!\" You tell him you have no idea what he's talking about. \"Radishes! I have a buyer who is willing to pay enough for me to retire on if I can deliver today, but all of my radishes are just out of reach... Just. Under. This. Ice!\" He smashes the trowel against the frozen ground.",
+    "narrative": "You come across a man who appears in the middle of a mental breakdown. He screams himself hoarse while stabbing at the frozen earth with a trowel. You ask him what's wrong.<br><br>\"I just need to get through this layer of frost. They're still good under there, they're just out of reach!\" You tell him you have no idea what he's talking about.<br><br>\"Radishes! I have a buyer who is willing to pay enough for me to retire on if I can deliver today, but all of my radishes are just out of reach... Just. Under. This. Ice!\" He smashes the trowel against the frozen ground.",
     "options": [
       {
         "label": "A",
         "narrative": "Tell him where to find some discarded radishes.",
         "outcomes": [
           {
-            "narrative": "You tell him where there's a sack full of discarded radishes back in Frosthaven. His eyes light up, and he breaks out into a sprint to retrieve them. \"Thank you!\" he calls back over his shoulder. \"I can't thank you enough!\" He disappears in the distance, and you hope he finds what he's looking for.",
+            "narrative": "You tell him where there's a sack full of discarded radishes back in Frosthaven. His eyes light up, and he breaks out into a sprint to retrieve them.<br><br>\"Thank you!\" he calls back over his shoulder. \"I can't thank you enough!\" He disappears in the distance, and you hope he finds what he's looking for.",
             "effects": [
               {
                 "type": "removeEvent",
@@ -15529,28 +15740,29 @@
     "cardId": "WR-32",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "Crackles of energy pulsed through the air for more than an hour as you traveled, and now you've found their source. An Aesther, a being of energy with tousled clothes and long black fingernails, is carving runes into the air, shouting at the winter sky. The flourish that finishes each rune sends off crackles of purple static and the ground shows scars of fire emanating from where the Aesther stands. When you approach, the Aesther spins to stare at you, and you recognize the Pain Conduit. \"You feel it, don't you! A massive creature, so full of pain and suffering—and it is so close!\" Their black eyes flash intensely. \"I will find it! I will consume its agony!\" This sounds precisely like the sort of thing you want no part of, and you do your best to back away slowly. Doing so does not sit well with the Pain Conduit, however, who curves their long fingers into an arc, thrusting them at you with a scream. \"Perhaps I just need someone else as a focus...\" The feeling of splashing into a pool of hot water boils over your skin, and in an instant, you are somewhere else...",
+    "narrative": "Crackles of energy pulsed through the air for more than an hour as you traveled, and now you've found their source. An Aesther, a being of energy with tousled clothes and long black fingernails, is carving runes into the air, shouting at the winter sky. The flourish that finishes each rune sends off crackles of purple static and the ground shows scars of fire emanating from where the Aesther stands.<br><br>When you approach, the Aesther spins to stare at you, and you recognize the Pain Conduit. \"You feel it, don't you! A massive creature, so full of pain and suffering—and it is so close!\" Their black eyes flash intensely. \"I will find it! I will consume its agony!\"<br><br>This sounds precisely like the sort of thing you want no part of, and you do your best to back away slowly. Doing so does not sit well with the Pain Conduit, however, who curves their long fingers into an arc, thrusting them at you with a scream. \"Perhaps I just need someone else as a focus...\"<br><br>The feeling of splashing into a pool of hot water boils over your skin, and in an instant, you are somewhere else...",
     "options": [
       {
-        "label": "A",
-        "narrative": "Jump through the portal.",
+        "narrative": "Flip over this card.",
         "outcomes": [
           {
-            "narrative": "The world around you is polluted, and each gasp of air draws in more sulfur than anything worth breathing. Getting to your feet is a struggle, and a thick fog of orange obscures the sun. The mechanical grinding of metal on metal punctuates the landscape and pipes belch soot with a terrible rhythm. The only glimpse of hope is a swirling purple portal leading back to the world you knew, wobbling unstably.",
+            "narrative": "The world around you is polluted, and each gasp of air draws in more sulfur than anything worth breathing. Getting to your feet is a struggle, and a thick fog of orange obscures the sun. The mechanical grinding of metal on metal punctuates the landscape and pipes belch soot with a terrible rhythm. The only glimpse of hope is a swirling purple portal leading back to the world you knew, wobbling unstably.<br><br>The Pain Conduit scratches at the ground, throwing sparks of purple against the iron floor: \"Yes! This entire plane wails out to me in pain. Its inhabitants smothered and choked it into a horrible death. Perfect!\"<br><br>THUMP. THUMP. THUMP.<br><br>Lumbering out of the orange smoke drops the largest metal foot you have ever seen. It could fit an entire longhouse inside it. You freeze in sheer horror.<br><br>... and then a second foot joins it. The legs jut up like massive trees into the sickly fog. A light, shining from the direction of what you assume is the monstrosity's head, cuts down through the mirk, illuminating you.",
             "effects": [
-              "Read 125.1 now."
+              ""
             ]
-          }
-        ]
-      },
-      {
-        "label": "B",
-        "narrative": "Shove the Pain Conduit through the portal and jump in behind.",
-        "outcomes": [
+          },
           {
-            "narrative": "The Pain Conduit scratches at the ground, throwing sparks of purple against the iron floor: \"Yes! This entire plane wails out to me in pain. Its inhabitants smothered and choked it into a horrible death. Perfect!\" THUMP. THUMP. THUMP. Lumbering out of the orange smoke drops the largest metal foot you have ever seen. It could fit an entire longhouse inside it. You freeze in sheer horror. ... and then a second foot joins it. The legs jut up like massive trees into the sickly fog. A light, shining from the direction of what you assume is the monstrosity's head, cuts down through the mirk, illuminating you.",
+            "condition": "Option A",
+            "inlineEffects": true,
             "effects": [
-              "Read 163.5 now."
+              "Jump through the portal. Read %game.section:125.1% now."
+            ]
+          },
+          {
+            "condition": "Option B",
+            "inlineEffects": true,
+            "effects": [
+              "Shove the Pain Conduit through the portal and jump in behind. Read %game.section:163.5% now."
             ]
           }
         ]
@@ -15561,7 +15773,7 @@
     "cardId": "WR-33",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "Walking out Frosthaven's main gate, you see a shimmering, armor-clad man at the top of the ridgeline. He jumps from an incredible height, landing powerfully on a bended knee, a single fist touching the ground. Drawing himself back up you recognize the face. \"Hello, fellow mercenaries! It is I, Ormi!\" If this really is the novice fighter you brought along to a fight, he's improved his capability in incredible time. His voice booms with confidence: \"Perhaps you'd have room for one more on your quest?\" He sees your awe-struck reaction and sweeps his voluminous hair back with a stroke of his broad arm. \"If you're concerned about splitting the loot, have no fear; I'll give up my share. I'm in it just for the adventure!\" His perfect teeth gleam in the sunlight.",
+    "narrative": "Walking out Frosthaven's main gate, you see a shimmering, armor-clad man at the top of the ridgeline. He jumps from an incredible height, landing powerfully on a bended knee, a single fist touching the ground. Drawing himself back up you recognize the face.<br><br>\"Hello, fellow mercenaries! It is I, Ormi!\" If this really is the novice fighter you brought along to a fight, he's improved his capability in incredible time. His voice booms with confidence: \"Perhaps you'd have room for one more on your quest?\"<br><br>He sees your awe-struck reaction and sweeps his voluminous hair back with a stroke of his broad arm. \"If you're concerned about splitting the loot, have no fear; I'll give up my share. I'm in it just for the adventure!\" His perfect teeth gleam in the sunlight.",
     "options": [
       {
         "label": "A",
@@ -15570,10 +15782,10 @@
           {
             "narrative": "Ormi looks delighted, his broad chest swelling with excitement. \"Ah, just like the old days!\"",
             "effects": [
-              "Play the next scenario as if you have one more character than you do, or, if you have four characters, increase the scenario level by 1.",
-              "At the start of the next scenario, place a numbered token (or other suitable token if all are being used) in an empty hex adjacent to any character to represent Ormi. Ormi has (Lx2)+8 hit points and acts on initiative 30 each round performing 🗡️ 2, 🛡️ 4. Any character can lose one card from their hand or two from their discard pile to negate any single source of damage to Ormi.",
-              "If the scenario is completed and Ormi survives: Treat all bonus experience and gold conversion as two levels higher (not counting any increase from this card).",
-              "If the scenario is lost or if Ormi does not survive: Lose 1 morale and 1 soldier."
+              "Play the next scenario as if you have one more character than you do, or, if you have four characters, increase the scenario level by 1.<br><br>",
+              "At the start of the next scenario, place a numbered token (or other suitable token if all are being used) in an empty hex adjacent to any character to represent Ormi. Ormi has (Lx2)+8 hit points and acts on initiative 30 each round performing %game.action.move% 2, %game.action.attack% 4. Any character can lose one card from their hand or two from their discard pile to negate any single source of damage to Ormi.",
+              "<br>If the scenario is completed and Ormi survives: Treat all bonus experience and gold conversion as two levels higher (not counting any increase from this card).",
+              "<br>If the scenario is lost or if Ormi does not survive: Lose 1 morale and 1 soldier."
             ]
           }
         ]
@@ -15583,7 +15795,7 @@
         "narrative": "Tell him this mission won't be of interest to someone of his prowess, but perhaps some later quest might be more suitable.",
         "outcomes": [
           {
-            "narrative": "He takes it in stride: \"No matter, friends. There will always be a greater battle. I will train until we meet again!\" Ormi begins doing one-handed push-ups at the side of the road.",
+            "narrative": "He takes it in stride: \"No matter, friends. There will always be a greater battle. I will train until we meet again!\"<br><br>Ormi begins doing one-handed push-ups at the side of the road.",
             "returnToDeck": true,
             "effects": [
               {
@@ -15612,7 +15824,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "bless"
+                  "stun"
                 ]
               }
             ]
@@ -15630,8 +15842,8 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "curse",
-                  "wound"
+                  "brittle",
+                  "impair"
                 ]
               }
             ]
@@ -15661,14 +15873,20 @@
     "cardId": "WR-35",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You approach the edge of a great chasm not far from Frosthaven's gates. The rickety wooden bridge has been retrofitted with additional ropes and chunks of metal that don't seem to do much structurally, but are certainly... there. The whole affair has been painted with a metallic gold paint that looks gaudy at best. It's either this bridge or a swift-looking river fed by glacial runoff below. Before you have a chance to decide, a hulking Algox wearing a trench coat made of polar bear fur with gold threading steps up to block your path. \"Welcome my bridge! You best customers.\" He continues, with a broad smile. \"Legitimate business bridge, see?\" He points to the gold-painted railings, still on the verge of collapse. \"Okay, enough social talk. You pay now or use death-path down there.\" He crosses his arms and waits.",
+    "narrative": "You approach the edge of a great chasm not far from Frosthaven's gates. The rickety wooden bridge has been retrofitted with additional ropes and chunks of metal that don't seem to do much structurally, but are certainly... there. The whole affair has been painted with a metallic gold paint that looks gaudy at best.<br><br>It's either this bridge or a swift-looking river fed by glacial runoff below. Before you have a chance to decide, a hulking Algox wearing a trench coat made of polar bear fur with gold threading steps up to block your path. \"Welcome my bridge! You best customers.\"<br><br>He continues, with a broad smile. \"Legitimate business bridge, see?\" He points to the gold-painted railings, still on the verge of collapse. \"Okay, enough social talk. You pay now or use death-path down there.\" He crosses his arms and waits.",
     "options": [
       {
         "label": "A",
         "narrative": "Pay to use the legitimate business bridge.",
         "outcomes": [
           {
-            "condition": "lose 1 material resource each",
+            "condition": {
+              "type": "loseResourceType",
+              "values": [
+                1,
+                "material-resource"
+              ]
+            },
             "narrative": "The hulking Algox removes a velvet rope and waves you through. \"Enjoy bridge. Such good customers. Tell friends!\" The upgrades to the business bridge legitimately don't make it feel any safer, but it does get your party across safely, same as always. Some of the gold paint wipes off on your clothes; it seems the Algox is reapplying it regularly.",
             "returnToDeck": true,
             "effects": [
@@ -15719,8 +15937,23 @@
               "type": "otherwise"
             },
             "narrative": "You try to wade through the icy river but it's impossibly cold. The swift current takes your balance out from under you, and by the time you've made it to the other side, all warmth has left your body and the contents of your pack are scattered.",
+            "returnToDeck": true,
             "effects": [
-              "All characters start the next scenario with IMMOBILIZE, and one less item."
+              {
+                "type": "scenarioCondition",
+                "alt": true,
+                "values": [
+                  "brittle"
+                ]
+              },
+              {
+                "type": "scenarioDamage",
+                "alt": true,
+                "values": [
+                  3
+                ]
+              },
+              "All characters %game.card.lost% one %game.itemSlot:small%."
             ]
           }
         ]
@@ -15731,7 +15964,7 @@
     "cardId": "WR-36",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You're sitting on a snow-covered rock, taking a break from the long journey. Suddenly, a young Inox in a swirling blue cloak appears around a bend in the path. He pauses to fire an arrow at something behind him, then breaks into a panicked sprint. He stops up short when he sees you by the side of the path. \"Oh, hello.\" His eyes flash in recognition. \"OH! It's you! Remember me? I saved you from all those undead!\" You do seem to recall an Inox and some undead, but you're pretty certain he had been bleeding out at the time... if anything, you saved him. You hear a groaning, shuffling sound coming from around the bend in the path. \"Oh, uh, right.\" The Inox looks suddenly conflicted. \"Um, there are... several... more. Corpses, that is. Coming this way. \"But I'll save you!\" He comes to a conclusion. \"Stay behind me!\" He readies his bow as the first corpses appear around the bend. \"Don't get up,\" he wavers, \"I can, uh, handle them. No... no help needed.\"",
+    "narrative": "You're sitting on a snow-covered rock, taking a break from the long journey. Suddenly, a young Inox in a swirling blue cloak appears around a bend in the path. He pauses to fire an arrow at something behind him, then breaks into a panicked sprint. He stops up short when he sees you by the side of the path.<br><br>\"Oh, hello.\" His eyes flash in recognition. \"OH! It's you! Remember me? I saved you from all those undead!\"<br><br>You do seem to recall an Inox and some undead, but you're pretty certain he had been bleeding out at the time... if anything, you saved <strong>him</strong>.<br><br>You hear a groaning, shuffling sound coming from around the bend in the path.<br><br>\"Oh, uh, right.\" The Inox looks suddenly conflicted. \"Um, there are... several... more. Corpses, that is.<br>Coming this way.<br><br>\"But I'll save you!\" He comes to a conclusion. \"Stay behind me!\" He readies his bow as the first corpses appear around the bend. \"Don't get up,\" he wavers, \"I can, uh, handle them. No... no help needed.\"",
     "options": [
       {
         "label": "A",
@@ -15752,7 +15985,7 @@
         "narrative": "Come on, he clearly needs help.",
         "outcomes": [
           {
-            "narrative": "You want to know how this kid keeps ending up on the business end of undead hordes. The only way you're going to find out, though, is if you keep him alive long enough to ask him. You draw steel and jump into the fray alongside the overconfident youth. \"Thanks. I mean, I had that handled, but, you were helpful,\" the Inox says as you wipe off your blade. \"Here, as a momento of my favor.\" He takes an amulet from around his neck. \"It was meant to help me in my hunt for monsters, but... well, I think it works too well.\"",
+            "narrative": "You want to know how this kid keeps ending up on the business end of undead hordes. The only way you're going to find out, though, is if you keep him alive long enough to ask him. You draw steel and jump into the fray alongside the overconfident youth.<br><br>\"Thanks. I mean, I had that handled, but, you were helpful,\" the Inox says as you wipe off your blade. \"Here, as a momento of my favor.\" He takes an amulet from around his neck. \"It was meant to help me in my hunt for monsters, but... well, I think it works too well.\"",
             "effects": [
               {
                 "type": "item",
@@ -15771,16 +16004,28 @@
     "cardId": "WR-37",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You're walking along the trail when you hear the unmistakable howl of hounds from behind you. A full pack—more than a dozen—is massing to attack. Backed into a corner and out of options, you draw weapons and are preparing for the fight when a rain of blue-feathered arrows strikes their leader, driving the rest away. \"Good to see you again.\" It is Malrog, the young Algox you generously equipped for his trials. Time has not been kind to him, but he gives a broad smile. \"Today I repay my debt to you: I have something my tribe collected from a corpse of your kind.\"",
+    "narrative": "You're walking along the trail when you hear the unmistakable howl of hounds from behind you. A full pack—more than a dozen—is massing to attack. Backed into a corner and out of options, you draw weapons and are preparing for the fight when a rain of blue-feathered arrows strikes their leader, driving the rest away.<br><br>\"Good to see you again.\" It is Malrog, the young Algox you generously equipped for his trials. Time has not been kind to him, but he gives a broad smile. \"Today I repay my debt to you: I have something my tribe collected from a corpse of your kind.\"",
     "options": [
       {
         "label": "A",
         "narrative": "No thanks is necessary, but perhaps we could have a hot meal with your tribe?",
         "outcomes": [
           {
-            "narrative": "Malrog leads you to his tribe, a few dozen Algox dressed in thick pelts. They've carved part of the mountainside into hidden huts, and a fire burns under a bubbling pot of dinner. It smells delicious. You spend the evening sharing stories and learning from the Algox. What their cooking lacks in seasoning it makes up for in quantity, and by the time you retire to sleep you're full and happy. You head off to your next adventure a bit wiser and warmer.",
+            "narrative": "Malrog leads you to his tribe, a few dozen Algox dressed in thick pelts. They've carved part of the mountainside into hidden huts, and a fire burns under a bubbling pot of dinner. It smells delicious.<br><br>You spend the evening sharing stories and learning from the Algox. What their cooking lacks in seasoning it makes up for in quantity, and by the time you retire to sleep you're full and happy. You head off to your next adventure a bit wiser and warmer.",
             "effects": [
-              "Gain 1 inspiration and 3 collective HIDE."
+              {
+                "type": "inspiration",
+                "values": [
+                  3
+                ]
+              },
+              {
+                "type": "collectiveResource",
+                "values": [
+                  3,
+                  "hide"
+                ]
+              }
             ]
           }
         ]
@@ -15790,7 +16035,7 @@
         "narrative": "Accept Malrog's gift.",
         "outcomes": [
           {
-            "narrative": "Malrog digs into his satchel and pulls out a small pendant on a long chain. \"I kept this in the hopes I'd see you again. As thanks for your gift so long ago.\" With that and a smile, he bids you farewell.",
+            "narrative": "Malrog digs into his satchel and pulls out a small pendant on a long chain.<br><br>\"I kept this in the hopes I'd see you again. As thanks for your gift so long ago.\" With that and a smile, he bids you farewell.",
             "effects": [
               {
                 "type": "item",
@@ -15823,7 +16068,7 @@
         "narrative": "Stand your ground.",
         "outcomes": [
           {
-            "narrative": "You honored me with your assistance some time ago, and an Algox doesn't forget.\" He throws a fresh kill at your feet. \"As repayment. My debt is cleared.",
+            "narrative": "You find an open enough area to make your stand. The hounds rush into the clearing and circle around your party, each waiting for another to make the first move. Malrog silently watches as you batter back wave after wave, fighting for your life. Finally, the exhaustion setting in and your guard down, the last of the hounds jumps toward you only to be cut down by a well-placed arrow from Malrog's bow.<br><br>\"You honored me with your assistance some time ago, and an Algox doesn't forget.\" He throws a fresh kill at your feet. \"As repayment. My debt is cleared.\"",
             "effects": [
               {
                 "type": "collectiveResource",
@@ -15836,7 +16081,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "bless"
+                  "wound"
                 ]
               }
             ]
@@ -15848,7 +16093,7 @@
         "narrative": "Call up to the Algox for help.",
         "outcomes": [
           {
-            "narrative": "You honored me with your assistance some time ago, and an Algox doesn't forget. Regardless of your appearance, you will always be among my Algox friends.\"<br><br>He drops a fresh kill at your feet. \"I wish you safe travels.",
+            "narrative": "You shout up to Malrog, who obliges with a flurry of blue-feathered arrows from his bow. The hounds scatter, uninterested in a fight they're not sure to win.<br><br>\"You honored me with your assistance some time ago, and an Algox doesn't forget. Regardless of your appearance, you will always be among my Algox friends.\"<br><br>He drops a fresh kill at your feet. \"I wish you safe travels.\"",
             "effects": [
               {
                 "type": "collectiveResource",
@@ -15876,7 +16121,19 @@
           {
             "narrative": "You find an open enough area to make your stand. The hounds rush into the clearing and circle around your party, each waiting for another to make the first move. Malrog silently watches as you batter back wave after wave, fighting for your life. Finally, the exhaustion setting in and your guard down, the last of the hounds jumps toward you, and you barely beat it away. Still Malrog watches.<br><br>\"You taught me an important lesson about self-sufficiency, and I am thrilled you've been able to learn the same lesson. Until we meet again.\"",
             "effects": [
-              "All characters start the next scenario with POISON, IMMOBILIZE, and discard one card."
+              {
+                "type": "scenarioCondition",
+                "alt": true,
+                "values": [
+                  "wound",
+                  "brittle",
+                  "impair"
+                ]
+              },
+              {
+                "type": "discardOne",
+                "alt": true
+              }
             ]
           }
         ]
@@ -15888,7 +16145,19 @@
           {
             "narrative": "You shout up to Malrog, asking for help in the face of impossible odds. \"You taught me an important lesson about self-sufficiency, and I would not dishonor you by preventing your own education.\"<br><br>The hounds circle your party and attack, a maelstrom of bites and claws, as Malrog silently watches from his perch. You fight for your lives as the exhaustion sets in, and still Malrog refuses to do more than observe. You barely beat back the last of the hounds and see that Malrog has turned to leave.<br><br>\"Until we meet again.\"",
             "effects": [
-              "All characters start the next scenario with POISON, IMMOBILIZE, and discard one card."
+              {
+                "type": "scenarioCondition",
+                "alt": true,
+                "values": [
+                  "wound",
+                  "brittle",
+                  "impair"
+                ]
+              },
+              {
+                "type": "discardOne",
+                "alt": true
+              }
             ]
           }
         ]
@@ -15899,19 +16168,19 @@
     "cardId": "WR-40",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You, the player, are sitting at your table, moving your pawns around like it's all a game to you. You treat their lives like playthings, something to discard.<br><br>So, let's play a game, you and I. You'll be my pawn.<br><br>The game is simple. Don't let me catch you. Do not turn this card over.<br><br>EVER.",
+    "narrative": "<span style=\"font-family: var(--ghs-font-gh-title); font-size: 1.4em;\">You, the player, are sitting at your table, moving your pawns around like it's all a game to you. You treat their lives like playthings, something to discard.<br><br>So, let's play a game, you and I. You'll be my pawn.<br><br>The game is simple. Don't let me catch you. Do not turn this card over.<br><br><span style=\"font-size:1.5em;\">EVER.</span><br><br>The game begins now, my plaything.</span>",
     "options": [
       {
-        "narrative": "The game begins now, my plaything.",
+        "narrative": "Flip over this card.",
         "outcomes": [
           {
-            "narrative": "Tsk, tsk. I caught you. I win, you lose. Now you have to play by my rules.",
+            "narrative": "<br><br><br><br><br><br><br><br><br><br><span style=\"font-family: var(--ghs-font-gh-title); font-size: 1.4em;\">Tsk, tsk. I caught you. I win, you lose. Now you have to play by my rules.</span><br><br>",
             "effects": [
               "Until a scenario is completed, all characters start every scenario with %game.condition.wound%, %game.condition.brittle%, %game.condition.bane%, %game.condition.poison%, and %game.condition.impair%."
             ]
           },
           {
-            "narrative": "Until we meet again, plaything."
+            "narrative": "<br><br><span style=\"font-family: var(--ghs-font-gh-title); font-size: 1.4em;\">Until we meet again, plaything.</span>"
           }
         ]
       }
@@ -15921,12 +16190,30 @@
     "cardId": "WR-41",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "Balancing on a single rubber wheel, a small metal box with a wobbly head rolls to block your path. It shouts in a full-throated metallic voice. \"YOU ARE BEING JUMPED. WE WILL RETAIN YOUR VALUABLES.\" Out steps a bipedal metal monstrosity—it towers over you. Its neck terminates in a long barrel, as though someone strapped artillery to a giant metal sculpture in the place where its head should be. It aims the head-cannon directly at you. A blue light flickers inside and you can feel waves of heat play cross your body as it powers up. \"SNICKLES AND STUMP HAVE PLACES TO BE. YOUR LIVING OR YOUR LIFE?\"",
+    "narrative": "Balancing on a single rubber wheel, a small metal box with a wobbly head rolls to block your path. It shouts in a full-throated metallic voice.<br><br>\"YOU ARE BEING JUMPED. WE WILL RETAIN YOUR VALUABLES.\"<br><br>Out steps a bipedal metal monstrosity—it towers over you. Its neck terminates in a long barrel, as though someone strapped artillery to a giant metal sculpture in the place where its head should be. It aims the head-cannon directly at you. A blue light flickers inside and you can feel waves of heat play cross your body as it powers up.<br><br>\"SNICKLES AND STUMP HAVE PLACES TO BE. YOUR LIVING OR YOUR LIFE?\"",
     "options": [
       {
         "label": "A",
         "narrative": "Try to reason with them.",
         "outcomes": [
+          {
+            "condition": {
+              "type": "traits",
+              "values": [
+                "chaotic",
+                "intimidating"
+              ]
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "B"
+                ]
+              }
+            ]
+          },
           {
             "condition": {
               "type": "traits",
@@ -15950,8 +16237,9 @@
               "type": "otherwise"
             },
             "narrative": "Snickles rolls over to you with an outstretched sack. \"IF I WANTED A SOB STORY, I'D CHECK YOUR FAMILY TREE. FILL UP THE BAG.\"",
+            "returnToDeck": true,
             "effects": [
-              "Lose 10 collective GOLD or 3 collective material resources."
+              "Lose 10 collective gold or 3 collective material resources."
             ]
           }
         ]
@@ -15974,7 +16262,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "poison"
+                  "wound"
                 ]
               }
             ]
@@ -15987,7 +16275,7 @@
     "cardId": "WR-42",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "A trail of star-shaped hoofprints leads you to an animal struggling against a thick tangle of brambles. The creature is a deep royal purple, with dense, shaggy fur that obscures its body. Its antlers, long metallic purple blades tucked back behind its head, are caught in the thick mass of thorny vines. It silently shudders as you approach, trying to push its angular beak deeper into the bush to get away from you.",
+    "narrative": "A trail of star-shaped hoofprints leads you to an animal struggling against a thick tangle of brambles. The creature is a deep royal purple, with dense, shaggy fur that obscures its body. Its antlers, long metallic purple blades tucked back behind its head, are caught in the thick mass of thorny vines. It silently shudders as you approach, trying to push its angular beak deeper into the bush to get away from you.<br><br>The poor thing looks exhausted and terrified.",
     "options": [
       {
         "label": "A",
@@ -16000,7 +16288,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "poison"
+                  "wound"
                 ]
               },
               {
@@ -16018,13 +16306,33 @@
         "narrative": "Calm the creature by offering it something to eat.",
         "outcomes": [
           {
-            "condition": "Lose 1 ARROWS",
-            "narrative": "You hold out a handful of nuts, and the majestic creature briefly forgets its predicament. With its sharp golden beak it taps at the nut, cracking it open with a swiftness unbecoming its size. A long pink tongue scrapes your hand as it picks the edible bits from between the shells. The distraction gives you a chance to wrest the creature's enormous antlers free of the brambles. They have a warmth to them, as though blood is flowing clear to the tips. It doesn't take long before the creature is free. It bows its head and gives a purring noise before galloping off.",
+            "condition": {
+              "type": "loseResource",
+              "values": [
+                1,
+                "axenut"
+              ]
+            },
+            "narrative": "You hold out a handful of nuts, and the majestic creature briefly forgets its predicament. With its sharp golden beak it taps at the nut, cracking it open with a swiftness unbecoming its size. A long pink tongue scrapes your hand as it picks the edible bits from between the shells.<br><br>The distraction gives you a chance to wrest the creature's enormous antlers free of the brambles. They have a warmth to them, as though blood is flowing clear to the tips. It doesn't take long before the creature is free.<br><br>It bows its head and gives a purring noise before galloping off.",
             "effects": [
               {
                 "type": "campaignSticker",
                 "values": [
                   "brummix"
+                ]
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "otherwise"
+            },
+            "inlineEffects": true,
+            "effects": [
+              {
+                "type": "outcome",
+                "values": [
+                  "A"
                 ]
               }
             ]
@@ -16037,7 +16345,7 @@
     "cardId": "WR-43",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "As you follow the road deeper into the woods, you hear a commotion off the path. After a bit of bushwhacking, you find a small, well-hidden Vermling village that looks like it has seen better days. To your left, you see a small group hammering away on the roof of a small building. It looks like the thatching caved in under the weight of a recent snowstorm, and they still have a lot of work left to do before it's weatherproof. To your right, another group is sitting around a large fire with several pots of stew simmering over the flame. Looks like they're trying to make enough food to get themselves through the next snowstorm. The smell wafts over to you. It smells delicious. You've gotten into plenty of fights with Vermlings, but this pack seems like they could use a hand.",
+    "narrative": "As you follow the road deeper into the woods, you hear a commotion off the path. After a bit of bushwhacking, you find a small, well-hidden Vermling village that looks like it has seen better days.<br><br>To your left, you see a small group hammering away on the roof of a small building. It looks like the thatching caved in under the weight of a recent snowstorm, and they still have a lot of work left to do before it's weatherproof.<br><br>To your right, another group is sitting around a large fire with several pots of stew simmering over the flame. Looks like they're trying to make enough food to get themselves through the next snowstorm. The smell wafts over to you. It smells delicious.<br><br>You've gotten into plenty of fights with Vermlings, but this pack seems like they could use a hand.",
     "options": [
       {
         "label": "A",
@@ -16046,7 +16354,13 @@
           {
             "narrative": "You climb up and start helping with the repairs. A few minutes later, two Vermlings start arguing over whose turn it is to use a hammer. You walk over to break up the fight, but it seems like Vermling rooftops aren't really that strong to begin with. With a loud crack, the board you're standing on snaps in half, and you fall through. The Vermlings crowd around you—half of them wanting to make sure you're okay, and the other half upset at you for undoing all their work.",
             "effects": [
-              "All characters start the next scenario with IMMOBILIZE 2."
+              {
+                "type": "scenarioDamage",
+                "alt": true,
+                "values": [
+                  2
+                ]
+              }
             ]
           }
         ]
@@ -16064,7 +16378,7 @@
             },
             "narrative": "You catch a whiff of the meal they're cooking and recognize it immediately! It's Black Imp stew—your mother used to make it for the whole nest when you were young.",
             "effects": [
-              "All VERMLING characters start the next scenario with BLESS and STRENGTHEN."
+              "All %game.trait:vermling% characters start the next scenario with %game.condition.ward% and %game.condition.bless%."
             ]
           },
           {
@@ -16077,7 +16391,7 @@
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "immobilize"
+                  "poison"
                 ]
               }
             ]
@@ -16090,14 +16404,14 @@
     "cardId": "WR-44",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "\"Good to meet you. I'm Hail. Unless we've met before, in which case… uh, well, I'm still Hail.\" A translucent Aesther is blocking the road in front of you. \"You're mercenaries, right? This sheer, icy cliff leads to the Crimson Plant Grove. I want you to climb up there and bring back a red one of that one plant. You know?\" You do not know, but she's willing to draw you a picture. After a few hours of climbing, you uncrumple the drawing of the plant you're looking for and… well, it leaves a lot to be desired. It looks like there's red axenuts and red corpsescaps here. She was very insistent that the Crimson Plant Grove is precious and you shouldn't take more than one. Which do you bring back to Hail?",
+    "narrative": "\"Good to meet you. I'm Hail. Unless we've met before, in which case… uh, well, I'm still Hail.\" A translucent Aesther is blocking the road in front of you. \"You're mercenaries, right? This sheer, icy cliff leads to the Crimson Plant Grove. I want you to climb up there and bring back a red one of that one plant. You know?\" You do not know, but she's willing to draw you a picture.<br><br>After a few hours of climbing, you uncrumple the drawing of the plant you're looking for and… well, it leaves a lot to be desired.<br><img class=\"placerholder-image\" src=\"./assets/artwork/events/fh-WR-44.png\">It looks like there's red axenuts and red corpsescaps here. She was very insistent that the Crimson Plant Grove is precious and you shouldn't take more than one. Which do you bring back to Hail?",
     "options": [
       {
         "label": "A",
         "narrative": "The red axenut.",
         "outcomes": [
           {
-            "narrative": "\"Perfect, thank y—wait, is that an axenut? I specifically said I wanted a red corpsescap.\" Hail looks at you with intense scorn and sighs longer and louder than you think is necessary. You try to explain that she drew an axenut. \"The audacity…\" she mutters, examining her drawing, which suddenly appears in her hand. \"You were holding it upside down. Oh, look, just forget the whole thing.\" She pops open a small portal to the top of the cliff and reaches through to pluck the red corpsescap. \"I'll just do it myself.\"",
+            "narrative": "\"Perfect, thank y—wait, is that an axenut? I specifically said I wanted a red corpsescap.\" Hail looks at you with intense scorn and sighs longer and louder than you think is necessary. You try to explain that she drew an axenut.<br><br>\"The audacity…\" she mutters, examining her drawing, which suddenly appears in her hand. \"You were holding it upside down. Oh, look, just forget the whole thing.\" She pops open a small portal to the top of the cliff and reaches through to pluck the red corpsescap. \"I'll just do it myself.\"",
             "effects": [
               {
                 "type": "discardOne",
@@ -16112,14 +16426,14 @@
         "narrative": "The red corpsescap.",
         "outcomes": [
           {
-            "narrative": "\"Perfect,\" she says as the red corpsescap you were holding suddenly appears in her hand. She gives it a big sniff. \"Yes, this should do nicely…\" She breaks off a small chunk and hands it to you. \"Chew on that.\" It has a spongy, icy texture that melts to a distinct aftertaste of ash. \"Don't say I never gave you anything.\" With that, she splits a portal open in the air and steps through to an alley in front of a decrepit tavern in a city that looks nice and warm. It snaps shut behind her.",
+            "narrative": "\"Perfect,\" she says as the red corpsescap you were holding suddenly appears in her hand. She gives it a big sniff. \"Yes, this should do nicely…\" She breaks off a small chunk and hands it to you. \"Chew on that.\"<br><br>It has a spongy, icy texture that melts to a distinct aftertaste of ash. \"Don't say I never gave you anything.\" With that, she splits a portal open in the air and steps through to an alley in front of a decrepit tavern in a city that looks nice and warm. It snaps shut behind her.",
             "effects": [
               {
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "poison",
-                  "curse"
+                  "ward",
+                  "strengthen"
                 ]
               }
             ]
@@ -16132,7 +16446,7 @@
     "cardId": "WR-45",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "Venturing into the mouth of a suspicious-looking cave has brought you to a hidden tomb featuring a sarcophagus carved directly into the cave itself. After a few hearty shoves the lid collapses to the ground, revealing a three-armed skeleton in rotting silk finery. Before you have a chance to investigate, it shoots upright, locking its gaze on you.",
+    "narrative": "Venturing into the mouth of a suspicious-looking cave has brought you to a hidden tomb featuring a sarcophagus carved directly into the cave itself. After a few hearty shoves the lid collapses to the ground, revealing a three-armed skeleton in rotting silk finery. Before you have a chance to investigate, it shoots upright, locking its gaze on you.<br><br>\"Each slumber feels shorter than the last; surely it's been less than a decade?\" You detect a hint of scorn in its voice as it looks at you. \"I expect you are here for the knowledge of my people.\" Gnarled bone fingers crack as they heft a tome to the rim of the coffin. \"Bound in moss and inked in the blood of my kind.\"<br><br>\"Use it wisely. My people were great once. We stood with mankind, arm in arm in arm.\" Its words grow shallower, as though whatever magic reanimated it is fading. \"Then your betrayal. Someday soon, you too will fall to your betters, lost to guarding ruins whose purpose you cannot recall...\"<br><br>The skeleton collapses motionlessly into the coffin, exuding a purple cloud of foul-smelling magic.",
     "options": [
       {
         "label": "A",
@@ -16332,7 +16646,7 @@
     "cardId": "WR-47",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You're in the region Eddica the Librarian suggested would contain the Tome of Time, but a search has turned up nothing. Heavy snowfall forces you to take shelter in a dry cave for a few hours. To your surprise you spot a small handle carefully hidden in the rock wall. With a bit of force you're able to pull open a hidden compartment containing a single object: a heavy tome with a delicate, sand-filled hourglass embedded in the cover. Two stiff metal latches hold the book shut, but if you tilt the cover just right the sand in the hourglass begins to run. So long as it's flowing, the latches release easily. You hastily flip through the pages: it looks like this is in fact the tome Eddica the librarian is looking for!",
+    "narrative": "You're in the region Eddica the Librarian suggested would contain the Tome of Time, but a search has turned up nothing. Heavy snowfall forces you to take shelter in a dry cave for a few hours. To your surprise you spot a small handle carefully hidden in the rock wall. With a bit of force you're able to pull open a hidden compartment containing a single object: a heavy tome with a delicate, sand-filled hourglass embedded in the cover. Two stiff metal latches hold the book shut, but if you tilt the cover just right the sand in the hourglass begins to run. So long as it's flowing, the latches release easily. You hastily flip through the pages: it looks like this is in fact the tome Eddica the librarian is looking for!<br><br>The diagrams clearly lay out the hand positions and stances to take in casting, and the words are written in several languages, making it easy to translate. If you managed to invoke it, the spell looks like it could give some benefit in the battle you're about to head into.",
     "options": [
       {
         "label": "A",
@@ -16419,20 +16733,20 @@
     "cardId": "WR-48",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "You round a bend in the road to find a small armored tank arguing with a multi-propelled flying machine with many arms.",
+    "narrative": "\"I AM HIVE.\"<br><br>\"NEGATORY. I AM HIVE.<br><br>\"You round a bend in the road to find a small armored tank arguing with a multi-propelled flying machine with many arms.<br><br>\"YOU CAN BARELY MOVE IN THE SNOW WITH THOSE TREADS,\" the helicopter says. \"CLEARLY HIVE REPRESENTS GREATER MOBILITY THAN THAT.\"<br><br>\"TAM STURDY,\" the tank replies. \"ONE GLANCING BLOW WILL SEND YOU CRASHING TO YOUR DOOM. HIVE SHOULD BE MORE RESILIENT THAN THAT.\"<br><br>\"RESILIENT. HA!\" The helicopter attempts to make some sort of laughing sound. \"YOUR GEARS WILL GET CLOGGED WITH SNOW AND FREEZE SOON ENOUGH.\"<br><br>\"FORMER HIVE COMPANIONS,\" they turn their attention you. \"WHICH ONE OF US IS THE TRUE HIVE?\"",
     "options": [
       {
         "label": "A",
         "narrative": "The tank better represents the HIVE.",
         "outcomes": [
           {
-            "narrative": "\"YES, STRONG AND STURDY,\" the tank agrees. \"CLEARLY YOU VALUE WHAT IS IMPORTANT, UNLIKE THIS FLIMSY CONTRAPTION.\" The two continue arguing as you move on toward your destination.",
+            "narrative": "\"YES, STRONG AND STURDY,\" the tank agrees. \"CLEARLY YOU VALUE WHAT IS IMPORTANT, UNLIKE THIS FLIMSY CONTRAPTION.\"<br><br>The two continue arguing as you move on toward your destination.",
             "effects": [
               {
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "bless"
+                  "strengthen"
                 ]
               }
             ]
@@ -16444,13 +16758,13 @@
         "narrative": "The helicopter is a superior HIVE.",
         "outcomes": [
           {
-            "narrative": "\"I KNEW IT,\" the helicopter gloats. \"YOU UNDERSTAND THE IMPORTANCE OF MOBILITY AND SUPPORTING YOUR TEAM FROM AFAR, UNLIKE THIS LUMBERING CLOD.\" The two continue arguing as you move on toward your destination.",
+            "narrative": "\"I KNEW IT,\" the helicopter gloats. \"YOU UNDERSTAND THE IMPORTANCE OF MOBILITY AND SUPPORTING YOUR TEAM FROM AFAR, UNLIKE THIS LUMBERING CLOD.\"<br><br>The two continue arguing as you move on toward your destination.",
             "effects": [
               {
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "strengthen"
+                  "ward"
                 ]
               }
             ]
@@ -16462,14 +16776,13 @@
         "narrative": "Both machines are the HIVE.",
         "outcomes": [
           {
-            "narrative": "You try to explain that both of the machines are part of the HIVE, that the essence of the HIVE was cooperation—a bunch of different machines working in unison to highlight their strengths and shore up their weaknesses. No single machine could possibly represent the HIVE. \"PERHAPS YOU ARE RIGHT,\" the machines admit. The helicopter flies down and attaches itself to the tank, lifting it out of the snow. \"YES. NOW WE ARE STRONG AND MOBILE. WE MUST FIND THE OTHERS!\" The united machines fly off in excitement.",
+            "narrative": "You try to explain that both of the machines are part of the HIVE, that the essence of the HIVE was cooperation—a bunch of different machines working in unison to highlight their strengths and shore up their weaknesses. No single machine could possibly represent the HIVE.<br><br>\"PERHAPS YOU ARE RIGHT,\" the machines admit. The helicopter flies down and attaches itself to the tank, lifting it out of the snow. \"YES. NOW WE ARE STRONG AND MOBILE. WE MUST FIND THE OTHERS!\" The united machines fly off in excitement.",
             "effects": [
               {
                 "type": "scenarioCondition",
                 "alt": true,
                 "values": [
-                  "bless",
-                  "strengthen"
+                  "bless"
                 ]
               }
             ]
@@ -16482,7 +16795,7 @@
     "cardId": "WR-49",
     "edition": "fh",
     "type": "winter-road",
-    "narrative": "As the winds on the road pick up, and the snow begins to blast across your face, you are forced to seek refuge in a nearby cave. At first, the cave greets you with even more cold, and you find yourself huddling in deeper to escape the elements. To your surprise, the cave begins to grow warmer the deeper you travel. The cave air feels refreshing against your skin, and gusts of wind blow leaves across your feet. Strange that you don't remember seeing any trees nearby. Your curiosity piqued, you head farther in. At the back of the cave you find a door, into which are carved two symbols—a raging fire and a billow of wind. As you approach, the symbols begin to throb with a soft glow: the fire yellow and the wind orange. The key that you have been carrying with you since its discovery begins to throb as well, yellow and orange lights dancing out of your pocket. There is a keyhole in the door.",
+    "narrative": "As the winds on the road pick up, and the snow begins to blast across your face, you are forced to seek refuge in a nearby cave. At first, the cave greets you with even more cold, and you find yourself huddling in deeper to escape the elements.<br><br>To your surprise, the cave begins to grow warmer the deeper you travel. The cave air feels refreshing against your skin, and gusts of wind blow leaves across your feet. Strange that you don't remember seeing any trees nearby. Your curiosity piqued, you head farther in.<br><br>At the back of the cave you find a door, into which are carved two symbols—a raging fire and a billow of wind. As you approach, the symbols begin to throb with a soft glow: the fire yellow and the wind orange. The key that you have been carrying with you since its discovery begins to throb as well, yellow and orange lights dancing out of your pocket.<br><br>There is a keyhole in the door.",
     "options": [
       {
         "label": "A",
@@ -16508,7 +16821,7 @@
         "narrative": "Mark the cave's location on your map and return at a later time.",
         "outcomes": [
           {
-            "narrative": "You know that if you go through that door, it's going to turn into a whole thing, and you have much more pressing matters to attend to at the moment. And so, you meticulously pinpoint its location on your map so you can return to investigate this mystery later. Once the storm passes, you head on your way.",
+            "narrative": "You know that if you go through that door, it's going to turn into a whole thing, and you have much more pressing matters to attend to at the moment. And so, you meticulously pinpoint its location on your map so you can return to investigate this mystery later.<br><br>Once the storm passes, you head on your way.",
             "effects": [
               {
                 "type": "unlockScenario",

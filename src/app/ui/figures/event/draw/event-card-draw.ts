@@ -21,6 +21,7 @@ export class EventCardDrawComponent {
     checks: number[] = [];
     globalDraw: boolean = false;
     requirementWarning: boolean = false;
+    attack: boolean = false;
 
     settingsManager: SettingsManager = settingsManager;
 
@@ -60,6 +61,7 @@ export class EventCardDrawComponent {
         this.selected = change.selected;
         this.subSelections = change.subSelections;
         this.checks = change.checks;
+        this.attack = change.attack;
     }
 
     cancel() {
@@ -73,7 +75,7 @@ export class EventCardDrawComponent {
         if (this.event && (this.selected != -1 || !apply)) {
             gameManager.stateManager.before('eventDraw.accept');
             gameManager.game.eventDraw = undefined;
-            const result = gameManager.eventCardManager.applyEvent(this.event, this.selected, this.subSelections, this.checks, gameManager.game.scenario != undefined && gameManager.roundManager.firstRound, apply);
+            const result = gameManager.eventCardManager.applyEvent(this.event, this.selected, this.subSelections, this.checks, gameManager.game.scenario != undefined && gameManager.roundManager.firstRound, this.attack, apply);
             gameManager.stateManager.after(settingsManager.settings.animations ? 1000 : 250);
             ghsDialogClosingHelper(this.dialogRef, result.length ? result : undefined);
         }
@@ -105,7 +107,7 @@ export class EventCardDrawComponent {
         this.dialog.open(EventCardDialogComponent, {
             panelClass: ['fullscreen-panel'],
             disableClose: true,
-            data: { eventCard: eventCard, interactive: true, id: this.selected != -1 ? new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, this.selected, this.subSelections) : undefined }
+            data: { eventCard: eventCard, interactive: true, id: this.selected != -1 ? new EventCardIdentifier(eventCard.cardId, eventCard.edition, eventCard.type, this.selected, this.subSelections, this.checks, this.attack, false) : undefined }
         });
     }
 }

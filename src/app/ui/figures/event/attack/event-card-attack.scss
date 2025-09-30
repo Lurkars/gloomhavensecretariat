@@ -4,6 +4,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0.5;
+
+    &.selected {
+        opacity: 1;
+    }
 
     .main {
         display: flex;
@@ -33,6 +38,15 @@
 
                 img {
                     margin-right: 0.1em;
+                }
+            }
+        }
+
+        &.light {
+            .attack-value,
+            .target-number {
+                img {
+                    filter: var(--ghs-filter-white);
                 }
             }
         }

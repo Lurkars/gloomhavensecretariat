@@ -348,6 +348,15 @@
       .title {
         font-family: var(--ghs-font-text);
         font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+        &.outpost {
+          font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          font-family: var(--ghs-font-normal);
+        }
+      }
+
+      ghs-event-card-attack {
+        cursor: pointer;
       }
     }
   }
