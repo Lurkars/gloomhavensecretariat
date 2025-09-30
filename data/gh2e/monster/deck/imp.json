@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Phase Out",
-      "cardId": 826,
+      "cardId": 696,
       "initiative": 5,
       "actions": [
         {
@@ -30,7 +30,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 827,
+      "cardId": 697,
       "initiative": 37,
       "actions": [
         {
@@ -54,7 +54,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 828,
+      "cardId": 698,
       "initiative": 37,
       "actions": [
         {
@@ -78,7 +78,7 @@
     },
     {
       "name": "Restoration",
-      "cardId": 829,
+      "cardId": 699,
       "initiative": 42,
       "actions": [
         {
@@ -101,7 +101,7 @@
     },
     {
       "name": "Rotten Sting",
-      "cardId": 830,
+      "cardId": 700,
       "initiative": 43,
       "shuffle": true,
       "actions": [
@@ -144,7 +144,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 831,
+      "cardId": 701,
       "initiative": 76,
       "actions": [
         {
@@ -168,7 +168,7 @@
     },
     {
       "name": "Dark Charm",
-      "cardId": 832,
+      "cardId": 702,
       "initiative": 43,
       "shuffle": true,
       "actions": [
@@ -211,7 +211,7 @@
     },
     {
       "name": "Tip the Scales",
-      "cardId": 833,
+      "cardId": 703,
       "initiative": 24,
       "actions": [
         {

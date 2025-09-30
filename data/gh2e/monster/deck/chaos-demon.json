@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Chilling Breath",
-      "cardId": 538,
+      "cardId": 544,
       "initiative": 14,
       "actions": [
         {
@@ -45,7 +45,7 @@
     },
     {
       "name": "Heat Blast",
-      "cardId": 539,
+      "cardId": 545,
       "initiative": 1,
       "actions": [
         {
@@ -81,7 +81,7 @@
     },
     {
       "name": "Seismic Punch",
-      "cardId": 540,
+      "cardId": 546,
       "initiative": 67,
       "actions": [
         {
@@ -116,7 +116,7 @@
     },
     {
       "name": "Whirlwind",
-      "cardId": 541,
+      "cardId": 547,
       "initiative": 20,
       "actions": [
         {
@@ -156,7 +156,7 @@
     },
     {
       "name": "White Claws",
-      "cardId": 542,
+      "cardId": 548,
       "initiative": 42,
       "actions": [
         {
@@ -198,7 +198,7 @@
     },
     {
       "name": "Black Tendrils",
-      "cardId": 543,
+      "cardId": 549,
       "initiative": 51,
       "actions": [
         {
@@ -233,7 +233,7 @@
     },
     {
       "name": "Arcane Explosion",
-      "cardId": 544,
+      "cardId": 550,
       "initiative": 77,
       "shuffle": true,
       "actions": [
@@ -280,7 +280,7 @@
     },
     {
       "name": "Hungry Maw",
-      "cardId": 545,
+      "cardId": 551,
       "initiative": 98,
       "shuffle": true,
       "actions": [

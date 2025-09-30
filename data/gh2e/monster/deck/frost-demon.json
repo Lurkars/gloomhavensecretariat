@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Gather the Frost",
-      "cardId": 554,
+      "cardId": 560,
       "initiative": 18,
       "actions": [
         {
@@ -46,7 +46,7 @@
     },
     {
       "name": "Hasty Assault",
-      "cardId": 555,
+      "cardId": 561,
       "initiative": 38,
       "actions": [
         {
@@ -63,7 +63,7 @@
     },
     {
       "name": "Frozen Shards",
-      "cardId": 556,
+      "cardId": 562,
       "initiative": 58,
       "actions": [
         {
@@ -106,7 +106,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 557,
+      "cardId": 563,
       "initiative": 58,
       "actions": [
         {
@@ -123,7 +123,7 @@
     },
     {
       "name": "Cold Claws",
-      "cardId": 558,
+      "cardId": 564,
       "initiative": 78,
       "shuffle": true,
       "actions": [
@@ -151,7 +151,7 @@
     },
     {
       "name": "Cold Claws",
-      "cardId": 559,
+      "cardId": 565,
       "initiative": 78,
       "shuffle": true,
       "actions": [
@@ -179,7 +179,7 @@
     },
     {
       "name": "Chilled to the Bone",
-      "cardId": 560,
+      "cardId": 566,
       "initiative": 58,
       "actions": [
         {
@@ -214,7 +214,7 @@
     },
     {
       "name": "Ice Barrier",
-      "cardId": 627,
+      "cardId": 667,
       "initiative": 18,
       "actions": [
         {

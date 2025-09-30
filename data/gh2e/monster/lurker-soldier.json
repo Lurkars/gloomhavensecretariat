@@ -1,7 +1,6 @@
 {
   "name": "lurker-soldier",
   "edition": "gh2e",
-  "deck": "lurker",
   "count": 6,
   "baseStat": {
     "type": "normal"

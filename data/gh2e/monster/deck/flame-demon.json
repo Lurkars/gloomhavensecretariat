@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Hasty Assault",
-      "cardId": 546,
+      "cardId": 552,
       "initiative": 3,
       "actions": [
         {
@@ -32,7 +32,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 547,
+      "cardId": 553,
       "initiative": 24,
       "actions": [
         {
@@ -60,7 +60,7 @@
     },
     {
       "name": "Explosive Blast",
-      "cardId": 548,
+      "cardId": 554,
       "initiative": 46,
       "shuffle": true,
       "actions": [
@@ -98,7 +98,7 @@
     },
     {
       "name": "Fire Spout",
-      "cardId": 549,
+      "cardId": 555,
       "initiative": 8,
       "actions": [
         {
@@ -126,7 +126,7 @@
     },
     {
       "name": "Intense Torch",
-      "cardId": 550,
+      "cardId": 556,
       "initiative": 49,
       "actions": [
         {
@@ -163,7 +163,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 551,
+      "cardId": 557,
       "initiative": 67,
       "actions": [
         {
@@ -191,7 +191,7 @@
     },
     {
       "name": "Heat Aura",
-      "cardId": 552,
+      "cardId": 558,
       "initiative": 77,
       "actions": [
         {
@@ -229,7 +229,7 @@
     },
     {
       "name": "Raging Blaze",
-      "cardId": 553,
+      "cardId": 559,
       "initiative": 30,
       "shuffle": true,
       "actions": [

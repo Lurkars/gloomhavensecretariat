@@ -4,7 +4,7 @@
   "abilities": [
     {
       "name": "Gripping Teeth",
-      "cardId": 842,
+      "cardId": 712,
       "initiative": 6,
       "actions": [
         {
@@ -28,7 +28,7 @@
     },
     {
       "name": "Horrowing Howl",
-      "cardId": 843,
+      "cardId": 713,
       "initiative": 7,
       "actions": [
         {
@@ -56,7 +56,7 @@
     },
     {
       "name": "Pack Hunting",
-      "cardId": 844,
+      "cardId": 714,
       "initiative": 19,
       "shuffle": true,
       "actions": [
@@ -85,7 +85,7 @@
     },
     {
       "name": "Pack Hunting",
-      "cardId": 845,
+      "cardId": 715,
       "initiative": 19,
       "shuffle": true,
       "actions": [
@@ -114,7 +114,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 846,
+      "cardId": 716,
       "initiative": 26,
       "actions": [
         {
@@ -131,7 +131,7 @@
     },
     {
       "name": "Nothing Special",
-      "cardId": 847,
+      "cardId": 717,
       "initiative": 26,
       "actions": [
         {
@@ -148,7 +148,7 @@
     },
     {
       "name": "Calculated Strike",
-      "cardId": 848,
+      "cardId": 718,
       "initiative": 83,
       "actions": [
         {
@@ -165,7 +165,7 @@
     },
     {
       "name": "Sharp Fangs",
-      "cardId": 849,
+      "cardId": 719,
       "initiative": 72,
       "actions": [
         {
