@@ -190,7 +190,13 @@
   },
   "character": {
     "fh": {
-      "astral": "Infuser",
+      "astral": {
+        "": "Infuser",
+        "veil-of-protection": {
+          "": "Veil of Protection",
+          "hint": "Your current and maximum hitpoint values are increased by 3."
+        }
+      },
       "coral": "Crashing Tide",
       "drill": {
         "": "Metal Mosaic",

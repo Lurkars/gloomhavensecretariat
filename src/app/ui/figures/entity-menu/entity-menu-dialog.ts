@@ -1027,6 +1027,17 @@ export class EntityMenuDialogComponent {
           }
         }
 
+        if (this.data.entity.name == 'astral') {
+          if (specialTagsToTemove.indexOf('veil-of-protection') != -1) {
+            this.data.entity.health -= 3;
+            this.data.entity.maxHealth -= 3;
+            this.data.entity.summons.forEach((summon) => {
+              summon.health -= 3;
+              summon.maxHealth -= 3;
+            })
+          }
+        }
+
         gameManager.stateManager.after();
       }
 
@@ -1076,6 +1087,17 @@ export class EntityMenuDialogComponent {
                   summon.action = new Action(ActionType.pierce, 1);
                 }
               }
+            })
+          }
+        }
+
+        if (this.data.entity.name == 'astral') {
+          if (specialTagsToAdd.indexOf('veil-of-protection') != -1) {
+            this.data.entity.health += 3;
+            this.data.entity.maxHealth += 3;
+            this.data.entity.summons.forEach((summon) => {
+              summon.health += 3;
+              summon.maxHealth += 3;
             })
           }
         }

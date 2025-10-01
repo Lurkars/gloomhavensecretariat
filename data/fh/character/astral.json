@@ -10,6 +10,13 @@
   ],
   "color": "#6fb54e",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "veil-of-protection",
+      "expire": true,
+      "level": 2
+    }
+  ],
   "stats": [
     {
       "level": 1,

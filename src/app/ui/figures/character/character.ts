@@ -600,6 +600,18 @@ export class CharacterComponent implements OnInit, OnDestroy {
       }
     }
 
+    if (this.character.name == 'astral') {
+      if (specialAction == 'veil-of-protection') {
+        this.character.health -= 3;
+        this.character.maxHealth -= 3;
+        
+        this.character.summons.forEach((summon) => {
+          summon.health -= 3;
+          summon.maxHealth -= 3;
+        })
+      }
+    }
+
     gameManager.stateManager.after();
   }
 
