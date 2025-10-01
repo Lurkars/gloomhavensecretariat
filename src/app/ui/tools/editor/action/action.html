@@ -3,57 +3,74 @@
     <span class="type" [ghs-label]="'editor.action.type'"></span>
 
     <label class="small">
-      <input *ngIf="!hideValues" type="checkbox" [(ngModel)]="action.small" (change)="change()">
-      <span *ngIf="!hideValues" [ghs-label]="'editor.action.small'"></span>
+      @if (!hideValues) {
+      <input type="checkbox" [(ngModel)]="action.small" (change)="change()">
+      }
+      @if (!hideValues) {
+      <span [ghs-label]="'editor.action.small'"></span>
+      }
     </label>
 
     <span class="spacer"></span>
 
-    <a class="remove" *ngIf="subactionIndex || subactionIndex == 0" (click)="subActionRemoved.emit(subactionIndex)">
+    @if (subactionIndex || subactionIndex == 0) {
+    <a class="remove" (click)="subActionRemoved.emit(subactionIndex)">
       <img class="ghs-icon" src="./assets/images/minus.svg">
       <span [ghs-label]="'editor.action.removeSubAction'"></span>
     </a>
+    }
   </div>
 
   <select [ngModel]="action.type" placeholder="type" (ngModelChange)="changeType($event)">
-    <option *ngFor="let actionType of actionTypes" [value]="actionType"><span
-        [ghs-label]="'game.action.' + actionType"></span>
+    @for (actionType of actionTypes; track actionType) {
+    <option [value]="actionType"><span [ghs-label]="'game.action.' + actionType"></span>
     </option>
+    }
   </select>
 
-  <label *ngIf="!hideValues && [ActionType.jump].indexOf(action.type) == -1"><span
-      [ghs-label]="'editor.action.value'"></span></label>
+  @if (!hideValues && [ActionType.jump].indexOf(action.type) == -1) {
+  <label><span [ghs-label]="'editor.action.value'"></span></label>
+  }
 
-  <ng-container *ngIf="action.type == ActionType.specialTarget">
-    <select [ngModel]="value" (ngModelChange)="changeSpecialTarget($event, subValue)">
-      <option *ngFor="let specialTarget of ActionSpecialTarget" [value]="specialTarget">
-        <span [ghs-label]="'game.specialTarget.' + specialTarget" [ghs-label-args]="['X']" [style]="'gh'"></span>
-      </option>
-    </select>
-    <label class="inline" *ngIf="subValue">
-      X: <input type="text" [ngModel]="subValue" (ngModelChange)="changeSpecialTarget(value, $event)">
-    </label>
-  </ng-container>
+  @if (action.type == ActionType.specialTarget) {
+  <select [ngModel]="value" (ngModelChange)="changeSpecialTarget($event, subValue)">
+    @for (specialTarget of ActionSpecialTarget; track specialTarget) {
+    <option [value]="specialTarget">
+      <span [ghs-label]="'game.specialTarget.' + specialTarget" [ghs-label-args]="['X']" [style]="'gh'"></span>
+    </option>
+    }
+  </select>
+  @if (subValue) {
+  <label class="inline">
+    X: <input type="text" [ngModel]="subValue" (ngModelChange)="changeSpecialTarget(value, $event)">
+  </label>
+  }
+  }
 
-  <input
-    *ngIf="!hideValues && [ActionType.area, ActionType.card, ActionType.condition, ActionType.element, ActionType.elementHalf, ActionType.jump, ActionType.monsterType, ActionType.specialTarget, ActionType.summon, ActionType.custom].indexOf(action.type) == -1"
-    type="text" [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
+  @if (!hideValues && [ActionType.area, ActionType.card, ActionType.condition, ActionType.element,
+  ActionType.elementHalf, ActionType.jump, ActionType.monsterType, ActionType.specialTarget, ActionType.summon,
+  ActionType.custom].indexOf(action.type) == -1) {
+  <input type="text" [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
+  }
 
-  <textarea *ngIf="!hideValues && action.type == ActionType.custom" [ngModel]="action.value"
-    (ngModelChange)="action.value=valueChange($event)" (change)="change()">
+  @if (!hideValues && action.type == ActionType.custom) {
+  <textarea [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
   </textarea>
+  }
 
-  <div class="area-container" *ngIf="action.type == ActionType.area">
+  @if (action.type == ActionType.area) {
+  <div class="area-container">
     <div class="hexes">
       <ghs-action-hex [action]="hexAction" [value]="'' + hexAction.value" (clickCallback)="toggleHex($event)"
         (doubleclickCallback)="removeHex($event)" [character]="character" [cardId]="cardId">
       </ghs-action-hex>
     </div>
-
     <textarea [ngModel]="hexAction.value" (ngModelChange)="changeHex($event)"></textarea>
   </div>
+  }
 
-  <div class="summon" *ngIf="action.type == ActionType.summon">
+  @if (action.type == ActionType.summon) {
+  <div class="summon">
     <div class="summon-type">
       <label>
         <input type="radio" name="summonType" (change)="changeSummonType($event)" value="monster" [checked]="!summon">
@@ -64,20 +81,27 @@
           [checked]="summon"><span [ghs-label]="'editor.action.summon.type.summon'"></span>
       </label>
     </div>
-    <div class="summon-monster" *ngIf="!summon">
+    @if (!summon) {
+    <div class="summon-monster">
       <select [(ngModel)]="monster" (change)="changeSummonMonster()">
-        <option *ngFor="let monster of monsters" [value]="monster">
+        @for (monster of monsters; track monster) {
+        <option [value]="monster">
           <span [ghs-label]="'data.monster.' + monster"></span>
         </option>
+        }
       </select>
       <select [(ngModel)]="monsterType" (change)="changeSummonMonster()">
         <option></option>
-        <option *ngFor="let monsterType of MonsterTypes" [value]="monsterType">
+        @for (monsterType of MonsterTypes; track monsterType) {
+        <option [value]="monsterType">
           <span [ghs-label]="'monster.' + monsterType"></span>
         </option>
+        }
       </select>
     </div>
-    <div class="summon-form" *ngIf="!!summon">
+    }
+    @if (!!summon) {
+    <div class="summon-form">
       <ghs-action-summon [action]="action" [additional]="true" [character]="character"
         [cardId]="cardId"></ghs-action-summon>
       <input class="summon-name" [(ngModel)]="summon.name" (change)="changeSummon()">
@@ -88,8 +112,9 @@
         <span class="item">
           <input class="summon-movement" [(ngModel)]="summon.movement" (change)="changeSummon()">
         </span>
-        <a (click)="editSummonAction()"><span *ngIf="!summon.action"><span
-              [ghs-label]="'editor.action.add'"></span></span></a>
+        <a (click)="editSummonAction()">@if (!summon.action) {
+          <span><span [ghs-label]="'editor.action.add'"></span></span>
+          }</a>
         <span class="item">
           <input class="summon-attack" [(ngModel)]="summon.attack" (change)="changeSummon()">
         </span>
@@ -97,72 +122,103 @@
           <input class="summon-range" [(ngModel)]="summon.range" (change)="changeSummon()">
         </span>
         <a (click)="editSummonAdditionalAction()">
-          <span *ngIf="!summon.additionalAction" [ghs-label]="'editor.action.add'"></span>
+          @if (!summon.additionalAction) {
+          <span [ghs-label]="'editor.action.add'"></span>
+          }
         </a>
       </div>
     </div>
+    }
   </div>
+  }
 
-  <ng-container *ngIf="action.type == ActionType.condition">
-    <select [(ngModel)]="value" (change)="changeCondition()">
-      <option *ngFor="let condition of conditionNames" [value]="condition">
-        <span [ghs-label]="'game.condition.' + condition" [ghs-label-args]="['X']"></span>
-      </option>
-    </select>
-    <label class="inline" *ngIf="subValue">
-      X: <input min="1" type="number" [(ngModel)]="subValue" (change)="changeCondition()">
-    </label>
-  </ng-container>
+  @if (action.type == ActionType.condition) {
+  <select [(ngModel)]="value" (change)="changeCondition()">
+    @for (condition of conditionNames; track condition) {
+    <option [value]="condition">
+      <span [ghs-label]="'game.condition.' + condition" [ghs-label-args]="['X']"></span>
+    </option>
+    }
+  </select>
+  @if (subValue) {
+  <label class="inline">
+    X: <input min="1" type="number" [(ngModel)]="subValue" (change)="changeCondition()">
+  </label>
+  }
+  }
 
-  <ng-container *ngIf="action.type == ActionType.card">
-    <select [(ngModel)]="value" (change)="changeCard()">
-      <option *ngFor="let card of ActionCardTypes" [value]="card">
-        <span [ghs-label]="'game.card.' + card" [ghs-label-args]="['X']"></span>
-      </option>
-    </select>
-    <label class="inline" *ngIf="subValue">
-      X: <input min="1" type="number" [(ngModel)]="subValue" (change)="changeCard()">
-    </label>
-  </ng-container>
+  @if (action.type == ActionType.card) {
+  <select [(ngModel)]="value" (change)="changeCard()">
+    @for (card of ActionCardTypes; track card) {
+    <option [value]="card">
+      <span [ghs-label]="'game.card.' + card" [ghs-label-args]="['X']"></span>
+    </option>
+    }
+  </select>
+  @if (subValue) {
+  <label class="inline">
+    X: <input min="1" type="number" [(ngModel)]="subValue" (change)="changeCard()">
+  </label>
+  }
+  }
 
-  <select *ngIf="action.type == ActionType.element" [(ngModel)]="action.value" (change)="change()">
-    <option *ngFor="let element of Elements" [value]="element">
+  @if (action.type == ActionType.element) {
+  <select [(ngModel)]="action.value" (change)="change()">
+    @for (element of Elements; track element) {
+    <option [value]="element">
       <span [ghs-label]="'game.element.' + element"></span>
     </option>
+    }
   </select>
+  }
 
   <div class="action-element-half-container">
-    <select *ngIf="action.type == ActionType.elementHalf" [(ngModel)]="value" (change)="changeElementHalf()">
-      <option *ngFor="let element of HalfElementsLeft" [value]="element">
+    @if (action.type == ActionType.elementHalf) {
+    <select [(ngModel)]="value" (change)="changeElementHalf()">
+      @for (element of HalfElementsLeft; track element) {
+      <option [value]="element">
         <span [ghs-label]="'game.element.' + element"></span>
       </option>
+      }
     </select>
+    }
 
-    <select *ngIf="action.type == ActionType.elementHalf" [(ngModel)]="subValue" (change)="changeElementHalf()">
-      <option *ngFor="let element of HalfElementsRight" [value]="element">
+    @if (action.type == ActionType.elementHalf) {
+    <select [(ngModel)]="subValue" (change)="changeElementHalf()">
+      @for (element of HalfElementsRight; track element) {
+      <option [value]="element">
         <span [ghs-label]="'game.element.' + element"></span>
       </option>
+      }
     </select>
+    }
   </div>
 
-  <select *ngIf="action.type == ActionType.monsterType" [(ngModel)]="action.value" (change)="change()">
-    <option *ngFor="let monsterType of MonsterTypes" [value]="monsterType"><span
-        [ghs-label]="'game.monster.' + monsterType"></span>
+  @if (action.type == ActionType.monsterType) {
+  <select [(ngModel)]="action.value" (change)="change()">
+    @for (monsterType of MonsterTypes; track monsterType) {
+    <option [value]="monsterType"><span [ghs-label]="'game.monster.' + monsterType"></span>
     </option>
+    }
   </select>
+  }
 
-  <ng-container
-    *ngIf="!hideValues && [ActionType.area, ActionType.card, ActionType.condition, ActionType.concatenation, ActionType.custom, ActionType.grant, ActionType.grid, ActionType.jump,  ActionType.monsterType, ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1">
-    <label><span [ghs-label]="'editor.action.valueType'"></span></label>
-    <select [(ngModel)]="action.valueType" placeholder="valueType" (change)="change()">
-      <option *ngFor="let valueType of ActionValueTypes" [value]="valueType"
-        [selected]="action.valueType == valueType || !action.valueType && valueType == ActionValueType.fixed">
-        <span [ghs-label]="'editor.action.valueType.' + valueType"></span>
-      </option>
-    </select>
-  </ng-container>
+  @if (!hideValues && [ActionType.area, ActionType.card, ActionType.condition, ActionType.concatenation,
+  ActionType.custom, ActionType.grant, ActionType.grid, ActionType.jump, ActionType.monsterType,
+  ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1) {
+  <label><span [ghs-label]="'editor.action.valueType'"></span></label>
+  <select [(ngModel)]="action.valueType" placeholder="valueType" (change)="change()">
+    @for (valueType of ActionValueTypes; track valueType) {
+    <option [value]="valueType"
+      [selected]="action.valueType == valueType || !action.valueType && valueType == ActionValueType.fixed">
+      <span [ghs-label]="'editor.action.valueType.' + valueType"></span>
+    </option>
+    }
+  </select>
+  }
 
-  <div class="enhancements" *ngIf="!hideValues">
+  @if (!hideValues) {
+  <div class="enhancements">
     <div class="header">
       <label [ghs-label]="'editor.action.enhancements'"></label>
       <a class="add" (click)="addEnhancement()">
@@ -170,20 +226,25 @@
         <span [ghs-label]="'editor.action.addEnhancement'"></span>
       </a>
     </div>
-    <ng-container *ngIf="action.enhancementTypes">
-      <div class="enhancement" *ngFor="let i of [] | ghsRange:action.enhancementTypes.length">
-        <select [(ngModel)]="action.enhancementTypes[i]" (change)="change()">
-          <option *ngFor="let e of EnhancementTypes" [value]="e">
-            <span [ghs-label]="'character.abilities.enhancements.types.' + e"></span>
-          </option>
-        </select>
-        <a (click)="removeEnhancement(i)">
-          <img class="ghs-icon" src="./assets/images/minus.svg">
-          <span [ghs-label]="'editor.action.removeEnhancement'"></span>
-        </a>
-      </div>
-    </ng-container>
+    @if (action.enhancementTypes) {
+    @for (i of [] | ghsRange:action.enhancementTypes.length; track i) {
+    <div class="enhancement">
+      <select [(ngModel)]="action.enhancementTypes[i]" (change)="change()">
+        @for (e of EnhancementTypes; track e) {
+        <option [value]="e">
+          <span [ghs-label]="'character.abilities.enhancements.types.' + e"></span>
+        </option>
+        }
+      </select>
+      <a (click)="removeEnhancement(i)">
+        <img class="ghs-icon" src="./assets/images/minus.svg">
+        <span [ghs-label]="'editor.action.removeEnhancement'"></span>
+      </a>
+    </div>
+    }
+    }
   </div>
+  }
 
   <div class="subactions" cdkDropList (cdkDropListDropped)="dropSubAction($event)">
     <div class="header">
@@ -194,10 +255,12 @@
       </a>
     </div>
 
-    <div class="subaction" *ngFor="let subAction of action.subActions; let i = index" cdkDrag>
+    @for (subAction of action.subActions; track subAction.type + $index; let i = $index) {
+    <div class="subaction" cdkDrag>
       <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
       <ghs-editor-action [action]="action.subActions[i]" [subactionIndex]="i"
         (subActionRemoved)="removeSubAction($event)" (actionChange)="changeSubAction(i, $event)"></ghs-editor-action>
     </div>
+    }
   </div>
 </div>

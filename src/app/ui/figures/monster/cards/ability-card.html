@@ -1,23 +1,27 @@
 <div class="container"
   [ngClass]="{'flipped' : flipped,  'full-ability': settingsManager.settings.showFullAbilityCard || settingsManager.settings.showExpandedAbilityCard, 'expanded-ability': settingsManager.settings.showExpandedAbilityCard && flipped, 'bottom-actions' : hasBottomActions && ability && secondAbility, 'second-ability' : secondAbility,'fh' : settingsManager.settings.fhStyle,  'disabled' : !settingsManager.settings.abilities, 'denied' : monster && gameManager.stateManager.permissions && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition] }">
-  <div
-    *ngIf="!secondAbility && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard"
-    class="hover-effect initiative"></div>
-  <div
-    *ngIf="!secondAbility && !settingsManager.settings.showFullAbilityCard && !settingsManager.settings.showExpandedAbilityCard"
-    class="hover-effect title"></div>
+  @if (!secondAbility && !settingsManager.settings.showFullAbilityCard &&
+  !settingsManager.settings.showExpandedAbilityCard) {
+  <div class="hover-effect initiative"></div>
+  }
+  @if (!secondAbility && !settingsManager.settings.showFullAbilityCard &&
+  !settingsManager.settings.showExpandedAbilityCard) {
+  <div class="hover-effect title"></div>
+  }
   <ghs-ability [ability]="ability" [monster]="monster" [flipped]="flipped"
     [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'bottom': 'top') : false"
     [interactiveAbilities]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
     (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event)"></ghs-ability>
-  <ng-container *ngIf="!!secondAbility">
-    <ghs-ability [ability]="secondAbility" [monster]="monster" [flipped]="flipped"
-      [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'top': 'bottom') : false"
-      [interactiveAbilities]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
-      (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event)">
-    </ghs-ability>
-  </ng-container>
+  @if (!!secondAbility) {
+  <ghs-ability [ability]="secondAbility" [monster]="monster" [flipped]="flipped"
+    [activeActions]="monster.firstActiveAction ? (monster.firstActiveAction == 'bottom' ? 'top': 'bottom') : false"
+    [interactiveAbilities]="settingsManager.settings.interactiveAbilities" ghs-pointer-input
+    (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event)">
+  </ghs-ability>
+  }
 </div>
-<span class="left-abilities" *ngIf="settingsManager.settings.abilities">
+@if (settingsManager.settings.abilities) {
+<span class="left-abilities">
   {{this.monster.abilities.length - drawnAbilities}}/{{this.monster.abilities.length}}
 </span>
+}

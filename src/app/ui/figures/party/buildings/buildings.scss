@@ -260,6 +260,12 @@
           }
         }
 
+        .morale {
+          margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+          padding-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
+          border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid var(--ghs-color-darkgray);
+        }
+
         .repair {
           grid-column: span 5;
           display: flex;

@@ -1,127 +1,155 @@
 <div class="items-brew-dialog"
-    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+  [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
 
-    <div class="scroll-container">
-        <label class="title">
-            <span [ghs-label]="'game.items.brewing'"></span>
+  <div class="scroll-container">
+    <label class="title">
+      <span [ghs-label]="'game.items.brewing'"></span>
 
-            <span *ngIf="gameManager.itemManager.brewingDisabled()" class="brewing-disabled">
-                <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.brewing.disabled'"></span>
-            </span>
-        </label>
+      @if (gameManager.itemManager.brewingDisabled()) {
+      <span class="brewing-disabled">
+        <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.brewing.disabled'"></span>
+      </span>
+      }
+    </label>
 
-        <div class="table" [style.--ghs-summary-columns]="2 + brewing">
-            <span class="head-col first" *ngFor="let i of []|ghsRange:brewing">{{i+1}}.</span>
-            <span class="first">
-                <img class="icon character-icon" [src]="character.iconUrl" />
-                <span class="name" [ngClass]="{'absent' : character.absent}">
-                    {{gameManager.characterManager.characterName(character)}}
-                </span>
-            </span>
-            <span class="first"><span [ghs-label]="'party.campaign.sheet.supply'"></span></span>
+    <div class="table" [style.--ghs-summary-columns]="2 + brewing">
+      @for (i of []|ghsRange:brewing; track i) {
+      <span class="head-col first">{{i+1}}.</span>
+      }
+      <span class="first">
+        <img class="icon character-icon" [src]="character.iconUrl" />
+        <span class="name" [ngClass]="{'absent' : character.absent}">
+          {{gameManager.characterManager.characterName(character)}}
+        </span>
+      </span>
+      <span class="first"><span [ghs-label]="'party.campaign.sheet.supply'"></span></span>
 
-            <ng-container *ngFor="let herb of herbs">
-                <span class="head-col calc-col toggle"
-                    [ngClass]="{'active' : receipe.length > 0 && receipe[0] == herb, 'disabled' : receipe[0] != herb && (character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[0] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0)}"
-                    (click)="toggleHerb(herb, 0)">
-                    <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
-                </span>
-                <span class="head-col calc-col toggle"
-                    [ngClass]="{'active' : receipe.length > 1 && receipe[1] == herb, 'disabled' : receipe[1] != herb && (character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[1] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0)}"
-                    (click)="toggleHerb(herb, 1)">
-                    <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
-                </span>
-                <span *ngIf="brewing == 3" class="head-col calc-col toggle"
-                    [ngClass]="{'active' : receipe.length > 2 && receipe[2] == herb, 'disabled' : receipe[2] != herb && (character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[2] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0)}"
-                    (click)="toggleHerb(herb, 2)">
-                    <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
-                </span>
-                <span class="calc-col">
-                    <ng-container *ngIf="character.progress.loot[herb]">
-                        <span class="value" [ghs-label]="'game.loot.' " [ghs-label-attribute]="'title'">
-                            {{characterSpent[herb] || '-'}} / {{character.progress.loot[herb] || 0}}
-                        </span>
-                        <a class="button"
-                            *ngIf="characterSpent[herb] && (gameManager.game.party.loot[herb] || 0) > (fhSupportSpent[herb] || 0)"
-                            (click)="moveHerb(herb,characterSpent,fhSupportSpent)">
-                            <img class="ghs-svg" src="./assets/images/right.svg">
-                        </a>
-                    </ng-container>
-                    <span *ngIf="!character.progress.loot[herb]">-</span>
-                </span>
-                <span class="calc-col">
-                    <ng-container *ngIf="gameManager.game.party.loot[herb]">
-                        <a class="button"
-                            *ngIf="fhSupportSpent[herb] && (character.progress.loot[herb] || 0) > (characterSpent[herb] || 0)"
-                            (click)="moveHerb(herb,fhSupportSpent,characterSpent)">
-                            <img class="ghs-svg" src="./assets/images/left.svg">
-                        </a>
-                        <span class="value" [ghs-label]="'game.loot.' " [ghs-label-attribute]="'title'">
-                            {{fhSupportSpent[herb] || '-'}} / {{gameManager.game.party.loot[herb] || 0}}
-                        </span>
-                    </ng-container>
-                    <span *ngIf="!gameManager.game.party.loot[herb]">-</span>
-                </span>
-            </ng-container>
-        </div>
-
-
-        <div class="receipe">
-            <ng-container *ngFor="let herb of receipe; let i = index;">
-                <span class="herb" (click)="removeHerb(herb, false)">
-                    <img *ngIf="!!herb" class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
-                    <img *ngIf="!herb" class="ghs-svg" src="./assets/images/fh/loot/unknown.svg">
-                    <span *ngIf="i < receipe.length -1">+</span>
-                </span>
-            </ng-container>
-            <span *ngIf="!brewed || otherCharacters.length > 0 || noChar">=</span>
-            <span class="placeholder text-white item" *ngIf="!!item && (!brewed || noChar)"
-                [ghs-label]="'game.items.brewing.item'" [ghs-label-args]="[item.id, item.name]"></span>
-            <span class="placeholder text-white item" *ngIf="!!brewed && otherCharacters.length > 0"
-                [ghs-label]="'game.items.brewing.item'" [ghs-label-args]="[brewed.id, brewed.name]"></span>
-            <span class="herb" *ngIf="!item && !brewed">
-                <img class="ghs-svg" src="./assets/images/fh/loot/unknown.svg">
-            </span>
-        </div>
-
-        <div class="receipe" *ngIf="!!brewed && otherCharacters.length == 0 && !noChar">
-            <span class="placeholder text-white item"
-                [ghs-label]="'game.items.brewing.brewed' + (otherCharacter ? 'Other' : '')"
-                [ghs-label-args]="[brewed.id, brewed.name, gameManager.characterManager.characterName(character,true) , otherCharacter ? gameManager.characterManager.characterName(otherCharacter,true): '']"></span>
-        </div>
-
-        <ng-container *ngIf="!!brewed && otherCharacters.length > 0">
-            <div class="receipe">
-                <span class="placeholder text-white item" [ghs-label]="'game.items.brewing.selectCharacter'"></span>
-            </div>
-
-
-            <div class="characters">
-                <div class="character" *ngFor="let char of otherCharacters" (click)="otherCharacter = char"
-                    [ngClass]="{'selected' : otherCharacter == char}">
-                    <img class="icon" [src]="char.iconUrl" />
-                    <span class="name">
-                        {{gameManager.characterManager.characterName(char,true)}}
-                    </span>
-                </div>
-            </div>
-        </ng-container>
-
-        <div class="receipe" *ngIf="noChar">
-            <span class="placeholder item already" [ghs-label]="'game.items.brewing.noChar'"></span>
-        </div>
-
-        <div class="brewed" *ngIf="!!brewed || !!item">
-            <ghs-item [item]="brewed || item" [flipped]="true" (click)="openItemDialog()"></ghs-item>
-        </div>
-
-        <div class="menu">
-            <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
-            <a class="apply"
-                [ngClass]="{'disabled' : noChar || brewed && (otherCharacters.length == 0 || !otherCharacter) || receipe.length < 2 || !receipe[0] || !receipe[1], 'unavailable': gameManager.itemManager.brewingDisabled()}"
-                ghs-pointer-input (singleClick)="brew()" (doubleClick)="brew(true)"><span
-                    [ghs-label]="'game.items.brewing.brew' + (otherCharacter ? 'For' : '')"
-                    [ghs-label-args]="[otherCharacter ? gameManager.characterManager.characterName(otherCharacter, true) : '']"></span></a>
-        </div>
+      @for (herb of herbs; track herb) {
+      <span class="head-col calc-col toggle"
+        [ngClass]="{'active' : receipe.length > 0 && receipe[0] == herb, 'disabled' : receipe[0] != herb && (character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[0] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0)}"
+        (click)="toggleHerb(herb, 0)">
+        <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
+      </span>
+      <span class="head-col calc-col toggle"
+        [ngClass]="{'active' : receipe.length > 1 && receipe[1] == herb, 'disabled' : receipe[1] != herb && (character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[1] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0)}"
+        (click)="toggleHerb(herb, 1)">
+        <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
+      </span>
+      @if (brewing == 3) {
+      <span class="head-col calc-col toggle"
+        [ngClass]="{'active' : receipe.length > 2 && receipe[2] == herb, 'disabled' : receipe[2] != herb && (character.progress.loot[herb] || 0) == 0 && (gameManager.game.party.loot[herb] || 0) == 0, 'spent' : receipe[2] != herb &&  ((characterSpent[herb] || 0) > 0  || (fhSupportSpent[herb] || 0) > 0) && (character.progress.loot[herb] || 0) <= (characterSpent[herb] || 0) && (gameManager.game.party.loot[herb] || 0) <= (fhSupportSpent[herb] || 0)}"
+        (click)="toggleHerb(herb, 2)">
+        <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
+      </span>
+      }
+      <span class="calc-col">
+        @if (character.progress.loot[herb]) {
+        <span class="value" [ghs-label]="'game.loot.' " [ghs-label-attribute]="'title'">
+          {{characterSpent[herb] || '-'}} / {{character.progress.loot[herb] || 0}}
+        </span>
+        @if (characterSpent[herb] && (gameManager.game.party.loot[herb] || 0) > (fhSupportSpent[herb] || 0)) {
+        <a class="button" (click)="moveHerb(herb,characterSpent,fhSupportSpent)">
+          <img class="ghs-svg" src="./assets/images/right.svg">
+        </a>
+        }
+        }
+        @if (!character.progress.loot[herb]) {
+        <span>-</span>
+        }
+      </span>
+      <span class="calc-col">
+        @if (gameManager.game.party.loot[herb]) {
+        @if (fhSupportSpent[herb] && (character.progress.loot[herb] || 0) > (characterSpent[herb] || 0)) {
+        <a class="button" (click)="moveHerb(herb,fhSupportSpent,characterSpent)">
+          <img class="ghs-svg" src="./assets/images/left.svg">
+        </a>
+        }
+        <span class="value" [ghs-label]="'game.loot.' " [ghs-label-attribute]="'title'">
+          {{fhSupportSpent[herb] || '-'}} / {{gameManager.game.party.loot[herb] || 0}}
+        </span>
+        }
+        @if (!gameManager.game.party.loot[herb]) {
+        <span>-</span>
+        }
+      </span>
+      }
     </div>
+
+
+    <div class="receipe">
+      @for (herb of receipe; track herb; let i = $index) {
+      <span class="herb" (click)="removeHerb(herb, false)">
+        @if (!!herb) {
+        <img class="ghs-svg" [src]="'./assets/images/fh/loot/' +  herb + '.svg'">
+        }
+        @if (!herb) {
+        <img class="ghs-svg" src="./assets/images/fh/loot/unknown.svg">
+        }
+        @if (i < receipe.length -1) { <span>+</span>
+      }
+      </span>
+      }
+      @if (!brewed || otherCharacters.length > 0 || noChar) {
+      <span>=</span>
+      }
+      @if (!!item && (!brewed || noChar)) {
+      <span class="placeholder text-white item" [ghs-label]="'game.items.brewing.item'"
+        [ghs-label-args]="[item.id, item.name]"></span>
+      }
+      @if (!!brewed && otherCharacters.length > 0) {
+      <span class="placeholder text-white item" [ghs-label]="'game.items.brewing.item'"
+        [ghs-label-args]="[brewed.id, brewed.name]"></span>
+      }
+      @if (!item && !brewed) {
+      <span class="herb">
+        <img class="ghs-svg" src="./assets/images/fh/loot/unknown.svg">
+      </span>
+      }
+    </div>
+
+    @if (!!brewed && otherCharacters.length == 0 && !noChar) {
+    <div class="receipe">
+      <span class="placeholder text-white item"
+        [ghs-label]="'game.items.brewing.brewed' + (otherCharacter ? 'Other' : '')"
+        [ghs-label-args]="[brewed.id, brewed.name, gameManager.characterManager.characterName(character,true) , otherCharacter ? gameManager.characterManager.characterName(otherCharacter,true): '']"></span>
+    </div>
+    }
+
+    @if (!!brewed && otherCharacters.length > 0) {
+    <div class="receipe">
+      <span class="placeholder text-white item" [ghs-label]="'game.items.brewing.selectCharacter'"></span>
+    </div>
+    <div class="characters">
+      @for (char of otherCharacters; track char.edition + '-' + char.name) {
+      <div class="character" (click)="otherCharacter = char" [ngClass]="{'selected' : otherCharacter == char}">
+        <img class="icon" [src]="char.iconUrl" />
+        <span class="name">
+          {{gameManager.characterManager.characterName(char,true)}}
+        </span>
+      </div>
+      }
+    </div>
+    }
+
+    @if (noChar) {
+    <div class="receipe">
+      <span class="placeholder item already" [ghs-label]="'game.items.brewing.noChar'"></span>
+    </div>
+    }
+
+    @if (!!brewed || !!item) {
+    <div class="brewed">
+      <ghs-item [item]="brewed || item" [flipped]="true" (click)="openItemDialog()"></ghs-item>
+    </div>
+    }
+
+    <div class="menu">
+      <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+      <a class="apply"
+        [ngClass]="{'disabled' : noChar || brewed && (otherCharacters.length == 0 || !otherCharacter) || receipe.length < 2 || !receipe[0] || !receipe[1], 'unavailable': gameManager.itemManager.brewingDisabled()}"
+        ghs-pointer-input (singleClick)="brew()" (doubleClick)="brew(true)"><span
+          [ghs-label]="'game.items.brewing.brew' + (otherCharacter ? 'For' : '')"
+          [ghs-label-args]="[otherCharacter ? gameManager.characterManager.characterName(otherCharacter, true) : '']"></span></a>
+    </div>
+  </div>
 </div>

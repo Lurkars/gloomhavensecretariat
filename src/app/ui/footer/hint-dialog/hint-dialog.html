@@ -1,21 +1,50 @@
 <div class="hint-dialog">
   <div class="hint">
-    <p *ngIf="empty()"><span [ghs-label]="'round.hint.empty'"></span></p>
-    <p *ngIf="missingInitiative()"><span [ghs-label]="'round.hint.missingInitiative'"></span> </p>
-    <p *ngIf="active()"><span [ghs-label]="'round.hint.active'"></span></p>
-    <a *ngIf="active()" (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
-    <a *ngIf="active()" (click)="next()" class="small"><span [ghs-label]="'round.hint.confirmTurns'"></span></a>
-    <p *ngIf="finish()"><span [ghs-label]="'round.hint.finish'"></span></p>
-    <a *ngIf="finish()" (click)="finishScenario(true)"><span [ghs-label]="'round.hint.confirmFinish'"></span></a>
-    <p *ngIf="failed()"><span [ghs-label]="'round.hint.failed'"></span></p>
-    <a *ngIf="failed()" (click)="finishScenario(false)"><span [ghs-label]="'round.hint.confirmFailed'"></span></a>
-    <a *ngIf="failed()" (click)="resetScenario()"><span [ghs-label]="'round.hint.confirmReset'"></span></a>
-    <a *ngIf="finish() || failed()" (click)="confirm()"><span [ghs-label]="(gameManager.game.state == GameState.next ?
+    @if (empty()) {
+    <p><span [ghs-label]="'round.hint.empty'"></span></p>
+    }
+    @if (missingInitiative()) {
+    <p><span [ghs-label]="'round.hint.missingInitiative'"></span> </p>
+    }
+    @if (active()) {
+    <p><span [ghs-label]="'round.hint.active'"></span></p>
+    }
+    @if (active()) {
+    <a (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
+    }
+    @if (active()) {
+    <a (click)="next()" class="small"><span [ghs-label]="'round.hint.confirmTurns'"></span></a>
+    }
+    @if (finish()) {
+    <p><span [ghs-label]="'round.hint.finish'"></span></p>
+    }
+    @if (finish()) {
+    <a (click)="finishScenario(true)"><span [ghs-label]="'round.hint.confirmFinish'"></span></a>
+    }
+    @if (failed()) {
+    <p><span [ghs-label]="'round.hint.failed'"></span></p>
+    }
+    @if (failed()) {
+    <a (click)="finishScenario(false)"><span [ghs-label]="'round.hint.confirmFailed'"></span></a>
+    }
+    @if (failed()) {
+    <a (click)="resetScenario()"><span [ghs-label]="'round.hint.confirmReset'"></span></a>
+    }
+    @if (finish() || failed()) {
+    <a (click)="confirm()"><span [ghs-label]="(gameManager.game.state == GameState.next ?
       'round.hint.continueNext' : 'round.hint.continueDraw')"></span></a>
-    <p *ngIf="battleGoals()"><span [ghs-label]="'round.hint.battleGoals'"></span></p>
-    <a *ngIf="battleGoals()" (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
-    <p *ngIf="eventDraw() && gameManager.game.eventDraw"><span [ghs-label]="'round.hint.eventDraw'"
-        [ghs-label-args]="[gameManager.game.eventDraw]"></span></p>
-    <a *ngIf="eventDraw()" (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
+    }
+    @if (battleGoals()) {
+    <p><span [ghs-label]="'round.hint.battleGoals'"></span></p>
+    }
+    @if (battleGoals()) {
+    <a (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
+    }
+    @if (eventDraw() && gameManager.game.eventDraw) {
+    <p><span [ghs-label]="'round.hint.eventDraw'" [ghs-label-args]="[gameManager.game.eventDraw]"></span></p>
+    }
+    @if (eventDraw()) {
+    <a (click)="confirm()"><span [ghs-label]="'round.hint.confirm'"></span></a>
+    }
   </div>
 </div>

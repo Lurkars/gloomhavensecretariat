@@ -1,5 +1,6 @@
 <div #levelButton class="level-status">
-  <div class="values" (click)="open()" *ngIf="!gameManager.bbRules()">
+  @if (!gameManager.bbRules()) {
+  <div class="values" (click)="open()">
     <span class="level" [ghs-label]="'game.level'" [ghs-label-attribute]="'title'"><img class="ghs-svg"
         src="./assets/images/level.svg">
       {{gameManager.game.level}}</span>
@@ -16,11 +17,14 @@
       <span>{{hazardousTerrain}}</span>
     </span>
   </div>
+  }
 
-  <div class="values" (click)="open()" *ngIf="gameManager.bbRules()">
-    <span [ghs-label]="'game.level.bb.monsterDifficulty'" [ghs-label-attribute]="'title'"><img
-        class="ghs-svg" src="./assets/images/bb/monster.svg">
+  @if (gameManager.bbRules()) {
+  <div class="values" (click)="open()">
+    <span [ghs-label]="'game.level.bb.monsterDifficulty'" [ghs-label-attribute]="'title'"><img class="ghs-svg"
+        src="./assets/images/bb/monster.svg">
       <span [ghs-label]="'game.level.bb.monsterDifficulty.' + monsterDifficulty"></span>
     </span>
   </div>
+  }
 </div>

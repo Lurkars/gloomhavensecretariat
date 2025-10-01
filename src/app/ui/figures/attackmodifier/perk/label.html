@@ -1,9 +1,12 @@
 <span class="perk-label capitalize">
-    <ng-container *ngIf="perk.custom"><span [ghs-label]="perk.custom"></span>
-        <span class="and" *ngIf="perk.type != PerkType.custom" [ghs-label]="'and'"></span>
-    </ng-container>
-    <ng-container *ngIf="perk.type != PerkType.custom">
-        <span class="label" [ghs-label]="'game.attackModifiers.perks.type.' + perk.type"
-            [ghs-label-args]="perkLabel(perk)"></span>
-    </ng-container>
+  @if (perk.custom) {
+  <span [ghs-label]="perk.custom"></span>
+  @if (perk.type != PerkType.custom) {
+  <span class="and" [ghs-label]="'and'"></span>
+  }
+  }
+  @if (perk.type != PerkType.custom) {
+  <span class="label" [ghs-label]="'game.attackModifiers.perks.type.' + perk.type"
+    [ghs-label-args]="perkLabel(perk)"></span>
+  }
 </span>

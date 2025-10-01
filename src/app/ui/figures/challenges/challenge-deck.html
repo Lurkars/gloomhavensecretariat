@@ -1,33 +1,37 @@
 <div class="deck"
-    [ngClass]="{'disabled' : disabled, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-    <div class="challenge-container draw" [style.z-index]="deck.cards.length + 1">
-        <div class="challenge-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'" (click)="draw($event)"
-            [ngClass]="{'disabled' : drawDisabled}">
-            <span class="number">{{deck.current < deck.cards.length -1 ? (deck.cards.length - deck.current - 1) + '/' +
-                    deck.cards.length : 0}}</span>
-        </div>
-
-        <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
-            *ngIf="fullscreen && !compact" (click)="openFullscreen($event)"
-            [ngClass]="{'vertical' : vertical, 'minimize' : !deck.active}">
-            <img src="./assets/images/fullscreen.svg">
-        </span>
-
-        <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'"
-            (click)="open($event)" *ngIf="!compact || vertical"
-            [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active}">
-            <img class="ghs-svg" src="./assets/images/settings.svg">
-        </span>
+  [ngClass]="{'disabled' : disabled, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
+  <div class="challenge-container draw" [style.z-index]="deck.cards.length + 1">
+    <div class="challenge-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'" (click)="draw($event)"
+      [ngClass]="{'disabled' : drawDisabled}">
+      <span class="number">{{deck.current < deck.cards.length -1 ? (deck.cards.length - deck.current - 1) + '/' +
+          deck.cards.length : 0}}</span>
     </div>
 
-    <ng-container *ngFor="let card of deck.cards; let index = index;">
-        <div class="challenge-container" ghs-pointer-input (singleClick)="clickCard(index, $event)"
-            (doubleClick)="doubleClickCard(index, $event)" *ngIf="index > current - 3 && index > deck.finished"
-            [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1 + (deck.keep.indexOf(index) != -1 ? 5 : 0)"
-            [ngClass]="{'discarded' : index < current, 'current' : index == current, 'bottom' : bottom, 'unkept': deck.keep.indexOf(index) == -1}"
-            [style.right]="index < current ? (55 + 25 * (current - index -1)) + '%' : ''">
-            <ghs-challenge-card class="challenge-card" [challenge]="card" [keep]="deck.keep.indexOf(index) != -1"
-                [flipped]="index <= current" [disableFlip]="!drawing || index != current"></ghs-challenge-card>
-        </div>
-    </ng-container>
+    @if (fullscreen && !compact) {
+    <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
+      (click)="openFullscreen($event)" [ngClass]="{'vertical' : vertical, 'minimize' : !deck.active}">
+      <img src="./assets/images/fullscreen.svg">
+    </span>
+    }
+
+    @if (!compact || vertical) {
+    <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'" (click)="open($event)"
+      [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active}">
+      <img class="ghs-svg" src="./assets/images/settings.svg">
+    </span>
+    }
+  </div>
+
+  @for (card of deck.cards; track card.cardId; let index = $index) {
+  @if (index > current - 3 && index > deck.finished) {
+  <div class="challenge-container" ghs-pointer-input (singleClick)="clickCard(index, $event)"
+    (doubleClick)="doubleClickCard(index, $event)"
+    [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1 + (deck.keep.indexOf(index) != -1 ? 5 : 0)"
+    [ngClass]="{'discarded' : index < current, 'current' : index == current, 'bottom' : bottom, 'unkept': deck.keep.indexOf(index) == -1}"
+    [style.right]="index < current ? (55 + 25 * (current - index -1)) + '%' : ''">
+    <ghs-challenge-card class="challenge-card" [challenge]="card" [keep]="deck.keep.indexOf(index) != -1"
+      [flipped]="index <= current" [disableFlip]="!drawing || index != current"></ghs-challenge-card>
+  </div>
+  }
+  }
 </div>

@@ -1,180 +1,209 @@
 <div class="retirement-dialog">
-    <label class="title">
-        <span [ghs-label]="'character.progress.retirement'"></span>
-        <span class="name">
-            <img class="icon character-icon" [src]="character.iconUrl" />
-            <span class="character-title">{{gameManager.characterManager.characterName(character,true)}}</span>
-        </span>
-    </label>
+  <label class="title">
+    <span [ghs-label]="'character.progress.retirement'"></span>
+    <span class="name">
+      <img class="icon character-icon" [src]="character.iconUrl" />
+      <span class="character-title">{{gameManager.characterManager.characterName(character,true)}}</span>
+    </span>
+  </label>
 
-    <div class="rewards">
-        <span [ghs-label]="'character.progress.retirement.prosperity'"
-            [ghs-label-args]="[gameManager.fhRules(true) ? '2' : '1']"></span>
+  <div class="rewards">
+    <span [ghs-label]="'character.progress.retirement.prosperity'"
+      [ghs-label-args]="[gameManager.fhRules(true) ? '2' : '1']"></span>
+  </div>
+
+  @if (character.retireEvent) {
+  <div class="event" [ngClass]="{'already-unlocked': alreadyRetired}">
+    @for (rE of character.retireEvent.split('|'); track rE) {
+    <span class="text-white" [ghs-label]="'character.progress.retirement.event' + (rE.indexOf(':') == -1 ? 's': '')"
+      [ghs-label-args]="rE.indexOf(':') == -1 ? [rE] : [rE.split(':')[0], rE.split(':')[1]]"></span>
+    }
+  </div>
+  }
+
+  @if (!!conclusion) {
+  <div class="conclusion">
+    <a (click)="openConclusion()"><span class="text-white" [ghs-label]="'character.progress.retirement.conclusion'"
+        [ghs-label-args]="[conclusion.index]"></span></a>
+  </div>
+  }
+
+  @if (!!personalQuest) {
+  <div class="personal-quest">
+    @if (personalQuest.unlockCharacter) {
+    <div class="text-white" [ngClass]="{'already-unlocked': characterAlreadyUnlocked}"
+      [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
+      [ghs-label-args]="[personalQuest.unlockCharacter]">
     </div>
-
-    <div class="event" *ngIf="character.retireEvent" [ngClass]="{'already-unlocked': alreadyRetired}">
-        <span *ngFor="let rE of character.retireEvent.split('|')" class="text-white"
-            [ghs-label]="'character.progress.retirement.event' + (rE.indexOf(':') == -1 ? 's': '')"
-            [ghs-label-args]="rE.indexOf(':') == -1 ? [rE] : [rE.split(':')[0], rE.split(':')[1]]"></span>
+    }
+    @if (!!characterScenario) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario'"
+      [ghs-label-args]="[characterScenario.index, characterScenario.name]">
     </div>
-
-    <div class="conclusion" *ngIf="!!conclusion">
-        <a (click)="openConclusion()"><span class="text-white" [ghs-label]="'character.progress.retirement.conclusion'"
-                [ghs-label-args]="[conclusion.index]"></span></a>
+    }
+    @if (!!characterItemDesign) {
+    <div class="text-white link" (click)="itemDialog(characterItemDesign)"
+      [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign'"
+      [ghs-label-args]="[characterItemDesign.id, characterItemDesign.edition]">
     </div>
-
-    <div class="personal-quest" *ngIf="!!personalQuest">
-        <div class="text-white" *ngIf="personalQuest.unlockCharacter"
-            [ngClass]="{'already-unlocked': characterAlreadyUnlocked}"
-            [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
-            [ghs-label-args]="[personalQuest.unlockCharacter]">
-        </div>
-
-        <div class="text-white" *ngIf="!!characterScenario"
-            [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario'"
-            [ghs-label-args]="[characterScenario.index, characterScenario.name]">
-        </div>
-
-        <div class="text-white link" *ngIf="!!characterItemDesign" (click)="itemDialog(characterItemDesign)"
-            [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign'"
-            [ghs-label-args]="[characterItemDesign.id, characterItemDesign.edition]">
-        </div>
-
-        <div class="event" *ngIf="unlockEvent">
-            <span *ngFor="let uE of unlockEvent.split('|')" class="text-white"
-                [ghs-label]="'character.progress.retirement.event' + (uE.indexOf(':') == -1 ? 's': '')"
-                [ghs-label-args]="uE.indexOf(':') == -1 ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
-        </div>
-
-        <div class="envelope" *ngIf="personalQuest.openEnvelope">
-            <span class="text-white"
-                [ghs-label]="'character.progress.personalQuest.openEnvelope' + (personalQuest.openEnvelope.split(':').length > 1 ? '.alt' : '')"
-                [ghs-label-args]="personalQuest.openEnvelope.split(':')"
-                [ngClass]="{'already-unlocked': envelopeAlreadyUnlocked}"></span>
-
-            <span class="building" *ngIf="!!personalQuestBuilding"
-                [ghs-label]="'character.progress.personalQuest.openEnvelope.building'"
-                [ghs-label-args]="[personalQuestBuilding.id, personalQuestBuilding.name]"></span>
-        </div>
-
-        <div class="text-white" *ngIf="!!envelopeSection"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope.randomScenario'"
-            [ghs-label-args]="[envelopeSection.index, envelopeSection.unlocks && envelopeSection.unlocks[0]]">
-        </div>
-
-        <div class="text-white" *ngIf="envelopeAlreadyUnlocked && !envelopeSection"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
-        </div>
-
-        <div class="text-white link" *ngIf="!!envelopeItemBlueprint" (click)="itemDialog(envelopeItemBlueprint)"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope.itemBlueprint'"
-            [ghs-label-args]="[envelopeItemBlueprint.id, envelopeItemBlueprint.edition]">
-        </div>
-
-        <div class="text-white" *ngIf="personalQuest.unlockPQ" [ghs-label]="'character.progress.personalQuest.unlockPQ'"
-            [ghs-label-args]="[personalQuest.unlockPQ]">
-        </div>
-
-        <div class="text-white" *ngIf="envelopeAlreadyUnlocked && !envelopeItemBlueprint"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
-        </div>
-
-
-        <div class="errata text-white" *ngIf="settingsManager.settings.errata && personalQuest.errata">
-            <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
-                [ghs-label]="'data.custom.' + personalQuest.edition + '.errata.' + personalQuest.errata"></span>
-        </div>
+    }
+    @if (unlockEvent) {
+    <div class="event">
+      @for (uE of unlockEvent.split('|'); track uE) {
+      <span class="text-white" [ghs-label]="'character.progress.retirement.event' + (uE.indexOf(':') == -1 ? 's': '')"
+        [ghs-label-args]="uE.indexOf(':') == -1 ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
+      }
     </div>
-
-    <div class="additional" *ngIf="gameManager.fhRules() && hasResources">
-        <a (click)="moveResources()"><span [ghs-label]="'character.progress.retirement.moveSupply'"></span></a>
+    }
+    @if (personalQuest.openEnvelope) {
+    <div class="envelope">
+      <span class="text-white"
+        [ghs-label]="'character.progress.personalQuest.openEnvelope' + (personalQuest.openEnvelope.split(':').length > 1 ? '.alt' : '')"
+        [ghs-label-args]="personalQuest.openEnvelope.split(':')"
+        [ngClass]="{'already-unlocked': envelopeAlreadyUnlocked}"></span>
+      @if (!!personalQuestBuilding) {
+      <span class="building" [ghs-label]="'character.progress.personalQuest.openEnvelope.building'"
+        [ghs-label-args]="[personalQuestBuilding.id, personalQuestBuilding.name]"></span>
+      }
     </div>
-
-    <div class="additional" *ngIf="gameManager.fhRules(true) && gameManager.game.party.inspiration > 14">
-        <a (click)="additional = !additional"><span
-                [ghs-label]="'character.progress.retirement.additionalPQ' + (additional ? '.cancel': '')"></span></a>
+    }
+    @if (!!envelopeSection) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.randomScenario'"
+      [ghs-label-args]="[envelopeSection.index, envelopeSection.unlocks && envelopeSection.unlocks[0]]">
     </div>
-
-    <div class="personal-quest" *ngIf="additional">
-        <div class="personal-quest-card">
-            <input class="card-id" *ngIf="additional" [value]="additionalPQ && additionalPQ.cardId || ''" type="text"
-                (change)="changeAdditionalPQ($event)">
-            <span *ngIf="!!additionalPQ" class="personal-quest-name">
-                <span [ghs-label]="'data.personalQuest.' + additionalPQ.edition + '.' + additionalPQ.cardId"></span>
-                <span *ngIf="additionalPQ.altId">&nbsp;({{additionalPQ.altId}})</span>
-            </span>
-        </div>
-
-        <span [ghs-label]="'character.progress.retirement.additionalPQ.inspiration'"></span>
-
-        <span [ghs-label]="'character.progress.retirement.prosperity'" [ghs-label-args]="['2']"></span>
-
-        <div class="text-white" *ngIf="!!additionalPQ && additionalPQ.unlockCharacter"
-            [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
-            [ghs-label-args]="[additionalPQ.unlockCharacter]"
-            [ngClass]="{'already-unlocked': additionalCharacterAlreadyUnlocked}">
-        </div>
-
-        <div class="text-white" *ngIf="!!additionalCharacterScenario"
-            [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario'"
-            [ghs-label-args]="[additionalCharacterScenario.index, additionalCharacterScenario.name]">
-        </div>
-
-        <div class="text-white link" *ngIf="!!additionalCharacterItemDesign"
-            (click)="itemDialog(additionalCharacterItemDesign)"
-            [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign'"
-            [ghs-label-args]="[additionalCharacterItemDesign.id, additionalCharacterItemDesign.edition]">
-        </div>
-
-        <div class="event" *ngIf="additionalUnlockEvent">
-            <span *ngFor="let uE of additionalUnlockEvent.split('|')" class="text-white"
-                [ghs-label]="'character.progress.retirement.event' + (uE.indexOf(':') == -1 ? 's': '')"
-                [ghs-label-args]="uE.indexOf(':') == -1 ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
-        </div>
-
-        <div class="envelope" *ngIf="!!additionalPQ && additionalPQ.openEnvelope">
-            <span class="text-white"
-                [ghs-label]="'character.progress.personalQuest.openEnvelope' + (additionalPQ.openEnvelope.split(':').length > 1 ? '.alt' : '')"
-                [ghs-label-args]="additionalPQ.openEnvelope.split(':')"
-                [ngClass]="{'already-unlocked': additionalEnvelopeAlreadyUnlocked}"></span>
-
-            <span class="building" *ngIf="!!additionalPQBuilding"
-                [ghs-label]="'character.progress.personalQuest.openEnvelope.building'"
-                [ghs-label-args]="[additionalPQBuilding.id, additionalPQBuilding.name]"></span>
-        </div>
-
-        <div class="text-white" *ngIf="!!additionalEnvelopeSection"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope.randomScenario'"
-            [ghs-label-args]="[additionalEnvelopeSection.index, additionalEnvelopeSection.unlocks && additionalEnvelopeSection.unlocks[0]]">
-        </div>
-
-        <div class="text-white" *ngIf="additionalEnvelopeAlreadyUnlocked && !additionalEnvelopeSection"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
-        </div>
-
-        <div class="text-white link" *ngIf="!!additionalEnvelopeItemBlueprint"
-            (click)="itemDialog(additionalEnvelopeItemBlueprint)"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope.itemBlueprint'"
-            [ghs-label-args]="[additionalEnvelopeItemBlueprint.id, additionalEnvelopeItemBlueprint.edition]">
-        </div>
-
-        <div class="text-white" *ngIf="additionalEnvelopeAlreadyUnlocked && !additionalEnvelopeItemBlueprint"
-            [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
-        </div>
-
-        <div class="text-white" *ngIf="!!additionalPQ && additionalPQ.unlockPQ" [ghs-label]="'character.progress.personalQuest.unlockPQ'"
-            [ghs-label-args]="[additionalPQ.unlockPQ]">
-        </div>
-
-        <div class="errata text-white" *ngIf="settingsManager.settings.errata && additionalPQ && additionalPQ.errata">
-            <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
-                [ghs-label]="'data.custom.' + additionalPQ.edition + '.errata.' + additionalPQ.errata"></span>
-        </div>
+    }
+    @if (envelopeAlreadyUnlocked && !envelopeSection) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
     </div>
-
-
-    <div class="menu">
-        <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
-        <a class="apply" (click)="apply()"><span [ghs-label]="'character.progress.retirement.apply'"></span></a>
+    }
+    @if (!!envelopeItemBlueprint) {
+    <div class="text-white link" (click)="itemDialog(envelopeItemBlueprint)"
+      [ghs-label]="'character.progress.personalQuest.openEnvelope.itemBlueprint'"
+      [ghs-label-args]="[envelopeItemBlueprint.id, envelopeItemBlueprint.edition]">
     </div>
+    }
+    @if (personalQuest.unlockPQ) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockPQ'"
+      [ghs-label-args]="[personalQuest.unlockPQ]">
+    </div>
+    }
+    @if (envelopeAlreadyUnlocked && !envelopeItemBlueprint) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
+    </div>
+    }
+    @if (settingsManager.settings.errata && personalQuest.errata) {
+    <div class="errata text-white">
+      <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
+        [ghs-label]="'data.custom.' + personalQuest.edition + '.errata.' + personalQuest.errata"></span>
+    </div>
+    }
+  </div>
+  }
+
+  @if (gameManager.fhRules() && hasResources) {
+  <div class="additional">
+    <a (click)="moveResources()"><span [ghs-label]="'character.progress.retirement.moveSupply'"></span></a>
+  </div>
+  }
+
+  @if (gameManager.fhRules(true) && gameManager.game.party.inspiration > 14) {
+  <div class="additional">
+    <a (click)="additional = !additional"><span
+        [ghs-label]="'character.progress.retirement.additionalPQ' + (additional ? '.cancel': '')"></span></a>
+  </div>
+  }
+
+  @if (additional) {
+  <div class="personal-quest">
+    <div class="personal-quest-card">
+      @if (additional) {
+      <input class="card-id" [value]="additionalPQ && additionalPQ.cardId || ''" type="text"
+        (change)="changeAdditionalPQ($event)">
+      }
+      @if (!!additionalPQ) {
+      <span class="personal-quest-name">
+        <span [ghs-label]="'data.personalQuest.' + additionalPQ.edition + '.' + additionalPQ.cardId"></span>
+        @if (additionalPQ.altId) {
+        <span>&nbsp;({{additionalPQ.altId}})</span>
+        }
+      </span>
+      }
+    </div>
+    <span [ghs-label]="'character.progress.retirement.additionalPQ.inspiration'"></span>
+    <span [ghs-label]="'character.progress.retirement.prosperity'" [ghs-label-args]="['2']"></span>
+    @if (!!additionalPQ && additionalPQ.unlockCharacter) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter'"
+      [ghs-label-args]="[additionalPQ.unlockCharacter]"
+      [ngClass]="{'already-unlocked': additionalCharacterAlreadyUnlocked}">
+    </div>
+    }
+    @if (!!additionalCharacterScenario) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockCharacter.randomScenario'"
+      [ghs-label-args]="[additionalCharacterScenario.index, additionalCharacterScenario.name]">
+    </div>
+    }
+    @if (!!additionalCharacterItemDesign) {
+    <div class="text-white link" (click)="itemDialog(additionalCharacterItemDesign)"
+      [ghs-label]="'character.progress.personalQuest.unlockCharacter.itemDesign'"
+      [ghs-label-args]="[additionalCharacterItemDesign.id, additionalCharacterItemDesign.edition]">
+    </div>
+    }
+    @if (additionalUnlockEvent) {
+    <div class="event">
+      @for (uE of additionalUnlockEvent.split('|'); track uE) {
+      <span class="text-white" [ghs-label]="'character.progress.retirement.event' + (uE.indexOf(':') == -1 ? 's': '')"
+        [ghs-label-args]="uE.indexOf(':') == -1 ? [uE] : [uE.split(':')[0], uE.split(':')[1]]"></span>
+      }
+    </div>
+    }
+    @if (!!additionalPQ && additionalPQ.openEnvelope) {
+    <div class="envelope">
+      <span class="text-white"
+        [ghs-label]="'character.progress.personalQuest.openEnvelope' + (additionalPQ.openEnvelope.split(':').length > 1 ? '.alt' : '')"
+        [ghs-label-args]="additionalPQ.openEnvelope.split(':')"
+        [ngClass]="{'already-unlocked': additionalEnvelopeAlreadyUnlocked}"></span>
+      @if (!!additionalPQBuilding) {
+      <span class="building" [ghs-label]="'character.progress.personalQuest.openEnvelope.building'"
+        [ghs-label-args]="[additionalPQBuilding.id, additionalPQBuilding.name]"></span>
+      }
+    </div>
+    }
+    @if (!!additionalEnvelopeSection) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.randomScenario'"
+      [ghs-label-args]="[additionalEnvelopeSection.index, additionalEnvelopeSection.unlocks && additionalEnvelopeSection.unlocks[0]]">
+    </div>
+    }
+    @if (additionalEnvelopeAlreadyUnlocked && !additionalEnvelopeSection) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
+    </div>
+    }
+    @if (!!additionalEnvelopeItemBlueprint) {
+    <div class="text-white link" (click)="itemDialog(additionalEnvelopeItemBlueprint)"
+      [ghs-label]="'character.progress.personalQuest.openEnvelope.itemBlueprint'"
+      [ghs-label-args]="[additionalEnvelopeItemBlueprint.id, additionalEnvelopeItemBlueprint.edition]">
+    </div>
+    }
+    @if (additionalEnvelopeAlreadyUnlocked && !additionalEnvelopeItemBlueprint) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.openEnvelope.inspiration'">
+    </div>
+    }
+    @if (!!additionalPQ && additionalPQ.unlockPQ) {
+    <div class="text-white" [ghs-label]="'character.progress.personalQuest.unlockPQ'"
+      [ghs-label-args]="[additionalPQ.unlockPQ]">
+    </div>
+    }
+    @if (settingsManager.settings.errata && additionalPQ && additionalPQ.errata) {
+    <div class="errata text-white">
+      <span [ghs-label]="'errata'"></span>:&nbsp;<span class="text"
+        [ghs-label]="'data.custom.' + additionalPQ.edition + '.errata.' + additionalPQ.errata"></span>
+    </div>
+    }
+  </div>
+  }
+
+
+  <div class="menu">
+    <a class="cancel" (click)="close()"><span [ghs-label]="'cancel'"></span></a>
+    <a class="apply" (click)="apply()"><span [ghs-label]="'character.progress.retirement.apply'"></span></a>
+  </div>
 </div>

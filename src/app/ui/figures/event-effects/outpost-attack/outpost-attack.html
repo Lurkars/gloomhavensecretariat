@@ -1,183 +1,208 @@
 <div class="outpost-attack-dialog"
-    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+  [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
 
-    <div class="header">
-        <img class="party-sheet" (click)="partySheet()" src="./assets/images/sheet.svg"
-            [ghs-tooltip]="'party.outpostAttack.sheet'">
+  <div class="header">
+    <img class="party-sheet" (click)="partySheet()" src="./assets/images/sheet.svg"
+      [ghs-tooltip]="'party.outpostAttack.sheet'">
 
-        <img class="world-map" (click)="worldMap()" src="./assets/images/map.svg"
-            [ghs-tooltip]="'party.outpostAttack.map'">
+    <img class="world-map" (click)="worldMap()" src="./assets/images/map.svg" [ghs-tooltip]="'party.outpostAttack.map'">
+  </div>
+
+  <div class="attack">
+    <ghs-event-card-attack [attack]="attack" [selected]="true" [narrative]="false" [effects]="false" [disabled]="true"
+      [light]="true"></ghs-event-card-attack>
+  </div>
+
+  @if (!defaultAttack) {
+  <div class="manual-attack">
+    <input type="number" min="0" [(ngModel)]="manualAttackValue" (change)="applyBaracks()">
+    <input type="number" min="0" [(ngModel)]="manualTargetNumber" (change)="applyBaracks()">
+  </div>
+  }
+
+  <div class="filter">
+    <select [(ngModel)]="lowerBoundary" (change)="applyFilter()"
+      [ghs-tooltip]="'party.outpostAttack.filter.lowerBoundary'">
+      <option [value]="0" [ghs-label]="'party.outpostAttack.filter.lowerBoundary'"></option>
+      <option [value]="10">10</option>
+      <option [value]="20">20</option>
+      <option [value]="30">30</option>
+      <option [value]="40">40</option>
+      <option [value]="50">50</option>
+      <option [value]="60">60</option>
+      <option [value]="70">70</option>
+      <option [value]="80">80</option>
+      <option [value]="90">90</option>
+    </select>
+    <select [(ngModel)]="upperBoundary" (change)="applyFilter()"
+      [ghs-tooltip]="'party.outpostAttack.filter.upperBoundary'">
+      <option [value]="0" [ghs-label]="'party.outpostAttack.filter.upperBoundary'"></option>
+      <option [value]="10">10</option>
+      <option [value]="20">20</option>
+      <option [value]="30">30</option>
+      <option [value]="40">40</option>
+      <option [value]="50">50</option>
+      <option [value]="60">60</option>
+      <option [value]="70">70</option>
+      <option [value]="80">80</option>
+      <option [value]="90">90</option>
+    </select>
+    <select [(ngModel)]="parity" (change)="applyFilter()">
+      <option [value]="0" [ghs-label]="'party.outpostAttack.filter.parity'"></option>
+      <option [value]="'even'" [ghs-label]="'party.outpostAttack.filter.even'"></option>
+      <option [value]="'odd'" [ghs-label]="'party.outpostAttack.filter.odd'"></option>
+    </select>
+    <label>
+      <input type="checkbox" [(ngModel)]="desc" (change)="applyFilter()">
+      <span [ghs-label]="'party.outpostAttack.filter.desc'"></span>
+    </label>
+    <a (click)="randomize()">
+      <span [ghs-label]="'party.outpostAttack.filter.randomize'"></span>
+    </a>
+  </div>
+
+  <div class="baracks-bonus">
+    @if (barracks) {
+    @for (soldier of [] | ghsRange:gameManager.game.party.soldiers; track soldier) {
+    <div class="soldier" (click)="toggleSoldier(soldier+1)">
+      <img src="./assets/images/fh/party/soldier.svg">
+      <div class="check" [ngClass]="{'checked' : soldiers >= soldier + 1}"></div>
     </div>
+    }
+    }
 
-    <div class="attack">
-        <ghs-event-card-attack [attack]="attack" [selected]="true" [narrative]="false" [effects]="false"
-            [disabled]="true" [light]="true"></ghs-event-card-attack>
+    @if (factor == 'advantage') {
+    <div class="factor" [ghs-tooltip]="'party.outpostAttack.advantage'">
+      <img src="./assets/images/fh/condition/strengthen.svg">
     </div>
-
-    <div class="manual-attack" *ngIf="!defaultAttack">
-        <input type="number" min="0" [(ngModel)]="manualAttackValue" (change)="applyBaracks()">
-        <input type="number" min="0" [(ngModel)]="manualTargetNumber" (change)="applyBaracks()">
+    }
+    @if (factor == 'disadvantage') {
+    <div class="factor" [ghs-tooltip]="'party.outpostAttack.disadvantage'">
+      <img src="./assets/images/fh/condition/muddle.svg">
     </div>
+    }
+  </div>
 
-    <div class="filter">
-        <select [(ngModel)]="lowerBoundary" (change)="applyFilter()"
-            [ghs-tooltip]="'party.outpostAttack.filter.lowerBoundary'">
-            <option [value]="0" [ghs-label]="'party.outpostAttack.filter.lowerBoundary'"></option>
-            <option [value]="10">10</option>
-            <option [value]="20">20</option>
-            <option [value]="30">30</option>
-            <option [value]="40">40</option>
-            <option [value]="50">50</option>
-            <option [value]="60">60</option>
-            <option [value]="70">70</option>
-            <option [value]="80">80</option>
-            <option [value]="90">90</option>
-        </select>
-        <select [(ngModel)]="upperBoundary" (change)="applyFilter()"
-            [ghs-tooltip]="'party.outpostAttack.filter.upperBoundary'">
-            <option [value]="0" [ghs-label]="'party.outpostAttack.filter.upperBoundary'"></option>
-            <option [value]="10">10</option>
-            <option [value]="20">20</option>
-            <option [value]="30">30</option>
-            <option [value]="40">40</option>
-            <option [value]="50">50</option>
-            <option [value]="60">60</option>
-            <option [value]="70">70</option>
-            <option [value]="80">80</option>
-            <option [value]="90">90</option>
-        </select>
-        <select [(ngModel)]="parity" (change)="applyFilter()">
-            <option [value]="0" [ghs-label]="'party.outpostAttack.filter.parity'"></option>
-            <option [value]="'even'" [ghs-label]="'party.outpostAttack.filter.even'"></option>
-            <option [value]="'odd'" [ghs-label]="'party.outpostAttack.filter.odd'"></option>
-        </select>
-        <label>
-            <input type="checkbox" [(ngModel)]="desc" (change)="applyFilter()">
-            <span [ghs-label]="'party.outpostAttack.filter.desc'"></span>
-        </label>
-        <a (click)="randomize()">
-            <span [ghs-label]="'party.outpostAttack.filter.randomize'"></span>
-        </a>
+  <div class="town-guard-deck-container">
+    <div class="town-guard-deck">
+      <ghs-attackmodifier-deck [deck]="townGuardDeck" [townGuard]="true" (before)="beforeTownGuardDeck($event)"
+        (after)="afterTownGuardDeck($event)"></ghs-attackmodifier-deck>
     </div>
+  </div>
 
-    <div class="baracks-bonus">
-        <ng-container *ngIf="barracks">
-            <div class="soldier" *ngFor="let soldier of [] | ghsRange:gameManager.game.party.soldiers;"
-                (click)="toggleSoldier(soldier+1)">
-                <img src="./assets/images/fh/party/soldier.svg">
-                <div class="check" [ngClass]="{'checked' : soldiers >= soldier + 1}"></div>
-            </div>
-        </ng-container>
+  <div class="defense">
+    <span [ghs-label]="'party.outpostAttack.defense'"></span>
+    <span class="value">{{(gameManager.game.party.defense || 0) + moraleDefense}}</span>
+  </div>
 
-        <div class="factor" *ngIf="factor == 'advantage'" [ghs-tooltip]="'party.outpostAttack.advantage'">
-            <img src="./assets/images/fh/condition/strengthen.svg">
-        </div>
-        <div class="factor" *ngIf="factor == 'disadvantage'" [ghs-tooltip]="'party.outpostAttack.disadvantage'">
-            <img src="./assets/images/fh/condition/muddle.svg">
-        </div>
-    </div>
+  <div class="buildings">
+    <table cdkDropList #buildingsList="cdkDropList" [cdkDropListConnectedTo]="disabledBuildingsList"
+      (cdkDropListDropped)="dropBuildings($event)">
+      <thead>
+        <tr>
+          <th colspan="6" [ghs-label]="'party.outpostAttack.targets'"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (building of buildings; track building.data.name; let i = $index) {
+        <tr cdkDrag
+          [ngClass]="{'disabled': building.model.attacked || typeof attack.targetNumber === 'number' && i >= attacks + attack.targetNumber}">
+          <td class="drag-handle" cdkDragHandle>
+            <a class="button">
+              <img class="ghs-svg" src="./assets/images/menu.svg">
+            </a>
+          </td>
+          <td class="target">
+            <span>
+              @if (i == attacks && attack.targetNumber) {
+              <img class="ghs-svg" src="./assets/images/attackmodifier/target.svg">
+              }
+            </span>
+          </td>
+          <td class="name">
+            <span [ghs-label]="'data.buildings.' + building.model.name"></span>
+          </td>
+          <td class="id">@if (building.data.id) {
+            <span>({{building.data.id}})</span>
+            }
+          </td>
+          <td class="level"><span>{{building.model.level || '-'}}</span></td>
+          <td class="change-state">
+            @if (building.model.state == 'normal') {
+            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.damage'">
+              <img class="ghs-svg" src="./assets/images/fh/action/damage.svg">
+            </a>
+            }
+            @if (building.model.state == 'damaged') {
+            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.wreck'">
+              <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg">
+            </a>
+            }
+            @if (building.model.state == 'wrecked') {
+            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.repair'">
+              <img class="ghs-svg" src="./assets/images/fh/buildings/repair.svg">
+            </a>
+            }
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
 
-    <div class="town-guard-deck-container">
-        <div class="town-guard-deck">
-            <ghs-attackmodifier-deck [deck]="townGuardDeck" [townGuard]="true" (before)="beforeTownGuardDeck($event)"
-                (after)="afterTownGuardDeck($event)"></ghs-attackmodifier-deck>
-        </div>
-    </div>
+    <table class="other" cdkDropList #disabledBuildingsList="cdkDropList" [cdkDropListConnectedTo]="buildingsList"
+      (cdkDropListDropped)="dropDisabledBuildings($event)">
+      <thead>
+        <tr>
+          <th colspan="6" [ghs-label]="'party.outpostAttack.other'"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (building of disabledBuildings; track building.data.name) {
+        <tr cdkDrag>
+          <td class="drag-handle" cdkDragHandle>
+            <a class="button">
+              <img class="ghs-svg" src="./assets/images/menu.svg">
+            </a>
+          </td>
+          <td class="target"></td>
+          <td class="name">
+            <span [ghs-label]="'data.buildings.' + building.model.name"></span>
+          </td>
+          <td class="id">@if (building.data.id) {
+            <span>({{building.data.id}})</span>
+            }
+          </td>
+          <td class="level">{{building.model.level || '-'}}</td>
+          <td class="change-state">
+            @if (building.model.state == 'normal') {
+            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.damage'">
+              <img class="ghs-svg" src="./assets/images/fh/action/damage.svg">
+            </a>
+            }
+            @if (building.model.state == 'damaged') {
+            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.wreck'">
+              <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg">
+            </a>
+            }
+            @if (building.model.state == 'wrecked') {
+            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.repair'">
+              <img class="ghs-svg" src="./assets/images/fh/buildings/repair.svg">
+            </a>
+            }
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 
-    <div class="defense">
-        <span [ghs-label]="'party.outpostAttack.defense'"></span>
-        <span class="value">{{(gameManager.game.party.defense || 0) + moraleDefense}}</span>
-    </div>
-
-    <div class="buildings">
-        <table cdkDropList #buildingsList="cdkDropList" [cdkDropListConnectedTo]="disabledBuildingsList"
-            (cdkDropListDropped)="dropBuildings($event)">
-            <thead>
-                <tr>
-                    <th colspan="6" [ghs-label]="'party.outpostAttack.targets'"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let building of buildings; let i = index" cdkDrag
-                    [ngClass]="{'disabled': building.model.attacked || typeof attack.targetNumber === 'number' && i >= attacks + attack.targetNumber}">
-                    <td class="drag-handle" cdkDragHandle>
-                        <a class="button">
-                            <img class="ghs-svg" src="./assets/images/menu.svg">
-                        </a>
-                    </td>
-                    <td class="target">
-                        <span>
-                            <img *ngIf="i == attacks && attack.targetNumber" class="ghs-svg"
-                                src="./assets/images/attackmodifier/target.svg">
-                        </span>
-                    </td>
-                    <td class="name">
-                        <span [ghs-label]="'data.buildings.' + building.model.name"></span>
-                    </td>
-                    <td class="id"><span *ngIf="building.data.id">({{building.data.id}})</span></td>
-                    <td class="level"><span>{{building.model.level || '-'}}</span></td>
-                    <td class="change-state">
-                        <a *ngIf="building.model.state == 'normal'" (click)="toggleBuildingState(building)"
-                            [ghs-tooltip]="'party.outpostAttack.buildings.damage'">
-                            <img class="ghs-svg" src="./assets/images/fh/action/damage.svg">
-                        </a>
-                        <a *ngIf="building.model.state == 'damaged'" (click)="toggleBuildingState(building)"
-                            [ghs-tooltip]="'party.outpostAttack.buildings.wreck'">
-                            <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg">
-                        </a>
-                        <a *ngIf="building.model.state == 'wrecked'" (click)="toggleBuildingState(building)"
-                            [ghs-tooltip]="'party.outpostAttack.buildings.repair'">
-                            <img class="ghs-svg" src="./assets/images/fh/buildings/repair.svg">
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <table class="other" cdkDropList #disabledBuildingsList="cdkDropList" [cdkDropListConnectedTo]="buildingsList"
-            (cdkDropListDropped)="dropDisabledBuildings($event)">
-            <thead>
-                <tr>
-                    <th colspan="6" [ghs-label]="'party.outpostAttack.other'"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let building of disabledBuildings" cdkDrag>
-                    <td class="drag-handle" cdkDragHandle>
-                        <a class="button">
-                            <img class="ghs-svg" src="./assets/images/menu.svg">
-                        </a>
-                    </td>
-                    <td class="target"></td>
-                    <td class="name">
-                        <span [ghs-label]="'data.buildings.' + building.model.name"></span>
-                    </td>
-                    <td class="id"><span *ngIf="building.data.id">({{building.data.id}})</span></td>
-                    <td class="level">{{building.model.level || '-'}}</td>
-                    <td class="change-state">
-                        <a *ngIf="building.model.state == 'normal'" (click)="toggleBuildingState(building)"
-                            [ghs-tooltip]="'party.outpostAttack.buildings.damage'">
-                            <img class="ghs-svg" src="./assets/images/fh/action/damage.svg">
-                        </a>
-                        <a *ngIf="building.model.state == 'damaged'" (click)="toggleBuildingState(building)"
-                            [ghs-tooltip]="'party.outpostAttack.buildings.wreck'">
-                            <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg">
-                        </a>
-                        <a *ngIf="building.model.state == 'wrecked'" (click)="toggleBuildingState(building)"
-                            [ghs-tooltip]="'party.outpostAttack.buildings.repair'">
-                            <img class="ghs-svg" src="./assets/images/fh/buildings/repair.svg">
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="menu">
-        <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
-        <a *ngIf="+attack.targetNumber > 0 && attacks < buildings.length" (click)="nextTarget()"
-            [ghs-label]="'party.outpostAttack.next'"></a>
-        <a class="finish" *ngIf="attack.targetNumber == 0 || attacks >= buildings.length" (click)="close(true)"
-            [ghs-label]="'party.outpostAttack.finish'"></a>
-    </div>
+  <div class="menu">
+    <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
+    @if (+attack.targetNumber > 0 && attacks < buildings.length) { <a (click)="nextTarget()"
+      [ghs-label]="'party.outpostAttack.next'"></a>
+      }
+      @if (attack.targetNumber == 0 || attacks >= buildings.length) {
+      <a class="finish" (click)="close(true)" [ghs-label]="'party.outpostAttack.finish'"></a>
+      }
+  </div>
 </div>

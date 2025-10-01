@@ -1,22 +1,26 @@
 <div class="rules-dialog"
   [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-  <ng-container *ngFor="let ruleModel of gameManager.game.scenarioRules; let index = index;">
-    <div class="rule-dialog dialog" #ruleElement *ngIf="visible(index)">
-      <div class="dialog-container">
-        <div class="hide" (click)="hideRule(ruleElement, index)"><span [ghs-label]="'scenario.rules.hide'"></span>
-          <img src="./assets/images/close.svg">
-        </div>
-        <ghs-scenario-rule [rule]="ruleModel.rule" [identifier]="ruleModel.identifier"></ghs-scenario-rule>
-        <div class="menu" *ngIf="apply(ruleModel.rule)">
-          <a class="apply" (click)="applyRule(ruleElement, index)">
-            <span
-              [ghs-label]="ruleModel.rule.alwaysApply || ruleModel.rule.alwaysApplyTurn ? 'scenario.rules.alwaysApply' : 'scenario.rules.apply'"></span>
-            <img src="./assets/images/check.svg">
-          </a>
-        </div>
-        <div class="close" (click)="close(ruleElement, index)" [ghs-label]="'scenario.rules.dismiss'"
-          [ghs-label-attribute]="'title'"></div>
+  @for (ruleModel of gameManager.game.scenarioRules; track ruleModel; let index = $index) {
+  @if (visible(index)) {
+  <div class="rule-dialog dialog" #ruleElement>
+    <div class="dialog-container">
+      <div class="hide" (click)="hideRule(ruleElement, index)"><span [ghs-label]="'scenario.rules.hide'"></span>
+        <img src="./assets/images/close.svg">
       </div>
+      <ghs-scenario-rule [rule]="ruleModel.rule" [identifier]="ruleModel.identifier"></ghs-scenario-rule>
+      @if (apply(ruleModel.rule)) {
+      <div class="menu">
+        <a class="apply" (click)="applyRule(ruleElement, index)">
+          <span
+            [ghs-label]="ruleModel.rule.alwaysApply || ruleModel.rule.alwaysApplyTurn ? 'scenario.rules.alwaysApply' : 'scenario.rules.apply'"></span>
+          <img src="./assets/images/check.svg">
+        </a>
+      </div>
+      }
+      <div class="close" (click)="close(ruleElement, index)" [ghs-label]="'scenario.rules.dismiss'"
+        [ghs-label-attribute]="'title'"></div>
     </div>
-  </ng-container>
+  </div>
+  }
+  }
 </div>

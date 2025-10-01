@@ -1,31 +1,36 @@
 <div class="attackmodifier-standalone"
-    [ngClass]="{'vertical'  : vertical(), 'modern' : settingsManager.settings.theme == 'modern'}"
-    ghs-keyboard-shortcuts>
-    <ghs-header #header [standalone]="true"></ghs-header>
-    <div class="decks">
-        <span class="deck" (click)="selectMonsterDeck()" [ngClass]="{'active': activeDeckIndex == -1}">m</span>
-        <span class="deck" (click)="selectAllyDeck()" [ngClass]="{'active': activeDeckIndex == 0}">A</span>
+  [ngClass]="{'vertical'  : vertical(), 'modern' : settingsManager.settings.theme == 'modern'}" ghs-keyboard-shortcuts>
+  <ghs-header #header [standalone]="true"></ghs-header>
+  <div class="decks">
+    <span class="deck" (click)="selectMonsterDeck()" [ngClass]="{'active': activeDeckIndex == -1}">m</span>
+    <span class="deck" (click)="selectAllyDeck()" [ngClass]="{'active': activeDeckIndex == 0}">A</span>
 
-        <span *ngFor="let character of characters; let i = index" class="deck"
-            [ngClass]="{'active': activeDeckIndex == i +1}" ghs-pointer-input (singleClick)="selectCharacterDeck(i)"
-            (doubleClick)="removeCharacter(i)"><img [src]="character.iconUrl"></span>
+    @for (character of characters; track character.edition + '-' + character.name; let i = $index) {
+    <span class="deck" [ngClass]="{'active': activeDeckIndex == i +1}" ghs-pointer-input
+      (singleClick)="selectCharacterDeck(i)" (doubleClick)="removeCharacter(i)"><img [src]="character.iconUrl"></span>
+    }
 
-        <a class="add-character" (click)="addCharacter()"><img src="./assets/images/plus.svg"></a>
-    </div>
-    <ghs-attackmodifier-deck *ngIf="init"
-        [deck]="activeDeckIndex > 0 ? characters[activeDeckIndex-1].attackModifierDeck : (activeDeckIndex == 0 ? gameManager.game.allyAttackModifierDeck : gameManager.game.monsterAttackModifierDeck)"
-        [numeration]="activeDeckIndex > 0 ? '' : (activeDeckIndex == 0 ? 'A' : 'm')" [standalone]="true"
-        [fullscreen]="false" [vertical]="vertical()" (before)="beforeAttackModifierDeck($event)"
-        (after)="afterAttackModifierDeck($event)" [ally]="activeDeckIndex == 0"
-        [character]="activeDeckIndex > 0 ? characters[activeDeckIndex-1] : undefined" [battleGoals]="false">
-    </ghs-attackmodifier-deck>
+    <a class="add-character" (click)="addCharacter()"><img src="./assets/images/plus.svg"></a>
+  </div>
+  @if (init) {
+  <ghs-attackmodifier-deck
+    [deck]="activeDeckIndex > 0 ? characters[activeDeckIndex-1].attackModifierDeck : (activeDeckIndex == 0 ? gameManager.game.allyAttackModifierDeck : gameManager.game.monsterAttackModifierDeck)"
+    [numeration]="activeDeckIndex > 0 ? '' : (activeDeckIndex == 0 ? 'A' : 'm')" [standalone]="true"
+    [fullscreen]="false" [vertical]="vertical()" (before)="beforeAttackModifierDeck($event)"
+    (after)="afterAttackModifierDeck($event)" [ally]="activeDeckIndex == 0"
+    [character]="activeDeckIndex > 0 ? characters[activeDeckIndex-1] : undefined" [battleGoals]="false">
+  </ghs-attackmodifier-deck>
+  }
 
-    <div class="menu" *ngIf="init">
-        <a *ngIf="activeDeckIndex > 0" class="character" (click)="openCharacterSheet()">
-            <img [src]="characters[activeDeckIndex-1].iconUrl">
-            <span class="title">{{gameManager.characterManager.characterName(characters[activeDeckIndex-1])}}</span>
-        </a>
-
-        <a class="next" (click)="next()"><span [ghs-label]="'round.next'"></span></a>
-    </div>
+  @if (init) {
+  <div class="menu">
+    @if (activeDeckIndex > 0) {
+    <a class="character" (click)="openCharacterSheet()">
+      <img [src]="characters[activeDeckIndex-1].iconUrl">
+      <span class="title">{{gameManager.characterManager.characterName(characters[activeDeckIndex-1])}}</span>
+    </a>
+    }
+    <a class="next" (click)="next()"><span [ghs-label]="'round.next'"></span></a>
+  </div>
+  }
 </div>

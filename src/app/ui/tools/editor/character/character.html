@@ -33,25 +33,32 @@
 
               <label><span [ghs-label]="'editor.character.data.class'"></span></label>
               <select [(ngModel)]="characterData.characterClass" (change)="characterDataToJson()">
-                <option *ngFor="let class of CharacterClasses" [value]="class"
-                  [selected]="characterData.characterClass == class"><span
+                @for (class of CharacterClasses; track class) {
+                <option [value]="class" [selected]="characterData.characterClass == class"><span
                     [ghs-label]="'character.class.' + class"></span>
                 </option>
+                }
               </select>
 
               <label><span [ghs-label]="'editor.character.data.hp'"></span></label>
               <div class="hp-container">
                 <select [(ngModel)]="hpIndex" (change)="changeHpIndex()">
-                  <option *ngFor="let index of []| ghsRange:4" [value]="index-1">
+                  @for (index of []| ghsRange:4; track index) {
+                  <option [value]="index-1">
                     <span [ghs-label]="'editor.character.data.hp.' + (index-1)"></span>
                   </option>
+                  }
                 </select>
                 <div class="hp-grid">
-                  <ng-container *ngFor="let stat of characterData.stats">
-                    <span>{{stat.level}}</span>
-                    <input disabled *ngIf="hpIndex != -1" [(ngModel)]="stat.health">
-                    <input type="number" *ngIf="hpIndex == -1" [(ngModel)]="stat.health">
-                  </ng-container>
+                  @for (stat of characterData.stats; track stat) {
+                  <span>{{stat.level}}</span>
+                  @if (hpIndex != -1) {
+                  <input disabled [(ngModel)]="stat.health">
+                  }
+                  @if (hpIndex == -1) {
+                  <input type="number" [(ngModel)]="stat.health">
+                  }
+                  }
                 </div>
               </div>
             </div>
@@ -64,20 +71,25 @@
 
           <select (change)="loadCharacterData($event)">
             <option [value]="-1">&lt;<span [ghs-label]="'editor.character.new'"></span>&gt;</option>
-            <option [value]="index" *ngFor="let cD of charactersData; let index = index;"
-              [selected]="cD.edition == characterData.edition && cD.name == characterData.name">
-              <span *ngIf="isSpoiled(cD)" [ghs-label]="'data.character.' + cD.edition + '.' + cD.name"></span>
+            @for (cD of charactersData; track cD.edition + '-' + cD.name; let index = $index) {
+            <option [value]="index" [selected]="cD.edition == characterData.edition && cD.name == characterData.name">
+              @if (isSpoiled(cD)) {
+              <span [ghs-label]="'data.character.' + cD.edition + '.' + cD.name"></span>
+              }
               {{cD.name}}
               (<span [ghs-label]="'data.edition.' + cD.edition"></span>)
               [{{cD.name}}]
             </option>
+            }
           </select>
 
           <select (change)="selectEdition($event)">
             <option></option>
-            <option *ngFor="let edition of editions" [value]="edition">
+            @for (edition of editions; track edition) {
+            <option [value]="edition">
               <span [ghs-label]="'data.edition.' + edition"></span>
             </option>
+            }
           </select>
         </h2>
 
@@ -90,7 +102,9 @@
       </div>
     </div>
 
-    <ghs-deck-editor *ngIf="init" [character]="getCharacter()" [standalone]="false" [edition]="edition">
+    @if (init) {
+    <ghs-deck-editor [character]="getCharacter()" [standalone]="false" [edition]="edition">
     </ghs-deck-editor>
+    }
   </div>
 </div>

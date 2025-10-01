@@ -126,7 +126,7 @@ export class PartyBuildingsComponent implements OnInit, OnDestroy {
 
     if (building.data.repair && building.model.state == "damaged") {
       const totalCosts = building.data.repair[building.model.level - 1];
-      return (this.partyResource(LootType.lumber) + this.partyResource(LootType.metal) + this.partyResource(LootType.hide)) > totalCosts;
+      return (this.partyResource(LootType.lumber) + this.partyResource(LootType.metal) + this.partyResource(LootType.hide)) > totalCosts || this.party.morale > 0;
     }
 
     let discount = gameManager.game.party.buildings.find((buildingModel) => buildingModel.name == "carpenter" && buildingModel.level > 0 && buildingModel.state != 'wrecked') != undefined;
@@ -324,7 +324,14 @@ export class PartyBuildingsComponent implements OnInit, OnDestroy {
             if (force && result == true || result instanceof SelectResourceResult) {
               gameManager.stateManager.before("repairBuilding", building.data.id, building.data.name);
               if (!force && result instanceof SelectResourceResult) {
-                gameManager.lootManager.applySelectResources(result);
+                if (result.morale) {
+                  this.party.morale -= result.morale;
+                  if (this.party.morale < 0) {
+                    this.party.morale = 0;
+                  }
+                } else {
+                  gameManager.lootManager.applySelectResources(result);
+                }
               }
               building.model.state = 'normal';
               gameManager.stateManager.after();

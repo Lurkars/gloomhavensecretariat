@@ -6,8 +6,10 @@
       <img [src]="character.iconUrl" />
     </span>
     <div class="summons">
-      <ghs-standee *ngFor="let summon of character.summons" [figure]="character" [entity]="summon">
+      @for (summon of character.summons; track summon.name + summon.color + summon.number) {
+      <ghs-standee [figure]="character" [entity]="summon">
       </ghs-standee>
+      }
     </div>
   </div>
 
@@ -32,18 +34,22 @@
 
     <div class="row">
       <div class="conditions">
-        <span class="condition" *ngFor="let entityCondition of activeConditions">
+        @for (entityCondition of activeConditions; track entityCondition.name + entityCondition.value) {
+        <span class="condition">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
             [style.z-index]="entityCondition.value" />
-          <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
-            <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
-              [style.z-index]="entityCondition.value - i - 1"
-              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
-          </ng-container>
-          <span class="value"
-            *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+          @if (entityCondition.types.indexOf(ConditionType.stack) != -1) {
+          @for (i of [] | ghsRange:(entityCondition.value - 1); track i) {
+          <img class="stack" [style.z-index]="entityCondition.value - i - 1"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+          }
+          }
+          @if (entityCondition.types.indexOf(ConditionType.value) != -1) {
+          <span class="value">{{entityCondition.value}}</span>
+          }
         </span>
+        }
       </div>
     </div>
 

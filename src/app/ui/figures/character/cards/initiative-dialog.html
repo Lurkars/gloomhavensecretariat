@@ -1,19 +1,30 @@
 <div class="initiative-dialog">
   <div class="title">
-    <span class="character" *ngIf="!!character">
+    @if (!!character) {
+    <span class="character">
       <img class="icon" [src]="character.iconUrl" />
       {{ gameManager.characterManager.characterName(character)}}
-      <span *ngIf="character.title">&nbsp;(<span
-          [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>)</span>
+      @if (character.title) {
+      <span>&nbsp;(<span [ghs-label]="'data.character.' + character.edition + '.' + character.name"></span>)</span>
+      }
     </span>
-    <span class="character" *ngIf="!!objective">
+    }
+    @if (!!objective) {
+    <span class="character">
       <img class="icon" [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
-      <span *ngIf="objective.title">
+      @if (objective.title) {
+      <span>
         {{objective.title}}</span>
-      <span *ngIf="!objective.title"
+      }
+      @if (!objective.title) {
+      <span
         [ghs-label]="(objective.name ? ('data.objective.' + objective.name) : (objective.escort ? 'escort' : 'objective'))"></span>
-      <span *ngIf="objective.title">&nbsp;<span [ghs-label]="objective.escort ? 'escort' : 'objective'"></span></span>
+      }
+      @if (objective.title) {
+      <span>&nbsp;<span [ghs-label]="objective.escort ? 'escort' : 'objective'"></span></span>
+      }
     </span>
+    }
     <span [ghs-label]="'game.figure.setInitiative'"></span>
   </div>
 
@@ -21,17 +32,21 @@
     <span></span>
     <span class="value">{{value}}</span>
     <span></span>
-    <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
+    @for (number of [1,2,3,4,5,6,7,8,9]; track number) {
+    <span class="number-button" (click)="pickNumber(number)">
       <span class="number">{{number}}</span>
     </span>
+    }
     <span></span>
     <span class="number-button" (click)="pickNumber(0)">
       <span class="number">0</span>
     </span>
     <span></span>
   </div>
-  <span *ngIf="!!character" class="long-rest-button" [ngClass]="{'active' : character.longRest}" (click)="longRest()">
+  @if (!!character) {
+  <span class="long-rest-button" [ngClass]="{'active' : character.longRest}" (click)="longRest()">
     <img class="ghs-svg" src="./assets/images/long-rest.svg"> <span
       [ghs-label]="'game.figure.longRest' + (character.longRest ? 'Off' : '')"></span>
   </span>
+  }
 </div>

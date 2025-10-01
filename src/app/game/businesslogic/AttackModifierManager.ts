@@ -4,6 +4,7 @@ import { Character } from "../model/Character";
 import { CharacterData } from "../model/data/CharacterData";
 import { CampaignData } from "../model/data/EditionData";
 import { Perk, PerkCard, PerkType } from "../model/data/Perks";
+import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
@@ -742,6 +743,66 @@ export class AttackModifierManager {
     attackModifierDeck.active = model.active;
     attackModifierDeck.state = model.state;
     attackModifierDeck.bb = model.bb;
+  }
+
+  calculateAttackResult(attackModifierDeck: AttackModifierDeck, base: string | number, forceIndex: number = -1): number {
+    let result: number = EntityValueFunction(base);
+    let rollingOffset: number = 1;
+    let baseCard: AttackModifier = attackModifierDeck.cards[attackModifierDeck.current];
+
+    if (attackModifierDeck.state) {
+      let secondCard: AttackModifier = attackModifierDeck.cards[attackModifierDeck.current - 1];
+      switch (attackModifierDeck.state) {
+        case "advantage":
+          if (this.applyAttackModifier(result, secondCard) > this.applyAttackModifier(result, baseCard)) {
+            baseCard = secondCard;
+          }
+          rollingOffset = 2;
+          break;
+        case "disadvantage":
+          if (this.applyAttackModifier(result, secondCard) < this.applyAttackModifier(result, baseCard)) {
+            baseCard = secondCard;
+          }
+          rollingOffset = 0;
+          break
+      }
+
+      if (forceIndex != -1) {
+        baseCard = attackModifierDeck.cards[attackModifierDeck.current - forceIndex];
+      }
+    }
+
+    if (rollingOffset && attackModifierDeck.current - rollingOffset > -1) {
+      let rollingCard: AttackModifier | undefined = attackModifierDeck.cards[attackModifierDeck.current - rollingOffset];
+      while (rollingCard && rollingCard.rolling) {
+        result = this.applyAttackModifier(result, rollingCard);
+        rollingOffset++;
+        if (attackModifierDeck.current - rollingOffset > -1) {
+          rollingCard = attackModifierDeck.cards[attackModifierDeck.current - rollingOffset]
+        } else {
+          rollingCard = undefined;
+        }
+      }
+    }
+
+    result = this.applyAttackModifier(result, baseCard);
+    return result;
+  }
+
+  applyAttackModifier(value: number, attackModifier: AttackModifier): number {
+    switch (attackModifier.valueType) {
+      case AttackModifierValueType.default:
+        if (attackModifier.value) {
+          console.warn("Possible invalid AM", attackModifier);
+        }
+        return value;
+      case AttackModifierValueType.plus:
+        return value + attackModifier.value;
+      case AttackModifierValueType.minus:
+        return value - attackModifier.value;
+      case AttackModifierValueType.multiply:
+        return value * attackModifier.value;
+    }
   }
 
 }

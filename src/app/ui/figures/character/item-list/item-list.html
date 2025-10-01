@@ -1,30 +1,33 @@
 <div class="item-list" [style.--ghs-item-list-zoom]="settingsManager.settings.characterItemsPermanentZoom">
 
-    <div *ngIf="items.length == 0" class="empty" (click)="openShop()">
-        <img
-            [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'" />
-        <span class="text" [ghs-label]="'game.items.character.empty'"></span>
-    </div>
+  @if (items.length == 0) {
+  <div class="empty" (click)="openShop()">
+    <img
+      [src]="settingsManager.settings.fhStyle ? './assets/images/fh/items/item-back-fh.png' : './assets/images/items/item-back.png'" />
+    <span class="text" [ghs-label]="'game.items.character.empty'"></span>
+  </div>
+  }
 
-    <div class="item-container" *ngFor="let itemData of items"
-        [ngClass]="{'spent' : !setup && countFlag(itemData,ItemFlags.spent)}">
-        <ghs-character-item [character]="character" [item]="itemData" [setup]="setup"></ghs-character-item>
-        <a class="open-dialog" (click)="openItemDialog(itemData)"></a>
-    </div>
+  @for (itemData of items; track itemData.edition + '-' + itemData.id) {
+  <div class="item-container" [ngClass]="{'spent' : !setup && countFlag(itemData,ItemFlags.spent)}">
+    <ghs-character-item [character]="character" [item]="itemData" [setup]="setup"></ghs-character-item>
+    <a class="open-dialog" (click)="openItemDialog(itemData)"></a>
+  </div>
+  }
 
-    <div class="menu">
-        <a (click)="toggleEquipped()"
-            [ngClass]="{'active' : settingsManager.settings.characterItemsPermanentEquipped, 'disabled': setup}"
-            [ghs-tooltip]="'game.items.character.toggleEquipped'" [overlayX]="'end'" [overlayY]="'bottom'">
-            <img class="toggle ghs-svg" src="./assets/images/check.svg"></a>
-        <a (click)="toggleSorted()" [ngClass]="{'active' : settingsManager.settings.characterItemsPermanentSorted}"
-            [ghs-tooltip]="'game.items.character.toggleSorted'" [overlayX]="'end'" [overlayY]="'bottom'">
-            <img class="toggle ghs-svg" src="./assets/images/sort.svg"></a>
-        <a ghs-pointer-input (singleClick)="zoom(0.075)" (doubleClick)="resetZoom()"
-            [ngClass]="{'disabled': settingsManager.settings.characterItemsPermanentZoom >= 1.5}"><img class="ghs-svg"
-                src="./assets/images/zoom-in.svg"></a>
-        <a ghs-pointer-input (singleClick)="zoom(-0.075)" (doubleClick)="resetZoom()"
-            [ngClass]="{'disabled': settingsManager.settings.characterItemsPermanentZoom <= 0.5}"><img class="ghs-svg"
-                src="./assets/images/zoom-out.svg"></a>
-    </div>
+  <div class="menu">
+    <a (click)="toggleEquipped()"
+      [ngClass]="{'active' : settingsManager.settings.characterItemsPermanentEquipped, 'disabled': setup}"
+      [ghs-tooltip]="'game.items.character.toggleEquipped'" [overlayX]="'end'" [overlayY]="'bottom'">
+      <img class="toggle ghs-svg" src="./assets/images/check.svg"></a>
+    <a (click)="toggleSorted()" [ngClass]="{'active' : settingsManager.settings.characterItemsPermanentSorted}"
+      [ghs-tooltip]="'game.items.character.toggleSorted'" [overlayX]="'end'" [overlayY]="'bottom'">
+      <img class="toggle ghs-svg" src="./assets/images/sort.svg"></a>
+    <a ghs-pointer-input (singleClick)="zoom(0.075)" (doubleClick)="resetZoom()"
+      [ngClass]="{'disabled': settingsManager.settings.characterItemsPermanentZoom >= 1.5}"><img class="ghs-svg"
+        src="./assets/images/zoom-in.svg"></a>
+    <a ghs-pointer-input (singleClick)="zoom(-0.075)" (doubleClick)="resetZoom()"
+      [ngClass]="{'disabled': settingsManager.settings.characterItemsPermanentZoom <= 0.5}"><img class="ghs-svg"
+        src="./assets/images/zoom-out.svg"></a>
+  </div>
 </div>

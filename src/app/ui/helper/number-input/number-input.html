@@ -1,20 +1,26 @@
 <div class="number-input-container">
-    <div class="value-container negative" *ngIf="negative">
-        <ng-container *ngFor="let value of stepsNegative">
-            <div tabclick [ngClass]="{'disabled' : min &&  model - value < min}" class="value" (click)="change(-value)">
-                {{(relative ? -value : (model - value)) | ghsValueSign}}
-            </div>
-        </ng-container>
+  @if (negative) {
+  <div class="value-container negative">
+    @for (value of stepsNegative; track value) {
+    <div tabclick [ngClass]="{'disabled' : min &&  model - value < min}" class="value" (click)="change(-value)">
+      {{(relative ? -value : (model - value)) | ghsValueSign}}
     </div>
-    <div class="current">
-        <span *ngIf="relative">{{model}}</span>
-        <span *ngIf="!relative">{{model | ghsValueSign}}</span>
+    }
+  </div>
+  }
+  <div class="current">
+    @if (relative) {
+    <span>{{model}}</span>
+    }
+    @if (!relative) {
+    <span>{{model | ghsValueSign}}</span>
+    }
+  </div>
+  <div class="value-container">
+    @for (value of steps; track value) {
+    <div tabclick [ngClass]="{'disabled' : max && model + value > max}" class="value" (click)="change(value)">
+      {{(relative ? value : (model + value)) | ghsValueSign}}
     </div>
-    <div class="value-container">
-        <ng-container *ngFor="let value of steps">
-            <div tabclick [ngClass]="{'disabled' : max && model + value > max}" class="value" (click)="change(value)">
-                {{(relative ? value : (model + value)) | ghsValueSign}}
-            </div>
-        </ng-container>
-    </div>
+    }
+  </div>
 </div>

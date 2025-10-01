@@ -1,139 +1,193 @@
 <div class="item-container" #container>
-    <ng-container *ngIf="!!item">
-        <div class="card vertical reverse item"
-            [ngClass]="{'flipped': flipped, 'random': item.random, 'fh': fhStyle, 'craft' : craft, 'bb': bb}"
-            [style.fontSize]="fontsize" card-reveal
-            [disabled]="!reveal || item.actionsBack && item.actionsBack.length > 0 || false"
-            (change)="emitRevealed($event)">
-            <div class="card-back back" *ngIf="!item.actionsBack || item.actionsBack.length == 0">
-                <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
-                <div class="id">
-                    <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span
-                        *ngIf="idNumber && +item.id < 100">0</span><span
-                        *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
-                </div>
-            </div>
-            <div class="card-back front" *ngIf="!!item.actionsBack && item.actionsBack.length > 0">
-                <img class="artwork" *ngIf="!item.noArtwork"
-                    [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + (item.backArtwork ? '-back' : '') + '.png'">
-                <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
-                <div class="content">
-                    <div class="actions">
-                        <ghs-actions [actions]="item.actionsBack" [style]="fhStyle || bb ? 'fh' : 'gh'"
-                            [noDivider]="true"></ghs-actions>
-                    </div>
-                    <div class="actions slot-actions" *ngIf="slotsBack.length > 0">
-                        <span class="slot-action" *ngFor="let slot of slotsBack; let i = index;"
-                            [ngClass]="{'interactive' : clickedSlotBack.observed, 'usable' : usable}" ghs-pointer-input
-                            (singleClick)="clickedSlotBack.emit(i)">
-                            <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
-                            <span class="marker" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
-                                *ngIf="slotsBackMarked.length >= i - 1 && slotsBackMarked[i]"
-                                [ghs-label]="'%game.characterToken.' + slotsBackMarked[i] + '%'"></span>
-                        </span>
-                    </div>
-                </div>
-                <div class="count" *ngIf="item.count">{{count}}/{{item.count}}</div>
-                <div class="flip" *ngIf="!!item.actionsBack && item.actionsBack.length > 0" ghs-pointer-input
-                    (singleClick)="flipped = !flipped">
-                    <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>
-                </div>
-                <div class="id">
-                    <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span
-                        *ngIf="idNumber && +item.id < 100">0</span><span
-                        *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
-                </div>
-                <div class="solo" [ngClass]="{'fh' : settingsManager.settings.fhStyle}" *ngIf="item.solo">
-                    <span [ghs-label]="'%game.characterToken.' + item.solo + '%'"></span>
-                </div>
-            </div>
-
-            <div class="card-front front">
-                <img class="artwork" *ngIf="!bb && !item.noArtwork"
-                    [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + '.png'">
-                <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
-                <div class="content">
-                    <div class="actions" *ngIf="!!item.actions && item.actions.length > 0">
-                        <ghs-actions [actions]="item.actions" [style]="fhStyle || bb ? 'fh' : 'gh'"
-                            [noDivider]="true"></ghs-actions>
-                    </div>
-                    <div class="actions slot-actions" *ngIf="slots.length > 0">
-                        <span class="slot-action" *ngFor="let slot of slots let i = index;"
-                            [ngClass]="{'interactive' : clickedSlot.observed,  'usable' : usable}" ghs-pointer-input
-                            (singleClick)="clickedSlot.emit(i)">
-                            <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
-                            <span class="marker" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
-                                *ngIf="slotsMarked.length >= i - 1 && slotsMarked[i]"
-                                [ghs-label]="'%game.characterToken.' + slotsMarked[i] + '%'"></span>
-                        </span>
-                    </div>
-                </div>
-                <div class="count" *ngIf="item.count && (!bb || item.count > 1)">{{count}}/{{item.count}}</div>
-                <div class="craft" *ngIf="craft">
-                    <ng-container *ngIf="item.requiredItems">
-                        <span class="required-item" [ghs-label]="'%game.itemFh.' + requiredItem + '%'"
-                            *ngFor="let requiredItem of item.requiredItems"> </span>
-                    </ng-container>
-                    <ng-container *ngIf="item.resources">
-                        <span class="resource" *ngFor="let resource of item.resources | keyvalue">
-                            <img [src]="'./assets/images/fh/loot/' + resource.key + '.svg'">
-                            <span class="value" *ngIf="resource.value && resource.value > 1">x{{resource.value}}</span>
-                        </span>
-                    </ng-container>
-                    <ng-container *ngFor="let anyResource of (item.resourcesAny || [])">
-                        <span class="resource" *ngFor="let resource of anyResource | keyvalue">
-                            <span class="any" [ghs-label]="'game.items.anyResource'"
-                                [ghs-label-args]="[resource.key]"></span>
-                            <span class="value" *ngIf="resource.value && resource.value > 1">x{{resource.value}}</span>
-                        </span>
-                    </ng-container>
-                </div>
-                <div class="costs" *ngIf="item.cost && !item.solo"><span class="value">{{item.cost}}</span></div>
-                <div class="consumed" *ngIf="item.consumed"
-                    [ngClass]="{'interactive' :  clickedConsumed.observed, 'usable' : usable}" ghs-pointer-input
-                    (singleClick)="clickedConsumed.emit()" (doubleClick)="clickedConsumed.emit(true)">
-                    <span class="placeholder text-white" [ghs-label]="'%game.card.lost%'"></span>
-                </div>
-                <div class="spent" *ngIf="item.spent"
-                    [ngClass]="{'interactive' :  clickedSpent.observed, 'usable' : usable}" ghs-pointer-input
-                    (singleClick)="clickedSpent.emit()" (doubleClick)="clickedSpent.emit(true)">
-                    <span class="placeholder text-white" [ghs-label]="'%game.card.spent%'"></span>
-                </div>
-                <div class="flip" *ngIf="!!item.actionsBack && item.actionsBack.length > 0"
-                    [ngClass]="{'interactive' : clickedFlip.observed, 'usable' : usable}" ghs-pointer-input
-                    (singleClick)="flipped = !flipped; clickedFlip.emit()" (doubleClick)="clickedFlip.emit(true)">
-                    <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>
-                </div>
-                <div class="persistent" *ngIf="item.persistent"
-                    [ngClass]="{'interactive' :  clickedPersistent.observed, 'usable' : usable}" ghs-pointer-input
-                    (singleClick)="clickedPersistent.emit()" (doubleClick)="clickedPersistent.emit(true)">
-                    <span class="placeholder text-white" [ghs-label]="'%game.card.persistent%'"></span>
-                </div>
-                <div class="loss" *ngIf="item.loss">
-                    <span class="placeholder text-white" [ghs-label]="'%game.card.loss%'"></span>
-                </div>
-                <div class="round" *ngIf="item.round">
-                    <span class="placeholder text-white" [ghs-label]="'%game.card.round%'"></span>
-                </div>
-                <div class="minus-one" *ngIf="item.minusOne">
-                    <span class="card-icon small">
-                        <img class="icon"
-                            [src]="'./assets/images' + (fhStyle || bb ? '/fh/attackmodifier/icons/minus1.png' : '/items/minus1.svg')">
-                    </span>
-                    <span class="value">x{{item.minusOne}}</span>
-                </div>
-                <div class="slot" *ngIf="item.slot">
-                    <img class="ghs-svg" [src]="'./assets/images/items/slots/' + item.slot + '.svg'">
-                </div>
-                <div class="id">
-                    <span *ngIf="edition" class="edition">{{edition}}&nbsp;</span><span
-                        *ngIf="idNumber && +item.id < 100">0</span><span
-                        *ngIf="idNumber && +item.id < 10">0</span><span>{{item.id}}</span>
-                </div>
-                <div class="solo" [ngClass]="{'fh' : settingsManager.settings.fhStyle}" *ngIf="item.solo">
-                    <span [ghs-label]="'%game.characterToken.' + item.solo + '%'"></span>
-                </div>
-            </div>
+  @if (!!item) {
+  <div class="card vertical reverse item"
+    [ngClass]="{'flipped': flipped, 'random': item.random, 'fh': fhStyle, 'craft' : craft, 'bb': bb}"
+    [style.fontSize]="fontsize" card-reveal
+    [disabled]="!reveal || item.actionsBack && item.actionsBack.length > 0 || false" (change)="emitRevealed($event)">
+    @if (!item.actionsBack || item.actionsBack.length == 0) {
+    <div class="card-back back">
+      <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
+      <div class="id">
+        @if (edition) {
+        <span class="edition">{{edition}}&nbsp;</span>
+        }@if (idNumber && +item.id < 100) { <span>0</span>
+          }@if (idNumber && +item.id < 10) { <span>0</span>
+            }<span>{{item.id}}</span>
+      </div>
+    </div>
+    }
+    @if (!!item.actionsBack && item.actionsBack.length > 0) {
+    <div class="card-back front">
+      @if (!item.noArtwork) {
+      <img class="artwork"
+        [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + (item.backArtwork ? '-back' : '') + '.png'">
+      }
+      <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
+      <div class="content">
+        <div class="actions">
+          <ghs-actions [actions]="item.actionsBack" [style]="fhStyle || bb ? 'fh' : 'gh'"
+            [noDivider]="true"></ghs-actions>
         </div>
-    </ng-container>
+        @if (slotsBack.length > 0) {
+        <div class="actions slot-actions">
+          @for (slot of slotsBack; track slot; let i = $index) {
+          <span class="slot-action" [ngClass]="{'interactive' : clickedSlotBack.observed, 'usable' : usable}"
+            ghs-pointer-input (singleClick)="clickedSlotBack.emit(i)">
+            <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
+            @if (slotsBackMarked.length >= i - 1 && slotsBackMarked[i]) {
+            <span class="marker" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
+              [ghs-label]="'%game.characterToken.' + slotsBackMarked[i] + '%'"></span>
+            }
+          </span>
+          }
+        </div>
+        }
+      </div>
+      @if (item.count) {
+      <div class="count">{{count}}/{{item.count}}</div>
+      }
+      @if (!!item.actionsBack && item.actionsBack.length > 0) {
+      <div class="flip" ghs-pointer-input (singleClick)="flipped = !flipped">
+        <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>
+      </div>
+      }
+      <div class="id">
+        @if (edition) {
+        <span class="edition">{{edition}}&nbsp;</span>
+        }@if (idNumber && +item.id < 100) { <span>0</span>
+          }@if (idNumber && +item.id < 10) { <span>0</span>
+            }<span>{{item.id}}</span>
+      </div>
+      @if (item.solo) {
+      <div class="solo" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+        <span [ghs-label]="'%game.characterToken.' + item.solo + '%'"></span>
+      </div>
+      }
+    </div>
+    }
+    <div class="card-front front">
+      @if (!bb && !item.noArtwork) {
+      <img class="artwork"
+        [src]="'./assets/artwork/items/' + item.edition + '-' + (idNumber && +item.id < 100 ? '0' : '') + (idNumber && +item.id < 10 ? '0' : '') + item.id + '.png'">
+      }
+      <div class="name" [ghs-label]="'data.items.' + item.edition + '-' + item.id"></div>
+      <div class="content">
+        @if (!!item.actions && item.actions.length > 0) {
+        <div class="actions">
+          <ghs-actions [actions]="item.actions" [style]="fhStyle || bb ? 'fh' : 'gh'" [noDivider]="true"></ghs-actions>
+        </div>
+        }
+        @if (slots.length > 0) {
+        <div class="actions slot-actions">
+          @for (slot of slots; track slot; let i = $index) {
+          <span class="slot-action" [ngClass]="{'interactive' : clickedSlot.observed,  'usable' : usable}"
+            ghs-pointer-input (singleClick)="clickedSlot.emit(i)">
+            <ghs-action [action]="slot" [style]="fhStyle || bb ? 'fh' : 'gh'"></ghs-action>
+            @if (slotsMarked.length >= i - 1 && slotsMarked[i]) {
+            <span class="marker" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
+              [ghs-label]="'%game.characterToken.' + slotsMarked[i] + '%'"></span>
+            }
+          </span>
+          }
+        </div>
+        }
+      </div>
+      @if (item.count && (!bb || item.count > 1)) {
+      <div class="count">{{count}}/{{item.count}}</div>
+      }
+      @if (craft) {
+      <div class="craft">
+        @if (item.requiredItems) {
+        @for (requiredItem of item.requiredItems; track requiredItem) {
+        <span class="required-item" [ghs-label]="'%game.itemFh.' + requiredItem + '%'"> </span>
+        }
+        }
+        @if (item.resources) {
+        @for (resource of item.resources | keyvalue; track resource) {
+        <span class="resource">
+          <img [src]="'./assets/images/fh/loot/' + resource.key + '.svg'">
+          @if (resource.value && resource.value > 1) {
+          <span class="value">x{{resource.value}}</span>
+          }
+        </span>
+        }
+        }
+        @for (anyResource of (item.resourcesAny || []); track anyResource) {
+        @for (resource of anyResource | keyvalue; track resource) {
+        <span class="resource">
+          <span class="any" [ghs-label]="'game.items.anyResource'" [ghs-label-args]="[resource.key]"></span>
+          @if (resource.value && resource.value > 1) {
+          <span class="value">x{{resource.value}}</span>
+          }
+        </span>
+        }
+        }
+      </div>
+      }
+      @if (item.cost && !item.solo) {
+      <div class="costs"><span class="value">{{item.cost}}</span></div>
+      }
+      @if (item.consumed) {
+      <div class="consumed" [ngClass]="{'interactive' :  clickedConsumed.observed, 'usable' : usable}" ghs-pointer-input
+        (singleClick)="clickedConsumed.emit()" (doubleClick)="clickedConsumed.emit(true)">
+        <span class="placeholder text-white" [ghs-label]="'%game.card.lost%'"></span>
+      </div>
+      }
+      @if (item.spent) {
+      <div class="spent" [ngClass]="{'interactive' :  clickedSpent.observed, 'usable' : usable}" ghs-pointer-input
+        (singleClick)="clickedSpent.emit()" (doubleClick)="clickedSpent.emit(true)">
+        <span class="placeholder text-white" [ghs-label]="'%game.card.spent%'"></span>
+      </div>
+      }
+      @if (!!item.actionsBack && item.actionsBack.length > 0) {
+      <div class="flip" [ngClass]="{'interactive' : clickedFlip.observed, 'usable' : usable}" ghs-pointer-input
+        (singleClick)="flipped = !flipped; clickedFlip.emit()" (doubleClick)="clickedFlip.emit(true)">
+        <span class="placeholder text-white" [ghs-label]="'%game.card.flip%'"></span>
+      </div>
+      }
+      @if (item.persistent) {
+      <div class="persistent" [ngClass]="{'interactive' :  clickedPersistent.observed, 'usable' : usable}"
+        ghs-pointer-input (singleClick)="clickedPersistent.emit()" (doubleClick)="clickedPersistent.emit(true)">
+        <span class="placeholder text-white" [ghs-label]="'%game.card.persistent%'"></span>
+      </div>
+      }
+      @if (item.loss) {
+      <div class="loss">
+        <span class="placeholder text-white" [ghs-label]="'%game.card.loss%'"></span>
+      </div>
+      }
+      @if (item.round) {
+      <div class="round">
+        <span class="placeholder text-white" [ghs-label]="'%game.card.round%'"></span>
+      </div>
+      }
+      @if (item.minusOne) {
+      <div class="minus-one">
+        <span class="card-icon small">
+          <img class="icon"
+            [src]="'./assets/images' + (fhStyle || bb ? '/fh/attackmodifier/icons/minus1.png' : '/items/minus1.svg')">
+        </span>
+        <span class="value">x{{item.minusOne}}</span>
+      </div>
+      }
+      @if (item.slot) {
+      <div class="slot">
+        <img class="ghs-svg" [src]="'./assets/images/items/slots/' + item.slot + '.svg'">
+      </div>
+      }
+      <div class="id">
+        @if (edition) {
+        <span class="edition">{{edition}}&nbsp;</span>
+        }@if (idNumber && +item.id < 100) { <span>0</span>
+          }@if (idNumber && +item.id < 10) { <span>0</span>
+            }<span>{{item.id}}</span>
+      </div>
+      @if (item.solo) {
+      <div class="solo" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+        <span [ghs-label]="'%game.characterToken.' + item.solo + '%'"></span>
+      </div>
+      }
+    </div>
+  </div>
+  }
 </div>

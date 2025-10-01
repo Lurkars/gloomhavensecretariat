@@ -1,85 +1,120 @@
 <div class="challenge-deck-dialog">
-    <div class="scroll-container">
-        <div class="menu" #menu>
-            <ng-container *ngIf="deck.cards.length > 0">
-                <a *ngIf="edit" (click)="reveal = (reveal + 1) % 3"><span [ghs-label]="reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
+  <div class="scroll-container">
+    <div class="menu" #menu>
+      @if (deck.cards.length > 0) {
+      @if (edit) {
+      <a (click)="reveal = (reveal + 1) % 3"><span [ghs-label]="reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
             'game.cards.revealAll' : 'game.cards.revealAllConfirm')"></span></a>
-                <a *ngIf="!edit" (click)="drawCard()" [ngClass]="{'disabled': drawDisabled}"><span
-                        [ghs-label]="'game.cards.draw'"></span></a>
-                <a *ngIf="edit" ghs-pointer-input (singleClick)="shuffle()" (doubleClick)="shuffle(true)"
-                    [ghs-tooltip]="'game.cards.shuffle.upcomingHint'" [overlayX]="'center'"><span
-                        [ghs-label]="'game.cards.shuffle'"></span></a>
-                <a ghs-pointer-input (singleClick)="clear()" (doubleClick)="clear(false)"
-                    [ngClass]="{'disabled': deck.current <= deck.finished}"><span
-                        [ghs-label]="'challenges.deck.clear' +  (drawAvailable > 1 ? '.multiple': '')"></span></a>
-                <label *ngIf="!!gameManager.game.scenario"><input type="checkbox" (click)="toggleEdit()"
-                        [checked]="edit"><span [ghs-label]="'game.cards.edit'"></span></label>
-            </ng-container>
-        </div>
-        <div class="hint" *ngIf="!edit && !!gameManager.game.scenario">
-            <span *ngIf="!drawDisabled"
-                [ghs-label]="'challenges.deck.hint.drawAvailable'+  (drawAvailable > 1 ? '.multiple': '')"></span>
-            <span *ngIf="!disabled && drawDisabled"
-                [ghs-label]="'challenges.deck.hint.select'+  (keepAvailable > 1 ? '.multiple': '')"></span>
-            <span *ngIf="disabled && drawDisabled"
-                [ghs-label]="'challenges.deck.hint.current'+  (keepAvailable > 1 ? '.multiple': '')"></span>
-        </div>
-        <div class="challenge-deck-container" [style.maxHeight]="maxHeight"
-            [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'has-removed': removedCards.length}">
-            <div class="upcoming drop-list" cdkDropList id="listUpcomping" [cdkDropListDisabled]="!edit"
-                #upcomingList="cdkDropList" [cdkDropListConnectedTo]="[discardedList, finishedList]"
-                (cdkDropListDropped)="dropUpcoming($event)" [cdkDropListAutoScrollStep]="20" [ngClass]="{'edit': edit}">
-                <div class="title" [ghs-label]="'challenges.deck.upcoming'"></div>
-                <div class="empty" *ngIf="upcomingCards.length == 0"></div>
-                <div class="challenge-container" *ngFor="let card of upcomingCards let index = index" cdkDrag>
-                    <ghs-challenge-card class="drag-hidden" [challenge]="card" [reveal]="true" [flipped]="reveal == 2">
-                    </ghs-challenge-card>
-                    <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)">
-                        <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-                    <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
-                </div>
-            </div>
-
-            <div class="discarded drop-list" cdkDropList id="listDiscarded" [cdkDropListDisabled]="!edit"
-                #discardedList="cdkDropList" [cdkDropListConnectedTo]="[upcomingList, finishedList]"
-                (cdkDropListDropped)="dropDiscarded($event)" [cdkDropListAutoScrollStep]="20"
-                [ngClass]="{'edit': edit}">
-                <div class="title" [ghs-label]="'challenges.deck.current'"></div>
-                <div class="empty"></div>
-                <div class="challenge-container" *ngFor="let card of discardedCards; let index = index" cdkDrag
-                    [ngClass]="{'active': !edit && !!gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state == GameState.draw, 'keep': !disabled && deck.keep.indexOf(deck.current - index) != -1}">
-                    <ghs-challenge-card class="drag-hidden" [challenge]="card"
-                        [keep]="deck.keep.indexOf(deck.current - index) != -1" [flipped]="true" ghs-pointer-input
-                        (singleClick)="toggleKeep(deck.current-index)"
-                        (doubleClick)="toggleKeep(deck.current-index, true)"></ghs-challenge-card>
-                    <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
-                        <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-                    <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
-                </div>
-            </div>
-
-            <div class="finished drop-list" cdkDropList id="listFinished" [cdkDropListDisabled]="!edit"
-                #finishedList="cdkDropList" [cdkDropListConnectedTo]="[upcomingList, discardedList]"
-                (cdkDropListDropped)="dropFinished($event)" [cdkDropListAutoScrollStep]="20" [ngClass]="{'edit': edit}">
-                <div class="title" [ghs-label]="'challenges.deck.finished'"></div>
-                <div class="empty"></div>
-                <div class="challenge-container" *ngFor="let card of finishedCards; let index = index" cdkDrag>
-                    <ghs-challenge-card class="drag-hidden" [challenge]="card" [flipped]="true"></ghs-challenge-card>
-                    <a class="button-remove" *ngIf="edit" (click)="remove(deck.finished - index)">
-                        <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-                    <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
-                </div>
-            </div>
-
-            <div *ngIf="edit && removedCards.length" class="removed edit">
-                <div class="title" [ghs-label]="'challenges.deck.removed'"></div>
-                <div class="challenge-container" *ngFor="let card of removedCards; let index = index" cdkDrag>
-                    <ghs-challenge-card class="drag-hidden" [challenge]="card" [flipped]="true"></ghs-challenge-card>
-                    <a class="button-restore" (click)="restoreCard(index)">
-                        <img class="ghs-svg" src="./assets/images/plus.svg">
-                    </a>
-                </div>
-            </div>
-        </div>
+      }
+      @if (!edit) {
+      <a (click)="drawCard()" [ngClass]="{'disabled': drawDisabled}"><span [ghs-label]="'game.cards.draw'"></span></a>
+      }
+      @if (edit) {
+      <a ghs-pointer-input (singleClick)="shuffle()" (doubleClick)="shuffle(true)"
+        [ghs-tooltip]="'game.cards.shuffle.upcomingHint'" [overlayX]="'center'"><span
+          [ghs-label]="'game.cards.shuffle'"></span></a>
+      }
+      <a ghs-pointer-input (singleClick)="clear()" (doubleClick)="clear(false)"
+        [ngClass]="{'disabled': deck.current <= deck.finished}"><span
+          [ghs-label]="'challenges.deck.clear' +  (drawAvailable > 1 ? '.multiple': '')"></span></a>
+      @if (!!gameManager.game.scenario) {
+      <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit"><span
+          [ghs-label]="'game.cards.edit'"></span></label>
+      }
+      }
     </div>
+    @if (!edit && !!gameManager.game.scenario) {
+    <div class="hint">
+      @if (!drawDisabled) {
+      <span [ghs-label]="'challenges.deck.hint.drawAvailable'+  (drawAvailable > 1 ? '.multiple': '')"></span>
+      }
+      @if (!disabled && drawDisabled) {
+      <span [ghs-label]="'challenges.deck.hint.select'+  (keepAvailable > 1 ? '.multiple': '')"></span>
+      }
+      @if (disabled && drawDisabled) {
+      <span [ghs-label]="'challenges.deck.hint.current'+  (keepAvailable > 1 ? '.multiple': '')"></span>
+      }
+    </div>
+    }
+    <div class="challenge-deck-container" [style.maxHeight]="maxHeight"
+      [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern', 'has-removed': removedCards.length}">
+      <div class="upcoming drop-list" cdkDropList id="listUpcomping" [cdkDropListDisabled]="!edit"
+        #upcomingList="cdkDropList" [cdkDropListConnectedTo]="[discardedList, finishedList]"
+        (cdkDropListDropped)="dropUpcoming($event)" [cdkDropListAutoScrollStep]="20" [ngClass]="{'edit': edit}">
+        <div class="title" [ghs-label]="'challenges.deck.upcoming'"></div>
+        @if (upcomingCards.length == 0) {
+        <div class="empty"></div>
+        }
+        @for (card of upcomingCards; track card.cardId; let index = $index) {
+        <div class="challenge-container" cdkDrag>
+          <ghs-challenge-card class="drag-hidden" [challenge]="card" [reveal]="true" [flipped]="reveal == 2">
+          </ghs-challenge-card>
+          @if (edit) {
+          <a class="button-remove" (click)="remove(index + deck.current + 1)">
+            <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+          }
+          @if (edit) {
+          <div cdkDragHandle class="drag-handle"></div>
+          }
+        </div>
+        }
+      </div>
+
+      <div class="discarded drop-list" cdkDropList id="listDiscarded" [cdkDropListDisabled]="!edit"
+        #discardedList="cdkDropList" [cdkDropListConnectedTo]="[upcomingList, finishedList]"
+        (cdkDropListDropped)="dropDiscarded($event)" [cdkDropListAutoScrollStep]="20" [ngClass]="{'edit': edit}">
+        <div class="title" [ghs-label]="'challenges.deck.current'"></div>
+        <div class="empty"></div>
+        @for (card of discardedCards; track card.cardId; let index = $index) {
+        <div class="challenge-container" cdkDrag
+          [ngClass]="{'active': !edit && !!gameManager.game.scenario && gameManager.roundManager.firstRound && gameManager.game.state == GameState.draw, 'keep': !disabled && deck.keep.indexOf(deck.current - index) != -1}">
+          <ghs-challenge-card class="drag-hidden" [challenge]="card"
+            [keep]="deck.keep.indexOf(deck.current - index) != -1" [flipped]="true" ghs-pointer-input
+            (singleClick)="toggleKeep(deck.current-index)"
+            (doubleClick)="toggleKeep(deck.current-index, true)"></ghs-challenge-card>
+          @if (edit) {
+          <a class="button-remove" (click)="remove(deck.current - index)">
+            <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+          }
+          @if (edit) {
+          <div cdkDragHandle class="drag-handle"></div>
+          }
+        </div>
+        }
+      </div>
+
+      <div class="finished drop-list" cdkDropList id="listFinished" [cdkDropListDisabled]="!edit"
+        #finishedList="cdkDropList" [cdkDropListConnectedTo]="[upcomingList, discardedList]"
+        (cdkDropListDropped)="dropFinished($event)" [cdkDropListAutoScrollStep]="20" [ngClass]="{'edit': edit}">
+        <div class="title" [ghs-label]="'challenges.deck.finished'"></div>
+        <div class="empty"></div>
+        @for (card of finishedCards; track card.cardId; let index = $index) {
+        <div class="challenge-container" cdkDrag>
+          <ghs-challenge-card class="drag-hidden" [challenge]="card" [flipped]="true"></ghs-challenge-card>
+          @if (edit) {
+          <a class="button-remove" (click)="remove(deck.finished - index)">
+            <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+          }
+          @if (edit) {
+          <div cdkDragHandle class="drag-handle"></div>
+          }
+        </div>
+        }
+      </div>
+
+      @if (edit && removedCards.length) {
+      <div class="removed edit">
+        <div class="title" [ghs-label]="'challenges.deck.removed'"></div>
+        @for (card of removedCards; track card.cardId; let index = $index) {
+        <div class="challenge-container" cdkDrag>
+          <ghs-challenge-card class="drag-hidden" [challenge]="card" [flipped]="true"></ghs-challenge-card>
+          <a class="button-restore" (click)="restoreCard(index)">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </a>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
 </div>

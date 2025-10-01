@@ -1,174 +1,209 @@
 <div class="menu-container two-column sheets">
 
-    <div class="line span">
-        <label
-            [ngClass]="{'disabled' : !gameManager.game.edition || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-            <input tabclick type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()">
-            &lt;<span [ghs-label]="'edition.all'"></span>&gt;
-        </label>
+  <div class="line span">
+    <label
+      [ngClass]="{'disabled' : !gameManager.game.edition || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
+      <input tabclick type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()">
+      &lt;<span [ghs-label]="'edition.all'"></span>&gt;
+    </label>
+  </div>
+  @for (edition of gameManager.editions(); track edition) {
+  <div class="line">
+    <label
+      [ngClass]="{'disabled' : gameManager.game.edition == edition || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
+      <input tabclick type="checkbox" [checked]="gameManager.game.edition == edition" (change)="setEdition(edition)">
+      <span [ghs-label]="'data.edition.' + edition"></span>
+    </label>
+    @if (edition == 'fh' && gameManager.game.edition == edition) {
+    <div class="fh-second-edition">
+      <div ghs-setting-menu="fhSecondEdition"></div>
     </div>
-    <div class="line" *ngFor="let edition of gameManager.editions()">
-        <label
-            [ngClass]="{'disabled' : gameManager.game.edition == edition || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-            <input tabclick type="checkbox" [checked]="gameManager.game.edition == edition"
-                (change)="setEdition(edition)">
-            <span [ghs-label]="'data.edition.' + edition"></span>
-        </label>
-        <div *ngIf="edition == 'fh' && gameManager.game.edition == edition" class="fh-second-edition">
-            <div ghs-setting-menu="fhSecondEdition"></div>
-        </div>
-    </div>
-    <div class="line separator ">
-        <label
-            [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-            <input tabclick type="checkbox" [checked]="gameManager.game.party.campaignMode"
-                (change)="toggleCampaignMode()">
-            <span [ghs-label]="'party.campaignMode'"></span>
-        </label>
-    </div>
+    }
+  </div>
+  }
+  <div class="line separator ">
+    <label
+      [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
+      <input tabclick type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()">
+      <span [ghs-label]="'party.campaignMode'"></span>
+    </label>
+  </div>
 
-    <div class="line title span"
-        *ngIf="settingsManager.settings.partySheet || settingsManager.settings.characterSheet || settingsManager.settings.characterItems">
-        <label><span [ghs-label]="'campaign'"></span></label>
-    </div>
+  @if (settingsManager.settings.partySheet || settingsManager.settings.characterSheet ||
+  settingsManager.settings.characterItems) {
+  <div class="line title span">
+    <label><span [ghs-label]="'campaign'"></span></label>
+  </div>
+  }
 
-    <div class="line" *ngIf="settingsManager.settings.partySheet && !gameManager.bbRules()">
-        <a tabclick (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
-    </div>
+  @if (settingsManager.settings.partySheet && !gameManager.bbRules()) {
+  <div class="line">
+    <a tabclick (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
+  </div>
+  }
 
-    <div class="line" *ngIf="settingsManager.settings.partySheet && gameManager.fhRules()">
-        <a tabclick (click)="openResources()" [ghs-label]="'campaign.resources'"></a>
-    </div>
+  @if (settingsManager.settings.partySheet && gameManager.fhRules()) {
+  <div class="line">
+    <a tabclick (click)="openResources()" [ghs-label]="'campaign.resources'"></a>
+  </div>
+  }
 
-    <div class="line" *ngIf="settingsManager.settings.partySheet && !gameManager.bbRules()">
-        <a tabclick (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
-    </div>
+  @if (settingsManager.settings.partySheet && !gameManager.bbRules()) {
+  <div class="line">
+    <a tabclick (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
+  </div>
+  }
 
-    <div class="line" *ngIf="worldMap">
-        <a tabclick (click)="openMap()" [ghs-label]="'campaign.map'"></a>
-    </div>
+  @if (worldMap) {
+  <div class="line">
+    <a tabclick (click)="openMap()" [ghs-label]="'campaign.map'"></a>
+  </div>
+  }
 
-    <div class="line">
-        <a tabclick (click)="openFlowChart()" [ghs-label]="'scenario.chart'"></a>
-    </div>
+  <div class="line">
+    <a tabclick (click)="openFlowChart()" [ghs-label]="'scenario.chart'"></a>
+  </div>
 
-    <div class="line" *ngIf="(settingsManager.settings.characterSheet || settingsManager.settings.characterItems)">
-        <a tabclick (click)="openItems()" [ghs-label]="'campaign.items'"></a>
-    </div>
+  @if ((settingsManager.settings.characterSheet || settingsManager.settings.characterItems)) {
+  <div class="line">
+    <a tabclick (click)="openItems()" [ghs-label]="'campaign.items'"></a>
+  </div>
+  }
 
-    <div class="line" *ngIf="settingsManager.settings.battleGoals && !gameManager.bbRules()"
+  @if (settingsManager.settings.battleGoals && !gameManager.bbRules()) {
+  <div class="line"
+    [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
+    <a tabclick (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
+  </div>
+  }
+
+  @if (settingsManager.settings.partySheet && settingsManager.settings.events && gameManager.game.edition &&
+  !gameManager.bbRules()) {
+  <div class="line">
+    <a tabclick (click)="openEventDeckSetup()" [ghs-label]="'game.events.deck.setup'"></a>
+  </div>
+  }
+
+  @if (characters.length > 0 && settingsManager.settings.characterSheet && !gameManager.bbRules()) {
+  <div class="line title span">
+    <label><span [ghs-label]="'campaign.character'"></span></label>
+  </div>
+  }
+
+  @if (settingsManager.settings.characterSheet && !gameManager.bbRules()) {
+  @for (character of characters; track character.edition + '-' + character.name) {
+  <div class="line">
+    <a tabclick (click)="openCharacterSheet(character);">
+      <img class="icon" [src]="character.iconUrl" />
+      <span>{{gameManager.characterManager.characterName(character, true)}}</span>
+      @if (gameManager.getEdition(character)) {
+      <span class="edition">&nbsp;
+        <span>[</span>
+        <span [ghs-label]="'data.edition.' + gameManager.getEdition(character)"></span>
+        <span>]</span>
+      </span>
+      }
+    </a>
+  </div>
+  }
+  }
+
+  <div class="line span">
+    <a tabclick (click)="openEnhancementDialog()" [ghs-label]="'campaign.enhancements'"></a>
+  </div>
+
+  <div class="line title span">
+    <label><span [ghs-label]="'edition.conditions'"></span></label>
+  </div>
+  <div class="line">
+    <div class="conditions">
+      @for (condition of conditions; track condition.name) {
+      <span class="item"
         [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-        <a tabclick (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
+        <span class="condition" tabclick (click)="toggleCondition(condition.name)"
+          [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+          [originY]="'top'" [overlayY]="'bottom'"
+          [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+        </span>
+      </span>
+      }
+    </div>
+  </div>
+  <div class="line">
+    <div class="conditions">
+      @for (condition of amConditions; track condition.name) {
+      <span class="item"
+        [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
+        <span class="condition" tabclick (click)="toggleCondition(condition.name)"
+          [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'" [overlayX]="'center'"
+          [originY]="'top'" [overlayY]="'bottom'"
+          [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+        </span>
+      </span>
+      }
+    </div>
+  </div>
+
+  <div class="line title span">
+    <div class="hint-container">
+      <label>
+        <span [ghs-label]="'campaign.campaignManagement'"></span>
+      </label>
+      @if (!!gameManager.game.scenario) {
+      <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+      <span class="hint">
+        <span class="text" [ghs-label]="'campaign.campaignManagement.hint'"></span>
+      </span>
+      }
+    </div>
+  </div>
+  @for (party of gameManager.game.parties; track party) {
+  <div class="line">
+    @if (gameManager.game.party != party) {
+    <label
+      [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
+      <input tabclick type="checkbox" [checked]="gameManager.game.party == party" (change)="changeParty(party)">
+      @if (party.name) {
+      <span>{{party.name}}</span>
+      }
+      @if (!party.name) {
+      <span><span [ghs-label]="'party.campaign'"></span>&nbsp;{{party.id}}</span>
+      }
+    </label>
+    }
+    @if (gameManager.game.party == party) {
+    <label>
+      <input tabclick type="checkbox" checked="true" disabled="disabled">
+      <input type="text" [value]="party.name" (change)="setName($event)"
+        [ghs-label]="'campaign.campaignManagement.name'" [ghs-label-args]="[party.id]"
+        [ghs-label-attribute]="'placeholder'">
+    </label>
+    }
+    <span class="spacer"></span>
+    <a class="remove" tabclick (click)="removeParty(party)" (mouseleave)="cancelRemoveParty()"
+      [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario, 'confirm': confirmPartyDelete == party.id}"></a>
+  </div>
+  }
+
+  <div class="columns span">
+    <div class="column">
+      <div class="line span">
+        <a tabclick (click)="addParty()" [ghs-label]="'campaign.campaignManagement.add'"
+          [ngClass]="{'disabled' : gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}"></a>
+      </div>
     </div>
 
-    <div class="line"
-        *ngIf="settingsManager.settings.partySheet && settingsManager.settings.events && gameManager.game.edition && !gameManager.bbRules()">
-        <a tabclick (click)="openEventDeckSetup()" [ghs-label]="'game.events.deck.setup'"></a>
+    <div class="column">
+      <div class="line span">
+        <a tabclick (click)="resetCampaign()" (mouseleave)="cancelResetCampaign()"
+          [ghs-label]="'campaign.campaignManagement.reset'"
+          [ngClass]="{'disabled' : gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party, 'confirm': confirmResetCampaign}"></a>
+      </div>
     </div>
-
-    <div class="line title span"
-        *ngIf="characters.length > 0 && settingsManager.settings.characterSheet && !gameManager.bbRules()">
-        <label><span [ghs-label]="'campaign.character'"></span></label>
-    </div>
-
-    <ng-container *ngIf="settingsManager.settings.characterSheet && !gameManager.bbRules()">
-        <div class="line" *ngFor="let character of characters">
-            <a tabclick (click)="openCharacterSheet(character);">
-                <img class="icon" [src]="character.iconUrl" />
-                <span>{{gameManager.characterManager.characterName(character, true)}}</span>
-                <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;
-                    <span>[</span>
-                    <span [ghs-label]="'data.edition.' + gameManager.getEdition(character)"></span>
-                    <span>]</span>
-                </span>
-            </a>
-        </div>
-    </ng-container>
-
-    <div class="line span">
-        <a tabclick (click)="openEnhancementDialog()" [ghs-label]="'campaign.enhancements'"></a>
-    </div>
-
-    <div class="line title span">
-        <label><span [ghs-label]="'edition.conditions'"></span></label>
-    </div>
-    <div class="line">
-        <div class="conditions">
-            <span class="item" *ngFor="let condition of conditions"
-                [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-                <span class="condition" tabclick (click)="toggleCondition(condition.name)"
-                    [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
-                    [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
-                    [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
-                    <img
-                        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-
-                </span>
-            </span>
-        </div>
-    </div>
-    <div class="line">
-        <div class="conditions">
-            <span class="item" *ngFor="let condition of amConditions"
-                [ngClass]="{'disabled' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-                <span class="condition" tabclick (click)="toggleCondition(condition.name)"
-                    [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
-                    [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
-                    [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
-                    <img
-                        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-
-                </span>
-            </span>
-        </div>
-    </div>
-
-    <div class="line title span">
-        <div class="hint-container">
-            <label>
-                <span [ghs-label]="'campaign.campaignManagement'"></span>
-            </label>
-            <ng-container *ngIf="!!gameManager.game.scenario">
-                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-                <span class="hint">
-                    <span class="text" [ghs-label]="'campaign.campaignManagement.hint'"></span>
-                </span>
-            </ng-container>
-        </div>
-    </div>
-    <div class="line" *ngFor="let party of gameManager.game.parties">
-        <label *ngIf="gameManager.game.party != party"
-            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-            <input tabclick type="checkbox" [checked]="gameManager.game.party == party" (change)="changeParty(party)">
-            <span *ngIf="party.name">{{party.name}}</span>
-            <span *ngIf="!party.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{party.id}}</span>
-        </label>
-        <label *ngIf="gameManager.game.party == party">
-            <input tabclick type="checkbox" checked="true" disabled="disabled">
-            <input type="text" [value]="party.name" (change)="setName($event)"
-                [ghs-label]="'campaign.campaignManagement.name'" [ghs-label-args]="[party.id]"
-                [ghs-label-attribute]="'placeholder'">
-        </label>
-        <span class="spacer"></span>
-        <a class="remove" tabclick (click)="removeParty(party)" (mouseleave)="cancelRemoveParty()"
-            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario, 'confirm': confirmPartyDelete == party.id}"></a>
-    </div>
-
-    <div class="columns span">
-        <div class="column">
-            <div class="line span">
-                <a tabclick (click)="addParty()" [ghs-label]="'campaign.campaignManagement.add'"
-                    [ngClass]="{'disabled' : gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}"></a>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="line span">
-                <a tabclick (click)="resetCampaign()" (mouseleave)="cancelResetCampaign()"
-                    [ghs-label]="'campaign.campaignManagement.reset'"
-                    [ngClass]="{'disabled' : gameManager.game.scenario || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party, 'confirm': confirmResetCampaign}"></a>
-            </div>
-        </div>
-    </div>
+  </div>
 
 </div>

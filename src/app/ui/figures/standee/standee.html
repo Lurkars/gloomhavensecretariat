@@ -5,108 +5,145 @@
     <div #standee class="standee"
       [ngClass]="{'monster-standee' : gameManager.isMonsterEntity(entity), 'objective-standee' : gameManager.isObjectiveEntity(entity), 'summon-standee' : gameManager.isSummon(entity), 'bb-elite': gameManager.isMonster(figure) && gameManager.toMonster(figure).bb &&  gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).type == MonsterType.elite}">
 
-      <div class="sheet" *ngIf="gameManager.isSummon(entity) && gameManager.toSummon(entity).active">
+      @if (gameManager.isSummon(entity) && gameManager.toSummon(entity).active) {
+      <div class="sheet">
         <ghs-summon-sheet [summon]="gameManager.toSummon(entity)"></ghs-summon-sheet>
       </div>
+      }
 
       <div class="background-image-container">
-        <div class="background-image" *ngIf="gameManager.isMonsterEntity(entity)"
+        @if (gameManager.isMonsterEntity(entity)) {
+        <div class="background-image"
           [style.background-image]="figure.noThumbnail || !settingsManager.settings.artwork || !gameManager.isMonster(figure) ? '': 'url(' + gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(figure)) + ')'">
         </div>
+        }
+        @if (gameManager.isSummon(entity) && settingsManager.settings.artwork && (gameManager.toSummon(entity).thumbnail
+        && !gameManager.toSummon(entity).noThumbnail || gameManager.toSummon(entity).thumbnailUrl)) {
         <div class="background-image"
-          *ngIf="gameManager.isSummon(entity) && settingsManager.settings.artwork && (gameManager.toSummon(entity).thumbnail && !gameManager.toSummon(entity).noThumbnail || gameManager.toSummon(entity).thumbnailUrl)"
           [style.background-image]="gameManager.toSummon(entity).thumbnailUrl ? 'url(' +  gameManager.toSummon(entity).thumbnailUrl + ')' : 'url(./assets/images/summons/thumbnail/' + gameManager.toSummon(entity).thumbnail + '.png)'">
         </div>
+        }
       </div>
       <span class="number"
         [ngClass]="(gameManager.isMonster(figure) && gameManager.toMonster(figure).bb ? 'bb-' + entity.number : '') + (entity.number < 1 && settingsManager.settings.animations ? ' highlight' : '')">
         <span class="value">{{entity.number < 0 ? '?' : entity.number}}</span>
         </span>
 
-        <span *ngIf="gameManager.isSummon(entity)" class="summon-state"
+        @if (gameManager.isSummon(entity)) {
+        <span class="summon-state"
           [ngClass]="{'active' : gameManager.toSummon(entity).state == SummonState.true, 'new' : gameManager.toSummon(entity).state == SummonState.new, 'center' : (gameManager.toSummon(entity).entityConditions.length % 2) == 0,  'fh': gameManager.toSummon(entity).color == SummonColor.fh,}">
-          <img *ngIf="gameManager.toSummon(entity).color != SummonColor.fh"
-            src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
+          @if (gameManager.toSummon(entity).color != SummonColor.fh) {
+          <img src="./assets/images/summons/{{gameManager.toSummon(entity).color}}.png">
+          }
           <span class="summon-number">
-            <span *ngIf="gameManager.toSummon(entity).number == 0">-</span>
-            <span *ngIf="gameManager.toSummon(entity).number > 0">{{gameManager.toSummon(entity).number}}</span></span>
+            @if (gameManager.toSummon(entity).number == 0) {
+            <span>-</span>
+            }
+            @if (gameManager.toSummon(entity).number > 0) {
+            <span>{{gameManager.toSummon(entity).number}}</span>
+            }</span>
         </span>
+        }
 
 
         <span class="health" [ghs-label]="'game.health'" [ghs-label-attribute]="'title'"
           [ngClass]="{'damage' : settingsManager.settings.damageHP || objectiveData && objectiveData.trackDamage}">
-          <span *ngIf="maxHp && !settingsManager.settings.damageHP">
+          @if (maxHp && !settingsManager.settings.damageHP) {
+          <span>
             {{((entity.health + health) | ghsMinZero)}}
           </span>
-          <span *ngIf="maxHp && settingsManager.settings.damageHP">
+          }
+          @if (maxHp && settingsManager.settings.damageHP) {
+          <span>
             {{maxHp}}/{{((maxHp - entity.health + health) | ghsMinZero)}}
           </span>
-          <span *ngIf="objectiveData && objectiveData.trackDamage">
+          }
+          @if (objectiveData && objectiveData.trackDamage) {
+          <span>
             {{(entity.health + health) | ghsMinZero}}
           </span>
-          <span *ngIf="(!objectiveData || !objectiveData.trackDamage) && !maxHp">-</span>
+          }
+          @if ((!objectiveData || !objectiveData.trackDamage) && !maxHp) {
+          <span>-</span>
+          }
         </span>
     </div>
 
     <div class="conditions actions">
-      <span *ngFor="let actionHint of actionHints; let i = index;" class="condition-container"
+      @for (actionHint of actionHints; track actionHint.type + i; let i = $index) {
+      <span class="condition-container"
         [ngClass]="{'center' : (actionHints.length % 2) == 1 && i == actionHints.length - 1}">
         <span class="condition action-hint">
           <img
             [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/hint/' + actionHint.type + '.svg'" />
           <span class="value" [ngClass]="{'retaliate' : actionHint.type == 'retaliate'}">{{actionHint.value}}</span>
-          <span class="range" *ngIf="actionHint.range">
+          @if (actionHint.range) {
+          <span class="range">
             <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/range.svg'" />
             <span class="value">{{actionHint.range}}</span>
           </span>
+          }
         </span>
       </span>
+      }
     </div>
 
 
     <div class="markers">
-      <span *ngIf="marker" class="placeholder placeholder-marker" ghs-pointer-input (doubleClick)="removeMarker()"
+      @if (marker) {
+      <span class="placeholder placeholder-marker" ghs-pointer-input (doubleClick)="removeMarker()"
         [ghs-label]="'%game.mapMarker.' + marker + '%'"></span>
-      <span class="marker" *ngFor="let marker of entity.markers;" ghs-pointer-input
-        (doubleClick)="removeCharacterMarker(marker)">
+      }
+      @for (marker of entity.markers; track marker) {
+      <span class="marker" ghs-pointer-input (doubleClick)="removeCharacterMarker(marker)">
         <img [src]="gameManager.characterManager.characterIcon(marker)" />
       </span>
+      }
     </div>
 
     <ghs-highlight-conditions [entity]="entity" [figure]="figure"></ghs-highlight-conditions>
 
     <div class="conditions">
-      <span class="condition-container" *ngFor="let entityCondition of activeConditions; let index = index;"
+      @for (entityCondition of activeConditions; track entityCondition.name + entityCondition.value; let index = $index)
+      {
+      <span class="condition-container"
         [ngClass]="{'center' : (gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon == SummonState.false || gameManager.isSummon(entity) || gameManager.isObjectiveEntity(entity)) && ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1, 'expired' : entityCondition.expired, 'fh': settingsManager.settings.fhStyle}">
         <span class="condition" ghs-pointer-input (doubleClick)="removeCondition(entityCondition)">
           <img
             [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
             [style.z-index]="index * 10 + entityCondition.value" />
-          <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
-            <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
-              [style.z-index]="index * 10 + entityCondition.value - i - 1"
-              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
-          </ng-container>
-          <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
-            *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
-          <span *ngIf="entity.immunities.indexOf(entityCondition.name) != -1"
-            class="condition immunity condition-overlay"
+          @if (entityCondition.types.indexOf(ConditionType.stack) != -1) {
+          @for (i of [] | ghsRange:(entityCondition.value - 1); track i) {
+          <img class="stack" [style.z-index]="index * 10 + entityCondition.value - i - 1"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+          }
+          }
+          @if (entityCondition.types.indexOf(ConditionType.value) != -1 &&
+          entityCondition.types.indexOf(ConditionType.stack) == -1) {
+          <span class="value" [style.z-index]="index * 10 + entityCondition.value +1">{{entityCondition.value}}</span>
+          }
+          @if (entity.immunities.indexOf(entityCondition.name) != -1) {
+          <span class="condition immunity condition-overlay"
             [style.z-index]="index * 10 + entityCondition.value + 2"></span>
-          <span *ngIf="entityCondition.permanent" class="condition permanent condition-overlay"
+          }
+          @if (entityCondition.permanent) {
+          <span class="condition permanent condition-overlay"
             [style.z-index]="index * 10 + entityCondition.value + 3"></span>
+          }
         </span>
       </span>
-      <span
-        *ngIf="gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon != SummonState.false"
-        class="summon-container" [ngClass]="{'center' : (entity.entityConditions.length % 2) == 0}">
+      }
+      @if (gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon != SummonState.false) {
+      <span class="summon-container" [ngClass]="{'center' : (entity.entityConditions.length % 2) == 0}">
         <span class="summon"
           [ngClass]="{'active' : gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon == SummonState.true, 'new' : gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).summon == SummonState.new}">
           <img src="./assets/images/summons/{{ gameManager.toMonster(figure).summonColor }}.png">
         </span>
       </span>
+      }
     </div>
-    <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [reverse]="settingsManager.settings.damageHP" [invert]="!!objectiveData && objectiveData.trackDamage"
-      [container]="true"></span>
+    <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [reverse]="settingsManager.settings.damageHP"
+      [invert]="!!objectiveData && objectiveData.trackDamage" [container]="true"></span>
     <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
     <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
   </div>

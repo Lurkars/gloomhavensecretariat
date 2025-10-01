@@ -1,29 +1,41 @@
 <div class="enhancements" [ngClass]="{'edit': edit,  'fh': settingsManager.settings.fhStyle}">
-    <div class="slot {{slot}}" *ngFor="let slot of slots;let i = index;" ghs-pointer-input
-        [ngClass]="{'enhance': !enhancements[slotIndex != undefined ? slotIndex : i]}"
-        (singleClick)="enhance(slotIndex != undefined ? slotIndex : i,$event)"
-        (doubleClick)="removeEnhancement(slotIndex ? slotIndex :  i,$event)"
-        [ghs-tooltip]="edit && 'character.abilities.enhancements.hint.enhance' + (enhancements[slotIndex != undefined ? slotIndex : i] ? 'd': (wipSpecialIndex ? '.wipSpecial' : '')) || ''">
-        <img *ngIf="!enhancements[slotIndex != undefined ? slotIndex : i]" class="type"
-            [src]="gameManager.enhancementsManager.fh && slot != 'any' ? './assets/images/fh/character/abilities/enhancements/' + slot + '.svg' : './assets/images/character/abilities/enhancements/circle.svg'" />
-
-        <span class="enhancement" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i]">
-            <span class="plus1" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i] == 'plus1'">+1</span>
-            <span class="hex" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i] == 'hex'">
-                <img src="./assets/images/action/hex/target.svg" />
-            </span>
-            <span class="jump" *ngIf="enhancements[slotIndex != undefined ? slotIndex : i] == 'jump'">
-                <span class="text-white" [ghs-label]="'%game.actionIcon.jump%'"></span>
-            </span>
-            <span class="element" *ngIf="Elements.indexOf(enhancements[slotIndex != undefined ? slotIndex : i]) != -1">
-                <span
-                    [ghs-label]="'%game.element.' + enhancements[slotIndex != undefined ? slotIndex : i] + '%'"></span>
-            </span>
-            <span class="condition"
-                *ngIf="Conditions.indexOf(enhancements[slotIndex != undefined ? slotIndex : i]) != -1">
-                <span
-                    [ghs-label]="'%game.conditionIcon.' + enhancements[slotIndex != undefined ? slotIndex : i] + '%'"></span>
-            </span>
-        </span>
-    </div>
+  @for (slot of slots; track slot + $index; let i = $index) {
+  <div class="slot {{slot}}" ghs-pointer-input
+    [ngClass]="{'enhance': !enhancements[slotIndex != undefined ? slotIndex : i]}"
+    (singleClick)="enhance(slotIndex != undefined ? slotIndex : i,$event)"
+    (doubleClick)="removeEnhancement(slotIndex ? slotIndex :  i,$event)"
+    [ghs-tooltip]="edit && 'character.abilities.enhancements.hint.enhance' + (enhancements[slotIndex != undefined ? slotIndex : i] ? 'd': (wipSpecialIndex ? '.wipSpecial' : '')) || ''">
+    @if (!enhancements[slotIndex != undefined ? slotIndex : i]) {
+    <img class="type"
+      [src]="gameManager.enhancementsManager.fh && slot != 'any' ? './assets/images/fh/character/abilities/enhancements/' + slot + '.svg' : './assets/images/character/abilities/enhancements/circle.svg'" />
+    }
+    @if (enhancements[slotIndex != undefined ? slotIndex : i]) {
+    <span class="enhancement">
+      @if (enhancements[slotIndex != undefined ? slotIndex : i] == 'plus1') {
+      <span class="plus1">+1</span>
+      }
+      @if (enhancements[slotIndex != undefined ? slotIndex : i] == 'hex') {
+      <span class="hex">
+        <img src="./assets/images/action/hex/target.svg" />
+      </span>
+      }
+      @if (enhancements[slotIndex != undefined ? slotIndex : i] == 'jump') {
+      <span class="jump">
+        <span class="text-white" [ghs-label]="'%game.actionIcon.jump%'"></span>
+      </span>
+      }
+      @if (Elements.indexOf(enhancements[slotIndex != undefined ? slotIndex : i]) != -1) {
+      <span class="element">
+        <span [ghs-label]="'%game.element.' + enhancements[slotIndex != undefined ? slotIndex : i] + '%'"></span>
+      </span>
+      }
+      @if (Conditions.indexOf(enhancements[slotIndex != undefined ? slotIndex : i]) != -1) {
+      <span class="condition">
+        <span [ghs-label]="'%game.conditionIcon.' + enhancements[slotIndex != undefined ? slotIndex : i] + '%'"></span>
+      </span>
+      }
+    </span>
+    }
+  </div>
+  }
 </div>

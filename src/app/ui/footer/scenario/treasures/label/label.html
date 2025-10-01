@@ -1,15 +1,20 @@
-<span class="treasure-label" *ngIf="!!treasure">
-    <ng-container *ngFor="let reward of treasure.rewards; let index = index">
-        <span class="label" [ghs-label]="rewardLabel[index][0]" [ghs-label-args]="rewardLabel[index].slice(1)"></span>
-
-        <span class="result" *ngIf="!!rewardResults && !!rewardResults[index] && rewardResults[index].length > 0"
-            [ghs-label]="rewardLabel[index][0] + '.result'" [ghs-label-args]="rewardResults[index]"></span>
-
-        <span *ngIf="treasure.rewards.length > 1 && index < treasure.rewards.length -1">,&nbsp;</span>
-    </ng-container>
-
-    <div class="items" *ngIf="!!itemCards && items.length > 0">
-        <ghs-item *ngFor="let item of items" (click)="openItemDialog(item)" [item]="item" [flipped]="true"
-            [editionLabel]="gameManager.game.edition || ''"></ghs-item>
-    </div>
+@if (!!treasure) {
+<span class="treasure-label">
+  @for (reward of treasure.rewards; track reward; let index = $index) {
+  <span class="label" [ghs-label]="rewardLabel[index][0]" [ghs-label-args]="rewardLabel[index].slice(1)"></span>
+  @if (!!rewardResults && !!rewardResults[index] && rewardResults[index].length > 0) {
+  <span class="result" [ghs-label]="rewardLabel[index][0] + '.result'" [ghs-label-args]="rewardResults[index]"></span>
+  }
+  @if (treasure.rewards.length > 1 && index < treasure.rewards.length -1) { <span>,&nbsp;</span>
+}
+}
+@if (!!itemCards && items.length > 0) {
+<div class="items">
+  @for (item of items; track item.edition + '-' + item.id) {
+  <ghs-item (click)="openItemDialog(item)" [item]="item" [flipped]="true"
+    [editionLabel]="gameManager.game.edition || ''"></ghs-item>
+  }
+</div>
+}
 </span>
+}

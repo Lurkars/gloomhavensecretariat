@@ -1,125 +1,137 @@
 <div class="events-dialog">
-    <div #menu class="menu" [ngClass]="{'resolved': resolved}">
-        <a *ngFor="let eventType of types" class="event-type" (click)="selectType(eventType)"
-            [ngClass]="{'active': type == eventType}">
-            <span [ghs-label]="'game.events.type.' + eventType"></span>
-        </a>
-        <a *ngIf="upcomingCards.length" (click)="drawEvent()">
-            <span [ghs-label]="'scenario.eventEffects.drawEvent'" [ghs-label-args]="[type]"></span>
-        </a>
-        <label *ngIf="allTypesToggle">
-            <input type="checkbox" (click)="toggleAllTypes()" [checked]="allTypes">
-            <span [ghs-label]="'game.events.deck.allTypes'"></span>
-        </label>
-        <label *ngIf="drawnCards.length || resolved">
-            <input type="checkbox" [(ngModel)]="resolved">
-            <span [ghs-label]="'game.events.deck.resolved'"></span>
-        </label>
-        <label>
-            <input type="text" [(ngModel)]="filter" (ngModelChange)="update()" [ghs-label]="'game.events.deck.filter'"
-                [ghs-label-attribute]="'placeholder'" />
-        </label>
-    </div>
-    <div class="scroll-container">
-        <div class="events-container"
-            [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern','resolved': resolved}">
-            <div class="upcoming drop-list" id="upcoming-list" cdkDropList #upcomingList="cdkDropList"
-                [cdkDropListConnectedTo]="[newList, drawnList]" (cdkDropListDropped)="dropUpcoming($event)"
-                [cdkDropListAutoScrollStep]="20">
-                <div class="title">
-                    <span [ghs-label]="'game.events.deck.upcoming'" [ghs-label-args]="[upcomingCards.length]"></span>
-                    <a (click)="shuffle()" [ghs-tooltip]="'game.events.deck.shuffle'">
-                        <img class="ghs-svg" src="./assets/images/shuffle.svg">
-                    </a>
-                </div>
-                <div class="empty" *ngIf="upcomingCards.length == 0"></div>
-                <ng-container *ngFor="let event of upcomingCards;let index = index;">
-                    <div *ngIf="!filter || event.cardId.indexOf(filter) != -1" class="container drag-hidden" cdkDrag>
-
-                        <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
-
-                        <a cdkDragHandle class="button drag-handle">
-                            <img class="ghs-svg" src="./assets/images/menu.svg">
-                        </a>
-                        <a class="button open" (click)="showEventCard(event)" [ghs-tooltip]="'game.events.deck.show'">
-                            <img class="ghs-svg" src="./assets/images/fullscreen.svg">
-                        </a>
-                        <a class="button remove" (click)="removeCard(event)"
-                            [ghs-tooltip]="'game.events.deck.removeCard'">
-                            <img class="ghs-svg" src="./assets/images/eventcards/remove.svg">
-                        </a>
-                        <a class="button draw" (click)="drawEvent(event.cardId)"
-                            [ghs-tooltip]="'game.events.deck.draw'">
-                            <span class="text-white" [ghs-label]="'%action.card.recover%'"></span>
-                        </a>
-                    </div>
-                </ng-container>
-            </div>
-
-            <div class="new drop-list" id="new-list" cdkDropList #newList="cdkDropList"
-                [cdkDropListConnectedTo]="[upcomingList, drawnList]" (cdkDropListDropped)="dropNew($event)"
-                [cdkDropListAutoScrollStep]="20">
-                <div class="title">
-                    <span [ghs-label]="'game.events.deck.new'" [ghs-label-args]="[newCards.length]"></span>
-                </div>
-                <div class="empty" *ngIf="newCards.length == 0"></div>
-                <ng-container *ngFor="let event of newCards; let index = index;">
-                    <div *ngIf="!filter || event.cardId.indexOf(filter) != -1" class="container drag-hidden" cdkDrag>
-
-                        <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
-
-                        <a cdkDragHandle class="button drag-handle">
-                            <img class="ghs-svg" src="./assets/images/menu.svg">
-                        </a>
-                        <a class="button open" (click)="showEventCard(event)" [ghs-tooltip]="'game.events.deck.show'">
-                            <img class="ghs-svg" src="./assets/images/fullscreen.svg">
-                        </a>
-                        <a class="button add" (click)="addCard(event)" [ghs-tooltip]="'game.events.deck.addCard'">
-                            <img class="ghs-svg" src="./assets/images/eventcards/return.svg">
-                        </a>
-                        <a class="button draw" (click)="drawEvent(event.cardId)"
-                            [ghs-tooltip]="'game.events.deck.draw'">
-                            <span class="text-white" [ghs-label]="'%action.card.recover%'"></span>
-                        </a>
-                    </div>
-                </ng-container>
-            </div>
-
-            <div class="drawn drop-list" cdkDropList #drawnList="cdkDropList" (cdkDropListDropped)="dropDrawn($event)"
-                [cdkDropListAutoScrollStep]="20">
-                <div class="title">
-                    <span [ghs-label]="'game.events.deck.drawn'" [ghs-label-args]="[drawnCards.length]"></span>
-                </div>
-                <div class="empty" *ngIf="drawnCards.length == 0"></div>
-                <ng-container *ngFor="let model of drawnCards; let index = index;">
-                    <div *ngIf="!filter || model.identifier.cardId.indexOf(filter) != -1" class="container" drag-hidden
-                        cdkDrag>
-
-                        <ghs-event-card [event]="model.card" [select]="model.identifier.selected"
-                            [subSelect]="model.identifier.subSelections" [checks]="model.identifier.checks"
-                            (onSelect)="updateDrawnSelect(model.identifier,$event)"></ghs-event-card>
-
-                        <a class="button open" *ngIf="model.card" (click)="showEventCard(model.card, model.identifier)"
-                            [ghs-tooltip]="'game.events.deck.show'">
-                            <img class="ghs-svg" src="./assets/images/fullscreen.svg">
-                        </a>
-                        <a *ngIf="model.identifier.selected != -1" class="button reset"
-                            (click)="updateDrawnSelect(model.identifier)"
-                            [ghs-tooltip]="'game.events.deck.removeSelection'">
-                            <img class="ghs-svg" src="./assets/images/long-rest.svg">
-                        </a>
-                        <a class="button remove" (click)="removeDrawn(model.identifier)"
-                            [ghs-tooltip]="'game.events.deck.removeDrawn'">
-                            <img class="ghs-svg" src="./assets/images/minus.svg">
-                        </a>
-                        <a class="button add restore"
-                            *ngIf="model.card && upcomingCards.indexOf(model.card) == -1 && newCards.indexOf(model.card) == -1"
-                            (click)="addCard(model.card)" [ghs-tooltip]="'game.events.deck.addCard'">
-                            <img class="ghs-svg" src="./assets/images/plus.svg">
-                        </a>
-                    </div>
-                </ng-container>
-            </div>
+  <div #menu class="menu" [ngClass]="{'resolved': resolved}">
+    @for (eventType of types; track eventType) {
+    <a class="event-type" (click)="selectType(eventType)" [ngClass]="{'active': type == eventType}">
+      <span [ghs-label]="'game.events.type.' + eventType"></span>
+    </a>
+    }
+    @if (upcomingCards.length) {
+    <a (click)="drawEvent()">
+      <span [ghs-label]="'scenario.eventEffects.drawEvent'" [ghs-label-args]="[type]"></span>
+    </a>
+    }
+    @if (allTypesToggle) {
+    <label>
+      <input type="checkbox" (click)="toggleAllTypes()" [checked]="allTypes">
+      <span [ghs-label]="'game.events.deck.allTypes'"></span>
+    </label>
+    }
+    @if (drawnCards.length || resolved) {
+    <label>
+      <input type="checkbox" [(ngModel)]="resolved">
+      <span [ghs-label]="'game.events.deck.resolved'"></span>
+    </label>
+    }
+    <label>
+      <input type="text" [(ngModel)]="filter" (ngModelChange)="update()" [ghs-label]="'game.events.deck.filter'"
+        [ghs-label-attribute]="'placeholder'" />
+    </label>
+  </div>
+  <div class="scroll-container">
+    <div class="events-container"
+      [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern','resolved': resolved}">
+      <div class="upcoming drop-list" id="upcoming-list" cdkDropList #upcomingList="cdkDropList"
+        [cdkDropListConnectedTo]="[newList, drawnList]" (cdkDropListDropped)="dropUpcoming($event)"
+        [cdkDropListAutoScrollStep]="20">
+        <div class="title">
+          <span [ghs-label]="'game.events.deck.upcoming'" [ghs-label-args]="[upcomingCards.length]"></span>
+          <a (click)="shuffle()" [ghs-tooltip]="'game.events.deck.shuffle'">
+            <img class="ghs-svg" src="./assets/images/shuffle.svg">
+          </a>
         </div>
+        @if (upcomingCards.length == 0) {
+        <div class="empty"></div>
+        }
+        @for (event of upcomingCards; track event.edition + '-' + event.cardId; let index = $index) {
+        @if (!filter || event.cardId.indexOf(filter) != -1) {
+        <div class="container drag-hidden" cdkDrag>
+          <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
+          <a cdkDragHandle class="button drag-handle">
+            <img class="ghs-svg" src="./assets/images/menu.svg">
+          </a>
+          <a class="button open" (click)="showEventCard(event)" [ghs-tooltip]="'game.events.deck.show'">
+            <img class="ghs-svg" src="./assets/images/fullscreen.svg">
+          </a>
+          <a class="button remove" (click)="removeCard(event)" [ghs-tooltip]="'game.events.deck.removeCard'">
+            <img class="ghs-svg" src="./assets/images/eventcards/remove.svg">
+          </a>
+          <a class="button draw" (click)="drawEvent(event.cardId)" [ghs-tooltip]="'game.events.deck.draw'">
+            <span class="text-white" [ghs-label]="'%action.card.recover%'"></span>
+          </a>
+        </div>
+        }
+        }
+      </div>
+
+      <div class="new drop-list" id="new-list" cdkDropList #newList="cdkDropList"
+        [cdkDropListConnectedTo]="[upcomingList, drawnList]" (cdkDropListDropped)="dropNew($event)"
+        [cdkDropListAutoScrollStep]="20">
+        <div class="title">
+          <span [ghs-label]="'game.events.deck.new'" [ghs-label-args]="[newCards.length]"></span>
+        </div>
+        @if (newCards.length == 0) {
+        <div class="empty"></div>
+        }
+        @for (event of newCards; track event.edition + '-' + event.cardId; let index = $index) {
+        @if (!filter || event.cardId.indexOf(filter) != -1) {
+        <div class="container drag-hidden" cdkDrag>
+          <ghs-event-card [event]="event" [spoiler]="true"></ghs-event-card>
+          <a cdkDragHandle class="button drag-handle">
+            <img class="ghs-svg" src="./assets/images/menu.svg">
+          </a>
+          <a class="button open" (click)="showEventCard(event)" [ghs-tooltip]="'game.events.deck.show'">
+            <img class="ghs-svg" src="./assets/images/fullscreen.svg">
+          </a>
+          <a class="button add" (click)="addCard(event)" [ghs-tooltip]="'game.events.deck.addCard'">
+            <img class="ghs-svg" src="./assets/images/eventcards/return.svg">
+          </a>
+          <a class="button draw" (click)="drawEvent(event.cardId)" [ghs-tooltip]="'game.events.deck.draw'">
+            <span class="text-white" [ghs-label]="'%action.card.recover%'"></span>
+          </a>
+        </div>
+        }
+        }
+      </div>
+
+      <div class="drawn drop-list" cdkDropList #drawnList="cdkDropList" (cdkDropListDropped)="dropDrawn($event)"
+        [cdkDropListAutoScrollStep]="20">
+        <div class="title">
+          <span [ghs-label]="'game.events.deck.drawn'" [ghs-label-args]="[drawnCards.length]"></span>
+        </div>
+        @if (drawnCards.length == 0) {
+        <div class="empty"></div>
+        }
+        @for (model of drawnCards; track model.identifier.edition + '-' + model.identifier.cardId; let index = $index) {
+        @if (!filter || model.identifier.cardId.indexOf(filter) != -1) {
+        <div class="container" drag-hidden cdkDrag>
+          <ghs-event-card [event]="model.card" [select]="model.identifier.selected"
+            [subSelect]="model.identifier.subSelections" [checks]="model.identifier.checks"
+            (onSelect)="updateDrawnSelect(model.identifier,$event)"></ghs-event-card>
+          @if (model.card) {
+          <a class="button open" (click)="showEventCard(model.card, model.identifier)"
+            [ghs-tooltip]="'game.events.deck.show'">
+            <img class="ghs-svg" src="./assets/images/fullscreen.svg">
+          </a>
+          }
+          @if (model.identifier.selected != -1) {
+          <a class="button reset" (click)="updateDrawnSelect(model.identifier)"
+            [ghs-tooltip]="'game.events.deck.removeSelection'">
+            <img class="ghs-svg" src="./assets/images/long-rest.svg">
+          </a>
+          }
+          <a class="button remove" (click)="removeDrawn(model.identifier)"
+            [ghs-tooltip]="'game.events.deck.removeDrawn'">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </a>
+          @if (model.card && upcomingCards.indexOf(model.card) == -1 && newCards.indexOf(model.card) == -1) {
+          <a class="button add restore" (click)="addCard(model.card)" [ghs-tooltip]="'game.events.deck.addCard'">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </a>
+          }
+        </div>
+        }
+        }
+      </div>
     </div>
+  </div>
 </div>

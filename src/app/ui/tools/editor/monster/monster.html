@@ -35,148 +35,150 @@
 
           <div class="level-select">
             <span class="select"><span [ghs-label]="'editor.monster.stats.levelSelect'"></span>:</span>
-            <div class="level" *ngFor="let l of [] | ghsRange:8" [ngClass]="{'current' : level == l}"
-              (click)="level = l; updateQueryParams()">
+            @for (l of [] | ghsRange:8; track l) {
+            <div class="level" [ngClass]="{'current' : level == l}" (click)="level = l; updateQueryParams()">
               {{l}}</div>
+            }
             <div class="level" [ngClass]="{'current' : level == -1}" (click)="level = -1; updateQueryParams()">
               <span [ghs-label]="'editor.monster.stats.allLevel'"></span>
             </div>
           </div>
 
-          <div class="stats-container" *ngFor="let level of (level == -1 ? ([] | ghsRange:8) : [level])">
-            <div class="stats-input" *ngIf="level != -1">
+          @for (level of (level == -1 ? ([] | ghsRange:8) : [level]); track level) {
+          <div class="stats-container">
+            @if (level != -1) {
+            <div class="stats-input">
               <ghs-monster-stats class="stats-editor" [monster]="getMonsterForLevel(level)" [noClick]="true">
               </ghs-monster-stats>
-
               <input class="name" [(ngModel)]="monsterData.name" (change)="monsterDataToJson()"
                 (keyup)="monsterDataToJson()">
-
-              <div class="stats" *ngIf="!monsterData.boss">
+              @if (!monsterData.boss) {
+              <div class="stats">
                 <input class="stat end" [ngModel]="statsForType(MonsterType.normal, level).health"
                   (ngModelChange)="statsForType(MonsterType.normal,level).health=valueChange($event)"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
                 <input class="stat start" [ngModel]="statsForType(MonsterType.elite,level).health"
                   (ngModelChange)="statsForType(MonsterType.elite,level).health=valueChange($event)"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
-
                 <input class="stat end" type="number" [(ngModel)]="statsForType(MonsterType.normal,level).movement"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
                 <input class="stat start" type="number" [(ngModel)]="statsForType(MonsterType.elite,level).movement"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
-
                 <input class="stat end" [ngModel]="statsForType(MonsterType.normal,level).attack"
                   (ngModelChange)="statsForType(MonsterType.normal,level).attack=valueChange($event)"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
                 <input class="stat start" [ngModel]="statsForType(MonsterType.elite,level).attack"
                   (ngModelChange)="statsForType(MonsterType.elite,level).attack=valueChange($event)"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
-
                 <input class="stat end" type="number" [(ngModel)]="statsForType(MonsterType.normal,level).range"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
                 <input class="stat start" type="number" [(ngModel)]="statsForType(MonsterType.elite,level).range"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
               </div>
-
-              <div class="stats boss" *ngIf="monsterData.boss">
+              }
+              @if (monsterData.boss) {
+              <div class="stats boss">
                 <input class="stat end" [ngModel]="statsForType(MonsterType.boss,level).health"
                   (ngModelChange)="statsForType(MonsterType.boss,level).health=valueChange($event)"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
-
                 <input class="stat end" type="number" [(ngModel)]="statsForType(MonsterType.boss,level).movement"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
-
                 <input class="stat end" [ngModel]="statsForType(MonsterType.boss,level).attack"
                   (ngModelChange)="statsForType(MonsterType.boss,level).attack=valueChange($event)"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
-
                 <input class="stat end" type="number" [(ngModel)]="statsForType(MonsterType.boss,level).range"
                   (change)="monsterDataToJson()" (keyup)="monsterDataToJson()">
               </div>
-
-              <ng-container *ngIf="!monsterData.boss">
-                <div class="extra normal">
-                  <div class="notes" [ghs-label]="statsForType(MonsterType.normal,level).note"></div>
-                  <div class="additional" cdkDropList
-                    (cdkDropListDropped)="dropMonsterAction(MonsterType.normal,level,$event)">
-                    <div class="monster-action" *ngFor="let action of statsForType(MonsterType.normal,level).actions"
-                      cdkDrag>
-                      <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
-                      <ghs-action (click)="editMonsterAction(MonsterType.normal, action,level)" [action]="action"
-                        [monster]="getMonsterForLevel(level)" [inline]="true" [right]="true" [hexSize]="0.5"
-                        [relative]="true">
-                      </ghs-action>
-                    </div>
-                    <a (click)="addMonsterAction(MonsterType.normal,level)"><img class="ghs-icon"
-                        src="./assets/images/plus.svg"> <span [ghs-label]="'editor.action.add'"></span></a>
+              }
+              @if (!monsterData.boss) {
+              <div class="extra normal">
+                <div class="notes" [ghs-label]="statsForType(MonsterType.normal,level).note"></div>
+                <div class="additional" cdkDropList
+                  (cdkDropListDropped)="dropMonsterAction(MonsterType.normal,level,$event)">
+                  @for (action of statsForType(MonsterType.normal,level).actions; track action) {
+                  <div class="monster-action" cdkDrag>
+                    <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
+                    <ghs-action (click)="editMonsterAction(MonsterType.normal, action,level)" [action]="action"
+                      [monster]="getMonsterForLevel(level)" [inline]="true" [right]="true" [hexSize]="0.5"
+                      [relative]="true">
+                    </ghs-action>
                   </div>
+                  }
+                  <a (click)="addMonsterAction(MonsterType.normal,level)"><img class="ghs-icon"
+                      src="./assets/images/plus.svg"> <span [ghs-label]="'editor.action.add'"></span></a>
                 </div>
-                <div class="extra elite">
-                  <div class="notes" [ghs-label]="statsForType(MonsterType.elite,level).note"></div>
-                  <div class="additional" cdkDropList
-                    (cdkDropListDropped)="dropMonsterAction(MonsterType.elite,level,$event)">
-                    <div class="monster-action" *ngFor="let action of statsForType(MonsterType.elite,level).actions"
-                      cdkDrag>
-                      <ghs-action (click)="editMonsterAction(MonsterType.elite, action,level)" [action]="action"
+              </div>
+              <div class="extra elite">
+                <div class="notes" [ghs-label]="statsForType(MonsterType.elite,level).note"></div>
+                <div class="additional" cdkDropList
+                  (cdkDropListDropped)="dropMonsterAction(MonsterType.elite,level,$event)">
+                  @for (action of statsForType(MonsterType.elite,level).actions; track action) {
+                  <div class="monster-action" cdkDrag>
+                    <ghs-action (click)="editMonsterAction(MonsterType.elite, action,level)" [action]="action"
+                      [monster]="getMonsterForLevel(level)" [inline]="true" [hexSize]="0.5" [relative]="true">
+                    </ghs-action>
+                    <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
+                  </div>
+                  }
+                  <a (click)="addMonsterAction(MonsterType.elite,level)"><img class="ghs-icon"
+                      src="./assets/images/plus.svg">
+                    <span [ghs-label]="'editor.action.add'"></span></a>
+                </div>
+              </div>
+              }
+              @if (monsterData.boss) {
+              <div class="extra boss">
+                <div class="notes" [ghs-label]="statsForType(MonsterType.boss,level).note"></div>
+                <div class="additional" cdkDropList
+                  (cdkDropListDropped)="dropMonsterAction(MonsterType.boss,level,$event)">
+                  @for (action of statsForType(MonsterType.boss,level).actions; track action) {
+                  <div class="monster-action" cdkDrag>
+                    <ghs-action (click)="editMonsterAction(MonsterType.boss, action,level)" [action]="action"
+                      [monster]="getMonsterForLevel(level)" [inline]="true" [hexSize]="0.5" [relative]="true">
+                    </ghs-action>
+                    <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
+                  </div>
+                  }
+                  <a (click)="addMonsterAction(MonsterType.boss,level)"><img class="ghs-icon"
+                      src="./assets/images/plus.svg">
+                    <span [ghs-label]="'editor.action.add'"></span></a>
+                </div>
+                <div class="specials">
+                  @for (special of statsForType(MonsterType.boss,level).special; track special; let index = $index) {
+                  <div class="special">
+                    <span class="index">{{index+1}}:</span>
+                    <div class="actions">
+                      @for (action of statsForType(MonsterType.boss,level).special[index]; track action) {
+                      <ghs-action (click)="editSpecialAction(MonsterType.boss,index, action,level)" [action]="action"
                         [monster]="getMonsterForLevel(level)" [inline]="true" [hexSize]="0.5" [relative]="true">
                       </ghs-action>
-                      <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
+                      }
+                      <a (click)="addSpecialAction(MonsterType.boss, index,level)"><img class="ghs-icon"
+                          src="./assets/images/plus.svg"> <span [ghs-label]="'editor.action.add'"></span></a>
                     </div>
-                    <a (click)="addMonsterAction(MonsterType.elite,level)"><img class="ghs-icon"
-                        src="./assets/images/plus.svg">
-                      <span [ghs-label]="'editor.action.add'"></span></a>
                   </div>
+                  }
+                  <a
+                    (click)="addSpecialAction(MonsterType.boss, statsForType(MonsterType.boss,level).special.length,level)"><img
+                      class="ghs-icon" src="./assets/images/plus.svg">
+                    <span [ghs-label]="'editor.monster.stats.addSpecial'"></span>
+                  </a>
                 </div>
-              </ng-container>
-
-              <ng-container *ngIf="monsterData.boss">
-                <div class="extra boss">
-                  <div class="notes" [ghs-label]="statsForType(MonsterType.boss,level).note"></div>
-                  <div class="additional" cdkDropList
-                    (cdkDropListDropped)="dropMonsterAction(MonsterType.boss,level,$event)">
-                    <div class="monster-action" *ngFor="let action of statsForType(MonsterType.boss,level).actions"
-                      cdkDrag>
-                      <ghs-action (click)="editMonsterAction(MonsterType.boss, action,level)" [action]="action"
-                        [monster]="getMonsterForLevel(level)" [inline]="true" [hexSize]="0.5" [relative]="true">
-                      </ghs-action>
-                      <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
-                    </div>
-                    <a (click)="addMonsterAction(MonsterType.boss,level)"><img class="ghs-icon"
-                        src="./assets/images/plus.svg">
-                      <span [ghs-label]="'editor.action.add'"></span></a>
-                  </div>
-                  <div class="specials">
-                    <div class="special"
-                      *ngFor="let special of statsForType(MonsterType.boss,level).special; let index = index;">
-                      <span class="index">{{index+1}}:</span>
-                      <div class="actions">
-                        <ng-container *ngFor="let action of statsForType(MonsterType.boss,level).special[index]">
-                          <ghs-action (click)="editSpecialAction(MonsterType.boss,index, action,level)"
-                            [action]="action" [monster]="getMonsterForLevel(level)" [inline]="true" [hexSize]="0.5"
-                            [relative]="true">
-                          </ghs-action>
-                        </ng-container>
-                        <a (click)="addSpecialAction(MonsterType.boss, index,level)"><img class="ghs-icon"
-                            src="./assets/images/plus.svg"> <span [ghs-label]="'editor.action.add'"></span></a>
-                      </div>
-                    </div>
-                    <a
-                      (click)="addSpecialAction(MonsterType.boss, statsForType(MonsterType.boss,level).special.length,level)"><img
-                        class="ghs-icon" src="./assets/images/plus.svg">
-                      <span [ghs-label]="'editor.monster.stats.addSpecial'"></span>
-                    </a>
-                  </div>
-                </div>
-              </ng-container>
+              </div>
+              }
             </div>
-
+            }
             <ghs-monster-stats class="stats-preview" [monster]="getMonsterForLevel(level)" [forceStats]="true"
               [relative]="true" [noClick]="true">
             </ghs-monster-stats>
           </div>
+          }
 
-          <a class="button" *ngIf="level != -1" (click)="applyToAllLevel(level)">
+          @if (level != -1) {
+          <a class="button" (click)="applyToAllLevel(level)">
             <span [ghs-label]="'editor.monster.stats.applyAll'"></span>
           </a>
+          }
         </div>
       </div>
 
@@ -185,19 +187,22 @@
 
           <select (change)="loadMonsterData($event)">
             <option [value]="-1">&lt;<span [ghs-label]="'editor.monster.new'"></span>&gt;</option>
-            <option [value]="index" *ngFor="let md of monstersData; let index = index;"
-              [selected]="md.edition == monsterData.edition && md.name == monsterData.name">
+            @for (md of monstersData; track md.edition + '-' + md.name; let index = $index) {
+            <option [value]="index" [selected]="md.edition == monsterData.edition && md.name == monsterData.name">
               <span [ghs-label]="'data.monster.' + md.name"></span> (<span
                 [ghs-label]="'data.edition.' + md.edition"></span>)
               [{{md.name}}]
             </option>
+            }
           </select>
 
           <select [(ngModel)]="edition" (change)="updateQueryParams()">
             <option></option>
-            <option *ngFor="let edition of editions" [value]="edition">
+            @for (edition of editions; track edition) {
+            <option [value]="edition">
               <span [ghs-label]="'data.edition.' + edition"></span>
             </option>
+            }
           </select>
 
         </h2>
@@ -211,8 +216,9 @@
       </div>
     </div>
 
-    <ghs-deck-editor *ngIf="init" #deckEditor [monster]="getMonsterForLevel(level)" [standalone]="false"
-      [edition]="edition">
+    @if (init) {
+    <ghs-deck-editor #deckEditor [monster]="getMonsterForLevel(level)" [standalone]="false" [edition]="edition">
     </ghs-deck-editor>
+    }
   </div>
 </div>

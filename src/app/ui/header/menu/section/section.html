@@ -1,9 +1,11 @@
 <div class="menu-container scenario">
   <div class="line editions">
-    <label *ngFor="let e of editions">
+    @for (e of editions; track e) {
+    <label>
       <input tabclick type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
       <span [ghs-label]="'data.edition.' + e"></span>
     </label>
+    }
   </div>
 
   <div class="line">
@@ -14,22 +16,31 @@
     </label>
   </div>
 
-  <ng-container *ngFor="let group of groups()">
-    <div *ngIf="group && sections(group).length > 0" class="line title"><label
-        [ghs-label]="'data.scenario.group.' + group"></label></div>
-    <div class="line sections" *ngIf="sections(group).length > 0">
-      <span tabclick *ngFor="let section of sections(group)" class="section"
-        [ngClass]="{'disabled' : section.isLocked , 'available': settingsManager.settings.showAllSections && section.parent && !!gameManager.game.scenario && section.parent == gameManager.game.scenario.index && section.group == gameManager.game.scenario.group && section.edition == gameManager.game.scenario.edition}"
-        [ghs-tooltip]="'scenario.tooltip'" [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(section,true)]"
-        (click)="addSection(section)">
-        <span *ngIf="maxSection() > 2 && section.index.length < 3">0</span>
-        <span *ngIf="maxSection() > 1 && section.index.length < 2">0</span>
-        {{section.index}}
+  @for (group of groups(); track group) {
+  @if (group && sections(group).length > 0) {
+  <div class="line title"><label [ghs-label]="'data.scenario.group.' + group"></label></div>
+  }
+  @if (sections(group).length > 0) {
+  <div class="line sections">
+    @for (section of sections(group); track section.edition + '-' + section.index) {
+    <span tabclick class="section"
+      [ngClass]="{'disabled' : section.isLocked , 'available': settingsManager.settings.showAllSections && section.parent && !!gameManager.game.scenario && section.parent == gameManager.game.scenario.index && section.group == gameManager.game.scenario.group && section.edition == gameManager.game.scenario.edition}"
+      [ghs-tooltip]="'scenario.tooltip'" [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(section,true)]"
+      (click)="addSection(section)">
+      @if (maxSection() > 2 && section.index.length < 3) { <span>0</span>
+    }
+    @if (maxSection() > 1 && section.index.length < 2) { <span>0</span>
+      }
+      {{section.index}}
       </span>
-    </div>
-  </ng-container>
+      }
+  </div>
+  }
+  }
 
-  <div class="line disabled" *ngIf="noResults()">
+  @if (noResults()) {
+  <div class="line disabled">
     <label><span [ghs-label]="'monster.filter.noResult'"></span></label>
   </div>
+  }
 </div>

@@ -1,6 +1,7 @@
 <div class="menu-container data">
 
-  <div *ngIf="!editionsOnly" class="columns columns-break">
+  @if (!editionsOnly) {
+  <div class="columns columns-break">
     <div class="column">
       <div class="line">
         <a tabclick (click)="exportGame()"><span [ghs-label]="'datamanagement.exportGame'"></span></a>
@@ -24,7 +25,6 @@
         </div>
       </div>
     </div>
-
     <div class="column">
       <div class="line">
         <a tabclick (click)="exportSettings()"><span [ghs-label]="'datamanagement.exportSettings'"></span></a>
@@ -34,7 +34,6 @@
           (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.resetSettings'"></span>(!)&gt;</a>
       </div>
     </div>
-
     <div class="column">
       <div class="line">
         <a tabclick (click)="exportDataDump()"><span [ghs-label]="'datamanagement.exportDataDump'"></span></a>
@@ -50,129 +49,132 @@
           <span [ghs-label]="'datamanagement.backup.auto'"></span>
         </label>
       </div>
-      <ng-container *ngIf="settingsManager.settings.autoBackup != -1">
-        <div class="line">
-          <div class="hint-container">
-            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.count'"></span>
-              <input tabclick type="number" #autoBackup [value]="settingsManager.settings.autoBackup" min="0"
-                (keyup)="0" (change)="settingsManager.set('autoBackup', +autoBackup.value)"
-                [size]="autoBackup.value.length" [ghs-label]="'datamanagement.backup.auto.count'"
-                [ghs-label-attribute]="'placeholder'"></label>
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <div class="hint">
-              <div class="text">
-                <div [ghs-label]="'datamanagement.backup.auto.countHint'"></div>
-              </div>
+      @if (settingsManager.settings.autoBackup != -1) {
+      <div class="line">
+        <div class="hint-container">
+          <label class="label"><span [ghs-label]="'datamanagement.backup.auto.count'"></span>
+            <input tabclick type="number" #autoBackup [value]="settingsManager.settings.autoBackup" min="0" (keyup)="0"
+              (change)="settingsManager.set('autoBackup', +autoBackup.value)" [size]="autoBackup.value.length"
+              [ghs-label]="'datamanagement.backup.auto.count'" [ghs-label-attribute]="'placeholder'"></label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <div class="hint">
+            <div class="text">
+              <div [ghs-label]="'datamanagement.backup.auto.countHint'"></div>
             </div>
           </div>
         </div>
-        <div class="line">
-          <label>
-            <input tabclick type="checkbox" [checked]="settingsManager.settings.autoBackupFinish"
-              (change)="settingsManager.setAutoBackupFinish(!settingsManager.settings.autoBackupFinish)">
-            <span [ghs-label]="'datamanagement.backup.auto.onFinish'"></span>
-          </label>
-        </div>
-        <div class="line">
-          <div class="hint-container input-container">
-            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrl'"></span></label>
-            <input tabclick type="text" #autoBackupuploadUrl [value]="settingsManager.settings.autoBackupUrl?.url"
-              (keyup)="0"
-              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
-              [ghs-label]="'datamanagement.backup.auto.uploadUrl'" [ghs-label-attribute]="'placeholder'">
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <div class="hint">
-              <div class="text">
-                <div [ghs-label]="'datamanagement.backup.auto.uploadUrl.hint'"></div>
-              </div>
+      </div>
+      <div class="line">
+        <label>
+          <input tabclick type="checkbox" [checked]="settingsManager.settings.autoBackupFinish"
+            (change)="settingsManager.setAutoBackupFinish(!settingsManager.settings.autoBackupFinish)">
+          <span [ghs-label]="'datamanagement.backup.auto.onFinish'"></span>
+        </label>
+      </div>
+      <div class="line">
+        <div class="hint-container input-container">
+          <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrl'"></span></label>
+          <input tabclick type="text" #autoBackupuploadUrl [value]="settingsManager.settings.autoBackupUrl?.url"
+            (keyup)="0"
+            (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
+            [ghs-label]="'datamanagement.backup.auto.uploadUrl'" [ghs-label-attribute]="'placeholder'">
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <div class="hint">
+            <div class="text">
+              <div [ghs-label]="'datamanagement.backup.auto.uploadUrl.hint'"></div>
             </div>
           </div>
         </div>
-        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
-          <div class="hint-container input-container">
-            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod'"></span></label>
-            <select tabclick #autoBackupPostMethod [value]="settingsManager.settings.autoBackupUrl?.method"
-              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})">
-              <option value="POST"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.post'"></span>
-              </option>
-              <option value="PUT"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.put'"></span></option>
-              <option value="GET"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.get'"></span></option>
-            </select>
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <div class="hint">
-              <div class="text">
-                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.hint'"></div>
-              </div>
+      </div>
+      <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+        <div class="hint-container input-container">
+          <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod'"></span></label>
+          <select tabclick #autoBackupPostMethod [value]="settingsManager.settings.autoBackupUrl?.method"
+            (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})">
+            <option value="POST"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.post'"></span>
+            </option>
+            <option value="PUT"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.put'"></span></option>
+            <option value="GET"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.get'"></span></option>
+          </select>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <div class="hint">
+            <div class="text">
+              <div [ghs-label]="'datamanagement.backup.auto.uploadUrlMethod.hint'"></div>
             </div>
           </div>
         </div>
-        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
-          <div class="hint-container input-container">
-            <label class="label">
-              <input tabclick type="checkbox" #autoBackupPostFileUpload
-                [checked]="settingsManager.settings.autoBackupUrl?.fileUpload"
-                (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})">
-              <span [ghs-label]="'datamanagement.backup.auto.uploadUrlFileUpload'"></span></label>
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <div class="hint">
-              <div class="text">
-                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlFileUpload.hint'"></div>
-              </div>
+      </div>
+      <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+        <div class="hint-container input-container">
+          <label class="label">
+            <input tabclick type="checkbox" #autoBackupPostFileUpload
+              [checked]="settingsManager.settings.autoBackupUrl?.fileUpload"
+              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})">
+            <span [ghs-label]="'datamanagement.backup.auto.uploadUrlFileUpload'"></span></label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <div class="hint">
+            <div class="text">
+              <div [ghs-label]="'datamanagement.backup.auto.uploadUrlFileUpload.hint'"></div>
             </div>
           </div>
         </div>
-        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
-          <div class="hint-container input-container">
-            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlAuthorization'"></span></label>
-            <input tabclick type="text" #autoBackupPostAuthorization
-              [value]="settingsManager.settings.autoBackupUrl?.authorization" (keyup)="0"
-              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
-              [ghs-label]="'datamanagement.backup.auto.uploadUrlAuthorization'" [ghs-label-attribute]="'placeholder'">
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <div class="hint">
-              <div class="text">
-                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlAuthorization.hint'"></div>
-              </div>
+      </div>
+      <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+        <div class="hint-container input-container">
+          <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlAuthorization'"></span></label>
+          <input tabclick type="text" #autoBackupPostAuthorization
+            [value]="settingsManager.settings.autoBackupUrl?.authorization" (keyup)="0"
+            (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
+            [ghs-label]="'datamanagement.backup.auto.uploadUrlAuthorization'" [ghs-label-attribute]="'placeholder'">
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <div class="hint">
+            <div class="text">
+              <div [ghs-label]="'datamanagement.backup.auto.uploadUrlAuthorization.hint'"></div>
             </div>
           </div>
         </div>
-        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
-          <div class="hint-container input-container">
-            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername'"></span></label>
-            <input tabclick type="text" #autoBackupPostUsername
-              [value]="settingsManager.settings.autoBackupUrl?.username" (keyup)="0"
-              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
-              [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername'" [ghs-label-attribute]="'placeholder'">
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <div class="hint">
-              <div class="text">
-                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername.hint'"></div>
-              </div>
+      </div>
+      <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+        <div class="hint-container input-container">
+          <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername'"></span></label>
+          <input tabclick type="text" #autoBackupPostUsername [value]="settingsManager.settings.autoBackupUrl?.username"
+            (keyup)="0"
+            (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value, fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
+            [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername'" [ghs-label-attribute]="'placeholder'">
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <div class="hint">
+            <div class="text">
+              <div [ghs-label]="'datamanagement.backup.auto.uploadUrlUsername.hint'"></div>
             </div>
           </div>
         </div>
-        <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
-          <div class="hint-container input-container">
-            <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword'"></span></label>
-            <input tabclick type="text" #autoBackupPostPassword
-              [value]="settingsManager.settings.autoBackupUrl?.password" (keyup)="0"
-              (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
-              [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword'" [ghs-label-attribute]="'placeholder'">
-            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-            <div class="hint">
-              <div class="text">
-                <div [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword.hint'"></div>
-              </div>
+      </div>
+      <div class="line" [ngClass]="{'hidden' : !autoBackupuploadUrl.value}">
+        <div class="hint-container input-container">
+          <label class="label"><span [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword'"></span></label>
+          <input tabclick type="text" #autoBackupPostPassword [value]="settingsManager.settings.autoBackupUrl?.password"
+            (keyup)="0"
+            (change)="settingsManager.setAutoBackupUrl({url : autoBackupuploadUrl.value, method : autoBackupPostMethod.value,fileUpload: autoBackupPostFileUpload.checked, username : autoBackupPostUsername.value, password : autoBackupPostPassword.value, authorization: autoBackupPostAuthorization.value})"
+            [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword'" [ghs-label-attribute]="'placeholder'">
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <div class="hint">
+            <div class="text">
+              <div [ghs-label]="'datamanagement.backup.auto.uploadUrlPassword.hint'"></div>
             </div>
           </div>
         </div>
-      </ng-container>
+      </div>
+      }
     </div>
   </div>
+  }
 
-  <div *ngIf="!editionsOnly" class="separator"></div>
+  @if (!editionsOnly) {
+  <div class="separator"></div>
+  }
   <div class="columns columns-break">
-    <div *ngIf="!editionsOnly" class="column">
+    @if (!editionsOnly) {
+    <div class="column">
       <div class="line title sticky"
         [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
         <label><span [ghs-label]="'datamanagement.unlocks'"></span></label>
@@ -187,17 +189,21 @@
         </span>
       </div>
       <div class="line spoilers">
-        <a class="spoiler-item" *ngFor="let character of gameManager.game.unlockedCharacters">
+        @for (character of gameManager.game.unlockedCharacters; track character) {
+        <a class="spoiler-item">
           {{character}}
           <span class="spacer"></span>
           <span tabclick (click)="removeUnlock(character)" [ghs-label]="'datamanagement.removeUnlock'"
             [ghs-label-attribute]="'title'" class="remove"></span>
         </a>
+        }
       </div>
       <div class="spacer"></div>
-      <div class="line separator" *ngIf="gameManager.game.unlockedCharacters.length > 0">
+      @if (gameManager.game.unlockedCharacters.length > 0) {
+      <div class="line separator">
         <a tabclick (click)="removeAllUnlocks()"><span [ghs-label]="'datamanagement.removeAllUnlocks'"></span></a>
       </div>
+      }
       <div class="line title sticky"
         [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
         <label><span [ghs-label]="'datamanagement.spoilers'"></span></label>
@@ -211,19 +217,24 @@
         </span>
       </div>
       <div class="line spoilers">
-        <a class="spoiler-item" *ngFor="let spoiler of settingsManager.settings.spoilers">
+        @for (spoiler of settingsManager.settings.spoilers; track spoiler) {
+        <a class="spoiler-item">
           {{spoiler}}
           <span class="spacer"></span>
           <span tabclick (click)="removeSpoiler(spoiler)" [ghs-label]="'datamanagement.removeSpoiler'"
             [ghs-label-attribute]="'title'" class="remove"></span>
         </a>
+        }
       </div>
       <div class="spacer"></div>
-      <div class="line separator" *ngIf="settingsManager.settings.spoilers.length > 0">
+      @if (settingsManager.settings.spoilers.length > 0) {
+      <div class="line separator">
         <a tabclick (click)="settingsManager.removeAllSpoilers()"><span
             [ghs-label]="'datamanagement.removeAllSpoilers'"></span></a>
       </div>
+      }
     </div>
+    }
 
     <div class="column">
       <div class="line title sticky"
@@ -240,7 +251,8 @@
         </span>
       </div>
       <div class="line editions" cdkDropList (cdkDropListDropped)="drop($event)">
-        <a class="edition" *ngFor="let editionData of gameManager.editionData" cdkDrag>
+        @for (editionData of gameManager.editionData; track editionData.edition) {
+        <a class="edition" cdkDrag>
           <label
             [ghs-label]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable')"
             [ghs-label-attribute]="'title'">
@@ -249,44 +261,52 @@
               (change)="toggleEdition(editionData)">
             <span [ghs-label]="'data.edition.' + editionData.edition"></span>
           </label>
-          <span class="custom" [ghs-label]="'datamanagement.editionDataUrls.custom'" [ghs-label-attribute]="'title'"
-            *ngIf="settingsManager.defaultEditionDataUrls.indexOf(editionData.url) == -1">
+          @if (settingsManager.defaultEditionDataUrls.indexOf(editionData.url) == -1) {
+          <span class="custom" [ghs-label]="'datamanagement.editionDataUrls.custom'" [ghs-label-attribute]="'title'">
             <img src="./assets/images/hint.svg">
             <span class="url">{{editionData.url}}</span>
           </span>
+          }
           <span class="spacer"></span>
           <span (click)="removeEditionDataUrl(editionData.url)" [ghs-label]="'datamanagement.editionDataUrls.remove'"
             [ghs-label-attribute]="'title'" class="remove"></span>
         </a>
+        }
       </div>
       <div class="spacer"></div>
-      <div class="line separator" *ngIf="!hasDefaultEditionData()">
+      @if (!hasDefaultEditionData()) {
+      <div class="line separator">
         <a tabclick (click)="settingsManager.restoreDefaultEditionDataUrls()">
           <span [ghs-label]="'datamanagement.restoreEditionDataUrls'"></span>
         </a>
       </div>
+      }
     </div>
 
 
-    <div *ngIf="!editionsOnly" class="column">
-      <ng-container *ngIf="backups > 0">
-        <div class="line title">
-          <label><span [ghs-label]="'datamanagement.backup'"></span></label>
-        </div>
-        <div class="line">
-          <a tabclick (click)="exportLatestBackup()"><span [ghs-label]="'datamanagement.backup.latest'"></span></a>
-        </div>
-        <div class="line" *ngIf="backups > 1">
-          <a tabclick (click)="exportAllBackups()">
-            <span [ghs-label]="'datamanagement.backup.all'" [ghs-label-args]="[backups]"></span>
-          </a>
-        </div>
-        <div class="line">
-          <a tabclick (click)="deleteBackups()" [ngClass]="{'confirm-delete' : confirm == 'deleteBackups'}"
-            (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.backup.delete'"></span>(!)&gt;</a>
-        </div>
-      </ng-container>
+    @if (!editionsOnly) {
+    <div class="column">
+      @if (backups > 0) {
+      <div class="line title">
+        <label><span [ghs-label]="'datamanagement.backup'"></span></label>
+      </div>
+      <div class="line">
+        <a tabclick (click)="exportLatestBackup()"><span [ghs-label]="'datamanagement.backup.latest'"></span></a>
+      </div>
+      @if (backups > 1) {
+      <div class="line">
+        <a tabclick (click)="exportAllBackups()">
+          <span [ghs-label]="'datamanagement.backup.all'" [ghs-label-args]="[backups]"></span>
+        </a>
+      </div>
+      }
+      <div class="line">
+        <a tabclick (click)="deleteBackups()" [ngClass]="{'confirm-delete' : confirm == 'deleteBackups'}"
+          (mouseleave)="cancelConfirm()">&lt;<span [ghs-label]="'datamanagement.backup.delete'"></span>(!)&gt;</a>
+      </div>
+      }
     </div>
+    }
 
   </div>
 </div>

@@ -8,22 +8,28 @@
           &lt;<span [ghs-label]="'scenario.custom'"></span>&gt;
         </label>
       </div>
-      <div class="line" *ngIf="!!gameManager.game.scenario && gameManager.game.scenario.custom">
+      @if (!!gameManager.game.scenario && gameManager.game.scenario.custom) {
+      <div class="line">
         <input type="text" [value]="gameManager.game.scenario.name" (change)="customScenarioName($event)"
           [ghs-label]="'scenario.title'" [ghs-label-attribute]="'placeholder'">
       </div>
+      }
     </div>
-    <div class="column" *ngIf="!!gameManager.game.scenario && !gameManager.game.scenario.custom">
+    @if (!!gameManager.game.scenario && !gameManager.game.scenario.custom) {
+    <div class="column">
       <div class="line">
         <a tabclick (click)="resetScenario()">&lt;<span [ghs-label]="'scenario.reset'"></span>!&gt;</a>
       </div>
     </div>
+    }
   </div>
   <div class="line editions">
-    <label *ngFor="let e of editions;">
+    @for (e of editions; track e) {
+    <label>
       <input tabclick type="radio" name="radio" [value]="e" (change)="setEdition(e)" [checked]="edition == e">
       <span [ghs-label]="'data.edition.' + e"></span>
     </label>
+    }
   </div>
   <div class="line search">
     <input type="text" #search [ghs-label]="'scenario.filter'" [ghs-label-attribute]="'placeholder'">
@@ -33,72 +39,91 @@
 
   </div>
   <div class="line campaign">
-    <label *ngIf="gameManager.game.party.campaignMode">
+    @if (gameManager.game.party.campaignMode) {
+    <label>
       <input tabclick type="checkbox" [checked]="settingsManager.settings.showOnlyUnfinishedScenarios"
         (change)="settingsManager.toggle('showOnlyUnfinishedScenarios')">
       <span [ghs-label]="'scenario.filterSuccess'"></span>
     </label>
+    }
     <label>
       <input type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()">
       <span [ghs-label]="'party.campaignMode'"></span>
     </label>
   </div>
-  <ng-container *ngFor="let group of groups">
-    <div *ngIf="group" class="line title group">
-      <label [ghs-label]="'data.scenario.group.' + group"></label>
-
-      <a (click)="scenarioChart(group)" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg"
-          src="./assets/images/chart.svg"></a>
-    </div>
-    <div class="line scenarios">
-      <span tabclick (click)="setScenario(scenario)" class="scenario"
-        [ngClass]="{'current' : gameManager.scenarioManager.isCurrent(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
-        [ghs-tooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
-        [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(scenario)]"
-        *ngFor="let scenario of scenarios(group, gameManager.game.party.campaignMode && settingsManager.settings.showOnlyUnfinishedScenarios) | ghsScenarioSearch:search.value">
-        <ng-container *ngIf="!scenario.solo">
-          <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span
-            *ngIf="maxScenario(group) > 1 && scenario.index.length < 2">0</span>
-          <span class="index">{{scenario.index}}</span>
-        </ng-container>
-        <span class="complexity" *ngIf="scenario.complexity">
-          <img *ngFor="let i of []|ghsRange:scenario.complexity" src="./assets/images/scenario/complexity-full.svg" />
-          <img *ngFor="let i of []|ghsRange:(3 - scenario.complexity)" src="./assets/images/scenario/complexity.svg" />
-        </span>
-        <ng-container *ngIf="scenario.solo">
-          <img class="ghs-svg solo" [src]="gameManager.characterManager.characterIcon(scenario.solo)" />
-        </ng-container>
-        <span *ngIf="gameManager.scenarioManager.isSuccess(scenario)" class="state success">
-          <img src="./assets/images/check.svg" />
-        </span>
-        <span *ngIf="scenario.isBlocked" class="state blocked">
-          <img src="./assets/images/close.svg" />
-        </span>
-        <span *ngIf="!scenario.isBlocked && scenario.isLocked" class="state locked">
-          <img src="./assets/images/close.svg" />
-        </span>
+  @for (group of groups; track group) {
+  @if (group) {
+  <div class="line title group">
+    <label [ghs-label]="'data.scenario.group.' + group"></label>
+    <a (click)="scenarioChart(group)" [ghs-tooltip]="'scenario.chart'"><img class="ghs-svg"
+        src="./assets/images/chart.svg"></a>
+  </div>
+  }
+  <div class="line scenarios">
+    @for (scenario of scenarios(group, gameManager.game.party.campaignMode &&
+    settingsManager.settings.showOnlyUnfinishedScenarios) | ghsScenarioSearch:search.value; track scenario.edition + '-' + scenario.index) {
+    <span tabclick (click)="setScenario(scenario)" class="scenario"
+      [ngClass]="{'current' : gameManager.scenarioManager.isCurrent(scenario), 'blocked' : scenario.isBlocked , 'locked' : scenario.isLocked}"
+      [ghs-tooltip]="'scenario.tooltip' + (scenario.isBlocked ? '.blocked' : (scenario.isLocked ? '.locked' : ''))"
+      [ghs-label-args]="[gameManager.scenarioManager.scenarioTitle(scenario)]">
+      @if (!scenario.solo) {
+      @if (maxScenario(group) > 2 && scenario.index.length < 3) { <span>0</span>
+    }@if (maxScenario(group) > 1 && scenario.index.length < 2) { <span>0</span>
+      }
+      <span class="index">{{scenario.index}}</span>
+      }
+      @if (scenario.complexity) {
+      <span class="complexity">
+        @for (i of []|ghsRange:scenario.complexity; track i) {
+        <img src="./assets/images/scenario/complexity-full.svg" />
+        }
+        @for (i of []|ghsRange:(3 - scenario.complexity); track i) {
+        <img src="./assets/images/scenario/complexity.svg" />
+        }
       </span>
-    </div>
-    <div class="line" *ngIf="hasSpoilers(group)">
-      <a tabclick (click)="settingsManager.addSpoilers(notSpoiled(group))"><span [ghs-label]="'spoiler.all'"></span></a>
-    </div>
-    <ng-container
-      *ngIf="gameManager.game.party.campaignMode && scenarios(group).length < scenarios(group,false,true,true).length">
-      <div class="line title">
-        <label><span [ghs-label]="'scenario.manual.add'"></span>
-        </label>
-      </div>
-      <div class="line">
-        <span class="input-button">
-          <input tabclick #manualScenarioIndex type="text" [ghs-label]="'scenario.manual.index'"
-            [ghs-label-attribute]="'placeholder'" (keyup)="manualScenarioIndex.classList.remove('error')"
-            (keyup.enter)="manualScenario(manualScenarioIndex, group)">
-          <span tabclick class="add-button" (click)="manualScenario(manualScenarioIndex, group)"
-            [ghs-label]="'scenario.manual.add'" [ghs-label-attribute]="'title'"
-            [ngClass]="{'disabled' : !manualScenarioIndex.value || manualScenarioIndex.classList.contains('error')}">
-          </span>
-        </span>
-      </div>
-    </ng-container>
-  </ng-container>
+      }
+      @if (scenario.solo) {
+      <img class="ghs-svg solo" [src]="gameManager.characterManager.characterIcon(scenario.solo)" />
+      }
+      @if (gameManager.scenarioManager.isSuccess(scenario)) {
+      <span class="state success">
+        <img src="./assets/images/check.svg" />
+      </span>
+      }
+      @if (scenario.isBlocked) {
+      <span class="state blocked">
+        <img src="./assets/images/close.svg" />
+      </span>
+      }
+      @if (!scenario.isBlocked && scenario.isLocked) {
+      <span class="state locked">
+        <img src="./assets/images/close.svg" />
+      </span>
+      }
+      </span>
+      }
+  </div>
+  @if (hasSpoilers(group)) {
+  <div class="line">
+    <a tabclick (click)="settingsManager.addSpoilers(notSpoiled(group))"><span [ghs-label]="'spoiler.all'"></span></a>
+  </div>
+  }
+  @if (gameManager.game.party.campaignMode && scenarios(group).length < scenarios(group,false,true,true).length) { <div
+    class="line title">
+    <label><span [ghs-label]="'scenario.manual.add'"></span>
+    </label>
+</div>
+<div class="line">
+  <span class="input-button">
+    <input tabclick #manualScenarioIndex type="text" [ghs-label]="'scenario.manual.index'"
+      [ghs-label-attribute]="'placeholder'" (keyup)="manualScenarioIndex.classList.remove('error')"
+      (keyup.enter)="manualScenario(manualScenarioIndex, group)">
+    <span tabclick class="add-button" (click)="manualScenario(manualScenarioIndex, group)"
+      [ghs-label]="'scenario.manual.add'" [ghs-label-attribute]="'title'"
+      [ngClass]="{'disabled' : !manualScenarioIndex.value || manualScenarioIndex.classList.contains('error')}">
+    </span>
+  </span>
+</div>
+}
+}
 </div>

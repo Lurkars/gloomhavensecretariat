@@ -1,36 +1,45 @@
 <span class="condition" [ngClass]="{'narrative': narrative, 'fh': edition == 'fh'}">
-    <span *ngIf="conditionString" class="text" [ngClass]="{'text-white': light, 'debug': debug}">
-        <span [ngClass]="{'text-white': light, 'disabled': selected && disabled}" [ghs-label]="conditionString"></span>
+  @if (conditionString) {
+  <span class="text" [ngClass]="{'text-white': light, 'debug': debug}">
+    <span [ngClass]="{'text-white': light, 'disabled': selected && disabled}" [ghs-label]="conditionString"></span>
+  </span>
+  }
+  @if (conditionObject) {
+  <span class="condition-object" class="text {{'condition-' + conditionObject.type}}"
+    [ngClass]="{'text-white': light, 'inline': inline, 'lowercase': lowercase, 'disabled': disabled}">
+    @if (conditionObject.type && special.indexOf(conditionObject.type) == -1) {
+    <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.conditions.' + conditionObject.type"
+      [ghs-label-args]="labelArgs" [slice]="inline ? [0,-1] : []"></span>
+    }
+    @if (conditionObject.type == 'and') {
+    <span class="and-container">
+      @for (andCondition of conditions; track andCondition; let i = $index) {
+      @if (i > 0) {
+      <span [ngClass]="{'text-white': light}" [ghs-label]="'game.events.conditions.and'"></span>
+      }
+      <ghs-event-card-condition [condition]="andCondition" [edition]="edition" [eventType]="eventType" [light]="light"
+        [inline]="true" [disabled]="selected && disabledConditions[i]" [selected]="selected"></ghs-event-card-condition>
+      }
     </span>
-    <span class="condition-object" *ngIf="conditionObject" class="text {{'condition-' + conditionObject.type}}"
-        [ngClass]="{'text-white': light, 'inline': inline, 'lowercase': lowercase, 'disabled': disabled}">
-        <span *ngIf="conditionObject.type && special.indexOf(conditionObject.type) == -1"
-            [ngClass]="{'text-white': light}" [ghs-label]="'game.events.conditions.' + conditionObject.type"
-            [ghs-label-args]="labelArgs" [slice]="inline ? [0,-1] : []"></span>
-
-
-        <span class="and-container" *ngIf="conditionObject.type == 'and'">
-            <ng-container *ngFor="let andCondition of conditions; let i = index;">
-                <span *ngIf="i > 0" [ngClass]="{'text-white': light}" [ghs-label]="'game.events.conditions.and'"></span>
-                <ghs-event-card-condition [condition]="andCondition" [edition]="edition" [eventType]="eventType"
-                    [light]="light" [inline]="true" [disabled]="selected && disabledConditions[i]"
-                    [selected]="selected"></ghs-event-card-condition>
-            </ng-container>
-        </span>
-
-        <span class="conditional-container" *ngIf="conditionObject.type == 'payCollectiveGoldConditional'">
-            <span [ngClass]="{'text-white': light}"
-                [ghs-label]="'game.events.conditions.payCollectiveGoldConditional.prefix'"></span>
-            <ng-container *ngFor="let chooseCondition of conditions; let i = index;">
-                <span class="inline" *ngIf="i > 0"
-                    [ngClass]="{'text-white': light, 'disabled': selected && (disabledConditions[i-1] || disabledConditions[i])}"
-                    [ghs-label]="'game.events.conditions.payCollectiveGoldConditional.connector'"></span>
-                <ghs-event-card-condition [condition]="chooseCondition" [edition]="edition" [eventType]="eventType"
-                    [light]="light" [inline]="true" [lowercase]="true" [disabled]="selected && disabledConditions[i]"
-                    [selected]="selected"></ghs-event-card-condition>
-            </ng-container>
-            <span [ngClass]="{'text-white': light}"
-                [ghs-label]="'game.events.conditions.payCollectiveGoldConditional.suffix'"></span>
-        </span>
+    }
+    @if (conditionObject.type == 'payCollectiveGoldConditional') {
+    <span class="conditional-container">
+      <span [ngClass]="{'text-white': light}"
+        [ghs-label]="'game.events.conditions.payCollectiveGoldConditional.prefix'"></span>
+      @for (chooseCondition of conditions; track chooseCondition; let i = $index) {
+      @if (i > 0) {
+      <span class="inline"
+        [ngClass]="{'text-white': light, 'disabled': selected && (disabledConditions[i-1] || disabledConditions[i])}"
+        [ghs-label]="'game.events.conditions.payCollectiveGoldConditional.connector'"></span>
+      }
+      <ghs-event-card-condition [condition]="chooseCondition" [edition]="edition" [eventType]="eventType"
+        [light]="light" [inline]="true" [lowercase]="true" [disabled]="selected && disabledConditions[i]"
+        [selected]="selected"></ghs-event-card-condition>
+      }
+      <span [ngClass]="{'text-white': light}"
+        [ghs-label]="'game.events.conditions.payCollectiveGoldConditional.suffix'"></span>
     </span>
+    }
+  </span>
+  }
 </span>

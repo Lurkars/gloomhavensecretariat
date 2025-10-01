@@ -42,10 +42,12 @@ export class SelectResourceResult {
     characters: Character[];
     characterSpent: BuildingCosts[];
     fhSupportSpent: BuildingCosts;
-  
-    constructor(characters: Character[], characterSpent: BuildingCosts[], fhSupportSpent: BuildingCosts) {
+    morale: number;
+
+    constructor(characters: Character[], characterSpent: BuildingCosts[], fhSupportSpent: BuildingCosts, morale: number = 0) {
         this.characters = characters;
         this.characterSpent = characterSpent;
         this.fhSupportSpent = fhSupportSpent;
+        this.morale = morale;
     }
-  };
+};

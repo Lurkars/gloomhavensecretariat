@@ -1,104 +1,144 @@
-<div class="hint-container" *ngIf="type == 'checkbox'">
-    <label [ngClass]="{'disabled': disabled || isDisabled}">
-        <input tabclick type="checkbox"
-            [checked]="!disabled && !isDisabled && settingsManager.settings[setting] || checked"
-            (change)="settingsManager.toggle(setting)">
-        <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
-    </label>
-    <img *ngIf="hint" src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-    <span class="hint">
-        <div class="text">
-            <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
-            <br>
-            <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
-            <div class="requires" *ngIf="requires.length">
-                <span class="title" [ghs-label]="'settings.requires'"></span>
-                <span class="require" *ngFor="let require of requires">
-                    <input type="checkbox" [checked]="!require.startsWith('!')"
-                        [ngClass]="{'checked' : !require.startsWith('!')}">
-                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
-                </span>
-            </div>
-            <div class="requires" *ngIf="requiresOne.length">
-                <span class="title" [ghs-label]="'settings.requiresOne'"></span>
-                <span class="require" *ngFor="let require of requiresOne">
-                    <input type="checkbox" [checked]="!require.startsWith('!')"
-                        [ngClass]="{'checked' : !require.startsWith('!')}">
-                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
-                </span>
-            </div>
-        </div>
-    </span>
-</div>
-<ng-container *ngIf="type == 'radio'">
-    <div class="line" *ngFor="let value of values">
-        <label [ngClass]="{'disabled' : settingsManager.settings[setting] == value || disabled || isDisabled}">
-            <input tabclick type="checkbox" [checked]="settingsManager.settings[setting] == value"
-                (change)="settingsManager.set(setting, value)">
-            <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.' + value"></span>
-        </label>
+@if (type == 'checkbox') {
+<div class="hint-container">
+  <label [ngClass]="{'disabled': disabled || isDisabled}">
+    <input tabclick type="checkbox" [checked]="!disabled && !isDisabled && settingsManager.settings[setting] || checked"
+      (change)="settingsManager.toggle(setting)">
+    <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
+  </label>
+  @if (hint) {
+  <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+  }
+  <span class="hint">
+    <div class="text">
+      <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
+      <br>
+      @if (additionalHint) {
+      <div [ghs-label]="additionalHint"></div>
+      }
+      @if (requires.length) {
+      <div class="requires">
+        <span class="title" [ghs-label]="'settings.requires'"></span>
+        @for (require of requires; track require) {
+        <span class="require">
+          <input type="checkbox" [checked]="!require.startsWith('!')"
+            [ngClass]="{'checked' : !require.startsWith('!')}">
+          <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+        </span>
+        }
+      </div>
+      }
+      @if (requiresOne.length) {
+      <div class="requires">
+        <span class="title" [ghs-label]="'settings.requiresOne'"></span>
+        @for (require of requiresOne; track require) {
+        <span class="require">
+          <input type="checkbox" [checked]="!require.startsWith('!')"
+            [ngClass]="{'checked' : !require.startsWith('!')}">
+          <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+        </span>
+        }
+      </div>
+      }
     </div>
-</ng-container>
+  </span>
+</div>
+}
+@if (type == 'radio') {
+@for (value of values; track value) {
+<div class="line">
+  <label [ngClass]="{'disabled' : settingsManager.settings[setting] == value || disabled || isDisabled}">
+    <input tabclick type="checkbox" [checked]="settingsManager.settings[setting] == value"
+      (change)="settingsManager.set(setting, value)">
+    <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.' + value"></span>
+  </label>
+</div>
+}
+}
 
-<div class="hint-container" *ngIf="type == 'number'">
-    <label class="label" [ngClass]="{'disabled': disabled || isDisabled}">
-        <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
-        <input tabclick type="number" #numberInput [value]="settingsManager.get(setting)" [min]="min" [max]="max"
-            (keyup)="0" (change)="settingsManager.set(setting, +numberInput.value)" [size]="numberInput.value.length"
-            [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"
-            [ghs-label-attribute]="'placeholder'"></label>
-    <img *ngIf="hint" src="./assets/images/warning.svg" class="hint-trigger ghs-svg">
-    <div class="hint">
-        <div class="text">
-            <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
-            <br>
-            <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
-            <div class="requires" *ngIf="requires.length">
-                <span class="title" [ghs-label]="'settings.requires'"></span>
-                <span class="require" *ngFor="let require of requires">
-                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
-                    <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
-                </span>
-            </div>
-            <div class="requires" *ngIf="requiresOne.length">
-                <span class="title" [ghs-label]="'settings.requiresOne'"></span>
-                <span class="require" *ngFor="let require of requiresOne">
-                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
-                    <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
-                </span>
-            </div>
-        </div>
+@if (type == 'number') {
+<div class="hint-container">
+  <label class="label" [ngClass]="{'disabled': disabled || isDisabled}">
+    <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
+    <input tabclick type="number" #numberInput [value]="settingsManager.get(setting)" [min]="min" [max]="max"
+      (keyup)="0" (change)="settingsManager.set(setting, +numberInput.value)" [size]="numberInput.value.length"
+      [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')" [ghs-label-attribute]="'placeholder'"></label>
+  @if (hint) {
+  <img src="./assets/images/warning.svg" class="hint-trigger ghs-svg">
+  }
+  <div class="hint">
+    <div class="text">
+      <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
+      <br>
+      @if (additionalHint) {
+      <div [ghs-label]="additionalHint"></div>
+      }
+      @if (requires.length) {
+      <div class="requires">
+        <span class="title" [ghs-label]="'settings.requires'"></span>
+        @for (require of requires; track require) {
+        <span class="require">
+          <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+          <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
+        </span>
+        }
+      </div>
+      }
+      @if (requiresOne.length) {
+      <div class="requires">
+        <span class="title" [ghs-label]="'settings.requiresOne'"></span>
+        @for (require of requiresOne; track require) {
+        <span class="require">
+          <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+          <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
+        </span>
+        }
+      </div>
+      }
     </div>
+  </div>
 </div>
+}
 
-<div class="hint-container" *ngIf="type == 'range'">
-    <label [ngClass]="{'disabled': disabled || isDisabled}">
-        <span ghs-pointer-input (doubleClick)="settingsManager.set(setting, default)"
-            [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
-        <input tabclick #rangeInput type="range" [min]="min" [step]="step" [max]="max"
-            [value]="settingsManager.get(setting)" (change)="settingsManager.set(setting, +rangeInput.value)"
-            (input)="settingsManager.apply(setting, +rangeInput.value)" />
-    </label>
-    <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-    <span class="hint">
-        <div class="text">
-            <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
-            <br>
-            <div *ngIf="additionalHint" [ghs-label]="additionalHint"></div>
-            <div class="requires" *ngIf="requires.length">
-                <span class="title" [ghs-label]="'settings.requires'"></span>
-                <span class="require" *ngFor="let require of requires">
-                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
-                    <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
-                </span>
-            </div>
-            <div class="requires" *ngIf="requiresOne.length">
-                <span class="title" [ghs-label]="'settings.requiresOne'"></span>
-                <span class="require" *ngFor="let require of requiresOne">
-                    <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
-                    <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
-                </span>
-            </div>
-        </div>
-    </span>
+@if (type == 'range') {
+<div class="hint-container">
+  <label [ngClass]="{'disabled': disabled || isDisabled}">
+    <span ghs-pointer-input (doubleClick)="settingsManager.set(setting, default)"
+      [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '')"></span>
+    <input tabclick #rangeInput type="range" [min]="min" [step]="step" [max]="max"
+      [value]="settingsManager.get(setting)" (change)="settingsManager.set(setting, +rangeInput.value)"
+      (input)="settingsManager.apply(setting, +rangeInput.value)" />
+  </label>
+  <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+  <span class="hint">
+    <div class="text">
+      <span [ghs-label]="'settings.' + setting + (suffix ? '.' + suffix : '') + '.hint'"></span>
+      <br>
+      @if (additionalHint) {
+      <div [ghs-label]="additionalHint"></div>
+      }
+      @if (requires.length) {
+      <div class="requires">
+        <span class="title" [ghs-label]="'settings.requires'"></span>
+        @for (require of requires; track require) {
+        <span class="require">
+          <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+          <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
+        </span>
+        }
+      </div>
+      }
+      @if (requiresOne.length) {
+      <div class="requires">
+        <span class="title" [ghs-label]="'settings.requiresOne'"></span>
+        @for (require of requiresOne; track require) {
+        <span class="require">
+          <span [ghs-label]="'settings.' + require.replace('!', '')"></span>
+          <span class="checkbox" [ngClass]="{'checked' : !require.startsWith('!')}"></span>
+        </span>
+        }
+      </div>
+      }
+    </div>
+  </span>
 </div>
+}

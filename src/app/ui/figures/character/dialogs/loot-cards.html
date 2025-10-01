@@ -1,14 +1,18 @@
 <div class="loot-cards-dialog">
-    <div class="scroll-container">
-        <div class="menu">
-            <a (click)="sort()"><span
-                    [ghs-label]="(sorted ? 'character.lootCards.drawn' : 'character.lootCards.sort')"></span></a>
-        </div>
-        <div class="loot-cards" *ngIf="character.lootCards">
-            <div class="loot-container" *ngFor="let loot of lootCards"
-                (click)="randomItem(loot) && randomItemDialog(loot)" [ngClass]="{'random-item': randomItem(loot)}">
-                <ghs-loot [loot]="loot" [flipped]="true" [disableFlip]="true"></ghs-loot>
-            </div>
-        </div>
+  <div class="scroll-container">
+    <div class="menu">
+      <a (click)="sort()"><span
+          [ghs-label]="(sorted ? 'character.lootCards.drawn' : 'character.lootCards.sort')"></span></a>
     </div>
+    @if (character.lootCards) {
+    <div class="loot-cards">
+      @for (loot of lootCards; track loot.cardId) {
+      <div class="loot-container" (click)="randomItem(loot) && randomItemDialog(loot)"
+        [ngClass]="{'random-item': randomItem(loot)}">
+        <ghs-loot [loot]="loot" [flipped]="true" [disableFlip]="true"></ghs-loot>
+      </div>
+      }
+    </div>
+    }
+  </div>
 </div>

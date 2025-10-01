@@ -7,37 +7,49 @@
           <div class="outer-border">
             <div class="inner-border">
               <div class="image-container">
-                <img *ngIf="!monster.noThumbnail && settingsManager.settings.artwork"
-                  [src]="gameManager.monsterManager.monsterThumbnail(monster)">
-                <span *ngIf="monster.noThumbnail || !settingsManager.settings.artwork" class="letter">
-                  <span
-                    *ngFor="let namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' '))">{{namePart[0]}}</span>
+                @if (!monster.noThumbnail && settingsManager.settings.artwork) {
+                <img [src]="gameManager.monsterManager.monsterThumbnail(monster)">
+                }
+                @if (monster.noThumbnail || !settingsManager.settings.artwork) {
+                <span class="letter">
+                  @for (namePart of (settingsManager.getLabel('data.monster.' + monster.name).split(' ')); track
+                  namePart) {
+                  <span>{{namePart[0]}}</span>
+                  }
                 </span>
+                }
               </div>
             </div>
           </div>
-          <span class="boss" *ngIf="monster.boss || monster.tags.indexOf('boss') != -1"><img
-              src="./assets/images/monster/enemy.png" /></span>
-          <span class="custom" *ngIf="monster.standeeShare || monster.statEffect || statEffectNote">*</span>
+          @if (monster.boss || monster.tags.indexOf('boss') != -1) {
+          <span class="boss"><img src="./assets/images/monster/enemy.png" /></span>
+          }
+          @if (monster.standeeShare || monster.statEffect || statEffectNote) {
+          <span class="custom">*</span>
+          }
         </div>
         <div class="name"><span [ghs-label]="'data.monster.' + monster.name"></span></div>
       </div>
-      <p class="stat-effect text-white" *ngIf="statEffectNote" [ghs-label]="statEffectNote"></p>
+      @if (statEffectNote) {
+      <p class="stat-effect text-white" [ghs-label]="statEffectNote"></p>
+      }
     </div>
     <div class="container">
-      <div class="stats" *ngIf="!hideStats">
+      @if (!hideStats) {
+      <div class="stats">
         <ghs-monster-stats [monster]="monster" [forceStats]="true"> </ghs-monster-stats>
       </div>
+      }
     </div>
     <div class="container">
-      <ng-container *ngFor="let ability of gameManager.abilities(monster);let index = index;">
-        <div class="ability" [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}" ghs-pointer-input
-          (singleClick)="close()" (doubleClick)="openAbility(ability)">
-          <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true" [reveal]="true" [relative]="true"
-            [statsCalculation]="false">
-          </ghs-ability>
-        </div>
-      </ng-container>
+      @for (ability of gameManager.abilities(monster); track ability.cardId; let index = $index) {
+      <div class="ability" [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}" ghs-pointer-input
+        (singleClick)="close()" (doubleClick)="openAbility(ability)">
+        <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true" [reveal]="true" [relative]="true"
+          [statsCalculation]="false">
+        </ghs-ability>
+      </div>
+      }
     </div>
   </div>
 </div>

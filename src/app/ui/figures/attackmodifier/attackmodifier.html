@@ -1,158 +1,194 @@
-<div *ngIf="!!attackModifier" class="attack-modifier {{attackModifier.type}}" [ngClass]="{'town-guard' : townGuard }">
+@if (!!attackModifier) {
+<div class="attack-modifier {{attackModifier.type}}" [ngClass]="{'town-guard' : townGuard }">
   <div class="card" [ngClass]="{'flipped' : flipped || attackModifier.revealed, 'no-animations' : !animate}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal" #card>
     <div class="card-back back">
       <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
     </div>
     <div class="card-front front">
-      <ng-container *ngIf="!townGuard">
-        <div *ngIf="!mixedElement && !multipe || wildElement" class="type {{effectClasses}}"
-          [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
-          <img
-            [src]="'./assets/images/attackmodifier/' + (defaultType && !townGuard && !csOak && !imbue && (!newStyle || attackModifier.valueType != AttackModifierValueType.plus || !attackModifier.effects || attackModifier.effects.length == 0) ? attackModifier.type : 'am-front') + '.png'" />
-        </div>
-        <ng-container *ngIf="multipe && attackModifier.effects.length > 1">
-          <div *ngFor="let effect of attackModifier.effects" class="type multiple {{effect.type}} {{effect.value}}"
-            [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle, 'multiple-2' : attackModifier.effects.length == 2, 'multiple-3' : attackModifier.effects.length == 3, 'multiple-4' : attackModifier.effects.length == 4}">
-          </div>
-        </ng-container>
-
-        <ng-container *ngIf="!!mixedElement && effects.length > 0">
-          <div class="type multiple multiple-mixed-element {{mixedElement.value}}"
-            [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
-          </div>
-          <ng-container *ngFor="let effect of effects">
-            <div *ngIf="filter(effect)" class="type multiple multiple-mixed-element {{effect.type}} {{effect.value}}"
-              [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
-            </div>
-          </ng-container>
-          <ng-container *ngIf="!!orTypeEffect && orTypeEffect.effects.length > 1">
-            <div *ngFor="let effect of orTypeEffect.effects"
-              class="type multiple  multiple-mixed-element multiple-mixed-element-or {{effect.type}} {{effect.value}}"
-              [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
-            </div>
-          </ng-container>
-        </ng-container>
-
-        <ng-container *ngIf="!mixedElement && !!orTypeEffect && orTypeEffect.effects.length > 1">
-          <div *ngFor="let effect of orTypeEffect.effects" class="type multiple {{effect.type}} {{effect.value}}"
-            [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle, 'multiple-2' : orTypeEffect.effects.length == 2, 'multiple-3' : orTypeEffect.effects.length == 3, 'multiple-4' : orTypeEffect.effects.length == 4}">
-          </div>
-        </ng-container>
-        <ng-container *ngIf="multipe && attackModifier.effects.length == 1">
-          <div *ngFor="let element of attackModifier.effects[0].value.split('|')"
-            class="type multiple multiple-1 {{element}}"
-            [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
-          </div>
-        </ng-container>
-        <ng-container *ngIf="wildElement">
-          <div class="type multiple wild air"></div>
-          <div class="type multiple wild ice"></div>
-          <div class="type multiple wild fire"></div>
-          <div class="type multiple wild earth"></div>
-          <div class="type multiple wild light"></div>
-          <div class="type multiple wild dark"></div>
-        </ng-container>
-
-        <div class="type cs-oak" *ngIf="csOak">
-          <img src="./assets/images/attackmodifier/cs-oak.png" />
-        </div>
-
-        <div class="type imbue" *ngIf="imbue && (!attackModifier.effects || attackModifier.effects.length == 0)">
-          <img [src]="'./assets/images/attackmodifier/' + attackModifier.valueType + attackModifier.value + '.png'" />
-        </div>
-
-        <div class="type empower" *ngIf="attackModifier.type == AttackModifierType.empower">
-          <img src="./assets/images/attackmodifier/empower.png" />
-        </div>
-
-        <div class="type enfeeble" *ngIf="attackModifier.type == AttackModifierType.enfeeble">
-          <img src="./assets/images/attackmodifier/enfeeble.png" />
-        </div>
-
-        <img class="overlay custom" src="./assets/images/attackmodifier/overlays/custom.png">
-        <img class="overlay custom-fh" src="./assets/images/attackmodifier/overlays/custom-fh.png">
-        <img class="overlay" [ngClass]="{'side' : newStyle}"
-          *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0  && attackModifier.type != AttackModifierType.plus && attackModifier.type != AttackModifierType.minus || newStyle) && attackModifier.type != AttackModifierType.empower && attackModifier.type != AttackModifierType.enfeeble  && attackModifier.type != AttackModifierType.imbue && attackModifier.type != AttackModifierType.advancedImbue"
-          [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'" />
-
-        <img class="overlay side"
-          *ngIf="attackModifier.type == AttackModifierType.empower || attackModifier.type == AttackModifierType.enfeeble || (attackModifier.type == AttackModifierType.imbue || attackModifier.type == AttackModifierType.advancedImbue) && attackModifier.effects && attackModifier.effects.length"
-          [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.valueType + attackModifier.value + '.png'" />
-
-        <img class="rolling" *ngIf="attackModifier.rolling" src="./assets/images/attackmodifier/rolling.svg" />
-        <span
-          *ngIf="(!characterIcon && !ally || !attackModifier.character && attackModifier.type !=
-      AttackModifierType.curse) && attackModifier.type != AttackModifierType.bless && !csOak && !imbue && attackModifier.type != AttackModifierType.minus1extra"
-          class="numeration">{{numeration}}</span>
-        <span *ngIf="(characterIcon || ally) && attackModifier.type ==
-        AttackModifierType.curse || attackModifier.type ==
-        AttackModifierType.minus1extra" class="numeration character-curse-icon">
-          *
-        </span>
-        <span class="am-value"
-          [ngClass]="{'side' : newStyle && attackModifier.effects && attackModifier.effects.length > 0}"
-          *ngIf="attackModifier.type == AttackModifierType.plus">+{{attackModifier.value}}</span>
-        <span class="am-value"
-          [ngClass]="{'side' : newStyle && attackModifier.effects && attackModifier.effects.length > 0}"
-          *ngIf="attackModifier.type == AttackModifierType.minus">-{{attackModifier.value}}</span>
-        <span *ngIf="characterIcon && attackModifier.character" class="character-icon">
-          <img [src]="characterIcon" />
-        </span>
-
-        <span *ngIf="imbue" class="character-icon imbue-icon">
-          <img [src]="'./assets/images/attackmodifier/imbuement/' + attackModifier.type + '.svg'" />
-        </span>
-
-        <div class="effects" *ngIf="attackModifier.effects"
-          [ngClass]="{'center' : (attackModifier.type == AttackModifierType.plus0 || newStyle), 'multiple' : effects.length > 1, 'multiple-2' : effects.length == 2, 'multiple-3' : effects.length == 3, 'multiple-4' : effects.length == 4}">
-          <ghs-attackmodifier-effect *ngFor="let effect of effects" [attackModifier]="attackModifier" [effect]="effect"
-            [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"
-            [length]="effects.length"></ghs-attackmodifier-effect>
-        </div>
-
-        <div class="mixed-element" *ngIf="!!mixedElement">
-          <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="mixedElement"
-            [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
-        </div>
-
-        <div class="bb-index" *ngIf="bbIndex > -1 && bbIndex < 3" [ngClass]="{'character' : characterIcon}">
-          <img [src]="'./assets/images/bb/attackmodifier/' + bbIndex + '.svg'" />
-        </div>
-
-        <span *ngIf="attackModifier.shuffle" class="shuffle-icon">
-          <img class="svg-icon" src="./assets/images/shuffle.svg" />
-        </span>
-
-      </ng-container>
-
-      <ng-container *ngIf="townGuard">
-        <div class="type" [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
-          <img
-            [src]="'./assets/images/attackmodifier/town-guard/' + (attackModifier.type == AttackModifierType.townguard ? attackModifier.valueType : attackModifier.type) + '.png'" />
-        </div>
-        <ng-container *ngIf="attackModifier.type == AttackModifierType.townguard">
-          <span class="am-value"
-            [ngClass]="{'effects' : !townGuardEffectIcon &&  attackModifier.effects.length > 0 ||  townGuardEffectIcon &&  attackModifier.effects.length > 1}"
-            *ngIf="(attackModifier.value > 0 || attackModifier.effects.length == 0) && (attackModifier.valueType == AttackModifierValueType.plus || attackModifier.valueType == AttackModifierValueType.default)">+{{attackModifier.value}}</span>
-          <span class="am-value" [ngClass]="{'effects' : attackModifier.effects.length > 0}"
-            *ngIf="attackModifier.valueType == AttackModifierValueType.minus">-{{attackModifier.value}}</span>
-        </ng-container>
-
-        <span *ngIf="townGuardEffectIcon" class="town-guard-icon">
-          <img [src]="'./assets/images/action/custom/' + townGuardEffectIcon.value + '.svg'" />
-        </span>
-
-        <div class="effects town-guard"
-          [ngClass]="{'center' : attackModifier.value == 0, 'multiple' : effects.length > 1, 'multiple-2' : effects.length == 2, 'multiple-3' : effects.length == 3, 'multiple-4' : effects.length == 4}"
-          *ngIf="attackModifier.effects">
-          <ghs-attackmodifier-effect *ngFor="let effect of effects" [attackModifier]="attackModifier" [effect]="effect"
-            [offsetWidth]="card.offsetWidth" [townGuard]="true" [length]="effects.length"></ghs-attackmodifier-effect>
-        </div>
-
-        <img class="rolling" *ngIf="attackModifier.rolling" src="./assets/images/attackmodifier/rolling.svg" />
-      </ng-container>
-
+      @if (!townGuard) {
+      @if (!mixedElement && !multipe || wildElement) {
+      <div class="type {{effectClasses}}" [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+        <img
+          [src]="'./assets/images/attackmodifier/' + (defaultType && !townGuard && !csOak && !imbue && (!newStyle || attackModifier.valueType != AttackModifierValueType.plus || !attackModifier.effects || attackModifier.effects.length == 0) ? attackModifier.type : 'am-front') + '.png'" />
+      </div>
+      }
+      @if (multipe && attackModifier.effects.length > 1) {
+      @for (effect of attackModifier.effects; track (typeof effect === 'object' ? effect.type : effect) + $index) {
+      <div class="type multiple {{effect.type}} {{effect.value}}"
+        [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle, 'multiple-2' : attackModifier.effects.length == 2, 'multiple-3' : attackModifier.effects.length == 3, 'multiple-4' : attackModifier.effects.length == 4}">
+      </div>
+      }
+      }
+      @if (!!mixedElement && effects.length > 0) {
+      <div class="type multiple multiple-mixed-element {{mixedElement.value}}"
+        [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+      </div>
+      @for (effect of effects; track (typeof effect === 'object' ? effect.type : effect) + $index) {
+      @if (filter(effect)) {
+      <div class="type multiple multiple-mixed-element {{effect.type}} {{effect.value}}"
+        [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+      </div>
+      }
+      }
+      @if (!!orTypeEffect && orTypeEffect.effects.length > 1) {
+      @for (effect of orTypeEffect.effects; track (typeof effect === 'object' ? effect.type : effect) + $index) {
+      <div class="type multiple  multiple-mixed-element multiple-mixed-element-or {{effect.type}} {{effect.value}}"
+        [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+      </div>
+      }
+      }
+      }
+      @if (!mixedElement && !!orTypeEffect && orTypeEffect.effects.length > 1) {
+      @for (effect of orTypeEffect.effects; track (typeof effect === 'object' ? effect.type : effect) + $index) {
+      <div class="type multiple {{effect.type}} {{effect.value}}"
+        [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle, 'multiple-2' : orTypeEffect.effects.length == 2, 'multiple-3' : orTypeEffect.effects.length == 3, 'multiple-4' : orTypeEffect.effects.length == 4}">
+      </div>
+      }
+      }
+      @if (multipe && attackModifier.effects.length == 1) {
+      @for (element of attackModifier.effects[0].value.split('|'); track element) {
+      <div class="type multiple multiple-1 {{element}}"
+        [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+      </div>
+      }
+      }
+      @if (wildElement) {
+      <div class="type multiple wild air"></div>
+      <div class="type multiple wild ice"></div>
+      <div class="type multiple wild fire"></div>
+      <div class="type multiple wild earth"></div>
+      <div class="type multiple wild light"></div>
+      <div class="type multiple wild dark"></div>
+      }
+      @if (csOak) {
+      <div class="type cs-oak">
+        <img src="./assets/images/attackmodifier/cs-oak.png" />
+      </div>
+      }
+      @if (imbue && (!attackModifier.effects || attackModifier.effects.length == 0)) {
+      <div class="type imbue">
+        <img [src]="'./assets/images/attackmodifier/' + attackModifier.valueType + attackModifier.value + '.png'" />
+      </div>
+      }
+      @if (attackModifier.type == AttackModifierType.empower) {
+      <div class="type empower">
+        <img src="./assets/images/attackmodifier/empower.png" />
+      </div>
+      }
+      @if (attackModifier.type == AttackModifierType.enfeeble) {
+      <div class="type enfeeble">
+        <img src="./assets/images/attackmodifier/enfeeble.png" />
+      </div>
+      }
+      <img class="overlay custom" src="./assets/images/attackmodifier/overlays/custom.png">
+      <img class="overlay custom-fh" src="./assets/images/attackmodifier/overlays/custom-fh.png">
+      @if (attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type !=
+      AttackModifierType.plus0 && attackModifier.type != AttackModifierType.plus && attackModifier.type !=
+      AttackModifierType.minus || newStyle) && attackModifier.type != AttackModifierType.empower && attackModifier.type
+      != AttackModifierType.enfeeble && attackModifier.type != AttackModifierType.imbue && attackModifier.type !=
+      AttackModifierType.advancedImbue) {
+      <img class="overlay" [ngClass]="{'side' : newStyle}"
+        [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'" />
+      }
+      @if (attackModifier.type == AttackModifierType.empower || attackModifier.type == AttackModifierType.enfeeble ||
+      (attackModifier.type == AttackModifierType.imbue || attackModifier.type == AttackModifierType.advancedImbue) &&
+      attackModifier.effects && attackModifier.effects.length) {
+      <img class="overlay side"
+        [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.valueType + attackModifier.value + '.png'" />
+      }
+      @if (attackModifier.rolling) {
+      <img class="rolling" src="./assets/images/attackmodifier/rolling.svg" />
+      }
+      @if ((!characterIcon && !ally || !attackModifier.character && attackModifier.type !=
+      AttackModifierType.curse) && attackModifier.type != AttackModifierType.bless && !csOak && !imbue &&
+      attackModifier.type != AttackModifierType.minus1extra) {
+      <span class="numeration">{{numeration}}</span>
+      }
+      @if ((characterIcon || ally) && attackModifier.type ==
+      AttackModifierType.curse || attackModifier.type ==
+      AttackModifierType.minus1extra) {
+      <span class="numeration character-curse-icon">
+        *
+      </span>
+      }
+      @if (attackModifier.type == AttackModifierType.plus) {
+      <span class="am-value"
+        [ngClass]="{'side' : newStyle && attackModifier.effects && attackModifier.effects.length > 0}">+{{attackModifier.value}}</span>
+      }
+      @if (attackModifier.type == AttackModifierType.minus) {
+      <span class="am-value"
+        [ngClass]="{'side' : newStyle && attackModifier.effects && attackModifier.effects.length > 0}">-{{attackModifier.value}}</span>
+      }
+      @if (characterIcon && attackModifier.character) {
+      <span class="character-icon">
+        <img [src]="characterIcon" />
+      </span>
+      }
+      @if (imbue) {
+      <span class="character-icon imbue-icon">
+        <img [src]="'./assets/images/attackmodifier/imbuement/' + attackModifier.type + '.svg'" />
+      </span>
+      }
+      @if (attackModifier.effects) {
+      <div class="effects"
+        [ngClass]="{'center' : (attackModifier.type == AttackModifierType.plus0 || newStyle), 'multiple' : effects.length > 1, 'multiple-2' : effects.length == 2, 'multiple-3' : effects.length == 3, 'multiple-4' : effects.length == 4}">
+        @for (effect of effects; track (typeof effect === 'object' ? effect.type : effect) + $index) {
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="effect" [offsetWidth]="card.offsetWidth"
+          [newStyle]="newStyle" [length]="effects.length"></ghs-attackmodifier-effect>
+        }
+      </div>
+      }
+      @if (!!mixedElement) {
+      <div class="mixed-element">
+        <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="mixedElement"
+          [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effect>
+      </div>
+      }
+      @if (bbIndex > -1 && bbIndex < 3) { <div class="bb-index" [ngClass]="{'character' : characterIcon}">
+        <img [src]="'./assets/images/bb/attackmodifier/' + bbIndex + '.svg'" />
     </div>
+    }
+    @if (attackModifier.shuffle) {
+    <span class="shuffle-icon">
+      <img class="svg-icon" src="./assets/images/shuffle.svg" />
+    </span>
+    }
+    }
+    @if (townGuard) {
+    <div class="type" [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+      <img
+        [src]="'./assets/images/attackmodifier/town-guard/' + (attackModifier.type == AttackModifierType.townguard ? attackModifier.valueType : attackModifier.type) + '.png'" />
+    </div>
+    @if (attackModifier.type == AttackModifierType.townguard) {
+    @if ((attackModifier.value > 0 || attackModifier.effects.length == 0) && (attackModifier.valueType ==
+    AttackModifierValueType.plus || attackModifier.valueType == AttackModifierValueType.default)) {
+    <span class="am-value"
+      [ngClass]="{'effects' : !townGuardEffectIcon &&  attackModifier.effects.length > 0 ||  townGuardEffectIcon &&  attackModifier.effects.length > 1}">+{{attackModifier.value}}</span>
+    }
+    @if (attackModifier.valueType == AttackModifierValueType.minus) {
+    <span class="am-value" [ngClass]="{'effects' : attackModifier.effects.length > 0}">-{{attackModifier.value}}</span>
+    }
+    }
+    @if (townGuardEffectIcon) {
+    <span class="town-guard-icon">
+      <img [src]="'./assets/images/action/custom/' + townGuardEffectIcon.value + '.svg'" />
+    </span>
+    }
+    @if (attackModifier.effects) {
+    <div class="effects town-guard"
+      [ngClass]="{'center' : attackModifier.value == 0, 'multiple' : effects.length > 1, 'multiple-2' : effects.length == 2, 'multiple-3' : effects.length == 3, 'multiple-4' : effects.length == 4}">
+      @for (effect of effects; track (typeof effect === 'object' ? effect.type : effect) + $index) {
+      <ghs-attackmodifier-effect [attackModifier]="attackModifier" [effect]="effect" [offsetWidth]="card.offsetWidth"
+        [townGuard]="true" [length]="effects.length"></ghs-attackmodifier-effect>
+      }
+    </div>
+    }
+    @if (attackModifier.rolling) {
+    <img class="rolling" src="./assets/images/attackmodifier/rolling.svg" />
+    }
+    }
   </div>
 </div>
+</div>
+}

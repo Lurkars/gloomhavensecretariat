@@ -1,169 +1,182 @@
 <div class="buildings-container">
-    <form class="header" (submit)="unlockBuilding(building)">
-        <label><img src="./assets/images/fh/buildings/build.svg"><span
-                [ghs-label]="'party.campaign.sheet.buildings'"></span></label>
-        <input type="text" #building [ghs-label]="'party.campaign.sheet.buildings.unlock'"
-            [ghs-label-attribute]="'placeholder'">
-        <img src="./assets/images/plus.svg" (click)="unlockBuilding(building)">
-    </form>
-    <div class="buildings"
-        [ngClass]="{'visible-effects': settingsManager.settings.buildingEffectsVisible, 'visible-interactions': settingsManager.settings.buildingInteractionsVisible}">
-        <div class="building head">
-            <span class="name"><span [ghs-label]="'party.campaign.sheet.buildings.name'"></span></span>
-            <span class="id"><span [ghs-label]="'party.campaign.sheet.buildings.id'"></span></span>
-            <span class="level"><span [ghs-label]="'party.campaign.sheet.buildings.level'"></span></span>
-            <span class="effects">
-                <span [ghs-label]="'party.campaign.sheet.buildings.effects'"></span>
-                <a class="toggle" (click)="settingsManager.toggle('buildingEffectsVisible')">
-                    <img
-                        [src]="'./assets/images/' + (settingsManager.settings.buildingEffectsVisible ? 'wake-lock' : 'hidden') + '.svg'">
-                </a>
-            </span>
-            <span class="interactions">
-                <span [ghs-label]="'party.campaign.sheet.buildings.interactions'"></span>
-                <a class="toggle" (click)="settingsManager.toggle('buildingInteractionsVisible')">
-                    <img
-                        [src]="'./assets/images/' + (settingsManager.settings.buildingInteractionsVisible ? 'wake-lock' : 'hidden') + '.svg'">
-                </a>
-            </span>
-            <span class="costs"><span [ghs-label]="'party.campaign.sheet.buildings.costs'"></span></span>
-            <span class="action"><span [ghs-label]="'party.campaign.sheet.buildings.action'"></span></span>
-        </div>
-        <div class="building" *ngFor="let building of buildings; let index = index"
-            [ngClass]="{'buildable' : !building.model.level}">
-            <span class="name" [ngClass]="{'disabled': !building.model.level || !building.data.repair}"
-                ghs-pointer-input (singleClick)="toggleState(building)" (doubleClick)="toggleState(building, true )">
-                <span class="state {{building.model.state}}"></span>
-                <span [ghs-label]="'data.buildings.' + building.model.name"></span>
-            </span>
-            <span class="id"><span *ngIf="building.data.id">({{building.data.id}})</span></span>
-            <span class="level" ghs-pointer-input (singleClick)="rewardsDialog(building)"
-                (doubleClick)="downgrade(building)" [ghs-tooltip]="'party.campaign.sheet.buildings.level.hint'"
-                [originY]="'bottom'">{{building.model.level || '-'}}</span>
-            <span class="effects">
-                <span class="effect"
-                    *ngIf="building.model.state === 'normal' && building.data.effectNormal && building.data.effectNormal[building.model.level-1]">
-                    <span class="icon" [ghs-tooltip]="building.data.effectNormal[building.model.level-1]"
-                        [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/normal.svg">
-                    </span>
-                    <span class="text" [ghs-label]="building.data.effectNormal[building.model.level-1]"></span>
-                </span>
-                <span class="effect"
-                    *ngIf="building.model.state === 'wrecked' && building.data.effectWrecked && building.data.effectWrecked[building.model.level-1]">
-                    <span class="icon unavailable" [ghs-tooltip]="building.data.effectWrecked[building.model.level-1]"
-                        [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/normal.svg">
-                    </span>
-                    <span class="text" [ghs-label]="building.data.effectWrecked[building.model.level-1]"></span>
-                </span>
-            </span>
-            <span class="interactions">
-                <span class="interaction"
-                    *ngIf="building.model.state === 'normal' && building.data.interactionsAvailable && building.data.interactionsAvailable[building.model.level-1]">
-                    <span class="icon" [ghs-tooltip]="building.data.interactionsAvailable[building.model.level-1]"
-                        [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg">
-                    </span>
-                    <span class="text" [ghs-label]="building.data.interactionsAvailable[building.model.level-1]"></span>
-                </span>
-                <span class="interaction"
-                    *ngIf="building.model.state === 'wrecked' && building.data.interactionsUnavailable && building.data.interactionsUnavailable[building.model.level-1]">
-                    <span class="icon unavailable"
-                        [ghs-tooltip]="building.data.interactionsUnavailable[building.model.level-1]" [originY]="'top'"
-                        [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg">
-                    </span>
-                    <span class="text"
-                        [ghs-label]="building.data.interactionsUnavailable[building.model.level-1]"></span>
-                </span>
-                <span class="interaction stables"
-                    *ngIf="gameManager.buildingsManager.petsEnabled && building.data.name == 'stables'">
-                    <span class="icon" (click)="openStables()"
-                        [ghs-tooltip]="'data.buildings.stables.pets.interaction'"><img
-                            src="./assets/images/fh/catching.svg">
-                    </span>
-                    <span class="text" (click)="openStables()"
-                        [ghs-label]="'data.buildings.stables.pets.interaction'"></span>
-                </span>
-                <span class="interaction garden"
-                    *ngIf="gameManager.buildingsManager.gardenEnabled && building.data.name == 'garden'">
-                    <span class="icon" (click)="openGarden()" [ghs-tooltip]="'data.buildings.garden.plots.interaction'"><img
-                            src="./assets/images/fh/buildings/garden.png">
-                    </span>
-                    <span class="text" (click)="openGarden()" [ghs-label]="'data.buildings.garden.plots.interaction'"></span>
-                </span>
-            </span>
-            <span class="costs" [ngClass]="{'disabled' : !upgradeable(building)}">
-                <ng-container *ngIf="!building.model.level">
-                    <span class="cost"><img src="./assets/images/fh/buildings/prosperity.svg">
-                        {{building.data.costs.prosperity|| '-'}}</span>
-                    <span class="cost"><img src="./assets/images/fh/loot/lumber.svg">
-                        {{building.data.costs.lumber|| '-'}}</span>
-                    <span class="cost"><img src="./assets/images/fh/loot/metal.svg">
-                        {{building.data.costs.metal|| '-'}}</span>
-                    <span class="cost"><img src="./assets/images/fh/loot/hide.svg">
-                        {{building.data.costs.hide|| '-'}}</span>
-                    <span class="cost"><img src="./assets/images/fh/loot.svg">
-                        {{building.data.costs.gold || '-'}}</span>
-                </ng-container>
-                <ng-container *ngIf="building.model.level > 0">
-                    <ng-container
-                        *ngIf="building.model.state == 'normal' && building.model.level < building.data.upgrades.length + 1 && !building.data.upgrades[building.model.level - 1].manual">
-                        <span class="cost"><img src="./assets/images/fh/buildings/prosperity.svg">
-                            {{building.data.upgrades[building.model.level - 1].prosperity|| '-'}}</span>
-                        <span class="cost"><img src="./assets/images/fh/loot/lumber.svg">
-                            {{building.data.upgrades[building.model.level - 1].lumber|| '-'}}</span>
-                        <span class="cost"><img src="./assets/images/fh/loot/metal.svg">
-                            {{building.data.upgrades[building.model.level - 1].metal|| '-'}}</span>
-                        <span class="cost"><img src="./assets/images/fh/loot/hide.svg">
-                            {{building.data.upgrades[building.model.level - 1].hide|| '-'}}</span>
-                    </ng-container>
-                    <ng-container *ngIf="building.model.state == 'damaged' && building.data.repair">
-                        <span class="repair">
-                            <span [ghs-label]="'party.campaign.sheet.buildings.repair.costs'"
-                                [ghs-label-args]="['' +building.data.repair[building.model.level - 1] ]"></span>
-                            <span class="cost"><img src="./assets/images/fh/loot/lumber.svg"></span>
-                            <span class="cost"><img src="./assets/images/fh/loot/metal.svg"></span>
-                            <span class="cost"><img src="./assets/images/fh/loot/hide.svg"></span>
-                        </span>
-                    </ng-container>
-                    <ng-container *ngIf="building.model.state == 'wrecked'">
-                        <span></span>
-                        <span class="cost"><img src="./assets/images/fh/loot/lumber.svg">
-                            {{building.data.rebuild[building.model.level - 1].lumber|| '-'}}</span>
-                        <span class="cost"><img src="./assets/images/fh/loot/metal.svg">
-                            {{building.data.rebuild[building.model.level - 1].metal|| '-'}}</span>
-                        <span class="cost"><img src="./assets/images/fh/loot/hide.svg">
-                            {{building.data.rebuild[building.model.level - 1].hide|| '-'}}</span>
-                    </ng-container>
-                </ng-container>
-            </span>
-            <span class="action">
-                <span
-                    *ngIf="building.model.level < building.data.upgrades.length +1 && building.model.state == 'normal'"
-                    [ngClass]="{'disabled' : !upgradeable(building)}" class="button upgrade" ghs-pointer-input
-                    (singleClick)="upgrade(building)" (doubleClick)="upgrade(building, true)"
-                    [ghs-tooltip]="('party.campaign.sheet.buildings.' + (building.model.level > 0 ? 'upgrade.hint' : 'build.hint'))"
-                    [originX]="'end'" [originY]="'bottom'" [overlayX]="'end'">
-                    <span
-                        [ghs-label]="('party.campaign.sheet.buildings.' + (building.model.level > 0 ? 'upgrade' : 'build'))"></span>
-                    <img
-                        [src]="'./assets/images/fh/buildings/' + (building.model.level > 0 ? 'upgrade' : 'build')  + '.svg'">
-                </span>
-                <span *ngIf="building.model.state == 'damaged'" [ngClass]="{'disabled' : !upgradeable(building)}"
-                    class="button upgrade" ghs-pointer-input (singleClick)="repair(building)"
-                    (doubleClick)="repair(building, true)"
-                    [ghs-tooltip]="('party.campaign.sheet.buildings.repair.hint')" [originX]="'end'"
-                    [originY]="'bottom'" [overlayX]="'end'">
-                    <span [ghs-label]="'party.campaign.sheet.buildings.repair'"></span>
-                    <img src="./assets/images/fh/buildings/repair.svg">
-                </span>
-                <span *ngIf="building.model.state == 'wrecked'" [ngClass]="{'disabled' : !upgradeable(building)}"
-                    class="button upgrade" ghs-pointer-input (singleClick)="rebuild(building)"
-                    (doubleClick)="rebuild(building, true)"
-                    [ghs-tooltip]="('party.campaign.sheet.buildings.rebuild.hint')" [originX]="'end'"
-                    [originY]="'bottom'" [overlayX]="'end'">
-                    <span [ghs-label]="'party.campaign.sheet.buildings.rebuild'"></span>
-                    <img src="./assets/images/fh/buildings/rebuild.svg">
-                </span>
-            </span>
-        </div>
+  <form class="header" (submit)="unlockBuilding(building)">
+    <label><img src="./assets/images/fh/buildings/build.svg"><span
+        [ghs-label]="'party.campaign.sheet.buildings'"></span></label>
+    <input type="text" #building [ghs-label]="'party.campaign.sheet.buildings.unlock'"
+      [ghs-label-attribute]="'placeholder'">
+    <img src="./assets/images/plus.svg" (click)="unlockBuilding(building)">
+  </form>
+  <div class="buildings"
+    [ngClass]="{'visible-effects': settingsManager.settings.buildingEffectsVisible, 'visible-interactions': settingsManager.settings.buildingInteractionsVisible}">
+    <div class="building head">
+      <span class="name"><span [ghs-label]="'party.campaign.sheet.buildings.name'"></span></span>
+      <span class="id"><span [ghs-label]="'party.campaign.sheet.buildings.id'"></span></span>
+      <span class="level"><span [ghs-label]="'party.campaign.sheet.buildings.level'"></span></span>
+      <span class="effects">
+        <span [ghs-label]="'party.campaign.sheet.buildings.effects'"></span>
+        <a class="toggle" (click)="settingsManager.toggle('buildingEffectsVisible')">
+          <img
+            [src]="'./assets/images/' + (settingsManager.settings.buildingEffectsVisible ? 'wake-lock' : 'hidden') + '.svg'">
+        </a>
+      </span>
+      <span class="interactions">
+        <span [ghs-label]="'party.campaign.sheet.buildings.interactions'"></span>
+        <a class="toggle" (click)="settingsManager.toggle('buildingInteractionsVisible')">
+          <img
+            [src]="'./assets/images/' + (settingsManager.settings.buildingInteractionsVisible ? 'wake-lock' : 'hidden') + '.svg'">
+        </a>
+      </span>
+      <span class="costs"><span [ghs-label]="'party.campaign.sheet.buildings.costs'"></span></span>
+      <span class="action"><span [ghs-label]="'party.campaign.sheet.buildings.action'"></span></span>
     </div>
+    @for (building of buildings; track building.data.name; let index = $index) {
+    <div class="building" [ngClass]="{'buildable' : !building.model.level}">
+      <span class="name" [ngClass]="{'disabled': !building.model.level || !building.data.repair}" ghs-pointer-input
+        (singleClick)="toggleState(building)" (doubleClick)="toggleState(building, true )">
+        <span class="state {{building.model.state}}"></span>
+        <span [ghs-label]="'data.buildings.' + building.model.name"></span>
+      </span>
+      <span class="id">@if (building.data.id) {
+        <span>({{building.data.id}})</span>
+        }</span>
+      <span class="level" ghs-pointer-input (singleClick)="rewardsDialog(building)" (doubleClick)="downgrade(building)"
+        [ghs-tooltip]="'party.campaign.sheet.buildings.level.hint'" [originY]="'bottom'">{{building.model.level ||
+        '-'}}</span>
+      <span class="effects">
+        @if (building.model.state === 'normal' && building.data.effectNormal &&
+        building.data.effectNormal[building.model.level-1]) {
+        <span class="effect">
+          <span class="icon" [ghs-tooltip]="building.data.effectNormal[building.model.level-1]" [originY]="'top'"
+            [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/normal.svg">
+          </span>
+          <span class="text" [ghs-label]="building.data.effectNormal[building.model.level-1]"></span>
+        </span>
+        }
+        @if (building.model.state === 'wrecked' && building.data.effectWrecked &&
+        building.data.effectWrecked[building.model.level-1]) {
+        <span class="effect">
+          <span class="icon unavailable" [ghs-tooltip]="building.data.effectWrecked[building.model.level-1]"
+            [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/normal.svg">
+          </span>
+          <span class="text" [ghs-label]="building.data.effectWrecked[building.model.level-1]"></span>
+        </span>
+        }
+      </span>
+      <span class="interactions">
+        @if (building.model.state === 'normal' && building.data.interactionsAvailable &&
+        building.data.interactionsAvailable[building.model.level-1]) {
+        <span class="interaction">
+          <span class="icon" [ghs-tooltip]="building.data.interactionsAvailable[building.model.level-1]"
+            [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg">
+          </span>
+          <span class="text" [ghs-label]="building.data.interactionsAvailable[building.model.level-1]"></span>
+        </span>
+        }
+        @if (building.model.state === 'wrecked' && building.data.interactionsUnavailable &&
+        building.data.interactionsUnavailable[building.model.level-1]) {
+        <span class="interaction">
+          <span class="icon unavailable" [ghs-tooltip]="building.data.interactionsUnavailable[building.model.level-1]"
+            [originY]="'top'" [overlayY]="'bottom'"><img src="./assets/images/fh/buildings/interaction.svg">
+          </span>
+          <span class="text" [ghs-label]="building.data.interactionsUnavailable[building.model.level-1]"></span>
+        </span>
+        }
+        @if (gameManager.buildingsManager.petsEnabled && building.data.name == 'stables') {
+        <span class="interaction stables">
+          <span class="icon" (click)="openStables()" [ghs-tooltip]="'data.buildings.stables.pets.interaction'"><img
+              src="./assets/images/fh/catching.svg">
+          </span>
+          <span class="text" (click)="openStables()" [ghs-label]="'data.buildings.stables.pets.interaction'"></span>
+        </span>
+        }
+        @if (gameManager.buildingsManager.gardenEnabled && building.data.name == 'garden') {
+        <span class="interaction garden">
+          <span class="icon" (click)="openGarden()" [ghs-tooltip]="'data.buildings.garden.plots.interaction'"><img
+              src="./assets/images/fh/buildings/garden.png">
+          </span>
+          <span class="text" (click)="openGarden()" [ghs-label]="'data.buildings.garden.plots.interaction'"></span>
+        </span>
+        }
+      </span>
+      <span class="costs" [ngClass]="{'disabled' : !upgradeable(building)}">
+        @if (!building.model.level) {
+        <span class="cost"><img src="./assets/images/fh/buildings/prosperity.svg">
+          {{building.data.costs.prosperity|| '-'}}</span>
+        <span class="cost"><img src="./assets/images/fh/loot/lumber.svg">
+          {{building.data.costs.lumber|| '-'}}</span>
+        <span class="cost"><img src="./assets/images/fh/loot/metal.svg">
+          {{building.data.costs.metal|| '-'}}</span>
+        <span class="cost"><img src="./assets/images/fh/loot/hide.svg">
+          {{building.data.costs.hide|| '-'}}</span>
+        <span class="cost"><img src="./assets/images/fh/loot.svg">
+          {{building.data.costs.gold || '-'}}</span>
+        }
+        @if (building.model.level > 0) {
+        @if (building.model.state == 'normal' && building.model.level < building.data.upgrades.length + 1 &&
+          !building.data.upgrades[building.model.level - 1].manual) { <span class="cost"><img
+            src="./assets/images/fh/buildings/prosperity.svg">
+          {{building.data.upgrades[building.model.level - 1].prosperity|| '-'}}</span>
+      <span class="cost"><img src="./assets/images/fh/loot/lumber.svg">
+        {{building.data.upgrades[building.model.level - 1].lumber|| '-'}}</span>
+      <span class="cost"><img src="./assets/images/fh/loot/metal.svg">
+        {{building.data.upgrades[building.model.level - 1].metal|| '-'}}</span>
+      <span class="cost"><img src="./assets/images/fh/loot/hide.svg">
+        {{building.data.upgrades[building.model.level - 1].hide|| '-'}}</span>
+      }
+      @if (building.model.state == 'damaged' && building.data.repair) {
+      <span class="repair">
+        <span [ghs-label]="'party.campaign.sheet.buildings.repair.costs'"
+          [ghs-label-args]="['' +building.data.repair[building.model.level - 1] ]"></span>
+        <span class="cost"><img src="./assets/images/fh/loot/lumber.svg"></span>
+        <span class="cost"><img src="./assets/images/fh/loot/metal.svg"></span>
+        <span class="cost"><img src="./assets/images/fh/loot/hide.svg"></span>
+        @if (party.morale > 0) {
+        <span class="morale" [ghs-label]="'party.campaign.sheet.buildings.repair.morale'"></span>
+        }
+      </span>
+      }
+      @if (building.model.state == 'wrecked') {
+      <span></span>
+      <span class="cost"><img src="./assets/images/fh/loot/lumber.svg">
+        {{building.data.rebuild[building.model.level - 1].lumber|| '-'}}</span>
+      <span class="cost"><img src="./assets/images/fh/loot/metal.svg">
+        {{building.data.rebuild[building.model.level - 1].metal|| '-'}}</span>
+      <span class="cost"><img src="./assets/images/fh/loot/hide.svg">
+        {{building.data.rebuild[building.model.level - 1].hide|| '-'}}</span>
+      }
+      }
+      </span>
+      <span class="action">
+        @if (building.model.level < building.data.upgrades.length +1 && building.model.state=='normal' ) { <span
+          [ngClass]="{'disabled' : !upgradeable(building)}" class="button upgrade" ghs-pointer-input
+          (singleClick)="upgrade(building)" (doubleClick)="upgrade(building, true)"
+          [ghs-tooltip]="('party.campaign.sheet.buildings.' + (building.model.level > 0 ? 'upgrade.hint' : 'build.hint'))"
+          [originX]="'end'" [originY]="'bottom'" [overlayX]="'end'">
+          <span
+            [ghs-label]="('party.campaign.sheet.buildings.' + (building.model.level > 0 ? 'upgrade' : 'build'))"></span>
+          <img [src]="'./assets/images/fh/buildings/' + (building.model.level > 0 ? 'upgrade' : 'build')  + '.svg'">
+      </span>
+      }
+      @if (building.model.state == 'damaged') {
+      <span [ngClass]="{'disabled' : !upgradeable(building)}" class="button upgrade" ghs-pointer-input
+        (singleClick)="repair(building)" (doubleClick)="repair(building, true)"
+        [ghs-tooltip]="('party.campaign.sheet.buildings.repair.hint')" [originX]="'end'" [originY]="'bottom'"
+        [overlayX]="'end'">
+        <span [ghs-label]="'party.campaign.sheet.buildings.repair'"></span>
+        <img src="./assets/images/fh/buildings/repair.svg">
+      </span>
+      }
+      @if (building.model.state == 'wrecked') {
+      <span [ngClass]="{'disabled' : !upgradeable(building)}" class="button upgrade" ghs-pointer-input
+        (singleClick)="rebuild(building)" (doubleClick)="rebuild(building, true)"
+        [ghs-tooltip]="('party.campaign.sheet.buildings.rebuild.hint')" [originX]="'end'" [originY]="'bottom'"
+        [overlayX]="'end'">
+        <span [ghs-label]="'party.campaign.sheet.buildings.rebuild'"></span>
+        <img src="./assets/images/fh/buildings/rebuild.svg">
+      </span>
+      }
+      </span>
+    </div>
+    }
+  </div>
 </div>

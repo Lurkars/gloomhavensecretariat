@@ -1,12 +1,20 @@
 <div class="hex-grid" [style.--ghs-hex-size]="size" [ngClass]="{'small' : action.small, 'edit': edit}">
-  <div class="hex" *ngFor="let hex of hexes" [style.grid-column-start]="hex.x * 2 + 1 + (hex.y % 2)"
+  @for (hex of hexes; track hex.type + $index) {
+  <div class="hex" [style.grid-column-start]="hex.x * 2 + 1 + (hex.y % 2)"
     [style.grid-column-end]="hex.x * 2 + 3 + (hex.y % 2)" [style.grid-row-start]="hex.y + 1"
     [style.grid-row-end]="hex.y + 1" (click)="click(hex)" [ngClass]="{'enhanced' : enhancedHexes.indexOf(hex) != -1}">
-    <img class="icon" *ngIf="hex.type != 'enhance' || editMode" [src]="'./assets/images/action/hex/' +  hex.type + '.svg'">
-    <ghs-action-enhancements *ngIf="!editMode && hex.type == 'enhance'" class="enhance" [action]="action" [index]="actionIndex"
-      [character]="character" [cardId]="cardId" [slot]="enhanceHexes.indexOf(hex)"></ghs-action-enhancements>
-    <span class="condition" *ngIf="hasCondition(hex)">
+    @if (hex.type != 'enhance' || editMode) {
+    <img class="icon" [src]="'./assets/images/action/hex/' +  hex.type + '.svg'">
+    }
+    @if (!editMode && hex.type == 'enhance') {
+    <ghs-action-enhancements class="enhance" [action]="action" [index]="actionIndex" [character]="character"
+      [cardId]="cardId" [slot]="enhanceHexes.indexOf(hex)"></ghs-action-enhancements>
+    }
+    @if (hasCondition(hex)) {
+    <span class="condition">
       <img [src]="'./assets/images/condition/' + hex.value + '.svg'">
     </span>
+    }
   </div>
+  }
 </div>

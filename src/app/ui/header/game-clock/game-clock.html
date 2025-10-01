@@ -1,26 +1,34 @@
 <div class="game-clock-dialog">
 
-    <div class="title" [ghs-label]="'duration.gameClock'"></div>
+  <div class="title" [ghs-label]="'duration.gameClock'"></div>
 
-    <div class="control" (click)="toggleGameClock()">
-        <img class="ghs-svg" [src]="'./assets/images/'+ (current ? 'clock-out': 'clock-in') + '.svg'">
-        <span [ghs-label]="'duration.gameClock.' + (current ? 'clockOut': 'clockIn')"></span>
-    </div>
+  <div class="control" (click)="toggleGameClock()">
+    <img class="ghs-svg" [src]="'./assets/images/'+ (current ? 'clock-out': 'clock-in') + '.svg'">
+    <span [ghs-label]="'duration.gameClock.' + (current ? 'clockOut': 'clockIn')"></span>
+  </div>
 
-    <div class="timestamps">
-        <div class="timestamp current" *ngIf="current" [ngClass]="{'has-more': gameClock.length > 1}">
-            <span [ghs-label]="'duration.gameClock.current'" [ghs-label-args]="[current | ghsDurationLabel]"></span>
-        </div>
-        <div class="timestamp current" *ngIf="gameManager.game.gameClock.length > 1" [ngClass]="{'has-more': gameClock.length > 1}">
-            <span [ghs-label]="'duration.gameClock.total'" [ghs-label-args]="[total | ghsDurationLabel]"></span>
-        </div>
-        <div class="timestamp" *ngFor="let timestamp of gameClock; let i = index" ghs-pointer-input
-            (doubleClick)="merge(i)">
-            <span *ngIf="timestamp.clockOut" [ghs-label]="'duration.gameClock.timestamp'"
-                [ghs-label-args]="[(timestamp.clockIn | date:'short':timeZone:settingsManager.settings.locale) || '', (timestamp.clockOut - timestamp.clockIn) / 1000 | ghsDurationLabel]">
-            </span>
-        </div>
-        <span class="more" *ngIf="gameClock.length < gameManager.game.gameClock.length"
-            [ghs-label]="'duration.gameClock.more'" (click)="more()"></span>
+  <div class="timestamps">
+    @if (current) {
+    <div class="timestamp current" [ngClass]="{'has-more': gameClock.length > 1}">
+      <span [ghs-label]="'duration.gameClock.current'" [ghs-label-args]="[current | ghsDurationLabel]"></span>
     </div>
+    }
+    @if (gameManager.game.gameClock.length > 1) {
+    <div class="timestamp current" [ngClass]="{'has-more': gameClock.length > 1}">
+      <span [ghs-label]="'duration.gameClock.total'" [ghs-label-args]="[total | ghsDurationLabel]"></span>
+    </div>
+    }
+    @for (timestamp of gameClock; track timestamp; let i = $index) {
+    <div class="timestamp" ghs-pointer-input (doubleClick)="merge(i)">
+      @if (timestamp.clockOut) {
+      <span [ghs-label]="'duration.gameClock.timestamp'"
+        [ghs-label-args]="[(timestamp.clockIn | date:'short':timeZone:settingsManager.settings.locale) || '', (timestamp.clockOut - timestamp.clockIn) / 1000 | ghsDurationLabel]">
+      </span>
+      }
+    </div>
+    }
+    @if (gameClock.length < gameManager.game.gameClock.length) { <span class="more"
+      [ghs-label]="'duration.gameClock.more'" (click)="more()"></span>
+      }
+  </div>
 </div>

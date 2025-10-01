@@ -1,32 +1,36 @@
 <div class="deck"
-    [ngClass]="{'disabled' : !standalone && gameManager.game.state == GameState.draw, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck}">
-    <div class="loot-container draw" [style.z-index]="deck.cards.length + 1">
-        <div class="loot-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'" (click)="draw($event)"
-            [ngClass]="{'disabled' : disabled}">
-            <span class="number">{{deck.current < deck.cards.length -1 ? (deck.cards.length - deck.current - 1) + '/' + deck.cards.length :
-                    0}}</span>
-        </div>
-
-        <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
-            *ngIf="fullscreen && !compact" (click)="openFullscreen($event)"
-            [ngClass]="{'vertical' : vertical, 'minimize' : !deck.active}">
-            <img src="./assets/images/fullscreen.svg">
-        </span>
-
-        <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'"
-            (click)="open($event)" *ngIf="!compact || vertical"
-            [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active}">
-            <img class="ghs-svg" src="./assets/images/settings.svg">
-        </span>
+  [ngClass]="{'disabled' : !standalone && gameManager.game.state == GameState.draw, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck}">
+  <div class="loot-container draw" [style.z-index]="deck.cards.length + 1">
+    <div class="loot-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'" (click)="draw($event)"
+      [ngClass]="{'disabled' : disabled}">
+      <span class="number">{{deck.current < deck.cards.length -1 ? (deck.cards.length - deck.current - 1) + '/' +
+          deck.cards.length : 0}}</span>
     </div>
 
-    <ng-container *ngFor="let card of deck.cards; let index = index;">
-        <div class="loot-container" (click)="clickCard(index, $event)" *ngIf="index > current - 3"
-            [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
-            [ngClass]="{'discarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom}">
-            <ghs-loot class="loot-card" [loot]="card" [flipped]="index <= current" [looted]="index <= current"
-                [index]="index" [disableFlip]="!drawing || index != current" [character]="getCharacter(index)"
-                [apply]="!standalone" [ngClass]="{'disabled' : disabled }"></ghs-loot>
-        </div>
-    </ng-container>
+    @if (fullscreen && !compact) {
+    <span class="fullscreen" [ghs-label]="'game.cards.fullscreen'" [ghs-label-attribute]="'title'"
+      (click)="openFullscreen($event)" [ngClass]="{'vertical' : vertical, 'minimize' : !deck.active}">
+      <img src="./assets/images/fullscreen.svg">
+    </span>
+    }
+
+    @if (!compact || vertical) {
+    <span class="settings" [ghs-label]="'game.cards.openDialog'" [ghs-label-attribute]="'title'" (click)="open($event)"
+      [ngClass]="{'vertical' : vertical, 'without-fullscreen' : !fullscreen, 'minimize' : !deck.active}">
+      <img class="ghs-svg" src="./assets/images/settings.svg">
+    </span>
+    }
+  </div>
+
+  @for (card of deck.cards; track card.cardId; let index = $index) {
+  @if (index > current - 3) {
+  <div class="loot-container" (click)="clickCard(index, $event)"
+    [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
+    [ngClass]="{'discarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom}">
+    <ghs-loot class="loot-card" [loot]="card" [flipped]="index <= current" [looted]="index <= current" [index]="index"
+      [disableFlip]="!drawing || index != current" [character]="getCharacter(index)" [apply]="!standalone"
+      [ngClass]="{'disabled' : disabled }"></ghs-loot>
+  </div>
+  }
+  }
 </div>

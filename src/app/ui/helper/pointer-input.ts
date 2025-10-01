@@ -62,8 +62,10 @@ export class PointerInputService {
             this.behindActive.pointerdown(event);
           }
           this.active.pointerdown(event);
-          event.preventDefault();
-          event.stopPropagation();
+          if (!this.active.isDragElement) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
         }
       }
     });
@@ -91,9 +93,11 @@ export class PointerInputService {
 
       if (this.active && event.isPrimary) {
         this.active.pointerup(event);
+        if (!this.active.isDragElement) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
         this.active = undefined;
-        event.preventDefault();
-        event.stopPropagation();
       }
       if (this.behindActive && event.isPrimary) {
         this.behindActive.pointerup(event);
@@ -119,7 +123,7 @@ export class PointerInputService {
           this.behindActive.pointerup(event);
           this.behindActive = undefined;
         }
-        if (!this.active.clickBehind) {
+        if (!this.active.clickBehind && !this.active.isDragElement) {
           event.preventDefault();
           event.stopPropagation();
         }
@@ -252,10 +256,17 @@ export class PointerInputDirective implements OnInit, OnDestroy {
   fast: boolean = false;
   fastOffset: number = 0;
   lastX: number = 0;
+  isDragElement: boolean = false;
 
   constructor(public elementRef: ElementRef, private service: PointerInputService) {
     this.value = -1;
     this.elementRef.nativeElement.style['touch-action'] = 'pan-y';
+    this.isDragElement = elementRef.nativeElement.hasAttribute('cdkdrag') ||
+      elementRef.nativeElement.hasAttribute('cdkdraghandle') ||
+      elementRef.nativeElement.classList.contains('cdk-drag') ||
+      elementRef.nativeElement.classList.contains('cdk-drag-handle') ||
+      elementRef.nativeElement.classList.contains('cdk-drag-preview') ||
+      elementRef.nativeElement.classList.contains('cdk-drag-placeholder');
   }
 
   ngOnInit(): void {

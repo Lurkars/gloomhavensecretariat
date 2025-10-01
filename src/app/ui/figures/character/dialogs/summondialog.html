@@ -9,49 +9,62 @@
 
   <div class="container">
     <div class="color-container">
-      <ng-container *ngIf="!fhSummon">
-        <span *ngFor="let color of summonColors" class="summon-button" (click)="selectColor(color)"
-          [ngClass]="{'active' : color == summonColor}">
-          <span class="image">
-            <img src="./assets/images/summons/{{color}}.png">
-          </span>
+      @if (!fhSummon) {
+      @for (color of summonColors; track color) {
+      <span class="summon-button" (click)="selectColor(color)" [ngClass]="{'active' : color == summonColor}">
+        <span class="image">
+          <img src="./assets/images/summons/{{color}}.png">
         </span>
-      </ng-container>
-      <span *ngFor="let number of [] | ghsRange:8" class="number-button" (click)="pickNumber(number+1)"
-        [ngClass]="{'disabled' : summonNumber == number+1}">
+      </span>
+      }
+      }
+      @for (number of [] | ghsRange:8; track number) {
+      <span class="number-button" (click)="pickNumber(number+1)" [ngClass]="{'disabled' : summonNumber == number+1}">
         <span class="number">{{number+1}}</span>
       </span>
+      }
     </div>
     <div class="scroll-container summons">
-      <ng-container *ngFor="let summonData of summonData; let i = index">
-        <span *ngIf="showAll || summonNumbers[i] != -1" class="summon" (click)="addSummon(summonData)"
-          [ngClass]="{'disabled' : summonNumbers[i] == -1 || !available(summonData,summonNumber || summonNumbers[i])}">
-          <span class="summon-button">
-            <span class="image" [ngClass]="{'fh': fhSummon}">
-              <img *ngIf="!fhSummon && summonData.special" src="./assets/images/summons/custom.png">
-              <img *ngIf="!fhSummon && !summonData.special" src="./assets/images/summons/{{summonColor}}.png">
-              <span class="summon-number">{{summonNumber ? summonNumber : (summonNumbers[i] != -1 ? summonNumbers[i] :
-                '-')}}</span>
-            </span>
+      @for (summonData of summonData; track summonData.edition + '-' +summonData.name; let i = $index) {
+      @if (showAll || summonNumbers[i] != -1) {
+      <span class="summon" (click)="addSummon(summonData)"
+        [ngClass]="{'disabled' : summonNumbers[i] == -1 || !available(summonData,summonNumber || summonNumbers[i])}">
+        <span class="summon-button">
+          <span class="image" [ngClass]="{'fh': fhSummon}">
+            @if (!fhSummon && summonData.special) {
+            <img src="./assets/images/summons/custom.png">
+            }
+            @if (!fhSummon && !summonData.special) {
+            <img src="./assets/images/summons/{{summonColor}}.png">
+            }
+            <span class="summon-number">{{summonNumber ? summonNumber : (summonNumbers[i] != -1 ? summonNumbers[i] :
+              '-')}}</span>
           </span>
-          <label>
-            <span [ghs-label]="'data.summon.' + summonData.name"></span>
-            <span class="level-hint" *ngIf="showLevel(summonData)" [ghs-label]="'character.summon.level'"
-              [ghs-label-args]="[summonData.level || 1]"></span>
-          </label>
-          <ng-container *ngIf="summonData.thumbnail && !summonData.noThumbnail || summonData.thumbnailUrl">
-            <span class="spacer"></span>
-            <span class="thumbnail">
-              <img
-                [src]="summonData.thumbnailUrl ? summonData.thumbnailUrl :  './assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'" />
-            </span>
-          </ng-container>
         </span>
-      </ng-container>
-      <span class="summon" *ngIf="!summonFilter" [ngClass]="{'disabled': !summonNumber}">
+        <label>
+          <span [ghs-label]="'data.summon.' + summonData.name"></span>
+          @if (showLevel(summonData)) {
+          <span class="level-hint" [ghs-label]="'character.summon.level'"
+            [ghs-label-args]="[summonData.level || 1]"></span>
+          }
+        </label>
+        @if (summonData.thumbnail && !summonData.noThumbnail || summonData.thumbnailUrl) {
+        <span class="spacer"></span>
+        <span class="thumbnail">
+          <img
+            [src]="summonData.thumbnailUrl ? summonData.thumbnailUrl :  './assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'" />
+        </span>
+        }
+      </span>
+      }
+      }
+      @if (!summonFilter) {
+      <span class="summon" [ngClass]="{'disabled': !summonNumber}">
         <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">
           <span class="image" [ngClass]="{'fh': fhSummon}">
-            <img *ngIf="!fhSummon" src="./assets/images/summons/{{summonColor}}.png">
+            @if (!fhSummon) {
+            <img src="./assets/images/summons/{{summonColor}}.png">
+            }
             <span class="summon-number">{{summonNumber ? summonNumber : '-'}}</span>
           </span>
         </span>
@@ -61,6 +74,7 @@
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </span>
       </span>
+      }
     </div>
   </div>
 </div>

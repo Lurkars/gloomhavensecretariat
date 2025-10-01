@@ -1,28 +1,34 @@
 <div class="items-dialog"
-    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-    <div class="scroll-container">
-        <div class="header">
-            <span (click)="openShop()" class="title" [ghs-label]="'game.items.character'"
-                [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
-                [ghs-tooltip]="'game.items.character.shop'"></span>
-        </div>
-
-        <div class="menu">
-            <a (click)="openShop()" class="shop" [ghs-label]="'game.items.character.shop'"></a>
-
-            <label>
-                <input type="checkbox" [(ngModel)]="onlyEquipped" (change)="update()">
-                <span [ghs-label]="'game.items.character.toggleEquipped'"></span>
-            </label>
-        </div>
-
-        <div class="item-list" *ngIf="items.length == 0">
-            <div class="empty"><span [ghs-label]="'game.items.empty'"></span></div>
-        </div>
-
-        <div class="item-list" *ngIf="items.length > 0">
-            <ghs-character-item *ngFor="let itemData of items" [character]="character" [item]="itemData" [setup]="setup"
-                [ngClass]="{'spent' : !setup && countFlag(itemData,ItemFlags.spent)}"></ghs-character-item>
-        </div>
+  [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+  <div class="scroll-container">
+    <div class="header">
+      <span (click)="openShop()" class="title" [ghs-label]="'game.items.character'"
+        [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
+        [ghs-tooltip]="'game.items.character.shop'"></span>
     </div>
+
+    <div class="menu">
+      <a (click)="openShop()" class="shop" [ghs-label]="'game.items.character.shop'"></a>
+
+      <label>
+        <input type="checkbox" [(ngModel)]="onlyEquipped" (change)="update()">
+        <span [ghs-label]="'game.items.character.toggleEquipped'"></span>
+      </label>
+    </div>
+
+    @if (items.length == 0) {
+    <div class="item-list">
+      <div class="empty"><span [ghs-label]="'game.items.empty'"></span></div>
+    </div>
+    }
+
+    @if (items.length > 0) {
+    <div class="item-list">
+      @for (itemData of items; track itemData.edition + '-' + itemData.id) {
+      <ghs-character-item [character]="character" [item]="itemData" [setup]="setup"
+        [ngClass]="{'spent' : !setup && countFlag(itemData,ItemFlags.spent)}"></ghs-character-item>
+      }
+    </div>
+    }
+  </div>
 </div>

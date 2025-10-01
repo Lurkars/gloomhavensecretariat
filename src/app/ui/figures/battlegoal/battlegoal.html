@@ -1,23 +1,27 @@
 <div class="battlegoal-container" #container>
-    <div class="card vertical reverse battlegoal"
-        [ngClass]="{'flipped': flipped, 'selected': selected, 'disabled': disabled, 'filtered': filtered, 'fh': !!battleGoal && battleGoal.edition == 'fh'}"
-        [style.fontSize]="container.offsetWidth * 0.072 + 'px'" card-reveal [disabled]="!reveal">
-        <div class="card-front">
-            <ng-container *ngIf="!!battleGoal">
-                <div class="name" [ghs-label]="'data.battleGoals.' + battleGoal.cardId"></div>
-                <div class="text"><span class="placeholder"
-                        [ghs-label]="'data.battleGoals.' + battleGoal.cardId + '.text'"></span></div>
-                <div class="checks">
-                    <img src="./assets/images/check.svg" *ngFor="let check of [] | ghsRange:battleGoal.checks">
-                </div>
-                <div class="card-id">
-                    {{battleGoal.cardId}}
-                    <img *ngIf="settingsManager.settings.fhStyle" src="./assets/images/fh/battlegoals/winter.svg">
-                </div>
-            </ng-container>
-        </div>
-        <div class="card-back">
-            <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
-        </div>
+  <div class="card vertical reverse battlegoal"
+    [ngClass]="{'flipped': flipped, 'selected': selected, 'disabled': disabled, 'filtered': filtered, 'fh': !!battleGoal && battleGoal.edition == 'fh'}"
+    [style.fontSize]="container.offsetWidth * 0.072 + 'px'" card-reveal [disabled]="!reveal">
+    <div class="card-front">
+      @if (!!battleGoal) {
+      <div class="name" [ghs-label]="'data.battleGoals.' + battleGoal.cardId"></div>
+      <div class="text"><span class="placeholder"
+          [ghs-label]="'data.battleGoals.' + battleGoal.cardId + '.text'"></span></div>
+      <div class="checks">
+        @for (check of [] | ghsRange:battleGoal.checks; track check) {
+        <img src="./assets/images/check.svg">
+        }
+      </div>
+      <div class="card-id">
+        {{battleGoal.cardId}}
+        @if (settingsManager.settings.fhStyle) {
+        <img src="./assets/images/fh/battlegoals/winter.svg">
+        }
+      </div>
+      }
     </div>
+    <div class="card-back">
+      <span class="revealed"><span class="text" [ghs-label]="'game.cards.confirmReveal'"></span></span>
+    </div>
+  </div>
 </div>

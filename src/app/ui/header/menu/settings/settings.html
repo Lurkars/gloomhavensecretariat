@@ -61,45 +61,45 @@
   <!-- MONSTERS -->
   <div class="line title span" ghs-setting-title-menu="monsters" [sync]="true"></div>
 
-  <ng-container *ngIf="settingsManager.settings.monsters">
-    <div class="column">
-      <div class="line" ghs-setting-menu="abilities"></div>
-      <div class="line" ghs-setting-menu="calculate" [requires]="['abilities']"></div>
-      <div class="line" ghs-setting-menu="calculateStats" [requires]="['abilities']"></div>
-      <div class="line" ghs-setting-menu="calculateShieldStats" [requires]="['abilities', 'calculateStats']"></div>
-      <div class="line" ghs-setting-menu="calculateAdvantageStats" [requires]="['abilities', 'calculateStats']"></div>
-      <div class="line" ghs-setting-menu="abilityReveal" [requires]="['abilities']"></div>
-      <div class="line" ghs-setting-menu="removeUnusedMonster"></div>
-      <div class="line" ghs-setting-menu="addAllMonsters"></div>
+  @if (settingsManager.settings.monsters) {
+  <div class="column">
+    <div class="line" ghs-setting-menu="abilities"></div>
+    <div class="line" ghs-setting-menu="calculate" [requires]="['abilities']"></div>
+    <div class="line" ghs-setting-menu="calculateStats" [requires]="['abilities']"></div>
+    <div class="line" ghs-setting-menu="calculateShieldStats" [requires]="['abilities', 'calculateStats']"></div>
+    <div class="line" ghs-setting-menu="calculateAdvantageStats" [requires]="['abilities', 'calculateStats']"></div>
+    <div class="line" ghs-setting-menu="abilityReveal" [requires]="['abilities']"></div>
+    <div class="line" ghs-setting-menu="removeUnusedMonster"></div>
+    <div class="line" ghs-setting-menu="addAllMonsters"></div>
+  </div>
+  <div class="column">
+    <div class="line" ghs-setting-menu="interactiveAbilities" [requires]="['abilities']"></div>
+    <div class="line" ghs-setting-menu="combineInteractiveAbilities" [requires]="['abilities', 'interactiveAbilities']">
     </div>
-
-    <div class="column">
-      <div class="line" ghs-setting-menu="interactiveAbilities" [requires]="['abilities']"></div>
-      <div class="line" ghs-setting-menu="combineInteractiveAbilities"
-        [requires]="['abilities', 'interactiveAbilities']"></div>
-      <div class="line" ghs-setting-menu="abilityNumbers" [requires]="['abilities']"></div>
-      <div class="line" ghs-setting-menu="showExpandedAbilityCard" [requires]="['abilities']">
-      </div>
-      <div class="line" ghs-setting-menu="showFullAbilityCard" [requires]="['abilities', '!showExpandedAbilityCard']"
-        [checked]="settingsManager.settings.showExpandedAbilityCard"></div>
-      <div class="line" ghs-setting-menu="stats"></div>
-      <div class="line" ghs-setting-menu="hideStats" [requires]="['stats']"></div>
+    <div class="line" ghs-setting-menu="abilityNumbers" [requires]="['abilities']"></div>
+    <div class="line" ghs-setting-menu="showExpandedAbilityCard" [requires]="['abilities']">
     </div>
-  </ng-container>
+    <div class="line" ghs-setting-menu="showFullAbilityCard" [requires]="['abilities', '!showExpandedAbilityCard']"
+      [checked]="settingsManager.settings.showExpandedAbilityCard"></div>
+    <div class="line" ghs-setting-menu="stats"></div>
+    <div class="line" ghs-setting-menu="hideStats" [requires]="['stats']"></div>
+  </div>
+  }
 
   <!-- STANDEES -->
   <div class="line title span" ghs-setting-title-menu="standees" [sync]="true"></div>
 
   <div class="column">
-    <ng-container *ngIf="settingsManager.settings.monsters">
-      <div class="line" ghs-setting-menu="eliteFirst" [requires]="['standees']"></div>
-    </ng-container>
+    @if (settingsManager.settings.monsters) {
+    <div class="line" ghs-setting-menu="eliteFirst" [requires]="['standees']"></div>
+    }
     <div class="line" ghs-setting-menu="activeStandees" [requires]="['standees']"></div>
     <div class="line" ghs-setting-menu="automaticStandees" [requires]="['standees', 'scenarioRooms']"></div>
     <div class="line" ghs-setting-menu="standeeStats" [requires]="['standees']"></div>
   </div>
 
-  <div class="column" *ngIf="settingsManager.settings.monsters">
+  @if (settingsManager.settings.monsters) {
+  <div class="column">
     <div class="line" ghs-setting-menu="automaticStandeesDialog"
       [requires]="['standees', 'scenarioRooms', 'automaticStandees', '!randomStandees']">
     </div>
@@ -107,6 +107,7 @@
     <div class="line" ghs-setting-menu="standees"></div>
     <div class="line" ghs-setting-menu="standeeShieldRetaliate" [requires]="['standees']"></div>
   </div>
+  }
 
   <!-- CONDITION/ELEMENTS -->
   <div class="line title span" ghs-setting-title-menu="conditions" [sync]="true"></div>
@@ -118,19 +119,23 @@
     <div class="column">
       <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
         <div class="condition-list">
-          <div class="hint-container" *ngFor="let condition of applyConditionsExcludes; let i = index;">
+          @for (condition of applyConditionsExcludes; track condition.name; let i = $index) {
+          <div class="hint-container">
             <div tabclick class="condition"
               [ngClass]="{'immunity': settingsManager.settings.applyConditionsExcludes.indexOf(condition.name) != -1}"
               (click)="toggleApplyConditionsExclude(condition.name)">
               <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-              <span *ngIf="condition.types.indexOf(ConditionType.value) != -1" class="value">X</span>
+              @if (condition.types.indexOf(ConditionType.value) != -1) {
+              <span class="value">X</span>
+              }
             </div>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <span class="hint" [ngClass]="{'right': i > 2}">
               <span class="text" [ghs-label]="'settings.applyConditions.hint.' + condition.name "></span>
             </span>
           </div>
+          }
         </div>
       </div>
     </div>
@@ -144,26 +149,30 @@
     <div class="column">
       <div class="line">
         <div class="condition-list">
-          <div class="hint-container" *ngFor="let condition of activeApplyConditionsExcludes; let i = index">
+          @for (condition of activeApplyConditionsExcludes; track condition.name; let i = $index) {
+          <div class="hint-container">
             <div tabclick class="condition"
               [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1, 'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}"
               (click)="toggleActiveApplyConditionsExclude(condition.name)">
               <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-              <span *ngIf="condition.types.indexOf(ConditionType.value) != -1" class="value">X</span>
+              @if (condition.types.indexOf(ConditionType.value) != -1) {
+              <span class="value">X</span>
+              }
             </div>
             <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
             <span class="hint" [ngClass]="{'right': i > 2}">
               <span class="text" [ghs-label]="'settings.activeApplyConditions.hint.' + condition.name"></span>
             </span>
           </div>
+          }
         </div>
       </div>
     </div>
 
 
-    <div class="column"
-      *ngIf="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions">
+    @if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions) {
+    <div class="column">
       <div class="line"
         [ngClass]="{'disabled' : !settingsManager.settings.applyConditions || !settingsManager.settings.activeApplyConditions}">
         <div class="hint-container inline">
@@ -174,25 +183,29 @@
           </span>
         </div>
         <div class="condition-list">
-          <ng-container *ngFor="let condition of activeApplyConditionsAuto; let i = index">
-            <div class="hint-container"
-              *ngIf="settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1">
-              <div tabclick class="condition"
-                [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsAuto.indexOf(condition.name) == -1 || settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1, 'disabled': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1}"
-                (click)="toggleActiveApplyConditionsAuto(condition.name)">
-                <img
-                  [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
-                <span *ngIf="condition.types.indexOf(ConditionType.value) != -1" class="value">X</span>
-              </div>
-              <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-              <span class="hint" [ngClass]="{'right': i > 2}">
-                <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint.' + condition.name"></span>
-              </span>
+          @for (condition of activeApplyConditionsAuto; track condition.name; let i = $index) {
+          @if (settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) == -1) {
+          <div class="hint-container">
+            <div tabclick class="condition"
+              [ngClass]="{'immunity': settingsManager.settings.activeApplyConditionsAuto.indexOf(condition.name) == -1 || settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1, 'disabled': settingsManager.settings.activeApplyConditionsExcludes.indexOf(condition.name) != -1}"
+              (click)="toggleActiveApplyConditionsAuto(condition.name)">
+              <img
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+              @if (condition.types.indexOf(ConditionType.value) != -1) {
+              <span class="value">X</span>
+              }
             </div>
-          </ng-container>
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <span class="hint" [ngClass]="{'right': i > 2}">
+              <span class="text" [ghs-label]="'settings.activeApplyConditions.auto.hint.' + condition.name"></span>
+            </span>
+          </div>
+          }
+          }
         </div>
       </div>
     </div>
+    }
   </div>
 
   <div class="separator"></div>
@@ -211,13 +224,17 @@
     <div class="line" ghs-setting-menu="fhGhItems" [disabled]="!gameManager.fhRules()"
       [requiresOne]="['characterItems', 'characterSheet']">
     </div>
-    <div *ngIf="gameManager.challengesManager.available" class="line" ghs-setting-menu="fhChallenges"
-      [disabled]="!gameManager.fhRules()"></div>
-    <div *ngIf="gameManager.trialsManager.available" class="line" ghs-setting-menu="fhTrials"
-      [disabled]="!gameManager.fhRules()" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''">
+    @if (gameManager.challengesManager.available) {
+    <div class="line" ghs-setting-menu="fhChallenges" [disabled]="!gameManager.fhRules()"></div>
+    }
+    @if (gameManager.trialsManager.available) {
+    <div class="line" ghs-setting-menu="fhTrials" [disabled]="!gameManager.fhRules()"
+      [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''">
     </div>
-    <div *ngIf="gameManager.buildingsManager.petsAvailable" class="line" ghs-setting-menu="fhPets"
-      [disabled]="!gameManager.fhRules()"></div>
+    }
+    @if (gameManager.buildingsManager.petsAvailable) {
+    <div class="line" ghs-setting-menu="fhPets" [disabled]="!gameManager.fhRules()"></div>
+    }
   </div>
 
   <div class="column">
@@ -235,42 +252,44 @@
       [checked]="gameManager.fhRules()"></div>
     <div class="line" ghs-setting-menu="alwaysFhAdvantage" [disabled]="gameManager.fhRules()"
       [requires]="['amAdvantage']" [checked]="settingsManager.settings.amAdvantage && gameManager.fhRules()"></div>
-    <div *ngIf="settingsManager.settings.amAdvantage" class="line" ghs-setting-menu="amAdvantageHouseRule"
-      [requires]="['amAdvantage', 'alwaysFhAdvantage']"></div>
-    <div *ngIf="gameManager.challengesManager.available" class="line" ghs-setting-menu="fhChallengesApply"
-      [disabled]="!gameManager.fhRules()" [requires]="['fhChallenges']"></div>
-    <div *ngIf="gameManager.trialsManager.available" class="line" ghs-setting-menu="fhTrialsApply"
+    @if (settingsManager.settings.amAdvantage) {
+    <div class="line" ghs-setting-menu="amAdvantageHouseRule" [requires]="['amAdvantage', 'alwaysFhAdvantage']"></div>
+    }
+    @if (gameManager.challengesManager.available) {
+    <div class="line" ghs-setting-menu="fhChallengesApply" [disabled]="!gameManager.fhRules()"
+      [requires]="['fhChallenges']"></div>
+    }
+    @if (gameManager.trialsManager.available) {
+    <div class="line" ghs-setting-menu="fhTrialsApply"
       [disabled]="!gameManager.fhRules() || !gameManager.trialsManager.trialsEnabled && !gameManager.trialsManager.favorsEnabled"
       [requires]="['fhTrials']" [labelSuffix]="gameManager.trialsManager.favorsAvailable ? 'favors' : ''">
     </div>
+    }
   </div>
 
   <!-- GH2E -->
-  <ng-container *ngIf="gameManager.gh2eRules() && gameManager.imbuementManager.available">
-    <div class="separator"></div>
+  @if (gameManager.gh2eRules() && gameManager.imbuementManager.available) {
+  <div class="separator"></div>
+  <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
+  <div class="column">
+    @if (gameManager.imbuementManager.available) {
+    <div class="line" ghs-setting-menu="gh2eImbuement"></div>
+    }
+  </div>
+  }
 
-    <div class="line title span" ghs-setting-title-menu="gh2eRules" [sync]="true"></div>
-
-    <div class="column">
-      <div class="line" *ngIf="gameManager.imbuementManager.available" ghs-setting-menu="gh2eImbuement"></div>
-    </div>
-  </ng-container>
-
-  <ng-container *ngIf="gameManager.bbRules()">
-    <div class="separator"></div>
-
-    <!-- BUTTON&BUGS -->
-    <div class="line title span" ghs-setting-title-menu="bbRules" [sync]="true"></div>
-
-    <div class="column">
-      <div class="line" ghs-setting-menu="bbChars"></div>
-      <div class="line" ghs-setting-menu="bbAm" [requires]="['monsterAttackModifierDeck']"></div>
-    </div>
-
-    <div class="column">
-      <div class="line" ghs-setting-menu="bbStandeeLimit" [requires]="['standees']"></div>
-    </div>
-  </ng-container>
+  @if (gameManager.bbRules()) {
+  <div class="separator"></div>
+  <!-- BUTTON&BUGS -->
+  <div class="line title span" ghs-setting-title-menu="bbRules" [sync]="true"></div>
+  <div class="column">
+    <div class="line" ghs-setting-menu="bbChars"></div>
+    <div class="line" ghs-setting-menu="bbAm" [requires]="['monsterAttackModifierDeck']"></div>
+  </div>
+  <div class="column">
+    <div class="line" ghs-setting-menu="bbStandeeLimit" [requires]="['standees']"></div>
+  </div>
+  }
 
   <div class="separator"></div>
 
@@ -279,8 +298,9 @@
 
   <div class="column">
     <div class="line" ghs-setting-menu="turnConfirmation" [requiresOne]="['expireConditions', 'applyConditions']"></div>
-    <div *ngIf="!settingsManager.settings.initiativeRequired" class="line" ghs-setting-menu="automaticFirstFigure"
-      [requires]="['!initiativeRequired']"></div>
+    @if (!settingsManager.settings.initiativeRequired) {
+    <div class="line" ghs-setting-menu="automaticFirstFigure" [requires]="['!initiativeRequired']"></div>
+    }
     <div class="line" ghs-setting-menu="scenarioRulesAutoapply" [requires]="['scenarioRules']">
     </div>
     <div class="line" ghs-setting-menu="automaticUnlocking"></div>
@@ -384,7 +404,9 @@
     <div class="line" ghs-setting-menu="columns"></div>
     <div class="line" ghs-setting-menu="columnsForce" [requires]="['columns']"></div>
     <div class="line" ghs-setting-menu="artwork"></div>
-    <div *ngIf="wakeLock" class="line" ghs-setting-menu="wakeLock"></div>
+    @if (wakeLock) {
+    <div class="line" ghs-setting-menu="wakeLock"></div>
+    }
   </div>
 
   <div class="separator"></div>

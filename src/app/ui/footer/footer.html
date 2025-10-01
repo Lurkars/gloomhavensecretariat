@@ -4,10 +4,16 @@
       <a><span [ghs-label]="(gameManager.game.state == GameState.next ?
         'round.next' : 'round.draw')"></span></a>
       <span class="round">
-        <span *ngIf="round() > 0">{{round()}}</span>
-        <span class="total-rounds" *ngIf="totalRounds() > 0">&nbsp;({{totalRounds()}})</span>
+        @if (round() > 0) {
+        <span>{{round()}}</span>
+        }
+        @if (totalRounds() > 0) {
+        <span class="total-rounds">&nbsp;({{totalRounds()}})</span>
+        }
       </span>
-      <span class="time" *ngIf="!!gameManager.game.scenario">{{ currentTime }}</span>
+      @if (!!gameManager.game.scenario) {
+      <span class="time">{{ currentTime }}</span>
+      }
       <span #button></span>
     </div>
   </div>
@@ -16,40 +22,44 @@
     <ghs-scenario #ghsScenario></ghs-scenario>
     <ghs-level #ghsLevel></ghs-level>
   </div>
-  <ghs-scenario-rules *ngIf="settingsManager.settings.scenarioRules"></ghs-scenario-rules>
+  @if (settingsManager.settings.scenarioRules) {
+  <ghs-scenario-rules></ghs-scenario-rules>
+  }
   <div class="flex-shrink"></div>
   <div class="attack-modifier-spacer"></div>
 
-  <div class="deck am-deck ally-deck" *ngIf="hasAllyAttackModifierDeck"
+  @if (hasAllyAttackModifierDeck) {
+  <div class="deck am-deck ally-deck"
     [ngClass]="{'collapsed' : !gameManager.game.allyAttackModifierDeck.active || compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active), 'initial' : gameManager.game.allyAttackModifierDeck.active && gameManager.game.allyAttackModifierDeck.current < 0, 'partial' : gameManager.game.allyAttackModifierDeck.active && gameManager.game.allyAttackModifierDeck.current == 0, 'full' : gameManager.game.allyAttackModifierDeck.active && gameManager.game.allyAttackModifierDeck.current > 0, 'no-monster-deck' : !settingsManager.settings.monsterAttackModifierDeck}">
     <ghs-attackmodifier-deck #allyAttackModifierDeck [deck]="gameManager.game.allyAttackModifierDeck" [ally]="true"
       (before)="beforeAllyAttackModifierDeck($event)" (after)="afterAllyAttackModifierDeck($event)" numeration="A"
       [bottom]="true"></ghs-attackmodifier-deck>
-
     <div class="active-toggle"
       [ngClass]="{'inactive' : !gameManager.game.allyAttackModifierDeck.active, 'denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck}">
       <span class="numeration" (click)="toggleActiveAllyAttackModifierDeck()">A</span>
     </div>
   </div>
+  }
 
-  <div #monsterDeck class="deck am-deck monster-deck" *ngIf="settingsManager.settings.monsterAttackModifierDeck"
+  @if (settingsManager.settings.monsterAttackModifierDeck) {
+  <div #monsterDeck class="deck am-deck monster-deck"
     [ngClass]="{'collapsed' : !gameManager.game.monsterAttackModifierDeck.active || compact && (gameManager.game.lootDeck.active || gameManager.game.challengeDeck.active), 'initial' : gameManager.game.monsterAttackModifierDeck.active && gameManager.game.monsterAttackModifierDeck.current < 0, 'partial' : gameManager.game.monsterAttackModifierDeck.active && (gameManager.game.monsterAttackModifierDeck.current == 0 || gameManager.game.monsterAttackModifierDeck.bb && gameManager.game.monsterAttackModifierDeck.current >= 0 && !gameManager.game.monsterAttackModifierDeck.state), 'full' : gameManager.game.monsterAttackModifierDeck.active && (!gameManager.game.monsterAttackModifierDeck.bb && gameManager.game.monsterAttackModifierDeck.current > 0 || gameManager.game.monsterAttackModifierDeck.bb && gameManager.game.monsterAttackModifierDeck.current >= 0 && gameManager.game.monsterAttackModifierDeck.state)}">
     <ghs-attackmodifier-deck #monsterAttackModifierDeck [deck]="gameManager.game.monsterAttackModifierDeck"
       (before)="beforeMonsterAttackModifierDeck($event)" (after)="afterMonsterAttackModifierDeck($event)" numeration="m"
       [bottom]="true"></ghs-attackmodifier-deck>
-
     <div class="active-toggle"
       [ngClass]="{'inactive' : !gameManager.game.monsterAttackModifierDeck.active, 'denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
       <span class="numeration" (click)="toggleActiveMonsterAttackModifierDeck()">m</span>
     </div>
   </div>
+  }
 
+  @if (settingsManager.settings.lootDeck && (lootDeckEnabeld || settingsManager.settings.alwaysLootDeck ||
+  gameManager.fhRules())) {
   <div class="deck loot-deck"
-    [ngClass]="{'collapsed' : !gameManager.game.lootDeck.active, 'initial' : gameManager.game.lootDeck.active && gameManager.game.lootDeck.current < 0,'partial' : gameManager.game.lootDeck.active &&  gameManager.game.lootDeck.current == 0, 'full' : gameManager.game.lootDeck.active && gameManager.game.lootDeck.current > 0}"
-    *ngIf="settingsManager.settings.lootDeck && (lootDeckEnabeld || settingsManager.settings.alwaysLootDeck || gameManager.fhRules())">
-    <ghs-loot-deck #lootDeck [deck]="gameManager.game.lootDeck" (before)="beforeLootDeck($event)" (after)="afterLootDeck($event)"
-      [bottom]="true"></ghs-loot-deck>
-
+    [ngClass]="{'collapsed' : !gameManager.game.lootDeck.active, 'initial' : gameManager.game.lootDeck.active && gameManager.game.lootDeck.current < 0,'partial' : gameManager.game.lootDeck.active &&  gameManager.game.lootDeck.current == 0, 'full' : gameManager.game.lootDeck.active && gameManager.game.lootDeck.current > 0}">
+    <ghs-loot-deck #lootDeck [deck]="gameManager.game.lootDeck" (before)="beforeLootDeck($event)"
+      (after)="afterLootDeck($event)" [bottom]="true"></ghs-loot-deck>
     <div class="active-toggle"
       [ngClass]="{'inactive' : !gameManager.game.lootDeck.active, 'denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
       <span class="numeration" (click)="toggleLootDeck()">
@@ -57,13 +67,13 @@
       </span>
     </div>
   </div>
+  }
 
+  @if (settingsManager.settings.fhChallenges && gameManager.challengesManager.enabled) {
   <div class="deck challenge-deck"
-    [ngClass]="{'collapsed' : !gameManager.game.challengeDeck.active, 'initial' : gameManager.game.challengeDeck.active && gameManager.game.challengeDeck.current <= gameManager.game.challengeDeck.finished ,'partial' : gameManager.game.challengeDeck.current > gameManager.game.challengeDeck.finished,'partial-2' : gameManager.game.challengeDeck.current > gameManager.game.challengeDeck.finished + 1 , 'full' : gameManager.game.challengeDeck.active && gameManager.game.challengeDeck.current > gameManager.game.challengeDeck.finished + 2}"
-    *ngIf="settingsManager.settings.fhChallenges && gameManager.challengesManager.enabled">
+    [ngClass]="{'collapsed' : !gameManager.game.challengeDeck.active, 'initial' : gameManager.game.challengeDeck.active && gameManager.game.challengeDeck.current <= gameManager.game.challengeDeck.finished ,'partial' : gameManager.game.challengeDeck.current > gameManager.game.challengeDeck.finished,'partial-2' : gameManager.game.challengeDeck.current > gameManager.game.challengeDeck.finished + 1 , 'full' : gameManager.game.challengeDeck.active && gameManager.game.challengeDeck.current > gameManager.game.challengeDeck.finished + 2}">
     <ghs-challenge-deck [deck]="gameManager.game.challengeDeck" (before)="beforeChallengeDeck($event)"
       (after)="afterChallengeDeck($event)" [bottom]="true"></ghs-challenge-deck>
-
     <div class="active-toggle"
       [ngClass]="{'inactive' : !gameManager.game.challengeDeck.active, 'denied': gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
       <span class="numeration" (click)="toggleChallengeDeck()">
@@ -71,5 +81,6 @@
       </span>
     </div>
   </div>
+  }
 
 </footer>

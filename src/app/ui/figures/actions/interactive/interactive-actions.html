@@ -1,25 +1,34 @@
-<div *ngIf="interactiveActions.length || interactiveActionEntities.length" class="interactive-entities" ghs-pointer-input
-    (singleClick)="applyInteractiveActions($event)" [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
-    <span [ghs-label]="interactiveActions.length ? 'monster.applyInteractiveActions' : 'monster.skipInteractiveActions'"></span>
-    <span class="entity-numbers">
-        <span class="entity" *ngFor="let entity of interactiveActionEntities; let i = index">
-            <span *ngIf="i > 0">,</span>
-            <span class="number"
-                [class]="gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).type || ''">{{entity.number}}</span>
-        </span>
+@if (interactiveActions.length || interactiveActionEntities.length) {
+<div class="interactive-entities" ghs-pointer-input (singleClick)="applyInteractiveActions($event)"
+  [ngClass]="{'fh' : settingsManager.settings.theme == 'fh'}">
+  <span
+    [ghs-label]="interactiveActions.length ? 'monster.applyInteractiveActions' : 'monster.skipInteractiveActions'"></span>
+  <span class="entity-numbers">
+    @for (entity of interactiveActionEntities; track entity.number; let i = $index) {
+    <span class="entity">
+      @if (i > 0) {
+      <span>,</span>
+      }
+      <span class="number"
+        [class]="gameManager.isMonsterEntity(entity) && gameManager.toMonsterEntity(entity).type || ''">{{entity.number}}</span>
     </span>
-
-    <span class="choose-element-container" *ngIf="!!chooseElementAction">
-        <span class="element" [ngClass]="{'consume' : chooseElementAction.action.valueType == ActionValueType.minus}">
-            <img
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/wild.svg'" />
-        </span>
-        <span class="element choose-element"
-            [ngClass]="{'consume' : chooseElementAction.action.valueType == ActionValueType.minus}" ghs-pointer-input
-            (singleClick)="selectWildElement($event, chooseElement)"
-            *ngFor="let chooseElement of (chooseElementAction.action.valueType == ActionValueType.minus ? wildToConsume() : wildToCreate())">
-            <img
-                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + chooseElement + '.svg'" />
-        </span>
+    }
+  </span>
+  @if (!!chooseElementAction) {
+  <span class="choose-element-container">
+    <span class="element" [ngClass]="{'consume' : chooseElementAction.action.valueType == ActionValueType.minus}">
+      <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/wild.svg'" />
     </span>
+    @for (chooseElement of (chooseElementAction.action.valueType == ActionValueType.minus ? wildToConsume() :
+    wildToCreate()); track chooseElement) {
+    <span class="element choose-element"
+      [ngClass]="{'consume' : chooseElementAction.action.valueType == ActionValueType.minus}" ghs-pointer-input
+      (singleClick)="selectWildElement($event, chooseElement)">
+      <img
+        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + chooseElement + '.svg'" />
+    </span>
+    }
+  </span>
+  }
 </div>
+}

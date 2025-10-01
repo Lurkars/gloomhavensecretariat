@@ -1,110 +1,134 @@
 <div class="undo-dialog">
-    <div class="menu">
-        <a tabclick class="state undo"
-            [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || undoArray.length == 0}"
-            (click)="gameManager.stateManager.undo()"><span [ghs-label]="'state.undo'"></span></a>
-        <span class="separator">|</span>
-        <a tabclick class="state redo"
-            [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission || redoArray.length == 0}"
-            (click)="gameManager.stateManager.redo()"><span [ghs-label]="'state.redo'"></span></a>
-    </div>
+  <div class="menu">
+    <a tabclick class="state undo"
+      [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning) || undoArray.length == 0}"
+      (click)="gameManager.stateManager.undo()"><span [ghs-label]="'state.undo'"></span></a>
+    <span class="separator">|</span>
+    <a tabclick class="state redo"
+      [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission || redoArray.length == 0}"
+      (click)="gameManager.stateManager.redo()"><span [ghs-label]="'state.redo'"></span></a>
+  </div>
 
-    <div class="container">
-        <div class="list redos">
-            <span tabclick *ngIf="redoArray.length < gameManager.stateManager.redos.length" class="more" (click)="moreRedos()">
-                <span [ghs-label]="'state.loadMore'"></span>
-            </span>
-            <ng-container *ngFor="let i of redoArray;">
-                <span tabclick class="entry" (click)="redo(i)" (mouseleave)="cancelConfirm()"
-                    [ngClass]="{'confirm': undoConfirm == 'redo-' + i,  'disabled' : !gameManager.stateManager.redoPermission }">
-                    <span class="revision">{{getRedoRevision(i) + 1 }}.</span>
-                    <span class="info text-white" *ngIf="getRedoInfo(i).length > 0"
-                        [ghs-label]="'state.info.' + getRedoInfo(i)[0]"
-                        [ghs-label-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)"
-                        [ghs-label-empty]="true"></span>
-                    <span class="spacer"></span>
-                    <span class="debug" *ngIf="gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1]">{{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revision}} -
-                        {{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revisionOffset}}
-                        -
-                        {{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revision - gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revisionOffset}}</span>
-                </span>
-                <span class="warning" *ngIf="i > 0 && getRedoRevision(i) - getRedoRevision(i-1) != 1">
-                    <img src="./assets/images/warning.svg">
-                    <span [ghs-label]="'state.missing'" [ghs-label-args]="[(getRedoRevision(i) -
+  <div class="container">
+    <div class="list redos">
+      @if (redoArray.length < gameManager.stateManager.redos.length) { <span tabclick class="more"
+        (click)="moreRedos()">
+        <span [ghs-label]="'state.loadMore'"></span>
+        </span>
+        }
+        @for (i of redoArray; track i) {
+        <span tabclick class="entry" (click)="redo(i)" (mouseleave)="cancelConfirm()"
+          [ngClass]="{'confirm': undoConfirm == 'redo-' + i,  'disabled' : !gameManager.stateManager.redoPermission }">
+          <span class="revision">{{getRedoRevision(i) + 1 }}.</span>
+          @if (getRedoInfo(i).length > 0) {
+          <span class="info text-white" [ghs-label]="'state.info.' + getRedoInfo(i)[0]"
+            [ghs-label-args]="(getRedoInfo(i) | slice:1:getRedoInfo(i).length)" [ghs-label-empty]="true"></span>
+          }
+          <span class="spacer"></span>
+          @if (gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1]) {
+          <span class="debug">{{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revision}}
+            -
+            {{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revisionOffset}}
+            -
+            {{gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revision -
+            gameManager.stateManager.redos[gameManager.stateManager.redos.length - i - 1].revisionOffset}}</span>
+          }
+        </span>
+        @if (i > 0 && getRedoRevision(i) - getRedoRevision(i-1) != 1) {
+        <span class="warning">
+          <img src="./assets/images/warning.svg">
+          <span [ghs-label]="'state.missing'" [ghs-label-args]="[(getRedoRevision(i) -
                     getRedoRevision(i-1) - 1)]"></span>
-                </span>
-            </ng-container>
-        </div>
+        </span>
+        }
+        }
+    </div>
 
-        <div class="list current" [autoscroll]="true"
-            [ngClass]="{'has-undos' : undoArray.length > 0,'has-redos' : redoArray.length > 0}">
-            <span class="entry">
-                <span class="revision">{{gameManager.game.revision - (gameManager.game.revisionOffset || 0) +
-                    1}}.</span>
-                <span class="info" [ghs-label]="'state.currentGame'"></span>
-                <span class="spacer"></span>
-                <span class="debug">{{gameManager.game.revision}} -
-                    {{gameManager.game.revisionOffset}} -
-                    {{gameManager.game.revision - gameManager.game.revisionOffset}}</span>
-            </span>
-            <span class="warning undo-offset" *ngIf="undoOffset && gameManager.stateManager.gameOffsetWarning"
-                (click)="gameManager.stateManager.gameOffsetWarning = false">
-                <img src="./assets/images/warning.svg">
-                <span [ghs-label]="'state.missing'" [ghs-label-args]="[undoOffset]"></span>
-            </span>
-        </div>
+    <div class="list current" [autoscroll]="true"
+      [ngClass]="{'has-undos' : undoArray.length > 0,'has-redos' : redoArray.length > 0}">
+      <span class="entry">
+        <span class="revision">{{gameManager.game.revision - (gameManager.game.revisionOffset || 0) +
+          1}}.</span>
+        <span class="info" [ghs-label]="'state.currentGame'"></span>
+        <span class="spacer"></span>
+        <span class="debug">{{gameManager.game.revision}} -
+          {{gameManager.game.revisionOffset}} -
+          {{gameManager.game.revision - gameManager.game.revisionOffset}}</span>
+      </span>
+      @if (undoOffset && gameManager.stateManager.gameOffsetWarning) {
+      <span class="warning undo-offset" (click)="gameManager.stateManager.gameOffsetWarning = false">
+        <img src="./assets/images/warning.svg">
+        <span [ghs-label]="'state.missing'" [ghs-label-args]="[undoOffset]"></span>
+      </span>
+      }
+    </div>
 
-        <div class="list undos">
-            <ng-container *ngFor="let i of undoArray;">
-                <span class="warning" *ngIf="!undoOffset && i == undoArray.length - 1 && ((gameManager.game.revision
-                    - gameManager.game.revisionOffset) - getUndoRevision(i) - 1)">
-                    <img src="./assets/images/warning.svg">
-                    <span [ghs-label]="'state.missing'" [ghs-label-args]="[((gameManager.game.revision
+    <div class="list undos">
+      @for (i of undoArray; track i) {
+      @if (!undoOffset && i == undoArray.length - 1 && ((gameManager.game.revision
+      - gameManager.game.revisionOffset) - getUndoRevision(i) - 1)) {
+      <span class="warning">
+        <img src="./assets/images/warning.svg">
+        <span [ghs-label]="'state.missing'" [ghs-label-args]="[((gameManager.game.revision
                         - gameManager.game.revisionOffset) -  getUndoRevision(i) - 1)]"></span>
-                </span>
-                <span class="warning"
-                    *ngIf="i < undoArray.length - 1 &&  getUndoRevision(i+1) -  getUndoRevision(i) != 1">
-                    <img src="./assets/images/warning.svg">
-                    <span [ghs-label]="'state.missing'" [ghs-label-args]="[( getUndoRevision(i+1)
+      </span>
+      }
+      @if (i < undoArray.length - 1 && getUndoRevision(i+1) - getUndoRevision(i) !=1) { <span class="warning">
+        <img src="./assets/images/warning.svg">
+        <span [ghs-label]="'state.missing'" [ghs-label-args]="[( getUndoRevision(i+1)
                     -  getUndoRevision(i) - 1)]"></span>
-                </span>
-                <span tabclick class="entry" (click)="undo(i)" (mouseleave)="cancelConfirm()"
-                    [ngClass]="{'confirm': undoConfirm == 'undo-' + i, 'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}">
-                    <span class="revision">{{ getUndoRevision(i) + 1}}.</span>
-                    <span class="info text-white" *ngIf="getUndoInfo(i).length > 0"
-                        [ghs-label]="'state.info.' + getUndoInfo(i)[0]"
-                        [ghs-label-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)"
-                        [ghs-label-empty]="true"></span>
-                    <span class="spacer"></span>
-                    <span class="debug" *ngIf="gameManager.stateManager.undos[i]">{{gameManager.stateManager.undos[i].revision}} -
-                        {{gameManager.stateManager.undos[i].revisionOffset}} -
-                        {{gameManager.stateManager.undos[i].revision - gameManager.stateManager.undos[i].revisionOffset}}</span>
-                </span>
-            </ng-container>
-            <span tabclick *ngIf="undoArray.length < gameManager.stateManager.undos.length" class="more" inViewport
-                (inViewportAction)="moreUndos()" (click)="moreUndos()">
-                <span [ghs-label]="'state.loadMore'"></span>
-            </span>
-        </div>
+        </span>
+        }
+        <span tabclick class="entry" (click)="undo(i)" (mouseleave)="cancelConfirm()"
+          [ngClass]="{'confirm': undoConfirm == 'undo-' + i, 'disabled' : !gameManager.stateManager.undoPermission || (undoOffset && gameManager.stateManager.gameOffsetWarning)}">
+          <span class="revision">{{ getUndoRevision(i) + 1}}.</span>
+          @if (getUndoInfo(i).length > 0) {
+          <span class="info text-white" [ghs-label]="'state.info.' + getUndoInfo(i)[0]"
+            [ghs-label-args]="(getUndoInfo(i) | slice:1:getUndoInfo(i).length)" [ghs-label-empty]="true"></span>
+          }
+          <span class="spacer"></span>
+          @if (gameManager.stateManager.undos[i]) {
+          <span class="debug">{{gameManager.stateManager.undos[i].revision}} -
+            {{gameManager.stateManager.undos[i].revisionOffset}} -
+            {{gameManager.stateManager.undos[i].revision - gameManager.stateManager.undos[i].revisionOffset}}</span>
+          }
+        </span>
+        }
+        @if (undoArray.length < gameManager.stateManager.undos.length) { <span tabclick class="more" inViewport
+          (inViewportAction)="moreUndos()" (click)="moreUndos()">
+          <span [ghs-label]="'state.loadMore'"></span>
+          </span>
+          }
     </div>
+  </div>
 
-    <div class="spacer"></div>
+  <div class="spacer"></div>
 
-    <div class="menu clear-menu">
-        <span *ngIf="undoArray.length == 0"></span>
+  <div class="menu clear-menu">
+    @if (undoArray.length == 0) {
+    <span></span>
+    }
 
-        <a class="state" *ngIf="undoArray.length > 0"
-            [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission, 'confirm' : confirm == 'clearUndos'}"
-            (mouseleave)="confirm = ''" tabclick (click)="clearUndos()"><span [ghs-label]="'state.clear.undos'"></span>{{confirm
-            ==
-            'clearUndos' ? '!' :
-            '?'}}</a>
-        <span class="separator" *ngIf="undoArray.length > 0 && redoArray.length > 0">|</span>
-        <a class="state" *ngIf="redoArray.length > 0"
-            [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission, 'confirm' : confirm == 'clearRedos'}"
-            (mouseleave)="confirm = ''" tabclick (click)="clearRedos()"><span [ghs-label]="'state.clear.redos'"></span>{{confirm
-            ==
-            'clearRedos' ? '!' :
-            '?'}}</a>
-    </div>
+    @if (undoArray.length > 0) {
+    <a class="state"
+      [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission, 'confirm' : confirm == 'clearUndos'}"
+      (mouseleave)="confirm = ''" tabclick (click)="clearUndos()"><span
+        [ghs-label]="'state.clear.undos'"></span>{{confirm
+      ==
+      'clearUndos' ? '!' :
+      '?'}}</a>
+    }
+    @if (undoArray.length > 0 && redoArray.length > 0) {
+    <span class="separator">|</span>
+    }
+    @if (redoArray.length > 0) {
+    <a class="state"
+      [ngClass]="{'disabled' : !gameManager.stateManager.redoPermission, 'confirm' : confirm == 'clearRedos'}"
+      (mouseleave)="confirm = ''" tabclick (click)="clearRedos()"><span
+        [ghs-label]="'state.clear.redos'"></span>{{confirm
+      ==
+      'clearRedos' ? '!' :
+      '?'}}</a>
+    }
+  </div>
 </div>

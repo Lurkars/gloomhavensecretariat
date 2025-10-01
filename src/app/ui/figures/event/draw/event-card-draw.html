@@ -1,20 +1,25 @@
-<div class="event-card-dialog" *ngIf="!!event">
-    <div class="scroll-container event-card-container">
-        <div class="event-card">
-            <ghs-event-card [event]="event" (onSelect)="select($event)"></ghs-event-card>
-            <a class="open" (click)="showEventCard(event)" [ghs-tooltip]="'game.events.deck.show'">
-                <img class="ghs-svg" src="./assets/images/fullscreen.svg">
-            </a>
-        </div>
+@if (!!event) {
+<div class="event-card-dialog">
+  <div class="scroll-container event-card-container">
+    <div class="event-card">
+      <ghs-event-card [event]="event" (onSelect)="select($event)"></ghs-event-card>
+      <a class="open" (click)="showEventCard(event)" [ghs-tooltip]="'game.events.deck.show'">
+        <img class="ghs-svg" src="./assets/images/fullscreen.svg">
+      </a>
     </div>
-    <div *ngIf="requirementWarning" class="warning">
-        <a [ghs-label]="'game.events.requirements.warning'" (click)="drawNew()"></a>
-    </div>
-    <div class="menu">
-        <a class="cancel" (click)="cancel()" [ghs-label]="'cancel'"></a>
-        <a *ngIf="settingsManager.settings.eventsApply" (click)="accept(false)"
-            [ghs-label]="'game.events.accept.notApply'"></a>
-        <a class="accept" (click)="accept()" [ngClass]="{'disabled': selected == -1}"
-            [ghs-label]="'game.events.accept'"></a>
-    </div>
+  </div>
+  @if (requirementWarning) {
+  <div class="warning">
+    <a [ghs-label]="'game.events.requirements.warning'" (click)="drawNew()"></a>
+  </div>
+  }
+  <div class="menu">
+    <a class="cancel" (click)="cancel()" [ghs-label]="'cancel'"></a>
+    @if (settingsManager.settings.eventsApply) {
+    <a (click)="accept(false)" [ghs-label]="'game.events.accept.notApply'"></a>
+    }
+    <a class="accept" (click)="accept()" [ngClass]="{'disabled': selected == -1}"
+      [ghs-label]="'game.events.accept'"></a>
+  </div>
 </div>
+}

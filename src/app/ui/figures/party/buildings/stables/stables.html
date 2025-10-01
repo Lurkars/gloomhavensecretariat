@@ -1,41 +1,53 @@
 <div class="stables-container">
 
-    <div class="menu">
+  <div class="menu">
 
-        <span class="capacity"><span class="used"
-                [ngClass]="{'full': used == capacity, 'warning': used > capacity}">{{used}}</span>/{{capacity}}</span>
+    <span class="capacity"><span class="used"
+        [ngClass]="{'full': used == capacity, 'warning': used > capacity}">{{used}}</span>/{{capacity}}</span>
 
-        <label *ngIf="!running">
-            <input type="checkbox" [(ngModel)]="edit">
-            <span [ghs-label]="'data.buildings.stables.pets.edit'"></span>
-        </label>
+    @if (!running) {
+    <label>
+      <input type="checkbox" [(ngModel)]="edit">
+      <span [ghs-label]="'data.buildings.stables.pets.edit'"></span>
+    </label>
+    }
 
-        <label *ngIf="!running">
-            <input type="checkbox" [(ngModel)]="showAll" (change)="update()">
-            <span [ghs-label]="'data.buildings.stables.pets.showAll'"></span>
-        </label>
+    @if (!running) {
+    <label>
+      <input type="checkbox" [(ngModel)]="showAll" (change)="update()">
+      <span [ghs-label]="'data.buildings.stables.pets.showAll'"></span>
+    </label>
+    }
+  </div>
+
+  <div class="scroll-container pet-list">
+    @if (!pets.length) {
+    <div class="empty"><span [ghs-label]="'data.buildings.stables.pets.empty'"></span></div>
+    }
+
+    @for (pet of pets; track pet) {
+    <div class="pet">
+      @if (pet.card) {
+      <ghs-pet-card [petCard]="pet.card" [flipped]="pet.model != undefined" [reveal]="pet.model == undefined"
+        [name]="!edit && pet.model ? pet.model.petname : ''" (revealed)="addPet(pet)"
+        [ngClass]="{'selected': (select || running) && pet.model && pet.model.active, 'unavailable': pet.model && pet.model.active && pet.model.lost, 'disabled': (!pet.model || !pet.model.active) && !select && running}"></ghs-pet-card>
+      }
+      @if (!edit && pet.model && (select || running)) {
+      <div class="toggle-active" ghs-pointer-input (singleClick)="toggleActive(pet.model)"
+        (doubleClick)="toggleActive(pet.model, true)"></div>
+      }
+      @if (edit && pet.model) {
+      <input class="name" type="text" [value]="pet.model.petname" (change)="updatePet($event, pet.model)">
+      }
+      @if (edit && pet.model) {
+      <a class="button-remove" (click)="removePet(pet.model)">
+        <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+      }
+      @if (!edit && running && pet.model && pet.model.active) {
+      <a class="button-lost" ghs-pointer-input (singleClick)="toggleLost(pet.model)"
+        (doubleClick)="toggleLost(pet.model,true)"></a>
+      }
     </div>
-
-    <div class="scroll-container pet-list">
-        <div class="empty" *ngIf="!pets.length"><span [ghs-label]="'data.buildings.stables.pets.empty'"></span></div>
-
-        <div class="pet" *ngFor="let pet of pets">
-            <ghs-pet-card *ngIf="pet.card" [petCard]="pet.card" [flipped]="pet.model != undefined"
-                [reveal]="pet.model == undefined" [name]="!edit && pet.model ? pet.model.petname : ''"
-                (revealed)="addPet(pet)"
-                [ngClass]="{'selected': (select || running) && pet.model && pet.model.active, 'unavailable': pet.model && pet.model.active && pet.model.lost, 'disabled': (!pet.model || !pet.model.active) && !select && running}"></ghs-pet-card>
-
-            <div *ngIf="!edit && pet.model && (select || running)" class="toggle-active" ghs-pointer-input
-                (singleClick)="toggleActive(pet.model)" (doubleClick)="toggleActive(pet.model, true)"></div>
-
-            <input *ngIf="edit && pet.model" class="name" type="text" [value]="pet.model.petname"
-                (change)="updatePet($event, pet.model)">
-
-            <a class="button-remove" *ngIf="edit && pet.model" (click)="removePet(pet.model)">
-                <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-
-            <a class="button-lost" *ngIf="!edit && running && pet.model && pet.model.active" ghs-pointer-input
-                (singleClick)="toggleLost(pet.model)" (doubleClick)="toggleLost(pet.model,true)"></a>
-        </div>
-    </div>
+    }
+  </div>
 </div>

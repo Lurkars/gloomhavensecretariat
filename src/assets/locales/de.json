@@ -1335,7 +1335,8 @@
             "": "Gebäude reparieren",
             "action": "Gebäude reparieren",
             "costs": "{0} beliebige",
-            "hint": "Gebäude reparieren (Erzwingen mit Doppelklick)"
+            "hint": "Gebäude reparieren (Erzwingen mit Doppelklick)",
+            "morale": "-1 Moral"
           },
           "rewards": {
             "action": "Stufe {0}",
@@ -1350,7 +1351,8 @@
           },
           "selectResources": {
             "": "Ressourcen auswählen",
-            "confirm": "Bestätigen"
+            "confirm": "Bestätigen",
+            "morale": "-1 Moral"
           },
           "state": {
             "damaged": "beschädigt",

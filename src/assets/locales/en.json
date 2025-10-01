@@ -1464,7 +1464,8 @@
             "": "Repair building",
             "action": "Repair building",
             "costs": "Any {0}",
-            "hint": "Repair building (force with double click)"
+            "hint": "Repair building (force with double click)",
+            "morale": "-1 Morale"
           },
           "rewards": {
             "action": "Level {0}",
@@ -1479,7 +1480,8 @@
           },
           "selectResources": {
             "": "Select Resources",
-            "confirm": "Confirm"
+            "confirm": "Confirm",
+            "morale": "-1 Morale"
           },
           "state": {
             "damaged": "damaged",

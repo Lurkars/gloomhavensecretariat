@@ -1,158 +1,216 @@
 <div class="items-dialog"
-    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-    <div class="scroll-container">
-        <div class="header">
-            <span class="title" *ngIf="!character" [ghs-label]="'game.items.shop'"></span>
-            <span (click)="openItems()" class="title" *ngIf="!!character" [ghs-label]="'game.items.shop.character'"
-                [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
-                [ngClass]="{'management' : character.progress.items &&  character.progress.items.length}"></span>
-            <div *ngIf="!!character" class="resources">
-                <span class="resource gold"><img
-                        [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'">{{character.progress.gold}}</span>
-                <div class="resource-grid" *ngIf="gameManager.fhRules()">
-                    <span class="resource lumber" *ngIf="character.progress.loot.lumber">
-                        <img src="./assets/images/fh/loot/lumber.svg">
-                        {{character.progress.loot.lumber}}
-                    </span>
-                    <span class="resource metal" *ngIf="character.progress.loot.metal">
-                        <img src="./assets/images/fh/loot/metal.svg">
-                        {{character.progress.loot.metal}}
-                    </span>
-                    <span class="resource hide" *ngIf="character.progress.loot.hide">
-                        <img src="./assets/images/fh/loot/hide.svg">
-                        {{character.progress.loot.hide}}
-                    </span>
-
-                    <span class="resource arrowvine" *ngIf="character.progress.loot.arrowvine">
-                        <img src="./assets/images/fh/loot/arrowvine.svg">
-                        {{character.progress.loot.arrowvine}}
-                    </span>
-                    <span class="resource axenut" *ngIf="character.progress.loot.axenut">
-                        <img src="./assets/images/fh/loot/axenut.svg">
-                        {{character.progress.loot.axenut}}
-                    </span>
-                    <span class="resource corpsecap" *ngIf="character.progress.loot.corpsecap">
-                        <img src="./assets/images/fh/loot/corpsecap.svg">
-                        {{character.progress.loot.corpsecap}}
-                    </span>
-                    <span class="resource flamefruit" *ngIf="character.progress.loot.flamefruit">
-                        <img src="./assets/images/fh/loot/flamefruit.svg">
-                        {{character.progress.loot.flamefruit}}
-                    </span>
-                    <span class="resource rockroot" *ngIf="character.progress.loot.rockroot">
-                        <img src="./assets/images/fh/loot/rockroot.svg">
-                        {{character.progress.loot.rockroot}}
-                    </span>
-                    <span class="resource snowthistle" *ngIf="character.progress.loot.snowthistle">
-                        <img src="./assets/images/fh/loot/snowthistle.svg">
-                        {{character.progress.loot.snowthistle}}
-                    </span>
-                </div>
-
-                <a *ngIf="brewing" class="brewing" ghs-pointer-input (singleClick)="brewDialog()"
-                    (doubleClick)="brewDialog(true)"
-                    [ngClass]="{'disabled': gameManager.itemManager.brewingDisabled()}"><img
-                        src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
-            </div>
-            <div *ngIf="gameManager.itemManager.buyingDisabled() && !!character && character.tags.indexOf('new-character') == -1 || gameManager.itemManager.craftingDisabled()"
-                class="shop-disabled">
-                <ng-container
-                    *ngIf="gameManager.itemManager.buyingDisabled() && !!character && character.tags.indexOf('new-character') == -1"
-                    class="shop-disabled">
-                    <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.buyingDisabled'"></span>
-                </ng-container>
-                <ng-container *ngIf="gameManager.itemManager.craftingDisabled()" class="shop-disabled">
-                    <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.craftingDisabled'"></span>
-                </ng-container>
-            </div>
-            <div class="filter">
-                <div class="slots">
-                    <label *ngFor="let slot of ItemSlot" [ngClass]="{'selected': itemSlots.indexOf(slot) != -1}"
-                        ghs-pointer-input (singleClick)="toggleItemSlotFilter(slot)"
-                        (doubleClick)="toggleItemSlotFilter(slot, true)">
-                        <img class="ghs-svg" [src]="'./assets/images/items/slots/' + slot + '.svg'">
-                    </label>
-                    <label *ngIf="itemSlotUndefined" [ngClass]="{'selected': itemSlots.indexOf('undefined') != -1}"
-                        ghs-pointer-input (singleClick)="toggleItemSlotFilter('undefined')"
-                        (doubleClick)="toggleItemSlotFilter('undefined', true)">
-                        <img class="ghs-svg" src="./assets/images/unknown.svg">
-                    </label>
-                </div>
-                <input type="text" [(ngModel)]="filter" (keyup)="update()" [ghs-label]="'game.items.filter'"
-                    [ghs-label-attribute]="'placeholder'">
-                <label *ngIf="!!character">
-                    <input type="checkbox" [(ngModel)]="affordable" (change)="update(true)">
-                    <span [ghs-label]="'game.items.filter.affordable'"></span>
-                </label>
-                <label *ngIf="!!character">
-                    <input type="checkbox" [(ngModel)]="sorted" (change)="update(true)">
-                    <span [ghs-label]="'game.items.filter.sorted'"></span>
-                </label>
-                <label>
-                    <input type="checkbox" [(ngModel)]="all" (change)="updateEditionItems()">
-                    &lt;<span [ghs-label]="'game.items.filter.all'"></span>(!)&gt;
-                </label>
-            </div>
-            <div class="editions" *ngIf="!!editions && editions.length > 1">
-                <label [ngClass]="{'disabled' : currentEdition == edition}" class="edition"
-                    *ngFor="let edition of editions">
-                    <input type="checkbox" [checked]="currentEdition == edition" (change)="setEdition(edition)">
-                    <span [ghs-label]="'data.edition.' + edition"></span>
-                </label>
-            </div>
+  [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+  <div class="scroll-container">
+    <div class="header">
+      @if (!character) {
+      <span class="title" [ghs-label]="'game.items.shop'"></span>
+      }
+      @if (!!character) {
+      <span (click)="openItems()" class="title" [ghs-label]="'game.items.shop.character'"
+        [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"
+        [ngClass]="{'management' : character.progress.items &&  character.progress.items.length}"></span>
+      }
+      @if (!!character) {
+      <div class="resources">
+        <span class="resource gold"><img
+            [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'loot.svg'">{{character.progress.gold}}</span>
+        @if (gameManager.fhRules()) {
+        <div class="resource-grid">
+          @if (character.progress.loot.lumber) {
+          <span class="resource lumber">
+            <img src="./assets/images/fh/loot/lumber.svg">
+            {{character.progress.loot.lumber}}
+          </span>
+          }
+          @if (character.progress.loot.metal) {
+          <span class="resource metal">
+            <img src="./assets/images/fh/loot/metal.svg">
+            {{character.progress.loot.metal}}
+          </span>
+          }
+          @if (character.progress.loot.hide) {
+          <span class="resource hide">
+            <img src="./assets/images/fh/loot/hide.svg">
+            {{character.progress.loot.hide}}
+          </span>
+          }
+          @if (character.progress.loot.arrowvine) {
+          <span class="resource arrowvine">
+            <img src="./assets/images/fh/loot/arrowvine.svg">
+            {{character.progress.loot.arrowvine}}
+          </span>
+          }
+          @if (character.progress.loot.axenut) {
+          <span class="resource axenut">
+            <img src="./assets/images/fh/loot/axenut.svg">
+            {{character.progress.loot.axenut}}
+          </span>
+          }
+          @if (character.progress.loot.corpsecap) {
+          <span class="resource corpsecap">
+            <img src="./assets/images/fh/loot/corpsecap.svg">
+            {{character.progress.loot.corpsecap}}
+          </span>
+          }
+          @if (character.progress.loot.flamefruit) {
+          <span class="resource flamefruit">
+            <img src="./assets/images/fh/loot/flamefruit.svg">
+            {{character.progress.loot.flamefruit}}
+          </span>
+          }
+          @if (character.progress.loot.rockroot) {
+          <span class="resource rockroot">
+            <img src="./assets/images/fh/loot/rockroot.svg">
+            {{character.progress.loot.rockroot}}
+          </span>
+          }
+          @if (character.progress.loot.snowthistle) {
+          <span class="resource snowthistle">
+            <img src="./assets/images/fh/loot/snowthistle.svg">
+            {{character.progress.loot.snowthistle}}
+          </span>
+          }
         </div>
-        <div class="menu" *ngIf="!!character">
-            <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
-            <a class="secondary" *ngIf="!!selected && !gameManager.itemManager.owned(selected, character)"
-                (click)="addItem(selected, true)" [ghs-label]="'game.items.add'"
-                [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ] : []"></a>
-            <a class="primary"
-                *ngIf="!selected || (selected.cost || selected.resources) && !gameManager.itemManager.owned(selected, character)"
-                [ngClass]="{'disabled' : !selected || !gameManager.itemManager.canBuy(selected, character) && !gameManager.itemManager.canCraft(selected, character)}"
-                (click)="selected ? (selected.cost ? buyItem(selected): craftItem(selected)) : false"
-                [ghs-label]="'game.items.' + (selected ? (selected.cost ? 'buy' : 'craft') : 'choose')"
-                [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ,(selected.cost + gameManager.itemManager.pricerModifier())] : []"></a>
-
-            <a class="secondary" *ngIf="!!selected && gameManager.itemManager.owned(selected, character)"
-                (click)="removeItem(selected)" [ghs-label]="'game.items.remove'"
-                [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
-            <a class="primary" *ngIf="!!selected && gameManager.itemManager.owned(selected, character)"
-                (click)="sellItem(selected)" [ghs-label]="'game.items.sell'"
-                [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id , gameManager.itemManager.itemSellValue(selected)]"></a>
-            <a class="tertiary"
-                *ngIf="!!selected && gameManager.itemManager.owned(selected, character) && gameManager.itemManager.canDistill(selected)"
-                (click)="distillItem(selected)" [ghs-label]="'game.items.distilling'"
-                [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
+        }
+        @if (brewing) {
+        <a class="brewing" ghs-pointer-input (singleClick)="brewDialog()" (doubleClick)="brewDialog(true)"
+          [ngClass]="{'disabled': gameManager.itemManager.brewingDisabled()}"><img
+            src="./assets/images/fh/brewing.svg"><span [ghs-label]="'game.items.brewing'"></span></a>
+        }
+      </div>
+      }
+      @if (gameManager.itemManager.buyingDisabled() && !!character && character.tags.indexOf('new-character') == -1 ||
+      gameManager.itemManager.craftingDisabled()) {
+      <div class="shop-disabled">
+        @if (gameManager.itemManager.buyingDisabled() && !!character && character.tags.indexOf('new-character') == -1) {
+        <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.buyingDisabled'"></span>
+        }
+        @if (gameManager.itemManager.craftingDisabled()) {
+        <img src="./assets/images/close.svg"> <span [ghs-label]="'game.items.shop.craftingDisabled'"></span>
+        }
+      </div>
+      }
+      <div class="filter">
+        <div class="slots">
+          @for (slot of ItemSlot; track slot) {
+          <label [ngClass]="{'selected': itemSlots.indexOf(slot) != -1}" ghs-pointer-input
+            (singleClick)="toggleItemSlotFilter(slot)" (doubleClick)="toggleItemSlotFilter(slot, true)">
+            <img class="ghs-svg" [src]="'./assets/images/items/slots/' + slot + '.svg'">
+          </label>
+          }
+          @if (itemSlotUndefined) {
+          <label [ngClass]="{'selected': itemSlots.indexOf('undefined') != -1}" ghs-pointer-input
+            (singleClick)="toggleItemSlotFilter('undefined')" (doubleClick)="toggleItemSlotFilter('undefined', true)">
+            <img class="ghs-svg" src="./assets/images/unknown.svg">
+          </label>
+          }
         </div>
-
-        <div class="item-list" *ngIf="items.length == 0 && unlocks.length == 0">
-            <div class="empty"><span [ghs-label]="'game.items.empty'"></span></div>
-        </div>
-
-        <div class="item-list">
-            <div class="item" *ngFor="let itemData of items; let i = index;">
-                <ghs-item *ngIf="!!character" [item]="itemData" [flipped]="true" ghs-pointer-input
-                    (singleClick)="select(itemData)" (doubleClick)="select(itemData,true)"
-                    [count]="!character ? 1 : (itemsMeta[i].countAvailable < 1 ? '-' : itemsMeta[i].assigned +1)"
-                    [editionLabel]="currentEdition"
-                    [ngClass]="{'selected': itemData == selected, 'disabled': !character, 'filtered': !itemsMeta[i].canAdd, 'unavailable' : (itemData.cost || itemData.resources) && !itemsMeta[i].canBuy &&!itemsMeta[i].canCraft, 'owned': itemsMeta[i].owned,}"></ghs-item>
-                <ghs-item *ngIf="!character || !select" [item]="itemData" [flipped]="true"
-                    [count]="!character ? 1 : (itemsMeta[i].countAvailable < 1 ? '-' : itemsMeta[i].assigned +1)"
-                    [editionLabel]="currentEdition"></ghs-item>
-                <a class="button-remove" *ngIf="!all && unlocked(itemData)" (click)="removeUnlocked(itemData)">
-                    <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-                <a class="button-equip" *ngIf="!!character && gameManager.itemManager.owned(itemData, character)"
-                    [ngClass]="{'equipped' : gameManager.itemManager.isEquipped(itemData, character)}" ghs-pointer-input
-                    (singleClick)="toggleEquippedItem(itemData)" (doubleClick)="toggleEquippedItem(itemData, true)">
-                    <img class="ghs-svg" src="./assets/images/check.svg"></a>
-            </div>
-            <div class="item" *ngFor="let unlock of unlocks">
-                <ghs-item [item]="unlock" [reveal]="true" [flipped]="unlocked(unlock)"
-                    (revealed)="unlockItemReveal(unlock, $event)" [editionLabel]="currentEdition"></ghs-item>
-                <span *ngIf="!unlocked(unlock)" class="overlay-text" [ghs-label]="'game.items.unlock'"></span>
-                <a class="button-remove" *ngIf="!all && unlocked(unlock)" (click)="removeUnlocked(unlock)">
-                    <img class="ghs-svg" src="./assets/images/minus.svg"></a>
-            </div>
-        </div>
+        <input type="text" [(ngModel)]="filter" (keyup)="update()" [ghs-label]="'game.items.filter'"
+          [ghs-label-attribute]="'placeholder'">
+        @if (!!character) {
+        <label>
+          <input type="checkbox" [(ngModel)]="affordable" (change)="update(true)">
+          <span [ghs-label]="'game.items.filter.affordable'"></span>
+        </label>
+        }
+        @if (!!character) {
+        <label>
+          <input type="checkbox" [(ngModel)]="sorted" (change)="update(true)">
+          <span [ghs-label]="'game.items.filter.sorted'"></span>
+        </label>
+        }
+        <label>
+          <input type="checkbox" [(ngModel)]="all" (change)="updateEditionItems()">
+          &lt;<span [ghs-label]="'game.items.filter.all'"></span>(!)&gt;
+        </label>
+      </div>
+      @if (!!editions && editions.length > 1) {
+      <div class="editions">
+        @for (edition of editions; track edition) {
+        <label [ngClass]="{'disabled' : currentEdition == edition}" class="edition">
+          <input type="checkbox" [checked]="currentEdition == edition" (change)="setEdition(edition)">
+          <span [ghs-label]="'data.edition.' + edition"></span>
+        </label>
+        }
+      </div>
+      }
     </div>
+    @if (!!character) {
+    <div class="menu">
+      <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
+      @if (!!selected && !gameManager.itemManager.owned(selected, character)) {
+      <a class="secondary" (click)="addItem(selected, true)" [ghs-label]="'game.items.add'"
+        [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ] : []"></a>
+      }
+      @if (!selected || (selected.cost || selected.resources) && !gameManager.itemManager.owned(selected, character)) {
+      <a class="primary"
+        [ngClass]="{'disabled' : !selected || !gameManager.itemManager.canBuy(selected, character) && !gameManager.itemManager.canCraft(selected, character)}"
+        (click)="selected ? (selected.cost ? buyItem(selected): craftItem(selected)) : false"
+        [ghs-label]="'game.items.' + (selected ? (selected.cost ? 'buy' : 'craft') : 'choose')"
+        [ghs-label-args]="selected ? ['data.items.' + selected.edition + '-' + selected.id ,(selected.cost + gameManager.itemManager.pricerModifier())] : []"></a>
+      }
+      @if (!!selected && gameManager.itemManager.owned(selected, character)) {
+      <a class="secondary" (click)="removeItem(selected)" [ghs-label]="'game.items.remove'"
+        [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
+      }
+      @if (!!selected && gameManager.itemManager.owned(selected, character)) {
+      <a class="primary" (click)="sellItem(selected)" [ghs-label]="'game.items.sell'"
+        [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id , gameManager.itemManager.itemSellValue(selected)]"></a>
+      }
+      @if (!!selected && gameManager.itemManager.owned(selected, character) &&
+      gameManager.itemManager.canDistill(selected)) {
+      <a class="tertiary" (click)="distillItem(selected)" [ghs-label]="'game.items.distilling'"
+        [ghs-label-args]="['data.items.' + selected.edition + '-' + selected.id ]"></a>
+      }
+    </div>
+    }
+
+    @if (items.length == 0 && unlocks.length == 0) {
+    <div class="item-list">
+      <div class="empty"><span [ghs-label]="'game.items.empty'"></span></div>
+    </div>
+    }
+
+    <div class="item-list">
+      @for (itemData of items; track itemData.edition + '-' + itemData.id; let i = $index) {
+      <div class="item">
+        @if (!!character) {
+        <ghs-item [item]="itemData" [flipped]="true" ghs-pointer-input (singleClick)="select(itemData)"
+          (doubleClick)="select(itemData,true)"
+          [count]="!character ? 1 : (itemsMeta[i].countAvailable < 1 ? '-' : itemsMeta[i].assigned +1)"
+          [editionLabel]="currentEdition"
+          [ngClass]="{'selected': itemData == selected, 'disabled': !character, 'filtered': !itemsMeta[i].canAdd, 'unavailable' : (itemData.cost || itemData.resources) && !itemsMeta[i].canBuy &&!itemsMeta[i].canCraft, 'owned': itemsMeta[i].owned,}"></ghs-item>
+        }
+        @if (!character || !select) {
+        <ghs-item [item]="itemData" [flipped]="true"
+          [count]="!character ? 1 : (itemsMeta[i].countAvailable < 1 ? '-' : itemsMeta[i].assigned +1)"
+          [editionLabel]="currentEdition"></ghs-item>
+        }
+        @if (!all && unlocked(itemData)) {
+        <a class="button-remove" (click)="removeUnlocked(itemData)">
+          <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+        }
+        @if (!!character && gameManager.itemManager.owned(itemData, character)) {
+        <a class="button-equip" [ngClass]="{'equipped' : gameManager.itemManager.isEquipped(itemData, character)}"
+          ghs-pointer-input (singleClick)="toggleEquippedItem(itemData)"
+          (doubleClick)="toggleEquippedItem(itemData, true)">
+          <img class="ghs-svg" src="./assets/images/check.svg"></a>
+        }
+      </div>
+      }
+      @for (unlock of unlocks; track unlock.edition + '-' + unlock.id) {
+      <div class="item">
+        <ghs-item [item]="unlock" [reveal]="true" [flipped]="unlocked(unlock)"
+          (revealed)="unlockItemReveal(unlock, $event)" [editionLabel]="currentEdition"></ghs-item>
+        @if (!unlocked(unlock)) {
+        <span class="overlay-text" [ghs-label]="'game.items.unlock'"></span>
+        }
+        @if (!all && unlocked(unlock)) {
+        <a class="button-remove" (click)="removeUnlocked(unlock)">
+          <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+        }
+      </div>
+      }
+    </div>
+  </div>
 </div>

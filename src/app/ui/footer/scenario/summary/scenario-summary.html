@@ -4,29 +4,39 @@
       <span
         [ghs-label]="conclusionOnly ? 'scenario.conclusion' : (rewardsOnly ? 'scenario.summary.rewards' : 'scenario.summary')"></span>
       <span class="name">
-        <span *ngIf="scenario.index && !scenario.hideIndex">#{{scenario.index}}&nbsp;</span>
+        @if (scenario.index && !scenario.hideIndex) {
+        <span>#{{scenario.index}}&nbsp;</span>
+        }
         <span class="text-white"
           [ghs-label]="gameManager.scenarioManager.scenarioTitle(scenario, conclusionOnly)"></span>
       </span>
     </span>
-    <span *ngIf="success && !conclusionOnly && !rewardsOnly" class="success"><span
-        [ghs-label]="'scenario.finish.success'"></span></span>
-    <span class="conclusion" *ngIf="!!conclusion && conclusion != scenario">
+    @if (success && !conclusionOnly && !rewardsOnly) {
+    <span class="success"><span [ghs-label]="'scenario.finish.success'"></span></span>
+    }
+    @if (!!conclusion && conclusion != scenario) {
+    <span class="conclusion">
       <span [ghs-label]="(conclusion.name ? gameManager.scenarioManager.scenarioTitle(conclusion,true) :
       '%scenario.section% #' + conclusion.index)"></span>
     </span>
-    <span *ngIf="success && !gameManager.game.party.campaignMode && !rewardsOnly" class="casual">
+    }
+    @if (success && !gameManager.game.party.campaignMode && !rewardsOnly) {
+    <span class="casual">
       <span [ghs-label]="'scenario.summary.casualWarning'"></span></span>
-    <span *ngIf="!success" class="failure"><span [ghs-label]="'scenario.finish.failure'"></span></span>
+    }
+    @if (!success) {
+    <span class="failure"><span [ghs-label]="'scenario.finish.failure'"></span></span>
+    }
   </div>
 
   <div class="main"
     [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-    <div class="table" [style.--ghs-summary-columns]="1 + characters.length"
-      *ngIf="characters.length > 0 && (characterProgress || forceCampaign) && settingsManager.settings.characterSheet && !conclusionOnly && !rewardsOnly && !gameManager.bbRules()">
-
+    @if (characters.length > 0 && (characterProgress || forceCampaign) && settingsManager.settings.characterSheet &&
+    !conclusionOnly && !rewardsOnly && !gameManager.bbRules()) {
+    <div class="table" [style.--ghs-summary-columns]="1 + characters.length">
       <span class="head-col first"><span [ghs-label]="'scenario.summary.name'"></span></span>
-      <span class="first" *ngFor="let character of characters; let index = index;">
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="first">
         <img class="icon character-icon" (click)="openCharacterSheet(character)" [src]="character.iconUrl" />
         <span class="name" [ngClass]="{'absent' : character.absent}">
           {{gameManager.characterManager.characterName(character,true)}}
@@ -39,923 +49,1153 @@
             (click)="toggleAbsent(character)">
         </span>
       </span>
-
+      }
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.loot'"></span></span>
-      <span class="calc-col" *ngFor="let character of characters; let index = index;">
-        <span *ngIf="!gameManager.game.lootDeck.cards.length">{{character.loot | ghsValueSign}}</span>
-        <span
-          *ngIf="gameManager.game.lootDeck.cards.length">{{character.lootCards.length}}/{{gameManager.game.lootDeck.cards.length}}</span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
+        @if (!gameManager.game.lootDeck.cards.length) {
+        <span>{{character.loot | ghsValueSign}}</span>
+        }
+        @if (gameManager.game.lootDeck.cards.length) {
+        <span>{{character.lootCards.length}}/{{gameManager.game.lootDeck.cards.length}}</span>
+        }
       </span>
-
-      <ng-container *ngIf="success && !!rewards && rewards.gold">
-        <span class="head-col calc-col">
-          <span [ghs-label]="'scenario.summary.rewards.gold'"></span>
-        </span>
-        <span class="calc-col" *ngFor="let character of characters; let index = index;">
-          {{rewards.gold | ghsValueSign}}
-        </span>
-      </ng-container>
-
-      <ng-container *ngIf="success && !!rewards && rewards.collectiveGold">
-        <span class="head-col"><span class="text-white"
-            [ghs-label]="'scenario.summary.rewards.collectiveGold'"></span></span>
-        <span class="calc-col" *ngFor="let character of characters; let index = index;">
-          <input type="number" min="0" [max]="collectiveGold[index] + availableCollectiveGold()"
-            [value]="collectiveGold[index]" (change)="changeCollectiveGold($event, index)">
-        </span>
-      </ng-container>
-
-      <ng-container *ngIf="success && !!rewards && rewards.collectiveResources">
-        <ng-container *ngFor="let value of rewards.collectiveResources">
-          <span class="head-col"><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveResource'"
-              [ghs-label-args]="[value.type]"></span></span>
-          <span class="calc-col" *ngFor="let character of characters; let index = index;">
-            <input type="number" min="0"
-              [max]="(collectiveResources[index] && collectiveResources[index][value.type] || 0) + availableCollectiveResource(value.type)"
-              [value]="(collectiveResources[index] && collectiveResources[index][value.type] || 0)"
-              (change)="changeCollectiveResource($event, index, value.type)">
-          </span>
-
-        </ng-container>
-
-      </ng-container>
-
-      <ng-container
-        *ngIf="success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && gameManager.trialsManager.activeFavor('fh', 'wealth')">
-        <span class="head-col calc-col">
-          <span [ghs-label]="'data.favors.fh.wealth.reward'" [ghs-tooltip]="'data.favors.fh.wealth.text'"></span>
-          <span
-            *ngIf="gameManager.trialsManager.activeFavor('fh', 'wealth') > 1">&nbsp;({{gameManager.trialsManager.activeFavor('fh',
-            'wealth')}}x)</span>
-        </span>
-        <span class="calc-col" *ngFor="let character of characters; let index = index;">
-          <ng-container *ngIf="character.loot">
-            <span class="gold">{{(character.loot*gameManager.trialsManager.activeFavor('fh', 'wealth')) |
-              ghsValueSign}}</span>
-            <ng-container *ngIf="gameManager.trialsManager.activeFavor('fh', 'wealth') > 1">
-              &nbsp;
-              <span>(</span>
-              <span
-                *ngFor="let i of [] | ghsRange:gameManager.trialsManager.activeFavor('fh', 'wealth')">{{character.loot
-                | ghsValueSign}}</span>
-              <span>)</span>
-            </ng-container>
-          </ng-container>
-          <span *ngIf="!character.loot">0</span>
-        </span>
-      </ng-container>
-
+      }
+      @if (success && !!rewards && rewards.gold) {
+      <span class="head-col calc-col">
+        <span [ghs-label]="'scenario.summary.rewards.gold'"></span>
+      </span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
+        {{rewards.gold | ghsValueSign}}
+      </span>
+      }
+      }
+      @if (success && !!rewards && rewards.collectiveGold) {
+      <span class="head-col"><span class="text-white"
+          [ghs-label]="'scenario.summary.rewards.collectiveGold'"></span></span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
+        <input type="number" min="0" [max]="collectiveGold[index] + availableCollectiveGold()"
+          [value]="collectiveGold[index]" (change)="changeCollectiveGold($event, index)">
+      </span>
+      }
+      }
+      @if (success && !!rewards && rewards.collectiveResources) {
+      @for (value of rewards.collectiveResources; track value) {
+      <span class="head-col"><span class="text-white" [ghs-label]="'scenario.summary.rewards.collectiveResource'"
+          [ghs-label-args]="[value.type]"></span></span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
+        <input type="number" min="0"
+          [max]="(collectiveResources[index] && collectiveResources[index][value.type] || 0) + availableCollectiveResource(value.type)"
+          [value]="(collectiveResources[index] && collectiveResources[index][value.type] || 0)"
+          (change)="changeCollectiveResource($event, index, value.type)">
+      </span>
+      }
+      }
+      }
+      @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply &&
+      gameManager.trialsManager.activeFavor('fh', 'wealth')) {
+      <span class="head-col calc-col">
+        <span [ghs-label]="'data.favors.fh.wealth.reward'" [ghs-tooltip]="'data.favors.fh.wealth.text'"></span>
+        @if (gameManager.trialsManager.activeFavor('fh', 'wealth') > 1) {
+        <span>&nbsp;({{gameManager.trialsManager.activeFavor('fh',
+          'wealth')}}x)</span>
+        }
+      </span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
+        @if (character.loot) {
+        <span class="gold">{{(character.loot*gameManager.trialsManager.activeFavor('fh', 'wealth')) |
+          ghsValueSign}}</span>
+        @if (gameManager.trialsManager.activeFavor('fh', 'wealth') > 1) {
+        &nbsp;
+        <span>(</span>
+        @for (i of [] | ghsRange:gameManager.trialsManager.activeFavor('fh', 'wealth'); track i) {
+        <span>{{character.loot
+          | ghsValueSign}}</span>
+        }
+        <span>)</span>
+        }
+        }
+        @if (!character.loot) {
+        <span>0</span>
+        }
+      </span>
+      }
+      }
       <span class="head-col">
-        <span *ngIf="!totalGold" [ghs-label]="'scenario.summary.gold'"></span>
-        <ng-container *ngIf="totalGold">
-          <img class="ghs-svg" src="./assets/images/fh/loot/money.svg">
-          {{lootedGold}}/{{totalGold}}
-        </ng-container>
+        @if (!totalGold) {
+        <span [ghs-label]="'scenario.summary.gold'"></span>
+        }
+        @if (totalGold) {
+        <img class="ghs-svg" src="./assets/images/fh/loot/money.svg">
+        {{lootedGold}}/{{totalGold}}
+        }
       </span>
-
-      <ng-container *ngFor="let character of characters; let index = index;">
-        <span *ngIf="!character.absent">
-          <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
-            collectiveGold[index] : 0) + (character.loot *
-            gameManager.levelManager.loot()) + (gameManager.trialsManager.favorsEnabled &&
-            gameManager.trialsManager.apply
-            ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0) | ghsValueSign}}</span>
-          ({{character.progress.gold + (success && rewards && rewards.gold ? rewards.gold : 0)+ (collectiveGold[index] ?
-          collectiveGold[index] : 0) + character.loot *
-          gameManager.levelManager.loot() + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
-          ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0)}})
-        </span>
-
-        <span *ngIf="character.absent">
-          <span>/</span>
-          ({{character.progress.gold}})
-        </span>
-      </ng-container>
-
-      <ng-container *ngFor="let lootType of lootColumns; let i = index">
-        <span class="head-col">
-          <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'">
-          {{lootColumnsLooted[i]}}/{{lootColumnsTotal[i]}}
-        </span>
-        <ng-container *ngFor="let character of characters; let index = index;">
-          <span *ngIf="!character.absent">
-            <span class="loot">{{lootValue(character, lootType) | ghsValueSign}}</span>
-            ({{(character.progress.loot[lootType] || 0) + lootValue(character, lootType)}})
-          </span>
-
-          <span *ngIf="character.absent">
-            <span class="loot">/</span>
-            ({{character.progress.loot[lootType] || 0}})
-          </span>
-        </ng-container>
-      </ng-container>
-
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @if (!character.absent) {
+      <span>
+        <span class="gold">{{(success && rewards && rewards.gold ? rewards.gold : 0) + (collectiveGold[index] ?
+          collectiveGold[index] : 0) + (character.loot *
+          gameManager.levelManager.loot()) + (gameManager.trialsManager.favorsEnabled &&
+          gameManager.trialsManager.apply
+          ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0) | ghsValueSign}}</span>
+        ({{character.progress.gold + (success && rewards && rewards.gold ? rewards.gold : 0)+ (collectiveGold[index] ?
+        collectiveGold[index] : 0) + character.loot *
+        gameManager.levelManager.loot() + (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
+        ? character.loot *gameManager.trialsManager.activeFavor('fh', 'wealth') : 0)}})
+      </span>
+      }
+      @if (character.absent) {
+      <span>
+        <span>/</span>
+        ({{character.progress.gold}})
+      </span>
+      }
+      }
+      @for (lootType of lootColumns; track lootType; let i = $index) {
+      <span class="head-col">
+        <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'">
+        {{lootColumnsLooted[i]}}/{{lootColumnsTotal[i]}}
+      </span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @if (!character.absent) {
+      <span>
+        <span class="loot">{{lootValue(character, lootType) | ghsValueSign}}</span>
+        ({{(character.progress.loot[lootType] || 0) + lootValue(character, lootType)}})
+      </span>
+      }
+      @if (character.absent) {
+      <span>
+        <span class="loot">/</span>
+        ({{character.progress.loot[lootType] || 0}})
+      </span>
+      }
+      }
+      }
       <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpGained'"></span></span>
-      <span class="calc-col" *ngFor="let character of characters; let index = index;">
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
         {{character.experience | ghsValueSign}}
       </span>
-
-      <ng-container *ngIf="success &&
-      (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1)">
-        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpBonus'"></span></span>
-        <span class="calc-col" *ngFor="let character of characters; let index = index;">
-          <span *ngIf="!character.absent">{{gameManager.levelManager.experience()
-            | ghsValueSign}}</span>
-          <span *ngIf="character.absent">/</span>
-        </span>
-
-        <ng-container *ngIf="success && rewards && rewards.experience">
-          <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.experience'"></span></span>
-          <span class="calc-col" *ngFor="let character of characters; let index = index;">
-            {{rewards.experience | ghsValueSign}}
-          </span>
-        </ng-container>
-      </ng-container>
-
-      <ng-container *ngIf="success && challenges > 0">
-        <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpChallenges'"></span></span>
-        <span class="calc-col" *ngFor="let character of characters; let index = index;">
-          <span *ngIf="!character.absent">{{(2*challenges) | ghsValueSign}}</span>
-          <span *ngIf="character.absent">/</span>
-        </span>
-      </ng-container>
-
-      <ng-container
-        *ngIf="success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply &&gameManager.trialsManager.activeFavor('fh', 'knowledge')">
-        <span class="head-col calc-col">
-          <span [ghs-label]="'data.favors.fh.knowledge.reward'" [ghs-tooltip]="'data.favors.fh.knowledge.text'"></span>
-          <span
-            *ngIf="gameManager.trialsManager.activeFavor('fh', 'knowledge') > 1">&nbsp;({{gameManager.trialsManager.activeFavor('fh',
-            'knowledge')}}x)</span>
-        </span>
-        <span class="calc-col" *ngFor="let character of characters; let index = index;">
-          <ng-container *ngIf="battleGoals[index]">
-            <span class="xp">{{(3*gameManager.trialsManager.activeFavor('fh', 'knowledge')) | ghsValueSign}}</span>
-            <ng-container *ngIf="gameManager.trialsManager.activeFavor('fh', 'knowledge') > 1">&nbsp;
-              <span>(</span>
-              <span *ngFor="let i of [] | ghsRange:gameManager.trialsManager.activeFavor('fh', 'knowledge')">+3</span>
-              <span>)</span>
-            </ng-container>
-          </ng-container>
-          <span *ngIf="!battleGoals[index]">0</span>
-        </span>
-      </ng-container>
-
+      }
+      @if (success &&
+      (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1)) {
+      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpBonus'"></span></span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
+        @if (!character.absent) {
+        <span>{{gameManager.levelManager.experience()
+          | ghsValueSign}}</span>
+        }
+        @if (character.absent) {
+        <span>/</span>
+        }
+      </span>
+      }
+      @if (success && rewards && rewards.experience) {
+      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.rewards.experience'"></span></span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
+        {{rewards.experience | ghsValueSign}}
+      </span>
+      }
+      }
+      }
+      @if (success && challenges > 0) {
+      <span class="head-col calc-col"><span [ghs-label]="'scenario.summary.xpChallenges'"></span></span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
+        @if (!character.absent) {
+        <span>{{(2*challenges) | ghsValueSign}}</span>
+        }
+        @if (character.absent) {
+        <span>/</span>
+        }
+      </span>
+      }
+      }
+      @if (success && gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply
+      &&gameManager.trialsManager.activeFavor('fh', 'knowledge')) {
+      <span class="head-col calc-col">
+        <span [ghs-label]="'data.favors.fh.knowledge.reward'" [ghs-tooltip]="'data.favors.fh.knowledge.text'"></span>
+        @if (gameManager.trialsManager.activeFavor('fh', 'knowledge') > 1) {
+        <span>&nbsp;({{gameManager.trialsManager.activeFavor('fh',
+          'knowledge')}}x)</span>
+        }
+      </span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="calc-col">
+        @if (battleGoals[index]) {
+        <span class="xp">{{(3*gameManager.trialsManager.activeFavor('fh', 'knowledge')) | ghsValueSign}}</span>
+        @if (gameManager.trialsManager.activeFavor('fh', 'knowledge') > 1) {
+        &nbsp;
+        <span>(</span>
+        @for (i of [] | ghsRange:gameManager.trialsManager.activeFavor('fh', 'knowledge'); track i) {
+        <span>+3</span>
+        }
+        <span>)</span>
+        }
+        }
+        @if (!battleGoals[index]) {
+        <span>0</span>
+        }
+      </span>
+      }
+      }
       <span class="head-col"><span [ghs-label]="'scenario.summary.xp'"></span></span>
-      <ng-container *ngFor="let character of characters; let index = index;">
-        <span *ngIf="!character.absent">
-          <span class="xp" *ngIf="success">{{((rewards && rewards.experience ? rewards.experience : 0) + challenges * 2
-            +
-            character.experience + ( (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') ==
-            -1) ? gameManager.levelManager.experience() : 0)) | ghsValueSign}}</span>
-          <span class="xp" *ngIf="!success">{{character.experience | ghsValueSign}}</span>
-          ({{character.progress.experience + challenges * 2 + character.experience + (success && rewards &&
-          rewards.experience ?
-          rewards.experience : 0) + ((success && (!rewards || !rewards.ignoredBonus ||
-          rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0)) +
-          (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && battleGoals[index]
-          ? 3 *gameManager.trialsManager.activeFavor('fh', 'knowledge') : 0)
-          }})
-
-          <span class="level-up" *ngIf="levelUp[index]" [ghs-tooltip]="'scenario.summary.levelUp'"
-            [ghs-label-args]="[character.level, (character.level + 1)]">
-            <img class="ghs-svg" src="./assets/images/arrow-up.svg">
-          </span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      @if (!character.absent) {
+      <span>
+        @if (success) {
+        <span class="xp">{{((rewards && rewards.experience ? rewards.experience : 0) + challenges * 2
+          +
+          character.experience + ( (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') ==
+          -1) ? gameManager.levelManager.experience() : 0)) | ghsValueSign}}</span>
+        }
+        @if (!success) {
+        <span class="xp">{{character.experience | ghsValueSign}}</span>
+        }
+        ({{character.progress.experience + challenges * 2 + character.experience + (success && rewards &&
+        rewards.experience ?
+        rewards.experience : 0) + ((success && (!rewards || !rewards.ignoredBonus ||
+        rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0)) +
+        (gameManager.trialsManager.favorsEnabled && gameManager.trialsManager.apply && battleGoals[index]
+        ? 3 *gameManager.trialsManager.activeFavor('fh', 'knowledge') : 0)
+        }})
+        @if (levelUp[index]) {
+        <span class="level-up" [ghs-tooltip]="'scenario.summary.levelUp'"
+          [ghs-label-args]="[character.level, (character.level + 1)]">
+          <img class="ghs-svg" src="./assets/images/arrow-up.svg">
         </span>
-        <span *ngIf="character.absent">
-          <span class="xp">/</span>
-          ({{character.progress.experience}})
-        </span>
-      </ng-container>
-
-      <ng-container *ngIf="gameManager.scenarioManager.getTreasures(scenario,gameManager.game.sections).length > 0">
-        <span class="head-col"><span [ghs-label]="'scenario.summary.treasures'"></span></span>
-        <span class="treasures" *ngFor="let character of characters; let index = index;">
-          <div class="hint-container" *ngFor="let treasure of character.treasures || []">
-            <span class="treasure hint-trigger">
-              <span *ngIf="('' + treasure).startsWith('G') || +('' +treasure).split(':')[0] >= 0">
-                <span *ngIf="!('' + treasure).startsWith('G') && +('' +treasure).split(':')[0] < 10">0</span>
-                {{('' + treasure).startsWith('G-') ? 'G' : ('' +treasure).split(':')[0]}}</span>
-              <span *ngIf="!('' + treasure).startsWith('G') && +('' +treasure).split(':')[0] < 0">???</span>
-            </span>
-            <span class="hint above center">
-              <ghs-treasure-label class="text placeholder text-white" *ngIf="!('' + treasure).startsWith('G-')"
-                [edition]="scenario.edition" [index]="+(''+treasure).split(':')[0] -1"
-                [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"></ghs-treasure-label></span>
-          </div>
-        </span>
-      </ng-container>
-
-      <ng-container *ngFor="let itemData of rewardItems; let itemIndex = index;">
-        <span (click)="openItemDialog(itemData)" class="head-col"><span [ghs-label]="'scenario.summary.item'"
-            [ghs-label-args]="[itemData.name]"></span></span>
-        <span *ngFor="let character of characters; let index = index;">
-          <ghs-item *ngIf="items[index] && items[index].indexOf(itemIndex) != -1" (click)="openItemDialog(itemData)"
-            [item]="itemData" [flipped]="true"></ghs-item>
-          <input type="checkbox" [disabled]="itemDistributed(index, itemIndex)"
-            [checked]="items[index] && items[index].indexOf(itemIndex) != -1"
-            (change)="toggleItem($event, index, itemIndex)">
-        </span>
-      </ng-container>
-
-      <ng-container *ngIf="!!randomItem">
-        <span class="head-col"><span [ghs-label]="'scenario.summary.randomItem'"
-            [ghs-label-args]="[randomItem.name]"></span></span>
-        <span *ngFor="let character of characters; let index = index;">
-          <ghs-item *ngIf="randomItemIndex == index" (click)="openItemDialog(randomItem)" [item]="randomItem"
-            [flipped]="true"></ghs-item>
-          <input type="checkbox" [disabled]="randomItemIndex > -1 && randomItemIndex != index"
-            [checked]="randomItemIndex == index" (change)="toggleRandomItem($event,index)">
-        </span>
-      </ng-container>
-
-      <ng-container *ngIf="!!randomItems && randomItems.length > 0">
-        <span class="head-col"><span [ghs-label]="'scenario.summary.randomItems'"></span></span>
-        <span *ngFor="let itemData of randomItems">
-          <ghs-item *ngIf="!!itemData" (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
-        </span>
-      </ng-container>
-
-      <ng-container *ngIf="success">
-        <span class="head-col"><span [ghs-label]="'game.battleGoals'"></span></span>
-        <span *ngFor="let character of characters; let index = index;">
-          <span class="battlegoals">
-            <span class="battlegoal"
-              *ngIf="settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 && character != trial349 && character != trial356"
-              (click)="openBattleGoals(character)">
-              <ghs-battlegoal [identifier]="character.battleGoal && character.battleGoals[0]"
-                [flipped]="character.battleGoal"></ghs-battlegoal>
-            </span>
-
-            <div class="battlegoal-list" *ngIf="settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 &&
-              character == trial349">
-              <span class="battlegoal" *ngFor="let battleGoal of character.battleGoals"
-                (click)="openBattleGoals(character)">
-                <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
-              </span>
-            </div>
-
-            <div class="battlegoal-list" *ngIf="settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 2 &&
-              character == trial356">
-              <span class="battlegoal"
-                *ngFor="let battleGoal of character.battleGoals.slice(0,character.battleGoals.length - 2)"
-                (click)="openBattleGoals(character)">
-                <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
-              </span>
-            </div>
-
-            <span class="checkmarks">
-              <ng-container *ngIf="!!rewards && rewards.battleGoals">
-                <input type="checkbox" [disabled]="true" [checked]="true"
-                  *ngFor="let bg of [] | ghsRange:rewards.battleGoals">
-              </ng-container>
-              <input type="checkbox" [disabled]="character.absent"
-                [checked]="!character.absent && battleGoals[index] > 0" (change)="toggleBattleGoal($event, index, 1)">
-              <input type="checkbox" *ngIf="!character.absent && battleGoals[index] > 0"
-                [checked]="battleGoals[index] > 1" (change)="toggleBattleGoal($event, index, 2)">
-              <ng-container *ngIf="!character.absent && character == trial349 && battleGoals[index] > 1">
-                <input type="checkbox" *ngFor="let i of [] | ghsRange:battleGoals[index]-1"
-                  [checked]="battleGoals[index] > 2+ i" (change)="toggleBattleGoal($event, index, 3 + i)">
-              </ng-container>
-            </span>
-
-            <span class="level-up" *ngIf="perksUp[index]" [ghs-tooltip]="'scenario.summary.perksUp'">
-              <img class="ghs-svg" src="./assets/images/arrow-up.svg">
-            </span>
-          </span>
-        </span>
-      </ng-container>
-
-      <ng-container *ngIf="success && gameManager.trialsManager.trialsEnabled">
-        <span class="head-col"><span [ghs-label]="'character.progress.trial'"></span></span>
-        <span *ngFor="let character of characters; let index = index;">
-          <span class="trials">
-            <span class="trial" *ngIf="character.progress.trial" (click)="openTrial(character)">
-              <img src="./assets/images/fh/trials/trial.png">
-            </span>
-            <span class="checkmark">
-              <input type="checkbox" [disabled]="character.absent" [checked]="!character.absent && trials[index]"
-                (change)="toggleTrial($event, index)">
-            </span>
-            <span class="trial"></span>
-          </span>
-        </span>
-      </ng-container>
-
-      <ng-container *ngIf="settingsManager.settings.scenarioStats">
-        <span class="head-col stats-toggle" [ghs-label]="'scenario.stats.toggle.' +  (stats ? 'hide': 'show')"
-          (click)="stats = !stats"></span>
-        <span class="stats-header" [style.grid-column]="'span ' + (characters.length - 1)"></span>
-      </ng-container>
-
-      <ng-container *ngIf="stats">
-        <span class="head-col"><span [ghs-label]="'scenario.stats.damage'"></span></span>
-        <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
-          <span class="text-white" [ghs-label]="'scenario.stats.dealtDamage'"
-            [ghs-label-args]="[character.scenarioStats.dealtDamage]" [style]="'fh'"
-            [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
-          <span class="text-white" [ghs-label]="'scenario.stats.monsterDamage'"
-            [ghs-label-args]="[character.scenarioStats.monsterDamage]" [style]="'fh'"
-            [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"></span>
-          <span class="text-white" [ghs-label]="'scenario.stats.otherDamage'"
-            [ghs-label-args]="[character.scenarioStats.otherDamage]" [style]="'fh'"
-            [ghs-tooltip]="'scenario.stats.otherDamage.hint'"></span>
-        </span>
-        <span class="head-col"><span [ghs-label]="'scenario.stats.heal'"></span></span>
-        <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
-          <span class="text-white" [ghs-label]="'scenario.stats.heals'"
-            [ghs-label-args]="[character.scenarioStats.heals]" [style]="'fh'"
-            [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
-          <span class="text-white" [ghs-label]="'scenario.stats.healedDamage'"
-            [ghs-label-args]="[character.scenarioStats.healedDamage]" [style]="'fh'"
-            [ghs-tooltip]="'scenario.stats.healedDamage.hint'"></span>
-        </span>
-        <span class="head-col"><span [ghs-label]="'scenario.stats.kills'"></span></span>
-        <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
-          <span *ngIf="character.scenarioStats.normalKills" class="text-white"
-            [ghs-label]="'scenario.stats.normalKills'" [ghs-label-args]="[character.scenarioStats.normalKills]"
-            [style]="'fh'" [ghs-tooltip]="'scenario.stats.normalKills.hint'"></span>
-          <span *ngIf="character.scenarioStats.eliteKills" class="text-white" [ghs-label]="'scenario.stats.eliteKills'"
-            [ghs-label-args]="[character.scenarioStats.eliteKills]" [style]="'fh'"
-            [ghs-tooltip]="'scenario.stats.eliteKills.hint'"></span>
-          <span *ngIf="character.scenarioStats.bossKills" class="text-white" [ghs-label]="'scenario.stats.bossKills'"
-            [ghs-label-args]="[character.scenarioStats.bossKills]" [style]="'fh'"
-            [ghs-tooltip]="'scenario.stats.bossKills.hint'"></span>
-        </span>
-        <span class="head-col"><span [ghs-label]="'scenario.stats.max'"></span></span>
-        <span class="scenario-stats" *ngFor="let character of characters; let index = index;">
-          <span class="text-white" [ghs-label]="'scenario.stats.maxDealtDamage'"
-            [ghs-label-args]="[character.scenarioStats.maxDealtDamage]" [style]="'fh'"
-            [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"></span>
-          <span class="text-white" [ghs-label]="'scenario.stats.maxDamage'"
-            [ghs-label-args]="[character.scenarioStats.maxDamage]" [style]="'fh'"
-            [ghs-tooltip]="'scenario.stats.maxDamage.hint'"></span>
-        </span>
-      </ng-container>
-
+        }
+      </span>
+      }
+      @if (character.absent) {
+      <span>
+        <span class="xp">/</span>
+        ({{character.progress.experience}})
+      </span>
+      }
+      }
+      @if (gameManager.scenarioManager.getTreasures(scenario,gameManager.game.sections).length > 0) {
+      <span class="head-col"><span [ghs-label]="'scenario.summary.treasures'"></span></span>
+      @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+      <span class="treasures">
+        @for (treasure of character.treasures || []; track treasure) {
+        <div class="hint-container">
+          <span class="treasure hint-trigger">
+            @if (('' + treasure).startsWith('G') || +('' +treasure).split(':')[0] >= 0) {
+            <span>
+              @if (!('' + treasure).startsWith('G') && +('' +treasure).split(':')[0] < 10) { <span>0</span>
+            }
+            {{('' + treasure).startsWith('G-') ? 'G' : ('' +treasure).split(':')[0]}}</span>
+          }
+          @if (!('' + treasure).startsWith('G') && +('' +treasure).split(':')[0] < 0) { <span>???
+      </span>
+      }
+      </span>
+      <span class="hint above center">
+        @if (!('' + treasure).startsWith('G-')) {
+        <ghs-treasure-label class="text placeholder text-white" [edition]="scenario.edition"
+          [index]="+(''+treasure).split(':')[0] -1"
+          [rewardResults]="gameManager.scenarioManager.treasureRewardsFromString('' + treasure)"></ghs-treasure-label>
+        }</span>
     </div>
+    }
+    </span>
+    }
+    }
+    @for (itemData of rewardItems; track itemData.edition + '-' + itemData.id; let itemIndex = $index) {
+    <span (click)="openItemDialog(itemData)" class="head-col"><span [ghs-label]="'scenario.summary.item'"
+        [ghs-label-args]="[itemData.name]"></span></span>
+    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    <span>
+      @if (items[index] && items[index].indexOf(itemIndex) != -1) {
+      <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
+      }
+      <input type="checkbox" [disabled]="itemDistributed(index, itemIndex)"
+        [checked]="items[index] && items[index].indexOf(itemIndex) != -1"
+        (change)="toggleItem($event, index, itemIndex)">
+    </span>
+    }
+    }
+    @if (!!randomItem) {
+    <span class="head-col"><span [ghs-label]="'scenario.summary.randomItem'"
+        [ghs-label-args]="[randomItem.name]"></span></span>
+    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    <span>
+      @if (randomItemIndex == index) {
+      <ghs-item (click)="openItemDialog(randomItem)" [item]="randomItem" [flipped]="true"></ghs-item>
+      }
+      <input type="checkbox" [disabled]="randomItemIndex > -1 && randomItemIndex != index"
+        [checked]="randomItemIndex == index" (change)="toggleRandomItem($event,index)">
+    </span>
+    }
+    }
+    @if (!!randomItems && randomItems.length > 0) {
+    <span class="head-col"><span [ghs-label]="'scenario.summary.randomItems'"></span></span>
+    @for (itemData of randomItems; track itemData ? itemData.edition + '-' + itemData.id : itemData) {
+    <span>
+      @if (!!itemData) {
+      <ghs-item (click)="openItemDialog(itemData)" [item]="itemData" [flipped]="true"></ghs-item>
+      }
+    </span>
+    }
+    }
+    @if (success) {
+    <span class="head-col"><span [ghs-label]="'game.battleGoals'"></span></span>
+    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    <span>
+      <span class="battlegoals">
+        @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 &&
+        character != trial349 && character != trial356) {
+        <span class="battlegoal" (click)="openBattleGoals(character)">
+          <ghs-battlegoal [identifier]="character.battleGoal && character.battleGoals[0]"
+            [flipped]="character.battleGoal"></ghs-battlegoal>
+        </span>
+        }
+        @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 0 &&
+        character == trial349) {
+        <div class="battlegoal-list">
+          @for (battleGoal of character.battleGoals; track battleGoal.edition + '-' + battleGoal.name) {
+          <span class="battlegoal" (click)="openBattleGoals(character)">
+            <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
+          </span>
+          }
+        </div>
+        }
+        @if (settingsManager.settings.battleGoals && character.battleGoal && character.battleGoals.length > 2 &&
+        character == trial356) {
+        <div class="battlegoal-list">
+          @for (battleGoal of character.battleGoals.slice(0,character.battleGoals.length - 2); track battleGoal.edition
+          + '-' + battleGoal.name) {
+          <span class="battlegoal" (click)="openBattleGoals(character)">
+            <ghs-battlegoal [identifier]="battleGoal" [flipped]="character.battleGoal"></ghs-battlegoal>
+          </span>
+          }
+        </div>
+        }
+        <span class="checkmarks">
+          @if (!!rewards && rewards.battleGoals) {
+          @for (bg of [] | ghsRange:rewards.battleGoals; track bg) {
+          <input type="checkbox" [disabled]="true" [checked]="true">
+          }
+          }
+          <input type="checkbox" [disabled]="character.absent" [checked]="!character.absent && battleGoals[index] > 0"
+            (change)="toggleBattleGoal($event, index, 1)">
+          @if (!character.absent && battleGoals[index] > 0) {
+          <input type="checkbox" [checked]="battleGoals[index] > 1" (change)="toggleBattleGoal($event, index, 2)">
+          }
+          @if (!character.absent && character == trial349 && battleGoals[index] > 1) {
+          @for (i of [] | ghsRange:battleGoals[index]-1; track i) {
+          <input type="checkbox" [checked]="battleGoals[index] > 2+ i"
+            (change)="toggleBattleGoal($event, index, 3 + i)">
+          }
+          }
+        </span>
+        @if (perksUp[index]) {
+        <span class="level-up" [ghs-tooltip]="'scenario.summary.perksUp'">
+          <img class="ghs-svg" src="./assets/images/arrow-up.svg">
+        </span>
+        }
+      </span>
+    </span>
+    }
+    }
+    @if (success && gameManager.trialsManager.trialsEnabled) {
+    <span class="head-col"><span [ghs-label]="'character.progress.trial'"></span></span>
+    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    <span>
+      <span class="trials">
+        @if (character.progress.trial) {
+        <span class="trial" (click)="openTrial(character)">
+          <img src="./assets/images/fh/trials/trial.png">
+        </span>
+        }
+        <span class="checkmark">
+          <input type="checkbox" [disabled]="character.absent" [checked]="!character.absent && trials[index]"
+            (change)="toggleTrial($event, index)">
+        </span>
+        <span class="trial"></span>
+      </span>
+    </span>
+    }
+    }
+    @if (settingsManager.settings.scenarioStats) {
+    <span class="head-col stats-toggle" [ghs-label]="'scenario.stats.toggle.' +  (stats ? 'hide': 'show')"
+      (click)="stats = !stats"></span>
+    <span class="stats-header" [style.grid-column]="'span ' + (characters.length - 1)"></span>
+    }
+    @if (stats) {
+    <span class="head-col"><span [ghs-label]="'scenario.stats.damage'"></span></span>
+    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    <span class="scenario-stats">
+      <span class="text-white" [ghs-label]="'scenario.stats.dealtDamage'"
+        [ghs-label-args]="[character.scenarioStats.dealtDamage]" [style]="'fh'"
+        [ghs-tooltip]="'scenario.stats.dealtDamage.hint'"></span>
+      <span class="text-white" [ghs-label]="'scenario.stats.monsterDamage'"
+        [ghs-label-args]="[character.scenarioStats.monsterDamage]" [style]="'fh'"
+        [ghs-tooltip]="'scenario.stats.monsterDamage.hint'"></span>
+      <span class="text-white" [ghs-label]="'scenario.stats.otherDamage'"
+        [ghs-label-args]="[character.scenarioStats.otherDamage]" [style]="'fh'"
+        [ghs-tooltip]="'scenario.stats.otherDamage.hint'"></span>
+    </span>
+    }
+    <span class="head-col"><span [ghs-label]="'scenario.stats.heal'"></span></span>
+    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    <span class="scenario-stats">
+      <span class="text-white" [ghs-label]="'scenario.stats.heals'" [ghs-label-args]="[character.scenarioStats.heals]"
+        [style]="'fh'" [ghs-tooltip]="'scenario.stats.heals.hint'"></span>
+      <span class="text-white" [ghs-label]="'scenario.stats.healedDamage'"
+        [ghs-label-args]="[character.scenarioStats.healedDamage]" [style]="'fh'"
+        [ghs-tooltip]="'scenario.stats.healedDamage.hint'"></span>
+    </span>
+    }
+    <span class="head-col"><span [ghs-label]="'scenario.stats.kills'"></span></span>
+    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    <span class="scenario-stats">
+      @if (character.scenarioStats.normalKills) {
+      <span class="text-white" [ghs-label]="'scenario.stats.normalKills'"
+        [ghs-label-args]="[character.scenarioStats.normalKills]" [style]="'fh'"
+        [ghs-tooltip]="'scenario.stats.normalKills.hint'"></span>
+      }
+      @if (character.scenarioStats.eliteKills) {
+      <span class="text-white" [ghs-label]="'scenario.stats.eliteKills'"
+        [ghs-label-args]="[character.scenarioStats.eliteKills]" [style]="'fh'"
+        [ghs-tooltip]="'scenario.stats.eliteKills.hint'"></span>
+      }
+      @if (character.scenarioStats.bossKills) {
+      <span class="text-white" [ghs-label]="'scenario.stats.bossKills'"
+        [ghs-label-args]="[character.scenarioStats.bossKills]" [style]="'fh'"
+        [ghs-tooltip]="'scenario.stats.bossKills.hint'"></span>
+      }
+    </span>
+    }
+    <span class="head-col"><span [ghs-label]="'scenario.stats.max'"></span></span>
+    @for (character of characters; track character.edition + '-' + character.name; let index = $index) {
+    <span class="scenario-stats">
+      <span class="text-white" [ghs-label]="'scenario.stats.maxDealtDamage'"
+        [ghs-label-args]="[character.scenarioStats.maxDealtDamage]" [style]="'fh'"
+        [ghs-tooltip]="'scenario.stats.maxDealtDamage.hint'"></span>
+      <span class="text-white" [ghs-label]="'scenario.stats.maxDamage'"
+        [ghs-label-args]="[character.scenarioStats.maxDamage]" [style]="'fh'"
+        [ghs-tooltip]="'scenario.stats.maxDamage.hint'"></span>
+    </span>
+    }
+    }
+  </div>
+  }
 
-    <div class="rewards">
+  <div class="rewards">
 
-      <div class="reward warning" *ngIf="!conclusionOnly && alreadyWarning && gameManager.game.party.campaignMode">
-        <label><span [ghs-label]="'scenario.summary.alreadyWarning'"></span></label>
-        <div class="list">
-          <div class="item" *ngIf="!forceCampaign">
-            <span><span [ghs-label]="'scenario.summary.alreadyWarning.hint'"></span></span>
-          </div>
-          <div class="item">
-            <a (click)="updateState(!forceCampaign)"><span
-                [ghs-label]="'scenario.summary.alreadyWarning.' + (forceCampaign ? 'reapply' : 'ignore')"></span></a>
-          </div>
+    @if (!conclusionOnly && alreadyWarning && gameManager.game.party.campaignMode) {
+    <div class="reward warning">
+      <label><span [ghs-label]="'scenario.summary.alreadyWarning'"></span></label>
+      <div class="list">
+        @if (!forceCampaign) {
+        <div class="item">
+          <span><span [ghs-label]="'scenario.summary.alreadyWarning.hint'"></span></span>
+        </div>
+        }
+        <div class="item">
+          <a (click)="updateState(!forceCampaign)"><span
+              [ghs-label]="'scenario.summary.alreadyWarning.' + (forceCampaign ? 'reapply' : 'ignore')"></span></a>
         </div>
       </div>
+    </div>
+    }
 
-      <div class="reward warning" *ngIf="(!conclusionOnly && !gameManager.game.party.campaignMode)">
-        <label><span
-            [ghs-label]="('scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : ''))"></span></label>
-        <div class="list">
-          <div class="item" *ngIf="!characterProgress && gameManager.fhRules()">
-            <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
-          </div>
-          <div class="item" *ngIf="forceCampaign || gameManager.fhRules()">
-            <a (click)="characterProgress = gameManager.fhRules() ? !characterProgress : true; updateState()"><span
-                [ghs-label]="'scenario.summary.casualWarning.' + (!characterProgress && !forceCampaign
+    @if ((!conclusionOnly && !gameManager.game.party.campaignMode)) {
+    <div class="reward warning">
+      <label><span
+          [ghs-label]="('scenario.summary.casualWarning' + (gameManager.fhRules() ? '.fh' : ''))"></span></label>
+      <div class="list">
+        @if (!characterProgress && gameManager.fhRules()) {
+        <div class="item">
+          <span><span [ghs-label]="'scenario.summary.casualWarning.hintFh'"></span></span>
+        </div>
+        }
+        @if (forceCampaign || gameManager.fhRules()) {
+        <div class="item">
+          <a (click)="characterProgress = gameManager.fhRules() ? !characterProgress : true; updateState()"><span
+              [ghs-label]="'scenario.summary.casualWarning.' + (!characterProgress && !forceCampaign
               ? 'ignore' : 'reapply')"></span></a>
-          </div>
-          <div class="item" *ngIf="!forceCampaign">
-            <a (click)="updateState(true)"><span
-                [ghs-label]="'scenario.summary.casualWarning.campaignRewards'"></span></a>
-          </div>
+        </div>
+        }
+        @if (!forceCampaign) {
+        <div class="item">
+          <a (click)="updateState(true)"><span
+              [ghs-label]="'scenario.summary.casualWarning.campaignRewards'"></span></a>
+        </div>
+        }
+      </div>
+    </div>
+    }
+
+    @if (!alreadyWarning && gameManager.game.party.campaignMode || forceCampaign) {
+    @if (conclusionWarning) {
+    <div class="reward warning">
+      <label><span [ghs-label]="'scenario.summary.conclusionWarning'"></span></label>
+      <div class="list">
+        <div class="item">
+          <span class="placeholder text-white" [ghs-label]="'scenario.summary.conclusionWarning.hint'"></span>
         </div>
       </div>
-
-      <ng-container *ngIf="!alreadyWarning && gameManager.game.party.campaignMode || forceCampaign">
-
-        <div class="reward warning" *ngIf="conclusionWarning">
-          <label><span [ghs-label]="'scenario.summary.conclusionWarning'"></span></label>
-          <div class="list">
-            <div class="item">
-              <span class="placeholder text-white" [ghs-label]="'scenario.summary.conclusionWarning.hint'"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="reward locations"
-          *ngIf="success && (scenario.unlocks && scenario.unlocks.length > 0 || !!rewards && !!rewards.chooseLocation && rewards.chooseLocation.length > 0)">
-          <label><span [ghs-label]="(scenario.unlocks && scenario.unlocks.length > 1 || rewards && rewards.chooseLocation &&
+    </div>
+    }
+    @if (success && (scenario.unlocks && scenario.unlocks.length > 0 || !!rewards && !!rewards.chooseLocation &&
+    rewards.chooseLocation.length > 0)) {
+    <div class="reward locations">
+      <label><span [ghs-label]="(scenario.unlocks && scenario.unlocks.length > 1 || rewards && rewards.chooseLocation &&
             rewards.chooseLocation.length > 1 ?
             'scenario.rewards.locations' :
             'scenario.rewards.location')"></span></label>
-          <div class="list" *ngIf="scenario.unlocks">
-            <ng-container *ngFor="let location of scenario.unlocks; let i = index;">
-              <div class="item location" *ngIf="gameManager.scenarioManager.getScenario(location,scenario.edition,
-              scenario.group)">
-                <span
-                  [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
-                <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
-                <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
-              </div>
-            </ng-container>
-          </div>
-          <div class="list" *ngIf="!!rewards && rewards.chooseLocation">
-            <div class="item"><span [ghs-label]="'scenario.rewards.chooseLocation'"></span>:</div>
-
-            <label class="item location choose" *ngFor="let location of rewards.chooseLocation; let i = index;">
-              <input type="radio" name="chooseLocation" (change)="selectLocation(location)" [value]="location"
-                [checked]="chooseLocation == location">
-              <span
-                [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
-              <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
-            </label>
-          </div>
+      @if (scenario.unlocks) {
+      <div class="list">
+        @for (location of scenario.unlocks; track location; let i = $index) {
+        @if (gameManager.scenarioManager.getScenario(location,scenario.edition,
+        scenario.group)) {
+        <div class="item location">
+          <span
+            [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
+          <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
+          @if (scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1) { <span>,</span>
+            }
         </div>
-        <div class="reward locations"
-          *ngIf="success && (!scenario.unlocks || scenario.unlocks.length == 0) && !!conclusion && !!conclusion.unlocks && conclusion.unlocks.length > 0">
-          <label><span [ghs-label]="(conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' :
-            'scenario.rewards.location')"></span></label>
-          <div class="list">
-            <ng-container *ngFor="let location of conclusion.unlocks; let i = index;">
-              <div class="item location" *ngIf="gameManager.scenarioManager.getScenario(location,conclusion.edition,
-              conclusion.group)">
-                <span
-                  [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
-                <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
-                <span *ngIf="conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1">,</span>
-              </div>
-            </ng-container>
-          </div>
-        </div>
-        <div class="reward achievements"
-          *ngIf="!!rewards && !!rewards.globalAchievements && rewards.globalAchievements.length > 0">
-          <label><span [ghs-label]="'scenario.rewards.globalAchievements'"></span>:</label>
-          <div class="list">
-            <div class="item achievement" *ngFor="let achievement of rewards.globalAchievements; let i = index;">
-              <span><span [ghs-label]="'data.globalAchievements.' + achievement"></span></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.globalAchievements && rewards.hints.globalAchievements[i]"
-                [ghs-label]="rewards.hints.globalAchievements[i]"></span>
-            </div>
-          </div>
-        </div>
-        <div class="reward achievements"
-          *ngIf="!!rewards && !!rewards.lostPartyAchievements && rewards.lostPartyAchievements.length > 0">
-          <label><span [ghs-label]="'scenario.rewards.lostPartyAchievements'"></span>:</label>
-          <div class="list">
-            <div class="item achievement" *ngFor="let achievement of rewards.lostPartyAchievements; let i = index;">
-              <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.lostPartyAchievements && rewards.hints.lostPartyAchievements[i]"
-                [ghs-label]="rewards.hints.lostPartyAchievements[i]"></span>
-            </div>
-          </div>
-        </div>
-        <div class="reward achievements"
-          *ngIf="!!rewards && !!rewards.partyAchievements && rewards.partyAchievements.length > 0">
-          <label><span [ghs-label]="'scenario.rewards.partyAchievements'"></span>:</label>
-          <div class="list">
-            <div class="item achievement" *ngFor="let achievement of rewards.partyAchievements; let i = index;">
-              <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.partyAchievements && rewards.hints.partyAchievements[i]"
-                [ghs-label]="rewards.hints.partyAchievements[i]"></span>
-            </div>
-          </div>
-        </div>
-        <div class="reward achievements"
-          *ngIf="!!rewards && !!rewards.campaignSticker && rewards.campaignSticker.length > 0">
-          <label><span [ghs-label]="'scenario.rewards.campaignSticker'"></span>:</label>
-          <div class="list">
-            <div class="item achievement" *ngFor="let sticker of rewards.campaignSticker; let i = index;">
-              <span><span [ghs-label]="'data.campaignSticker.' + sticker"></span></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.campaignSticker && rewards.hints.campaignSticker[i]"
-                [ghs-label]="rewards.hints.campaignSticker[i]"></span>
-            </div>
-          </div>
-        </div>
-        <div class="reward achievements"
-          *ngIf="!!rewards && !!rewards.calendarSection && rewards.calendarSection.length > 0">
-          <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
-          <div class="list">
-            <div class="item achievement" *ngFor="let calendarSection of rewards.calendarSection; let i = index;">
-              <span class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.calendarSection.add' + (calendarSection.split('-')[1].split(':').length > 1 ? '.next' : '')"
-                [ghs-label-args]="[calendarSection.split('-')[0], calendarSection.split('-')[1].split(':').length > 1 ? calendarSection.split('-')[1].split(':')[1] : calendarSection.split('-')[1], calendarSection.split('-')[1].split(':').length > 1 ? calendarSection.split('-')[1].split(':')[0] : '']"></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.calendarSection && rewards.hints.calendarSection[i]"
-                [ghs-label]="rewards.hints.calendarSection[i]"></span>
-            </div>
-          </div>
-        </div>
-        <div class="reward achievements"
-          *ngIf="!!rewards && !!rewards.calendarSectionManual && rewards.calendarSectionManual.length > 0">
-          <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
-          <div class="list">
-            <div class="item achievement" *ngFor="let calendarSection of rewards.calendarSectionManual; let i = index;">
-              <span class="placeholder text-white" [ghs-label]="calendarSection.hint"></span>
-              <input type="number" min="-1" [value]="calendarSectionManual[i] || -1"
-                (change)="changeCalendarSectionManual($event, i)">
-            </div>
-          </div>
-        </div>
-        <div class="reward" *ngIf="!!rewards && hasRewards()">
-          <label><span [ghs-label]="'scenario.rewards'"></span>:</label>
-          <div class="list">
-            <div class="item envelope" *ngFor="let envelope of (rewards.envelopes || []); let i = index;">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.envelope'"
-                [ghs-label-args]="[envelope]"></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.envelopes && rewards.hints.envelopes[i]"
-                [ghs-label]="rewards.hints.envelopes[i]"></span>
-            </div>
-
-            <div class="item gold" *ngIf="rewards.gold">
-              <span><span [ghs-label]="'scenario.rewards.gold'" [ghs-label-args]="[''+rewards.gold]"></span></span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.gold"
-                [ghs-label]="rewards.hints.gold"></span>
-            </div>
-
-            <div class="item experience" *ngIf="rewards.experience">
-              <span><span [ghs-label]="'scenario.rewards.experience'"
-                  [ghs-label-args]="[''+rewards.experience]"></span></span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.experience"
-                [ghs-label]="rewards.hints.experience"></span>
-            </div>
-
-            <div class="item collectiveGold" *ngIf="rewards.collectiveGold">
-              <span><span [ghs-label]="'scenario.rewards.collectiveGold'"
-                  [ghs-label-args]="[''+rewards.collectiveGold]"></span></span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.collectiveGold"
-                [ghs-label]="rewards.hints.collectiveGold"></span>
-            </div>
-
-            <div class="item resources" *ngIf="rewards.resources">
-              <ng-container *ngFor="let item of rewards.resources; let i = index;">
-                <span class="placeholder text-white" *ngIf="item.value"
-                  [ghs-label]="'scenario.rewards.resources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
-                  [ghs-label-args]="[item.type, ''+  EntityValueFunction(item.value)]"></span>
-                <span class="placeholder text-white hint"
-                  *ngIf="rewards.hints && rewards.hints.resources && rewards.hints.resources[i]"
-                  [ghs-label]="rewards.hints.resources[i]"></span>
-              </ng-container>
-            </div>
-
-            <div class="item collective-resources" *ngIf="rewards.collectiveResources">
-              <ng-container *ngFor="let item of rewards.collectiveResources; let i = index;">
-                <span class="placeholder text-white" *ngIf="item.value"
-                  [ghs-label]="'scenario.rewards.collectiveResources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
-                  [ghs-label-args]="[item.type, EntityValueFunction(item.value)]"></span>
-                <span class="placeholder text-white hint"
-                  *ngIf="rewards.hints && rewards.hints.resources && rewards.hints.resources[i]"
-                  [ghs-label]="rewards.hints.resources[i]"></span>
-              </ng-container>
-            </div>
-
-            <div class="item reputation" *ngIf="rewards.reputation">
-              <span><span class="text-white"  [ghs-label]="'scenario.rewards.reputation'"
-                  [ghs-label-args]="[(rewards.reputation | ghsValueSign)]"></span></span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.reputation"
-                [ghs-label]="rewards.hints.reputation"></span>
-            </div>
-
-            <div class="item reputation faction" *ngIf="rewards.reputationFactions">
-              <ng-container *ngFor="let reputationFaction of rewards.reputationFactions; let i = index">
-                <span><span class="text-white" [ghs-label]="'scenario.rewards.reputationFactions'"
-                    [ghs-label-args]="[reputationFaction.split(':')[0], reputationFaction.split(':')[1]]"></span></span>
-                <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.reputationFactions[i]"
-                  [ghs-label]="rewards.hints.reputationFactions[i]"></span>
-              </ng-container>
-            </div>
-
-            <div class="item prosperity" *ngIf="rewards.prosperity">
-              <span><span [ghs-label]="'scenario.rewards.prosperity'"
-                  [ghs-label-args]="[''+(rewards.prosperity | ghsValueSign)]"></span></span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.prosperity"
-                [ghs-label]="rewards.hints.prosperity"></span>
-            </div>
-
-            <div class="item inspiration" *ngIf="rewards.inspiration">
-              <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction(rewards.inspiration) |
-                ghsValueSign) ]"></span></span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.inspiration"
-                [ghs-label]="rewards.hints.inspiration"></span>
-            </div>
-
-            <div class="item morale" *ngIf="rewards.morale">
-              <span><span [ghs-label]="'scenario.rewards.morale'" [ghs-label-args]="[(EntityValueFunction(rewards.morale) |
-                ghsValueSign) ]"></span> </span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.morale"
-                [ghs-label]="rewards.hints.morale"></span>
-            </div>
-
-            <div class="item perks" *ngIf="rewards.perks">
-              <span><span [ghs-label]="'scenario.rewards.perks'" [ghs-label-args]="[''+rewards.perks]"></span></span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.perks"
-                [ghs-label]="rewards.hints.perks"></span>
-            </div>
-
-            <div class="item battleGoals" *ngIf="rewards.battleGoals">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.battleGoals'"
-                [ghs-label-args]="[''+rewards.battleGoals]"></span>
-              <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.battleGoals"
-                [ghs-label]="rewards.hints.battleGoals"></span>
-            </div>
-
-            <div class="item items" *ngFor="let item of (rewards.items || []); let i = index;">
-              <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.items'"
-                [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
-                (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
-              <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
-                [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
-                (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.items && rewards.hints.items[i]"
-                [ghs-label]="rewards.hints.items[i]"></span>
-            </div>
-
-            <div class="item chooseItem" *ngIf="!!rewards.chooseItem && rewards.chooseItem.length > 0">
-              <span><span [ghs-label]="'scenario.rewards.chooseItem'"></span></span>
-              <ng-container *ngFor="let itemList of (rewards.chooseItem || []); let i = index;">
-                <ng-container *ngFor="let item of (itemList || []);">
-                  <span *ngIf="item.indexOf(':') != -1" class="placeholder text-white"
-                    [ghs-label]="'scenario.rewards.items'"
-                    [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
-                    (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
-                  <span *ngIf="item.indexOf(':') == -1" class="placeholder text-white"
-                    [ghs-label]="'scenario.rewards.item'"
-                    [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
-                    (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
-                  <span class="placeholder text-white hint"
-                    *ngIf="rewards.hints && rewards.hints.chooseItem && rewards.hints.chooseItem[i]"
-                    [ghs-label]="rewards.hints.chooseItem[i]"></span>
-                </ng-container>
-                <span class="placeholder text-white" [ghs-label]="'or'" *ngIf="i < rewards.chooseItem.length -1"></span>
-              </ng-container>
-            </div>
-
-            <div class="item item-designs" *ngFor="let item of (rewards.itemDesigns || []); let i = index;">
-              <span *ngIf="item.indexOf('-') != -1" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.itemDesignRange'" [ghs-label-args]="[item]"></span>
-              <span *ngIf="item.indexOf('-') == -1 && item.indexOf(':') == -1" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.itemDesign'"
-                [ghs-label-args]="[item, gameManager.itemManager.getItem(item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true)?.name || '']"
-                (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true))"></span>
-              <span *ngIf="item.indexOf('-') == -1 && item.indexOf(':') != -1" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.itemDesignEdition'"
-                [ghs-label-args]="[item.split(':')[0], gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true)?.name || '', item.split(':')[1]]"
-                (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true))"></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.itemDesigns && rewards.hints.itemDesigns[i]"
-                [ghs-label]="rewards.hints.itemDesigns[i]"></span>
-            </div>
-
-            <div class="item item-blueprints" *ngFor="let item of (rewards.itemBlueprints || []); let i = index;">
-              <span *ngIf="item.indexOf('-') != -1" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.itemBlueprintRange'" [ghs-label-args]="item.split('-')"></span>
-              <span *ngIf="item.indexOf('-') == -1" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.itemBlueprint'"
-                [ghs-label-args]="[item, gameManager.itemManager.getItem(item,scenario.edition || '', true)?.name || '']"
-                (click)="openItemDialog(gameManager.itemManager.getItem(item,scenario.edition || '', true))"></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.itemBlueprints && rewards.hints.itemBlueprints[i]"
-                [ghs-label]="rewards.hints.itemBlueprints[i]"></span>
-            </div>
-
-            <div class="item item-blueprints" *ngIf="rewards.randomItemBlueprints">
-              <span *ngIf="rewards.randomItemBlueprints.indexOf('-') != -1" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.randomItemBlueprints'"
-                [ghs-label-args]="rewards.randomItemBlueprints.split('-')"></span>
-            </div>
-
-            <div class="item item-blueprints" *ngIf="rewards.randomItemBlueprint">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprint'"></span>
-              <ng-container *ngFor="let itemId of randomItemBlueprints; let i = index;">
-                <span *ngIf="itemId > 0" class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
-                  [ghs-label-args]="[itemId, gameManager.itemManager.getItem(itemId,scenario.edition || '', true)?.name || '']"
-                  (click)="openItemDialog(gameManager.itemManager.getItem(itemId,scenario.edition || '', true))"></span>
-                <span *ngIf="itemId == -1"> <span [ghs-label]="'scenario.rewards.inspiration'"
-                    [ghs-label-args]="['+1']"></span>
-                </span>
-                <span class="placeholder text-white hint" *ngIf="rewards.hints && rewards.hints.randomItemBlueprint"
-                  [ghs-label]="rewards.hints.randomItemBlueprint"></span>
-              </ng-container>
-            </div>
-
-            <div class="item events" *ngFor="let event of (rewards.events || []); let i = index;">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.event.' + event.split(':')[0]"
-                [ghs-label-args]="[event.split(':')[1]]"></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.events && rewards.hints.events[i]"
-                [ghs-label]="rewards.hints.events[i]"></span>
-            </div>
-
-            <div class="item events" *ngFor="let event of (rewards.removeEvents || []); let i = index;">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.removeEvent.' + event.split(':')[0]"
-                [ghs-label-args]="[event.split(':')[1]]"></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.removeEvents && rewards.hints.removeEvents[i]"
-                [ghs-label]="rewards.hints.removeEvents[i]"></span>
-            </div>
-
-            <div class="item overlay-sticker" *ngIf="rewards.overlayCampaignSticker">
-              <span *ngIf="rewards.hints && rewards.hints.overlayCampaignSticker" class="placeholder text-white hint"
-                [ghs-label]="rewards.hints.overlayCampaignSticker"></span>
-              <span *ngIf="!rewards.hints || !rewards.hints.overlayCampaignSticker" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.overlayCampaignSticker'"
-                [ghs-label-args]="[rewards.overlayCampaignSticker.name, rewards.overlayCampaignSticker.location]"></span>
-            </div>
-
-            <div class="item overlay-sticker" *ngIf="rewards.overlaySticker">
-              <span *ngIf="rewards.hints && rewards.hints.overlaySticker" class="placeholder text-white hint"
-                [ghs-label]="rewards.hints.overlaySticker"></span>
-              <span *ngIf="!rewards.hints || !rewards.hints.overlaySticker" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.overlaySticker'"
-                [ghs-label-args]="[rewards.overlaySticker.name, rewards.overlaySticker.location]"></span>
-            </div>
-
-            <div class="item overlay-sticker" *ngIf="rewards.pet">
-              <span *ngIf="rewards.hints && rewards.hints.pet" class="placeholder text-white hint"
-                [ghs-label]="rewards.hints.pet"></span>
-              <span *ngIf="!rewards.hints || !rewards.hints.pet" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.pet'" [ghs-label-args]="[rewards.pet, scenario.edition]"></span>
-            </div>
-
-            <div class="list-inline unlock-character"
-              *ngIf="!!rewards && !!rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length > 0">
-              <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
-              <label class="item character choose"
-                *ngFor="let character of rewards.chooseUnlockCharacter; let i = index;"
-                [ngClass]="{'unlocked': unlocked(character), 'disabled': !settingsManager.settings.automaticUnlocking}">
-                <input *ngIf="settingsManager.settings.automaticUnlocking" type="radio" name="chooseUnlockCharacter"
-                  (change)="selectCharacter(character)" [value]="character"
-                  [checked]="chooseUnlockCharacter == character">
-                <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
-                  [ghs-label-args]="[character]"></span>
-                <span *ngIf="i < rewards.chooseUnlockCharacter.length - 1"><span [ghs-label]="'or'"></span></span>
-              </label>
-            </div>
-
-            <div class="item character" *ngIf="!!rewards && rewards.unlockCharacter">
-              <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
-                [ghs-label-args]="[rewards.unlockCharacter]"></span>
-            </div>
-
-            <div class="item custom" *ngIf="rewards.custom">
-              <span class="placeholder text-white" [ghs-label]="rewards.custom"></span>
-            </div>
-
-            <div class="item custom" *ngIf="rewards.repeatScenario">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.repeatScenario'"></span>
-            </div>
-
-            <div class="item event-deck" *ngIf="rewards.eventDecks">
-              <ng-container *ngFor="let eventDeck of rewards.eventDecks; let i = index">
-                <span class="placeholder text-white"
-                  *ngIf="!rewards.hints || !rewards.hints.eventDecks || !rewards.hints.eventDecks[i]"
-                  [ghs-label]="'scenario.rewards.eventDeck'"
-                  [ghs-label-args]="[eventDeck.split(':')[0], eventDeck.split(':')[1].split('|')[0], eventDeck.split(':')[1].split('|')[1]]"></span>
-                <span class="placeholder text-white hint"
-                  *ngIf="rewards.hints && rewards.hints.eventDecks && rewards.hints.eventDecks[i]"
-                  [ghs-label]="rewards.hints.eventDecks[i]"></span>
-              </ng-container>
-            </div>
-
-            <div class="item loot-deck-cards"
-              *ngFor="let lootDeckCard of (rewards.lootDeckCards || []); let i = index;">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.lootDeckCard'"
-                [ghs-label-args]="[lootDeckCard]"></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.lootDeckCards && rewards.hints.lootDeckCards[i]"
-                [ghs-label]="rewards.hints.lootDeckCards[i]"></span>
-            </div>
-
-            <div class="item loot-deck-cards"
-              *ngFor="let lootDeckCard of (rewards.removeLootDeckCards || []); let i = index;">
-              <span class="placeholder text-white" [ghs-label]="'scenario.rewards.removeLootDeckCard'"
-                [ghs-label-args]="[lootDeckCard]"></span>
-              <span class="placeholder text-white hint"
-                *ngIf="rewards.hints && rewards.hints.removeLootDeckCards && rewards.hints.removeLootDeckCards[i]"
-                [ghs-label]="rewards.hints.removeLootDeckCards[i]"></span>
-            </div>
-
-            <div class="item town-guard-am" *ngIf="!!townGuardAMs && townGuardAMs.length > 0">
-              <span *ngFor="let townGuardAm of townGuardAMs" class="placeholder text-white"
-                [ghs-label]="'scenario.rewards.townGuardAm'"
-                [ghs-label-args]="[townGuardAm.value, townGuardAm.valueType]"></span>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-
-      <div class="reward" *ngIf="hasBonus()">
-        <label><span [ghs-label]="'scenario.rewards.bonus'"></span>:</label>
-        <div class="list">
-          <div class="item inspiration"
-            *ngIf="gameManager.fhRules() && EntityValueFunction('4-C') && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('inspiration') == -1)">
-            <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction('4-C') |
-              ghsValueSign) ]"></span> </span>
-          </div>
-
-          <div class="item challenges" *ngIf="numberChallenges > 0">
-            <div class="menu">
-              <span
-                [ghs-label]="('scenario.summary.challenges.' + (numberChallenges > 1 ? 'completed' : 'complete'))"></span>
-              <input *ngIf="!gameManager.challengesManager.enabled" type="checkbox" [checked]="challenges > 0"
-                (change)="toggleChallenges($event)">
-              <input *ngIf="!gameManager.challengesManager.enabled && numberChallenges > 1" type="checkbox"
-                [checked]="challenges > 1" (change)="toggleChallenges($event,true)">
-            </div>
-
-            <div class="cards" *ngIf="gameManager.challengesManager.enabled">
-              <div class="card">
-                <ghs-challenge-card
-                  [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[0]]"
-                  [flipped]="true" (click)="openChallenge(gameManager.game.challengeDeck.keep[0])"></ghs-challenge-card>
-                <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges($event)">
-              </div>
-
-              <div class="card" *ngIf="numberChallenges > 1">
-                <ghs-challenge-card
-                  [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[1]]"
-                  [flipped]="true" (click)="openChallenge(gameManager.game.challengeDeck.keep[1])"></ghs-challenge-card>
-                <input type="checkbox" [checked]="challenges > 1" (change)="toggleChallenges($event,true)">
-              </div>
-            </div>
-          </div>
-        </div>
+        }
+        }
       </div>
-
-
-      <div class="reward" *ngIf="addWeek()">
-        <label><span [ghs-label]="'scenario.rewards.addWeek'"></span>:</label>
-        <div class="list">
-          <div class="item week">
-            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.next'"
-                [ghs-label-args]="[(gameManager.game.party.weeks + 1)]"></span></span>
-          </div>
-
-          <div class="item summer"
-            *ngIf="gameManager.game.party.weeks % 20 < 10 && (gameManager.game.party.weeks - 1) % 20 >= 10">
-            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.summer'"></span></span>
-          </div>
-
-          <div class="item winter"
-            *ngIf="gameManager.game.party.weeks % 20 >= 10 && (gameManager.game.party.weeks - 1) % 20 < 10">
-            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.winter'"></span></span>
-          </div>
-
-          <div class="item week-sections" *ngIf="weekSections().length">
-            <span *ngFor="let weekSection of weekSections()" class="week-section text-white"
-              (click)="showWeekConclusion(weekSection)" [ghs-label]="'scenario.rewards.addWeek.section'"
-              [ghs-label-args]="[weekSection.index]"></span>
-          </div>
+      }
+      @if (!!rewards && rewards.chooseLocation) {
+      <div class="list">
+        <div class="item"><span [ghs-label]="'scenario.rewards.chooseLocation'"></span>:</div>
+        @for (location of rewards.chooseLocation; track location; let i = $index) {
+        <label class="item location choose">
+          <input type="radio" name="chooseLocation" (change)="selectLocation(location)" [value]="location"
+            [checked]="chooseLocation == location">
+          <span
+            [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
+          <span [ghs-label]="'%data.scenarioNumber:' + location+ '%'"></span>
+        </label>
+        }
+      </div>
+      }
+    </div>
+    }
+    @if (success && (!scenario.unlocks || scenario.unlocks.length == 0) && !!conclusion && !!conclusion.unlocks &&
+    conclusion.unlocks.length > 0) {
+    <div class="reward locations">
+      <label><span [ghs-label]="(conclusion.unlocks.length > 1 ? 'scenario.rewards.locations' :
+            'scenario.rewards.location')"></span></label>
+      <div class="list">
+        @for (location of conclusion.unlocks; track location; let i = $index) {
+        @if (gameManager.scenarioManager.getScenario(location,conclusion.edition,
+        conclusion.group)) {
+        <div class="item location">
+          <span
+            [ghs-label]="gameManager.scenarioManager.scenarioTitle(gameManager.scenarioManager.getScenario(location,scenario.edition, scenario.group))"></span>
+          <span [ghs-label]="'%data.scenarioNumber:' + location + '%'"></span>
+          @if (conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1) { <span>,</span>
+            }
         </div>
+        }
+        }
       </div>
     </div>
-  </div>
+    }
+    @if (!!rewards && !!rewards.globalAchievements && rewards.globalAchievements.length > 0) {
+    <div class="reward achievements">
+      <label><span [ghs-label]="'scenario.rewards.globalAchievements'"></span>:</label>
+      <div class="list">
+        @for (achievement of rewards.globalAchievements; track achievement; let i = $index) {
+        <div class="item achievement">
+          <span><span [ghs-label]="'data.globalAchievements.' + achievement"></span></span>
+          @if (rewards.hints && rewards.hints.globalAchievements && rewards.hints.globalAchievements[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.globalAchievements[i]"></span>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    }
+    @if (!!rewards && !!rewards.lostPartyAchievements && rewards.lostPartyAchievements.length > 0) {
+    <div class="reward achievements">
+      <label><span [ghs-label]="'scenario.rewards.lostPartyAchievements'"></span>:</label>
+      <div class="list">
+        @for (achievement of rewards.lostPartyAchievements; track achievement; let i = $index) {
+        <div class="item achievement">
+          <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
+          @if (rewards.hints && rewards.hints.lostPartyAchievements && rewards.hints.lostPartyAchievements[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.lostPartyAchievements[i]"></span>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    }
+    @if (!!rewards && !!rewards.partyAchievements && rewards.partyAchievements.length > 0) {
+    <div class="reward achievements">
+      <label><span [ghs-label]="'scenario.rewards.partyAchievements'"></span>:</label>
+      <div class="list">
+        @for (achievement of rewards.partyAchievements; track achievement; let i = $index) {
+        <div class="item achievement">
+          <span><span [ghs-label]="'data.partyAchievements.' + achievement"></span></span>
+          @if (rewards.hints && rewards.hints.partyAchievements && rewards.hints.partyAchievements[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.partyAchievements[i]"></span>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    }
+    @if (!!rewards && !!rewards.campaignSticker && rewards.campaignSticker.length > 0) {
+    <div class="reward achievements">
+      <label><span [ghs-label]="'scenario.rewards.campaignSticker'"></span>:</label>
+      <div class="list">
+        @for (sticker of rewards.campaignSticker; track sticker; let i = $index) {
+        <div class="item achievement">
+          <span><span [ghs-label]="'data.campaignSticker.' + sticker"></span></span>
+          @if (rewards.hints && rewards.hints.campaignSticker && rewards.hints.campaignSticker[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.campaignSticker[i]"></span>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    }
+    @if (!!rewards && !!rewards.calendarSection && rewards.calendarSection.length > 0) {
+    <div class="reward achievements">
+      <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
+      <div class="list">
+        @for (calendarSection of rewards.calendarSection; track calendarSection; let i = $index) {
+        <div class="item achievement">
+          <span class="placeholder text-white"
+            [ghs-label]="'scenario.rewards.calendarSection.add' + (calendarSection.split('-')[1].split(':').length > 1 ? '.next' : '')"
+            [ghs-label-args]="[calendarSection.split('-')[0], calendarSection.split('-')[1].split(':').length > 1 ? calendarSection.split('-')[1].split(':')[1] : calendarSection.split('-')[1], calendarSection.split('-')[1].split(':').length > 1 ? calendarSection.split('-')[1].split(':')[0] : '']"></span>
+          @if (rewards.hints && rewards.hints.calendarSection && rewards.hints.calendarSection[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.calendarSection[i]"></span>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    }
+    @if (!!rewards && !!rewards.calendarSectionManual && rewards.calendarSectionManual.length > 0) {
+    <div class="reward achievements">
+      <label><span [ghs-label]="'scenario.rewards.calendarSection'"></span>:</label>
+      <div class="list">
+        @for (calendarSection of rewards.calendarSectionManual; track calendarSection; let i = $index) {
+        <div class="item achievement">
+          <span class="placeholder text-white" [ghs-label]="calendarSection.hint"></span>
+          <input type="number" min="-1" [value]="calendarSectionManual[i] || -1"
+            (change)="changeCalendarSectionManual($event, i)">
+        </div>
+        }
+      </div>
+    </div>
+    }
+    @if (!!rewards && hasRewards()) {
+    <div class="reward">
+      <label><span [ghs-label]="'scenario.rewards'"></span>:</label>
+      <div class="list">
+        @for (envelope of (rewards.envelopes || []); track envelope; let i = $index) {
+        <div class="item envelope">
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.envelope'"
+            [ghs-label-args]="[envelope]"></span>
+          @if (rewards.hints && rewards.hints.envelopes && rewards.hints.envelopes[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.envelopes[i]"></span>
+          }
+        </div>
+        }
+        @if (rewards.gold) {
+        <div class="item gold">
+          <span><span [ghs-label]="'scenario.rewards.gold'" [ghs-label-args]="[''+rewards.gold]"></span></span>
+          @if (rewards.hints && rewards.hints.gold) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.gold"></span>
+          }
+        </div>
+        }
+        @if (rewards.experience) {
+        <div class="item experience">
+          <span><span [ghs-label]="'scenario.rewards.experience'"
+              [ghs-label-args]="[''+rewards.experience]"></span></span>
+          @if (rewards.hints && rewards.hints.experience) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.experience"></span>
+          }
+        </div>
+        }
+        @if (rewards.collectiveGold) {
+        <div class="item collectiveGold">
+          <span><span [ghs-label]="'scenario.rewards.collectiveGold'"
+              [ghs-label-args]="[''+rewards.collectiveGold]"></span></span>
+          @if (rewards.hints && rewards.hints.collectiveGold) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.collectiveGold"></span>
+          }
+        </div>
+        }
+        @if (rewards.resources) {
+        <div class="item resources">
+          @for (item of rewards.resources; track item.type; let i = $index) {
+          @if (item.value) {
+          <span class="placeholder text-white"
+            [ghs-label]="'scenario.rewards.resources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
+            [ghs-label-args]="[item.type, ''+  EntityValueFunction(item.value)]"></span>
+          }
+          @if (rewards.hints && rewards.hints.resources && rewards.hints.resources[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.resources[i]"></span>
+          }
+          }
+        </div>
+        }
+        @if (rewards.collectiveResources) {
+        <div class="item collective-resources">
+          @for (item of rewards.collectiveResources; track item.type; let i = $index) {
+          @if (item.value) {
+          <span class="placeholder text-white"
+            [ghs-label]="'scenario.rewards.collectiveResources' + (EntityValueFunction(item.value) < 0? 'Lose' : '')"
+            [ghs-label-args]="[item.type, EntityValueFunction(item.value)]"></span>
+          }
+          @if (rewards.hints && rewards.hints.resources && rewards.hints.resources[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.resources[i]"></span>
+          }
+          }
+        </div>
+        }
+        @if (rewards.reputation) {
+        <div class="item reputation">
+          <span><span class="text-white" [ghs-label]="'scenario.rewards.reputation'"
+              [ghs-label-args]="[(rewards.reputation | ghsValueSign)]"></span></span>
+          @if (rewards.hints && rewards.hints.reputation) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.reputation"></span>
+          }
+        </div>
+        }
+        @if (rewards.reputationFactions) {
+        <div class="item reputation faction">
+          @for (reputationFaction of rewards.reputationFactions; track reputationFaction; let i = $index) {
+          <span><span class="text-white" [ghs-label]="'scenario.rewards.reputationFactions'"
+              [ghs-label-args]="[reputationFaction.split(':')[0], reputationFaction.split(':')[1]]"></span></span>
+          @if (rewards.hints && rewards.hints.reputationFactions[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.reputationFactions[i]"></span>
+          }
+          }
+        </div>
+        }
+        @if (rewards.prosperity) {
+        <div class="item prosperity">
+          <span><span [ghs-label]="'scenario.rewards.prosperity'"
+              [ghs-label-args]="[''+(rewards.prosperity | ghsValueSign)]"></span></span>
+          @if (rewards.hints && rewards.hints.prosperity) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.prosperity"></span>
+          }
+        </div>
+        }
+        @if (rewards.inspiration) {
+        <div class="item inspiration">
+          <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction(rewards.inspiration) |
+                ghsValueSign) ]"></span></span>
+          @if (rewards.hints && rewards.hints.inspiration) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.inspiration"></span>
+          }
+        </div>
+        }
+        @if (rewards.morale) {
+        <div class="item morale">
+          <span><span [ghs-label]="'scenario.rewards.morale'" [ghs-label-args]="[(EntityValueFunction(rewards.morale) |
+                ghsValueSign) ]"></span> </span>
+          @if (rewards.hints && rewards.hints.morale) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.morale"></span>
+          }
+        </div>
+        }
+        @if (rewards.perks) {
+        <div class="item perks">
+          <span><span [ghs-label]="'scenario.rewards.perks'" [ghs-label-args]="[''+rewards.perks]"></span></span>
+          @if (rewards.hints && rewards.hints.perks) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.perks"></span>
+          }
+        </div>
+        }
+        @if (rewards.battleGoals) {
+        <div class="item battleGoals">
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.battleGoals'"
+            [ghs-label-args]="[''+rewards.battleGoals]"></span>
+          @if (rewards.hints && rewards.hints.battleGoals) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.battleGoals"></span>
+          }
+        </div>
+        }
+        @for (item of (rewards.items || []); track item; let i = $index) {
+        <div class="item items">
+          @if (item.indexOf(':') != -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
+            [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
+            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
+          }
+          @if (item.indexOf(':') == -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
+            [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
+            (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
+          }
+          @if (rewards.hints && rewards.hints.items && rewards.hints.items[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.items[i]"></span>
+          }
+        </div>
+        }
+        @if (!!rewards.chooseItem && rewards.chooseItem.length > 0) {
+        <div class="item chooseItem">
+          <span><span [ghs-label]="'scenario.rewards.chooseItem'"></span></span>
+          @for (itemList of (rewards.chooseItem || []); track itemList; let i = $index) {
+          @for (item of (itemList || []); track item) {
+          @if (item.indexOf(':') != -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.items'"
+            [ghs-label-args]="[item.split(':')[0].split('-')[0], gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '', item.split(':')[1]]"
+            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0].split('-')[0],item.split(':')[0].split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
+          }
+          @if (item.indexOf(':') == -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.item'"
+            [ghs-label-args]="[item.split('-')[0] , gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true)?.name || '']"
+            (click)="openItemDialog(gameManager.itemManager.getItem(item.split('-')[0], item.split('-').slice(1).join('-') || scenario.edition || '', true))"></span>
+          }
+          @if (rewards.hints && rewards.hints.chooseItem && rewards.hints.chooseItem[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.chooseItem[i]"></span>
+          }
+          }
+          @if (i < rewards.chooseItem.length -1) { <span class="placeholder text-white" [ghs-label]="'or'"></span>
+            }
+            }
+        </div>
+        }
+        @for (item of (rewards.itemDesigns || []); track item; let i = $index) {
+        <div class="item item-designs">
+          @if (item.indexOf('-') != -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesignRange'"
+            [ghs-label-args]="[item]"></span>
+          }
+          @if (item.indexOf('-') == -1 && item.indexOf(':') == -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesign'"
+            [ghs-label-args]="[item, gameManager.itemManager.getItem(item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true)?.name || '']"
+            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0],item.indexOf(':') != -1 ? item.split(':')[1] : (scenario.edition || ''), true))"></span>
+          }
+          @if (item.indexOf('-') == -1 && item.indexOf(':') != -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemDesignEdition'"
+            [ghs-label-args]="[item.split(':')[0], gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true)?.name || '', item.split(':')[1]]"
+            (click)="openItemDialog(gameManager.itemManager.getItem(item.split(':')[0], item.split(':')[1], true))"></span>
+          }
+          @if (rewards.hints && rewards.hints.itemDesigns && rewards.hints.itemDesigns[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.itemDesigns[i]"></span>
+          }
+        </div>
+        }
+        @for (item of (rewards.itemBlueprints || []); track item; let i = $index) {
+        <div class="item item-blueprints">
+          @if (item.indexOf('-') != -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprintRange'"
+            [ghs-label-args]="item.split('-')"></span>
+          }
+          @if (item.indexOf('-') == -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
+            [ghs-label-args]="[item, gameManager.itemManager.getItem(item,scenario.edition || '', true)?.name || '']"
+            (click)="openItemDialog(gameManager.itemManager.getItem(item,scenario.edition || '', true))"></span>
+          }
+          @if (rewards.hints && rewards.hints.itemBlueprints && rewards.hints.itemBlueprints[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.itemBlueprints[i]"></span>
+          }
+        </div>
+        }
+        @if (rewards.randomItemBlueprints) {
+        <div class="item item-blueprints">
+          @if (rewards.randomItemBlueprints.indexOf('-') != -1) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprints'"
+            [ghs-label-args]="rewards.randomItemBlueprints.split('-')"></span>
+          }
+        </div>
+        }
+        @if (rewards.randomItemBlueprint) {
+        <div class="item item-blueprints">
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.randomItemBlueprint'"></span>
+          @for (itemId of randomItemBlueprints; track itemId; let i = $index) {
+          @if (itemId > 0) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.itemBlueprint'"
+            [ghs-label-args]="[itemId, gameManager.itemManager.getItem(itemId,scenario.edition || '', true)?.name || '']"
+            (click)="openItemDialog(gameManager.itemManager.getItem(itemId,scenario.edition || '', true))"></span>
+          }
+          @if (itemId == -1) {
+          <span> <span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="['+1']"></span>
+          </span>
+          }
+          @if (rewards.hints && rewards.hints.randomItemBlueprint) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.randomItemBlueprint"></span>
+          }
+          }
+        </div>
+        }
+        @for (event of (rewards.events || []); track event; let i = $index) {
+        <div class="item events">
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.event.' + event.split(':')[0]"
+            [ghs-label-args]="[event.split(':')[1]]"></span>
+          @if (rewards.hints && rewards.hints.events && rewards.hints.events[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.events[i]"></span>
+          }
+        </div>
+        }
+        @for (event of (rewards.removeEvents || []); track event; let i = $index) {
+        <div class="item events">
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.removeEvent.' + event.split(':')[0]"
+            [ghs-label-args]="[event.split(':')[1]]"></span>
+          @if (rewards.hints && rewards.hints.removeEvents && rewards.hints.removeEvents[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.removeEvents[i]"></span>
+          }
+        </div>
+        }
+        @if (rewards.overlayCampaignSticker) {
+        <div class="item overlay-sticker">
+          @if (rewards.hints && rewards.hints.overlayCampaignSticker) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.overlayCampaignSticker"></span>
+          }
+          @if (!rewards.hints || !rewards.hints.overlayCampaignSticker) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.overlayCampaignSticker'"
+            [ghs-label-args]="[rewards.overlayCampaignSticker.name, rewards.overlayCampaignSticker.location]"></span>
+          }
+        </div>
+        }
+        @if (rewards.overlaySticker) {
+        <div class="item overlay-sticker">
+          @if (rewards.hints && rewards.hints.overlaySticker) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.overlaySticker"></span>
+          }
+          @if (!rewards.hints || !rewards.hints.overlaySticker) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.overlaySticker'"
+            [ghs-label-args]="[rewards.overlaySticker.name, rewards.overlaySticker.location]"></span>
+          }
+        </div>
+        }
+        @if (rewards.pet) {
+        <div class="item overlay-sticker">
+          @if (rewards.hints && rewards.hints.pet) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.pet"></span>
+          }
+          @if (!rewards.hints || !rewards.hints.pet) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.pet'"
+            [ghs-label-args]="[rewards.pet, scenario.edition]"></span>
+          }
+        </div>
+        }
+        @if (!!rewards && !!rewards.chooseUnlockCharacter && rewards.chooseUnlockCharacter.length > 0) {
+        <div class="list-inline unlock-character">
+          <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
+          @for (character of rewards.chooseUnlockCharacter; track character; let i = $index) {
+          <label class="item character choose"
+            [ngClass]="{'unlocked': unlocked(character), 'disabled': !settingsManager.settings.automaticUnlocking}">
+            @if (settingsManager.settings.automaticUnlocking) {
+            <input type="radio" name="chooseUnlockCharacter" (change)="selectCharacter(character)" [value]="character"
+              [checked]="chooseUnlockCharacter == character">
+            }
+            <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
+              [ghs-label-args]="[character]"></span>
+            @if (i < rewards.chooseUnlockCharacter.length - 1) { <span><span [ghs-label]="'or'"></span></span>
+              }
+          </label>
+          }
+        </div>
+        }
+        @if (!!rewards && rewards.unlockCharacter) {
+        <div class="item character">
+          <span><span [ghs-label]="'scenario.rewards.unlockCharacter'"></span></span>
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.unlockCharacter.box'"
+            [ghs-label-args]="[rewards.unlockCharacter]"></span>
+        </div>
+        }
+        @if (rewards.custom) {
+        <div class="item custom">
+          <span class="placeholder text-white" [ghs-label]="rewards.custom"></span>
+        </div>
+        }
+        @if (rewards.repeatScenario) {
+        <div class="item custom">
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.repeatScenario'"></span>
+        </div>
+        }
+        @if (rewards.eventDecks) {
+        <div class="item event-deck">
+          @for (eventDeck of rewards.eventDecks; track eventDeck; let i = $index) {
+          @if (!rewards.hints || !rewards.hints.eventDecks || !rewards.hints.eventDecks[i]) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.eventDeck'"
+            [ghs-label-args]="[eventDeck.split(':')[0], eventDeck.split(':')[1].split('|')[0], eventDeck.split(':')[1].split('|')[1]]"></span>
+          }
+          @if (rewards.hints && rewards.hints.eventDecks && rewards.hints.eventDecks[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.eventDecks[i]"></span>
+          }
+          }
+        </div>
+        }
+        @for (lootDeckCard of (rewards.lootDeckCards || []); track lootDeckCard; let i = $index) {
+        <div class="item loot-deck-cards">
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.lootDeckCard'"
+            [ghs-label-args]="[lootDeckCard]"></span>
+          @if (rewards.hints && rewards.hints.lootDeckCards && rewards.hints.lootDeckCards[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.lootDeckCards[i]"></span>
+          }
+        </div>
+        }
+        @for (lootDeckCard of (rewards.removeLootDeckCards || []); track lootDeckCard; let i = $index) {
+        <div class="item loot-deck-cards">
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.removeLootDeckCard'"
+            [ghs-label-args]="[lootDeckCard]"></span>
+          @if (rewards.hints && rewards.hints.removeLootDeckCards && rewards.hints.removeLootDeckCards[i]) {
+          <span class="placeholder text-white hint" [ghs-label]="rewards.hints.removeLootDeckCards[i]"></span>
+          }
+        </div>
+        }
+        @if (!!townGuardAMs && townGuardAMs.length > 0) {
+        <div class="item town-guard-am">
+          @for (townGuardAm of townGuardAMs; track townGuardAm.id) {
+          <span class="placeholder text-white" [ghs-label]="'scenario.rewards.townGuardAm'"
+            [ghs-label-args]="[townGuardAm.value, townGuardAm.valueType]"></span>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    }
+    }
 
-  <div class="buttons" *ngIf="(!conclusionOnly || !alreadyWarning) && !rewardsOnly"
-    [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.round  || !gameManager.stateManager.permissions.scenario || !gameManager.stateManager.permissions.characters)}">
-    <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
-    <span class="links"
-      *ngIf="success && (gameManager.game.party.campaignMode || forceCampaign) && (!!scenario.links && scenario.links.length > 0 || !!scenario.forcedLinks && scenario.forcedLinks.length > 0 || !!conclusion && !!conclusion.forcedLinks && conclusion.forcedLinks.length > 0)">
-      <ng-container *ngIf="!!scenario.forcedLinks && scenario.forcedLinks.length > 0">
-        <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
-        <a class="apply forced-link" (click)="finish(index, true)" *ngFor="let index of scenario.forcedLinks">
-          <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
-        </a>
-      </ng-container>
-      <ng-container *ngIf="!!conclusion && !!conclusion.forcedLinks && conclusion.forcedLinks.length > 0">
-        <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
-        <a class="apply forced-link" (click)="finish(index, true)" *ngFor="let index of conclusion.forcedLinks">
-          <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
-        </a>
-      </ng-container>
-      <ng-container
-        *ngIf="(!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0)">
-        <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
-        <ng-container *ngFor="let index of scenario.links">
-          <a class="link" (click)="finish(index)">
-            <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
-          </a>
-        </ng-container>
-        <ng-container *ngIf="!!conclusion && conclusion.links">
-          <ng-container *ngFor="let index of conclusion.links">
-            <a class="link" (click)="finish(index)">
-              <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
-            </a>
-          </ng-container>
-        </ng-container>
-      </ng-container>
-    </span>
-    <a class="apply"
-      *ngIf="!success || !gameManager.game.party.campaignMode || alreadyWarning || forceCampaign || ((!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0))"
-      (click)="finish()"><span
-        [ghs-label]="conclusionOnly ? 'scenario.summary.solve' : 'scenario.summary.apply'"></span></a>
-    <a class="restart" *ngIf="!success" (click)="restart()"><span [ghs-label]="(lootColumns.length > 0 ?
+    @if (hasBonus()) {
+    <div class="reward">
+      <label><span [ghs-label]="'scenario.rewards.bonus'"></span>:</label>
+      <div class="list">
+        @if (gameManager.fhRules() && EntityValueFunction('4-C') && (!rewards || !rewards.ignoredBonus ||
+        rewards.ignoredBonus.indexOf('inspiration') == -1)) {
+        <div class="item inspiration">
+          <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction('4-C') |
+              ghsValueSign) ]"></span> </span>
+        </div>
+        }
+        @if (numberChallenges > 0) {
+        <div class="item challenges">
+          <div class="menu">
+            <span
+              [ghs-label]="('scenario.summary.challenges.' + (numberChallenges > 1 ? 'completed' : 'complete'))"></span>
+            @if (!gameManager.challengesManager.enabled) {
+            <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges($event)">
+            }
+            @if (!gameManager.challengesManager.enabled && numberChallenges > 1) {
+            <input type="checkbox" [checked]="challenges > 1" (change)="toggleChallenges($event,true)">
+            }
+          </div>
+          @if (gameManager.challengesManager.enabled) {
+          <div class="cards">
+            <div class="card">
+              <ghs-challenge-card
+                [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[0]]"
+                [flipped]="true" (click)="openChallenge(gameManager.game.challengeDeck.keep[0])"></ghs-challenge-card>
+              <input type="checkbox" [checked]="challenges > 0" (change)="toggleChallenges($event)">
+            </div>
+            @if (numberChallenges > 1) {
+            <div class="card">
+              <ghs-challenge-card
+                [challenge]="gameManager.game.challengeDeck.cards[gameManager.game.challengeDeck.keep[1]]"
+                [flipped]="true" (click)="openChallenge(gameManager.game.challengeDeck.keep[1])"></ghs-challenge-card>
+              <input type="checkbox" [checked]="challenges > 1" (change)="toggleChallenges($event,true)">
+            </div>
+            }
+          </div>
+          }
+        </div>
+        }
+      </div>
+    </div>
+    }
+
+
+    @if (addWeek()) {
+    <div class="reward">
+      <label><span [ghs-label]="'scenario.rewards.addWeek'"></span>:</label>
+      <div class="list">
+        <div class="item week">
+          <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.next'"
+              [ghs-label-args]="[(gameManager.game.party.weeks + 1)]"></span></span>
+        </div>
+        @if (gameManager.game.party.weeks % 20 < 10 && (gameManager.game.party.weeks - 1) % 20>= 10) {
+          <div class="item summer">
+            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.summer'"></span></span>
+          </div>
+          }
+          @if (gameManager.game.party.weeks % 20 >= 10 && (gameManager.game.party.weeks - 1) % 20 < 10) { <div
+            class="item winter">
+            <span><span class="text-white" [ghs-label]="'scenario.rewards.addWeek.winter'"></span></span>
+      </div>
+      }
+      @if (weekSections().length) {
+      <div class="item week-sections">
+        @for (weekSection of weekSections(); track weekSection) {
+        <span class="week-section text-white" (click)="showWeekConclusion(weekSection)"
+          [ghs-label]="'scenario.rewards.addWeek.section'" [ghs-label-args]="[weekSection.index]"></span>
+        }
+      </div>
+      }
+    </div>
+  </div>
+  }
+</div>
+</div>
+
+@if ((!conclusionOnly || !alreadyWarning) && !rewardsOnly) {
+<div class="buttons"
+  [ngClass]="{'denied' : gameManager.stateManager.permissions && (!gameManager.stateManager.permissions.round  || !gameManager.stateManager.permissions.scenario || !gameManager.stateManager.permissions.characters)}">
+  <a class="cancel" (click)="close()"><span [ghs-label]="'scenario.summary.cancel'"></span></a>
+  @if (success && (gameManager.game.party.campaignMode || forceCampaign) && (!!scenario.links && scenario.links.length >
+  0 || !!scenario.forcedLinks && scenario.forcedLinks.length > 0 || !!conclusion && !!conclusion.forcedLinks &&
+  conclusion.forcedLinks.length > 0)) {
+  <span class="links">
+    @if (!!scenario.forcedLinks && scenario.forcedLinks.length > 0) {
+    <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
+    @for (index of scenario.forcedLinks; track index) {
+    <a class="apply forced-link" (click)="finish(index, true)">
+      <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+    </a>
+    }
+    }
+    @if (!!conclusion && !!conclusion.forcedLinks && conclusion.forcedLinks.length > 0) {
+    <span class="text"><span [ghs-label]="'scenario.summary.forcedLinks'"></span></span>
+    @for (index of conclusion.forcedLinks; track index) {
+    <a class="apply forced-link" (click)="finish(index, true)">
+      <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+    </a>
+    }
+    }
+    @if ((!scenario.forcedLinks || scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks ||
+    conclusion.forcedLinks.length == 0)) {
+    <span class="text"><span [ghs-label]="'scenario.summary.links'"></span></span>
+    @for (index of scenario.links; track index) {
+    <a class="link" (click)="finish(index)">
+      <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+    </a>
+    }
+    @if (!!conclusion && conclusion.links) {
+    @for (index of conclusion.links; track index) {
+    <a class="link" (click)="finish(index)">
+      <span [ghs-label]="'scenario.summary.link'" [ghs-label-args]="[index]"></span>
+    </a>
+    }
+    }
+    }
+  </span>
+  }
+  @if (!success || !gameManager.game.party.campaignMode || alreadyWarning || forceCampaign || ((!scenario.forcedLinks ||
+  scenario.forcedLinks.length == 0) && (!conclusion || !conclusion.forcedLinks || conclusion.forcedLinks.length == 0)))
+  {
+  <a class="apply" (click)="finish()"><span
+      [ghs-label]="conclusionOnly ? 'scenario.summary.solve' : 'scenario.summary.apply'"></span></a>
+  }
+  @if (!success) {
+  <a class="restart" (click)="restart()"><span [ghs-label]="(lootColumns.length > 0 ?
       'scenario.summary.restartLoseLoot'
       : 'scenario.summary.restart')"></span></a>
-  </div>
+  }
+</div>
+}
 </div>

@@ -1,32 +1,42 @@
-<div class="highlight-conditions" *ngIf="highlightedConditions.length > 0">
+@if (highlightedConditions.length > 0) {
+<div class="highlight-conditions">
+  @for (entityCondition of highlightedConditions; track entityCondition.name + entityCondition.value) {
   <span class="condition" [conditionHighlight]="entityCondition"
-    *ngFor="let entityCondition of highlightedConditions"
     [ngClass]="{'apply' : settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && !entityCondition.expired && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 && entityCondition.types.indexOf(ConditionType.apply) != -1, 'double': entityCondition.types.indexOf(ConditionType.double) != -1}">
-
-    <a class="close" [conditionHighlight]="entityCondition"
-      *ngIf="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && !entityCondition.expired && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 && entityCondition.types.indexOf(ConditionType.apply) != -1"
-      ghs-pointer-input (singleClick)="declineApplyCondition(entityCondition.name, $event)">
+    @if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions &&
+    !entityCondition.expired && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) ==
+    -1 && entityCondition.types.indexOf(ConditionType.apply) != -1) {
+    <a class="close" [conditionHighlight]="entityCondition" ghs-pointer-input
+      (singleClick)="declineApplyCondition(entityCondition.name, $event)">
       <img class="ghs-svg" src="./assets/images/close_dialog.svg" />
     </a>
-
+    }
     <span class="condition-image">
       <img
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
-      <span class="value"
-        *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+      @if (entityCondition.types.indexOf(ConditionType.value) != -1) {
+      <span class="value">{{entityCondition.value}}</span>
+      }
     </span>
-
-    <a class="double" [conditionHighlight]="entityCondition"
-      *ngIf="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && !entityCondition.expired && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 &&  entityCondition.types.indexOf(ConditionType.apply) != -1 && entityCondition.types.indexOf(ConditionType.double) != -1"
-      ghs-pointer-input (singleClick)="applyCondition(entityCondition.name, $event, true)">
+    @if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions &&
+    !entityCondition.expired && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) ==
+    -1 && entityCondition.types.indexOf(ConditionType.apply) != -1 &&
+    entityCondition.types.indexOf(ConditionType.double) != -1) {
+    <a class="double" [conditionHighlight]="entityCondition" ghs-pointer-input
+      (singleClick)="applyCondition(entityCondition.name, $event, true)">
       <img
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') +  '/attackmodifier/icons/double.png'" />
     </a>
-
-    <a class="check" [conditionHighlight]="entityCondition"
-      *ngIf="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions && !entityCondition.expired && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) == -1 && entityCondition.types.indexOf(ConditionType.apply) != -1"
-      ghs-pointer-input (singleClick)="applyCondition(entityCondition.name, $event)">
+    }
+    @if (settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions &&
+    !entityCondition.expired && settingsManager.settings.activeApplyConditionsExcludes.indexOf(entityCondition.name) ==
+    -1 && entityCondition.types.indexOf(ConditionType.apply) != -1) {
+    <a class="check" [conditionHighlight]="entityCondition" ghs-pointer-input
+      (singleClick)="applyCondition(entityCondition.name, $event)">
       <img class="ghs-svg" src="./assets/images/check.svg" />
     </a>
+    }
   </span>
+  }
 </div>
+}

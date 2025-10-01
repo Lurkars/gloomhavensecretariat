@@ -1,55 +1,73 @@
 <div class="menu-container character-add">
-  <div class="level-container" *ngIf="!gameManager.bbRules()"
+  @if (!gameManager.bbRules()) {
+  <div class="level-container"
     [ngClass]="{'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
     <span class="item"><img src="./assets/images/status/level.svg" /></span>
-    <span class="item" *ngFor="let level of [] | ghsRange:9"><a tabclick class="level"
-        [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
+    @for (level of [] | ghsRange:9; track level) {
+    <span class="item"><a tabclick class="level" [ngClass]="{'active' : level + 1 == characterLevel}"
+        (click)="characterLevel = level+1">{{level
         +1}}</a></span>
+    }
     <div class="line search">
       <input [(ngModel)]="filter" (change)="update()" (keyup)="update()" type="text" [ghs-label]="'character.filter'"
         [ghs-label-attribute]="'placeholder'">
-      <label *ngIf="gameManager.game.edition">
+      @if (gameManager.game.edition) {
+      <label>
         <input tabclick type="checkbox" [checked]="allEditions" (change)="allEditions = !allEditions; update()">
         <span [ghs-label]="'character.filter.allEditions'"></span>
       </label>
+      }
     </div>
   </div>
+  }
   <div class="columns">
-    <ng-container
-      *ngFor="let edition of (allEditions ? gameManager.editions(true,true) : gameManager.currentEditions(true))">
-      <div class="column spoilers" *ngIf="characterData[edition] && characterData[edition].length > 0">
-        <div class="line title sticky"
-          [ngClass]="{'hide-title' : !allEditions && gameManager.currentEditions().length == 1, 'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
-          <label><span [ghs-label]="'data.edition.' + edition"></span></label>
-        </div>
-        <div class="line separator reveal-all" *ngIf="locked(edition)">
-          <a (click)="unlockAll(edition)" [ngClass]="{'confirm' : confirm == 'confirm-all-' + edition}"
-            (mouseleave)="cancelConfirm()">
-            <span
-              [ghs-label]="confirm == 'confirm-all-'+ edition ? 'character.unlockAll.confirm' : 'character.unlockAll'"></span>
-          </a>
-        </div>
-        <div class="line" *ngFor="let characterData of (characterData[edition] || [])"
-          [ngClass]="{'disabled' : hasCharacter(characterData) && unlocked(characterData), 'spoiler' : characterData.spoiler}">
-          <a tabclick (click)="addCharacter(characterData);" *ngIf="unlocked(characterData)">
-            <img class="icon" [src]="characterData.iconUrl" />
-            <span [ghs-label]="'data.character.' + characterData.edition + '.'+ characterData.name"></span>
-          </a>
-          <a tabclick (click)="unlock(characterData)" *ngIf="!unlocked(characterData)"
-            [ngClass]="{'confirm' : confirm == characterData.name}" (mouseleave)="cancelConfirm()">
-            <img class="icon spoiler" [src]="characterData.iconUrl" />
-            <span class="name">
-              <span [ghs-label]="'spoiler.placeholder'"></span></span>
-            <span class="add"
-              [ghs-label]="confirm == characterData.name ? 'character.unlock.confirm' : 'character.unlock'"></span>
-          </a>
-        </div>
+    @for (edition of (allEditions ? gameManager.editions(true,true) : gameManager.currentEditions(true)); track edition)
+    {
+    @if (characterData[edition] && characterData[edition].length > 0) {
+    <div class="column spoilers">
+      <div class="line title sticky"
+        [ngClass]="{'hide-title' : !allEditions && gameManager.currentEditions().length == 1, 'fh' : settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+        <label><span [ghs-label]="'data.edition.' + edition"></span></label>
       </div>
-    </ng-container>
-    <div class="column" *ngIf="filter && noResults()">
+      @if (locked(edition)) {
+      <div class="line separator reveal-all">
+        <a (click)="unlockAll(edition)" [ngClass]="{'confirm' : confirm == 'confirm-all-' + edition}"
+          (mouseleave)="cancelConfirm()">
+          <span
+            [ghs-label]="confirm == 'confirm-all-'+ edition ? 'character.unlockAll.confirm' : 'character.unlockAll'"></span>
+        </a>
+      </div>
+      }
+      @for (characterData of (characterData[edition] || []); track characterData.edition + '-' + characterData.name) {
+      <div class="line"
+        [ngClass]="{'disabled' : hasCharacter(characterData) && unlocked(characterData), 'spoiler' : characterData.spoiler}">
+        @if (unlocked(characterData)) {
+        <a tabclick (click)="addCharacter(characterData);">
+          <img class="icon" [src]="characterData.iconUrl" />
+          <span [ghs-label]="'data.character.' + characterData.edition + '.'+ characterData.name"></span>
+        </a>
+        }
+        @if (!unlocked(characterData)) {
+        <a tabclick (click)="unlock(characterData)" [ngClass]="{'confirm' : confirm == characterData.name}"
+          (mouseleave)="cancelConfirm()">
+          <img class="icon spoiler" [src]="characterData.iconUrl" />
+          <span class="name">
+            <span [ghs-label]="'spoiler.placeholder'"></span></span>
+          <span class="add"
+            [ghs-label]="confirm == characterData.name ? 'character.unlock.confirm' : 'character.unlock'"></span>
+        </a>
+        }
+      </div>
+      }
+    </div>
+    }
+    }
+    @if (filter && noResults()) {
+    <div class="column">
       <div class="line">
         <label><span [ghs-label]="'character.filter.noResult'"></span></label>
       </div>
     </div>
+    }
   </div>
 </div>

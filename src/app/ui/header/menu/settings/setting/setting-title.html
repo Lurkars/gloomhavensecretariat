@@ -1,8 +1,11 @@
 <label><span [ghs-label]="'settings.' + setting"></span></label>
-<div class="hint-container" *ngIf="sync">
-    <img *ngIf="settingsManager.settings.serverSettings" src="./assets/images/sync-settings.svg"
-        class="hint-trigger ghs-svg sync-settings">
-    <span class="hint">
-        <span class="text" [ghs-label]="'settings.synced'"></span>
-    </span>
+@if (sync) {
+<div class="hint-container">
+  @if (settingsManager.settings.serverSettings) {
+  <img src="./assets/images/sync-settings.svg" class="hint-trigger ghs-svg sync-settings">
+  }
+  <span class="hint">
+    <span class="text" [ghs-label]="'settings.synced'"></span>
+  </span>
 </div>
+}
