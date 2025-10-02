@@ -192,6 +192,10 @@
     "fh": {
       "astral": {
         "": "Infuser",
+        "imbue-with-life": {
+          "": "Imbue with Life",
+          "hint": "Whenever you do not have %game.condition.disarm%, gain %game.condition.disarm%."
+        },
         "veil-of-protection": {
           "": "Veil of Protection",
           "hint": "Your current and maximum hitpoint values are increased by 3."

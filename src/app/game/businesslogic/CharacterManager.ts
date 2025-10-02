@@ -233,7 +233,7 @@ export class CharacterManager {
     }
 
     if (character.name == 'astral') {
-      if (summon.name == 'animated-claymore') {
+      if (character.tags.indexOf('imbue-with-life') != -1 && summon.name == 'animated-claymore') {
         let disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
         if (disarm) {
           disarm.permanent = true;
@@ -254,7 +254,7 @@ export class CharacterManager {
   removeSummon(character: Character, summon: Summon) {
     character.summons.splice(character.summons.indexOf(summon), 1);
 
-    if (character.name == 'astral') {
+    if (character.name == 'astral' && character.tags.indexOf('imbue-with-life') != -1 && summon.name == 'animated-claymore') {
       let disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
       if (disarm) {
         disarm.permanent = false;

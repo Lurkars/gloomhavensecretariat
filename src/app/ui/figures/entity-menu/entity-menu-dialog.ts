@@ -1036,6 +1036,10 @@ export class EntityMenuDialogComponent {
               summon.maxHealth -= 3;
             })
           }
+
+          if (specialTagsToTemove.indexOf('imbue-with-life') != -1) {
+            this.data.entity.entityConditions = this.data.entity.entityConditions.filter((entityCondition) => entityCondition.name != ConditionName.disarm || !entityCondition.permanent)
+          }
         }
 
         gameManager.stateManager.after();
@@ -1099,6 +1103,17 @@ export class EntityMenuDialogComponent {
               summon.health += 3;
               summon.maxHealth += 3;
             })
+          }
+
+          if (specialTagsToAdd.indexOf('imbue-with-life') != -1 && this.data.entity.summons.findIndex((summon) => summon.name == 'animated-claymore') != -1) {
+            let disarm = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
+            if (disarm) {
+              disarm.permanent = true;
+            } else {
+              disarm = new EntityCondition(ConditionName.disarm);
+              disarm.permanent = true;
+              this.data.entity.entityConditions.push(disarm);
+            }
           }
         }
 

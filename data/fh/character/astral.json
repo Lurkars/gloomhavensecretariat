@@ -12,6 +12,11 @@
   "spoiler": true,
   "specialActions": [
     {
+      "name": "imbue-with-life",
+      "expire": true,
+      "level": 1
+    },
+    {
       "name": "veil-of-protection",
       "expire": true,
       "level": 2
