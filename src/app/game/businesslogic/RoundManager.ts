@@ -630,6 +630,13 @@ export class RoundManager {
           }
         }
 
+        if (figure.name == 'astral' && figure.tags.find((tag) => tag === 'veil-of-protection')) {
+          const stat = figure.stats.find((stat) => stat.level == figure.level);
+          if (stat) {
+            figure.maxHealth = stat.health;
+          }
+        }
+
         figure.health = figure.maxHealth;
         figure.loot = 0;
         figure.lootCards = [];
