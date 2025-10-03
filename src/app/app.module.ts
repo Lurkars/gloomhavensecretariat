@@ -93,6 +93,7 @@ import { MonsterStatsDialogComponent } from './ui/figures/monster/stats/stats-di
 import { ObjectiveContainerComponent } from './ui/figures/objective-container/objective-container';
 import { PartyBuildingsComponent } from './ui/figures/party/buildings/buildings';
 import { GardenComponent } from './ui/figures/party/buildings/garden/garden';
+import { BuildingsListComponent } from './ui/figures/party/buildings/list/buildings-list';
 import { PetCardComponent } from './ui/figures/party/buildings/stables/pet-card/pet-card';
 import { StablesComponent } from './ui/figures/party/buildings/stables/stables';
 import { BuildingUpgradeDialog } from './ui/figures/party/buildings/upgrade-dialog/upgrade-dialog';
@@ -208,6 +209,7 @@ import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
     AutoscrollDirective,
     BattleGoalComponent,
     BattleGoalSetupDialog,
+    BuildingsListComponent,
     BuildingUpgradeDialog,
     CampaignMenuComponent,
     CardRevealDirective,

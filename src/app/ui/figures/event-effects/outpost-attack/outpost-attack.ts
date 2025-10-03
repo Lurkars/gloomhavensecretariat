@@ -45,6 +45,8 @@ export class OutpostAttackComponent {
     attacks: number = 0;
     attackResult: AttackResult | undefined;
 
+    deckActive: boolean = false;
+
     constructor(@Inject(DIALOG_DATA) public data: { attack: EventCardAttack, effects: EventCardEffect[] }, private dialogRef: DialogRef, private dialog: Dialog) {
         if (this.data.attack) {
             this.defaultAttack = new EventCardAttack(data.attack.attackValue, data.attack.targetNumber, data.attack.targetDescription, data.attack.narrative, data.attack.effects);
@@ -70,6 +72,8 @@ export class OutpostAttackComponent {
             }
         }
         this.attack = this.defaultAttack || new EventCardAttack(this.manualAttackValue, this.manualTargetNumber, "", "", []);
+
+        this.deckActive = !!gameManager.game.party.townGuardDeck && gameManager.game.party.townGuardDeck.active;
     }
 
     ngOnInit(): void {
@@ -82,6 +86,10 @@ export class OutpostAttackComponent {
     ngOnDestroy(): void {
         if (this.uiChangeSubscription) {
             this.uiChangeSubscription.unsubscribe();
+        }
+
+        if (gameManager.game.party.townGuardDeck) {
+            gameManager.game.party.townGuardDeck.active = this.deckActive;
         }
     }
 
@@ -154,33 +162,22 @@ export class OutpostAttackComponent {
     nextTarget() {
         if (this.attacks < this.buildings.length && this.attack.targetNumber) {
             const building = this.buildings[this.attacks];
-            gameManager.stateManager.before("buildingAttacked", building.data.id, building.data.name);
+            let state = building.model.state;
+            if (this.attackResult) {
+                if (this.townGuardDeck.cards[this.attackResult.index].type == 'wreck') {
+                    state = 'wrecked';
+                } else if (this.townGuardDeck.cards[this.attackResult.index].type != 'success' && this.attackResult.result < EntityValueFunction(this.attack.attackValue)) {
+                    state = 'damaged';
+                }
+            }
+            gameManager.stateManager.before("buildingAttacked" + (state != building.model.state ? '.' + state : ''), building.data.id, building.data.name);
             gameManager.game.party.soldiers -= this.soldiers;
             this.soldiers = 0;
             building.model.attacked = true;
             this.attacks++;
-            this.applyBaracks();
-            gameManager.stateManager.after();
-        }
-    }
-
-    toggleBuildingState(building: Building) {
-        let state: "normal" | "damaged" | "wrecked" | false = false;
-        switch (building.model.state) {
-            case 'normal':
-                state = 'damaged';
-                break;
-            case 'damaged':
-                state = 'wrecked';
-                break;
-            case 'wrecked':
-                state = 'normal';
-                break;
-        }
-
-        if (state) {
-            gameManager.stateManager.before("changeBuildingState", building.data.id, building.model.name, state);
             building.model.state = state;
+            this.attackResult = undefined;
+            this.applyBaracks();
             gameManager.stateManager.after();
         }
     }

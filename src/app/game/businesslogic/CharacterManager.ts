@@ -9,7 +9,7 @@ import { Summon, SummonColor, SummonState } from "../model/Summon";
 import { Action, ActionType } from "../model/data/Action";
 import { CharacterData } from "../model/data/CharacterData";
 import { CharacterStat } from "../model/data/CharacterStat";
-import { Condition, ConditionName, EntityCondition, EntityConditionState } from "../model/data/Condition";
+import { Condition, ConditionName, EntityConditionState } from "../model/data/Condition";
 import { Enhancement } from "../model/data/Enhancement";
 import { ItemData } from "../model/data/ItemData";
 import { PersonalQuest } from "../model/data/PersonalQuest";
@@ -232,22 +232,9 @@ export class CharacterManager {
       }
     }
 
-    if (character.name == 'astral') {
-      if (character.tags.indexOf('imbue-with-life') != -1 && summon.name == 'animated-claymore') {
-        let disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
-        if (disarm) {
-          disarm.permanent = true;
-        } else {
-          disarm = new EntityCondition(ConditionName.disarm);
-          disarm.permanent = true;
-          character.entityConditions.push(disarm);
-        }
-      }
-
-      if (character.tags.indexOf('veil-of-protection') != -1) {
-        summon.health += 3;
-        summon.maxHealth += 3;
-      }
+    if (character.name == 'astral' && character.tags.indexOf('veil-of-protection') != -1) {
+      summon.health += 3;
+      summon.maxHealth += 3;
     }
   }
 
@@ -256,6 +243,7 @@ export class CharacterManager {
 
     if (character.name == 'astral' && character.tags.indexOf('imbue-with-life') != -1 && summon.name == 'animated-claymore') {
       let disarm = character.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
+      character.tags = character.tags.filter((tag) => tag != 'imbue-with-life');
       if (disarm) {
         disarm.permanent = false;
         disarm.state = EntityConditionState.expire;

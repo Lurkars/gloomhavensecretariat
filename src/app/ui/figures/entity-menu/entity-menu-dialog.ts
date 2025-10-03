@@ -1105,9 +1105,10 @@ export class EntityMenuDialogComponent {
             })
           }
 
-          if (specialTagsToAdd.indexOf('imbue-with-life') != -1 && this.data.entity.summons.findIndex((summon) => summon.name == 'animated-claymore') != -1) {
+          if (specialTagsToAdd.indexOf('imbue-with-life') != -1) {
             let disarm = this.data.entity.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.disarm);
             if (disarm) {
+              disarm.expired = false;
               disarm.permanent = true;
             } else {
               disarm = new EntityCondition(ConditionName.disarm);

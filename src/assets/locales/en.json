@@ -1554,11 +1554,10 @@
     "outpostAttack": {
       "advantage": "Gain advantage for this attack for losing soliders!",
       "buildings": {
-        "damage": "Damage Building",
-        "repair": "Repair Building",
-        "wreck": "Wreck Building"
+        "damaged": "Damaged Building",
+        "wrecked": "Wrecked Building"
       },
-      "defense": "Total Defense:",
+      "defense": "Base Defense:",
       "disadvantage": "Gain disadvantage because the Barracks are wrecked!",
       "filter": {
         "desc": "Descending Order",
@@ -1573,6 +1572,12 @@
       "map": "Open Global Map",
       "next": "Next Target",
       "other": "Other Buildings",
+      "result": {
+        "damage": "Building is damaged.<br>Failed with {0} Defense against %game.action.attack% {2}!",
+        "success": "Success with {0} defense against %game.action.attack% {2}!",
+        "successfull": "Defense was successfull!",
+        "wreck": "Building is wrecked!"
+      },
       "sheet": "Open Party Sheet",
       "targets": "Targeted Buildings"
     },

@@ -658,28 +658,27 @@ export class MonsterManager {
   next() {
     this.game.figures.forEach((figure) => {
       if (figure instanceof Monster) {
-        const ability = this.getAbility(figure);
+        let ability = this.getAbility(figure);
         if (ability) {
           if (this.hasBottomActions(figure)) {
-            const secondAbility = this.getAbility(figure, true);
-            if (figure.firstActiveAction == 'bottom' && ability.bottomLost || figure.firstActiveAction == 'top' && ability.lost) {
+            const secondAbility = ability;
+            ability = this.getAbility(figure, true);
+            if (ability && (figure.firstActiveAction == 'bottom' && ability.bottomLost || figure.firstActiveAction == 'top' && ability.lost)) {
               const index = gameManager.abilities(figure).indexOf(ability);
               figure.abilities = figure.abilities.filter((number) => number != index);
               figure.ability -= 1;
             }
-            if (secondAbility) {
-              if (figure.firstActiveAction == 'bottom' && secondAbility.lost || figure.firstActiveAction == 'top' && secondAbility.bottomLost) {
-                const index = gameManager.abilities(figure).indexOf(secondAbility);
-                figure.abilities = figure.abilities.filter((number) => number != index);
-                figure.ability -= 1;
-              }
+            if (secondAbility && (figure.firstActiveAction == 'bottom' && secondAbility.lost || figure.firstActiveAction == 'top' && secondAbility.bottomLost)) {
+              const index = gameManager.abilities(figure).indexOf(secondAbility);
+              figure.abilities = figure.abilities.filter((number) => number != index);
+              figure.ability -= 1;
             }
           }
 
           if (this.hasBottomActions(figure) && figure.firstActiveAction && figure.ability >= (figure.abilities.length + (figure.abilities.length % 2 == 0 ? -1 : -2))) {
             figure.abilities.splice(0, 1);
             this.shuffleAbilities(figure);
-          } else if (ability.shuffle || figure.ability >= figure.abilities.length) {
+          } else if (ability && ability.shuffle || figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);
           }
         }

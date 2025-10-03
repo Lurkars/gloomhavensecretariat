@@ -150,21 +150,23 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: var(--ghs-color-red);
 
         .result {
             font-size: 1.5em;
+            text-align: center;
+            color: var(--ghs-color-black);
+            filter: var(--ghs-filter-red);
 
             &.wreck {
-                color: var(--ghs-color-yellow);
+                filter: var(--ghs-filter-yellow);
             }
 
             &.success {
-                color: var(--ghs-color-blue);
+                filter: var(--ghs-filter-green);
             }
 
-            &.successful {
-                color: var(--ghs-color-green);
+            &.successfull {
+                filter: var(--ghs-filter-blue);
             }
         }
 
@@ -249,6 +251,10 @@
                 align-items: center;
                 height: 100%;
             }
+
+            &.name span {
+                justify-content: flex-start;
+            }
         }
 
         .drag-handle {
@@ -275,20 +281,21 @@
             }
         }
 
-        .change-state {
+        .state {
             display: flex;
             align-items: center;
 
-            a {
-                cursor: pointer;
-
-                .ghs-svg {
-                    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-                    width: auto;
-                    filter: var(--ghs-filter-red);
-                }
+            span .ghs-svg {
+                height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+                width: auto;
+                filter: var(--ghs-filter-white);
             }
         }
+    }
+
+    ghs-buildings-list {
+        display: block;
+        min-width: calc(var(--ghs-unit) * 55 * var(--ghs-dialog-factor));
     }
 
     .menu {

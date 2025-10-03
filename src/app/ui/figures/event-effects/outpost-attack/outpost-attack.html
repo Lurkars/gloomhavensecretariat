@@ -90,145 +90,140 @@
     </div>
   </div>
 
-  <div class="defense">
+  @if (EntityValueFunction(attack.targetNumber) > 0 && attacks < buildings.length) { <div class="defense">
     <span [ghs-label]="'party.outpostAttack.defense'"></span>
     <span class="value">{{(gameManager.game.party.defense || 0) + moraleDefense}}</span>
-  </div>
+</div>
 
-  @if (attackResult) {
-  <div class="attack-result">
-    @if (townGuardDeck.cards[attackResult.index].type == 'wreck') {
-    <span class="result wreck" [ghs-label]="'party.outpostAttack.result.wreck'"></span>
-    }
-    @if (townGuardDeck.cards[attackResult.index].type == 'success') {
-    <span class="result success" [ghs-label]="'party.outpostAttack.result.success'"></span>
-    }
-    @if (townGuardDeck.cards[attackResult.index].type != 'wreck' && townGuardDeck.cards[attackResult.index].type !=
-    'success'){
-    <span class="result" [ngClass]="{'successful' : attackResult.result >= EntityValueFunction(attack.attackValue)}"
-      [ghs-label]="'party.outpostAttack.result.' + (attackResult.result >= EntityValueFunction(attack.attackValue) ? 'successful': 'damage')"
-      [ghs-label-args]="[attackResult.result, (gameManager.game.party.defense || 0) + moraleDefense, EntityValueFunction(attack.attackValue)]"></span>
-    }
-    @if (attackResult.chooseOffset) {
-    <div class="choose">
-      <ghs-attackmodifier (click)="toggleAttackResult()"
-        [attackModifier]="townGuardDeck.cards[attackResult.index + attackResult.chooseOffset]" [townGuard]="true"
-        [flipped]="true"></ghs-attackmodifier>
-      <ghs-attackmodifier [attackModifier]="townGuardDeck.cards[attackResult.index]" [townGuard]="true"
-        [flipped]="true"></ghs-attackmodifier>
-    </div>
-    }
+@if (attackResult) {
+<div class="attack-result">
+  @if (townGuardDeck.cards[attackResult.index].type == 'wreck') {
+  <span class="result wreck" [ghs-label]="'party.outpostAttack.result.wreck'"></span>
+  }
+  @if (townGuardDeck.cards[attackResult.index].type == 'success') {
+  <span class="result successfull" [ghs-label]="'party.outpostAttack.result.successfull'"></span>
+  }
+  @if (townGuardDeck.cards[attackResult.index].type != 'wreck' && townGuardDeck.cards[attackResult.index].type !=
+  'success'){
+  <span class="result" [ngClass]="{'success' : attackResult.result >= EntityValueFunction(attack.attackValue)}"
+    [ghs-label]="'party.outpostAttack.result.' + (attackResult.result >= EntityValueFunction(attack.attackValue) ? 'success': 'damage')"
+    [ghs-label-args]="[attackResult.result, (gameManager.game.party.defense || 0) + moraleDefense, EntityValueFunction(attack.attackValue)]"></span>
+  }
+  @if (attackResult.chooseOffset) {
+  <div class="choose">
+    <ghs-attackmodifier (click)="toggleAttackResult()"
+      [attackModifier]="townGuardDeck.cards[attackResult.index + attackResult.chooseOffset]" [townGuard]="true"
+      [flipped]="true"></ghs-attackmodifier>
+    <ghs-attackmodifier [attackModifier]="townGuardDeck.cards[attackResult.index]" [townGuard]="true"
+      [flipped]="true"></ghs-attackmodifier>
   </div>
   }
+</div>
+}
 
-  <div class="buildings">
-    <table cdkDropList #buildingsList="cdkDropList" [cdkDropListConnectedTo]="disabledBuildingsList"
-      (cdkDropListDropped)="dropBuildings($event)">
-      <thead>
-        <tr>
-          <th colspan="6" [ghs-label]="'party.outpostAttack.targets'"></th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (building of buildings; track building.data.name; let i = $index) {
-        <tr cdkDrag
-          [ngClass]="{'disabled': building.model.attacked || typeof attack.targetNumber === 'number' && i >= attacks + attack.targetNumber}">
-          <td class="drag-handle" cdkDragHandle>
-            <a class="button">
-              <img class="ghs-svg" src="./assets/images/menu.svg">
-            </a>
-          </td>
-          <td class="target">
-            <span>
-              @if (i == attacks && attack.targetNumber) {
-              <img class="ghs-svg" src="./assets/images/attackmodifier/target.svg">
-              }
-            </span>
-          </td>
-          <td class="name">
-            <span [ghs-label]="'data.buildings.' + building.model.name"></span>
-          </td>
-          <td class="id">@if (building.data.id) {
-            <span>({{building.data.id}})</span>
+<div class="buildings">
+  <table cdkDropList #buildingsList="cdkDropList" [cdkDropListConnectedTo]="disabledBuildingsList"
+    (cdkDropListDropped)="dropBuildings($event)">
+    <thead>
+      <tr>
+        <th colspan="6" [ghs-label]="'party.outpostAttack.targets'"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (building of buildings; track building.data.name; let i = $index) {
+      <tr cdkDrag
+        [ngClass]="{'disabled': building.model.attacked || typeof attack.targetNumber === 'number' && i >= attacks + attack.targetNumber}">
+        <td class="drag-handle" cdkDragHandle>
+          <a class="button">
+            <img class="ghs-svg" src="./assets/images/menu.svg">
+          </a>
+        </td>
+        <td class="target">
+          <span>
+            @if (i == attacks && attack.targetNumber) {
+            <img class="ghs-svg" src="./assets/images/attackmodifier/target.svg">
             }
-          </td>
-          <td class="level"><span>{{building.model.level || '-'}}</span></td>
-          <td class="change-state">
-            @if (building.model.state == 'normal') {
-            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.damage'">
-              <img class="ghs-svg" src="./assets/images/fh/action/damage.svg">
-            </a>
-            }
-            @if (building.model.state == 'damaged') {
-            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.wreck'">
-              <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg">
-            </a>
-            }
-            @if (building.model.state == 'wrecked') {
-            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.repair'">
-              <img class="ghs-svg" src="./assets/images/fh/buildings/repair.svg">
-            </a>
-            }
-          </td>
-        </tr>
-        }
-      </tbody>
-    </table>
-
-    <table class="other" cdkDropList #disabledBuildingsList="cdkDropList" [cdkDropListConnectedTo]="buildingsList"
-      (cdkDropListDropped)="dropDisabledBuildings($event)">
-      <thead>
-        <tr>
-          <th colspan="6" [ghs-label]="'party.outpostAttack.other'"></th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (building of disabledBuildings; track building.data.name) {
-        <tr cdkDrag>
-          <td class="drag-handle" cdkDragHandle>
-            <a class="button">
-              <img class="ghs-svg" src="./assets/images/menu.svg">
-            </a>
-          </td>
-          <td class="target"></td>
-          <td class="name">
-            <span [ghs-label]="'data.buildings.' + building.model.name"></span>
-          </td>
-          <td class="id">@if (building.data.id) {
-            <span>({{building.data.id}})</span>
-            }
-          </td>
-          <td class="level">{{building.model.level || '-'}}</td>
-          <td class="change-state">
-            @if (building.model.state == 'normal') {
-            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.damage'">
-              <img class="ghs-svg" src="./assets/images/fh/action/damage.svg">
-            </a>
-            }
-            @if (building.model.state == 'damaged') {
-            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.wreck'">
-              <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg">
-            </a>
-            }
-            @if (building.model.state == 'wrecked') {
-            <a (click)="toggleBuildingState(building)" [ghs-tooltip]="'party.outpostAttack.buildings.repair'">
-              <img class="ghs-svg" src="./assets/images/fh/buildings/repair.svg">
-            </a>
-            }
-          </td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  </div>
-
-  <div class="menu">
-    <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
-    @if (+attack.targetNumber > 0 && attacks < buildings.length) { <a (click)="nextTarget()"
-      [ghs-label]="'party.outpostAttack.next'"></a>
+          </span>
+        </td>
+        <td class="name">
+          <span [ghs-label]="'data.buildings.' + building.model.name"></span>
+        </td>
+        <td class="id">@if (building.data.id) {
+          <span>({{building.data.id}})</span>
+          }
+        </td>
+        <td class="level"><span>{{building.model.level || '-'}}</span></td>
+        <td class="state">
+          @if (building.model.state == 'damaged') {
+          <span class="damaged" [ghs-tooltip]="'party.outpostAttack.buildings.damaged'">
+            <img class="ghs-svg" src="./assets/images/fh/buildings/damaged.svg">
+          </span>
+          }
+          @if (building.model.state == 'wrecked') {
+          <span class="wrecked" [ghs-tooltip]="'party.outpostAttack.buildings.wrecked'">
+            <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg">
+          </span>
+          }
+        </td>
+      </tr>
       }
-      @if (attack.targetNumber == 0 || attacks >= buildings.length) {
-      <a class="finish" (click)="close(true)" [ghs-label]="'party.outpostAttack.finish'"></a>
+    </tbody>
+  </table>
+
+  <table class="other" cdkDropList #disabledBuildingsList="cdkDropList" [cdkDropListConnectedTo]="buildingsList"
+    (cdkDropListDropped)="dropDisabledBuildings($event)">
+    <thead>
+      <tr>
+        <th colspan="6" [ghs-label]="'party.outpostAttack.other'"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (building of disabledBuildings; track building.data.name) {
+      <tr cdkDrag>
+        <td class="drag-handle" cdkDragHandle>
+          <a class="button">
+            <img class="ghs-svg" src="./assets/images/menu.svg">
+          </a>
+        </td>
+        <td class="target"></td>
+        <td class="name">
+          <span [ghs-label]="'data.buildings.' + building.model.name"></span>
+        </td>
+        <td class="id">@if (building.data.id) {
+          <span>({{building.data.id}})</span>
+          }
+        </td>
+        <td class="level">{{building.model.level || '-'}}</td>
+        <td class="state">
+          @if (building.model.state == 'damaged') {
+          <span [ghs-tooltip]="'party.outpostAttack.buildings.damaged'">
+            <img class="ghs-svg" src="./assets/images/fh/buildings/damaged.svg">
+          </span>
+          }
+          @if (building.model.state == 'wrecked') {
+          <span [ghs-tooltip]="'party.outpostAttack.buildings.wrecked'">
+            <img class="ghs-svg" src="./assets/images/fh/buildings/wrecked.svg">
+          </span>
+          }
+        </td>
+      </tr>
       }
-  </div>
+    </tbody>
+  </table>
+</div>
+}
+
+@if (attack.targetNumber == 0 || attacks >= buildings.length) {
+<ghs-buildings-list [buildings]="allBuildings" [short]="true" [invert]="true"></ghs-buildings-list>
+}
+
+<div class="menu">
+  <a class="cancel" (click)="close()" [ghs-label]="'cancel'"></a>
+  @if (+attack.targetNumber > 0 && attacks < buildings.length) { <a (click)="nextTarget()"
+    [ghs-label]="'party.outpostAttack.next'"></a>
+    }
+    @if (attack.targetNumber == 0 || attacks >= buildings.length) {
+    <a class="finish" (click)="close(true)" [ghs-label]="'party.outpostAttack.finish'"></a>
+    }
+</div>
 </div>

@@ -156,9 +156,10 @@ export class ActionsManager {
         if (gameManager.entityManager.isAlive(entity, true) && (!entity.active || monster.active)) {
             const activeFigure = gameManager.game.figures.find((figure) => figure.active);
             if (monster.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(monster))) {
-                const ability = gameManager.monsterManager.getAbility(monster);
+                let ability = gameManager.monsterManager.getAbility(monster);
                 if (gameManager.monsterManager.hasBottomActions(monster) && monster.firstActiveAction) {
-                    const secondAbility = gameManager.monsterManager.getAbility(monster, true);
+                    const secondAbility = ability;
+                    ability = gameManager.monsterManager.getAbility(monster, true);
                     if (ability) {
                         this.calcMonsterActionHint(monster, entity.type, ActionType.shield, monster.firstActiveAction == 'bottom' ? ability.bottomActions : ability.actions, actionHints);
                         this.calcMonsterActionHint(monster, entity.type, ActionType.retaliate, monster.firstActiveAction == 'bottom' ? ability.bottomActions : ability.actions, actionHints);

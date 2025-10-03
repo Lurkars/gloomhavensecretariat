@@ -60,11 +60,6 @@ export class MonsterAbilityCardComponent implements OnInit, OnDestroy {
       this.ability = gameManager.abilities(this.monster)[this.index];
     }
 
-    if (!this.ability && this.hasBottomActions) {
-      this.ability = gameManager.abilities(this.monster)[0];
-      this.secondAbility = gameManager.abilities(this.monster)[1];
-    }
-
     if (!this.ability) {
       return false;
     }
