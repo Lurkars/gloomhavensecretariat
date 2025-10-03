@@ -131,6 +131,13 @@ A basic user guide is available [online](https://help.gloomhaven-secretariat.de)
       > Repair Drone Mode: Heal 2 self at start of turn
     </details>
     <details>
+      <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-astral.svg" height="20px" style="filter:grayscale(1);"></summary>
+
+      > Imbue with Life: Whenever you do not have Disarm, gain Disarm
+
+      > Veil of Protection: Your current and maximum hitpoint values are increased by 3 (also applied to summons)
+    </details>
+    <details>
       <summary>SPOILER WARNING: <img src="./src/assets/images/character/icons/fh-shards.svg" height="20px" style="filter:grayscale(1);"></summary>
 
       > Resonance Tokens: At the end of each of your turns, you gain one Resonance Token

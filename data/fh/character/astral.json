@@ -10,6 +10,18 @@
   ],
   "color": "#6fb54e",
   "spoiler": true,
+  "specialActions": [
+    {
+      "name": "imbue-with-life",
+      "expire": true,
+      "level": 1
+    },
+    {
+      "name": "veil-of-protection",
+      "expire": true,
+      "level": 2
+    }
+  ],
   "stats": [
     {
       "level": 1,
