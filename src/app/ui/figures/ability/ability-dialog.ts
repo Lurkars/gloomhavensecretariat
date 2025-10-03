@@ -35,7 +35,8 @@ export class AbilityDialogComponent implements OnInit {
     if (!!this.monster && !this.ability) {
       this.ability = gameManager.monsterManager.getAbility(this.monster);
       if (gameManager.monsterManager.hasBottomActions(this.monster)) {
-        this.secondAbility = gameManager.monsterManager.getAbility(this.monster, true);
+        this.secondAbility = this.ability;
+        this.ability = gameManager.monsterManager.getAbility(this.monster, true);
       }
     }
 

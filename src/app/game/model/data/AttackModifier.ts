@@ -173,6 +173,26 @@ export class AttackModifierEffect {
   }
 }
 
+export class AttackResult {
+  index: number;
+  chooseOffset: number;
+  state: 'advantage' | 'disadvantage' | undefined;
+  attack: string | number;
+  stringified: string;
+  result: number;
+  effects: AttackModifierEffect[];
+
+  constructor(index: number, chooseOffset: number, state: 'advantage' | 'disadvantage' | undefined, attack: string | number, stringified: string, result: number, effects: AttackModifierEffect[]) {
+    this.index = index;
+    this.chooseOffset = chooseOffset;
+    this.state = state;
+    this.attack = attack;
+    this.stringified = stringified;
+    this.result = result;
+    this.effects = effects;
+  }
+}
+
 export const defaultAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.plus0),
   new AttackModifier(AttackModifierType.plus1),

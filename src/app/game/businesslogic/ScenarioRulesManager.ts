@@ -196,7 +196,6 @@ export class ScenarioRulesManager {
         rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").forEach((figureRule) => {
           const gameplayFigures: Entity[] = this.presentEntitiesByFigureRule(figureRule, rule);
           const tolerance: number = figureRule.value ? EntityValueFunction(figureRule.value.split(':')[0]) : (figureRule.type == "present" ? 1 : 0);
-          console.log(rule, gameplayFigures, tolerance);
           active = active && tolerance >= 0 && (figureRule.type == "present" ? gameplayFigures.length >= tolerance : gameplayFigures.length <= tolerance);
           if (figureRule.identifier && (figureRule.identifier.marker || figureRule.identifier.tags && figureRule.identifier.tags.length > 0) && !settingsManager.settings.automaticStandees) {
             active = false;

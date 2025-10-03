@@ -4,14 +4,14 @@ import { Component, Inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifierDeck } from 'src/app/game/model/data/AttackModifier';
+import { AttackModifierDeck, AttackResult } from 'src/app/game/model/data/AttackModifier';
 import { EventCardAttack, EventCardEffect, EventCardEffectType } from 'src/app/game/model/data/EventCard';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { ghsDialogClosingHelper, ghsShuffleArray, ghsValueSign } from 'src/app/ui/helper/Static';
 import { AttackModiferDeckChange } from '../../attackmodifier/attackmodifierdeck';
 import { Building } from '../../party/buildings/buildings';
-import { WorldMapComponent } from '../../party/world-map/world-map';
 import { PartySheetDialogComponent } from '../../party/party-sheet-dialog';
+import { WorldMapComponent } from '../../party/world-map/world-map';
 
 @Component({
     standalone: false,
@@ -23,6 +23,7 @@ export class OutpostAttackComponent {
 
     settingsManager: SettingsManager = settingsManager;
     gameManager: GameManager = gameManager;
+    EntityValueFunction = EntityValueFunction;
     attack: EventCardAttack;
     defaultAttack: EventCardAttack | undefined;
     manualAttackValue: number = 50;
@@ -42,6 +43,7 @@ export class OutpostAttackComponent {
     baracksBonus: number = 0;
     moraleDefense: number = 0;
     attacks: number = 0;
+    attackResult: AttackResult | undefined;
 
     constructor(@Inject(DIALOG_DATA) public data: { attack: EventCardAttack, effects: EventCardEffect[] }, private dialogRef: DialogRef, private dialog: Dialog) {
         if (this.data.attack) {
@@ -132,6 +134,7 @@ export class OutpostAttackComponent {
     }
 
     beforeTownGuardDeck(change: AttackModiferDeckChange) {
+        this.attackResult = undefined;
         gameManager.stateManager.before("updateAttackModifierDeck." + change.type, 'party.campaign.townGuard', ...change.values);
     }
 
@@ -139,6 +142,13 @@ export class OutpostAttackComponent {
         this.townGuardDeck = change.deck;
         gameManager.game.party.townGuardDeck = this.townGuardDeck.toModel();
         gameManager.stateManager.after();
+        this.attackResult = gameManager.attackModifierManager.calculateAttackResult(this.townGuardDeck, (gameManager.game.party.defense || 0) + this.moraleDefense);
+    }
+
+    toggleAttackResult() {
+        if (this.attackResult && this.attackResult.chooseOffset) {
+            this.attackResult = gameManager.attackModifierManager.calculateAttackResult(this.townGuardDeck, (gameManager.game.party.defense || 0) + this.moraleDefense, this.attackResult.index + this.attackResult.chooseOffset);
+        }
     }
 
     nextTarget() {

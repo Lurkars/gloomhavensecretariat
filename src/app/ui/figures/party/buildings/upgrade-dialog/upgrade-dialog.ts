@@ -151,7 +151,6 @@ export class BuildingUpgradeDialog implements OnInit {
     }
 
     confirm(morale: boolean = false) {
-        console.log(morale, this.force);
         if (this.force) {
             ghsDialogClosingHelper(this.dialogRef, true);
         } else if (morale) {

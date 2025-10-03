@@ -95,6 +95,32 @@
     <span class="value">{{(gameManager.game.party.defense || 0) + moraleDefense}}</span>
   </div>
 
+  @if (attackResult) {
+  <div class="attack-result">
+    @if (townGuardDeck.cards[attackResult.index].type == 'wreck') {
+    <span class="result wreck" [ghs-label]="'party.outpostAttack.result.wreck'"></span>
+    }
+    @if (townGuardDeck.cards[attackResult.index].type == 'success') {
+    <span class="result success" [ghs-label]="'party.outpostAttack.result.success'"></span>
+    }
+    @if (townGuardDeck.cards[attackResult.index].type != 'wreck' && townGuardDeck.cards[attackResult.index].type !=
+    'success'){
+    <span class="result" [ngClass]="{'successful' : attackResult.result >= EntityValueFunction(attack.attackValue)}"
+      [ghs-label]="'party.outpostAttack.result.' + (attackResult.result >= EntityValueFunction(attack.attackValue) ? 'successful': 'damage')"
+      [ghs-label-args]="[attackResult.result, (gameManager.game.party.defense || 0) + moraleDefense, EntityValueFunction(attack.attackValue)]"></span>
+    }
+    @if (attackResult.chooseOffset) {
+    <div class="choose">
+      <ghs-attackmodifier (click)="toggleAttackResult()"
+        [attackModifier]="townGuardDeck.cards[attackResult.index + attackResult.chooseOffset]" [townGuard]="true"
+        [flipped]="true"></ghs-attackmodifier>
+      <ghs-attackmodifier [attackModifier]="townGuardDeck.cards[attackResult.index]" [townGuard]="true"
+        [flipped]="true"></ghs-attackmodifier>
+    </div>
+    }
+  </div>
+  }
+
   <div class="buildings">
     <table cdkDropList #buildingsList="cdkDropList" [cdkDropListConnectedTo]="disabledBuildingsList"
       (cdkDropListDropped)="dropBuildings($event)">

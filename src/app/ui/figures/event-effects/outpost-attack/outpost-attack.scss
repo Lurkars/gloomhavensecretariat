@@ -145,6 +145,63 @@
         }
     }
 
+    .attack-result {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: var(--ghs-color-red);
+
+        .result {
+            font-size: 1.5em;
+
+            &.wreck {
+                color: var(--ghs-color-yellow);
+            }
+
+            &.success {
+                color: var(--ghs-color-blue);
+            }
+
+            &.successful {
+                color: var(--ghs-color-green);
+            }
+        }
+
+        .choose {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row-reverse;
+
+            ghs-attackmodifier {
+                display: block;
+                margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+                width: calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
+                transition: transform calc(var(--ghs-animation-speed) * 150ms) cubic-bezier(0.75, 0, 0.85, 1);
+                transform-origin: center center;
+
+                &:first-child {
+                    width: calc(var(--ghs-unit) * 9 * var(--ghs-dialog-factor));
+                    height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+                    opacity: 0.5;
+                    cursor: pointer;
+
+                    &:hover {
+                        transform: scale(1.3333);
+                        opacity: 1;
+
+                        +ghs-attackmodifier {
+                            transform: scale(0.75);
+                            opacity: 0.5;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .town-guard-deck-container {
         display: flex;
         justify-content: center;
