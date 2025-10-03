@@ -279,6 +279,13 @@
         "5": "在单一剧本中，每轮至少创造、摧毁或移动至少一个障碍物板块",
         "6": "在单一剧本中，在一个回合中治疗至少8点生命值，使用一次远程攻击能力造成至少8点伤害，并使用一次近战攻击能力造成至少8点伤害"
       },
+      "crystal-rot": {
+        "1": "如果%game.action.range%3内没有骷髅、怨灵、丧尸，增加%game.condition.disarm%。"
+      },
+      "cultist": {
+        "1": "如果邪教徒在本轮中死亡，移除其所有负面状态后，执行：",
+        "2": "X为上述攻击能力的目标承受的伤害。"
+      },
       "deep-terror": {
         "1": "如果执行了上述攻击能力",
         "2": "至目标相邻的空格"
@@ -305,8 +312,20 @@
       "frost-demon": {
         "1": "%game.damage:1%"
       },
+      "giant-viper": {
+        "1": "本轮中，所有针对巨型蝮蛇的攻击获得劣势。",
+        "2": "如果目标与巨型蝮蛇的盟友相邻，增加+2%game.action.attack%"
+      },
       "hound": {
         "1": "如果目标与任何猎犬的盟友相邻，增加+2%game.action.attack%。"
+      },
+      "living-corpse": {
+        "1": "如果丧尸执行了上述移动能力，它承受%game.damage:1%。",
+        "2": "如果丧尸执行了上述攻击能力，它承受%game.damage:1%。",
+        "3": "如果本轮中丧尸死亡，所有相邻的个体承受%game.damage:1%并获得%game.condition.poison%。"
+      },
+      "lurker": {
+        "1": "2格距离内的2个敌人"
       },
       "mindthief": {
         "1": "如果目标带有负面状态，增加+1%game.action.attack%",
@@ -348,6 +367,10 @@
         "4": "你的每个回合结束时，若在该回合中执行了带有%game.card.lost%的行动，获得%game.condition.bless%",
         "5": "在单一剧本中，在同一轮中同时消耗%game.element.fire%和%game.element.ice%，完成6次",
         "6": "在单一剧本中，执行4个不同的%game.card.lost%行动，每个行动两次"
+      },
+      "stone-construct": {
+        "1": "如果石魔像执行了上述移动能力，它承受%game.damage:1%。",
+        "2": "如果石魔像执行了上述攻击能力，它承受%game.damage:1%。"
       },
       "tinkerer": {
         "1": "每个剧本限一次，一个相邻的盟友可以在其回合中，使用一个你的 药水 %game.itemSlot:small%道具，且该道具不会%game.card.lost%",

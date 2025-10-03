@@ -303,7 +303,7 @@
             "status": "错误代码 '{0}'导致自动备份失败。请在浏览器控制台中查看更多信息。",
             "unknown": "未知原因导致自动备份失败。请在浏览器控制台中查看更多信息。"
           },
-          "hint": "无需下载自动备份文件，可设置 URL 将数据上传至指定位置。{FILENAME} 可用作文件名的占位符。（此功能需要正确配置 CORS 设置才能正常工作！）"
+          "hint": "无需下载自动备份文件，可设置 URL 将数据上传至指定位置。{FILENAME} 可用作文件名的占位符（此功能需要正确配置 CORS 设置才能正常工作！）。"
         },
         "uploadUrlAuthorization": {
           "": "授权标头",
@@ -840,6 +840,8 @@
         "loseCollectiveGold": "共同失去{0}个金币",
         "loseCollectiveResource": "共同失去{0}个%game.resource.{1}%",
         "loseCollectiveResourceType": "共同失去 {0} %game.loot.{1}% 个资源",
+        "loseResource": "失去{0} %game.resource.{1}%",
+        "loseResourceType": "各失去{0}个%game.loot.{1}%资源",
         "moraleGT": "士气 > {0}",
         "moraleLT": "士气 < {0}",
         "otherwise": "否则",
@@ -875,6 +877,7 @@
         "upcoming": "在牌堆 ({0})"
       },
       "effects": {
+        "additionally": "此外",
         "and": "和",
         "automation": "该效果会自动生效",
         "battleGoal": "每人获得 {0} %game.checkmark%。",
@@ -931,6 +934,8 @@
         "loseCollectiveGold": "共同失去 {0} 金币。",
         "loseCollectiveResource": "失去{0}个集体的%game.resource.{1}%。",
         "loseCollectiveResourceAny": "失去{0}个集体的资源。",
+        "loseCollectiveResourceType": "共同失去{0}个%game.loot.{1}%资源。",
+        "loseExperience": "各损失{0}经验。",
         "loseGold": "每人失去 {0} 金币。",
         "loseGoldOne": "一名角色失去{0}枚金币。",
         "loseMorale": "失去{0}点士气。",
@@ -940,6 +945,8 @@
         "morale": "获得{0}点士气。",
         "noEffect": "没有效果。",
         "outcome": "阅读结果 %game.events.option.{0}%。",
+        "outcomeSelect": "选择一项阅读，%game.events.option.{0}%或%game.events.option.{1}%。",
+        "outcomes": "同时阅读%game.events.option.{0}%和%game.events.option.{1}%。",
         "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
         "outpostAttackTarget": {
           "": "%game.valueSign:{0}% %game.action.attack%向%game.events.effects.outpostAttackTarget.{1}%",
@@ -953,6 +960,7 @@
           "": "获得一个随机道具。",
           "alt": "共同获得一个随机道具%game.itemFh.random%."
         },
+        "randomItemBlueprint": "获得一个随机物品设计图%game.itemFh.random%。",
         "randomItemDesign": "获得随机物品设计图纸。",
         "randomScenario": "获得一个随机支线剧本。",
         "removeEvent": {
@@ -976,11 +984,15 @@
         "sectionOrWeek": "将 %game.section:{0}%或者{1}加入一周后的日历中。",
         "sectionOrWeeks": "将 %game.section:{0}%或者{1}加入%game.number.{2}%周后的日历中。",
         "sectionWeek": "将%game.section:{0}%加入一周后的日历中。",
+        "sectionWeekSeasonFinal": "将 %game.section:{0}% 添加到下一个 {1} 的最后一周的日历中。",
         "sectionWeeks": "将%game.section:{0}%加入%game.number.{1}%周后的日历中。",
         "sectionWeeksSeason": "将%game.section:{0}%加入%game.number.{1}%周后的日历。如果那一周在 {2}周内，则将其加入%game.numbered.{3}%周后的日历代替 {4} 周后。",
+        "skipThreat": "不要结算下方的进攻事件。",
         "soldier": "获得一名士兵。",
         "soldiers": "获得{0}名士兵。",
         "townGuardDeckCard": "添加%game.townGuardAM:{0}%卡牌至城镇守卫修正牌堆。",
+        "townGuardDeckCardRemove": "从城镇守卫牌库中移除一张 %game.townGuardAM:{0}% 卡牌。",
+        "townGuardDeckCardRemovePermanently": "永久移除城镇守卫牌库中的一张 %game.townGuardAM:{0}% 卡牌。",
         "townGuardDeckCards": "添加%game.number.{1}%张%game.townGuardAM:{0}% 卡牌至城镇守卫修正牌堆。",
         "unlockEnvelope": "如果信封{0}没有被打开，则打开它。",
         "unlockScenario": {
@@ -988,13 +1000,18 @@
           "alt": "新场景：\"%data.scenario.title.{1}.{0}%\" ({0})"
         },
         "unlockScenarioGroup": "解锁\"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%)。",
-        "upgradeBuilding": "将%data.buildings.{0}%升级至下一个等级，如果%data.buildings.{0}%已经为{1}级，则获得{2}点声望。"
+        "upgradeBuilding": "将%data.buildings.{0}%升级至下一个等级，如果%data.buildings.{0}%已经为{1}级，则获得{2}点声望。",
+        "wreckBuilding": "损毁%data.buildings.{0}%。"
       },
       "option": {
         "": "选项 {0}：",
         "1": "A",
         "2": "B",
         "3": "C"
+      },
+      "outpostAttack": {
+        "": "前哨攻击",
+        "effects": "下列效果将被应用于前哨攻击"
       },
       "requirements": {
         "": "需求：",
@@ -1536,6 +1553,31 @@
       "hint": "不能在剧本游玩时创建新的战役.完成或取消游玩当前剧本以创建新的战役."
     },
     "notes": "记录",
+    "outpostAttack": {
+      "advantage": "消耗士兵来获得优势！",
+      "buildings": {
+        "damage": "损坏建筑",
+        "repair": "修理建筑",
+        "wreck": "损毁建筑"
+      },
+      "defense": "总防御值：",
+      "disadvantage": "因兵营损毁而处于劣势！",
+      "filter": {
+        "desc": "按从大到小",
+        "even": "偶数",
+        "lowerBoundary": "下边界",
+        "odd": "奇数",
+        "parity": "相同",
+        "randomize": "随机",
+        "upperBoundary": "上边界"
+      },
+      "finish": "完成",
+      "map": "打开世界地图",
+      "next": "下一个目标",
+      "other": "其他建筑",
+      "sheet": "打开团队记录表",
+      "targets": "目标建筑"
+    },
     "prosperity": {
       "": "繁荣度",
       "reset": "重置繁荣度",
@@ -1710,6 +1752,7 @@
         "section": "打开 %data.section:{0}%，解锁 {2}"
       },
       "hint": "应用至所有选定个体",
+      "outpostAttack": "前哨攻击",
       "progress": "影响角色成长进度"
     },
     "favors": {
@@ -1901,6 +1944,7 @@
         "loseCondition": "{0} 失去 %game.condition.{1}%",
         "permanentCondition": "{0}获得持续型%game.condition.{1}%",
         "remove": "移除{0}",
+        "removeAbility": "移除{0}的能力卡牌'{1}'",
         "scenarioEffect": "作为剧本效果",
         "setAbility": "将 {0} 的激活能力卡牌设置为 '{1}'",
         "setHp": "{0} HP 到 {2}",
