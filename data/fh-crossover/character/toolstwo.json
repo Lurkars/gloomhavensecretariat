@@ -1,5 +1,3 @@
-<<<<<<< Conflict 1 of 1
-%%%%%%% Changes from base to side #1
  {
    "name": "toolstwo",
    "characterClass": "quatryl",
@@ -338,11 +336,9 @@
        "count": 1,
        "custom": "%data.custom.cs.toolstwo.7%"
      }
-+  ],
-+  "masteries": [
-+    "%data.custom.fh.tools.2%",
-+    "%data.custom.fh.tools.3%"
+   ],
+   "masteries": [
+     "%data.custom.fh.tools.2%",
+     "%data.custom.fh.tools.3%"
    ]
  }
-+++++++ Contents of side #2
->>>>>>> Conflict 1 of 1 ends
