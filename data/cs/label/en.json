@@ -575,6 +575,14 @@
         "1": "all enemies adjacent to the target suffer %game.damage:1%",
         "2": "destroy the occupied obstacle"
       },
+      "toolstwo": {
+        "1": "Gain 1 %data.action.custom.cs-tool%",
+        "2": "Add %game.condition.wound% if drawn by summon",
+        "3": "Create one %game.action.damage% 2 trap in an empty hex adjacent to the target",
+        "4": "At the start of each scenario, you may lose one %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand%, or %game.items.slots.twohand% item for no effect to gain 2 %data.action.custom.cs-tool%",
+        "5": "Wenever you short rest, you may %game.action.card.recover% on spent %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand%, or %game.items.slots.twohand% item",
+        "6": "Wenever you long rest, you may spend 1 %data.action.custom.cs-tool% to %game.action.card.recover% one lost %game.items.slots.head%, %game.items.slots.legs%, %game.items.slots.onehand%, or %game.items.slots.twohand% item"
+      },
       "toxic-imp": {
         "1": "Add +1 %game.action.attack% if the target has %game.condition.infect%",
         "2": "If an enemy targets %data.monster.toxic-imp% with an attack, that enemy gains %game.condition.infect%.",
