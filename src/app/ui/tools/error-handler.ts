@@ -4,7 +4,7 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { FeedbackDialogComponent } from "./feedback/feedback-dialog";
 
-const FILTER_ERRORS: string[] = ["Failed to execute 'setItem' on 'Storage'", "NG0100"];
+const FILTER_ERRORS: string[] = ["Failed to execute 'setItem' on 'Storage'", "NG0100", "Failed to execute 'transaction' on 'IDBDatabase': The database connection is closing"];
 
 @Injectable()
 export class GhsErrorHandler extends ErrorHandler {
