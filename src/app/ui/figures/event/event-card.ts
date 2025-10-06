@@ -37,6 +37,7 @@ export class EventCardComponent implements OnInit, OnChanges {
     noLabel: boolean = false;
 
     resolvable: boolean[][] = [];
+    showDebug: boolean = false;
 
     ngOnInit(): void {
         if (this.event) {
@@ -77,7 +78,7 @@ export class EventCardComponent implements OnInit, OnChanges {
         this.light = this.event && ['city'].indexOf(this.event.type) != -1 || false;
     }
 
-    selectOption(index: number, quiet: boolean, event: MouseEvent | TouchEvent | undefined = undefined) {
+    selectOption(index: number, quiet: boolean, event: PointerEvent | undefined = undefined) {
         if (this.attackIndex != -1 && this.attackIndex == index) {
             return;
         }
@@ -120,7 +121,7 @@ export class EventCardComponent implements OnInit, OnChanges {
         }
     }
 
-    selectSub(optionIndex: number, index: number, force: boolean = false, event: MouseEvent | TouchEvent | undefined = undefined) {
+    selectSub(optionIndex: number, index: number, force: boolean = false, event: PointerEvent | undefined = undefined) {
         if (this.attackIndex != -1 && this.attackIndex == index) {
             return;
         }
@@ -158,8 +159,15 @@ export class EventCardComponent implements OnInit, OnChanges {
         }
     }
 
-    setSpoilerFree(value: boolean, event: MouseEvent | TouchEvent | undefined = undefined) {
+    setSpoilerFree(value: boolean, event: PointerEvent | undefined = undefined) {
         this.spoilerFree = value;
+        if (event) {
+            event.preventDefault();
+        }
+    }
+
+    toggleShowDebug(event: PointerEvent | undefined = undefined) {
+        this.showDebug = !this.showDebug;
         if (event) {
             event.preventDefault();
         }

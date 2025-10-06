@@ -1,8 +1,9 @@
 <div class="event-card-container" #container>
   <div class="card vertical reverse event {{selected}}"
-    [ngClass]="{'flipped': selected != -1 || flipped && !spoilerFree, 'disabled': disabled}"
+    [ngClass]="{'flipped': selected != -1 || flipped && !spoilerFree, 'disabled': disabled, 'show-debug': showDebug}"
     [style.fontSize]="container.offsetWidth * 0.070 + 'px'">
-    <div class="card-back" [ngClass]="event ? event.type : ''">
+    <div class="card-back" [ngClass]="event ? event.type : ''"
+      [style.background-image]="showDebug && event ? 'url(\'./assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-back.png\')' : ''">
       @if (!!event) {
       <div class="wrapper" [ngClass]="{'spoiler': spoilerFree}">
         <div class="content">
@@ -37,12 +38,19 @@
       <div class="card-id" ghs-pointer-input (singleClick)="setSpoilerFree(true, $event)">{{event.cardId}}
       </div>
       }
+      @if (settingsManager.settings.debugEventCards) {
+      <div class="show-debug-toggle" [ngClass]="{'light': light}" ghs-pointer-input
+        (singleClick)="toggleShowDebug($event)">
+        <img src="./assets/images/debug.svg">
+      </div>
+      }
     </div>
-    <div class="card-front" [ngClass]="event ? event.type : ''">
+    <div class="card-front" [ngClass]="event ? event.type : ''"
+      [style.background-image]="showDebug && event ? 'url(\'./assets/artwork/events/debug/' + event.edition + '/' + event.type + '/' + event.cardId + '-front.png\')' : ''">
       @if (!!event) {
       <div class="options" [ngClass]="{'no-label': noLabel}">
         @for (option of event.options; track (option.label || '') + $index; let i = $index) {
-        <div class="option {{'option-' + option.label}}"
+        <div class="option {{'option-' + (option.label || 'no-label')}} {{'option-bg-' + (event.options.length - i)}}"
           [ngClass]="{'selected' : !option.label || selected == i || selected == -1 && flipped, 'single': event.options.length == 1, 'no-label': !option.label, 'attack': attackIndex == i}"
           ghs-pointer-input (doubleClick)="selectOption(selected == i ? -1 : i, false, $event)">
           @for (outcome of option.outcomes; track $index; let outcomeIndex = $index) {
@@ -96,6 +104,12 @@
         }
       </div>
       <div class="card-id">{{event.cardId}}</div>
+      }
+      @if (settingsManager.settings.debugEventCards) {
+      <div class="show-debug-toggle" [ngClass]="{'light': light}" ghs-pointer-input
+        (singleClick)="toggleShowDebug($event)">
+        <img src="./assets/images/debug.svg">
+      </div>
       }
     </div>
   </div>

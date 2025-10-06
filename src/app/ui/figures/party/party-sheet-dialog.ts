@@ -1281,7 +1281,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
         const characterGold = characters.map((character) => character.progress.gold).reduce((a, b) => a + b);
         const characterResourses = characters.map((character) => (character.progress.loot.hide || 0) + (character.progress.loot.lumber || 0) + (character.progress.loot.metal || 0)).reduce((a, b) => a + b);
         const supplyResources = (this.party.loot.hide || 0) + (this.party.loot.lumber || 0) + (this.party.loot.metal || 0);
-        if (characterGold > 3 && (characterResourses + supplyResources) > 1) {
+        if (characterGold > 3 && (characterResourses + supplyResources) > 0) {
           return true;
         }
       }

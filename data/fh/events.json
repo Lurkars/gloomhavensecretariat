@@ -4422,7 +4422,6 @@
       {
         "label": "A",
         "narrative": "Bet on the fight.",
-        "returnToDeck": true,
         "outcomes": [
           {
             "narrative": "Excellent choice! Best of luck!"
@@ -4449,6 +4448,7 @@
             ]
           },
           {
+            "returnToDeck": true,
             "inlineEffects": true,
             "effects": [
               "If your contestant won, gain 2 morale and 30 collective gold."

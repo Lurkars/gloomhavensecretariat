@@ -622,7 +622,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
     return this.interactiveActions.find((interactiveAction) => interactiveAction.index == this.actionIndex) != undefined || false;
   }
 
-  toggleHighlight(event: MouseEvent | TouchEvent) {
+  toggleHighlight(event: PointerEvent) {
     if (this.isInteractiveApplicableAction) {
       if (this.highlightAction()) {
         this.interactiveActions = this.interactiveActions.filter((interactiveAction) => !interactiveAction.index.startsWith(this.actionIndex));
