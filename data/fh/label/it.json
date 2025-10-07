@@ -26,6 +26,55 @@
     "Twin Shots": "Colpi Gemelli",
     "Venom Shiv": "Coltello Avvelenato"
   },
+  "buildings": {
+    "alchemist": {
+      "": "Laboratorio dell'Alchimista"
+    },
+    "barracks": {
+      "": "Caserma"
+    },
+    "boat": {
+      "": "Barca"
+    },
+    "climbing-gear": {
+      "": "Attrezzatura da Scalatore"
+    },
+    "craftsman": {
+      "": "Bottega dell'Artigiano"
+    },
+    "hunting-lodge": {
+      "": "Baita di Caccia"
+    },
+    "logging-camp": {
+      "": "Campo del Taglialegna"
+    },
+    "sled": {
+      "": "Slitta"
+    },
+    "wall-j": {
+      "": "Mura J"
+    },
+    "wall-k": {
+      "": "Mura K"
+    },
+    "wall-l": {
+      "": "Mura L"
+    },
+    "wall-m": {
+      "": "Mura M"
+    },
+    "wall-n": {
+      "": "Mura N"
+    },
+    "workshop": {
+      "": "Officina"
+    }
+  },
+  "campaignSticker": {
+    "boat": "Barca",
+    "climbing-gear": "Attrezzatura da Scalatore",
+    "sled": "Slitta"
+  },
   "character": {
     "fh": {
       "banner-spear": "Alfiere",
@@ -35,7 +84,9 @@
       "boneshaper": {
         "": "Plasmaossa"
       },
-      "deathwalker": "Viandante della Morte",
+      "deathwalker": {
+        "": "Viandante della Morte"
+      },
       "drifter": "Ramingo",
       "geminate": {
         "": "Geminato"
