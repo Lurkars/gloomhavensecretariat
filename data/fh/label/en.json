@@ -1862,7 +1862,7 @@
     "rewards": {
       "fh": {
         "000": "You should now be ready to take on scenario 1 on the following page in the Scenario Book. Do not perform an Outpost Phase until you have completed scenario 1.",
-        "001": "<b>%wip%!</b> manually apply:<br>Gain 2+X morale, where X is the number of City Guards still on the map.",
+        "001": "(Gain 2+X morale, where X is the number of City Guards still on the map.)",
         "022": "Lose 1 collective %game.resource.lumber% for each set of five hexes with water tiles on tile 7-G",
         "033": "Gain 5 experience for each unrevealed dowsing rune",
         "041": "Read %data.section:36.7% now",

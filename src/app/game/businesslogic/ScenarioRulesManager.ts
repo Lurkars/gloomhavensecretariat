@@ -445,10 +445,10 @@ export class ScenarioRulesManager {
     })
   }
 
-  entitiesByFigureRule(figureRule: ScenarioFigureRule, rule: ScenarioRule): Entity[] {
+  entitiesByFigureRule(figureRule: ScenarioFigureRule, rule: ScenarioRule | undefined): Entity[] {
     const ref = figureRule.identifierRef;
     if (typeof ref == 'number') {
-      if (ref >= 0 && ref < rule.figures.length && ref != rule.figures.indexOf(figureRule) && rule.figures.indexOf(figureRule) != rule.figures[ref].identifierRef) {
+      if (rule && ref >= 0 && ref < rule.figures.length && ref != rule.figures.indexOf(figureRule) && rule.figures.indexOf(figureRule) != rule.figures[ref].identifierRef) {
         return this.entitiesByFigureRule(rule.figures[ref], rule);
       } else {
         console.warn("Invalid Figure Fule Identifier Ref!", ref, rule);
@@ -487,7 +487,7 @@ export class ScenarioRulesManager {
     });
   }
 
-  presentEntitiesByFigureRule(figureRule: ScenarioFigureRule, rule: ScenarioRule): Entity[] {
+  presentEntitiesByFigureRule(figureRule: ScenarioFigureRule, rule: ScenarioRule | undefined): Entity[] {
     return this.entitiesByFigureRule(figureRule, rule).filter((entity) => (gameManager.entityManager.isAlive(entity) || entity instanceof MonsterEntity && entity.dormant) && (!(entity instanceof MonsterEntity) || (!(figureRule.identifier?.marker) || (figureRule.identifier && entity.marker == figureRule.identifier.marker && (!figureRule.identifier.tags || figureRule.identifier.tags.length == 0 || figureRule.identifier.tags.forEach((tag) => entity.tags.indexOf(tag) != -1))))));
   }
 

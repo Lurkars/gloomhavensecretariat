@@ -569,7 +569,7 @@
         }
       </div>
       }
-      @if (!!rewards && rewards.chooseLocation) {
+      @if (!!rewards && rewards.chooseLocation && rewards.chooseLocation.length) {
       <div class="list">
         <div class="item"><span [ghs-label]="'scenario.rewards.chooseLocation'"></span>:</div>
         @for (location of rewards.chooseLocation; track location; let i = $index) {
@@ -736,7 +736,7 @@
           }
         </div>
         }
-        @if (rewards.resources) {
+        @if (!!rewards.resources && rewards.resources.length) {
         <div class="item resources">
           @for (item of rewards.resources; track item.type; let i = $index) {
           @if (item.value) {
@@ -750,7 +750,7 @@
           }
         </div>
         }
-        @if (rewards.collectiveResources) {
+        @if (!!rewards.collectiveResources && rewards.collectiveResources.length) {
         <div class="item collective-resources">
           @for (item of rewards.collectiveResources; track item.type; let i = $index) {
           @if (item.value) {
@@ -773,7 +773,7 @@
           }
         </div>
         }
-        @if (rewards.reputationFactions) {
+        @if (!!rewards.reputationFactions && rewards.reputationFactions.length) {
         <div class="item reputation faction">
           @for (reputationFaction of rewards.reputationFactions; track reputationFaction; let i = $index) {
           <span><span class="text-white" [ghs-label]="'scenario.rewards.reputationFactions'"
@@ -1019,7 +1019,7 @@
           <span class="placeholder text-white" [ghs-label]="'scenario.rewards.repeatScenario'"></span>
         </div>
         }
-        @if (rewards.eventDecks) {
+        @if (!!rewards.eventDecks && rewards.eventDecks.length) {
         <div class="item event-deck">
           @for (eventDeck of rewards.eventDecks; track eventDeck; let i = $index) {
           @if (!rewards.hints || !rewards.hints.eventDecks || !rewards.hints.eventDecks[i]) {

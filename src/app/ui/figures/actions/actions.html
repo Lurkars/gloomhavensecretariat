@@ -1,5 +1,5 @@
 <div class="actions" [ngClass]="{'inline' : inline, 'right' : right, 'fh' : settingsManager.settings.fhStyle}">
-  @for (action of actions; track action.type + index; let index = $index) {
+  @for (action of actions; track action.type + $index; let index = $index) {
   @if (divider[index]) {
   <div class="divider"></div>
   }

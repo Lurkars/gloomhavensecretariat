@@ -60,10 +60,10 @@ export class ScenarioManager {
   finishScenario(scenario: Scenario | undefined, success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linked: boolean = false, characterProgress: boolean = true, gainRewards: boolean = true, internal: boolean = false) {
     gameManager.game.finish = undefined;
     if (scenario) {
-      let rewards: ScenarioRewards | undefined = scenario.rewards || undefined;
+      let rewards: ScenarioRewards | undefined = scenario.rewards ? Object.assign(new ScenarioRewards(), scenario.rewards) : undefined;
       if (conclusionSection && conclusionSection.rewards) {
         if (!rewards) {
-          rewards = conclusionSection.rewards;
+          rewards = Object.assign(new ScenarioRewards(), conclusionSection.rewards);
         } else {
           Object.assign(rewards, conclusionSection.rewards);
         }
@@ -100,6 +100,20 @@ export class ScenarioManager {
 
       if (success) {
         if (rewards && gainRewards) {
+
+          if (rewards.valueMapping) {
+            Object.keys(rewards.valueMapping).forEach((key) => {
+              if (rewards && rewards.valueMapping && rewards.valueMapping[key]) {
+                const rule = rewards.valueMapping[key];
+                const value = gameManager.scenarioRulesManager.presentEntitiesByFigureRule(rule, undefined).length;
+                const rewardKey = rule.value as keyof ScenarioRewards;
+                if (rewards && typeof rewards[rewardKey] === 'string') {
+                  (rewards[rewardKey] as string) = rewards[rewardKey].replaceAll(key, '' + value);
+                }
+              }
+            })
+          }
+
           if (!internal && settingsManager.settings.characterSheet) {
             this.game.figures.forEach((figure) => {
               if (rewards && figure instanceof Character && !figure.absent && settingsManager.settings.scenarioRewards) {
