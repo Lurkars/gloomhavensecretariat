@@ -3,14 +3,13 @@ import { AfterViewInit, Component, HostListener, Inject, OnInit, ViewEncapsulati
 
 import { Overlay } from "@angular/cdk/overlay";
 import L, { LatLngBoundsLiteral } from 'leaflet';
-import mermaid from 'mermaid';
+import { Subscription } from "rxjs";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { PartySheetDialogComponent } from "src/app/ui/figures/party/party-sheet-dialog";
 import { WorldMapComponent } from "src/app/ui/figures/party/world-map/world-map";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 import { ScenarioChartPopupDialog } from "./popup/scenario-chart-popup";
-import { Subscription } from "rxjs";
 
 @Component({
     standalone: false,
@@ -30,6 +29,7 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     campaignMode: boolean = true;
     legend: boolean = false;
     chart!: L.Map;
+    private mermaid: any = null;
 
     gameManager: GameManager = gameManager;
 
@@ -39,29 +39,40 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
         this.campaignMode = gameManager.game.party.campaignMode;
     }
 
-    ngOnInit(): void {
-        mermaid.initialize({
-            flowchart: {
-                useMaxWidth: true,
-                htmlLabels: true,
-                curve: "linear",
-                subGraphTitleMargin: {
-                    bottom: 10
-                }
-            },
-            theme: "base",
-            themeVariables: {
-                fontSize: "calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor))",
-                fontFamily: "var(--ghs-font-text)",
-                darkMode: true,
-                primaryColor: "#202830",
-                secondaryColor: "transparent",
-                tertiaryColor: "#52565f",
-                tertiaryBorderColor: "#202830",
-                tertiaryTextColor: "#eeeeee"
-            },
-            wrap: false
-        });
+    async ngOnInit(): Promise<void> {
+        // Lazy load mermaid only when needed
+        if (!this.mermaid) {
+            const mermaidModule = await import('mermaid');
+            this.mermaid = mermaidModule.default;
+            
+            this.mermaid.initialize({
+                startOnLoad: false,
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true,
+                    curve: "linear",
+                    subGraphTitleMargin: {
+                        bottom: 10
+                    }
+                },
+                theme: "base",
+                themeVariables: {
+                    fontSize: "calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor))",
+                    fontFamily: "var(--ghs-font-text)",
+                    darkMode: true,
+                    primaryColor: "#202830",
+                    secondaryColor: "transparent",
+                    tertiaryColor: "#52565f",
+                    tertiaryBorderColor: "#202830",
+                    tertiaryTextColor: "#eeeeee"
+                },
+                wrap: false,
+                // Disable unused diagram types to reduce bundle size
+                securityLevel: 'loose',
+                logLevel: 5
+            });
+        }
+        
         this.uiChangeSubscription = gameManager.uiChange.subscribe({ next: () => this.updateMap() });
         this.update();
     }
@@ -283,8 +294,13 @@ export class ScenarioChartDialogComponent implements OnInit, AfterViewInit {
     }
 
     async ngAfterViewInit() {
+        // Ensure mermaid is loaded before rendering
+        if (!this.mermaid) {
+            const mermaidModule = await import('mermaid');
+            this.mermaid = mermaidModule.default;
+        }
 
-        const { svg, bindFunctions } = await mermaid.render('graphDiv', this.flowString);
+        const { svg, bindFunctions } = await this.mermaid.render('graphDiv', this.flowString);
         var parser = new DOMParser();
         var svgElement = parser.parseFromString(svg, "image/svg+xml").lastChild as SVGElement;
 
