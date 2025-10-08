@@ -190,7 +190,17 @@
   },
   "character": {
     "fh": {
-      "astral": "灌注使",
+      "astral": {
+        "": "灌注使",
+        "imbue-with-life": {
+          "": "生命注魔",
+          "hint": "每当你没有%game.condition.disarm%时，获得%game.condition.disarm%。"
+        },
+        "veil-of-protection": {
+          "": "防护帷幔",
+          "hint": "你当前生命值和生命值上限提升3点。"
+        }
+      },
       "coral": "崩潮卫士",
       "drill": {
         "": "金属拼杂体",
