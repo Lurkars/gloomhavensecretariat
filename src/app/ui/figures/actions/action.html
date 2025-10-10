@@ -333,6 +333,24 @@
   </span>
   }
 
+  @case (ActionType.extra) {
+  <span class="action-extra">
+    @if (subActions.length > 0) {
+    <div class="custom-subactions">
+      @for (subAction of subActions; track subAction.type + $index; let index = $index) {
+      <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster"
+        [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack" [hexSize]="hexSize"
+        [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
+        (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
+        [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+        [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
+      </ghs-action>
+      }
+    </div>
+    }
+  </span>
+  }
+
   @case (ActionType.hint) {
   <span class="action-hint" [ghs-label]="action.value + ''"></span>
   }
@@ -421,7 +439,8 @@
   @case (ActionType.concatenation) {
   <span class="action-default">
     <span class="action-concatenation" [ngClass]="{'small' : action.small, 'card-concat': cardConcat}">
-      @for (subAction of (subActions | slice:0:(values.length > 1 ? +(values[1]) : subActions.length)); track subAction.type + $index;
+      @for (subAction of (subActions | slice:0:(values.length > 1 ? +(values[1]) : subActions.length)); track
+      subAction.type + $index;
       let index = $index) {
       <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster"
         [objective]="objective" [inline]="inline" [right]="right" [textBlack]="textBlack" [hexSize]="hexSize"
@@ -449,7 +468,8 @@
   </span>
   @if (values.length > 1 && subActions.length > +values[1]) {
   <div class="subactions">
-    @for (subAction of (subActions | slice:+values[1] + (hasAOE ? 1 : 0):subActions.length); track subAction.type + $index; let index
+    @for (subAction of (subActions | slice:+values[1] + (hasAOE ? 1 : 0):subActions.length); track subAction.type +
+    $index; let index
     = $index) {
     @if (fhStyle && index > 0) {
     <span>,</span>
@@ -565,10 +585,12 @@
 <span class="action-card" [ngClass]="{'small' : action.small}">
   <div class="card-value" [ngClass]="values[0]">
     <img class="ghs-svg" [src]="'./assets/images/action/card/'+ values[0] + '.svg'" />
-    @if (values[0] != 'slot' && values[0] != 'slotStart' && values[0] != 'slotXp') {
+    @if (values[0] != 'slot' && values[0] != 'slotStart' && values[0] != 'slotStartXp' && values[0] != 'slotXp' &&
+    values[0] != 'slotXpFh') {
     <img class="overlay" [src]="'./assets/images/action/card/overlay/' + values[0] + '.svg'" />
     }
-    @if (values[0] == 'slot' || values[0] == 'slotStart' || values[0] == 'slotXp') {
+    @if (values[0] == 'slot' || values[0] == 'slotStart' || values[0] == 'slotStartXp' || values[0] == 'slotXp' ||
+    values[0] == 'slotXpFh') {
     <span class="overlay" [style.mask-image]="'url(\'/assets/images/action/card/overlay/' + values[0] +'.svg\')'"
       [style.-webkit-mask-image]="'url(\'/assets/images/action/card/overlay/' + values[0] +'.svg\')'">
     </span>
@@ -718,6 +740,20 @@
   </ghs-action>
   }
 </div>
+
+@if (fhExtraActions.length > 0 && fhStyle) {
+<div class="fh-extra-subactions">
+  @for (subAction of fhExtraActions; track subAction) {
+  <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [objective]="objective"
+    [inline]="inline" [right]="right" [textBlack]="textBlack" [hexSize]="hexSize"
+    [interactiveAbilities]="interactiveAbilities" [interactiveActions]="interactiveActions"
+    (interactiveActionsChange)="onInteractiveActionsChange($event)" [relative]="relative || forceRelative"
+    [statsCalculation]="statsCalculation" [index]="(actionIndex ? actionIndex + '-' : '') + getOrigIndex(subAction)"
+    [monsterType]="monsterType" [character]="character" [cardId]="cardId" [style]="style">
+  </ghs-action>
+  }
+</div>
+}
 }
 </span>
 }

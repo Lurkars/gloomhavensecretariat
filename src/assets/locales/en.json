@@ -523,6 +523,7 @@
       "damage": "Damage",
       "element": "Element",
       "elementHalf": "Element Half",
+      "extra": "&#91;FH Helper for Subactions&#93;",
       "fly": "Fly",
       "forceBox": "&#91;FH Mandatory Box&#93;",
       "grant": "Grant",

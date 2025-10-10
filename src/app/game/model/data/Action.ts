@@ -38,6 +38,7 @@ export enum ActionType {
   damage = "damage",
   element = "element",
   elementHalf = "elementHalf",
+  extra = "extra",
   fly = "fly",
   forceBox = "forceBox",
   grant = "grant",

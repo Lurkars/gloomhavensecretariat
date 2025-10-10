@@ -21,11 +21,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -33,11 +33,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -49,11 +45,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -113,11 +113,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -125,11 +125,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -141,11 +137,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -170,11 +170,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -182,11 +182,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -198,11 +194,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -262,11 +262,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -274,11 +274,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -290,11 +286,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -326,11 +326,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -338,11 +338,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -354,11 +350,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -390,11 +390,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -402,11 +402,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -418,11 +414,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -698,9 +698,14 @@
               "small": true
             },
             {
-              "type": "custom",
-              "value": "%data.custom.fh.drifter.abilities.13.1%",
-              "small": true
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.drifter.abilities.13.1%",
+                  "small": true
+                }
+              ]
             }
           ]
         }
@@ -792,13 +797,13 @@
           ],
           "subActions": [
             {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
               "type": "range",
               "value": "2",
               "small": true
-            },
-            {
-              "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)"
             }
           ]
         }
@@ -822,11 +827,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -834,11 +839,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -850,11 +851,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -962,11 +967,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -974,11 +979,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -990,11 +991,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -1082,11 +1087,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -1094,11 +1099,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -1110,11 +1111,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -1180,11 +1185,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -1192,11 +1197,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -1208,11 +1209,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -1264,9 +1269,14 @@
               "small": true
             },
             {
-              "type": "custom",
-              "value": "%data.custom.fh.drifter.abilities.23.1%",
-              "small": true
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.drifter.abilities.23.1%",
+                  "small": true
+                }
+              ]
             }
           ]
         }
@@ -1304,11 +1314,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -1316,11 +1326,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -1332,11 +1338,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -1388,9 +1398,14 @@
               "small": true
             },
             {
-              "type": "custom",
-              "value": "%data.custom.fh.drifter.abilities.25.1%",
-              "small": true
+              "type": "extra",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.drifter.abilities.25.1%",
+                  "small": true
+                }
+              ]
             }
           ]
         }
@@ -1433,11 +1448,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -1445,11 +1460,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -1461,11 +1472,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -1553,11 +1568,11 @@
           "subActions": [
             {
               "type": "concatenationSpacer",
-              "value": 2
+              "value": 1
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -1565,11 +1580,7 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
-            },
-            {
-              "type": "concatenationSpacer",
-              "value": 2
+              "value": "slotXpFh:1"
             },
             {
               "type": "concatenationSpacer",
@@ -1581,11 +1592,15 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
+            },
+            {
+              "type": "concatenationSpacer",
+              "value": 2
             }
           ]
         }
@@ -1607,18 +1622,23 @@
           ],
           "subActions": [
             {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+            },
+            {
               "type": "range",
               "value": "2",
               "small": true
             },
             {
-              "type": "custom",
-              "value": "%data.custom.fh.drifter.abilities.29.1%",
-              "small": true
-            },
-            {
-              "type": "area",
-              "value": "(0,0,target)|(0,1,target)|(1,0,target)|(1,1,target)|(1,2,target)|(2,0,target)"
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.drifter.abilities.29.1%",
+                  "small": true
+                }
+              ]
             }
           ]
         }
@@ -1657,12 +1677,8 @@
           "value": "",
           "subActions": [
             {
-              "type": "concatenationSpacer",
-              "value": 2
-            },
-            {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotStartXp:1"
             },
             {
               "type": "card",
@@ -1670,11 +1686,11 @@
             },
             {
               "type": "card",
-              "value": "slotXp:1"
+              "value": "slotXpFh:1"
             },
             {
               "type": "card",
-              "value": "slot"
+              "value": "slotEnd"
             }
           ]
         }
@@ -1703,9 +1719,14 @@
               "small": true
             },
             {
-              "type": "custom",
-              "value": "%data.custom.fh.drifter.abilities.30.2%",
-              "small": true
+              "type": "boxFhSubActions",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fh.drifter.abilities.30.2%",
+                  "small": true
+                }
+              ]
             }
           ]
         }

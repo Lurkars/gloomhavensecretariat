@@ -135,6 +135,10 @@ export class ActionsComponent implements OnInit, OnDestroy {
       return false;
     }
 
+    if (action.type == ActionType.concatenation && action.subActions.every((subAction) => [ActionType.card, ActionType.concatenationSpacer].indexOf(subAction.type) != -1)) {
+      return false;
+    }
+
     return true;
   }
 

@@ -61,6 +61,7 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
 
   additionalSubActions: Action[] = [];
   elementActions: Action[] = [];
+  fhExtraActions: Action[] = [];
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
@@ -350,6 +351,17 @@ export class ActionComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       });
       this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element && action.type != ActionType.elementHalf);
+    }
+    this.fhExtraActions = [];
+    if (settingsManager.settings.fhStyle && [ActionType.boxFhSubActions, ActionType.extra].indexOf(this.action.type) == -1) {
+      this.action.subActions.forEach((action) => {
+        if (action.type == ActionType.boxFhSubActions) {
+          this.fhExtraActions.push(action);
+        } else if (action.type == ActionType.extra) {
+          this.fhExtraActions.push(...action.subActions);
+        }
+      });
+      this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.boxFhSubActions && action.type != ActionType.extra);
     }
 
     this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.nonCalc);
