@@ -9,7 +9,6 @@
   },
   "custom": {
     "gh2e": {
-
       "ancient-artillery": {
         "1": "Fokussiere den am<br>weitesten Gegner in %game.action.range:7%",
         "2": "Alle an das Ziel angrenzenden<br>Gegner erleiden %game.damage:2%."

@@ -282,13 +282,13 @@
       "crystal-rot": {
         "1": "Add %game.condition.disarm% if there are no Living Bones, Living Corpses or Living Spirits within %game.action.range% 3."
       },
-      "deep-terror": {
-        "1": "If the attack ability was performed",
-        "2": "in an empty hex adjacent to the target<br>of the attack ability"
-      },
       "cultist": {
         "1": "If Cultist dies this round, first remove all negative conditions and perform:",
         "2": "where X is the amount of damage suffered by the target of the attack ability."
+      },
+      "deep-terror": {
+        "1": "If the attack ability was performed",
+        "2": "in an empty hex adjacent to the target<br>of the attack ability"
       },
       "flame-demon": {
         "1": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
@@ -360,10 +360,6 @@
         "5": "For an entire scenario, only attack enemies that are adjacent to one of your allies or adjacent to none of their allies, and perform at least 10 attacks",
         "6": "End 3 scenarios with 12 or more money tokens"
       },
-      "stone-construct": {
-        "1": "If the move ability was performed, Stone Construct suffers %game.damage:1%.",
-        "2": "If the attack ability was performed, Stone Construct suffers %game.damage:1%."
-      },
       "spellweaver": {
         "1": "Add +2 %game.action.attack% if drawn during an action with %game.card.lost%",
         "2": "Once each scenario, when you would suffer %game.damage%, you may gain %game.condition.invisible% and %game.condition.stun% to negate the %game.damage%",
@@ -371,6 +367,10 @@
         "4": "At the end of each of your turns during which you performed an action with %game.card.lost%, gain %game.condition.bless%",
         "5": "In a single scenario, consume both %game.element.fire% and %game.element.ice% during the same turn 6 times",
         "6": "In a single scenario, perform 4 different %game.card.lost% actions twice each"
+      },
+      "stone-construct": {
+        "1": "If the move ability was performed, Stone Construct suffers %game.damage:1%.",
+        "2": "If the attack ability was performed, Stone Construct suffers %game.damage:1%."
       },
       "tinkerer": {
         "1": "Once each scenario, one adjacent ally may use one of your <i>potion</i> %game.itemSlot:small% items during their turn without it becoming %game.card.lost%",
@@ -566,14 +566,14 @@
   "scenario": {
     "rules": {
       "gh2e": {
+        "10": {
+          "1": "Each Character occupying tile 01-D, 02-H, or any corridor tiles connecting those two tiles suffers hazardous terrain damage."
+        },
         "8": {
           "1": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.2% opening it.",
           "2": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.3% opening it.",
           "3": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.4% opening it.",
           "4": "At the end of his turn the Bandit Commander Performs %game.action.move% 20 %game.action.jump% to end on door %game.mapMarker.5% opening it."
-        },
-        "10": {
-          "1": "Each Character occupying tile 01-D, 02-H, or any corridor tiles connecting those two tiles suffers hazardous terrain damage."
         }
       }
     },
