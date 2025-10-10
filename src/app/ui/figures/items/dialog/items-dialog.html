@@ -107,13 +107,20 @@
         </div>
         <input type="text" [(ngModel)]="filter" (keyup)="update()" [ghs-label]="'game.items.filter'"
           [ghs-label-attribute]="'placeholder'">
+
         @if (!!character) {
+        @if (!owned) {
         <label>
           <input type="checkbox" [(ngModel)]="affordable" (change)="update(true)">
           <span [ghs-label]="'game.items.filter.affordable'"></span>
         </label>
         }
-        @if (!!character) {
+        @if (!affordable && !all) {
+        <label>
+          <input type="checkbox" [(ngModel)]="owned" (change)="update(true)">
+          <span [ghs-label]="'game.items.filter.owned'"></span>
+        </label>
+        }
         <label>
           <input type="checkbox" [(ngModel)]="sorted" (change)="update(true)">
           <span [ghs-label]="'game.items.filter.sorted'"></span>
@@ -174,6 +181,8 @@
     <div class="item-list">
       @for (itemData of items; track itemData.edition + '-' + itemData.id; let i = $index) {
       <div class="item">
+        <img class="open-item" src="./assets/images/fullscreen.svg" ghs-pointer-input
+          (singleClick)="openItemDialog(itemData)">
         @if (!!character) {
         <ghs-item [item]="itemData" [flipped]="true" ghs-pointer-input (singleClick)="select(itemData)"
           (doubleClick)="select(itemData,true)"

@@ -1,4 +1,4 @@
-import { AdvancedImbueAttackModifier, AttackModifier, AttackModifierDeck, AttackModifierEffect, AttackModifierType, AttackModifierValueType, AttackResult, CsOakDeckAttackModifier, GameAttackModifierDeckModel, ImbuementAttackModifier, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
+import { AdvancedImbueAttackModifier, AttackModifier, AttackModifierDeck, AttackModifierEffect, AttackModifierType, AttackModifierValueType, AttackResult, CsOakDeckAttackModifier, GameAttackModifierDeckModel, Gh2ESealedDeckAttackModifier, ImbuementAttackModifier, additionalTownGuardAttackModifier, defaultAttackModifier, defaultTownGuardAttackModifier } from "src/app/game/model/data/AttackModifier";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
 import { CharacterData } from "../model/data/CharacterData";
@@ -685,6 +685,12 @@ export class AttackModifierManager {
       }
       if (!attackModifier) {
         attackModifier = defaultTownGuardAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        attackModifier = additionalTownGuardAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        attackModifier = Gh2ESealedDeckAttackModifier.find((attackModifier) => attackModifier.id == id);
       }
       if (!attackModifier) {
         return undefined;

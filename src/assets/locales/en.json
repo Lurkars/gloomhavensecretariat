@@ -943,8 +943,8 @@
         "loseResource": "Lose {0} %game.resource.{1}%.",
         "morale": "Gain {0} morale.",
         "noEffect": "No effect.",
-        "outcome": "Read outome %game.events.option.{0}%.",
-        "outcomes": "Read both outomes %game.events.option.{0}% and %game.events.option.{1}%.",
+        "outcome": "Read outcome %game.events.option.{0}%.",
+        "outcomes": "Read both outcomes %game.events.option.{0}% and %game.events.option.{1}%.",
         "outcomeSelect": "Select one outcome, %game.events.option.{0}% or %game.events.option.{1}%, to read.",
         "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
         "outpostAttackTarget": {
@@ -999,7 +999,7 @@
           "alt": "New Scenario: \"%data.scenario.title.{1}.{0}%\" ({0})"
         },
         "unlockScenarioGroup": "Unlock \"%data.scenario.title.{2}.{1}-{0}%\" (%data.scenario.group.{1}%).",
-        "upgradeBuilding": "Upgrade the %data.buildings.{0}% to the next level, or, if the %data.buildings.{0}%  is already level {1}, gain {2} morale instead.",
+        "upgradeBuilding": "Upgrade the %data.buildings.{0}% to the next level, or, if the %data.buildings.{0}% is already level {1}, gain {2} morale instead.",
         "wreckBuilding": "Wreck the %data.buildings.{0}%."
       },
       "option": {
@@ -1096,6 +1096,7 @@
         "": "Search…",
         "affordable": "Only affordable Items",
         "all": "Show all items",
+        "owned": "Only owned Items",
         "sorted": "Sorted"
       },
       "remove": "Remove '{0}'",

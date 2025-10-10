@@ -325,6 +325,23 @@ export const CsOakDeckAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'cs-oak-542', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true)
 ];
 
+export const Gh2ESealedDeckAttackModifier: AttackModifier[] = [
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-1', [new AttackModifierEffect(AttackModifierEffectType.shield, '1', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'ally')])]
+  ),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-2', [new AttackModifierEffect(AttackModifierEffectType.shield, '1')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-military-3', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
+  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-military-4', [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.military-4')]),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-1', [new AttackModifierEffect(AttackModifierEffectType.condition, 'curse')]),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-2', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound')]),
+  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-merchant-guild-3', [new AttackModifierEffect(AttackModifierEffectType.heal, '2')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-merchant-guild-4', [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.merchant-guild-4')]),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-demons-1', [new AttackModifierEffect(AttackModifierEffectType.element, 'wild')]),
+  new AttackModifier(AttackModifierType.plus1, 1, AttackModifierValueType.plus, 'gh2e-demons-2', [new AttackModifierEffect(AttackModifierEffectType.retaliate, '1')], true),
+  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-demons-3', [new AttackModifierEffect(AttackModifierEffectType.condition, 'ward', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'ally')])], true),
+  new AttackModifier(AttackModifierType.plus0, 0, AttackModifierValueType.plus, 'gh2e-demons-4', [new AttackModifierEffect(AttackModifierEffectType.custom, '%data.custom.gh2e.am.demons-4')])
+
+]
+
 export class AttackModifierDeck {
 
   attackModifiers: AttackModifier[];

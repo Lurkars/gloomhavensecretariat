@@ -972,6 +972,7 @@
         "": "Suchen…",
         "affordable": "Nur erschwingliche Gegenstände",
         "all": "Alle Gegenstände anzeigen",
+        "owned": "Nur eigene Gegenstände",
         "sorted": "Sortiert"
       },
       "remove": "'{0}' entfernen",

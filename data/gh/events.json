@@ -2823,7 +2823,7 @@
             "narrative": "You don't have enought money to send him contraption, so you decide just to keep it for yourself.",
             "effects": [
               {
-                "type": "outome",
+                "type": "outcome",
                 "values": [
                   "B"
                 ]

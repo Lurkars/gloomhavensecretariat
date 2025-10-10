@@ -25,8 +25,12 @@
     @if (items.length > 0) {
     <div class="item-list">
       @for (itemData of items; track itemData.edition + '-' + itemData.id) {
-      <ghs-character-item [character]="character" [item]="itemData" [setup]="setup"
-        [ngClass]="{'spent' : !setup && countFlag(itemData,ItemFlags.spent)}"></ghs-character-item>
+      <div class="item">
+        <img class="open-item" src="./assets/images/fullscreen.svg" ghs-pointer-input
+          (singleClick)="openItemDialog(itemData)">
+        <ghs-character-item [character]="character" [item]="itemData" [setup]="setup"
+          [ngClass]="{'spent' : !setup && countFlag(itemData,ItemFlags.spent)}"></ghs-character-item>
+      </div>
       }
     </div>
     }

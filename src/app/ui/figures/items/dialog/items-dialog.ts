@@ -11,6 +11,7 @@ import { ghsDialogClosingHelper, ghsTextSearch } from "src/app/ui/helper/Static"
 import { ItemsBrewDialog } from "../brew/brew";
 import { ItemDistillDialogComponent } from "../character/item-distill";
 import { ItemsCharacterDialogComponent } from "../character/items-character-dialog";
+import { ItemDialogComponent } from "./item-dialog";
 
 @Component({
     standalone: false,
@@ -33,6 +34,7 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
     character: Character | undefined;
     filter: string = "";
     all: boolean = false;
+    owned: boolean = false;
     affordable: boolean = false;
     sorted: boolean = false;
     itemSlots: (ItemSlot | "undefined")[] = [];
@@ -143,6 +145,11 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
         } else {
             this.itemsMeta = [];
             if (this.character) {
+
+                if (this.owned && !this.all) {
+                    this.items = this.items.filter((itemData) => !!this.character && gameManager.itemManager.owned(itemData, this.character));
+                }
+
                 this.items.forEach((itemData) => {
                     if (this.character) {
                         this.itemsMeta.push({ edition: itemData.edition, id: itemData.id, canAdd: gameManager.itemManager.canAdd(itemData, this.character), canBuy: gameManager.itemManager.canBuy(itemData, this.character), canCraft: gameManager.itemManager.canCraft(itemData, this.character), owned: gameManager.itemManager.owned(itemData, this.character), assigned: gameManager.itemManager.assigned(itemData), countAvailable: gameManager.itemManager.countAvailable(itemData) })
@@ -344,6 +351,13 @@ export class ItemsDialogComponent implements OnInit, OnDestroy {
                 data: this.character
             });
         }
+    }
+
+    openItemDialog(item: ItemData) {
+        this.dialog.open(ItemDialogComponent, {
+            panelClass: ['fullscreen-panel'],
+            data: { item: item }
+        })
     }
 
     close() {

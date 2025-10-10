@@ -29,6 +29,11 @@
   },
   "custom": {
     "gh2e": {
+      "am": {
+        "demons-4": "reveal the top card of the monster ability deck",
+        "merchant-guild-4": "after this attack ability grant one ally: %game.action.move% 2",
+        "military-4": "create one %game.damage:2% tap in an empty hex adjacent to the target"
+      },
       "angry-face": {
         "1": "%game.characterIcon.angry-face% performs: %game.action.attack% 2, %game.action.range% 5",
         "2": "Grant on of your summons adjacent to the target: %game.action.attack% +0",
