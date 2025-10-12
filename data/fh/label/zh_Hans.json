@@ -56,7 +56,7 @@
     "Body Block": "躯体格挡",
     "Boldening Blow": "斗胆重击",
     "Bolstering Shout": "增援战吼",
-    "Bone": "骨",
+    "Bone": "白骨匕首",
     "Booming Scream": "轰鸣尖叫",
     "Boon of the Tempest": "暴风恩泽",
     "Borrowed Time": "争分夺秒",
@@ -260,9 +260,10 @@
     "Firefly Swarm": "萤火虫群",
     "Firestorm": "火焰风暴",
     "Fish Net": "渔网",
-    "Flailing Tendrils": "",
+    "Flailing Tendrils": "连枷触须",
     "Flame Jets": "烈焰喷气",
     "Flashing Flurry": "闪光乱舞",
+    "Flee": "黄昏即逝",
     "Fleeting Dusk": "黄昏即逝",
     "Flesh Shield": "血肉护盾",
     "Flow of the Black River": "黑河涌流",
@@ -294,6 +295,7 @@
     "Frost Eruption": "寒霜喷发",
     "Frozen Brand": "提神乱舞",
     "Frozen Debris": "冰封残骸",
+    "Frozen Over": "全境冰封",
     "Frozen Shards": "冰封碎片",
     "Frozen Shell": "冰封甲壳",
     "Frozen Spike": "冰封尖刺",
@@ -451,6 +453,7 @@
     "Obsidian Spear": "黑曜石矛",
     "One with the Earth": "融身大地",
     "One with the Mountain": "融身山脉",
+    "Onyx Shards": "玛瑙碎片",
     "Oscillating Entity": "振荡实体",
     "Overdrive": "超速驱动",
     "Overwhelming Wave": "巨浪滔天",
@@ -1394,7 +1397,39 @@
         "3": "每个剧本你可以携带1个额外的%game.items.slots.onehand%物品",
         "4": "在每个剧本结束时，你可以弃掉最多2张除随机物品以外的拾取卡牌，以此来抽取同等数量的新拾取卡牌",
         "5": "剧本结束时，4个持续型能力的最后一个槽位有你的角色标记",
-        "6": "从不执行数值小于4的移动和攻击能力，且每轮执行至少1次移动或攻击能力"
+        "6": "从不执行数值小于4的移动和攻击能力，且每轮执行至少1次移动或攻击能力",
+        "abilities": {
+          "1": {
+            "1": "你之后6次近战攻击增加+2%game.action.attack%。",
+            "2": "将你1个持续型能力上的角色标记往后移动1个槽位。"
+          },
+          "11": {
+            "1": "如果你使用本次攻击能力消灭了敌人，将你1个持续型能力上的角色标记往后移动1个槽位。"
+          },
+          "2": {
+            "1": "将你1个持续型能力上的角色标记往后移动1个槽位。",
+            "2": "你之后6次移动能力增加+2%game.action.move%。"
+          },
+          "3": {
+            "1": "你所有的远程攻击具有+1%game.action.range%。你之后6次远程攻击增加+1%game.action.attack%。",
+            "2": "将你1个持续型能力上的角色标记往后移动1个槽位。"
+          },
+          "4": {
+            "1": "将你1个持续型能力上的角色标记往后移动1个槽位。",
+            "2": "你之后6次治疗增加+2%game.action.heal%。"
+          },
+          "5": {
+            "1": "将你2个持续型能力上的角色标记各往后移动1个槽位。",
+            "2": "之后6次%game.action.range%2内敌人以你为目标执行的攻击中，获得%game.action.retaliate:2% %game.action.range%2。"
+          },
+          "6": {
+            "1": "将你2个持续型能力上的角色标记各往后移动1个槽位。",
+            "2": "之后6次以你为目标的攻击%game.action.damage%中，获得%game.action.shield:1%。"
+          },
+          "8": {
+            "2": "如果与你相邻的敌人等于1个，将你1个持续型能力上的角色标记往后移动1个槽位。"
+          }
+        }
       },
       "elder-ooze": {
         "1": "目标必须遗失一个物品但不产生效果。",
