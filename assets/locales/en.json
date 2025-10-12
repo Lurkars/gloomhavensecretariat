@@ -1875,6 +1875,7 @@
         "winter-road": "Add event {0} to the winter road deck"
       },
       "experience": "{0} experience each",
+      "factionUnlock": "%data.gh2eFaction:{0}% reputation can now be increased above 12.",
       "globalAchievements": "Global Achievements",
       "gold": "{0} gold each",
       "inspiration": "{0} inspiration",
