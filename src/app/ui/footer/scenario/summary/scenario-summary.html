@@ -786,7 +786,7 @@
         }
         @if (rewards.prosperity) {
         <div class="item prosperity">
-          <span><span [ghs-label]="'scenario.rewards.prosperity'"
+          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.prosperity'"
               [ghs-label-args]="[''+(rewards.prosperity | ghsValueSign)]"></span></span>
           @if (rewards.hints && rewards.hints.prosperity) {
           <span class="placeholder text-white hint" [ghs-label]="rewards.hints.prosperity"></span>
@@ -795,7 +795,7 @@
         }
         @if (rewards.inspiration) {
         <div class="item inspiration">
-          <span><span [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction(rewards.inspiration) |
+          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.inspiration'" [ghs-label-args]="[(EntityValueFunction(rewards.inspiration) |
                 ghsValueSign) ]"></span></span>
           @if (rewards.hints && rewards.hints.inspiration) {
           <span class="placeholder text-white hint" [ghs-label]="rewards.hints.inspiration"></span>
@@ -804,7 +804,7 @@
         }
         @if (rewards.morale) {
         <div class="item morale">
-          <span><span [ghs-label]="'scenario.rewards.morale'" [ghs-label-args]="[(EntityValueFunction(rewards.morale) |
+          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.morale'" [ghs-label-args]="[(EntityValueFunction(rewards.morale) |
                 ghsValueSign) ]"></span> </span>
           @if (rewards.hints && rewards.hints.morale) {
           <span class="placeholder text-white hint" [ghs-label]="rewards.hints.morale"></span>
@@ -813,7 +813,8 @@
         }
         @if (rewards.perks) {
         <div class="item perks">
-          <span><span [ghs-label]="'scenario.rewards.perks'" [ghs-label-args]="[''+rewards.perks]"></span></span>
+          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.perks'"
+              [ghs-label-args]="[''+rewards.perks]"></span></span>
           @if (rewards.hints && rewards.hints.perks) {
           <span class="placeholder text-white hint" [ghs-label]="rewards.hints.perks"></span>
           }
@@ -826,6 +827,12 @@
           @if (rewards.hints && rewards.hints.battleGoals) {
           <span class="placeholder text-white hint" [ghs-label]="rewards.hints.battleGoals"></span>
           }
+        </div>
+        }
+        @if (rewards.factionUnlock) {
+        <div class="item prosperity">
+          <span><span class="placeholder text-white" [ghs-label]="'scenario.rewards.factionUnlock'"
+              [ghs-label-args]="[rewards.factionUnlock]"></span></span>
         </div>
         }
         @for (item of (rewards.items || []); track item; let i = $index) {

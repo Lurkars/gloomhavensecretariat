@@ -50,6 +50,7 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
   imbuementSections: Record<number, string> = {};
 
   factions: string[] = [];
+  factionUnlocks: string[] = [];
   reputationSections: ReputationSection[] = [];
   reputationSectionsMapped: Record<string, ReputationSection[]> = {};
 
@@ -355,7 +356,11 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  setFactionReputation(faction: string, value: number) {
+  setFactionReputation(faction: string, value: number, force: boolean = false) {
+    if (!force && value > 12 && this.factionUnlocks.indexOf(faction) == -1) {
+      return;
+    }
+
     if (this.party.factionReputation[faction] != value) {
       gameManager.stateManager.before("setFactionReputation", faction, value);
       if (value > 20) {
@@ -786,6 +791,8 @@ export class PartySheetDialogComponent implements OnInit, OnDestroy {
           this.party.factionReputation[faction] = 0;
         }
       })
+
+      this.factionUnlocks = gameManager.gh2eFactionUnlocks();
     }
 
     if (campaign.reputationSections) {

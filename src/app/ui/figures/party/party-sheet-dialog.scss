@@ -1530,7 +1530,16 @@
                   }
                 }
 
-                &:hover,
+                &.locked {
+                  opacity: 0.7;
+                  
+                  .key,
+                  .value {
+                    cursor: not-allowed;
+                  }
+                }
+
+                &:hover:not(.locked),
                 .value.checked {
 
                   &.checked::before,

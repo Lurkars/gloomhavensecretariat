@@ -523,10 +523,14 @@
             </label>
             <div class="grid">
               @for (reputation of [] | ghsRange:31; track reputation) {
-              <div class="row">
-                <span class="value" (click)="setFactionReputation(faction, 30 - reputation - 10)"
-                  [ngClass]="{'checked' : party.factionReputation[faction] == 30 - reputation - 10}"></span>
-                <span class="key" (click)="setFactionReputation(faction, 30 - reputation - 10)">{{30 - reputation -
+              <div class="row"
+                [ngClass]="{'locked': 30 - reputation - 10 > 12 && factionUnlocks.indexOf(faction) == -1}">
+                <span class="value" ghs-pointer-input
+                  (singleClick)="setFactionReputation(faction, 30 - reputation - 10)"
+                  [ngClass]="{'checked' : party.factionReputation[faction] == 30 - reputation - 10}"
+                  (doubleClick)="setFactionReputation(faction, 30 - reputation - 10, true)"></span>
+                <span class="key" ghs-pointer-input (singleClick)="setFactionReputation(faction, 30 - reputation - 10)"
+                  (doubleClick)="setFactionReputation(faction, 30 - reputation - 10, true)">{{30 - reputation -
                   10}}</span>
                 <span class="section">
                   @if (reputationSectionsMapped[faction] && reputationSectionsMapped[faction][reputation]) {

@@ -139,7 +139,6 @@
       </div>
       }
 
-
       @if (edit) {
       <a (click)="restoreDefault()"><span [ghs-label]="'game.cards.restore'"></span></a>
       }
@@ -164,6 +163,27 @@
         <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="./assets/images/right.svg"></a>
         <a class="icon-button" (click)="addModifierShuffle()"><img class="ghs-svg"
             src="./assets/images/shuffle.svg"></a>
+      </div>
+      }
+
+      @if(!!character && gameManager.gh2eRules() && (edit || !!gameManager.game.scenario && gameManager.game.round == 0
+      && gameManager.game.state == 'draw')) {
+      <div class="factions-modifier">
+        <div class="factions">
+          @for (faction of gameManager.gh2eFactionUnlocks(); track faction) {
+          <a class="faction" [ngClass]="{'active': faction == activeFaction}" (click)="toggleFaction(faction)">
+            <img class="ghs-svg" [src]="'./assets/images/gh2e/faction/' + faction + '.svg'">
+          </a>
+          }
+        </div>
+        <div class="attack-modifier-list">
+          @for (am of factionAttackModifier; track am.id) {
+          <div class="am" [ngClass]="{'active': hasFactionModifier(am), 'disabled': anyHasFactionModifier(am)}"
+            ghs-pointer-input (singleClick)="toggleFactionAm(am)" (doubleClick)="toggleFactionAm(am,true)">
+            <ghs-attackmodifier [attackModifier]="am" [flipped]="true" [newStyle]="true"></ghs-attackmodifier>
+          </div>
+          }
+        </div>
       </div>
       }
     </div>

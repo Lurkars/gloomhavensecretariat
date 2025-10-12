@@ -1069,6 +1069,19 @@ export class GameManager {
     return gameClock.sort((a, b) => b.clockIn - a.clockIn);
   }
 
+  gh2eFactionUnlocks(): string[] {
+    return this.game.party.conclusions.map((c) => gameManager.scenarioManager.sectionDataForModel(c)).filter((sectionData) => {
+      if (sectionData) {
+        return sectionData.rewards && sectionData.rewards.factionUnlock;
+      }
+      return false;
+    }).map((sectionData) => sectionData && sectionData.rewards && sectionData.rewards.factionUnlock || '');
+  }
+
+  gh2eFactionUnlock(faction: string): boolean {
+    return this.gh2eFactionUnlocks().indexOf(faction) != -1;
+  }
+
 }
 
 export const gameManager: GameManager = new GameManager();

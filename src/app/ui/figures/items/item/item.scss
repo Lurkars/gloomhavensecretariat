@@ -424,6 +424,18 @@
                 font-family: var(--ghs-font-fh-text) !important;
                 font-size: 1.4em;
                 line-height: 1em;
+
+                .actions.slot-actions {
+                    &.wide {
+                        width: 100%;
+                        margin-bottom: 0.5em;
+                    }
+
+                    .slot-action .marker {
+                        top: calc(0.3em * var(--ghs-fontsize));
+                        left: calc(0.25em * var(--ghs-fontsize));
+                    }
+                }
             }
 
             .count {
@@ -455,7 +467,7 @@
             .persistent,
             .loss,
             .round {
-                top: 84%;
+                top: 86%;
                 left: 73%;
 
                 &.consumed {

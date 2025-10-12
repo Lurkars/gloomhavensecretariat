@@ -29,7 +29,7 @@
             [noDivider]="true"></ghs-actions>
         </div>
         @if (slotsBack.length > 0) {
-        <div class="actions slot-actions">
+        <div class="actions slot-actions" [ngClass]="{'wide': slotsBack.length < 4}">
           @for (slot of slotsBack; track slot; let i = $index) {
           <span class="slot-action" [ngClass]="{'interactive' : clickedSlotBack.observed, 'usable' : usable}"
             ghs-pointer-input (singleClick)="clickedSlotBack.emit(i)">
@@ -78,7 +78,7 @@
         </div>
         }
         @if (slots.length > 0) {
-        <div class="actions slot-actions">
+        <div class="actions slot-actions" [ngClass]="{'wide': slots.length < 4}">
           @for (slot of slots; track slot; let i = $index) {
           <span class="slot-action" [ngClass]="{'interactive' : clickedSlot.observed,  'usable' : usable}"
             ghs-pointer-input (singleClick)="clickedSlot.emit(i)">
