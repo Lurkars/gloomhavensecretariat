@@ -93,6 +93,7 @@ Please note that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*, w
 | Support Frosthaven Building 81 Mechanics                                        | ✅[^1]        | ⛔         | ⛔        | ✅        | ⛔       |
 | Support Frosthaven Building 90 Mechanics                                        | ✅[^1]        | ⛔         | ⛔        | ✅        | ⛔       |
 | Support for Gloomhaven 2nd Edition Appendix F                                   | ✅[^1]        | ✅         | ⛔        | ⛔        | ⛔       |
+| Support for GH2E Faction Envelope Content                                       | ✅            | ✅         | ⛔        | ⛔        | ⛔       |
 | Automatic Standees                                                              | ✅            | ✅         | ✅        | ✅        | ⛔       |
 | Assign Standee Numbers                                                          | ✅            | ✅         | ✅        | ✅        | ✅       |
 | Sort Standees                                                                   | ✅            | ✅         | ✅        | ✅        | ✅       |
