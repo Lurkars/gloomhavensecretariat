@@ -1878,6 +1878,7 @@
         "winter-road": "Füge Ereignis {0} zum Winter-Wegdeck hinzu"
       },
       "experience": "jeweils {0} Erfahrung",
+      "factionUnlock": "Das %data.gh2eFaction:{0}% Ansehen kann nun über 12 erhöht werden.",
       "globalAchievements": "Globale Erfolge",
       "gold": "jeweils {0} Gold",
       "inspiration": "{0} Inspiration",
