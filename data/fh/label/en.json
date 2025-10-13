@@ -1392,33 +1392,16 @@
         "2": "in an empty hex adjacent to the target<br>of the attack ability"
       },
       "drifter": {
-         "abilities": {
+        "1": "Move one of your character tokens backward one slot",
+        "2": "Whenever you long rest, you may move one of your characters token backward one slot",
+        "3": "You may bring one additional %game.items.slots.onehand% item into each scenario",
+        "4": "At the end of each scenario you may discard up to two loot cards, except Random Item, to draw that many new loot cards",
+        "5": "End a scenario with your character tokens on the last slots of four persistent abilities",
+        "6": "Never perform a move ability or attack with a value less then 4, and perform at least one move or attack ability each round",
+        "abilities": {
           "1": {
             "1": "On your next six melee attacks, add +2%game.action.attack%.",
             "2": "Move the character token on one of your persistent abilities backwards one slot."
-          },
-          "2": {
-            "2": "On your next six move abilities, add +2%game.action.move%.",
-            "1": "Move the character token on one of your persistent abilities backwards one slot."
-          },
-          "3": {
-            "1": "All your ranged attacks have +1%game.action.range%. On your next six ranged attacks, add +1%game.action.attack%.",
-            "2": "Move the character token on one of your persistent abilities backwards one slot."
-          },
-          "4": {
-            "2": "On your next six heals, add +2%game.action.heal%.",
-            "1": "Move the character token on one of your persistent abilities backwards one slot."
-          },
-          "5": {
-            "2": "On the next six attacks targeting you performed by enemies within %game.action.range%2, gain %game.action.retaliate:2% %game.action.range%2.",
-            "1": "Move the character token on two of your persistent abilities backwards one slot."
-          },
-          "6": {
-           "2": "On the next six sources of %game.action.damage% from attacks targeting you, gain %game.action.shield:1%.",
-            "1": "Move the character token on two of your persistent abilities backwards one slot."
-          },
-          "8": {
-            "2": "If you are adjacent to exactly one enemy, move the character token on one of your persistent abilities backwards one slot."
           },
           "11": {
             "1": "If you killed an enemy with the attack ability, move the character token on one of your persistent abilities backwards one slot."
@@ -1436,9 +1419,13 @@
           "19": {
             "2": "Move the character token on two of your persistent abilities backwards one slot."
           },
+          "2": {
+            "1": "Move the character token on one of your persistent abilities backwards one slot.",
+            "2": "On your next six move abilities, add +2%game.action.move%."
+          },
           "20": {
-            "2": "On the next six sources of %game.action.damage% from attacks targeting you, gain %game.action.shield:2%.",
-            "1": "Move the character token on one of your persistent abilities backwards one slot."
+            "1": "Move the character token on one of your persistent abilities backwards one slot.",
+            "2": "On the next six sources of %game.action.damage% from attacks targeting you, gain %game.action.shield:2%."
           },
           "21": {
             "1": "If you killed an enemy with the attack ability, move the character token on one of your persistent abilities backwards one slot.",
@@ -1470,10 +1457,14 @@
           "28": {
             "1": "%game.action.target% all enemies within 2 hexes",
             "2": "For each enemy targeted with the attack ability, Move the character token on one of your persistent abilities backwards one slot.",
-            "3":"On the next six instances of an enemy entering a hex adjacent to you, that enemy suffers %game.action.damage%3"
+            "3": "On the next six instances of an enemy entering a hex adjacent to you, that enemy suffers %game.action.damage%3"
           },
           "29": {
             "1": "Before applying any other bonuses, move the character token on one of your persistent abilities forward one slot: %game.condition.immobilize%"
+          },
+          "3": {
+            "1": "All your ranged attacks have +1%game.action.range%. On your next six ranged attacks, add +1%game.action.attack%.",
+            "2": "Move the character token on one of your persistent abilities backwards one slot."
           },
           "30": {
             "1": "On your next four sources of 4 or less %game.action.damage% you suffer, negate the %game.action.damage%",
@@ -1482,14 +1473,23 @@
           "31": {
             "1": "%game.action.target% all allies adjacent to at least one enemy targeted with the attack ability",
             "2": "where X is the number of hexes you moved during the move ability."
+          },
+          "4": {
+            "1": "Move the character token on one of your persistent abilities backwards one slot.",
+            "2": "On your next six heals, add +2%game.action.heal%."
+          },
+          "5": {
+            "1": "Move the character token on two of your persistent abilities backwards one slot.",
+            "2": "On the next six attacks targeting you performed by enemies within %game.action.range%2, gain %game.action.retaliate:2% %game.action.range%2."
+          },
+          "6": {
+            "1": "Move the character token on two of your persistent abilities backwards one slot.",
+            "2": "On the next six sources of %game.action.damage% from attacks targeting you, gain %game.action.shield:1%."
+          },
+          "8": {
+            "2": "If you are adjacent to exactly one enemy, move the character token on one of your persistent abilities backwards one slot."
           }
-        },
-        "1": "Move one of your character tokens backward one slot",
-        "2": "Whenever you long rest, you may move one of your characters token backward one slot",
-        "3": "You may bring one additional %game.items.slots.onehand% item into each scenario",
-        "4": "At the end of each scenario you may discard up to two loot cards, except Random Item, to draw that many new loot cards",
-        "5": "End a scenario with your character tokens on the last slots of four persistent abilities",
-        "6": "Never perform a move ability or attack with a value less then 4, and perform at least one move or attack ability each round"
+        }
       },
       "elder-ooze": {
         "1": "The target loses one item.",
