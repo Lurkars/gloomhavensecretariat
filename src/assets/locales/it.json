@@ -303,7 +303,7 @@
             "status": "Backup automatico non riuscito con il codice di risposta '{0}'. Dai un'occhiata alla console del browser per maggiori dettagli.",
             "unknown": "Backup automatico non riuscito per causa sconosciuta. Si prega di dare un'occhiata alla console del browser per maggiori dettagli."
           },
-          "hint": "Invece di scaricare il file di backup automatico, imposta un URL per caricare i dati. {FILENAME} può essere utilizzato come segnaposto per il nome file. (Ciò richiede le impostazioni corrette CORS per funzionare!)"
+          "hint": "Invece di scaricare il file di backup automatico, imposta una URL per caricare i dati. (Ciò richiede impostazioni corrette CORS sulla URL per funzionare!). {FILENAME} o {WINDOWS_FILENAME} possono essere utilizzati come segnaposto per il nome file."
         },
         "uploadUrlAuthorization": {
           "": "Intestazione di autorizzazione",
@@ -523,6 +523,7 @@
       "damage": "Danno",
       "element": "Elemento",
       "elementHalf": "Mezzo elemento",
+      "extra": "&#91;FH Helper per Sottoazioni&#93;",
       "fly": "Volo",
       "forceBox": "&#91;Box obbligatorio FH&#93;",
       "grant": "Accordo",
@@ -840,6 +841,8 @@
         "loseCollectiveGold": "Perdi {0} oro collettivo",
         "loseCollectiveResource": "Perdi {0} %game.resource.{1}% collettivi",
         "loseCollectiveResourceType": "Perdi {0} %game.loot.{1}% risorse collettive",
+        "loseResource": "Perdi {0} %game.resource.{1}%",
+        "loseResourceType": "Ciascuno perde{ 0} %game.loot.{1}% risorsa",
         "moraleGT": "Morale > {0}",
         "moraleLT": "Morale < {0}",
         "otherwise": "Altrimenti",
@@ -875,6 +878,7 @@
         "upcoming": "Nel mazzo ({0})"
       },
       "effects": {
+        "additionally": "In più",
         "and": "e",
         "automation": "L'effetto viene applicato automaticamente",
         "battleGoal": "Ottieni {0} %game.checkmark% ciascuno.",
@@ -931,6 +935,8 @@
         "loseCollectiveGold": "Perdi {0} oro collettivo.",
         "loseCollectiveResource": "Perdi {0} %game.resource.{1}% collettivo.",
         "loseCollectiveResourceAny": "Perdi {0} risorse collettive.",
+        "loseCollectiveResourceType": "Perdi {0} %game.loot.{1}% risorse collettive.",
+        "loseExperience": "Ciascuno perde {0} esperienza.",
         "loseGold": "Ognuno perde {0} oro.",
         "loseGoldOne": "Un personaggio perde {0} oro.",
         "loseMorale": "Perdi {0} morale.",
@@ -940,6 +946,8 @@
         "morale": "Ottieni {0} morale.",
         "noEffect": "Nessun effetto.",
         "outcome": "Leggi la conclusione %game.events.option.{0}%.",
+        "outcomeSelect": "Seleziona una conclusione, %game.events.option.{0}% o %game.events.option.{1}%, da leggere.",
+        "outcomes": "Leggi entrambe le conclusioni %game.events.option.{0}% e %game.events.option.{1}%.",
         "outpostAttack": "%game.valueSign:{0}% %game.action.attack%",
         "outpostAttackTarget": {
           "": "%game.valueSign:{0}% %game.action.attack% per %game.events.effects.outpostAttackTarget.{1}%",
@@ -953,6 +961,7 @@
           "": "Ottieni un Oggetto Casuale.",
           "alt": "Ottieni un oggetto casuale collettivo %game.itemFh.random%."
         },
+        "randomItemBlueprint": "Ottieni un progetto oggetto casuale %game.itemFh.random%.",
         "randomItemDesign": "Ottieni un modello di oggetto casuale.",
         "randomScenario": "Ottieni uno scenario secondario casuale.",
         "removeEvent": {
