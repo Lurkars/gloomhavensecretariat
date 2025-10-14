@@ -264,7 +264,7 @@
                   {
                     "type": "custom",
                     "value": "%data.custom.perks.toolstwo.2%",
-                    "hint": "%data.custom.perks.toolstwo.3%"
+                    "hint": "%data.custom.perks.toolstwo.2%"
                   }
                 ]
               }
@@ -291,7 +291,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "%data.custom.perks.toolstwo.4%"
+                "value": "%data.custom.perks.toolstwo.3%"
               }
             ],
             "rolling": true
@@ -334,17 +334,17 @@
     {
       "type": "custom",
       "count": 1,
+      "custom": "%data.custom.perks.toolstwo.4%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
       "custom": "%data.custom.perks.toolstwo.5%"
     },
     {
       "type": "custom",
       "count": 1,
       "custom": "%data.custom.perks.toolstwo.6%"
-    },
-    {
-      "type": "custom",
-      "count": 1,
-      "custom": "%data.custom.perks.toolstwo.7%"
     }
   ],
   "masteries": [
