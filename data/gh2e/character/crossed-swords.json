@@ -2,7 +2,7 @@
   "name": "crossed-swords",
   "icon": "gh-envx",
   "edition": "gh2e",
-  "unlockEvent": "city:54",
+  "unlockEvent": "road:54",
   "retireEvent": "road:76|road:77",
   "color": "#cb9070",
   "spoiler": true,
